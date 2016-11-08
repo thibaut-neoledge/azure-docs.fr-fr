@@ -1,25 +1,23 @@
-<properties
-    pageTitle="Commandes de l’interface de ligne de commande Azure en mode Resource Manager | Microsoft Azure"
-    description="Les commandes de l’interface de ligne de commande Azure permettent de gérer les ressources dans le modèle de déploiement Resource Manager."
-    services="virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services"
-    documentationCenter=""
-    authors="dlepow"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+---
+title: Commandes de l’interface de ligne de commande Azure en mode Resource Manager | Microsoft Docs
+description: Les commandes de l’interface de ligne de commande Azure permettent de gérer les ressources dans le modèle de déploiement Resource Manager.
+services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
+documentationcenter: ''
+author: dlepow
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-    ms.service="multiple"
-    ms.workload="multiple"
-    ms.tgt_pltfrm="command-line-interface"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/05/2016"
-    ms.author="danlep"/>
+ms.service: multiple
+ms.workload: multiple
+ms.tgt_pltfrm: command-line-interface
+ms.devlang: na
+ms.topic: article
+ms.date: 08/05/2016
+ms.author: danlep
 
-
+---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Commandes de l’interface de ligne de commande Azure en mode Resource Manager
-
 Cet article fournit la syntaxe et les options des commandes de l’interface de ligne de commande Azure régulièrement utilisées pour créer et gérer les ressources Azure dans le modèle de déploiement Azure Resource Manager. Pour accéder à ces commandes, exécutez l’interface de ligne de commande en mode Resource Manager (arm). Il ne s’agit pas d’une référence complète, et votre version de l’interface de ligne de commande peut présenter des commandes ou paramètres légèrement différents. Pour obtenir une vue d'ensemble des ressources et groupes de ressources Azure, consultez [Vue d'ensemble d'Azure Resource Manager](../resource-group-overview.md).  
 
 Pour commencer, [installez l’interface de ligne de commande Azure](../xplat-cli-install.md) et [connectez-vous à votre abonnement Azure](../xplat-cli-connect.md) à l’aide d’un compte professionnel ou scolaire ou d’une identité de compte Microsoft.
@@ -31,15 +29,16 @@ Les paramètres facultatifs sont indiqués entre crochets (par exemple, `[parame
 Outre les paramètres facultatifs propres aux commandes qui vous sont présentés dans ce document, vous pouvez utiliser trois paramètres facultatifs pour afficher une sortie détaillée, telle que les options de demande et les codes d'état. Si le paramètre `-v` fournit une sortie détaillée, le paramètre `-vv` propose des informations encore plus complètes. L’option `--json` génère le résultat au format JSON brut.
 
 ## <a name="setting-the-resource-manager-mode"></a>Définition du mode Resource Manager
-
 Utilisez la commande suivante pour activer les commandes du mode Resource Manager de l’interface de ligne de commande Azure.
 
     azure config mode arm
 
->[AZURE.NOTE] Le mode Azure Resource Manager et le mode Azure Service Management de l’interface CLI s’excluent mutuellement. En d'autres termes, les ressources créées dans un mode ne peuvent pas être gérées dans l'autre mode.
+> [!NOTE]
+> Le mode Azure Resource Manager et le mode Azure Service Management de l’interface CLI s’excluent mutuellement. En d'autres termes, les ressources créées dans un mode ne peuvent pas être gérées dans l'autre mode.
+> 
+> 
 
-
-## <a name="azure-account:-manage-your-account-information"></a>compte azure : gérer vos informations de compte
+## <a name="azure-account:-manage-your-account-information"></a>compte azure : gérer vos informations de compte
 L'outil se sert des informations sur votre abonnement Azure pour se connecter à votre compte.
 
 **Répertorier les abonnements importés**
@@ -66,8 +65,7 @@ L'outil se sert des informations sur votre abonnement Azure pour se connecter à
     account env set [options] [environment]
     account env delete [options] [environment]
 
-## <a name="azure-ad:-commands-to-display-active-directory-objects"></a>azure ad : commandes pour afficher les objets Active Directory
-
+## <a name="azure-ad:-commands-to-display-active-directory-objects"></a>azure ad : commandes pour afficher les objets Active Directory
 **Commandes pour afficher les applications Active Directory**
 
     ad app create [options]
@@ -94,8 +92,7 @@ L'outil se sert des informations sur votre abonnement Azure pour se connecter à
     ad user list [options]
     ad user show [options]
 
-## <a name="azure-availset:-commands-to-manage-your-availability-sets"></a>azure availset : commandes pour gérer vos groupes à haute disponibilité
-
+## <a name="azure-availset:-commands-to-manage-your-availability-sets"></a>azure availset : commandes pour gérer vos groupes à haute disponibilité
 **Créer un groupe à haute disponibilité au sein d'un groupe de ressources**
 
     availset create [options] <resource-group> <name> <location> [tags]
@@ -112,8 +109,7 @@ L'outil se sert des informations sur votre abonnement Azure pour se connecter à
 
     availset delete [options] <resource-group> <name>
 
-## <a name="azure-config:-commands-to-manage-your-local-settings"></a>azure config : commandes pour gérer vos paramètres locaux
-
+## <a name="azure-config:-commands-to-manage-your-local-settings"></a>azure config : commandes pour gérer vos paramètres locaux
 **Répertorier les paramètres de configuration de l'interface CLI Azure**
 
     config list [options]
@@ -131,8 +127,7 @@ L'outil se sert des informations sur votre abonnement Azure pour se connecter à
     config mode [options] <modename>
 
 
-## <a name="azure-feature:-commands-to-manage-account-features"></a>azure feature : commandes pour gérer les fonctionnalités de compte
-
+## <a name="azure-feature:-commands-to-manage-account-features"></a>azure feature : commandes pour gérer les fonctionnalités de compte
 **Répertorier toutes les fonctionnalités disponibles pour votre abonnement**
 
     feature list [options]
@@ -145,8 +140,7 @@ L'outil se sert des informations sur votre abonnement Azure pour se connecter à
 
     feature register [options] <providerName> <featureName>
 
-## <a name="azure-group:-commands-to-manage-your-resource-groups"></a>azure group : commandes pour gérer vos groupes de ressources
-
+## <a name="azure-group:-commands-to-manage-your-resource-groups"></a>azure group : commandes pour gérer vos groupes de ressources
 **Créer un groupe de ressources**
 
     group create [options] <name> <location>
@@ -185,8 +179,7 @@ L'outil se sert des informations sur votre abonnement Azure pour se connecter à
     group template download [options] [name] [file]
     group template validate [options] <resource-group>
 
-## <a name="azure-hdinsight:-commands-to-manage-your-hdinsight-clusters"></a>azure hdinsight : Commandes pour gérer vos clusters HDInsight
-
+## <a name="azure-hdinsight:-commands-to-manage-your-hdinsight-clusters"></a>azure hdinsight : Commandes pour gérer vos clusters HDInsight
 **Commandes pour créer ou ajouter un fichier de configuration de cluster**
 
     hdinsight config create [options] <configFilePath> <overwrite>
@@ -218,7 +211,7 @@ Exemple : créer un cluster avec une action de script
     + Submitting the request to create cluster...
     info:    hdinsight cluster create command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                                                 output usage information
     -v, --verbose                                              use verbose output
@@ -304,25 +297,21 @@ Options de paramètre :
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## <a name="azure-insights:-commands-related-to-monitoring-insights-(events,-alert-rules,-autoscale-settings,-metrics)"></a>azure insights : commandes liées à la surveillance d'informations détaillées (événements, règles d'alerte, paramètres de mise à l'échelle automatique, mesures)
-
+## <a name="azure-insights:-commands-related-to-monitoring-insights-(events,-alert-rules,-autoscale-settings,-metrics)"></a>azure insights : commandes liées à la surveillance d'informations détaillées (événements, règles d'alerte, paramètres de mise à l'échelle automatique, mesures)
 **Récupérer les journaux des opérations pour un abonnement, un ID de corrélation, un groupe de ressources, une ressource ou un fournisseur de ressources**
 
     insights logs list [options]
 
-## <a name="azure-location:-commands-to-get-the-available-locations-for-all-resource-types"></a>azure location : commandes pour obtenir les emplacements disponibles pour tous les types de ressource
-
+## <a name="azure-location:-commands-to-get-the-available-locations-for-all-resource-types"></a>azure location : commandes pour obtenir les emplacements disponibles pour tous les types de ressource
 **Répertorier les emplacements disponibles**
 
     location list [options]
 
-## <a name="azure-network:-commands-to-manage-network-resources"></a>azure network : commandes pour gérer les ressources réseau
-
+## <a name="azure-network:-commands-to-manage-network-resources"></a>azure network : commandes pour gérer les ressources réseau
 **Commandes pour gérer les réseaux virtuels**
 
     network vnet create [options] <resource-group> <name> <location>
 Créer un réseau virtuel. Dans l'exemple suivant, nous créons un réseau virtuel nommé newvnet pour le groupe de ressources myresourcegroup dans la région Ouest des États-Unis.
-
 
     azure network vnet create myresourcegroup newvnet "west us"
     info:    Executing command network vnet create
@@ -343,7 +332,7 @@ Créer un réseau virtuel. Dans l'exemple suivant, nous créons un réseau virtu
     info:    network vnet create command OK
 
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                                 output usage information
     -v, --verbose                              use verbose output
@@ -386,7 +375,7 @@ Met à jour une configuration de réseau virtuel dans un groupe de ressources.
     data:
     info:    network vnet set command OK
 
-Options de paramètre :
+Options de paramètre :
 
        -h, --help                                 output usage information
        -v, --verbose                              use verbose output
@@ -415,7 +404,6 @@ Options de paramètre :
 
 La commande répertorie tous les réseaux virtuels dans un groupe de ressources.
 
-
     C:\>azure network vnet list myresourcegroup
 
     info:    Executing command network vnet list
@@ -428,8 +416,7 @@ La commande répertorie tous les réseaux virtuels dans un groupe de ressources.
     wvnet   newvnet   westus    10.0.0.0/8
     info:    network vnet list command OK
 
-Options de paramètre :
-
+Options de paramètre :
 
       -h, --help                             output usage information
       -v, --verbose                          use verbose output
@@ -471,7 +458,7 @@ La commande supprime un réseau virtuel.
     + Deleting virtual network "newvnetX"
     info:    network vnet delete command OK
 
-Options de paramètre :
+Options de paramètre :
 
      -h, --help                             output usage information
      -v, --verbose                          use verbose output
@@ -501,7 +488,7 @@ Ajoute un autre sous-réseau à un réseau virtuel existant.
     data:    Address prefix:            10.0.1.0/24
     info:    network vnet subnet create command OK
 
-Options de paramètre :
+Options de paramètre :
 
      -h, --help                                                       output usage information
      -v, --verbose                                                    use verbose output
@@ -520,7 +507,6 @@ Options de paramètre :
     network vnet subnet set [options] <resource-group> <vnet-name> <name>
 
 Définit un sous-réseau de réseau virtuel spécifique au sein d'un groupe de ressources.
-
 
     C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 
@@ -569,7 +555,7 @@ Affiche les propriétés des sous-réseaux de réseau virtuel
     data:    Address prefix:            10.0.1.0/24
     info:    network vnet subnet show command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -591,7 +577,7 @@ Supprime un sous-réseau d'un réseau virtuel existant.
     + Deleting subnet "subnet1"
     info:    network vnet subnet delete command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -620,7 +606,7 @@ Crée un jeu d'équilibrage de charge.
     data:    Provisioning state:           Succeeded
     info:    network lb create command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -646,7 +632,7 @@ Répertorie les ressources d'équilibrage de charge au sein d'un groupe de resso
     data:    mylb  westus
     info:    network lb list command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -670,7 +656,7 @@ Affiche les informations d'un équilibrage de charge spécifique au sein d'un gr
     data:    Provisioning state:           Succeeded
     info:    network lb show command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -693,7 +679,7 @@ Supprime les ressources d'équilibrage de charge.
     + Deleting load balancer "mylb"
     info:    network lb delete command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -707,7 +693,7 @@ Options de paramètre :
 
     network lb probe create [options] <resource-group> <lb-name> <name>
 
-Crée la configuration de sonde pour l'état d'intégrité dans l'équilibrage de charge. N'oubliez pas que pour exécuter cette commande, votre équilibrage de charge requiert une ressource IP frontale (consultez la commande « azure network frontend-ip » pour attribuer une adresse IP à l'équilibrage de charge).
+Crée la configuration de sonde pour l'état d'intégrité dans l'équilibrage de charge. N'oubliez pas que pour exécuter cette commande, votre équilibrage de charge requiert une ressource IP frontale (consultez la commande « azure network frontend-ip » pour attribuer une adresse IP à l'équilibrage de charge).
 
     azure network lb probe create -g myresourcegroup --lb-name mylb -n mylbprobe --protocol tcp --port 80 -i 300
 
@@ -716,7 +702,7 @@ Crée la configuration de sonde pour l'état d'intégrité dans l'équilibrage d
     + Updating load balancer "mylb"
     info:    network lb probe create command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -774,7 +760,7 @@ Répertorie les propriétés de sonde pour un jeu d'équilibrage de charge.
     data:    mylbprobe  Tcp       443         300       2
     info:    network lb probe list command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -849,7 +835,7 @@ Met à jour une configuration existante d’adresse IP frontale. La commande sui
     data:
     info:    network lb frontend-ip set command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                                                         output usage information
     -v, --verbose                                                      use verbose output
@@ -887,7 +873,7 @@ Répertorie toutes les ressources IP frontales configurées pour l'équilibrage 
     data:    myprivateip  Succeeded           Dynamic
     info:    network lb frontend-ip list command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -906,7 +892,7 @@ Supprime l'objet IP frontal associé à l'équilibrage de charge
     Delete frontend ip configuration "myfrontendip"? [y/n] y
     + Updating load balancer "mylb"
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -938,7 +924,7 @@ Crée un pool d'adresses principales pour un équilibrage de charge
     data:
     info:    network lb address-pool create command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -952,11 +938,11 @@ Options de paramètre :
 
     network lb address-pool add [options] <resource-group> <lb-name> <name>
 
-Une plage de pool d’adresses principales permet à un équilibrage de charge de déterminer les ressources pour acheminer le trafic réseau entrant à partir de son point de terminaison à l’aide d’Azure Resource Manager. Une fois que vous créez et nommez la plage du pool d’adresses principales (consultez la commande « azure network lb address-pool create »), vous devez ajouter les points de terminaison, qui sont maintenant définis par une ressource appelée « interfaces réseau ».
+Une plage de pool d’adresses principales permet à un équilibrage de charge de déterminer les ressources pour acheminer le trafic réseau entrant à partir de son point de terminaison à l’aide d’Azure Resource Manager. Une fois que vous créez et nommez la plage du pool d’adresses principales (consultez la commande « azure network lb address-pool create »), vous devez ajouter les points de terminaison, qui sont maintenant définis par une ressource appelée « interfaces réseau ».
 
-Pour configurer la plage d’adresses principales, vous avez besoin d’au moins une « interface réseau » (consultez la ligne de commande « azure network lb nic » pour plus de détails).
+Pour configurer la plage d’adresses principales, vous avez besoin d’au moins une « interface réseau » (consultez la ligne de commande « azure network lb nic » pour plus de détails).
 
-Dans l’exemple suivant, l’interface réseau « nic1 » préalablement créée a été utilisée pour créer la plage du pool d’adresses principales.
+Dans l’exemple suivant, l’interface réseau « nic1 » préalablement créée a été utilisée pour créer la plage du pool d’adresses principales.
 
     azure network lb address-pool add -g myresourcegroup -l mylb -n mybackendpool -a nic1
 
@@ -975,7 +961,7 @@ Dans l’exemple suivant, l’interface réseau « nic1 » préalablement cré
     data:
     info:    network lb address-pool add command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -1013,7 +999,7 @@ Supprime une interface réseau de la plage du pool d'adresses IP principales.
     data:
     info:    network lb address-pool remove command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -1043,7 +1029,7 @@ Indique la plage du pool d'adresses IP principales pour un groupe de ressources 
     data:    mybackendpool  Succeeded
     info:    network lb address-pool list command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -1065,7 +1051,7 @@ Supprime la ressource de la plage du pool d'adresses IP principales dans l'équi
     + Updating load balancer "mylb"
     info:    network lb address-pool delete command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -1083,7 +1069,7 @@ Crée des règles d'équilibrage de charge.
 
 Vous pouvez créer une règle d’équilibrage de charge qui configure le point de terminaison frontal pour l’équilibrage de charge et la plage du pool d’adresses principales qui reçoit le trafic réseau entrant. Les paramètres incluent également les ports du point de terminaison de l'adresse IP frontale et les ports de la plage du pool d'adresses IP principales.
 
-L’exemple suivant montre comment créer une règle d’équilibrage de charge, le point de terminaison frontal écoutant le port TCP 80 et le trafic réseau de l’équilibrage de charge étant envoyé sur le port 8080 pour la plage du pool d’adresses principales.
+L’exemple suivant montre comment créer une règle d’équilibrage de charge, le point de terminaison frontal écoutant le port TCP 80 et le trafic réseau de l’équilibrage de charge étant envoyé sur le port 8080 pour la plage du pool d’adresses principales.
 
     azure network lb rule create -g myresourcegroup -l mylb -n mylbrule -p tcp -f 80 -b 8080 -i 10
 
@@ -1134,7 +1120,7 @@ Met à jour une règle d'équilibrage de charge existante définie dans un group
     data:
     info:    network lb rule set command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                                         output usage information
     -v, --verbose                                      use verbose output
@@ -1167,7 +1153,7 @@ Répertorie toutes les règles d'équilibrage de charge configurées pour un éq
     data:    mynewlbrule  Succeeded           Tcp       80             8080          false               10                       /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/backendAddressPools/mybackendpool
     info:    network lb rule list command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -1188,7 +1174,7 @@ Supprime une règle d'équilibrage de charge.
     + Updating load balancer "mylb"
     info:    network lb rule delete command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -1204,8 +1190,7 @@ Options de paramètre :
     network lb inbound-nat-rule create [options] <resource-group> <lb-name> <name>
 Crée une règle NAT entrante pour l’équilibrage de charge.
 
-Dans l’exemple suivant, nous avons créé une règle NAT à partir d’une adresse IP frontale (préalablement définie à l’aide de la commande « azure network frontend-ip ») avec un port d’écoute entrant et un port de sortie que l’équilibreur de charge utilise pour envoyer le trafic réseau.
-
+Dans l’exemple suivant, nous avons créé une règle NAT à partir d’une adresse IP frontale (préalablement définie à l’aide de la commande « azure network frontend-ip ») avec un port d’écoute entrant et un port de sortie que l’équilibreur de charge utilise pour envoyer le trafic réseau.
 
     azure network lb inbound-nat-rule create -g myresourcegroup -l mylb -n myinboundnat -p tcp -f 80 -b 8080 -i myfrontendip
 
@@ -1225,7 +1210,7 @@ Dans l’exemple suivant, nous avons créé une règle NAT à partir d’une adr
     data:    Enable floating IP         false
     info:    network lb inbound-nat-rule create command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                                     output usage information
     -v, --verbose                                  use verbose output
@@ -1267,7 +1252,7 @@ Met à jour une règle NAT entrante existante. Dans l’exemple suivant, nous av
     data:    Enable floating IP         false
     info:    network lb inbound-nat-rule set command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                                     output usage information
     -v, --verbose                                  use verbose output
@@ -1303,7 +1288,7 @@ Répertorie toutes les règles NAT entrantes pour un équilibrage de charge.
 
     info:    network lb inbound-nat-rule list command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -1325,7 +1310,7 @@ Supprime la règle NAT pour l'équilibrage de charge dans un groupe de ressource
     + Updating load balancer "mylb"
     info:    network lb inbound-nat-rule delete command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -1358,7 +1343,7 @@ Crée une ressource IP publique. Vous créez la ressource IP publique et l'assoc
     info:    network public-ip create command OK
 
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                                   output usage information
     -v, --verbose                                use verbose output
@@ -1398,7 +1383,7 @@ Met à jour les propriétés d'une ressource IP publique existante. Dans l'exemp
     data:    FQDN:                 azureclitest.eastus.cloudapp.azure.com
     info:    network public-ip set command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                                   output usage information
     -v, --verbose                                use verbose output
@@ -1431,7 +1416,7 @@ Options de paramètre :
     data:    mytestpublicip   eastus    Dynamic                   4             "domain name".eastus.cloudapp.azure.com
     data:    mytestpublicip1  eastus   Static (Static IP address) 4             azureclitest.eastus.cloudapp.azure.com
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -1459,7 +1444,7 @@ Affiche les propriétés d’adresse IP publique pour une ressource IP publique 
     data:    FQDN:                 azureclitest.eastus.cloudapp.azure.com
     info:    network public-ip show command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -1480,7 +1465,7 @@ Supprime une ressource IP publique.
     + Deleting public ip address "mypublicipname"
     info:    network public-ip delete command OK
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -1515,7 +1500,7 @@ Crée une ressource appelée interface réseau (NIC) qui peut être utilisée po
     data:       Private IP Allocation Method: Dynamic
     data:       Subnet:                       /subscriptions/c4a17ddf-aa84-491c-b6f9-b90d882299f7/resourceGroups/group-1/providers/Microsoft.Network/virtualNetworks/myVNET/subnets/Subnet-1
 
-Options de paramètre :
+Options de paramètre :
 
     -h, --help                                                       output usage information
     -v, --verbose                                                    use verbose output
@@ -1589,8 +1574,7 @@ Options de paramètre :
 
     network gateway list [options] <resource-group>
 
-## <a name="azure-provider:-commands-to-manage-resource-provider-registrations"></a>azure provider : commandes pour gérer les enregistrements de fournisseur de ressources
-
+## <a name="azure-provider:-commands-to-manage-resource-provider-registrations"></a>azure provider : commandes pour gérer les enregistrements de fournisseur de ressources
 **Répertorier les fournisseurs actuellement enregistrés dans Resource Manager**
 
     provider list [options]
@@ -1607,8 +1591,7 @@ Options de paramètre :
 
     provider unregister [options] <namespace>
 
-## <a name="azure-resource:-commands-to-manage-your-resources"></a>azure resource : commandes pour gérer vos ressources
-
+## <a name="azure-resource:-commands-to-manage-your-resources"></a>azure resource : commandes pour gérer vos ressources
 **Créer une ressource dans un groupe de ressources**
 
     resource create [options] <resource-group> <name> <resource-type> <location> <api-version>
@@ -1629,8 +1612,7 @@ Options de paramètre :
 
     resource delete [options] <resource-group> <name> <resource-type> <api-version>
 
-## <a name="azure-role:-commands-to-manage-your-azure-roles"></a>azure role : commandes pour gérer vos rôles Azure
-
+## <a name="azure-role:-commands-to-manage-your-azure-roles"></a>azure role : commandes pour gérer vos rôles Azure
 **Obtenir toutes les définitions de rôles disponibles**
 
     role list [options]
@@ -1645,8 +1627,7 @@ Options de paramètre :
     role assignment list [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
-## <a name="azure-storage:-commands-to-manage-your-storage-objects"></a>azure storage : commandes pour gérer vos objets de stockage
-
+## <a name="azure-storage:-commands-to-manage-your-storage-objects"></a>azure storage : commandes pour gérer vos objets de stockage
 **Commandes pour gérer vos comptes de stockage**
 
     storage account list [options]
@@ -1769,8 +1750,7 @@ Options de paramètre :
     storage table policy set [options] [table] [name]
     storage table policy delete [options] [table] [name]
 
-## <a name="azure-tag:-commands-to-manage-your-resource-manager-tag"></a>azure tag : commandes pour gérer les balises de votre gestionnaire de ressources
-
+## <a name="azure-tag:-commands-to-manage-your-resource-manager-tag"></a>azure tag : commandes pour gérer les balises de votre gestionnaire de ressources
 **Ajouter une balise**
 
     tag create [options] <name> <value>
@@ -1787,8 +1767,7 @@ Options de paramètre :
 
     tag show [options] [name]
 
-## <a name="azure-vm:-commands-to-manage-your-azure-virtual-machines"></a>azure vm : commandes pour gérer vos machines virtuelles Azure
-
+## <a name="azure-vm:-commands-to-manage-your-azure-virtual-machines"></a>azure vm : commandes pour gérer vos machines virtuelles Azure
 **Créer une machine virtuelle**
 
     vm create [options] <resource-group> <name> <location> <os-type>
@@ -1796,8 +1775,11 @@ Options de paramètre :
 **Créer une machine virtuelle avec les ressources par défaut**
 
     vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
-    
->[AZURE.TIP]À partir de l’interface de ligne de commande version 0.10, vous pouvez fournir un court alias tel que « UbuntuLTS » ou « Win2012R2Datacenter » comme `image-urn` pour certaines images Marketplace populaires. Exécutez `azure help vm quick-create` pour voir les options. En outre, à partir de la version 0.10, `azure vm quick-create` utilise le stockage Premium par défaut s’il est disponible dans la région sélectionnée.
+
+> [!TIP]
+> À partir de l’interface de ligne de commande version 0.10, vous pouvez fournir un court alias tel que « UbuntuLTS » ou « Win2012R2Datacenter » comme `image-urn` pour certaines images Marketplace populaires. Exécutez `azure help vm quick-create` pour voir les options. En outre, à partir de la version 0.10, `azure vm quick-create` utilise le stockage Premium par défaut s’il est disponible dans la région sélectionnée.
+> 
+> 
 
 **Répertorier les machines virtuelles dans un compte**
 

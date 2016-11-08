@@ -1,30 +1,29 @@
-<properties 
-	pageTitle="Environnement App Service| Microsoft Azure" 
-	description="Qu’est-ce qu’un environnement Azure App Service ? Présentation de l’environnement App Service." 
-	keywords="environnement azure app service, réseau virtuel, sécurisation des réseaux"
-	services="app-service" 
-	documentationCenter="" 
-	authors="yochay" 
-	manager="wpickett" 
-	editor=""/>
+---
+title: Environnement App Service| Microsoft Docs
+description: Qu’est-ce qu’un environnement Azure App Service ? Présentation de l’environnement App Service.
+keywords: environnement azure app service, réseau virtuel, sécurisation des réseaux
+services: app-service
+documentationcenter: ''
+author: yochay
+manager: wpickett
+editor: ''
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/15/2016" 
-	ms.author="stefsch"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/15/2016
+ms.author: stefsch
 
+---
 # Documentation sur l’environnement App Service
-
 Un environnement App Service est une option de plan de service [Premium][PremiumTier] d’Azure App Service qui fournit un environnement totalement isolé et dédié de grande envergure des applications Azure App Service, comme [Web Apps][WebApps], [Mobile Apps][MobileApps] et [API Apps][APIApps].
 
 Les environnements App Service constituent le meilleur choix pour les charges de travail applicatives avec les exigences suivantes :
 
-- Très grande échelle
-- Isolation et accès réseau sécurisé
+* Très grande échelle
+* Isolation et accès réseau sécurisé
 
 Les clients peuvent créer plusieurs environnements App Service au sein d’une même région Azure, ainsi que dans plusieurs régions Azure. Les environnements App Service sont donc parfaits pour l’évolution horizontale des applications sans état pour la prise en charge de lourdes charges de travail RPS.
 
@@ -41,14 +40,14 @@ Les applications doivent souvent accéder à des ressources d’entreprise telle
 * [Architecture et sécurité du réseau](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
 
 ## Procédures
-
-[AZURE.INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
-
+[!INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
 
 ## Vidéos
-[AZURE.VIDEO azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps]
+[!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON325/player]
 
-[AZURE.VIDEO microsoft-ignite-2015-running-enterprise-web-and-mobile-apps-on-azure-app-service]
+
+[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player]
+
 
 
 <!-- LINKS -->

@@ -1,34 +1,33 @@
-<properties
-	pageTitle="Gérer Azure CDN avec PowerShell | Microsoft Azure"
-	description="Apprenez à utiliser des applets de commande Azure PowerShell pour gérer Azure CDN."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+---
+title: Gérer Azure CDN avec PowerShell | Microsoft Docs
+description: Apprenez à utiliser des applets de commande Azure PowerShell pour gérer Azure CDN.
+services: cdn
+documentationcenter: ''
+author: camsoper
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="casoper"/>
+ms.service: cdn
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/17/2016
+ms.author: casoper
 
-
+---
 # Gérer Azure CDN avec PowerShell
-
 PowerShell fournit une des méthodes les plus flexibles pour gérer vos points de terminaison et profils Azure CDN. Vous pouvez utiliser PowerShell de manière interactive ou en écrivant des scripts pour automatiser les tâches de gestion. Ce didacticiel illustre plusieurs des tâches les plus courantes que vous pouvez accomplir avec PowerShell pour gérer vos points de terminaison et profils Azure CDN.
 
 ## Composants requis
-
 Pour utiliser PowerShell pour gérer vos points de terminaison et profils Azure CDN, vous devez avoir installé le module Azure PowerShell. Pour savoir comment installer Azure PowerShell et vous connecter à Azure à l’aide de l’applet de commande `Login-AzureRmAccount`, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
->[AZURE.IMPORTANT] Vous devez vous connecter avec `Login-AzureRmAccount` avant de pouvoir exécuter les applets de commande Azure PowerShell.
+> [!IMPORTANT]
+> Vous devez vous connecter avec `Login-AzureRmAccount` avant de pouvoir exécuter les applets de commande Azure PowerShell.
+> 
+> 
 
 ## Liste des applets de commande Azure CDN
-
 Vous pouvez répertorier toutes les applets de commande Azure CDN à l’aide de l’applet de commande `Get-Command`.
 
 ```text
@@ -59,7 +58,6 @@ Cmdlet          Unpublish-AzureRmCdnEndpointContent                2.0.0      Az
 ```
 
 ## Obtenir de l’aide
-
 Vous pouvez obtenir de l’aide pour ces applets de commande à l’aide de l’applet de commande `Get-Help`. `Get-Help` fournit des informations sur l’utilisation et la syntaxe et présente des exemples.
 
 ```text
@@ -91,7 +89,6 @@ REMARKS
 ```
 
 ## Liste des profils Azure CDN existants
-
 L’applet de commande `Get-AzureRmCdnProfile` sans aucun paramètre récupère tous vos profils CDN existants.
 
 ```powershell
@@ -114,10 +111,12 @@ Vous pouvez également renvoyer un seul profil en spécifiant le groupe de resso
 Get-AzureRmCdnProfile -ProfileName CdnDemo -ResourceGroupName CdnDemoRG
 ```
 
->[AZURE.TIP] Il est possible d’avoir plusieurs profils CDN portant le même nom, tant qu’ils se trouvent dans différents groupes de ressources. Si vous omettez le paramètre `ResourceGroupName`, cela renvoie tous les profils dont le nom correspond.
+> [!TIP]
+> Il est possible d’avoir plusieurs profils CDN portant le même nom, tant qu’ils se trouvent dans différents groupes de ressources. Si vous omettez le paramètre `ResourceGroupName`, cela renvoie tous les profils dont le nom correspond.
+> 
+> 
 
 ## Liste des points de terminaison CDN existants
-
 `Get-AzureRmCdnEndpoint` peut récupérer un point de terminaison individuel ou tous les points de terminaison d’un profil.
 
 ```powershell
@@ -135,7 +134,6 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Where-Object { $_.ResourceState
 ```
 
 ## Création de profils et points de terminaison CDN
-
 `New-AzureRmCdnProfile` et `New-AzureRmCdnEndpoint` sont utilisés pour créer des profils et des points de terminaison CDN.
 
 ```powershell
@@ -151,7 +149,6 @@ New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku
 ```
 
 ## Vérification de la disponibilité du nom de point de terminaison
-
 `Get-AzureRmCdnEndpointNameAvailability` renvoie un objet qui indique si un nom de point de terminaison est disponible.
 
 ```powershell
@@ -164,10 +161,12 @@ Else { Write-Host "No, that endpoint name is not available." }
 ```
 
 ## Ajout d’un domaine personnalisé
-
 `New-AzureRmCdnCustomDomain` ajoute un nom de domaine personnalisé à un point de terminaison existant.
 
->[AZURE.IMPORTANT] Vous devez configurer le CNAME avec votre fournisseur DNS comme décrit dans [Comment mapper un domaine personnalisé au point de terminaison du réseau de distribution de contenu (CDN)](./cdn-map-content-to-custom-domain.md). Vous pouvez tester le mappage avant de modifier votre point de terminaison à l’aide de `Test-AzureRmCdnCustomDomain`.
+> [!IMPORTANT]
+> Vous devez configurer le CNAME avec votre fournisseur DNS comme décrit dans [Comment mapper un domaine personnalisé au point de terminaison du réseau de distribution de contenu (CDN)](cdn-map-content-to-custom-domain.md). Vous pouvez tester le mappage avant de modifier votre point de terminaison à l’aide de `Test-AzureRmCdnCustomDomain`.
+> 
+> 
 
 ```powershell
 # Get an existing endpoint
@@ -181,7 +180,6 @@ If($result.CustomDomainValidated){ New-AzureRmCdnCustomDomain -CustomDomainName 
 ```
 
 ## Modification d’un point de terminaison
-
 `Set-AzureRmCdnEndpoint` modifie un point de terminaison existant.
 
 ```powershell
@@ -197,7 +195,6 @@ Set-AzureRmCdnEndpoint -CdnEndpoint $endpoint
 ```
 
 ## Purge/pré-chargement des ressources CDN
-
 `Unpublish-AzureRmCdnEndpointContent` purge les ressources mises en cache, tandis que `Publish-AzureRmCdnEndpointContent` précharge les ressources sur les points de terminaison pris en charge.
 
 ```powershell
@@ -226,7 +223,6 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Start-AzureRmCdnEndpoint
 ```
 
 ## Suppression des ressources CDN
-
 `Remove-AzureRmCdnProfile` et `Remove-AzureRmCdnEndpoint` peuvent être utilisés pour supprimer des profils et des points de terminaison.
 
 ```powershell
@@ -241,9 +237,8 @@ Remove-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG
 ```
 
 ## Étapes suivantes
+Apprenez à automatiser Azure CDN avec [.NET](cdn-app-dev-net.md) ou [Node.js](cdn-app-dev-node.md).
 
-Apprenez à automatiser Azure CDN avec [.NET](./cdn-app-dev-net.md) ou [Node.js](./cdn-app-dev-node.md).
-
-Pour en savoir plus sur les fonctionnalités CDN, consultez [Présentation du CDN](./cdn-overview.md).
+Pour en savoir plus sur les fonctionnalités CDN, consultez [Présentation du CDN](cdn-overview.md).
 
 <!---HONumber=AcomDC_0817_2016-->

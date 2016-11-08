@@ -1,6 +1,4 @@
-﻿## En savoir plus sur Application Insights
-
-
+## En savoir plus sur Application Insights
 <table width="100%"><tr valign="top"><td>
 
 Vue d'ensemble

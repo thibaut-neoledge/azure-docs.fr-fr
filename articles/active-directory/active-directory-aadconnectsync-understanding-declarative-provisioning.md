@@ -1,23 +1,21 @@
-<properties
-    pageTitle="Azure AD Connect Sync : présentation de l’approvisionnement déclaratif | Microsoft Azure"
-    description="Explique le modèle de configuration de l’approvisionnement déclaratif dans Azure AD Connect."
-    services="active-directory"
-    documentationCenter=""
-    authors="andkjell"
-    manager="femila"
-    editor=""/>
+---
+title: 'Azure AD Connect Sync : présentation de l’approvisionnement déclaratif | Microsoft Docs'
+description: Explique le modèle de configuration de l’approvisionnement déclaratif dans Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/29/2016"
-    ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/29/2016
+ms.author: billmath
 
-
-
+---
 # <a name="azure-ad-connect-sync:-understanding-declarative-provisioning"></a>Azure AD Connect Sync : présentation de l’approvisionnement déclaratif
 Cette rubrique présente le modèle de configuration dans Azure AD Connect. Ce modèle est appelé « approvisionnement déclaratif » et vous permet de modifier la configuration en toute simplicité. De nombreux éléments décrits dans cette rubrique sont des éléments avancés, non indispensables pour la plupart des scénarios clients.
 
@@ -30,12 +28,12 @@ Le pipeline a plusieurs modules. Chacun d’eux est responsable d’un concept d
 
 ![Pipeline de synchronisation](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/pipeline.png)  
 
-- Source, l’objet source
-- [Scope](#scope), recherche toutes les règles de synchronisation dans la portée
-- [Join](#join), détermine la relation entre l’espace de connecteur et le métaverse
-- [Transform](#transform), calcule comment les attributs doivent être transformés et flux
-- [Precedence](#precedence), résout les contributions d’attribut conflictuelles
-- Target, l’objet cible
+* Source, l’objet source
+* [Scope](#scope), recherche toutes les règles de synchronisation dans la portée
+* [Join](#join), détermine la relation entre l’espace de connecteur et le métaverse
+* [Transform](#transform), calcule comment les attributs doivent être transformés et flux
+* [Precedence](#precedence), résout les contributions d’attribut conflictuelles
+* Target, l’objet cible
 
 ## <a name="scope"></a>Scope
 Le module Scope évalue un objet et détermine les règles qui sont dans la portée et doivent être incluses lors du traitement. En fonction des valeurs d’attributs de l’objet, différentes règles de synchronisation sont évaluées pour être dans la portée. Par exemple, un utilisateur désactivé sans boîte aux lettres Exchange possède des règles différentes d’un utilisateur activé avec une boîte aux lettres.  
@@ -48,18 +46,18 @@ La portée est définie selon des groupes et des clauses. Les clauses sont à l�
 
 Le module Scope prend en charge les opérations suivantes.
 
-Opération | Description
---- | ---
-EQUAL, NOTEQUAL | Comparaison de chaînes qui évalue si la valeur est égale à la valeur de l’attribut. Pour les attributs à valeurs multiples, consultez ISIN et ISNOTIN.
-LESSTHAN, LESSTHAN_OR_EQUAL | Comparaison de chaînes qui évalue si la valeur est inférieure à la valeur de l’attribut.
-CONTAINS, NOTCONTAINS | Comparaison de chaînes qui évalue si la valeur se trouve dans la valeur de l’attribut.
-STARTSWITH, NOTSTARTSWITH | Comparaison de chaînes qui évalue si la valeur est au début de la valeur de l’attribut.
-ENDSWITH, NOTENDSWITH | Comparaison de chaînes qui évalue si la valeur est à la fin de la valeur de l’attribut.
-GREATERTHAN, GREATERTHAN_OR_EQUAL | Comparaison de chaînes qui évalue si la valeur est supérieure à la valeur de l’attribut.
-ISNULL, ISNOTNULL | Évalue si l’attribut est absent de l’objet. Si l’attribut n’est pas présent et par conséquent « null », la règle est dans la portée.
-ISIN, ISNOTIN | Évalue si la valeur est présente dans l’attribut défini. Cette opération est la variation à valeurs multiples des opérations EQUAL et NOTEQUAL. L’attribut est censé être un attribut à valeurs multiples et si la valeur se trouve dans une des valeurs d’attribut, alors la règle est dans la portée.
-ISBITSET, ISNOTBITSET | Évalue si un bit particulier est défini. Peut par exemple être utilisé pour évaluer les bits dans userAccountControl pour voir si un utilisateur est activé ou désactivé.
-ISMEMBEROF, ISNOTMEMBEROF | La valeur doit contenir un nom unique vers un groupe dans l’espace de connecteur. Si l’objet est membre du groupe spécifié, la règle est dans la portée.
+| Opération | Description |
+| --- | --- |
+| EQUAL, NOTEQUAL |Comparaison de chaînes qui évalue si la valeur est égale à la valeur de l’attribut. Pour les attributs à valeurs multiples, consultez ISIN et ISNOTIN. |
+| LESSTHAN, LESSTHAN_OR_EQUAL |Comparaison de chaînes qui évalue si la valeur est inférieure à la valeur de l’attribut. |
+| CONTAINS, NOTCONTAINS |Comparaison de chaînes qui évalue si la valeur se trouve dans la valeur de l’attribut. |
+| STARTSWITH, NOTSTARTSWITH |Comparaison de chaînes qui évalue si la valeur est au début de la valeur de l’attribut. |
+| ENDSWITH, NOTENDSWITH |Comparaison de chaînes qui évalue si la valeur est à la fin de la valeur de l’attribut. |
+| GREATERTHAN, GREATERTHAN_OR_EQUAL |Comparaison de chaînes qui évalue si la valeur est supérieure à la valeur de l’attribut. |
+| ISNULL, ISNOTNULL |Évalue si l’attribut est absent de l’objet. Si l’attribut n’est pas présent et par conséquent « null », la règle est dans la portée. |
+| ISIN, ISNOTIN |Évalue si la valeur est présente dans l’attribut défini. Cette opération est la variation à valeurs multiples des opérations EQUAL et NOTEQUAL. L’attribut est censé être un attribut à valeurs multiples et si la valeur se trouve dans une des valeurs d’attribut, alors la règle est dans la portée. |
+| ISBITSET, ISNOTBITSET |Évalue si un bit particulier est défini. Peut par exemple être utilisé pour évaluer les bits dans userAccountControl pour voir si un utilisateur est activé ou désactivé. |
+| ISMEMBEROF, ISNOTMEMBEROF |La valeur doit contenir un nom unique vers un groupe dans l’espace de connecteur. Si l’objet est membre du groupe spécifié, la règle est dans la portée. |
 
 ## <a name="join"></a>Join
 Le module Join dans le pipeline de synchronisation est chargé de rechercher la relation entre l’objet de la source et un objet dans la cible. Sur une règle de trafic entrant, cette relation serait un objet dans un espace de connecteur ayant une relation avec un objet dans le métaverse.  
@@ -115,7 +113,7 @@ Le littéral **AuthoritativeNull** est similaire à **NULL**, à ceci près qu�
 
 Un flux d’attributs peut également utiliser le littéral **IgnoreThisFlow**. Celui-ci est similaire à la valeur NULL en ce sens qu’il indique qu’il n’a rien à transmettre. En revanche, il ne supprime aucune valeur déjà existante dans la cible. Il agit comme si le flux d’attributs n’avait jamais existé.
 
-Voici un exemple :
+Voici un exemple :
 
 Dans *Out to AD - User Exchange hybrid*, vous trouverez le flux suivant :  
 `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  
@@ -147,22 +145,19 @@ Pour ce scénario, vous devez modifier la portée des règles de synchronisation
 ![Plusieurs objets joints au même objet mv](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/multiple2.png)  
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-- En savoir plus sur le langage d’expression dans [Comprendre les expressions d’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
-- Apprendre comment l’approvisionnement déclaratif est utilisé out-of-box dans [Présentation de la configuration par défaut](active-directory-aadconnectsync-understanding-default-configuration.md).
-- Apprendre à effectuer une modification pratique à l’aide de l’approvisionnement déclaratif dans [Comment modifier la configuration par défaut](active-directory-aadconnectsync-change-the-configuration.md).
-- Continuer à lire le fonctionnement des utilisateurs et des contacts dans [Présentation des utilisateurs et des Contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md).
+* En savoir plus sur le langage d’expression dans [Comprendre les expressions d’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+* Apprendre comment l’approvisionnement déclaratif est utilisé out-of-box dans [Présentation de la configuration par défaut](active-directory-aadconnectsync-understanding-default-configuration.md).
+* Apprendre à effectuer une modification pratique à l’aide de l’approvisionnement déclaratif dans [Comment modifier la configuration par défaut](active-directory-aadconnectsync-change-the-configuration.md).
+* Continuer à lire le fonctionnement des utilisateurs et des contacts dans [Présentation des utilisateurs et des Contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md).
 
 **Rubriques de présentation**
 
-- [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
-- [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
+* [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
+* [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
 **Rubriques de référence**
 
-- [Azure AD Connect Sync : Référence aux fonctions](active-directory-aadconnectsync-functions-reference.md)
-
-
+* [Azure AD Connect Sync : Référence aux fonctions](active-directory-aadconnectsync-functions-reference.md)
 
 <!--HONumber=Oct16_HO2-->
 

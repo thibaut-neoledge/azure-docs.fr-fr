@@ -1,10 +1,9 @@
-##Kit de ressources Azure pour Eclipse
-
+## Kit de ressources Azure pour Eclipse
 Configuration requise :
 
 1. Windows 7, Windows 8, Windows 10, Windows Server 2008, ou Windows Server 2012.
 2. Systèmes d’exploitation Macintosh ou Linux répertoriés dans l’article [Nouveautés du Kit de ressources Azure pour Eclipse].
-2. Eclipse Indigo ou version ultérieure.
+3. Eclipse Indigo ou version ultérieure.
 
 Procédure d’installation :
 

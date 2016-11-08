@@ -1,25 +1,24 @@
-<properties
-   pageTitle="Service Marathon lié à une application ou un utilisateur donnés | Microsoft Azure"
-   description="Créer un service Marathon lié à une application ou à un utilisateur donnés"
-   services="container-service"
-   documentationCenter=""
-   authors="rgardler"
-   manager="timlt"
-   editor=""
-   tags="acs, azure-container-service"
-   keywords="Conteneurs, Marathon, micro-services, DC/OS, Azure"/>
+---
+title: Service Marathon lié à une application ou un utilisateur donnés | Microsoft Docs
+description: Créer un service Marathon lié à une application ou à un utilisateur donnés
+services: container-service
+documentationcenter: ''
+author: rgardler
+manager: timlt
+editor: ''
+tags: acs, azure-container-service
+keywords: Conteneurs, Marathon, micro-services, DC/OS, Azure
 
-<tags
-   ms.service="container-service"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="04/12/2016"
-   ms.author="rogardle"/>
+ms.service: container-service
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 04/12/2016
+ms.author: rogardle
 
+---
 # Créer un service Marathon lié à une application ou à un utilisateur donnés
-
 Azure Container Service fournit un ensemble de serveurs maîtres sur lesquels nous préconfigurons Apache Mesos et Marathon. Ceux-ci peuvent être utilisés pour organiser vos applications sur le cluster, mais il est préférable de ne pas utiliser les serveurs maîtres à cet effet. Par exemple, l’ajustement de la configuration de Marathon nécessite la connexion aux serveurs maîtres et la manipulation au sein de ces derniers ; cela favorise les serveurs maîtres uniques qui diffèrent légèrement de la norme et doivent être traités et gérés indépendamment. En outre, la configuration requise par une équipe peut ne pas constituer la configuration optimale pour une autre équipe.
 
 Dans cet article, nous expliquerons comment ajouter un service Marathon lié à une application ou à un utilisateur donnés.
@@ -27,13 +26,11 @@ Dans cet article, nous expliquerons comment ajouter un service Marathon lié à 
 Étant donné que ce service appartiendra à un utilisateur ou à une équipe unique, ces derniers peuvent le configurer comme ils l’entendent. En outre, Azure Container Service garantit l’exécution continue du service. En cas d’échec de ce dernier, Azure Container Service le redémarre à votre place. La plupart du temps, vous ne remarquerez même pas la survenue d’un temps d’arrêt.
 
 ## Composants requis
-
 [Déployez une instance d’Azure Container Service](container-service-deployment.md) avec un orchestrator de type DC/OS, et [vérifiez que votre client peut se connecter à votre cluster](container-service-connect.md). Effectuez également les étapes suivantes.
 
-[AZURE.INCLUDE [installez l’interface de ligne de commande DC/OS.](../../includes/container-service-install-dcos-cli-include.md)]
+[!INCLUDE [installez l’interface de ligne de commande DC/OS.](../../includes/container-service-install-dcos-cli-include.md)]
 
 ## Créer un service Marathon lié à une application ou à un utilisateur donnés
-
 Commencez par créer un fichier de configuration JSON qui définit le nom du service d’application que vous souhaitez créer. Ici, nous utilisons `marathon-alice` comme nom d’infrastructure. Enregistrez le fichier au format `marathon-alice.json` :
 
 ```json
@@ -49,7 +46,6 @@ dcos package install --options=marathon-alice.json marathon
 Vous devriez à présent voir votre service `marathon-alice` s’exécuter dans l’onglet Services de l’interface utilisateur de votre DC/OS. Si vous souhaitez accéder directement à l’interface utilisateur, son chemin sera `http://<hostname>/service/marathon-alice/`.
 
 ## Configurer l’interface de ligne de commande DC/OS pour accéder au service
-
 Vous pouvez éventuellement configurer votre interface de ligne de commande DC/OS afin d’accéder à ce nouveau service, en définissant la propriété `marathon.url` pour que celle-ci pointe sur l’instance `marathon-alice`, comme suit :
 
 ```bash

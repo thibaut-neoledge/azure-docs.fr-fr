@@ -1,28 +1,27 @@
-<properties 
-	pageTitle="Vue d’ensemble de la validation XML et d’Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
-	description="Découvrez le fonctionnement de la validation dans Enterprise Integration Pack et vos applications logiques" 
-	services="logic-apps" 
-	documentationCenter=".net,nodejs,java"
-	authors="msftman" 
-	manager="erikre" 
-	editor="cgronlun"/>
+---
+title: Vue d’ensemble de la validation XML et d’Enterprise Integration Pack | Microsoft Docs
+description: Découvrez le fonctionnement de la validation dans Enterprise Integration Pack et vos applications logiques
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: msftman
+manager: erikre
+editor: cgronlun
 
-<tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2016" 
-	ms.author="deonhe"/>
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/08/2016
+ms.author: deonhe
 
+---
 # Intégration d’entreprise avec la validation XML
-
 ## Vue d'ensemble
 Souvent, dans les scénarios d’entreprise à entreprise (B2B), les partenaires au sein d’un contrat doivent confirmer que les messages qu’ils échangent sont valides avant de commencer le traitement des données. Dans Enterprise Integration Pack, vous pouvez utiliser le connecteur XML Validation pour valider les documents par rapport à un schéma prédéfini.
 
 ## Comment valider un document avec le connecteur XML Validation ?
-1. Créez une application logique et [liez-la à votre compte d’intégration](./app-service-logic-enterprise-integration-accounts.md "Découvrez comment lier un compte d’intégration à une application logique") qui contient le schéma que vous utiliserez pour valider les données XML.
+1. Créez une application logique et [liez-la à votre compte d’intégration](app-service-logic-enterprise-integration-accounts.md "Découvrez comment lier un compte d’intégration à une application logique") qui contient le schéma que vous utiliserez pour valider les données XML.
 2. Ajoutez un déclencheur **Demande - Quand une demande HTTP est reçue** à votre application logique ![](./media/app-service-logic-enterprise-integration-xml/xml-1.png)
 3. Ajouter l’action **Validation XML** en sélectionnant d’abord **Ajouter une action**
 4. Entrez *xml* dans la zone de recherche afin de filtrer toutes les actions et d’obtenir celle que vous souhaitez utiliser
@@ -37,7 +36,6 @@ Souvent, dans les scénarios d’entreprise à entreprise (B2B), les partenaires
 Vous pouvez maintenant tester votre action de validation en effectuant une demande au point de terminaison HTTP.
 
 ## Étapes suivantes
-
-[En savoir plus sur Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")
+[En savoir plus sur Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")
 
 <!---HONumber=AcomDC_0803_2016-->

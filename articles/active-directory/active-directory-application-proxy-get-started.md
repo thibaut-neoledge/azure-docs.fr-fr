@@ -1,24 +1,26 @@
-<properties
-	pageTitle="Offrir un accès à distance sécurisé aux applications locales"
-	description="Explique comment utiliser le Proxy d’application Azure AD pour offrir un accès à distance sécurisé à vos applications locales."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor=""/>
+---
+title: Offrir un accès à distance sécurisé aux applications locales
+description: Explique comment utiliser le Proxy d’application Azure AD pour offrir un accès à distance sécurisé à vos applications locales.
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2016"
-	ms.author="kgremban"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/25/2016
+ms.author: kgremban
 
+---
 # Offrir un accès à distance sécurisé aux applications locales
-
-> [AZURE.NOTE] Le proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou De base d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
+> [!NOTE]
+> Le proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou De base d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
+> 
+> 
 
 Aujourd’hui, les employés veulent être productifs partout, tout le temps, depuis n’importe quel appareil. Ils veulent pouvoir travailler sur leurs propres appareils (tablettes, téléphones ou ordinateurs portables). Ils veulent aussi pouvoir accéder à toutes leurs applications, qu’il s’agisse d’applications SaaS dans le cloud ou d’applications métier sur le réseau local de l’entreprise. La fourniture d’un accès aux applications locales implique généralement des réseaux privés virtuels (VPN), des zones démilitarisées (DMZ) ou des proxys inverses locaux. Non seulement ces solutions sont complexes et difficiles à sécuriser, mais leur configuration et leur gestion ont un coût élevé.
 
@@ -34,23 +36,20 @@ Le Proxy d’application Azure AD fournit une solution d’accès à distance si
 
 Activation du Proxy d’application Azure AD :
 
-- Fonctionne dans le cloud pour que vous puissiez gagner du temps et faire des économies. Les solutions locales vous obligent à définir et à gérer les zones démilitarisées, les serveurs Edge ou les autres infrastructures complexes.
-
-- Est plus facile à configurer et à sécuriser que les solutions locales, car vous n’êtes pas obligé d’ouvrir toutes les connexions entrantes via votre pare-feu.
-
-- Offre une excellente sécurité. Lorsque vous publiez vos applications à l’aide du Proxy d’application Azure AD, vous pouvez tirer parti des nombreux contrôles d’autorisation et des analyses de sécurité dans Azure. Cela signifie que vous profitez de capacités de sécurité avancée pour toutes vos applications existantes sans avoir à les modifier.
-
-- Permet à vos utilisateurs de bénéficier d’une expérience d’authentification cohérente. L’authentification unique permet aux utilisateurs finaux d’accéder facilement et simplement à toutes les applications dont ils ont besoin pour être productifs avec un seul mot de passe.
+* Fonctionne dans le cloud pour que vous puissiez gagner du temps et faire des économies. Les solutions locales vous obligent à définir et à gérer les zones démilitarisées, les serveurs Edge ou les autres infrastructures complexes.
+* Est plus facile à configurer et à sécuriser que les solutions locales, car vous n’êtes pas obligé d’ouvrir toutes les connexions entrantes via votre pare-feu.
+* Offre une excellente sécurité. Lorsque vous publiez vos applications à l’aide du Proxy d’application Azure AD, vous pouvez tirer parti des nombreux contrôles d’autorisation et des analyses de sécurité dans Azure. Cela signifie que vous profitez de capacités de sécurité avancée pour toutes vos applications existantes sans avoir à les modifier.
+* Permet à vos utilisateurs de bénéficier d’une expérience d’authentification cohérente. L’authentification unique permet aux utilisateurs finaux d’accéder facilement et simplement à toutes les applications dont ils ont besoin pour être productifs avec un seul mot de passe.
 
 ## Quels types d’applications fonctionnent avec le Proxy d’application Azure AD ?
 Avec le Proxy d’application Azure AD, vous pouvez accéder à différents types d’applications internes :
 
-- Applications web qui utilisent l’authentification Windows intégrée pour l’authentification
-- Applications web qui utilisent l’accès basé sur un formulaire
-- API web que vous voulez exposer aux applications enrichies sur différents appareils
-- Applications hébergées derrière une passerelle Bureau à distance
+* Applications web qui utilisent l’authentification Windows intégrée pour l’authentification
+* Applications web qui utilisent l’accès basé sur un formulaire
+* API web que vous voulez exposer aux applications enrichies sur différents appareils
+* Applications hébergées derrière une passerelle Bureau à distance
 
-## Comment cela fonctionne-t-il ?
+## Comment cela fonctionne-t-il ?
 Le Proxy d’application fonctionne grâce à l’installation d’un service Windows Server léger appelé connecteur au sein de votre réseau. Avec le connecteur, vous n’êtes pas obligé d’ouvrir des ports entrants ou de placer quoi que ce soit dans la zone dématérialisée. Si le volume de trafic vers vos applications est important, vous pouvez ajouter d’autres connecteurs. Le service se charge de l’équilibrage de la charge. Les connecteurs sont sans état et extraient tout ce dont ils ont besoin sur le cloud.
 
 Lorsque les utilisateurs accèdent à distance à des applications, ils se connectent au point de terminaison publié. Les utilisateurs s’authentifient dans Azure AD puis sont acheminés via le connecteur vers l’application locale.
@@ -66,23 +65,23 @@ Lorsque les utilisateurs accèdent à distance à des applications, ils se conne
 7. La réponse est envoyée à l’utilisateur via le Proxy d’application.
 
 ### Authentification unique
-Le Proxy d’application Azure AD fournit l’authentification unique (SSO) aux applications qui utilisent l’authentification Windows intégrée (IWA) ou aux applications prenant en charge les revendications. Si votre application utilise l’authentification IWA, le Proxy d’application emprunte l’identité de l’utilisateur à l’aide de la délégation Kerberos contrainte pour fournir l’authentification unique. Si vous avez une application prenant en charge les revendications qui fait confiance à Azure Active Directory, l’authentification unique est réussie, car l’utilisateur a déjà été authentifié par Azure AD.
+Le Proxy d’application Azure AD fournit l’authentification unique (SSO) aux applications qui utilisent l’authentification Windows intégrée (IWA) ou aux applications prenant en charge les revendications. Si votre application utilise l’authentification IWA, le Proxy d’application emprunte l’identité de l’utilisateur à l’aide de la délégation Kerberos contrainte pour fournir l’authentification unique. Si vous avez une application prenant en charge les revendications qui fait confiance à Azure Active Directory, l’authentification unique est réussie, car l’utilisateur a déjà été authentifié par Azure AD.
 
 ## Pour commencer
-Assurez-vous que vous disposez d’un abonnement Azure AD Basic ou Premium et d’un annuaire Azure AD sur lequel vous êtes administrateur global. Vous devez également disposer de licences d’Azure AD Premium ou Basic pour l’administrateur de l’annuaire et les utilisateurs qui accèdent aux applications. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
+Assurez-vous que vous disposez d’un abonnement Azure AD Basic ou Premium et d’un annuaire Azure AD sur lequel vous êtes administrateur global. Vous devez également disposer de licences d’Azure AD Premium ou Basic pour l’administrateur de l’annuaire et les utilisateurs qui accèdent aux applications. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 
-La configuration du Proxy d’application s’effectue en deux étapes :
+La configuration du Proxy d’application s’effectue en deux étapes :
 
 1. [Activer le Proxy d’application et configurer le connecteur](active-directory-application-proxy-enable.md)
-2. [Publier des applications](active-directory-application-proxy-publish.md) : utilisez l’Assistant simple et rapide pour publier vos applications locales et les rendre accessibles à distance.
+2. [Publier des applications](active-directory-application-proxy-publish.md) : utilisez l’Assistant simple et rapide pour publier vos applications locales et les rendre accessibles à distance.
 
-## Et ensuite ?
-Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
+## Et ensuite ?
+Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 
-- [Publier des applications avec votre propre nom de domaine](active-directory-application-proxy-custom-domains.md)
-- [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md)
-- [Utiliser des applications utilisant les revendications](active-directory-application-proxy-claims-aware-apps.md)
-- [Activer l’accès conditionnel](active-directory-application-proxy-conditional-access.md)
+* [Publier des applications avec votre propre nom de domaine](active-directory-application-proxy-custom-domains.md)
+* [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md)
+* [Utiliser des applications utilisant les revendications](active-directory-application-proxy-claims-aware-apps.md)
+* [Activer l’accès conditionnel](active-directory-application-proxy-conditional-access.md)
 
 Pour les dernières nouvelles et mises à jour, visitez [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (blog sur les proxys d’application)
 

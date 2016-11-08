@@ -2,7 +2,7 @@
 En plus des exemples présentés ici, Twilio offre des API Web que vous pouvez utiliser pour tirer profit d'autres fonctionnalités de Twilio à partir de votre application Azure. Pour plus d'informations, consultez la [documentation de l'API Twilio][twilio_api_documentation].
 
 ## <a name="NextSteps"></a>Étapes suivantes
-Maintenant que vous avez appris les bases du service Twilio, consultez ces liens pour en savoir plus :
+Maintenant que vous avez appris les bases du service Twilio, consultez ces liens pour en savoir plus :
 
 * [Conseils de sécurité Twilio][twilio_security_guidelines]
 * [Procédures et exemples de code Twilio][twilio_howtos]

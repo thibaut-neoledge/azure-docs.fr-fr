@@ -3,7 +3,7 @@ Vous aurez besoin de l’adresse IP publique de la passerelle de réseau virtuel
 
 Pour trouver l'adresse IP publique de votre passerelle de réseau virtuel à l'aide de PowerShell, utilisez l'exemple suivant :
 
-	Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
+    Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
 
 Vous pouvez également afficher l'adresse IP publique de votre passerelle de réseau virtuel à l'aide du portail Azure. Accédez à la section **Passerelles de réseau virtuel**, puis cliquez sur le nom de votre passerelle.
 

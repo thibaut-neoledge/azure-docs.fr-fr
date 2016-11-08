@@ -1,28 +1,25 @@
-<properties
-	pageTitle="Créer des hôtes Docker dans Azure avec Docker Machine | Microsoft Azure"
-	description="Décrit l'utilisation de Docker Machine pour créer des hôtes Docker dans Azure."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor="tysonn"/>
+---
+title: Créer des hôtes Docker dans Azure avec Docker Machine | Microsoft Docs
+description: Décrit l'utilisation de Docker Machine pour créer des hôtes Docker dans Azure.
+services: virtual-machines-linux
+documentationcenter: ''
+author: squillace
+manager: timlt
+editor: tysonn
 
-<tags
-	ms.service="virtual-machines-linux"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="infrastructure-services"
-	ms.date="07/22/2016"
-	ms.author="rasquill"/>
+ms.service: virtual-machines-linux
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 07/22/2016
+ms.author: rasquill
 
+---
 # Utiliser Docker Machine avec le pilote Azure
-
 [Docker](https://www.docker.com/) fait partie des méthodes de virtualisation les plus prisées. Cet outil utilise des conteneurs Linux plutôt que des machines virtuelles pour isoler les données d’application et le traitement sur des ressources partagées. Cette rubrique explique quand et comment utiliser [Docker Machine](https://docs.docker.com/machine/) (la commande `docker-machine`) pour créer des machines virtuelles Linux dans Azure et activées en tant qu'hôtes Docker pour vos conteneurs Linux.
 
-
 ## Créer des machines virtuelles avec Docker Machine
-
 Créez des machines virtuelles hôtes Docker dans Azure avec la commande `docker-machine create` en utilisant l’argument de pilote `azure` pour l'option de pilote (`-d`) et tous les autres arguments.
 
 L'exemple suivant repose sur les valeurs par défaut, mais il ouvre le port 80 sur la machine virtuelle pour accéder à Internet et effectuer un test avec un conteneur nginx, utilise `ops` comme utilisateur d'ouverture de session SSH, puis appelle la nouvelle machine virtuelle `machine`.
@@ -71,7 +68,6 @@ To see how to connect your Docker Client to the Docker Engine running on this vi
 ```
 
 ## Configurer votre interpréteur de commandes Docker
-
 À présent, tapez `docker-machine env <VM name>` pour voir ce que vous devez faire pour configurer l'interpréteur de commandes.
 
 ```bash
@@ -92,7 +88,6 @@ export DOCKER_MACHINE_NAME="machine"
 Vous pouvez exécuter la commande de configuration suggérée, ou définir les variables d'environnement vous-même.
 
 ## Exécuter un conteneur
-
 Vous pouvez maintenant exécuter un serveur web simple pour vérifier si tout fonctionne correctement. Comme nous utilisons ici une image nginx standard, spécifiez que le serveur doit écouter sur le port 80, et que si la machine virtuelle redémarre, le conteneur doit également redémarrer (`--restart=always`).
 
 ```bash
@@ -114,7 +109,6 @@ Status: Downloaded newer image for nginx:latest
 ```
 
 ## Tester le conteneur
-
 Examinez les conteneurs en cours d'exécution en utilisant `docker ps` :
 
 ```bash
@@ -127,7 +121,6 @@ Pour vérifier le conteneur en cours d'exécution, tapez `docker-machine ip <VM 
 ![Exécution d’un conteneur ngnix](./media/virtual-machines-linux-docker-machine/nginxsuccess.png)
 
 ## Étapes suivantes
-
 Si vous le souhaitez, vous pouvez utiliser Azure [Docker VM Extension](virtual-machines-linux-dockerextension.md) pour effectuer la même opération à l'aide de l'interface de ligne de commande (CLI) Azure ou des modèles Azure Resource Manager.
 
 Pour plus d’exemples sur l’utilisation de Docker, consultez [utilisation de Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) à partir de la [démonstration](https://github.com/Microsoft/HealthClinic.biz) de 2015 Connect pour [HealthClinic.biz](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). Pour plus de démarrages rapides à partir de la démonstration pour HealthClinic.biz, voir [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts) (Démarrages rapides avec les Outils de développement Azure).

@@ -5,7 +5,6 @@ Lorsque vous définissez les paramètres, utilisez le champ **allowedValues** po
 Nous allons décrire chaque paramètre du modèle.
 
 ### logicAppName
-
 Le nom de l'application logique à créer.
 
     "logicAppName": {

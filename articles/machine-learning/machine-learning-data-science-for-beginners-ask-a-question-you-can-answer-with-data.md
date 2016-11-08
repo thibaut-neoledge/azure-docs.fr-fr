@@ -1,44 +1,42 @@
-<properties
-   pageTitle="Poser une question à laquelle les données permettent de répondre - formuler des questions | Microsoft Azure"
-   description="Découvrez comment formuler une question de science des données dans la vidéo Science des données pour les débutants nº 3. Inclut une comparaison des questions de classification et de régression."
-   keywords="choisir une question,questions de science des données, formuler une question,formuler des questions,questions de régression,questions de classification,question précise"
-   services="machine-learning"
-   documentationCenter="na"
-   authors="brohrer-ms"
-   manager="jhubbard"
-   editor="cjgronlund"/>
+---
+title: Poser une question à laquelle les données permettent de répondre - formuler des questions | Microsoft Docs
+description: Découvrez comment formuler une question de science des données dans la vidéo Science des données pour les débutants nº 3. Inclut une comparaison des questions de classification et de régression.
+keywords: choisir une question,questions de science des données, formuler une question,formuler des questions,questions de régression,questions de classification,question précise
+services: machine-learning
+documentationcenter: na
+author: brohrer-ms
+manager: jhubbard
+editor: cjgronlund
 
-<tags
-   ms.service="machine-learning"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/15/2016"
-   ms.author="cgronlun;brohrer;garye"/>
+ms.service: machine-learning
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/15/2016
+ms.author: cgronlun;brohrer;garye
 
+---
 # Poser une question à laquelle les données permettent de répondre
-
 ## Vidéo 3 : série Science des données pour les débutants
-
 Découvrez comment formuler une question de science des données dans la vidéo Science des données pour les débutants nº 3. Cette vidéo inclut une comparaison des questions faisant appel aux algorithmes de classification et de régression.
 
 Pour tirer le meilleur parti de la série, regardez-les dans l’ordre. [Accéder à la liste des vidéos](#other-videos-in-this-series)
 
-> [AZURE.VIDEO data-science-for-beginners-ask-a-question-you-can-answer-with-data]
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
+> 
+> 
 
 ## Autres vidéos de cette série
-
 La série *Science des données pour les débutants* offre une introduction rapide à la science des données en cinq petites vidéos.
 
-  * Vidéo 1 : [Les 5 questions auxquelles la science des données répond](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
-  * Vidéo 2 : [Vos données sont-elles prêtes pour la science des données ?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
-  * Vidéo 3 : Poser une question à laquelle les données permettent de répondre
-  * Vidéo 4 : [Prédire une réponse à l’aide d’un modèle simple](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
-  * Vidéo 5 : [Copier le travail d’autres personnes pour des projets de science des données](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
+* Vidéo 1 : [Les 5 questions auxquelles la science des données répond](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
+* Vidéo 2 : [Vos données sont-elles prêtes pour la science des données ?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
+* Vidéo 3 : Poser une question à laquelle les données permettent de répondre
+* Vidéo 4 : [Prédire une réponse à l’aide d’un modèle simple](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
+* Vidéo 5 : [Copier le travail d’autres personnes pour des projets de science des données](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
 
 ## Transcription : Poser une question à laquelle les données permettent de répondre
-
 Bienvenue dans la troisième vidéo de la série « Science des données pour les débutants ».
 
 Dans celle-ci, nous allons vous donner des conseils pour formuler une question à laquelle les données permettent de répondre.
@@ -46,7 +44,6 @@ Dans celle-ci, nous allons vous donner des conseils pour formuler une question �
 Pour tirer pleinement parti de cette vidéo, nous vous recommandons de regarder les deux premières vidéos de cette série, « Les 5 questions auxquelles la science des données peut répondre » et « Vos données sont-elles prêtes pour la science des données ? ».
 
 ## Poser une question précise
-
 Comme nous l’avons vu, la science des données est le processus consistant à utiliser des noms (également appelés catégories ou étiquettes) et des nombres pour prédire la réponse à une question. Toutefois, la question ne peut pas avoir n’importe quelle forme. Il doit s’agir d’une *question précise.*
 
 Une question vague n’appelle pas une réponse par un nom ou un nombre. Une question précise si.
@@ -58,7 +55,6 @@ Si vous lui posez une question vague comme « Que va-t-il arriver à mon action 
 Mais si vous lui posez une question précise comme « Quel sera le cours de mon action la semaine prochaine ? », le génie n’aura pas d’autre choix que de vous donner une réponse spécifique et de prédire un cours.
 
 ## Exemples de votre réponse : données cibles
-
 Une fois que vous avez formulé votre question, vérifiez si vous avez des exemples de la réponse dans vos données.
 
 Si votre question est « Quel sera le cours de mon action la semaine prochaine ? », vous devez vous assurer que vos données incluent l’historique du cours de l’action.
@@ -72,7 +68,6 @@ Ces exemples de réponses sont appelés des cibles. Une cible correspond à ce q
 Si vous n’avez pas de données cibles, vous devez en collecter. Sans cela, vous ne pourrez pas obtenir de réponse à votre question.
 
 ## Reformulez votre question
-
 Il est parfois possible de reformuler la question pour obtenir une réponse plus utile.
 
 La question « Ce point de données est-il le point A ou B ? » prédit la catégorie (ou nom ou étiquette) d’un élément. Pour y répondre, nous utilisons un *algorithme de classification*.
@@ -93,12 +88,10 @@ Mais surtout, vous devez poser une question précise, à laquelle les données p
 
 Vous connaissez maintenant certains principes de base à observer pour poser une question à laquelle les données permettent de répondre.
 
-Nous vous invitons à consulter les autres vidéos de la série « Science des données pour les débutants » de Microsoft Azure Machine Learning.
-
+Nous vous invitons à consulter les autres vidéos de la série « Science des données pour les débutants » de Microsoft Azure Machine Learning.
 
 ## Étapes suivantes
-
-  * [Menez votre première expérience de science des données avec Azure Machine Learning](machine-learning-create-experiment.md)
-  * [Consultez la présentation de Machine Learning sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
+* [Menez votre première expérience de science des données avec Azure Machine Learning](machine-learning-create-experiment.md)
+* [Consultez la présentation de Machine Learning sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
 <!---HONumber=AcomDC_0914_2016-->

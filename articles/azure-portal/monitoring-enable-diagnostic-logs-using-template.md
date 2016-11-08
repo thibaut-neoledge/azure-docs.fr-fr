@@ -1,32 +1,32 @@
-<properties
-	pageTitle="Activer automatiquement les paramètres de diagnostic à l’aide d’un modèle Resource Manager | Microsoft Azure"
-	description="Découvrez comment utiliser un modèle Resource Manager pour créer des paramètres de diagnostic qui activeront la diffusion en continu de vos journaux de diagnostic vers Event Hubs ou leur stockage dans un compte de stockage."
-	authors="johnkemnetz"
-	manager="rboucher"
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Activer automatiquement les paramètres de diagnostic à l’aide d’un modèle Resource Manager | Microsoft Docs
+description: Découvrez comment utiliser un modèle Resource Manager pour créer des paramètres de diagnostic qui activeront la diffusion en continu de vos journaux de diagnostic vers Event Hubs ou leur stockage dans un compte de stockage.
+author: johnkemnetz
+manager: rboucher
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/26/2016"
-	ms.author="johnkem"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: johnkem
 
+---
 # Activer automatiquement les paramètres de diagnostic lors de la création de ressources à l’aide d’un modèle Resource Manager
 Dans cet article, nous vous expliquons comment utiliser un [modèle Azure Resource Manager](../resource-group-authoring-templates.md) pour configurer les paramètres de diagnostic d’une ressource lors de sa création. Cela vous permet de démarrer automatiquement la diffusion en continu de vos journaux de diagnostic et des mesures vers Event Hubs, leur archivage dans un compte de stockage ou leur envoi à Log Analytics lorsqu’une ressource est créée.
 
 La méthode d’activation des journaux de diagnostic à l’aide d’un modèle Resource Manager varie selon le type de ressource.
 
-- Les ressources **non liées au calcul** (p. ex. les groupes de sécurité réseau, les applications logiques, Automation) utilisent les [paramètres de diagnostic décrits dans cet article](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
-- Les ressources **de calcul** (basées sur WAD/LAD) utilisent le [fichier de configuration de WAD/LAD décrit dans cet article](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
+* Les ressources **non liées au calcul** (p. ex. les groupes de sécurité réseau, les applications logiques, Automation) utilisent les [paramètres de diagnostic décrits dans cet article](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+* Les ressources **de calcul** (basées sur WAD/LAD) utilisent le [fichier de configuration de WAD/LAD décrit dans cet article](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
 Dans cet article, nous expliquons comment configurer les diagnostics à l’aide de deux méthodes.
 
-Procédure de base :
+Procédure de base :
 
 1. Créez un modèle sous la forme d’un fichier JSON qui décrit comment créer la ressource et activer les diagnostics.
 2. [Déployez le modèle à l’aide de n’importe quelle méthode de déploiement](../resource-group-template-deploy.md).
@@ -37,7 +37,7 @@ Ci-dessous, nous vous donnons un exemple de modèle de fichier JSON que vous dev
 Pour les ressources non liées au calcul, vous devrez effectuer les deux opérations suivantes :
 
 1. Ajouter des paramètres à l’objet Blob de paramètres pour le nom de compte de stockage, l’ID de règle de Service Bus et/ou l’ID d’espace de travail OMS Log Analytics (activation de l’archivage des journaux de diagnostic dans un compte de stockage, de la diffusion en continu des journaux vers Event Hubs et/ou de l’envoi de journaux à Log Analytics).
-
+   
     ```json
     "storageAccountName": {
       "type": "string",
@@ -59,7 +59,7 @@ Pour les ressources non liées au calcul, vous devrez effectuer les deux opérat
     }
     ```
 2. Ajouter une ressource de type `[resource namespace]/providers/diagnosticSettings` dans le tableau de ressources de la ressource pour laquelle vous souhaitez activer les journaux de diagnostic.
-
+   
     ```json
     "resources": [
       {
@@ -180,13 +180,15 @@ Pour activer les diagnostics pour une ressource de calcul, par exemple un cluste
 2. Spécifier un compte de stockage et/ou un Event Hub comme paramètre.
 3. Ajouter le contenu de votre fichier WADCfg XML dans la propriété XMLCfg, en échappant correctement tous les caractères XML.
 
-> [AZURE.WARNING] Cette dernière étape peut être difficile à réaliser. [Consultez cet article](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md#diagnostics-configuration-variables) pour obtenir un exemple qui montre comment fractionner le schéma de configuration de diagnostics en variables échappées et mises en forme correctement.
+> [!WARNING]
+> Cette dernière étape peut être difficile à réaliser. [Consultez cet article](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md#diagnostics-configuration-variables) pour obtenir un exemple qui montre comment fractionner le schéma de configuration de diagnostics en variables échappées et mises en forme correctement.
+> 
+> 
 
 L’intégralité du processus, y compris des exemples, est décrite [dans ce document](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
 
-
 ## Étapes suivantes
-- [En savoir plus sur les journaux de diagnostic Azure](./monitoring-overview-of-diagnostic-logs.md)
-- [Stream Azure Diagnostic Logs to Event Hubs (Diffuser en continu les journaux de diagnostic Azure vers Event Hubs)](./monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [En savoir plus sur les journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Stream Azure Diagnostic Logs to Event Hubs (Diffuser en continu les journaux de diagnostic Azure vers Event Hubs)](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
 
 <!---HONumber=AcomDC_0928_2016-->

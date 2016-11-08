@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Connecter des machines virtuelles Azure à Log Analytics | Microsoft Azure"
-    description="Pour les machines virtuelles Windows et Linux s’exécutant dans Azure, il est recommandé de collecter les journaux et les métriques en installant l’extension de machine virtuelle Azure Log Analytics. Vous pouvez utiliser le portail Azure ou PowerShell pour installer l’extension de machine virtuelle Log Analytics sur des machines virtuelles Azure."
-    services="log-analytics"
-    documentationCenter=""
-    authors="richrundmsft"
-    manager="jochan"
-    editor=""/>
+---
+title: Connecter des machines virtuelles Azure à Log Analytics | Microsoft Docs
+description: Pour les machines virtuelles Windows et Linux s’exécutant dans Azure, il est recommandé de collecter les journaux et les métriques en installant l’extension de machine virtuelle Azure Log Analytics. Vous pouvez utiliser le portail Azure ou PowerShell pour installer l’extension de machine virtuelle Log Analytics sur des machines virtuelles Azure.
+services: log-analytics
+documentationcenter: ''
+author: richrundmsft
+manager: jochan
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="richrund"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: richrund
 
-
+---
 # <a name="connect-azure-virtual-machines-to-log-analytics"></a>Connecter des machines virtuelles Azure à Log Analytics
-
 Pour les ordinateurs Windows et Linux, la méthode recommandée pour collecter des journaux et des métriques est d’installer l’agent Log Analytics.
 
 Le moyen le plus simple pour installer l’agent de Log Analytics sur des machines virtuelles Azure consiste à utiliser l’extension de machine virtuelle Log Analytics.  L’utilisation de l’extension simplifie le processus d’installation et configure automatiquement l’agent pour qu’il envoie des données à l’espace de travail Log Analytics que vous spécifiez. L’agent est également mis à niveau automatiquement, de façon à ce que vous disposiez des fonctionnalités et correctifs les plus récents.
@@ -26,43 +24,42 @@ Le moyen le plus simple pour installer l’agent de Log Analytics sur des machin
 Pour des machines virtuelles Windows, vous activez l’extension de machine virtuelle *Microsoft Monitoring Agent*.
 Pour des machines virtuelles Linux, vous activez l’extension de machine virtuelle *Agent OMS pour Linux*.
 
-En savoir plus sur les [extensions de machine virtuelle Azure](../virtual-machines/virtual-machines-windows-extensions-features.md) et l’[agent Linux] (../virtual-machines/virtual-machines-linux-agent-user-guide.md).
+En savoir plus sur les [extensions de machine virtuelle Azure](../virtual-machines/virtual-machines-windows-extensions-features.md) et l’[agent Linux](../virtual-machines/virtual-machines-linux-agent-user-guide.md).
 
 Lorsque vous utilisez une collecte basée sur agent pour les données de journal, vous devez configurer des [sources de données dans Log Analytics](log-analytics-data-sources.md) afin de spécifier les journaux et les métriques à collecter.
 
->[AZURE.IMPORTANT] Si vous configurez Log Analytics pour indexer les données de journal à l’aide des [diagnostics Azure](log-analytics-azure-storage.md), et configurez l’agent pour collecter les mêmes journaux, les journaux sont collectés deux fois. Vous êtes facturé pour les deux sources de données. Si l’agent est installé, vous devriez collecter les données de journal uniquement à l’aide de l’agent. Ne configurez pas Log Analytics pour collecter les données de journal à partir des diagnostics Azure.
+> [!IMPORTANT]
+> Si vous configurez Log Analytics pour indexer les données de journal à l’aide des [diagnostics Azure](log-analytics-azure-storage.md), et configurez l’agent pour collecter les mêmes journaux, les journaux sont collectés deux fois. Vous êtes facturé pour les deux sources de données. Si l’agent est installé, vous devriez collecter les données de journal uniquement à l’aide de l’agent. Ne configurez pas Log Analytics pour collecter les données de journal à partir des diagnostics Azure.
+> 
+> 
 
-Il existe trois méthodes simples pour activer l’extension de machine virtuelle Log Analytics :
+Il existe trois méthodes simples pour activer l’extension de machine virtuelle Log Analytics :
 
-+ En utilisant le portail Azure
-+ En utilisant Azure PowerShell
-+ En utilisant un modèle Azure Resource Manager
+* En utilisant le portail Azure
+* En utilisant Azure PowerShell
+* En utilisant un modèle Azure Resource Manager
 
 ## <a name="enable-the-vm-extension-in-the-azure-portal"></a>Activer l’extension de machine virtuelle dans le portail Azure
-
 Vous pouvez installer l’agent pour Log Analytics et connecter la machine virtuelle Azure sur laquelle il s’exécute via le [portail Azure](https://portal.azure.com).
 
 ### <a name="to-install-the-log-analytics-agent-and-connect-the-virtual-machine-to-a-log-analytics-workspace"></a>Pour installer l’agent Log Analytics et connecter la machine virtuelle à un espace de travail Log Analytics
-
-1.  Connectez-vous au [portail Azure](http://portal.azure.com).
-2.  Sélectionnez **Parcourir** sur le côté gauche du portail, puis accédez à **Log Analytics (OMS)** et sélectionnez-le.
-3.  Dans la liste des espaces de travail Log Analytics, sélectionnez celui que vous voulez utiliser avec la machine virtuelle Azure.  
-    ![Espaces de travail OMS](./media/log-analytics-azure-vm-extension/oms-connect-azure-01.png)
-4.  Sous **Gestion de Log Analytics**, sélectionnez **Machines virtuelles**.  
-    ![Machines virtuelles](./media/log-analytics-azure-vm-extension/oms-connect-azure-02.png)
-5.  Dans la liste des **Machines virtuelles**, sélectionnez celle sur laquelle vous voulez installer l’agent. L’**État de la connexion OMS** pour la machine virtuelle indique que celle-ci est **Non connectée**.  
-    ![Machine virtuelle non connectée](./media/log-analytics-azure-vm-extension/oms-connect-azure-03.png)
-6.  Dans les détails de votre machine virtuelle, sélectionnez **Connecter**. L’agent est automatiquement installé et configuré pour votre espace de travail Log Analytics. Ce processus prend quelques minutes durant lesquelles l’état de la connexion OMS est *Connexion en cours...*.  
-    ![Connecter une machine virtuelle](./media/log-analytics-azure-vm-extension/oms-connect-azure-04.png)
-7.  Une fois l’agent installé et connecté, l’état de la **Connexion OMS** est mis à jour et affiche **Cet espace de travail**.  
-    ![Connecté](./media/log-analytics-azure-vm-extension/oms-connect-azure-05.png)
-
+1. Connectez-vous au [portail Azure](http://portal.azure.com).
+2. Sélectionnez **Parcourir** sur le côté gauche du portail, puis accédez à **Log Analytics (OMS)** et sélectionnez-le.
+3. Dans la liste des espaces de travail Log Analytics, sélectionnez celui que vous voulez utiliser avec la machine virtuelle Azure.  
+   ![Espaces de travail OMS](./media/log-analytics-azure-vm-extension/oms-connect-azure-01.png)
+4. Sous **Gestion de Log Analytics**, sélectionnez **Machines virtuelles**.  
+   ![Machines virtuelles](./media/log-analytics-azure-vm-extension/oms-connect-azure-02.png)
+5. Dans la liste des **Machines virtuelles**, sélectionnez celle sur laquelle vous voulez installer l’agent. L’**État de la connexion OMS** pour la machine virtuelle indique que celle-ci est **Non connectée**.  
+   ![Machine virtuelle non connectée](./media/log-analytics-azure-vm-extension/oms-connect-azure-03.png)
+6. Dans les détails de votre machine virtuelle, sélectionnez **Connecter**. L’agent est automatiquement installé et configuré pour votre espace de travail Log Analytics. Ce processus prend quelques minutes durant lesquelles l’état de la connexion OMS est *Connexion en cours...*.  
+   ![Connecter une machine virtuelle](./media/log-analytics-azure-vm-extension/oms-connect-azure-04.png)
+7. Une fois l’agent installé et connecté, l’état de la **Connexion OMS** est mis à jour et affiche **Cet espace de travail**.  
+   ![Connecté](./media/log-analytics-azure-vm-extension/oms-connect-azure-05.png)
 
 ## <a name="enable-the-vm-extension-using-powershell"></a>Activer l’extension de machine virtuelle à l’aide de PowerShell
-
 Il existe différentes commandes pour les machines virtuelles Azure Classic et Azure Resource Manager. Vous trouverez ci-dessous des exemples pour les machines virtuelles Azure Classic et Azure Resource Manager.
 
-Pour les machines virtuelles Azure Classic, utilisez l’exemple PowerShell suivant :
+Pour les machines virtuelles Azure Classic, utilisez l’exemple PowerShell suivant :
 
 ```
 Add-AzureAccount
@@ -80,7 +77,7 @@ $vm = Get-AzureVM –ServiceName $hostedService
 # Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionName 'OmsAgentForLinux' -Version '1.*' -PublicConfiguration "{'workspaceId': '$workspaceId'}" -PrivateConfiguration "{'workspaceKey': '$workspaceKey' }" | Update-AzureVM -Verbose
 ```
 
-Pour les machines virtuelles Azure Resource Manager, utilisez l’exemple PowerShell suivant :
+Pour les machines virtuelles Azure Resource Manager, utilisez l’exemple PowerShell suivant :
 
 ```
 Login-AzureRMAccount
@@ -116,19 +113,17 @@ Lorsque vous configurez votre machine virtuelle à l’aide de PowerShell, vous 
 ![ID d’espace de travail et clé primaire](./media/log-analytics-azure-vm-extension/oms-analyze-azure-sources.png)
 
 ## <a name="deploy-the-vm-extension-using-a-template"></a>Déployer l’extension de machine virtuelle à l’aide d’un modèle
-
 Azure Resource Manager vous permet de créer un modèle simple (au format JSON) définissant le déploiement et la configuration de votre application. Ce modèle est connu sous le nom de modèle Resource Manager et permet de définir le déploiement de façon déclarative. En utilisant un modèle, vous pouvez déployer votre application à plusieurs reprises tout au long de son cycle de vie, et avoir ainsi l’assurance que vos ressources sont déployées dans un état cohérent.
 
 En incluant l’agent Log Analytics dans votre modèle Resource Manager, vous êtes certain que chaque machine virtuelle est préconfigurée pour envoyer des rapports à votre espace de travail Log Analytics.
 
 Pour plus d’informations sur les modèles Azure Resource Manager, voir [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
 
-Voici un exemple de modèle Azure Resource Manager utilisé pour déployer une machine virtuelle exécutant Windows avec l’extension Microsoft Monitoring Agent installée. Il s’agit d’un modèle de machine virtuelle typique, avec les ajouts suivants :
+Voici un exemple de modèle Azure Resource Manager utilisé pour déployer une machine virtuelle exécutant Windows avec l’extension Microsoft Monitoring Agent installée. Il s’agit d’un modèle de machine virtuelle typique, avec les ajouts suivants :
 
-+ Paramètres workspaceId et workspaceName
-+ Section d’extension de ressources Microsoft.EnterpriseCloud.Monitoring
-+ Sorties pour rechercher workspaceId et workspaceSharedKey
-
+* Paramètres workspaceId et workspaceName
+* Section d’extension de ressources Microsoft.EnterpriseCloud.Monitoring
+* Sorties pour rechercher workspaceId et workspaceSharedKey
 
 ```
 {
@@ -355,58 +350,52 @@ Voici un exemple de modèle Azure Resource Manager utilisé pour déployer une m
 }
 ```
 
-Vous pouvez déployer un modèle à l’aide de la commande PowerShell suivante :
+Vous pouvez déployer un modèle à l’aide de la commande PowerShell suivante :
 
 ```
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath
 ```
 
 ## <a name="troubleshooting-windows-virtual-machines"></a>Résolution des problèmes de machines virtuelles
-
 Si l’extension d’agent de machine virtuelle *Microsoft Monitoring Agent* ne s’installe pas ou ne génère pas de rapports, vous pouvez procéder comme suit pour résoudre le problème.
 
-1. Vérifiez si l’agent de machine virtuelle Azure est installé et fonctionne correctement en suivant la procédure décrite dans l’article [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
-  + Vous pouvez également consulter le fichier journal de l’agent de machine virtuelle `C:\WindowsAzure\logs\WaAppAgent.log`.
-  + Si le journal n’existe pas, l’agent de machine virtuelle n’est pas installé.
-    - [Installez l’agent de machine virtuelle Azure sur des machines virtuelles classiques](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md).
-2. Vérifiez que la tâche de vérification des pulsations de l’extension Microsoft Monitoring Agent est en cours d’exécution en procédant comme suit :
-  + Connectez-vous à la machine virtuelle.
-  + Ouvrez le Planificateur de tâches et recherchez la tâche `update_azureoperationalinsight_agent_heartbeat`.
-  + Vérifiez que la tâche est activée et exécutée toutes les minutes.
-  + Consultez le fichier journal des pulsations dans `C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\heartbeat.log`.
+1. Vérifiez si l’agent de machine virtuelle Azure est installé et fonctionne correctement en suivant la procédure décrite dans l’article [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
+   * Vous pouvez également consulter le fichier journal de l’agent de machine virtuelle `C:\WindowsAzure\logs\WaAppAgent.log`.
+   * Si le journal n’existe pas, l’agent de machine virtuelle n’est pas installé.
+     * [Installez l’agent de machine virtuelle Azure sur des machines virtuelles classiques](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md).
+2. Vérifiez que la tâche de vérification des pulsations de l’extension Microsoft Monitoring Agent est en cours d’exécution en procédant comme suit :
+   * Connectez-vous à la machine virtuelle.
+   * Ouvrez le Planificateur de tâches et recherchez la tâche `update_azureoperationalinsight_agent_heartbeat`.
+   * Vérifiez que la tâche est activée et exécutée toutes les minutes.
+   * Consultez le fichier journal des pulsations dans `C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\heartbeat.log`.
 3. Examinez les fichiers de journaux d’extension de machine virtuelle Microsoft Monitoring Agent dans `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`.
-3. Vérifiez que la machine virtuelle peut exécuter des scripts PowerShell.
-4. Vérifiez que les autorisations sur C:\Windows\temp n’ont pas été modifiées.
-5. Affichez l’état de Microsoft Monitoring Agent en tapant ce qui suit dans une fenêtre PowerShell avec des privilèges élevés sur la machine virtuelle `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`.
-6. Examinez les fichiers journaux d’installation de Microsoft Monitoring Agent dans `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`.
+4. Vérifiez que la machine virtuelle peut exécuter des scripts PowerShell.
+5. Vérifiez que les autorisations sur C:\Windows\temp n’ont pas été modifiées.
+6. Affichez l’état de Microsoft Monitoring Agent en tapant ce qui suit dans une fenêtre PowerShell avec des privilèges élevés sur la machine virtuelle `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`.
+7. Examinez les fichiers journaux d’installation de Microsoft Monitoring Agent dans `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`.
 
 Pour plus d’informations, voir [Résolution des problèmes des extensions Windows](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md).
 
 ## <a name="troubleshooting-linux-virtual-machines"></a>Résolution des problèmes des machines virtuelles Linux
-
 Si l’extension d’agent de machine virtuelle *Agent OMS pour Linux* ne s’installe pas ou ne génère pas de rapports, vous pouvez procéder comme suit pour résoudre le problème.
 
 1. Si l’état de l’extension est *Inconnu*, vérifiez si l’agent de machine virtuelle Azure est installé et fonctionne correctement en examinant le fichier journal de l’agent de machine virtuelle `/var/log/waagent.log`
-  + Si le journal n’existe pas, l’agent de machine virtuelle n’est pas installé.
-  - [Installez l’agent de machine virtuelle Azure sur les machines virtuelles Linux](../virtual-machines/virtual-machines-linux-agent-user-guide.md).
+   * Si le journal n’existe pas, l’agent de machine virtuelle n’est pas installé.
+   * [Installez l’agent de machine virtuelle Azure sur les machines virtuelles Linux](../virtual-machines/virtual-machines-linux-agent-user-guide.md).
 2. Pour d’autres états défectueux, examinez les fichiers journaux de l’extension de machine virtuelle Agent OMS pour Linux dans `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` et `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`.
 3. Si l’état de l’extension est intègre, mais que les données ne sont pas chargées, examinez les fichiers journaux de l’Agent OMS pour Linux dans `/var/opt/microsoft/omsagent/log/omsagent.log`.
 
 Pour plus d’informations, voir [Résolution des problèmes des extensions Linux](../virtual-machines/virtual-machines-linux-extensions-troubleshoot.md).
 
-
 ## <a name="next-steps"></a>Étapes suivantes
+* Configurez les [sources de données dans Log Analytics](log-analytics-data-sources.md) pour spécifier les journaux et les métriques à collecter.
+* Pour collecter des données à partir de machines virtuelles, [ajoutez des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).
+* Pour d’autres ressources s’exécutant dans Azure, [collectez des données à l’aide des diagnostics Azure](log-analytics-azure-storage.md).
 
-+ Configurez les [sources de données dans Log Analytics](log-analytics-data-sources.md) pour spécifier les journaux et les métriques à collecter.
-+ Pour collecter des données à partir de machines virtuelles, [ajoutez des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).
-+ Pour d’autres ressources s’exécutant dans Azure, [collectez des données à l’aide des diagnostics Azure](log-analytics-azure-storage.md).
+Pour des ordinateurs qui ne sont pas dans Azure, vous pouvez installer l’agent Log Analytics à l’aide des méthodes décrites dans les articles suivants :
 
-Pour des ordinateurs qui ne sont pas dans Azure, vous pouvez installer l’agent Log Analytics à l’aide des méthodes décrites dans les articles suivants :
-
-+ [Connecter des ordinateurs Windows à Log Analytics](log-analytics-windows-agents.md)
-+ [Connecter des ordinateurs Linux à Log Analytics](log-analytics-linux-agents.md)
-
-
+* [Connecter des ordinateurs Windows à Log Analytics](log-analytics-windows-agents.md)
+* [Connecter des ordinateurs Linux à Log Analytics](log-analytics-linux-agents.md)
 
 <!--HONumber=Oct16_HO2-->
 

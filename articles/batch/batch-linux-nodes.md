@@ -1,29 +1,30 @@
-<properties
-	pageTitle="Nœuds Linux dans des pools Azure Batch | Microsoft Azure"
-	description="Découvrez comment traiter vos charges de travail de calcul parallèles sur des pools de machines virtuelles Linux dans Azure Batch."
-	services="batch"
-	documentationCenter="python"
-	authors="mmacy"
-	manager="timlt"
-	editor="" />
+---
+title: Nœuds Linux dans des pools Azure Batch | Microsoft Docs
+description: Découvrez comment traiter vos charges de travail de calcul parallèles sur des pools de machines virtuelles Linux dans Azure Batch.
+services: batch
+documentationcenter: python
+author: mmacy
+manager: timlt
+editor: ''
 
-<tags
-	ms.service="batch"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="na"
-	ms.date="09/08/2016"
-	ms.author="marsma" />
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: na
+ms.date: 09/08/2016
+ms.author: marsma
 
+---
 # Configurer des nœuds de calcul Linux dans des pools Azure Batch
-
 Vous pouvez utiliser Azure Batch pour exécuter des charges de travail de calcul parallèles sur les machines virtuelles Linux et Windows. Cet article explique comment créer des pools de nœuds de calcul Linux dans le service Batch à l’aide de bibliothèques clientes [Batch Python][py_batch_package] et [Batch .NET][api_net].
 
-> [AZURE.NOTE] [Application packages](batch-application-packages.md) ne sont actuellement pas pris en charge sur les nœuds de calcul Linux.
+> [!NOTE]
+> [Application packages](batch-application-packages.md) ne sont actuellement pas pris en charge sur les nœuds de calcul Linux.
+> 
+> 
 
 ## Configuration de la machine virtuelle
-
 Lorsque vous créez un pool de nœuds de calcul dans Azure Batch, vous avez deux options pour sélectionner la taille du nœud et le système d’exploitation : configuration des services cloud et configuration de la machine virtuelle.
 
 La **configuration des services cloud** fournit *uniquement* des nœuds de calcul Windows. Les tailles de nœud de calcul disponibles sont répertoriées dans [Tailles de services cloud](../cloud-services/cloud-services-sizes-specs.md), et les systèmes d’exploitation disponibles sont répertoriés dans [Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Lorsque vous créez un pool contenant des nœuds Azure Cloud Services, vous devez uniquement spécifier la taille du nœud et sa « famille de systèmes d’exploitation », que vous trouverez dans les articles dont il est question ci-dessus. Pour les pools de nœuds de calcul Windows, les services Cloud Services sont le plus couramment utilisés.
@@ -31,30 +32,33 @@ La **configuration des services cloud** fournit *uniquement* des nœuds de calcu
 La **Configuration de la machine virtuelle** fournit des images Linux et Windows pour les nœuds de calcul. Les tailles de nœud de calcul disponibles sont répertoriées dans [Tailles des machines virtuelles dans Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) et [Tailles des machines virtuelles dans Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). Lorsque vous créez un pool contenant des nœuds de la Configuration de la machine virtuelle, vous devez spécifier la taille des nœuds ainsi que la référence de l’image de la machine virtuelle et la référence de l’agent de nœud du Batch à installer sur les nœuds.
 
 ### Référence de l’image de la machine virtuelle
-
 Le service Batch utilise des [jeux de mise à l’échelle de machine virtuelle](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) pour fournir des nœuds de calcul Linux. Les images de système d’exploitation pour ces machines virtuelles sont fournies par [Azure Marketplace][vm_marketplace]. Lorsque vous configurez une référence d’image de machine virtuelle, vous spécifiez les propriétés d’une image de machine virtuelle Azure Marketplace. Vous avez besoin des propriétés suivantes lorsque vous créez une référence d’image de machine virtuelle :
 
 | **Propriétés de référence d’image** | **Exemple** |
-| ----------------- | ------------------------ |
-| Publisher | Canonical |
-| Offer | UbuntuServer |
-| SKU | 14\.04.4-LTS |
-| Version | le plus récent |
+| --- | --- |
+| Publisher |Canonical |
+| Offer |UbuntuServer |
+| SKU |14\.04.4-LTS |
+| Version |le plus récent |
 
-> [AZURE.TIP] Vous trouverez plus d’informations sur ces propriétés et sur la manière de répertorier des images Marketplace dans [Parcourir et sélectionner des images de machines virtuelles Linux dans Azure avec l’interface CLI ou PowerShell](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md). Notez que toutes les images Marketplace ne sont pas compatibles avec Batch pour le moment. Pour plus d’informations, consultez la rubrique [Référence de l’agent de nœud](#node-agent-sku) ci-dessous.
+> [!TIP]
+> Vous trouverez plus d’informations sur ces propriétés et sur la manière de répertorier des images Marketplace dans [Parcourir et sélectionner des images de machines virtuelles Linux dans Azure avec l’interface CLI ou PowerShell](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md). Notez que toutes les images Marketplace ne sont pas compatibles avec Batch pour le moment. Pour plus d’informations, consultez la rubrique [Référence de l’agent de nœud](#node-agent-sku) ci-dessous.
+> 
+> 
 
 ### Référence de l’agent de nœud
-
 L’agent de nœud de Batch est un programme qui s’exécute sur chaque nœud dans le pool et fournit l’interface de commande et de contrôle entre le nœud et le service Batch. Il existe différentes implémentations de l’agent de nœud pour différents systèmes d’exploitation, connues sous le nom de références. Essentiellement, lorsque vous créez une configuration de machine virtuelle, vous spécifiez d’abord la référence de l’image de la machine virtuelle, puis spécifiez l’agent de nœud à installer sur l’image. En règle générale, chaque référence d’agent de nœud est compatible avec plusieurs images de machine virtuelle. Voici quelques exemples de références d’agent de nœud :
 
 * batch.node.ubuntu 14.04
 * batch.node.centos 7
 * batch.node.windows amd64
 
-> [AZURE.IMPORTANT] Toutes les images de machine virtuelle disponibles sur Marketplace ne sont pas compatibles avec les agents de nœud Batch actuellement disponibles. Vous devez utiliser les Kits de développement logiciel (SDK) Batch pour répertorier les références d’agent de nœud disponibles ainsi que les images de machine virtuelle avec lesquelles ils sont compatibles. Pour plus d’informations, consultez la [liste des images de machine virtuelle](#list-of-virtual-machine-images) fournie dans la suite de cet article.
+> [!IMPORTANT]
+> Toutes les images de machine virtuelle disponibles sur Marketplace ne sont pas compatibles avec les agents de nœud Batch actuellement disponibles. Vous devez utiliser les Kits de développement logiciel (SDK) Batch pour répertorier les références d’agent de nœud disponibles ainsi que les images de machine virtuelle avec lesquelles ils sont compatibles. Pour plus d’informations, consultez la [liste des images de machine virtuelle](#list-of-virtual-machine-images) fournie dans la suite de cet article.
+> 
+> 
 
 ## Créer un pool Linux : Batch Python
-
 L’extrait de code suivant illustre un exemple d’utilisation de la [bibliothèque cliente Microsoft Azure Batch pour Python][py_batch_package] pour créer un pool de nœuds de calcul de serveur Ubuntu. Vous trouverez la documentation de référence pour le module Batch Python à la page [azure.batch package ][py_batch_docs] dans Lire la documentation.
 
 Cet extrait de code crée explicitement un paramètre [ImageReference][py_imagereference] et spécifie chacune de ses propriétés (éditeur, offre, référence, version). Dans un code de production, nous vous recommandons toutefois d’utiliser la méthode [list\_node\_agent\_skus][py_list_skus] pour déterminer et sélectionner les combinaisons disponibles de références d’image et de nœuds d’agent lors de l’exécution.
@@ -133,7 +137,6 @@ vmc = batchmodels.VirtualMachineConfiguration(
 ```
 
 ## Créer un pool Linux : Batch .NET
-
 L’extrait de code suivant illustre un exemple d’utilisation de la bibliothèque cliente [Batch .NET][nuget_batch_net] pour créer un pool de nœuds de calcul de serveur Ubuntu. Vous pouvez trouver la [documentation de référence sur les Batch .NET][api_net] sur MSDN.
 
 L’extrait de code suivant utilise la méthode [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] pour sélectionner des combinaisons d’images Marketplace et de références d’agent de nœud actuellement pris en charge dans la liste. Cette technique est souhaitable car la liste des combinaisons prises en charge peut changer de temps à autre. En règle générale, les combinaisons prises en charge sont ajoutées.
@@ -197,39 +200,40 @@ ImageReference imageReference = new ImageReference(
 ```
 
 ## Liste des images de machine virtuelle
-
 Le tableau suivant répertorie les images de machine virtuelle Marketplace compatibles avec les agents de nœud Batch au moment où cet article a été mis à jour. Il est important de noter que cette liste n’est pas définitive, car des images et des agents de nœud peuvent être ajoutés ou supprimés à tout moment. Nous recommandons l’utilisation de [list\_node\_agent\_skus][py_list_skus] \(Python) et [ListNodeAgentSkus][net_list_skus] \(Batch .NET) par vos services et applications Batch pour déterminer et sélectionner parmi les références actuellement disponibles.
 
-> [AZURE.WARNING] La liste suivante peut changer à tout moment. Utilisez toujours les méthodes de **création d’une liste de références d’agents de nœud** disponibles dans les API Batch pour répertorier, puis sélectionner parmi les machines virtuelles et les références d’agent de nœud compatibles lorsque vous exécutez vos travaux Batch.
+> [!WARNING]
+> La liste suivante peut changer à tout moment. Utilisez toujours les méthodes de **création d’une liste de références d’agents de nœud** disponibles dans les API Batch pour répertorier, puis sélectionner parmi les machines virtuelles et les références d’agent de nœud compatibles lorsque vous exécutez vos travaux Batch.
+> 
+> 
 
 | **Publisher** | **Offer** | **Référence d’image** | **Version** | **ID de référence de l’agent de nœud** |
-| ------- | ------- | ------- | ------- | ------- |
-| Canonical | UbuntuServer | 14\.04.0-LTS | le plus récent | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 14\.04.1-LTS | le plus récent | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 14\.04.2-LTS | le plus récent | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 14\.04.3-LTS | le plus récent | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 14\.04.4-LTS | le plus récent | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 14\.04.5-LTS | le plus récent | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 16\.04.0-LTS | le plus récent | batch.node.ubuntu 16.04 |
-| Credativ | Debian | 8 | le plus récent | batch.node.debian 8 |
-| OpenLogic | CentOS | 7\.0 | le plus récent | batch.node.centos 7 |
-| OpenLogic | CentOS | 7\.1 | le plus récent | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7\.1 | le plus récent | batch.node.centos 7 |
-| OpenLogic | CentOS | 7,2 | le plus récent | batch.node.centos 7 |
-| Oracle | Oracle-Linux | 7\.0 | le plus récent | batch.node.centos 7 |
-| SUSE | openSUSE | 13\.2 | le plus récent | batch.node.opensuse 13.2 |
-| SUSE | openSUSE-Leap | 42\.1 | le plus récent | batch.node.opensuse 42.1 |
-| SUSE | SLES-HPC | 12 | le plus récent | batch.node.opensuse 42.1 |
-| SUSE | SLES | 12-SP1 | le plus récent | batch.node.opensuse 42.1 |
-| microsoft-ads | standard-data-science-vm | standard-data-science-vm | le plus récent | batch.node.windows amd64 |
-| microsoft-ads | linux-data-science-vm | linuxdsvm | le plus récent | batch.node.centos 7 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | le plus récent | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | le plus récent | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | le plus récent | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | Windows Server Technical Preview | le plus récent | batch.node.windows amd64 |
+| --- | --- | --- | --- | --- |
+| Canonical |UbuntuServer |14\.04.0-LTS |le plus récent |batch.node.ubuntu 14.04 |
+| Canonical |UbuntuServer |14\.04.1-LTS |le plus récent |batch.node.ubuntu 14.04 |
+| Canonical |UbuntuServer |14\.04.2-LTS |le plus récent |batch.node.ubuntu 14.04 |
+| Canonical |UbuntuServer |14\.04.3-LTS |le plus récent |batch.node.ubuntu 14.04 |
+| Canonical |UbuntuServer |14\.04.4-LTS |le plus récent |batch.node.ubuntu 14.04 |
+| Canonical |UbuntuServer |14\.04.5-LTS |le plus récent |batch.node.ubuntu 14.04 |
+| Canonical |UbuntuServer |16\.04.0-LTS |le plus récent |batch.node.ubuntu 16.04 |
+| Credativ |Debian |8 |le plus récent |batch.node.debian 8 |
+| OpenLogic |CentOS |7\.0 |le plus récent |batch.node.centos 7 |
+| OpenLogic |CentOS |7\.1 |le plus récent |batch.node.centos 7 |
+| OpenLogic |CentOS-HPC |7\.1 |le plus récent |batch.node.centos 7 |
+| OpenLogic |CentOS |7,2 |le plus récent |batch.node.centos 7 |
+| Oracle |Oracle-Linux |7\.0 |le plus récent |batch.node.centos 7 |
+| SUSE |openSUSE |13\.2 |le plus récent |batch.node.opensuse 13.2 |
+| SUSE |openSUSE-Leap |42\.1 |le plus récent |batch.node.opensuse 42.1 |
+| SUSE |SLES-HPC |12 |le plus récent |batch.node.opensuse 42.1 |
+| SUSE |SLES |12-SP1 |le plus récent |batch.node.opensuse 42.1 |
+| microsoft-ads |standard-data-science-vm |standard-data-science-vm |le plus récent |batch.node.windows amd64 |
+| microsoft-ads |linux-data-science-vm |linuxdsvm |le plus récent |batch.node.centos 7 |
+| MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |le plus récent |batch.node.windows amd64 |
+| MicrosoftWindowsServer |WindowsServer |2012-Datacenter |le plus récent |batch.node.windows amd64 |
+| MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |le plus récent |batch.node.windows amd64 |
+| MicrosoftWindowsServer |WindowsServer |Windows Server Technical Preview |le plus récent |batch.node.windows amd64 |
 
 ## Se connecter à des nœuds Linux
-
 Pendant le développement ou lors de la résolution des problèmes, il peut s’avérer nécessaire de se connecter aux nœuds de votre pool. Contrairement aux nœuds de calcul Windows, vous ne pouvez pas utiliser le protocole RDP (Remote Desktop Protocol) pour se connecter à des nœuds Linux. Au lieu de cela, le service Batch autorise l’accès SSH sur chaque nœud de connexion à distance.
 
 L’extrait de code Python suivant crée un utilisateur sur chaque nœud d’un pool, nécessaire à la connexion à distance. Il imprime ensuite les informations de connexion SSH pour chaque nœud.
@@ -304,21 +308,16 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 Notez qu’au lieu d’un mot de passe, vous pouvez spécifier une clé publique SSH lorsque vous créez un utilisateur sur un nœud. Dans le kit de développement logiciel (SDK) Python, vous devez utiliser le paramètre **ssh\_public\_key** sur [ComputeNodeUser][py_computenodeuser]. Dans .NET, vous devez utiliser la propriété [ComputeNodeUser][net_computenodeuser].[SshPublicKey][net_ssh_key].
 
 ## Tarification
-
 Azure Batch est basé sur la technologie d’Azure Cloud Services et des machines virtuelles Azure. Le service Batch lui-même est proposé gratuitement, ce qui signifie que vous payez uniquement les ressources de calcul utilisées par vos solutions Batch. Si vous sélectionnez **Configuration des services cloud**, vous serez facturé en fonction de la [tarification des services cloud][cloud_services_pricing]. Si vous sélectionnez la **Configuration de la machine virtuelle**, vous serez facturé en fonction de la [tarification des machines virtuelles][vm_pricing].
 
 ## Étapes suivantes
-
 ### Didacticiel Python Batch
-
 Pour accéder à un didacticiel plus détaillé sur l’utilisation de Batch avec Python, consultez la page [Prise en main du client Python Azure Batch](batch-python-tutorial.md). Son [exemple de code][github_samples_pyclient] associé comprend une fonction d’assistance, `get_vm_config_for_distro`, qui affiche une autre technique de configuration de machines virtuelles.
 
 ### Exemples de code Batch Python
-
 Consultez les autres [exemples de code Python][github_samples_py] du référentiel [azure-batch-samples][github_samples] sur GitHub. Ce dernier présente plusieurs scripts illustrant l’exécution d’opérations Batch communes telles que la création de pools, de travaux et de tâches. Le fichier [Lisez-moi][github_py_readme] qui accompagne les exemples de code Python contient des informations sur l’installation des packages nécessaires.
 
 ### Forum Azure Batch
-
 Le [Forum Azure Batch][forum] sur MSDN est l’endroit idéal pour discuter de Batch et poser des questions sur le service. Consultez le forum pour obtenir des publications « permanentes » utiles et publiez les questions que vous vous posez pendant la création de vos solutions Batch.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx

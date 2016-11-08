@@ -1,32 +1,30 @@
-<properties 
-   pageTitle="Utilisation du connecteur de gestion des partenaires commerciaux BizTalk dans des applications logiques | Microsoft Azure App Service" 
-   description="Comment créer et configurer le connecteur de gestion des partenaires commerciaux BizTalk ou une application API et l'utiliser dans une application logique d’Azure App Service" 
-   services="logic-apps" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
-   manager="erikre" 
-   editor=""/>
+---
+title: Utilisation du connecteur de gestion des partenaires commerciaux BizTalk dans des applications logiques | Microsoft Docs
+description: Comment créer et configurer le connecteur de gestion des partenaires commerciaux BizTalk ou une application API et l'utiliser dans une application logique d’Azure App Service
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: rajeshramabathiran
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="04/20/2016"
-   ms.author="rajram"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 04/20/2016
+ms.author: rajram
 
+---
 # Prise en main du service de gestion des partenaires commerciaux BizTalk et ajout de celui-ci à votre application logique
-
-[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
-
+[!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Le service de gestion des partenaires commerciaux (TPM) BizTalk vous permet de définir et de conserver des relations interentreprises, comme les partenaires et les accords, ainsi que les artefacts associés tels que les schémas et les certificats. Ces relations peuvent alors être appliquées par les services API associés tels que AS2, EDIFACT et X12.
 
 L'application API TPM (Gestion des partenaires commerciaux) est la configuration de base requise du connecteur AS2 et des applications API X12 et EDIFACT. Vous pouvez ajouter le service de gestion des partenaires commerciaux à votre flux d’entreprise et traiter les données dans le cadre d'un flux de travail interentreprises dans une application logique.
 
 ## Configuration requise
-- Base de données SQL Azure vide : vous devez créer une base de données SQL Azure vide avant de créer une application d'API TPM.
+* Base de données SQL Azure vide : vous devez créer une base de données SQL Azure vide avant de créer une application d'API TPM.
 
 ## Compréhension des partenaires, accords et profils
 En savoir plus sur la [création d’un accord de partenariat commercial][1].
@@ -34,7 +32,10 @@ En savoir plus sur la [création d’un accord de partenariat commercial][1].
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure Logic Apps avant d'ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> [!NOTE]
+> Si vous voulez vous familiariser avec Azure Logic Apps avant d'ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> 
+> 
 
 Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 

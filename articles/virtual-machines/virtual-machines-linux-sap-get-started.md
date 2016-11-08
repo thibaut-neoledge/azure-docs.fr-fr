@@ -1,24 +1,24 @@
-<properties
-   pageTitle="Prise en main des solutions SAP | Microsoft Azure"
-   description="Découvrez les solutions SAP qui s’exécutent sur des machines virtuelles Windows dans Microsoft Azure"
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="RicksterCDN"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"
-   keywords=""/>
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="09/23/2016"
-   ms.author="rclaus"/>
+---
+title: Prise en main des solutions SAP | Microsoft Docs
+description: Découvrez les solutions SAP qui s’exécutent sur des machines virtuelles Windows dans Microsoft Azure
+services: virtual-machines-linux
+documentationcenter: ''
+author: RicksterCDN
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+keywords: ''
 
+ms.service: virtual-machines-linux
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 09/23/2016
+ms.author: rclaus
+
+---
 # Utilisation de solutions SAP sur des machines virtuelles Microsoft Azure
-
 [767598]: https://service.sap.com/sap/support/notes/767598
 [773830]: https://service.sap.com/sap/support/notes/773830
 [826037]: https://service.sap.com/sap/support/notes/826037
@@ -111,7 +111,7 @@
 [deployment-guide-4.3]: virtual-machines-linux-sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc "Joindre une machine virtuelle au domaine local – Windows uniquement"
 [deployment-guide-4.4.2]: virtual-machines-linux-sap-deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 "Linux"
 [deployment-guide-4.4]: virtual-machines-linux-sap-deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d "Télécharger, installer et activer l’agent de machine virtuelle Azure"
-[deployment-guide-4.5.1]: virtual-machines-linux-sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 "Azure PowerShell"
+[deployment-guide-4.5.1]: virtual-machines-linux-sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 "Azure PowerShell"
 [deployment-guide-4.5.2]: virtual-machines-linux-sap-deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f "Interface de ligne de commande Azure"
 [deployment-guide-4.5]: virtual-machines-linux-sap-deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca "Configurer l’extension d’analyse Azure améliorée pour SAP"
 [deployment-guide-5.1]: virtual-machines-linux-sap-deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 "Vérification de la disponibilité de l’analyse Azure améliorée pour SAP"
@@ -175,8 +175,8 @@
 [planning-guide-1.2]: virtual-machines-linux-sap-planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff "Ressources"
 [planning-guide-11.4.1]: virtual-machines-linux-sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 "Haute disponibilité pour les serveurs d’applications SAP"
 [planning-guide-11.5]: virtual-machines-linux-sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f "Utilisation du démarrage automatique pour les instances SAP"
-[planning-guide-2.1]: virtual-machines-linux-sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 "Cloud uniquement : déploiement de machines virtuelles dans Azure sans dépendances du réseau local du client"
-[planning-guide-2.2]: virtual-machines-linux-sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 "Intersite : déploiement d’une ou plusieurs machines virtuelles SAP dans Azure, dans lequel une intégration complète au réseau local est nécessaire"
+[planning-guide-2.1]: virtual-machines-linux-sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 "Cloud uniquement : déploiement de machines virtuelles dans Azure sans dépendances du réseau local du client"
+[planning-guide-2.2]: virtual-machines-linux-sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 "Intersite : déploiement d’une ou plusieurs machines virtuelles SAP dans Azure, dans lequel une intégration complète au réseau local est nécessaire"
 [planning-guide-3.1]: virtual-machines-linux-sap-planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a "Régions Azure"
 [planning-guide-3.2.1]: virtual-machines-linux-sap-planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 "Domaines d'erreur"
 [planning-guide-3.2.2]: virtual-machines-linux-sap-planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 "Domaines de mise à niveau"
@@ -190,7 +190,7 @@
 [planning-guide-5.2]: virtual-machines-linux-sap-planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7 "Préparation de machines virtuelles avec SAP pour Azure"
 [planning-guide-5.3.1]: virtual-machines-linux-sap-planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79 "Différence entre un disque Azure et une image Azure"
 [planning-guide-5.3.2]: virtual-machines-linux-sap-planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a "Chargement d’un disque dur virtuel local vers Azure"
-[planning-guide-5.4.2]: virtual-machines-linux-sap-planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 "Copie de disques entre comptes Azure Storage"
+[planning-guide-5.4.2]: virtual-machines-linux-sap-planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 "Copie de disques entre comptes Azure Storage"
 [planning-guide-5.5.1]: virtual-machines-linux-sap-planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 "Structure de machine virtuelle/disque dur virtuel pour les déploiements SAP"
 [planning-guide-5.5.3]: virtual-machines-linux-sap-planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d "Paramétrage du montage automatique pour les disques attachés"
 [planning-guide-7.1]: virtual-machines-linux-sap-planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 "Machine virtuelle unique avec scénario de démonstration/formation SAP NetWeaver"
@@ -222,7 +222,7 @@
 [planning-guide-figure-700]: ./media/virtual-machines-shared-sap-planning-guide/700-decision-tree-deploy-to-azure.png
 [planning-guide-figure-800]: ./media/virtual-machines-shared-sap-planning-guide/800-portal-vm-overview.png
 [planning-guide-microsoft-azure-networking]: virtual-machines-linux-sap-planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd "Mise en réseau Microsoft Azure"
-[planning-guide-storage-microsoft-azure-storage-and-data-disks]: virtual-machines-linux-sap-planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f "Stockage : Microsoft Azure Storage et disques de données"
+[planning-guide-storage-microsoft-azure-storage-and-data-disks]: virtual-machines-linux-sap-planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f "Stockage : Microsoft Azure Storage et disques de données"
 
 [powershell-install-configure]: ../powershell-install-configure.md
 [resource-group-authoring-templates]: ../resource-group-authoring-templates.md
@@ -249,8 +249,8 @@
 [virtual-machines-azure-resource-manager-architecture]: ../resource-manager-deployment-model.md
 [virtual-machines-azurerm-versus-azuresm]: virtual-machines-linux-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]: virtual-machines-windows-classic-configure-oracle-data-guard.md
-[virtual-machines-linux-cli-deploy-templates]: virtual-machines-linux-cli-deploy-templates.md "Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure"
-[virtual-machines-deploy-rmtemplates-powershell]: virtual-machines-windows-ps-manage.md "Gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell"
+[virtual-machines-linux-cli-deploy-templates]: virtual-machines-linux-cli-deploy-templates.md "Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure"
+[virtual-machines-deploy-rmtemplates-powershell]: virtual-machines-windows-ps-manage.md "Gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell"
 [virtual-machines-linux-agent-user-guide]: virtual-machines-linux-agent-user-guide.md
 [virtual-machines-linux-agent-user-guide-command-line-options]: virtual-machines-linux-agent-user-guide.md#command-line-options
 [virtual-machines-linux-capture-image]: virtual-machines-linux-capture-image.md
@@ -299,80 +299,70 @@ En choisissant Microsoft Azure comme partenaire SAP prêt pour le cloud, vous ê
 
 Avec les services de machine virtuelle Microsoft Azure et SAP HANA sur de grandes instances Azure, Microsoft propose une plateforme complète sous forme d’infrastructure en tant que services (IaaS). Étant donné que la plupart des solutions SAP sont prises en charge sur Azure, ce document de prise en main sert de table des matières pour nos documents SAP actuels. À mesure que d’autres titres seront ajoutés à notre bibliothèque de documents, ils seront indiqués ici.
 
-## Certifications SAP HANA sur Microsoft Azure
-
-
-Produit SAP | Systèmes d’exploitation pris en charge | Offres Azure 
----------- | ------------ | ------------- 
-SAP HANA Developer Edition (incluant le logiciel client HANA composé des pilotes SQLODBC, ODBO (Windows uniquement), ODBC et JDBC, HANA Studio et HANA Database) | Red Hat Enterprise Linux, SUSE Linux Enterprise | A7, A8
-HANA One | Red Hat Enterprise Linux, SUSE Linux Enterprise | DS14\_v2 (lors de la mise à la disposition générale)
-SAP S/4HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | Mise à disposition contrôlée pour GS5, SAP HANA sur Azure (grandes instances)
-Suite on HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | SAP HANA sur Azure (grandes instances)
-HANA Enterprise pour BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 pour déploiements à nœud unique, SAP HANA sur Azure (grandes instances)
-SAP BW/4HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 pour déploiements à nœud unique, SAP HANA sur Azure (grandes instances)
-
+## Certifications SAP HANA sur Microsoft Azure
+| Produit SAP | Systèmes d’exploitation pris en charge | Offres Azure |
+| --- | --- | --- |
+| SAP HANA Developer Edition (incluant le logiciel client HANA composé des pilotes SQLODBC, ODBO (Windows uniquement), ODBC et JDBC, HANA Studio et HANA Database) |Red Hat Enterprise Linux, SUSE Linux Enterprise |A7, A8 |
+| HANA One |Red Hat Enterprise Linux, SUSE Linux Enterprise |DS14\_v2 (lors de la mise à la disposition générale) |
+| SAP S/4HANA |Red Hat Enterprise Linux, SUSE Linux Enterprise |Mise à disposition contrôlée pour GS5, SAP HANA sur Azure (grandes instances) |
+| Suite on HANA, OLTP |Red Hat Enterprise Linux, SUSE Linux Enterprise |SAP HANA sur Azure (grandes instances) |
+| HANA Enterprise pour BW, OLAP |Red Hat Enterprise Linux, SUSE Linux Enterprise |GS5 pour déploiements à nœud unique, SAP HANA sur Azure (grandes instances) |
+| SAP BW/4HANA |Red Hat Enterprise Linux, SUSE Linux Enterprise |GS5 pour déploiements à nœud unique, SAP HANA sur Azure (grandes instances) |
 
 ## Certifications SAP NetWeaver
-
 Microsoft Azure est certifié pour les produits SAP suivants, avec un support complet de la part de Microsoft et de SAP.
 
-Produit SAP | SE invité | SGBDR | Types de machine virtuelle 
----------- | ------------ | ------------- | ------------- 
-SAP Business Suite Software | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP ASE | A5 à A11, D11 à D14, DS11 à DS14, GS1 à GS5 
-SAP Business All-in-One | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP ASE | A5 à A11, D11 à D14, DS11 à DS14, GS1 à GS5 
-SAP BusinessObjects BI | Windows | N/A | A5 à A11, D11 à D14, DS11 à DS14, GS1 à GS5 
-SAP NetWeaver | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP ASE | A5 à A11, D11 à D14, DS11 à DS14, GS1 à GS5 
+| Produit SAP | SE invité | SGBDR | Types de machine virtuelle |
+| --- | --- | --- | --- |
+| SAP Business Suite Software |Windows, SUSE Linux Enterprise |SQL Server, Oracle, DB2, SAP ASE |A5 à A11, D11 à D14, DS11 à DS14, GS1 à GS5 |
+| SAP Business All-in-One |Windows, SUSE Linux Enterprise |SQL Server, Oracle, DB2, SAP ASE |A5 à A11, D11 à D14, DS11 à DS14, GS1 à GS5 |
+| SAP BusinessObjects BI |Windows |N/A |A5 à A11, D11 à D14, DS11 à DS14, GS1 à GS5 |
+| SAP NetWeaver |Windows, SUSE Linux Enterprise |SQL Server, Oracle, DB2, SAP ASE |A5 à A11, D11 à D14, DS11 à DS14, GS1 à GS5 |
 
-
-
-[AZURE.INCLUDE [windows-warning](../../includes/virtual-machines-linux-sap-warning.md)]
+[!INCLUDE [windows-warning](../../includes/virtual-machines-linux-sap-warning.md)]
 
 ## Prise en main de SAP HANA sur Azure
+Titre : Guide de démarrage rapide pour l’installation manuelle de SAP HANA sur des machines virtuelles Azure
 
-Titre : Guide de démarrage rapide pour l’installation manuelle de SAP HANA sur des machines virtuelles Azure
+Résumé : Ce guide de démarrage rapide vous aide à configurer un système de prototype/démonstration SAP HANA à instance unique sur des machines virtuelles Azure via une installation manuelle de SAP NetWeaver 7.5 et SAP HANA SP12. Ce guide suppose que le lecteur est familiarisé avec les fondamentaux d’Azure IaaS comme le déploiement de machines virtuelles ou de réseaux virtuels à l’aide du Portail Azure ou de Powershell/CLI et la possibilité d’utiliser des modèles JSON. Le lecteur doit également être familiarisé avec SAP HANA, SAP NetWeaver et leur mode d’installation en local.
 
-Résumé : Ce guide de démarrage rapide vous aide à configurer un système de prototype/démonstration SAP HANA à instance unique sur des machines virtuelles Azure via une installation manuelle de SAP NetWeaver 7.5 et SAP HANA SP12. Ce guide suppose que le lecteur est familiarisé avec les fondamentaux d’Azure IaaS comme le déploiement de machines virtuelles ou de réseaux virtuels à l’aide du Portail Azure ou de Powershell/CLI et la possibilité d’utiliser des modèles JSON. Le lecteur doit également être familiarisé avec SAP HANA, SAP NetWeaver et leur mode d’installation en local.
-
-Mise à jour : septembre 2016
+Mise à jour : septembre 2016
 
 [Ce guide est disponible ici](virtual-machines-linux-sap-hana-get-started.md)
 
 ## Guide de démarrage rapide pour NetWeaver sous SUSE Linux sur Azure
+Titre : Test de SAP NetWeaver sur les machines virtuelles Microsoft Azure SUSE Linux
 
-Titre : Test de SAP NetWeaver sur les machines virtuelles Microsoft Azure SUSE Linux
+Résumé : Cet article décrit les divers éléments à prendre en compte lorsque vous exécutez SAP NetWeaver sur des machines virtuelles Microsoft Azure SUSE Linux. À compter du 19 mai 2016, SAP NetWeaver est officiellement pris en charge sur les machines virtuelles SUSE Linux dans Azure. Vous trouverez tous les détails concernant les versions de Linux, les versions du noyau SAP, etc. dans la note SAP 1928533 « Applications SAP sur Azure : produits et types de machines virtuelles pris en charge (SAP Applications on Azure: Supported Products and Azure VM types) ».
 
-Résumé : Cet article décrit les divers éléments à prendre en compte lorsque vous exécutez SAP NetWeaver sur des machines virtuelles Microsoft Azure SUSE Linux. À compter du 19 mai 2016, SAP NetWeaver est officiellement pris en charge sur les machines virtuelles SUSE Linux dans Azure. Vous trouverez tous les détails concernant les versions de Linux, les versions du noyau SAP, etc. dans la note SAP 1928533 « Applications SAP sur Azure : produits et types de machines virtuelles pris en charge (SAP Applications on Azure: Supported Products and Azure VM types) ».
-
-Mise à jour : septembre 2016
+Mise à jour : septembre 2016
 
 [Ce guide est disponible ici](virtual-machines-linux-sap-on-suse-quickstart.md)
 
-##  <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Planification et implémentation
+## <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Planification et implémentation
+Titre : SAP NetWeaver sur machines virtuelles Linux – Guide de planification et d’implémentation
 
-Titre : SAP NetWeaver sur machines virtuelles Linux – Guide de planification et d’implémentation
+Résumé : commencez par étudier ce document si vous envisagez d’exécuter SAP NetWeaver sur Azure Virtual Machines. Ce guide de planification et d’implémentation vous aidera à évaluer si un système existant ou planifié, basé sur SAP NetWeaver peut être déployé dans un environnement Azure Virtual Machines. Il comprend plusieurs scénarios de déploiement de SAP NetWeaver et inclut des configurations SAP spécifiques d’Azure. Il répertorie et décrit toutes les informations de configuration de SAP/Azure dont vous avez besoin pour exécuter dans un environnement SAP hybride. Il traite décrit également les mesures à prendre pour assurer une haute disponibilité des systèmes basés sur SAP NetWeaver déployés dans une infrastructure IaaS.
 
-Résumé : commencez par étudier ce document si vous envisagez d’exécuter SAP NetWeaver sur Azure Virtual Machines. Ce guide de planification et d’implémentation vous aidera à évaluer si un système existant ou planifié, basé sur SAP NetWeaver peut être déployé dans un environnement Azure Virtual Machines. Il comprend plusieurs scénarios de déploiement de SAP NetWeaver et inclut des configurations SAP spécifiques d’Azure. Il répertorie et décrit toutes les informations de configuration de SAP/Azure dont vous avez besoin pour exécuter dans un environnement SAP hybride. Il traite décrit également les mesures à prendre pour assurer une haute disponibilité des systèmes basés sur SAP NetWeaver déployés dans une infrastructure IaaS.
-
-Mise à jour : mars 2016
+Mise à jour : mars 2016
 
 [Ce guide est disponible ici][planning-guide]
+
 ## <a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Déploiement
+Titre : SAP NetWeaver sur machines virtuelles Linux – Guide de déploiement
 
-Titre : SAP NetWeaver sur machines virtuelles Linux – Guide de déploiement
+Résumé : ce document décrit la procédure de déploiement du logiciel SAP NetWeaver sur des machines virtuelles dans Azure. Ce document aborde trois scénarios de déploiement spécifiques, en mettant l’accent sur l’activation des extensions d’analyse Azure pour SAP, et inclut des conseils de dépannage concernant ces dernières. Ce document suppose que vous avez lu le guide de planification et d’implémentation.
 
-Résumé : ce document décrit la procédure de déploiement du logiciel SAP NetWeaver sur des machines virtuelles dans Azure. Ce document aborde trois scénarios de déploiement spécifiques, en mettant l’accent sur l’activation des extensions d’analyse Azure pour SAP, et inclut des conseils de dépannage concernant ces dernières. Ce document suppose que vous avez lu le guide de planification et d’implémentation.
-
-Mise à jour : mars 2016
+Mise à jour : mars 2016
 
 [Ce guide est disponible ici][deployment-guide]
 
 ## <a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>Guide de déploiement SGBD
+Titre : SAP NetWeaver sur machines virtuelles Linux – Guide de déploiement SGBD
 
-Titre : SAP NetWeaver sur machines virtuelles Linux – Guide de déploiement SGBD
+Résumé : ce document porte sur les éléments à prendre en compte pour la planification et l’implémentation des systèmes de gestion de base de données qui doivent s’exécuter conjointement avec SAP. La première partie répertorie et présente les considérations générales. Les parties suivantes du document concernent des déploiements de SGBD différents dans Azure pris en charge par SAP. Les autres SGBD présentés sont SQL Server, SAP ASE et Oracle. Ces sections présentent les éléments à prendre en compte lors de l’exécution de systèmes SAP sur Azure avec ces systèmes de gestion de base de données. D’autres sections présentent les méthodes de sauvegarde et de haute disponibilité prises en charge par les différents systèmes de gestion de base de données sur Azure dans le cadre d’une utilisation avec des applications SAP.
 
-Résumé : ce document porte sur les éléments à prendre en compte pour la planification et l’implémentation des systèmes de gestion de base de données qui doivent s’exécuter conjointement avec SAP. La première partie répertorie et présente les considérations générales. Les parties suivantes du document concernent des déploiements de SGBD différents dans Azure pris en charge par SAP. Les autres SGBD présentés sont SQL Server, SAP ASE et Oracle. Ces sections présentent les éléments à prendre en compte lors de l’exécution de systèmes SAP sur Azure avec ces systèmes de gestion de base de données. D’autres sections présentent les méthodes de sauvegarde et de haute disponibilité prises en charge par les différents systèmes de gestion de base de données sur Azure dans le cadre d’une utilisation avec des applications SAP.
-
-Mise à jour : mars 2016
+Mise à jour : mars 2016
 
 [Ce guide est disponible ici][dbms-guide]
 

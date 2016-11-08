@@ -1,104 +1,102 @@
-<properties 
-	pageTitle="Programmation DocumentDB : procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur | Microsoft Azure" 
-	description="Apprenez à utiliser DocumentDB pour écrire des procédures stockées, des déclencheurs de base de données et des fonctions définies par l’utilisateur en JavaScript. Obtenez notamment des conseils en matière de programmation de base de données." 
-	keywords="Déclencheurs de base de données, procédure stockée, procédure stockée, programme de base de données, sproc, documentdb, azure, Microsoft azure"
-	services="documentdb" 
-	documentationCenter="" 
-	authors="aliuy" 
-	manager="jhubbard" 
-	editor="mimig"/>
+---
+title: 'Programmation DocumentDB : procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur | Microsoft Docs'
+description: Apprenez à utiliser DocumentDB pour écrire des procédures stockées, des déclencheurs de base de données et des fonctions définies par l’utilisateur en JavaScript. Obtenez notamment des conseils en matière de programmation de base de données.
+keywords: Déclencheurs de base de données, procédure stockée, procédure stockée, programme de base de données, sproc, documentdb, azure, Microsoft azure
+services: documentdb
+documentationcenter: ''
+author: aliuy
+manager: jhubbard
+editor: mimig
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/30/2016" 
-	ms.author="andrl"/>
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/30/2016
+ms.author: andrl
 
+---
 # Programmation DocumentDB côté serveur : procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur
-
 Découvrez comment l’exécution transactionnelle de JavaScript intégrée au langage d’Azure DocumentDB permet aux développeurs d’écrire des **procédures stockées**, des **déclencheurs** et des **fonctions définies par l’utilisateur** en JavaScript en mode natif. Vous pouvez ainsi écrire une logique d’application de programme de base de données qui peut être expédiée et exécutée directement dans les partitions de stockage de base de données.
 
 Nous vous recommandons de commencer par regarder la vidéo suivante, dans laquelle Andrew Liu présente brièvement le modèle de programmation de base de données côté serveur de DocumentDB.
 
-> [AZURE.VIDEO azure-demo-a-quick-intro-to-azure-documentdbs-server-side-javascript]
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Demo-A-Quick-Intro-to-Azure-DocumentDBs-Server-Side-Javascript/player]
+> 
+> 
 
 Ensuite, revenez à cet article dans lequel vous découvrirez les réponses aux questions suivantes :
 
-- Comment écrire une procédure stockée, un déclencheur ou une fonction définie par l'utilisateur à l'aide de JavaScript ?
-- Comment DocumentDB offre-il une garantie ACID ?
-- Comment fonctionnent les transactions dans DocumentDB ?
-- Qu'est-ce que les pré-déclencheurs et les post-déclencheurs, et comment procède-t-on pour leur écriture ?
-- Comment enregistrer et exécuter une procédure stockée, un déclencheur ou une fonction définie par l'utilisateur sur la base de l'architecture REST avec HTTP ?
-- Quels sont les Kits de développement logiciel (SDK) DocumentDB disponibles pour créer et exécuter des procédures stockées, des déclencheurs et des fonctions définies par l'utilisateur ?
+* Comment écrire une procédure stockée, un déclencheur ou une fonction définie par l'utilisateur à l'aide de JavaScript ?
+* Comment DocumentDB offre-il une garantie ACID ?
+* Comment fonctionnent les transactions dans DocumentDB ?
+* Qu'est-ce que les pré-déclencheurs et les post-déclencheurs, et comment procède-t-on pour leur écriture ?
+* Comment enregistrer et exécuter une procédure stockée, un déclencheur ou une fonction définie par l'utilisateur sur la base de l'architecture REST avec HTTP ?
+* Quels sont les Kits de développement logiciel (SDK) DocumentDB disponibles pour créer et exécuter des procédures stockées, des déclencheurs et des fonctions définies par l'utilisateur ?
 
 ## Introduction à la programmation de procédures stockées et de fonctions définies par l’utilisateur
-
 Cette approche du *« JavaScript en tant que langage T-SQL actualisé »* libère les développeurs d’applications des complexités liées aux incompatibilités de système de type et aux technologies de mappage de relationnel objet. Elle présente également une série d'avantages intrinsèques pouvant être utilisés pour créer des applications enrichies :
 
--	**Logique procédurale :** JavaScript en tant que langage de programmation de haut niveau offre une interface riche et familière permettant d’exprimer la logique métier. Vous pouvez effectuer des séquences d'opérations complexes plus proches des données.
-
--	**Transactions atomiques :** DocumentDB s’assure que les opérations de base de données effectuées au sein d'un déclencheur ou d’une procédure stockée unique sont atomiques. Cela permet à une application de combiner des applications connexes en un seul lot de façon à ce que toutes réussissent ou qu’aucune ne réussisse.
-
--	**Performances :** Le fait que JSON soit intrinsèquement mappé au système de type de langage Javascript et qu’il constitue l’unité de base du stockage dans DocumentDB permet une série d’optimisations telles que la matérialisation différée de documents JSON dans le pool de mémoires tampons et leur mise à disposition à la demande au code en cours d'exécution. Il existe d'autres avantages en matière de performances en lien avec l'expédition de la logique métier à la base de données :
-	-	Traitement par lot - Les développeurs peuvent regrouper les opérations telles que les insertions et les envoyer en bloc. Le coût lié à la latence du trafic réseau et la surcharge en matière de stockage pour créer des transactions séparées sont considérablement réduits.
-	-	Précompilation - DocumentDB précompile les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur pour éviter les frais de compilation JavaScript liés à chaque appel. La surcharge liée à la création du code d'octet pour la logique procédurale est amortie à une valeur minimale.
-	-	Séquencement - De nombreuses opérations requièrent un effet secondaire (« déclencheur ») qui implique potentiellement d'effectuer une ou plusieurs opérations de stockage secondaires. En dehors de l'atomicité, ceci est plus performant lors du déplacement vers le serveur.
--	**Encapsulation :** Les procédures stockées peuvent être utilisées pour regrouper la logique métier à un endroit. Ceci présente deux avantages :
-	-	Une couche d'abstraction est ajoutée aux données brutes, ce qui permet aux architectes de données de faire évoluer leurs applications indépendamment des données. Ceci est particulièrement avantageux lorsque les données ne présentent pas de schéma, en raison des hypothèses fragiles devant être intégrées à l'application si elles doivent gérer des données directement.
-	-	Cette abstraction permet aux entreprises d'assurer la sécurité de leurs données en simplifiant l'accès à partir des scripts.
+* **Logique procédurale :** JavaScript en tant que langage de programmation de haut niveau offre une interface riche et familière permettant d’exprimer la logique métier. Vous pouvez effectuer des séquences d'opérations complexes plus proches des données.
+* **Transactions atomiques :** DocumentDB s’assure que les opérations de base de données effectuées au sein d'un déclencheur ou d’une procédure stockée unique sont atomiques. Cela permet à une application de combiner des applications connexes en un seul lot de façon à ce que toutes réussissent ou qu’aucune ne réussisse.
+* **Performances :** Le fait que JSON soit intrinsèquement mappé au système de type de langage Javascript et qu’il constitue l’unité de base du stockage dans DocumentDB permet une série d’optimisations telles que la matérialisation différée de documents JSON dans le pool de mémoires tampons et leur mise à disposition à la demande au code en cours d'exécution. Il existe d'autres avantages en matière de performances en lien avec l'expédition de la logique métier à la base de données :
+  
+  * Traitement par lot - Les développeurs peuvent regrouper les opérations telles que les insertions et les envoyer en bloc. Le coût lié à la latence du trafic réseau et la surcharge en matière de stockage pour créer des transactions séparées sont considérablement réduits.
+  * Précompilation - DocumentDB précompile les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur pour éviter les frais de compilation JavaScript liés à chaque appel. La surcharge liée à la création du code d'octet pour la logique procédurale est amortie à une valeur minimale.
+  * Séquencement - De nombreuses opérations requièrent un effet secondaire (« déclencheur ») qui implique potentiellement d'effectuer une ou plusieurs opérations de stockage secondaires. En dehors de l'atomicité, ceci est plus performant lors du déplacement vers le serveur.
+* **Encapsulation :** Les procédures stockées peuvent être utilisées pour regrouper la logique métier à un endroit. Ceci présente deux avantages :
+  * Une couche d'abstraction est ajoutée aux données brutes, ce qui permet aux architectes de données de faire évoluer leurs applications indépendamment des données. Ceci est particulièrement avantageux lorsque les données ne présentent pas de schéma, en raison des hypothèses fragiles devant être intégrées à l'application si elles doivent gérer des données directement.
+  * Cette abstraction permet aux entreprises d'assurer la sécurité de leurs données en simplifiant l'accès à partir des scripts.
 
 La création et l’exécution de déclencheurs de base de données, de procédures stockées et d’opérateurs de requête personnalisés sont prises en charge par le biais de l’[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), de [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) et de [Kits de développement logiciel (SDK) clients](documentdb-sdk-dotnet.md) de nombreuses plateformes, dont .NET, Node.js et JavaScript.
 
 **Ce didacticiel utilise le [Kit de développement logiciel (SDK) Node.js avec Q Promises](http://azure.github.io/azure-documentdb-node-q/)** pour illustrer la syntaxe et l’utilisation des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur.
 
 ## Procédures stockées
-
-### Exemple : Écriture d’une simple procédure stockée 
+### Exemple : Écriture d’une simple procédure stockée
 Commençons par une simple procédure stockée qui renvoie une réponse « Hello World ».
 
-	var helloWorldStoredProc = {
-	    id: "helloWorld",
-	    body: function () {
-	        var context = getContext();
-	        var response = context.getResponse();
-	
-	        response.setBody("Hello, World");
-	    }
-	}
+    var helloWorldStoredProc = {
+        id: "helloWorld",
+        body: function () {
+            var context = getContext();
+            var response = context.getResponse();
+
+            response.setBody("Hello, World");
+        }
+    }
 
 
 Les procédures stockées sont enregistrées par collection, et elles peuvent s'appliquer à tout document et toute pièce jointe figurant dans cette collection. L'extrait de code suivant indique comment enregistrer la procédure stockée helloWorld avec une collection.
 
-	// register the stored procedure
-	var createdStoredProcedure;
-	client.createStoredProcedureAsync('dbs/testdb/colls/testColl', helloWorldStoredProc)
-		.then(function (response) {
-		    createdStoredProcedure = response.resource;
-		    console.log("Successfully created stored procedure");
-		}, function (error) {
-		    console.log("Error", error);
-		});
+    // register the stored procedure
+    var createdStoredProcedure;
+    client.createStoredProcedureAsync('dbs/testdb/colls/testColl', helloWorldStoredProc)
+        .then(function (response) {
+            createdStoredProcedure = response.resource;
+            console.log("Successfully created stored procedure");
+        }, function (error) {
+            console.log("Error", error);
+        });
 
 
 Une fois que la procédure stockée est enregistrée, nous pouvons l'exécuter sur la base de la collection et renvoyer les résultats au client.
 
-	// execute the stored procedure
-	client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld')
-		.then(function (response) {
-		    console.log(response.result); // "Hello, World"
-		}, function (err) {
-		    console.log("Error", error);
-		});
+    // execute the stored procedure
+    client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld')
+        .then(function (response) {
+            console.log(response.result); // "Hello, World"
+        }, function (err) {
+            console.log("Error", error);
+        });
 
 
 L'objet context donne accès à toutes les opérations pouvant être effectuées dans le stockage DocumentDB, ainsi que l'accès aux objets request et response. En l'occurrence, nous avons utilisé l'objet response pour définir le corps de la réponse renvoyée au client. Pour plus d’informations, consultez la [documentation du Kit de développement logiciel (SDK) du serveur JavaScript DocumentDB](http://azure.github.io/azure-documentdb-js-server/).
 
 Extrapolons à partir de cet exemple et ajoutons à la procédure stockée d'autres fonctionnalités liées à la base de données. Les procédures stockées peuvent créer, mettre à jour, lire, interroger et supprimer des documents et des pièces jointes au sein de la collection.
 
-### Exemple : Écriture d’une procédure stockée pour créer un document 
+### Exemple : Écriture d’une procédure stockée pour créer un document
 L'extrait de code suivant indique comment utiliser l'objet context pour interagir avec les ressources DocumentDB.
 
     var createDocumentStoredProc = {
@@ -122,30 +120,30 @@ Cette procédure stockée prend en entrée documentToCreate, le corps d'un docum
 
 Dans l'exemple ci-dessous, la fonction de rappel génère une erreur si l'opération a échoué. Dans le cas contraire, elle définit l'ID du document créé en tant que corps de la réponse au client. Voici la façon dont cette procédure stockée est exécutée avec des paramètres d'entrée.
 
-	// register the stored procedure
-	client.createStoredProcedureAsync('dbs/testdb/colls/testColl', createDocumentStoredProc)
-		.then(function (response) {
-		    var createdStoredProcedure = response.resource;
-	
-		    // run stored procedure to create a document
-		    var docToCreate = {
-		        id: "DocFromSproc",
-		        book: "The Hitchhiker’s Guide to the Galaxy",
-		        author: "Douglas Adams"
-		    };
-	
-		    return client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/createMyDocument',
-	              docToCreate);
-		}, function (error) {
-		    console.log("Error", error);
-		})
-	.then(function (response) {
-	    console.log(response); // "DocFromSproc"
-	}, function (error) {
-	    console.log("Error", error);
-	});
+    // register the stored procedure
+    client.createStoredProcedureAsync('dbs/testdb/colls/testColl', createDocumentStoredProc)
+        .then(function (response) {
+            var createdStoredProcedure = response.resource;
 
-	
+            // run stored procedure to create a document
+            var docToCreate = {
+                id: "DocFromSproc",
+                book: "The Hitchhiker’s Guide to the Galaxy",
+                author: "Douglas Adams"
+            };
+
+            return client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/createMyDocument',
+                  docToCreate);
+        }, function (error) {
+            console.log("Error", error);
+        })
+    .then(function (response) {
+        console.log(response); // "DocFromSproc"
+    }, function (error) {
+        console.log("Error", error);
+    });
+
+
 Notez que cette procédure stockée peut être modifiée pour accepter en entrée un tableau de corps de document et pour les créer dans la même exécution de procédure stockée au lieu de plusieurs demandes du réseau visant à les créer chacune séparément. Ceci peut être utilisé pour mettre en œuvre une importation en bloc efficace pour DocumentDB (nous aborderons ce point plus tard dans ce didacticiel).
 
 L'exemple décrit ci-dessus a illustré la façon d'utiliser des procédures stockées. Nous verrons les déclencheurs et les fonctions définies par l'utilisateur plus loin dans ce didacticiel.
@@ -157,68 +155,68 @@ En bref, l'atomicité permet de s'assurer que tout le travail effectué au sein 
 
 Dans DocumentDB, JavaScript est hébergé dans le même espace mémoire que la base de données. Par conséquent, les demandes effectuées au sein de procédures stockées et de déclencheurs s'exécutent dans la même étendue qu'une session de base de données. Cela permet à DocumentDB de garantir ACID pour toutes les opérations faisant partie d'une seule procédure stockée ou d'un seul déclencheur. Envisageons la définition de procédure stockée suivante :
 
-	// JavaScript source code
-	var exchangeItemsSproc = {
-	    name: "exchangeItems",
-	    body: function (playerId1, playerId2) {
-	        var context = getContext();
-	        var collection = context.getCollection();
-	        var response = context.getResponse();
-	
-	        var player1Document, player2Document;
-	
-	        // query for players
-	        var filterQuery = 'SELECT * FROM Players p where p.id  = "' + playerId1 + '"';
-	        var accept = collection.queryDocuments(collection.getSelfLink(), filterQuery, {},
-	            function (err, documents, responseOptions) {
-	                if (err) throw new Error("Error" + err.message);
-	
-	                if (documents.length != 1) throw "Unable to find both names";
-	                player1Document = documents[0];
-	
-	                var filterQuery2 = 'SELECT * FROM Players p where p.id = "' + playerId2 + '"';
-	                var accept2 = collection.queryDocuments(collection.getSelfLink(), filterQuery2, {},
-	                    function (err2, documents2, responseOptions2) {
-	                        if (err2) throw new Error("Error" + err2.message);
-	                        if (documents2.length != 1) throw "Unable to find both names";
-	                        player2Document = documents2[0];
-	                        swapItems(player1Document, player2Document);
-	                        return;
-	                    });
-	                if (!accept2) throw "Unable to read player details, abort ";
-	            });
-	
-	        if (!accept) throw "Unable to read player details, abort ";
-	
-	        // swap the two players’ items
-	        function swapItems(player1, player2) {
-	            var player1ItemSave = player1.item;
-	            player1.item = player2.item;
-	            player2.item = player1ItemSave;
-	
-	            var accept = collection.replaceDocument(player1._self, player1,
-	                function (err, docReplaced) {
-					    if (err) throw "Unable to update player 1, abort ";
-	
-					    var accept2 = collection.replaceDocument(player2._self, player2,
-	                        function (err2, docReplaced2) {
-							    if (err) throw "Unable to update player 2, abort"
-							});
-	
-					    if (!accept2) throw "Unable to update player 2, abort";
-					});
-	
-	            if (!accept) throw "Unable to update player 1, abort";
-	        }
-	    }
-	}
-	
-	// register the stored procedure in Node.js client
-	client.createStoredProcedureAsync(collection._self, exchangeItemsSproc)
-		.then(function (response) {
-		    var createdStoredProcedure = response.resource;
-		}
-	);
+    // JavaScript source code
+    var exchangeItemsSproc = {
+        name: "exchangeItems",
+        body: function (playerId1, playerId2) {
+            var context = getContext();
+            var collection = context.getCollection();
+            var response = context.getResponse();
+
+            var player1Document, player2Document;
+
+            // query for players
+            var filterQuery = 'SELECT * FROM Players p where p.id  = "' + playerId1 + '"';
+            var accept = collection.queryDocuments(collection.getSelfLink(), filterQuery, {},
+                function (err, documents, responseOptions) {
+                    if (err) throw new Error("Error" + err.message);
+
+                    if (documents.length != 1) throw "Unable to find both names";
+                    player1Document = documents[0];
+
+                    var filterQuery2 = 'SELECT * FROM Players p where p.id = "' + playerId2 + '"';
+                    var accept2 = collection.queryDocuments(collection.getSelfLink(), filterQuery2, {},
+                        function (err2, documents2, responseOptions2) {
+                            if (err2) throw new Error("Error" + err2.message);
+                            if (documents2.length != 1) throw "Unable to find both names";
+                            player2Document = documents2[0];
+                            swapItems(player1Document, player2Document);
+                            return;
+                        });
+                    if (!accept2) throw "Unable to read player details, abort ";
+                });
+
+            if (!accept) throw "Unable to read player details, abort ";
+
+            // swap the two players’ items
+            function swapItems(player1, player2) {
+                var player1ItemSave = player1.item;
+                player1.item = player2.item;
+                player2.item = player1ItemSave;
+
+                var accept = collection.replaceDocument(player1._self, player1,
+                    function (err, docReplaced) {
+                        if (err) throw "Unable to update player 1, abort ";
+
+                        var accept2 = collection.replaceDocument(player2._self, player2,
+                            function (err2, docReplaced2) {
+                                if (err) throw "Unable to update player 2, abort"
+                            });
+
+                        if (!accept2) throw "Unable to update player 2, abort";
+                    });
+
+                if (!accept) throw "Unable to update player 1, abort";
+            }
+        }
+    }
+
+    // register the stored procedure in Node.js client
+    client.createStoredProcedureAsync(collection._self, exchangeItemsSproc)
+        .then(function (response) {
+            var createdStoredProcedure = response.resource;
+        }
+    );
 
 Cette procédure stockée utilise des transactions au sein d'une application de jeu pour échanger des éléments entre deux joueurs en une seule opération. Elle essaie de lire deux documents, correspondant chacun aux ID de joueur transmis en tant qu'arguments. Si les deux documents de joueur sont trouvés, la procédure stockée les met à jour en intervertissant leurs éléments. Si des erreurs se produisent en chemin, elle génère une exception JavaScript qui annule implicitement la transaction.
 
@@ -226,9 +224,9 @@ Si la collection de la procédure stockée est enregistrée sur une collection �
 
 ### Validation et restauration
 Les transactions sont intégrées de façon approfondie et native dans le modèle de programmation JavaScript de DocumentDB. Dans une fonction JavaScript, toutes les opérations sont automatiquement encapsulées dans une transaction unique. Si le code JavaScript s'exécute sans erreur, les opérations dans la base de données sont validées. En effet, les instructions BEGIN TRANSACTION et COMMIT TRANSACTION dans des bases de données relationnelles sont implicites dans DocumentDB.
- 
+
 Si une exception est propagée à partir du script, le runtime JavaScript de DocumentDB annule la transaction dans son ensemble. Comme illustré dans l'exemple précédent, la génération d'une exception équivaut en fait à une instruction ROLLBACK TRANSACTION dans DocumentDB.
- 
+
 ### Cohérence des données
 Les procédures stockées et les déclencheurs sont toujours exécutés dans le réplica principal de la collection DocumentDB. Cela permet de s'assurer que les lectures à partir des procédures stockées offrent une cohérence forte. Les requêtes utilisant des fonctions définies par l'utilisateur peuvent être exécutées dans le réplica principal ou n'importe quel réplica secondaire, mais nous veillons à répondre au niveau de cohérence demandé en choisissant le réplica approprié.
 
@@ -242,246 +240,250 @@ Les fonctions JavaScript sont également liées lors de la consommation de resso
 ### Exemple : importation de données en bloc dans un programme de base de données
 Ci-dessous se trouve un exemple de procédure stockée qui a été écrite pour importer des documents en bloc dans une collection. Notez la façon dont la procédure stockée gère l'exécution liée en vérifiant la valeur de retour booléenne à partir de createDocument, puis utilise le nombre de documents insérés dans chaque appel de la procédure stockée pour effectuer le suivi de la progression et la reprendre d'un lot à un autre.
 
-	function bulkImport(docs) {
-	    var collection = getContext().getCollection();
-	    var collectionLink = collection.getSelfLink();
-	
-	    // The count of imported docs, also used as current doc index.
-	    var count = 0;
-	
-	    // Validate input.
-	    if (!docs) throw new Error("The array is undefined or null.");
-	
-	    var docsLength = docs.length;
-	    if (docsLength == 0) {
-	        getContext().getResponse().setBody(0);
-	    }
-	
-	    // Call the create API to create a document.
-	    tryCreate(docs[count], callback);
-	
-	    // Note that there are 2 exit conditions:
-	    // 1) The createDocument request was not accepted. 
-	    //    In this case the callback will not be called, we just call setBody and we are done.
-	    // 2) The callback was called docs.length times.
-	    //    In this case all documents were created and we don’t need to call tryCreate anymore. Just call setBody and we are done.
-	    function tryCreate(doc, callback) {
-	        var isAccepted = collection.createDocument(collectionLink, doc, callback);
-	
-	        // If the request was accepted, callback will be called.
-	        // Otherwise report current count back to the client, 
-	        // which will call the script again with remaining set of docs.
-	        if (!isAccepted) getContext().getResponse().setBody(count);
-	    }
-	
-	    // This is called when collection.createDocument is done in order to process the result.
-	    function callback(err, doc, options) {
-	        if (err) throw err;
-	
-	        // One more document has been inserted, increment the count.
-	        count++;
-	
-	        if (count >= docsLength) {
-	            // If we created all documents, we are done. Just set the response.
-	            getContext().getResponse().setBody(count);
-	        } else {
-	            // Create next document.
-	            tryCreate(docs[count], callback);
-	        }
-	    }
-	}
+    function bulkImport(docs) {
+        var collection = getContext().getCollection();
+        var collectionLink = collection.getSelfLink();
+
+        // The count of imported docs, also used as current doc index.
+        var count = 0;
+
+        // Validate input.
+        if (!docs) throw new Error("The array is undefined or null.");
+
+        var docsLength = docs.length;
+        if (docsLength == 0) {
+            getContext().getResponse().setBody(0);
+        }
+
+        // Call the create API to create a document.
+        tryCreate(docs[count], callback);
+
+        // Note that there are 2 exit conditions:
+        // 1) The createDocument request was not accepted. 
+        //    In this case the callback will not be called, we just call setBody and we are done.
+        // 2) The callback was called docs.length times.
+        //    In this case all documents were created and we don’t need to call tryCreate anymore. Just call setBody and we are done.
+        function tryCreate(doc, callback) {
+            var isAccepted = collection.createDocument(collectionLink, doc, callback);
+
+            // If the request was accepted, callback will be called.
+            // Otherwise report current count back to the client, 
+            // which will call the script again with remaining set of docs.
+            if (!isAccepted) getContext().getResponse().setBody(count);
+        }
+
+        // This is called when collection.createDocument is done in order to process the result.
+        function callback(err, doc, options) {
+            if (err) throw err;
+
+            // One more document has been inserted, increment the count.
+            count++;
+
+            if (count >= docsLength) {
+                // If we created all documents, we are done. Just set the response.
+                getContext().getResponse().setBody(count);
+            } else {
+                // Create next document.
+                tryCreate(docs[count], callback);
+            }
+        }
+    }
 
 ## <a id="trigger"></a> Déclencheurs de base de données
 ### Pré-déclencheurs de base de données
 DocumentDB fournit des déclencheurs qui sont exécutés ou déclenchés par une opération dans un document. Par exemple, vous pouvez spécifier un pré-déclencheur lorsque vous créez un document ; ce pré-déclencheur s'exécutera avant la création du document Voici un exemple de la façon dont les pré-déclencheurs peuvent être utilisés pour valider les propriétés d'un document en cours de création.
 
-	var validateDocumentContentsTrigger = {
-	    name: "validateDocumentContents",
-	    body: function validate() {
-	        var context = getContext();
-	        var request = context.getRequest();
-	
-	        // document to be created in the current operation
-	        var documentToCreate = request.getBody();
-	
-	        // validate properties
-	        if (!("timestamp" in documentToCreate)) {
-	            var ts = new Date();
-	            documentToCreate["my timestamp"] = ts.getTime();
-	        }
-	
-	        // update the document that will be created
-	        request.setBody(documentToCreate);
-	    },
-	    triggerType: TriggerType.Pre,
-	    triggerOperation: TriggerOperation.Create
-	}
+    var validateDocumentContentsTrigger = {
+        name: "validateDocumentContents",
+        body: function validate() {
+            var context = getContext();
+            var request = context.getRequest();
+
+            // document to be created in the current operation
+            var documentToCreate = request.getBody();
+
+            // validate properties
+            if (!("timestamp" in documentToCreate)) {
+                var ts = new Date();
+                documentToCreate["my timestamp"] = ts.getTime();
+            }
+
+            // update the document that will be created
+            request.setBody(documentToCreate);
+        },
+        triggerType: TriggerType.Pre,
+        triggerOperation: TriggerOperation.Create
+    }
 
 
 Ainsi que le code d'enregistrement côté client Node.js correspondant pour le déclencheur :
 
-	// register pre-trigger
-	client.createTriggerAsync(collection.self, validateDocumentContentsTrigger)
-		.then(function (response) {
-		    console.log("Created", response.resource);
-		    var docToCreate = {
-		        id: "DocWithTrigger",
-		        event: "Error",
-		        source: "Network outage"
-		    };
-	
-		    // run trigger while creating above document 
-		    var options = { preTriggerInclude: "validateDocumentContents" };
-	
-		    return client.createDocumentAsync(collection.self,
-	              docToCreate, options);
-		}, function (error) {
-		    console.log("Error", error);
-		})
-	.then(function (response) {
-	    console.log(response.resource); // document with timestamp property added
-	}, function (error) {
-	    console.log("Error", error);
-	});
+    // register pre-trigger
+    client.createTriggerAsync(collection.self, validateDocumentContentsTrigger)
+        .then(function (response) {
+            console.log("Created", response.resource);
+            var docToCreate = {
+                id: "DocWithTrigger",
+                event: "Error",
+                source: "Network outage"
+            };
+
+            // run trigger while creating above document 
+            var options = { preTriggerInclude: "validateDocumentContents" };
+
+            return client.createDocumentAsync(collection.self,
+                  docToCreate, options);
+        }, function (error) {
+            console.log("Error", error);
+        })
+    .then(function (response) {
+        console.log(response.resource); // document with timestamp property added
+    }, function (error) {
+        console.log("Error", error);
+    });
 
 
 Les pré-déclencheurs ne peuvent pas avoir de paramètres en entrée. L'objet request peut être utilisé pour manipuler le message de demande associé à l'opération. Ici, le pré-déclencheur est exécuté avec la création d'un document et le corps du message de demande contient le document à créer au format JSON.
 
 Lorsque les déclencheurs sont enregistrés, les utilisateurs peuvent spécifier les opérations avec lesquelles il peut s'exécuter. Ce déclencheur a été créé avec TriggerOperation.Create, ce qui signifie que le code suivant n'est pas autorisé.
 
-	var options = { preTriggerInclude: "validateDocumentContents" };
-	
-	client.replaceDocumentAsync(docToReplace.self,
-	              newDocBody, options)
-	.then(function (response) {
-	    console.log(response.resource);
-	}, function (error) {
-	    console.log("Error", error);
-	});
-	
-	// Fails, can’t use a create trigger in a replace operation
+    var options = { preTriggerInclude: "validateDocumentContents" };
+
+    client.replaceDocumentAsync(docToReplace.self,
+                  newDocBody, options)
+    .then(function (response) {
+        console.log(response.resource);
+    }, function (error) {
+        console.log("Error", error);
+    });
+
+    // Fails, can’t use a create trigger in a replace operation
 
 ### Post-déclencheurs de base de données
 Les post-déclencheurs, comme les pré-déclencheurs, sont associés à une opération dans un document et n'acceptent pas de paramètres en entrée. Ils s'exécutent **après** la fin de l'opération et ils ont accès au message de réponse qui est envoyé au client.
 
 L'exemple suivant montre les post-déclencheurs en action :
 
-	var updateMetadataTrigger = {
-	    name: "updateMetadata",
-	    body: function updateMetadata() {
-	        var context = getContext();
-	        var collection = context.getCollection();
-	        var response = context.getResponse();
-	
-	        // document that was created
-	        var createdDocument = response.getBody();
-	
-	        // query for metadata document
-	        var filterQuery = 'SELECT * FROM root r WHERE r.id = "_metadata"';
-	        var accept = collection.queryDocuments(collection.getSelfLink(), filterQuery,
-	            updateMetadataCallback);
-	        if(!accept) throw "Unable to update metadata, abort";
-	 
-	        function updateMetadataCallback(err, documents, responseOptions) {
-	            if(err) throw new Error("Error" + err.message);
-	                     if(documents.length != 1) throw 'Unable to find metadata document';
-	                     
-	                     var metadataDocument = documents[0];
-	                     
-	                     // update metadata
-	                     metadataDocument.createdDocuments += 1;
-	                     metadataDocument.createdNames += " " + createdDocument.id;
-	                     var accept = collection.replaceDocument(metadataDocument._self,
-	                           metadataDocument, function(err, docReplaced) {
-	                                  if(err) throw "Unable to update metadata, abort";
-	                           });
-	                     if(!accept) throw "Unable to update metadata, abort";
-	                     return;                    
-	        }																							
-	    },
-	    triggerType: TriggerType.Post,
-	    triggerOperation: TriggerOperation.All
-	}
+    var updateMetadataTrigger = {
+        name: "updateMetadata",
+        body: function updateMetadata() {
+            var context = getContext();
+            var collection = context.getCollection();
+            var response = context.getResponse();
+
+            // document that was created
+            var createdDocument = response.getBody();
+
+            // query for metadata document
+            var filterQuery = 'SELECT * FROM root r WHERE r.id = "_metadata"';
+            var accept = collection.queryDocuments(collection.getSelfLink(), filterQuery,
+                updateMetadataCallback);
+            if(!accept) throw "Unable to update metadata, abort";
+
+            function updateMetadataCallback(err, documents, responseOptions) {
+                if(err) throw new Error("Error" + err.message);
+                         if(documents.length != 1) throw 'Unable to find metadata document';
+
+                         var metadataDocument = documents[0];
+
+                         // update metadata
+                         metadataDocument.createdDocuments += 1;
+                         metadataDocument.createdNames += " " + createdDocument.id;
+                         var accept = collection.replaceDocument(metadataDocument._self,
+                               metadataDocument, function(err, docReplaced) {
+                                      if(err) throw "Unable to update metadata, abort";
+                               });
+                         if(!accept) throw "Unable to update metadata, abort";
+                         return;                    
+            }                                                                                            
+        },
+        triggerType: TriggerType.Post,
+        triggerOperation: TriggerOperation.All
+    }
 
 
 Le déclencheur peut être enregistré comme indiqué dans l'exemple suivant.
 
-	// register post-trigger
-	client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
-		.then(function(createdTrigger) { 
-		    var docToCreate = { 
-		        name: "artist_profile_1023",
-		        artist: "The Band",
-		        albums: ["Hellujah", "Rotators", "Spinning Top"]
-		    };
-	
-		    // run trigger while creating above document 
-		    var options = { postTriggerInclude: "updateMetadata" };
-		
-		    return client.createDocumentAsync(collection.self,
-	              docToCreate, options);
-		}, function(error) {
-		    console.log("Error" , error);
-		})
-	.then(function(response) {
-	    console.log(response.resource); 
-	}, function(error) {
-	    console.log("Error" , error);
-	});
+    // register post-trigger
+    client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
+        .then(function(createdTrigger) { 
+            var docToCreate = { 
+                name: "artist_profile_1023",
+                artist: "The Band",
+                albums: ["Hellujah", "Rotators", "Spinning Top"]
+            };
+
+            // run trigger while creating above document 
+            var options = { postTriggerInclude: "updateMetadata" };
+
+            return client.createDocumentAsync(collection.self,
+                  docToCreate, options);
+        }, function(error) {
+            console.log("Error" , error);
+        })
+    .then(function(response) {
+        console.log(response.resource); 
+    }, function(error) {
+        console.log("Error" , error);
+    });
 
 
 Ce déclencheur interroge le document de métadonnées et le met à jour avec des informations relatives au document qui vient d'être créé.
 
 Un élément important à noter est l’exécution **transactionnelle** des déclencheurs dans DocumentDB. Ce post-déclencheur s'exécute dans le cadre de la même transaction que la création du document initial. Par conséquent, si nous générons une exception à partir du post-déclencheur (supposons que nous ne soyons pas en mesure de mettre à jour le document de métadonnées), la transaction entière échoue et est annulée. Aucun document n'est créé et une exception est renvoyée.
 
-##<a id="udf"></a>Fonctions définies par l’utilisateur
+## <a id="udf"></a>Fonctions définies par l’utilisateur
 Les fonctions définies par l'utilisateur permettent d'étendre la grammaire du langage de requête SQL dans DocumentDB et de mettre en œuvre une logique métier personnalisée. Elles peuvent uniquement être appelées à partir de requêtes. Elles n'ont pas accès à l'objet de contexte et sont destinées à être utilisées en tant que JavaScript en calcul seul. Par conséquent, elles peuvent être exécutées sur des réplicas secondaires du service DocumentDB.
- 
+
 L'exemple suivant crée une fonction définie par l'utilisateur pour calculer les impôts sur la base des taux de différentes tranches de revenu, puis utilise celle-ci au sein d'une requête pour trouver toutes les personnes ayant payé des impôts supérieurs à 20 000 $.
 
-	var taxUdf = {
-	    name: "tax",
-	    body: function tax(income) {
-	
-	        if(income == undefined) 
-	            throw 'no input';
-	
-	        if (income < 1000) 
-	            return income * 0.1;
-	        else if (income < 10000) 
-	            return income * 0.2;
-	        else
-	            return income * 0.4;
-	    }
-	}
+    var taxUdf = {
+        name: "tax",
+        body: function tax(income) {
+
+            if(income == undefined) 
+                throw 'no input';
+
+            if (income < 1000) 
+                return income * 0.1;
+            else if (income < 10000) 
+                return income * 0.2;
+            else
+                return income * 0.4;
+        }
+    }
 
 
 La fonction définie par l'utilisateur peut ensuite être utilisée dans des requêtes comme dans l'exemple suivant :
 
-	// register UDF
-	client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
-		.then(function(response) { 
-		    console.log("Created", response.resource);
-	
-		    var query = 'SELECT * FROM TaxPayers t WHERE udf.tax(t.income) > 20000'; 
-		    return client.queryDocuments('dbs/testdb/colls/testColl',
-	               query).toArrayAsync();
-		}, function(error) {
-		    console.log("Error" , error);
-		})
-	.then(function(response) {
-	    var documents = response.feed;
-	    console.log(response.resource); 
-	}, function(error) {
-	    console.log("Error" , error);
-	});
+    // register UDF
+    client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
+        .then(function(response) { 
+            console.log("Created", response.resource);
+
+            var query = 'SELECT * FROM TaxPayers t WHERE udf.tax(t.income) > 20000'; 
+            return client.queryDocuments('dbs/testdb/colls/testColl',
+                   query).toArrayAsync();
+        }, function(error) {
+            console.log("Error" , error);
+        })
+    .then(function(response) {
+        var documents = response.feed;
+        console.log(response.resource); 
+    }, function(error) {
+        console.log("Error" , error);
+    });
 
 ## API de requête intégrée au langage JavaScript
 En plus de l’émission de requêtes à l’aide de la grammaire SQL de DocumentDB, le kit de développement logiciel (SDK) côté serveur vous permet d’effectuer des requêtes optimisées à l’aide d’une interface JavaScript fluide sans aucune connaissance de SQL. L’API de requête JavaScript permet de créer des requêtes par programme en transmettant des fonctions de prédicat dans des appels de fonction chaînables, avec une syntaxe connue des types prédéfinis de Array ECMAScript5 et des bibliothèques JavaScript courantes, telles que lodash. Les requêtes sont analysées par le runtime JavaScript pour être exécutées efficacement à l’aide d’index DocumentDB.
 
-> [AZURE.NOTE] `__` (trait de soulignement double) est un alias pour `getContext().getCollection()`. <br/> En d’autres termes, vous pouvez utiliser `__` ou `getContext().getCollection()` pour accéder à l’API de requête JavaScript.
+> [!NOTE]
+> `__` (trait de soulignement double) est un alias pour `getContext().getCollection()`. <br/> En d’autres termes, vous pouvez utiliser `__` ou `getContext().getCollection()` pour accéder à l’API de requête JavaScript.
+> 
+> 
 
 Les fonctions prises en charge sont les suivantes :
+
 <ul>
 <li>
 <b>chain() ... .value([callback] [, options])</b>
@@ -556,7 +558,6 @@ Les constructions JavaScript suivantes ne sont pas optimisées pour les index Do
 Pour plus d’informations, voir [JSDocs côté serveur](http://azure.github.io/azure-documentdb-js-server/).
 
 ### Exemple : Écrire une procédure stockée à l’aide de l’API de requête JavaScript
-
 L’exemple de code suivant illustre comment l’API de requête JavaScript peut être utilisée dans le contexte d’une procédure stockée. La procédure stockée insère un document donné par un paramètre d’entrée et met à jour les métadonnées de document, à l’aide de la méthode `__.filter()` avec minSize, maxSize et totalSize basées sur la propriété de taille du document d’entrée.
 
     /**
@@ -617,6 +618,7 @@ Le tableau suivant présente différentes requêtes SQL et les requêtes JavaScr
 Comme pour les requêtes SQL, les clés de propriété de document (par exemple, `doc.id`) respectent la casse.
 
 <br/>
+
 <table border="1" width="100%">
 <colgroup>
 <col span="1" style="width: 40%;">
@@ -638,7 +640,7 @@ FROM docs
 </td>
 <td>
 <pre>
-__.map(function(doc) {
+**.map(function(doc) {
     return doc;
 });
 </pre>
@@ -654,7 +656,7 @@ FROM docs
 </td>
 <td>
 <pre>
-__.map(function(doc) {
+**.map(function(doc) {
     return {
         id: doc.id,
         msg: doc.message,
@@ -675,7 +677,7 @@ WHERE docs.id="X998_Y998"
 </td>
 <td>
 <pre>
-__.filter(function(doc) {
+**.filter(function(doc) {
     return doc.id === "X998_Y998";
 });
 </pre>
@@ -692,7 +694,7 @@ WHERE ARRAY_CONTAINS(docs.Tags, 123)
 </td>
 <td>
 <pre>
-__.filter(function(x) {
+**.filter(function(x) {
     return x.Tags &amp;&amp; x.Tags.indexOf(123) > -1;
 });
 </pre>
@@ -709,7 +711,7 @@ WHERE docs.id="X998_Y998"
 </td>
 <td>
 <pre>
-__.chain()
+**.chain()
     .filter(function(doc) {
         return doc.id === "X998_Y998";
     })
@@ -735,12 +737,12 @@ ORDER BY docs._ts
 </td>
 <td>
 <pre>
-__.chain()
+**.chain()
     .filter(function(doc) {
         return doc.Tags &amp;&amp; Array.isArray(doc.Tags);
     })
     .sortBy(function(doc) {
-    	return doc._ts;
+        return doc._ts;
     })
     .pluck("Tags")
     .flatten()
@@ -764,163 +766,161 @@ Les procédures stockées, les déclencheurs et les fonctions définies par l'ut
 ## Prise en charge du Kit de développement logiciel (SDK) client
 Outre le client [Node.js](documentdb-sdk-node.md), DocumentDB prend en charge les Kits de développement logiciel (SDK) [.NET](documentdb-sdk-dotnet.md), [Java](documentdb-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) et [Python](documentdb-sdk-python.md). Les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur peuvent être créés et exécutés au moyen de l'un de ces Kits de développement logiciel (SDK) également. Voici un exemple de la façon de créer et d'exécuter une procédure stockée au moyen du client .NET. Notez la façon dont les types .NET sont transmis dans la procédure stockée au format JSON et lus.
 
-	var markAntiquesSproc = new StoredProcedure
-	{
-	    Id = "ValidateDocumentAge",
-	    Body = @"
-	            function(docToCreate, antiqueYear) {
-	                var collection = getContext().getCollection();    
-	                var response = getContext().getResponse();    
-	
-			        if(docToCreate.Year != undefined && docToCreate.Year < antiqueYear){
-				        docToCreate.antique = true;
-			        }
-	
-	                collection.createDocument(collection.getSelfLink(), docToCreate, {}, 
-	                    function(err, docCreated, options) { 
-	                        if(err) throw new Error('Error while creating document: ' + err.message);                              
-	                        if(options.maxCollectionSizeInMb == 0) throw 'max collection size not found'; 
-	                        response.setBody(docCreated);
-	                });
-	 	    }"
-	};
-	
-	// register stored procedure
-	StoredProcedure createdStoredProcedure = await client.CreateStoredProcedureAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), markAntiquesSproc);
-	dynamic document = new Document() { Id = "Borges_112" };
-	document.Title = "Aleph";
-	document.Year = 1949;
-	
-	// execute stored procedure
-	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "sproc"), document, 1920);
+    var markAntiquesSproc = new StoredProcedure
+    {
+        Id = "ValidateDocumentAge",
+        Body = @"
+                function(docToCreate, antiqueYear) {
+                    var collection = getContext().getCollection();    
+                    var response = getContext().getResponse();    
+
+                    if(docToCreate.Year != undefined && docToCreate.Year < antiqueYear){
+                        docToCreate.antique = true;
+                    }
+
+                    collection.createDocument(collection.getSelfLink(), docToCreate, {}, 
+                        function(err, docCreated, options) { 
+                            if(err) throw new Error('Error while creating document: ' + err.message);                              
+                            if(options.maxCollectionSizeInMb == 0) throw 'max collection size not found'; 
+                            response.setBody(docCreated);
+                    });
+             }"
+    };
+
+    // register stored procedure
+    StoredProcedure createdStoredProcedure = await client.CreateStoredProcedureAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), markAntiquesSproc);
+    dynamic document = new Document() { Id = "Borges_112" };
+    document.Title = "Aleph";
+    document.Year = 1949;
+
+    // execute stored procedure
+    Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "sproc"), document, 1920);
 
 
 Cet exemple illustre l’utilisation du [Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx) pour créer un pré-déclencheur et un document dans lequel le déclencheur est activé.
 
-	Trigger preTrigger = new Trigger()
-	{
-	    Id = "CapitalizeName",
-	    Body = @"function() {
-	        var item = getContext().getRequest().getBody();
-	        item.id = item.id.toUpperCase();
-	        getContext().getRequest().setBody(item);
-	    }",
-	    TriggerOperation = TriggerOperation.Create,
-	    TriggerType = TriggerType.Pre
-	};
-	
-	Document createdItem = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), new Document { Id = "documentdb" },
-	    new RequestOptions
-	    {
-	        PreTriggerInclude = new List<string> { "CapitalizeName" },
-	    });
+    Trigger preTrigger = new Trigger()
+    {
+        Id = "CapitalizeName",
+        Body = @"function() {
+            var item = getContext().getRequest().getBody();
+            item.id = item.id.toUpperCase();
+            getContext().getRequest().setBody(item);
+        }",
+        TriggerOperation = TriggerOperation.Create,
+        TriggerType = TriggerType.Pre
+    };
+
+    Document createdItem = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), new Document { Id = "documentdb" },
+        new RequestOptions
+        {
+            PreTriggerInclude = new List<string> { "CapitalizeName" },
+        });
 
 
 Enfin, l’exemple suivant illustre la création d’une fonction définie par l’utilisateur et son utilisation dans une [requête SQL DocumentDB](documentdb-sql-query.md).
 
-	UserDefinedFunction function = new UserDefinedFunction()
-	{
-	    Id = "LOWER",
-	    Body = @"function(input) 
-		{
-	        return input.toLowerCase();
-	    }"
-	};
-	
-	foreach (Book book in client.CreateDocumentQuery(UriFactory.CreateDocumentCollectionUri("db", "coll"),
-	    "SELECT * FROM Books b WHERE udf.LOWER(b.Title) = 'war and peace'"))
-	{
-	    Console.WriteLine("Read {0} from query", book);
-	}
+    UserDefinedFunction function = new UserDefinedFunction()
+    {
+        Id = "LOWER",
+        Body = @"function(input) 
+        {
+            return input.toLowerCase();
+        }"
+    };
+
+    foreach (Book book in client.CreateDocumentQuery(UriFactory.CreateDocumentCollectionUri("db", "coll"),
+        "SELECT * FROM Books b WHERE udf.LOWER(b.Title) = 'war and peace'"))
+    {
+        Console.WriteLine("Read {0} from query", book);
+    }
 
 ## API REST
 Toutes les opérations DocumentDB peuvent être effectuées sur la base de l'architecture REST. Les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur peuvent être enregistrées dans une collection au moyen de HTTP POST. Voici un exemple de la façon d'enregistrer une procédure stockée :
 
-	POST https://<url>/sprocs/ HTTP/1.1
-	authorization: <<auth>>
-	x-ms-date: Thu, 07 Aug 2014 03:43:10 GMT
-	
-	
-	var x = {
-	  "name": "createAndAddProperty",
-	  "body": function (docToCreate, addedPropertyName, addedPropertyValue) {
-	            var collectionManager = getContext().getCollection();
-	            collectionManager.createDocument(
-	                collectionManager.getSelfLink(),
-	                docToCreate,
-	                function(err, docCreated) {
-	                  if(err) throw new Error('Error:  ' + err.message);
-	                  docCreated[addedPropertyName] = addedPropertyValue;
-	                  getContext().getResponse().setBody(docCreated);
-	                });
-	        }
-	}
+    POST https://<url>/sprocs/ HTTP/1.1
+    authorization: <<auth>>
+    x-ms-date: Thu, 07 Aug 2014 03:43:10 GMT
+
+
+    var x = {
+      "name": "createAndAddProperty",
+      "body": function (docToCreate, addedPropertyName, addedPropertyValue) {
+                var collectionManager = getContext().getCollection();
+                collectionManager.createDocument(
+                    collectionManager.getSelfLink(),
+                    docToCreate,
+                    function(err, docCreated) {
+                      if(err) throw new Error('Error:  ' + err.message);
+                      docCreated[addedPropertyName] = addedPropertyValue;
+                      getContext().getResponse().setBody(docCreated);
+                    });
+            }
+    }
 
 
 La procédure stockée est enregistrée en exécutant une requête POST sur la base de l’URI dbs/testdb/colls/testColl/sprocs avec le corps contenant la procédure stockée à créer. Les déclencheurs et les fonctions définies par l'utilisateur peuvent être inscrits de la même façon en émettant une demande POST sur /triggers et /udfs respectivement. Cette procédure stockée peut ensuite être exécutée en émettant une demande POST sur son lien de ressource :
 
-	POST https://<url>/sprocs/<sproc> HTTP/1.1
-	authorization: <<auth>>
-	x-ms-date: Thu, 07 Aug 2014 03:43:20 GMT
-	
-	
-	[ { "name": "TestDocument", "book": "Autumn of the Patriarch"}, "Price", 200 ]
+    POST https://<url>/sprocs/<sproc> HTTP/1.1
+    authorization: <<auth>>
+    x-ms-date: Thu, 07 Aug 2014 03:43:20 GMT
+
+
+    [ { "name": "TestDocument", "book": "Autumn of the Patriarch"}, "Price", 200 ]
 
 
 Ici, la valeur entrée pour la procédure stockée est transmise dans le corps de la requête. Notez que la valeur entrée est transmise en tant que tableau JSON de paramètres d'entrée. La procédure stockée prend la première entrée en tant que document correspondant à un corps de réponse. La réponse reçue se présente comme suit :
 
-	HTTP/1.1 200 OK
-	 
-	{ 
-	  name: 'TestDocument',
-	  book: ‘Autumn of the Patriarch’,
-	  id: ‘V7tQANV3rAkDAAAAAAAAAA==‘,
-	  ts: 1407830727,
-	  self: ‘dbs/V7tQAA==/colls/V7tQANV3rAk=/docs/V7tQANV3rAkDAAAAAAAAAA==/’,
-	  etag: ‘6c006596-0000-0000-0000-53e9cac70000’,
-	  attachments: ‘attachments/’,
-	  Price: 200
-	}
+    HTTP/1.1 200 OK
+
+    { 
+      name: 'TestDocument',
+      book: ‘Autumn of the Patriarch’,
+      id: ‘V7tQANV3rAkDAAAAAAAAAA==‘,
+      ts: 1407830727,
+      self: ‘dbs/V7tQAA==/colls/V7tQANV3rAk=/docs/V7tQANV3rAkDAAAAAAAAAA==/’,
+      etag: ‘6c006596-0000-0000-0000-53e9cac70000’,
+      attachments: ‘attachments/’,
+      Price: 200
+    }
 
 
 Contrairement aux procédures stockées, les déclencheurs ne peuvent pas être exécutés directement. À la place, ils sont exécutés au sein d'une opération dans un document. Nous pouvons spécifier les déclencheurs à exécuter avec une demande au moyen d'en-têtes HTTP. Voici une demande de création de document.
 
-	POST https://<url>/docs/ HTTP/1.1
-	authorization: <<auth>>
-	x-ms-date: Thu, 07 Aug 2014 03:43:10 GMT
-	x-ms-documentdb-pre-trigger-include: validateDocumentContents 
-	x-ms-documentdb-post-trigger-include: bookCreationPostTrigger
-	
-	
-	{
-	   "name": "newDocument",
-	   “title”: “The Wizard of Oz”,
-	   “author”: “Frank Baum”,
-	   “pages”: 92
-	}
+    POST https://<url>/docs/ HTTP/1.1
+    authorization: <<auth>>
+    x-ms-date: Thu, 07 Aug 2014 03:43:10 GMT
+    x-ms-documentdb-pre-trigger-include: validateDocumentContents 
+    x-ms-documentdb-post-trigger-include: bookCreationPostTrigger
+
+
+    {
+       "name": "newDocument",
+       “title”: “The Wizard of Oz”,
+       “author”: “Frank Baum”,
+       “pages”: 92
+    }
 
 
 Ici, le pré-déclencheur devant s'exécuter avec la demande est spécifié dans l'en-tête x-ms-documentdb-pre-trigger-include. De même, tous les post-déclencheurs sont fournis dans l'en-tête x-ms-documentdb-post-trigger-include. Notez que les pré- et post-déclencheurs peuvent tous deux être spécifiés pour une demande donnée.
 
 ## Exemple de code
-
 Vous trouverez d’autres exemples de code côté serveur (notamment [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) et [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) dans notre [référentiel Github](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
 Vous souhaitez partager votre remarquable procédure stockée ? Envoyez-nous une requête d’extraction !
 
 ## Étapes suivantes
-
 Après avoir créé des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur, vous pouvez les charger et les afficher dans le portail Azure à l’aide de l’Explorateur de scripts. Pour plus d’informations, consultez la rubrique [Affichage des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur à l’aide de l’Explorateur de scripts de DocumentDB](documentdb-view-scripts.md).
 
 Pour en savoir plus sur la programmation DocumentDB côté serveur, vous pouvez également trouver utiles les références et les ressources suivantes :
 
-- [Kits de développement logiciel (SDK) Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx)
-- [Studio DocumentDB](https://github.com/mingaliu/DocumentDBStudio/releases)
-- [JSON](http://www.json.org/)
-- [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
-- [JavaScript : Système de type JSON](http://www.json.org/js.html)
-- [Extensibilité de la base de données sécurisée et portable](http://dl.acm.org/citation.cfm?id=276339)
-- [Architecture de base de données orientée services](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE)
-- [Hébergement du Runtime .NET dans Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)
+* [Kits de développement logiciel (SDK) Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx)
+* [Studio DocumentDB](https://github.com/mingaliu/DocumentDBStudio/releases)
+* [JSON](http://www.json.org/)
+* [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
+* [JavaScript : Système de type JSON](http://www.json.org/js.html)
+* [Extensibilité de la base de données sécurisée et portable](http://dl.acm.org/citation.cfm?id=276339)
+* [Architecture de base de données orientée services](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE)
+* [Hébergement du Runtime .NET dans Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)
 
 <!---HONumber=AcomDC_0720_2016-->

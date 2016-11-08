@@ -1,23 +1,22 @@
-<properties 
-   pageTitle="Gestion des alertes dans les produits Microsoft Monitoring | Microsoft Azure"
-   description="Une alerte indique un problème qui nécessite une attention particulière de la part d’un administrateur.  Cet article décrit les différences relatives à la création et à la gestion des alertes dans System Center Operations Manager (SCOM) et Log Analytics et indique les meilleures pratiques en tirant parti de ces deux produits pour une stratégie de gestion des alertes hybride." 
-   services="operations-management-suite"
-   documentationCenter=""
-   authors="bwren"
-   manager="jwhit"
-   editor="tysonn" />
-<tags 
-   ms.service="operations-management-suite"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/06/2016"
-   ms.author="bwren" />
+---
+title: Gestion des alertes dans les produits Microsoft Monitoring | Microsoft Docs
+description: Une alerte indique un problème qui nécessite une attention particulière de la part d’un administrateur.  Cet article décrit les différences relatives à la création et à la gestion des alertes dans System Center Operations Manager (SCOM) et Log Analytics et indique les meilleures pratiques en tirant parti de ces deux produits pour une stratégie de gestion des alertes hybride.
+services: operations-management-suite
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
+ms.service: operations-management-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/06/2016
+ms.author: bwren
 
-# <a name="managing-alerts-with-microsoft-monitoring"></a>Gestion des alertes à l’aide de Microsoft Monitoring 
-
+---
+# <a name="managing-alerts-with-microsoft-monitoring"></a>Gestion des alertes à l’aide de Microsoft Monitoring
 Une alerte indique un problème qui nécessite une attention particulière de la part d’un administrateur.  Il existe des différences entre System Center Operations Manager (SCOM) et Log Analytics dans Operations Management Suite (OMS) en termes de création, de gestion et d’analyse des alertes et de notification en cas de détection d’un problème critique.
 
 ## <a name="alerts-in-operations-manager"></a>Alertes dans Operations Manager
@@ -59,7 +58,7 @@ Cependant, vous ne pouvez pas gérer complètement les alertes SCOM dans Log Ana
 
 ## <a name="alert-remediation"></a>Correction des alertes
 [Correction](http://technet.microsoft.com/library/mt614775.aspx) fait référence à une tentative de correction automatique du problème identifié par une alerte.
-  
+
 SCOM vous permet d’exécuter les diagnostics et récupérations en réponse à un moniteur présentant un défaut d’intégrité.  Cela se produit simultanément sur moniteur créant l’alerte.  Les diagnostics et récupérations sont généralement implémentés sous la forme d’un script qui s’exécute sur l’agent.  Un diagnostic tente de collecter plus d’informations sur le problème détecté tandis qu’une récupération tente de résoudre le problème.
 
 Log Analytics vous permet de démarrer un [runbook Azure Automation](https://azure.microsoft.com/documentation/services/automation/) ou d’appeler un webhook en réponse à une alerte Log Analytics.  Les runbooks peuvent comporter une logique complexe implémentée dans PowerShell.  Le script s’exécute dans Azure et peut accéder aux ressources Azure ou aux ressources externes disponibles à partir du cloud.  Azure Automation a la possibilité d’exécuter des runbooks sur un serveur dans votre centre de données local, mais cette fonctionnalité n’est pas disponible actuellement lors du démarrage du runbook en réponse aux alertes Log Analytics.
@@ -69,9 +68,7 @@ Les récupérations dans SCOM et les runbooks dans OMS peuvent contenir des scri
 Si vous utilisez SCOM comme source de données pour Log Analytics, vous pouvez créer une alerte Log Analytics à l’aide d’une requête de journal pour récupérer les alertes SCOM stockées dans le référentiel OMS.  Cela vous permettrait d’exécuter un runbook Azure Automation en réponse à une alerte SCOM.  Bien sûr, étant donné que le runbook s’exécute dans Azure, cela ne serait pas une stratégie viable pour les récupérations de problèmes locaux.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-- Découvrez plus d’informations sur les [alertes dans System Center Operations Manager (SCOM)](https://technet.microsoft.com/library/hh212913.aspx).
-
+* Découvrez plus d’informations sur les [alertes dans System Center Operations Manager (SCOM)](https://technet.microsoft.com/library/hh212913.aspx).
 
 <!--HONumber=Oct16_HO2-->
 

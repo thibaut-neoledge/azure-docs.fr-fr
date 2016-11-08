@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Journaux IIS dans Log Analytics | Microsoft Azure"
-   description="Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Log Analytics.  Cet article décrit comment configurer la collecte des journaux IIS et des détails des enregistrements qu'ils créent dans le référentiel OMS."
-   services="log-analytics"
-   documentationCenter=""
-   authors="bwren"
-   manager="jwhit"
-   editor="tysonn" />
-<tags
-   ms.service="log-analytics"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/18/2016"
-   ms.author="bwren" />
+---
+title: Journaux IIS dans Log Analytics | Microsoft Docs
+description: Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Log Analytics.  Cet article décrit comment configurer la collecte des journaux IIS et des détails des enregistrements qu'ils créent dans le référentiel OMS.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
+ms.service: log-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/18/2016
+ms.author: bwren
 
+---
 # <a name="iis-logs-in-log-analytics"></a>Journaux IIS dans Log Analytics
 Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Log Analytics.  
 
@@ -31,59 +31,51 @@ Configurez les journaux IIS dans Log Analytics à partir du [menu Données dans 
 
 Quand vous activez la collecte de journaux IIS, nous vous recommandons de configurer le paramètre de substitution de journal IIS sur chaque serveur.
 
-
 ## <a name="data-collection"></a>Collecte des données
-
-Log Analytics collecte les entrées du journal IIS de chaque source connectée toutes les 15 minutes environ.  L’agent enregistre sa position dans chaque journal des événements à partir duquel il collecte.  Si l’agent est mis hors connexion, Log Analytics collecte les événements à partir de la position où il s’était arrêté, même si ces événements ont été créés lorsque l’agent était hors connexion.
-
+Log Analytics collecte les entrées du journal IIS de chaque source connectée toutes les 15 minutes environ.  L’agent enregistre sa position dans chaque journal des événements à partir duquel il collecte.  Si l’agent est mis hors connexion, Log Analytics collecte les événements à partir de la position où il s’était arrêté, même si ces événements ont été créés lorsque l’agent était hors connexion.
 
 ## <a name="iis-log-record-properties"></a>Propriétés d’enregistrement de journal IIS
-
-Les enregistrements de journal IIS sont de type **W3CIISLog** et leurs propriétés sont décrites dans le tableau suivant :
+Les enregistrements de journal IIS sont de type **W3CIISLog** et leurs propriétés sont décrites dans le tableau suivant :
 
 | Propriété | Description |
-|:--|:--|
-| Ordinateur | Nom de l'ordinateur à partir duquel l'événement a été collecté. |
-| cIP | Adresse IP du client. |
-| csMethod | Méthode de la requête, par exemple GET ou POST. |
-| csReferer | Site à partir duquel l'utilisateur a suivi un lien vers le site actuel. |
-| csUserAgent | Type de navigateur du client. |
-| csUserName | Nom de l'utilisateur authentifié qui a accédé au serveur. Les utilisateurs anonymes sont indiqués par un trait d'union. |
-| csUriStem | Cible de la requête, par exemple une page web. |
-| csUriQuery | Requête, le cas échéant, que le client tentait d'effectuer. |
-| ManagementGroupName | Nom du groupe d’administration pour les agents Operations Manager.  Pour les autres agents, il s’agit d’AOI-\<workspace ID\> |
-| RemoteIPCountry | Pays de l'adresse IP du client. |
-| RemoteIPLatitude | Latitude de l'adresse IP du client. |
-| RemoteIPLongitude | Longitude de l'adresse IP du client. |
-| scStatus | Code d'état HTTP. |
-| scSubStatus | Code d'erreur du sous-état. |
-| scWin32Status | Code d’état Windows. |
-| sIP | Adresse IP du serveur web. |
-| SourceSystem  | OpsMgr |
-| sPort | Port sur le serveur auquel client est connecté. |
-| sSiteName | Nom du site IIS. |
-| TimeGenerated | Date et heure de consignation de l'entrée. |
-| TimeTaken | Délai de traitement de la requête en millisecondes. |
+|:--- |:--- |
+| Ordinateur |Nom de l'ordinateur à partir duquel l'événement a été collecté. |
+| cIP |Adresse IP du client. |
+| csMethod |Méthode de la requête, par exemple GET ou POST. |
+| csReferer |Site à partir duquel l'utilisateur a suivi un lien vers le site actuel. |
+| csUserAgent |Type de navigateur du client. |
+| csUserName |Nom de l'utilisateur authentifié qui a accédé au serveur. Les utilisateurs anonymes sont indiqués par un trait d'union. |
+| csUriStem |Cible de la requête, par exemple une page web. |
+| csUriQuery |Requête, le cas échéant, que le client tentait d'effectuer. |
+| ManagementGroupName |Nom du groupe d’administration pour les agents Operations Manager.  Pour les autres agents, il s’agit d’AOI-\<workspace ID\> |
+| RemoteIPCountry |Pays de l'adresse IP du client. |
+| RemoteIPLatitude |Latitude de l'adresse IP du client. |
+| RemoteIPLongitude |Longitude de l'adresse IP du client. |
+| scStatus |Code d'état HTTP. |
+| scSubStatus |Code d'erreur du sous-état. |
+| scWin32Status |Code d’état Windows. |
+| sIP |Adresse IP du serveur web. |
+| SourceSystem |OpsMgr |
+| sPort |Port sur le serveur auquel client est connecté. |
+| sSiteName |Nom du site IIS. |
+| TimeGenerated |Date et heure de consignation de l'entrée. |
+| TimeTaken |Délai de traitement de la requête en millisecondes. |
 
 ## <a name="log-searches-with-iis-logs"></a>Recherches de journaux avec les journaux IIS
-
 Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extraient des enregistrements de journaux IIS.
 
 | Interroger | Description |
-|:--|:--|
-| Type=IISLog | Tous les enregistrements de journaux IIS. |
-| Type=IISLog EventLevelName=error | Tous les événements Windows avec la gravité de l'erreur. |
-| Type=W3CIISLog &#124; Measure count() by cIP | Nombre d’entrées de journaux IIS par adresse IP du client. |
-| Type=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem | Nombre d’entrées de journaux IIS par URL pour l'hôte www.contoso.com. |
-| Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000| Nombre total d'octets reçus par chaque ordinateur IIS. |
+|:--- |:--- |
+| Type=IISLog |Tous les enregistrements de journaux IIS. |
+| Type=IISLog EventLevelName=error |Tous les événements Windows avec la gravité de l'erreur. |
+| Type=W3CIISLog &#124; Measure count() by cIP |Nombre d’entrées de journaux IIS par adresse IP du client. |
+| Type=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem |Nombre d’entrées de journaux IIS par URL pour l'hôte www.contoso.com. |
+| Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000 |Nombre total d'octets reçus par chaque ordinateur IIS. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-- Configurez Log Analytics pour collecter d’autres [sources de données](log-analytics-data-sources.md) à analyser.
-- Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.
-- Configurez les alertes dans Log Analytics pour être informé de façon proactive des conditions importantes rencontrées dans les journaux IIS.
-
-
+* Configurez Log Analytics pour collecter d’autres [sources de données](log-analytics-data-sources.md) à analyser.
+* Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.
+* Configurez les alertes dans Log Analytics pour être informé de façon proactive des conditions importantes rencontrées dans les journaux IIS.
 
 <!--HONumber=Oct16_HO2-->
 

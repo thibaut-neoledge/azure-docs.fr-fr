@@ -1,30 +1,28 @@
-<properties
-	pageTitle="Création de mots de passe d’application dans le portail Myapps pour Azure Multi-Factor Authentication"
-	description="Cette page montre aux utilisateurs comment créer des mots de passe d’application supplémentaires dans le portail Myapps."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+---
+title: Création de mots de passe d’application dans le portail Myapps pour Azure Multi-Factor Authentication
+description: Cette page montre aux utilisateurs comment créer des mots de passe d’application supplémentaires dans le portail Myapps.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/04/2016
+ms.author: kgremban
 
-# Création de mots de passe d’application dans le portail 365 myapps pour Azure Multi-Factor Authentication
+---
+# Création de mots de passe d’application dans le portail 365 myapps pour Azure Multi-Factor Authentication
+Si vous n’utilisez pas l’authentification multifacteur avec Office 365 et n’avez pas d’abonnement Azure, vous pouvez créer des mots de passe d’application par le biais du portail myapps.
 
-
-
-Si vous n’utilisez pas l’authentification multifacteur avec Office 365 et n’avez pas d’abonnement Azure, vous pouvez créer des mots de passe d’application par le biais du portail myapps.
-
-## Pour créer des mots de passe d’application si vous ne possédez pas d’abonnement Office 365 ou Azure
---------------------------------------------------------------------------------
+## Pour créer des mots de passe d’application si vous ne possédez pas d’abonnement Office 365 ou Azure
+- - -
 <ol>
+
 <li>Connectez-vous à [https://myapps.microsoft.com](https://myapps.microsoft.com)</li>
 <li>En haut de la page, sélectionnez le profil.</li>
 

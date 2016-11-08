@@ -1,21 +1,21 @@
-<properties
-pageTitle="Objets application et principal du service Azure Active Directory | Microsoft Azure"
-description="Présentation de la relation entre les objets application et principal du service dans Azure Active Directory"
-documentationCenter="dev-center-name"
-authors="bryanla"
-manager="mbaldwin"
-services="active-directory"
-editor=""/>
+---
+title: Objets application et principal du service Azure Active Directory | Microsoft Docs
+description: Présentation de la relation entre les objets application et principal du service dans Azure Active Directory
+documentationcenter: dev-center-name
+author: bryanla
+manager: mbaldwin
+services: active-directory
+editor: ''
 
-<tags
-ms.service="active-directory"
-ms.devlang="na"
-ms.topic="article"
-ms.tgt_pltfrm="na"
-ms.workload="identity"
-ms.date="08/10/2016"
-ms.author="bryanla;mbaldwin"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 08/10/2016
+ms.author: bryanla;mbaldwin
 
+---
 # Objets application et principal du service dans Azure Active Directory
 Lors de la lecture d’un document portant sur une « application » Azure Active Directory (AD), il n’est pas toujours évident de savoir exactement à quoi l’auteur fait référence. Cet article a pour objectif de clarifier les choses en définissant les aspects conceptuels et concrets de l’intégration des applications dans Azure AD, puis en donnant un exemple d’inscription et de consentement pour une [application mutualisée](active-directory-dev-glossary.md#multi-tenant-application).
 
@@ -35,14 +35,17 @@ L’objet principal du service définit la stratégie et les autorisations pour 
 
 Un objet principal du service est requis dans chaque client pour lequel une instance de l’utilisation de l’application doit être représentée, permettant l’accès sécurisé aux ressources appartenant aux comptes d’utilisateur de ce client. Une application à client unique aura un seul principal de service (dans son client de base). Une [application web](active-directory-dev-glossary.md#web-client) mutualisée aura également un principal de service sur chaque client sur lequel un administrateur ou un ou plusieurs utilisateurs de ce client ont reçu l’autorisation, ce qui lui permet d’accéder à leurs ressources. Après le consentement, l’objet principal du service est consulté pour les demandes d’autorisation ultérieures.
 
-> [AZURE.NOTE] Toute modification apportée à l’objet application de votre application est également répercutée dans son objet principal du service, uniquement dans le client de base de l’application (le client où elle a été inscrite). Pour l’accès mutualisé, les modifications apportées à l’objet application ne sont pas répercutées dans les objets principal du service des clients consommateurs tant que le client consommateur n’a pas supprimé, puis accordé de nouveau l’accès.
+> [!NOTE]
+> Toute modification apportée à l’objet application de votre application est également répercutée dans son objet principal du service, uniquement dans le client de base de l’application (le client où elle a été inscrite). Pour l’accès mutualisé, les modifications apportées à l’objet application ne sont pas répercutées dans les objets principal du service des clients consommateurs tant que le client consommateur n’a pas supprimé, puis accordé de nouveau l’accès.
+> 
+> 
 
 ## Exemple
 Le schéma suivant illustre la relation entre un objet application d’une application et les objets principal du service correspondants dans le contexte d’un exemple d’application mutualisée appelée **RH**. Il existe trois clients Azure AD dans ce scénario :
 
-- **Adatum** : le client utilisé par la société qui a développé l’application **RH** ;
-- **Contoso** : le client utilisé par l’entreprise Contoso, qui est un consommateur de l’application **RH** ;
-- **Fabrikam** : le client utilisé par l’entreprise Fabrikam, qui est également un consommateur de l’application **RH**.
+* **Adatum** : le client utilisé par la société qui a développé l’application **RH** ;
+* **Contoso** : le client utilisé par l’entreprise Contoso, qui est un consommateur de l’application **RH** ;
+* **Fabrikam** : le client utilisé par l’entreprise Fabrikam, qui est également un consommateur de l’application **RH**.
 
 ![Relation entre un objet application et un objet principal du service](./media/active-directory-application-objects/application-objects-relationship.png)
 
@@ -56,8 +59,6 @@ Dans le schéma précédent, l’étape 1 correspond au processus de création d
 L’objet application d’une application est accessible via l’API Azure AD Graph, telle que représentée par son [entité Application][AAD-Graph-App-Entity] OData
 
 L’objet application d’une application est accessible via l’API Azure AD Graph, telle que représentée par son [entité ServicePrincipal][AAD-Graph-Sp-Entity] OData
-
-
 
 <!--Image references-->
 

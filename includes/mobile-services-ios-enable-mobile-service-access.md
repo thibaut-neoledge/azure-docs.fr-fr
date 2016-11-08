@@ -1,7 +1,7 @@
 
 À présent, mettons à jour l'application pour stocker les éléments dans Azure Mobile Services et non dans la collection locale en mémoire.
 
-* Dans **TodoService.h**, recherchez la ligne suivante :
+* Dans **TodoService.h**, recherchez la ligne suivante :
 
 ```
 // TODO - create an MSClient property
@@ -14,7 +14,7 @@ Remplacez ce commentaire par la ligne suivante. Cela permet de créer une propri
 ```
 
 
-* Dans **TodoService.m**, recherchez la ligne suivante :
+* Dans **TodoService.m**, recherchez la ligne suivante :
 
 ```
 // TODO - create an MSTable property for your items
@@ -28,9 +28,7 @@ Remplacez ce commentaire par la ligne suivante dans la déclaration `@interface`
 
 
 * Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Mobile Services**, puis sur le service mobile. Cliquez sur l'onglet **Tableau de bord**, puis notez l'**URL du site**. Ensuite, cliquez sur **Gérer les clés** et prenez note de la **Clé de l'application**. Ces valeurs sont nécessaires pour accéder au service mobile à partir de votre code d'application.
-
-
-* Dans **TodoService.m**, recherchez la ligne suivante :
+* Dans **TodoService.m**, recherchez la ligne suivante :
 
 ```
 // Initialize the Mobile Service client with your URL and key.
@@ -43,7 +41,7 @@ self.client = [MSClient clientWithApplicationURLString:@"APPURL" applicationKey:
 ```
 
 
-* Dans **TodoService.m**, recherchez la ligne suivante :
+* Dans **TodoService.m**, recherchez la ligne suivante :
 
 ```
 // Create an MSTable instance to allow us to work with the TodoItem table.
@@ -56,7 +54,7 @@ self.table = [self.client tableWithName:@"TodoItem"];
 ```
 
 
-* Dans **TodoService.m**, recherchez la ligne suivante :
+* Dans **TodoService.m**, recherchez la ligne suivante :
 
 ```
 // Create a predicate that finds items where complete is false
@@ -69,13 +67,13 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 ```
 
 
-* Recherchez la ligne suivante :
+* Recherchez la ligne suivante :
 
 ```
 // Query the TodoItem table and update the items property with the results from the service
 ```
 
-Remplacez le commentaire et l'appel de bloc **completion** suivant par le code ci-dessous :
+Remplacez le commentaire et l'appel de bloc **completion** suivant par le code ci-dessous :
 
 ```
 [self.table readWhere:predicate completion:^(NSArray *results, NSInteger totalCount, NSError *error)
@@ -100,7 +98,7 @@ self.items = [results mutableCopy];
 ```
 
 
-* Recherchez la méthode **completeItem**, puis la ligne de code commentée suivante :
+* Recherchez la méthode **completeItem**, puis la ligne de code commentée suivante :
 
 ```
 // Update the item in the TodoItem table and remove from the items array on completion
@@ -123,7 +121,7 @@ Remplacez le corps de la méthode à partir de ce point jusqu'à la fin de la m�
 ```
 
 
-* Dans TodoListController.m, recherchez la méthode **onAdd** et remplacez-le par le code suivant :
+* Dans TodoListController.m, recherchez la méthode **onAdd** et remplacez-le par le code suivant :
 
 ```
 - (IBAction)onAdd:(id)sender

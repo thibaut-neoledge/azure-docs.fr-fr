@@ -7,7 +7,6 @@ Vous pouvez créer des files d’attente Azure à l’aide de l’**Explorateur 
 3. Sélectionnez le nœud **Files d’attente** et choisissez **Créer une file d’attente** dans le menu contextuel.
 4. Entrez un nom pour la file d’attente, puis sélectionnez **OK**.   
 
-
 [Image1]: ./media/vs-create-queue-in-server-explorer/vs-storage-queues-create-in-server-explorer.png
 
 <!---HONumber=Oct15_HO3-->

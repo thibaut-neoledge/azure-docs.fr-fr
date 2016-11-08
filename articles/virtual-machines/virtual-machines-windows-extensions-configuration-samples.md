@@ -1,27 +1,28 @@
-<properties
-   pageTitle="Exemple de configuration pour les extensions de machine virtuelle Windows | Microsoft Azure"
-   description="Exemple de configuration pour la création de modèles avec des extensions"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="kundanap"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+---
+title: Exemple de configuration pour les extensions de machine virtuelle Windows | Microsoft Docs
+description: Exemple de configuration pour la création de modèles avec des extensions
+services: virtual-machines-windows
+documentationcenter: ''
+author: kundanap
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="03/29/2016"
-   ms.author="kundanap"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 03/29/2016
+ms.author: kundanap
 
+---
 # Exemples de configuration d’extension de machine virtuelle Microsoft Azure.
-
-> [AZURE.SELECTOR]
-- [PowerShell - Modèle](virtual-machines-windows-extensions-configuration-samples.md)
-- [Interface de ligne de commande - Modèle](virtual-machines-linux-extensions-configuration-samples.md)
+> [!div class="op_single_selector"]
+> * [PowerShell - Modèle](virtual-machines-windows-extensions-configuration-samples.md)
+> * [Interface de ligne de commande - Modèle](virtual-machines-linux-extensions-configuration-samples.md)
+> 
+> 
 
 <br>
 
@@ -34,7 +35,7 @@ Pour en savoir plus sur la création de modèles d’extension, consultez la sec
 Cet article répertorie les valeurs de configuration attendues pour certaines des extensions Windows.
 
 ## Extrait de l’exemple de modèle pour les extensions de machine virtuelle avec des machines virtuelles IaaS.
-L'extrait du modèle pour le déploiement des extensions se présente comme suit :
+L'extrait du modèle pour le déploiement des extensions se présente comme suit :
 
       {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -55,7 +56,6 @@ L'extrait du modèle pour le déploiement des extensions se présente comme suit
       }
 
 ## Extrait de l’exemple de modèle pour les extensions de machine virtuelle avec des jeux de mise à l’échelle de machine virtuelle.
-
     {
      "type":"Microsoft.Compute/virtualMachineScaleSets",
     ....
@@ -100,14 +100,12 @@ Avant de déployer l'extension, déterminez la dernière version de l'extension 
       }
 
 #### Description du paramètre :
-
-- fileUris : liste séparée par des virgules des URL des fichiers qui seront téléchargés sur la machine virtuelle par l’extension. Aucun fichier n’est téléchargé si rien n’est spécifié. Si les fichiers se trouvent dans Azure Storage, les valeurs fileURL peuvent être marquées comme privées et les valeurs storageAccountName et storageAccountKey correspondantes peuvent être passées comme des paramètres privés pour accéder à ces fichiers.
-- commandToExecute : [Paramètre obligatoire] : la commande qui sera exécutée par l'extension.
-- storageAccountName : [Paramètre facultatif] : nom du compte de stockage pour accéder aux valeurs fileURL, si elles sont marquées comme privées.
-- storageAccountKey : [Paramètre facultatif] : clé du compte de stockage pour accéder aux valeurs fileURL, si elles sont marquées comme privées.
+* fileUris : liste séparée par des virgules des URL des fichiers qui seront téléchargés sur la machine virtuelle par l’extension. Aucun fichier n’est téléchargé si rien n’est spécifié. Si les fichiers se trouvent dans Azure Storage, les valeurs fileURL peuvent être marquées comme privées et les valeurs storageAccountName et storageAccountKey correspondantes peuvent être passées comme des paramètres privés pour accéder à ces fichiers.
+* commandToExecute : [Paramètre obligatoire] : la commande qui sera exécutée par l'extension.
+* storageAccountName : [Paramètre facultatif] : nom du compte de stockage pour accéder aux valeurs fileURL, si elles sont marquées comme privées.
+* storageAccountKey : [Paramètre facultatif] : clé du compte de stockage pour accéder aux valeurs fileURL, si elles sont marquées comme privées.
 
 ### Extension CustomScript 1.7.
-
 Reportez-vous à CustomScript version 1.4 pour la description du paramètre. La version 1.7 prend désormais en charge l'envoi de paramètres de script (commandToExecute) comme protectedSettings, auquel cas ils seront chiffrés avant l'envoi. Le paramètre « commandToExecute » peut être spécifié dans les paramètres ou protectedSettings mais pas dans les deux.
 
         {
@@ -128,7 +126,6 @@ Reportez-vous à CustomScript version 1.4 pour la description du paramètre. La 
         }
 
 ### Extension VMAccess.
-
       {
           "publisher": "Microsoft.Compute",
           "type": "VMAccessAgent",
@@ -340,14 +337,13 @@ Reportez-vous à CustomScript version 1.4 pour la description du paramètre. La 
           }
 
 ### Azure Diagnostics
-
 Pour plus d’informations sur la configuration des diagnostics, consultez la section [Extension des diagnostics Azure](virtual-machines-windows-extensions-diagnostics-template.md)
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
             "type": "IaaSDiagnostics",
             "typeHandlerVersion": "1.5",
-			"autoUpgradeMinorVersion": true,
+            "autoUpgradeMinorVersion": true,
             "settings": {
               "xmlCfg": "[base64(variables('wadcfgx'))]",
               "storageAccount": "[parameters('diagnosticsStorageAccount')]"

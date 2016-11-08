@@ -1,46 +1,49 @@
-<properties
-   pageTitle="Service Fabric et le déploiement de conteneurs | Microsoft Azure"
-   description="Présentation de Service Fabric et de la méthode à suivre pour déployer des applications de microservices au moyen de conteneurs. Cet article détaille les fonctionnalités que Service Fabric offre pour les conteneurs et explique comment déployer une image de conteneur dans un cluster."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="msfussell"
-   manager=""
-   editor=""/>
+---
+title: Service Fabric et le déploiement de conteneurs | Microsoft Docs
+description: Présentation de Service Fabric et de la méthode à suivre pour déployer des applications de microservices au moyen de conteneurs. Cet article détaille les fonctionnalités que Service Fabric offre pour les conteneurs et explique comment déployer une image de conteneur dans un cluster.
+services: service-fabric
+documentationcenter: .net
+author: msfussell
+manager: ''
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/25/2016"
-   ms.author="msfussell"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/25/2016
+ms.author: msfussell
 
-
+---
 # <a name="preview:-deploy-a-container-to-service-fabric"></a>Aperçu : Déployer un conteneur sur Service Fabric
-
->[AZURE.NOTE] Cette fonctionnalité est disponible en version préliminaire pour Linux. Par contre, elle n’est pas disponible actuellement sur Windows Server. Elle sera proposée en version préliminaire sur Windows Server dans la version suivante de Service Fabric, après la disponibilité générale de Windows Server 2016. La version ultérieure devrait prendre cette fonctionnalité en charge.
+> [!NOTE]
+> Cette fonctionnalité est disponible en version préliminaire pour Linux. Par contre, elle n’est pas disponible actuellement sur Windows Server. Elle sera proposée en version préliminaire sur Windows Server dans la version suivante de Service Fabric, après la disponibilité générale de Windows Server 2016. La version ultérieure devrait prendre cette fonctionnalité en charge.
+> 
+> 
 
 Service Fabric dispose de plusieurs fonctionnalités de gestion des conteneurs, qui vous aident à créer des applications composées de microservices mis en conteneur. On parle de services en conteneur. Ces fonctionnalités sont les suivantes :
 
-- Activation et déploiement d’images de conteneur
-- Gouvernance des ressources
-- Authentification de référentiels
-- Mappage des ports de conteneur aux ports hôtes
-- Découverte et communication entre des conteneurs
-- Possibilité de configurer et de définir des variables d’environnement
+* Activation et déploiement d’images de conteneur
+* Gouvernance des ressources
+* Authentification de référentiels
+* Mappage des ports de conteneur aux ports hôtes
+* Découverte et communication entre des conteneurs
+* Possibilité de configurer et de définir des variables d’environnement
 
 Examinons à présent chacune des fonctionnalités lors de l’empaquetage d’un service en conteneur à inclure dans votre application.
 
 ## <a name="packaging-a-container"></a>Empaquetage d’un conteneur
-
 Lors de l’empaquetage d’un conteneur, vous pouvez choisir d’utiliser un modèle de projet Visual Studio ou de [créer le package d’application manuellement](#manually). À l’aide de Visual Studio, la structure de package d’application et les fichiers manifest sont créés pour vous par l’assistant de nouveau projet.
 
 ## <a name="using-visual-studio-to-package-an-existing-executable"></a>Utilisation de Visual Studio pour empaqueter un exécutable existant
-
->[AZURE.NOTE] Dans une prochaine version du Kit de développement logiciel (SDK) des outils Visual Studio, vous pourrez ajouter un conteneur à une application de la même manière que vous ajoutez actuellement un exécutable invité. Voir [Déploiement d’un exécutable invité dans Service Fabric](service-fabric-deploy-existing-app.md) . Actuellement, vous devez effectuer l’empaquetage manuel comme indiqué ci-dessous.
+> [!NOTE]
+> Dans une prochaine version du Kit de développement logiciel (SDK) des outils Visual Studio, vous pourrez ajouter un conteneur à une application de la même manière que vous ajoutez actuellement un exécutable invité. Voir [Déploiement d’un exécutable invité dans Service Fabric](service-fabric-deploy-existing-app.md) . Actuellement, vous devez effectuer l’empaquetage manuel comme indiqué ci-dessous.
+> 
+> 
 
 <a id="manually"></a>
+
 ## <a name="manually-packaging-and-deploying-container"></a>Empaquetage manuel et déploiement de conteneurs
 Le processus d’empaquetage manuel d’un service avec conteneur est basé sur les étapes suivantes :
 
@@ -68,14 +71,16 @@ Vous pouvez fournir des commandes d’entrée à l’image de conteneur en spéc
 ## <a name="resource-governance"></a>Gouvernance des ressources
 La gouvernance des ressources est une fonctionnalité du conteneur, qui limite les ressources que le conteneur peut utiliser sur l’hôte. L’élément `ResourceGovernancePolicy`, spécifié dans le manifeste de l’application, offre la possibilité de déclarer des limites relatives aux ressources pour un package de code de service. Les limites relatives aux ressources peuvent être définies pour les éléments suivants :
 
-- Mémoire
-- MemorySwap
-- CpuShares (pondération relative à l’UC)
-- MemoryReservationInMB  
-- BlkioWeight (poids relatif de l’élément BlockIO) 
+* Mémoire
+* MemorySwap
+* CpuShares (pondération relative à l’UC)
+* MemoryReservationInMB  
+* BlkioWeight (poids relatif de l’élément BlockIO) 
 
->[AZURE.NOTE] Dans une version ultérieure, il sera possible de prendre en charge la spécification de limites relatives aux E/S en mode bloc précises (E/S par seconde, bits par seconde en lecture/écriture...).
-
+> [!NOTE]
+> Dans une version ultérieure, il sera possible de prendre en charge la spécification de limites relatives aux E/S en mode bloc précises (E/S par seconde, bits par seconde en lecture/écriture...).
+> 
+> 
 
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
@@ -89,7 +94,6 @@ La gouvernance des ressources est une fonctionnalité du conteneur, qui limite l
 ## <a name="repository-authentication"></a>Authentification de référentiels
 Pour télécharger un conteneur, vous devrez peut-être fournir des informations d’identification dans le référentiel du conteneur. Les informations d’identification de connexion spécifiées dans le manifeste de l’ *application* sont utilisées pour spécifier les informations de connexion (ou clé SSH) pour le téléchargement de l’image de conteneur à partir du référentiel d’images.  L’exemple suivant représente un compte appelé *TestUser* , ainsi que le mot de passe en texte clair associé. Cela n’est **pas** recommandé.
 
-
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
         <Policies>
@@ -102,7 +106,6 @@ Pour télécharger un conteneur, vous devrez peut-être fournir des informations
 Le mot de passe peut et doit être chiffré à l’aide d’un certificat déployé sur l’ordinateur.
 
 L’exemple suivant représente un compte appelé *TestUser* avec un mot de passe chiffré à l’aide d’un certificat nommé *MonCert*. Vous pouvez utiliser la commande Powershell `Invoke-ServiceFabricEncryptText` pour créer le texte de chiffrement secret du mot de passe. Pour en savoir plus sur la procédure à suivre, consultez l’article [Gestion des secrets dans des applications Service Fabric](service-fabric-application-secret-management.md) . La clé privée du certificat pour déchiffrer le mot de passe doit être déployée sur l’ordinateur local dans une méthode hors bande (via Resource Manager dans Azure). Ensuite, lorsque Service Fabric déploie le package de service sur l’ordinateur, il est en mesure de déchiffrer le secret, ainsi que le nom du compte, et de s’authentifier auprès du référentiel du conteneur à l’aide des informations d’identification.
-
 
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
@@ -118,7 +121,6 @@ L’exemple suivant représente un compte appelé *TestUser* avec un mot de pass
 
 ## <a name="container-port-to-host-port-mapping"></a>Mappage des ports de conteneur aux ports hôtes
 Vous pouvez configurer un port d’hôte utilisé pour communiquer avec le conteneur en spécifiant un élément `PortBinding` dans le manifeste de l’application. La liaison de port mappe le port sur lequel le service écoute, à l’intérieur du conteneur, à un port sur l’hôte.
-
 
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
@@ -184,7 +186,6 @@ Dans l’exemple ci-dessus, nous avons indiqué une valeur explicite pour la var
 
 ## <a name="complete-examples-for-application-and-service-manifest"></a>Exemples complets pour le manifeste de l’application et de service
 Voici un exemple de manifeste d’application qui illustre les fonctionnalités du conteneur.
-
 
     <ApplicationManifest ApplicationTypeName="SimpleContainerApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Description>A simple service container application</Description>

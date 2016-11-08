@@ -1,37 +1,38 @@
-<properties
-	pageTitle="Notifications push avec clôture virtuelle avec Azure Notification Hubs et données spatiales Bing | Microsoft Azure"
-	description="Ce didacticiel vous présente comment envoyer des notifications push en fonction du lieu avec Azure Notification Hubs et les données spatiales Bing."
-	services="notification-hubs"
-	documentationCenter="windows"
-    keywords="notification push, notification push"
-	authors="dend"
-	manager="yuaxu"
-	editor="dend"/>
+---
+title: Notifications push avec clôture virtuelle avec Azure Notification Hubs et données spatiales Bing | Microsoft Docs
+description: Ce didacticiel vous présente comment envoyer des notifications push en fonction du lieu avec Azure Notification Hubs et les données spatiales Bing.
+services: notification-hubs
+documentationcenter: windows
+keywords: notification push, notification push
+author: dend
+manager: yuaxu
+editor: dend
 
-<tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows-phone"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="05/31/2016"
-	ms.author="dendeli"/>
-    
+ms.service: notification-hubs
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-windows-phone
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 05/31/2016
+ms.author: dendeli
+
+---
 # Notifications push avec clôture virtuelle avec Azure Notification Hubs et données spatiales Bing
- 
- > [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
+> [!NOTE]
+> Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
+> 
+> 
 
 Ce didacticiel vous présente comment envoyer des notifications push en fonction du lieu avec Azure Notification Hubs et des données spatiales Bing, exploitées à partir d’une application de plateforme Windows universelle.
 
-##Composants requis
+## Composants requis
 Tout d’abord, assurez-vous de disposer de tous les logiciels et services requis :
 
 * [Visual Studio 2015 Update 1](https://www.visualstudio.com/fr-FR/downloads/download-visual-studio-vs.aspx) ou ultérieur ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409) convient également). 
 * [Kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/) dans sa version la plus récente. 
 * [Compte Centre de développement Bing Cartes](https://www.bingmapsportal.com/) (vous pouvez en créer un gratuitement et l’associer à votre compte Microsoft). 
 
-##Mise en route
-
+## Mise en route
 Commençons par créer le projet. Dans Visual Studio, démarrez un nouveau projet de type **Application vide (application Windows universelle)**.
 
 ![](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
@@ -39,17 +40,16 @@ Commençons par créer le projet. Dans Visual Studio, démarrez un nouveau proje
 Une fois le projet créé, vous pouvez commencer à exploiter l’application. Nous allons à présent définir l’infrastructure de clôture virtuelle. Pour ce faire, nous allons utiliser les services Bing ; nous pouvons ainsi interroger des infrastructures de localisation spécifiques grâce à un point de terminaison d’API REST public :
 
     http://spatial.virtualearth.net/REST/v1/data/
-    
+
 Pour que cela fonctionne, vous devez spécifier les paramètres suivants :
 
 * **ID de source de données** et **nom de source de données** : dans l’API Bing Cartes, les sources de données contiennent diverses métadonnées compartimentées, telles que les emplacements et les heures d’ouverture de l’opération. Poursuivez la lecture pour en savoir plus. 
 * **Nom d’entité** : l’entité que vous souhaitez utiliser comme point de référence pour la notification. 
 * **Clé d’API Bing Cartes** : il s’agit de la clé que vous avez obtenue précédemment lorsque vous avez créé le compte Centre de développement Bing.
- 
+
 Passons en revue la configuration de chacun des éléments ci-dessus.
 
-##Configuration de la source de données
-
+## Configuration de la source de données
 Celle-ci peut être faite dans le Centre de développement Bing Cartes. Cliquez simplement sur **Sources de données** dans la barre de navigation supérieure, puis sélectionnez **Gérer les sources de données**.
 
 ![](./media/notification-hubs-geofence/bing-maps-manage-data.png)
@@ -63,14 +63,17 @@ Vous vous demandez peut-être ce qu’est le fichier de données et ce que vous 
     Bing Spatial Data Services, 1.0, TestBoundaries
     EntityID(Edm.String,primaryKey)|Name(Edm.String)|Longitude(Edm.Double)|Latitude(Edm.Double)|Boundary(Edm.Geography)
     1|SanFranciscoPier|||POLYGON ((-122.389825 37.776598,-122.389438 37.773087,-122.381885 37.771849,-122.382186 37.777022,-122.389825 37.776598))
-    
+
 Cette chaîne représente l’entité suivante :
 
 ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 
 Copiez et collez la chaîne ci-dessus dans un nouveau fichier et enregistrez-le sous le nom **NotificationHubsGeofence.pipe**, puis téléchargez-le dans le Centre de développement Bing.
 
->[AZURE.NOTE]Vous serez peut-être invité à spécifier une nouvelle clé pour la **clé principale** qui diffère de la **clé de requête**. Créez simplement une clé dans le tableau de bord et actualisez la page de téléchargement de la source de données.
+> [!NOTE]
+> Vous serez peut-être invité à spécifier une nouvelle clé pour la **clé principale** qui diffère de la **clé de requête**. Créez simplement une clé dans le tableau de bord et actualisez la page de téléchargement de la source de données.
+> 
+> 
 
 Une fois que vous avez téléchargé le fichier de données, vous devez publier la source de données.
 
@@ -100,8 +103,7 @@ Cette réponse se produit uniquement lorsque le point se trouve bien dans les li
 
 ![](./media/notification-hubs-geofence/bing-maps-nores.png)
 
-##Configuration de l’application UWP
-
+## Configuration de l’application UWP
 Maintenant que la source de données est prête, nous pouvons commencer à travailler sur l’application UWP commencée précédemment.
 
 Tout d’abord, nous devons activer les services de localisation pour l’application. Pour ce faire, double-cliquez sur le fichier `Package.appxmanifest` dans l’**Explorateur de solutions**.
@@ -198,8 +200,7 @@ L’implémentation affichera les coordonnées de l’emplacement dans la fenêt
         });
     }
 
-##Configuration du backend
-
+## Configuration du backend
 Téléchargez [l’exemple de backend .NET sur GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers). Une fois téléchargé, ouvrez le dossier `NotifyUsers`, puis le fichier `NotifyUsers.sln`
 
 Définissez le projet `AppBackend` comme **Projet de démarrage**, puis exécutez-le.
@@ -275,7 +276,10 @@ Créez une classe dans le projet appelée `ApiHelper.cs`. Celle-ci permet de se 
         }
     }
 
->[AZURE.NOTE] Veillez à remplacer le point de terminaison d’API avec l’URL de requête obtenue précédemment dans le Centre de développement Bing (cela s’applique également à la clé d’API).
+> [!NOTE]
+> Veillez à remplacer le point de terminaison d’API avec l’URL de requête obtenue précédemment dans le Centre de développement Bing (cela s’applique également à la clé d’API).
+> 
+> 
 
 Si la requête renvoie des résultats, cela signifie que le point spécifié se trouve dans les limites de la clôture virtuelle. Vous devez donc retourner `true`. Si Bing ne renvoie pas de résultats, cela signifie que le point se trouve en dehors des limites de la recherche. Vous devez donc retourner `false`.
 
@@ -302,8 +306,7 @@ Dans `NotificationsController.cs`, créez une vérification juste avant l’inst
 
 De cette façon, la notification est envoyée uniquement lorsque le point se trouve dans les limites.
 
-##Test des notifications push dans l’application UWP
-
+## Test des notifications push dans l’application UWP
 Concernant l’application UWP, vous devriez à présent être en mesure de tester les notifications. Dans la classe `LocationHelper`, créez une fonction `SendLocationToBackend` :
 
     public static async Task SendLocationToBackend(string pns, string userTag, string message, string latitude, string longitude)
@@ -325,7 +328,10 @@ Concernant l’application UWP, vous devriez à présent être en mesure de test
         }
     }
 
->[AZURE.NOTE] Permutez `POST_URL` à l’emplacement de votre application web déployée que vous avez créée à la section précédente. Il est possible de l’exécuter localement pour le moment, mais lorsque vous travaillez sur le déploiement d’une version publique, vous devrez l’héberger avec un fournisseur externe.
+> [!NOTE]
+> Permutez `POST_URL` à l’emplacement de votre application web déployée que vous avez créée à la section précédente. Il est possible de l’exécuter localement pour le moment, mais lorsque vous travaillez sur le déploiement d’une version publique, vous devrez l’héberger avec un fournisseur externe.
+> 
+> 
 
 Assurez-vous d’inscrire l’application UWP pour les notifications push. Dans Visual Studio, cliquez sur **Projet** > **Store** > **Associer l’application au Windows Store**.
 
@@ -370,8 +376,7 @@ Dans `LocationHelper`, à l’intérieur du gestionnaire `Geolocator_PositionCha
 
 ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
-##Et ensuite ?
-
+## Et ensuite ?
 Vous devrez peut-être suivre quelques étapes supplémentaires outre celles présentées ci-dessus pour vous assurer que la solution est prête pour la production.
 
 Tout d’abord, assurez-vous que la clôture virtuelle est dynamique. Cette opération nécessite des actions supplémentaires avec l’API Bing pour pouvoir télécharger les nouvelles limites au sein de la source de données existante. Pour plus d’informations sur ce sujet, consultez la [documentation de l’API de Services de données spatiales Bing](https://msdn.microsoft.com/library/ff701734.aspx).

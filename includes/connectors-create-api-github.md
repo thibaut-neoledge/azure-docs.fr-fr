@@ -1,5 +1,5 @@
 ### Configuration requise
-- Un compte [GitHub](http://GitHub.com) 
+* Un compte [GitHub](http://GitHub.com) 
 
 Pour pouvoir utiliser votre compte GitHub dans une application logique, vous devez autoriser l’application à se connecter à votre compte. Heureusement, cette opération est très simple à effectuer dans votre application logique sur le portail Azure.
 
@@ -10,3 +10,4 @@ Pour autoriser votre application logique à se connecter à votre compte GitHub,
 3. Indiquez votre nom d’utilisateur et votre mot de passe GitHub pour autoriser votre application logique : ![](./media/connectors-create-api-github/github-3.png)   
 4. Confirmez vos intentions : ![](./media/connectors-create-api-github/github-4.png)   
 5. Notez que la connexion a été créée dans le portail. Vous pouvez maintenant poursuivre la création de votre application logique et utiliser GitHub dans celle-ci : ![](./media/connectors-create-api-github/github-5.png)   
+

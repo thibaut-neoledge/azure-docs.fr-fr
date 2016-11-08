@@ -1,37 +1,39 @@
-<properties 
-   pageTitle="Gérer les groupes de sécurité réseau à l’aide du portail en version préliminaire dans Resource Manager | Microsoft Azure"
-   description="Découvrez comment gérer des groupes de sécurité réseau existants à l’aide du portail en version préliminaire dans Resource Manager"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="jimdial"
-   manager="carmonm"
-   editor=""
-   tags="azure-resource-manager"
-/>
-<tags  
-   ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/14/2016"
-   ms.author="jdial" />
+---
+title: Gérer les groupes de sécurité réseau à l’aide du portail en version préliminaire dans Resource Manager | Microsoft Docs
+description: Découvrez comment gérer des groupes de sécurité réseau existants à l’aide du portail en version préliminaire dans Resource Manager
+services: virtual-network
+documentationcenter: na
+author: jimdial
+manager: carmonm
+editor: ''
+tags: azure-resource-manager
 
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/14/2016
+ms.author: jdial
+
+---
 # Gérer des groupes de sécurité réseau à l’aide du portail en version préliminaire
+> [!div class="op_single_selector"]
+> * [Portail](virtual-network-manage-nsg-arm-portal.md)
+> * [PowerShell](virtual-network-manage-nsg-arm-ps.md)
+> * [Interface de ligne de commande Azure](virtual-network-manage-nsg-arm-cli.md)
+> 
+> 
 
-> [AZURE.SELECTOR]
-- [Portail](virtual-network-manage-nsg-arm-portal.md)
-- [PowerShell](virtual-network-manage-nsg-arm-ps.md)
-- [Interface de ligne de commande Azure](virtual-network-manage-nsg-arm-cli.md)
+[!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
+[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] le modèle de déploiement classique.
+le modèle de déploiement classique.
 
-[AZURE.INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
+[!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 ## Récupérer des informations
-
 Vous pouvez afficher vos groupes de sécurité réseau existants, récupérer des règles pour un groupe de sécurité réseau existant et découvrir quelles sont les ressources associées à un groupe de sécurité réseau.
 
 ### Afficher les groupes de sécurité réseau existants
@@ -42,7 +44,7 @@ Pour afficher tous les groupes de sécurité réseau existants d’un abonnement
 
 ![Portail Azure - Groupes de sécurité réseau](./media/virtual-network-manage-nsg-arm-portal/figure1.png)
 
-3. Consultez la liste des groupes de sécurité réseau dans le panneau **Groupes de sécurité réseau**.
+1. Consultez la liste des groupes de sécurité réseau dans le panneau **Groupes de sécurité réseau**.
 
 ![Portail Azure - Groupes de sécurité réseau](./media/virtual-network-manage-nsg-arm-portal/figure2.png)
 
@@ -52,12 +54,11 @@ Pour afficher la liste des groupes de sécurité réseau dans le groupe de resso
 
 ![Portail Azure - Groupes de sécurité réseau](./media/virtual-network-manage-nsg-arm-portal/figure3.png)
 
-2. Dans la liste des ressources, recherchez des éléments qui affichent l’icône du groupe de sécurité réseau, comme indiqué dans le panneau **Ressources** ci-dessous.
+1. Dans la liste des ressources, recherchez des éléments qui affichent l’icône du groupe de sécurité réseau, comme indiqué dans le panneau **Ressources** ci-dessous.
 
 ![Portail Azure - Groupes de sécurité réseau](./media/virtual-network-manage-nsg-arm-portal/figure4.png)
-		 
-### Répertorier toutes les règles pour un groupe de sécurité réseau
 
+### Répertorier toutes les règles pour un groupe de sécurité réseau
 Pour afficher les règles d’un groupe de sécurité réseau nommé **NSG-FrontEnd**, procédez comme suit.
 
 1. Dans le panneau **Groupes de sécurité réseau** ou le panneau **Ressources** ci-dessus, cliquez sur **NSG-FrontEnd**.
@@ -65,16 +66,18 @@ Pour afficher les règles d’un groupe de sécurité réseau nommé **NSG-Front
 
 ![Portail Azure - Groupes de sécurité réseau](./media/virtual-network-manage-nsg-arm-portal/figure5.png)
 
-3. Le panneau **Règles de sécurité de trafic entrant** s’affiche comme illustré ci-dessous.
+1. Le panneau **Règles de sécurité de trafic entrant** s’affiche comme illustré ci-dessous.
 
 ![Portail Azure - Groupes de sécurité réseau](./media/virtual-network-manage-nsg-arm-portal/figure6.png)
 
-4. Sous l’onglet **Paramètres**, cliquez sur **Règles de sécurité de trafic sortant** pour afficher les règles de trafic sortant.
+1. Sous l’onglet **Paramètres**, cliquez sur **Règles de sécurité de trafic sortant** pour afficher les règles de trafic sortant.
 
->[AZURE.NOTE] Pour afficher les règles par défaut, cliquez sur l’icône **Règles par défaut** en haut du panneau qui affiche les règles.
+> [!NOTE]
+> Pour afficher les règles par défaut, cliquez sur l’icône **Règles par défaut** en haut du panneau qui affiche les règles.
+> 
+> 
 
 ### Afficher les associations de groupes de sécurité réseau
-
 Pour afficher les ressources associées au groupe de sécurité réseau **NSG-FrontEnd**, procédez comme suit.
 
 1. Dans le panneau **Groupes de sécurité réseau** ou le panneau **Ressources** ci-dessus, cliquez sur **NSG-FrontEnd**.
@@ -82,14 +85,12 @@ Pour afficher les ressources associées au groupe de sécurité réseau **NSG-Fr
 
 ![Portail Azure - Groupes de sécurité réseau](./media/virtual-network-manage-nsg-arm-portal/figure7.png)
 
-3. Sous l’onglet **Paramètres**, cliquez sur **Interfaces réseau** pour afficher les cartes réseau associées au groupe de sécurité réseau.
+1. Sous l’onglet **Paramètres**, cliquez sur **Interfaces réseau** pour afficher les cartes réseau associées au groupe de sécurité réseau.
 
 ## Gérer les règles
-
 Vous pouvez ajouter des règles à un groupe de sécurité réseau existant, modifier des règles existantes et supprimer des règles.
 
 ### Ajouter une règle
-
 Pour ajouter une règle autorisant le trafic **entrant** vers le port **443** à partir de n’importe quelle machine vers le groupe de sécurité réseau **NSG-FrontEnd**, procédez comme suit.
 
 1. Dans le panneau **Groupes de sécurité réseau** ou le panneau **Ressources** ci-dessus, cliquez sur **NSG-FrontEnd**.
@@ -98,12 +99,11 @@ Pour ajouter une règle autorisant le trafic **entrant** vers le port **443** à
 
 ![Portail Azure - Groupes de sécurité réseau](./media/virtual-network-manage-nsg-arm-portal/figure8.png)
 
-4. Après quelques secondes, notez la nouvelle règle dans le panneau **Règles de sécurité de trafic entrant**.
+1. Après quelques secondes, notez la nouvelle règle dans le panneau **Règles de sécurité de trafic entrant**.
 
 ![Portail Azure - Groupes de sécurité réseau](./media/virtual-network-manage-nsg-arm-portal/figure9.png)
 
 ### Modifier une règle
-
 Pour modifier la règle créée précédemment qui permet d’autoriser le trafic entrant d’**Internet** uniquement, procédez comme suit.
 
 1. Dans le panneau **Groupes de sécurité réseau** ou le panneau **Ressources** ci-dessus, cliquez sur **NSG-FrontEnd**.
@@ -113,7 +113,6 @@ Pour modifier la règle créée précédemment qui permet d’autoriser le trafi
 ![Portail Azure - Groupes de sécurité réseau](./media/virtual-network-manage-nsg-arm-portal/figure10.png)
 
 ### Supprimer une règle
-
 Pour supprimer la règle créée précédemment, procédez comme suit.
 
 1. Dans le panneau **Groupes de sécurité réseau** ou le panneau **Ressources** ci-dessus, cliquez sur **NSG-FrontEnd**.
@@ -123,11 +122,9 @@ Pour supprimer la règle créée précédemment, procédez comme suit.
 ![Portail Azure - Groupes de sécurité réseau](./media/virtual-network-manage-nsg-arm-portal/figure11.png)
 
 ## Gérer les associations
-
 Vous pouvez associer un groupe de sécurité réseau à des cartes réseau et des sous-réseaux. Vous pouvez également dissocier un groupe de sécurité réseau de n’importe quelle ressource à laquelle il est associé.
 
 ### Associer un groupe de sécurité réseau à une carte réseau
-
 Pour associer le groupe de sécurité réseau **NSG-FrontEnd** à la carte réseau **TestNICWeb1**, procédez comme suit.
 
 1. Dans le panneau **Groupes de sécurité réseau** ou le panneau **Ressources** ci-dessus, cliquez sur **NSG-FrontEnd**.
@@ -136,7 +133,6 @@ Pour associer le groupe de sécurité réseau **NSG-FrontEnd** à la carte rése
 ![Portail Azure - Groupes de sécurité réseau](./media/virtual-network-manage-nsg-arm-portal/figure12.png)
 
 ### Dissocier un groupe de sécurité réseau d’une carte réseau
-
 Pour dissocier le groupe de sécurité réseau **NSG-FrontEnd** de la carte réseau **TestNICWeb1**, procédez comme suit.
 
 1. Dans le portail Azure, cliquez sur **Groupes de ressources >** > **RG-NSG** > **...** > **TestNICWeb1**.
@@ -144,10 +140,12 @@ Pour dissocier le groupe de sécurité réseau **NSG-FrontEnd** de la carte rés
 
 ![Portail Azure - Groupes de sécurité réseau](./media/virtual-network-manage-nsg-arm-portal/figure13.png)
 
->[AZURE.NOTE] Vous pouvez également utiliser ce panneau pour associer la carte réseau à n’importe quel groupe de sécurité réseau existant.
+> [!NOTE]
+> Vous pouvez également utiliser ce panneau pour associer la carte réseau à n’importe quel groupe de sécurité réseau existant.
+> 
+> 
 
 ### Dissocier un groupe de sécurité réseau d’un sous-réseau
-
 Pour dissocier le groupe de sécurité réseau **NSG-FrontEnd** du sous-réseau **FrontEnd**, procédez comme suit.
 
 1. Dans le portail Azure, cliquez sur **Groupes de ressources >** > **RG-NSG** > **...** > **TestVNet**.
@@ -155,22 +153,23 @@ Pour dissocier le groupe de sécurité réseau **NSG-FrontEnd** du sous-réseau 
 
 ![Portail Azure - Groupes de sécurité réseau](./media/virtual-network-manage-nsg-arm-portal/figure14.png)
 
-3. Dans le panneau **FrontEnd**, cliquez sur **Enregistrer**.
+1. Dans le panneau **FrontEnd**, cliquez sur **Enregistrer**.
 
 ![Portail Azure - Groupes de sécurité réseau](./media/virtual-network-manage-nsg-arm-portal/figure15.png)
 
 ### Association d’un groupe de sécurité réseau à un sous-réseau
-
 Pour réassocier le groupe de sécurité réseau **NSG-FrontEnd** au sous-réseau **FrontEnd**, procédez comme suit.
 
 1. Dans le portail Azure, cliquez sur **Groupes de ressources >** > **RG-NSG** > **...** > **TestVNet**.
 2. Dans le panneau **Paramètres**, cliquez sur **Sous-réseaux** > **FrontEnd** > **Groupe de sécurité réseau** > **NSG-FrontEnd**.
 3. Dans le panneau **FrontEnd**, cliquez sur **Enregistrer**.
 
->[AZURE.NOTE] Vous pouvez également associer un groupe de sécurité réseau à un sous-réseau à partir du panneau **Paramètres** du groupe de sécurité réseau.
+> [!NOTE]
+> Vous pouvez également associer un groupe de sécurité réseau à un sous-réseau à partir du panneau **Paramètres** du groupe de sécurité réseau.
+> 
+> 
 
 ## Suppression d'un groupe de sécurité réseau
-
 Vous ne pouvez supprimer un groupe de sécurité réseau que s’il n’est associé à aucune ressource. Pour supprimer un groupe de sécurité réseau, procédez comme suit.
 
 1. Dans le portail Azure, cliquez sur **Groupes de ressources >** > **RG-NSG** > **...** > **NSG-FrontEnd**.
@@ -184,7 +183,6 @@ Vous ne pouvez supprimer un groupe de sécurité réseau que s’il n’est asso
 [Portail Azure - Groupes de sécurité réseau](./media/virtual-network-manage-nsg-arm-portal/figure16.png)
 
 ## Étapes suivantes
-
-- [Activez la journalisation](virtual-network-nsg-manage-log.md) des groupes de sécurité réseau.
+* [Activez la journalisation](virtual-network-nsg-manage-log.md) des groupes de sécurité réseau.
 
 <!---HONumber=AcomDC_0914_2016-->

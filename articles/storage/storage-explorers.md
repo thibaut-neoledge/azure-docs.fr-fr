@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Outils clients d’Azure Storage | Microsoft Azure"
-    description="Liste des outils qui vous permettent d’afficher/d’interagir avec vos données Azure Storage."
-    services="storage"
-    documentationCenter=""
-    authors="micurd"
-    manager="jahogg"
-    editor="tysonn"/>
+---
+title: Outils clients d’Azure Storage | Microsoft Docs
+description: Liste des outils qui vous permettent d’afficher/d’interagir avec vos données Azure Storage.
+services: storage
+documentationcenter: ''
+author: micurd
+manager: jahogg
+editor: tysonn
 
-<tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/18/2016"
-    ms.author="micurd"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/18/2016
+ms.author: micurd
 
-
+---
 # <a name="azure-storage-client-tools"></a>Outils clients d’Azure Storage
-
 Souvent, les utilisateurs d’Azure Storage veulent être en mesure d’afficher/d’interagir avec leurs données à l’aide d’un outil client d’Azure Storage. Dans les tableaux ci-dessous, nous répertorions un certain nombre d’outils qui vous permettent de le faire. Nous avons placé un « X » dans chaque bloc si l’outil offre la possibilité d’énumérer et/ou d’accéder à l’abstraction de données. Le tableau indique également si l’outil est gratuit ou non. La mention « Version d’évaluation » indique qu’il existe une version d’évaluation gratuite, mais le produit complet n’est pas gratuit. La mention « O/N » indique qu’il existe une version disponible gratuitement, ainsi qu’une version différente disponible à l’achat.
 
 Ceci n’est qu’un aperçu des outils clients Azure Storage disponibles. Ces outils peuvent continuer à évoluer, ainsi que leurs fonctionnalités. S’il existe des corrections ou des mises à jour, veuillez laisser un commentaire pour nous le faire savoir. Il en va de même si vous connaissez des outils qui devraient apparaître dans cette liste : nous serions ravis de les ajouter.

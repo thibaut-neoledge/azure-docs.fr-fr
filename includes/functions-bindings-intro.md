@@ -1,4 +1,4 @@
-Il s’agit des informations de référence pour les développeurs Azure Functions. Si vous ne connaissez pas bien Azure Functions, commencez par consulter les ressources suivantes :
+Il s’agit des informations de référence pour les développeurs Azure Functions. Si vous ne connaissez pas bien Azure Functions, commencez par consulter les ressources suivantes :
 
 * [Créer votre première fonction Azure](../articles/azure-functions/functions-create-first-azure-function.md)
 * [Informations de référence pour les développeurs sur Azure Functions](../articles/azure-functions/functions-reference.md)

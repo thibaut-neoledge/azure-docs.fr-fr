@@ -1,40 +1,37 @@
-<properties
-	pageTitle="Prolongez votre expérience avec R | Microsoft Azure"
-	description="Comment étendre les fonctionnalités d'Azure Machine Learning Studio en utilisant le langage R et le module Exécuter le script R."
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Prolongez votre expérience avec R | Microsoft Docs
+description: Comment étendre les fonctionnalités d'Azure Machine Learning Studio en utilisant le langage R et le module Exécuter le script R.
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/19/2016"
-	ms.author="garye" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/19/2016
+ms.author: garye
 
+---
+# Prolongez votre expérience avec R
+Vous pouvez étendre les fonctionnalités de ML Studio grâce au langage R en utilisant le module [Exécuter le script R][execute-r-script].
 
-# Prolongez votre expérience avec R
+Ce module accepte plusieurs jeux de données d'entrée et génère un jeu de données unique en sortie. Vous pouvez taper un script R dans le paramètre **Script R** du module [Exécuter le script R][execute-r-script].
 
-Vous pouvez étendre les fonctionnalités de ML Studio grâce au langage R en utilisant le module [Exécuter le script R][execute-r-script].
-
-Ce module accepte plusieurs jeux de données d'entrée et génère un jeu de données unique en sortie. Vous pouvez taper un script R dans le paramètre **Script R** du module [Exécuter le script R][execute-r-script].
-
-Pour accéder à chaque port d'entrée du module, utilisez un code semblable au suivant :
+Pour accéder à chaque port d'entrée du module, utilisez un code semblable au suivant :
 
     dataset1 <- maml.mapInputPort(1)
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## Liste de tous les packages actuellement installés
-
 La liste des packages installés peut changer. Pour obtenir la liste complète et à jour des packages installés, avec une description de chaque package, entrez le code suivant dans le module [Exécuter le Script R][execute-r-script] \:
 
     out <- data.frame(installed.packages(,,,fields="Description"))
-	maml.mapOutputPort("out")
+    maml.mapOutputPort("out")
 
 La liste des packages est envoyée au port de sortie du module [Exécuter le Script R][execute-r-script]. Pour afficher la liste des packages, connectez un module de conversion comme [Convertir en CSV][convert-to-csv] à la sortie gauche du module [Exécuter le script R][execute-r-script] puis exécutez le test. Cliquez ensuite sur la sortie du module de conversion et sélectionnez **Télécharger**.
 
@@ -45,8 +42,7 @@ For convenience, here is the [current full list with version numbers in Excel fo
 -->
 
 ## Importation de packages
-
-Vous pouvez également importer des packages qui ne sont pas déjà installés à partir d'un référentiel ML Studio intermédiaire à l'aide des commandes suivantes dans le module [Exécuter le script R][execute-r-script], ainsi que dans l'archive du package zippé :
+Vous pouvez également importer des packages qui ne sont pas déjà installés à partir d'un référentiel ML Studio intermédiaire à l'aide des commandes suivantes dans le module [Exécuter le script R][execute-r-script], ainsi que dans l'archive du package zippé :
 
     install.packages("src/my_favorite_package.zip", lib = ".", repos = NULL, verbose = TRUE)
     success <- library("my_favorite_package", lib.loc = ".", logical.return = TRUE, verbose = TRUE)

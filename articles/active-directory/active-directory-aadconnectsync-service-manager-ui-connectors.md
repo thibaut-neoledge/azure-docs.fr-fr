@@ -1,46 +1,44 @@
-<properties
-	pageTitle="Synchronisation d’Azure AD Connect : Interface utilisateur de Synchronization Service Manager | Microsoft Azure"
-	description="Comprendre l’onglet Connecteurs dans Synchronization Service Manager pour Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+---
+title: 'Synchronisation d’Azure AD Connect : Interface utilisateur de Synchronization Service Manager | Microsoft Docs'
+description: Comprendre l’onglet Connecteurs dans Synchronization Service Manager pour Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="andkjell"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/07/2016
+ms.author: andkjell
 
-
-# Synchronisation d’Azure AD Connect : Synchronization Service Manager
-
-[Operations](Active-Directory-aadconnectsync-Service-Manager-UI-Operations.MD) | [Connecteurs](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Concepteur de métaverse](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Recherche de métaverse](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
---- | --- | --- | ---
+---
+# Synchronisation d’Azure AD Connect : Synchronization Service Manager
+| [Operations](Active-Directory-aadconnectsync-Service-Manager-UI-Operations.MD) | [Connecteurs](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Concepteur de métaverse](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Recherche de métaverse](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) |
+| --- | --- | --- | --- |
+|  | | | |
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
 
 L’onglet Connecteurs permet de gérer tous les systèmes auquel le moteur de synchronisation est connecté.
 
 ## Actions du connecteur
-
-Action | Commentaire
---- | ---
-Créer | Ne pas utiliser. Pour la connexion à des forêts Active Directory supplémentaires, utilisez l’Assistant Installation.
-Propriétés | Permet le filtrage de domaine et d’unité organisationnelle.
-[Supprimer](#delete) | Permet de supprimer les données dans l’espace connecteur ou de supprimer la connexion à une forêt.
-[Configurer les profils d’exécution](#configure-run-profiles) | À l’exception du filtrage de domaine, il n’y a rien à configurer ici. Vous pouvez vous servir de cette action pour voir les profils d’exécution déjà configurés.
-Exécuter | Permet de lancer l’exécution unique d’un profil.
-Arrêter | Arrête un connecteur qui exécute un profil.
-Exporter le connecteur | Ne pas utiliser.
-Importer le connecteur | Ne pas utiliser.
-Mettre à jour le connecteur | Ne pas utiliser.
-Actualiser le schéma | Actualise le schéma mis en cache. Il est préférable d’utiliser l’option dans l’Assistant Installation, car les règles de synchronisation sont également mises à jour.
-[Espace de connecteur de recherche](#search-connector-space) | Permet de rechercher des objets et de [Suivre un objet et ses données dans le système](#follow-an-object-and-its-data-through-the-system).
+| Action | Commentaire |
+| --- | --- |
+| Créer |Ne pas utiliser. Pour la connexion à des forêts Active Directory supplémentaires, utilisez l’Assistant Installation. |
+| Propriétés |Permet le filtrage de domaine et d’unité organisationnelle. |
+| [Supprimer](#delete) |Permet de supprimer les données dans l’espace connecteur ou de supprimer la connexion à une forêt. |
+| [Configurer les profils d’exécution](#configure-run-profiles) |À l’exception du filtrage de domaine, il n’y a rien à configurer ici. Vous pouvez vous servir de cette action pour voir les profils d’exécution déjà configurés. |
+| Exécuter |Permet de lancer l’exécution unique d’un profil. |
+| Arrêter |Arrête un connecteur qui exécute un profil. |
+| Exporter le connecteur |Ne pas utiliser. |
+| Importer le connecteur |Ne pas utiliser. |
+| Mettre à jour le connecteur |Ne pas utiliser. |
+| Actualiser le schéma |Actualise le schéma mis en cache. Il est préférable d’utiliser l’option dans l’Assistant Installation, car les règles de synchronisation sont également mises à jour. |
+| [Espace de connecteur de recherche](#search-connector-space) |Permet de rechercher des objets et de [Suivre un objet et ses données dans le système](#follow-an-object-and-its-data-through-the-system). |
 
 ### Supprimer
 L’action de suppression est utilisée dans deux cas. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)

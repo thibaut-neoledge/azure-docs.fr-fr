@@ -1,22 +1,17 @@
 Vérifiez que vous avez déjà créé un espace de noms Service Bus, comme illustré [ici][namespace-how-to].
 
 1. Connectez-vous au [portail Azure][azure-portal].
-
 2. Dans le volet de navigation de gauche du portail, cliquez sur **Service Bus**.
-
 3. Sélectionnez l’espace de noms dans lequel vous souhaitez créer la file d’attente. Dans ce cas, il s’agit de **nstest1**.
-
+   
     ![Création d’une file d’attente][createqueue1]
-
 4. Dans le panneau de **l’espace de noms Service Bus**, sélectionnez **Files d’attente**, puis cliquez sur **Ajouter une file d’attente**.
-
+   
     ![Sélectionner Files d’attente][createqueue2]
-
 5. Entrez le **Nom de la file d’attente** et laissez les valeurs par défaut des autres valeurs.
-
+   
     ![Sélectionner Nouveau][createqueue3]
-
-7. Au bas du panneau, cliquez sur **Créer**.
+6. Au bas du panneau, cliquez sur **Créer**.
 
 [createqueue1]: ./media/service-bus-create-queue-portal/create-queue1.png
 [createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png

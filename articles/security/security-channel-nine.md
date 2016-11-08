@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Vidéos sur la sécurité Azure sur Channel 9 | Microsoft Azure"
-   description="Cet article fournit une liste des présentations de sécurité Azure sur Channel 9. Channel 9 est une communauté qui met en contact ceux qui se cachent derrière nos produits avec ceux qui les utilisent."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+title: Vidéos sur la sécurité Azure sur Channel 9 | Microsoft Docs
+description: Cet article fournit une liste des présentations de sécurité Azure sur Channel 9. Channel 9 est une communauté qui met en contact ceux qui se cachent derrière nos produits avec ceux qui les utilisent.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="terrylan"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: terrylan
 
-# Vidéos traitant de la sécurité Azure sur Channel 9
-
+---
+# Vidéos traitant de la sécurité Azure sur Channel 9
 [Channel 9](https://channel9.msdn.com/) est une communauté qui met en avant les personnes derrière nos produits et les met en relation avec les clients.
 
 Les membres de cette communauté pensent que les logiciels sont promis à un bel avenir, et ils en sont enchantés. Channel 9 est une communauté pour ceux qui souhaitent participer à la conversation en cours.
@@ -46,9 +45,9 @@ Jack Richins montre à [Scott](https://channel9.msdn.com/Niners/Glucose) comment
 
 Sujets abordés dans cette vidéo :
 
-- Présentation du chiffrement et de SQL Server
-- Présentation des API de protection des données, des clés principales et des certificats
-- Création de la clé principale et des certificats à l’aide de commandes SQL, et chiffrement de la base de données
+* Présentation du chiffrement et de SQL Server
+* Présentation des API de protection des données, des clés principales et des certificats
+* Création de la clé principale et des certificats à l’aide de commandes SQL, et chiffrement de la base de données
 
 [Comment définir la sécurité dans DevTest Labs](https://channel9.msdn.com/Blogs/Windows-Azure/How-to-set-security-in-your-DevTest-Lab)
 
@@ -66,11 +65,11 @@ Le responsable programmes senior Narayan Annamalai explique à Scott comment uti
 
 Azure Active Directory (AD) Privileged Identity Management est une fonctionnalité premium qui vous permet de détecter, de limiter et de surveiller les identités privilégiées et leur accès aux ressources. Il applique également un accès administratif immédiat et à la demande au besoin. Vous en saurez plus sur :
 
-- La gestion de la protection des rôles d’administrateur propres aux charges de travail Office 365
-- La configuration d’Azure Multi-Factor Authentication (MFA) pour l’activation des rôles privilégiés
-- La mesure et l’amélioration de votre sécurité client
-- La surveillance et la résolution des résultats en matière de sécurité
-- La révision des rôles qui doivent rester privilégiés pour les workflows de recertification périodique
+* La gestion de la protection des rôles d’administrateur propres aux charges de travail Office 365
+* La configuration d’Azure Multi-Factor Authentication (MFA) pour l’activation des rôles privilégiés
+* La mesure et l’amélioration de votre sécurité client
+* La surveillance et la résolution des résultats en matière de sécurité
+* La révision des rôles qui doivent rester privilégiés pour les workflows de recertification périodique
 
 [Azure Key Vault avec Amit Bapat](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Key-Vault-with-Amit-Bapat)
 

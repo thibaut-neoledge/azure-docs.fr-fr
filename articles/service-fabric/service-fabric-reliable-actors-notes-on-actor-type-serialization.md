@@ -1,28 +1,25 @@
-<properties
-   pageTitle="Remarques sur Reliable Actors pour la sérialisation de type d’acteur | Microsoft Azure"
-   description="Traite des exigences de base pour la définition des classes sérialisables pouvant servir à définir les interfaces et les états Service Fabric Reliable Actors"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="vturecek"
-   manager="timlt"
-   editor=""/>
+---
+title: Remarques sur Reliable Actors pour la sérialisation de type d’acteur | Microsoft Docs
+description: Traite des exigences de base pour la définition des classes sérialisables pouvant servir à définir les interfaces et les états Service Fabric Reliable Actors
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="07/06/2015"
-   ms.author="vturecek"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 07/06/2015
+ms.author: vturecek
 
+---
 # Remarques sur la sérialisation de type Reliable Actors Service Fabric
-
-
 Les arguments de toutes les méthodes, les types de résultats des tâches retournées par chaque méthode dans une interface d’acteur et les objets stockés dans le Gestionnaire d’état d’un acteur doivent être [sérialisables en contrat de données](https://msdn.microsoft.com/library/ms731923.aspx). Cela s’applique également aux arguments des méthodes définies dans les [interfaces d’événement d’acteur](service-fabric-reliable-actors-events.md#actor-events). (Les méthodes d’interface d’événement d’acteur retournent toujours la valeur nulle.)
 
 ## Types de données personnalisés
-
 Dans cet exemple, l’interface d’acteur suivante définit une méthode qui retourne un type de données personnalisé appelé `VoicemailBox`.
 
 ```csharp
@@ -47,9 +44,10 @@ public class VoiceMailBoxActor : Actor, IVoicemailBoxActor
 ```
 
 Dans cet exemple, l’objet `VoicemailBox` est sérialisé quand :
- - L’objet est transmis entre une instance d’acteur et un appelant.
- - L’objet est enregistré dans le Gestionnaire d’état quand il est enregistré sur disque et répliqué vers d’autres nœuds.
- 
+
+* L’objet est transmis entre une instance d’acteur et un appelant.
+* L’objet est enregistré dans le Gestionnaire d’état quand il est enregistré sur disque et répliqué vers d’autres nœuds.
+
 L’infrastructure Reliable Actor utilise la sérialisation DataContract. Par conséquent, les objets de données personnalisés et leurs membres doivent être annotés avec les attributs **DataContract** et **DataMember**, respectivement
 
 ```csharp
@@ -85,11 +83,11 @@ public class VoicemailBox
 ```
 
 ## Étapes suivantes
- - [Cycle de vie des acteurs et Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
- - [Minuteries et rappels d’acteur](service-fabric-reliable-actors-timers-reminders.md)
- - [Événements d’acteurs](service-fabric-reliable-actors-events.md)
- - [Réentrance des acteurs](service-fabric-reliable-actors-reentrancy.md)
- - [Polymorphisme des acteurs et modèles de conception orientée objet](service-fabric-reliable-actors-polymorphism.md)
- - [Diagnostics et surveillance des performances d’acteur](service-fabric-reliable-actors-diagnostics.md)
+* [Cycle de vie des acteurs et Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
+* [Minuteries et rappels d’acteur](service-fabric-reliable-actors-timers-reminders.md)
+* [Événements d’acteurs](service-fabric-reliable-actors-events.md)
+* [Réentrance des acteurs](service-fabric-reliable-actors-reentrancy.md)
+* [Polymorphisme des acteurs et modèles de conception orientée objet](service-fabric-reliable-actors-polymorphism.md)
+* [Diagnostics et surveillance des performances d’acteur](service-fabric-reliable-actors-diagnostics.md)
 
 <!---HONumber=AcomDC_0713_2016-->

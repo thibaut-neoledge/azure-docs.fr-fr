@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Cours de sécurité Azure avec Microsoft Virtual Academy | Microsoft Azure"
-   description="Cet article offre une présentation claire des cours liés à la sécurité Azure proposés par Microsoft Virtual Academy. Microsoft Virtual Academy offre des formations en ligne gratuites pour aider les développeurs, les professionnels de l’informatique et des données et les étudiants à découvrir les dernières technologies, à enrichir leurs compétences et à développer leur carrière."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+title: Cours de sécurité Azure avec Microsoft Virtual Academy | Microsoft Docs
+description: Cet article offre une présentation claire des cours liés à la sécurité Azure proposés par Microsoft Virtual Academy. Microsoft Virtual Academy offre des formations en ligne gratuites pour aider les développeurs, les professionnels de l’informatique et des données et les étudiants à découvrir les dernières technologies, à enrichir leurs compétences et à développer leur carrière.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="terrylan"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: terrylan
 
+---
 # Cours de sécurité Azure avec Microsoft Virtual Academy
-
 Microsoft Virtual Academy offre des formations en ligne gratuites pour aider les développeurs, les professionnels de l’informatique et des données et les étudiants à découvrir les dernières technologies, à enrichir leurs compétences et à développer leur carrière.
 
 Cette page offre une présentation claire des cours liés à la sécurité Azure. Visitez le site de [Microsoft Virtual Academy](https://mva.microsoft.com/) pour afficher la liste des cours disponibles.

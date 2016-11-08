@@ -1,34 +1,30 @@
-<properties 
-pageTitle="Déployer S/4 HANA ou HANA BW/4 sur une machine virtuelle Azure | Microsoft Azure" 
-description="Déployer S/4 HANA ou HANA BW/4 sur une machine virtuelle Azure" 
-services="virtual-machines-linux" 
-documentationCenter="" 
-authors="hermanndms" 
-manager="timlt" 
-editor="" 
-tags="azure-resource-manager" 
-  keywords=""/> 
-<tags 
-  ms.service="virtual-machines-linux" 
-  ms.devlang="na" 
-  ms.topic="article" 
-  ms.tgt_pltfrm="vm-linux" 
-  ms.workload="infrastructure-services" 
-  ms.date="09/15/2016" 
-  ms.author="hermannd"/> 
+---
+title: Déployer S/4 HANA ou HANA BW/4 sur une machine virtuelle Azure | Microsoft Docs
+description: Déployer S/4 HANA ou HANA BW/4 sur une machine virtuelle Azure
+services: virtual-machines-linux
+documentationcenter: ''
+author: hermanndms
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+keywords: ''
 
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 09/15/2016
+ms.author: hermannd
 
-
-# <a name="deploying-s/4-hana-or-bw/4-hana-on-microsoft-azure"></a>Déployer S/4 HANA ou BW/4 HANA sur Microsoft Azure 
-
+---
+# <a name="deploying-s/4-hana-or-bw/4-hana-on-microsoft-azure"></a>Déployer S/4 HANA ou BW/4 HANA sur Microsoft Azure
 Cet article explique comment déployer S/4 HANA sur Microsoft Azure via SAP Cloud Appliance Library 3.0.
 Les captures d’écran montrent le processus étape par étape. Le déploiement d’autres solutions basées sur SAP HANA comme BW/4 HANA fonctionne de la même façon en termes de processus. Il suffit de sélectionner une autre solution.
 
 Pour démarrer avec SAP Cloud Appliance Library (SAP CAL), accédez à [cette page](https://cal.sap.com/). Il existe un blog SAP sur le nouveau [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
-
 Les captures d’écran suivantes présentent la procédure étape par étape pour déployer S/4 HANA sur Microsoft Azure. Le processus fonctionne de la même façon pour les autres solutions telles que BW/4 HANA.
-
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic-1b.jpg)
 
@@ -92,15 +88,6 @@ Il est à présent possible de se connecter à la solution via le bouton de conn
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic15.jpg)
 
 Une autre option consiste à se connecter à la machine virtuelle Windows cliente et de commencer la SAP GUI préconfigurée.
-
-
-
-
-
-
-
-
-
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Explorateur de ressources Azure | Microsoft Azure"
-   description="Décrit l’Explorateur de ressources Azure et comment l’utiliser pour afficher et mettre à jour des déploiements par le biais d’Azure Resource Manager"
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="stuartleeks"
-   manager="ankodu"
-   editor=""/>
+---
+title: Explorateur de ressources Azure | Microsoft Docs
+description: Décrit l’Explorateur de ressources Azure et comment l’utiliser pour afficher et mettre à jour des déploiements par le biais d’Azure Resource Manager
+services: azure-resource-manager
+documentationcenter: na
+author: stuartleeks
+manager: ankodu
+editor: ''
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/01/2016"
-   ms.author="stuartle;tomfitz"/>
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/01/2016
+ms.author: stuartle;tomfitz
 
+---
 # Affichage et modification des ressources à l’aide de l’Explorateur de ressources Azure
 L’[Explorateur de ressources Azure](https://resources.azure.com) est un excellent outil pour consulter des ressources que vous avez déjà créées dans votre abonnement. Cet outil vous permet de comprendre comment les ressources sont structurées et de voir les propriétés affectées à chaque ressource. Vous pouvez en savoir plus sur les opérations de l’API REST et les applets de commande PowerShell disponibles pour un type de ressource. Vous pouvez également émettre des commandes par le biais de l’interface. L’Explorateur de ressources peut s’avérer particulièrement utile lorsque vous créez des modèles Resource Manager, car il permet d’afficher les propriétés des ressources existantes.
 
@@ -24,11 +24,11 @@ Le code source de l’outil Explorateur de ressources est disponible sur [github
 ## Afficher les ressources
 Accédez à [https://resources.azure.com](https://resources.azure.com) et connectez-vous avec les informations d’identification que vous utilisez pour le [portail Azure](https://portal.azure.com).
 
-Une fois chargée, l’arborescence de gauche vous permet d’accéder aux informations détaillées sur vos abonnements et groupes de ressources :
+Une fois chargée, l’arborescence de gauche vous permet d’accéder aux informations détaillées sur vos abonnements et groupes de ressources :
 
 ![arborescence](./media/resource-manager-resource-explorer/are-01-treeview.png)
 
-Lorsque vous accédez à un groupe de ressources, les fournisseurs pour lesquels il existe des ressources dans ce groupe s’affichent :
+Lorsque vous accédez à un groupe de ressources, les fournisseurs pour lesquels il existe des ressources dans ce groupe s’affichent :
 
 ![fournisseurs](./media/resource-manager-resource-explorer/are-02-treeview-providers.png)
 
@@ -45,8 +45,7 @@ L’exploration d’une base de données nous montre les propriétés de cette b
 ![base de données SQL](./media/resource-manager-resource-explorer/are-04-database-get.png)
 
 ## Modifier les ressources
-
-Une fois que vous avez accédé à une ressource, vous pouvez sélectionner le bouton Modifier pour rendre le contenu JSON modifiable. Vous pouvez ensuite utiliser l’Explorateur de ressources pour modifier le script JSON et envoyer une demande PUT pour modifier la ressource. Par exemple, l’image ci-dessous indique que le niveau de base de données est désormais défini sur `S0` :
+Une fois que vous avez accédé à une ressource, vous pouvez sélectionner le bouton Modifier pour rendre le contenu JSON modifiable. Vous pouvez ensuite utiliser l’Explorateur de ressources pour modifier le script JSON et envoyer une demande PUT pour modifier la ressource. Par exemple, l’image ci-dessous indique que le niveau de base de données est désormais défini sur `S0` :
 
 ![base de données - demande PUT](./media/resource-manager-resource-explorer/are-05-database-put.png)
 
@@ -57,7 +56,6 @@ Une fois que la demande a été soumise, l’Explorateur de ressources émet à 
 ![base de données - demande PUT 2](./media/resource-manager-resource-explorer/are-06-database-get2.png)
 
 ## Exécution d’actions sur les ressources
-
 L’onglet **Actions** vous permet de voir et d’exécuter d’autres opérations REST. Par exemple, lorsque vous avez sélectionné une ressource de site web, l’onglet Actions présente une longue liste d’opérations disponibles, dont certaines sont présentées ci-dessous.
 
 ![web - demande POST](./media/resource-manager-resource-explorer/are-web-post.png)
@@ -72,6 +70,6 @@ Pour plus d’informations sur les applets de commande Azure PowerShell, consult
 ## Résumé
 Lorsque vous travaillez avec Resource Manager, l’Explorateur de ressources peut être un outil extrêmement utile. Il est idéal pour trouver des moyens d’utiliser PowerShell pour effectuer des requêtes et apporter des modifications. Si vous utilisez l’API REST, c’est un excellent moyen de commencer à tester rapidement les appels d’API avant de commencer à écrire du code. En outre, si vous écrivez des modèles, cela peut être un excellent moyen de comprendre la hiérarchie des ressources et de déterminer où placer la configuration. Vous pouvez apporter une modification dans le portail, puis rechercher les entrées correspondantes dans l’Explorateur de ressources.
 
-Pour plus d’informations, consultez la [vidéo Channel 9 avec Scott Hanselman et David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo)
+Pour plus d’informations, consultez la [vidéo Channel 9 avec Scott Hanselman et David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo)
 
 <!---HONumber=AcomDC_0803_2016-->

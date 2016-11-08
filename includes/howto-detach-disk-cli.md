@@ -1,25 +1,24 @@
 
-#Détachement d’un disque de données d’une machine virtuelle avec l’interface de ligne de commande
-
+# Détachement d’un disque de données d’une machine virtuelle avec l’interface de ligne de commande
 Lorsque vous n’avez plus besoin d’un disque de données qui est attaché à une machine virtuelle, vous pouvez le détacher facilement. Cela supprime le disque de la machine virtuelle, mais pas du stockage. Si vous souhaitez réutiliser les données du disque, vous pouvez l'attacher à la même machine virtuelle ou à une autre.
 
-> [AZURE.NOTE]Une machine virtuelle dans Azure utilise différents types de disque : un disque de système d'exploitation, un disque local temporaire et des disques de données facultatifs. Les disques de données sont le mode de stockage recommandé pour les données des machines virtuelles. Pour plus de détails au sujet des disques, consultez la rubrique [À propos des disques et des images](http://go.microsoft.com/fwlink/p/?LinkId=263439). Il n'est pas encore possible de détacher un disque de système d'exploitation.
+> [!NOTE]
+> Une machine virtuelle dans Azure utilise différents types de disque : un disque de système d'exploitation, un disque local temporaire et des disques de données facultatifs. Les disques de données sont le mode de stockage recommandé pour les données des machines virtuelles. Pour plus de détails au sujet des disques, consultez la rubrique [À propos des disques et des images](http://go.microsoft.com/fwlink/p/?LinkId=263439). Il n'est pas encore possible de détacher un disque de système d'exploitation.
+> 
+> 
 
-
-1. Obtenez la liste des disques attachés à votre machine virtuelle :
-
+1. Obtenez la liste des disques attachés à votre machine virtuelle :
+   
         vm disk list <vm-name>
-
+   
     Si vous omettez `<vm-name>`, vous obtiendrez une liste de tous les disques de votre abonnement.
-
-
-2. Détachement d’un disque :
-
+2. Détachement d’un disque :
+   
         vm disk detach <vm-name> <lun>
-
+   
     `lun` identifie le disque à détacher et sera un nombre disponible dans la liste des disques de votre machine virtuelle.
 
-Exemple de procédure, incluant la sortie de terminal :
+Exemple de procédure, incluant la sortie de terminal :
 
     ~$ azure vm disk list kmlinux
     info:    Executing command vm disk list

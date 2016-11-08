@@ -1,27 +1,28 @@
-<properties
-   pageTitle="Vues dans SQL Data Warehouse | Microsoft Azure"
-   description="Conseils relatifs à l’utilisation de vues Transact-SQL dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Vues dans SQL Data Warehouse | Microsoft Docs
+description: Conseils relatifs à l’utilisation de vues Transact-SQL dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="07/01/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 07/01/2016
+ms.author: jrj;barbkess;sonyama
 
+---
+# Vues proposées par SQL Data Warehouse
+Les vues sont particulièrement utiles dans SQL Data Warehouse. Vous pouvez les utiliser de différentes façons, afin d’améliorer la qualité de votre solution. Cet article met en évidence quelques exemples montrant comment enrichir votre solution avec des vues, ainsi que les limites à prendre en considération.
 
-# Vues proposées par SQL Data Warehouse
-
-Les vues sont particulièrement utiles dans SQL Data Warehouse. Vous pouvez les utiliser de différentes façons, afin d’améliorer la qualité de votre solution. Cet article met en évidence quelques exemples montrant comment enrichir votre solution avec des vues, ainsi que les limites à prendre en considération.
-
-> [AZURE.NOTE] La syntaxe de `CREATE VIEW` n’est pas abordée dans cet article. Consultez l’article [CREATE VIEW][] sur MSDN pour obtenir ces informations de référence.
+> [!NOTE]
+> La syntaxe de `CREATE VIEW` n’est pas abordée dans cet article. Consultez l’article [CREATE VIEW][CREATE VIEW] sur MSDN pour obtenir ces informations de référence.
+> 
+> 
 
 ## Abstraction architecturale
 Un des modèles d’application les plus courants consiste à recréer des tables au moyen de la commande CREATE TABLE AS SELECT (CTAS), suivie d’un modèle de changement de nom d’un objet, lors du chargement des données.
@@ -52,17 +53,16 @@ Toutefois, cette approche peut provoquer l’apparition et la disparition de tab
 Une vue peut également être utilisée pour mettre en place des jointures plus performantes entre les tables. Ainsi, une vue peut inclure une clé de distribution redondante parmi ses critères de jointure, afin de réduire le nombre de déplacements de données. Elle peut également permettre de forcer une indication de jointure ou de requête spécifique. Utiliser des vues de cette manière permet de garantir que les jointures sont toujours effectuées de façon optimale en évitant d’avoir à se souvenir de leur construction correcte.
 
 ## Limitations
-Dans SQL Data Warehouse, les vues concernent uniquement les métadonnées. De ce fait, les options suivantes ne sont pas disponibles :
+Dans SQL Data Warehouse, les vues concernent uniquement les métadonnées. De ce fait, les options suivantes ne sont pas disponibles :
 
-- 	Il n’existe aucune option de liaison de schéma.
-- 	Les tables de base ne peuvent pas être mises à jour par le biais de la vue.
-- 	Vous ne pouvez pas créer des vues sur des tables temporaires.
-- 	Les indications EXPAND/NOEXPAND ne sont pas prises en charge.
-- 	SQL Data Warehouse n’inclut aucune vue indexée.
-
+* Il n’existe aucune option de liaison de schéma.
+* Les tables de base ne peuvent pas être mises à jour par le biais de la vue.
+* Vous ne pouvez pas créer des vues sur des tables temporaires.
+* Les indications EXPAND/NOEXPAND ne sont pas prises en charge.
+* SQL Data Warehouse n’inclut aucune vue indexée.
 
 ## Étapes suivantes
-Pour obtenir des conseils supplémentaires en matière de développement, consultez la rubrique [Vue d’ensemble sur le développement SQL Data Warehouse][]. Pour la syntaxe de `CREATE VIEW`, consultez [CREATE VIEW][].
+Pour obtenir des conseils supplémentaires en matière de développement, consultez la rubrique [Vue d’ensemble sur le développement SQL Data Warehouse][Vue d’ensemble sur le développement SQL Data Warehouse]. Pour la syntaxe de `CREATE VIEW`, consultez [CREATE VIEW][CREATE VIEW].
 
 <!--Image references-->
 

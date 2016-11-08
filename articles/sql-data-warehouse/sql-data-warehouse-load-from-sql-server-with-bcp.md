@@ -1,64 +1,60 @@
-<properties
-   pageTitle="Charger des données à partir de SQL Server dans Azure SQL Data Warehouse (bcp) | Microsoft Azure"
-   description="Pour les données de taille réduite, utilise l’utilitaire de ligne de commande bcp pour exporter les données dans des fichiers plats à partir de SQL Server, puis les importer directement dans Azure SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""/>
+---
+title: Charger des données à partir de SQL Server dans Azure SQL Data Warehouse (bcp) | Microsoft Docs
+description: Pour les données de taille réduite, utilise l’utilitaire de ligne de commande bcp pour exporter les données dans des fichiers plats à partir de SQL Server, puis les importer directement dans Azure SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: NA
+author: lodipalm
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/30/2016"
-   ms.author="lodipalm;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/30/2016
+ms.author: lodipalm;barbkess;sonyama
 
-
+---
 # Charger des données à partir de SQL Server dans Azure SQL Data Warehouse (fichiers plats)
-
-> [AZURE.SELECTOR]
-- [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
-- [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-- [bcp](sql-data-warehouse-load-from-sql-server-with-bcp.md)
+> [!div class="op_single_selector"]
+> * [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+> * [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+> * [bcp](sql-data-warehouse-load-from-sql-server-with-bcp.md)
+> 
+> 
 
 Pour les jeux de données de taille réduite, vous pouvez utiliser l’utilitaire de ligne de commande bcp pour exporter les données depuis SQL Server, puis les charger directement dans Azure SQL Data Warehouse.
 
 Dans ce didacticiel, nous allons utiliser bcp pour :
 
-- exporter une table à partir de SQL Server à l’aide de la commande bcp out (ou créer un fichier d’exemple simple) ;
-- importer la table dans SQL Data Warehouse à partir d’un fichier plat ;
-- créer des statistiques sur les données chargées.
+* exporter une table à partir de SQL Server à l’aide de la commande bcp out (ou créer un fichier d’exemple simple) ;
+* importer la table dans SQL Data Warehouse à partir d’un fichier plat ;
+* créer des statistiques sur les données chargées.
 
->[AZURE.VIDEO loading-data-into-azure-sql-data-warehouse-with-bcp]
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
+> 
+> 
 
 ## Avant de commencer
-
 ### Composants requis
+Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 
-Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
+* Base de données SQL Data Warehouse
+* Utilitaire de ligne de commande bcp installé
+* Utilitaire de ligne de commande sqlcmd installé
 
-- Base de données SQL Data Warehouse
-- Utilitaire de ligne de commande bcp installé
-- Utilitaire de ligne de commande sqlcmd installé
-
-Pour télécharger les utilitaires bcp et sqlcmd, accédez au [Centre de téléchargement Microsoft][].
+Pour télécharger les utilitaires bcp et sqlcmd, accédez au [Centre de téléchargement Microsoft][Centre de téléchargement Microsoft].
 
 ### Données au format ASCII ou UTF-16
-
 Si vous suivez ce didacticiel avec vos propres données, l’encodage de ces dernières doit être au format ASCII ou UTF-16, étant donné que bcp ne prend pas en charge UTF-8.
 
 PolyBase prend en charge UTF-8, mais pas UTF-16 pour l’instant. Notez que si vous souhaitez combiner bcp avec PolyBase, vous devrez convertir les données au format UTF-8 après les avoir exportées de SQL Server.
 
-
 ## 1\. Créer une table de destination
-
 Définissez une table dans SQL Data Warehouse qui sera la table de destination pour la charge. Les colonnes de la table doivent correspondre aux données dans chaque ligne du fichier de données.
 
 Pour créer une table, ouvrez une invite de commandes et utilisez sqlcmd.exe pour exécuter la commande suivante :
-
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -78,7 +74,6 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 
 ## 2\. Créer un fichier de données source
-
 Ouvrez le Bloc-notes, copiez les lignes de données suivantes dans un nouveau fichier texte, puis enregistrez ce fichier dans votre répertoire temporaire local C:\\Temp\\DimDate2.txt. Ces données sont au format ASCII.
 
 ```
@@ -119,24 +114,23 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 Le résultat doit avoir l’aspect suivant :
 
-DateId |CalendarQuarter |FiscalQuarter
------------ |--------------- |-------------
-20150101 |1 |3
-20150201 |1 |3
-20150301 |1 |3
-20150401 |2 |4
-20150501 |2 |4
-20150601 |2 |4
-20150701 |3 |1
-20150801 |3 |1
-20150801 |3 |1
-20151001 |4 |2
-20151101 |4 |2
-20151201 |4 |2
+| DateId | CalendarQuarter | FiscalQuarter |
+| --- | --- | --- |
+| 20150101 |1 |3 |
+| 20150201 |1 |3 |
+| 20150301 |1 |3 |
+| 20150401 |2 |4 |
+| 20150501 |2 |4 |
+| 20150601 |2 |4 |
+| 20150701 |3 |1 |
+| 20150801 |3 |1 |
+| 20150801 |3 |1 |
+| 20151001 |4 |2 |
+| 20151101 |4 |2 |
+| 20151201 |4 |2 |
 
 ## 4\. Create statistics
-
-SQL Data Warehouse ne prend pas encore en charge les statistiques à création ou mise à jour automatique. Pour optimiser les performances de vos requêtes, il est important de créer les statistiques sur toutes les colonnes de toutes les tables après le premier chargement ou après toute modification substantielle dans les données. Pour plus d’informations sur les statistiques, voir [Statistiques][].
+SQL Data Warehouse ne prend pas encore en charge les statistiques à création ou mise à jour automatique. Pour optimiser les performances de vos requêtes, il est important de créer les statistiques sur toutes les colonnes de toutes les tables après le premier chargement ou après toute modification substantielle dans les données. Pour plus d’informations sur les statistiques, voir [Statistiques][Statistiques].
 
 Exécutez la commande suivante pour créer des statistiques sur la table nouvellement chargée.
 
@@ -154,7 +148,6 @@ Vous pouvez exporter les données que vous venez de charger à partir de SQL Dat
 Toutefois, les résultats ne sont pas les mêmes. Étant donné que les données sont stockées dans des emplacements distribués au sein de SQL Data Warehouse, chaque nœud de calcul écrit les données exportées dans le fichier de sortie. L’ordre des données dans le fichier de sortie sera peut-être différent de l’ordre des données du fichier d’entrée.
 
 ### Exporter une table et comparer les résultats exportés
-
 Pour afficher les données exportées, ouvrez une invite de commandes et exécutez la commande suivante avec vos propres paramètres. ServerName est le nom de votre serveur logique SQL Azure.
 
 ```sql
@@ -178,17 +171,16 @@ Pour vérifier que les données ont été exportées, ouvrez le nouveau fichier.
 ```
 
 ### Exporter les résultats d’une requête
-
 Vous pouvez utiliser la fonction **queryout** de l’utilitaire bcp pour exporter les résultats d’une requête plutôt que d’exporter la table entière.
 
 ## Étapes suivantes
-Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [Chargement de données dans SQL Data Warehouse][]. Pour obtenir des conseils supplémentaires en matière de développement, consultez l’article [Vue d’ensemble sur le développement SQL Data Warehouse][]. Consultez la page [Table Overview][] (Vue d’ensemble des tables dans SQL Data Warehouse) ou la syntaxe [CREATE TABLE][] pour plus d’informations sur la création d’une table dans SQL Data Warehouse.
+Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [Chargement de données dans SQL Data Warehouse][Chargement de données dans SQL Data Warehouse]. Pour obtenir des conseils supplémentaires en matière de développement, consultez l’article [Vue d’ensemble sur le développement SQL Data Warehouse][Vue d’ensemble sur le développement SQL Data Warehouse]. Consultez la page [Table Overview][Table Overview] (Vue d’ensemble des tables dans SQL Data Warehouse) ou la syntaxe [CREATE TABLE][CREATE TABLE] pour plus d’informations sur la création d’une table dans SQL Data Warehouse.
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Chargement de données dans SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[Chargement de données dans SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
 [Vue d’ensemble sur le développement SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
 [Table Overview]: ./sql-data-warehouse-tables-overview.md
 [Statistiques]: ./sql-data-warehouse-tables-statistics.md

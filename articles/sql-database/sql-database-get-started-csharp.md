@@ -1,52 +1,53 @@
-<properties
-    pageTitle="Essayer la base de données SQL : Utiliser C# pour créer une base de données SQL | Microsoft Azure"
-    description="Essayez la base de données SQL pour développer des applications SQL et C# et créez une base de données SQL Azure avec C# à l’aide de la bibliothèque de base de données SQL pour .NET."
-    keywords="essayer sql, sql c##"   
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor="cgronlun"/>
+---
+title: 'Essayer la base de données SQL : Utiliser C# pour créer une base de données SQL | Microsoft Docs'
+description: Essayez la base de données SQL pour développer des applications SQL et C# et créez une base de données SQL Azure avec C# à l’aide de la bibliothèque de base de données SQL pour .NET.
+keywords: essayer sql, sql c##
+services: sql-database
+documentationcenter: ''
+author: stevestein
+manager: jhubbard
+editor: cgronlun
 
-<tags
-   ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="csharp"
-   ms.workload="data-management"
-   ms.date="10/04/2016"
-   ms.author="sstein"/>
+ms.service: sql-database
+ms.devlang: NA
+ms.topic: hero-article
+ms.tgt_pltfrm: csharp
+ms.workload: data-management
+ms.date: 10/04/2016
+ms.author: sstein
 
-
-# <a name="try-sql-database:-use-c#-to-create-a-sql-database-with-the-sql-database-library-for-.net"></a>Essayer la Base de données SQL : Utiliser C# pour créer une Base de données SQL avec la bibliothèque de base de données SQL pour .NET
-
-
-> [AZURE.SELECTOR]
-- [Portail Azure](sql-database-get-started.md)
-- [C#](sql-database-get-started-csharp.md)
-- [PowerShell](sql-database-get-started-powershell.md)
+---
+# <a name="try-sql-database:-use-c#-to-create-a-sql-database-with-the-sql-database-library-for-.net"></a>Essayer la Base de données SQL : Utiliser C# pour créer une Base de données SQL avec la bibliothèque de base de données SQL pour .NET
+> [!div class="op_single_selector"]
+> * [Portail Azure](sql-database-get-started.md)
+> * [C#](sql-database-get-started-csharp.md)
+> * [PowerShell](sql-database-get-started-powershell.md)
+> 
+> 
 
 Découvrez comment utiliser C# pour créer une base de données SQL Azure avec la [bibliothèque de base de données SQL Azure pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Cet article décrit comment créer une base de données unique avec SQL et C#. Pour créer des pools de base de données élastiques, voir [Créer un pool de base de données élastique](sql-database-elastic-pool-create-csharp.md).
 
 La bibliothèque de gestion de base de données SQL Azure pour .NET fournit une API basée sur [Azure Resource Manager](../resource-group-overview.md) qui encapsule l’[API REST de base de données SQL basée sur Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
->[AZURE.NOTE] Nombre des nouvelles fonctionnalités de SQL Database ne sont prises en charge que si vous utilisez le [modèle de déploiement Azure Resource Manager](../resource-group-overview.md), c’est pourquoi vous devez toujours utiliser la toute dernière **bibliothèque de base de données SQL Azure pour .NET ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Les anciennes [bibliothèques basées sur des modèles de déploiement classique](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) sont prises en charge pour la compatibilité ascendante uniquement, donc nous vous recommandons d’utiliser les bibliothèques Resource Manager plus récentes.
+> [!NOTE]
+> Nombre des nouvelles fonctionnalités de SQL Database ne sont prises en charge que si vous utilisez le [modèle de déploiement Azure Resource Manager](../resource-group-overview.md), c’est pourquoi vous devez toujours utiliser la toute dernière **bibliothèque de base de données SQL Azure pour .NET ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Les anciennes [bibliothèques basées sur des modèles de déploiement classique](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) sont prises en charge pour la compatibilité ascendante uniquement, donc nous vous recommandons d’utiliser les bibliothèques Resource Manager plus récentes.
+> 
+> 
 
 Pour effectuer les étapes de cet article, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure. Si vous avez besoin d’un abonnement Azure, cliquez simplement sur **COMPTE GRATUIT** en haut de cette page, puis continuez la lecture de cet article.
-- Visual Studio. Pour obtenir une copie gratuite de Visual Studio, consultez la page [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) .
+* Un abonnement Azure. Si vous avez besoin d’un abonnement Azure, cliquez simplement sur **COMPTE GRATUIT** en haut de cette page, puis continuez la lecture de cet article.
+* Visual Studio. Pour obtenir une copie gratuite de Visual Studio, consultez la page [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) .
 
->[AZURE.NOTE] Cet article permet de créer une base de données SQL vide. Modifiez la méthode *CreateOrUpdateDatabase(...)* dans l’exemple suivant pour copier des bases de données, les mettre à l’échelle, créer une base de données dans un pool, etc. Pour en savoir plus, consultez les classes [DatabaseCreateMode](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databasecreatemode.aspx) et [DatabaseProperties](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databaseproperties.aspx).
-
-
+> [!NOTE]
+> Cet article permet de créer une base de données SQL vide. Modifiez la méthode *CreateOrUpdateDatabase(...)* dans l’exemple suivant pour copier des bases de données, les mettre à l’échelle, créer une base de données dans un pool, etc. Pour en savoir plus, consultez les classes [DatabaseCreateMode](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databasecreatemode.aspx) et [DatabaseProperties](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databaseproperties.aspx).
+> 
+> 
 
 ## <a name="create-a-console-app-and-install-the-required-libraries"></a>Créer une application de console et installer les bibliothèques requises
-
 1. Démarrez Visual Studio.
 2. Cliquez sur **Fichier** > **Nouveau** > **Projet**.
 3. Créez une **application de console** C# et nommez-la *SqlDbConsoleApp*
-
 
 Pour créer une base de données SQL avec C#, chargez les bibliothèques de gestion nécessaires (à l’aide de la [console du gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console)) :
 
@@ -55,17 +56,15 @@ Pour créer une base de données SQL avec C#, chargez les bibliothèques de gest
 3. Saisissez `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` pour installer la [bibliothèque Microsoft Azure Resource Manager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
 4. Saisissez `Install-Package Microsoft.Azure.Common.Authentication –Pre` pour installer la [bibliothèque Microsoft Azure Common Authentication](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
 
+> [!NOTE]
+> Les exemples de cet article utilisent une forme synchrone de chaque bloc et demande d’API jusqu’à la fin de l’appel REST sur le service sous-jacent. Des méthodes asynchrones sont disponibles.
+> 
+> 
 
-
-> [AZURE.NOTE] Les exemples de cet article utilisent une forme synchrone de chaque bloc et demande d’API jusqu’à la fin de l’appel REST sur le service sous-jacent. Des méthodes asynchrones sont disponibles.
-
-
-## <a name="create-a-sql-database-server,-firewall-rule,-and-sql-database---c#-example"></a>Créer un serveur SQL Database, une règle de pare-feu et une base de données SQL : exemple de code C#
-
+## <a name="create-a-sql-database-server,-firewall-rule,-and-sql-database---c#-example"></a>Créer un serveur SQL Database, une règle de pare-feu et une base de données SQL : exemple de code C
 L’exemple suivant crée un groupe de ressources, un serveur, les règles de pare-feu et une base de données SQL. Consultez la section [Créer un principal du service pour accéder aux ressources](#create-a-service-principal-to-access-resources) pour obtenir les variables `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`.
 
 Remplacez le contenu du fichier **Program.cs** par les éléments suivants et mettez à jour l’élément `{variables}` en indiquant les valeurs de votre application (sans inclure `{}`).
-
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.ResourceManager;
@@ -74,7 +73,7 @@ Remplacez le contenu du fichier **Program.cs** par les éléments suivants et me
     using Microsoft.Azure.Management.Sql.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using System;
-    
+
     namespace SqlDbConsoleApp
     {
     class Program
@@ -225,43 +224,41 @@ Remplacez le contenu du fichier **Program.cs** par les éléments suivants et me
 
 
 ## <a name="create-a-service-principal-to-access-resources"></a>Créer un principal du service pour accéder aux ressources
-
 Le script PowerShell suivant crée l’application Active Directory (AD) et le principal du service dont nous avons besoin pour authentifier notre application C#. Le script génère les valeurs dont nous avons besoin pour l’exemple C# précédent. Pour plus de détails, consultez la page [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](../resource-group-authenticate-service-principal.md).
 
-   
     # Sign in to Azure.
     Add-AzureRmAccount
-    
+
     # If you have multiple subscriptions, uncomment and set to the subscription you want to work with.
     #$subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}"
     #Set-AzureRmContext -SubscriptionId $subscriptionId
-    
+
     # Provide these values for your new AAD app.
     # $appName is the display name for your app, must be unique in your directory.
     # $uri does not need to be a real uri.
     # $secret is a password you create.
-    
+
     $appName = "{app-name}"
     $uri = "http://{app-name}"
     $secret = "{app-password}"
-    
+
     # Create a AAD app
     $azureAdApplication = New-AzureRmADApplication -DisplayName $appName -HomePage $Uri -IdentifierUris $Uri -Password $secret
-    
+
     # Create a Service Principal for the app
     $svcprincipal = New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
-    
+
     # To avoid a PrincipalNotFound error, I pause here for 15 seconds.
     Start-Sleep -s 15
-    
+
     # If you still get a PrincipalNotFound error, then rerun the following until successful. 
     $roleassignment = New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
-    
-    
+
+
     # Output the values we need for our C# application to successfully authenticate
-    
+
     Write-Output "Copy these values into the C# sample app"
-    
+
     Write-Output "_subscriptionId:" (Get-AzureRmContext).Subscription.SubscriptionId
     Write-Output "_tenantId:" (Get-AzureRmContext).Tenant.TenantId
     Write-Output "_applicationId:" $azureAdApplication.ApplicationId.Guid
@@ -270,17 +267,13 @@ Le script PowerShell suivant crée l’application Active Directory (AD) et le p
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous avez essayé la base de données SQL et configuré une base de données avec C#, vous êtes prêt pour les articles suivants :
+Maintenant que vous avez essayé la base de données SQL et configuré une base de données avec C#, vous êtes prêt pour les articles suivants :
 
-- [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
+* [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
-
-- [Base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
-- [Classe de base de données](https://msdn.microsoft.com/library/azure/microsoft.azure.management.sql.models.database.aspx)
-
-
-
+* [Base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+* [Classe de base de données](https://msdn.microsoft.com/library/azure/microsoft.azure.management.sql.models.database.aspx)
 
 <!--Image references-->
 [1]: ./media/sql-database-get-started-csharp/aad.png

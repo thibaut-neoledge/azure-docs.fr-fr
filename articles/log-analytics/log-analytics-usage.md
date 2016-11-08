@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Analyser l’utilisation des données dans Log Analytics | Microsoft Azure"
-    description="Vous pouvez utiliser la page Utilisation dans Log Analytics pour afficher la quantité de données envoyées au service OMS."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bandersmsft"
-    manager="jwhit"
-    editor=""/>
+---
+title: Analyser l’utilisation des données dans Log Analytics | Microsoft Docs
+description: Vous pouvez utiliser la page Utilisation dans Log Analytics pour afficher la quantité de données envoyées au service OMS.
+services: log-analytics
+documentationcenter: ''
+author: bandersmsft
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/11/2016"
-    ms.author="banders"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/11/2016
+ms.author: banders
 
-
+---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analyser l’utilisation des données dans Log Analytics
-
 Log Analytics, qui fait partie de l’Operations Management Suite (OMS), collecte les données et les envoie au service OMS à intervalles réguliers.  Vous pouvez utiliser la page **Utilisation** pour afficher la quantité de données envoyées au service OMS. La page **Utilisation** vous indique également la quantité de données envoyées quotidiennement par les solutions et la fréquence à laquelle vos serveurs envoient des données.
 
->[AZURE.NOTE] Si vous disposez d’un compte gratuit créé avec le [site OMS](http://www.microsoft.com/oms), vos envois au service OMS sont limités à 500 Mo de données par jour. Si vous atteignez la limite quotidienne, l’analyse de données s’arrête et reprend le jour suivant. Vous devrez également renvoyer toute donnée n’ayant pas été acceptée ou traitée par OMS.
+> [!NOTE]
+> Si vous disposez d’un compte gratuit créé avec le [site OMS](http://www.microsoft.com/oms), vos envois au service OMS sont limités à 500 Mo de données par jour. Si vous atteignez la limite quotidienne, l’analyse de données s’arrête et reprend le jour suivant. Vous devrez également renvoyer toute donnée n’ayant pas été acceptée ou traitée par OMS.
+> 
+> 
 
 Vous pouvez consulter votre utilisation à l’aide de la mosaïque **Utilisation** sur le tableau de bord **Aperçu** d’OMS.
 
@@ -33,14 +34,13 @@ Si vous avez dépassé votre limite d’utilisation quotidienne ou si vous en ê
 
 La page **Utilisation** affiche les informations suivantes :
 
-- Utilisation moyenne par jour
-- Utilisation des données pour chaque solution au cours des 30 derniers jours
-- Quantité de données envoyées par les serveurs de votre environnement au service OMS au cours des 30 derniers jours
-- Niveau tarifaire et coût estimé de votre forfait de données
-- Informations sur votre contrat de niveau de service (SLA), y compris le temps nécessaire à OMS pour traiter vos données
+* Utilisation moyenne par jour
+* Utilisation des données pour chaque solution au cours des 30 derniers jours
+* Quantité de données envoyées par les serveurs de votre environnement au service OMS au cours des 30 derniers jours
+* Niveau tarifaire et coût estimé de votre forfait de données
+* Informations sur votre contrat de niveau de service (SLA), y compris le temps nécessaire à OMS pour traiter vos données
 
 ## <a name="to-work-with-usage-data"></a>Utilisation des données d’utilisation
-
 1. Sur la page **Aperçu**, cliquez sur la mosaïque **Utilisation**.
 2. Sur la page **Utilisation** , affichez les catégories d’utilisation qui montrent les domaines vous intéressant.
 3. Si l’une de vos solutions consomme une trop grande partie de votre quota de téléchargement quotidien, vous pouvez envisager la suppression de cette solution.
@@ -51,10 +51,10 @@ La page **Utilisation** affiche les informations suivantes :
 3. Dans les informations détaillées sur **Votre forfait de données** , vous pouvez voir votre estimation de coût mensuel.  
     ![Votre forfait de données](./media/log-analytics-usage/usage-data-plan.png)
 4. Si vous souhaitez afficher vos informations de facturation, cliquez sur **Afficher ma facture** pour afficher les informations de votre abonnement.
-    - Sur la page Abonnements, cliquez sur votre abonnement pour afficher les détails ainsi qu’une liste d'éléments d'utilisation.  
-        ![subscription](./media/log-analytics-usage/usage-sub01.png)
-    - Sur la page Résumé de votre abonnement, vous pouvez effectuer diverses tâches pour gérer et afficher plus de détails sur votre abonnement.  
-        ![détails de l'abonnement](./media/log-analytics-usage/usage-sub02.png)
+   * Sur la page Abonnements, cliquez sur votre abonnement pour afficher les détails ainsi qu’une liste d'éléments d'utilisation.  
+       ![subscription](./media/log-analytics-usage/usage-sub01.png)
+   * Sur la page Résumé de votre abonnement, vous pouvez effectuer diverses tâches pour gérer et afficher plus de détails sur votre abonnement.  
+       ![détails de l'abonnement](./media/log-analytics-usage/usage-sub02.png)
 
 ## <a name="to-view-data-batches-for-your-sla"></a>Pour afficher les lots de données de votre contrat SLA
 1. Sur la page **Aperçu**, cliquez sur la mosaïque **Utilisation**.
@@ -63,10 +63,7 @@ La page **Utilisation** affiche les informations suivantes :
     ![détails du contrat SLA](./media/log-analytics-usage/usage-sla-details.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-- Consultez [Consigner les recherches dans Log Analytics](log-analytics-log-searches.md) pour afficher les informations détaillées collectées par les solutions.
-
-
+* Consultez [Consigner les recherches dans Log Analytics](log-analytics-log-searches.md) pour afficher les informations détaillées collectées par les solutions.
 
 <!--HONumber=Oct16_HO2-->
 

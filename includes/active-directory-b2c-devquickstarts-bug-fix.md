@@ -1,2 +1,5 @@
-> [AZURE.IMPORTANT]
-	Si vous avez utilisé le code contenu dans ce didacticiel avant l’ajout de cet avis, veuillez à présent télécharger le code de nouveau. Une résolution de bogue a été ajoutée au dossier `PolicyAuthHelpers` qui traite une exception de mémoire insuffisante. Pour plus d’informations, consultez [cette demande d’extraction sur GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/pull/4). Veuillez nous excuser pour ce désagrément.
+> [!IMPORTANT]
+> Si vous avez utilisé le code contenu dans ce didacticiel avant l’ajout de cet avis, veuillez à présent télécharger le code de nouveau. Une résolution de bogue a été ajoutée au dossier `PolicyAuthHelpers` qui traite une exception de mémoire insuffisante. Pour plus d’informations, consultez [cette demande d’extraction sur GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/pull/4). Veuillez nous excuser pour ce désagrément.
+> 
+> 
+

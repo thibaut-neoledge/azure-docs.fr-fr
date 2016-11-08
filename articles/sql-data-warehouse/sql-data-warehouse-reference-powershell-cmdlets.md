@@ -1,32 +1,33 @@
-<properties
-   pageTitle="Applets de commande PowerShell pour Azure SQL Data Warehouse"
-   description="Recherchez les principaux applets de commande PowerShell pour Azure SQL Data Warehouse, y compris comment suspendre et reprendre une base de données."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
-   editor=""/>
+---
+title: Applets de commande PowerShell pour Azure SQL Data Warehouse
+description: Recherchez les principaux applets de commande PowerShell pour Azure SQL Data Warehouse, y compris comment suspendre et reprendre une base de données.
+services: sql-data-warehouse
+documentationcenter: NA
+author: sonyam
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/16/2016"
-   ms.author="sonyama;barbkess;mausher"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 08/16/2016
+ms.author: sonyama;barbkess;mausher
 
-# Applets de commande PowerShell et API REST pour SQL Data Warehouse
+---
+# Applets de commande PowerShell et API REST pour SQL Data Warehouse
+De nombreuses tâches d’administration de SQL Data Warehouse peuvent être gérées à l’aide d’applets de commande Azure PowerShell ou d’API REST. Voici quelques exemples d’utilisation des commandes PowerShell pour automatiser les tâches courantes dans SQL Data Warehouse. Pour obtenir de bons exemples REST, consultez l’article [Gérer l’évolutivité avec REST][Gérer l’évolutivité avec REST].
 
-De nombreuses tâches d’administration de SQL Data Warehouse peuvent être gérées à l’aide d’applets de commande Azure PowerShell ou d’API REST. Voici quelques exemples d’utilisation des commandes PowerShell pour automatiser les tâches courantes dans SQL Data Warehouse. Pour obtenir de bons exemples REST, consultez l’article [Gérer l’évolutivité avec REST][].
-
-> [AZURE.NOTE]  Pour utiliser Azure PowerShell avec SQL Data Warehouse, vous devez installer Azure PowerShell version 1.0.3 ou supérieure. Vous pouvez vérifier la version en exécutant **Get-Module -ListAvailable -Name Azure**. La version la plus récente peut être installée à partir de [Microsoft Web Platform Installer][]. Pour plus d’informations sur l’installation de la dernière version, consultez la page [Installation et configuration d’Azure PowerShell][].
+> [!NOTE]
+> Pour utiliser Azure PowerShell avec SQL Data Warehouse, vous devez installer Azure PowerShell version 1.0.3 ou supérieure. Vous pouvez vérifier la version en exécutant **Get-Module -ListAvailable -Name Azure**. La version la plus récente peut être installée à partir de [Microsoft Web Platform Installer][Microsoft Web Platform Installer]. Pour plus d’informations sur l’installation de la dernière version, consultez la page [Installation et configuration d’Azure PowerShell][Installation et configuration d’Azure PowerShell].
+> 
+> 
 
 ## Prise en main des applets de commande Azure PowerShell
-
 1. Ouvrez Windows PowerShell.
 2. À l’invite de PowerShell, exécutez les commandes suivantes pour vous connecter à Azure Resource Manager et sélectionnez votre abonnement.
-
+   
     ```PowerShell
     Login-AzureRmAccount
     Get-AzureRmSubscription
@@ -34,13 +35,12 @@ De nombreuses tâches d’administration de SQL Data Warehouse peuvent être gé
     ```
 
 ## Exemple : suspendre une base de données SQL Data Warehouse
-
-Une base de données appelée « Database02 » et hébergée sur un serveur appelé « Server01 » est interrompue. Le serveur est un groupe de ressources Azure appelé « ResourceGroup1 ».
+Une base de données appelée « Database02 » et hébergée sur un serveur appelé « Server01 » est interrompue. Le serveur est un groupe de ressources Azure appelé « ResourceGroup1 ».
 
 ```Powershell
 Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
-Une variante, dans cet exemple l’objet récupéré est redirigé vers [Suspend-AzureRmSqlDatabase][]. En conséquence, la base de données est interrompue. La dernière commande affiche les résultats.
+Une variante, dans cet exemple l’objet récupéré est redirigé vers [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase]. En conséquence, la base de données est interrompue. La dernière commande affiche les résultats.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -49,44 +49,45 @@ $resultDatabase
 ```
 
 ## Exemple : démarrer une base de données SQL Data Warehouse
-
-Les opérations d’une base de données appelée « Database02 » et hébergée sur un serveur « Server01 » sont reprises. Le serveur est hébergé dans un groupe de ressources appelé « ResourceGroup1 ».
+Les opérations d’une base de données appelée « Database02 » et hébergée sur un serveur « Server01 » sont reprises. Le serveur est hébergé dans un groupe de ressources appelé « ResourceGroup1 ».
 
 ```Powershell
 Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
-Une variante, dans cet exemple une base de données appelée « Database02 » est récupérée d’un serveur appelé « Server01 » hébergé dans un groupe de ressources appelé « ResourceGroup1 ». L’objet récupéré est redirigé vers [Resume-AzureRmSqlDatabase][].
+Une variante, dans cet exemple une base de données appelée « Database02 » est récupérée d’un serveur appelé « Server01 » hébergé dans un groupe de ressources appelé « ResourceGroup1 ». L’objet récupéré est redirigé vers [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase].
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzureRmSqlDatabase
 ```
 
-> [AZURE.NOTE] Si votre serveur est nommé foo.database.windows.net, utilisez « foo » en tant que nom du serveur dans les applets de commande PowerShell.
+> [!NOTE]
+> Si votre serveur est nommé foo.database.windows.net, utilisez « foo » en tant que nom du serveur dans les applets de commande PowerShell.
+> 
+> 
 
 ## Applets de commande PowerShell couramment utilisées
-
 Ces applets de commande PowerShell sont souvent utilisées avec Azure SQL Data Warehouse :
 
-- [Get-AzureRmSqlDatabase][]
-- [Get-AzureRmSqlDeletedDatabaseBackup][]
-- [Get-AzureRmSqlDatabaseRestorePoints][]
-- [New-AzureRmSqlDatabase][]
-- [Remove-AzureRmSqlDatabase][]
-- [Restore-AzureRmSqlDatabase][]
-- [Resume-AzureRmSqlDatabase][]
-- [Select-AzureRmSubscription][]
-- [Set-AzureRmSqlDatabase][]
-- [Suspend-AzureRmSqlDatabase][]
+* [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase]
+* [Get-AzureRmSqlDeletedDatabaseBackup][Get-AzureRmSqlDeletedDatabaseBackup]
+* [Get-AzureRmSqlDatabaseRestorePoints][Get-AzureRmSqlDatabaseRestorePoints]
+* [New-AzureRmSqlDatabase][New-AzureRmSqlDatabase]
+* [Remove-AzureRmSqlDatabase][Remove-AzureRmSqlDatabase]
+* [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase]
+* [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase]
+* [Select-AzureRmSubscription][Select-AzureRmSubscription]
+* [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase]
+* [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase]
 
 ## Étapes suivantes
 Pour plus d’exemples PowerShell, consultez :
 
-- [Création de SQL Data Warehouse à l’aide de Powershell][]
-- [Restauration de base de données][]
+* [Création de SQL Data Warehouse à l’aide de Powershell][Création de SQL Data Warehouse à l’aide de Powershell]
+* [Restauration de base de données][Restauration de base de données]
 
-Pour obtenir la liste de toutes les tâches pouvant être automatisées avec PowerShell, consultez [Applets de commande de la base de données SQL Azure][]. Pour obtenir la liste des tâches pouvant être automatisées avec REST, consultez [Opérations des bases de données SQL Azure][].
+Pour obtenir la liste de toutes les tâches pouvant être automatisées avec PowerShell, consultez [Applets de commande de la base de données SQL Azure][Applets de commande de la base de données SQL Azure]. Pour obtenir la liste des tâches pouvant être automatisées avec REST, consultez [Opérations des bases de données SQL Azure][Opérations des bases de données SQL Azure].
 
 <!--Image references-->
 

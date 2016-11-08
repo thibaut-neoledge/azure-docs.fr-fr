@@ -1,27 +1,27 @@
-<properties
-	pageTitle="Configuration de l’accès WinRM pour les machines virtuelles dans Azure Resource Manager | Microsoft Azure"
-	description="Comment configurer un accès WinRM pour une utilisation avec une machine virtuelle Azure Resource Manager"
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="singhkays"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+---
+title: Configuration de l’accès WinRM pour les machines virtuelles dans Azure Resource Manager | Microsoft Docs
+description: Comment configurer un accès WinRM pour une utilisation avec une machine virtuelle Azure Resource Manager
+services: virtual-machines-windows
+documentationcenter: ''
+author: singhkays
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/16/2016"
-	ms.author="singhkay"/>
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 06/16/2016
+ms.author: singhkay
 
+---
 # Configuration de l’accès WinRM pour les machines virtuelles dans Azure Resource Manager
-
 ## WinRM dans Azure Service Management par rapport à Azure Resource Manager
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modèle de déploiement classique
+modèle de déploiement classique
 
 * Pour obtenir une vue d’ensemble d’Azure Resource Manager, consultez cet [article](../resource-group-overview.md)
 * Pour connaître les différences entre Azure Service Management et Azure Resource Manager, consultez cet [article](../resource-manager-deployment-model.md)
@@ -37,7 +37,6 @@ Voici les étapes à suivre pour configurer une machine virtuelle avec une conne
 5. Référencer les URL de vos certificats auto-signés lors de la création d’une machine virtuelle
 
 ## Étape 1 : créer un coffre de clés
-
 Vous pouvez utiliser la commande ci-dessous pour créer le coffre de clés
 
 ```
@@ -60,7 +59,6 @@ Export-PfxCertificate -Cert $cert -FilePath ".\$certificateName.pfx" -Password $
 ```
 
 ## Étape 3 : charger votre certificat auto-signé dans Key Vault
-
 Avant de charger le certificat dans le coffre de clés créé à l’étape 1, vous devez le convertir dans un format que le fournisseur de ressources Microsoft.Compute comprend. Le script PowerShell ci-dessous vous permettra de le faire
 
 ```
@@ -84,31 +82,28 @@ Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretV
 ```
 
 ## Étape 4 : obtenir l’URL de votre certificat auto-signé dans le coffre de clés
-
 Le fournisseur de ressources Microsoft.Compute a besoin de l’URL de la clé secrète dans le coffre de clés lors de l’approvisionnement de la machine virtuelle. Ainsi, le fournisseur de ressources Microsoft.Compute peut télécharger la clé secrète et créer le certificat équivalent sur la machine virtuelle.
 
->[AZURE.NOTE]L’URL de la clé secrète doit également inclure la version. L’URL ci-dessous est un exemple https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
-
+> [!NOTE]
+> L’URL de la clé secrète doit également inclure la version. L’URL ci-dessous est un exemple https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
+> 
+> 
 
 #### Modèles
-
 Vous pouvez obtenir le lien vers l’URL dans le modèle à l’aide du code ci-dessous
 
     "certificateUrl": "[reference(resourceId(resourceGroup().name, 'Microsoft.KeyVault/vaults/secrets', '<vault-name>', '<secret-name>'), '2015-06-01').secretUriWithVersion]"
 
 #### PowerShell
-
 Vous pouvez obtenir cette URL à l’aide de la commande PowerShell ci-dessous
 
-	$secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
+    $secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
 
 ## Étape 5 : référencer les URL de vos certificats auto-signés lors de la création d’une machine virtuelle
-
 #### Modèles Azure Resource Manager
-
 Lorsque vous créez une machine virtuelle par le biais de modèles, le certificat est référencé dans la section des clés secrètes et la section winRM comme suit :
 
-	"osProfile": {
+    "osProfile": {
           ...
           "secrets": [
             {
@@ -145,21 +140,23 @@ Vous trouverez un exemple de modèle pour machine virtuelle dans [201-vm-winrm-k
 Pour obtenir le code source pour ce modèle, consultez [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
 
 #### PowerShell
-
-	$vm = New-AzureRmVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
-	$credential = Get-Credential
-	$secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
-	$vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
-	$sourceVaultId = (Get-AzureRmKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
-	$CertificateStore = "My"
-	$vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
+    $vm = New-AzureRmVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
+    $credential = Get-Credential
+    $secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
+    $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
+    $sourceVaultId = (Get-AzureRmKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
+    $CertificateStore = "My"
+    $vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
 
 ## Étape 6 : se connecter à la machine virtuelle
 Avant de vous connecter à la machine virtuelle, vous devrez vous assurer que votre machine est configurée pour la gestion à distance WinRM. Démarrez PowerShell en tant qu’administrateur et exécutez la commande ci-dessous pour vérifier que l’installation est terminée.
 
     Enable-PSRemoting -Force
 
->[AZURE.NOTE] Vous devrez peut-être vous assurer que le service WinRM est en cours d’exécution si la commande ci-dessus ne fonctionne pas. Vous pouvez le faire à l’aide de `Get-Service WinRM`
+> [!NOTE]
+> Vous devrez peut-être vous assurer que le service WinRM est en cours d’exécution si la commande ci-dessus ne fonctionne pas. Vous pouvez le faire à l’aide de `Get-Service WinRM`
+> 
+> 
 
 Une fois l’installation terminée, vous pouvez vous connecter à la machine virtuelle à l’aide de la commande ci-dessous
 

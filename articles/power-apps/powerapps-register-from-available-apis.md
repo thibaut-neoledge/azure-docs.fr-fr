@@ -1,29 +1,31 @@
-<properties
-	pageTitle="Créer et configurer des API gérées par Microsoft et gérées par le service informatique dans PowerApps Enterprise | Microsoft Azure"
-	description="Découvrez les API disponibles dans PowerApps et comment les enregistrer dans le portail Azure"
-	services=""
-    suite="powerapps"
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="dwrede"
-	editor=""/>
+---
+title: Créer et configurer des API gérées par Microsoft et gérées par le service informatique dans PowerApps Enterprise | Microsoft Docs
+description: Découvrez les API disponibles dans PowerApps et comment les enregistrer dans le portail Azure
+services: ''
+suite: powerapps
+documentationcenter: ''
+author: MandiOhlinger
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="powerapps"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="05/02/2016"
-   ms.author="guayan"/>
+ms.service: powerapps
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/02/2016
+ms.author: guayan
 
+---
 # Inscrire une API gérée par Microsoft ou gérée par le service informatique
-
-> [AZURE.IMPORTANT] Cette rubrique est archivée et sera bientôt supprimée. Venez voir ce que nous préparons sur le nouveau [PowerApps](https://powerapps.microsoft.com).
+> [!IMPORTANT]
+> Cette rubrique est archivée et sera bientôt supprimée. Venez voir ce que nous préparons sur le nouveau [PowerApps](https://powerapps.microsoft.com).
 > 
-> - Pour en savoir plus sur PowerApps et pour commencer, accédez à [PowerApps](https://powerapps.microsoft.com).  
-> - Pour en savoir plus sur les connexions disponibles dans PowerApps, accédez à [Connexions disponibles](https://powerapps.microsoft.com/tutorials/connections-list/).  
-> - Pour en savoir plus sur les API personnalisées dans PowerApps, accédez à [Que sont les API personnalisées](https://powerapps.microsoft.com/tutorials/register-custom-api/). 
+> * Pour en savoir plus sur PowerApps et pour commencer, accédez à [PowerApps](https://powerapps.microsoft.com).  
+> * Pour en savoir plus sur les connexions disponibles dans PowerApps, accédez à [Connexions disponibles](https://powerapps.microsoft.com/tutorials/connections-list/).  
+> * Pour en savoir plus sur les API personnalisées dans PowerApps, accédez à [Que sont les API personnalisées](https://powerapps.microsoft.com/tutorials/register-custom-api/). 
+> 
+> 
 
 <!--Archived
 There are **Microsoft managed** and **IT managed** APIs. When you enable PowerApps Enterprise, the Microsoft managed APIs are available to you automatically. The memory, connectivity, trust, and more are also automatically managed for you. Your next step is to enter any specific user settings, like a Twitter account and password. 
@@ -121,9 +123,9 @@ The following table compares the capabilities of the Microsoft managed and IT ma
 ![][18]  
 4. In **Add API**, enter the API properties:  
 
-	- In **Name**, enter a name for your API. Notice that the name you enter is included in the runtime URL of the API. Make the name meaningful and unique within your organization.
-	- In **Source**, select **From available APIs**:  
-	![][19]
+    - In **Name**, enter a name for your API. Notice that the name you enter is included in the runtime URL of the API. Make the name meaningful and unique within your organization.
+    - In **Source**, select **From available APIs**:  
+    ![][19]
 5. Select **API** and then choose the API you want to register:  
 ![][20]
 6. Select your specific API and add any configurable properties.

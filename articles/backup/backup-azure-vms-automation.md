@@ -1,36 +1,39 @@
-<properties
-   pageTitle="Déploiement et gestion des sauvegardes pour les machines virtuelles déployées avec le modèle Resource Manager à l’aide de PowerShell | Microsoft Azure"
-   description="Utilisation de PowerShell pour déployer et gérer des sauvegardes dans Azure pour les machines virtuelles déployées avec le modèle Resource Manager"
-   services="backup"
-   documentationCenter=""
-   authors="markgalioto"
-   manager="cfreeman"
-   editor=""/>
+---
+title: Déploiement et gestion des sauvegardes pour les machines virtuelles déployées avec le modèle Resource Manager à l’aide de PowerShell | Microsoft Docs
+description: Utilisation de PowerShell pour déployer et gérer des sauvegardes dans Azure pour les machines virtuelles déployées avec le modèle Resource Manager
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: cfreeman
+editor: ''
 
-<tags
-   ms.service="backup"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="storage-backup-recovery"
-   ms.date="08/03/2016"
-   ms.author="markgal; trinadhk"/>
+ms.service: backup
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 08/03/2016
+ms.author: markgal; trinadhk
 
+---
 # Déploiement et gestion des sauvegardes pour les machines virtuelles déployées avec le modèle Resource Manager à l’aide de PowerShell
-
-> [AZURE.SELECTOR]
-- [Gestionnaire de ressources](backup-azure-vms-automation.md)
-- [Classique](backup-azure-vms-classic-automation.md)
+> [!div class="op_single_selector"]
+> * [Gestionnaire de ressources](backup-azure-vms-automation.md)
+> * [Classique](backup-azure-vms-classic-automation.md)
+> 
+> 
 
 Cet article vous montre comment utiliser des applets de commande Azure PowerShell pour sauvegarder et restaurer une machine virtuelle Azure à partir d’un coffre Recovery Services. Un coffre Recovery Services est une ressource Azure Resource Manager utilisée pour protéger les données et les actifs dans Azure Backup et Azure Site Recovery Services. Vous pouvez utiliser un coffre Recovery Services pour protéger des machines virtuelles déployées avec Azure Service Manager, ainsi que des machines virtuelles déployées avec le modèle Azure Resource Manager.
 
->[AZURE.NOTE] Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Azure Resource Manager et Azure Classic](../resource-manager-deployment-model.md). Cet article concerne l’utilisation avec des machines virtuelles créées à l’aide du modèle Resource Manager.
+> [!NOTE]
+> Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Azure Resource Manager et Azure Classic](../resource-manager-deployment-model.md). Cet article concerne l’utilisation avec des machines virtuelles créées à l’aide du modèle Resource Manager.
+> 
+> 
 
 Cet article vous guide tout au long de l’utilisation de PowerShell pour protéger une machine virtuelle et la restauration de données à partir d’un point de récupération.
 
 ## Concepts
-
-Si vous n’êtes pas familiarisé avec le service Azure Backup, consultez [Qu’est-ce qu’Azure Backup ?](backup-introduction-to-azure-backup.md) pour obtenir une vue d’ensemble du service. Avant de commencer, assurez-vous de connaître les conditions préalables de base nécessaires pour travailler avec Azure Backup et les limitations de la solution actuelle de sauvegarde de la machines virtuelles.
+Si vous n’êtes pas familiarisé avec le service Azure Backup, consultez [Qu’est-ce qu’Azure Backup ?](backup-introduction-to-azure-backup.md) pour obtenir une vue d’ensemble du service. Avant de commencer, assurez-vous de connaître les conditions préalables de base nécessaires pour travailler avec Azure Backup et les limitations de la solution actuelle de sauvegarde de la machines virtuelles.
 
 Pour pouvoir utiliser efficacement PowerShell, il est nécessaire de comprendre la hiérarchie d’objets et par où commencer.
 
@@ -38,13 +41,10 @@ Pour pouvoir utiliser efficacement PowerShell, il est nécessaire de comprendre 
 
 Pour afficher les informations de référence sur l’applet de commande PowerShell AzureRmRecoveryServicesBackup, consultez [Azure Backup - Recovery Services Cmdlets](https://msdn.microsoft.com/library/mt723320.aspx) (Azure Backup - Applets de commande Recovery Services) dans la bibliothèque Azure. Pour afficher les informations de référence sur l’applet de commande PowerShell AzureRmRecoveryServicesVault, consultez [Azure Recovery Service Cmdlets](https://msdn.microsoft.com/library/mt643905.aspx) (Applets de commande Azure Recovery Services).
 
-
 ## Installation et inscription
-
-Pour commencer :
+Pour commencer :
 
 1. [Téléchargez la dernière version de PowerShell](https://github.com/Azure/azure-powershell/releases) (version minimale requise : 1.4.0)
-
 2. Rechercher les applets de commande PowerShell Azure Backup disponibles en tapant la commande suivante :
 
 ```
@@ -82,44 +82,43 @@ Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      Az
 ```
 
 
-Les tâches ci-après peuvent être automatisées avec PowerShell :
+Les tâches ci-après peuvent être automatisées avec PowerShell :
 
-- Créer un coffre Recovery Services
-- Sauvegarde ou protection de machines virtuelles Azure
-- Déclencher une tâche de sauvegarde
-- Surveiller une tâche de sauvegarde
-- Restauration d’une machine virtuelle Azure
+* Créer un coffre Recovery Services
+* Sauvegarde ou protection de machines virtuelles Azure
+* Déclencher une tâche de sauvegarde
+* Surveiller une tâche de sauvegarde
+* Restauration d’une machine virtuelle Azure
 
 ## Créer un coffre Recovery Services
-
 Les étapes suivantes vous montrent comment créer un coffre Recovery Services. Un coffre Recovery Services diffère d’un coffre Backup.
 
 1. Si vous utilisez Azure Backup pour la première fois, vous devez recourir à l’applet de commande **[Register-AzureRMResourceProvider](https://msdn.microsoft.com/library/mt679020.aspx)** pour enregistrer le fournisseur Azure Recovery Service auprès de votre abonnement.
-
+   
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-
 2. Le coffre Recovery Services constituant une ressource Resource Manager, vous devez le placer dans un groupe de ressources. Si vous ne disposez pas d’un groupe de ressources, créez-en un avec l’applet de commande **[New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt678985.aspx)**. Quand vous créez un groupe de ressources, spécifiez ses nom et emplacement.
-
+   
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
     ```
-
 3. Utilisez l’applet de commande **[New-AzureRmRecoveryServicesVault](https://msdn.microsoft.com/library/mt643910.aspx)** pour créer le coffre. Spécifiez pour le coffre le même emplacement que pour le groupe de ressources.
-
+   
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-
 4. Spécifiez le type de redondance de stockage à utiliser : [stockage redondant en local (LRS)](../storage/storage-redundancy.md#locally-redundant-storage) ou [stockage géoredondant (GRS)](../storage/storage-redundancy.md#geo-redundant-storage). L’exemple suivant montre que l’option -BackupStorageRedundancy pour testVault a la valeur GeoRedundant.
-
+   
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
     ```
-
-    > [AZURE.TIP] De nombreuses applets de commande Azure Backup nécessitent l’objet coffre Recovery Services en tant qu’entrée. Pour cette raison, il est pratique de stocker l’objet coffre Backup Recovery Services dans une variable.
+   
+   > [!TIP]
+   > De nombreuses applets de commande Azure Backup nécessitent l’objet coffre Recovery Services en tant qu’entrée. Pour cette raison, il est pratique de stocker l’objet coffre Backup Recovery Services dans une variable.
+   > 
+   > 
 
 ## Afficher les coffres dans un abonnement
 Utilisez **[Get-AzureRmRecoveryServicesVault](https://msdn.microsoft.com/library/mt643907.aspx)** pour afficher la liste de tous les coffres dans l’abonnement actuel. Vous pouvez utiliser cette commande pour vérifier qu’un coffre a été créé, ou pour voir les coffres disponibles dans l’abonnement.
@@ -148,7 +147,6 @@ PS C:\> Get-AzureRmRecoveryServicesVault -Name testvault | Set-AzureRmRecoverySe
 ```
 
 ### Création d’une stratégie de protection
-
 Lorsque vous créez un coffre, il est fourni avec une stratégie par défaut. Cette stratégie déclenche un travail de sauvegarde chaque jour à une heure spécifiée. D’après la stratégie de sauvegarde, l’instantané de sauvegarde est conservé pendant 30 jours. Vous pouvez utiliser la stratégie par défaut pour protéger rapidement votre machine virtuelle et modifier la stratégie ultérieurement avec différents détails.
 
 Utilisez **[Get-AzureRmRecoveryServicesBackupProtectionPolicy](https://msdn.microsoft.com/library/mt723300.aspx)** pour afficher la liste des stratégies disponibles dans le coffre :
@@ -160,7 +158,10 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 PM
 ```
 
-> [AZURE.NOTE] Le fuseau horaire du champ BackupTime dans PowerShell est UTC. Toutefois, lorsque l’heure de sauvegarde s’affiche dans le portail Azure, elle est alignée sur votre fuseau horaire.
+> [!NOTE]
+> Le fuseau horaire du champ BackupTime dans PowerShell est UTC. Toutefois, lorsque l’heure de sauvegarde s’affiche dans le portail Azure, elle est alignée sur votre fuseau horaire.
+> 
+> 
 
 Une stratégie de protection de la sauvegarde est associée à au moins une stratégie de rétention. La stratégie de rétention définit la durée de conservation d’un point de restauration avec Azure Backup. Utilisez **Get-AzureRmRecoveryServicesBackupRetentionPolicyObject** pour afficher la stratégie de rétention par défaut. De même, vous pouvez utiliser **Get-AzureRmRecoveryServicesBackupSchedulePolicyObject** pour obtenir la stratégie de planification par défaut. Les objets de stratégie de rétention et de planification sont utilisés comme entrées dans l’applet de commande **New-AzureRmRecoveryServicesBackupProtectionPolicy**.
 
@@ -176,8 +177,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 ```
 
 ### Activer la protection
-
-L’activation de la protection implique deux objets : l’élément et la stratégie. Les deux objets sont requis pour activer la protection sur le coffre. Une fois que la stratégie a été associée au coffre, le flux de travail de la sauvegarde est déclenché à l’heure planifiée dans la planification de la stratégie.
+L’activation de la protection implique deux objets : l’élément et la stratégie. Les deux objets sont requis pour activer la protection sur le coffre. Une fois que la stratégie a été associée au coffre, le flux de travail de la sauvegarde est déclenché à l’heure planifiée dans la planification de la stratégie.
 
 Pour activer la protection sur des machines virtuelles ARM non chiffrées
 
@@ -202,7 +202,6 @@ PS C:\>  Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V1VM
 ```
 
 ### Modifier une stratégie de protection
-
 Pour modifier la stratégie, modifiez l’objet BackupSchedulePolicyObject ou BackupRetentionPolicy et modifiez la stratégie à l’aide de Set-AzureRmRecoveryServicesBackupProtectionPolicy
 
 L’exemple suivant modifie le nombre de rétention à 365.
@@ -215,7 +214,6 @@ PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -Policy $pol  -Retenti
 ```
 
 ## Exécuter une sauvegarde initiale
-
 La planification de sauvegarde déclenche une sauvegarde intégrale lors de la première sauvegarde de l’élément. Pour les sauvegardes suivantes, la sauvegarde est une copie incrémentielle. Si vous voulez forcer l’exécution de la sauvegarde initiale à un moment déterminé, voire immédiatement, utilisez l’applet de commande **[Backup-AzureRmRecoveryServicesBackupItem](https://msdn.microsoft.com/library/mt723312.aspx)** :
 
 ```
@@ -228,9 +226,10 @@ V2VM              Backup               InProgress            4/23/2016 5:00:30 P
 ```
 
 > [AZURE.NOTE: Le fuseau horaire des champs StartTime et EndTime dans PowerShell est UTC. Toutefois, lorsque l’heure s’affiche dans le portail Azure, elle est alignée sur votre fuseau horaire.
+> 
+> 
 
 ## Surveillance d’une tâche de sauvegarde
-
 La plupart des opérations longues dans Azure Backup sont reproduites en tant que tâche. Cela permet de suivre facilement la progression sans avoir à garder le portail Azure ouvert en permanence.
 
 Pour connaître l’état récent d’une tâche en cours de traitement, utilisez l’applet de commande Get-AzureRmRecoveryservicesBackupJob.
@@ -250,13 +249,12 @@ PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 ```
 
 ## Restauration d’une machine virtuelle Azure
-
 Il existe une différence clé entre la restauration d’une machine virtuelle à l’aide du portail Azure et la restauration d’une machine virtuelle à l’aide de PowerShell. Avec PowerShell, l’opération de restauration est terminée dès que sont créés les disques et les informations de configuration à partir d’un point de restauration. L’opération de restauration ne crée pas de machine virtuelle. Les instructions pour créer la machine virtuelle à partir de disques sont fournies. Toutefois, pour restaurer une machine virtuelle complètement, vous devez effectuer les procédures suivantes :
 
-- Sélection de la machine virtuelle
-- Choisir un point de récupération
-- Restaurer les disques
-- Créer la machine virtuelle à partir des disques stockés
+* Sélection de la machine virtuelle
+* Choisir un point de récupération
+* Restaurer les disques
+* Créer la machine virtuelle à partir des disques stockés
 
 L’illustration ci-dessous montre la hiérarchie d’objets à partir de RecoveryServicesVault jusqu’à BackupRecoveryPoint.
 
@@ -265,7 +263,6 @@ L’illustration ci-dessous montre la hiérarchie d’objets à partir de Recove
 Pour restaurer les données de sauvegarde, identifiez l’élément sauvegardé et le point de restauration contenant les données ponctuelles. Ensuite, utilisez l’applet de commande **[Restore-AzureRmRecoveryServicesBackupItem](https://msdn.microsoft.com/library/mt723316.aspx)** pour restaurer les données du coffre vers le compte du client.
 
 ### Sélection de la machine virtuelle
-
 Pour obtenir l’objet PowerShell permettant d’identifier l’élément à restaurer, vous devez commencer au niveau du conteneur dans le coffre et descendre dans la hiérarchie d’objets. Pour sélectionner le conteneur qui représente la machine virtuelle, utilisez l’applet de commande **[Get-AzureRmRecoveryServicesBackupContainer](https://msdn.microsoft.com/library/mt723319.aspx)** et dirigez-la vers l’applet de commande **[Get-AzureRmRecoveryServicesBackupItem](https://msdn.microsoft.com/library/mt723305.aspx)**.
 
 ```
@@ -274,7 +271,6 @@ PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem –Container $namedC
 ```
 
 ### Choisir un point de récupération
-
 Utilisez l’applet de commande **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://msdn.microsoft.com/library/mt723308.aspx)** pour répertorier tous les points de récupération pour l’élément de sauvegarde. Ensuite, choisissez le point de récupération à restaurer. Si vous ne savez pas quel point de récupération utiliser, nous vous conseillons de choisir le point RecoveryPointType = AppConsistent le plus récent dans la liste.
 
 Dans le script suivant, la variable **$rp** est un tableau de points de récupération pour l’élément de sauvegarde sélectionné. Le tableau est trié dans l’ordre chronologique inverse, le point de récupération le plus récent détenant l’index 0. Utilisez l'indexation de tableau PowerShell standard pour sélectionner le point de récupération. Par exemple : $rp[0] sélectionnera le point de récupération le plus récent.
@@ -301,7 +297,6 @@ BackupManagementType        : AzureVM
 
 
 ### Restaurer les disques
-
 Utilisez l’applet de commande **[Restore-AzureRmRecoveryServicesBackupItem](https://msdn.microsoft.com/library/mt723316.aspx)** pour restaurer les données et la configuration d’un élément de sauvegarde à un point de récupération. Une fois que vous avez identifié un point de récupération, utilisez-le comme valeur du paramètre **-RecoveryPoint**. Dans l’exemple de code précédent, **$rp[0]** a été choisi comme point de récupération à utiliser. Dans l’exemple de code ci-dessous, **$rp[0]** est spécifié comme point de récupération à utiliser pour la restauration sur disque.
 
 Pour restaurer les disques et les informations de configuration
@@ -324,37 +319,33 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails
 Une fois les disques restaurés, passez à la section suivante, qui explique comment créer la machine virtuelle.
 
 ### Créer une machine virtuelle à partir de disques restaurés
-
 Après avoir restauré les disques, exécutez les étapes ci-après pour créer et configurer la machine virtuelle à partir du disque.
 
 1. Interrogez les propriétés des disques restaurés pour obtenir les détails du travail.
-
+   
     ```
     PS C:\> $properties = $details.properties
     PS C:\> $storageAccountName = $properties["Target Storage Account Name"]
     PS C:\> $containerName = $properties["Config Blob Container Name"]
     PS C:\> $blobName = $properties["Config Blob Name"]
     ```
-
 2. Définissez le contexte de stockage Azure et restaurez le fichier de configuration JSON.
-
+   
     ```
     PS C:\> Set-AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName testvault
     PS C:\> $destination_path = "C:\vmconfig.json"
     PS C:\> Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path
     PS C:\> $obj = ((Get-Content -Path $destination_path -Encoding Unicode)).TrimEnd([char]0x00) | ConvertFrom-Json
     ```
-
 3. Utilisez le fichier de configuration JSON pour créer la configuration de la machine virtuelle.
-
+   
     ```
-  PS C:\> $vm = New-AzureRmVMConfig -VMSize $obj.HardwareProfile.VirtualMachineSize -VMName "testrestore"
+   PS C:\> $vm = New-AzureRmVMConfig -VMSize $obj.HardwareProfile.VirtualMachineSize -VMName "testrestore"
     ```
-
 4. Attachez le disque du système d’exploitation et les disques de données.
-
+   
       Pour les machines virtuelles non chiffrées,
-
+   
        ```
        PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.StorageProfile.OSDisk.VirtualHardDisk.Uri -CreateOption “Attach”
        PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.StorageProfile.OSDisk.OperatingSystemType foreach($dd in $obj.StorageProfile.DataDisks)
@@ -363,7 +354,7 @@ Après avoir restauré les disques, exécutez les étapes ci-après pour créer 
        }
        ```
       Pour les machines virtuelles chiffrées, vous devez spécifier les [informations du coffre de clés](https://msdn.microsoft.com/library/dn868052.aspx) avant d’attacher des disques.
-      
+   
       ```
       PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.StorageProfile.OSDisk.VirtualHardDisk.Uri -DiskEncryptionKeyUrl "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007" -DiskEncryptionKeyVaultId "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault" -KeyEncryptionKeyUrl "https://ContosoKeyVault.vault.azure.net:443/keys/ContosoKey007" -KeyEncryptionKeyVaultId "subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault" -CreateOption "Attach" -Windows
       PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.StorageProfile.OSDisk.OperatingSystemType foreach($dd in $obj.StorageProfile.DataDisks)
@@ -371,9 +362,8 @@ Après avoir restauré les disques, exécutez les étapes ci-après pour créer 
        $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.VirtualHardDisk.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption Attach
        }
       ```
-      
 5. Définissez les paramètres réseau.
-
+   
     ```
     PS C:\> $nicName="p1234"
     PS C:\> $pip = New-AzureRmPublicIpAddress -Name $nicName -ResourceGroupName "test" -Location "WestUS" -AllocationMethod Dynamic
@@ -381,16 +371,14 @@ Après avoir restauré les disques, exécutez les étapes ci-après pour créer 
     PS C:\> $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName "test" -Location "WestUS" -SubnetId $vnet.Subnets[$subnetindex].Id -PublicIpAddressId $pip.Id
     PS C:\> $vm=Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
     ```
-
 6. Créez la machine virtuelle.
-
+   
     ```
     PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.StorageProfile.OSDisk.OperatingSystemType
     PS C:\> New-AzureRmVM -ResourceGroupName "test" -Location "WestUS" -VM $vm
     ```
 
 ## Étapes suivantes
-
-Si vous préférez utiliser PowerShell pour gérer vos ressources Azure, consultez l’article de PowerShell pour la protection de Windows Server : [Déployer et gérer une sauvegarde pour Windows Server](./backup-client-automation.md). Il existe également un article de PowerShell sur la gestion des sauvegardes DPM : [Déployer et gérer une sauvegarde pour DPM](./backup-dpm-automation.md). Ces deux articles ont une version concernant les déploiements avec le modèle Resource Manager et le modèle Classic.
+Si vous préférez utiliser PowerShell pour gérer vos ressources Azure, consultez l’article de PowerShell pour la protection de Windows Server : [Déployer et gérer une sauvegarde pour Windows Server](backup-client-automation.md). Il existe également un article de PowerShell sur la gestion des sauvegardes DPM : [Déployer et gérer une sauvegarde pour DPM](backup-dpm-automation.md). Ces deux articles ont une version concernant les déploiements avec le modèle Resource Manager et le modèle Classic.
 
 <!---HONumber=AcomDC_0817_2016-->

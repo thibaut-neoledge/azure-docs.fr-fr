@@ -1,29 +1,27 @@
-<properties
-	pageTitle="Ajout d’un disque à une machine virtuelle Linux | Microsoft Azure"
-	description="Découvrir comment ajouter un disque persistant à votre machine virtuelle Linux"
-	keywords="machine virtuelle Linux, ajouter un disque de ressources"
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="rickstercdn"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager" />
+---
+title: Ajout d’un disque à une machine virtuelle Linux | Microsoft Docs
+description: Découvrir comment ajouter un disque persistant à votre machine virtuelle Linux
+keywords: machine virtuelle Linux, ajouter un disque de ressources
+services: virtual-machines-linux
+documentationcenter: ''
+author: rickstercdn
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-linux"
-	ms.topic="article"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.date="09/06/2016"
-	ms.author="rclaus"/>
+ms.service: virtual-machines-linux
+ms.topic: article
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.date: 09/06/2016
+ms.author: rclaus
 
+---
 # Ajouter un disque à une machine virtuelle Linux
-
 Cet article explique comment attacher un disque persistant à votre machine virtuelle afin de conserver vos données, et ce, même si votre machine virtuelle est remise en service en raison d’une opération de maintenance ou de redimensionnement. Pour ajouter un disque, vous avez besoin de [l’interface de ligne de commande Azure](../xplat-cli-install.md) configurée en mode Gestionnaire de ressources (`azure config mode arm`).
 
 ## Commandes rapides
-
 Dans les exemples de commandes suivants, remplacez les valeurs entre &lt; et &gt; par les valeurs de votre propre environnement.
 
 ```bash
@@ -31,7 +29,6 @@ azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>
 ```
 
 ## Attacher un disque
-
 La procédure d’attachement d’un nouveau disque est rapide. Tapez `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>` afin de créer un nouveau disque (Go) et de l’associer à votre machine virtuelle. Si vous n'identifiez pas explicitement un compte de stockage, les disques que vous créez sont placés dans le même compte de stockage que celui sur lequel réside le disque du système d'exploitation. La commande doit ressembler à ceci :
 
 ```bash
@@ -49,10 +46,12 @@ info:    vm disk attach-new command OK
 ```
 
 ## Se connecter à la machine virtuelle Linux afin de monter le nouveau disque
+> [!NOTE]
+> Dans cette rubrique, la connexion à la machine virtuelle est effectuée à l’aide de noms d’utilisateurs et de mots de passe. Pour utiliser des paires de clés publiques et privées pour interagir avec votre machine virtuelle, consultez [Utilisation de SSH avec Linux sur Azure](virtual-machines-linux-mac-create-ssh-keys.md). Vous pouvez modifier la connectivité **SSH** des machines virtuelles créées avec la commande `azure vm quick-create` à l’aide de la commande `azure vm reset-access` pour complètement réinitialiser l’accès **SSH**, ajouter ou supprimer des utilisateurs ou ajouter des fichiers de clés publiques pour sécuriser l’accès.
+> 
+> 
 
-> [AZURE.NOTE] Dans cette rubrique, la connexion à la machine virtuelle est effectuée à l’aide de noms d’utilisateurs et de mots de passe. Pour utiliser des paires de clés publiques et privées pour interagir avec votre machine virtuelle, consultez [Utilisation de SSH avec Linux sur Azure](virtual-machines-linux-mac-create-ssh-keys.md). Vous pouvez modifier la connectivité **SSH** des machines virtuelles créées avec la commande `azure vm quick-create` à l’aide de la commande `azure vm reset-access` pour complètement réinitialiser l’accès **SSH**, ajouter ou supprimer des utilisateurs ou ajouter des fichiers de clés publiques pour sécuriser l’accès.
-
-Vous devez exécuter SSH dans votre machine virtuelle Azure afin de partitionner, de formater et de monter votre nouveau disque pour que la machine virtuelle Linux puisse l’utiliser. Si vous n’êtes pas familiarisé la connexion via **ssh**, la commande prend la forme `ssh <username>@<FQDNofAzureVM> -p <the ssh port>` et ressemble à ceci :
+Vous devez exécuter SSH dans votre machine virtuelle Azure afin de partitionner, de formater et de monter votre nouveau disque pour que la machine virtuelle Linux puisse l’utiliser. Si vous n’êtes pas familiarisé la connexion via **ssh**, la commande prend la forme `ssh <username>@<FQDNofAzureVM> -p <the ssh port>` et ressemble à ceci :
 
 ```bash
 ssh ops@myuni-westu-1432328437727-pip.westus.cloudapp.azure.com -p 22
@@ -94,7 +93,7 @@ applicable law.
 ops@myuniquevmname:~$
 ```
 
-Maintenant que vous êtes connecté à votre machine virtuelle, vous êtes prêt à attacher un disque. Recherchez tout d’abord le disque à l’aide de `dmesg | grep SCSI` (La méthode que vous utilisez pour découvrir les capacités du nouveau disque peut varier). Le résultat est alors le suivant :
+Maintenant que vous êtes connecté à votre machine virtuelle, vous êtes prêt à attacher un disque. Recherchez tout d’abord le disque à l’aide de `dmesg | grep SCSI` (La méthode que vous utilisez pour découvrir les capacités du nouveau disque peut varier). Le résultat est alors le suivant :
 
 ```bash
 dmesg | grep SCSI
@@ -110,7 +109,7 @@ Sortie
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-et dans le scénario évoqué dans cette rubrique, le disque `sdc` est celui que nous voulons. Partitionnons maintenant le disque avec `sudo fdisk /dev/sdc`, en supposant que dans votre cas, il s’agissait d’un disque `sdc` et utilisons-le en tant que disque principal sur la partition 1, en acceptant les autres valeurs par défaut.
+et dans le scénario évoqué dans cette rubrique, le disque `sdc` est celui que nous voulons. Partitionnons maintenant le disque avec `sudo fdisk /dev/sdc`, en supposant que dans votre cas, il s’agissait d’un disque `sdc` et utilisons-le en tant que disque principal sur la partition 1, en acceptant les autres valeurs par défaut.
 
 ```bash
 sudo fdisk /dev/sdc
@@ -138,7 +137,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-Créez la partition en saisissant `p` lors de l’invite :
+Créez la partition en saisissant `p` lors de l’invite :
 
 ```bash
 Command (m for help): p
@@ -160,7 +159,7 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
-Écrivez un système de fichiers sur la partition à l’aide de la commande **mkfs**, en spécifiant le type de votre système de fichier et le nom de l’appareil. Dans cette rubrique, nous utilisons `ext4` et `/dev/sdc1` (voir ci-dessus) :
+Écrivez un système de fichiers sur la partition à l’aide de la commande **mkfs**, en spécifiant le type de votre système de fichier et le nom de l’appareil. Dans cette rubrique, nous utilisons `ext4` et `/dev/sdc1` (voir ci-dessus) :
 
 ```bash
 sudo mkfs -t ext4 /dev/sdc1
@@ -184,20 +183,20 @@ Maximum filesystem blocks=1342177280
 32768 blocks per group, 32768 fragments per group
 8192 inodes per group
 Superblock backups stored on blocks:
-	32768, 98304, 163840, 229376, 294912, 819200, 884736
+    32768, 98304, 163840, 229376, 294912, 819200, 884736
 Allocating group tables: done
 Writing inode tables: done
 Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 
-Nous créons désormais un répertoire afin de monter le système de fichiers à l’aide de `mkdir` :
+Nous créons désormais un répertoire afin de monter le système de fichiers à l’aide de `mkdir` :
 
 ```bash
 sudo mkdir /datadrive
 ```
 
-Vous montez le répertoire à l’aide de `mount` :
+Vous montez le répertoire à l’aide de `mount` :
 
 ```bash
 sudo mount /dev/sdc1 /datadrive
@@ -230,7 +229,10 @@ Le résultat ressemble à ce qui suit :
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
->[AZURE.NOTE] si vous ne modifiez pas correctement le fichier **/etc/fstab**, il se peut que le système ne puisse plus démarrer. En cas de doute, reportez-vous à la documentation de la distribution pour obtenir des informations sur la modification adéquate de ce fichier. Il est par ailleurs vivement recommandé de créer une sauvegarde du fichier /etc/fstab avant de le modifier.
+> [!NOTE]
+> si vous ne modifiez pas correctement le fichier **/etc/fstab**, il se peut que le système ne puisse plus démarrer. En cas de doute, reportez-vous à la documentation de la distribution pour obtenir des informations sur la modification adéquate de ce fichier. Il est par ailleurs vivement recommandé de créer une sauvegarde du fichier /etc/fstab avant de le modifier.
+> 
+> 
 
 Ensuite, ouvrez le fichier **/etc/fstab** dans un éditeur de texte :
 
@@ -244,37 +246,37 @@ Dans cet exemple, nous utilisons la valeur UUID pour le nouvel appareil **/dev/s
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
 ```
 
->[AZURE.NOTE] La suppression ultérieure d’un disque de données sans modifier fstab pourrait entraîner l’échec du démarrage de la machine virtuelle. La plupart des distributions proposent les options fstab `nofail` et/ou `nobootwait`. Ces options permettent à un système de démarrer même si le disque n’est pas monté au moment du démarrage. Pour plus d’informations sur ces paramètres, consultez la documentation de votre distribution.
-
+> [!NOTE]
+> La suppression ultérieure d’un disque de données sans modifier fstab pourrait entraîner l’échec du démarrage de la machine virtuelle. La plupart des distributions proposent les options fstab `nofail` et/ou `nobootwait`. Ces options permettent à un système de démarrer même si le disque n’est pas monté au moment du démarrage. Pour plus d’informations sur ces paramètres, consultez la documentation de votre distribution.
+> 
+> 
 
 ### Prise en charge de TRIM/UNMAP pour Linux dans Azure
 Certains noyaux Linux prennent en charge les opérations TRIM/UNMAP pour ignorer les blocs inutilisés sur le disque. Cela est particulièrement utile dans le stockage standard pour informer Azure que des pages supprimées ne sont plus valides et peuvent être ignorées. Vous pouvez ainsi faire des économies si vous créez des fichiers volumineux, puis les supprimez.
 
 Il existe deux façons d’activer la prise en charge de TRIM sur votre machine virtuelle Linux. Comme d’habitude, consultez votre distribution pour connaître l’approche recommandée :
 
-- Utilisez l’option de montage `discard` dans `/etc/fstab`, par exemple :
-
-		UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
-
-- Vous pouvez également exécuter la commande `fstrim` manuellement à partir de la ligne de commande ou l’ajouter à votre crontab pour l’exécuter régulièrement :
-
-	**Ubuntu**
-
-		# sudo apt-get install util-linux
-		# sudo fstrim /datadrive
-
-	**RHEL/CentOS**
-
-		# sudo yum install util-linux
-		# sudo fstrim /datadrive
+* Utilisez l’option de montage `discard` dans `/etc/fstab`, par exemple :
+  
+        UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+* Vous pouvez également exécuter la commande `fstrim` manuellement à partir de la ligne de commande ou l’ajouter à votre crontab pour l’exécuter régulièrement :
+  
+    **Ubuntu**
+  
+        # sudo apt-get install util-linux
+        # sudo fstrim /datadrive
+  
+    **RHEL/CentOS**
+  
+        # sudo yum install util-linux
+        # sudo fstrim /datadrive
 
 ## Résolution des problèmes
-[AZURE.INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
+[!INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
 
 ## Étapes suivantes
-
-- N’oubliez pas que votre nouveau disque n’est pas disponible sur votre machine virtuelle en cas de redémarrage, sauf si vous écrivez les informations sur votre fichier [fstab](http://en.wikipedia.org/wiki/Fstab).
-- Pour vous assurer que votre machine virtuelle Linux est correctement configurée, passez en revue les recommandations visant à [optimiser les performances de votre machine virtuelle Linux](virtual-machines-linux-optimization.md).
-- Développez votre capacité de stockage en ajoutant des disques supplémentaires et [configurez RAID](virtual-machines-linux-configure-raid.md) pour augmenter les performances.
+* N’oubliez pas que votre nouveau disque n’est pas disponible sur votre machine virtuelle en cas de redémarrage, sauf si vous écrivez les informations sur votre fichier [fstab](http://en.wikipedia.org/wiki/Fstab).
+* Pour vous assurer que votre machine virtuelle Linux est correctement configurée, passez en revue les recommandations visant à [optimiser les performances de votre machine virtuelle Linux](virtual-machines-linux-optimization.md).
+* Développez votre capacité de stockage en ajoutant des disques supplémentaires et [configurez RAID](virtual-machines-linux-configure-raid.md) pour augmenter les performances.
 
 <!---HONumber=AcomDC_0914_2016-->

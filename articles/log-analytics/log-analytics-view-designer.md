@@ -1,39 +1,37 @@
-<properties
-    pageTitle="Concepteur de vues de Log Analytics | Microsoft Azure"
-    description="Le Concepteur de vues de Log Analytics permet de créer dans la console OMS des vues personnalisées contenant différentes visualisations des données du référentiel OMS. Cet article contient une présentation du Concepteur de vues et des procédures de création et modification des vues personnalisées."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bwren"
-    manager="jwhit"
-    editor=""/>
+---
+title: Concepteur de vues de Log Analytics | Microsoft Docs
+description: Le Concepteur de vues de Log Analytics permet de créer dans la console OMS des vues personnalisées contenant différentes visualisations des données du référentiel OMS. Cet article contient une présentation du Concepteur de vues et des procédures de création et modification des vues personnalisées.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/27/2016"
-    ms.author="bwren"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/27/2016
+ms.author: bwren
 
-
+---
 # <a name="log-analytics-view-designer"></a>Concepteur de vues de Log Analytics
 Le Concepteur de vues de Log Analytics permet de créer des vues personnalisées dans la console OMS, qui contiennent différentes visualisations de données du référentiel OMS. Cet article contient une présentation du Concepteur de vues et des procédures de création et modification des vues personnalisées.
 
-Autres articles disponibles concernant le Concepteur de vues :
+Autres articles disponibles concernant le Concepteur de vues :
 
-- [Référence de vignette](log-analytics-view-designer-tiles.md) - référence des paramètres pour chacune des vignettes utilisables dans vos vues personnalisées. 
-- [Référence des composants de visualisation](log-analytics-view-designer-parts.md) - référence des paramètres pour chacune des vignettes utilisables dans vos vues personnalisées. 
-
+* [Référence de vignette](log-analytics-view-designer-tiles.md) - référence des paramètres pour chacune des vignettes utilisables dans vos vues personnalisées. 
+* [Référence des composants de visualisation](log-analytics-view-designer-parts.md) - référence des paramètres pour chacune des vignettes utilisables dans vos vues personnalisées. 
 
 ## <a name="concepts"></a>Concepts
 Les vues créées avec le Concepteur de vues contiennent les éléments répertoriés dans le tableau suivant.
 
 | Partie | Description |
-|:--|:--|
-| Vignette | Affichée sur le tableau de bord principal de vue d’ensemble de Log Analytics.  Inclut un résumé visuel des informations contenues dans la vue personnalisée.  Les différents types de vignettes fournissent des visualisations différentes d’enregistrements dans le référentiel OMS.  Cliquez sur la vignette pour ouvrir la vue personnalisée. |
-| Vue personnalisée | Affichée lorsque l’utilisateur clique sur la vignette.  Contient un ou plusieurs composants de visualisation. |
-| Composants de visualisation | Visualisation de données dans le référentiel OMS en fonction d’une ou plusieurs [recherches de journal](log-analytics-log-searches.md).  La plupart des composants incluent un en-tête qui fournit une visualisation d’ensemble et une liste des premiers résultats.  Les différents types de composants produisent différents visualisations d’enregistrements dans le référentiel OMS.  Cliquez sur des éléments dans le composant pour effectuer une recherche de journal fournissant des enregistrements détaillés. |
+|:--- |:--- |
+| Vignette |Affichée sur le tableau de bord principal de vue d’ensemble de Log Analytics.  Inclut un résumé visuel des informations contenues dans la vue personnalisée.  Les différents types de vignettes fournissent des visualisations différentes d’enregistrements dans le référentiel OMS.  Cliquez sur la vignette pour ouvrir la vue personnalisée. |
+| Vue personnalisée |Affichée lorsque l’utilisateur clique sur la vignette.  Contient un ou plusieurs composants de visualisation. |
+| Composants de visualisation |Visualisation de données dans le référentiel OMS en fonction d’une ou plusieurs [recherches de journal](log-analytics-log-searches.md).  La plupart des composants incluent un en-tête qui fournit une visualisation d’ensemble et une liste des premiers résultats.  Les différents types de composants produisent différents visualisations d’enregistrements dans le référentiel OMS.  Cliquez sur des éléments dans le composant pour effectuer une recherche de journal fournissant des enregistrements détaillés. |
 
 ![Vue d’ensemble du concepteur](media/log-analytics-view-designer/overview.png)
 
@@ -43,7 +41,6 @@ Bien que le Concepteur de vues soit en version préliminaire, vous devez l’ajo
 ![Activer la version préliminaire](media/log-analytics-view-designer/preview.png)
 
 ## <a name="creating-and-editing-views"></a>Création et modification de vues
-
 ### <a name="create-a-new-view"></a>Créer une vue
 Ouvrez une nouvelle vue dans le **Concepteur de vues** en cliquant sur la vignette de celui-ci dans le tableau de bord OMS principal.
 
@@ -55,7 +52,7 @@ Pour modifier une vue dans le Concepteur de vues, ouvrez la vue en cliquant sur 
 ![Modifier une vue](media/log-analytics-view-designer/menu-edit.png)
 
 ### <a name="clone-an-existing-view"></a>Cloner une vue
-Lorsque vous clonez une vue, cela a pour effet de créer une vue et de l’ouvre dans le Concepteur de vues.  La nouvelle vue porte le même nom que la vue originale, avec le mot « Copy » ajouté à la fin.  Pour cloner une vue, ouvrez la vue existante en cliquant sur sa vignette dans le tableau de bord OMS principal.  Cliquez ensuite sur le bouton **Cloner** pour ouvrir la vue dans le Concepteur de vues.
+Lorsque vous clonez une vue, cela a pour effet de créer une vue et de l’ouvre dans le Concepteur de vues.  La nouvelle vue porte le même nom que la vue originale, avec le mot « Copy » ajouté à la fin.  Pour cloner une vue, ouvrez la vue existante en cliquant sur sa vignette dans le tableau de bord OMS principal.  Cliquez ensuite sur le bouton **Cloner** pour ouvrir la vue dans le Concepteur de vues.
 
 ![Cloner une vue](media/log-analytics-view-designer/edit-menu-clone.png)
 
@@ -91,13 +88,9 @@ Vous pouvez supprimer un composant de visualisation de la vue en cliquant sur le
 ### <a name="rearrange-visualization-parts"></a>Réorganiser les composants de visualisation
 Les vues ne comprennent qu’une seule ligne de composants de visualisation.  Réorganisez les composants existants dans une vue en cliquant dessus, puis en les faisant glisser vers un nouvel emplacement.
 
-
 ## <a name="next-steps"></a>Étapes suivantes
-
-- Ajouter des [vignettes](log-analytics-view-designer-tiles.md) à votre vue personnalisée.
-- Ajouter des [composants de visualisation](log-analytics-view-designer-parts.md) à votre vue personnalisée.
-
-
+* Ajouter des [vignettes](log-analytics-view-designer-tiles.md) à votre vue personnalisée.
+* Ajouter des [composants de visualisation](log-analytics-view-designer-parts.md) à votre vue personnalisée.
 
 <!--HONumber=Oct16_HO2-->
 

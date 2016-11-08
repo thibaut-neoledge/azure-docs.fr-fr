@@ -1,35 +1,34 @@
-<properties
-   pageTitle="Collecte des journaux avec Azure Diagnostics | Microsoft Azure"
-   description="Cet article décrit la procédure de configuration d’Azure Diagnostics pour la collecte de journaux d’un cluster Service Fabric exécuté dans Azure."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="ms-toddabel"
-   manager="timlt"
-   editor=""/>
+---
+title: Collecte des journaux avec Azure Diagnostics | Microsoft Docs
+description: Cet article décrit la procédure de configuration d’Azure Diagnostics pour la collecte de journaux d’un cluster Service Fabric exécuté dans Azure.
+services: service-fabric
+documentationcenter: .net
+author: ms-toddabel
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/28/2016"
-   ms.author="toddabel"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/28/2016
+ms.author: toddabel
 
-
-
+---
 # <a name="collect-logs-by-using-azure-diagnostics"></a>Collecte des journaux avec Azure Diagnostics
-
-> [AZURE.SELECTOR]
-- [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
-- [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
+> * [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
+> 
+> 
 
 Lorsque vous exécutez un cluster Service Fabric dans Azure, il peut être intéressant de collecter les journaux de tous les nœuds pour les regrouper dans un emplacement central. La centralisation des journaux vous permet d’analyser et résoudre les problèmes que vous pourriez rencontrer dans votre cluster ou dans les applications et services exécutés dans ce cluster.
 
 L’une des façons de charger et collecter les journaux consiste à utiliser l’extension Azure Diagnostics, qui charge les journaux dans Azure Storage. Les journaux ne sont pas utiles directement dans le stockage. Mais vous pouvez utiliser un processus externe pour lire les événements à partir du stockage et les placer dans un produit tel que [Log Analytics](../log-analytics/log-analytics-service-fabric.md), [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) ou une autre solution d’analyse de journaux.
 
 ## <a name="prerequisites"></a>Composants requis
-Les outils suivants sont utilisés pour exécuter certaines opérations décrites dans ce document :
+Les outils suivants sont utilisés pour exécuter certaines opérations décrites dans ce document :
 
 * [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (page en lien avec Azure Cloud Services, mais qui contient des informations et des exemples pertinents)
 * [Azure Resource Manager](../resource-group-overview.md)
@@ -37,14 +36,12 @@ Les outils suivants sont utilisés pour exécuter certaines opérations décrite
 * [Applets de commande Azure Resource Manager](https://github.com/projectkudu/ARMClient)
 * [Modèle Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 
-
 ## <a name="log-sources-that-you-might-want-to-collect"></a>Sources de journaux que vous pourriez vouloir collecter
-- **Journaux Service Fabric :** émis par la plateforme vers les canaux ETW (Event Tracing for Windows) et EventSource standard. Il existe plusieurs types de journaux :
-  - Événements opérationnels : ces journaux concernent les opérations exécutées par la plateforme Service Fabric. Par exemple : la création d’applications et de services, les modifications d’état des nœuds et les informations de mise à niveau.
-  - [Événements du modèle de programmation Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
-  - [Événements du modèle de programmation Reliable Services](service-fabric-reliable-services-diagnostics.md)
-- **Événements d’application** : ces événements sont émis à partir de votre code de services et écrits à l’aide de la classe d’assistance EventSource fournie dans les modèles Visual Studio. Pour plus d’informations concernant l’écriture des journaux à partir de votre application, consultez la page [Surveillance et diagnostic des services dans une configuration de développement d’ordinateur local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
-
+* **Journaux Service Fabric :** émis par la plateforme vers les canaux ETW (Event Tracing for Windows) et EventSource standard. Il existe plusieurs types de journaux :
+  * Événements opérationnels : ces journaux concernent les opérations exécutées par la plateforme Service Fabric. Par exemple : la création d’applications et de services, les modifications d’état des nœuds et les informations de mise à niveau.
+  * [Événements du modèle de programmation Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+  * [Événements du modèle de programmation Reliable Services](service-fabric-reliable-services-diagnostics.md)
+* **Événements d’application** : ces événements sont émis à partir de votre code de services et écrits à l’aide de la classe d’assistance EventSource fournie dans les modèles Visual Studio. Pour plus d’informations concernant l’écriture des journaux à partir de votre application, consultez la page [Surveillance et diagnostic des services dans une configuration de développement d’ordinateur local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 ## <a name="deploy-the-diagnostics-extension"></a>Déployer l’extension Diagnostics
 La première étape de la collecte de journaux consiste à déployer l’extension Diagnostics sur chaque machine virtuelle du cluster Service Fabric. Cette extension collecte les journaux sur chaque machine virtuelle et les charge dans le compte de stockage que vous spécifiez. Les étapes varient légèrement selon que vous utilisez le portail Azure ou Azure Resource Manager. Les étapes varient également selon que le déploiement fait partie de la création du cluster ou est effectué pour un cluster qui existe déjà. Examinons les différentes étapes pour chaque scénario.
@@ -71,13 +68,12 @@ Vous pouvez exporter des modèles à partir du portail à l’aide de la procéd
 
 Une fois les fichiers exportés, vous devez effectuer une modification. Modifiez le fichier parameters.json et supprimez l’élément **adminPassword**. Cela génère une invite pour le mot de passe lors de l’exécution du script de déploiement. Lorsque vous exécutez le script de déploiement, vous devrez peut-être corriger les valeurs de paramètre null.
 
-Pour utiliser le modèle téléchargé afin de mettre à jour une configuration :
+Pour utiliser le modèle téléchargé afin de mettre à jour une configuration :
 
 1. Extrayez le contenu vers un dossier sur votre ordinateur local.
 2. Modifiez le contenu afin qu’il reflète la nouvelle configuration.
 3. Lancez PowerShell et accédez au dossier où vous avez extrait le contenu.
 4. Exécutez **deploy.ps1** et entrez l’ID d’abonnement, le nom du groupe de ressources (utilisez le même nom pour mettre à jour la configuration) et un nom de déploiement unique.
-
 
 ### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-by-using-azure-resource-manager"></a>Déploiement de l’extension Diagnostics dans le cadre de la création d’un cluster via Azure Resource Manager
 Pour créer un cluster à l’aide de Resource Manager, vous devez ajouter le fichier de configuration Diagnostics JSON au modèle Resource Manager du cluster complet avant de créer le cluster. Nous fournissons un exemple de modèle Resource Manager de cluster à cinq machines virtuelles avec la configuration Diagnostics ajoutée dans le cadre de nos exemples de modèle Resource Manager. Vous pouvez le voir à cet emplacement dans la galerie d’exemples d’Azure : [cluster à cinq nœuds avec exemple de modèle Diagnostics Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad).
@@ -193,7 +189,6 @@ Mettez ensuite à jour la section `VirtualMachineProfile` du fichier template.js
 
 Après avoir modifié le fichier template.json comme décrit, republiez le modèle Resource Manager. Si le modèle a été exporté, exécutez le fichier deploy.ps1 pour republier le modèle. Après le déploiement, assurez-vous que **ProvisioningState** présente la valeur **Succeeded**.
 
-
 ## <a name="update-diagnostics-to-collect-and-upload-logs-from-new-eventsource-channels"></a>Mise à jour de Diagnostics pour collecter et charger des journaux depuis de nouveaux canaux EventSource
 Pour mettre à jour Diagnostics de manière à collecter des journaux à partir de nouveaux canaux EventSource représentant une nouvelle application que vous allez déployer, exécutez les mêmes étapes que celles décrites dans la [section ci-dessus](#deploywadarm) relative à la configuration de Diagnostics pour un cluster existant.
 
@@ -216,12 +211,9 @@ Pour collecter des compteurs de performances ou des journaux d’événements, m
 ## <a name="next-steps"></a>Étapes suivantes
 Pour comprendre plus en détail les événements auxquels vous devriez être attentif lors de la résolution des problèmes, vérifiez les événements de diagnostic émis pour [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) et [Reliable Services](service-fabric-reliable-services-diagnostics.md).
 
-
 ## <a name="related-articles"></a>Articles connexes
 * [Découvrez comment collecter des compteurs de performances ou des journaux à l’aide de l’extension Diagnostics](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 * [Solution Service Fabric dans Log Analytics](../log-analytics/log-analytics-service-fabric.md)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

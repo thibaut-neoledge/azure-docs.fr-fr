@@ -1,124 +1,118 @@
-<properties
-	pageTitle="Créer des services Azure BizTalk Services dans le portail Azure | Microsoft Azure"
-	description="Apprenez à approvisionner ou à créer des services Azure BizTalk Services dans le portail Azure ; MABS, WABS"
-	services="biztalk-services"
-	documentationCenter=""
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""/>
+---
+title: Créer des services Azure BizTalk Services dans le portail Azure | Microsoft Docs
+description: Apprenez à approvisionner ou à créer des services Azure BizTalk Services dans le portail Azure ; MABS, WABS
+services: biztalk-services
+documentationcenter: ''
+author: MandiOhlinger
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="biztalk-services"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="08/15/2016"
-	ms.author="mandia"/>
+ms.service: biztalk-services
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 08/15/2016
+ms.author: mandia
 
-
-
+---
 # Créer des services BizTalk Services à l’aide du portail Azure
+Créez des services Azure BizTalk Services dans le portail Azure.
 
-Créez des services Azure BizTalk Services dans le portail Azure.
-
-> [AZURE.TIP] Pour vous connecter au portail Azure, vous devez disposer d’un compte Azure et d’un abonnement Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Consultez [Version d'évaluation gratuite d'Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
+> [!TIP]
+> Pour vous connecter au portail Azure, vous devez disposer d’un compte Azure et d’un abonnement Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Consultez [Version d'évaluation gratuite d'Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
+> 
+> 
 
 ## Création d'un service BizTalk
 Selon l'édition que vous choisissez, tous les paramètres du service BizTalk peuvent ne pas être disponibles.
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. En bas du volet de navigation, sélectionnez **NEW** : ![Sélectionner le bouton New][NEWButton]
-
 3. Sélectionnez **APP SERVICES** > **SERVICE BIZTALK** > **CRÉATION PERSONNALISÉE** : ![Sélectionner BizTalk Services, puis Custom Create][NewBizTalkService]
+4. Entrez les paramètres du service BizTalk :
+   
+    <table border="1">
+    <tr>
+    <td><strong>Nom du service BizTalk</strong></td>
+    <td>Vous pouvez entrer n'importe quel nom, mais soyez spécifique. Voici quelques exemples&#160;:<br/><br/>
+    <em>masociété</em>.biztalk.windows.net<br/>
+    <em>masociétémonapplication</em>.biztalk.windows.net<br/>
+    <em>monapplication</em>.biztalk.windows.net<br/><br/>«&#160;.biztalk.windows.net&#160;» est automatiquement ajouté au nom que vous entrez. L'URL obtenue est utilisée pour accéder à votre service BizTalk. Par exemple <strong>https://<em>monapplication</em>.biztalk.windows.net</strong>.
+    </td>
+    </tr>
+    <tr>
+    <td><strong>Édition</strong></td>
+    <td>Si vous êtes en phase de test ou de développement, choisissez <strong>Développeur</strong>. Si vous êtes à l’étape de production, utilisez le <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302279">tableau comparatif des éditions de BizTalk Services</a> pour déterminer si l’édition <strong>Premium</strong>, <strong>Standard</strong> ou <strong>De base</strong> est le bon choix pour votre scénario d’entreprise.
+    </td>
+    </tr>
+    <tr>
+    <td><strong>Région</strong></td>
+    <td>Sélectionnez la région géographique dans laquelle héberger votre service BizTalk.</td>
+    </tr>
+    <tr>
+    <td><strong>URL du domaine</strong></td>
+    <td><strong>Facultatif</strong>. Par défaut, l'URL du domaine est <em>YourBizTalkServiceName</em>.biztalk.windows.net. Un domaine personnalisé peut également être entré. Par exemple, si votre domaine est <em>contoso</em>, vous pouvez entrer&#160;: <br/><br/>
+    <em>MaSociété</em>.contoso.com<br/>
+    <em>MaSociétéMonApplication</em>.contoso.com<br/>
+    <em>MonApplication</em>.contoso.com<br/>
+    <em>NomServiceBizTalk</em>.contoso.com<br/>
+    </td>
+    </tr>
+    </table>
+   Sélectionnez la flèche SUIVANT.
+5. Entrez les paramètres de stockage et de base de données :
+   
+    <table border="1">
+    <tr>
+    <td><strong>Compte de stockage de surveillance/archivage</strong></td>
+    <td>Sélectionnez un compte de stockage existant ou créez un nouveau compte de stockage. <br/><br/>Si vous créez un compte de stockage, entrez le <strong>Nom du compte de stockage</strong>.</td>
+    </tr>
+    <tr>
+    <td><strong>Base de données de suivi</strong></td>
+    <td>Si vous utilisez une base de données SQL Azure existante, celle-ci ne peut pas être utilisée par un autre service BizTalk. Vous devez disposer de l'identifiant et du mot de passe entrés lors de la création de ce serveur de base de données SQL Azure.<br/><br/><strong>CONSEIL</strong>&#160;: créez la base de données de suivi et le compte de stockage de surveillance/d’archivage dans la même région que le service BizTalk.</td>
+    </tr>
+    </table>
+   Sélectionnez la flèche SUIVANT.
+6. Entrez les paramètres de base de données :
+   
+    <table border="1">
+    <tr>
+    <td><strong>Name</strong></td>
+    <td>Disponible lorsque l'option <strong>Create a new SQL Database instance</strong> est sélectionnée dans l'écran précédent.
+    <br/><br/>
+    Entrez le nom de la base de données SQL que votre service BizTalk doit utiliser.</td>
+    </tr>
+    <tr>
+    <td><strong>Serveur</strong></td>
+    <td>Disponible lorsque l'option <strong>Create a new SQL Database instance</strong> est sélectionnée dans l'écran précédent.
+    <br/><br/>
+    Sélectionnez un serveur de base de données SQL existant ou créez un serveur de base de données SQL.</td>
+    </tr>
+    <tr>
+    <td><strong>Nom de connexion du serveur</strong></td>
+    <td>Entrez le nom d'utilisateur de connexion.</td>
+    </tr>
+    <tr>
+    <td><strong>Mot de passe de connexion du serveur</strong></td>
+    <td>Entrez le mot de passe de connexion.</td>
+    </tr>
+    <tr>
+    <td><strong>Région</strong></td>
+    <td>Disponible lorsque l'option <strong>Create a new SQL Database instance</strong> est sélectionnée. Sélectionnez la région géographique dans laquelle héberger votre base de données SQL.</td>
+    </tr>
+    </table>
 
-4. Entrez les paramètres du service BizTalk :
-
-	<table border="1">
-	<tr>
-	<td><strong>Nom du service BizTalk</strong></td>
-	<td>Vous pouvez entrer n'importe quel nom, mais soyez spécifique. Voici quelques exemples&#160;:<br/><br/>
-	<em>masociété</em>.biztalk.windows.net<br/>
-	<em>masociétémonapplication</em>.biztalk.windows.net<br/>
-	<em>monapplication</em>.biztalk.windows.net<br/><br/>«&#160;.biztalk.windows.net&#160;» est automatiquement ajouté au nom que vous entrez. L'URL obtenue est utilisée pour accéder à votre service BizTalk. Par exemple <strong>https://<em>monapplication</em>.biztalk.windows.net</strong>.
-	</td>
-	</tr>
-	<tr>
-	<td><strong>Édition</strong></td>
-	<td>Si vous êtes en phase de test ou de développement, choisissez <strong>Développeur</strong>. Si vous êtes à l’étape de production, utilisez le <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302279">tableau comparatif des éditions de BizTalk Services</a> pour déterminer si l’édition <strong>Premium</strong>, <strong>Standard</strong> ou <strong>De base</strong> est le bon choix pour votre scénario d’entreprise.
-	</td>
-	</tr>
-	<tr>
-	<td><strong>Région</strong></td>
-	<td>Sélectionnez la région géographique dans laquelle héberger votre service BizTalk.</td>
-	</tr>
-	<tr>
-	<td><strong>URL du domaine</strong></td>
-	<td><strong>Facultatif</strong>. Par défaut, l'URL du domaine est <em>YourBizTalkServiceName</em>.biztalk.windows.net. Un domaine personnalisé peut également être entré. Par exemple, si votre domaine est <em>contoso</em>, vous pouvez entrer&#160;: <br/><br/>
-	<em>MaSociété</em>.contoso.com<br/>
-	<em>MaSociétéMonApplication</em>.contoso.com<br/>
-	<em>MonApplication</em>.contoso.com<br/>
-	<em>NomServiceBizTalk</em>.contoso.com<br/>
-	</td>
-	</tr>
-	</table>
-Sélectionnez la flèche SUIVANT.
-
-5. Entrez les paramètres de stockage et de base de données :
-
-	<table border="1">
-	<tr>
-	<td><strong>Compte de stockage de surveillance/archivage</strong></td>
-	<td>Sélectionnez un compte de stockage existant ou créez un nouveau compte de stockage. <br/><br/>Si vous créez un compte de stockage, entrez le <strong>Nom du compte de stockage</strong>.</td>
-	</tr>
-	<tr>
-	<td><strong>Base de données de suivi</strong></td>
-	<td>Si vous utilisez une base de données SQL Azure existante, celle-ci ne peut pas être utilisée par un autre service BizTalk. Vous devez disposer de l'identifiant et du mot de passe entrés lors de la création de ce serveur de base de données SQL Azure.<br/><br/><strong>CONSEIL</strong>&#160;: créez la base de données de suivi et le compte de stockage de surveillance/d’archivage dans la même région que le service BizTalk.</td>
-	</tr>
-	</table>
-Sélectionnez la flèche SUIVANT.
-
-6. Entrez les paramètres de base de données :
-
-	<table border="1">
-	<tr>
-	<td><strong>Name</strong></td>
-	<td>Disponible lorsque l'option <strong>Create a new SQL Database instance</strong> est sélectionnée dans l'écran précédent.
-	<br/><br/>
-	Entrez le nom de la base de données SQL que votre service BizTalk doit utiliser.</td>
-	</tr>
-	<tr>
-	<td><strong>Serveur</strong></td>
-	<td>Disponible lorsque l'option <strong>Create a new SQL Database instance</strong> est sélectionnée dans l'écran précédent.
-	<br/><br/>
-	Sélectionnez un serveur de base de données SQL existant ou créez un serveur de base de données SQL.</td>
-	</tr>
-	<tr>
-	<td><strong>Nom de connexion du serveur</strong></td>
-	<td>Entrez le nom d'utilisateur de connexion.</td>
-	</tr>
-	<tr>
-	<td><strong>Mot de passe de connexion du serveur</strong></td>
-	<td>Entrez le mot de passe de connexion.</td>
-	</tr>
-	<tr>
-	<td><strong>Région</strong></td>
-	<td>Disponible lorsque l'option <strong>Create a new SQL Database instance</strong> est sélectionnée. Sélectionnez la région géographique dans laquelle héberger votre base de données SQL.</td>
-	</tr>
-	</table>
-
-Cliquez sur la coche pour terminer l'Assistant. L’icône de progression s’affiche : ![Icône d'avancement affichée à la fin de l'opération][ProgressComplete]
+Cliquez sur la coche pour terminer l'Assistant. L’icône de progression s’affiche : ![Icône d'avancement affichée à la fin de l'opération][ProgressComplete]
 
 Une fois que vous avez terminé, le service Azure BizTalk est créé et prêt pour vos applications. Les paramètres par défaut sont suffisants. Si vous souhaitez modifier les paramètres par défaut, cliquez sur **BIZTALK SERVICES** dans le volet de navigation gauche, puis sélectionnez votre service BizTalk. Des paramètres supplémentaires sont affichés sous les onglets [Tableau de bord, Surveiller et Mettre à l'échelle](biztalk-dashboard-monitor-scale-tabs.md) situés en haut.
 
-Selon l'état du service BizTalk, certaines opérations ne peuvent pas être effectuées. Pour en obtenir la liste, consultez [BizTalk Services : Tableau comparatif des états](biztalk-service-state-chart.md).
-
+Selon l'état du service BizTalk, certaines opérations ne peuvent pas être effectuées. Pour en obtenir la liste, consultez [BizTalk Services : Tableau comparatif des états](biztalk-service-state-chart.md).
 
 ## Étapes postérieures à l’approvisionnement
-
--  [Installer le certificat sur un ordinateur local](#InstallCert)
--  [Ajouter un certificat prêt pour la production](#AddCert)
--  [Obtenir l'espace de noms Access Control](#ACS)
+* [Installer le certificat sur un ordinateur local](#InstallCert)
+* [Ajouter un certificat prêt pour la production](#AddCert)
+* [Obtenir l'espace de noms Access Control](#ACS)
 
 #### <a name="InstallCert"></a>Installer le certificat sur un ordinateur local
 Dans le cadre de l'approvisionnement du service BizTalk, un certificat auto-signé est créé et associé à votre abonnement au service BizTalk. Vous devez télécharger ce certificat et l'installer sur les ordinateurs à partir desquels vous déployez des applications de service BizTalk ou envoyez des messages à un point de terminaison de service BizTalk.
@@ -136,11 +130,9 @@ Le certificat auto-signé qui est créé automatiquement lors de la création de
 2. Accédez à votre certificat SSL privé (*NomCertificat*.pfx) qui inclut le nom de votre service BizTalk, puis entrez le mot de passe et cliquez sur la coche.
 
 #### <a name="ACS"></a>Obtenir l'espace de noms Access Control
-
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Cliquez sur **BIZTALK SERVICES** dans le volet de navigation gauche, puis sélectionnez votre service BizTalk.
 3. Dans la barre des tâches, sélectionnez **Informations de connexion** : ![Sélectionner les informations de connexion][ACSConnectInfo]
-
 4. Copiez les valeurs Access Control.
 
 Lorsque vous déployez un projet BizTalk Services à partir de Visual Studio, vous entrez cet espace de noms de contrôle d'accès. L’espace de noms Access Control est automatiquement créé pour votre service BizTalk.
@@ -151,13 +143,16 @@ Cliquez sur **Manage** pour ouvrir le portail de gestion Access Control. Dans le
 
 L'identité de service Access Control est un ensemble d'informations d'identification qui permet aux applications ou aux clients de s'authentifier directement auprès du contrôle d'accès et de recevoir un jeton.
 
-> [AZURE.IMPORTANT] Le service BizTalk utilise **Propriétaire** comme identité de service par défaut et la valeur **Mot de passe**. Si vous utilisez la valeur de clé symétrique plutôt que la valeur de mot de passe, l’erreur ci-après peut survenir.<br/><br/>*Impossible de se connecter au compte de service de gestion de contrôle d’accès avec les informations d’identification spécifiées.*
+> [!IMPORTANT]
+> Le service BizTalk utilise **Propriétaire** comme identité de service par défaut et la valeur **Mot de passe**. Si vous utilisez la valeur de clé symétrique plutôt que la valeur de mot de passe, l’erreur ci-après peut survenir.<br/><br/>*Impossible de se connecter au compte de service de gestion de contrôle d’accès avec les informations d’identification spécifiées.*
+> 
+> 
 
 La rubrique [Gestion de votre espace de noms ACS](https://msdn.microsoft.com/library/azure/hh674478.aspx) répertorie quelques instructions et recommandations.
 
 ## Explication des exigences
-
 Ces exigences ne s’appliquent pas à l’édition gratuite.
+
 <table border="1">
 <tr bgcolor="FAF9F9">
         <td><strong>Ce dont vous avez besoin</strong></td>
@@ -240,8 +235,7 @@ Un certificat nouveau ou différent peut être ajouté après la création du se
 
 
 ## les connexions hybrides
-
-Quand vous créez un service Azure BizTalk, l'onglet **Connexions hybrides** est disponible :
+Quand vous créez un service Azure BizTalk, l'onglet **Connexions hybrides** est disponible :
 
 ![Onglet Connexions hybrides][HybridConnectionTab]
 
@@ -249,19 +243,17 @@ Les connexions hybrides permettent de connecter un site web Azure ou un service 
 
  Pour en savoir plus, en particulier sur la création et la gestion des connexions hybrides, consultez [Connexions hybrides](integration-hybrid-connection-overview.md).
 
-
 ## Étapes suivantes
-
-Après avoir créé un service BizTalk, passez en revue les différents [onglets de BizTalk Services : Tableau de bord, Surveiller et Mettre à l’échelle](biztalk-dashboard-monitor-scale-tabs.md). Votre service BizTalk est prêt pour vos applications. Pour commencer à créer des applications, consultez la page [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Après avoir créé un service BizTalk, passez en revue les différents [onglets de BizTalk Services : Tableau de bord, Surveiller et Mettre à l’échelle](biztalk-dashboard-monitor-scale-tabs.md). Votre service BizTalk est prêt pour vos applications. Pour commencer à créer des applications, consultez la page [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## Voir aussi
-- [Tableau comparatif des éditions de BizTalk Services](biztalk-editions-feature-chart.md)<br/>
-- [Tableau comparatif des états du service BizTalk](biztalk-service-state-chart.md)<br/>
-- [Sauvegarde et restauration de BizTalk Services](biztalk-backup-restore.md)<br/>
-- [Limitation BizTalk Services](biztalk-throttling-thresholds.md)<br/>
-- [Nom et clé de l'émetteur dans BizTalk Services](biztalk-issuer-name-issuer-key.md)<br/>
-- [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-- [Connexions hybrides](integration-hybrid-connection-overview.md)
+* [Tableau comparatif des éditions de BizTalk Services](biztalk-editions-feature-chart.md)<br/>
+* [Tableau comparatif des états du service BizTalk](biztalk-service-state-chart.md)<br/>
+* [Sauvegarde et restauration de BizTalk Services](biztalk-backup-restore.md)<br/>
+* [Limitation BizTalk Services](biztalk-throttling-thresholds.md)<br/>
+* [Nom et clé de l'émetteur dans BizTalk Services](biztalk-issuer-name-issuer-key.md)<br/>
+* [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Connexions hybrides](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
 [NEWButton]: ./media/biztalk-provision-services/WABS_New.png

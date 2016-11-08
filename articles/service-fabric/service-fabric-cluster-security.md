@@ -1,30 +1,29 @@
-<properties
-   pageTitle="Sécuriser un cluster Service Fabric | Microsoft Azure"
-   description="Décrit les scénarios de sécurité d’un cluster Service Fabric et les différentes technologies utilisées pour implémenter ces scénarios."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="ChackDan"
-   manager="timlt"
-   editor=""/>
+---
+title: Sécuriser un cluster Service Fabric | Microsoft Docs
+description: Décrit les scénarios de sécurité d’un cluster Service Fabric et les différentes technologies utilisées pour implémenter ces scénarios.
+services: service-fabric
+documentationcenter: .net
+author: ChackDan
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/19/2016"
-   ms.author="chackdan"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/19/2016
+ms.author: chackdan
 
+---
 # Scénarios de sécurité d’un cluster Service Fabric
-
 Un cluster Service Fabric est une ressource que vous possédez. Les clusters doivent toujours être sécurisés pour empêcher les utilisateurs non autorisés de se connecter à votre cluster, surtout quand des charges de travail sont en cours d’exécution sur ce dernier. Bien qu’il soit possible de créer un cluster non sécurisé, cela permettrait à tout utilisateur anonyme de s’y connecter si les points de terminaison de gestion sur l’Internet public.
 
 Cet article fournit une vue d’ensemble des scénarios de sécurité pour les clusters autonomes ou s’exécutant sur Azure, et des différentes technologies utilisées pour implémenter ces scénarios. Les scénarios de sécurité des clusters sont les suivants :
 
-- Sécurité nœud à nœud
-- Sécurité client à nœud
-- Contrôle d’accès en fonction du rôle
+* Sécurité nœud à nœud
+* Sécurité client à nœud
+* Contrôle d’accès en fonction du rôle
 
 ## Sécurité nœud à nœud
 Sécurise la communication entre les machines virtuelles ou les ordinateurs du cluster. Cette sécurité garantit que seuls les ordinateurs qui sont autorisés à rejoindre le cluster peuvent participer à l’hébergement des applications et des services dans le cluster.
@@ -32,6 +31,7 @@ Sécurise la communication entre les machines virtuelles ou les ordinateurs du c
 ![Diagramme de communication nœud à nœud][Node-to-Node]
 
 Les clusters qui s’exécutent sur Azure ou les clusters autonomes sur Windows peuvent utiliser la [Sécurité par certificat](https://msdn.microsoft.com/library/ff649801.aspx) ou la [Sécurité Windows](https://msdn.microsoft.com/library/ff649396.aspx) pour les ordinateurs Windows Server.
+
 ### Sécurité de certificat de nœud à nœud
 Service Fabric utilise des certificats de serveur X.509 que vous spécifiez dans le cadre des configurations du type de nœud, lorsque vous créez un cluster. La fin de cet article propose un rapide aperçu de ce que sont ces certificats et de la façon dont vous pouvez les acquérir ou les créer.
 
@@ -75,37 +75,36 @@ Les administrateurs ont un accès complet aux fonctions de gestion (y compris le
 
 Vous spécifiez les rôles client utilisateur et administrateur au moment de la création du cluster en fournissant des identités distinctes (certificats, AAD, etc.) pour chacun. Pour plus d’informations sur les paramètres de contrôle d’accès par défaut et sur la modification des paramètres par défaut, consultez [Contrôle d’accès en fonction du rôle pour les clients Service Fabric](service-fabric-cluster-security-roles.md).
 
-
 ## Certificats X.509 et Service Fabric
-Les certificats numériques X.509 sont couramment utilisés pour authentifier les clients et serveurs et pour chiffrer et signer numériquement les messages. Pour plus d’informations sur ces certificats, consultez [Utilisation des certificats](http://msdn.microsoft.com/library/ms731899.aspx).
+Les certificats numériques X.509 sont couramment utilisés pour authentifier les clients et serveurs et pour chiffrer et signer numériquement les messages. Pour plus d’informations sur ces certificats, consultez [Utilisation des certificats](http://msdn.microsoft.com/library/ms731899.aspx).
 
 Quelques éléments importants à prendre en compte :
 
-- Les certificats utilisés dans les clusters qui exécutent des charges de travail de production doivent être créés en utilisant un service de certificats Windows Server correctement configuré ou obtenus auprès d’une [autorité de certification (AC)](https://en.wikipedia.org/wiki/Certificate_authority) approuvée.
-- En production, n’utilisez jamais de certificats temporaires ou de test créés avec des outils comme MakeCert.exe.
-- Vous pouvez utiliser un certificat auto-signé, mais seulement pour les clusters de test et non en production.
+* Les certificats utilisés dans les clusters qui exécutent des charges de travail de production doivent être créés en utilisant un service de certificats Windows Server correctement configuré ou obtenus auprès d’une [autorité de certification (AC)](https://en.wikipedia.org/wiki/Certificate_authority) approuvée.
+* En production, n’utilisez jamais de certificats temporaires ou de test créés avec des outils comme MakeCert.exe.
+* Vous pouvez utiliser un certificat auto-signé, mais seulement pour les clusters de test et non en production.
 
-### Certificats X.509 de serveur
-
+### Certificats X.509 de serveur
 La tâche principale des certificats de serveur est d’authentifier un serveur (nœud) pour les clients ou d’authentifier un serveur (nœud) pour un serveur (nœud). L’une des vérifications initiales lorsqu’un nœud ou un client authentifie un nœud consiste à vérifier la valeur du nom commun dans le champ Objet. Ce nom commun ou l’un des autres noms de l’objet des certificats doit figurer dans la liste des noms communs autorisés.
 
 L’article suivant décrit comment générer des certificats avec d’autres noms de l’objet (SAN) : [Comment ajouter un autre nom de l’objet à un certificat LDAP sécurisé](http://support.microsoft.com/kb/931351).
 
-Le champ Objet peut contenir plusieurs valeurs, chacune étant précédée d’une initialisation pour indiquer le type de valeur. En règle générale, l’initialisation est « CN » pour « nom commun », par exemple, « CN = www.contoso.com ». Il est également possible que le champ Objet soit vide. Si le champ facultatif Autre nom de l’objet est renseigné, il doit contenir le nom commun du certificat et une entrée par autre nom de l’objet. Ils sont entrés sous forme de valeurs de nom DNS.
+Le champ Objet peut contenir plusieurs valeurs, chacune étant précédée d’une initialisation pour indiquer le type de valeur. En règle générale, l’initialisation est « CN » pour « nom commun », par exemple, « CN = www.contoso.com ». Il est également possible que le champ Objet soit vide. Si le champ facultatif Autre nom de l’objet est renseigné, il doit contenir le nom commun du certificat et une entrée par autre nom de l’objet. Ils sont entrés sous forme de valeurs de nom DNS.
 
 La valeur du champ Rôles prévus du certificat doit inclure une valeur appropriée, comme Authentification serveur ou Authentification client.
 
 ### Certificats X.509 de client
-
 Les certificats clients ne sont généralement pas émis par une autorité de certification tierce. Au lieu de cela, le magasin personnel de l’emplacement actuel de l’utilisateur contient généralement des certificats clients placés là par une autorité racine avec un rôle prévu d’authentification client. Le client peut utiliser un certificat lorsque l’authentification mutuelle est requise.
 
->[AZURE.NOTE] Toutes les opérations de gestion sur un cluster Service Fabric requièrent des certificats de serveur. Les certificats clients ne peuvent pas être utilisés pour la gestion.
+> [!NOTE]
+> Toutes les opérations de gestion sur un cluster Service Fabric requièrent des certificats de serveur. Les certificats clients ne peuvent pas être utilisés pour la gestion.
+> 
+> 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 
 ## Étapes suivantes
-
 Cet article fournit des informations conceptuelles sur la sécurité des clusters. Ensuite, [créez un cluster dans Azure à l’aide d’un modèle Resource Manager](service-fabric-cluster-creation-via-arm.md) ou par le biais du [portail Azure](service-fabric-cluster-creation-via-portal.md).
 
 <!--Image references-->

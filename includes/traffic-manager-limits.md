@@ -1,7 +1,7 @@
-Ressource| Limite par défaut
----|---
-Profils par abonnement | 100 <sup>1</sup>
-Points de terminaison par profil| 200
+| Ressource | Limite par défaut |
+| --- | --- |
+| Profils par abonnement |100 <sup>1</sup> |
+| Points de terminaison par profil |200 |
 
 <sup>1</sup>Pour accroître ces limites, contactez le support technique.
 

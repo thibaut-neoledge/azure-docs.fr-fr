@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Pile de communication WCF Reliable Services | Microsoft Azure"
-   description="La pile de communication WCF intégrée dans Service Fabric fournit une communication WCF client-service pour Reliable Services."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="BharatNarasimman"
-   manager="timlt"
-   editor="vturecek"/>
+---
+title: Pile de communication WCF Reliable Services | Microsoft Docs
+description: La pile de communication WCF intégrée dans Service Fabric fournit une communication WCF client-service pour Reliable Services.
+services: service-fabric
+documentationcenter: .net
+author: BharatNarasimman
+manager: timlt
+editor: vturecek
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="required"
-   ms.date="07/26/2016"
-   ms.author="bharatn"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: required
+ms.date: 07/26/2016
+ms.author: bharatn
 
+---
 # Pile de communication WCF pour Reliable Services
 L'infrastructure Reliable Services permet aux auteurs de service de choisir la pile de communication qu'ils souhaitent utiliser pour leur service. Ils peuvent intégrer la pile de communication de leur choix par le biais du **ICommunicationListener** retourné à partir des méthodes [CreateServiceReplicaListeners ou CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md). L'infrastructure fournit une implémentation de la pile de communication basée sur Windows Communication Foundation (WCF) pour les auteurs de service qui souhaitent utiliser une communication WCF.
 
@@ -113,13 +113,14 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
                 client => client.Channel.Add(2, 3)).Result;
 
 ```
->[AZURE.NOTE] L’élément ServicePartitionResolver par défaut suppose que le client s’exécute dans le même cluster que le service. Dans le cas contraire, créez un objet ServicePartitionResolver et transmettez les points de terminaison de connexion du cluster.
+> [!NOTE]
+> L’élément ServicePartitionResolver par défaut suppose que le client s’exécute dans le même cluster que le service. Dans le cas contraire, créez un objet ServicePartitionResolver et transmettez les points de terminaison de connexion du cluster.
+> 
+> 
 
 ## Étapes suivantes
 * [Appel de procédure distante avec Reliable Services à distance](service-fabric-reliable-services-communication-remoting.md)
-
 * [API Web avec OWIN dans Reliable Services](service-fabric-reliable-services-communication-webapi.md)
-
 * [Sécurisation des communications pour Reliable Services](service-fabric-reliable-services-secure-communication.md)
 
 <!---HONumber=AcomDC_0727_2016-->

@@ -1,41 +1,41 @@
-<properties
-   pageTitle="Exemple de configuration pour les extensions de machine virtuelle Linux | Microsoft Azure"
-   description="Exemple de configuration pour la création de modèles avec des extensions pour les machines virtuelles Linux"
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="kundanap"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+---
+title: Exemple de configuration pour les extensions de machine virtuelle Linux | Microsoft Docs
+description: Exemple de configuration pour la création de modèles avec des extensions pour les machines virtuelles Linux
+services: virtual-machines-linux
+documentationcenter: ''
+author: kundanap
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="09/13/2016"
-   ms.author="kundanap"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 09/13/2016
+ms.author: kundanap
 
-
+---
 # <a name="linux-vm-extension-configuration-samples"></a>Exemples de configuration d’extension de machine virtuelle Linux
-
-> [AZURE.SELECTOR]
-- [PowerShell - Modèle](virtual-machines-windows-extensions-configuration-samples.md)
-- [Interface de ligne de commande - Modèle](virtual-machines-linux-extensions-configuration-samples.md)
+> [!div class="op_single_selector"]
+> * [PowerShell - Modèle](virtual-machines-windows-extensions-configuration-samples.md)
+> * [Interface de ligne de commande - Modèle](virtual-machines-linux-extensions-configuration-samples.md)
+> 
+> 
 
 <br>
 
 Cet article présente un exemple de configuration des extensions d’une machine virtuelle Azure pour les machines virtuelles Linux.
 
-Pour en savoir plus sur ces extensions, cliquez ici : [Présentation des extensions de machine virtuelle Azure](virtual-machines-windows-extensions-features.md)
+Pour en savoir plus sur ces extensions, cliquez ici : [Présentation des extensions de machine virtuelle Azure](virtual-machines-windows-extensions-features.md)
 
-Pour en savoir plus sur la création de modèles d’extension, cliquez ici : [Création de modèles d’extension](virtual-machines-windows-extensions-authoring-templates.md)
+Pour en savoir plus sur la création de modèles d’extension, cliquez ici : [Création de modèles d’extension](virtual-machines-windows-extensions-authoring-templates.md)
 
 Cet article répertorie les valeurs de configuration attendues pour certaines des extensions Linux.
 
 ## <a name="sample-template-snippet-for-vm-extensions."></a>Extrait de l'exemple de modèle pour les extensions de machine virtuelle.
-L'extrait du modèle pour le déploiement des extensions se présente comme suit :
+L'extrait du modèle pour le déploiement des extensions se présente comme suit :
 
       {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -56,7 +56,6 @@ L'extrait du modèle pour le déploiement des extensions se présente comme suit
       }
 
 ## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets."></a>Extrait de l’exemple de modèle pour les extensions de machine virtuelle avec des jeux de mise à l’échelle de machine virtuelle.
-
           {
            "type":"Microsoft.Compute/virtualMachineScaleSets",
           ....
@@ -214,11 +213,9 @@ Pour obtenir le schéma mis à jour, reportez-vous à la [Documentation sur l’
 
 Dans les exemples ci-dessus, remplacez le numéro de version par le dernier numéro de version.
 
-Voici un modèle de machine virtuelle complet pour la création d’une machine virtuelle Linux avec une extension :
+Voici un modèle de machine virtuelle complet pour la création d’une machine virtuelle Linux avec une extension :
 
 [Extension de script personnalisé sur une machine virtuelle Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Présentation des stratégies de sécurité de service et de l’application Service Fabric | Microsoft Azure"
-   description="Vue d’ensemble de l’exécution d’une application Service Fabric sous des comptes de sécurité système et locaux, incluant le point SetupEntry où une application doit effectuer une action privilégiée avant de démarrer"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="msfussell"
-   manager="timlt"
-   editor=""/>
+---
+title: Présentation des stratégies de sécurité de service et de l’application Service Fabric | Microsoft Docs
+description: Vue d’ensemble de l’exécution d’une application Service Fabric sous des comptes de sécurité système et locaux, incluant le point SetupEntry où une application doit effectuer une action privilégiée avant de démarrer
+services: service-fabric
+documentationcenter: .net
+author: msfussell
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/22/2016"
-   ms.author="mfussell"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/22/2016
+ms.author: mfussell
 
-
+---
 # <a name="configure-security-policies-for-your-application"></a>Configurer les stratégies de sécurité de votre application
 Azure Service Fabric permet de sécuriser les applications en cours d’exécution dans le cluster sous différents comptes utilisateurs. Service Fabric sécurise également les ressources utilisées par les applications au moment du déploiement sous le compte utilisateur, comme les fichiers, les répertoires et les certificats. Ainsi, les applications en cours d’exécution sont sécurisées, même dans un environnement hébergé partagé. 
 
@@ -27,7 +26,6 @@ Par défaut, les applications Service Fabric s’exécutent sous le compte qui e
 Il est possible de définir et créer des groupes d’utilisateurs de manière à pouvoir ajouter à chaque groupe un ou plusieurs utilisateurs qui seront gérés ensemble. Cela est utile lorsqu’il existe plusieurs utilisateurs pour des points d’entrée de service différents et qu’ils doivent disposer de certains privilèges courants disponibles au niveau du groupe.
 
 ## <a name="configure-the-policy-for-service-setupentrypoint"></a>Configurer la stratégie pour le service SetupEntryPoint
-
 Comme décrit dans le [modèle d’application](service-fabric-application-model.md) , **SetupEntryPoint** est un point d’entrée privilégié qui s’exécute avec les mêmes informations d’identification que Service Fabric (en général, le compte *NetworkService* ) avant tout autre point d’entrée. Le fichier exécutable spécifié par **EntryPoint** étant généralement l’hôte de service de longue durée, la présence d’un point d’entrée de configuration distinct évite d’avoir à exécuter le fichier exécutable de l’hôte de service avec des privilèges élevés pendant de longues périodes de temps. Le fichier exécutable spécifié par **EntryPoint** est exécuté une fois que **SetupEntryPoint** se termine correctement. Le processus résultant fait l’objet d’une surveillance et est redémarré (à partir de **SetupEntryPoint**) en cas d’interruption ou de défaillance.
 
 L’exemple suivant est un exemple simple de manifeste de service illustrant SetupEntryPoint et le point d’entrée (EntryPoint) principal du service.
@@ -57,7 +55,6 @@ L’exemple suivant est un exemple simple de manifeste de service illustrant Set
 ~~~
 
 ### <a name="configure-the-policy-using-a-local-account"></a>Configurer la stratégie à l’aide d’un compte local
-
 Après avoir configuré le service pour obtenir un point d’entrée de configuration, vous pouvez modifier les autorisations de sécurité sous lesquelles ce point d’entrée s’exécute dans le manifeste d’application. L’exemple suivant montre comment configurer le service pour qu’il s’exécute avec des privilèges de compte d’administrateur de l’utilisateur.
 
 ~~~
@@ -92,7 +89,7 @@ Vérifiez ensuite que le fichier MySetup.bat est inclus dans le package de servi
 
 ![Visual Studio CopyToOutput pour fichier batch SetupEntryPoint][image1]
 
-Ouvrez maintenant le fichier MySetup.bat et ajoutez les commandes suivantes :
+Ouvrez maintenant le fichier MySetup.bat et ajoutez les commandes suivantes :
 
 ~~~
 REM Set a system environment variable. This requires administrator privilege
@@ -104,7 +101,7 @@ REM To delete this system variable us
 REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ~~~
 
-Ensuite, générez et déployez la solution vers un cluster de développement local.  Une fois que le service a démarré, comme illustré dans l’Explorateur Service Fabric, vous pouvez voir que le fichier MySetup.bat a réussi de deux façons. Ouvrez une invite de commandes PowerShell et entrez :
+Ensuite, générez et déployez la solution vers un cluster de développement local.  Une fois que le service a démarré, comme illustré dans l’Explorateur Service Fabric, vous pouvez voir que le fichier MySetup.bat a réussi de deux façons. Ouvrez une invite de commandes PowerShell et entrez :
 
 ~~~
 PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
@@ -117,7 +114,7 @@ Ensuite, notez le nom du nœud sur lequel le service a été déployé et démar
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ~~~
 
-###  <a name="configure-the-policy-using-local-system-accounts"></a>Configurer la stratégie à l’aide de comptes système locaux
+### <a name="configure-the-policy-using-local-system-accounts"></a>Configurer la stratégie à l’aide de comptes système locaux
 Il est souvent préférable d’exécuter le script de démarrage à l’aide d’un compte système local plutôt que d’un compte d’administrateur, comme illustré précédemment. En règle générale, exécuter la stratégie RunAs en tant qu’administrateur ne fonctionne pas correctement, car le contrôle d’accès utilisateur est activé par défaut sur les ordinateurs. Dans ce cas, **nous vous recommandons d’exécuter SetupEntryPoint en tant que LocalSystem plutôt qu’utilisateur local ajouté au groupe Administrateurs**. L’exemple suivant montre comment configurer SetupEntryPoint pour une exécution en tant que LocalSystem.
 
 ~~~
@@ -138,9 +135,8 @@ Il est souvent préférable d’exécuter le script de démarrage à l’aide d�
 </ApplicationManifest>
 ~~~
 
-##  <a name="launch-powershell-commands-from-a-setupentrypoint"></a>Lancement de commandes PowerShell à partir de SetupEntryPoint
+## <a name="launch-powershell-commands-from-a-setupentrypoint"></a>Lancement de commandes PowerShell à partir de SetupEntryPoint
 Pour exécuter PowerShell à partir du point **SetupEntryPoint**, vous pouvez exécuter **PowerShell.exe** dans un fichier de commandes qui pointe vers un fichier PowerShell. Tout d’abord, ajoutez un fichier PowerShell au projet de service, par exemple **MySetup.ps1**. N’oubliez pas de définir la propriété *Copier si plus récent* afin que le fichier soit également inclus dans le package de service. L’exemple suivant montre un exemple de fichier de commandes permettant de lancer un fichier PowerShell appelé MySetup.ps1, qui définit une variable d’environnement appelée **TestVariable**.
-
 
 MySetup.bat pour lancer le fichier de PowerShell.
 
@@ -148,7 +144,7 @@ MySetup.bat pour lancer le fichier de PowerShell.
 powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 ~~~
 
-Dans le fichier PowerShell, ajoutez la commande suivante pour définir une variable d’environnement système :
+Dans le fichier PowerShell, ajoutez la commande suivante pour définir une variable d’environnement système :
 
 ~~~
 [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
@@ -191,7 +187,7 @@ Echo "Test console redirection which writes to the application log folder on the
 
 **Une fois que vous avez débogué votre script, supprimez immédiatement cette stratégie de redirection de console.**
 
-## <a name="configure-policy-for-service-code-packages"></a>Configurer la stratégie pour les packages de code de service 
+## <a name="configure-policy-for-service-code-packages"></a>Configurer la stratégie pour les packages de code de service
 Dans les étapes précédentes, vous avez vu comment appliquer une stratégie RunAs à un point SetupEntryPoint. Allons plus loin et voyons comment créer des principaux différents qui peuvent être appliqués en tant que stratégies de service.
 
 ### <a name="create-local-user-groups"></a>Création de groupes d'utilisateurs locaux
@@ -251,7 +247,7 @@ La section **RunAsPolicy** d’un **ServiceManifestImport** spécifie le compte 
 </Policies>
 ~~~
 
-Si **EntryPointType** n'est pas spécifié, la valeur par défaut est définie sur EntryPointType=« Main ». La spécification d’un **SetupEntryPoint** est particulièrement utile quand vous souhaitez exécuter certaines opérations d’installation à privilège élevé sous un compte système. Le code de service en tant que tel peut s’exécuter sous un compte à faible privilège.
+Si **EntryPointType** n'est pas spécifié, la valeur par défaut est définie sur EntryPointType=« Main ». La spécification d’un **SetupEntryPoint** est particulièrement utile quand vous souhaitez exécuter certaines opérations d’installation à privilège élevé sous un compte système. Le code de service en tant que tel peut s’exécuter sous un compte à faible privilège.
 
 ### <a name="apply-a-default-policy-to-all-service-code-packages"></a>Application d’une stratégie par défaut à tous les packages de code de service
 La section **DefaultRunAsPolicy** permet de spécifier un compte utilisateur par défaut pour tous les packages de code qui n’ont pas de stratégie **RunAsPolicy** spécifique définie. Si la plupart des packages de code spécifiés dans le manifeste de service utilisés par une application doivent s’exécuter sous le même utilisateur, l’application peut définir une stratégie RunAs par défaut avec ce compte utilisateur. L’exemple suivant spécifie que, si un package de code n’a pas de stratégie **RunAsPolicy** spécifiée, le package de code doit être exécuté sous le compte **MyDefaultAccount** spécifié dans la section Principals.
@@ -365,7 +361,6 @@ Le manifeste d’application suivant affiche un grand nombre des différents par
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Étapes suivantes
-
 * [Comprendre le modèle d'application](service-fabric-application-model.md)
 * [Spécifier des ressources dans un manifeste de service](service-fabric-service-manifest-resources.md)
 * [Déployer une application](service-fabric-deploy-remove-applications.md)

@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Vue d’ensemble de la sécurité Azure | Microsoft Azure"
-   description="Le site d’informations sur la sécurité Microsoft Azure sur Azure.com est conçu spécifiquement pour fournir des réponses techniques à vos questions sur la sécurité Azure."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+title: Vue d’ensemble de la sécurité Azure | Microsoft Docs
+description: Le site d’informations sur la sécurité Microsoft Azure sur Azure.com est conçu spécifiquement pour fournir des réponses techniques à vos questions sur la sécurité Azure.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="terrylan"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: terrylan
 
+---
 # Vue d’ensemble de la sécurité d’Azure
-
 Le site d’informations sur la sécurité Microsoft Azure sur Azure.com est conçu spécifiquement pour fournir des réponses techniques à vos questions sur la sécurité Azure. Si la conformité Azure vous intéresse et que vous désirez savoir comment Azure protège sa propre infrastructure, consultez le [Centre de gestion de la confidentialité Microsoft](https://www.microsoft.com/TrustCenter/default.aspx).
 
 Nous savons que la sécurité est la priorité dans le cloud et combien il est important que vous trouviez des informations précises et à jour sur la sécurité Azure. L’une des meilleures raisons d’utiliser Azure pour vos applications et services consiste à tirer parti de la large gamme de fonctionnalités et d’outils de sécurité disponibles. Ces outils et fonctionnalités permettent de créer des solutions sécurisées sur la plateforme Azure sécurisée.
@@ -31,18 +30,21 @@ Si vous regardez sur le côté gauche de la page, vous voyez une collection de c
 
 Le site d’informations sur la sécurité Azure traite actuellement des catégories suivantes :
 
-- Ressources
-- Sécurité du réseau
-- Sécurité du stockage
-- Sécurité de la machine virtuelle
-- Protection du point de terminaison
-- Gestion et surveillance de la sécurité
-- Gestion des identités
-- Services PaaS
-- Propre à un secteur
-- Architecture
+* Ressources
+* Sécurité du réseau
+* Sécurité du stockage
+* Sécurité de la machine virtuelle
+* Protection du point de terminaison
+* Gestion et surveillance de la sécurité
+* Gestion des identités
+* Services PaaS
+* Propre à un secteur
+* Architecture
 
-> [AZURE.NOTE] Tous les articles du site d’informations sur la sécurité Azure apparaissent sur le côté gauche de la page. Pour voir tous les articles, cliquez ou appuyez sur **En savoir plus** à la fin de la liste des catégories.
+> [!NOTE]
+> Tous les articles du site d’informations sur la sécurité Azure apparaissent sur le côté gauche de la page. Pour voir tous les articles, cliquez ou appuyez sur **En savoir plus** à la fin de la liste des catégories.
+> 
+> 
 
 Donnez-nous votre avis ! S’il existe des catégories que vous souhaitez ajouter, faites-le-nous savoir ! S’il existe des articles que vous souhaitez ajouter à une catégorie existante, faites-le nous-savoir également ! Vous pouvez utiliser la section Commentaires ci-dessous ou nous écrire à [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com) et nous prenons en compte vos recommandations.
 

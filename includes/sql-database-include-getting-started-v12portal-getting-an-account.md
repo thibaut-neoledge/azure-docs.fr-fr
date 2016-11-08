@@ -11,15 +11,12 @@ articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
 ## Connexion au portail Azure avec un abonnement
-
 Si vous avez un abonnement à Microsoft Azure, suivez les étapes ci-dessous pour vous connecter au portail Azure. Si vous n’avez pas de compte Microsoft Azure existant, suivez l’un des liens ci-dessous pour obtenir un compte, puis suivez les étapes ci-dessous pour vous connecter au portail Azure.
 
 1. Ouvrez votre navigateur préféré et connectez-vous au [portail Azure](https://portal.azure.com/) à l’adresse http://portal.azure.com/.
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) sur http://portal.azure.com/.
-
-2. Lorsque la page de connexion s’affiche, entrez les informations d’identification de votre abonnement.
-
+2. Connectez-vous au [portail Azure](https://portal.azure.com/) sur http://portal.azure.com/.
+3. Lorsque la page de connexion s’affiche, entrez les informations d’identification de votre abonnement.
+   
    ![se connecter][1]
 
 <!-- Image references. -->

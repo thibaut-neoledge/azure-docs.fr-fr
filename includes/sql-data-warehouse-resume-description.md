@@ -12,9 +12,9 @@ articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-rest-api.m
 -->
 Lorsque vous reprenez une base de données :
 
-- SQL Data Warehouse acquiert les ressources de calcul et de mémoire pour votre paramètre DWU.
-- Les frais de calcul liés à votre unité DWU sont de nouveau applicables.
-- Vos données seront disponibles.
-- Vous devrez redémarrer vos requêtes de charge de travail.
+* SQL Data Warehouse acquiert les ressources de calcul et de mémoire pour votre paramètre DWU.
+* Les frais de calcul liés à votre unité DWU sont de nouveau applicables.
+* Vos données seront disponibles.
+* Vous devrez redémarrer vos requêtes de charge de travail.
 
 <!---HONumber=AcomDC_0427_2016-->

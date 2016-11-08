@@ -1,55 +1,49 @@
-<properties
-    pageTitle="Créer et utiliser une signature d’accès partagé avec Blob Storage | Microsoft Azure"
-    description="Ce didacticiel vous montre comment créer des signatures d’accès partagé en vue d’une utilisation avec Blob Storage et comment les utiliser dans vos applications clientes."
-    services="storage"
-    documentationCenter=""
-    authors="tamram"
-    manager="carmonm"
-    editor="tysonn"/>
+---
+title: Créer et utiliser une signature d’accès partagé avec Blob Storage | Microsoft Docs
+description: Ce didacticiel vous montre comment créer des signatures d’accès partagé en vue d’une utilisation avec Blob Storage et comment les utiliser dans vos applications clientes.
+services: storage
+documentationcenter: ''
+author: tamram
+manager: carmonm
+editor: tysonn
 
-<tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="10/18/2016"
-    ms.author="tamram"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 10/18/2016
+ms.author: tamram
 
-
-
-# <a name="shared-access-signatures,-part-2:-create-and-use-a-sas-with-blob-storage"></a>Signatures d’accès partagé, partie 2 : créer et utiliser une signature d’accès partagé avec Blob Storage
-
+---
+# <a name="shared-access-signatures,-part-2:-create-and-use-a-sas-with-blob-storage"></a>Signatures d’accès partagé, partie 2 : créer et utiliser une signature d’accès partagé avec Blob Storage
 ## <a name="overview"></a>Vue d'ensemble
+[partie 1](storage-dotnet-shared-access-signature-part-1.md) de ce didacticiel traitait des signatures d'accès partagé et indiquait les meilleures pratiques les concernant. La partie 2 indique comment générer et utiliser les signatures d’accès partagé avec Blob Storage. Les exemples ont été écrits en C# et utilisent la bibliothèque du client Azure Storage pour .NET. Les scénarios traités incluent les points suivants de l'utilisation des signatures d'accès partagé :
 
-[partie 1](storage-dotnet-shared-access-signature-part-1.md) de ce didacticiel traitait des signatures d'accès partagé et indiquait les meilleures pratiques les concernant. La partie 2 indique comment générer et utiliser les signatures d’accès partagé avec Blob Storage. Les exemples ont été écrits en C# et utilisent la bibliothèque du client Azure Storage pour .NET. Les scénarios traités incluent les points suivants de l'utilisation des signatures d'accès partagé :
-
-- Génération d'une signature d'accès partagé sur un conteneur
-- Génération d'une signature d'accès partagé sur un objet blob
-- Création d'une stratégie d'accès stockée pour gérer les signatures sur les ressources d'un conteneur
-- Test des signatures d'accès partagé à partir d'une application cliente
+* Génération d'une signature d'accès partagé sur un conteneur
+* Génération d'une signature d'accès partagé sur un objet blob
+* Création d'une stratégie d'accès stockée pour gérer les signatures sur les ressources d'un conteneur
+* Test des signatures d'accès partagé à partir d'une application cliente
 
 ## <a name="about-this-tutorial"></a>À propos de ce didacticiel
+Ce didacticiel traite spécifiquement de la création des signatures d'accès partagé pour les conteneurs et les objets blob en créant deux applications console. La première application console génère des signatures d'accès partagé sur un conteneur et un objet blob. Cette application connaît les clés de compte de stockage. La seconde application console, qui se comporte comme une application cliente, accède aux ressources du conteneur et de l'objet blob en utilisant les signatures d'accès partagé créées avec la première application. Cette application utilise les signatures d’accès partagé uniquement pour authentifier son accès aux ressources du conteneur et de l’objet blob. Elle ne connaît pas les clés de compte.
 
-Ce didacticiel traite spécifiquement de la création des signatures d'accès partagé pour les conteneurs et les objets blob en créant deux applications console. La première application console génère des signatures d'accès partagé sur un conteneur et un objet blob. Cette application connaît les clés de compte de stockage. La seconde application console, qui se comporte comme une application cliente, accède aux ressources du conteneur et de l'objet blob en utilisant les signatures d'accès partagé créées avec la première application. Cette application utilise les signatures d’accès partagé uniquement pour authentifier son accès aux ressources du conteneur et de l’objet blob. Elle ne connaît pas les clés de compte.
-
-## <a name="part-1:-create-a-console-application-to-generate-shared-access-signatures"></a>Partie 1 : créer une application console pour générer des signatures d’accès partagé
-
-Commencez par vérifier que la bibliothèque cliente Azure Storage pour .NET est installée. Vous pouvez installer le [package NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "package NuGet") qui contient les assemblys les plus à jour pour la bibliothèque cliente. Cette méthode est recommandée pour garantir que les correctifs les plus récents sont installés. Vous pouvez également télécharger la bibliothèque cliente avec la version la plus récente du [Kit de développement logiciel (SDK) Azure pour .NET](https://azure.microsoft.com/downloads/).
+## <a name="part-1:-create-a-console-application-to-generate-shared-access-signatures"></a>Partie 1 : créer une application console pour générer des signatures d’accès partagé
+Commencez par vérifier que la bibliothèque cliente Azure Storage pour .NET est installée. Vous pouvez installer le [package NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "package NuGet") qui contient les assemblys les plus à jour pour la bibliothèque cliente. Cette méthode est recommandée pour garantir que les correctifs les plus récents sont installés. Vous pouvez également télécharger la bibliothèque cliente avec la version la plus récente du [Kit de développement logiciel (SDK) Azure pour .NET](https://azure.microsoft.com/downloads/).
 
 Dans Visual Studio, créez une application console Windows et nommez-la **GenerateSharedAccessSignatures**. Ajoutez des références à **Microsoft.WindowsAzure.Configuration.dll** et **Microsoft.WindowsAzure.Storage.dll** en utilisant l’une des méthodes suivantes :
 
--   Si vous souhaitez installer le package NuGet, commencez par installer le [Client NuGet](https://docs.nuget.org/consume/installing-nuget). Dans Visual Studio, sélectionnez **Project | Manage NuGet Packages**, effectuez une recherche en ligne sur **Azure Storage** et suivez les instructions d’installation.
--   Vous pouvez également rechercher les assemblys dans votre installation du Kit de développement logiciel (SDK) Azure et y ajouter des références.
+* Si vous souhaitez installer le package NuGet, commencez par installer le [Client NuGet](https://docs.nuget.org/consume/installing-nuget). Dans Visual Studio, sélectionnez **Project | Manage NuGet Packages**, effectuez une recherche en ligne sur **Azure Storage** et suivez les instructions d’installation.
+* Vous pouvez également rechercher les assemblys dans votre installation du Kit de développement logiciel (SDK) Azure et y ajouter des références.
 
-Au début du fichier Program.cs, ajoutez les instructions **using** suivantes :
+Au début du fichier Program.cs, ajoutez les instructions **using** suivantes :
 
     using System.IO;    
     using Microsoft.WindowsAzure;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
 
-Modifiez le fichier app.config pour qu'il contienne un paramètre de configuration avec une chaîne de connexion qui pointe vers votre compte de stockage. Votre fichier app.config ressemble à ceci :
+Modifiez le fichier app.config pour qu'il contienne un paramètre de configuration avec une chaîne de connexion qui pointe vers votre compte de stockage. Votre fichier app.config ressemble à ceci :
 
     <configuration>
       <startup>
@@ -61,10 +55,9 @@ Modifiez le fichier app.config pour qu'il contienne un paramètre de configurati
     </configuration>
 
 ### <a name="generate-a-shared-access-signature-uri-for-a-container"></a>Génération d'un URI de signature d'accès partagé pour un conteneur
-
 Pour commencer, ajoutons une méthode pour générer une signature d'accès partagé sur un nouveau conteneur. Dans ce cas, la signature n'est pas associée à une stratégie d'accès stockée et véhicule sur l'URI les informations concernant son heure d'expiration et les autorisations qu'elle accorde.
 
-Ajoutons du code à la méthode **Main()** pour authentifier l'accès à votre compte de stockage et créer un conteneur :
+Ajoutons du code à la méthode **Main()** pour authentifier l'accès à votre compte de stockage et créer un conteneur :
 
     static void Main(string[] args)
     {
@@ -84,7 +77,7 @@ Ajoutons du code à la méthode **Main()** pour authentifier l'accès à votre c
         Console.ReadLine();
     }
 
-Ajoutez ensuite une nouvelle méthode qui génère la signature d'accès partagé pour le conteneur et renvoie l'URI de la signature :
+Ajoutez ensuite une nouvelle méthode qui génère la signature d'accès partagé pour le conteneur et renvoie l'URI de la signature :
 
     static string GetContainerSasUri(CloudBlobContainer container)
     {
@@ -107,17 +100,16 @@ Ajoutez les lignes suivantes à la fin de la méthode **Main()** avant d’appel
     Console.WriteLine("Container SAS URI: " + GetContainerSasUri(container));
     Console.WriteLine();
 
-Compilez et exécutez pour renvoyer l'URI de la signature d'accès partagé pour le nouveau conteneur. L’URI ressemble à cela :       
+Compilez et exécutez pour renvoyer l'URI de la signature d'accès partagé pour le nouveau conteneur. L’URI ressemble à cela :       
 
     https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D
 
-Une fois que l’exécution du code est lancée, la signature d’accès partagé que vous avez créée sur le conteneur est valide pendant vingt-quatre heures. La signature accorde une autorisation client pour créer une liste d'objets blob dans le conteneur et écrire un nouvel objet blob dans le conteneur.
+Une fois que l’exécution du code est lancée, la signature d’accès partagé que vous avez créée sur le conteneur est valide pendant vingt-quatre heures. La signature accorde une autorisation client pour créer une liste d'objets blob dans le conteneur et écrire un nouvel objet blob dans le conteneur.
 
 ### <a name="generate-a-shared-access-signature-uri-for-a-blob"></a>Génération d'un URI de signature d'accès partagé pour un objet blob
-
 Nous allons ensuite écrire un code similaire pour créer un objet blob dans le conteneur et générer une signature d'accès partagé pour lui. Cette signature d'accès partagé n'est pas associée à une stratégie d'accès stockée et inclut l'heure de début, l'heure d'expiration et les informations d'autorisation sur l'URI.
 
-Ajoutez une nouvelle méthode qui crée un objet blob et y écrit du texte, puis génère une signature d'accès partagé et renvoie l'URI de la signature :
+Ajoutez une nouvelle méthode qui crée un objet blob et y écrit du texte, puis génère une signature d'accès partagé et renvoie l'URI de la signature :
 
     static string GetBlobSasUri(CloudBlobContainer container)
     {
@@ -156,12 +148,11 @@ Ajoutez les lignes suivantes à la fin de la méthode **Main()** avant d’appel
     Console.WriteLine();
 
 
-Compilez et exécutez pour renvoyer l'URI de la signature d'accès partagé pour le nouvel objet blob. L’URI ressemble à cela :
+Compilez et exécutez pour renvoyer l'URI de la signature d'accès partagé pour le nouvel objet blob. L’URI ressemble à cela :
 
     https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
 
 ### <a name="create-a-stored-access-policy-on-the-container"></a>Création d’une stratégie d’accès stockée sur le conteneur
-
 Créons une stratégie d'accès stockée sur le conteneur pour définir les contraintes des signatures d'accès partagé qui y sont associées.
 
 Dans les exemples précédents, nous avons spécifié l'heure de début (implicitement ou explicitement), l'heure d'expiration et les autorisations sur l'URI de la signature d'accès partagé lui-même. Dans les exemples suivants, nous allons spécifier cela sur la stratégie d'accès stockée, pas sur la signature. Cela nous permettra de modifier ces contraintes sans devoir émettre de nouveau la signature d'accès partagé.
@@ -170,7 +161,7 @@ Il est possible de définir un certain nombre de contraintes sur la signature pa
 
 Notez que lorsque vous ajoutez une stratégie d’accès à un conteneur, vous devez obtenir les autorisations existantes du conteneur, ajouter la nouvelle stratégie d’accès et ensuite définir les autorisations du conteneur.
 
-Ajoutez une nouvelle méthode qui crée une stratégie d’accès stockée sur un conteneur et renvoie le nom de la stratégie :
+Ajoutez une nouvelle méthode qui crée une stratégie d’accès stockée sur un conteneur et renvoie le nom de la stratégie :
 
     static void CreateSharedAccessPolicy(CloudBlobClient blobClient, CloudBlobContainer container,
         string policyName)
@@ -205,10 +196,9 @@ Ajoutez les lignes suivantes à la fin de la méthode **Main()** avant d’appel
 Notez que lorsque vous désactivez les stratégies d’accès sur un conteneur, vous devez d’abord obtenir les autorisations existantes du conteneur, puis les désactiver, et enfin définir les autorisations à nouveau.
 
 ### <a name="generate-a-shared-access-signature-uri-on-the-container-that-uses-an-access-policy"></a>Génération d'un URI de signature d'accès partagé sur le conteneur qui utilise une stratégie d'accès
-
 Créons maintenant une autre signature d'accès partagé sur le conteneur que nous avons créé précédemment, mais en associant la signature à la stratégie d'accès que nous avons créée dans l'exemple précédent.
 
-Ajoutez une nouvelle méthode pour générer une autre signature d'accès partagé sur le conteneur :
+Ajoutez une nouvelle méthode pour générer une autre signature d'accès partagé sur le conteneur :
 
     static string GetContainerSasUriWithPolicy(CloudBlobContainer container, string policyName)
     {
@@ -227,10 +217,9 @@ Ajoutez les lignes suivantes à la fin de la méthode **Main()** avant d’appel
     Console.WriteLine();
 
 ### <a name="generate-a-shared-access-signature-uri-on-the-blob-that-uses-an-access-policy"></a>Génération d'un URI de signature d'accès partagé sur l'objet blob qui utilise une stratégie d'accès
-
 Pour terminer, ajoutons une méthode similaire pour créer un autre objet blob et générer une signature d'accès partagé associée à une stratégie d'accès.
 
-Ajoutez une nouvelle méthode pour créer un objet blob et générer une signature d'accès partagé :
+Ajoutez une nouvelle méthode pour créer un objet blob et générer une signature d'accès partagé :
 
     static string GetBlobSasUriWithPolicy(CloudBlobContainer container, string policyName)
     {
@@ -304,25 +293,27 @@ La méthode **Main()** doit maintenant ressembler à ceci. Lancez-la pour écrir
         Console.ReadLine();
     }
 
-Lorsque vous exécutez l'application console GenerateSharedAccessSignatures, la sortie est semblable à ce qui suit dans la fenêtre de la console. Il s'agit des signatures d'accès partagé que vous allez utiliser dans la partie 2 du didacticiel.
+Lorsque vous exécutez l'application console GenerateSharedAccessSignatures, la sortie est semblable à ce qui suit dans la fenêtre de la console. Il s'agit des signatures d'accès partagé que vous allez utiliser dans la partie 2 du didacticiel.
 
 ![sas-console-output-1][sas-console-output-1]
 
-## <a name="part-2:-create-a-console-application-to-test-the-shared-access-signatures"></a>Partie 2 : créer une application console pour tester les signatures d’accès partagé
-
+## <a name="part-2:-create-a-console-application-to-test-the-shared-access-signatures"></a>Partie 2 : créer une application console pour tester les signatures d’accès partagé
 Pour tester les signatures d’accès partagé créées dans les exemples précédents, nous allons créer une deuxième application console qui utilise les signatures afin d’exécuter les opérations sur le conteneur et un objet blob.
 
-> [AZURE.NOTE] Si plus de 24 heures se sont écoulées depuis la fin de la première partie de ce didacticiel, les signatures que vous avez générées ne sont plus valides. Dans ce cas, exécutez le code dans la première application console pour générer de nouvelles signatures d’accès partagé pour la seconde partie du didacticiel.
+> [!NOTE]
+> Si plus de 24 heures se sont écoulées depuis la fin de la première partie de ce didacticiel, les signatures que vous avez générées ne sont plus valides. Dans ce cas, exécutez le code dans la première application console pour générer de nouvelles signatures d’accès partagé pour la seconde partie du didacticiel.
+> 
+> 
 
 Dans Visual Studio, créez une application console Windows et nommez-la **ConsumeSharedAccessSignatures**. Ajoutez des références à **Microsoft.WindowsAzure.Configuration.dll** et **Microsoft.WindowsAzure.Storage.dll**, comme précédemment.
 
-Au début du fichier Program.cs, ajoutez les instructions **using** suivantes :
+Au début du fichier Program.cs, ajoutez les instructions **using** suivantes :
 
     using System.IO;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
 
-Dans le corps de la méthode **Main()** , ajoutez les constantes suivantes et mettez leurs valeurs à jour dans les signatures d'accès partagé générées dans la partie 1 du didacticiel.
+Dans le corps de la méthode **Main()** , ajoutez les constantes suivantes et mettez leurs valeurs à jour dans les signatures d'accès partagé générées dans la partie 1 du didacticiel.
 
     static void Main(string[] args)
     {
@@ -333,10 +324,9 @@ Dans le corps de la méthode **Main()** , ajoutez les constantes suivantes et me
     }
 
 ### <a name="add-a-method-to-try-container-operations-using-a-shared-access-signature"></a>Ajout d'une méthode pour tester les opérations sur le conteneur avec une signature d'accès partagé
-
 Nous allons ensuite ajouter une méthode qui teste des opérations représentatives sur le conteneur avec une signature d'accès partagé sur le conteneur. Notez que la signature d'accès partagé permet de renvoyer une référence au conteneur pour authentifier l'accès au conteneur sur la base de la signature uniquement.
 
-Ajoutez la méthode suivante au fichier Program.cs :
+Ajoutez la méthode suivante au fichier Program.cs :
 
     static void UseContainerSAS(string sas)
     {
@@ -443,10 +433,9 @@ Mettez à jour la méthode **Main()** pour appeler **UseContainerSAS()** avec le
 
 
 ### <a name="add-a-method-to-try-blob-operations-using-a-shared-access-signature"></a>Ajout d'une méthode pour tester les opérations sur l'objet blob avec une signature d'accès partagé
-
 Pour terminer, nous allons ajouter une méthode qui teste des opérations représentatives sur l'objet blob avec une signature d'accès partagé sur l'objet blob. Ici, nous utilisons le constructeur **CloudBlockBlob(String)**, en passant la signature d'accès partagé, pour renvoyer une référence vers l'objet blob. Aucune autre authentification n'est nécessaire, car l'opération est basée uniquement sur la signature.
 
-Ajoutez la méthode suivante au fichier Program.cs :
+Ajoutez la méthode suivante au fichier Program.cs :
 
     static void UseBlobSAS(string sas)
     {
@@ -538,13 +527,12 @@ Mettez à jour la méthode **Main()** pour appeler **UseBlobSAS()** avec les deu
         Console.ReadLine();
     }
 
-Exécutez l'application console et observez la sortie pour connaître les opérations autorisées en fonction des signatures. La sortie dans la fenêtre de la console ressemble à ceci :
+Exécutez l'application console et observez la sortie pour connaître les opérations autorisées en fonction des signatures. La sortie dans la fenêtre de la console ressemble à ceci :
 
 ![sas-console-output-2][sas-console-output-2]
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-[Signatures d'accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md)
+[Signatures d'accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md)
 
 [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md)
 

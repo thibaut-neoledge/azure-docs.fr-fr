@@ -1,47 +1,40 @@
-<properties 
-	pageTitle="Diagnostics proactifs dans Application Insights | Microsoft Azure" 
-	description="Application Insights réalise une analyse télémétrique approfondie automatique de votre application et vous avertit des éventuels problèmes de performances." 
-	services="application-insights" 
-    documentationCenter="windows"
-	authors="rakefetj" 
-	manager="douge"/>
+---
+title: Diagnostics proactifs dans Application Insights | Microsoft Docs
+description: Application Insights réalise une analyse télémétrique approfondie automatique de votre application et vous avertit des éventuels problèmes de performances.
+services: application-insights
+documentationcenter: windows
+author: rakefetj
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/15/2016" 
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: awills
 
-#  Diagnostics proactifs dans Application Insights
-
+---
+# Diagnostics proactifs dans Application Insights
  Les diagnostics proactifs vous informent automatiquement des éventuels problèmes de performances dans votre application web. Ils effectuent des analyses intelligentes des données de télémétrie que votre application envoie à [Visual Studio Application Insights](app-insights-overview.md). S’ils détectent une augmentation soudaine du taux d’échec, ou des modèles anormaux de performances client ou serveur, vous recevez une alerte. Cette fonctionnalité ne nécessite aucune configuration. Elle fonctionne si votre application envoie suffisamment de données de télémétrie.
 
 Vous pouvez accéder aux alertes de détection proactive via les courriers électroniques que vous recevez et à partir du panneau de détection proactive.
 
-
-
 ## Consulter vos détections proactives
-
 Vous pouvez découvrir des détections de deux manières :
 
 * **Vous recevez un message électronique** de la part d’Application Insights. Voici un exemple typique :
-
+  
     ![Alerte par courrier électronique](./media/app-insights-proactive-diagnostics/03.png)
-
+  
     Cliquez sur le grand bouton pour afficher plus de détails dans le portail.
-
 * La **mosaïque Détection proactive** figurant sur le panneau d’aperçu de votre application indique le nombre d’alertes récentes. Cliquez sur la mosaïque pour afficher la liste des alertes récentes.
 
 ![Afficher les détections récentes](./media/app-insights-proactive-diagnostics/04.png)
 
 Sélectionnez une alerte pour afficher les détails la concernant.
 
-
 ## Quels sont les problèmes détectés ?
-
 Il existe trois types de détection :
 
 * [Alertes d’échec en temps quasi-réel](app-insights-proactive-failure-diagnostics.md). Nous utilisons l’apprentissage automatique pour définir la fréquence attendue des demandes entraînant un échec pour votre application, en la mettant en corrélation avec la charge et d’autres facteurs. Si le taux d’échec est situé en dehors de la plage attendue, nous envoyons une alerte.
@@ -50,9 +43,7 @@ Il existe trois types de détection :
 
 (Les liens d’aide dans chaque notification vous renvoient vers les articles pertinents.)
 
-
 ## Étapes suivantes
-
 Ces outils de diagnostic vous aident à inspecter les données de télémétrie à partir de votre application :
 
 * [Metrics Explorer](app-insights-metrics-explorer.md)

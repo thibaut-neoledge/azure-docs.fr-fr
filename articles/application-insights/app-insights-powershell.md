@@ -1,40 +1,36 @@
-<properties 
-	pageTitle="Créer des ressources Application Insights à l’aide de PowerShell" 
-	description="Créer par programme des ressources Application Insights dans le cadre de la génération." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Créer des ressources Application Insights à l’aide de PowerShell
+description: Créer par programme des ressources Application Insights dans le cadre de la génération.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/02/2016" 
-	ms.author="awills"/>
- 
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 03/02/2016
+ms.author: awills
+
+---
 # Créer des ressources Application Insights à l’aide de PowerShell
-
 Cet article vous montre comment créer une ressource [Application Insights](app-insights-overview.md) dans Azure automatiquement. Cette opération peut par exemple avoir lieu dans le cadre du processus de génération. Avec la ressource Application Insights de base, vous pouvez créer des [tests web de disponibilité](app-insights-monitor-web-app-availability.md), [configurer des alertes](app-insights-alerts.md) et créer d’autres ressources Azure.
 
-Les éléments importants pour la création de ces ressources sont les modèles JSON pour [Azure Resource Manager](../powershell-azure-resource-manager.md). En bref, la procédure est la suivante : téléchargez les définitions JSON des ressources existantes, paramétrez certaines valeurs telles que les noms, puis exécutez le modèle chaque fois que vous souhaitez créer une nouvelle ressource. Vous pouvez regrouper plusieurs ressources pour les créer en une fois, par exemple une analyse d’application avec des tests de disponibilité, des alertes et le stockage pour l’exportation continue. Certains paramètres ont des particularités que nous aborderons ici.
+Les éléments importants pour la création de ces ressources sont les modèles JSON pour [Azure Resource Manager](../powershell-azure-resource-manager.md). En bref, la procédure est la suivante : téléchargez les définitions JSON des ressources existantes, paramétrez certaines valeurs telles que les noms, puis exécutez le modèle chaque fois que vous souhaitez créer une nouvelle ressource. Vous pouvez regrouper plusieurs ressources pour les créer en une fois, par exemple une analyse d’application avec des tests de disponibilité, des alertes et le stockage pour l’exportation continue. Certains paramètres ont des particularités que nous aborderons ici.
 
 ## Installation unique
+Si vous n’avez pas utilisé précédemment PowerShell avec votre abonnement Azure :
 
-Si vous n’avez pas utilisé précédemment PowerShell avec votre abonnement Azure :
-
-Installez le module Azure Powershell sur l’ordinateur sur lequel vous souhaitez exécuter les scripts :
+Installez le module Azure Powershell sur l’ordinateur sur lequel vous souhaitez exécuter les scripts :
 
 1. Installez le programme [Microsoft Web Platform Installer (v5 ou version ultérieure)](http://www.microsoft.com/web/downloads/platform.aspx).
 2. Utilisez-le pour installer Microsoft Azure PowerShell.
 
 ## Copier le JSON pour les ressources existantes
-
 1. Configurez [Application Insights](app-insights-overview.md) pour un projet semblable à ceux que vous voulez générer automatiquement. Si vous le souhaitez, ajoutez les tests web et les alertes.
-2. Créez un fichier .json appelé `template1.json` dans cet exemple. Copiez-y ce contenu :
-
+2. Créez un fichier .json appelé `template1.json` dans cet exemple. Copiez-y ce contenu :
 
     ```JSON
 
@@ -48,7 +44,7 @@ Installez le module Azure Powershell sur l’ordinateur sur lequel vous souhaite
             "text": { "type" : "string" }
           },
           "variables": {
-			"testName": "[concat(parameters('webTestName'), 
+            "testName": "[concat(parameters('webTestName'), 
                '-', toLower(parameters('appName')))]"
             "alertRuleName": "[concat(parameters('webTestName'), 
                '-', toLower(parameters('appName')), 
@@ -64,62 +60,57 @@ Installez le module Azure Powershell sur l’ordinateur sur lequel vous souhaite
             {
               //alert rule JSON file contents
             }
- 
+
             // Any other resources go here
           ]
         }
-    
+
     ```
 
     Ce modèle configurera un test de disponibilité en plus de la ressource principale.
 
 
-2. Ouvrez [Azure Resource Manager](https://resources.azure.com/). Accédez à votre ressource d’application qui se trouve après les abonnements, les groupes de ressources et les composants.
-
+1. Ouvrez [Azure Resource Manager](https://resources.azure.com/). Accédez à votre ressource d’application qui se trouve après les abonnements, les groupes de ressources et les composants.
+   
     ![](./media/app-insights-powershell/01.png)
-
+   
     Les *composants* sont les ressources Application Insights de base pour l’affichage des applications. Il existe des ressources distinctes pour les règles d’alertes et les tests web de disponibilité associés.
-
-3. Copiez le JSON du composant dans l’emplacement approprié dans `template1.json`.
-6. Supprimez les propriétés suivantes :
-  * `id`
-  * `InstrumentationKey`
-  * `CreationDate`
-4. Ouvrez les sections webtests et alertrules et copiez le JSON pour des éléments individuels dans votre modèle. (Ne copiez pas à partir des nœuds webtests ou alertrules : accédez aux éléments sous-jacents.)
-
+2. Copiez le JSON du composant dans l’emplacement approprié dans `template1.json`.
+3. Supprimez les propriétés suivantes :
+   * `id`
+   * `InstrumentationKey`
+   * `CreationDate`
+4. Ouvrez les sections webtests et alertrules et copiez le JSON pour des éléments individuels dans votre modèle. (Ne copiez pas à partir des nœuds webtests ou alertrules : accédez aux éléments sous-jacents.)
+   
     Chaque test web étant associé à une règle d’alerte, vous devez copier les deux.
-
+   
     Le test web doit être placé avant la règle d’alerte.
-
-5. Pour satisfaire le schéma, insérez cette ligne dans chaque ressource :
-
+5. Pour satisfaire le schéma, insérez cette ligne dans chaque ressource :
+   
     `"apiVersion": "2014-04-01",`
-
+   
     (Le schéma génère également une erreur en raison de la mise en majuscules des noms de type de ressource `Microsoft.Insights/*`, mais ne modifiez *pas* ces derniers.)
 
-
 ## Définir les paramètres du modèle
-
 Vous devez à présent remplacer les noms spécifiques par des paramètres. Pour [définir les paramètres d’un modèle](../resource-group-authoring-templates.md), écrivez des expressions utilisant un [ensemble de fonctions d’assistance](../resource-group-template-functions.md).
 
 Comme vous ne pouvez pas définir uniquement les paramètres d’une portion de chaîne, utilisez `concat()` pour générer les chaînes.
 
 Voici des exemples de substitutions que vous allez effectuer. Il existe plusieurs occurrences de chaque substitution. Il vous en faudra peut-être d’autres dans votre modèle. Ces exemples utilisent les paramètres et les variables que nous avons définis en haut du modèle.
 
-find | replace with
----|---
-`"hidden-link:/subscriptions/.../components/MyAppName"`| `"[concat('hidden-link:',`<br/>` resourceId('microsoft.insights/components',` <br/> ` parameters('appName')))]"`
-`"/subscriptions/.../alertrules/myAlertName-myAppName-subsId",` | `"[resourceId('Microsoft.Insights/alertrules', variables('alertRuleName'))]",`
-`"/subscriptions/.../webtests/myTestName-myAppName",` | `"[resourceId('Microsoft.Insights/webtests', parameters('webTestName'))]",`
-`"myWebTest-myAppName"` | `"[variables(testName)]"'`
-`"myTestName-myAppName-subsId"` | `"[variables('alertRuleName')]"`
-`"myAppName"` | `"[parameters('appName')]"`
-`"myappname"` (minuscules) | `"[toLower(parameters('appName'))]"`
-`"<WebTest Name="myWebTest" ...`<br/>` Url="http://fabrikam.com/home" ...>"`|`[concat('<WebTest Name="',` <br/> `parameters('webTestName'),` <br/> `'" ... Url="', parameters('Url'),` <br/> `'"...>')]" `
+| find | replace with |
+| --- | --- |
+| `"hidden-link:/subscriptions/.../components/MyAppName"` |`"[concat('hidden-link:',`<br/>` resourceId('microsoft.insights/components',` <br/> ` parameters('appName')))]"` |
+| `"/subscriptions/.../alertrules/myAlertName-myAppName-subsId",` |`"[resourceId('Microsoft.Insights/alertrules', variables('alertRuleName'))]",` |
+| `"/subscriptions/.../webtests/myTestName-myAppName",` |`"[resourceId('Microsoft.Insights/webtests', parameters('webTestName'))]",` |
+| `"myWebTest-myAppName"` |`"[variables(testName)]"'` |
+| `"myTestName-myAppName-subsId"` |`"[variables('alertRuleName')]"` |
+| `"myAppName"` |`"[parameters('appName')]"` |
+| `"myappname"` (minuscules) |`"[toLower(parameters('appName'))]"` |
+| `"<WebTest Name="myWebTest" ...`<br/>` Url="http://fabrikam.com/home" ...>"` |`[concat('<WebTest Name="',` <br/> `parameters('webTestName'),` <br/> `'" ... Url="', parameters('Url'),` <br/> `'"...>')]" ` |
 
 ## Si votre application est une application web Azure
-
-Ajoutez cette ressource, ou si vous disposez déjà d’une ressource `siteextensions`, paramétrez-la comme suit :
+Ajoutez cette ressource, ou si vous disposez déjà d’une ressource `siteextensions`, paramétrez-la comme suit :
 
 ```json
     {
@@ -139,27 +130,23 @@ Ajoutez cette ressource, ou si vous disposez déjà d’une ressource `siteexten
 Cette ressource déploie le kit de déploiement logiciel (SDK) Application Insights dans votre application web Azure.
 
 ## Définir les dépendances entre les ressources
+Azure doit configurer les ressources dans un ordre strict. Pour vous assurer de l’achèvement d’une installation avant que la suivante ne commence, ajoutez les lignes de dépendance :
 
-Azure doit configurer les ressources dans un ordre strict. Pour vous assurer de l’achèvement d’une installation avant que la suivante ne commence, ajoutez les lignes de dépendance :
-
-* Dans la ressource de test web :
-
+* Dans la ressource de test web :
+  
     `"dependsOn": ["[resourceId('Microsoft.Insights/components', parameters('appName'))]"],`
-
-* Dans la ressource d’alerte :
-
+* Dans la ressource d’alerte :
+  
     `"dependsOn": ["[resourceId('Microsoft.Insights/webtests', variables('testName'))]"],`
 
 ## Créer des ressources Application Insights
-
 1. Dans PowerShell, connectez-vous à Azure.
-
+   
     `Login-AzureRmAccount`
-
-2. Exécutez une commande comme suit :
-
+2. Exécutez une commande comme suit :
+   
     ```PS
-
+   
         New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
                -templateFile .\template1.json `
                -appName myNewApp `
@@ -167,26 +154,22 @@ Azure doit configurer les ressources dans un ordre strict. Pour vous assurer de 
                -Url http://myapp.com `
                -text "Welcome!"
                -siteName "MyAzureSite"
-
+   
     ``` 
-
-    * -ResourceGroupName est le groupe dans lequel vous souhaitez créer les nouvelles ressources.
-    * -templateFile doit se produire avant les paramètres personnalisés.
-    * -appName est le nom de la ressource à créer.
-    * -webTestName est le nom du test web à créer.
-    * -Url est l’URL de votre application web.
-    * -text est une chaîne qui apparaît dans votre page web.
-    * -siteName : utilisé s’il s'agit d’un site Web Azure
-
+   
+   * -ResourceGroupName est le groupe dans lequel vous souhaitez créer les nouvelles ressources.
+   * -templateFile doit se produire avant les paramètres personnalisés.
+   * -appName est le nom de la ressource à créer.
+   * -webTestName est le nom du test web à créer.
+   * -Url est l’URL de votre application web.
+   * -text est une chaîne qui apparaît dans votre page web.
+   * -siteName : utilisé s’il s'agit d’un site Web Azure
 
 ## Définir les alertes de mesures
-
 Il existe une [méthode PowerShell pour définir les alertes](app-insights-alerts.md#set-alerts-by-using-powershell).
 
-
 ## exemple
-
-Voici l’intégralité des composants, test web et modèle d’alerte de test web que j’ai créés :
+Voici l’intégralité des composants, test web et modèle d’alerte de test web que j’ai créés :
 
 ``` JSON
 
@@ -312,7 +295,6 @@ Voici l’intégralité des composants, test web et modèle d’alerte de test w
 ```
 
 ## Voir aussi
-
 Autres articles sur l’automation :
 
 * [Création d'une ressource Application Insights](app-insights-powershell-script-create-resource.md) - méthode rapide sans utiliser de modèle.

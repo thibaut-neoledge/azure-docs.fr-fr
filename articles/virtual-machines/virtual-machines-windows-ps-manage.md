@@ -1,42 +1,38 @@
-<properties
-	pageTitle="Gérer des machines virtuelles à l’aide du Gestionnaire de ressources et PowerShell | Microsoft Azure"
-	description="Gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell"
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+---
+title: Gérer des machines virtuelles à l’aide du Gestionnaire de ressources et PowerShell | Microsoft Docs
+description: Gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell
+services: virtual-machines-windows
+documentationcenter: ''
+author: davidmu1
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-windows"
-	ms.workload="na"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/07/2016"
-	ms.author="davidmu"/>
+ms.service: virtual-machines-windows
+ms.workload: na
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 06/07/2016
+ms.author: davidmu
 
-# Gestion des machines virtuelles Azure à l’aide de modèles Resource Manager et de PowerShell
-
+---
+# Gestion des machines virtuelles Azure à l’aide de modèles Resource Manager et de PowerShell
 ## Installation d'Azure PowerShell
- 
 Pour plus d’informations sur l’installation de la dernière version d’Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Sélectionnez l’abonnement à utiliser et connectez-vous à votre compte Azure.
 
 ## Définition des variables
-
 Toutes les commandes de l'article nécessitent le nom du groupe de ressources dans lequel se trouve la machine virtuelle et le nom de la machine virtuelle à gérer. Remplacez la valeur de **$rgName** avec le nom du groupe de ressources qui contient la machine virtuelle. Remplacez la valeur de **$vmName** avec le nom de la machine virtuelle. Créez les variables.
 
     $rgName = "resource-group-name"
     $vmName = "VM-name"
 
 ## Affichage des informations relatives à une machine virtuelle
-
 Obtenez les informations relatives à la machine virtuelle.
-  
+
     Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
-Le résultat suivant doit s’afficher :
+Le résultat suivant doit s’afficher :
 
     ResourceGroupName        : rg1
     Id                       : /subscriptions/{subscription-id}/resourceGroups/
@@ -105,19 +101,17 @@ Le résultat suivant doit s’afficher :
                                 rg1/providers/Microsoft.Network/networkInterfaces/nc1}
 
 ## Démarrage d'une machine virtuelle
-
 Démarrez la machine virtuelle.
 
     Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
-Le résultat suivant doit s’afficher après quelques minutes :
+Le résultat suivant doit s’afficher après quelques minutes :
 
     RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
     ---------  -------------------  ----------  ------------
                               True          OK  OK
 
 ## Arrêt d’une machine virtuelle
-
 Arrêtez la machine virtuelle.
 
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
@@ -127,66 +121,65 @@ Vous êtes invité à confirmer l’opération :
     Virtual machine stopping operation
     This cmdlet will stop the specified virtual machine. Do you want to continue?
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
-        
+
 Saisissez **Y** pour arrêter la machine virtuelle.
 
-Le résultat suivant doit s’afficher après quelques minutes :
+Le résultat suivant doit s’afficher après quelques minutes :
 
     RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
     ---------  -------------------  ----------  ------------
                               True          OK  OK
 
 ## Redémarrage d’une machine virtuelle
-
 Redémarrez la machine virtuelle.
 
     Restart-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
-Le résultat suivant doit s’afficher :
+Le résultat suivant doit s’afficher :
 
     RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
     ---------  -------------------  ----------  ------------
                               True          OK  OK
 
 ## Suppression d'une machine virtuelle
-
 Supprimez la machine virtuelle.
 
     Remove-AzureRmVM -ResourceGroupName $rgName –Name $vmName
 
-> [AZURE.NOTE] Utilisez le paramètre **-Force** pour ignorer l’invite de confirmation.
+> [!NOTE]
+> Utilisez le paramètre **-Force** pour ignorer l’invite de confirmation.
+> 
+> 
 
-Vous êtes invité à confirmer si vous n’avez pas utilisé pas le paramètre -Force :
+Vous êtes invité à confirmer si vous n’avez pas utilisé pas le paramètre -Force :
 
     Virtual machine removal operation
     This cmdlet will remove the specified virtual machine. Do you want to continue?
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 
-Le résultat suivant doit s’afficher :
+Le résultat suivant doit s’afficher :
 
     RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
     ---------  -------------------  ----------  ------------
                               True          OK  OK
 
 ## Redimensionner une machine virtuelle
-
 Cet exemple montre comment mettre à jour la taille de la machine virtuelle.
-        
+
     $vmSize = "Standard_A1"
     $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     $vm.HardwareProfile.vmSize = $vmSize
     Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
-    
-Le résultat suivant doit s’afficher :
+
+Le résultat suivant doit s’afficher :
 
     RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
     ---------  -------------------  ----------  ------------
                               True          OK  OK
-                              
+
 Consultez la rubrique [Tailles des machines virtuelles dans Azure](virtual-machines-windows-sizes.md) pour obtenir la liste des tailles disponibles pour une machine virtuelle.
 
 ## Ajout d’un disque de données à une machine virtuelle
-
 Cet exemple montre comment ajouter un disque de données à une machine virtuelle existante.
 
     $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
@@ -219,7 +212,6 @@ Le fichier de script peut contenir les éléments suivants pour initialiser les 
     }
 
 ## Étapes suivantes
-
 Si vous rencontrez des problèmes avec un déploiement, vous pouvez consulter [Résolution des problèmes liés aux déploiements de groupes de ressources avec le portail Azure](../resource-manager-troubleshoot-deployments-portal.md)
 
 <!---HONumber=AcomDC_0907_2016-->

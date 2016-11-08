@@ -1,14 +1,14 @@
 Azure détermine que votre application utilise Python **si les deux conditions suivantes sont remplies**:
 
-- Fichier requirements.txt présent dans le dossier racine
-- N’importe quel fichier .py présent dans le dossier racine ou un fichier runtime.txt spécifiant python
+* Fichier requirements.txt présent dans le dossier racine
+* N’importe quel fichier .py présent dans le dossier racine ou un fichier runtime.txt spécifiant python
 
 Lorsque ces deux conditions sont réunies, un script de déploiement spécifique Python est utilisé, effectuant la synchronisation des fichiers ainsi que des opérations supplémentaires Python tels que :
 
-- Gestion automatique de l’environnement virtuel
-- Installation des packages répertoriés dans requirements.txt à l’aide de pip
-- Création du fichier web.config approprié selon la version de Python sélectionnée
-- Collecte des fichiers statiques pour les applications Django
+* Gestion automatique de l’environnement virtuel
+* Installation des packages répertoriés dans requirements.txt à l’aide de pip
+* Création du fichier web.config approprié selon la version de Python sélectionnée
+* Collecte des fichiers statiques pour les applications Django
 
 Vous pouvez contrôler certains aspects de la procédure de déploiement par défaut sans avoir à personnaliser le script.
 
@@ -21,7 +21,7 @@ Pour mieux contrôler le déploiement, vous pouvez remplacer le script de déplo
     \.deployment
     \deploy.cmd
 
-Vous pouvez utiliser l’[interface de ligne de commande Azure][] pour créer les fichiers. Utilisez cette commande à partir de votre dossier de projet :
+Vous pouvez utiliser l’[interface de ligne de commande Azure][interface de ligne de commande Azure] pour créer les fichiers. Utilisez cette commande à partir de votre dossier de projet :
 
     azure site deploymentscript --python
 

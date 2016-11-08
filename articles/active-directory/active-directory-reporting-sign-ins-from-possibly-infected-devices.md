@@ -1,22 +1,21 @@
-<properties
-	pageTitle="Connexions à partir de périphériques potentiellement infectés"
-	description="Un rapport incluant des tentatives de connexion effectuées à partir d’appareils sur lesquels des logiciels malveillants peuvent être exécutés."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="gchander"
-	editor=""/>
+---
+title: Connexions à partir de périphériques potentiellement infectés
+description: Un rapport incluant des tentatives de connexion effectuées à partir d’appareils sur lesquels des logiciels malveillants peuvent être exécutés.
+services: active-directory
+documentationcenter: ''
+author: SSalahAhmed
+manager: gchander
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/04/2016
+ms.author: saah;kenhoff
 
-
+---
 # Connexions à partir de périphériques potentiellement infectés
 Ce rapport tente d’identifier les appareils des utilisateurs qui ont été infectés et font à présent partie d’un botnet. Nous mettons en corrélation les adresses IP des connexions utilisateur et les adresses IP déterminées comme étant en contact avec des serveurs botnet.
 

@@ -1,12 +1,12 @@
 
-* Dans **QSAppDelegate.m**, importez le Kit de développement logiciel (SDK) iOS ainsi que **QSTodoService.h** :
+* Dans **QSAppDelegate.m**, importez le Kit de développement logiciel (SDK) iOS ainsi que **QSTodoService.h** :
 
 ```
         #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
         #import "QSTodoService.h"
 ```
 
-* Dans `didFinishLaunchingWithOptions` de **QSAppDelegate.m**, insérez les lignes suivantes juste avant `return YES;` :
+* Dans `didFinishLaunchingWithOptions` de **QSAppDelegate.m**, insérez les lignes suivantes juste avant `return YES;` :
 
 ```
         UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];

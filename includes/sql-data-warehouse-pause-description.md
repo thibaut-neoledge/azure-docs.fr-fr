@@ -14,9 +14,9 @@ Pour réduire les coûts, vous pouvez interrompre et reprendre des ressources de
 
 Lorsque vous suspendez une base de données :
 
-- Les ressources de calcul et de mémoire sont renvoyées dans le pool des ressources disponibles du centre de données.
-- Les coûts DWU sont nuls pour la durée de la pause.
-- Le stockage de données n’est pas affecté et vos données restent intactes. 
-- SQL Data Warehouse annule toutes les opérations en cours d’exécution ou en file d’attente.
+* Les ressources de calcul et de mémoire sont renvoyées dans le pool des ressources disponibles du centre de données.
+* Les coûts DWU sont nuls pour la durée de la pause.
+* Le stockage de données n’est pas affecté et vos données restent intactes. 
+* SQL Data Warehouse annule toutes les opérations en cours d’exécution ou en file d’attente.
 
 <!---HONumber=AcomDC_0427_2016-->

@@ -1,30 +1,34 @@
-<properties
-   pageTitle="Guide de résolution des problèmes d’ExpressRoute - Obtention de tables ARP | Microsoft Azure"
-   description="Cette page fournit des instructions sur l’obtention des tables ARP pour un circuit ExpressRoute."
-   documentationCenter="na"
-   services="expressroute"
-   authors="ganesr"
-   manager="carolz"
-   editor="tysonn"/>
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="ganesr"/>
+---
+title: Guide de résolution des problèmes d’ExpressRoute - Obtention de tables ARP | Microsoft Docs
+description: Cette page fournit des instructions sur l’obtention des tables ARP pour un circuit ExpressRoute.
+documentationcenter: na
+services: expressroute
+author: ganesr
+manager: carolz
+editor: tysonn
 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: ganesr
 
+---
 # <a name="expressroute-troubleshooting-guide:-getting-arp-tables-in-the-classic-deployment-model"></a>Guide de résolution des problèmes d’ExpressRoute - Obtention de tables ARP dans le modèle de déploiement Classic
-
-> [AZURE.SELECTOR]
-[PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
-[PowerShell - Classique](expressroute-troubleshooting-arp-classic.md)
+> [!div class="op_single_selector"]
+> [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
+> [PowerShell - Classique](expressroute-troubleshooting-arp-classic.md)
+> 
+> 
 
 Cet article vous guide dans la procédure d’obtention des tables ARP (Address Resolution Protocol) pour votre circuit Azure ExpressRoute.
 
->[AZURE.IMPORTANT] Ce document a pour objet de vous aider à diagnostiquer et résoudre les problèmes simples. Il n’a pas pour objet de remplacer le support de Microsoft. Si vous ne pouvez pas résoudre le problème en suivant les conseils suivants, ouvrez une demande de support auprès de [Microsoft Azure - Aide + support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> [!IMPORTANT]
+> Ce document a pour objet de vous aider à diagnostiquer et résoudre les problèmes simples. Il n’a pas pour objet de remplacer le support de Microsoft. Si vous ne pouvez pas résoudre le problème en suivant les conseils suivants, ouvrez une demande de support auprès de [Microsoft Azure - Aide + support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> 
+> 
 
 ## <a name="address-resolution-protocol-(arp)-and-arp-tables"></a>Protocole ARP (Address Resolution Protocol) et tables ARP
 ARP est un protocole de couche 2 défini dans [RFC 826](https://tools.ietf.org/html/rfc826). Le protocole ARP permet de mapper une adresse Ethernet (adresse MAC) avec une adresse IP.
@@ -48,16 +52,12 @@ Vous trouverez ci-dessous un exemple de table ARP :
 La section suivante fournit des informations sur l’affichage des tables ARP vues par les routeurs périphériques ExpressRoute.
 
 ## <a name="prerequisites-for-using-arp-tables"></a>Conditions préalables à l’utilisation des tables ARP
-
 Assurez-vous que vous disposez des éléments suivants avant de poursuivre :
 
- - Un circuit ExpressRoute valide configuré avec au moins une homologation. Le circuit doit être entièrement configuré par le fournisseur de connectivité. Vous (ou votre fournisseur de connectivité) devez configurer au moins une des homologations (Azure privé, Azure public ou Microsoft) sur ce circuit.
-
- - Plages d’adresses IP utilisées pour configurer les homologations (Azure privé, Azure public et Microsoft). Passez en revue les exemples d’affectation d’adresses IP sur la [page de configuration requise pour le routage ExpressRoute](expressroute-routing.md) pour comprendre de quelle manière les adresses IP sont mappées aux interfaces de votre côté et du côté d’ExpressRoute. Vous pouvez obtenir plus d’informations sur la configuration d’homologation en examinant la [page de configuration d’homologation ExpressRoute](expressroute-howto-routing-classic.md).
-
- - Informations de votre équipe réseau ou de votre fournisseur de connectivité sur les adresses MAC des interfaces utilisées avec ces adresses IP.
-
- - Le dernier module Windows PowerShell pour Azure (version 1.50 ou plus récente).
+* Un circuit ExpressRoute valide configuré avec au moins une homologation. Le circuit doit être entièrement configuré par le fournisseur de connectivité. Vous (ou votre fournisseur de connectivité) devez configurer au moins une des homologations (Azure privé, Azure public ou Microsoft) sur ce circuit.
+* Plages d’adresses IP utilisées pour configurer les homologations (Azure privé, Azure public et Microsoft). Passez en revue les exemples d’affectation d’adresses IP sur la [page de configuration requise pour le routage ExpressRoute](expressroute-routing.md) pour comprendre de quelle manière les adresses IP sont mappées aux interfaces de votre côté et du côté d’ExpressRoute. Vous pouvez obtenir plus d’informations sur la configuration d’homologation en examinant la [page de configuration d’homologation ExpressRoute](expressroute-howto-routing-classic.md).
+* Informations de votre équipe réseau ou de votre fournisseur de connectivité sur les adresses MAC des interfaces utilisées avec ces adresses IP.
+* Le dernier module Windows PowerShell pour Azure (version 1.50 ou plus récente).
 
 ## <a name="arp-tables-for-your-expressroute-circuit"></a>Tables ARP pour votre circuit ExpressRoute
 Cette section fournit des instructions sur l’affichage des tables ARP pour chaque type d’homologation à l’aide de PowerShell. Avant de continuer, vous ou votre fournisseur de connectivité devez configurer l’homologation. Chaque circuit a deux chemins d’accès (principal et secondaire). Vous pouvez contrôler indépendamment la table ARP de chaque chemin d’accès.
@@ -132,12 +132,10 @@ Un exemple de sortie est affiché ci-dessous pour l’un des chemins d’accès 
 La table ARP d’une homologation peut servir à valider la connectivité et la configuration de la couche 2. Cette section fournit une vue d’ensemble de l’aspect des tables ARP dans différents scénarios.
 
 ### <a name="arp-table-when-a-circuit-is-in-an-operational-(expected)-state"></a>Table ARP lorsqu’un circuit est à l’état opérationnel (attendu)
-
- - La table ARP dispose d’une entrée pour le côté local avec une adresse IP valide et une adresse MAC, ainsi que d’une entrée similaire pour le côté Microsoft.
- - Le dernier octet de l’adresse IP locale est toujours un nombre impair.
- - Le dernier octet de l’adresse IP Microsoft est toujours un nombre pair.
- - La même adresse MAC s’affiche côté Microsoft pour les trois homologations (principales/secondaires).
-
+* La table ARP dispose d’une entrée pour le côté local avec une adresse IP valide et une adresse MAC, ainsi que d’une entrée similaire pour le côté Microsoft.
+* Le dernier octet de l’adresse IP locale est toujours un nombre impair.
+* Le dernier octet de l’adresse IP Microsoft est toujours un nombre pair.
+* La même adresse MAC s’affiche côté Microsoft pour les trois homologations (principales/secondaires).
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
@@ -145,30 +143,27 @@ La table ARP d’une homologation peut servir à valider la connectivité et la 
           0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
 
 ### <a name="arp-table-when-it's-on-premises-or-when-the-connectivity-provider-side-has-problems"></a>Table ARP en cas de problèmes en local ou côté fournisseur de connectivité
-
  Une seule entrée apparaît dans la table ARP. Elle affiche le mappage entre l’adresse MAC et l’adresse IP utilisée côté Microsoft.
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
           0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
 
->[AZURE.NOTE] Si vous rencontrez un problème de ce type, ouvrez une demande de support auprès de votre fournisseur de connectivité pour le résoudre.
-
+> [!NOTE]
+> Si vous rencontrez un problème de ce type, ouvrez une demande de support auprès de votre fournisseur de connectivité pour le résoudre.
+> 
+> 
 
 ### <a name="arp-table-when-the-microsoft-side-has-problems"></a>Table ARP en cas de problèmes côté Microsoft
-
- - Aucune table ARP ne s’affiche pour une homologation en cas de problèmes côté Microsoft.
- -  Ouvrez une demande de support auprès de [Microsoft Azure - Aide + support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Précisez que vous avez un problème au niveau de la connectivité de couche 2.
+* Aucune table ARP ne s’affiche pour une homologation en cas de problèmes côté Microsoft.
+* Ouvrez une demande de support auprès de [Microsoft Azure - Aide + support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Précisez que vous avez un problème au niveau de la connectivité de couche 2.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
- - Valider les configurations de couche 3 pour votre circuit ExpressRoute :
-     - Obtenir un récapitulatif d’itinéraires pour déterminer l’état des sessions BGP.
-     - Obtenir une table d’itinéraires pour déterminer quels préfixes sont publiés sur ExpressRoute.
- - Valider le transfert des données en examinant les octets en entrée et en sortie.
- - Ouvrir une demande de support auprès de [Microsoft Azure - Aide + support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) si vous rencontrez encore des problèmes.
-
-
+* Valider les configurations de couche 3 pour votre circuit ExpressRoute :
+  * Obtenir un récapitulatif d’itinéraires pour déterminer l’état des sessions BGP.
+  * Obtenir une table d’itinéraires pour déterminer quels préfixes sont publiés sur ExpressRoute.
+* Valider le transfert des données en examinant les octets en entrée et en sortie.
+* Ouvrir une demande de support auprès de [Microsoft Azure - Aide + support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) si vous rencontrez encore des problèmes.
 
 <!--HONumber=Oct16_HO2-->
 

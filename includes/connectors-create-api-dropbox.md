@@ -1,5 +1,5 @@
 ### Configuration requise
-- Un compte [Dropbox](https://www.Dropbox.com/) 
+* Un compte [Dropbox](https://www.Dropbox.com/) 
 
 Pour utiliser votre compte Dropbox dans une application logique, vous devez autoriser l’application à se connecter à votre compte. Heureusement, cette opération est très simple à effectuer dans votre application logique sur le portail Azure.
 
@@ -10,3 +10,4 @@ Pour autoriser votre application logique à se connecter à votre compte Dropbox
 3. Indiquez votre nom d’utilisateur et votre mot de passe Dropbox pour autoriser votre application logique : ![Dropbox étape 3](./media/connectors-create-api-dropbox/dropbox-3.png)   
 4. Autorisez l’application logique à utiliser votre compte Dropbox : ![Dropbox étape 4](./media/connectors-create-api-dropbox/dropbox-4.png)
 5. Notez que la connexion a été créée et que vous pouvez maintenant poursuivre la procédure dans votre application logique : ![Dropbox étape 5](./media/connectors-create-api-dropbox/dropbox-5.png)   
+

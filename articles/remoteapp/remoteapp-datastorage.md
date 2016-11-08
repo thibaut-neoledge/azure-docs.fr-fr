@@ -1,26 +1,26 @@
 
-<properties
-    pageTitle="Ne stockez jamais de données sensibles sur des images personnalisées pour Azure RemoteApp | Microsoft Azure"
-    description="En savoir plus sur les recommandations de stockage des données dans des images personnalisées dans Azure RemoteApp"
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+---
+title: Ne stockez jamais de données sensibles sur des images personnalisées pour Azure RemoteApp | Microsoft Docs
+description: En savoir plus sur les recommandations de stockage des données dans des images personnalisées dans Azure RemoteApp
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/15/2016"
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
+---
 # Ne stockez jamais de données sensibles sur des images personnalisées
-
-> [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+> [!IMPORTANT]
+> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 Lorsque vous hébergez votre propre application dans Azure RemoteApp, la première étape consiste à créer une image personnalisée. Nous utilisons cette image personnalisée pour créer des instances de machines virtuelles qui servent vos applications à vos utilisateurs. L'image personnalisée doit contenir UNIQUEMENT des applications et jamais des données sensibles qui peuvent être perdues, notamment des bases de données SQL, des fichiers du personnel ou des fichiers de données spéciaux tels que les fichiers d'entreprise QuickBooks. Toutes les données sensibles doivent être externes à Azure RemoteApp, sur un serveur de fichiers, une autre machine virtuelle Azure ou SQL Azure. L'image doit simplement héberger l'application qui se connecte à la source de données et présente les données. Consultez [Configuration requise pour les images Azure RemoteApp](remoteapp-imagereqs.md) pour plus d’informations.
 
@@ -30,19 +30,19 @@ Une fois que la collection est approvisionnée et que les utilisateurs commencen
 
 Exemples de données qui ne doivent pas se trouver dans l'image :
 
-- Données partagées accessibles aux utilisateurs
-- Base de données SQL ou QuickBooks
-- Toutes les données de D:\\
+* Données partagées accessibles aux utilisateurs
+* Base de données SQL ou QuickBooks
+* Toutes les données de D:\\
 
 Exemples de données qui peuvent résider dans le profil par défaut à copier dans chaque UPD d’utilisateur :
 
-- Fichiers de configuration par utilisateur
-- Scripts que les utilisateurs ont besoin de conserver dans leur UPD
+* Fichiers de configuration par utilisateur
+* Scripts que les utilisateurs ont besoin de conserver dans leur UPD
 
 Points clés :
 
-- Ne stockez jamais de données sensibles qui peuvent être perdues sur l'image lors de la création d'une image personnalisée.
-- Les données sensibles doivent toujours résider sur un serveur de fichiers distinct, sur une machine virtuelle Azure séparée, sur le cloud. Elles doivent toujours être externes aux instances de machines virtuelles qui hébergent vos applications au sein d’Azure RemoteApp.
-- Les données utilisateur sont enregistrées et conservées dans le disque de profil utilisateur (UPD)
+* Ne stockez jamais de données sensibles qui peuvent être perdues sur l'image lors de la création d'une image personnalisée.
+* Les données sensibles doivent toujours résider sur un serveur de fichiers distinct, sur une machine virtuelle Azure séparée, sur le cloud. Elles doivent toujours être externes aux instances de machines virtuelles qui hébergent vos applications au sein d’Azure RemoteApp.
+* Les données utilisateur sont enregistrées et conservées dans le disque de profil utilisateur (UPD)
 
 <!---HONumber=AcomDC_0817_2016-->

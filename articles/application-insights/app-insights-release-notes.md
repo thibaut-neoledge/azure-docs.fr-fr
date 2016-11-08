@@ -1,23 +1,21 @@
-<properties 
-	pageTitle="Notes de publication pour Application Insights" 
-	description="Les dernières mises à jour." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Notes de publication pour Application Insights
+description: Les dernières mises à jour.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/28/2016" 
-	ms.author="awills"/>
- 
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 01/28/2016
+ms.author: awills
+
+---
 # Notes de publication du Kit de développement logiciel (SDK) : Application Insights
-
-
 Voici les notes de publication détaillées et les instructions de mise à jour de nos Kits de développement logiciel (SDK) :
 
 * [Kit de développement logiciel (SDK) de serveur web ASP.NET](https://github.com/Microsoft/ApplicationInsights-server-dotnet/releases)

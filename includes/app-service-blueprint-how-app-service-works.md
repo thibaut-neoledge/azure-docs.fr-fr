@@ -1,4 +1,4 @@
-* [Qu'est-ce qu'Azure App Service ?](../articles/app-service/app-service-value-prop-what-is.md)
+* [Qu'est-ce qu'Azure App Service ?](../articles/app-service/app-service-value-prop-what-is.md)
   * [Application web](../articles/app-service-web/app-service-web-overview.md)
   * [Application mobile](../articles/app-service-mobile/app-service-mobile-value-prop.md)
   * [Application API](../articles/app-service-api/app-service-api-apps-why-best-platform.md)
@@ -7,11 +7,10 @@
 * [Comparaison entre Azure App Service, Azure Cloud Services et Azure Virtual Machines ](../articles/app-service-web/choose-web-site-cloud-service-vm.md)
 * [Présentation des plans App Service](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 * [Présentation de l'environnement App Service](../articles/app-service-web/app-service-app-service-environment-intro.md)
-  * [Exercice : création d’un environnement App Service](../articles/app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
+  * [Exercice : création d’un environnement App Service](../articles/app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
 * [Prise en charge des piles de développement Azure App Service](/blog/windows-azure-websites-development-stacks-support/)
 
 ## Vidéos
-
 * [Architecture Azure App Service](/documentation/videos/why-azure-web-sites-plus-architecture/)
 
 <!---HONumber=AcomDC_0224_2016-->

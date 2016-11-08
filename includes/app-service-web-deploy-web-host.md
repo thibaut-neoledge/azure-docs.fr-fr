@@ -1,5 +1,4 @@
-### Plan App Service
-
+### Plan App Service
 Crée le plan de service pour l'hébergement de l'application web. Vous fournissez le nom du plan à l'aide du paramètre **hostingPlanName**. L’emplacement du plan est identique à celui utilisé pour le groupe de ressources. Le niveau de tarification et la taille du travail sont spécifiés dans les paramètres **sku** et **workerSize**.
 
     {

@@ -3,35 +3,32 @@ Cette section montre comment envoyer des notifications à partir de l’applicat
 
 Le code suivant envoie des notifications aux appareils Windows Store, Windows Phone, iOS et Android.
 
-Ignorez les étapes 1 à 3 si vous avez créé une application de console lorsque vous avez effectué la [prise en main des Notification Hubs][get-started].
+Ignorez les étapes 1 à 3 si vous avez créé une application de console lorsque vous avez effectué la [prise en main des Notification Hubs][get-started].
 
-1. Dans Visual Studio, créez une application console Visual C# : 
-
-   	![][13]
-
-2. Dans le menu principal de Visual Studio, cliquez sur **Outils**, **Gestionnaire de package de bibliothèques** et **Console du gestionnaire de package**, puis dans la fenêtre de la console, tapez la ligne suivante et appuyez sur **Entrée** :
-
+1. Dans Visual Studio, créez une application console Visual C# : 
+   
+       ![][13]
+2. Dans le menu principal de Visual Studio, cliquez sur **Outils**, **Gestionnaire de package de bibliothèques** et **Console du gestionnaire de package**, puis dans la fenêtre de la console, tapez la ligne suivante et appuyez sur **Entrée** :
+   
         Install-Package Microsoft.Azure.NotificationHubs
- 	
-	Cette opération ajoute une référence au Kit de développement logiciel (SDK) Azure Notification Hubs à l’aide du <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">package NuGet Microsoft.Azure.Notification Hubs</a>.
-
-3. Ouvrez le fichier Program.cs et ajoutez l’instruction `using` suivante :
-
+   
+    Cette opération ajoute une référence au Kit de développement logiciel (SDK) Azure Notification Hubs à l’aide du <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">package NuGet Microsoft.Azure.Notification Hubs</a>.
+3. Ouvrez le fichier Program.cs et ajoutez l’instruction `using` suivante :
+   
         using Microsoft.Azure.NotificationHubs;
-
-4. Dans la classe `Program`, ajoutez la méthode suivante ou remplacez-la si elle existe déjà :
-
+4. Dans la classe `Program`, ajoutez la méthode suivante ou remplacez-la si elle existe déjà :
+   
         private static async void SendNotificationAsync()
         {
-			// Define the notification hub.
-		    NotificationHubClient hub = 
-				NotificationHubClient.CreateClientFromConnectionString(
-					"<connection string with full access>", "<hub name>");
-		
-		    // Create an array of breaking news categories.
-		    var categories = new string[] { "World", "Politics", "Business", 
-		        "Technology", "Science", "Sports"};
-		
+            // Define the notification hub.
+            NotificationHubClient hub = 
+                NotificationHubClient.CreateClientFromConnectionString(
+                    "<connection string with full access>", "<hub name>");
+   
+            // Create an array of breaking news categories.
+            var categories = new string[] { "World", "Politics", "Business", 
+                "Technology", "Science", "Sports"};
+   
             foreach (var category in categories)
             {
                 try
@@ -41,7 +38,7 @@ Ignorez les étapes 1 à 3 si vous avez créé une application de console lors
                         + "<text id="1">Breaking " + category + " News!" 
                         + "</text></binding></visual></toast>";         
                     await hub.SendWindowsNativeNotificationAsync(wnsToast, category);
-
+   
                     // Define a Windows Phone toast.
                     var mpnsToast =
                         "<?xml version="1.0" encoding="utf-8"?>" +
@@ -51,12 +48,12 @@ Ignorez les étapes 1 à 3 si vous avez créé une application de console lors
                             "</wp:Toast> " +
                         "</wp:Notification>";         
                     await hub.SendMpnsNativeNotificationAsync(mpnsToast, category);
-
+   
                     // Define an iOS alert.
                     var alert = "{"aps":{"alert":"Breaking " + category + " News!"}}";
                     await hub.SendAppleNativeNotificationAsync(alert, category);
-
-					// Define an Android notification.
+   
+                    // Define an Android notification.
                     var notification = "{"data":{"msg":"Breaking " + category + " News!"}}";
                     await hub.SendGcmNativeNotificationAsync(notification, category);
                 }
@@ -66,18 +63,19 @@ Ignorez les étapes 1 à 3 si vous avez créé une application de console lors
                     // registered for the iOS, Windows Store, or Windows Phone platform. 
                 }
             }
-		 }
-
-	Ce code envoie des notifications à chacune des six balises du tableau de chaînes aux appareils iOS, Windows Store et Windows Phone. L’utilisation des balises permet d’envoyer les notifications uniquement aux appareils des catégories inscrites.
-	
-	> [AZURE.NOTE]Ce code principal prend en charge les clients Windows Store, Windows Phone, iOS et Android. Les méthodes d’envoi retournent une réponse d’erreur lorsque le hub de notification n’a pas encore été configuré pour une plateforme cliente particulière.
-
-6. Dans le code ci-dessus, remplacez les espaces réservés `<hub name>` et `<connection string with full access>` par le nom de votre hub de notification et par la chaîne de connexion de la signature *DefaultFullSharedAccessSignature* obtenue précédemment.
-
-7. Ajoutez les lignes suivantes à la méthode **Main** :
-
+         }
+   
+    Ce code envoie des notifications à chacune des six balises du tableau de chaînes aux appareils iOS, Windows Store et Windows Phone. L’utilisation des balises permet d’envoyer les notifications uniquement aux appareils des catégories inscrites.
+   
+   > [!NOTE]
+   > Ce code principal prend en charge les clients Windows Store, Windows Phone, iOS et Android. Les méthodes d’envoi retournent une réponse d’erreur lorsque le hub de notification n’a pas encore été configuré pour une plateforme cliente particulière.
+   > 
+   > 
+5. Dans le code ci-dessus, remplacez les espaces réservés `<hub name>` et `<connection string with full access>` par le nom de votre hub de notification et par la chaîne de connexion de la signature *DefaultFullSharedAccessSignature* obtenue précédemment.
+6. Ajoutez les lignes suivantes à la méthode **Main** :
+   
          SendNotificationAsync();
-		 Console.ReadLine();
+         Console.ReadLine();
 
 <!-- Anchors -->
 [From a console app]: #console

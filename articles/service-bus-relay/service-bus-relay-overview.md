@@ -1,25 +1,22 @@
-<properties
-    pageTitle="Présentation de Service Bus Relay | Microsoft Azure"
-    description="Présentation de Service Bus Relay."
-    services="service-bus"
-    documentationCenter=".net"
-    authors="sethmanheim"
-    manager="timlt"
-    editor=""/>
+---
+title: Présentation de Service Bus Relay | Microsoft Docs
+description: Présentation de Service Bus Relay.
+services: service-bus
+documentationcenter: .net
+author: sethmanheim
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="service-bus"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="multiple"
-    ms.topic="get-started-article"
-    ms.date="09/01/2016"
-    ms.author="sethm"/>
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: get-started-article
+ms.date: 09/01/2016
+ms.author: sethm
 
-
-
+---
 # <a name="overview-of-service-bus-relay"></a>Présentation de Service Bus Relay
-
 Composant majeur de Service Bus, un service *relay* centralisé (mais dont la charge est hautement équilibrée) vous permet de créer des applications hybrides qui s’exécutent à la fois dans un centre de données Azure et dans votre propre environnement d’entreprise local.  Service Bus Relay prend en charge une grande variété de protocoles de transport et normes de services web. Cela inclut SOAP, WS-* et même REST. Le service relay facilite vos applications hybrides en offrant la possibilité d’exposer les services WCF (Windows Communication Foundation) qui résident dans un réseau d’entreprise sur le cloud public en toute sécurité, sans avoir à ouvrir une connexion de pare-feu ni à exiger des modifications intrusives dans une infrastructure de réseau d’entreprise. 
 
 ![Concepts de relais](./media/service-bus-relay-overview/sb-relay-01.png)
@@ -31,14 +28,10 @@ Dans le modèle de messagerie par relais, un service local se connecte au servic
 Vous lancez la connexion entre votre service local et le service de relais à l'aide d'une suite de liaisons de « relais » WCF. En coulisses, les liaisons de relais se mappent à de nouveaux éléments de liaison de transport destinés à créer des composants de canal WCF qui s'intègrent à Service Bus dans le cloud. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-
 Pour plus de détails sur Service Bus Relay, consultez les rubriques suivantes.
 
-- [Présentation de l’architecture d’Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
-- [Utilisation du service Service Bus Relay](service-bus-dotnet-how-to-use-relay.md)
-
- 
-
+* [Présentation de l’architecture d’Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
+* [Utilisation du service Service Bus Relay](service-bus-dotnet-how-to-use-relay.md)
 
 <!--HONumber=Oct16_HO2-->
 

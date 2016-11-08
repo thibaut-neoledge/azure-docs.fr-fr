@@ -1,36 +1,39 @@
-<properties
-	pageTitle="Comment déployer une instance de service Gestion des API Azure dans plusieurs régions Azure"
-	description="Découvrez comment déployer une instance de service Gestion des API Azure dans plusieurs régions Azure." 
-	services="api-management"
-	documentationCenter=""
-	authors="steved0x"
-	manager="erikre"
-	editor=""/>
+---
+title: Comment déployer une instance de service Gestion des API Azure dans plusieurs régions Azure
+description: Découvrez comment déployer une instance de service Gestion des API Azure dans plusieurs régions Azure.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/09/2016"
-	ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/09/2016
+ms.author: sdanie
 
+---
 # Comment déployer une instance de service Gestion des API Azure dans plusieurs régions Azure
-
 Gestion des API prend en charge le déploiement sur plusieurs régions, ce qui permet aux éditeurs d’API de ne distribuer qu’un seul service Gestion des API sur le nombre de régions Azure. Ceci permet de réduire la latence de la demande telle qu’elle est perçue par les utilisateurs distribués de l’API. La disponibilité du service est également améliorée si une région est mise hors connexion.
 
-Lors de la création initiale du service Gestion des API, il ne contient qu’une seule [unité][] et se trouve dans une seule région Azure, désignée comme région principale. D’autres régions peuvent être facilement ajoutées via le portail Azure Classic. Le serveur de passerelle Gestion des API est déployé dans chaque région et le trafic d’appel est acheminé vers la passerelle la plus proche. Si une région est déconnectée, le trafic est automatiquement redirigé vers la passerelle suivante la plus proche.
+Lors de la création initiale du service Gestion des API, il ne contient qu’une seule [unité][unité] et se trouve dans une seule région Azure, désignée comme région principale. D’autres régions peuvent être facilement ajoutées via le portail Azure Classic. Le serveur de passerelle Gestion des API est déployé dans chaque région et le trafic d’appel est acheminé vers la passerelle la plus proche. Si une région est déconnectée, le trafic est automatiquement redirigé vers la passerelle suivante la plus proche.
 
-> [AZURE.IMPORTANT] Le déploiement multi-régions est disponible uniquement dans le niveau **[Premium][]**.
+> [!IMPORTANT]
+> Le déploiement multi-régions est disponible uniquement dans le niveau **[Premium][Premium]**.
+> 
+> 
 
 ## <a name="add-region"> </a>Déploiement d’une instance de service Gestion des API sur une nouvelle région
-
 Pour commencer, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
 
 ![Portail des éditeurs][api-management-management-console]
 
->Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][] dans le didacticiel [Prise en main de Gestion des API Azure][].
+> Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][Création d'une instance de service Gestion des API] dans le didacticiel [Prise en main de Gestion des API Azure][Prise en main de Gestion des API Azure].
+> 
+> 
 
 Accédez à l’onglet **Mettre à l’échelle** du portail Azure Classic pour votre instance de service Gestion des API.
 
@@ -47,7 +50,6 @@ Une fois la région sélectionnée, choisissez le nombre d’unités de cette no
 Une fois les régions et unités configurées, cliquez sur **Enregistrer**.
 
 ## <a name="remove-region"> </a>Suppression d’une instance de service Gestion des API dans une région
-
 Pour supprimer une instance de service Gestion des API d’une région, accédez à l’onglet **Mettre à l’échelle** du portail Azure Classic pour votre instance de service Gestion des API.
 
 ![Onglet Mettre à l’échelle][api-management-scale-service]
@@ -57,7 +59,6 @@ Cliquez sur le signe **X** à droite de la région souhaitée pour supprimer cet
 ![Supprimer la région][api-management-remove-region]
 
 Une fois que les régions de votre choix supprimées, cliquez sur **Enregistrer**.
-
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
 

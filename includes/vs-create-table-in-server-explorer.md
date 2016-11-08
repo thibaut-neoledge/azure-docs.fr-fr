@@ -7,9 +7,6 @@ Vous pouvez créer des tables de stockage Azure à l’aide de l'**Explorateur d
 3. Sélectionnez le nœud **Tables** et choisissez **Créer une table** dans le menu contextuel.
 4. Saisissez un nom pour la table, puis sélectionnez **OK**.   
 
-
-
-
 [Image1]: ./media/vs-storage-getting-started-tables-include/vs-storage-create-tables-in-Server-Explorer.png
 
 <!---HONumber=Oct15_HO3-->

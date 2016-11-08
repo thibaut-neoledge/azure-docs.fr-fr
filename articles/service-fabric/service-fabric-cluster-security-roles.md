@@ -1,38 +1,31 @@
 
-<properties
-   pageTitle="Sécurité d’un cluster Service Fabric : rôles clients | Microsoft Azure"
-   description="Cet article décrit les deux rôles clients et les autorisations fournies pour les rôles."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="mani-ramaswamy"
-   manager="coreysa"
-   editor=""/>
+---
+title: 'Sécurité d’un cluster Service Fabric : rôles clients | Microsoft Docs'
+description: Cet article décrit les deux rôles clients et les autorisations fournies pour les rôles.
+services: service-fabric
+documentationcenter: .net
+author: mani-ramaswamy
+manager: coreysa
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/14/2016"
-   ms.author="subramar"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/14/2016
+ms.author: subramar
 
-
-
+---
 # Contrôle d’accès en fonction du rôle pour les clients de Service Fabric
-
-Azure Service Fabric prend en charge deux types de contrôle d’accès différents pour les clients qui sont connectés à un cluster Service Fabric : administrateur et utilisateur. Le contrôle d'accès permet à l'administrateur du cluster de limiter l'accès à certaines opérations de cluster pour différents groupes d'utilisateurs, renforçant ainsi la sécurité du cluster.
+Azure Service Fabric prend en charge deux types de contrôle d’accès différents pour les clients qui sont connectés à un cluster Service Fabric : administrateur et utilisateur. Le contrôle d'accès permet à l'administrateur du cluster de limiter l'accès à certaines opérations de cluster pour différents groupes d'utilisateurs, renforçant ainsi la sécurité du cluster.
 
 Les **administrateurs** ont un accès complet aux fonctions de gestion (notamment les fonctionnalités de lecture/écriture). Les **utilisateurs**, par défaut, ont uniquement un accès en lecture aux fonctionnalités de gestion (par exemple, aux fonctionnalités de requête) et la capacité à résoudre les applications et les services.
 
 Vous spécifiez les deux rôles clients (client et administrateur) au moment de la création du cluster en fournissant des certificats séparés pour chacun. Pour plus d’informations sur la configuration d’un cluster Service Fabric sécurisé, consultez [Sécurité d’un cluster Service Fabric](service-fabric-cluster-security.md).
 
-
 ## Paramètres de contrôle d'accès par défaut
-
-
 Le type de contrôle d'accès administrateur a un accès complet à toutes les API FabricClient. Il peut exécuter toute opération de lecture et d’écriture sur le cluster Service Fabric, notamment les opérations suivantes :
-
 
 ### Opérations de service et d'application
 * **CreateService** : création du service
@@ -53,7 +46,6 @@ Le type de contrôle d'accès administrateur a un accès complet à toutes les A
 * **RecoverPartitions** : récupération de partitions
 * **RecoverServicePartitions** : récupération des partitions d’un service
 * **RecoverSystemPartitions** : récupération des partitions d’un service système
-
 
 ### Opérations de cluster
 * **ProvisionFabric** : approvisionnement du manifeste de cluster et/ou MSI
@@ -84,8 +76,6 @@ Le type de contrôle d'accès administrateur a un accès complet à toutes les A
 * **Query** : toutes les requêtes autorisées
 * **NameExists** : contrôles de présence de l’URI de dénomination
 
-
-
 Le type de contrôle d’accès utilisateur est, par défaut, limité aux opérations suivantes :
 
 * **EnumerateSubnames** : énumération de l’URI de dénomination
@@ -106,11 +96,9 @@ Le type de contrôle d’accès utilisateur est, par défaut, limité aux opéra
 Le contrôle d’accès administrateur a également accès aux opérations précédentes.
 
 ## Modification des paramètres par défaut des rôles clients
-
 Dans le fichier du manifeste de cluster, vous pouvez fournir au client des capacités d’administration, si nécessaire. Vous pouvez modifier les valeurs par défaut en accédant à l’option **Paramètres de structure** durant la [création du cluster](service-fabric-cluster-creation-via-portal.md) et en fournissant les paramètres ci-dessus dans les champs **nom**, **admin**, **utilisateur** et **valeur**.
 
 ## Étapes suivantes
-
 [Sécurité d’un cluster Service Fabric](service-fabric-cluster-security.md)
 
 [Création d’un cluster Service Fabric](service-fabric-cluster-creation-via-portal.md)

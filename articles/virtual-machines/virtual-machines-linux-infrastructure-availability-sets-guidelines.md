@@ -1,42 +1,39 @@
-<properties
-	pageTitle="Instructions pour les groupes à haute disponibilité | Microsoft Azure"
-	description="Découvrez-en plus sur les principales instructions de conception et d’implémentation pour le déploiement de groupes à haute disponibilité dans des services d’infrastructure Azure."
-	documentationCenter=""
-	services="virtual-machines-linux"
-	authors="iainfoulds"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+---
+title: Instructions pour les groupes à haute disponibilité | Microsoft Docs
+description: Découvrez-en plus sur les principales instructions de conception et d’implémentation pour le déploiement de groupes à haute disponibilité dans des services d’infrastructure Azure.
+documentationcenter: ''
+services: virtual-machines-linux
+author: iainfoulds
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/08/2016"
-	ms.author="iainfou"/>
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 09/08/2016
+ms.author: iainfou
 
+---
 # Instructions pour les groupes à haute disponibilité
-
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
+[!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Cet article se concentre sur la compréhension des étapes de planification requises pour les groupes à haute disponibilité afin d’assurer que vos applications restent accessibles aux cours des événements planifiés et non planifiés.
 
 ## Instructions d’implémentation pour groupes à haute disponibilité
+Décisions :
 
-Décisions :
+* De combien de groupes à haute disponibilité avez-vous besoin pour les différents rôles et niveaux de votre infrastructure d’application ?
 
-- De combien de groupes à haute disponibilité avez-vous besoin pour les différents rôles et niveaux de votre infrastructure d’application ?
+Tâches :
 
-Tâches :
-
-- Définissez le nombre de machines virtuelles requises pour chaque niveau d’application.
-- Déterminez si vous devez ajuster le nombre de domaines d’erreur ou de mise à jour à utiliser pour votre application.
-- Définissez les groupes à haute disponibilité requis à l’aide de votre convention de dénomination et des machines virtuelles qui s’y trouvent. Une machine virtuelle ne peut résider que dans un seul groupe à haute disponibilité.
+* Définissez le nombre de machines virtuelles requises pour chaque niveau d’application.
+* Déterminez si vous devez ajuster le nombre de domaines d’erreur ou de mise à jour à utiliser pour votre application.
+* Définissez les groupes à haute disponibilité requis à l’aide de votre convention de dénomination et des machines virtuelles qui s’y trouvent. Une machine virtuelle ne peut résider que dans un seul groupe à haute disponibilité.
 
 ## Groupes à haute disponibilité
-
 Dans Azure, les machines virtuelles peuvent être placées dans un groupement logique appelé groupe à haute disponibilité. Lorsque vous créez des machines virtuelles au sein d’un groupe à haute disponibilité, la plateforme Azure répartit le placement de ces machines virtuelles sur l’infrastructure sous-jacente. En cas d’événement de maintenance planifiée pour la plateforme Azure ou de panne de l’infrastructure ou du matériel sous-jacent, l’utilisation des groupes à haute disponibilité assure qu’au moins une machine virtuelle est en cours d’exécution.
 
 En tant que meilleure pratique, les applications ne doivent pas résider sur une seule machine virtuelle. Un groupe à haute disponibilité qui contient une seule machine virtuelle ne gagne aucune protection contre les événements planifiés ou non planifiés dans la plateforme Azure. Le [Contrat de niveau de service Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines) nécessite deux machines virtuelles ou plus au sein d’un groupe à haute disponibilité défini afin de permettre la distribution des machines virtuelles sur l’infrastructure sous-jacente.
@@ -47,8 +44,7 @@ Lorsque vous concevez votre infrastructure d’application, vous devez égalemen
 
 Les équilibreurs de charge peuvent être utilisés devant chaque couche d’application pour fonctionner avec un groupe à haute disponibilité et assurer que le trafic peut être acheminé vers une instance en cours d’exécution. Sans équilibreur de charge, vos machines virtuelles peuvent continuer à s’exécuter dans l’ensemble des événements de maintenance planifiée et non planifiée, mais vos utilisateurs finaux pourraient ne pas être en mesure de les résoudre si la machine virtuelle principale n’est pas disponible à ce moment.
 
-
 ## Étapes suivantes
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
+[!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
 <!---HONumber=AcomDC_0914_2016-->

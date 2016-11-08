@@ -1,45 +1,46 @@
-<properties
-   pageTitle="Vue d’ensemble de la configuration Azure Service Fabric Reliable Actors ReliableDictionaryActorStateProvider | Microsoft Azure"
-   description="Découvrez comment configurer les acteurs avec état Azure Service Fabric de type ReliableDictionaryActorStateProvider."
-   services="Service-Fabric"
-   documentationCenter=".net"
-   authors="sumukhs"
-   manager="timlt"
-   editor=""/>
+---
+title: Vue d’ensemble de la configuration Azure Service Fabric Reliable Actors ReliableDictionaryActorStateProvider | Microsoft Docs
+description: Découvrez comment configurer les acteurs avec état Azure Service Fabric de type ReliableDictionaryActorStateProvider.
+services: Service-Fabric
+documentationcenter: .net
+author: sumukhs
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="07/18/2016"
-   ms.author="sumukhs"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 07/18/2016
+ms.author: sumukhs
 
+---
 # Configuration de Reliable Actors - ReliableDictionaryActorStateProvider
 Vous pouvez modifier la configuration par défaut de ReliableDictionaryActorStateProvider en modifiant le fichier settings.xml généré dans la racine du package Visual Studio sous le dossier Config de l’acteur spécifié.
 
 Le runtime Azure Service Fabric recherche des noms de sections prédéfinis dans le fichier settings.xml et utilise les valeurs de configuration pendant la création des composants runtime sous-jacents.
 
->[AZURE.NOTE] Veillez à **ne pas** supprimer ou modifier les noms de sections des configurations suivantes dans le fichier settings.xml généré dans la solution Visual Studio.
+> [!NOTE]
+> Veillez à **ne pas** supprimer ou modifier les noms de sections des configurations suivantes dans le fichier settings.xml généré dans la solution Visual Studio.
+> 
+> 
 
 Il existe également des paramètres globaux qui affectent la configuration de ReliableDictionaryActorStateProvider.
 
 ## Configuration globale
-
 La configuration globale est spécifiée dans le manifeste de cluster sous la section KtlLogger. Elle permet la configuration de l’emplacement et de la taille du journal partagé ainsi que des limites de mémoire globales utilisées par l’enregistreur d’événements. Notez que les modifications apportées au manifeste de cluster affectent l’ensemble des services qui utilisent ReliableDictionaryActorStateProvider et des services fiables avec état.
 
 Le manifeste de cluster est un fichier XML simple qui contient les paramètres et les configurations qui s’appliquent à l’ensemble des nœuds et des services du cluster. Le fichier a généralement pour nom ClusterManifest.xml. Vous pouvez voir le manifeste de cluster de votre cluster à l’aide de la commande PowerShell Get-ServiceFabricClusterManifest.
 
 ### Noms des configurations
-
-|Nom|Unité|Valeur par défaut|Remarques|
-|----|----|-------------|-------|
-|WriteBufferMemoryPoolMinimumInKB|Ko|8388608|Nombre minimal de Ko à allouer en mode noyau pour le pool de mémoire tampon d’écriture de l’enregistreur d’événements. Ce pool de mémoire est utilisé pour la mise en cache des informations d’état avant l’écriture sur le disque.|
-|WriteBufferMemoryPoolMaximumInKB|Ko|Aucune limite|Taille maximale que peut atteindre le pool de mémoire tampon d’écriture de l’enregistreur d’événements.|
-|SharedLogId|GUID|""|Spécifie un GUID unique à utiliser pour identifier le fichier journal partagé par défaut utilisé par tous les services fiables sur tous les nœuds du cluster qui ne spécifient pas l’élément SharedLogId dans leur configuration de service spécifique. Si SharedLogId est spécifié, SharedLogPath doit l’être aussi.|
-|SharedLogPath|Nom de chemin complet|""|Spécifie le chemin d’accès complet du fichier journal partagé utilisé par tous les services fiables sur tous les nœuds du cluster qui ne spécifient pas l’élément SharedLogPath dans leur configuration de service spécifique. Toutefois, si SharedLogPath est spécifié, SharedLogId doit l'être aussi.|
-|SharedLogSizeInMB|Mo|8 192|Spécifie le nombre de Mo d’espace disque à allouer de manière statique pour le journal partagé. La valeur doit être supérieure ou égale à 2 048.|
+| Nom | Unité | Valeur par défaut | Remarques |
+| --- | --- | --- | --- |
+| WriteBufferMemoryPoolMinimumInKB |Ko |8388608 |Nombre minimal de Ko à allouer en mode noyau pour le pool de mémoire tampon d’écriture de l’enregistreur d’événements. Ce pool de mémoire est utilisé pour la mise en cache des informations d’état avant l’écriture sur le disque. |
+| WriteBufferMemoryPoolMaximumInKB |Ko |Aucune limite |Taille maximale que peut atteindre le pool de mémoire tampon d’écriture de l’enregistreur d’événements. |
+| SharedLogId |GUID |"" |Spécifie un GUID unique à utiliser pour identifier le fichier journal partagé par défaut utilisé par tous les services fiables sur tous les nœuds du cluster qui ne spécifient pas l’élément SharedLogId dans leur configuration de service spécifique. Si SharedLogId est spécifié, SharedLogPath doit l’être aussi. |
+| SharedLogPath |Nom de chemin complet |"" |Spécifie le chemin d’accès complet du fichier journal partagé utilisé par tous les services fiables sur tous les nœuds du cluster qui ne spécifient pas l’élément SharedLogPath dans leur configuration de service spécifique. Toutefois, si SharedLogPath est spécifié, SharedLogId doit l'être aussi. |
+| SharedLogSizeInMB |Mo |8 192 |Spécifie le nombre de Mo d’espace disque à allouer de manière statique pour le journal partagé. La valeur doit être supérieure ou égale à 2 048. |
 
 ### Exemple de section du manifeste de cluster
 ```xml
@@ -72,23 +73,20 @@ Les configurations de réplicateur servent à configurer le réplicateur en char
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### Noms des configurations
-
-|Nom|Unité|Valeur par défaut|Remarques|
-|----|----|-------------|-------|
-|BatchAcknowledgementInterval|Secondes|0\.015|Durée d'attente du réplicateur secondaire après la réception d'une opération et avant de renvoyer un accusé de réception au réplicateur principal. Tous les autres accusés de réception à envoyer pour les opérations traitées durant cet intervalle sont envoyés sous la forme d'une réponse.||
-|ReplicatorEndpoint|N/A|Aucune valeur par défaut (paramètre obligatoire)|Adresse IP et port que le réplicateur principal/secondaire utilise pour communiquer avec d'autres réplicateurs dans le jeu de réplicas. Doit faire référence à un point de terminaison de ressource TCP dans le manifeste de service. Pour en savoir plus sur la définition de ressources de point de terminaison dans le manifeste de service, consultez [Ressources du manifeste de service](service-fabric-service-manifest-resources.md). |
-|MaxReplicationMessageSize|Octets|50 Mo|Taille maximale des données de réplication pouvant être transmises dans un même message.|
-|MaxPrimaryReplicationQueueSize|Nombre d'opérations|8 192|Nombre maximal d'opérations dans la file d'attente principale. Une opération est libérée quand le réplicateur principal reçoit un accusé de réception de tous les réplicateurs secondaires. Cette valeur doit être supérieure à 64 et être une puissance de 2.|
-|MaxSecondaryReplicationQueueSize|Nombre d'opérations|16 384|Nombre maximal d'opérations dans la file d'attente secondaire. Une opération est libérée une fois son état devenu hautement disponible grâce à la persistance. Cette valeur doit être supérieure à 64 et être une puissance de 2.|
-|CheckpointThresholdInMB|Mo|200|Quantité d'espace du fichier journal après lequel l'état est vérifié.|
-|MaxRecordSizeInKB|Ko|1024|Taille maximale de l'enregistrement que le réplicateur peut écrire dans le journal. Cette valeur doit être un multiple de 4 et supérieure à 16.|
-|OptimizeLogForLowerDiskUsage|Boolean|true|Si la valeur est true, le journal est configuré de sorte que le fichier journal dédié au réplica est créé à l’aide d’un fichier partiellement alloué NTFS. Cela réduit l'utilisation d'espace disque réel du fichier. Si la valeur est false, le fichier est créé avec des allocations fixes qui offrent les meilleures performances en écriture.|
-|SharedLogId|guid|""|Spécifie une valeur guid unique à utiliser pour identifier le fichier journal partagé utilisé avec ce réplica. En règle générale, les services ne doivent pas utiliser ce paramètre. Toutefois, si SharedLogId est spécifié, SharedLogPath doit l'être aussi.|
-|SharedLogPath|Nom de chemin complet|""|Spécifie le chemin d'accès complet où sera créé le fichier journal partagé pour ce réplica. En règle générale, les services ne doivent pas utiliser ce paramètre. Toutefois, si SharedLogPath est spécifié, SharedLogId doit l’être aussi.|
-
+| Nom | Unité | Valeur par défaut | Remarques |
+| --- | --- | --- | --- |
+| BatchAcknowledgementInterval |Secondes |0\.015 |Durée d'attente du réplicateur secondaire après la réception d'une opération et avant de renvoyer un accusé de réception au réplicateur principal. Tous les autres accusés de réception à envoyer pour les opérations traitées durant cet intervalle sont envoyés sous la forme d'une réponse. |
+| ReplicatorEndpoint |N/A |Aucune valeur par défaut (paramètre obligatoire) |Adresse IP et port que le réplicateur principal/secondaire utilise pour communiquer avec d'autres réplicateurs dans le jeu de réplicas. Doit faire référence à un point de terminaison de ressource TCP dans le manifeste de service. Pour en savoir plus sur la définition de ressources de point de terminaison dans le manifeste de service, consultez [Ressources du manifeste de service](service-fabric-service-manifest-resources.md). |
+| MaxReplicationMessageSize |Octets |50 Mo |Taille maximale des données de réplication pouvant être transmises dans un même message. |
+| MaxPrimaryReplicationQueueSize |Nombre d'opérations |8 192 |Nombre maximal d'opérations dans la file d'attente principale. Une opération est libérée quand le réplicateur principal reçoit un accusé de réception de tous les réplicateurs secondaires. Cette valeur doit être supérieure à 64 et être une puissance de 2. |
+| MaxSecondaryReplicationQueueSize |Nombre d'opérations |16 384 |Nombre maximal d'opérations dans la file d'attente secondaire. Une opération est libérée une fois son état devenu hautement disponible grâce à la persistance. Cette valeur doit être supérieure à 64 et être une puissance de 2. |
+| CheckpointThresholdInMB |Mo |200 |Quantité d'espace du fichier journal après lequel l'état est vérifié. |
+| MaxRecordSizeInKB |Ko |1024 |Taille maximale de l'enregistrement que le réplicateur peut écrire dans le journal. Cette valeur doit être un multiple de 4 et supérieure à 16. |
+| OptimizeLogForLowerDiskUsage |Boolean |true |Si la valeur est true, le journal est configuré de sorte que le fichier journal dédié au réplica est créé à l’aide d’un fichier partiellement alloué NTFS. Cela réduit l'utilisation d'espace disque réel du fichier. Si la valeur est false, le fichier est créé avec des allocations fixes qui offrent les meilleures performances en écriture. |
+| SharedLogId |guid |"" |Spécifie une valeur guid unique à utiliser pour identifier le fichier journal partagé utilisé avec ce réplica. En règle générale, les services ne doivent pas utiliser ce paramètre. Toutefois, si SharedLogId est spécifié, SharedLogPath doit l'être aussi. |
+| SharedLogPath |Nom de chemin complet |"" |Spécifie le chemin d'accès complet où sera créé le fichier journal partagé pour ce réplica. En règle générale, les services ne doivent pas utiliser ce paramètre. Toutefois, si SharedLogPath est spécifié, SharedLogId doit l’être aussi. |
 
 ## Exemple de fichier de configuration
-
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">

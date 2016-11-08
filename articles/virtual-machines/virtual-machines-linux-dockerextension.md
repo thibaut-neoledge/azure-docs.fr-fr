@@ -1,51 +1,47 @@
-<properties
-   pageTitle="En savoir plus sur l’extension de machine virtuelle Docker sur Azure | Microsoft Azure"
-   description="Découvrez comment utiliser l’extension de machine virtuelle Docker sur Azure pour déployer un environnement Docker rapidement et en toute sécurité dans Azure"
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: En savoir plus sur l’extension de machine virtuelle Docker sur Azure | Microsoft Docs
+description: Découvrez comment utiliser l’extension de machine virtuelle Docker sur Azure pour déployer un environnement Docker rapidement et en toute sécurité dans Azure
+services: virtual-machines-linux
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure"
-   ms.date="10/10/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 10/10/2016
+ms.author: iainfou
 
-
+---
 # <a name="using-the-docker-vm-extension-to-deploy-your-environment"></a>Utilisation de l’extension de machine virtuelle Docker pour déployer votre environnement
+Docker est une solution courante de gestion de conteneurs et une plateforme de création d’images qui permet de travailler rapidement avec des conteneurs sous Linux (et Windows). Avec Azure, vous avez la possibilité de déployer Docker de différentes manières selon vos besoins :
 
-Docker est une solution courante de gestion de conteneurs et une plateforme de création d’images qui permet de travailler rapidement avec des conteneurs sous Linux (et Windows). Avec Azure, vous avez la possibilité de déployer Docker de différentes manières selon vos besoins :
-
-- Si vous souhaitez développer rapidement le prototype d’une application, vous pouvez [utiliser le pilote Docker Machine Azure](./virtual-machines-linux-docker-machine.md) pour déployer des hôtes Docker dans Azure.
-- L’extension de machine virtuelle Docker pour les machines virtuelles Azure est utilisée dans les déploiements basés sur un modèle. Cette approche peut s’intégrer à des déploiements du modèle Azure Resource Manager et inclut tous les avantages associés tels que l’accès en fonction du rôle, les diagnostics et la configuration post-déploiement.
-- L’extension de machine virtuelle Docker prend également en charge Docker Compose. Docker Compose utilise un fichier YAML déclaratif pour utiliser une application modélisée par un développeur dans tout environnement et générer un déploiement cohérent.
-- Vous pouvez également [déployer un cluster Docker Swarm complet sur les services de conteneur Azure](../container-service/container-service-deployment.md) pour des déploiements prêts pour la production et évolutifs qui exploitent les outils de planification et de gestion supplémentaires fournis par Swarm.
+* Si vous souhaitez développer rapidement le prototype d’une application, vous pouvez [utiliser le pilote Docker Machine Azure](virtual-machines-linux-docker-machine.md) pour déployer des hôtes Docker dans Azure.
+* L’extension de machine virtuelle Docker pour les machines virtuelles Azure est utilisée dans les déploiements basés sur un modèle. Cette approche peut s’intégrer à des déploiements du modèle Azure Resource Manager et inclut tous les avantages associés tels que l’accès en fonction du rôle, les diagnostics et la configuration post-déploiement.
+* L’extension de machine virtuelle Docker prend également en charge Docker Compose. Docker Compose utilise un fichier YAML déclaratif pour utiliser une application modélisée par un développeur dans tout environnement et générer un déploiement cohérent.
+* Vous pouvez également [déployer un cluster Docker Swarm complet sur les services de conteneur Azure](../container-service/container-service-deployment.md) pour des déploiements prêts pour la production et évolutifs qui exploitent les outils de planification et de gestion supplémentaires fournis par Swarm.
 
 Cet article se concentre sur l’utilisation de modèles Ressource Manager pour déployer l’extension de machine virtuelle Docker dans un environnement personnalisé et prêt pour la production que vous définissez.
 
 ## <a name="azure-docker-vm-extension-for-template-deployments"></a>Extension de machine virtuelle Docker sur Azure pour les déploiements de modèle
-
 L’extension de machine virtuelle Docker Azure installe et configure le démon Docker, le client Docker et Docker Compose dans votre machine virtuelle Linux. Cette extension permet également de définir et déployer des applications de conteneur à l’aide de Docker Compose. L’utilisation de l’extension de machine virtuelle Docker Azure est parfaitement adaptée aux environnements de développement ou de production plus robustes, car vous disposez de contrôles supplémentaires en utilisant simplement Docker Machine ou en créant l’hôte Docker vous-même.
 
 Grâce à Azure Resource Manager, vous pouvez créer et déployer des modèles qui définissent la structure complète de votre environnement. Les modèles vous permettent de définir les hôtes Docker, le stockage, les contrôles d’accès en fonction du rôle (RBAC), les diagnostics, etc. Vous pouvez [consulter des documentations supplémentaires sur Ressource Manager](../resource-group-overview.md) et les modèles afin de mieux en comprendre certains avantages. À l’aide de modèles Resource Manager, vous pourrez également reproduire les déploiements en fonction de vos besoins futurs.
 
-## <a name="deploy-a-template-with-the-docker-vm-extension:"></a>Déployer un modèle avec l’extension de machine virtuelle Docker :
+## <a name="deploy-a-template-with-the-docker-vm-extension:"></a>Déployer un modèle avec l’extension de machine virtuelle Docker :
+Nous allons utiliser un modèle existant de démarrage rapide pour montrer comment déployer une machine virtuelle Ubuntu comportant une installation de l’extension de machine virtuelle Docker. Vous pouvez voir le modèle ici : [Simple deployment of an Ubuntu VM with Docker (Déploiement simple d’une machine virtuelle Ubuntu avec Docker)](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Vous avez également besoin de la [dernière version de l’interface de ligne de commande Azure](../xplat-cli-install.md) en mode Resource Manager (`azure config mode arm`).
 
-Nous allons utiliser un modèle existant de démarrage rapide pour montrer comment déployer une machine virtuelle Ubuntu comportant une installation de l’extension de machine virtuelle Docker. Vous pouvez voir le modèle ici : [Simple deployment of an Ubuntu VM with Docker (Déploiement simple d’une machine virtuelle Ubuntu avec Docker)](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Vous avez également besoin de la [dernière version de l’interface de ligne de commande Azure](../xplat-cli-install.md) en mode Resource Manager (`azure config mode arm`).
-
-Déployez le modèle à l’aide de l’interface de ligne de commande Azure en spécifiant un nom pour le nouveau groupe de ressources (ici `myDockerResourceGroup`), ainsi que l’URI du modèle :
+Déployez le modèle à l’aide de l’interface de ligne de commande Azure en spécifiant un nom pour le nouveau groupe de ressources (ici `myDockerResourceGroup`), ainsi que l’URI du modèle :
 
 ```
 azure group create --name myResourceGroup --location "West US" \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-Répondez aux invites pour nommer votre compte de stockage et indiquer le nom d’utilisateur, le mot de passe et le nom DNS. Le résultat ressemble à ce qui suit en exemple :
+Répondez aux invites pour nommer votre compte de stockage et indiquer le nom d’utilisateur, le mot de passe et le nom DNS. Le résultat ressemble à ce qui suit en exemple :
 
 ```
 info:    Executing command group create
@@ -106,7 +102,6 @@ Vers le haut de la sortie, vous voyez le `ProvisioningState` de la machine virtu
 
 Vers la fin de la sortie, `FQDN` affiche le nom de domaine complet basé sur le nom DNS que vous avez fourni et l’emplacement que vous avez sélectionné. Ce nom de domaine complet est ce que vous utilisez pour vous connecter par SSH à la machine virtuelle dans les étapes restantes.
 
-
 ## <a name="deploy-your-first-nginx-container"></a>Déployer votre premier conteneur nginx
 Une fois le déploiement terminé, utilisez SSH pour votre nouvel hôte Docker à l’aide du nom DNS fourni pendant le déploiement :
 
@@ -114,13 +109,13 @@ Une fois le déploiement terminé, utilisez SSH pour votre nouvel hôte Docker �
 ssh ops@mypublicip.westus.cloudapp.azure.com
 ```
 
-Essayons d’exécuter un conteneur nginx :
+Essayons d’exécuter un conteneur nginx :
 
 ```
 sudo docker run -d -p 80:80 nginx
 ```
 
-Le résultat ressemble à ce qui suit en exemple :
+Le résultat ressemble à ce qui suit en exemple :
 
 ```
 Unable to find image 'nginx:latest' locally
@@ -148,8 +143,7 @@ Pour voir votre conteneur en action, ouvrez un navigateur Web et entrez le nom D
 Vous pouvez configurer le port TCP du démon Docker, la sécurité, ou déployer des conteneurs à l’aide de Docker Compose. Pour plus d’informations, consultez le [projet GitHub Extension de machine virtuelle Azure pour Docker](https://github.com/Azure/azure-docker-extension/).
 
 ## <a name="docker-vm-extension-json-template-reference"></a>Référence de modèle JSON pour l’extension de machine virtuelle Docker
-
-Cet exemple utilise un modèle de démarrage rapide. Pour déployer l’extension de machine virtuelle Azure Docker avec vos propres modèles Resource Manager, ajoutez les éléments JSON suivants :
+Cet exemple utilise un modèle de démarrage rapide. Pour déployer l’extension de machine virtuelle Azure Docker avec vos propres modèles Resource Manager, ajoutez les éléments JSON suivants :
 
 ```
 {
@@ -174,15 +168,12 @@ Cet exemple utilise un modèle de démarrage rapide. Pour déployer l’extensio
 Pour découvrir la procédure pas à pas d’utilisation de modèles Resource Manager, voir la [Vue d’ensemble d’Azure Resource Manager](../resource-group-overview.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
+Lire des étapes plus détaillées pour les différentes options de déploiement :
 
-Lire des étapes plus détaillées pour les différentes options de déploiement :
-
-1. [Utiliser Docker Machine avec le pilote Azure](./virtual-machines-linux-docker-machine.md)  
-2. [Utilisation de l’extension Docker VM à partir de l’interface de ligne de commande Microsoft Azure](./virtual-machines-linux-classic-cli-use-docker.md)  
+1. [Utiliser Docker Machine avec le pilote Azure](virtual-machines-linux-docker-machine.md)  
+2. [Utilisation de l’extension Docker VM à partir de l’interface de ligne de commande Microsoft Azure](virtual-machines-linux-classic-cli-use-docker.md)  
 3. [Prise en main de Docker et Compose pour définir et exécuter une application à conteneurs multiples sur une machine virtuelle Azure](virtual-machines-linux-docker-compose-quickstart.md).
-3. [Déploiement d’un cluster Azure Container Service](../container-service/container-service-deployment.md)
-
-
+4. [Déploiement d’un cluster Azure Container Service](../container-service/container-service-deployment.md)
 
 <!--HONumber=Oct16_HO2-->
 

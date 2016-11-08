@@ -1,134 +1,108 @@
 
-<properties
-	pageTitle="Prise en main des notifications push (Android JavaScript) | Microsoft Azure"
-	description="Découvrez comment utiliser Azure Mobile Services pour envoyer des notifications Push à votre application Android JavaScript."
-	services="mobile-services, notification-hubs"
-	documentationCenter="android"
-	authors="RickSaling"
-	writer="ricksal"
-	manager="erikre"
-	editor=""/>
+---
+title: Prise en main des notifications push (Android JavaScript) | Microsoft Docs
+description: Découvrez comment utiliser Azure Mobile Services pour envoyer des notifications Push à votre application Android JavaScript.
+services: mobile-services, notification-hubs
+documentationcenter: android
+author: RickSaling
+writer: ricksal
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="ricksal"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-android
+ms.devlang: java
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: ricksal
 
-
+---
 # Ajout de notifications push à votre application Android Mobile Services
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[!INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > Pour la version Mobile Apps équivalente de cette rubrique, consultez [Ajouter des notifications Push à votre application Android](../app-service-mobile/app-service-mobile-android-get-started-push.md).
+> 
+> 
 
 ## Résumé
-
-Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push à une application Android à l'aide de Google Cloud Messaging (« GCM »). Vous allez ajouter des notifications Push au projet de démarrage rapide nécessaire pour ce didacticiel. Les notifications Push sont activées à l'aide du hub de notification Azure qui est inclus dans votre service mobile. Une fois la procédure terminée, votre service mobile envoie une notification Push chaque fois qu'un enregistrement est inséré.
+Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push à une application Android à l'aide de Google Cloud Messaging (« GCM »). Vous allez ajouter des notifications Push au projet de démarrage rapide nécessaire pour ce didacticiel. Les notifications Push sont activées à l'aide du hub de notification Azure qui est inclus dans votre service mobile. Une fois la procédure terminée, votre service mobile envoie une notification Push chaque fois qu'un enregistrement est inséré.
 
 ## Composants requis
-
-[AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
+[!INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
 ## Exemple de code
 Pour afficher le code source terminé, cliquez [ici](https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPush).
 
 ## Activation de Google Cloud Messaging
-
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+[!INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ## Configuration de Mobile Services pour l'envoi de requêtes Push
-
-[AZURE.INCLUDE [mobile-services-android-configure-push](../../includes/mobile-services-android-configure-push.md)]
+[!INCLUDE [mobile-services-android-configure-push](../../includes/mobile-services-android-configure-push.md)]
 
 ## Ajout de notifications Push à votre application
-
-
-
 L'étape suivante consiste à installer les services Google Play. Google Cloud Messaging a des spécifications requises d'API minimales pour le développement et les tests, auxquelles la propriété **minSdkVersion** du manifeste doit se conformer.
 
 Si vous envisagez de procéder à un test avec un appareil ancien, consultez la rubrique [Configuration du Kit de développement logiciel (SDK) des services Google Play] pour déterminer comment définir cette valeur.
 
-###Ajout de services Google Play au projet
+### Ajout de services Google Play au projet
+[!INCLUDE [Ajout de services Google Play](../../includes/mobile-services-add-google-play-services.md)]
 
-[AZURE.INCLUDE [Ajout de services Google Play](../../includes/mobile-services-add-google-play-services.md)]
-
-###Ajout de code
-
-[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push.md)]
-
+### Ajout de code
+[!INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push.md)]
 
 ## Mettre à jour le script d’insertion inscrit dans le portail Azure Classic
-
-[AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
-
+[!INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
 ## Test des notifications Push dans votre application
-
 Vous pouvez tester l'application en connectant directement un téléphone Android via un câble USB, ou en utilisant un appareil virtuel dans l'émulateur.
 
-###Configuration de l'émulateur Android pour le test
-
+### Configuration de l'émulateur Android pour le test
 Quand vous exécutez cette application dans l’émulateur, veillez à utiliser un appareil virtuel Android (AVD) qui prend en charge les API Google.
 
 1. À l'extrémité droite de la barre d'outils, sélectionnez le gestionnaire d’appareils virtuels Android, sélectionnez votre appareil, puis cliquez sur l'icône de modification à droite.
-
-	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-services-android-virtual-device-manager.png)
-
+   
+    ![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-services-android-virtual-device-manager.png)
 2. Sélectionnez **Modifier** dans la ligne de description de l'appareil, sélectionnez **API Google**, puis cliquez sur OK.
+   
+       ![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png)
+   
+    Cela permet de cibler l'AVD pour utiliser les API Google.
 
-   	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png)
-
-	Cela permet de cibler l'AVD pour utiliser les API Google.
-
-###Exécution du test
-
+### Exécution du test
 1. Depuis l'élément de menu **Exécuter**, cliquez sur **Exécuter l'application** pour démarrer le projet.
-
-2. Dans l'application, tapez un texte explicite, comme _Nouvelle tâche Mobile Services_ puis cliquez sur le bouton **Ajouter**.
-
-  	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-quickstart-push1-android.png)
-
+2. Dans l'application, tapez un texte explicite, comme *Nouvelle tâche Mobile Services* puis cliquez sur le bouton **Ajouter**.
+   
+      ![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-quickstart-push1-android.png)
 3. Balayez l'écran de haut en bas pour ouvrir le tiroir de notification de l'appareil et afficher la notification.
-
 
 Vous avez terminé ce didacticiel.
 
 ## Résolution de problèmes
-
 ### Vérification de la version du Kit de développement logiciel (SDK) Android
-
-[AZURE.INCLUDE [Vérification du Kit de développement logiciel (SDK)](../../includes/mobile-services-verify-android-sdk-version.md)]
+[!INCLUDE [Vérification du Kit de développement logiciel (SDK)](../../includes/mobile-services-verify-android-sdk-version.md)]
 
 ## Étapes suivantes
-
 <!---This tutorial demonstrated the basics of enabling an Android app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
 + [Send broadcast notifications to subscribers]
-	<br/>Learn how users can register and receive push notifications for categories they're interested in.
+    <br/>Learn how users can register and receive push notifications for categories they're interested in.
 
 + [Send template-based notifications to subscribers]
-	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
+    <br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
 -->
 
-Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
+Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
 * [Prise en main de l'authentification] <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec des types de comptes différents utilisant des services mobiles.
-
 * [Présentation de Notification Hubs] <br/>Découvrez comment Notification Hubs opère pour envoyer des notifications à vos applications sur toutes les principales plateformes clientes.
-
-* [Débogage des applications Notification Hubs](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Instructions de dépannage et de débogage des solutions Notification Hubs.
-
+* [Débogage des applications Notification Hubs](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Instructions de dépannage et de débogage des solutions Notification Hubs.
 * [Utilisation de la bibliothèque cliente Android pour Mobile Services] <br/>En savoir plus sur l'utilisation de Mobile Services avec Android.
-
 * [Référence de script serveur Mobile Services] <br/>En savoir plus sur l'implémentation de logique métier dans votre service mobile.
-
 
 <!-- Anchors. -->
 [Register your app for push notifications and configure Mobile Services]: #register

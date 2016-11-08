@@ -1,68 +1,61 @@
-<properties
-	pageTitle="Activation des métriques de stockage dans le portail Azure | Microsoft Azure"
-	description="Activation des métriques de stockage pour les services d’objet Blob, de File d’attente, de Table et de Fichier"
-	services="storage"
-	documentationCenter=""
-	authors="robinsh"
-	manager="carmonm"
-	editor="tysonn"/>
+---
+title: Activation des métriques de stockage dans le portail Azure | Microsoft Docs
+description: Activation des métriques de stockage pour les services d’objet Blob, de File d’attente, de Table et de Fichier
+services: storage
+documentationcenter: ''
+author: robinsh
+manager: carmonm
+editor: tysonn
 
-<tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/03/2016"
-	ms.author="fryu;robinsh"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 08/03/2016
+ms.author: fryu;robinsh
 
+---
 # Activation des métriques Azure Storage et affichage des données associées
-
-[AZURE.INCLUDE [storage-selector-portal-enable-and-view-metrics](../../includes/storage-selector-portal-enable-and-view-metrics.md)]
+[!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../includes/storage-selector-portal-enable-and-view-metrics.md)]
 
 ## Vue d'ensemble
-
 Par défaut, les mesures de stockage ne sont pas activées pour vos services de stockage. Vous pouvez activer la surveillance par le biais du [portail Azure](https://portal.azure.com) ou de Windows PowerShell, ou par programme au moyen de la bibliothèque cliente de stockage.
 
-Lorsque vous activez Storage Metrics, vous devez choisir une période de rétention des données : cette période détermine combien de temps le service de stockage conserve les métriques et la durée pendant laquelle l’espace requis pour les stocker vous est facturé. En règle générale, il est recommandé d’utiliser une période de rétention plus courte pour les métriques par minute que pour les métriques par heure, en raison de l’espace supplémentaire requis. La période de rétention que vous définissez doit être suffisamment longue pour vous donner le temps d’analyser les données et de télécharger les métriques à conserver à des fins d’analyse ou de création de rapports hors connexion. N’oubliez pas que le téléchargement des données de métriques depuis votre compte de stockage est aussi facturé.
+Lorsque vous activez Storage Metrics, vous devez choisir une période de rétention des données : cette période détermine combien de temps le service de stockage conserve les métriques et la durée pendant laquelle l’espace requis pour les stocker vous est facturé. En règle générale, il est recommandé d’utiliser une période de rétention plus courte pour les métriques par minute que pour les métriques par heure, en raison de l’espace supplémentaire requis. La période de rétention que vous définissez doit être suffisamment longue pour vous donner le temps d’analyser les données et de télécharger les métriques à conserver à des fins d’analyse ou de création de rapports hors connexion. N’oubliez pas que le téléchargement des données de métriques depuis votre compte de stockage est aussi facturé.
 
 ## Comment activer les métriques à l’aide du portail Azure
-
-Pour activer les métriques dans le [portail Azure](https://portal.azure.com), procédez comme suit :
+Pour activer les métriques dans le [portail Azure](https://portal.azure.com), procédez comme suit :
 
 1. Accédez à votre compte de stockage.
-1. Ouvrez le panneau **Paramètres**, puis sélectionnez **Diagnostics**.
-1. Vérifiez que l’option **État** est définie sur **Activé**.
-1. Sélectionnez les métriques des services que vous souhaitez surveiller.
-2. Spécifiez une stratégie de rétention pour indiquer la durée de conservation des métriques et de journalisation des données.
+2. Ouvrez le panneau **Paramètres**, puis sélectionnez **Diagnostics**.
+3. Vérifiez que l’option **État** est définie sur **Activé**.
+4. Sélectionnez les métriques des services que vous souhaitez surveiller.
+5. Spécifiez une stratégie de rétention pour indiquer la durée de conservation des métriques et de journalisation des données.
 
 Notez que le [portail Azure](https://portal.azure.com) ne vous permet pas actuellement de configurer des métriques par minute dans votre compte de stockage. Vous devez les activer avec PowerShell ou par programmation.
 
 ## Comment activer les métriques à l’aide de PowerShell
-
 Vous pouvez utiliser PowerShell sur votre ordinateur local pour configurer Storage Metrics dans votre compte de stockage. Utilisez l’applet de commande Azure PowerShell Get-AzureStorageServiceMetricsProperty pour récupérer les paramètres actuels et l’applet de commande Set-AzureStorageServiceMetricsProperty pour modifier les paramètres actuels.
 
-Les applets de commande qui contrôlent Storage Metrics utilisent les paramètres suivants :
+Les applets de commande qui contrôlent Storage Metrics utilisent les paramètres suivants :
 
-- MetricsType peut avoir pour valeur Hour ou Minute.
+* MetricsType peut avoir pour valeur Hour ou Minute.
+* ServiceType peut avoir pour valeur Blob, Queue ou Table.
+* MetricsLevel peut avoir pour valeur None, Service et ServiceAndApi.
 
-- ServiceType peut avoir pour valeur Blob, Queue ou Table.
-
-- MetricsLevel peut avoir pour valeur None, Service et ServiceAndApi.
-
-Par exemple, la commande suivante active les métriques par minute pour le service BLOB dans votre compte de stockage par défaut avec une période de rétention de cinq jours :
+Par exemple, la commande suivante active les métriques par minute pour le service BLOB dans votre compte de stockage par défaut avec une période de rétention de cinq jours :
 
 `Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
 
-La commande suivante récupère le niveau actuel des métriques par heure et la période de rétention en jours pour le service BLOB dans votre compte de stockage par défaut :
+La commande suivante récupère le niveau actuel des métriques par heure et la période de rétention en jours pour le service BLOB dans votre compte de stockage par défaut :
 
 `Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob`
 
-Pour plus d’informations sur la configuration des applets de commande Azure PowerShell avec votre abonnement Azure et sur la sélection du compte de stockage par défaut à utiliser, voir [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+Pour plus d’informations sur la configuration des applets de commande Azure PowerShell avec votre abonnement Azure et sur la sélection du compte de stockage par défaut à utiliser, voir [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
 ## Comment activer Storage Metrics par programmation
-
-L’extrait de code C# suivant montre comment activer les métriques et la journalisation pour le service BLOB à l’aide de la bibliothèque cliente de stockage pour .NET :
+L’extrait de code C# suivant montre comment activer les métriques et la journalisation pour le service BLOB à l’aide de la bibliothèque cliente de stockage pour .NET :
 
     //Parse the connection string for the storage account.
     const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
@@ -94,8 +87,7 @@ L’extrait de code C# suivant montre comment activer les métriques et la journ
 
 
 ## Affichage des métriques de stockage
-
-Après que vous avez configuré les métriques d’analyse du stockage pour surveiller votre compte de stockage, l’analyse du stockage enregistre les métriques dans des tables connues dans votre compte de stockage. Vous pouvez configurer des graphiques permettant de consulter des métriques horaires dans le [portail Azure](https://portal.azure.com) :
+Après que vous avez configuré les métriques d’analyse du stockage pour surveiller votre compte de stockage, l’analyse du stockage enregistre les métriques dans des tables connues dans votre compte de stockage. Vous pouvez configurer des graphiques permettant de consulter des métriques horaires dans le [portail Azure](https://portal.azure.com) :
 
 1. Accédez à votre compte de stockage dans le [portail Azure](https://portal.azure.com).
 2. Dans la section **Analyse**, cliquez sur **Ajouter des vignettes** pour ajouter un nouveau graphique. Dans la **Galerie de vignettes**, sélectionnez la métrique que vous souhaitez afficher, puis faites-la glisser vers la section **Analyse**.
@@ -104,53 +96,51 @@ Après que vous avez configuré les métriques d’analyse du stockage pour surv
 
 Si vous souhaitez télécharger les métriques pour un stockage à long terme ou pour les analyser localement, vous devez :
 
-- Utiliser un outil qui prend en charge ces tables et vous permet de les afficher et de les télécharger
-- Écrire une application ou un script personnalisé pour lire et stocker les tables
+* Utiliser un outil qui prend en charge ces tables et vous permet de les afficher et de les télécharger
+* Écrire une application ou un script personnalisé pour lire et stocker les tables
 
 De nombreux outils de consultation du stockage tiers prennent en charge ces tables et vous permettent de les afficher directement. Pour obtenir la liste des outils disponibles, consultez [Explorateurs Azure Storage](storage-explorers.md).
 
-> [AZURE.NOTE] À compter de la version 0.8.0 de [Microsoft Azure Storage Explorer](http://storageexplorer.com/), vous pourrez désormais afficher et télécharger les tables de métriques Analytics.
+> [!NOTE]
+> À compter de la version 0.8.0 de [Microsoft Azure Storage Explorer](http://storageexplorer.com/), vous pourrez désormais afficher et télécharger les tables de métriques Analytics.
+> 
+> 
 
 Pour accéder par programmation aux tables Analytics, notez qu’elles n’apparaissent pas si vous répertoriez toutes les tables dans votre compte de stockage. Vous pouvez y accéder directement par nom ou utiliser l[’API CloudAnalyticsClient](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.analytics.cloudanalyticsclient.aspx) dans la bibliothèque cliente .NET pour interroger les noms de tables.
 
 ### Métriques toutes les heures
-- $MetricsHourPrimaryTransactionsBlob
-- $MetricsHourPrimaryTransactionsTable
-- $MetricsHourPrimaryTransactionsQueue
+* $MetricsHourPrimaryTransactionsBlob
+* $MetricsHourPrimaryTransactionsTable
+* $MetricsHourPrimaryTransactionsQueue
 
 ### Métriques par minute
-- $MetricsMinutePrimaryTransactionsBlob
-- $MetricsMinutePrimaryTransactionsTable
-- $MetricsMinutePrimaryTransactionsQueue
+* $MetricsMinutePrimaryTransactionsBlob
+* $MetricsMinutePrimaryTransactionsTable
+* $MetricsMinutePrimaryTransactionsQueue
 
 ### Capacité
-- $MetricsCapacityBlob
+* $MetricsCapacityBlob
 
-Vous trouverez des informations complètes sur les schémas de ces tables dans [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx). Les exemples de lignes ci-dessous montrent uniquement un sous-ensemble des colonnes disponibles, mais ils illustrent les différentes façons dont Storage Metrics enregistre ces métriques :
+Vous trouverez des informations complètes sur les schémas de ces tables dans [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx). Les exemples de lignes ci-dessous montrent uniquement un sous-ensemble des colonnes disponibles, mais ils illustrent les différentes façons dont Storage Metrics enregistre ces métriques :
 
 | PartitionKey | RowKey | Timestamp | TotalRequests | TotalBillableRequests | TotalIngress | TotalEgress | Availability | AverageE2ELatency | AverageServerLatency | PercentSuccess |
-|---------------|:------------------:|-----------------------------:|---------------|-----------------------|--------------|-------------|--------------|-------------------|----------------------|----------------|
-| 20140522T1100 | user;All | 2014-05-22T11:01:16.7650250Z | 7 | 7 | 4003 | 46801 | 100 | 104\.4286 | 6\.857143 | 100 |
-| 20140522T1100 | user;QueryEntities | 2014-05-22T11:01:16.7640250Z | 5 | 5 | 2694 | 45951 | 100 | 143\.8 | 7\.8 | 100 |
-| 20140522T1100 | user;QueryEntity | 2014-05-22T11:01:16.7650250Z | 1 | 1 | 538 | 633 | 100 | 3 | 3 | 100 |
-| 20140522T1100 | user;UpdateEntity | 2014-05-22T11:01:16.7650250Z | 1 | 1 | 771 | 217 | 100 | 9 | 6 | 100 |
+| --- |:---:| ---:| --- | --- | --- | --- | --- | --- | --- | --- |
+| 20140522T1100 |user;All |2014-05-22T11:01:16.7650250Z |7 |7 |4003 |46801 |100 |104\.4286 |6\.857143 |100 |
+| 20140522T1100 |user;QueryEntities |2014-05-22T11:01:16.7640250Z |5 |5 |2694 |45951 |100 |143\.8 |7\.8 |100 |
+| 20140522T1100 |user;QueryEntity |2014-05-22T11:01:16.7650250Z |1 |1 |538 |633 |100 |3 |3 |100 |
+| 20140522T1100 |user;UpdateEntity |2014-05-22T11:01:16.7650250Z |1 |1 |771 |217 |100 |9 |6 |100 |
 
-Dans cet exemple de données de métriques par minute, la clé de partition (PartitionKey) utilise une résolution d’une minute. La clé de ligne (RowKey) identifie le type d’informations qui sont stockées dans la ligne. Elle se compose de deux éléments : le type d’accès et le type de demande.
+Dans cet exemple de données de métriques par minute, la clé de partition (PartitionKey) utilise une résolution d’une minute. La clé de ligne (RowKey) identifie le type d’informations qui sont stockées dans la ligne. Elle se compose de deux éléments : le type d’accès et le type de demande.
 
-- Le type d’accès a la valeur user ou system, user correspondant à toutes les demandes de l’utilisateur au service de stockage et system correspondant à toutes les demandes formulées par Storage Analytics.
+* Le type d’accès a la valeur user ou system, user correspondant à toutes les demandes de l’utilisateur au service de stockage et system correspondant à toutes les demandes formulées par Storage Analytics.
+* Le type de demande peut avoir la valeur all, auquel cas il s’agit d’une ligne de résumé, ou il identifie l’API spécifique comme QueryEntity ou UpdateEntity.
 
-- Le type de demande peut avoir la valeur all, auquel cas il s’agit d’une ligne de résumé, ou il identifie l’API spécifique comme QueryEntity ou UpdateEntity.
-
-
-Les exemples de données ci-dessus montrent tous les enregistrements pour une seule minute (à partir de 11h00). Ainsi, la somme des demandes QueryEntities, QueryEntity et UpdateEntity est égale à sept, ce qui correspond bien au total indiqué sur la ligne user:All. De même, vous pouvez déduire la latence de bout en bout moyenne (104,4286) sur la ligne user:All en effectuant le calcul suivant : ((143,8 * 5) + 3 + 9)/7.
+Les exemples de données ci-dessus montrent tous les enregistrements pour une seule minute (à partir de 11h00). Ainsi, la somme des demandes QueryEntities, QueryEntity et UpdateEntity est égale à sept, ce qui correspond bien au total indiqué sur la ligne user:All. De même, vous pouvez déduire la latence de bout en bout moyenne (104,4286) sur la ligne user:All en effectuant le calcul suivant : ((143,8 * 5) + 3 + 9)/7.
 
 Songez à configurer des alertes dans la page Surveiller du [portail Azure](https://portal.azure.com) afin que les métriques de stockage puissent vous avertir automatiquement de tout changement important de comportement de vos services de stockage. Si vous utilisez un explorateur de stockage pour télécharger ces données de métriques dans un format délimité, vous pouvez analyser les données dans Microsoft Excel. Voir le billet de blog [Microsoft Azure Storage Explorers](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) pour obtenir la liste des explorateurs de stockage disponibles.
 
-
-
 ## Accès aux données de métriques par programmation
-
-L’exemple de code suivant en C# accède aux métriques par minute pour une plage de minutes et affiche les résultats dans une fenêtre de console. Il utilise la version 4 de la bibliothèque de stockage Azure. Celle-ci comprend la classe CloudAnalyticsClient, qui simplifie l’accès aux tables de métriques de stockage.
+L’exemple de code suivant en C# accède aux métriques par minute pour une plage de minutes et affiche les résultats dans une fenêtre de console. Il utilise la version 4 de la bibliothèque de stockage Azure. Celle-ci comprend la classe CloudAnalyticsClient, qui simplifie l’accès aux tables de métriques de stockage.
 
     private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)
     {
@@ -196,21 +186,18 @@ L’exemple de code suivant en C# accède aux métriques par minute pour une pla
 
 
 
-## Quels sont les frais encourus quand vous activez les métriques de stockage ?
-
+## Quels sont les frais encourus quand vous activez les métriques de stockage ?
 Les demandes d’écriture pour créer des entités de table pour les métriques sont facturées au tarif standard applicable à toutes les opérations Azure Storage.
 
 Les demandes de lecture et de suppression formulées par un client sur des données de métriques sont aussi facturées au tarif standard. Si vous avez configuré une stratégie de rétention des données, vous n’êtes pas facturé quand Azure Storage supprime les anciennes données de métriques. Toutefois, si vous supprimez des données de métriques, les opérations de suppression sont facturées à votre compte.
 
-La capacité utilisée par les tables de métriques est également facturée ; vous pouvez utiliser les informations suivantes pour estimer la capacité utilisée pour stocker les données de métriques :
+La capacité utilisée par les tables de métriques est également facturée ; vous pouvez utiliser les informations suivantes pour estimer la capacité utilisée pour stocker les données de métriques :
 
-- En une heure, pour un service qui utilise toutes les API de chaque service, environ 148 Ko de données sont stockés par heure dans les tables de transaction de métriques si vous avez activé la synthèse au niveau des services et des API.
+* En une heure, pour un service qui utilise toutes les API de chaque service, environ 148 Ko de données sont stockés par heure dans les tables de transaction de métriques si vous avez activé la synthèse au niveau des services et des API.
+* En une heure, pour un service qui utilise toutes les API de chaque service, environ 12 Ko de données sont stockés par heure dans les tables de transaction de métriques si vous avez uniquement activé la synthèse au niveau des services.
+* Deux lignes supplémentaires sont ajoutées chaque jour à la table de capacité pour les objets blob (si l’utilisateur a activé les journaux). Cela signifie que la table augmente d’environ 300 octets au maximum par jour.
 
-- En une heure, pour un service qui utilise toutes les API de chaque service, environ 12 Ko de données sont stockés par heure dans les tables de transaction de métriques si vous avez uniquement activé la synthèse au niveau des services.
-
-- Deux lignes supplémentaires sont ajoutées chaque jour à la table de capacité pour les objets blob (si l’utilisateur a activé les journaux). Cela signifie que la table augmente d’environ 300 octets au maximum par jour.
-
-## Étapes suivantes :
+## Étapes suivantes :
 [Activation de la journalisation du stockage et accès aux données des journaux](https://msdn.microsoft.com/library/dn782840.aspx)
 
 <!---HONumber=AcomDC_0928_2016-->

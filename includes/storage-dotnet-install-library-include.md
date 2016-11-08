@@ -1,5 +1,4 @@
 ### Création de l’application console et obtention de l’assembly
-
 Pour créer une application console dans Visual Studio et installer le package NuGet contenant Azure Storage Client Library :
 
 1. Dans Visual Studio, choisissez **Fichier > Nouveau projet**, puis **Windows > Application console** dans la liste de modèles Visual C#.

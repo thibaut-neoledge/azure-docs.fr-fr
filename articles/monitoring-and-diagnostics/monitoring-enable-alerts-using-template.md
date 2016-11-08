@@ -1,27 +1,25 @@
-<properties
-    pageTitle="Créer une alerte de mesure avec un modèle Resource Manager | Microsoft Azure"
-    description="Découvrez comment utiliser un modèle Resource Manager pour créer une alerte de mesure pour recevoir des notifications par e-mail ou webhook."
-    authors="johnkemnetz"
-    manager="rboucher"
-    editor=""
-    services="monitoring-and-diagnostics"
-    documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Créer une alerte de mesure avec un modèle Resource Manager | Microsoft Docs
+description: Découvrez comment utiliser un modèle Resource Manager pour créer une alerte de mesure pour recevoir des notifications par e-mail ou webhook.
+author: johnkemnetz
+manager: rboucher
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-    ms.service="monitoring-and-diagnostics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/26/2016"
-    ms.author="johnkem"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: johnkem
 
-
+---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Créer une alerte de mesure avec un modèle Resource Manager
-
 Cet article explique comment vous pouvez utiliser un [modèle Azure Resource Manager](../resource-group-authoring-templates.md) pour configurer les alertes de mesures Azure. Cela vous permet de configurer automatiquement des alertes sur vos ressources lorsqu’elles sont créées pour vous assurer que toutes les ressources sont analysées correctement.
 
-Procédure de base :
+Procédure de base :
 
 1. Créez un modèle sous la forme d’un fichier JSON qui décrit comment créer l’alerte.
 2. [Déployez le modèle à l’aide de n’importe quelle méthode de déploiement](../resource-group-template-deploy.md).
@@ -29,7 +27,6 @@ Procédure de base :
 Ci-dessous, nous décrivons comment créer un modèle Resource Manager, d’abord pour une alerte uniquement, puis pour une alerte lors de la création d’une autre ressource.
 
 ## <a name="resource-manager-template-for-a-metric-alert"></a>Modèle Resource Manager pour une alerte de mesure
-
 Pour créer une alerte à l’aide d’un modèle Resource Manager, vous créez une ressource de type `Microsoft.Insights/alertRules` et renseignez toutes les propriétés. Voici un modèle qui crée une règle d’alerte.
 
 ```json
@@ -180,8 +177,7 @@ Pour créer une alerte à l’aide d’un modèle Resource Manager, vous créez 
 Une explication du schéma et des propriétés pour une règle d’alerte [est disponible ici](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="resource-manager-template-for-a-resource-with-an-alert"></a>Modèle Resource Manager pour une ressource avec une alerte
-
-Une alerte sur un modèle Resource Manager est le plus souvent utile lors de la création d’une alerte pendant la création d’une ressource. Par exemple, vous pourriez souhaiter vous assurer qu’une règle « processeur > 80 % » est définie chaque fois que vous déployez une machine virtuelle. Pour ce faire, vous ajoutez la règle d’alerte en tant que ressource dans le tableau des ressources pour votre modèle de machine virtuelle et ajoutez une dépendance à l’aide de la propriété `dependsOn` de l’ID de ressource de machine virtuelle. Voici un exemple complet qui crée une machine virtuelle Windows et ajoute une alerte qui avertit les administrateurs d’abonnement lorsque l’utilisation du processeur dépasse 80 %.
+Une alerte sur un modèle Resource Manager est le plus souvent utile lors de la création d’une alerte pendant la création d’une ressource. Par exemple, vous pourriez souhaiter vous assurer qu’une règle « processeur > 80 % » est définie chaque fois que vous déployez une machine virtuelle. Pour ce faire, vous ajoutez la règle d’alerte en tant que ressource dans le tableau des ressources pour votre modèle de machine virtuelle et ajoutez une dépendance à l’aide de la propriété `dependsOn` de l’ID de ressource de machine virtuelle. Voici un exemple complet qui crée une machine virtuelle Windows et ajoute une alerte qui avertit les administrateurs d’abonnement lorsque l’utilisation du processeur dépasse 80 %.
 
 ```json
 {
@@ -401,10 +397,8 @@ Une alerte sur un modèle Resource Manager est le plus souvent utile lors de la 
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [En savoir plus sur les alertes](./insights-receive-alert-notifications.md)
-- [Ajout de paramètres de diagnostic](./monitoring-enable-diagnostic-logs-using-template.md) à votre modèle Resource Manager
-
-
+* [En savoir plus sur les alertes](../azure-portal/insights-receive-alert-notifications.md)
+* [Ajout de paramètres de diagnostic](monitoring-enable-diagnostic-logs-using-template.md) à votre modèle Resource Manager
 
 <!--HONumber=Oct16_HO2-->
 

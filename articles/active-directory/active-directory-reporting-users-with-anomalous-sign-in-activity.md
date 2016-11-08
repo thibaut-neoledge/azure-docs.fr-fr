@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Utilisateurs ayant une activité de connexion anormale"
-	description="Un rapport indiquant tous les comptes d’utilisateurs pour lesquels une activité de connexion anormale a été identifiée."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="gchander"
-	editor=""/>
+---
+title: Utilisateurs ayant une activité de connexion anormale
+description: Un rapport indiquant tous les comptes d’utilisateurs pour lesquels une activité de connexion anormale a été identifiée.
+services: active-directory
+documentationcenter: ''
+author: SSalahAhmed
+manager: gchander
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/04/2016
+ms.author: saah;kenhoff
 
+---
 # Utilisateurs ayant une activité de connexion anormale
 Il s’agit d’un rapport d’agrégation qui regroupe les connexions suspectes issues des rapports suivants :
 

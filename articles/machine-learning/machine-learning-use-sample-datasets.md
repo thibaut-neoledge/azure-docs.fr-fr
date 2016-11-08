@@ -1,24 +1,22 @@
-<properties
-	pageTitle="Utilisation des exemples de jeux de données dans Machine Learning Studio | Microsoft Azure"
-	description="Descriptions des jeux de données utilisés dans les exemples de modèles inclus dans ML Studio. Vous pouvez utiliser ces exemples de jeux de données pour vos expériences."
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Utilisation des exemples de jeux de données dans Machine Learning Studio | Microsoft Docs
+description: Descriptions des jeux de données utilisés dans les exemples de modèles inclus dans ML Studio. Vous pouvez utiliser ces exemples de jeux de données pour vos expériences.
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="garye"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: garye
 
-
+---
 # Utilisation des exemples de jeux de données dans Azure Machine Learning Studio
-
 [top]: #machine-learning-sample-datasets
 
 Quand vous créez un espace de travail dans Azure Machine Learning, vous disposez par défaut d'un certain nombre d'exemples de jeux de données et d'expériences. Plusieurs de ces exemples de jeu de données sont utilisés par les exemples de modèles dans la [galerie Azure Cortana Intelligence](http://gallery.cortanaintelligence.com/), tandis que d’autres illustrent les différents types de données utilisés en général dans l’apprentissage automatique.
@@ -27,15 +25,13 @@ Certains de ces jeux de données sont disponibles dans le stockage d'objets blob
 
 Les autres exemples de jeux de données sont répertoriés sous **Jeux de données enregistrés** dans la palette de modules à gauche du canevas de l'expérience quand vous ouvrez ou créez une expérience dans ML Studio. Vous pouvez utiliser un de ces jeux de données dans votre propre expérience en le faisant glisser sur le canevas de l'expérience.
 
-
 <!--
 For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments][sample-experiments].
 
 [sample-experiments]: machine-learning-sample-experiments.md
 -->
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 <table>
 

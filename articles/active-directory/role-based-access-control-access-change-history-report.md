@@ -1,44 +1,43 @@
-<properties
-	pageTitle="Créer un rapport d’historique des modifications d’accès | Microsoft Azure"
-	description="Générez un rapport qui répertorie toutes les modifications d’accès à vos abonnements Azure avec contrôle d’accès basé sur les rôles au cours des 90 derniers jours."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor=""/>
+---
+title: Créer un rapport d’historique des modifications d’accès | Microsoft Docs
+description: Générez un rapport qui répertorie toutes les modifications d’accès à vos abonnements Azure avec contrôle d’accès basé sur les rôles au cours des 90 derniers jours.
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/03/2016"
-	ms.author="kgremban"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 08/03/2016
+ms.author: kgremban
 
+---
 # Créer un rapport d’historique des modifications d’accès
-
 Chaque fois qu’un utilisateur autorise ou interdit l’accès dans vos abonnements, les modifications sont consignées dans les événements Azure. Vous pouvez créer des rapports d’historique de modification d’accès pour voir toutes les modifications apportées au cours des 90 derniers jours.
 
-## Créer un rapport avec Azure PowerShell
+## Créer un rapport avec Azure PowerShell
 Pour créer un rapport d’historique des modifications d’accès dans PowerShell, utilisez la commande `Get-AzureRMAuthorizationChangeLog`. Vous trouverez plus d'informations sur cette applet de commande dans la [Galerie PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/1.0.6/Content/ResourceManagerStartup.ps1).
 
 Lorsque vous appelez cette commande, vous pouvez spécifier quelle propriété des affectations répertorier, y compris les suivantes :
 
 | Propriété | Description |
-| -------- | ----------- |
-| **Action** | Si l’accès a été autorisé ou interdit |
-| **Appelant** | Le propriétaire responsable de la modification d’accès |
-| **Date** | La date et l’heure de la modification d’accès |
-| **DirectoryName** | Le répertoire Azure Active Directory |
-| **PrincipalName** | Le nom de l’utilisateur, du groupe ou de l’application |
-| **PrincipalType** | Si l’affectation était pour un utilisateur, un groupe ou une application |
-| **RoleId** | Le GUID du rôle qui a été accordé ou refusé |
-| **RoleName** | Le rôle qui a été accordé ou refusé |
-| **ScopeName** | Le nom de l’abonnement, du groupe de ressources ou de la ressource |
-| **ScopeType** | Si l’étendue de l’affectation était au niveau de l’abonnement, du groupe de ressources ou de la ressource |
-| **SubscriptionId** | Le GUID de l’abonnement Azure |
-| **SubscriptionName** | Le nom de l’abonnement Azure |
+| --- | --- |
+| **Action** |Si l’accès a été autorisé ou interdit |
+| **Appelant** |Le propriétaire responsable de la modification d’accès |
+| **Date** |La date et l’heure de la modification d’accès |
+| **DirectoryName** |Le répertoire Azure Active Directory |
+| **PrincipalName** |Le nom de l’utilisateur, du groupe ou de l’application |
+| **PrincipalType** |Si l’affectation était pour un utilisateur, un groupe ou une application |
+| **RoleId** |Le GUID du rôle qui a été accordé ou refusé |
+| **RoleName** |Le rôle qui a été accordé ou refusé |
+| **ScopeName** |Le nom de l’abonnement, du groupe de ressources ou de la ressource |
+| **ScopeType** |Si l’étendue de l’affectation était au niveau de l’abonnement, du groupe de ressources ou de la ressource |
+| **SubscriptionId** |Le GUID de l’abonnement Azure |
+| **SubscriptionName** |Le nom de l’abonnement Azure |
 
 Cet exemple de commande répertorie toutes les modifications d’accès de l’abonnement au cours des sept derniers jours :
 
@@ -57,7 +56,7 @@ Pour enregistrer le rapport ou manipuler les données, exportez les modification
 ![ChangeLog affiché en tant que feuille de calcul - capture d’écran](./media/role-based-access-control-configure/change-history-spreadsheet.png)
 
 ## Voir aussi
-- Prise en main du [contrôle d’accès basé sur les rôles Azure](role-based-access-control-configure.md)
-- Utilisation des [rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](role-based-access-control-custom-roles.md)
+* Prise en main du [contrôle d’accès basé sur les rôles Azure](role-based-access-control-configure.md)
+* Utilisation des [rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](role-based-access-control-custom-roles.md)
 
 <!---HONumber=AcomDC_0810_2016-->

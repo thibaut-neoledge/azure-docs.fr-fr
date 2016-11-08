@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Intégration Reach du SDK iOS Azure Mobile Engagement | Microsoft Azure"
-    description="Dernières mises à jour et procédures du Kit de développement logiciel (SDK) iOS pour Azure Mobile Engagement"
-    services="mobile-engagement"
-    documentationCenter="mobile"
-    authors="piyushjo"
-    manager="erikre"
-    editor="" />
+---
+title: Intégration Reach du SDK iOS Azure Mobile Engagement | Microsoft Docs
+description: Dernières mises à jour et procédures du Kit de développement logiciel (SDK) iOS pour Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: mobile
+author: piyushjo
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="mobile-engagement"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-ios"
-    ms.devlang="objective-c"
-    ms.topic="article"
-    ms.date="09/14/2016"
-    ms.author="piyushjo" />
+ms.service: mobile-engagement
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-ios
+ms.devlang: objective-c
+ms.topic: article
+ms.date: 09/14/2016
+ms.author: piyushjo
 
-
-#<a name="how-to-integrate-engagement-reach-on-ios"></a>Comment intégrer Engagement Reach sur iOS
-
+---
+# <a name="how-to-integrate-engagement-reach-on-ios"></a>Comment intégrer Engagement Reach sur iOS
 Vous devez suivre la procédure d'intégration décrite dans la procédure [Intégration d'Engagement sur un document iOS](mobile-engagement-ios-integrate-engagement.md) avant de suivre ce guide.
 
 Cette documentation nécessite XCode 8. Si vous dépendez vraiment de XCode 7, vous pouvez utiliser [iOS SDK Engagement v3.2.4](https://aka.ms/r6oouh). Il existe un bogue connu concernant cette version précédente quand elle est exécutée sur des appareils iOS 10 : les notifications système ne sont pas activées. Pour corriger ce problème, vous devez implémenter l’API déconseillée `application:didReceiveRemoteNotification:` dans votre délégué d’application comme suit :
@@ -29,87 +27,77 @@ Cette documentation nécessite XCode 8. Si vous dépendez vraiment de XCode 7, v
         [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
     }
 
-> [AZURE.IMPORTANT] **Nous ne recommandons pas cette solution de contournement** : ce comportement peut changer dans une prochaine mise à niveau (même mineure) de la version iOS car cette API iOS est déconseillée. Vous devriez passer à XCode 8 dès que possible.
+> [!IMPORTANT]
+> **Nous ne recommandons pas cette solution de contournement** : ce comportement peut changer dans une prochaine mise à niveau (même mineure) de la version iOS car cette API iOS est déconseillée. Vous devriez passer à XCode 8 dès que possible.
+> 
+> 
 
 ### <a name="enable-your-app-to-receive-silent-push-notifications"></a>Activer votre application pour recevoir des notifications Push Silent
+[!INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
 
-[AZURE.INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
-
-##<a name="integration-steps"></a>Étapes d'intégration
-
+## <a name="integration-steps"></a>Étapes d'intégration
 ### <a name="embed-the-engagement-reach-sdk-into-your-ios-project"></a>Incorporez le Kit de développement logiciel (SDK) Engagement Reach dans votre projet iOS
-
--   Ajoutez le Kit de développement logiciel (SDK) Reach dans votre projet Xcode. Dans Xcode, accédez à **Projet \> Ajouter au projet** et choisissez le dossier `EngagementReach`.
+* Ajoutez le Kit de développement logiciel (SDK) Reach dans votre projet Xcode. Dans Xcode, accédez à **Projet \> Ajouter au projet** et choisissez le dossier `EngagementReach`.
 
 ### <a name="modify-your-application-delegate"></a>Modifier votre délégué d'Application
-
--   En haut de votre fichier d'implémentation, importez le module Engagement Reach :
-
+* En haut de votre fichier d'implémentation, importez le module Engagement Reach :
+  
+      [...]
+      #import "AEReachModule.h"
+* Dans la méthode `applicationDidFinishLaunching:` ou `application:didFinishLaunchingWithOptions:`, créez un module Reach et transmettez-le à la ligne d'initialisation d’Engagement existante :
+  
+      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
+        [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}" modules:reach, nil];
         [...]
-        #import "AEReachModule.h"
-
--   Dans la méthode `applicationDidFinishLaunching:` ou `application:didFinishLaunchingWithOptions:`, créez un module Reach et transmettez-le à la ligne d'initialisation d’Engagement existante :
-
-        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-          AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
-          [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}" modules:reach, nil];
-          [...]
-
-          return YES;
-        }
-
--   Modifiez la chaîne **icon.png** avec le nom de l'image que vous souhaitez en tant qu'icône de notification.
--   Si vous voulez utiliser l’option *Update badge value*dans des campagnes Reach ou si vous voulez utiliser des campagnes \<</SaaS/Reach API/Campaign format/Native Push>\> de type Push natives, vous devez laisser le module Reach gérer l’icône de badge lui-même (il efface automatiquement le badge de l’application et réinitialise également la valeur stockée par Engagement lors de chaque démarrage ou mise au premier plan de l’application). Pour cela, ajoutez la ligne suivante après l'initialisation de module Reach :
-
-        [reach setAutoBadgeEnabled:YES];
-
--   Si vous souhaitez gérer le Push des données Reach, vous devez laisser votre délégué d'application se conformer au protocole `AEReachDataPushDelegate` . Ajoutez la ligne suivante après l'initialisation de module Reach :
-
-        [reach setDataPushDelegate:self];
-
--   Vous pourrez ensuite implémenter les méthodes `onDataPushStringReceived:` et `onDataPushBase64ReceivedWithDecodedBody:andEncodedBody:` dans votre délégué d'application :
-
-        -(BOOL)didReceiveStringDataPushWithCategory:(NSString*)category body:(NSString*)body
-        {
-           NSLog(@"String data push message with category <%@> received: %@", category, body);
-           return YES;
-        }
-
-        -(BOOL)didReceiveBase64DataPushWithCategory:(NSString*)category decodedBody:(NSData *)decodedBody encodedBody:(NSString *)encodedBody
-        {
-           NSLog(@"Base64 data push message with category <%@> received: %@", category, encodedBody);
-           // Do something useful with decodedBody like updating an image view
-           return YES;
-        }
+  
+        return YES;
+      }
+* Modifiez la chaîne **icon.png** avec le nom de l'image que vous souhaitez en tant qu'icône de notification.
+* Si vous voulez utiliser l’option *Update badge value*dans des campagnes Reach ou si vous voulez utiliser des campagnes \<</SaaS/Reach API/Campaign format/Native Push>\> de type Push natives, vous devez laisser le module Reach gérer l’icône de badge lui-même (il efface automatiquement le badge de l’application et réinitialise également la valeur stockée par Engagement lors de chaque démarrage ou mise au premier plan de l’application). Pour cela, ajoutez la ligne suivante après l'initialisation de module Reach :
+  
+      [reach setAutoBadgeEnabled:YES];
+* Si vous souhaitez gérer le Push des données Reach, vous devez laisser votre délégué d'application se conformer au protocole `AEReachDataPushDelegate` . Ajoutez la ligne suivante après l'initialisation de module Reach :
+  
+      [reach setDataPushDelegate:self];
+* Vous pourrez ensuite implémenter les méthodes `onDataPushStringReceived:` et `onDataPushBase64ReceivedWithDecodedBody:andEncodedBody:` dans votre délégué d'application :
+  
+      -(BOOL)didReceiveStringDataPushWithCategory:(NSString*)category body:(NSString*)body
+      {
+         NSLog(@"String data push message with category <%@> received: %@", category, body);
+         return YES;
+      }
+  
+      -(BOOL)didReceiveBase64DataPushWithCategory:(NSString*)category decodedBody:(NSData *)decodedBody encodedBody:(NSString *)encodedBody
+      {
+         NSLog(@"Base64 data push message with category <%@> received: %@", category, encodedBody);
+         // Do something useful with decodedBody like updating an image view
+         return YES;
+      }
 
 ### <a name="category"></a>Catégorie
-
 Le paramètre de catégorie est facultatif lorsque vous créez une campagne d'envoi de données (push) et vous permet de filtrer les envois de données. Cela s’avère utile si vous souhaitez effectuer une transmission de type push pour différents types de données `Base64` et que vous souhaitez identifier leur type avant de les analyser.
 
-**Votre application est prête à recevoir et à afficher des contenus Reach !**
+**Votre application est prête à recevoir et à afficher des contenus Reach !**
 
-##<a name="how-to-receive-announcements-and-polls-at-any-time"></a>Réception des annonces et des sondages à tout moment
-
+## <a name="how-to-receive-announcements-and-polls-at-any-time"></a>Réception des annonces et des sondages à tout moment
 Engagement peut envoyer des notifications Reach à vos utilisateurs finaux à tout moment en utilisant le Service de Notifications Push Apple.
 
 Pour activer cette fonctionnalité, vous devrez préparer votre application pour les notifications Push Apple et modifier votre délégué d'application.
 
 ### <a name="prepare-your-application-for-apple-push-notifications"></a>Préparer votre application pour les notifications Push Apple
-
 Veuillez suivre le guide [Préparation de votre Application pour les notifications Push Apple](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
 
 ### <a name="add-the-necessary-client-code"></a>Ajoutez le code client nécessaire
-
 *À ce stade, votre application doit avoir un certificat Push Apple enregistré dans le serveur frontal d'Engagement.*
 
 Si ce n'est pas encore le cas, vous devez inscrire votre application afin de recevoir des notifications push.
 
 * Importez l’infrastructure de `User Notification` :
-
+  
         #import <UserNotifications/UserNotifications.h>
-
-* Ajoutez la ligne suivante au démarrage de votre application (en général, dans `application:didFinishLaunchingWithOptions:`) :
-
+* Ajoutez la ligne suivante au démarrage de votre application (en général, dans `application:didFinishLaunchingWithOptions:`) :
+  
         if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
         {
             if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
@@ -126,21 +114,24 @@ Si ce n'est pas encore le cas, vous devez inscrire votre application afin de rec
             [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         }
 
-Ensuite, vous devez fournir à Engagement le jeton de périphérique retourné par les serveurs Apple. Cette opération est effectuée dans la méthode appelée `application:didRegisterForRemoteNotificationsWithDeviceToken:` dans votre délégué d'application :
+Ensuite, vous devez fournir à Engagement le jeton de périphérique retourné par les serveurs Apple. Cette opération est effectuée dans la méthode appelée `application:didRegisterForRemoteNotificationsWithDeviceToken:` dans votre délégué d'application :
 
     - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
     {
         [[EngagementAgent shared] registerDeviceToken:deviceToken];
     }
 
-Enfin, vous devez informer le Kit de développement logiciel (SDK) Engagement lorsque votre application reçoit une notification à distance. Pour cela, appelez la méthode `applicationDidReceiveRemoteNotification:fetchCompletionHandler:` dans votre délégué d'application :
+Enfin, vous devez informer le Kit de développement logiciel (SDK) Engagement lorsque votre application reçoit une notification à distance. Pour cela, appelez la méthode `applicationDidReceiveRemoteNotification:fetchCompletionHandler:` dans votre délégué d'application :
 
     - (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
     {
         [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
     }
 
-> [AZURE.NOTE] La méthode ci-dessus est introduite dans iOS 7. Si vous ciblez iOS < 7, assurez-vous d'implémenter la méthode `application:didReceiveRemoteNotification:` dans votre délégué d'application et d'appeler `applicationDidReceiveRemoteNotification` sur EngagementAgent en transmettant nil au lieu de l'argument `handler` :
+> [!NOTE]
+> La méthode ci-dessus est introduite dans iOS 7. Si vous ciblez iOS < 7, assurez-vous d'implémenter la méthode `application:didReceiveRemoteNotification:` dans votre délégué d'application et d'appeler `applicationDidReceiveRemoteNotification` sur EngagementAgent en transmettant nil au lieu de l'argument `handler` :
+> 
+> 
 
     - (void)application:(UIApplication*)application
     didReceiveRemoteNotification:(NSDictionary*)userInfo
@@ -148,12 +139,13 @@ Enfin, vous devez informer le Kit de développement logiciel (SDK) Engagement lo
         [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
     }
 
-> [AZURE.IMPORTANT] Par défaut, Engagement Reach contrôle le completionHandler. Si vous souhaitez répondre manuellement au bloc `handler` de votre code, vous pouvez utiliser nil pour l’argument `handler` et contrôler le bloc de fin vous-même. Consultez le type `UIBackgroundFetchResult` d'une liste de valeurs possibles.
-
+> [!IMPORTANT]
+> Par défaut, Engagement Reach contrôle le completionHandler. Si vous souhaitez répondre manuellement au bloc `handler` de votre code, vous pouvez utiliser nil pour l’argument `handler` et contrôler le bloc de fin vous-même. Consultez le type `UIBackgroundFetchResult` d'une liste de valeurs possibles.
+> 
+> 
 
 ### <a name="full-example"></a>Exemple complet
-
-Voici un exemple complet d'intégration :
+Voici un exemple complet d'intégration :
 
     #pragma mark -
     #pragma mark Application lifecycle
@@ -187,10 +179,9 @@ Voici un exemple complet d'intégration :
     }
 
 ### <a name="if-you-have-your-own-unusernotificationcenterdelegate-implementation"></a>Si vous disposez de votre propre implémentation de UNUserNotificationCenterDelegate
-
 Le Kit de développement logiciel (SDK) a également sa propre implémentation du protocole UNUserNotificationCenterDelegate. Elle est utilisée par le Kit de développement logiciel pour surveiller le cycle de vie des notifications Engagement sur les appareils iOS 10 ou version ultérieure. Si le Kit de développement logiciel détecte votre délégué, il n’utilisera pas sa propre implémentation car il ne peut y avoir qu’un seul délégué UNUserNotificationCenter par application. Cela signifie que vous devrez ajouter la logique Engagement à votre propre délégué.
 
-Il existe deux moyens de parvenir à cet objectif.
+Il existe deux moyens de parvenir à cet objectif.
 
 Simplement en transférant les appels de votre délégué vers le Kit de développement logiciel :
 
@@ -245,26 +236,25 @@ Ou en héritant de la classe `AEUserNotificationHandler`
 
     @end
 
-> [AZURE.NOTE] Vous pouvez déterminer si une notification provient ou non d’Engagement en passant son dictionnaire `userInfo` à la méthode de classe `isEngagementPushPayload:` de l’agent.
+> [!NOTE]
+> Vous pouvez déterminer si une notification provient ou non d’Engagement en passant son dictionnaire `userInfo` à la méthode de classe `isEngagementPushPayload:` de l’agent.
+> 
+> 
 
-##<a name="how-to-customize-campaigns"></a>Personnalisation des campagnes marketing
-
+## <a name="how-to-customize-campaigns"></a>Personnalisation des campagnes marketing
 ### <a name="notifications"></a>Notifications
-
-Il existe deux types de notifications : les notifications système et les notifications dans l'application.
+Il existe deux types de notifications : les notifications système et les notifications dans l'application.
 
 Les notifications système sont gérées par iOS et ne peuvent pas être personnalisées.
 
 Les notifications dans l'application sont constituées d'une vue qui est ajoutée dynamiquement à la fenêtre de l'application actuelle. Il s'agit d'une superposition de notification. Les superpositions de notification sont idéales pour une intégration rapide car vous n'avez pas à modifier les vues dans votre application.
 
 #### <a name="layout"></a>Disposition
-
 Pour modifier l'apparence de vos notifications dans l'application, il vous suffit de modifier le fichier `AENotificationView.xib` pour l'adapter à vos besoins, en veillant à conserver les valeurs des balises et les types de sous-vues existantes.
 
-Par défaut, les notifications dans l'application se trouvent en bas de l'écran. Si vous préférez les afficher en haut de l'écran, modifiez le `AENotificationView.xib` fourni et modifiez la propriété `AutoSizing` de la vue principale afin qu'elle puisse être conservée en haut de sa superview.
+Par défaut, les notifications dans l'application se trouvent en bas de l'écran. Si vous préférez les afficher en haut de l'écran, modifiez le `AENotificationView.xib` fourni et modifiez la propriété `AutoSizing` de la vue principale afin qu'elle puisse être conservée en haut de sa superview.
 
 #### <a name="categories"></a>Catégories
-
 Lorsque vous modifiez la disposition fournie, vous modifiez l'apparence de toutes vos notifications. Les catégories permettent de définir diverses recherches ciblées (et éventuellement des comportements) pour les notifications. Une catégorie peut être spécifiée lorsque vous créez une campagne Reach. N'oubliez pas que les catégories vous permettent également de personnaliser les annonces et les sondages, décrits plus avant dans ce document.
 
 Pour inscrire un gestionnaire de catégorie pour vos notifications, vous devez ajouter un appel lorsque le module Reach est initialisé.
@@ -273,11 +263,11 @@ Pour inscrire un gestionnaire de catégorie pour vos notifications, vous devez a
     [reach registerNotifier:myNotifier forCategory:@"my_category"];
     ...
 
-`myNotifier` doit être une instance d'un objet qui est conforme au protocole `AENotifier`.
+`myNotifier` doit être une instance d'un objet qui est conforme au protocole `AENotifier`.
 
-Vous pouvez implémenter les méthodes de protocole vous-même ou choisir d'implémenter à nouveau la classe `AEDefaultNotifier` existante qui effectue déjà l'essentiel du travail.
+Vous pouvez implémenter les méthodes de protocole vous-même ou choisir d'implémenter à nouveau la classe `AEDefaultNotifier` existante qui effectue déjà l'essentiel du travail.
 
-Par exemple, si vous souhaitez redéfinir la vue de notification pour une catégorie spécifique, vous pouvez suivre cet exemple :
+Par exemple, si vous souhaitez redéfinir la vue de notification pour une catégorie spécifique, vous pouvez suivre cet exemple :
 
     #import "AEDefaultNotifier.h"
     #import "AENotificationView.h"
@@ -295,82 +285,87 @@ Par exemple, si vous souhaitez redéfinir la vue de notification pour une catég
 
 Cet exemple simple de catégorie part du principe que vous possédez un fichier nommé `MyNotificationView.xib` dans votre offre groupée d'applications principale. Si la méthode n'est pas en mesure de trouver un `.xib`correspondant, la notification ne s'affichera pas et Engagement générera un message dans la console.
 
-Le fichier nib fourni doit respecter les règles suivantes :
+Le fichier nib fourni doit respecter les règles suivantes :
 
--   Il doit contenir une seule vue.
--   Les sous-vues doivent être du même type que celles qui se trouvent dans le fichier nib fourni nommé `AENotificationView.xib`
--   Les sous-vues doivent comporter les mêmes balises que celles qui se trouvent dans le fichier nib nommé `AENotificationView.xib`
+* Il doit contenir une seule vue.
+* Les sous-vues doivent être du même type que celles qui se trouvent dans le fichier nib fourni nommé `AENotificationView.xib`
+* Les sous-vues doivent comporter les mêmes balises que celles qui se trouvent dans le fichier nib nommé `AENotificationView.xib`
 
-> [AZURE.TIP] Copiez simplement le fichier nib fourni, nommé `AENotificationView.xib`, puis commencez à travailler. Attention, la vue à l'intérieur de ce fichier nib est associée à la classe `AENotificationView`. Cette classe a redéfini la méthode `layoutSubViews` pour déplacer et redimensionner ses sous-vues en fonction du contexte. Vous avez peut-être besoin de la remplacer par une `UIView` ou votre classe de vue personnalisée.
+> [!TIP]
+> Copiez simplement le fichier nib fourni, nommé `AENotificationView.xib`, puis commencez à travailler. Attention, la vue à l'intérieur de ce fichier nib est associée à la classe `AENotificationView`. Cette classe a redéfini la méthode `layoutSubViews` pour déplacer et redimensionner ses sous-vues en fonction du contexte. Vous avez peut-être besoin de la remplacer par une `UIView` ou votre classe de vue personnalisée.
+> 
+> 
 
-Si vous avez besoin de personnaliser davantage vos notifications (si vous souhaitez par exemple charger votre vue directement à partir du code), il est recommandé d'examiner le code source et la documentation de classe fournis de `Protocol ReferencesDefaultNotifier` et `AENotifier`.
+Si vous avez besoin de personnaliser davantage vos notifications (si vous souhaitez par exemple charger votre vue directement à partir du code), il est recommandé d'examiner le code source et la documentation de classe fournis de `Protocol ReferencesDefaultNotifier` et `AENotifier`.
 
 Notez que vous pouvez utiliser le même notificateur pour plusieurs catégories.
 
-Vous pouvez également redéfinir le notificateur par défaut comme suit :
+Vous pouvez également redéfinir le notificateur par défaut comme suit :
 
     AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
     [reach registerNotifier:myNotifier forCategory:kAEReachDefaultCategory];
 
 ##### <a name="notification-handling"></a>Gestion des notifications
+Lorsque vous utilisez la catégorie par défaut, certaines méthodes de cycle de vie sont appelées sur l'objet `AEReachContent` pour communiquer les statistiques et mettre à jour l'état de la campagne :
 
-Lorsque vous utilisez la catégorie par défaut, certaines méthodes de cycle de vie sont appelées sur l'objet `AEReachContent` pour communiquer les statistiques et mettre à jour l'état de la campagne :
+* Lorsque la notification est affichée dans l'application, la méthode `displayNotification` (qui fournit des statistiques) est appelée par `AEReachModule` si `handleNotification:` renvoie `YES`.
+* Si la notification est ignorée, la méthode `exitNotification` est appelée, les statistiques sont signalées et les campagnes suivantes peuvent alors être traitées.
+* En cas de clic sur la notification, `actionNotification` est appelée, les statistiques sont signalées et l'action associée est effectuée.
 
--   Lorsque la notification est affichée dans l'application, la méthode `displayNotification` (qui fournit des statistiques) est appelée par `AEReachModule` si `handleNotification:` renvoie `YES`.
--   Si la notification est ignorée, la méthode `exitNotification` est appelée, les statistiques sont signalées et les campagnes suivantes peuvent alors être traitées.
--   En cas de clic sur la notification, `actionNotification` est appelée, les statistiques sont signalées et l'action associée est effectuée.
+Si votre implémentation de `AENotifier` contourne le comportement par défaut, vous devez appeler ces méthodes de cycle de vie vous-même. Les exemples suivants illustrent certains cas dans lesquels le comportement par défaut est ignoré :
 
-Si votre implémentation de `AENotifier` contourne le comportement par défaut, vous devez appeler ces méthodes de cycle de vie vous-même. Les exemples suivants illustrent certains cas dans lesquels le comportement par défaut est ignoré :
+* Vous n'étendez pas `AEDefaultNotifier`, par exemple, vous avez implémenté la gestion des catégories à partir de zéro.
+* Vous avez substitué `prepareNotificationView:forContent:`, veillez à mapper au moins `onNotificationActioned` ou `onNotificationExited` sur l'un des contrôles de votre interface utilisateur.
 
--   Vous n'étendez pas `AEDefaultNotifier`, par exemple, vous avez implémenté la gestion des catégories à partir de zéro.
--   Vous avez substitué `prepareNotificationView:forContent:`, veillez à mapper au moins `onNotificationActioned` ou `onNotificationExited` sur l'un des contrôles de votre interface utilisateur.
-
-> [AZURE.WARNING] Si `handleNotification:` lève une exception, le contenu est supprimé et `drop` est appelé. Cela est signalé dans les statistiques et les campagnes suivantes peuvent maintenant être traitées.
+> [!WARNING]
+> Si `handleNotification:` lève une exception, le contenu est supprimé et `drop` est appelé. Cela est signalé dans les statistiques et les campagnes suivantes peuvent maintenant être traitées.
+> 
+> 
 
 #### <a name="include-notification-as-part-of-an-existing-view"></a>Incluez des notifications dans le cadre d'une vue existante
-
 Les superpositions sont idéales pour une intégration rapide mais peuvent parfois ne pas être pratiques ou avoir des effets secondaires indésirables.
 
 Si vous n'êtes pas satisfait du système de superposition de certains de vos affichages, vous pouvez le personnaliser pour ces affichages.
 
-Vous pouvez décider d'inclure notre disposition de notifications dans vos affichages existants. Pour ce faire, il existe deux styles de mise en œuvre :
+Vous pouvez décider d'inclure notre disposition de notifications dans vos affichages existants. Pour ce faire, il existe deux styles de mise en œuvre :
 
-1.  Ajouter l'affichage de notification à l'aide d'Interface Builder
+1. Ajouter l'affichage de notification à l'aide d'Interface Builder
+   
+   * Ouvrez *Interface Builder*
+   * Placez un `UIView` 320 x 60 (ou 768 x 60 si vous êtes sur iPad) à l'endroit où vous souhaitez voir apparaître la notification
+   * Définissez la valeur de balise pour cette vue sur : **36822491**
+2. Ajoutez par programme l'affichage de notification. Ajoutez simplement le code suivant lors de l'initialisation de votre affichage :
+   
+       UIView* notificationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)]; //Replace x and y coordinate values to your needs.
+       notificationView.tag = NOTIFICATION_AREA_VIEW_TAG;
+       [self.view addSubview:notificationView];
 
-    -   Ouvrez *Interface Builder*
-    -   Placez un `UIView` 320 x 60 (ou 768 x 60 si vous êtes sur iPad) à l'endroit où vous souhaitez voir apparaître la notification
-    -   Définissez la valeur de balise pour cette vue sur : **36822491**
+La macro `NOTIFICATION_AREA_VIEW_TAG` se trouve dans `AEDefaultNotifier.h`.
 
-2.  Ajoutez par programme l'affichage de notification. Ajoutez simplement le code suivant lors de l'initialisation de votre affichage :
-
-        UIView* notificationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)]; //Replace x and y coordinate values to your needs.
-        notificationView.tag = NOTIFICATION_AREA_VIEW_TAG;
-        [self.view addSubview:notificationView];
-
-La macro `NOTIFICATION_AREA_VIEW_TAG` se trouve dans `AEDefaultNotifier.h`.
-
-> [AZURE.NOTE] Le notificateur par défaut détecte automatiquement que la disposition de notification est incluse dans cet affichage et nr lui ajoute pas de superposition.
+> [!NOTE]
+> Le notificateur par défaut détecte automatiquement que la disposition de notification est incluse dans cet affichage et nr lui ajoute pas de superposition.
+> 
+> 
 
 ### <a name="announcements-and-polls"></a>Annonces et sondages
-
 #### <a name="layouts"></a>Mises en forme
-
-Vous pouvez modifier les fichiers `AEDefaultAnnouncementView.xib` et `AEDefaultPollView.xib` tant que vous conservez les valeurs des balises et les types de sous-vues existantes.
+Vous pouvez modifier les fichiers `AEDefaultAnnouncementView.xib` et `AEDefaultPollView.xib` tant que vous conservez les valeurs des balises et les types de sous-vues existantes.
 
 #### <a name="categories"></a>Catégories
-
 ##### <a name="alternate-layouts"></a>Autres dispositions
-
 Telles que les notifications, catégorie de la campagne peut être utilisée pour que les autres dispositions pour vos annonces et les sondages.
 
-Pour créer une catégorie d'annonce, vous devez étendre **AEAnnouncementViewController** et l'enregistrer lorsque le module Reach a été initialisé :
+Pour créer une catégorie d'annonce, vous devez étendre **AEAnnouncementViewController** et l'enregistrer lorsque le module Reach a été initialisé :
 
     AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
     [reach registerAnnouncementController:[MyCustomAnnouncementViewController class] forCategory:@"my_category"];
 
-> [AZURE.NOTE] Chaque fois qu’un utilisateur clique sur une notification pour une annonce avec la catégorie « my\_category », votre contrôleur d’affichage inscrit (dans ce cas, `MyCustomAnnouncementViewController`) est initialisé en appelant la méthode `initWithAnnouncement:` et l’affichage est ajouté à la fenêtre de l’application actuelle.
+> [!NOTE]
+> Chaque fois qu’un utilisateur clique sur une notification pour une annonce avec la catégorie « my\_category », votre contrôleur d’affichage inscrit (dans ce cas, `MyCustomAnnouncementViewController`) est initialisé en appelant la méthode `initWithAnnouncement:` et l’affichage est ajouté à la fenêtre de l’application actuelle.
+> 
+> 
 
-Dans votre implémentation de la classe `AEAnnouncementViewController`, vous devez lire la propriété `announcement` pour initialiser vos sous-vues. Prenons l'exemple ci-dessous, dans lequel deux étiquettes sont initialisées à l'aide des propriétés `title` et `body` de la classe `AEReachAnnouncement` :
+Dans votre implémentation de la classe `AEAnnouncementViewController`, vous devez lire la propriété `announcement` pour initialiser vos sous-vues. Prenons l'exemple ci-dessous, dans lequel deux étiquettes sont initialisées à l'aide des propriétés `title` et `body` de la classe `AEReachAnnouncement` :
 
     -(void)loadView
     {
@@ -388,23 +383,25 @@ Dans votre implémentation de la classe `AEAnnouncementViewController`, vous de
         [self.view addSubview:bodyLabel];
     }
 
-Si vous ne souhaitez pas charger vos affichages vous-même, mais que vous souhaitez simplement réutiliser la disposition de l'affichage des annonces par défaut, il vous suffit de faire en sorte que votre contrôleur d'affichage personnalisé étende la classe fournie `AEDefaultAnnouncementViewController`. Dans ce cas, dupliquez le fichier nib `AEDefaultAnnouncementView.xib` et renommez-le afin qu'il puisse être chargé par votre contrôleur d'affichage personnalisé (pour un contrôleur nommé `CustomAnnouncementViewController`, vous devez appeler votre fichier nib `CustomAnnouncementView.xib`).
+Si vous ne souhaitez pas charger vos affichages vous-même, mais que vous souhaitez simplement réutiliser la disposition de l'affichage des annonces par défaut, il vous suffit de faire en sorte que votre contrôleur d'affichage personnalisé étende la classe fournie `AEDefaultAnnouncementViewController`. Dans ce cas, dupliquez le fichier nib `AEDefaultAnnouncementView.xib` et renommez-le afin qu'il puisse être chargé par votre contrôleur d'affichage personnalisé (pour un contrôleur nommé `CustomAnnouncementViewController`, vous devez appeler votre fichier nib `CustomAnnouncementView.xib`).
 
 Pour remplacer la catégorie par défaut des annonces, il vous suffit d'enregistrer votre contrôleur d'affichage personnalisé pour la catégorie définie dans `kAEReachDefaultCategory`:
 
     [reach registerAnnouncementController:[MyCustomAnnouncementViewController class] forCategory:kAEReachDefaultCategory];
 
-Les sondages peuvent être personnalisés de la même manière :
+Les sondages peuvent être personnalisés de la même manière :
 
     AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
     [reach registerPollController:[MyCustomPollViewController class] forCategory:@"my_category"];
 
-Cette fois, les `MyCustomPollViewController` fournis doivent étendre `AEPollViewController`. Vous pouvez également choisir d'étendre à partir du contrôleur par défaut : `AEDefaultPollViewController`.
+Cette fois, les `MyCustomPollViewController` fournis doivent étendre `AEPollViewController`. Vous pouvez également choisir d'étendre à partir du contrôleur par défaut : `AEDefaultPollViewController`.
 
-> [AZURE.IMPORTANT] N'oubliez pas d'appeler `action` (`submitAnswers:` pour les contrôleurs d'affichage personnalisé de sondage) ou la méthode `exit` avant que le contrôleur d'affichage ne soit ignoré. Dans le cas contraire, les statistiques ne seront pas envoyées (c'est-à-dire aucune analyse de la campagne) et surtout, les campagnes suivantes ne recevront pas de notification avant que le processus de l'application soit redémarré.
+> [!IMPORTANT]
+> N'oubliez pas d'appeler `action` (`submitAnswers:` pour les contrôleurs d'affichage personnalisé de sondage) ou la méthode `exit` avant que le contrôleur d'affichage ne soit ignoré. Dans le cas contraire, les statistiques ne seront pas envoyées (c'est-à-dire aucune analyse de la campagne) et surtout, les campagnes suivantes ne recevront pas de notification avant que le processus de l'application soit redémarré.
+> 
+> 
 
 ##### <a name="implementation-example"></a>Exemple d'implémentation
-
 Dans cette implémentation, l'affichage d'annonces personnalisé est chargé à partir d'un fichier xib externe.
 
 Comme pour la personnalisation de notification avancée, il est recommandé d'examiner le code source de l'implémentation standard.

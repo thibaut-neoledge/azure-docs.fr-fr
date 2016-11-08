@@ -1,55 +1,51 @@
-<properties
-   pageTitle="Gestion de conteneur Azure Container Service via l’interface utilisateur web | Microsoft Azure"
-   description="Déployez des conteneurs dans un cluster Azure Container Service à l’aide de l’interface utilisateur web Marathon."
-   services="container-service"
-   documentationCenter=""
-   authors="neilpeterson"
-   manager="timlt"
-   editor=""
-   tags="acs, azure-container-service"
-   keywords="Docker, conteneurs, micro-services, Mesos, Azure"/>
+---
+title: Gestion de conteneur Azure Container Service via l’interface utilisateur web | Microsoft Docs
+description: Déployez des conteneurs dans un cluster Azure Container Service à l’aide de l’interface utilisateur web Marathon.
+services: container-service
+documentationcenter: ''
+author: neilpeterson
+manager: timlt
+editor: ''
+tags: acs, azure-container-service
+keywords: Docker, conteneurs, micro-services, Mesos, Azure
 
-<tags
-   ms.service="container-service"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/19/2016"
-   ms.author="nepeters"/>
+ms.service: container-service
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/19/2016
+ms.author: nepeters
 
+---
 # Gestion des conteneurs via l’interface utilisateur web
-
 DC/OS offre un environnement de déploiement et de mise à l’échelle des charges de travail en cluster tout en faisant abstraction du matériel sous-jacent. DC/OS sous-tend une infrastructure qui gère la planification et l’exécution des charges de travail de calcul.
 
 Bien qu’il existe des infrastructures pour de nombreuses charges de travail courantes, ce document décrit la création et la mise à l’échelle des déploiements de conteneurs avec Marathon. Avant d’étudier ces exemples, vous devez disposer d’un cluster DC/OS configuré dans Azure Container Service. Vous devez également disposer d’une connectivité à distance à ce cluster. Pour plus d’informations sur ces éléments, voir les articles suivants :
 
-- [Déploiement d’un cluster Azure Container Service](container-service-deployment.md)
-- [Connexion à un cluster Azure Container Service](container-service-connect.md)
+* [Déploiement d’un cluster Azure Container Service](container-service-deployment.md)
+* [Connexion à un cluster Azure Container Service](container-service-connect.md)
 
 ## Exploration de l’interface utilisateur de DC/OS
-
 Créez un tunnel SSH (Secure Shell), puis accédez à http://localhost/. Cela charge l’interface utilisateur web de DC/OS et affiche des informations sur le cluster, notamment les ressources utilisées, les agents actifs, et les services en cours d’exécution.
 
 ![IU DC/OS](media/dcos/dcos2.png)
 
 ## Découverte de l’interface utilisateur Marathon
-
 Pour afficher l’interface utilisateur Marathon, accédez à http://localhost/Marathon. À partir de cet écran, vous pouvez démarrer un nouveau conteneur ou une autre application sur le cluster DC/OS d’Azure Container Service. Vous pouvez également voir des informations sur les conteneurs et les applications en cours d’exécution.
 
 ![IU Marathon](media/dcos/dcos3.png)
 
 ## Déployer un conteneur au format Docker
-
 Pour déployer un nouveau conteneur à l’aide de Marathon, cliquez sur le bouton **Créer une application** et entrez les informations suivantes dans le formulaire :
 
-Champ | Valeur
-----------------|-----------
-ID | nginx
-Image | nginx
-Réseau | Relié par un pont
-Port de l’hôte | 80
-Protocole | TCP
+| Champ | Valeur |
+| --- | --- |
+| ID |nginx |
+| Image |nginx |
+| Réseau |Relié par un pont |
+| Port de l’hôte |80 |
+| Protocole |TCP |
 
 ![Nouvelle interface utilisateur d’application : général](media/dcos/dcos4.png)
 
@@ -82,7 +78,6 @@ Vous pouvez également voir le nœud du cluster sur lequel la tâche est exécut
 ![IU web DC/OS : nœud du cluster de tâche](media/dcos/dcos9.png)
 
 ## Mettre vos conteneurs à l’échelle
-
 L’IU de Marathon peut servir à augmenter ou diminuer le nombre d’instances d’un conteneur. Pour ce faire, accédez à la page de **Marathon**, sélectionnez le conteneur que vous souhaitez mettre à l’échelle, puis cliquez sur le bouton **Mettre à l’échelle**. Dans la fenêtre **Mettre à l’échelle l’application**, entrez le nombre d’instances de conteneur de votre choix et sélectionnez **Mettre à l’échelle l’application**.
 
 ![IU de Marathon : boîte de dialogue Mettre à l’échelle l’application](media/dcos/dcos10.png)
@@ -94,11 +89,12 @@ Une fois l’opération de mise à l’échelle terminée, plusieurs instances d
 ![IU web DC/OS : nœuds](media/dcos/dcos12.png)
 
 ## Étapes suivantes
-
-- [Utilisation de DC/OS et de l’API Marathon](container-service-mesos-marathon-rest.md)
+* [Utilisation de DC/OS et de l’API Marathon](container-service-mesos-marathon-rest.md)
 
 Deep dive on the Azure Container Service with Mesos (Présentation détaillée d’Azure Container Service avec Mesos)
 
 > [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
+> 
+> 
 
 <!---HONumber=AcomDC_0921_2016-->

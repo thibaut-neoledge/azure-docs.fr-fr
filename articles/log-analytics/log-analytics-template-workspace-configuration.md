@@ -1,59 +1,54 @@
 
 
-<properties
-    pageTitle="Utiliser des modèles Azure Resource Manager pour créer et configurer un espace de travail Log Analytics | Microsoft Azure"
-    description="Vous pouvez utiliser des modèles Azure Resource Manager pour créer et configurer des espaces de travail Log Analytics."
-    services="log-analytics"
-    documentationCenter=""
-    authors="richrundmsft"
-    manager="jochan"
-    editor=""/>
+---
+title: Utiliser des modèles Azure Resource Manager pour créer et configurer un espace de travail Log Analytics | Microsoft Docs
+description: Vous pouvez utiliser des modèles Azure Resource Manager pour créer et configurer des espaces de travail Log Analytics.
+services: log-analytics
+documentationcenter: ''
+author: richrundmsft
+manager: jochan
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="json"
-    ms.topic="article"
-    ms.date="08/25/2016"
-    ms.author="richrund"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: json
+ms.topic: article
+ms.date: 08/25/2016
+ms.author: richrund
 
-
+---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gérer Log Analytics à l’aide de modèles Azure Resource Manager
+Vous pouvez utiliser des [modèles Azure Resource Manager](../resource-group-authoring-templates.md) pour créer et configurer des espaces de travail Log Analytics. Voici quelques exemples de tâches que vous pouvez effectuer avec des modèles :
 
-Vous pouvez utiliser des [modèles Azure Resource Manager] (../azure-resource-manager/resource-group-authoring-templates.md) pour créer et configurer des espaces de travail Log Analytics. Voici quelques exemples de tâches que vous pouvez effectuer avec des modèles :
-
-+ Créer un espace de travail
-+ Ajouter une solution
-+ Créer des recherches enregistrées
-+ Créer un groupe d’ordinateurs
-+ Activer la collecte de journaux IIS à partir d’ordinateurs sur lesquels l’agent Windows est installé
-+ Collecter les compteurs de performances d’ordinateurs Linux et Windows
-+ Collecter les événements de Syslog sur des ordinateurs Linux 
-+ Collecter les événements des journaux des événements Windows
-+ Collecter des journaux des événements personnalisés
-+ Ajouter l’agent Log Analytics à une machine virtuelle Azure
-+ Configurer Log Analytics pour indexer les données collectées à l’aide des diagnostics Azure
-
+* Créer un espace de travail
+* Ajouter une solution
+* Créer des recherches enregistrées
+* Créer un groupe d’ordinateurs
+* Activer la collecte de journaux IIS à partir d’ordinateurs sur lesquels l’agent Windows est installé
+* Collecter les compteurs de performances d’ordinateurs Linux et Windows
+* Collecter les événements de Syslog sur des ordinateurs Linux 
+* Collecter les événements des journaux des événements Windows
+* Collecter des journaux des événements personnalisés
+* Ajouter l’agent Log Analytics à une machine virtuelle Azure
+* Configurer Log Analytics pour indexer les données collectées à l’aide des diagnostics Azure
 
 Cet article fournit des exemples de modèle qui illustrent des opérations de configuration que vous pouvez effectuer à partir de modèles.
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Créer et configurer un espace de travail Log Analytics
+L’exemple de modèle suivant illustre comment :
 
-L’exemple de modèle suivant illustre comment :
-
-1.  Créer un espace de travail
-2.  Ajouter des solutions à l’espace de travail
-3.  Créer des recherches enregistrées
-4.  Créer un groupe d’ordinateurs
-5.  Activer la collecte de journaux IIS à partir d’ordinateurs sur lesquels l’agent Windows est installé
-6.  Collecter les compteurs de performances de disque logique d’ordinateurs Linux (% d’Inodes utilisés, Mo libres, % d’espace utilisé, Transferts disque/s, Lectures disque/s, Écritures disque/s)
-7.  Collecter les événements Syslog d’ordinateurs Linux
-8.  Collecter les événements d’erreur et d’avertissement du journal des événements d’application d’ordinateurs Windows
-9.  Collecter le compteur de performances Mo de mémoire disponible d’ordinateurs Windows
+1. Créer un espace de travail
+2. Ajouter des solutions à l’espace de travail
+3. Créer des recherches enregistrées
+4. Créer un groupe d’ordinateurs
+5. Activer la collecte de journaux IIS à partir d’ordinateurs sur lesquels l’agent Windows est installé
+6. Collecter les compteurs de performances de disque logique d’ordinateurs Linux (% d’Inodes utilisés, Mo libres, % d’espace utilisé, Transferts disque/s, Lectures disque/s, Écritures disque/s)
+7. Collecter les événements Syslog d’ordinateurs Linux
+8. Collecter les événements d’erreur et d’avertissement du journal des événements d’application d’ordinateurs Windows
+9. Collecter le compteur de performances Mo de mémoire disponible d’ordinateurs Windows
 10. Collecter un journal personnalisé 
 11. Collecter les journaux IIS et les journaux des événements Windows écrits par les diagnostics Azure dans un compte de stockage
-
 
 ```
 {
@@ -420,19 +415,16 @@ L’exemple de modèle suivant illustre comment :
 
 ```
 ### <a name="deploying-the-sample-template"></a>Déploiement de l’exemple de modèle
-
-Pour déployer l’exemple de modèle :
+Pour déployer l’exemple de modèle :
 
 1. Enregistrez l’exemple joint dans un fichier, par exemple `azuredeploy.json`. 
 2. Modifiez le modèle afin de disposer de la configuration souhaitée.
 3. Utilisez PowerShell ou la ligne de commande pour déployer le modèle.
 
 #### <a name="powershell"></a>PowerShell
-
 `New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json`
 
 #### <a name="command-line"></a>Ligne de commande
-
 ```
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
@@ -440,26 +432,18 @@ azure group deployment create <my-resource-group> <my-deployment-name> --Templat
 
 
 ## <a name="example-resource-manager-templates"></a>Exemples de modèles Azure Resource Manager
+La galerie de modèles de démarrage rapide Azure comprend plusieurs modèles pour Log Analytics, destinés aux opérations suivantes :
 
-La galerie de modèles de démarrage rapide Azure comprend plusieurs modèles pour Log Analytics, destinés aux opérations suivantes :
-
-+ [Déployer une machine virtuelle exécutant Windows avec l’extension de machine virtuelle Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
-+ [Déployer une machine virtuelle exécutant Linux avec l’extension de machine virtuelle Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
-+ [Analyser Azure Site Recovery à l’aide d’un espace de travail Log Analytics existant](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
-+ [Analyser les applications web Azure à l’aide d’un espace de travail Log Analytics existant](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-+ [Analyser SQL Azure à l’aide d’un espace de travail Log Analytics existant](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
-+ [Déployer un cluster Service Fabric et l’analyser avec un espace de travail Log Analytics existant](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
-+ [Déployer un cluster Service Fabric et créer un espace de travail Log Analytics pour le surveiller](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
-
+* [Déployer une machine virtuelle exécutant Windows avec l’extension de machine virtuelle Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
+* [Déployer une machine virtuelle exécutant Linux avec l’extension de machine virtuelle Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
+* [Analyser Azure Site Recovery à l’aide d’un espace de travail Log Analytics existant](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
+* [Analyser les applications web Azure à l’aide d’un espace de travail Log Analytics existant](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
+* [Analyser SQL Azure à l’aide d’un espace de travail Log Analytics existant](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
+* [Déployer un cluster Service Fabric et l’analyser avec un espace de travail Log Analytics existant](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
+* [Déployer un cluster Service Fabric et créer un espace de travail Log Analytics pour le surveiller](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-+ [Déployer des agents dans des machines virtuelles Azure en utilisant des modèles Resource Manager](log-analytics-azure-vm-extension.md)
-
-
-
-
-
+* [Déployer des agents dans des machines virtuelles Azure en utilisant des modèles Resource Manager](log-analytics-azure-vm-extension.md)
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,35 +1,31 @@
-<properties
- pageTitle="Limites et valeurs par défaut de Scheduler"
- description="Limites et valeurs par défaut de Scheduler"
- services="scheduler"
- documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
- editor=""/>
-<tags
- ms.service="scheduler"
- ms.workload="infrastructure-services"
- ms.tgt_pltfrm="na"
- ms.devlang="dotnet"
- ms.topic="article"
- ms.date="08/18/2016"
- ms.author="krisragh"/>
+---
+title: Limites et valeurs par défaut de Scheduler
+description: Limites et valeurs par défaut de Scheduler
+services: scheduler
+documentationcenter: .NET
+author: krisragh
+manager: dwrede
+editor: ''
 
+ms.service: scheduler
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 08/18/2016
+ms.author: krisragh
+
+---
 # Limites et valeurs par défaut de Scheduler
-
 ## Limitations, valeurs par défaut, limites et quotas de Scheduler
-
-[AZURE.INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
+[!INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
 ## L'en-tête x-ms-request-id
-
 Chaque requête adressée au service de Scheduler retourne un en-tête de réponse nommé **x-ms-request-id**. Cet en-tête contient une valeur opaque qui identifie de façon unique la requête.
 
 Si une requête échoue constamment et que vous avez vérifié qu'elle est formulée correctement, vous pouvez utiliser cette valeur pour signaler l'erreur à Microsoft. Dans votre rapport, incluez la valeur de x-ms-request-id, l’heure approximative de la requête, l’identificateur de l’abonnement, la collection de travaux et/ou la tâche et le type d’opération tenté par la requête.
 
 ## Voir aussi
-
-
  [Présentation d'Azure Scheduler](scheduler-intro.md)
 
  [Concepts, terminologie et hiérarchie d’entités d’Azure Scheduler](scheduler-concepts-terms.md)

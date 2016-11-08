@@ -1,29 +1,27 @@
-<properties
-	pageTitle="Requêtes de liste efficaces dans Azure Batch | Microsoft Azure"
-	description="Améliorez les performances en filtrant vos requêtes lorsque vous demandez des informations sur des entités Batch comme les pools, les travaux, les tâches et les nœuds de calcul."
-	services="batch"
-	documentationCenter=".net"
-	authors="mmacy"
-	manager="timlt"
-	editor="" />
+---
+title: Requêtes de liste efficaces dans Azure Batch | Microsoft Docs
+description: Améliorez les performances en filtrant vos requêtes lorsque vous demandez des informations sur des entités Batch comme les pools, les travaux, les tâches et les nœuds de calcul.
+services: batch
+documentationcenter: .net
+author: mmacy
+manager: timlt
+editor: ''
 
-<tags
-	ms.service="batch"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows"
-	ms.workload="big-compute"
-	ms.date="07/25/2016"
-	ms.author="marsma" />
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 07/25/2016
+ms.author: marsma
 
+---
 # Interroger efficacement le service Azure Batch
-
 Vous allez découvrir ici comment augmenter les performances de votre application Azure Batch en réduisant la quantité de données retournées par le service lorsque vous interrogez des travaux, des tâches et des nœuds de calcul à l’aide de la bibliothèque [.NET Batch][api_net].
 
 Presque toutes les applications Batch doivent effectuer un certain type de surveillance ou une autre opération qui interroge le service Batch, souvent à intervalles réguliers. Par exemple, pour déterminer s’il existe des tâches restant en file d’attente dans un travail, vous devez obtenir des données sur chaque tâche du travail. Pour déterminer l’état des nœuds dans le pool, vous devez obtenir des données sur chacun d’eux. Cet article explique comment exécuter ces types de requêtes de la manière la plus efficace.
 
 ## Respecter le niveau de détail
-
 Dans une application Batch de production, les entités telles que les travaux, les tâches et les nœuds de calcul peuvent se compter par milliers. L’obtention d’informations pour ces entités peut donc générer une grande quantité de données qui doivent être transférées du service vers votre application à chaque requête. En limitant le nombre d’éléments et le type d’informations retournés par une requête, vous pouvez augmenter la vitesse des requêtes et donc, les performances de votre application.
 
 Cet extrait de code de l’API [Batch.NET][api_net] répertorie *chaque* tâche associée à un travail, ainsi que *toutes* les propriétés de chaque tâche :
@@ -31,10 +29,10 @@ Cet extrait de code de l’API [Batch.NET][api_net] répertorie *chaque* tâche 
 ```csharp
 // Get a collection of all of the tasks and all of their properties for job-001
 IPagedEnumerable<CloudTask> allTasks =
-	batchClient.JobOperations.ListTasks("job-001");
+    batchClient.JobOperations.ListTasks("job-001");
 ```
 
-Toutefois, vous pouvez effectuer une requête de liste beaucoup plus efficace en lui appliquant un « niveau de détail ». Pour ce faire, fournissez un objet [ODATADetailLevel][odata] à la méthode [JobOperations.ListTasks][net_list_tasks]. Cet extrait de code renvoie simplement les propriétés d’identifiant, de ligne de commande et d’informations du nœud de calcul pour les tâches terminées uniquement :
+Toutefois, vous pouvez effectuer une requête de liste beaucoup plus efficace en lui appliquant un « niveau de détail ». Pour ce faire, fournissez un objet [ODATADetailLevel][odata] à la méthode [JobOperations.ListTasks][net_list_tasks]. Cet extrait de code renvoie simplement les propriétés d’identifiant, de ligne de commande et d’informations du nœud de calcul pour les tâches terminées uniquement :
 
 ```csharp
 // Configure an ODATADetailLevel specifying a subset of tasks and
@@ -45,61 +43,63 @@ detailLevel.SelectClause = "id,commandLine,nodeInfo";
 
 // Supply the ODATADetailLevel to the ListTasks method
 IPagedEnumerable<CloudTask> completedTasks =
-	batchClient.JobOperations.ListTasks("job-001", detailLevel);
+    batchClient.JobOperations.ListTasks("job-001", detailLevel);
 ```
 
 Si, dans l’exemple de scénario ci-dessus, les tâches associées au travail se comptent par milliers, les résultats de la deuxième requête seront généralement renvoyés bien plus rapidement que ceux de la première requête. Vous trouverez d’autres informations sur l’utilisation de l’objet ODATADetailLevel pour répertorier les éléments avec l’API .NET Batch [ci-dessous](#efficient-querying-in-batch-net).
 
-> [AZURE.IMPORTANT]
-Nous vous recommandons vivement de *toujours* fournir un objet ODATADetailLevel à vos appels de liste d’API .NET afin de garantir une efficacité et des performances maximales de votre application. En spécifiant un niveau de détail, vous pouvez réduire les délais de réponse du service Batch, améliorer le taux d’utilisation du réseau et réduire l’utilisation de la mémoire par les applications clientes.
+> [!IMPORTANT]
+> Nous vous recommandons vivement de *toujours* fournir un objet ODATADetailLevel à vos appels de liste d’API .NET afin de garantir une efficacité et des performances maximales de votre application. En spécifiant un niveau de détail, vous pouvez réduire les délais de réponse du service Batch, améliorer le taux d’utilisation du réseau et réduire l’utilisation de la mémoire par les applications clientes.
+> 
+> 
 
 ## Filtrer, sélectionner et développer
-
 Les API [.NET Batch][api_net] et [REST Batch][api_rest] permettent de réduire le nombre d’éléments retournés dans une liste, ainsi que la quantité d’informations retournées pour chacun d’eux. Pour ce faire, spécifiez des chaînes **filter**, **select** et **expand** lors de l’exécution des requêtes de liste.
 
 ### Filtre
 La chaîne filter est une expression permettant de réduire le nombre d’éléments renvoyés. Par exemple, vous pouvez répertorier uniquement les tâches en cours d’exécution pour un travail ou répertorier uniquement les nœuds de calcul prêts à exécuter des tâches.
 
-- Une chaîne filter se compose d’une ou de plusieurs expressions dont l’une se compose d’un nom de propriété, d’un opérateur et d’une valeur. Les propriétés spécifiables sont propres à chaque type d’entité que vous interrogez, de même que les opérateurs pris en charge pour chaque propriété.
-- Plusieurs expressions peuvent être combinées à l’aide des opérateurs logiques `and` et `or`.
-- Cet exemple de chaîne filter répertorie uniquement les tâches de « rendu » en cours d’exécution : `(state eq 'running') and startswith(id, 'renderTask')`.
+* Une chaîne filter se compose d’une ou de plusieurs expressions dont l’une se compose d’un nom de propriété, d’un opérateur et d’une valeur. Les propriétés spécifiables sont propres à chaque type d’entité que vous interrogez, de même que les opérateurs pris en charge pour chaque propriété.
+* Plusieurs expressions peuvent être combinées à l’aide des opérateurs logiques `and` et `or`.
+* Cet exemple de chaîne filter répertorie uniquement les tâches de « rendu » en cours d’exécution : `(state eq 'running') and startswith(id, 'renderTask')`.
 
 ### Sélectionnez
 La chaîne select limite les valeurs de la propriété retournée pour chaque élément. Vous spécifiez une liste de noms de propriétés, et seules ces valeurs de propriétés sont retournées pour les éléments dans les résultats de la requête.
 
-- Une chaîne select est constituée d’une liste de noms de propriétés séparés par des virgules. Vous pouvez spécifier une des propriétés pour le type d'entité que vous interrogez.
-- Cet exemple de chaîne select spécifie que seules trois valeurs de propriété doivent être retournées pour chaque tâche : `id, state, stateTransitionTime`.
+* Une chaîne select est constituée d’une liste de noms de propriétés séparés par des virgules. Vous pouvez spécifier une des propriétés pour le type d'entité que vous interrogez.
+* Cet exemple de chaîne select spécifie que seules trois valeurs de propriété doivent être retournées pour chaque tâche : `id, state, stateTransitionTime`.
 
 ### Développez
 La chaîne expand réduit le nombre d’appels d’API nécessaires pour obtenir certaines informations. Lorsque vous utilisez une chaîne expand, vous pouvez obtenir davantage d'informations sur chaque élément avec un seul appel d'API. Au lieu d'obtenir la liste des entités, puis de demander des informations pour chaque élément dans la liste, vous utilisez une chaîne expand pour obtenir les mêmes informations dans un seul appel d'API. Plus le nombre d'appels d'API est faible, plus les performances sont élevées.
 
-- De la même manière que la chaîne select, la chaîne expand détermine si certaines données doivent être incluses dans les résultats de la requête de liste.
-- La chaîne complète n’est prise en charge que lorsqu’elle est utilisée dans la liste des travaux, la planification de travaux, des tâches et des pools. Actuellement, elle ne prend en charge que les informations statistiques.
-- Quand toutes les propriétés sont requises et qu’aucune chaîne select n’est spécifiée, la chaîne expand *doit* être utilisée pour obtenir les informations statistiques. Si une chaîne select est utilisée pour obtenir un sous-ensemble de propriétés, la propriété `stats` peut alors être spécifiée dans la chaîne select. Il est alors inutile de spécifier la chaîne expand.
-- Cet exemple de chaîne expand spécifie que les informations statistiques doivent être retournées pour chaque élément de la liste : `stats`.
+* De la même manière que la chaîne select, la chaîne expand détermine si certaines données doivent être incluses dans les résultats de la requête de liste.
+* La chaîne complète n’est prise en charge que lorsqu’elle est utilisée dans la liste des travaux, la planification de travaux, des tâches et des pools. Actuellement, elle ne prend en charge que les informations statistiques.
+* Quand toutes les propriétés sont requises et qu’aucune chaîne select n’est spécifiée, la chaîne expand *doit* être utilisée pour obtenir les informations statistiques. Si une chaîne select est utilisée pour obtenir un sous-ensemble de propriétés, la propriété `stats` peut alors être spécifiée dans la chaîne select. Il est alors inutile de spécifier la chaîne expand.
+* Cet exemple de chaîne expand spécifie que les informations statistiques doivent être retournées pour chaque élément de la liste : `stats`.
 
-> [AZURE.NOTE] Lors de la construction de l’un des trois types de chaînes de requête (filter, select et expand), vous devez vous assurer que les noms de propriété et la casse correspondent à ceux de leurs homologues de l’API REST. Par exemple, lorsque vous utilisez la classe [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) .NET, vous devez spécifier **état** et non **État** même si la propriété .NET est [CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state). Consultez les tableaux ci-dessous pour connaître les mappages de propriété entre les API .NET et REST.
+> [!NOTE]
+> Lors de la construction de l’un des trois types de chaînes de requête (filter, select et expand), vous devez vous assurer que les noms de propriété et la casse correspondent à ceux de leurs homologues de l’API REST. Par exemple, lorsque vous utilisez la classe [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) .NET, vous devez spécifier **état** et non **État** même si la propriété .NET est [CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state). Consultez les tableaux ci-dessous pour connaître les mappages de propriété entre les API .NET et REST.
+> 
+> 
 
 ### Règles des chaînes filter, select et expand
-
-- Les noms des propriétés des chaînes filter, select et expand doivent être affichés comme dans l’API [Rest Batch][api_rest] et ce, même si vous utilisez la bibliothèque [.NET Batch][api_net].
-- Les noms de propriété respectent la casse contrairement aux valeurs de propriété.
-- Les chaînes de date/heure peuvent être d’un format ou de l’autre et doivent être précédées de `DateTime`.
-
-  - Exemple de format W3C-DTF : `creationTime gt DateTime'2011-05-08T08:49:37Z'`.
-  - Exemple de format RFC 1123 : `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`.
-- Les chaînes booléennes ont la valeur `true` ou `false`.
-- Si une propriété ou un opérateur non valide est spécifié, une erreur `400 (Bad Request)` se produit.
+* Les noms des propriétés des chaînes filter, select et expand doivent être affichés comme dans l’API [Rest Batch][api_rest] et ce, même si vous utilisez la bibliothèque [.NET Batch][api_net].
+* Les noms de propriété respectent la casse contrairement aux valeurs de propriété.
+* Les chaînes de date/heure peuvent être d’un format ou de l’autre et doivent être précédées de `DateTime`.
+  
+  * Exemple de format W3C-DTF : `creationTime gt DateTime'2011-05-08T08:49:37Z'`.
+  * Exemple de format RFC 1123 : `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`.
+* Les chaînes booléennes ont la valeur `true` ou `false`.
+* Si une propriété ou un opérateur non valide est spécifié, une erreur `400 (Bad Request)` se produit.
 
 ## Interrogation efficace dans Batch.NET
-
 Dans l’API [.NET Batch][api_net], la classe [ODATADetailLevel][odata] sert à fournir les chaînes filter, select et expand aux opérations de liste. La classe ODataDetailLevel possède trois propriétés de chaîne publiques qui peuvent être spécifiées dans le constructeur ou définies directement sur l'objet. Vous transmettez ensuite l’objet ODataDetailLevel en tant que paramètre à plusieurs opérations de liste comme [ListPools][net_list_pools], [ListJobs][net_list_jobs] et [ListTasks][net_list_tasks].
 
-- [ODATADetailLevel][odata].[FilterClause][odata_filter] \: limite le nombre d’éléments retournés.
-- [ODATADetailLevel][odata].[SelectClause][odata_select] \: spécifie les valeurs de propriété retournées avec chaque élément.
-- [ODATADetailLevel][odata].[ExpandClause][odata_expand] \: récupère les données de tous les éléments en utilisant un seul appel d’API et non des appels distincts pour chaque élément.
+* [ODATADetailLevel][odata].[FilterClause][odata_filter] \: limite le nombre d’éléments retournés.
+* [ODATADetailLevel][odata].[SelectClause][odata_select] \: spécifie les valeurs de propriété retournées avec chaque élément.
+* [ODATADetailLevel][odata].[ExpandClause][odata_expand] \: récupère les données de tous les éléments en utilisant un seul appel d’API et non des appels distincts pour chaque élément.
 
-L’extrait de code suivant utilise l’API .NET Batch pour interroger efficacement le service Batch pour les statistiques d’un ensemble spécifique de pools. Dans ce scénario, l’utilisateur de Batch comporte à la fois des pools de test et des pools de production. Les ID de pool de test sont précédés du préfixe « test » et les ID de production sont précédés de « prod ». Dans l’extrait de code, *myBatchClient* est une instance initialisée correctement de la classe [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient).
+L’extrait de code suivant utilise l’API .NET Batch pour interroger efficacement le service Batch pour les statistiques d’un ensemble spécifique de pools. Dans ce scénario, l’utilisateur de Batch comporte à la fois des pools de test et des pools de production. Les ID de pool de test sont précédés du préfixe « test » et les ID de production sont précédés de « prod ». Dans l’extrait de code, *myBatchClient* est une instance initialisée correctement de la classe [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient).
 
 ```csharp
 // First we need an ODATADetailLevel instance on which to set the filter, select,
@@ -124,77 +124,73 @@ detailLevel.ExpandClause = "stats";
 // Now get our collection of pools, minimizing the amount of data that is returned
 // by specifying the detail level that we configured above
 List<CloudPool> testPools =
-	await myBatchClient.PoolOperations.ListPools(detailLevel).ToListAsync();
+    await myBatchClient.PoolOperations.ListPools(detailLevel).ToListAsync();
 ```
 
-> [AZURE.TIP] Une instance de [ODATADetailLevel][odata] configurée avec les clauses Select et Expand peut également être transmise aux méthodes Get appropriées telles que [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx) pour limiter la quantité de données retournées.
+> [!TIP]
+> Une instance de [ODATADetailLevel][odata] configurée avec les clauses Select et Expand peut également être transmise aux méthodes Get appropriées telles que [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx) pour limiter la quantité de données retournées.
+> 
+> 
 
 ## Mappages entre les API Batch REST et .NET
-
 Les noms de propriété dans les chaînes filter, select et expand *doivent* refléter leurs homologues dans l’API REST, aussi bien au niveau du nom que de la casse. Les tableaux ci-dessous fournissent les correspondances existant entre les homologues .NET et REST.
 
 ### Mappages pour les chaînes filter
-
-- **Méthodes de liste .NET** : chacune des méthodes de l’API .NET de cette colonne accepte un objet [ODATADetailLevel][odata] en tant que paramètre.
-- **Requêtes de liste REST** : chaque page de l’API REST de cette colonne contient une table spécifiant les propriétés et les opérations autorisées dans les chaînes *filter*. Vous devez utiliser ces noms de propriétés et ces opérations lors de la construction d’une chaîne [ODATADetailLevel.FilterClause][odata_filter].
+* **Méthodes de liste .NET** : chacune des méthodes de l’API .NET de cette colonne accepte un objet [ODATADetailLevel][odata] en tant que paramètre.
+* **Requêtes de liste REST** : chaque page de l’API REST de cette colonne contient une table spécifiant les propriétés et les opérations autorisées dans les chaînes *filter*. Vous devez utiliser ces noms de propriétés et ces opérations lors de la construction d’une chaîne [ODATADetailLevel.FilterClause][odata_filter].
 
 | Méthodes de liste .NET | Requêtes de liste REST |
-|---|---|
-| [CertificateOperations.ListCertificates][net_list_certs] | [Création de la liste des certificats dans un compte][rest_list_certs]
-| [CloudTask.ListNodeFiles][net_list_task_files] | [Création de la liste des fichiers associés à une tâche][rest_list_task_files]
-| [JobOperations.ListJobPreparationAndReleaseTaskStatus][net_list_jobprep_status] | [Création de la liste des états de préparation du travail et des tâches de version de travail pour un travail][rest_list_jobprep_status]
-| [JobOperations.ListJobs][net_list_jobs] | [Création de la liste des tâches dans un compte][rest_list_jobs]
-| [JobOperations.ListNodeFiles][net_list_nodefiles] | [Création de la liste des fichiers sur un nœud][rest_list_nodefiles]
-| [JobOperations.ListTasks][net_list_tasks] | [Création de la liste des tâches associées à un travail][rest_list_tasks]
-| [JobScheduleOperations.ListJobSchedules][net_list_job_schedules] | [Création de la liste des planifications de travaux dans un compte][rest_list_job_schedules]
-| [JobScheduleOperations.ListJobs][net_list_schedule_jobs] | [Création de la liste des tâches associées à une planification de travail][rest_list_schedule_jobs]
-| [PoolOperations.ListComputeNodes][net_list_compute_nodes] | [Création de la liste des nœuds de calcul dans un pool][rest_list_compute_nodes]
-| [PoolOperations.ListPools][net_list_pools] | [création de la liste des pools d'un compte][rest_list_pools]
+| --- | --- |
+| [CertificateOperations.ListCertificates][net_list_certs] |[Création de la liste des certificats dans un compte][rest_list_certs] |
+| [CloudTask.ListNodeFiles][net_list_task_files] |[Création de la liste des fichiers associés à une tâche][rest_list_task_files] |
+| [JobOperations.ListJobPreparationAndReleaseTaskStatus][net_list_jobprep_status] |[Création de la liste des états de préparation du travail et des tâches de version de travail pour un travail][rest_list_jobprep_status] |
+| [JobOperations.ListJobs][net_list_jobs] |[Création de la liste des tâches dans un compte][rest_list_jobs] |
+| [JobOperations.ListNodeFiles][net_list_nodefiles] |[Création de la liste des fichiers sur un nœud][rest_list_nodefiles] |
+| [JobOperations.ListTasks][net_list_tasks] |[Création de la liste des tâches associées à un travail][rest_list_tasks] |
+| [JobScheduleOperations.ListJobSchedules][net_list_job_schedules] |[Création de la liste des planifications de travaux dans un compte][rest_list_job_schedules] |
+| [JobScheduleOperations.ListJobs][net_list_schedule_jobs] |[Création de la liste des tâches associées à une planification de travail][rest_list_schedule_jobs] |
+| [PoolOperations.ListComputeNodes][net_list_compute_nodes] |[Création de la liste des nœuds de calcul dans un pool][rest_list_compute_nodes] |
+| [PoolOperations.ListPools][net_list_pools] |[création de la liste des pools d'un compte][rest_list_pools] |
 
 ### Mappages pour les chaînes select
-
-- **Types .NET Batch** : types d’API .NET Batch.
-- **Entités de l’API REST** : chaque page de cette colonne contient une ou plusieurs tables qui répertorient les noms des propriétés de l’API REST correspondant au type. Ces noms de propriétés sont utilisés lorsque vous construisez des chaînes *select*. Vous devez utiliser ces mêmes noms de propriétés lors de la construction d’une chaîne [ODATADetailLevel.SelectClause][odata_select].
+* **Types .NET Batch** : types d’API .NET Batch.
+* **Entités de l’API REST** : chaque page de cette colonne contient une ou plusieurs tables qui répertorient les noms des propriétés de l’API REST correspondant au type. Ces noms de propriétés sont utilisés lorsque vous construisez des chaînes *select*. Vous devez utiliser ces mêmes noms de propriétés lors de la construction d’une chaîne [ODATADetailLevel.SelectClause][odata_select].
 
 | Types Batch .NET | Entités de l’API REST |
-|---|---|
-| [Certificat][net_cert] | [Obtenir des informations sur un certificat][rest_get_cert] |
-| [CloudJob][net_job] | [Obtenir des informations sur un travail][rest_get_job] |
-| [CloudJobSchedule][net_schedule] | [Obtenir des informations sur la planification d’un travail][rest_get_schedule] |
-| [ComputeNode][net_node] | [Obtenir des informations sur un nœud][rest_get_node] |
-| [CloudPool][net_pool] | [Obtenir des informations sur un pool][rest_get_pool] |
-| [CloudTask][net_task] | [Obtenir des informations sur une tâche][rest_get_task] |
+| --- | --- |
+| [Certificat][net_cert] |[Obtenir des informations sur un certificat][rest_get_cert] |
+| [CloudJob][net_job] |[Obtenir des informations sur un travail][rest_get_job] |
+| [CloudJobSchedule][net_schedule] |[Obtenir des informations sur la planification d’un travail][rest_get_schedule] |
+| [ComputeNode][net_node] |[Obtenir des informations sur un nœud][rest_get_node] |
+| [CloudPool][net_pool] |[Obtenir des informations sur un pool][rest_get_pool] |
+| [CloudTask][net_task] |[Obtenir des informations sur une tâche][rest_get_task] |
 
 ## Exemple : Construire une chaîne filter
-
 Lors de la construction d’une chaîne filter pour [ODATADetailLevel.FilterClause][odata_filter], consultez le tableau ci-dessous sous « Mappages pour les chaînes filter » pour rechercher la page de documentation de l’API REST correspondant à l’opération de liste que vous souhaitez effectuer. Vous trouverez les propriétés filtrables et leurs opérateurs pris en charge dans le premier tableau à plusieurs lignes de cette page. Si vous souhaitez récupérer toutes les tâches ayant un code de sortie non nul. Par exemple, cette ligne de [Création de la liste des tâches associées à un travail][rest_list_tasks] spécifie la chaîne de propriétés applicable et les opérateurs autorisés :
 
 | Propriété | Opérations autorisées | Type |
-| :--- | :--- | :--- |
-| `executionInfo/exitCode` | `eq, ge, gt, le , lt` | `Int` |
+|:--- |:--- |:--- |
+| `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
-Par conséquent, la chaîne filter permettant de répertorier toutes les tâches dont le code de sortie serait autre que nul serait :
+Par conséquent, la chaîne filter permettant de répertorier toutes les tâches dont le code de sortie serait autre que nul serait :
 
 `(executionInfo/exitCode lt 0) or (executionInfo/exitCode gt 0)`
 
 ## Exemple : Construire une chaîne select
-
-Pour construire une clause [ODATADetailLevel.SelectClause][odata_select], consultez le tableau qui précède sous « Mappages pour les chaînes select » et accédez à la page de l’API REST correspondant au type d’entité que vous répertoriez. Vous trouverez les propriétés sélectionnables et leurs opérateurs pris en charge dans le premier tableau à plusieurs lignes de cette page. Si, par exemple, vous souhaitez récupérer uniquement l’ID et la ligne de commande pour chaque tâche dans une liste, vous trouverez ces lignes dans le tableau correspondant sur [Obtenir des informations sur une tâche][rest_get_task] :
+Pour construire une clause [ODATADetailLevel.SelectClause][odata_select], consultez le tableau qui précède sous « Mappages pour les chaînes select » et accédez à la page de l’API REST correspondant au type d’entité que vous répertoriez. Vous trouverez les propriétés sélectionnables et leurs opérateurs pris en charge dans le premier tableau à plusieurs lignes de cette page. Si, par exemple, vous souhaitez récupérer uniquement l’ID et la ligne de commande pour chaque tâche dans une liste, vous trouverez ces lignes dans le tableau correspondant sur [Obtenir des informations sur une tâche][rest_get_task] :
 
 | Propriété | Type | Remarques |
-| :--- | :--- | :--- |
-| `id` | `String` | `The ID of the task.` |
-| `commandLine` | `String` | `The command line of the task.` |
+|:--- |:--- |:--- |
+| `id` |`String` |`The ID of the task.` |
+| `commandLine` |`String` |`The command line of the task.` |
 
-La chaîne select permettant d’inclure uniquement l’ID et la ligne de commande avec chaque tâche de la liste serait alors :
+La chaîne select permettant d’inclure uniquement l’ID et la ligne de commande avec chaque tâche de la liste serait alors :
 
 `id, commandLine`
 
 ## Exemples de code
-
 ### Exemple de code pour des requêtes de liste efficaces
-
-Découvrez l’exemple de projet [EfficientListQueries][efficient_query_sample] sur GitHub pour savoir comment une interrogation efficace de liste peut affecter les performances d’une application. Cette application de console C# crée et ajoute de nombreuses tâches à un travail. Ensuite, elle effectue plusieurs appels de la méthode [JobOperations.ListTasks][net_list_tasks] et transmet des objets [ODATADetailLevel][odata] configurés avec différentes valeurs de propriété pour faire varier la quantité de données à retourner. Vous générez ainsi des informations qui ressemblent à ce qui suit :
+Découvrez l’exemple de projet [EfficientListQueries][efficient_query_sample] sur GitHub pour savoir comment une interrogation efficace de liste peut affecter les performances d’une application. Cette application de console C# crée et ajoute de nombreuses tâches à un travail. Ensuite, elle effectue plusieurs appels de la méthode [JobOperations.ListTasks][net_list_tasks] et transmet des objets [ODATADetailLevel][odata] configurés avec différentes valeurs de propriété pour faire varier la quantité de données à retourner. Vous générez ainsi des informations qui ressemblent à ce qui suit :
 
 ```
 Adding 5000 tasks to job jobEffQuery...
@@ -213,7 +209,6 @@ Sample complete, hit ENTER to continue...
 Comme indiqué dans les temps écoulés, vous pouvez réduire de façon significative les temps de réponse de requête en limitant les propriétés et le nombre d’éléments retournés. Cet exemple et d’autres exemples de projet sont disponibles dans le référentiel [azure-batch-samples][github_samples] sur GitHub.
 
 ### Bibliothèque BatchMetrics et exemple de code
-
 Outre l’exemple de code EfficientListQueries ci-dessus, vous trouverez le projet [BatchMetrics][batch_metrics] dans le référentiel GitHub [azure-batch-samples][github_samples]. L’exemple de projet BatchMetrics montre comment surveiller efficacement la progression d’un travail Azure Batch à l’aide de l’API Batch.
 
 L’exemple [BatchMetrics][batch_metrics] inclut un projet de bibliothèque de classes .NET que vous pouvez incorporer dans vos propres projets ainsi qu’un programme de ligne de commande simple pour tester et démontrer l’utilisation de la bibliothèque.
@@ -236,15 +231,11 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 ```
 
 ## Étapes suivantes
-
 ### Tâches parallèles de nœud
-
 [Optimiser l’utilisation des ressources de calcul Azure Batch avec les tâches de nœud simultanées](batch-parallel-node-tasks.md) est un autre article lié aux performances des applications Batch. Certains types de charge de travail peuvent tirer parti de l’exécution de tâches parallèles sur des nœuds de calcul plus volumineux, mais moins nombreux. Découvrez [l’exemple de scénario](batch-parallel-node-tasks.md#example-scenario) de l’article pour en connaître les détails.
 
 ### Forum Azure Batch
-
 Le [forum Azure Batch][forum] sur MSDN est l’endroit idéal pour discuter de Batch et poser des questions sur le service. Consultez le forum pour obtenir des publications « permanentes » utiles et publiez les questions que vous vous posez pendant la création de vos solutions Batch.
-
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx

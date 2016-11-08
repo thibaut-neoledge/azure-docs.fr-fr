@@ -6,9 +6,9 @@ Vous pouvez utiliser le type **CloudStorageAccount** pour représenter vos infor
 
 Si vous créez une application sans référence pointant vers Microsoft.WindowsAzure.CloudConfigurationManager et que votre chaîne de connexion est située dans le fichier `web.config` ou `app.config` comme indiqué précédemment, vous pouvez utiliser **ConfigurationManager** pour récupérer la chaîne de connexion. Vous devez ajouter une référence pointant vers System.Configuration.dll à votre projet, ainsi qu’une autre déclaration d’espace de noms :
 
-	using System.Configuration;
-	...
-	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-		ConfigurationManager.AppSettings["StorageConnectionString"]);
+    using System.Configuration;
+    ...
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        ConfigurationManager.AppSettings["StorageConnectionString"]);
 
 <!---HONumber=AcomDC_0309_2016-->

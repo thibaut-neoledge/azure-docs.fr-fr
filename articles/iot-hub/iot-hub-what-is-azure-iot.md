@@ -1,31 +1,30 @@
-<properties
- pageTitle="Solutions Azure pour l’Internet des objets | Microsoft Azure"
- description="Une vue d’ensemble d’IoT sur Azure, avec un exemple d’architecture de solution et sa relation avec Azure IoT Hub, les Kits de développement logiciel et les solutions préconfigurées."
- services="iot-hub"
- documentationCenter=""
- authors="dominicbetts"
- manager="timlt"
- editor=""/>
+---
+title: Solutions Azure pour l’Internet des objets | Microsoft Docs
+description: Une vue d’ensemble d’IoT sur Azure, avec un exemple d’architecture de solution et sa relation avec Azure IoT Hub, les Kits de développement logiciel et les solutions préconfigurées.
+services: iot-hub
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="na"
- ms.topic="get-started-article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="10/05/2016"
- ms.author="dobett"/>
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/05/2016
+ms.author: dobett
 
-[AZURE.INCLUDE [iot-azure-et-iot](../../includes/iot-azure-and-iot.md)]
+---
+[!INCLUDE [iot-azure-et-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Étapes suivantes
-
 Azure IoT Hub est un service Azure qui autorise des communications bidirectionnelles sécurisées et fiables entre votre serveur d’applications principal et des millions d’appareils. Grâce à ce service, le serveur d’application principal peut :
 
-- Recevoir des données de télémétrie à grande échelle en provenance de vos appareils
-- Acheminer les données vers un processeur d’événements de flux
-- Recevoir des fichiers chargés par les appareils
-- Envoyer des commandes cloud-à-appareil à des appareils spécifiques
+* Recevoir des données de télémétrie à grande échelle en provenance de vos appareils
+* Acheminer les données vers un processeur d’événements de flux
+* Recevoir des fichiers chargés par les appareils
+* Envoyer des commandes cloud-à-appareil à des appareils spécifiques
 
 Vous pouvez utiliser IoT Hub pour implémenter votre propre serveur principal de solution. IoT Hub offre aussi un registre d’identités d’appareils qui permet de configurer des appareils, leurs informations d’identification et leurs droits de connexion au hub. Pour en savoir plus sur IoT Hub, consultez l’article [Qu’est-ce qu’IoT Hub ?][lnk-iot-hub].
 

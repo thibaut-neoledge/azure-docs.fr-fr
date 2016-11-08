@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Disponibilité des services Service Fabric | Microsoft Azure"
-   description="Décrit la détection des erreurs, le basculement et la récupération pour les services"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+---
+title: Disponibilité des services Service Fabric | Microsoft Docs
+description: Décrit la détection des erreurs, le basculement et la récupération pour les services
+services: service-fabric
+documentationcenter: .net
+author: appi101
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/10/2016"
-   ms.author="aprameyr"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/10/2016
+ms.author: aprameyr
 
+---
 # Disponibilité des services Service Fabric
 Les services Azure Service Fabric peuvent être avec ou sans état. Cet article offre une vue d'ensemble de la manière dont Service Fabric maintient la disponibilité d'un service en cas de défaillance.
 
@@ -38,16 +38,16 @@ Ce concept de réplica, qu’il soit principal ou secondaire actif, correspond a
 ### Rôles de réplica
 Le rôle d’un réplica est utilisé pour gérer le cycle de vie de l’état géré par ce réplica. Un réplica dont le rôle est principal traite les demandes de lecture. Il traite également les demandes d’écriture en mettant à jour son état et en répliquant les modifications sur les réplicas secondaires actifs dans son jeu de réplicas. Le rôle d’un réplica secondaire actif est de recevoir les modifications de l’état que le réplica principal a répliquées et de mettre à jour sa vue de l’état.
 
->[AZURE.NOTE] Les modèles de programmation de niveau supérieur tels que l’[infrastructure d’acteurs fiables](service-fabric-reliable-actors-introduction.md) clarifient le concept de rôle de réplica par rapport au développeur.
+> [!NOTE]
+> Les modèles de programmation de niveau supérieur tels que l’[infrastructure d’acteurs fiables](service-fabric-reliable-actors-introduction.md) clarifient le concept de rôle de réplica par rapport au développeur.
+> 
+> 
 
 ## Étapes suivantes
+Pour plus d’informations sur les concepts propres à Service Fabric, consultez les articles suivants :
 
-Pour plus d’informations sur les concepts propres à Service Fabric, consultez les articles suivants :
-
-- [Extensibilité des services Service Fabric](service-fabric-concepts-scalability.md)
-
-- [Partitionnement des services Service Fabric](service-fabric-concepts-partitioning.md)
-
-- [Définition et gestion de l'état](service-fabric-concepts-state.md)
+* [Extensibilité des services Service Fabric](service-fabric-concepts-scalability.md)
+* [Partitionnement des services Service Fabric](service-fabric-concepts-partitioning.md)
+* [Définition et gestion de l'état](service-fabric-concepts-state.md)
 
 <!---HONumber=AcomDC_0810_2016-->

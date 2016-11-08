@@ -1,25 +1,26 @@
-<properties
-   pageTitle="Vue d’ensemble de Service Fabric et des conteneurs | Microsoft Azure"
-   description="Voici une vue d’ensemble de Service Fabric et de la méthode à suivre pour déployer des applications de microservices au moyen de conteneurs. Cet article fournit une vue d’ensemble de l’utilisation de conteneurs et des fonctionnalités disponibles dans Service Fabric."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="msfussell"
-   manager=""
-   editor=""/>
+---
+title: Vue d’ensemble de Service Fabric et des conteneurs | Microsoft Docs
+description: Voici une vue d’ensemble de Service Fabric et de la méthode à suivre pour déployer des applications de microservices au moyen de conteneurs. Cet article fournit une vue d’ensemble de l’utilisation de conteneurs et des fonctionnalités disponibles dans Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: msfussell
+manager: ''
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/25/2016"
-   ms.author="msfussell"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/25/2016
+ms.author: msfussell
 
-
-# <a name="preview:-service-fabric-and-containers"></a>Aperçu : Service Fabric et conteneurs 
-
->[AZURE.NOTE] Cette fonctionnalité est disponible en version préliminaire pour Linux. Par contre, elle n’est pas disponible actuellement sur Windows Server. Elle sera proposée en version préliminaire sur Windows Server dans la version suivante de Service Fabric, après la disponibilité générale de Windows Server 2016. La version ultérieure devrait prendre cette fonctionnalité en charge.
+---
+# <a name="preview:-service-fabric-and-containers"></a>Aperçu : Service Fabric et conteneurs
+> [!NOTE]
+> Cette fonctionnalité est disponible en version préliminaire pour Linux. Par contre, elle n’est pas disponible actuellement sur Windows Server. Elle sera proposée en version préliminaire sur Windows Server dans la version suivante de Service Fabric, après la disponibilité générale de Windows Server 2016. La version ultérieure devrait prendre cette fonctionnalité en charge.
+> 
+> 
 
 ## <a name="introduction"></a>Introduction
 Service Fabric est un [orchestrateur](service-fabric-cluster-resource-manager-introduction.md) de services sur un cluster de machines. Les services peuvent être développés de nombreuses façons, via des [modèles de programmation de Service Fabric](service-fabric-choose-framework.md) ou via le déploiement d’[exécutables invités](service-fabric-deploy-existing-app.md). Par défaut, Service Fabric déploie et active ces services en tant que processus. Ces processus assurent l’activation la plus rapide et offrent la densité la plus élevée en matière de ressources dans le cluster. Service Fabric peut également déployer des services dans des images de conteneur. Remarque importante : vous pouvez mélanger les services dans des processus et dans des conteneurs au sein d’une même application. Selon votre scénario, vous obtenez le meilleur des deux mondes.
@@ -29,13 +30,10 @@ Les conteneurs sont des composants encapsulés et pouvant être déployés au ca
 
 La technologie d’un conteneur virtualise le système d’exploitation sous-jacent par rapport aux applications. Les conteneurs offrent un environnement immuable permettant aux applications de s’exécuter avec un certain degré d’isolation. Les conteneurs s’exécutent directement sur le noyau et disposent d’une vue isolée sur le système de fichiers et d’autres ressources. Par rapport aux machines virtuelles, les conteneurs présentent les avantages suivants :
 
-1.  **Une taille réduite** : les conteneurs utilisent un espace de stockage unique et des deltas plus petits pour chaque couche. Ils sont donc plus efficaces.
-
-2.  **Démarrage rapide** : les conteneurs n’ont pas besoin d’initialiser un système d’exploitation. Ils sont donc prêts plus rapidement que les machines virtuelles (en quelques secondes, généralement).
-
-3.  **Portabilité**: une image d’application en conteneur peut être portée de manière à s’exécuter sur le cloud ou sur site, à l’intérieur de machines virtuelles ou directement sur des machines physiques.
-
-4.  **Gouvernance des ressources** : le nombre de ressources physiques qu’un conteneur peut consommer sur son hôte est limité.
+1. **Une taille réduite** : les conteneurs utilisent un espace de stockage unique et des deltas plus petits pour chaque couche. Ils sont donc plus efficaces.
+2. **Démarrage rapide** : les conteneurs n’ont pas besoin d’initialiser un système d’exploitation. Ils sont donc prêts plus rapidement que les machines virtuelles (en quelques secondes, généralement).
+3. **Portabilité**: une image d’application en conteneur peut être portée de manière à s’exécuter sur le cloud ou sur site, à l’intérieur de machines virtuelles ou directement sur des machines physiques.
+4. **Gouvernance des ressources** : le nombre de ressources physiques qu’un conteneur peut consommer sur son hôte est limité.
 
 ## <a name="container-types"></a>Types de conteneur
 Service Fabric prend en charge les types de conteneur ci-après.
@@ -55,11 +53,7 @@ La figure suivante illustre les différents types de virtualisation et niveaux d
 Voici quelques exemples courants d’utilisation de conteneurs.
 
 1. **Opération lift-and-shift pour IIS**. Si vous voulez continuer à utiliser certaines applications MVC ASP.NET existantes, placez-les dans un conteneur plutôt que de les migrer vers une mémoire à tores magnétiques ASP. NET. Ces applications MVC ASP.NET dépendent de la fonction IIS. Vous pouvez empaqueter ces applications dans des images de conteneur à partir d’une image IIS créée au préalable, puis les déployer avec Service Fabric. Consultez la page [Images de conteneur sur Windows Server](https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/quick_start_images) portant sur la création d’images IIS.
-
-
 2. **Mélange de conteneurs et de microservices Service Fabric**. Utilisez une image de conteneur existante pour une partie de votre application. Par exemple, vous pouvez utiliser le [conteneur NGINX](https://hub.docker.com/_/nginx/) pour le système frontal web de votre application et les services avec état générés avec Reliable Services pour les calculs les plus intenses du back-end. Exemple : les applications de jeu.
-
-
 3. **Réduction de l’impact des services de « voisins bruyants »**. La capacité de gouvernance des ressources des conteneurs vous permet de limiter le nombre de ressources utilisées par un service sur un hôte. S’il existe des services susceptibles de consommer un grand nombre de ressources et, de ce fait, d’affecter les performances d’autres services (opération de type requête exécutée sur le long terme, par exemple), nous vous recommandons de les placer dans des conteneurs soumis à la gouvernance des ressources.
 
 ## <a name="service-fabric-support-for-containers"></a>Prise en charge des conteneurs par Service Fabric
@@ -67,22 +61,18 @@ Actuellement, Service Fabric prend en charge le déploiement de conteneurs Docke
 
 Dans le [modèle d’application](service-fabric-application-model.md)Service Fabric, un conteneur représente un hôte d’application sur lequel sont placés plusieurs réplicas de service. Les scénarios suivants sont pris en charge :
 
-1.  **Conteneurs d’invités** : le scénario correspondant est identique au [scénario des exécutables invités](service-fabric-deploy-existing-app.md), dans lequel vous pouvez déployer des applications existantes au sein d’un conteneur. Exemples : nodejs, javascript ou tout code (fichiers EXE).
-
-
-2.  **Services sans état au sein de conteneurs**: il s’agit de services sans état ayant recours aux modèles de programmation Reliable Actors et Reliable Services. Actuellement, cette fonctionnalité est uniquement prise en charge par Linux. La prise en charge des services sans état au sein de conteneurs Windows sera ajoutée ultérieurement.
-
- 
-3.  **Services avec état au sein de conteneurs**: il s’agit de services avec état ayant recours au modèle de programmation Reliable Actors sur Linux. Actuellement, les modèles Reliable Services ne sont pas pris en charge par Linux.  La prise en charge des services avec état au sein de conteneurs Windows sera ajoutée ultérieurement.
+1. **Conteneurs d’invités** : le scénario correspondant est identique au [scénario des exécutables invités](service-fabric-deploy-existing-app.md), dans lequel vous pouvez déployer des applications existantes au sein d’un conteneur. Exemples : nodejs, javascript ou tout code (fichiers EXE).
+2. **Services sans état au sein de conteneurs**: il s’agit de services sans état ayant recours aux modèles de programmation Reliable Actors et Reliable Services. Actuellement, cette fonctionnalité est uniquement prise en charge par Linux. La prise en charge des services sans état au sein de conteneurs Windows sera ajoutée ultérieurement.
+3. **Services avec état au sein de conteneurs**: il s’agit de services avec état ayant recours au modèle de programmation Reliable Actors sur Linux. Actuellement, les modèles Reliable Services ne sont pas pris en charge par Linux.  La prise en charge des services avec état au sein de conteneurs Windows sera ajoutée ultérieurement.
 
 Service Fabric dispose de plusieurs fonctionnalités de gestion des conteneurs, qui vous aident à créer des applications composées de microservices mis en conteneur. On parle de services en conteneur. Ces fonctionnalités sont les suivantes :
 
-- Activation et déploiement d’images de conteneur
-- Gouvernance des ressources
-- Authentification de référentiels
-- Mappage des ports de conteneur aux ports hôtes
-- Découverte et communication entre des conteneurs
-- Possibilité de configurer et de définir des variables d’environnement
+* Activation et déploiement d’images de conteneur
+* Gouvernance des ressources
+* Authentification de référentiels
+* Mappage des ports de conteneur aux ports hôtes
+* Découverte et communication entre des conteneurs
+* Possibilité de configurer et de définir des variables d’environnement
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris ce qu’était un conteneur. Vous savez désormais que Service Fabric est un orchestrateur de conteneurs et vous connaissez les fonctionnalités qu’il fournit pour la prise en charge des conteneurs. Nous allons désormais parcourir ces différentes fonctionnalités, afin de vous indiquer comment les utiliser. 

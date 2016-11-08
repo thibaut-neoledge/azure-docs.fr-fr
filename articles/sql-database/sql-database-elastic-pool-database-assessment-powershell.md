@@ -1,46 +1,45 @@
-<properties
-    pageTitle="Script PowerShell pour identifier les bases de données uniques adaptées à un pool | Microsoft Azure"
-    description="Un pool de bases de données élastique est un ensemble de ressources disponibles partagé par un groupe de bases de données élastiques. Ce document fournit un script PowerShell pour vous aider à évaluer la pertinence de l’utilisation d’un pool de bases de données élastique pour un groupe de bases de données."
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+---
+title: Script PowerShell pour identifier les bases de données uniques adaptées à un pool | Microsoft Docs
+description: Un pool de bases de données élastique est un ensemble de ressources disponibles partagé par un groupe de bases de données élastiques. Ce document fournit un script PowerShell pour vous aider à évaluer la pertinence de l’utilisation d’un pool de bases de données élastique pour un groupe de bases de données.
+services: sql-database
+documentationcenter: ''
+author: stevestein
+manager: jhubbard
+editor: ''
 
-<tags
-    ms.service="sql-database"
-    ms.devlang="NA"
-    ms.date="09/28/2016"
-    ms.author="sstein"
-    ms.workload="data-management"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"/>
+ms.service: sql-database
+ms.devlang: NA
+ms.date: 09/28/2016
+ms.author: sstein
+ms.workload: data-management
+ms.topic: article
+ms.tgt_pltfrm: NA
 
-
+---
 # <a name="powershell-script-for-identifying-databases-suitable-for-an-elastic-database-pool"></a>Script PowerShell pour identifier les bases de données adaptées à un pool de bases de données élastique
-
 L’exemple de script PowerShell de cet article estime les valeurs d’eDTU globales pour les bases de données utilisateur sur un serveur de base de données SQL. Le script collecte des données pendant son exécution et, pour une charge de travail de production classique, vous devez exécuter le script pendant au moins un jour. Dans l’idéal, vous exécutez le script pendant une durée correspondant à votre charge de travail habituelle en ce qui concerne les bases de données. Exécutez-le script suffisamment longtemps pour capturer les données correspondant à l’utilisation des bases de données en période normale et en période de pointe. L’exécution du script pendant une semaine ou même plus longtemps donnera probablement une estimation plus précise.
 
 Ce script est particulièrement utile pour évaluer les bases de données situées sur des serveurs v11, à migrer vers des serveurs v12 qui prennent en charge les pools. Sur les serveurs v12, SQL Database dispose d’une intelligence intégrée qui analyse la télémétrie de l’historique d’utilisation et recommande un pool quand cette solution s’avère plus rentable. Pour en savoir plus, consultez [Surveiller et gérer un pool de bases de données élastique avec le portail Azure](sql-database-elastic-pool-manage-portal.md).
 
-> [AZURE.IMPORTANT] Conservez la fenêtre PowerShell ouverte pendant l’exécution du script. Ne fermez pas la fenêtre PowerShell tant que vous n’avez pas exécuté le script pendant la durée nécessaire. 
+> [!IMPORTANT]
+> Conservez la fenêtre PowerShell ouverte pendant l’exécution du script. Ne fermez pas la fenêtre PowerShell tant que vous n’avez pas exécuté le script pendant la durée nécessaire. 
+> 
+> 
 
-## <a name="prerequisites"></a>Composants requis 
-
+## <a name="prerequisites"></a>Composants requis
 Installez les éléments suivants avant d’exécuter le script :
 
-- La dernière version de Microsoft Azure PowerShell. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
-- le [pack de fonctionnalités SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
+* La dernière version de Microsoft Azure PowerShell. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+* le [pack de fonctionnalités SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
 
 ## <a name="script-details"></a>Détails du script
-
 Vous pouvez exécuter le script à partir de votre ordinateur local ou d’un ordinateur virtuel sur le cloud. Lorsque vous l’exécutez à partir de votre ordinateur local, vous risquez de subir des frais de sortie de données, car le script a besoin de télécharger des données depuis vos bases de données cibles. Vous trouverez ci-dessous une estimation du volume de données en fonction du nombre de bases de données cibles et de la durée d’exécution du script. Pour les coûts de transfert de données Azure, consultez [Tarification - Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/).
-       
- -     1 base de données par heure = 38 Ko
- -     1 base de données par jour = 900 Ko
- -     1 base de données par semaine = 6 Mo
- -     100 bases de données par jour = 90 Mo
- -     500 bases de données par semaine = 3 Go
+
+* 1 base de données par heure = 38 Ko
+* 1 base de données par jour = 900 Ko
+* 1 base de données par semaine = 6 Mo
+* 100 bases de données par jour = 90 Mo
+* 500 bases de données par semaine = 3 Go
 
 Ce script ne compile pas d’informations sur les bases de données suivantes :
 
@@ -54,16 +53,14 @@ Le script a besoin d’une base de données de sortie pour stocker les données 
 Le script vous demande les informations d’identification lui permettant de se connecter au serveur cible (le candidat au pool de bases de données élastique) avec un nom de serveur complet comme <*nom_bd*>**.database.windows.net**. Le script ne prend pas en charge l’analyse de plusieurs serveurs à la fois.
 
 Après avoir soumis les valeurs du jeu de paramètres initial, vous êtes invité à vous connecter à votre compte Azure. Il s'agit de vous connecter à votre serveur cible, et non de vous connecter au serveur de la base de données de sortie.
-    
+
 Si vous rencontrez les avertissements suivants lors de l'exécution du script, vous pouvez les ignorer :
 
-- AVERTISSEMENT : l'applet de commande Switch-AzureMode est déconseillée.
-- AVERTISSEMENT : impossible d'obtenir des informations sur le service SQL Server. Une tentative de connexion à WMI sur « Microsoft.Azure.Commands.Sql.dll » a échoué avec l'erreur suivante : le serveur RPC n'est pas disponible.
+* AVERTISSEMENT : l'applet de commande Switch-AzureMode est déconseillée.
+* AVERTISSEMENT : impossible d'obtenir des informations sur le service SQL Server. Une tentative de connexion à WMI sur « Microsoft.Azure.Commands.Sql.dll » a échoué avec l'erreur suivante : le serveur RPC n'est pas disponible.
 
 Une fois le script terminé, il génère le nombre d’eDTU estimé nécessaire pour qu’un pool puisse contenir toutes les bases de données candidates sur le serveur cible. Ce nombre d’eDTU estimé permet de créer et de configurer le pool. Une fois le pool créé et les bases de données déplacées dans celui-ci, surveillez-le étroitement pendant quelques jours et ajustez la configuration de ses eDTU en fonction de vos besoins. Consultez [Surveiller, gérer et dimensionner un pool de bases de données élastique](sql-database-elastic-pool-manage-portal.md).
 
-
-    
 ```
 param (
 [Parameter(Mandatory=$true)][string]$AzureSubscriptionName, # Azure Subscription name - can be found on the Azure portal: https://portal.azure.com/
@@ -270,7 +267,7 @@ $data = Invoke-Sqlcmd -ServerInstance $outputServerName -Database $outputdatabas
 $data | %{'{0}' -f $_[0]}
 }
 ```
-        
+
 
 
 

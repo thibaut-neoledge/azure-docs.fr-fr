@@ -1,32 +1,30 @@
-<properties 
-    pageTitle="Création d’applications qui utilisent des rubriques et des abonnements Service Bus| Microsoft Azure"
-    description="Introduction aux fonctions publication-abonnement offertes par les abonnements et les rubriques de Service Bus."
-    services="service-bus"
-    documentationCenter="na"
-    authors="sethmanheim"
-    manager="timlt"
-    editor="" />
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="10/04/2016"
-    ms.author="sethm" />
+---
+title: Création d’applications qui utilisent des rubriques et des abonnements Service Bus| Microsoft Docs
+description: Introduction aux fonctions publication-abonnement offertes par les abonnements et les rubriques de Service Bus.
+services: service-bus
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
 
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/04/2016
+ms.author: sethm
 
+---
 # <a name="create-applications-that-use-service-bus-topics-and-subscriptions"></a>Création d’applications qui utilisent des rubriques et des abonnements Service Bus
-
-Azure Service Bus prend en charge un ensemble de technologies interlogicielles Cloud orientées messages, notamment une mise en file d'attente des messages fiable et une messagerie de publication/abonnement durable. Cet article s’appuie sur les informations fournies dans [Création d’applications qui utilisent les files d’attente Service Bus](service-bus-create-queues.md) et présente les fonctionnalités de publication/d’abonnement offertes par les rubriques Service Bus.
+Azure Service Bus prend en charge un ensemble de technologies interlogicielles Cloud orientées messages, notamment une mise en file d'attente des messages fiable et une messagerie de publication/abonnement durable. Cet article s’appuie sur les informations fournies dans [Création d’applications qui utilisent les files d’attente Service Bus](service-bus-create-queues.md) et présente les fonctionnalités de publication/d’abonnement offertes par les rubriques Service Bus.
 
 ## <a name="evolving-retail-scenario"></a>Scénario de vente au détail - La suite
+Cet article propose une suite du scénario de vente au détail décrit dans la rubrique [Création d’applications qui utilisent les files d’attente Service Bus](service-bus-create-queues.md). Souvenez-vous. Les données de vente recueillies à partir de terminaux de point de vente (PDV) doivent être acheminées vers un système de gestion des stocks. Celui-ci utilise ces données pour déterminer le moment où il est nécessaire de renouveler les stocks. Chaque terminal de PDV consigne ses données de vente en envoyant des messages à la file d’attente **DataCollectionQueue**, dans laquelle ils sont conservés jusqu’à ce qu’ils soient reçus par le système de gestion des stocks, comme illustré ici :
 
-Cet article propose une suite du scénario de vente au détail décrit dans la rubrique [Création d’applications qui utilisent les files d’attente Service Bus](service-bus-create-queues.md). Souvenez-vous. Les données de vente recueillies à partir de terminaux de point de vente (PDV) doivent être acheminées vers un système de gestion des stocks. Celui-ci utilise ces données pour déterminer le moment où il est nécessaire de renouveler les stocks. Chaque terminal de PDV consigne ses données de vente en envoyant des messages à la file d’attente **DataCollectionQueue**, dans laquelle ils sont conservés jusqu’à ce qu’ils soient reçus par le système de gestion des stocks, comme illustré ici :
+![Service Bus 1](./media/service-bus-create-topics-subscriptions/IC657161.gif)
 
-![Service Bus 1](./media/service-bus-create-topics-subscriptions/IC657161.gif)
-
-Pour faire évoluer ce scénario, une nouvelle exigence a été ajoutée au système : le propriétaire de la boutique aimerait surveiller les performances de son point de vente en temps réel.
+Pour faire évoluer ce scénario, une nouvelle exigence a été ajoutée au système : le propriétaire de la boutique aimerait surveiller les performances de son point de vente en temps réel.
 
 Pour répondre à cette exigence, le système doit puiser des informations dans le flux de données des ventes. Nous souhaitons conserver l'envoi systématique de chaque message provenant des terminaux de PDV vers le système de gestion des stocks, comme c'était le cas auparavant. En revanche, nous souhaitons créer une copie de chaque message pour l'utiliser dans une vue sous forme de tableau de bord à destination du propriétaire du magasin.
 
@@ -34,25 +32,23 @@ Dans tous les cas de ce type, quand chaque message doit être consommé par plus
 
 Les messages sont envoyés à une rubrique de la même façon qu’ils sont envoyés à une file d’attente. Toutefois, les messages ne sont pas reçus à partir de la rubrique directement ; ils sont reçus à partir des abonnements. Un abonnement à une rubrique ressemble à une file d’attente virtuelle qui reçoit des copies des messages envoyés à la rubrique en question. Les messages sont reçus à partir d’un abonnement identique de la même façon que ceux qui sont reçus de la file d’attente.
 
-Pour revenir au scénario de vente au détail, la file d’attente est remplacée par une rubrique et un abonnement est ajouté. Il sera utilisé par le composant du système de gestion des stocks. Le système se présente alors comme suit :
+Pour revenir au scénario de vente au détail, la file d’attente est remplacée par une rubrique et un abonnement est ajouté. Il sera utilisé par le composant du système de gestion des stocks. Le système se présente alors comme suit :
 
-![Service Bus 2](./media/service-bus-create-topics-subscriptions/IC657165.gif)
+![Service Bus 2](./media/service-bus-create-topics-subscriptions/IC657165.gif)
 
 La configuration ici se comporte comme la conception précédente basée sur la file d'attente. Autrement dit, les messages envoyés à la rubrique sont routés vers l’abonnement **Inventaire**, à partir duquel le **système de gestion des stocks** les consomme.
 
 Pour prendre en charge le tableau de bord de gestion, créons un second abonnement sur la rubrique, comme illustré ici :
 
-![Service Bus 3](./media/service-bus-create-topics-subscriptions/IC657166.gif)
+![Service Bus 3](./media/service-bus-create-topics-subscriptions/IC657166.gif)
 
 Avec cette configuration, chaque message provenant des terminaux de PDV est accessible à la fois aux abonnements **Tableau de bord** et **Inventaire**.
 
 ## <a name="show-me-the-code"></a>Afficher le code
-
-L’article [Création d’applications qui utilisent les files d’attente Service Bus](service-bus-create-queues.md) décrit comment s’inscrire pour obtenir un compte Azure et créer un espace de noms de service. Pour utiliser l'espace de noms Service Bus, une application doit référencer l'assembly Service Bus, et plus précisément le fichier Microsoft.ServiceBus.dll. Le moyen le plus simple pour référencer des dépendances Service Bus consiste à installer le [package Nuget](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) de Service Bus. Vous trouverez également l'assembly dans le kit de développement logiciel (SDK) d'Azure. Le téléchargement est disponible sur la [page de téléchargement du Kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/).
+L’article [Création d’applications qui utilisent les files d’attente Service Bus](service-bus-create-queues.md) décrit comment s’inscrire pour obtenir un compte Azure et créer un espace de noms de service. Pour utiliser l'espace de noms Service Bus, une application doit référencer l'assembly Service Bus, et plus précisément le fichier Microsoft.ServiceBus.dll. Le moyen le plus simple pour référencer des dépendances Service Bus consiste à installer le [package Nuget](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) de Service Bus. Vous trouverez également l'assembly dans le kit de développement logiciel (SDK) d'Azure. Le téléchargement est disponible sur la [page de téléchargement du Kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/).
 
 ### <a name="create-the-topic-and-subscriptions"></a>Créez la rubrique et les abonnements
-
-Les opérations de gestion des entités de messagerie Service Bus (rubriques files d’attente et publication/abonnement) sont effectuées via la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Des informations d’identification appropriées sont nécessaires pour créer une instance [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) pour un espace de noms particulier. Service Bus utilise un modèle de sécurité basé sur une [signature d’accès partagé (SAP)](service-bus-sas-overview.md). La classe [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) représente un fournisseur de jetons de sécurité dont les méthodes de fabrique intégrées renvoient des fournisseurs de jetons bien connus. Nous allons utiliser une méthode [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) pour retenir les informations d’identification SAP. L’instance [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) est ensuite créée avec l’adresse de base de l’espace de noms Service Bus et du fournisseur de jetons.
+Les opérations de gestion des entités de messagerie Service Bus (rubriques files d’attente et publication/abonnement) sont effectuées via la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Des informations d’identification appropriées sont nécessaires pour créer une instance [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) pour un espace de noms particulier. Service Bus utilise un modèle de sécurité basé sur une [signature d’accès partagé (SAP)](service-bus-sas-overview.md). La classe [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) représente un fournisseur de jetons de sécurité dont les méthodes de fabrique intégrées renvoient des fournisseurs de jetons bien connus. Nous allons utiliser une méthode [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) pour retenir les informations d’identification SAP. L’instance [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) est ensuite créée avec l’adresse de base de l’espace de noms Service Bus et du fournisseur de jetons.
 
 La classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) fournit des méthodes pour créer, énumérer et supprimer des entités de messagerie. Le code ci-dessous montre comment l’instance [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) est créée et utilisée pour créer la rubrique **DataCollectionTopic**.
 
@@ -60,10 +56,10 @@ La classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.
 Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", "test-blog", string.Empty);
 string name = "RootManageSharedAccessKey";
 string key = "abcdefghijklmopqrstuvwxyz";
-     
+
 TokenProvider tokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider(name, key);
 NamespaceManager namespaceManager = new NamespaceManager(uri, tokenProvider);
- 
+
 namespaceManager.CreateTopic("DataCollectionTopic");
 ```
 
@@ -75,8 +71,7 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard");
 ```
 
 ### <a name="send-messages-to-the-topic"></a>Envoyez des messages à la rubrique
-
-Pour des opérations d’exécution sur les entités Service Bus ; par exemple, pour l’envoi et la réception de messages, une application doit tout d’abord créer un objet [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx). Semblable à la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx), l’instance [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) est créée à partir de l’adresse de base de l’espace de noms et du fournisseur de jetons.
+Pour des opérations d’exécution sur les entités Service Bus ; par exemple, pour l’envoi et la réception de messages, une application doit tout d’abord créer un objet [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx). Semblable à la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx), l’instance [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) est créée à partir de l’adresse de base de l’espace de noms et du fournisseur de jetons.
 
 ```
 MessagingFactory factory = MessagingFactory.Create(uri, tokenProvider);
@@ -99,10 +94,9 @@ sender.Send(bm);
 ```
 
 ### <a name="receive-messages-from-a-subscription"></a>Réception des messages d’un abonnement
-
 Semblable à l’utilisation des files d’attente, pour recevoir des messages à partir d’un abonnement, vous pouvez utiliser un objet [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) que vous pouvez créer directement à partir de [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) à l’aide de [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx). Vous pouvez utiliser l’un des deux modes de réception (**ReceiveAndDelete** et **PeekLock**), comme indiqué dans [Création d’applications qui utilisent les files d’attente Service Bus](service-bus-create-queues.md).
 
-Notez que lorsque vous créez un [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) pour les abonnements, le paramètre *entityPath* se présente comme suit : `topicPath/subscriptions/subscriptionName`. Par conséquent, pour créer un [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) pour l’abonnement **Inventaire** de la rubrique **DataCollectionTopic**, *entityPath* doit être défini sur `DataCollectionTopic/subscriptions/Inventory`. Le code apparaît comme suit :
+Notez que lorsque vous créez un [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) pour les abonnements, le paramètre *entityPath* se présente comme suit : `topicPath/subscriptions/subscriptionName`. Par conséquent, pour créer un [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) pour l’abonnement **Inventaire** de la rubrique **DataCollectionTopic**, *entityPath* doit être défini sur `DataCollectionTopic/subscriptions/Inventory`. Le code apparaît comme suit :
 
 ```
 MessageReceiver receiver = factory.CreateMessageReceiver("DataCollectionTopic/subscriptions/Inventory");
@@ -119,14 +113,13 @@ catch (Exception e)
 ```
 
 ## <a name="subscription-filters"></a>Filtres d’abonnement
+Jusqu’ici, dans ce scénario, tous les messages envoyés à la rubrique sont rendus disponibles pour tous les abonnements inscrits. L'expression clé ici est « rendus disponibles ». Bien que les abonnements Service Bus voient tous les messages envoyés à la rubrique, vous pouvez uniquement copier un sous-ensemble de ces messages dans la file d’attente d’abonnement virtuelle. Pour ce faire, il faut utiliser des *filtres* d’abonnement. Lorsque vous créez un abonnement, vous pouvez fournir une expression de filtre sous la forme d’un prédicat de style SQL92 qui fonctionne avec les propriétés du message, à la fois les propriétés système (par exemple, [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)) et les propriétés de l’application, telles que **StoreName** dans l’exemple précédent.
 
-Jusqu’ici, dans ce scénario, tous les messages envoyés à la rubrique sont rendus disponibles pour tous les abonnements inscrits. L'expression clé ici est « rendus disponibles ». Bien que les abonnements Service Bus voient tous les messages envoyés à la rubrique, vous pouvez uniquement copier un sous-ensemble de ces messages dans la file d’attente d’abonnement virtuelle. Pour ce faire, il faut utiliser des *filtres* d’abonnement. Lorsque vous créez un abonnement, vous pouvez fournir une expression de filtre sous la forme d’un prédicat de style SQL92 qui fonctionne avec les propriétés du message, à la fois les propriétés système (par exemple, [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)) et les propriétés de l’application, telles que **StoreName** dans l’exemple précédent.
-
-Pour que le scénario de vente au détail soit plus complet et pour illustrer ce propos, nous allons ajouter un deuxième magasin. Les données de vente de tous les terminaux de PDV des deux magasins doivent toujours être acheminées vers le système de gestion des stocks central. En revanche, le directeur de chaque magasin, qui utilise l’outil de tableau de bord, souhaite visualiser uniquement les données qui concernent les performances de son magasin. Pour répondre à cette difficulté, vous pouvez utiliser un filtre d’abonnement. Remarque : lorsque les terminaux de PDV publient des messages, la propriété de l’application **StoreName** est définie dans le message. Prenons deux magasins, par exemple **Redmond** et **Seattle**. Les terminaux de PDV du magasin de Redmond estampillent leurs messages de données de ventes avec un **StoreName** égal à **Redmond**. Les terminaux de PDV du magasin de Seattle, quant à eux, utilisent un **StoreName** égal à **Seattle**. Le responsable de magasin de Redmond souhaite accéder uniquement aux données recueillies à partir de ses terminaux de PDV. Le système se présente comme suit :
+Pour que le scénario de vente au détail soit plus complet et pour illustrer ce propos, nous allons ajouter un deuxième magasin. Les données de vente de tous les terminaux de PDV des deux magasins doivent toujours être acheminées vers le système de gestion des stocks central. En revanche, le directeur de chaque magasin, qui utilise l’outil de tableau de bord, souhaite visualiser uniquement les données qui concernent les performances de son magasin. Pour répondre à cette difficulté, vous pouvez utiliser un filtre d’abonnement. Remarque : lorsque les terminaux de PDV publient des messages, la propriété de l’application **StoreName** est définie dans le message. Prenons deux magasins, par exemple **Redmond** et **Seattle**. Les terminaux de PDV du magasin de Redmond estampillent leurs messages de données de ventes avec un **StoreName** égal à **Redmond**. Les terminaux de PDV du magasin de Seattle, quant à eux, utilisent un **StoreName** égal à **Seattle**. Le responsable de magasin de Redmond souhaite accéder uniquement aux données recueillies à partir de ses terminaux de PDV. Le système se présente comme suit :
 
 ![Service-Bus4](./media/service-bus-create-topics-subscriptions/IC657167.gif)
 
-Pour configurer ce routage, vous créez l’abonnement **Tableau de bord** de la façon suivante :
+Pour configurer ce routage, vous créez l’abonnement **Tableau de bord** de la façon suivante :
 
 ```
 SqlFilter dashboardFilter = new SqlFilter("StoreName = 'Redmond'");
@@ -136,21 +129,15 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboar
 Avec ce filtre d’abonnement en place, seuls les messages dont la propriété **StoreName** est définie sur **Redmond** sont copiés vers la file d’attente virtuelle de l’abonnement **Tableau de bord**. Le filtrage ne s’arrête pas aux abonnements, loin de là. Les applications peuvent présenter plusieurs règles de filtre par abonnement, ainsi que la possibilité de modifier les propriétés d’un message lorsqu’il passe dans la file d’attente virtuelle d’un abonnement.
 
 ## <a name="summary"></a>Résumé
+Toutes les raisons d’utiliser la mise en file d’attente décrites dans [Création d’applications qui utilisent les files d’attente Service Bus](service-bus-create-queues.md) s’appliquent également aux rubriques, en particulier :
 
-Toutes les raisons d’utiliser la mise en file d’attente décrites dans [Création d’applications qui utilisent les files d’attente Service Bus](service-bus-create-queues.md) s’appliquent également aux rubriques, en particulier :
-
-- Découplage temporel : les producteurs et les consommateurs de messages n'ont pas besoin d'être en ligne en même temps.
-
-- Niveau de charge : les pics de charge sont apaisés par la rubrique qui permet aux applications consommatrices d’être configurées pour une charge moyenne au lieu de pics de charge.
-
-- Équilibrage de la charge : semblable à une file d’attente, plusieurs consommateurs concurrents peuvent être à l’écoute sur un seul abonnement. Dans ce contexte, chaque message est transmis à un seul des consommateurs, équilibrant ainsi la charge.
-
-- Couplage faible : vous pouvez faire évoluer le réseau de messagerie sans incidence sur les points de terminaison existants ; par exemple, ajoutez des abonnements ou modifiez des filtres dans une rubrique pour permettre l’ajout de nouveaux consommateurs.
+* Découplage temporel : les producteurs et les consommateurs de messages n'ont pas besoin d'être en ligne en même temps.
+* Niveau de charge : les pics de charge sont apaisés par la rubrique qui permet aux applications consommatrices d’être configurées pour une charge moyenne au lieu de pics de charge.
+* Équilibrage de la charge : semblable à une file d’attente, plusieurs consommateurs concurrents peuvent être à l’écoute sur un seul abonnement. Dans ce contexte, chaque message est transmis à un seul des consommateurs, équilibrant ainsi la charge.
+* Couplage faible : vous pouvez faire évoluer le réseau de messagerie sans incidence sur les points de terminaison existants ; par exemple, ajoutez des abonnements ou modifiez des filtres dans une rubrique pour permettre l’ajout de nouveaux consommateurs.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-Consultez [Création d’applications qui utilisent les files d’attente Service Bus](service-bus-create-queues.md) pour obtenir des informations sur l’utilisation des files d’attente dans le scénario de vente au détail de PDV.
-
+Consultez [Création d’applications qui utilisent les files d’attente Service Bus](service-bus-create-queues.md) pour obtenir des informations sur l’utilisation des files d’attente dans le scénario de vente au détail de PDV.
 
 <!--HONumber=Oct16_HO2-->
 

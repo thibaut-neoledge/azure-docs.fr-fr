@@ -1,27 +1,28 @@
-<properties
-   pageTitle="FAQ sur le coffre Recovery Services | Microsoft Azure"
-   description="Cette version de la FAQ prend en charge la version préliminaire publique du service Azure Backup. Réponses aux questions fréquemment posées sur l’agent de sauvegarde, la sauvegarde et la rétention, la récupération, la sécurité et d’autres questions courantes sur la solution Azure Backup."
-   services="backup"
-   documentationCenter=""
-   authors="markgalioto"
-   manager="jwhit"
-   editor=""
-   keywords="solution de sauvegarde ; service de sauvegarde"/>
+---
+title: FAQ sur le coffre Recovery Services | Microsoft Docs
+description: Cette version de la FAQ prend en charge la version préliminaire publique du service Azure Backup. Réponses aux questions fréquemment posées sur l’agent de sauvegarde, la sauvegarde et la rétention, la récupération, la sécurité et d’autres questions courantes sur la solution Azure Backup.
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: jwhit
+editor: ''
+keywords: solution de sauvegarde ; service de sauvegarde
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="get-started-article"
-	 ms.date="08/21/2016"
-	 ms.author="trinadhk; markgal; jimpark;"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/21/2016
+ms.author: trinadhk; markgal; jimpark;
 
+---
 # FAQ du coffre Recovery Services
-
-> [AZURE.SELECTOR]
-- [FAQ Azure Backup pour le mode Classic](backup-azure-backup-faq.md)
-- [FAQ Azure Backup pour le mode Resource Manager](backup-azure-backup-ibiza-faq.md)
+> [!div class="op_single_selector"]
+> * [FAQ Azure Backup pour le mode Classic](backup-azure-backup-faq.md)
+> * [FAQ Azure Backup pour le mode Resource Manager](backup-azure-backup-ibiza-faq.md)
+> 
+> 
 
 Cet article fournit des informations spécifiques au coffre Recovery Services et il vient compléter la [FAQ Azure Backup](backup-azure-backup-faq.md). La FAQ Azure Backup fournit l’ensemble des questions et réponses sur le service Azure Backup.
 

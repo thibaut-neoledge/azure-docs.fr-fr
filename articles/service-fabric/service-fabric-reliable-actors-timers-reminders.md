@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Minuteries et rappels pour Reliable Actors | Microsoft Azure"
-   description="Présentation des minuteries et rappels pour Service Fabric Reliable Actors."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="vturecek"
-   manager="timlt"
-   editor="amanbha"/>
+---
+title: Minuteries et rappels pour Reliable Actors | Microsoft Docs
+description: Présentation des minuteries et rappels pour Service Fabric Reliable Actors.
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: amanbha
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="07/06/2016"
-   ms.author="vturecek"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 07/06/2016
+ms.author: vturecek
 
-
+---
 # Minuteries et rappels d’acteur
 Les acteurs peuvent planifier un travail régulier par eux-mêmes en inscrivant des minuteries ou des rappels. Cet article montre comment utiliser des minuteries et des rappels, puis explique les différences entre les deux.
 
@@ -119,10 +118,10 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 Comme indiqué ci-dessus, la méthode `UnregisterReminder` accepte une interface `IActorReminder`. La classe de base de l'acteur prend en charge une méthode `GetReminder` qui peut être utilisée pour récupérer l'interface `IActorReminder` en passant le nom du rappel. C'est pratique car l'acteur n'a pas besoin de conserver l'interface `IActorReminder` renvoyée par l'appel de la méthode `RegisterReminder`.
 
 ## Étapes suivantes
- - [Événements d’acteurs](service-fabric-reliable-actors-events.md)
- - [Réentrance des acteurs](service-fabric-reliable-actors-reentrancy.md)
- - [Diagnostics et surveillance des performances d’acteur](service-fabric-reliable-actors-diagnostics.md)
- - [Documentation de référence de l’API d’acteur](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Exemple de code](https://github.com/Azure/servicefabric-samples)
+* [Événements d’acteurs](service-fabric-reliable-actors-events.md)
+* [Réentrance des acteurs](service-fabric-reliable-actors-reentrancy.md)
+* [Diagnostics et surveillance des performances d’acteur](service-fabric-reliable-actors-diagnostics.md)
+* [Documentation de référence de l’API d’acteur](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Exemple de code](https://github.com/Azure/servicefabric-samples)
 
 <!---HONumber=AcomDC_0713_2016-->

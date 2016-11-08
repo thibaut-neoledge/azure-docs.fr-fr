@@ -1,50 +1,47 @@
-<properties
-   pageTitle="Prédire une réponse à l’aide d’un modèle simple - modèle de régression | Microsoft Azure"
-   description="Comment créer un modèle simple pour prédire le prix d’un diamant dans la quatrième vidéo de la série Science des données pour les débutants. Comprend une régression linéaire de base avec des données cibles."                                  
-   keywords="créer un modèle,modèle simple,modèle de données simple,prédiction de prix,modèle de régression simple"
-   services="machine-learning"
-   documentationCenter="na"
-   authors="brohrer-ms"
-   manager="jhubbard"
-   editor="cjgronlund"/>
+---
+title: Prédire une réponse à l’aide d’un modèle simple - modèle de régression | Microsoft Docs
+description: Comment créer un modèle simple pour prédire le prix d’un diamant dans la quatrième vidéo de la série Science des données pour les débutants. Comprend une régression linéaire de base avec des données cibles.
+keywords: créer un modèle,modèle simple,modèle de données simple,prédiction de prix,modèle de régression simple
+services: machine-learning
+documentationcenter: na
+author: brohrer-ms
+manager: jhubbard
+editor: cjgronlund
 
-<tags
-   ms.service="machine-learning"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/15/2016"
-   ms.author="cgronlun;brohrer;garye"/>
+ms.service: machine-learning
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/15/2016
+ms.author: cgronlun;brohrer;garye
 
+---
 # Prédire une réponse à l’aide d’un modèle simple
-
 ## Vidéo 4 : série Science des données pour les débutants
-
 Découvrez comment créer un modèle simple pour prédire le prix d’un diamant dans la quatrième vidéo de la série Science des données pour les débutants. Nous allons dessiner un modèle de régression avec des données cibles.
 
 Pour tirer le meilleur parti de la série, regardez-les dans l’ordre. [Accéder à la liste des vidéos](#other-videos-in-this-series)
 
-> [AZURE.VIDEO data-science-for-beginners-series-predict-an-answer-with-a-simple-model]
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
+> 
+> 
 
 ## Autres vidéos de cette série
-
 La série *Science des données pour les débutants* offre une introduction rapide à la science des données en cinq petites vidéos.
 
-  * Vidéo 1 : [Les 5 questions auxquelles la science des données répond](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
-  * Vidéo 2 : [Vos données sont-elles prêtes pour la science des données ?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
-  * Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
-  * Vidéo 4 : Prédire une réponse à l’aide d’un modèle simple
-  * Vidéo 5 : [Copier le travail d’autres personnes pour des projets de science des données](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
+* Vidéo 1 : [Les 5 questions auxquelles la science des données répond](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
+* Vidéo 2 : [Vos données sont-elles prêtes pour la science des données ?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
+* Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
+* Vidéo 4 : Prédire une réponse à l’aide d’un modèle simple
+* Vidéo 5 : [Copier le travail d’autres personnes pour des projets de science des données](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
 
-## Transcription : Prédire une réponse à l’aide d’un modèle simple
-
-Bienvenue dans la quatrième vidéo de la série « Science des données pour les débutants ». Dans cette vidéo, nous allons générer un modèle simple et établir une prévision.
+## Transcription : Prédire une réponse à l’aide d’un modèle simple
+Bienvenue dans la quatrième vidéo de la série « Science des données pour les débutants ». Dans cette vidéo, nous allons générer un modèle simple et établir une prévision.
 
 Un *modèle* est un scénario simplifié de nos données. Je vais vous montrer ce que cela signifie.
 
 ## Collecter assez de données pertinentes, précises et connectées
-
 Supposons que je souhaite acheter un diamant. J’ai une bague qui appartenait à ma grand-mère avec un diamant de 1,35 carat, et je souhaite me faire une idée de sa valeur. J’emmène un bloc-notes et un stylo chez un bijoutier et note les prix de tous les diamants exposés et leur poids en carats. En commençant par le premier diamant : il pèse 1,01 carat et coûte 7 366 $.
 
 Je procède de la même manière pour tous les diamants dans le magasin.
@@ -61,13 +58,11 @@ Nous venons de créer un petit jeu de données : une table. Notez qu’elle rép
 * Et, comme nous allons le voir, nous disposons de **suffisamment** de données pour répondre à notre question
 
 ## Poser une question précise
-
-Maintenant, nous allons poser notre question d’une manière directe : « Combien coûte un diamant de 1,35 carat ? »
+Maintenant, nous allons poser notre question d’une manière directe : « Combien coûte un diamant de 1,35 carat ? »
 
 Notre liste ne comprend pas de diamant de 1,35 carat, et nous devrons donc à utiliser le reste de nos données pour obtenir une réponse à la question.
 
 ## Tracer les données existantes
-
 La première chose que nous allons faire est de dessiner une ligne horizontale chiffrée, appelée un axe, pour représenter les poids. La plage de poids va de 0 à 2. Nous commençons donc par dessiner une ligne qui couvre cette plage et placer des graduations pour chaque demi-carat.
 
 Nous dessinons ensuite un axe vertical pour représenter le prix et le connecter à l’axe horizontal des poids. Il sera exprimé en dollars. Nous disposons maintenant d’un ensemble d’axes de coordonnées.
@@ -83,10 +78,9 @@ Ensuite, nous procédons de la même manière avec chaque diamant de la liste. L
 ![Nuage de points](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/scatter-plot.png)
 
 ## Dessiner le modèle sur la base des points de données
-
 Maintenant, si vous regardez les points et plissez les yeux, la collection ressemble à une large ligne floue. Nous pouvons prendre notre marqueur et tracer une ligne droite.
 
-En dessinant une ligne, nous avons créé un *modèle*. Cela revient à prendre le monde réel et à en créer une version illustrée très simplifiée. Mais l’illustration est erronée : la ligne ne passe pas à travers tous les points de données. Mais il s’agit d’une simplification utile.
+En dessinant une ligne, nous avons créé un *modèle*. Cela revient à prendre le monde réel et à en créer une version illustrée très simplifiée. Mais l’illustration est erronée : la ligne ne passe pas à travers tous les points de données. Mais il s’agit d’une simplification utile.
 
 ![Ligne de régression linéaire](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/linear-regression-line.png)
 
@@ -95,7 +89,6 @@ Le fait que la ligne ne passe pas exactement par tous les points n’est pas un 
 Étant donné que nous essayons de répondre à la question *Combien ?*, il s’agit une *régression*. Et comme nous utilisons une ligne droite, c’est une *régression linéaire*.
 
 ## Utiliser le modèle pour trouver la réponse
-
 Maintenant, nous disposons d’un modèle et nous lui posons notre question : combien coûte un diamant de 1,35 carat ?
 
 Pour répondre à notre question, nous visualisons 1,35 carat et dessinons une ligne verticale. À l’endroit où elle coupe la ligne du modèle, nous visualisons une ligne horizontale vers l’axe des dollars. Elle atteint 10 000. Et voilà ! Voici donc la réponse : un diamant de 1,35 carat coûte environ 10 000 $.
@@ -103,7 +96,6 @@ Pour répondre à notre question, nous visualisons 1,35 carat et dessinons une l
 ![Rechercher la réponse en utilisant le modèle](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## Créer un intervalle de confiance
-
 Il est normal de vous demander le degré de précision de cette prédiction. Il est utile de savoir si le prix du diamant de 1,35 carat est très proche de 10 000 $, ou largement supérieur ou inférieur. Pour le déterminer, nous allons dessiner une enveloppe autour de la ligne de régression qui inclut la plupart des points. Il s’agit de notre *intervalle de confiance* : nous sommes pratiquement certains que les prix se situent dans cet intervalle, car c’était le cas dans la plupart des cas dans le passé. Nous pouvons dessiner deux lignes horizontales supplémentaires où la ligne de 1,35 carat coupe le haut et le bas de l’intervalle.
 
 ![Intervalle de confiance](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
@@ -111,7 +103,6 @@ Il est normal de vous demander le degré de précision de cette prédiction. Il 
 Maintenant, nous pouvons affirmer quelque chose sur notre intervalle de confiance : nous pouvons dire en toute confiance que le prix d’un diamant de 1,35 carat est d’environ 10 000 $, et qu’il pourrait se trouver dans une plage allant de 8 000 $ à 12 000 $.
 
 ## Nous avons terminé, sans mathématiques ni ordinateur
-
 Nous avons fait ce pour quoi les scientifiques sont payés, et ce simplement en dessinant :
 
 * Nous avons posé une question à laquelle il était possible de répondre avec des données
@@ -132,13 +123,10 @@ Et, si nous avions deux mille ou deux millions de diamants au lieu de quelques u
 
 Aujourd’hui, nous avons expliqué comment effectuer une régression linéaire, et nous avons réalisé une prédiction à l’aide de données.
 
-Nous vous invitons à consulter les autres vidéos de la série « Science des données pour les débutants » de Microsoft Azure Machine Learning.
-
-
+Nous vous invitons à consulter les autres vidéos de la série « Science des données pour les débutants » de Microsoft Azure Machine Learning.
 
 ## Étapes suivantes
-
-  * [Menez votre première expérience de science des données avec Azure Machine Learning](machine-learning-create-experiment.md)
-  * [Consultez la présentation de Machine Learning sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
+* [Menez votre première expérience de science des données avec Azure Machine Learning](machine-learning-create-experiment.md)
+* [Consultez la présentation de Machine Learning sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
 <!---HONumber=AcomDC_0914_2016-->

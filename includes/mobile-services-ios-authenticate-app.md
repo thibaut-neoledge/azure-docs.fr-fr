@@ -1,4 +1,4 @@
-* Ouvrez **QSTodoListViewController.m** et ajoutez la méthode suivante. Remplacez _facebook_ par _microsoftaccount_, _twitter_, _google_ ou _windowsazureactivedirectory_ si vous n’utilisez pas Facebook comme fournisseur d’identité.
+* Ouvrez **QSTodoListViewController.m** et ajoutez la méthode suivante. Remplacez *facebook* par *microsoftaccount*, *twitter*, *google* ou *windowsazureactivedirectory* si vous n’utilisez pas Facebook comme fournisseur d’identité.
 
 ```
         - (void) loginAndGetData
@@ -14,7 +14,7 @@
         }
 ```
 
-* Remplacez `[self refresh]` dans `viewDidLoad` par ceci :
+* Remplacez `[self refresh]` dans `viewDidLoad` par ceci :
 
 ```
         [self loginAndGetData];

@@ -1,71 +1,68 @@
-<properties
-	pageTitle="Déployer et gérer une sauvegarde pour un serveur/client Windows à l’aide de PowerShell | Microsoft Azure"
-	description="Découvrez comment déployer et gérer Azure Backup à l’aide de PowerShell"
-	services="backup"
-	documentationCenter=""
-	authors="saurabhsensharma"
-	manager="shivamg"
-	editor=""/>
+---
+title: Déployer et gérer une sauvegarde pour un serveur/client Windows à l’aide de PowerShell | Microsoft Docs
+description: Découvrez comment déployer et gérer Azure Backup à l’aide de PowerShell
+services: backup
+documentationcenter: ''
+author: saurabhsensharma
+manager: shivamg
+editor: ''
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="saurabhsensharma;markgal;jimpark;nkolli;trinadhk"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/01/2016
+ms.author: saurabhsensharma;markgal;jimpark;nkolli;trinadhk
 
-
+---
 # Déployer et gérer une sauvegarde vers Azure pour un serveur/client Windows à l’aide de PowerShell
+> [!div class="op_single_selector"]
+> * [ARM](backup-client-automation.md)
+> * [Classique](backup-client-automation-classic.md)
+> 
+> 
 
-> [AZURE.SELECTOR]
-- [ARM](backup-client-automation.md)
-- [Classique](backup-client-automation-classic.md)
-
-Cet article décrit comment utiliser PowerShell pour configurer Azure Backup sur un serveur Windows Server ou sur un client Windows, ainsi que pour gérer les sauvegardes et la récupération.
+Cet article décrit comment utiliser PowerShell pour configurer Azure Backup sur un serveur Windows Server ou sur un client Windows, ainsi que pour gérer les sauvegardes et la récupération.
 
 ## Installation d'Azure PowerShell
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Cet article se concentre sur les applets de commande PowerShell d’Azure Resource Manager (ARM) qui vous permettent d’utiliser un coffre Recovery Services dans un groupe de ressources.
 
-Azure PowerShell 1.0 a été publié en octobre 2015. Cette version, qui fait suite à la release 0.9.8, a introduit d’importantes modifications, en particulier dans le modèle de dénomination des applets de commande. Les applets de commande version 1.0 suivent le modèle d’affectation de noms {verbe}-AzureRm{nom} ; les noms 0.9.8 n’incluent pas **Rm** (par exemple, New-AzureRmResourceGroup au lieu de New-AzureResourceGroup). Lorsque vous utilisez Azure PowerShell 0.9.8, vous devez d’abord activer le mode Resource Manager en exécutant la commande **Switch-AzureMode AzureResourceManager**. Cette commande n’est pas nécessaire dans les versions 1.0 ou ultérieures.
+Azure PowerShell 1.0 a été publié en octobre 2015. Cette version, qui fait suite à la release 0.9.8, a introduit d’importantes modifications, en particulier dans le modèle de dénomination des applets de commande. Les applets de commande version 1.0 suivent le modèle d’affectation de noms {verbe}-AzureRm{nom} ; les noms 0.9.8 n’incluent pas **Rm** (par exemple, New-AzureRmResourceGroup au lieu de New-AzureResourceGroup). Lorsque vous utilisez Azure PowerShell 0.9.8, vous devez d’abord activer le mode Resource Manager en exécutant la commande **Switch-AzureMode AzureResourceManager**. Cette commande n’est pas nécessaire dans les versions 1.0 ou ultérieures.
 
-Si vous souhaitez utiliser dans l’environnement 1.0 (ou ultérieur) des scripts écrits pour l’environnement 0.9.8, veillez à les tester dans un environnement de pré-production avant de les utiliser en production, ce afin d’éviter tout résultat inattendu.
+Si vous souhaitez utiliser dans l’environnement 1.0 (ou ultérieur) des scripts écrits pour l’environnement 0.9.8, veillez à les tester dans un environnement de pré-production avant de les utiliser en production, ce afin d’éviter tout résultat inattendu.
 
 [Téléchargez la dernière version de PowerShell](https://github.com/Azure/azure-powershell/releases) (version minimale requise : 1.0.0).
 
-
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
+[!INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## Créer un coffre Recovery Services
-
 Les étapes suivantes vous montrent comment créer un coffre Recovery Services. Un coffre Recovery Services diffère d’un coffre Backup.
 
 1. Si vous utilisez Azure Backup pour la première fois, vous devez recourir à l’applet de commande **Register-AzureRMResourceProvider** pour enregistrer le fournisseur Azure Recovery Service auprès de votre abonnement.
-
+   
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-
 2. Le coffre Recovery Services constituant une ressource ARM, vous devez le placer dans un groupe de ressources. Vous pouvez utiliser un groupe de ressources existant ou en créer un. Quand vous créez un groupe de ressources, spécifiez ses nom et emplacement.
-
+   
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
     ```
-
 3. Utilisez l’applet de commande **New-AzureRmRecoveryServicesVault** pour créer le coffre. Spécifiez pour le coffre le même emplacement que pour le groupe de ressources.
-
+   
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-
 4. Spécifiez le type de redondance de stockage à utiliser : [stockage redondant en local (LRS)](../storage/storage-redundancy.md#locally-redundant-storage) ou [stockage géoredondant (GRS)](../storage/storage-redundancy.md#geo-redundant-storage). L’exemple suivant montre que l’option -BackupStorageRedundancy pour testVault a la valeur GeoRedundant.
-
-    > [AZURE.TIP] De nombreuses applets de commande Azure Backup nécessitent l’objet coffre Recovery Services en tant qu’entrée. Pour cette raison, il est pratique de stocker l’objet coffre Backup Recovery Services dans une variable.
-
+   
+   > [!TIP]
+   > De nombreuses applets de commande Azure Backup nécessitent l’objet coffre Recovery Services en tant qu’entrée. Pour cette raison, il est pratique de stocker l’objet coffre Backup Recovery Services dans une variable.
+   > 
+   > 
+   
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
@@ -88,10 +85,10 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
 
-## Installation de l'agent Azure Backup
-Avant d’installer l'agent Azure Backup, vous devez avoir téléchargé le programme d’installation sur le serveur Windows. Vous pouvez obtenir la dernière version du programme d’installation à partir du [Centre de téléchargement Microsoft](http://aka.ms/azurebackup_agent) ou de la page Tableau de bord du coffre Recovery Services. Enregistrez le programme d’installation dans un emplacement auquel vous pouvez accéder facilement, par exemple *C:\\Téléchargements*.
+## Installation de l'agent Azure Backup
+Avant d’installer l'agent Azure Backup, vous devez avoir téléchargé le programme d’installation sur le serveur Windows. Vous pouvez obtenir la dernière version du programme d’installation à partir du [Centre de téléchargement Microsoft](http://aka.ms/azurebackup_agent) ou de la page Tableau de bord du coffre Recovery Services. Enregistrez le programme d’installation dans un emplacement auquel vous pouvez accéder facilement, par exemple *C:\\Téléchargements*.
 
-Pour installer l’agent, exécutez la commande ci-après dans une console PowerShell avec élévation de privilèges :
+Pour installer l’agent, exécutez la commande ci-après dans une console PowerShell avec élévation de privilèges :
 
 ```
 PS C:\> MARSAgentInstaller.exe /q
@@ -104,8 +101,7 @@ Pour afficher la liste des programmes installés, cliquez sur **Panneau de confi
 ![Agent installé](./media/backup-client-automation/installed-agent-listing.png)
 
 ### Options d’installation
-
-Pour afficher toutes les options disponibles via la ligne de commande, utilisez la commande suivante :
+Pour afficher toutes les options disponibles via la ligne de commande, utilisez la commande suivante :
 
 ```
 PS C:\> MARSAgentInstaller.exe /?
@@ -114,21 +110,19 @@ PS C:\> MARSAgentInstaller.exe /?
 Les options disponibles incluent :
 
 | Option | Détails | Default |
-| ---- | ----- | ----- |
-| /q | Installation silencieuse | - |
-| /p:"emplacement" | Chemin du dossier d’installation de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent |
-| /s:"emplacement" | Chemin du dossier du cache de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
-| /m | Abonnement à Microsoft Update | - |
-| /nu | Ne pas rechercher les mises à jour après l’installation | - |
-| /d | Désinstalle Microsoft Azure Recovery Services Agent | - |
-| /ph | Adresse de l’hôte proxy | - |
-| /po | Numéro de port de l’hôte proxy | - |
-| /pu | Nom d’utilisateur de l’hôte proxy | - |
-| /pw | Mot de passe du proxy | - |
-
+| --- | --- | --- |
+| /q |Installation silencieuse |- |
+| /p:"emplacement" |Chemin du dossier d’installation de l’agent Azure Backup. |C:\\Program Files\\Microsoft Azure Recovery Services Agent |
+| /s:"emplacement" |Chemin du dossier du cache de l’agent Azure Backup. |C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
+| /m |Abonnement à Microsoft Update |- |
+| /nu |Ne pas rechercher les mises à jour après l’installation |- |
+| /d |Désinstalle Microsoft Azure Recovery Services Agent |- |
+| /ph |Adresse de l’hôte proxy |- |
+| /po |Numéro de port de l’hôte proxy |- |
+| /pu |Nom d’utilisateur de l’hôte proxy |- |
+| /pw |Mot de passe du proxy |- |
 
 ## Inscription d’un serveur Windows Server ou d’un ordinateur client Windows auprès d’un coffre Recovery Services
-
 Une fois que vous avez créé un coffre Recovery Services, téléchargez le dernier agent et les informations d’identification de coffre et stockez-les dans un emplacement pratique comme C:\\Téléchargements.
 
 ```
@@ -149,7 +143,10 @@ Region              :West US
 Machine registration succeeded.
 ```
 
-> [AZURE.IMPORTANT] N’utilisez pas de chemins relatifs pour spécifier le fichier des informations d’identification du coffre. Vous devez fournir un chemin absolu dans la cmdlet.
+> [!IMPORTANT]
+> N’utilisez pas de chemins relatifs pour spécifier le fichier des informations d’identification du coffre. Vous devez fournir un chemin absolu dans la cmdlet.
+> 
+> 
 
 ## Paramètres de mise en réseau
 Lorsque l’ordinateur Windows accède à Internet via un serveur proxy, les paramètres proxy peuvent également être fournis à l’agent. Dans cet exemple, il n’y a aucun serveur proxy. Nous effaçons donc explicitement toutes informations concernant un proxy.
@@ -167,17 +164,20 @@ Server properties updated successfully.
 ```
 
 ## Paramètres de chiffrement
-Les données sauvegardées envoyées à Azure Backup sont chiffrées pour garantir leur confidentialité. Le mot de passe du chiffrement est le « mot de passe » permettant de déchiffrer les données lors de la restauration.
+Les données sauvegardées envoyées à Azure Backup sont chiffrées pour garantir leur confidentialité. Le mot de passe du chiffrement est le « mot de passe » permettant de déchiffrer les données lors de la restauration.
 
 ```
 PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force | Set-OBMachineSetting
 Server properties updated successfully
 ```
 
-> [AZURE.IMPORTANT] Conservez les informations de phrase secrète en lieu sûr après les avoir définies. Vous ne pourrez pas restaurer les données à partir d’Azure sans ce mot de passe.
+> [!IMPORTANT]
+> Conservez les informations de phrase secrète en lieu sûr après les avoir définies. Vous ne pourrez pas restaurer les données à partir d’Azure sans ce mot de passe.
+> 
+> 
 
 ## Sauvegarde des fichiers et dossiers
-Toutes les sauvegardes de serveurs et clients Windows vers Azure Backup sont régies par une stratégie. Cette dernière comprend trois parties :
+Toutes les sauvegardes de serveurs et clients Windows vers Azure Backup sont régies par une stratégie. Cette dernière comprend trois parties :
 
 1. Une **planification de sauvegarde** qui spécifie quand les sauvegardes doivent être établies et synchronisées avec le service.
 2. Une **planification de rétention** qui spécifie la durée de rétention des points de récupération dans Azure.
@@ -192,12 +192,12 @@ PS C:\> $newpolicy = New-OBPolicy
 À ce stade, la stratégie est vide et les autres applets de commande sont nécessaires pour définir les éléments qui seront inclus ou exclus, le moment auquel les sauvegardes s'exécuteront et leur emplacement de stockage.
 
 ### Configuration de la planification de sauvegarde
-La première des 3 parties d'une stratégie est la planification de sauvegarde, qui est créée à l'aide de l’applet de commande [New-OBSchedule](https://technet.microsoft.com/library/hh770401). La planification de sauvegarde définit le moment où les sauvegardes doivent être effectuées. Lors de la création d'une planification, vous devez spécifier 2 paramètres d'entrée :
+La première des 3 parties d'une stratégie est la planification de sauvegarde, qui est créée à l'aide de l’applet de commande [New-OBSchedule](https://technet.microsoft.com/library/hh770401). La planification de sauvegarde définit le moment où les sauvegardes doivent être effectuées. Lors de la création d'une planification, vous devez spécifier 2 paramètres d'entrée :
 
-- Les **jours de la semaine** où la sauvegarde doit s'exécuter. Vous pouvez exécuter le travail de sauvegarde une seule journée ou tous les jours de la semaine, ou une combinaison des deux.
-- Les **heures** où la sauvegarde doit être exécutée. Vous pouvez définir jusqu'à 3 différentes heures pour le déclenchement de la sauvegarde.
+* Les **jours de la semaine** où la sauvegarde doit s'exécuter. Vous pouvez exécuter le travail de sauvegarde une seule journée ou tous les jours de la semaine, ou une combinaison des deux.
+* Les **heures** où la sauvegarde doit être exécutée. Vous pouvez définir jusqu'à 3 différentes heures pour le déclenchement de la sauvegarde.
 
-Par exemple, vous pouvez configurer une stratégie de sauvegarde qui s'exécute à 16 h 00 chaque samedi et chaque dimanche.
+Par exemple, vous pouvez configurer une stratégie de sauvegarde qui s'exécute à 16 h 00 chaque samedi et chaque dimanche.
 
 ```
 PS C:\> $sched = New-OBSchedule -DaysofWeek Saturday, Sunday -TimesofDay 16:00
@@ -210,13 +210,13 @@ PS C:\> Set-OBSchedule -Policy $newpolicy -Schedule $sched
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName : RetentionPolicy : State : New PolicyState : Valid
 ```
 ### Configuration d'une stratégie de rétention
-La stratégie de rétention définit la durée de conservation des points de récupération créés à partir des travaux de sauvegarde. Lorsque vous créez une stratégie de rétention à l'aide de l’applet de commande [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425), vous pouvez spécifier le nombre de jours pendant lesquels les points de récupération de sauvegarde doivent être conservés avec Azure Backup. L'exemple suivant définit une stratégie de rétention de 7 jours.
+La stratégie de rétention définit la durée de conservation des points de récupération créés à partir des travaux de sauvegarde. Lorsque vous créez une stratégie de rétention à l'aide de l’applet de commande [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425), vous pouvez spécifier le nombre de jours pendant lesquels les points de récupération de sauvegarde doivent être conservés avec Azure Backup. L'exemple suivant définit une stratégie de rétention de 7 jours.
 
 ```
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
 
-La stratégie de rétention doit être associée à la stratégie principale à l'aide de l'applet de commande [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405) :
+La stratégie de rétention doit être associée à la stratégie principale à l'aide de l'applet de commande [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405) :
 
 ```
 PS C:\> Set-OBRetentionPolicy -Policy $newpolicy -RetentionPolicy $retentionpolicy
@@ -241,15 +241,15 @@ State           : New
 PolicyState     : Valid
 ```
 ### Inclusion et exclusion des fichiers à sauvegarder
-Un objet ```OBFileSpec``` définit les fichiers à inclure et à exclure d'une sauvegarde. Il s'agit d'un ensemble de règles qui définissent l'étendue des fichiers et dossiers protégés sur un ordinateur. Vous pouvez avoir de nombreuses règles d'inclusion ou d’exclusion en fonction de vos besoins, et les associer à une stratégie. Lorsque vous créez un objet OBFileSpec, vous pouvez :
+Un objet ```OBFileSpec``` définit les fichiers à inclure et à exclure d'une sauvegarde. Il s'agit d'un ensemble de règles qui définissent l'étendue des fichiers et dossiers protégés sur un ordinateur. Vous pouvez avoir de nombreuses règles d'inclusion ou d’exclusion en fonction de vos besoins, et les associer à une stratégie. Lorsque vous créez un objet OBFileSpec, vous pouvez :
 
-- Spécifier les fichiers et dossiers à inclure
-- Spécifier les fichiers et dossiers à exclure
-- Indiquer la sauvegarde récursive des données dans un dossier (ou) indiquer si seuls les fichiers de niveau supérieur du dossier spécifié doivent être sauvegardés
+* Spécifier les fichiers et dossiers à inclure
+* Spécifier les fichiers et dossiers à exclure
+* Indiquer la sauvegarde récursive des données dans un dossier (ou) indiquer si seuls les fichiers de niveau supérieur du dossier spécifié doivent être sauvegardés
 
 Dans le dernier cas, l’opération est effectuée à l’aide de l'indicateur -NonRecursive dans la commande New-OBFileSpec.
 
-Dans l'exemple ci-dessous, nous sauvegardons les volumes C: et D: et excluons les fichiers binaires de système d'exploitation dans le dossier Windows et tous les dossiers temporaires. Pour cela, nous allons créer deux spécifications de fichiers à l'aide de l’applet de commande [New-OBFileSpec](https://technet.microsoft.com/library/hh770408) : une pour l’inclusion et une pour l’exclusion. Une fois que les spécifications de fichiers ont été créées, elles sont associées à la stratégie à l'aide de l’applet de commande [Add-OBFileSpec](https://technet.microsoft.com/library/hh770424).
+Dans l'exemple ci-dessous, nous sauvegardons les volumes C: et D: et excluons les fichiers binaires de système d'exploitation dans le dossier Windows et tous les dossiers temporaires. Pour cela, nous allons créer deux spécifications de fichiers à l'aide de l’applet de commande [New-OBFileSpec](https://technet.microsoft.com/library/hh770408) : une pour l’inclusion et une pour l’exclusion. Une fois que les spécifications de fichiers ont été créées, elles sont associées à la stratégie à l'aide de l’applet de commande [Add-OBFileSpec](https://technet.microsoft.com/library/hh770424).
 
 ```
 PS C:\> $inclusions = New-OBFileSpec -FileSpec @("C:", "D:")
@@ -379,7 +379,7 @@ DsList : {DataSource
          FileSpec:D:\
          IsExclude:False
          IsRecursive:True
-	}
+    }
 PolicyName : c2eb6568-8a06-49f4-a20e-3019ae411bac
 RetentionPolicy : Retention Days : 7
               WeeklyLTRSchedule :
@@ -434,7 +434,7 @@ IsRecursive : True
 ```
 
 ### Exécution d'une sauvegarde ad hoc
-Une fois qu'une stratégie de sauvegarde a été définie, les sauvegardes ont lieu selon la planification indiquée. Le déclenchement d'une sauvegarde ad hoc est également possible à l'aide de l’applet de commande [Start-OBBackup](https://technet.microsoft.com/library/hh770426) :
+Une fois qu'une stratégie de sauvegarde a été définie, les sauvegardes ont lieu selon la planification indiquée. Le déclenchement d'une sauvegarde ad hoc est également possible à l'aide de l’applet de commande [Start-OBBackup](https://technet.microsoft.com/library/hh770426) :
 
 ```
 PS C:\> Get-OBPolicy | Start-OBBackup
@@ -449,7 +449,7 @@ The backup operation completed successfully.
 ```
 
 ## Restauration des données à partir d'Azure Backup
-Cette section vous guide tout au long des étapes d'automatisation de la récupération des données à partir d’Azure Backup. Cette opération implique les étapes suivantes :
+Cette section vous guide tout au long des étapes d'automatisation de la récupération des données à partir d’Azure Backup. Cette opération implique les étapes suivantes :
 
 1. Sélection du volume source
 2. Choix d’un point de sauvegarde à restaurer
@@ -544,20 +544,20 @@ ItemSize : 96256
 ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
 ```
 
-Vous pouvez également rechercher des éléments à restaurer à l'aide de l’applet de commande ```Get-OBRecoverableItem```. Dans notre exemple, pour rechercher le fichier *finances.xls*, nous pouvons trouver le fichier en exécutant la commande suivante :
+Vous pouvez également rechercher des éléments à restaurer à l'aide de l’applet de commande ```Get-OBRecoverableItem```. Dans notre exemple, pour rechercher le fichier *finances.xls*, nous pouvons trouver le fichier en exécutant la commande suivante :
 
 ```
 PS C:\> $item = Get-OBRecoverableItem -RecoveryPoint $rps[0] -Location "D:\MyData" -SearchString "finance*"
 ```
 
 ### Déclenchement du processus de restauration
-Pour déclencher le processus de restauration, nous devons d'abord spécifier les options de récupération. Pour ce faire, utilisez l’applet de commande [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) . Dans le cadre de cet exemple, supposons que vous souhaitez restaurer les fichiers dans *C:\\temp*. Supposons également que vous souhaitez ignorer les fichiers qui existent déjà dans le dossier de destination *C:\\temp*. Pour créer une telle option de récupération, utilisez la commande suivante :
+Pour déclencher le processus de restauration, nous devons d'abord spécifier les options de récupération. Pour ce faire, utilisez l’applet de commande [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) . Dans le cadre de cet exemple, supposons que vous souhaitez restaurer les fichiers dans *C:\\temp*. Supposons également que vous souhaitez ignorer les fichiers qui existent déjà dans le dossier de destination *C:\\temp*. Pour créer une telle option de récupération, utilisez la commande suivante :
 
 ```
 PS C:\> $recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
 ```
 
-Déclenchez à présent la restauration à l'aide de la commande [Start-OBRecovery](https://technet.microsoft.com/library/hh770402.aspx) dans l’```$item``` sélectionné à partir de la sortie de l’applet de commande ```Get-OBRecoverableItem``` :
+Déclenchez à présent la restauration à l'aide de la commande [Start-OBRecovery](https://technet.microsoft.com/library/hh770402.aspx) dans l’```$item``` sélectionné à partir de la sortie de l’applet de commande ```Get-OBRecoverableItem``` :
 
 ```
 PS C:\> Start-OBRecovery -RecoverableItem $item -RecoveryOption $recover_option
@@ -577,16 +577,16 @@ La désinstallation de l’agent Azure Backup peut être effectuée à l’aide 
 PS C:\> .\MARSAgentInstaller.exe /d /q
 ```
 
-La désinstallation des fichiers binaires de l'agent de l'ordinateur a certaines conséquences à prendre en compte :
+La désinstallation des fichiers binaires de l'agent de l'ordinateur a certaines conséquences à prendre en compte :
 
-- Elle supprime le filtre de fichier de l'ordinateur et le suivi des modifications est arrêté.
-- Toutes les informations de stratégie sont supprimées de l'ordinateur, mais elles continuent à être stockées dans le service.
-- Toutes les planifications de sauvegarde sont supprimées, et aucune autre sauvegarde n'est effectuée.
+* Elle supprime le filtre de fichier de l'ordinateur et le suivi des modifications est arrêté.
+* Toutes les informations de stratégie sont supprimées de l'ordinateur, mais elles continuent à être stockées dans le service.
+* Toutes les planifications de sauvegarde sont supprimées, et aucune autre sauvegarde n'est effectuée.
 
 Cependant, les données stockées dans Azure sont conservées selon la stratégie de rétention que vous avez définie. Les points plus anciens deviennent automatiquement obsolètes.
 
 ## Gestion à distance
-L’intégralité de la gestion concernant l’agent Azure Backup, les stratégies et les sources de données peut être effectuée à distance par le biais de PowerShell. L’ordinateur qui sera géré à distance doit être correctement préparé.
+L’intégralité de la gestion concernant l’agent Azure Backup, les stratégies et les sources de données peut être effectuée à distance par le biais de PowerShell. L’ordinateur qui sera géré à distance doit être correctement préparé.
 
 Par défaut, le service WinRM est configuré pour un démarrage manuel. Le type de démarrage doit être défini sur *Automatique* et le service devrait être démarré. Pour vérifier que le service WinRM est exécuté, la valeur de la propriété État devrait être défini sur *En cours d’exécution*.
 
@@ -624,7 +624,7 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Étapes suivantes
 Pour plus d’informations sur Azure Backup pour client/serveur Windows, consultez
 
-- [Présentation d’Azure Backup](backup-introduction-to-azure-backup.md)
-- [Sauvegarder des serveurs Windows](backup-configure-vault.md)
+* [Présentation d’Azure Backup](backup-introduction-to-azure-backup.md)
+* [Sauvegarder des serveurs Windows](backup-configure-vault.md)
 
 <!---HONumber=AcomDC_0907_2016-->

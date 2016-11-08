@@ -1,54 +1,57 @@
-<properties
-   pageTitle="Tests chaos et de basculement | Microsoft Azure"
-   description="Utilisation des scénarios de test chaos et de test de basculement Service Fabric pour induire des erreurs et vérifier la fiabilité de vos services."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="motanv"
-   manager="rsinha"
-   editor="toddabel"/>
+---
+title: Tests chaos et de basculement | Microsoft Docs
+description: Utilisation des scénarios de test chaos et de test de basculement Service Fabric pour induire des erreurs et vérifier la fiabilité de vos services.
+services: service-fabric
+documentationcenter: .net
+author: motanv
+manager: rsinha
+editor: toddabel
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="07/08/2016"
-   ms.author="motanv"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 07/08/2016
+ms.author: motanv
 
+---
 # Scénarios de testabilité
-Les grands systèmes distribués, comme les infrastructures cloud, sont par définition peu fiables. Grâce à Azure Service Fabric, les développeurs sont en mesure d’écrire des services s’exécutant sur ces infrastructures. Pour écrire des services de haute qualité, les développeurs doivent pouvoir introduire de tels défauts de fiabilité, et ainsi tester la fiabilité des solutions qu’ils conçoivent.
+Les grands systèmes distribués, comme les infrastructures cloud, sont par définition peu fiables. Grâce à Azure Service Fabric, les développeurs sont en mesure d’écrire des services s’exécutant sur ces infrastructures. Pour écrire des services de haute qualité, les développeurs doivent pouvoir introduire de tels défauts de fiabilité, et ainsi tester la fiabilité des solutions qu’ils conçoivent.
 
 Le service d’analyse des erreurs permet aux développeurs de provoquer des actions erronées afin de tester les services en présence de défaillances. Toutefois, les erreurs simulées ciblées présentent une efficacité limitée. Grâce aux scénarios de test prédéfinis de Service Fabric, vous pouvez réaliser un test de chaos et un test de basculement. Au sein du cluster, ces scénarios simulent des erreurs entrelacées en continu, avec et sans perte de données, sur des périodes prolongées. Une fois qu’un test est configuré avec la fréquence et le type des erreurs, il peut être démarré à l’aide des API C# ou de PowerShell pour générer des erreurs au sein du cluster et de votre service.
 
->[AZURE.WARNING] ChaosTestScenario est remplacé par un chaos plus robuste, basé sur le service. Pour plus d’informations, consultez le nouvel article [Chaos contrôlé](service-fabric-controlled-chaos.md).
+> [!WARNING]
+> ChaosTestScenario est remplacé par un chaos plus robuste, basé sur le service. Pour plus d’informations, consultez le nouvel article [Chaos contrôlé](service-fabric-controlled-chaos.md).
+> 
+> 
 
 ## Test chaos
-Le scénario chaos génère des erreurs dans l’ensemble du cluster Service Fabric. Le scénario compresse les erreurs habituellement étalées sur plusieurs mois voire années en quelques heures. L’utilisation d’erreurs entrelacées avec un taux élevé d’erreurs permet d’identifier des dysfonctionnements qui n’auraient pu être isolés autrement. Il en résulte une amélioration significative de la qualité du code du service.
+Le scénario chaos génère des erreurs dans l’ensemble du cluster Service Fabric. Le scénario compresse les erreurs habituellement étalées sur plusieurs mois voire années en quelques heures. L’utilisation d’erreurs entrelacées avec un taux élevé d’erreurs permet d’identifier des dysfonctionnements qui n’auraient pu être isolés autrement. Il en résulte une amélioration significative de la qualité du code du service.
 
 ### Erreurs simulées dans le test chaos
- - Redémarrer un nœud
- - Redémarrer un package de code déployé
- - Supprimer un réplica
- - Redémarrer un réplica
- - Déplacer un réplica principal (principal)
- - Déplacer un réplica secondaire (facultatif)
+* Redémarrer un nœud
+* Redémarrer un package de code déployé
+* Supprimer un réplica
+* Redémarrer un réplica
+* Déplacer un réplica principal (principal)
+* Déplacer un réplica secondaire (facultatif)
 
 Le test chaos exécute de multiples itérations des validations de cluster et des erreurs pendant la période considérée. Les délais de stabilisation du cluster et de validation sont également configurables. Le scénario échoue à la première défaillance d’une validation de cluster.
 
-Par exemple, supposons qu’un test soit défini pour s’exécuter une heure, avec un maximum de trois erreurs simultanées. Le test introduira trois erreurs, puis validera l’intégrité du cluster. Le test itérera l’étape précédente jusqu’à ce que le cluster présente un défaut d’intégrité ou après une heure. Si le cluster présente un défaut d’intégrité dans une des itérations, auquel cas il n’est pas stabilisé dans le délai configuré, le test échoue avec une exception. Cette exception indique qu’une erreur est survenue et qu’un examen approfondi est nécessaire.
+Par exemple, supposons qu’un test soit défini pour s’exécuter une heure, avec un maximum de trois erreurs simultanées. Le test introduira trois erreurs, puis validera l’intégrité du cluster. Le test itérera l’étape précédente jusqu’à ce que le cluster présente un défaut d’intégrité ou après une heure. Si le cluster présente un défaut d’intégrité dans une des itérations, auquel cas il n’est pas stabilisé dans le délai configuré, le test échoue avec une exception. Cette exception indique qu’une erreur est survenue et qu’un examen approfondi est nécessaire.
 
-Dans sa forme actuelle, le moteur de génération d’erreurs du test chaos introduit uniquement des erreurs non critiques. Cela signifie qu’en l’absence d’erreurs externes, aucune perte de données ni de quorum ne survient.
+Dans sa forme actuelle, le moteur de génération d’erreurs du test chaos introduit uniquement des erreurs non critiques. Cela signifie qu’en l’absence d’erreurs externes, aucune perte de données ni de quorum ne survient.
 
 ### Options de configuration importantes
- - **TimeToRun** : durée totale du test jusqu’à sa réussite. Si la validation échoue, le test se termine plus tôt.
- - **MaxClusterStabilizationTimeout** : délai maximal nécessaire à la restauration de l’intégrité du cluster, préalablement à l’échec du test. Les contrôles consistent à vérifier que l’intégrité du cluster est acceptable, que la taille cible du jeu de réplicas est atteinte pour l’ensemble des partitions et qu’aucun réplica InBuild n’existe.
- - **MaxConcurrentFaults** : nombre maximal d’erreurs introduites simultanément dans chaque itération. Plus le nombre est élevé, plus le test est efficace. Vous obtiendrez des combinaisons plus complexes de basculement et de transition. Le test garantit qu’aucune perte de quorum ou de données ne sera à déplorer en l’absence d’erreurs externes, quel que soit le niveau de la configuration.
- - **EnableMoveReplicaFaults** : active ou désactive les erreurs provoquant le déplacement des réplicas primaires ou secondaires. Ces erreurs sont désactivées par défaut.
- - **WaitTimeBetweenIterations** : délai d’attente entre les itérations, c’est-à-dire après une séquence d’erreurs et la validation correspondante.
+* **TimeToRun** : durée totale du test jusqu’à sa réussite. Si la validation échoue, le test se termine plus tôt.
+* **MaxClusterStabilizationTimeout** : délai maximal nécessaire à la restauration de l’intégrité du cluster, préalablement à l’échec du test. Les contrôles consistent à vérifier que l’intégrité du cluster est acceptable, que la taille cible du jeu de réplicas est atteinte pour l’ensemble des partitions et qu’aucun réplica InBuild n’existe.
+* **MaxConcurrentFaults** : nombre maximal d’erreurs introduites simultanément dans chaque itération. Plus le nombre est élevé, plus le test est efficace. Vous obtiendrez des combinaisons plus complexes de basculement et de transition. Le test garantit qu’aucune perte de quorum ou de données ne sera à déplorer en l’absence d’erreurs externes, quel que soit le niveau de la configuration.
+* **EnableMoveReplicaFaults** : active ou désactive les erreurs provoquant le déplacement des réplicas primaires ou secondaires. Ces erreurs sont désactivées par défaut.
+* **WaitTimeBetweenIterations** : délai d’attente entre les itérations, c’est-à-dire après une séquence d’erreurs et la validation correspondante.
 
 ### Procédure d’exécution du test chaos
-Exemple de code C#
+Exemple de code C#
 
 ```csharp
 using System;
@@ -139,27 +142,25 @@ Invoke-ServiceFabricChaosTestScenario -TimeToRunMinute $timeToRun -MaxClusterSta
 
 
 ## Test de basculement
-
-Le scénario de test de basculement est une version du test chaos qui cible une partition de service spécifique. Il évalue l’effet du basculement sur une partition spécifique de service, sans affecter les autres services. Une fois configuré avec les informations de partition cible et d’autres paramètres, il s’exécute en tant qu’outil côté client à l’aide des API C# ou de PowerShell pour générer des erreurs associées à une partition de service. Le scénario effectue une itération dans une séquence d’erreurs simulées et de validation de service, tandis que votre logique métier s’exécute sur le côté pour fournir une charge de travail. Un échec de validation de service indique une erreur nécessitant un examen approfondi.
+Le scénario de test de basculement est une version du test chaos qui cible une partition de service spécifique. Il évalue l’effet du basculement sur une partition spécifique de service, sans affecter les autres services. Une fois configuré avec les informations de partition cible et d’autres paramètres, il s’exécute en tant qu’outil côté client à l’aide des API C# ou de PowerShell pour générer des erreurs associées à une partition de service. Le scénario effectue une itération dans une séquence d’erreurs simulées et de validation de service, tandis que votre logique métier s’exécute sur le côté pour fournir une charge de travail. Un échec de validation de service indique une erreur nécessitant un examen approfondi.
 
 ### Erreurs simulées dans le test de basculement
-- Redémarrez un package de code déployé à l’emplacement d’hébergement de la partition
-- Supprimez une instance sans état ou un réplica principal/secondaire
-- Redémarrez un réplica principal/secondaire (en cas de service persistant)
-- Déplacez un réplica principal
-- Déplacez un réplica secondaire
-- Redémarrez la partition
+* Redémarrez un package de code déployé à l’emplacement d’hébergement de la partition
+* Supprimez une instance sans état ou un réplica principal/secondaire
+* Redémarrez un réplica principal/secondaire (en cas de service persistant)
+* Déplacez un réplica principal
+* Déplacez un réplica secondaire
+* Redémarrez la partition
 
 Le test de basculement introduit une erreur déterminée, avant d’exécuter une validation du service afin d’évaluer sa stabilité. Le test de basculement incorpore une erreur à la fois, contrairement au test chaos, qui en introduit plusieurs simultanément. Si la partition ne se stabilise pas dans le délai configuré après chacune des erreurs, le test est considéré comme échoué. Le test introduit uniquement des erreurs non critiques. Cela signifie qu’en l’absence de défaillances externes, aucune perte de données ni de quorum ne survient.
 
 ### Options de configuration importantes
- - **PartitionSelector** : objet de sélecteur qui spécifie la partition à cibler.
- - **TimeToRun** : durée totale d’exécution du test.
- - **MaxServiceStabilizationTimeout** : délai maximal nécessaire à la restauration de l’intégrité du cluster, préalablement à l’échec du test. Les contrôles consistent à vérifier que l’intégrité du service est acceptable, que la taille cible du jeu de réplicas est atteinte pour l’ensemble des partitions et qu’aucun réplica InBuild n’existe.
- - **WaitTimeBetweenFaults** : délai d’attente avant chaque erreur et cycle de validation.
+* **PartitionSelector** : objet de sélecteur qui spécifie la partition à cibler.
+* **TimeToRun** : durée totale d’exécution du test.
+* **MaxServiceStabilizationTimeout** : délai maximal nécessaire à la restauration de l’intégrité du cluster, préalablement à l’échec du test. Les contrôles consistent à vérifier que l’intégrité du service est acceptable, que la taille cible du jeu de réplicas est atteinte pour l’ensemble des partitions et qu’aucun réplica InBuild n’existe.
+* **WaitTimeBetweenFaults** : délai d’attente avant chaque erreur et cycle de validation.
 
 ### Procédure d’exécution du test de basculement
-
 **C#**
 
 ```csharp

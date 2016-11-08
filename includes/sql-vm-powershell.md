@@ -1,10 +1,11 @@
 
 ## <a name="start-your-powershell-session"></a>Démarrer votre session PowerShell
-
 Tout d’abord, la dernière version [d’Azure PowerShell](http://msdn.microsoft.com/library/mt619274.aspx) doit être installée et en cours d’exécution. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../articles/powershell-install-configure.md).
 
-
->[AZURE.NOTE] Les exemples de cette rubrique utilisent le [modèle de déploiement Azure Resource Manager](../articles/resource-group-overview.md), et donc les [applets de commande Azure Resource Manager](http://msdn.microsoft.com/library/azure/mt125356.aspx). 
+> [!NOTE]
+> Les exemples de cette rubrique utilisent le [modèle de déploiement Azure Resource Manager](../articles/resource-group-overview.md), et donc les [applets de commande Azure Resource Manager](http://msdn.microsoft.com/library/azure/mt125356.aspx). 
+> 
+> 
 
 Exécutez l’applet de commande [**Add-AzureRmAccount**](http://msdn.microsoft.com/library/mt619267.aspx) pour faire apparaître un écran de connexion dans lequel vous pouvez entrer vos informations d’identification. Utilisez les informations d’identification dont vous disposez pour vous connecter au portail Azure.
 

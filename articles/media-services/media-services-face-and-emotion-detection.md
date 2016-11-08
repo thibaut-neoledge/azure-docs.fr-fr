@@ -1,100 +1,92 @@
-<properties
-    pageTitle="Détection des visages et des émotions avec Azure Media Analytics | Microsoft Azure"
-    description="Cette rubrique illustre la détection faciale et d’émotions avec Azure Media Analytics."
-    services="media-services"
-    documentationCenter=""
-    authors="juliako"
-    manager="erikre"
-    editor=""/>
+---
+title: Détection des visages et des émotions avec Azure Media Analytics | Microsoft Docs
+description: Cette rubrique illustre la détection faciale et d’émotions avec Azure Media Analytics.
+services: media-services
+documentationcenter: ''
+author: juliako
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="09/26/2016"   
-    ms.author="milanga;juliako;"/>
- 
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: milanga;juliako;
 
-#<a name="detect-face-and-emotion-with-azure-media-analytics"></a>Détection des visages et des émotions avec Azure Media Analytics
-
-##<a name="overview"></a>Vue d'ensemble
-
+---
+# <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Détection des visages et des émotions avec Azure Media Analytics
+## <a name="overview"></a>Vue d'ensemble
 Le processeur multimédia **Azure Media Face Detector** vous permet de compter, de suivre le mouvement, voire de mesurer la participation du public ainsi que ses réactions en analysant les expressions faciales. Ce service présente deux fonctionnalités : 
 
-- **Détection faciale**
-
+* **Détection faciale**
+  
     La détection faciale détecte et suit les visages humains au sein d’une vidéo. Plusieurs visages peuvent être détectés et, par la suite, suivis dans leurs mouvements ; les métadonnées d’horodatage et de localisation seront retournées dans un fichier JSON. Lors du suivi, la fonctionnalité tente d’attribuer un identificateur cohérent à un visage en mouvement, même si ce dernier quitte momentanément l’image ou s’il est caché.
-
-    >[AZURE.NOTE]Ce service n’effectue pas la reconnaissance faciale. Une personne qui quitte l’image ou dont le visage est caché pendant une période prolongée se voit attribuer un nouvel identifiant à son retour.
-
-- **Détection d’émotions**
-    
+  
+  > [!NOTE]
+  > Ce service n’effectue pas la reconnaissance faciale. Une personne qui quitte l’image ou dont le visage est caché pendant une période prolongée se voit attribuer un nouvel identifiant à son retour.
+  > 
+  > 
+* **Détection d’émotions**
+  
     La détection d’émotions est un composant facultatif du processeur multimédia de détection faciale, qui analyse plusieurs caractéristiques émotionnelles sur les visages détectés, telles que le bonheur, la tristesse, la peur, la colère et bien plus encore. 
 
 Le processeur multimédia **Azure Media Face Detector** est uniquement disponible en version préliminaire.
 
 Cette rubrique donne des informations détaillées sur **Azure Media Face Detector** et illustre son utilisation avec le SDK Media Services pour .NET.
 
-##<a name="face-detector-input-files"></a>Fichiers d’entrée du détecteur facial
-
+## <a name="face-detector-input-files"></a>Fichiers d’entrée du détecteur facial
 Fichiers vidéo. Les formats suivants sont actuellement pris en charge : MP4, MOV et WMV.
 
-##<a name="face-detector-output-files"></a>Fichiers de sortie du détecteur facial
-
+## <a name="face-detector-output-files"></a>Fichiers de sortie du détecteur facial
 L’API de détection et de suivi facial permet une détection d’emplacement et un suivi de visage très précis ; elle peut détecter jusqu’à 64 visages humains dans une vidéo. Les visages filmés de face donnent les meilleurs résultats ; les visages filmés de côté ou les visages de taille réduite (24 x 24 pixels ou moins) peuvent ne pas être aussi précis.
 
 Les visages détectés et suivis sont retournés avec les coordonnées (point gauche et supérieur, largeur, hauteur) indiquant l’emplacement des visages dans l’image en pixels, mais aussi un numéro d’identification pour chaque visage, indiquant le suivi de cette personne. Les numéros d’identification des visages peuvent être réinitialisés dans des cas où le visage filmé de face sort de l’image ou si un élément vient se superposer ; certaines personnes peuvent ainsi se voir attribuer plusieurs identifiants.
 
-###<a name="<a-id="output_elements"></a>elements-of-the-output-json-file"></a><a id="output_elements"></a>Éléments du fichier de sortie JSON
-
+### <a name="<a-id="output_elements"></a>elements-of-the-output-json-file"></a><a id="output_elements"></a>Éléments du fichier de sortie JSON
 Pour la détection faciale et l’opération de suivi, le fichier de sortie au format JSON contient les métadonnées des visages détectés.
 
 La détection et le suivi des visages JSON incluent les attributs suivants :
 
-Élément|Description
----|---
-Version|Cela vaut pour la version de l’API vidéo.
-Échelle de temps|« Cycles » par seconde de la vidéo.
-Offset|Le décalage des horodatages. Cette valeur sera toujours 0 dans la version 1.0 des API vidéo. Cette valeur est susceptible d’être modifiée dans les scénarios pris en charge ultérieurement.
-Framerate|Images par seconde de la vidéo.
-Fragments|Les métadonnées sont mémorisées dans différents segments appelés fragments. Chaque fragment contient des valeurs de début (start), de durée (duration), un numéro d’intervalle et des événements (event).
-Démarrer|L’heure de début du premier événement en « cycles ».
-Durée|La durée du fragment en « cycles ».
-Intervalle|L’intervalle de chaque entrée d’événement dans le fragment en « cycles ».
-Événements|Chaque événement contient les visages détectés et suivis pendant cette durée. Il s’agit d’un tableau de tableau d’événements. Le tableau externe représente un intervalle de temps. Le tableau interne se compose de 0 événement ou plus ayant eu lieu à ce moment précis. Un crochet vide signifie [] qu’aucun visage n’a été détecté.
-ID| L’ID du visage suivi. Ce nombre peut être modifié par inadvertance si un visage n’est plus détecté. Un individu donné devrait avoir le même ID tout au long de la vidéo, mais cela ne peut être garanti en raison des limitations de l’algorithme de détection (occlusion, etc.).
-X, Y|Les coordonnées du coin supérieur et gauche X et Y du cadre de limitation du visage sur une échelle normalisée de 0,0 à 1,0. <br/>-Les coordonnées X et Y sont toujours configurées selon un format paysage ; si la vidéo est en format portrait (ou à l’envers, dans le cas d’iOS), vous devrez transposer les coordonnées en conséquence.
-Width, Height|La largeur et la hauteur du cadre de limitation du visage sur une échelle normalisée de 0,0 à 1,0.
-facesDetected|Cet élément se trouve à la fin des résultats JSON et résume le nombre de visages que l’algorithme a détectés au cours de la vidéo. Étant donné que les identifiants peuvent être réinitialisés par inadvertance si un visage n’est plus détecté (par exemple, un visage qui sort de l’image, qui regarde ailleurs), ce nombre peut ne pas refléter le nombre réel de visages dans la vidéo.
+| Élément | Description |
+| --- | --- |
+| Version |Cela vaut pour la version de l’API vidéo. |
+| Échelle de temps |« Cycles » par seconde de la vidéo. |
+| Offset |Le décalage des horodatages. Cette valeur sera toujours 0 dans la version 1.0 des API vidéo. Cette valeur est susceptible d’être modifiée dans les scénarios pris en charge ultérieurement. |
+| Framerate |Images par seconde de la vidéo. |
+| Fragments |Les métadonnées sont mémorisées dans différents segments appelés fragments. Chaque fragment contient des valeurs de début (start), de durée (duration), un numéro d’intervalle et des événements (event). |
+| Démarrer |L’heure de début du premier événement en « cycles ». |
+| Durée |La durée du fragment en « cycles ». |
+| Intervalle |L’intervalle de chaque entrée d’événement dans le fragment en « cycles ». |
+| Événements |Chaque événement contient les visages détectés et suivis pendant cette durée. Il s’agit d’un tableau de tableau d’événements. Le tableau externe représente un intervalle de temps. Le tableau interne se compose de 0 événement ou plus ayant eu lieu à ce moment précis. Un crochet vide signifie [] qu’aucun visage n’a été détecté. |
+| ID |L’ID du visage suivi. Ce nombre peut être modifié par inadvertance si un visage n’est plus détecté. Un individu donné devrait avoir le même ID tout au long de la vidéo, mais cela ne peut être garanti en raison des limitations de l’algorithme de détection (occlusion, etc.). |
+| X, Y |Les coordonnées du coin supérieur et gauche X et Y du cadre de limitation du visage sur une échelle normalisée de 0,0 à 1,0. <br/>-Les coordonnées X et Y sont toujours configurées selon un format paysage ; si la vidéo est en format portrait (ou à l’envers, dans le cas d’iOS), vous devrez transposer les coordonnées en conséquence. |
+| Width, Height |La largeur et la hauteur du cadre de limitation du visage sur une échelle normalisée de 0,0 à 1,0. |
+| facesDetected |Cet élément se trouve à la fin des résultats JSON et résume le nombre de visages que l’algorithme a détectés au cours de la vidéo. Étant donné que les identifiants peuvent être réinitialisés par inadvertance si un visage n’est plus détecté (par exemple, un visage qui sort de l’image, qui regarde ailleurs), ce nombre peut ne pas refléter le nombre réel de visages dans la vidéo. |
 
 Face Detector utilise des techniques de fragmentation (où les métadonnées peuvent être divisées en segments temporels, et vous téléchargez uniquement ce dont vous avez besoin) et de segmentation (où les événements sont fractionnés s’ils sont trop larges). Des calculs simples peuvent vous aider à transformer les données. Par exemple, si un événement a démarré à 6 300 (cycles), avec une échelle de temps de 2 997 (cycles par seconde) et si la fréquence d’images est de 29,97 (images par seconde), alors :
 
-- Démarrage/Échelle de temps = 2,1 secondes
-- Secondes x (fréquence d’images/échelle de temps) = 63 images
+* Démarrage/Échelle de temps = 2,1 secondes
+* Secondes x (fréquence d’images/échelle de temps) = 63 images
 
 Voici un exemple simple d’extraction du JSON en format « par image » pour la détection faciale et le suivi :
-    
+
     var faceDetectionResultJsonString = operationResult.ProcessingResult;
     var faceDetecionTracking = 
          JsonConvert.DeserializeObject<FaceDetectionResult>(faceDetectionResultJsonString, settings);
 
 
-##<a name="face-detection-input-and-output-example"></a>Exemple d’entrée et de sortie de détection faciale
-
-###<a name="input-video"></a>Vidéo d’entrée
-
+## <a name="face-detection-input-and-output-example"></a>Exemple d’entrée et de sortie de détection faciale
+### <a name="input-video"></a>Vidéo d’entrée
 [Vidéo d’entrée](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-###<a name="task-configuration-(preset)"></a>Configuration de la tâche (préconfiguration)
-
+### <a name="task-configuration-(preset)"></a>Configuration de la tâche (préconfiguration)
 Lors de la création d’une tâche de vidéo **Azure Media Face Detector**, vous devez spécifier une présélection de configuration. La présélection de configuration suivante est uniquement valable pour la détection faciale.
 
     {"version":"1.0"}
 
-###<a name="json-output"></a>Sortie JSON
-
+### <a name="json-output"></a>Sortie JSON
 L’exemple suivant de sortie JSON a été tronqué.
 
     {
@@ -144,17 +136,13 @@ L’exemple suivant de sortie JSON a été tronqué.
 
         . . . 
 
-##<a name="emotion-detection-input-and-output-example"></a>Exemple d’entrée et de sortie de détection d’émotion
-
-
-###<a name="input-video"></a>Vidéo d’entrée
-
+## <a name="emotion-detection-input-and-output-example"></a>Exemple d’entrée et de sortie de détection d’émotion
+### <a name="input-video"></a>Vidéo d’entrée
 [Vidéo d’entrée](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-###<a name="task-configuration-(preset)"></a>Configuration de la tâche (préconfiguration)
-
+### <a name="task-configuration-(preset)"></a>Configuration de la tâche (préconfiguration)
 Lors de la création d’une tâche de vidéo **Azure Media Face Detector**, vous devez spécifier une présélection de configuration. La présélection de configuration suivante spécifie la création d’un JSON en fonction de la détection d’émotion.
-    
+
     {
       "version": "1.0",
       "options": {
@@ -165,28 +153,24 @@ Lors de la création d’une tâche de vidéo **Azure Media Face Detector**, vou
     }
 
 
-####<a name="attribute-descriptions"></a>Descriptions des attributs
+#### <a name="attribute-descriptions"></a>Descriptions des attributs
+| Nom de l’attribut | Description |
+| --- | --- |
+| Mode |Faces : détection faciale uniquement  <br/>AggregateEmotion : retourne les valeurs d’émotion moyennes pour tous les visages dans l’image. |
+| AggregateEmotionWindowMs |Utilisez cet attribut si le mode AggregateEmotion est sélectionné. Spécifie la longueur de la vidéo utilisée pour produire chaque résultat agrégé, en millisecondes. |
+| AggregateEmotionIntervalMs |Utilisez cet attribut si le mode AggregateEmotion est sélectionné. Spécifie à quelle fréquence les résultats agrégés doivent être produits. |
 
-Nom de l’attribut|Description
----|---
-Mode|Faces : détection faciale uniquement  <br/>AggregateEmotion : retourne les valeurs d’émotion moyennes pour tous les visages dans l’image.
-AggregateEmotionWindowMs|Utilisez cet attribut si le mode AggregateEmotion est sélectionné. Spécifie la longueur de la vidéo utilisée pour produire chaque résultat agrégé, en millisecondes.
-AggregateEmotionIntervalMs|Utilisez cet attribut si le mode AggregateEmotion est sélectionné. Spécifie à quelle fréquence les résultats agrégés doivent être produits.
-
-####<a name="aggregate-defaults"></a>Valeurs d'agrégation par défaut
-
+#### <a name="aggregate-defaults"></a>Valeurs d'agrégation par défaut
 Les valeurs ci-dessous sont des valeurs recommandées pour les paramètres de fenêtre et d’intervalle d’agrégation. La valeur AggregateEmotionWindowMs doit être supérieure à AggregateEmotionIntervalMs.
 
-   |Valeur(s) par défaut|Valeur(s) max|Valeur(s) min
----|---|---|---
-AggregateEmotionWindowMs|0.5|2|0,25
-AggregateEmotionIntervalMs|0.5|1|0,25
+| Valeur(s) par défaut | Valeur(s) max | Valeur(s) min |
+| --- | --- | --- | --- |
+| AggregateEmotionWindowMs |0.5 |2 |
+| AggregateEmotionIntervalMs |0.5 |1 |
 
-###<a name="json-output"></a>Sortie JSON
-
+### <a name="json-output"></a>Sortie JSON
 Sortie JSON pour l’émotion agrégée (tronquée) :
- 
-    
+
     {
      "version": 1,
      "timescale": 30000,
@@ -339,27 +323,23 @@ Sortie JSON pour l’émotion agrégée (tronquée) :
                  "fear": 0,
 
 
-##<a name="limitations"></a>Limitations
-
-- Les formats de fichier vidéo d’entrée pris en charge incluent WMV, MOV et MP4.
-- Les visages sont détectables selon une plage de tailles allant de 24 x 24 à 2 048 x 2 048 pixels. Les visages en dehors de cette plage ne sont pas détectés.
-- Pour chaque vidéo, le nombre maximal de visages retourné est de 64.
-- Certains visages peuvent ne pas être détectés en raison de défis techniques, par exemple, les prises très rapprochées (portrait) et les occlusions importantes Les prises frontales et quasi-frontales produisent les meilleurs résultats.
-
+## <a name="limitations"></a>Limitations
+* Les formats de fichier vidéo d’entrée pris en charge incluent WMV, MOV et MP4.
+* Les visages sont détectables selon une plage de tailles allant de 24 x 24 à 2 048 x 2 048 pixels. Les visages en dehors de cette plage ne sont pas détectés.
+* Pour chaque vidéo, le nombre maximal de visages retourné est de 64.
+* Certains visages peuvent ne pas être détectés en raison de défis techniques, par exemple, les prises très rapprochées (portrait) et les occlusions importantes Les prises frontales et quasi-frontales produisent les meilleurs résultats.
 
 ## <a name="sample-code"></a>Exemple de code
-
 Le programme suivant montre comment effectuer les tâches suivantes :
 
 1. Créer un élément multimédia et charger un fichier multimédia dans l’élément multimédia.
-1. Créer un travail avec une tâche de détection faciale basée sur un fichier de configuration qui contient la présélection JSON suivante : 
-                    
+2. Créer un travail avec une tâche de détection faciale basée sur un fichier de configuration qui contient la présélection JSON suivante : 
+   
         {
             "version": "1.0"
         }
-
-1. Télécharger les fichiers JSON de sortie. 
-         
+3. Télécharger les fichiers JSON de sortie. 
+   
         using System;
         using System.Configuration;
         using System.IO;
@@ -367,7 +347,7 @@ Le programme suivant montre comment effectuer les tâches suivantes :
         using Microsoft.WindowsAzure.MediaServices.Client;
         using System.Threading;
         using System.Threading.Tasks;
-        
+   
         namespace FaceDetection
         {
             class Program
@@ -377,70 +357,70 @@ Le programme suivant montre comment effectuer les tâches suivantes :
                     ConfigurationManager.AppSettings["MediaServicesAccountName"];
                 private static readonly string _mediaServicesAccountKey =
                     ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-        
+   
                 // Field for service context.
                 private static CloudMediaContext _context = null;
                 private static MediaServicesCredentials _cachedCredentials = null;
-        
+   
                 static void Main(string[] args)
                 {
-        
+   
                     // Create and cache the Media Services credentials in a static class variable.
                     _cachedCredentials = new MediaServicesCredentials(
                                     _mediaServicesAccountName,
                                     _mediaServicesAccountKey);
                     // Used the cached credentials to create CloudMediaContext.
                     _context = new CloudMediaContext(_cachedCredentials);
-        
+   
                     // Run the FaceDetection job.
                     var asset = RunFaceDetectionJob(@"C:\supportFiles\FaceDetection\BigBuckBunny.mp4",
                                                 @"C:\supportFiles\FaceDetection\config.json");
-        
+   
                     // Download the job output asset.
                     DownloadAsset(asset, @"C:\supportFiles\FaceDetection\Output");
                 }
-        
+   
                 static IAsset RunFaceDetectionJob(string inputMediaFilePath, string configurationFile)
                 {
                     // Create an asset and upload the input media file to storage.
                     IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
                         "My Face Detection Input Asset",
                         AssetCreationOptions.None);
-        
+   
                     // Declare a new job.
                     IJob job = _context.Jobs.Create("My Face Detection Job");
-        
+   
                     // Get a reference to Azure Media Face Detector.
                     string MediaProcessorName = "Azure Media Face Detector";
-        
+   
                     var processor = GetLatestMediaProcessorByName(MediaProcessorName);
-        
+   
                     // Read configuration from the specified file.
                     string configuration = File.ReadAllText(configurationFile);
-        
+   
                     // Create a task with the encoding details, using a string preset.
                     ITask task = job.Tasks.AddNew("My Face Detection Task",
                         processor,
                         configuration,
                         TaskOptions.None);
-        
+   
                     // Specify the input asset.
                     task.InputAssets.Add(asset);
-        
+   
                     // Add an output asset to contain the results of the job.
                     task.OutputAssets.AddNew("My Face Detectoion Output Asset", AssetCreationOptions.None);
-        
+   
                     // Use the following event handler to check job progress.  
                     job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
-        
+   
                     // Launch the job.
                     job.Submit();
-        
+   
                     // Check job execution and wait for job to finish.
                     Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-        
+   
                     progressJobTask.Wait();
-        
+   
                     // If job state is Error, the event handling
                     // method for job progress should log errors.  Here we check
                     // for error state and exit if needed.
@@ -452,20 +432,20 @@ Le programme suivant montre comment effectuer les tâches suivantes :
                                                         error.Message));
                         return null;
                     }
-        
+   
                     return job.OutputMediaAssets[0];
                 }
-        
+   
                 static IAsset CreateAssetAndUploadSingleFile(string filePath, string assetName, AssetCreationOptions options)
                 {
                     IAsset asset = _context.Assets.Create(assetName, options);
-        
+   
                     var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
                     assetFile.Upload(filePath);
-        
+   
                     return asset;
                 }
-        
+   
                 static void DownloadAsset(IAsset asset, string outputDirectory)
                 {
                     foreach (IAssetFile file in asset.AssetFiles)
@@ -473,7 +453,7 @@ Le programme suivant montre comment effectuer les tâches suivantes :
                         file.Download(Path.Combine(outputDirectory, file.Name));
                     }
                 }
-        
+   
                 static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
                 {
                     var processor = _context.MediaProcessors
@@ -481,20 +461,20 @@ Le programme suivant montre comment effectuer les tâches suivantes :
                         .ToList()
                         .OrderBy(p => new Version(p.Version))
                         .LastOrDefault();
-        
+   
                     if (processor == null)
                         throw new ArgumentException(string.Format("Unknown media processor",
                                                                    mediaProcessorName));
-        
+   
                     return processor;
                 }
-        
+   
                 static private void StateChanged(object sender, JobStateChangedEventArgs e)
                 {
                     Console.WriteLine("Job state changed event:");
                     Console.WriteLine("  Previous state: " + e.PreviousState);
                     Console.WriteLine("  Current state: " + e.CurrentState);
-        
+   
                     switch (e.CurrentState)
                     {
                         case JobState.Finished:
@@ -519,25 +499,20 @@ Le programme suivant montre comment effectuer les tâches suivantes :
                             break;
                     }
                 }
-        
+   
             }
         }
 
+## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
+## <a name="provide-feedback"></a>Fournir des commentaires
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-##<a name="provide-feedback"></a>Fournir des commentaires
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-##<a name="related-links"></a>Liens connexes
-
+## <a name="related-links"></a>Liens connexes
 [Vue d’ensemble d’Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
 
 <!--HONumber=Oct16_HO2-->
 

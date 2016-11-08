@@ -1,41 +1,39 @@
-<properties 
-	pageTitle="Mise en route du service Web de l’application mobile du serveur MFA"
-	description="L'application Azure Multi-Factor Authentication offre une option d'authentification hors bande supplémentaire. Il permet au serveur MFA d’utiliser des notifications Push pour les utilisateurs."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+---
+title: Mise en route du service Web de l’application mobile du serveur MFA
+description: L'application Azure Multi-Factor Authentication offre une option d'authentification hors bande supplémentaire. Il permet au serveur MFA d’utiliser des notifications Push pour les utilisateurs.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/04/2016
+ms.author: kgremban
 
+---
 # Mise en route du service Web de l’application mobile du serveur MFA
+L'application Azure Multi-Factor Authentication offre une option d'authentification hors bande supplémentaire. Au lieu de passer un appel téléphonique automatisé ou de rédiger un SMS à l'utilisateur lors de la connexion, Azure Multi-Factor Authentication envoie une notification à l'application Azure Multi-Factor Authentication sur le smartphone ou la tablette de l'utilisateur. L'utilisateur appuie simplement sur « Authentifier » (ou saisit un code PIN et appuie sur « Authentifier ») dans l'application pour se connecter.
 
-L'application Azure Multi-Factor Authentication offre une option d'authentification hors bande supplémentaire. Au lieu de passer un appel téléphonique automatisé ou de rédiger un SMS à l'utilisateur lors de la connexion, Azure Multi-Factor Authentication envoie une notification à l'application Azure Multi-Factor Authentication sur le smartphone ou la tablette de l'utilisateur. L'utilisateur appuie simplement sur « Authentifier » (ou saisit un code PIN et appuie sur « Authentifier ») dans l'application pour se connecter.
+Pour utiliser l'application Azure Multi-Factor Authentication, les éléments suivants sont requis afin que l'application puisse communiquer avec le service Web de l’application mobile :
 
-Pour utiliser l'application Azure Multi-Factor Authentication, les éléments suivants sont requis afin que l'application puisse communiquer avec le service Web de l’application mobile :
+* Consultez Configuration matérielle et logicielle requise pour la configuration matérielle et logicielle requise.
+* Vous devez utiliser la version 6.0 ou ultérieure du serveur Azure Multi-Factor Authentication.
+* Le service Web de l’application mobile doit être installé sur un serveur Web sur Internet exécutant Microsoft® Internet Information Services (IIS) 7.x ou version ultérieure. Pour plus d’informations sur IIS, consultez [IIS.NET](http://www.iis.net/).
+* Assurez-vous qu’ASP.NET v4.0.30319 est installé, inscrit et autorisé.
+* Les services de rôle requis incluent ASP.NET et une compatibilité avec la métabase IIS 6.
+* Le service Web de l’application mobile doit être accessible via une URL publique.
+* Le service Web de l’application mobile doit être sécurisé avec un certificat SSL.
+* Le Kit de développement logiciel (SDK) Azure Multi-Factor Authentication Web Service doit être installé dans IIS 7.x ou version ultérieure sur le serveur sur lequel Azure Multi-Factor Authentication est installé.
+* Le Kit de développement logiciel (SDK) Azure Multi-Factor Authentication Web Service doit être sécurisé avec un certificat SSL.
+* Le service Web de l’application mobile doit pouvoir se connecter au Kit de développement logiciel (SDK) Azure Multi-Factor Authentication Web Service via SSL.
+* Mobile App Web Service doit être en mesure de s'authentifier auprès du Kit de développement logiciel (SDK) Azure Multi-Factor Authentication Web Service en utilisant les informations d'identification d'un compte de service qui est membre d'un groupe de sécurité appelé « Administrateurs PhoneFactor ». Ce compte et ce groupe de service existent dans Active Directory si le serveur Azure Multi-Factor Authentication s'exécute sur un serveur appartenant à un domaine. Ce compte et ce groupe de service existent localement sur le serveur Azure Multi-Factor Authentication s'il n'est pas joint à un domaine.
 
-- Consultez Configuration matérielle et logicielle requise pour la configuration matérielle et logicielle requise.
-- Vous devez utiliser la version 6.0 ou ultérieure du serveur Azure Multi-Factor Authentication.
-- Le service Web de l’application mobile doit être installé sur un serveur Web sur Internet exécutant Microsoft® Internet Information Services (IIS) 7.x ou version ultérieure. Pour plus d’informations sur IIS, consultez [IIS.NET](http://www.iis.net/).
-- Assurez-vous qu’ASP.NET v4.0.30319 est installé, inscrit et autorisé.
-- Les services de rôle requis incluent ASP.NET et une compatibilité avec la métabase IIS 6.
-- Le service Web de l’application mobile doit être accessible via une URL publique.
-- Le service Web de l’application mobile doit être sécurisé avec un certificat SSL.
-- Le Kit de développement logiciel (SDK) Azure Multi-Factor Authentication Web Service doit être installé dans IIS 7.x ou version ultérieure sur le serveur sur lequel Azure Multi-Factor Authentication est installé.
-- Le Kit de développement logiciel (SDK) Azure Multi-Factor Authentication Web Service doit être sécurisé avec un certificat SSL.
-- Le service Web de l’application mobile doit pouvoir se connecter au Kit de développement logiciel (SDK) Azure Multi-Factor Authentication Web Service via SSL.
-- Mobile App Web Service doit être en mesure de s'authentifier auprès du Kit de développement logiciel (SDK) Azure Multi-Factor Authentication Web Service en utilisant les informations d'identification d'un compte de service qui est membre d'un groupe de sécurité appelé « Administrateurs PhoneFactor ». Ce compte et ce groupe de service existent dans Active Directory si le serveur Azure Multi-Factor Authentication s'exécute sur un serveur appartenant à un domaine. Ce compte et ce groupe de service existent localement sur le serveur Azure Multi-Factor Authentication s'il n'est pas joint à un domaine.
-
-
-Une installation du portail de l'utilisateur sur un serveur autre que le serveur Azure Multi-Factor Authentication nécessite les trois étapes suivantes :
+Une installation du portail de l'utilisateur sur un serveur autre que le serveur Azure Multi-Factor Authentication nécessite les trois étapes suivantes :
 
 1. Installation du Kit de développement logiciel (SDK) du service Web
 2. Installation du service Web de l’application mobile
@@ -43,21 +41,20 @@ Une installation du portail de l'utilisateur sur un serveur autre que le serveur
 4. Activation de l'application Azure Multi-Factor Authentication pour les utilisateurs finaux
 
 ## Installation du Kit de développement logiciel (SDK) du service Web
-
-Si le Kit de développement logiciel (SDK) Azure Multi-Factor Authentication Web Service n'est pas déjà installé sur le serveur Azure Multi-Factor Authentication, accédez à ce serveur et ouvrez le serveur Azure Multi-Factor Authentication. Cliquez sur l'icône Kit de développement logiciel (SDK) Web Service, cliquez sur le bouton Installer le Kit de développement logiciel (SDK) Web Service... et suivez les instructions affichées. Le Kit de développement logiciel (SDK) Web Service doit être sécurisé avec un certificat SSL. Un certificat autosigné peut être ajouté à cet effet, mais il doit être importé dans le magasin « Racine des autorités de certification approuvée » du compte Ordinateur local sur le serveur Web du portail de l'utilisateur afin qu'il approuve ce certificat lors de l'initialisation de la connexion SSL.
+Si le Kit de développement logiciel (SDK) Azure Multi-Factor Authentication Web Service n'est pas déjà installé sur le serveur Azure Multi-Factor Authentication, accédez à ce serveur et ouvrez le serveur Azure Multi-Factor Authentication. Cliquez sur l'icône Kit de développement logiciel (SDK) Web Service, cliquez sur le bouton Installer le Kit de développement logiciel (SDK) Web Service... et suivez les instructions affichées. Le Kit de développement logiciel (SDK) Web Service doit être sécurisé avec un certificat SSL. Un certificat autosigné peut être ajouté à cet effet, mais il doit être importé dans le magasin « Racine des autorités de certification approuvée » du compte Ordinateur local sur le serveur Web du portail de l'utilisateur afin qu'il approuve ce certificat lors de l'initialisation de la connexion SSL.
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/sdk.png)</center>
 
 ## Installation du service Web de l’application mobile
-Avant d'installer le service Web de l’application mobile, tenez compte des éléments suivants :
+Avant d'installer le service Web de l’application mobile, tenez compte des éléments suivants :
 
-- Si le portail utilisateur Azure Multi-Factor Authentication est déjà installé sur le serveur sur Internet, le nom d'utilisateur, le mot de passe et l'URL vers le SDK du service Web peuvent être copiés à partir du fichier web.config du portail de l'utilisateur.
-- Il est utile d'ouvrir un navigateur Web sur le serveur sur Internet et d’accéder à l'URL du Kit de développement logiciel (SDK) Web Service qui a été saisie dans le fichier web.config. Si le navigateur peut accéder correctement au service Web, il vous invite à saisir des informations d'identification. Saisissez le nom d'utilisateur et le mot de passe qui ont été saisis dans le fichier web.config, exactement comme cela apparaît dans le fichier. Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.
-- Si un pare-feu ou un proxy inverse est assis devant le serveur web du service web de l’application mobile et effectue un déchargement SSL, vous pouvez modifier le fichier web.config du service web de l’application mobile et ajouter la clé suivante à la section <appSettings> afin que le service web de l’application mobile puisse utiliser http au lieu de https. Cependant, SSL est toujours requis depuis l’application mobile vers le pare-feu/proxy inverse. <add key="SSL\_REQUIRED" value="false"/>
+* Si le portail utilisateur Azure Multi-Factor Authentication est déjà installé sur le serveur sur Internet, le nom d'utilisateur, le mot de passe et l'URL vers le SDK du service Web peuvent être copiés à partir du fichier web.config du portail de l'utilisateur.
+* Il est utile d'ouvrir un navigateur Web sur le serveur sur Internet et d’accéder à l'URL du Kit de développement logiciel (SDK) Web Service qui a été saisie dans le fichier web.config. Si le navigateur peut accéder correctement au service Web, il vous invite à saisir des informations d'identification. Saisissez le nom d'utilisateur et le mot de passe qui ont été saisis dans le fichier web.config, exactement comme cela apparaît dans le fichier. Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.
+* Si un pare-feu ou un proxy inverse est assis devant le serveur web du service web de l’application mobile et effectue un déchargement SSL, vous pouvez modifier le fichier web.config du service web de l’application mobile et ajouter la clé suivante à la section <appSettings> afin que le service web de l’application mobile puisse utiliser http au lieu de https. Cependant, SSL est toujours requis depuis l’application mobile vers le pare-feu/proxy inverse. <add key="SSL\_REQUIRED" value="false"/>
 
 ### Pour installer le service Web de l’application mobile
-
 <ol>
+
 <li>Ouvrez l'explorateur Windows sur le serveur Azure Multi-Factor Authentication et accédez au dossier où est installé Azure Multi-Factor Authentication (par exemple C:\Program Files\Azure Multi-Factor Authentication). Choisissez la version 32&#160;bits ou 64&#160;bits du fichier d'installation Azure Multi-Factor AuthenticationPhoneAppWebServiceSetup selon le serveur sur lequel le service Web de l’application mobile est installé. Copiez le fichier d'installation sur le serveur sur Internet.</li>
 
 <li>Sur le serveur Web sur Internet, le fichier d'installation doit être exécuté avec des droits d'administrateur. Le plus simple consiste à ouvrir une invite de commandes en tant qu'administrateur et à accéder à l'emplacement où le fichier d'installation a été copié.</li>  
@@ -78,14 +75,11 @@ Avant d'installer le service Web de l’application mobile, tenez compte des él
 Maintenant que le service Web de l’application mobile est installé, vous devez configurer le serveur Azure Multi-Factor Authentication pour qu’il fonctionne avec le portail.
 
 #### Pour configurer les paramètres de l’application mobile dans le serveur Azure Multi-Factor Authentication
-
 1. Dans le serveur Azure Multi-Factor Authentication, cliquez sur l’icône Portail de l’utilisateur. Si les utilisateurs sont autorisés à contrôler leurs méthodes d'authentification, sous l'onglet Paramètres, sous Autoriser les utilisateurs à sélectionner la méthode, sélectionnez Application mobile. Sans cette fonctionnalité activée, les utilisateurs finaux devront contacter votre support technique pour effectuer l'activation pour l'application mobile.
 2. Cochez la case Autoriser les utilisateurs à activer l'application mobile.
 3. Cochez la case Autoriser l'inscription utilisateur.
 4. Cliquez sur l'icône de l'application mobile.
-5. Entrez l'URL qui est utilisée avec le répertoire virtuel qui a été créé lors de l'installation d'Azure Multi-Factor AuthenticationMobileAppWebServiceSetup. Un nom de compte peut être entré dans l'espace fourni. Ce nom de société s'affiche dans l'application mobile. Si ce champ est vide, le nom de votre fournisseur Multi-Factor Auth créé dans le portail de gestion Azure s'affichera.
-
-
+5. Entrez l'URL qui est utilisée avec le répertoire virtuel qui a été créé lors de l'installation d'Azure Multi-Factor AuthenticationMobileAppWebServiceSetup. Un nom de compte peut être entré dans l'espace fourni. Ce nom de société s'affiche dans l'application mobile. Si ce champ est vide, le nom de votre fournisseur Multi-Factor Auth créé dans le portail de gestion Azure s'affichera.
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
 

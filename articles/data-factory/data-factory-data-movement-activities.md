@@ -1,24 +1,23 @@
-<properties
-	pageTitle="Déplacer des données à l’aide de l’activité de copie | Microsoft Azure"
-	description="Apprenez-en plus sur le déplacement des données dans les pipelines Data Factory : migration de données entre des magasins de cloud, entre des boutiques locales et cloud. Utiliser l’activité de copie."
-	keywords="copier des données, déplacement des données, migration des données, transférer des données"
-	services="data-factory"
-	documentationCenter=""
-	authors="linda33wj"
-	manager="jhubbard"
-	editor="monicar"/>
+---
+title: Déplacer des données à l’aide de l’activité de copie | Microsoft Docs
+description: 'Apprenez-en plus sur le déplacement des données dans les pipelines Data Factory : migration de données entre des magasins de cloud, entre des boutiques locales et cloud. Utiliser l’activité de copie.'
+keywords: copier des données, déplacement des données, migration des données, transférer des données
+services: data-factory
+documentationcenter: ''
+author: linda33wj
+manager: jhubbard
+editor: monicar
 
-<tags
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/22/2016"
-	ms.author="jingwang"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/22/2016
+ms.author: jingwang
 
+---
 # Déplacer des données à l’aide de l’activité de copie
-
 ## Vue d'ensemble
 Dans Azure Data Factory, vous pouvez utiliser l’activité de copie pour copier les données de différentes formes de diverses sources de données locales et cloud vers Azure. Une fois les données copiées, elles peuvent être davantage transformées et analysées. Vous pouvez également utiliser l’activité de copie pour publier les résultats de transformation et d’analyse pour l’aide à la décision (BI) et l’utilisation d’application.
 
@@ -28,19 +27,21 @@ L’activité de copie est effectuée par un [service globalement disponible](#g
 
 Voyons d’abord comment la migration de données se produit entre deux banques de données cloud, et entre une banque de données locale et une banque de données cloud.
 
-> [AZURE.NOTE] Pour en savoir plus sur les activités en général, consultez [Présentation des pipelines et des activités](data-factory-create-pipelines.md).
+> [!NOTE]
+> Pour en savoir plus sur les activités en général, consultez [Présentation des pipelines et des activités](data-factory-create-pipelines.md).
+> 
+> 
 
 ### Copie de données entre deux magasins de données cloud
 Lorsque les magasins de données source et récepteur se trouvent dans le cloud, l'activité de copie passe par les étapes suivantes pour copier des données de la source vers le récepteur. Le service qui alimente l’activité de copie :
 
 1. Lit les données du magasin de données source.
 2. Effectue la sérialisation/désérialisation, la compression/décompression, le mappage de colonnes et la conversion de type sont effectués par la passerelle de gestion des données. Il effectue ces opérations en se basant sur les configurations du jeu de données d’entrée, du jeu de données de sortie et de l’activité de copie.
-3.	Écrit les données dans le magasin de données de destination.
+3. Écrit les données dans le magasin de données de destination.
 
 Le service choisit automatiquement la région optimale pour effectuer le déplacement des données. Cette région est généralement la plus proche de la banque de données du récepteur.
 
 ![Copie cloud-cloud](./media/data-factory-data-movement-activities/cloud-to-cloud.png)
-
 
 ### Copie de données entre un magasin de données local et un magasin de données cloud
 Pour déplacer en toute sécurité des données entre des banques de données locales et une banque de données cloud, installez la passerelle de gestion des données sur votre ordinateur local. La passerelle de gestion des données est un agent qui permet le traitement et le déplacement de données hybrides. Vous pouvez l’installer sur la même machine que le magasin de données lui-même ou sur une machine distincte ayant accès au magasin de données.
@@ -54,20 +55,18 @@ Consultez la page [Déplacement de données entre des sources locales et le clou
 Vous pouvez également déplacer des données depuis/vers des magasins de données pris en charge hébergés sur des machines virtuelles IaaS Azure avec la passerelle de gestion des données. Dans ce cas, vous pouvez installer la passerelle de gestion des données sur la même machine virtuelle Azure que le magasin de données lui-même ou sur une machine virtuelle distincte ayant accès au magasin de données.
 
 ## Banques de données et formats pris en charge
-[AZURE.INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
 Si vous devez déplacer des données vers ou à partir d’un magasin de données qui n’est pas pris en charge par l’activité de copie, utilisez une **activité personnalisée** dans Data Factory avec votre propre logique de copie/déplacement des données. Pour plus d’informations sur la création et l’utilisation d’une activité personnalisée, consultez [Utilisation des activités personnalisées dans un pipeline Azure Data Factory](data-factory-use-custom-activities.md).
 
 ### Formats de fichiers pris en charge
 Vous pouvez utiliser l’activité de copie pour copier des fichiers tels quels entre deux banques de données basées sur des fichiers comme un objet blob Azure, un système de fichiers et le système de fichiers HDFS. Pour ce faire, vous pouvez ignorer la [section format](data-factory-create-datasets.md) dans les définitions des jeux de données d’entrée et de sortie. Les données sont copiées efficacement, sans sérialisation/désérialisation.
 
-L’activité de copie permet également de lire et d’écrire dans les fichiers aux formats spécifiés : texte, Avro, ORC, Parquet et JSON. Vous pouvez effectuer les activités de copie suivantes, par exemple :
+L’activité de copie permet également de lire et d’écrire dans les fichiers aux formats spécifiés : texte, Avro, ORC, Parquet et JSON. Vous pouvez effectuer les activités de copie suivantes, par exemple :
 
--	Copier des données au format texte (CSV) provenant d’objets blob Azure et les écrire dans une base de données SQL Azure.
--	copier des fichiers au format texte (CSV) provenant d’un système de fichiers local et les écrire dans des objets blob Azure au format Avro.
--	copier des données dans la base de données SQL Azure et les écrire dans le système de fichiers HDFS local au format ORC.
-
-
+* Copier des données au format texte (CSV) provenant d’objets blob Azure et les écrire dans une base de données SQL Azure.
+* copier des fichiers au format texte (CSV) provenant d’un système de fichiers local et les écrire dans des objets blob Azure au format Avro.
+* copier des données dans la base de données SQL Azure et les écrire dans le système de fichiers HDFS local au format ORC.
 
 ## <a name="global"></a>Déplacement des données disponible globalement
 Azure Data Factory est disponible uniquement dans les régions Europe du Nord, États-Unis de l'Est et États-Unis de l'Ouest. Cependant, le service proposant l’activité de copie est disponible globalement dans les régions et zones géographiques suivantes. La topologie globalement disponible garantit le déplacement efficace des données en évitant généralement les sauts entre régions. Consultez la section [Services par région](https://azure.microsoft.com/regions/#services) pour connaître la disponibilité de Data Factory et du déplacement des données dans une région.
@@ -75,31 +74,33 @@ Azure Data Factory est disponible uniquement dans les régions Europe du Nord, �
 ### Copier des données entre des banques de données cloud
 Lorsque les banques de données source et récepteur résident toutes les deux dans le cloud, Data Factory utilise un déploiement de service dans la région la plus proche du récepteur dans la même zone géographique afin de déplacer des données. Pour connaître le mappage, reportez-vous au tableau suivant :
 
-Région de la banque de données de destination | Région utilisée pour le déplacement des données
-:----------------------------------- | :----------------------------
-Est des États-Unis | Est des États-Unis
-Est des États-Unis 2 | Est des États-Unis 2
-Ouest des États-Unis | Ouest des États-Unis
-Ouest des États-Unis 2 | Ouest des États-Unis
-Centre des États-Unis | Centre des États-Unis
-Centre-Ouest des États-Unis | Centre des États-Unis
-États-Unis - partie centrale septentrionale | États-Unis - partie centrale septentrionale
-Centre-Sud des États-Unis | Centre-Sud des États-Unis
-Europe du Nord | Europe du Nord
-Europe de l'Ouest | Europe de l'Ouest
-Asie du Sud-Est | Asie du Sud-Est
-Est de l'Asie | Asie du Sud-Est
-Est du Japon | Est du Japon
-Ouest du Japon | Est du Japon
-Sud du Brésil | Sud du Brésil
-Est de l’Australie | Est de l’Australie
-Sud-est de l’Australie | Sud-est de l’Australie
-Inde centrale | Inde centrale
-Inde du Sud | Inde centrale
-Inde occidentale | Inde centrale
+| Région de la banque de données de destination | Région utilisée pour le déplacement des données |
+|:--- |:--- |
+| Est des États-Unis |Est des États-Unis |
+| Est des États-Unis 2 |Est des États-Unis 2 |
+| Ouest des États-Unis |Ouest des États-Unis |
+| Ouest des États-Unis 2 |Ouest des États-Unis |
+| Centre des États-Unis |Centre des États-Unis |
+| Centre-Ouest des États-Unis |Centre des États-Unis |
+| États-Unis - partie centrale septentrionale |États-Unis - partie centrale septentrionale |
+| Centre-Sud des États-Unis |Centre-Sud des États-Unis |
+| Europe du Nord |Europe du Nord |
+| Europe de l'Ouest |Europe de l'Ouest |
+| Asie du Sud-Est |Asie du Sud-Est |
+| Est de l'Asie |Asie du Sud-Est |
+| Est du Japon |Est du Japon |
+| Ouest du Japon |Est du Japon |
+| Sud du Brésil |Sud du Brésil |
+| Est de l’Australie |Est de l’Australie |
+| Sud-est de l’Australie |Sud-est de l’Australie |
+| Inde centrale |Inde centrale |
+| Inde du Sud |Inde centrale |
+| Inde occidentale |Inde centrale |
 
-
-> [AZURE.NOTE] Si la région de la banque de données de destination ne figure pas dans la liste précédente, l’activité de copie échoue au lieu de passer par une autre région.
+> [!NOTE]
+> Si la région de la banque de données de destination ne figure pas dans la liste précédente, l’activité de copie échoue au lieu de passer par une autre région.
+> 
+> 
 
 ### Copie de données entre un magasin de données local et un magasin de données cloud
 Lorsque les données sont copiées entre l’instance locale (ou une machine virtuelle Azure/IaaS) et l’instance cloud, le déplacement des données est effectué par la [passerelle de gestion des données](data-factory-data-management-gateway.md) sur un ordinateur local ou une machine virtuelle IaaS Azure. Les données ne transitent pas via le service dans le cloud, sauf si vous utilisez la fonctionnalité [Copie intermédiaire](data-factory-copy-activity-performance.md#staged-copy). Dans ce cas, les données sont transmises via le stockage d’objets blob Azure intermédiaire avant d’être écrites dans la banque de données de récepteur.
@@ -119,46 +120,46 @@ Pour une activité de copie, la section `typeProperties` varie selon les types d
 
 Voici un exemple de définition JSON :
 
-	{
-	  "name": "ADFTutorialPipeline",
-	  "properties": {
-	    "description": "Copy data from Azure blob to Azure SQL table",
-	    "activities": [
-	      {
-	        "name": "CopyFromBlobToSQL",
-	        "type": "Copy",
-	        "inputs": [
-	          {
-	            "name": "InputBlobTable"
-	          }
-	        ],
-	        "outputs": [
-	          {
-	            "name": "OutputSQLTable"
-	          }
-	        ],
-	        "typeProperties": {
-	          "source": {
-	            "type": "BlobSource"
-	          },
-	          "sink": {
-	            "type": "SqlSink",
-	            "writeBatchSize": 10000,
-	            "writeBatchTimeout": "60:00:00"
-	          }
-	        },
-	        "Policy": {
-	          "concurrency": 1,
-	          "executionPriorityOrder": "NewestFirst",
-	          "retry": 0,
-	          "timeout": "01:00:00"
-	        }
-	      }
-	    ],
-	    "start": "2016-07-12T00:00:00Z",
-	    "end": "2016-07-13T00:00:00Z"
-	  }
-	}
+    {
+      "name": "ADFTutorialPipeline",
+      "properties": {
+        "description": "Copy data from Azure blob to Azure SQL table",
+        "activities": [
+          {
+            "name": "CopyFromBlobToSQL",
+            "type": "Copy",
+            "inputs": [
+              {
+                "name": "InputBlobTable"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "OutputSQLTable"
+              }
+            ],
+            "typeProperties": {
+              "source": {
+                "type": "BlobSource"
+              },
+              "sink": {
+                "type": "SqlSink",
+                "writeBatchSize": 10000,
+                "writeBatchTimeout": "60:00:00"
+              }
+            },
+            "Policy": {
+              "concurrency": 1,
+              "executionPriorityOrder": "NewestFirst",
+              "retry": 0,
+              "timeout": "01:00:00"
+            }
+          }
+        ],
+        "start": "2016-07-12T00:00:00Z",
+        "end": "2016-07-13T00:00:00Z"
+      }
+    }
 
 La planification définie dans le jeu de données de sortie détermine quand l’activité s’exécute (par exemple **quotidiennement** : fréquence : **jour** et intervalle : **1**). L’activité permet de copier les données d’un jeu de données d’entrée (**source**) vers un jeu de données de sortie (**récepteur**).
 
@@ -178,9 +179,8 @@ Les magasins de données ont différents types de systèmes natifs. L’activit�
 
 Le mappage d’un système de type natif donné en .NET pour une banque de données se trouve dans les articles de banque de données respectifs. (Cliquez sur le lien spécifié dans la table [Magasins de données pris en charge](#supported-data-stores)). Vous pouvez utiliser ces mappages pour déterminer les types appropriés lors de la création de vos tables afin d'exécuter les conversions adaptées lors de l'activité de copie.
 
-
 ## Étapes suivantes
-- Pour en savoir plus sur l’activité de copie, consultez [Copie de données d’Azure Blob Storage vers une base de données SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-- Consultez [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour en savoir plus sur le déplacement des données depuis une banque de données locale vers une banque de données cloud.
+* Pour en savoir plus sur l’activité de copie, consultez [Copie de données d’Azure Blob Storage vers une base de données SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+* Consultez [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour en savoir plus sur le déplacement des données depuis une banque de données locale vers une banque de données cloud.
 
 <!---HONumber=AcomDC_0928_2016-->

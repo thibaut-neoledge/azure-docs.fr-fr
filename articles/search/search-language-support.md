@@ -1,50 +1,52 @@
-<properties
-   pageTitle="Création d’un index de documents dans plusieurs langues dans Azure Search | Microsoft Azure | Service de recherche cloud hébergé"
-   description=" Azure Search prend en charge 56 langages, tirant parti des analyseurs de langue de la technologie Lucene et Natural Language Processing de Microsoft."
-   services="search"
-   documentationCenter=""
-   authors="yahnoosh"
-   manager="pablocas"
-   editor=""/>
+---
+title: Création d’un index de documents dans plusieurs langues dans Azure Search | Microsoft Docs
+description: " Azure Search prend en charge 56 langages, tirant parti des analyseurs de langue de la technologie Lucene et Natural Language Processing de Microsoft."
+services: search
+documentationcenter: ''
+author: yahnoosh
+manager: pablocas
+editor: ''
 
-<tags
-   ms.service="search"
-   ms.devlang="na"
-   ms.workload="search"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.date="07/14/2016"
-   ms.author="jlembicz"/>
+ms.service: search
+ms.devlang: na
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.date: 07/14/2016
+ms.author: jlembicz
 
+---
 # Création d’un index de documents dans plusieurs langues dans Azure Search
-> [AZURE.SELECTOR]
-- [Portail](search-language-support.md)
-- [REST](https://msdn.microsoft.com/library/azure/dn879793.aspx)
-- [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
+> [!div class="op_single_selector"]
+> * [Portail](search-language-support.md)
+> * [REST](https://msdn.microsoft.com/library/azure/dn879793.aspx)
+> * [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
+> 
+> 
 
 Décupler les performances des analyseurs de langue est aussi facile que de définir une propriété sur un champ de recherche dans la définition d'index. Maintenant, vous pouvez effectuer cette étape dans le portail.
 
 Voici les captures d'écran des panneaux du portail Azure pour Azure Search qui permettent aux utilisateurs de définir un schéma d'index. À partir de ce panneau, les utilisateurs peuvent créer tous les champs et définir la propriété de l'analyseur pour chacun d'eux.
 
-> [AZURE.IMPORTANT] Vous pouvez uniquement définir un analyseur de langage lors de la définition du champ, comme lors de la création d'un nouvel index ou lorsque vous ajoutez un nouveau champ à un index existant. Veillez à spécifier entièrement tous les attributs, y compris l'analyseur, lors de la création du champ. Vous ne pourrez pas modifier les attributs ou modifier le type d'analyseur une fois vos modifications enregistrées.
+> [!IMPORTANT]
+> Vous pouvez uniquement définir un analyseur de langage lors de la définition du champ, comme lors de la création d'un nouvel index ou lorsque vous ajoutez un nouveau champ à un index existant. Veillez à spécifier entièrement tous les attributs, y compris l'analyseur, lors de la création du champ. Vous ne pourrez pas modifier les attributs ou modifier le type d'analyseur une fois vos modifications enregistrées.
+> 
+> 
 
 ## Définir une nouvelle définition de champ
-
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez le panneau de votre service de recherche.
 2. Cliquez sur **Ajouter un index** dans la barre de commandes en haut du tableau de bord de service pour démarrer un nouvel index ou ouvrez un index existant pour définir un analyseur sur des nouveaux champs que vous ajoutez à un index existant.
 3. Le panneau Champs s'affiche. Il vous propose des options pour définir le schéma de l'index, y compris l'onglet Analyseur utilisé pour le choix d'un analyseur de langage.
 4. Dans le panneau Champs, démarrez une définition de champ en fournissant un nom, le choix du type de données et la définition des attributs pour marquer le champ en tant que texte intégral consultable, récupérables dans les résultats de recherche, utilisable dans des structures de navigation de facette, pouvant être trié, et ainsi de suite.
 5. Avant de passer au champ suivant, ouvrez l'onglet **Analyseur**.
 
-   
 ![][1] *Pour sélectionner un analyseur, cliquez sur l'onglet Analyseur du panneau Champs*
 
 ## Choisir un analyseur
-
-6. Faites défiler pour rechercher le champ que vous définissez.
-7. Si vous n'avez pas activé le champ de recherche, cliquez sur la case à cocher pour indiquer qu'il peut **faire l'objet d'une recherche**.
-8. Cliquez sur la zone Analyseur pour afficher la liste des analyseurs disponibles.
-9. Cliquez sur l'analyseur à utiliser.
+1. Faites défiler pour rechercher le champ que vous définissez.
+2. Si vous n'avez pas activé le champ de recherche, cliquez sur la case à cocher pour indiquer qu'il peut **faire l'objet d'une recherche**.
+3. Cliquez sur la zone Analyseur pour afficher la liste des analyseurs disponibles.
+4. Cliquez sur l'analyseur à utiliser.
 
 ![][2] *Sélectionnez un des analyseurs pris en charge pour chaque champ*
 

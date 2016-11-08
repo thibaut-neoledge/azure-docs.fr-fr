@@ -1,24 +1,23 @@
-<properties
-	pageTitle="Gérer des machines virtuelles dans un jeu de mise à l’échelle de machine virtuelle | Microsoft Azure"
-	description="Gérez des machines virtuelles dans un jeu de mise à l’échelle de machine virtuelle à l'aide d'Azure PowerShell."
-	services="virtual-machine-scale-sets"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+---
+title: Gérer des machines virtuelles dans un jeu de mise à l’échelle de machine virtuelle | Microsoft Docs
+description: Gérez des machines virtuelles dans un jeu de mise à l’échelle de machine virtuelle à l'aide d'Azure PowerShell.
+services: virtual-machine-scale-sets
+documentationcenter: ''
+author: davidmu1
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="davidmu"/>
+ms.service: virtual-machine-scale-sets
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/14/2016
+ms.author: davidmu
 
+---
 # Gérer des machines dans un jeu de mise à l’échelle de machines virtuelles
-
 Utilisez les tâches décrites dans cet article pour gérer les ressources de machine virtuelle de votre jeu de mise à l’échelle de machine virtuelle.
 
 Toutes les tâches qui impliquent la gestion d'une machine virtuelle dans un jeu de mise à l'échelle nécessitent de connaître l'ID d'instance de la machine que vous souhaitez gérer. Vous pouvez utiliser [Azure Resource Explorer](https://resources.azure.com) pour rechercher l'ID d'instance d'une machine virtuelle dans un jeu de mise à l'échelle. Vous utilisez également Resource Explorer pour vérifier l'état des tâches que vous avez terminées.
@@ -26,7 +25,6 @@ Toutes les tâches qui impliquent la gestion d'une machine virtuelle dans un jeu
 Consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour savoir comment installer la dernière version d’Azure PowerShell, sélectionner l’abonnement à utiliser et vous connecter à votre compte Azure.
 
 ## Afficher les informations relatives à un jeu de mise à l’échelle de machine virtuelle
-
 Vous pouvez obtenir des informations générales sur un jeu de mise à l'échelle, également appelé la vue d'instance. Ou vous pouvez obtenir des informations plus spécifiques, par exemple des informations sur les ressources du jeu.
 
 Dans cette commande, remplacez le *nom de groupe de ressources* par le nom du groupe de ressources contenant le jeu de mise à l’échelle de machine virtuelle et le *nom du jeu de mise à l’échelle* par le nom du jeu de mise à l’échelle de machine virtuelle, puis exécutez la commande :
@@ -88,11 +86,11 @@ Le résultat suivant doit s’afficher :
         AutoUpgradeMinorVersion                 : True
         Settings                                : {"xmlCfg":"...","storageAccount":"astore"}
     ProvisioningState                           : Succeeded
-    
+
 Dans cette commande, remplacez le *nom de groupe de ressources* par le nom du groupe de ressources contenant le jeu de mise à l’échelle de machine virtuelle, le *nom du jeu de mise à l’échelle* par le nom du jeu de mise à l’échelle de machine virtuelle, et *#* par l’identificateur d’instance de la machine virtuelle sur laquelle vous souhaitez obtenir des informations, puis exécutez la commande :
 
     Get-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
-        
+
 Le résultat suivant doit s’afficher :
 
     Id                            : /subscriptions/{sub-id}/resourceGroups/myrg1/providers/Microsoft.Compute/
@@ -141,9 +139,8 @@ Le résultat suivant doit s’afficher :
       AutoUpgradeMinorVersion     : True
       Settings                    : {"xmlCfg":"...","storageAccount":"astore"}
       ProvisioningState           : Succeeded
-        
-## Démarrer une machine virtuelle dans un jeu de mise à l’échelle
 
+## Démarrer une machine virtuelle dans un jeu de mise à l’échelle
 Dans cette commande, remplacez le *nom de groupe de ressources* par le nom du groupe de ressources contenant le jeu de mise à l’échelle de machine virtuelle, le *nom du jeu de mise à l’échelle* par le nom du jeu de mise à l’échelle, *#* par l’identificateur de la machine virtuelle que vous voulez démarrer, puis exécutez la commande :
 
     Start-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
@@ -165,16 +162,15 @@ Dans Resource Explorer, nous pouvons voir que l'état de l'instance indique **ru
     ]
 
 Vous pouvez démarrer toutes les machines virtuelles dans le jeu en n’utilisant ne pas le paramètre - InstanceId.
-    
-## Arrêter une machine virtuelle dans un jeu de mise à l’échelle
 
+## Arrêter une machine virtuelle dans un jeu de mise à l’échelle
 Dans cette commande, remplacez le *nom de groupe de ressources* par le nom du groupe de ressources contenant le jeu de mise à l’échelle de machine virtuelle, le *nom du jeu de mise à l’échelle* par le nom du jeu de mise à l’échelle, *#* par l’identificateur de la machine virtuelle que vous voulez arrêter, puis exécutez la commande :
 
-	Stop-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
+    Stop-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
 Dans Resource Explorer, nous pouvons voir que l'état de l'instance indique **deallocated** (libéré) :
 
-	"statuses": [
+    "statuses": [
       {
         "code": "ProvisioningState/succeeded",
         "level": "Info",
@@ -187,22 +183,20 @@ Dans Resource Explorer, nous pouvons voir que l'état de l'instance indique **de
         "displayStatus": "VM deallocated"
       }
     ]
-    
-Pour arrêter une machine virtuelle sans la libérer, utilisez le paramètre - StayProvisioned. Vous pouvez arrêter toutes les machines virtuelles dans le jeu en n’utilisant ne pas le paramètre - InstanceId.
-    
-## Redémarrer une machine virtuelle dans un jeu de mise à l’échelle
 
+Pour arrêter une machine virtuelle sans la libérer, utilisez le paramètre - StayProvisioned. Vous pouvez arrêter toutes les machines virtuelles dans le jeu en n’utilisant ne pas le paramètre - InstanceId.
+
+## Redémarrer une machine virtuelle dans un jeu de mise à l’échelle
 Dans cette commande, remplacez le *nom de groupe de ressources* par le nom du groupe de ressources contenant le jeu de mise à l’échelle de machine virtuelle, le *nom du jeu de mise à l’échelle* par le nom du jeu de mise à l’échelle, *#* par l’identificateur de la machine virtuelle que vous voulez redémarrer, puis exécutez la commande :
 
-	Restart-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
-    
+    Restart-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
+
 Vous pouvez redémarrer toutes les machines virtuelles dans le jeu en n’utilisant ne pas le paramètre - InstanceId.
 
 ## Supprimer une machine virtuelle d’un jeu de mise à l’échelle
-
 Dans cette commande, remplacez le *nom de groupe de ressources* par le nom du groupe de ressources contenant le jeu de mise à l’échelle de machine virtuelle, le *nom du jeu de mise à l’échelle* par le nom du jeu de mise à l’échelle, *#* par l’identificateur de la machine virtuelle que vous voulez supprimer du jeu de mise à l’échelle, puis exécutez la commande :
 
-	Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name" -InstanceId #
+    Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name" -InstanceId #
 
 Vous pouvez supprimer simultanément tous les jeux de mise à l’échelle de machine virtuelle en n’utilisant ne pas le paramètre - InstanceId.
 

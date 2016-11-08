@@ -1,7 +1,6 @@
 <!--author=alkohli last changed: 03/17/16-->
 
 ## Résolution des échecs de mise à jour
-
 **Que faire en cas d’affichage d’une notification d’échec des vérifications préalables à la mise à niveau ?**
 
 Si une vérification préalable est mise en échec, consultez de nouveau la barre des notifications détaillées de la partie inférieure de la page. Elle fournit des indications relatives aux vérifications préalables mises en échec. L’illustration suivante représente un exemple d’apparition de ce type de notification. Dans ce cas, les contrôles d’intégrité du contrôleur et des composants ont échoué. Dans la section **État du matériel**, vous constatez que les composants **Contrôleur 0** et **Contrôleur 1** requièrent votre attention.

@@ -1,34 +1,34 @@
-<properties
-   pageTitle="Options de regroupement dans SQL Data Warehouse | Microsoft Azure"
-   description="Conseils relatifs à l’implémentation d’options de regroupement dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Options de regroupement dans SQL Data Warehouse | Microsoft Docs
+description: Conseils relatifs à l’implémentation d’options de regroupement dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/14/2016
+ms.author: jrj;barbkess;sonyama
 
-# Options de regroupement dans SQL Data Warehouse
+---
+# Options de regroupement dans SQL Data Warehouse
+La clause [GROUP BY][GROUP BY] est utilisée pour regrouper des données dans un ensemble de lignes récapitulatives. Elle présente également quelques options, qui étendent ses fonctionnalités ; celles-ci doivent faire l’objet d’un contournement, car elles ne sont pas directement prises en charge par Azure SQL Data Warehouse.
 
-La clause [GROUP BY][] est utilisée pour regrouper des données dans un ensemble de lignes récapitulatives. Elle présente également quelques options, qui étendent ses fonctionnalités ; celles-ci doivent faire l’objet d’un contournement, car elles ne sont pas directement prises en charge par Azure SQL Data Warehouse.
+Ces options sont :
 
-Ces options sont :
-- GROUP BY avec ROLLUP
-- GROUPING SETS
-- GROUP BY avec CUBE
+* GROUP BY avec ROLLUP
+* GROUPING SETS
+* GROUP BY avec CUBE
 
 ## Options ROLLUP et GROUPING SETS
 L’option la plus simple consiste à utiliser `UNION ALL` à la place, afin d’effectuer le cumul, plutôt que de se fier à la syntaxe explicite. Le résultat est exactement le même.
 
-Voici un exemple d’instruction GROUP BY utilisant l’option `ROLLUP` :
+Voici un exemple d’instruction GROUP BY utilisant l’option `ROLLUP` :
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -43,12 +43,13 @@ GROUP BY ROLLUP (
 ;
 ```
 
-En utilisant l’option ROLLUP, nous avons demandé les agrégations suivantes :
-- Pays et région
-- Pays
-- Total général
+En utilisant l’option ROLLUP, nous avons demandé les agrégations suivantes :
 
-Pour remplacer cet élément, vous devons utiliser l’élément `UNION ALL`, en spécifiant les agrégations requises de manière explicite pour renvoyer les même résultats :
+* Pays et région
+* Pays
+* Total général
+
+Pour remplacer cet élément, vous devons utiliser l’élément `UNION ALL`, en spécifiant les agrégations requises de manière explicite pour renvoyer les même résultats :
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -77,12 +78,12 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 
 Pour GROUPING SETS, il nous suffit d’adopter le même principe, en créant uniquement des sections UNION ALL pour les niveaux d’agrégation que nous voulons afficher.
 
-## Options CUBE
-Il est possible de créer une commande GROUP BY avec CUBE, à l’aide de l’approche UNION ALL. Il existe cependant un problème : le code peut rapidement devenir fastidieux et difficile à gérer. Pour réduire ce risque, vous pouvez utiliser cette approche plus avancée.
+## Options CUBE
+Il est possible de créer une commande GROUP BY avec CUBE, à l’aide de l’approche UNION ALL. Il existe cependant un problème : le code peut rapidement devenir fastidieux et difficile à gérer. Pour réduire ce risque, vous pouvez utiliser cette approche plus avancée.
 
 Utilisons l’exemple ci-dessus.
 
-La première étape consiste à définir le « cube » qui définit tous les niveaux d’agrégation que nous souhaitons créer. N’oublions pas de tenir compte de l’action CROSS JOIN associant les deux tables dérivées. Cette action génère tous les niveaux qu’il nous faut. Le reste du code est uniquement placé à des fins de formatage.
+La première étape consiste à définir le « cube » qui définit tous les niveaux d’agrégation que nous souhaitons créer. N’oublions pas de tenir compte de l’action CROSS JOIN associant les deux tables dérivées. Cette action génère tous les niveaux qu’il nous faut. Le reste du code est uniquement placé à des fins de formatage.
 
 ```sql
 CREATE TABLE #Cube
@@ -113,11 +114,11 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-Les résultats de la commande CTAS sont affichés ci-dessous :
+Les résultats de la commande CTAS sont affichés ci-dessous :
 
 ![][1]
 
-La deuxième étape consiste à spécifier une table cible pour stocker les résultats temporaires :
+La deuxième étape consiste à spécifier une table cible pour stocker les résultats temporaires :
 
 ```sql
 DECLARE
@@ -140,7 +141,7 @@ WITH
 ;
 ```
 
-Quant à la troisième étape, elle consiste à effectuer une boucle sur notre cube de colonnes effectuant l’agrégation. La requête sera exécutée une seule fois pour chaque ligne de la table temporaire « #Cube » ; elle stockera les résultats dans la table temporaire « #Results ».
+Quant à la troisième étape, elle consiste à effectuer une boucle sur notre cube de colonnes effectuant l’agrégation. La requête sera exécutée une seule fois pour chaque ligne de la table temporaire « #Cube » ; elle stockera les résultats dans la table temporaire « #Results ».
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -164,7 +165,7 @@ BEGIN
 END
 ```
 
-Enfin, nous pouvons renvoyer les résultats en lisant simplement les données de la table temporaire « #Results ».
+Enfin, nous pouvons renvoyer les résultats en lisant simplement les données de la table temporaire « #Results ».
 
 ```sql
 SELECT *
@@ -175,9 +176,8 @@ ORDER BY 1,2,3
 
 Si nous fractionnons le code en sections et générons une construction en boucle, le code devient plus facile à gérer et à entretenir.
 
-
 ## Étapes suivantes
-Pour obtenir des conseils supplémentaires en matière de développement, voir la [vue d’ensemble sur le développement][].
+Pour obtenir des conseils supplémentaires en matière de développement, voir la [vue d’ensemble sur le développement][vue d’ensemble sur le développement].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png

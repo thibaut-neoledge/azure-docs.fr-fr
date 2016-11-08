@@ -1,56 +1,54 @@
-<properties 
-   pageTitle="Interface utilisateur d'Azure Mobile Engagement - Mon compte" 
-   description="Apprenez à gérer le profil de votre compte et à tester les périphériques à l'aide d'Azure Mobile Engagement" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
-   editor=""/>
+---
+title: Interface utilisateur d'Azure Mobile Engagement - Mon compte
+description: Apprenez à gérer le profil de votre compte et à tester les périphériques à l'aide d'Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # Gestion du profil de votre compte et test des périphériques
- 
 Cet article décrit la page **d’accueil** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et à gérer vos applications mobiles.
- 
-Pour accéder à la page **Mon compte**, cliquez sur votre compte en haut de la page.
+
+Pour accéder à la page **Mon compte**, cliquez sur votre compte en haut de la page.
 
 La section Mon compte de l'interface utilisateur vous permet d'afficher et de modifier les paramètres associés à votre compte, y compris les paramètres de votre profil et les ID de vos appareils de test. Ces paramètres contiennent des éléments auxquels vous pouvez également accéder via l'API de l'appareil.
 
-![Mon compte 1][7]
+![Mon compte 1][7]
 
-## Profil :
+## Profil :
 Vous pouvez afficher ou modifier tous les paramètres de votre compte affichés ci-dessous. Vous pouvez également autoriser un autre utilisateur à utiliser votre application grâce à son adresse de messagerie depuis la section [Accueil](mobile-engagement-user-interface-home.md).
 
-![Mon compte 2][8]
+![Mon compte 2][8]
 
-## Appareils :
-Vous pouvez afficher, ajouter ou supprimer l'ID de l'appareil de test des appareils de test que vous pouvez utiliser pour tester vos campagnes **Reach** et **Push**. Les instructions contextuelles sur la procédure de recherche d'ID de l'appareil des appareils pour chaque plateforme (iOS, Android, Windows Phone, etc.) s'affichent lorsque vous cliquez sur « Nouvel appareil ».
- 
-![Mon compte 3][9]
- 
-Pour utiliser l'API Push ou l'API de l'appareil, vous devez connaître l'identificateur unique de l'appareil de vos utilisateurs (le paramètre deviceid). Vous pouvez le récupérer de plusieurs façons :
- 
-1. À partir de votre serveur principal, utilisez la fonctionnalité « Get » de l'API de l'appareil pour obtenir la liste complète des identificateurs d'appareil.
+## Appareils :
+Vous pouvez afficher, ajouter ou supprimer l'ID de l'appareil de test des appareils de test que vous pouvez utiliser pour tester vos campagnes **Reach** et **Push**. Les instructions contextuelles sur la procédure de recherche d'ID de l'appareil des appareils pour chaque plateforme (iOS, Android, Windows Phone, etc.) s'affichent lorsque vous cliquez sur « Nouvel appareil ».
+
+![Mon compte 3][9]
+
+Pour utiliser l'API Push ou l'API de l'appareil, vous devez connaître l'identificateur unique de l'appareil de vos utilisateurs (le paramètre deviceid). Vous pouvez le récupérer de plusieurs façons :
+
+1. À partir de votre serveur principal, utilisez la fonctionnalité « Get » de l'API de l'appareil pour obtenir la liste complète des identificateurs d'appareil.
 2. À partir de votre application, utilisez le Kit de développement logiciel (SDK) pour l'obtenir. (Sur Android, appelez la fonction getDeviceID() de la classe Agent, et sur iOS lisez la propriété deviceid de la classe Agent).
-3. À partir d’une annonce Reach, si l’URL de l’action associée à l’annonce contient le modèle {deviceid}, il sera automatiquement remplacé par l’identificateur de l’appareil à l’origine de l’action. http://<exemple>.com/registeruser?deviceid={deviceid}&otherparam=myparamdata sera remplacé par : http://<exemple>.com/registeruser?deviceid=XXXXXXXXXXXXXXXX&otherparam=myparamdata
-4. À partir d'une annonce Web Reach, si le code HTML de l'annonce contient le modèle {deviceid}, celui-ci sera automatiquement remplacé par l'identificateur de l'appareil qui affiche l'annonce Web. Voici mon identificateur de périphérique : {deviceid} sera remplacé par : Voici mon identificateur de périphérique : XXXXXXXXXXXXXXXX
-5.  Ouvrez votre application sur votre appareil et créez un Événement dans votre application identifiée. À partir de « IU - votre application - Surveillance - Événements - Détails », cherchez l'événement que vous avez créé dans la liste. Cliquez sur cet événement dans le Moniteur. Vous devriez trouver l'ID de votre appareil dans la liste des appareils qui ont créé cet événement. Vous pouvez ensuite copier cet ID de l'appareil et l'enregistrer dans « IU - Mon compte - Appareils - Nouvel appareil - Sélectionnez la plateforme de votre appareil ».
->(Notez que lorsque l'IDFA est désactivé pour iOS, l'ID de l'appareil peut changer après un certain temps si vous désinstallez et réinstallez votre application).
+3. À partir d’une annonce Reach, si l’URL de l’action associée à l’annonce contient le modèle {deviceid}, il sera automatiquement remplacé par l’identificateur de l’appareil à l’origine de l’action. http://<exemple>.com/registeruser?deviceid={deviceid}&otherparam=myparamdata sera remplacé par : http://<exemple>.com/registeruser?deviceid=XXXXXXXXXXXXXXXX&otherparam=myparamdata
+4. À partir d'une annonce Web Reach, si le code HTML de l'annonce contient le modèle {deviceid}, celui-ci sera automatiquement remplacé par l'identificateur de l'appareil qui affiche l'annonce Web. Voici mon identificateur de périphérique : {deviceid} sera remplacé par : Voici mon identificateur de périphérique : XXXXXXXXXXXXXXXX
+5. Ouvrez votre application sur votre appareil et créez un Événement dans votre application identifiée. À partir de « IU - votre application - Surveillance - Événements - Détails », cherchez l'événement que vous avez créé dans la liste. Cliquez sur cet événement dans le Moniteur. Vous devriez trouver l'ID de votre appareil dans la liste des appareils qui ont créé cet événement. Vous pouvez ensuite copier cet ID de l'appareil et l'enregistrer dans « IU - Mon compte - Appareils - Nouvel appareil - Sélectionnez la plateforme de votre appareil ».
+   >(Notez que lorsque l'IDFA est désactivé pour iOS, l'ID de l'appareil peut changer après un certain temps si vous désinstallez et réinstallez votre application).
 
-##Guide de résolution des problèmes
--  [Guide de résolution des problèmes - Service][Link 24]
+## Guide de résolution des problèmes
+* [Guide de résolution des problèmes - Service][Link 24]
 
 ## Voir aussi
--  [Documentation de l'interface utilisateur (IU) - Accueil][Link 13]
-
+* [Documentation de l'interface utilisateur (IU) - Accueil][Link 13]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -148,7 +146,7 @@ Pour utiliser l'API Push ou l'API de l'appareil, vous devez connaître l'identif
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
 
 
- 
- 
+
+
 
 <!---HONumber=AcomDC_0824_2016-->

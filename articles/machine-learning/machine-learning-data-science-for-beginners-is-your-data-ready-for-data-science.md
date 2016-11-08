@@ -1,62 +1,57 @@
-<properties
-   pageTitle="Vos données sont-elles prêtes pour la science des données ? Évaluation des données | Microsoft Azure"
-   description="Découvrez les 4 critères indiquant que vos données sont prêtes pour la science des données. La vidéo 2 de la série Science des données pour les débutants contient des exemples concrets pour faciliter l’évaluation de données de base."
-   keywords="évaluation des données,données pertinentes,évaluer des données,préparer les données,critères de données,données prêtes"
-   services="machine-learning"
-   documentationCenter="na"
-   authors="brohrer-ms"
-   manager="jhubbard"
-   editor="cjgronlund"/>
+---
+title: Vos données sont-elles prêtes pour la science des données ? Évaluation des données | Microsoft Docs
+description: Découvrez les 4 critères indiquant que vos données sont prêtes pour la science des données. La vidéo 2 de la série Science des données pour les débutants contient des exemples concrets pour faciliter l’évaluation de données de base.
+keywords: évaluation des données,données pertinentes,évaluer des données,préparer les données,critères de données,données prêtes
+services: machine-learning
+documentationcenter: na
+author: brohrer-ms
+manager: jhubbard
+editor: cjgronlund
 
-<tags
-   ms.service="machine-learning"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/15/2016"
-   ms.author="cgronlun;brohrer;garye"/>
+ms.service: machine-learning
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/15/2016
+ms.author: cgronlun;brohrer;garye
 
-
-# Vos données sont-elles prêtes pour la science des données ?
-
+---
+# Vos données sont-elles prêtes pour la science des données ?
 ## Vidéo 2 : série Science des données pour les débutants
-
 Découvrez comment évaluer vos données pour vous assurer qu’elles répondent aux critères de base pour la science des données.
 
 Pour tirer le meilleur parti de la série, regardez-les dans l’ordre. [Accéder à la liste des vidéos](#other-videos-in-this-series)
 
-> [AZURE.VIDEO data-science-for-beginners-series-is-your-data-ready-for-data-science]
+> [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/9/player]
+> 
+> 
 
 ## Autres vidéos de cette série
-
 La série *Science des données pour les débutants* offre une introduction rapide à la science des données en cinq petites vidéos.
 
-  * Vidéo 1 : [Les 5 questions auxquelles la science des données répond](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
-  * Vidéo 2 : Vos données sont-elles prêtes pour la science des données ?
-  * Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
-  * Vidéo 4 : [Prédire une réponse à l’aide d’un modèle simple](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
-  * Vidéo 5 : [Copier le travail d’autres personnes pour des projets de science des données](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
+* Vidéo 1 : [Les 5 questions auxquelles la science des données répond](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
+* Vidéo 2 : Vos données sont-elles prêtes pour la science des données ?
+* Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
+* Vidéo 4 : [Prédire une réponse à l’aide d’un modèle simple](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
+* Vidéo 5 : [Copier le travail d’autres personnes pour des projets de science des données](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
 
-## Transcription : Vos données sont-elles prêtes pour la science des données ?
-
-Bienvenue dans « Vos données sont-elles prêtes pour la science des données ? », la seconde vidéo de la série *Science des données pour les débutants*.
+## Transcription : Vos données sont-elles prêtes pour la science des données ?
+Bienvenue dans « Vos données sont-elles prêtes pour la science des données ? », la seconde vidéo de la série *Science des données pour les débutants*.
 
 Avant que la science des données ne puisse vous fournir les réponses souhaitées, vous devez lui donner des matériaux bruts avec lesquels elle pourra travailler. C’est comme pour préparer une pizza : plus les ingrédients sont excellents, plus la qualité du produit fini est bonne.
 
 ## Critères pour les données
-
 Par conséquent, dans le cas de la science des données, vous avez besoin de certains ingrédients.
 
 Nous avons besoin de données :
 
-  *	Pertinentes
-  *	Connecté
-  *	Précises
-  *	Suffisantes
+* Pertinentes
+* Connecté
+* Précises
+* Suffisantes
 
 ## Vos données sont-elles pertinentes ?
-
 Le premier ingrédient est donc des données pertinentes.
 
 ![Données pertinentes et données non pertinentes - évaluation des données](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-relevant-and-irrelevant-data.png)
@@ -68,7 +63,6 @@ Il s’agit de données parfaitement légitimes. Le seul problème est qu’elle
 Maintenant, examinez le tableau sur la droite. Cette fois, nous avons mesuré la masse corporelle de chaque personne et compté le nombre de boissons qu’elles ont consommé. Les chiffres dans chaque ligne sont désormais pertinents une fois mis en relation. Si je vous ai donné mon indice de masse corporelle et le nombre de margaritas que j’ai bus, vous pouvez estimer mon taux d’alcool dans le sang.
 
 ## Avez-vous des données connectées ?
-
 L’ingrédient suivant est des données connectées.
 
 ![Données connectées et données non connectées - critères de données, données prêtes](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
@@ -82,7 +76,6 @@ Si vous examinez le tableau sur la gauche, il manque tant de données qu’il es
 La table de droite, cependant, est remplie (un exemple de données connectées).
 
 ## Vos données sont-elles précises ?
-
 L’ingrédient suivant dont nous avons besoin est la précision. Voici les 4 cibles à atteindre.
 
 ![Données précises et des données inexactes - critères de données](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-inaccurate-vs-accurate-data.png)
@@ -94,7 +87,6 @@ Si vous mappez le centre de ces flèches, vous voyez qu’il est très proche du
 À présent, examinez la cible de l’angle supérieur gauche. Ici, nos flèches sont très proches, regroupées étroitement. Elles sont précises, mais inexactes, car le centre est la sortie du cercle concentrique. Et, bien entendu, les flèches de la cible en bas à gauche sont inexactes et non précises. Cet archer a besoin de plus de pratique.
 
 ## Disposez-vous d’assez de données à analyser ?
-
 Enfin, le quatrième ingrédient : nous avons besoin d’assez de données.
 
 ![Disposez-vous d’assez de données pour une analyse ? Évaluation des données](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-barely-enough-data.png)
@@ -111,12 +103,8 @@ Avec assez de données pertinentes, connectées et précises, nous disposons de 
 
 Nous vous invitons à consulter les 4 autres vidéos de la série *Science des données pour les débutants* de Microsoft Azure Machine Learning.
 
-
-
-
 ## Étapes suivantes
-
-  * [Menez votre première expérience de science des données avec Azure Machine Learning](machine-learning-create-experiment.md)
-  * [Consultez la présentation de Machine Learning sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
+* [Menez votre première expérience de science des données avec Azure Machine Learning](machine-learning-create-experiment.md)
+* [Consultez la présentation de Machine Learning sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
 <!---HONumber=AcomDC_0914_2016-->

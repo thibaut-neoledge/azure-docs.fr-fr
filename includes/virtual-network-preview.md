@@ -1,3 +1,6 @@
->[AZURE.WARNING] Cette fonctionnalité est actuellement en version préliminaire. Il se peut qu’elle n’offre pas les mêmes niveaux de disponibilité et de fiabilité que les fonctions de la version mise à la disposition générale. La fonctionnalité n’est pas prise en charge, peut présenter des fonctionnalités limitées et peut ne pas être disponible dans tous les [emplacements Azure](https://azure.microsoft.com/regions/). Pour les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez [Mises à jour du réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network).
+> [!WARNING]
+> Cette fonctionnalité est actuellement en version préliminaire. Il se peut qu’elle n’offre pas les mêmes niveaux de disponibilité et de fiabilité que les fonctions de la version mise à la disposition générale. La fonctionnalité n’est pas prise en charge, peut présenter des fonctionnalités limitées et peut ne pas être disponible dans tous les [emplacements Azure](https://azure.microsoft.com/regions/). Pour les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez [Mises à jour du réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network).
+> 
+> 
 
 <!---HONumber=AcomDC_0928_2016-->

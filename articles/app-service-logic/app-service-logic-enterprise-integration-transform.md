@@ -1,27 +1,26 @@
-<properties 
-	pageTitle="Vue d’ensemble d’Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
-	description="Utilisez les fonctionnalités d’Enterprise Integration Pack pour activer les processus métier et les scénarios d’intégration à l’aide de Microsoft Azure App Service" 
-	services="logic-apps" 
-	documentationCenter=".net,nodejs,java"
-	authors="msftman" 
-	manager="erikre" 
-	editor="cgronlun"/>
+---
+title: Vue d’ensemble d’Enterprise Integration Pack | Microsoft Docs
+description: Utilisez les fonctionnalités d’Enterprise Integration Pack pour activer les processus métier et les scénarios d’intégration à l’aide de Microsoft Azure App Service
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: msftman
+manager: erikre
+editor: cgronlun
 
-<tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2016" 
-	ms.author="deonhe"/>
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/08/2016
+ms.author: deonhe
 
+---
 # Intégration d’entreprise avec les transformations XML
-
 ## Vue d'ensemble
 Le connecteur Enterprise Integration Transform convertit les données d’un format vers un autre format. Vous pouvez, par exemple, avoir un message entrant qui contient la date du jour au format AnnéeMoisJour. Vous pouvez utiliser une transformation pour remettre en forme la date au format MoisJourAnnée.
 
-## Que fait une transformation ?
+## Que fait une transformation ?
 Une transformation, également appelée mappage, est composée d’un schéma XML source (l’entrée) et d’un schéma XML cible (la sortie). Vous pouvez utiliser différentes fonctions intégrées pour aider à manipuler ou à contrôler les données, y compris les manipulations de chaînes, les affectations conditionnelles, les expressions arithmétiques, les formateurs d'heure et de date et même les constructions de bouclage.
 
 ## Création d’une transformation
@@ -32,18 +31,21 @@ Après avoir téléchargé la transformation dans votre compte d’intégration,
 
 **Voici les étapes à suivre pour utiliser une transformation**:
 
-### Configuration requise 
-Dans la version préliminaire, vous devez :
+### Configuration requise
+Dans la version préliminaire, vous devez :
 
--  [Créer un conteneur Azure Functions](https://ms.portal.azure.com/#create/Microsoft.FunctionApp "Création d’un conteneur Azure Functions")
--  [Ajouter une fonction dans le conteneur Azure Functions](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-transform-function%2Fazuredeploy.json "Ce modèle crée une fonction Azure en C# basée sur un webhook avec des fonctionnalités de transformation à utiliser dans des scénarios d’intégration d’applications logiques")
--  Créer un compte d’intégration et y ajouter un mappage
+* [Créer un conteneur Azure Functions](https://ms.portal.azure.com/#create/Microsoft.FunctionApp "Création d’un conteneur Azure Functions")
+* [Ajouter une fonction dans le conteneur Azure Functions](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-transform-function%2Fazuredeploy.json "Ce modèle crée une fonction Azure en C# basée sur un webhook avec des fonctionnalités de transformation à utiliser dans des scénarios d’intégration d’applications logiques")
+* Créer un compte d’intégration et y ajouter un mappage
 
->[AZURE.TIP] Notez le nom du conteneur Azure Functions et de la fonction Azure car vous en aurez besoin à l’étape suivante.
+> [!TIP]
+> Notez le nom du conteneur Azure Functions et de la fonction Azure car vous en aurez besoin à l’étape suivante.
+> 
+> 
 
-Maintenant que vous avez exécuté la configuration requise, il est temps de créer votre application logique :
+Maintenant que vous avez exécuté la configuration requise, il est temps de créer votre application logique :
 
-1. Créez une application logique et [liez-la à votre compte d’intégration](./app-service-logic-enterprise-integration-accounts.md "Découvrez comment lier un compte d’intégration à une application logique") qui contient le mappage.
+1. Créez une application logique et [liez-la à votre compte d’intégration](app-service-logic-enterprise-integration-accounts.md "Découvrez comment lier un compte d’intégration à une application logique") qui contient le mappage.
 2. Ajoutez un déclencheur **Demande - Quand une demande HTTP est reçue** à votre application logique ![](./media/app-service-logic-enterprise-integration-transforms/transform-1.png)
 3. Ajoutez l’action **Transformer XML** en sélectionnant d’abord **Ajouter une action** ![](./media/app-service-logic-enterprise-integration-transforms/transform-2.png)
 4. Entrez le mot *transformation* dans la zone de recherche afin de filtrer toutes les actions et d’obtenir celle que vous souhaitez utiliser ![](./media/app-service-logic-enterprise-integration-transforms/transform-3.png)
@@ -59,19 +61,16 @@ Maintenant que vous avez exécuté la configuration requise, il est temps de cr�
 Vous pouvez maintenant tester votre transformation en effectuant une demande au point de terminaison HTTP.
 
 ## Fonctionnalités et cas d’usage
-
-- La transformation créée dans un mappage peut être simple, par exemple la copie d'un nom et de l'adresse d'un document vers un autre. Vous pouvez aussi créer des transformations plus complexes à l'aide des opérations de mappage prêtes à l'emploi.
-- Plusieurs fonctions ou opérations de mappage sont disponibles, y compris des chaînes, des fonctions de date et d'heure, et ainsi de suite.
-- Vous pouvez effectuer une copie de données directe entre les schémas. Dans le Mappeur inclus dans le Kit de développement logiciel (SDK), il suffit de dessiner une ligne qui relie les éléments dans le schéma source à leurs équivalents dans le schéma de destination.
-- Lors de la création d’un mappage, sa représentation graphique est affichée, notamment toutes les relations et les liens que vous créez.
-- Utilisez la fonctionnalité Tester le mappage pour ajouter un exemple de message XML. Avec un simple clic, vous pouvez tester le mappage que vous avez créé et afficher la sortie générée.
-- Téléchargement de mappages existants
-- Comprend la prise en charge du format XML.
-
+* La transformation créée dans un mappage peut être simple, par exemple la copie d'un nom et de l'adresse d'un document vers un autre. Vous pouvez aussi créer des transformations plus complexes à l'aide des opérations de mappage prêtes à l'emploi.
+* Plusieurs fonctions ou opérations de mappage sont disponibles, y compris des chaînes, des fonctions de date et d'heure, et ainsi de suite.
+* Vous pouvez effectuer une copie de données directe entre les schémas. Dans le Mappeur inclus dans le Kit de développement logiciel (SDK), il suffit de dessiner une ligne qui relie les éléments dans le schéma source à leurs équivalents dans le schéma de destination.
+* Lors de la création d’un mappage, sa représentation graphique est affichée, notamment toutes les relations et les liens que vous créez.
+* Utilisez la fonctionnalité Tester le mappage pour ajouter un exemple de message XML. Avec un simple clic, vous pouvez tester le mappage que vous avez créé et afficher la sortie générée.
+* Téléchargement de mappages existants
+* Comprend la prise en charge du format XML.
 
 ## En savoir plus
-- [En savoir plus sur Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")
-- [En savoir plus sur les mappages](./app-service-logic-enterprise-integration-maps.md "Découvrez les mappages d’intégration d’entreprise")
- 
+* [En savoir plus sur Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")
+* [En savoir plus sur les mappages](app-service-logic-enterprise-integration-maps.md "Découvrez les mappages d’intégration d’entreprise")
 
 <!---HONumber=AcomDC_0803_2016-->

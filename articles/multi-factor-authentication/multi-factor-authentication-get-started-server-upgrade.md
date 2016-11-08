@@ -1,24 +1,23 @@
-<properties 
-	pageTitle="Mise à niveau de l'agent PhoneFactor vers le serveur Azure Multi-Factor Authentication"
-	description="Ce document décrit comment démarrer avec le serveur Azure MFA et mettre à niveau à partir de l'ancien agent phonefactor."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+---
+title: Mise à niveau de l'agent PhoneFactor vers le serveur Azure Multi-Factor Authentication
+description: Ce document décrit comment démarrer avec le serveur Azure MFA et mettre à niveau à partir de l'ancien agent phonefactor.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/04/2016
+ms.author: kgremban
 
+---
 # Mise à niveau de l'agent PhoneFactor vers le serveur Azure Multi-Factor Authentication
-
-La mise à niveau à partir de l’agent PhoneFactor v5.x ou version antérieure vers le serveur Azure Multi-Factor Authentication requiert l’agent PhoneFactor et les composants associés pour être désinstallé avant que le serveur Multi-Factor Authentication et ses composants associés puissent être installés.
+La mise à niveau à partir de l’agent PhoneFactor v5.x ou version antérieure vers le serveur Azure Multi-Factor Authentication requiert l’agent PhoneFactor et les composants associés pour être désinstallé avant que le serveur Multi-Factor Authentication et ses composants associés puissent être installés.
 
 ## Mise à niveau de l'agent PhoneFactor vers le serveur Azure Multi-Factor Authentication
 <ol>
@@ -39,6 +38,7 @@ La mise à niveau à partir de l’agent PhoneFactor v5.x ou version antérieur
 
 
 <li> Si le service web de l’application mobile est installé :
+
 <ol>
 <li>Accédez au dossier d’installation et sauvegardez le fichier web.config. L’emplacement d’installation par défaut est C:\inetpub\wwwroot\PhoneFactorPhoneAppWebService.</li>
 <li>Désinstaller le service web de l’application mobile via les programmes et fonctionnalités Windows.</li></ol>
@@ -51,11 +51,12 @@ La mise à niveau à partir de l’agent PhoneFactor v5.x ou version antérieur
 
 <li>Si vous y êtes invité, activez le serveur Multi-Factor Authentication et assurez-vous qu'il est affecté au groupe de réplication approprié.
 
-<li>Si le Kit de développement logiciel (SDK) Web Service a été précédemment installé, installez le nouveau Kit de développement logiciel (SDK) Web Service via l'Interface utilisateur du serveur Multi-Factor Authentication. Notez que le nom de répertoire virtuel par défaut est désormais « Multifactorauthwebservicesdk » au lieu de « Phonefactorwebservicesdk ». Si vous souhaitez utiliser le nom précédent, vous devez modifier le nom du répertoire virtuel pendant l'installation. Sinon, si vous autorisez le programme d'installation à utiliser le nouveau nom par défaut, vous devez modifier l'URL dans toutes les applications qui référencent le Kit de développement logiciel (SDK) Web Service, tels que le portail de l'utilisateur et le service web de l'application mobile pour pointer vers le bon emplacement.
+<li>Si le Kit de développement logiciel (SDK) Web Service a été précédemment installé, installez le nouveau Kit de développement logiciel (SDK) Web Service via l'Interface utilisateur du serveur Multi-Factor Authentication. Notez que le nom de répertoire virtuel par défaut est désormais « Multifactorauthwebservicesdk » au lieu de « Phonefactorwebservicesdk ». Si vous souhaitez utiliser le nom précédent, vous devez modifier le nom du répertoire virtuel pendant l'installation. Sinon, si vous autorisez le programme d'installation à utiliser le nouveau nom par défaut, vous devez modifier l'URL dans toutes les applications qui référencent le Kit de développement logiciel (SDK) Web Service, tels que le portail de l'utilisateur et le service web de l'application mobile pour pointer vers le bon emplacement.
 
-<li>Si le portail de l'utilisateur a été précédemment installé sur le serveur de l'agent PhoneFactor, installez le nouveau portail utilisateur Multi-Factor Authentication via l'Interface Multi-Factor Authentication. Notez que le nom de répertoire virtuel par défaut est désormais « MultiFactorAuth » au lieu de « PPhoneFactor ». Si vous souhaitez utiliser le nom précédent, vous devez modifier le nom du répertoire virtuel pendant l'installation. Sinon, si vous autorisez le programme d'installation à utiliser le nouveau nom par défaut, vous cliquez sur l'icône Portail de l'utilisateur sur le serveur Multi-Factor Authentication et mettez à jour l'URL du portail utilisateur sous l'onglet Paramètres.
+<li>Si le portail de l'utilisateur a été précédemment installé sur le serveur de l'agent PhoneFactor, installez le nouveau portail utilisateur Multi-Factor Authentication via l'Interface Multi-Factor Authentication. Notez que le nom de répertoire virtuel par défaut est désormais « MultiFactorAuth » au lieu de « PPhoneFactor ». Si vous souhaitez utiliser le nom précédent, vous devez modifier le nom du répertoire virtuel pendant l'installation. Sinon, si vous autorisez le programme d'installation à utiliser le nouveau nom par défaut, vous cliquez sur l'icône Portail de l'utilisateur sur le serveur Multi-Factor Authentication et mettez à jour l'URL du portail utilisateur sous l'onglet Paramètres.
 
 <li>Si le Portail de l’utilisateur et/ou le service web de l’application mobile ont été installés précédemment sur un serveur différent de l’agent PhoneFactor :
+
 <ol>
 <li>Accédez à l’emplacement d’installation (par exemple, C:\Program Files\PhoneFactor) et copiez les fichiers d’installation appropriés sur l’autre serveur. Il existe des programmes d'installation 32&#160;bits et 64&#160;bits pour le portail de l'utilisateur et le service web de l'application mobile. Ils sont respectivement appelés MultiFactorAuthenticationUserPortalSetupXX.msi et MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi.</li>
 <li>Pour installer le Portail de l’utilisateur sur le serveur web, ouvrez une invite de commandes en tant qu’administrateur et exécutez MultiFactorAuthenticationUserPortalSetupXX.msi. Notez que le nom de répertoire virtuel par défaut est désormais «&#160;MultiFactorAuth&#160;» au lieu de «&#160;PPhoneFactor&#160;». Si vous souhaitez utiliser le nom précédent, vous devez modifier le nom du répertoire virtuel pendant l'installation. Sinon, si vous autorisez le programme d'installation à utiliser le nouveau nom par défaut, vous cliquez sur l'icône Portail de l'utilisateur sur le serveur Multi-Factor Authentication et mettez à jour l'URL du portail utilisateur sous l'onglet Paramètres. Les utilisateurs existants doivent être informés de la nouvelle URL.</li>

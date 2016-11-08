@@ -1,32 +1,29 @@
-<properties 
-pageTitle="Déploiement de SAP IDE EHP7 SP3 pour SAP ERP 6.0 sur Microsoft Azure | Microsoft Azure" 
-description="Déploiement de SAP IDE EHP7 SP3 pour SAP ERP 6.0 sur Microsoft Azure" 
-services="virtual-machines-windows" 
-documentationCenter="" 
-authors="hermanndms" 
-manager="timlt" 
-editor="" 
-tags="azure-resource-manager" 
-keywords=""/>
-<tags  
-ms.service="virtual-machines-windows" 
-ms.devlang="na" 
-ms.topic="article" 
-ms.tgt_pltfrm="vm-windows" 
-ms.workload="infrastructure-services" 
-ms.date="09/16/2016" 
-ms.author="hermannd"/>
+---
+title: Déploiement de SAP IDE EHP7 SP3 pour SAP ERP 6.0 sur Microsoft Azure | Microsoft Docs
+description: Déploiement de SAP IDE EHP7 SP3 pour SAP ERP 6.0 sur Microsoft Azure
+services: virtual-machines-windows
+documentationcenter: ''
+author: hermanndms
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+keywords: ''
 
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 09/16/2016
+ms.author: hermannd
 
-# Déploiement de SAP IDE EHP7 SP3 pour SAP ERP 6.0 sur Microsoft Azure 
-
+---
+# Déploiement de SAP IDE EHP7 SP3 pour SAP ERP 6.0 sur Microsoft Azure
 Cet article explique comment déployer SAP IDES exécuté avec SQL Server et un système d’exploitation Windows sur Microsoft Azure via SAP Cloud Appliance Library 3.0. Les captures d’écran montrent le processus étape par étape. Le déploiement d’autres solutions de la liste fonctionne de la même façon en termes de processus. Il suffit de sélectionner une autre solution.
 
 Pour démarrer avec SAP Cloud Appliance Library (SAP CAL), accédez à [cette page](https://cal.sap.com/). Il existe un blog SAP sur le nouveau [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
 
-
 Les captures d’écran suivantes présentent la procédure étape par étape pour déployer SAP IDES sur Microsoft Azure. Le processus fonctionne de la même façon pour les autres solutions.
-
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic1.jpg)
 

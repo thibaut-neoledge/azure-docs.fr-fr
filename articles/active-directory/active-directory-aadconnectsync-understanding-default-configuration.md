@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Synchronisation Azure AD Connect : présentation de la configuration par défaut | Microsoft Azure"
-    description="Cet article décrit la configuration par défaut dans la synchronisation Azure AD Connect."
-    services="active-directory"
-    documentationCenter=""
-    authors="andkjell"
-    manager="femila"
-    editor=""/>
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-	ms.topic="article"
-    ms.date="09/01/2016"
-    ms.author="andkjell"/>
+---
+title: 'Synchronisation Azure AD Connect : présentation de la configuration par défaut | Microsoft Docs'
+description: Cet article décrit la configuration par défaut dans la synchronisation Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-# Azure AD Connect Sync : comprendre la configuration par défaut
-Cet article présente les règles de configuration out-of-box. Il décrit les règles et l’impact que celles-ci ont sur la configuration. Il vous guide également tout au long de la configuration par défaut de la synchronisation Azure AD Connect. L’objectif est que le lecteur comprenne comment fonctionne le modèle de configuration, nommé approvisionnement déclaratif, dans un exemple réel. Cet article suppose que vous avez déjà installé et configuré la synchronisation Azure AD Connect à l’aide de l’Assistant d’installation.
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/01/2016
+ms.author: andkjell
+
+---
+# Azure AD Connect Sync : comprendre la configuration par défaut
+Cet article présente les règles de configuration out-of-box. Il décrit les règles et l’impact que celles-ci ont sur la configuration. Il vous guide également tout au long de la configuration par défaut de la synchronisation Azure AD Connect. L’objectif est que le lecteur comprenne comment fonctionne le modèle de configuration, nommé approvisionnement déclaratif, dans un exemple réel. Cet article suppose que vous avez déjà installé et configuré la synchronisation Azure AD Connect à l’aide de l’Assistant d’installation.
 
 Pour comprendre les détails du modèle de configuration, lisez [Comprendre l’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 
@@ -28,72 +29,72 @@ Ces règles s’appliquent également au type d’objet iNetOrgPerson.
 
 Un objet utilisateur doit remplir les conditions suivantes pour être synchronisé :
 
-- Il doit disposer d’un sourceAnchor.
-- Une fois que l’objet a été créé dans Azure AD, le sourceAnchor ne peut pas être modifié. Si la valeur est modifiée en local, l’objet arrête la synchronisation jusqu’à ce que l’attribut sourceAnchor récupère sa valeur précédente.
-- L’attribut accountEnabled (userAccountControl) dont il dispose doit être renseigné. Avec un Active Directory local, cet attribut est toujours présent et renseigné.
+* Il doit disposer d’un sourceAnchor.
+* Une fois que l’objet a été créé dans Azure AD, le sourceAnchor ne peut pas être modifié. Si la valeur est modifiée en local, l’objet arrête la synchronisation jusqu’à ce que l’attribut sourceAnchor récupère sa valeur précédente.
+* L’attribut accountEnabled (userAccountControl) dont il dispose doit être renseigné. Avec un Active Directory local, cet attribut est toujours présent et renseigné.
 
-Les objets utilisateur suivants ne sont **pas** synchronisés avec Azure AD :
+Les objets utilisateur suivants ne sont **pas** synchronisés avec Azure AD :
 
-- `IsPresent([isCriticalSystemObject])`. Vérifiez que la plupart des objets out-of-box dans Active Directory, tels que le compte administrateur intégré, ne sont pas synchronisés.
-- `IsPresent([sAMAccountName]) = False`. Assurez-vous que les objets utilisateur sans l'attribut sAMAccountName ne sont pas synchronisées. Ce cas se produit pratiquement uniquement dans un domaine mis à niveau à partir d’un système NT4.
-- `Left([sAMAccountName], 4) = "AAD_"`, `Left([sAMAccountName], 5) = "MSOL_"`. Ne synchronisez pas le compte de service utilisé par la synchronisation d’Azure AD Connect et de ses versions précédentes.
-- Ne synchronisez pas les comptes Exchange qui pourraient ne pas fonctionner dans Exchange Online.
-    - `[sAMAccountName] = "SUPPORT_388945a0"`
-    - `Left([mailNickname], 14) = "SystemMailbox{"`
-    - `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`
-    - `(Left([sAMAccountName], 4) = "CAS_" && (InStr([sAMAccountName], "}")> 0))`
-- Ne synchronisez pas les objets qui pourraient ne pas fonctionner dans Exchange Online. `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))` Ce masque de bits (&H21C07000) pourrait exclure les objets suivants :
-    - Dossier public à extension messagerie
-    - Boîte aux lettres de surveillance du système
-    - Boîte aux lettres de base de données de boîtes aux lettres (Boîte aux lettres système)
-    - Groupe de sécurité universel (ne s'applique pas à un utilisateur, mais est présent pour des raisons d'héritage)
-    - Groupe non universel (ne s'applique pas à un utilisateur, mais est présent pour des raisons d'héritage)
-    - Plan de boîte aux lettres
-    - Boîte aux lettres de découverte
-- `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Ne synchronisez aucun objet victime de réplication.
+* `IsPresent([isCriticalSystemObject])`. Vérifiez que la plupart des objets out-of-box dans Active Directory, tels que le compte administrateur intégré, ne sont pas synchronisés.
+* `IsPresent([sAMAccountName]) = False`. Assurez-vous que les objets utilisateur sans l'attribut sAMAccountName ne sont pas synchronisées. Ce cas se produit pratiquement uniquement dans un domaine mis à niveau à partir d’un système NT4.
+* `Left([sAMAccountName], 4) = "AAD_"`, `Left([sAMAccountName], 5) = "MSOL_"`. Ne synchronisez pas le compte de service utilisé par la synchronisation d’Azure AD Connect et de ses versions précédentes.
+* Ne synchronisez pas les comptes Exchange qui pourraient ne pas fonctionner dans Exchange Online.
+  * `[sAMAccountName] = "SUPPORT_388945a0"`
+  * `Left([mailNickname], 14) = "SystemMailbox{"`
+  * `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`
+  * `(Left([sAMAccountName], 4) = "CAS_" && (InStr([sAMAccountName], "}")> 0))`
+* Ne synchronisez pas les objets qui pourraient ne pas fonctionner dans Exchange Online. `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))` Ce masque de bits (&H21C07000) pourrait exclure les objets suivants :
+  * Dossier public à extension messagerie
+  * Boîte aux lettres de surveillance du système
+  * Boîte aux lettres de base de données de boîtes aux lettres (Boîte aux lettres système)
+  * Groupe de sécurité universel (ne s'applique pas à un utilisateur, mais est présent pour des raisons d'héritage)
+  * Groupe non universel (ne s'applique pas à un utilisateur, mais est présent pour des raisons d'héritage)
+  * Plan de boîte aux lettres
+  * Boîte aux lettres de découverte
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Ne synchronisez aucun objet victime de réplication.
 
-Les règles d’attribut suivantes s’appliquent :
+Les règles d’attribut suivantes s’appliquent :
 
-- `sourceAnchor <- IIF([msExchRecipientTypeDetails]=2,NULL,..)`. L’attribut sourceAnchor n’est pas partagé à partir d’une boîte aux lettres liée. On part du principe que si une boîte aux lettres liée a été trouvée, le compte actuel sera associé ultérieurement.
-- Les attributs liés à Exchange sont uniquement synchronisés si l'attribut **mailNickName** a une valeur.
-- Lorsqu’il existe plusieurs forêts, les attributs sont consommés dans l’ordre suivant :
-    1. Les attributs liés à l’authentification (par exemple, userPrincipalName) sont obtenus à partir de la forêt avec un compte activé.
-    2. Les attributs qui se trouvent dans la LAG (liste d’adresses globale) Exchange sont synchronisés à partir de la forêt avec la boîte aux lettres Exchange.
-    3. Si aucune boîte aux lettres ne peut être trouvée, ces attributs peuvent provenir de n'importe quelle forêt.
-    4. Les attributs liés à Exchange (attributs techniques non visibles dans la liste d’adresses globale) sont fournis à partir de la forêt où `mailNickname ISNOTNULL`.
-    5. S’il existe plusieurs forêts qui répondent à une de ces règles, alors l’ordre de création (date/heure) des connecteurs (forêts) est utilisé pour déterminer quelle forêt fournit les attributs.
+* `sourceAnchor <- IIF([msExchRecipientTypeDetails]=2,NULL,..)`. L’attribut sourceAnchor n’est pas partagé à partir d’une boîte aux lettres liée. On part du principe que si une boîte aux lettres liée a été trouvée, le compte actuel sera associé ultérieurement.
+* Les attributs liés à Exchange sont uniquement synchronisés si l'attribut **mailNickName** a une valeur.
+* Lorsqu’il existe plusieurs forêts, les attributs sont consommés dans l’ordre suivant :
+  1. Les attributs liés à l’authentification (par exemple, userPrincipalName) sont obtenus à partir de la forêt avec un compte activé.
+  2. Les attributs qui se trouvent dans la LAG (liste d’adresses globale) Exchange sont synchronisés à partir de la forêt avec la boîte aux lettres Exchange.
+  3. Si aucune boîte aux lettres ne peut être trouvée, ces attributs peuvent provenir de n'importe quelle forêt.
+  4. Les attributs liés à Exchange (attributs techniques non visibles dans la liste d’adresses globale) sont fournis à partir de la forêt où `mailNickname ISNOTNULL`.
+  5. S’il existe plusieurs forêts qui répondent à une de ces règles, alors l’ordre de création (date/heure) des connecteurs (forêts) est utilisé pour déterminer quelle forêt fournit les attributs.
 
 ### Règles out-of-box de contact
 Un objet contact doit remplir les conditions suivantes pour être synchronisé :
 
-- Le contact doit être à extension messagerie. Il est vérifié par les règles suivantes :
-    - `IsPresent([proxyAddresses]) = True)`. L'attribut proxyAddresses doit être renseigné.
-    - L'attribut proxyAddresses ou l'attribut de messagerie peuvent comporter une adresse de messagerie principale. La présence d’un @ est utilisée pour vérifier que le contenu est une adresse de messagerie. L’une de ces deux règles doit prendre la valeur True.
-        - `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Existe-t-il une entrée avec « SMTP: », et si tel est le cas, est-il possible de trouver un @ dans la chaîne ?
-        - `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. L’attribut de messagerie est-il renseigné, et si tel est le cas, est-il possible de trouver un @ dans la chaîne ?
+* Le contact doit être à extension messagerie. Il est vérifié par les règles suivantes :
+  * `IsPresent([proxyAddresses]) = True)`. L'attribut proxyAddresses doit être renseigné.
+  * L'attribut proxyAddresses ou l'attribut de messagerie peuvent comporter une adresse de messagerie principale. La présence d’un @ est utilisée pour vérifier que le contenu est une adresse de messagerie. L’une de ces deux règles doit prendre la valeur True.
+    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Existe-t-il une entrée avec « SMTP: », et si tel est le cas, est-il possible de trouver un @ dans la chaîne ?
+    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. L’attribut de messagerie est-il renseigné, et si tel est le cas, est-il possible de trouver un @ dans la chaîne ?
 
-Les objets contact suivants ne sont **pas** synchronisés avec Azure AD :
+Les objets contact suivants ne sont **pas** synchronisés avec Azure AD :
 
-- `IsPresent([isCriticalSystemObject])`. Vérifiez qu’aucun objet contact marqué comme critique n’est synchronisé. Cet objet ne devrait pas avoir de configuration par défaut.
-- `((InStr([displayName], "(MSOL)") > 0) && (CBool([msExchHideFromAddressLists])))`.
-- `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`. Ces objets ne fonctionneraient pas avec Exchange Online.
-- `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Ne synchronisez aucun objet victime de réplication.
+* `IsPresent([isCriticalSystemObject])`. Vérifiez qu’aucun objet contact marqué comme critique n’est synchronisé. Cet objet ne devrait pas avoir de configuration par défaut.
+* `((InStr([displayName], "(MSOL)") > 0) && (CBool([msExchHideFromAddressLists])))`.
+* `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`. Ces objets ne fonctionneraient pas avec Exchange Online.
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Ne synchronisez aucun objet victime de réplication.
 
 ### Règles out-of-box de groupe
-Un objet groupe doit remplir les conditions suivantes pour être synchronisé :
+Un objet groupe doit remplir les conditions suivantes pour être synchronisé :
 
-- Il doit compter moins de 50 000 membres. Ce chiffre correspond au nombre de membres du groupe local.
-    - S’il compte plus de membres avant sa toute première synchronisation, le groupe n’est pas synchronisé.
-    - Si le nombre de membres augmente à partir du moment où il a été créé, alors sa synchronisation est interrompue lorsqu’il atteint 50 000 membres, jusqu’à ce que le nombre redevienne inférieur à 50 000 membres.
-    - Remarque : la limite de 50 000 membres s’applique également avec Azure AD. Vous ne pouvez pas synchroniser les groupes d’un nombre de membres supérieur même si vous modifiez ou supprimez cette règle.
-- Si le groupe est un **groupe de distribution**, il doit alors également être activé pour la messagerie. Consultez la page [Règles out-of-box de contact](#contact-out-of-box-rules) pour l’application de cette règle.
+* Il doit compter moins de 50 000 membres. Ce chiffre correspond au nombre de membres du groupe local.
+  * S’il compte plus de membres avant sa toute première synchronisation, le groupe n’est pas synchronisé.
+  * Si le nombre de membres augmente à partir du moment où il a été créé, alors sa synchronisation est interrompue lorsqu’il atteint 50 000 membres, jusqu’à ce que le nombre redevienne inférieur à 50 000 membres.
+  * Remarque : la limite de 50 000 membres s’applique également avec Azure AD. Vous ne pouvez pas synchroniser les groupes d’un nombre de membres supérieur même si vous modifiez ou supprimez cette règle.
+* Si le groupe est un **groupe de distribution**, il doit alors également être activé pour la messagerie. Consultez la page [Règles out-of-box de contact](#contact-out-of-box-rules) pour l’application de cette règle.
 
-Les objets groupe suivants ne sont **pas** synchronisés avec Azure AD :
+Les objets groupe suivants ne sont **pas** synchronisés avec Azure AD :
 
-- `IsPresent([isCriticalSystemObject])`. Vérifiez que la plupart des objets out-of-box dans Active Directory, tels que le groupe administrateur intégré, ne sont pas synchronisés.
-- `[sAMAccountName] = "MSOL_AD_Sync_RichCoexistence"`. Groupe hérité utilisé par DirSync.
-- `BitAnd([msExchRecipientTypeDetails],&amp;H40000000)`. Groupe de rôles.
-- `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Ne synchronisez aucun objet victime de réplication.
+* `IsPresent([isCriticalSystemObject])`. Vérifiez que la plupart des objets out-of-box dans Active Directory, tels que le groupe administrateur intégré, ne sont pas synchronisés.
+* `[sAMAccountName] = "MSOL_AD_Sync_RichCoexistence"`. Groupe hérité utilisé par DirSync.
+* `BitAnd([msExchRecipientTypeDetails],&amp;H40000000)`. Groupe de rôles.
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Ne synchronisez aucun objet victime de réplication.
 
 ### Règles out-of-box ForeignSecurityPrincipal
 Les FSP sont joints à « tout » (*) objet dans le métaverse. En réalité, cela se produit uniquement pour les utilisateurs et les groupes de sécurité. Cette configuration garantit que les appartenances inter-forêts sont correctement résolues et représentées dans Azure AD.
@@ -101,7 +102,7 @@ Les FSP sont joints à « tout » (*) objet dans le métaverse. En réalité, ce
 ### Règles out-of-box d’ordinateur
 Un objet ordinateur doit remplir les conditions suivantes pour être synchronisé :
 
-- `userCertificate ISNOTNULL`. Seuls les objets ordinateur Windows 10 renseignent cet attribut. Tous les objets ordinateur avec une valeur de cet attribut sont synchronisés.
+* `userCertificate ISNOTNULL`. Seuls les objets ordinateur Windows 10 renseignent cet attribut. Tous les objets ordinateur avec une valeur de cet attribut sont synchronisés.
 
 ## Présentation du scénario de règles out-of-box
 Dans cet exemple, nous utilisons un déploiement comportant une forêt de comptes (A), une forêt de ressources (R) et un répertoire Azure AD.
@@ -110,11 +111,11 @@ Dans cet exemple, nous utilisons un déploiement comportant une forêt de compte
 
 Dans cette configuration, il est supposé exister un compte activé dans la forêt de comptes et un compte désactivé dans la forêt de ressources avec une boîte aux lettres liée.
 
-Nos objectifs avec la configuration par défaut sont les suivants :
+Nos objectifs avec la configuration par défaut sont les suivants :
 
-- Les attributs liés à la connexion sont synchronisés à partir de la forêt avec le compte activé.
-- Les attributs qui se trouvent dans la LAG (liste d’adresses globale) sont synchronisés à partir de la forêt avec la boîte aux lettres. Si aucune boîte aux lettres n’est trouvée, toute autre forêt est utilisée.
-- Si une boîte aux lettres liée est trouvée, le compte activé lié doit être trouvé pour l’objet à exporter vers Azure AD.
+* Les attributs liés à la connexion sont synchronisés à partir de la forêt avec le compte activé.
+* Les attributs qui se trouvent dans la LAG (liste d’adresses globale) sont synchronisés à partir de la forêt avec la boîte aux lettres. Si aucune boîte aux lettres n’est trouvée, toute autre forêt est utilisée.
+* Si une boîte aux lettres liée est trouvée, le compte activé lié doit être trouvé pour l’objet à exporter vers Azure AD.
 
 ### Éditeur de règles de synchronisation
 La configuration peut être affichée et modifiée avec l’outil Éditeur de règles de synchronisation (SRE), dont le raccourci se trouve dans le menu Démarrer.
@@ -136,7 +137,7 @@ Dans la mesure où il s’agit d’une règle out-of-box, vous recevez un averti
 
 ![Avertissement de règles de synchronisation](./media/active-directory-aadconnectsync-understanding-default-configuration/warningeditrule.png)
 
-Une règle de synchronisation comporte quatre sections de configuration : Description, Filtre d’étendue, Règles de jointure et Transformations.
+Une règle de synchronisation comporte quatre sections de configuration : Description, Filtre d’étendue, Règles de jointure et Transformations.
 
 #### Description
 La première section fournit des informations de base telles que le nom et la description.
@@ -178,13 +179,13 @@ La section Transformation définit tous les flux d’attributs qui s’appliquen
 
 Pour mettre cette configuration en contexte, dans un déploiement de forêt Account-Resource, il devrait y avoir un compte activé dans la forêt de comptes et un compte désactivé dans la forêt de ressources avec des paramètres Exchange et Lync. La règle de synchronisation que vous examinez contient les attributs nécessaires pour la connexion et ceux-ci devraient circuler à partir de la forêt dans laquelle se trouve un compte activé. Tous ces flux d’attributs sont regroupés dans une règle de synchronisation.
 
-Une transformation peut avoir différents types : Constant, Direct et Expression.
+Une transformation peut avoir différents types : Constant, Direct et Expression.
 
-- Un flux constant transmet toujours une valeur codée en dur. Dans le cas ci-dessus, il définit toujours la valeur **True** dans l’attribut du métaverse nommé **accountEnabled**.
-- Un flux direct transmet toujours la valeur de l’attribut source telle quelle vers l’attribut cible.
-- Le troisième type de flux, Expression, permet d’effectuer des configurations avancées.
+* Un flux constant transmet toujours une valeur codée en dur. Dans le cas ci-dessus, il définit toujours la valeur **True** dans l’attribut du métaverse nommé **accountEnabled**.
+* Un flux direct transmet toujours la valeur de l’attribut source telle quelle vers l’attribut cible.
+* Le troisième type de flux, Expression, permet d’effectuer des configurations avancées.
 
-Le langage d’expression étant VBA (Visual Basic pour Applications), les utilisateurs ayant une expérience de Microsoft Office ou VBScript reconnaîtront le format. Les attributs sont placés entre crochets : [nom\_attribut]. Les noms des attributs et des fonctions respectent la casse, mais l’Éditeur de règles de synchronisation évalue les expressions et affiche un avertissement si elles ne sont pas valides. Toutes les expressions sont placées sur une seule ligne avec les fonctions imbriquées. Pour illustrer toute la puissance du langage de configuration, voici le flux pour pwdLastSet, mais avec des commentaires supplémentaires insérés :
+Le langage d’expression étant VBA (Visual Basic pour Applications), les utilisateurs ayant une expérience de Microsoft Office ou VBScript reconnaîtront le format. Les attributs sont placés entre crochets : [nom\_attribut]. Les noms des attributs et des fonctions respectent la casse, mais l’Éditeur de règles de synchronisation évalue les expressions et affiche un avertissement si elles ne sont pas valides. Toutes les expressions sont placées sur une seule ligne avec les fonctions imbriquées. Pour illustrer toute la puissance du langage de configuration, voici le flux pour pwdLastSet, mais avec des commentaires supplémentaires insérés :
 
 ```
 // If-then-else
@@ -210,25 +211,24 @@ La précédence des règles de synchronisation est définie dans les groupes par
 ### Exemple complet
 Nous en savons maintenant assez sur les règles de synchronisation pour comprendre le fonctionnement de la configuration avec les différentes règles de synchronisation. Si vous regardez un utilisateur et les attributs qui sont partagés avec le métaverse, les règles sont appliquées dans l’ordre suivant :
 
-Nom | Commentaire
-:------------- | :-------------
-Entrant depuis AD – User Join | Règle pour joindre les objets de l’espace de connecteur avec métaverse.
-Entrant depuis AD – Utilisateur AccountEnabled | Attributs requis pour la connexion à Azure AD et Office 365. Nous voulons ces attributs à partir du compte activé.
-Entrant depuis AD – Utilisateur Common à partir d’Exchange | Attributs trouvés dans la liste d’adresses globale. Nous supposons que la qualité des données est meilleure dans la forêt où nous avons trouvé la boîte aux lettres de l’utilisateur.
-Entrant depuis AD – Utilisateur Common | Attributs trouvés dans la liste d’adresses globale. Dans le cas où nous ne trouvons pas de boîte aux lettres, tout autre objet joint peut contribuer à la valeur d’attribut.
-Entrant depuis AD – Utilisateur Exchange | Existe seulement si Exchange a été détecté. Transfère tous les attributs Exchange d’infrastructure.
-Entrant depuis AD – Utilisateur Lync | Existe seulement si Lync a été détecté. Transfère tous les attributs Lync d’infrastructure.
+| Nom | Commentaire |
+|:--- |:--- |
+| Entrant depuis AD – User Join |Règle pour joindre les objets de l’espace de connecteur avec métaverse. |
+| Entrant depuis AD – Utilisateur AccountEnabled |Attributs requis pour la connexion à Azure AD et Office 365. Nous voulons ces attributs à partir du compte activé. |
+| Entrant depuis AD – Utilisateur Common à partir d’Exchange |Attributs trouvés dans la liste d’adresses globale. Nous supposons que la qualité des données est meilleure dans la forêt où nous avons trouvé la boîte aux lettres de l’utilisateur. |
+| Entrant depuis AD – Utilisateur Common |Attributs trouvés dans la liste d’adresses globale. Dans le cas où nous ne trouvons pas de boîte aux lettres, tout autre objet joint peut contribuer à la valeur d’attribut. |
+| Entrant depuis AD – Utilisateur Exchange |Existe seulement si Exchange a été détecté. Transfère tous les attributs Exchange d’infrastructure. |
+| Entrant depuis AD – Utilisateur Lync |Existe seulement si Lync a été détecté. Transfère tous les attributs Lync d’infrastructure. |
 
 ## Étapes suivantes
-
-- En savoir plus sur le modèle de configuration dans [Comprendre l’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
-- En savoir plus sur le langage d’expression dans [Comprendre les expressions d’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
-- Poursuivre la lecture sur le fonctionnement de la configuration out-of-box dans [Présentation des utilisateurs et des contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md).
-- Apprendre à effectuer une modification pratique à l’aide de l’approvisionnement déclaratif dans [Comment modifier la configuration par défaut](active-directory-aadconnectsync-change-the-configuration.md).
+* En savoir plus sur le modèle de configuration dans [Comprendre l’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+* En savoir plus sur le langage d’expression dans [Comprendre les expressions d’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+* Poursuivre la lecture sur le fonctionnement de la configuration out-of-box dans [Présentation des utilisateurs et des contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md).
+* Apprendre à effectuer une modification pratique à l’aide de l’approvisionnement déclaratif dans [Comment modifier la configuration par défaut](active-directory-aadconnectsync-change-the-configuration.md).
 
 **Rubriques de présentation**
 
-- [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
-- [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
+* [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
+* [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
 <!---HONumber=AcomDC_0907_2016-->

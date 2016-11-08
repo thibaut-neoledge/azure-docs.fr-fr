@@ -1,40 +1,37 @@
-<properties
-	pageTitle="Azure App Service et son impact sur les services Azure existants"
-	description="Explique l'impact d'Azure App Service et de ses fonctionnalités sur les services existants d'Azure."
-	services="app-service"
-    documentationCenter=""
-	authors="yochay"
-	manager="nirma"
-	editor=""/>
+---
+title: Azure App Service et son impact sur les services Azure existants
+description: Explique l'impact d'Azure App Service et de ses fonctionnalités sur les services existants d'Azure.
+services: app-service
+documentationcenter: ''
+author: yochay
+manager: nirma
+editor: ''
 
-<tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/12/2016"
-	ms.author="yochayk"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/12/2016
+ms.author: yochayk
 
+---
+# Azure App Service et les services Azure existants
+Cet article présente les modifications apportées aux services Azure existants dans le cadre du regroupement de plusieurs services Azure au sein d’[Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-# Azure App Service et les services Azure existants
-
-Cet article présente les modifications apportées aux services Azure existants dans le cadre du regroupement de plusieurs services Azure au sein d’[Azure App Service](https://azure.microsoft.com/services/app-service/).
-
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Vue d’ensemble
+[Azure App Service](https://azure.microsoft.com/services/app-service/) est un nouveau service cloud qui permet aux développeurs de créer des applications web et mobiles pour toutes les plateformes et tous les appareils. App Service est une solution intégrée conçue pour simplifier les fonctions de codage répétées. Elle s'intègre aux systèmes entreprise et SaaS, et automatise les processus métier tout en répondant à vos besoins en matière de sécurité, de fiabilité et d'évolutivité.
 
-[Azure App Service](https://azure.microsoft.com/services/app-service/) est un nouveau service cloud qui permet aux développeurs de créer des applications web et mobiles pour toutes les plateformes et tous les appareils. App Service est une solution intégrée conçue pour simplifier les fonctions de codage répétées. Elle s'intègre aux systèmes entreprise et SaaS, et automatise les processus métier tout en répondant à vos besoins en matière de sécurité, de fiabilité et d'évolutivité.
+App Service réunit les services Azure existants, [Sites Web](https://azure.microsoft.com/services/websites/), [Mobile Services](https://azure.microsoft.com/services/mobile-services/) et [Biztalk Services](https://azure.microsoft.com/services/biztalk-services/) en un seul et même service, tout en y ajoutant de nouvelles fonctionnalités puissantes. App Service vous permet d'héberger les types d'applications suivants :
 
-App Service réunit les services Azure existants, [Sites Web](https://azure.microsoft.com/services/websites/), [Mobile Services](https://azure.microsoft.com/services/mobile-services/) et [Biztalk Services](https://azure.microsoft.com/services/biztalk-services/) en un seul et même service, tout en y ajoutant de nouvelles fonctionnalités puissantes. App Service vous permet d'héberger les types d'applications suivants :
+* Web Apps
+* Mobile Apps
+* Applications API
+* Logic Apps
 
--   Web Apps
--   Mobile Apps
--   Applications API
--   Logic Apps
-
-Le tableau suivant montre la correspondance entre les services Azure existants et App Service, ainsi que les types d'applications qu'ils contiennent.
+Le tableau suivant montre la correspondance entre les services Azure existants et App Service, ainsi que les types d'applications qu'ils contiennent.
 
 <table>
 <thead>
@@ -89,6 +86,6 @@ Le tableau suivant montre la correspondance entre les services Azure existants e
 </tbody>
 </table>
 
-Pour plus d’informations, consultez la [documentation App Service](https://azure.microsoft.com/documentation/services/app-service/).
+Pour plus d’informations, consultez la [documentation App Service](https://azure.microsoft.com/documentation/services/app-service/).
 
 <!---HONumber=AcomDC_0413_2016-->

@@ -1,63 +1,53 @@
-<properties
-	pageTitle="Utilisation du portail Application Insights"
-	description="Mesures, recherche, tableaux de bord et paramètres dans Application Insights."
-	services="application-insights"
-    documentationCenter=""
-	authors="alancameronwills"
-	manager="douge"/>
+---
+title: Utilisation du portail Application Insights
+description: Mesures, recherche, tableaux de bord et paramètres dans Application Insights.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="multiple"
-	ms.topic="article" 
-	ms.date="07/30/2016"
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: multiple
+ms.topic: article
+ms.date: 07/30/2016
+ms.author: awills
 
+---
 # Navigation et tableaux de bord dans le portail Application Insights
-
-Une fois que vous avez [configuré Application Insights sur votre projet](app-insights-overview.md), les données de télémétrie relatives aux performances et à l’utilisation de votre application apparaissent dans les ressources Application Insights de votre projet dans le [portail Azure](https://portal.azure.com).
+Une fois que vous avez [configuré Application Insights sur votre projet](app-insights-overview.md), les données de télémétrie relatives aux performances et à l’utilisation de votre application apparaissent dans les ressources Application Insights de votre projet dans le [portail Azure](https://portal.azure.com).
 
 ## Rechercher vos données de télémétrie
-
-Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à la ressource Application Insights que vous avez créée pour votre application.
+Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à la ressource Application Insights que vous avez créée pour votre application.
 
 ![Cliquez sur Parcourir, sélectionnez Application Insights, puis sélectionnez votre application.](./media/app-insights-dashboards/00-start.png)
 
 La page Vue d’ensemble fournit des données de télémétrie de base et offre une diversité de liens. Le contenu dépend du type de votre application et peut être personnalisé.
 
-
 ## Panneau Vue d’ensemble de l’application
-
 Le panneau de vue d’ensemble (page) de votre application affiche un résumé des principales mesures de diagnostic de votre application et constitue une passerelle vers les autres fonctionnalités du portail.
 
-Cliquez sur :
+Cliquez sur :
 
 * **N’importe quel graphique ou mosaïque** pour plus de détails sur ce qui est affiché sur le graphique.
 * **Paramètres** pour obtenir des panneaux prédéfinis d’autres mesures, ainsi que des pages de configuration.
-* [**Metrics Explorer**](app-insights-metrics-explorer.md) pour créer des pages de mesures de votre choix ;
+* [**Metrics Explorer**](app-insights-metrics-explorer.md) pour créer des pages de mesures de votre choix ;
 * [**Rechercher**](app-insights-diagnostic-search.md) pour analyser des instances spécifiques d’événements tels que les demandes, les exceptions ou les suivis du journal.
 * [**Analytics**](app-insights-analytics.md) pour des requêtes puissantes sur vos données de télémétrie.
 * [**Flux en direct**](app-insights-metrics-explorer.md#live-stream) pour un ensemble de mesures quasi instantanées, ce qui est utile lors du déploiement d’une nouvelle version ou du débogage.
 
-
 ![Procédures principales d'affichage de vos données de télémétrie](./media/app-insights-dashboards/010-oview.png)
 
-
-### Personnalisation du panneau Vue d’ensemble 
-
+### Personnalisation du panneau Vue d’ensemble
 Choisissez ce que vous souhaitez afficher sur le panneau Vue d’ensemble. Dans la zone de personnalisation, vous pouvez insérer des titres de section, faire glisser des vignettes et des graphiques, supprimer des éléments et ajouter de nouvelles vignettes et graphiques à partir de la galerie.
 
 ![Cliquez sur Modifier. Faites glisser les vignettes et les graphiques. Ajoutez des vignettes de la galerie. Cliquez ensuite sur Terminé.](./media/app-insights-dashboards/020-customize.png)
 
 ## Tableaux de bord
-
 La première chose que vous voyez après vous être connecté au [portail Microsoft Azure](https://portal.azure.com) est un tableau de bord. Celui-ci vous permet de rassembler les graphiques les plus importants pour vous pour toutes vos ressources Azure, notamment les données de télémétrie de [Visual Studio Application Insights](app-insights-overview.md).
- 
 
 ![Un tableau de bord personnalisé.](./media/app-insights-dashboards/31.png)
-
 
 1. Modifiez, créez et partagez des tableaux de bord à l’aide de la barre d’outils du tableau de bord.
 2. Revenez au tableau de bord actuel ou basculez vers les autres vues récentes.
@@ -66,10 +56,9 @@ La première chose que vous voyez après vous être connecté au [portail Micros
 5. Pointez sur une vignette, puis utilisez sa barre supérieure pour déplacer, personnaliser ou supprimer la vignette.
 
 ## Ajouter des données à un tableau de bord
-
 Lorsque vous examinez un panneau ou un ensemble de graphiques qui est particulièrement intéressant, vous pouvez en épingler une copie au tableau de bord. Celui-ci sera affiché lors de votre prochain accès au tableau de bord.
 
-![Pour épingler un graphique, passez la souris sur celui-ci, puis cliquez sur « ... » dans l’en-tête.](./media/app-insights-dashboards/33.png)
+![Pour épingler un graphique, passez la souris sur celui-ci, puis cliquez sur « ... » dans l’en-tête.](./media/app-insights-dashboards/33.png)
 
 1. Épinglez un graphique au tableau de bord. Une copie du graphique apparaît sur le tableau de bord.
 2. Épinglez la totalité du panneau au tableau de bord. Il apparaît alors sur le tableau de bord sous la forme d’une vignette sur laquelle vous pouvez cliquer.
@@ -78,11 +67,9 @@ Lorsque vous examinez un panneau ou un ensemble de graphiques qui est particuli�
 Notez que les graphiques sont regroupés en vignettes : une vignette peut contenir plusieurs graphiques. Vous épinglez la vignette entière au tableau de bord.
 
 ### Graphiques Analytics
-
 Vous pouvez également [épingler des graphiques Analytics](app-insights-analytics-using.md#pin-to-dashboard) à un tableau de bord [partagé](#share-dashboards-with-your-team). Ainsi, vous pouvez ajouter les graphiques de toute requête arbitraire en parallèle des mesures standards.
 
 ## Ajustement d’une vignette sur le tableau de bord
-
 Lorsqu’une vignette se trouve sur le tableau de bord, vous pouvez l’ajuster.
 
 ![Survolez un graphique avec la souris pour le modifier.](./media/app-insights-dashboards/36.png)
@@ -96,23 +83,18 @@ Les vignettes épinglées à partir des panneaux de Metrics Explorer ont davanta
 
 La vignette d’origine que vous avez épinglée n’est pas affectée par vos modifications.
 
-
 ## Basculement entre les tableaux de bord
-
 Vous pouvez enregistrer plusieurs tableaux de bord et basculer entre ceux-ci. Lorsque vous épinglez un graphique ou un panneau, il est ajouté au tableau de bord actuel.
 
 ![Pour basculer entre les tableaux de bord, cliquez sur Tableau de bord et sélectionnez un tableau de bord enregistré. Pour créer et enregistrer un nouveau tableau de bord, cliquez sur Nouveau. Pour les réorganiser, cliquez sur Modifier.](./media/app-insights-dashboards/32.png)
 
 Vous pouvez, par exemple, avoir un tableau de bord pour l’affichage en plein écran dans la salle de réunion et un autre pour le développement général.
 
-
-Sur le tableau de bord, un panneau s’affiche sous forme de vignette : cliquez dessus pour accéder au panneau. Un graphique réplique le graphique dans son emplacement d’origine.
+Sur le tableau de bord, un panneau s’affiche sous forme de vignette : cliquez dessus pour accéder au panneau. Un graphique réplique le graphique dans son emplacement d’origine.
 
 ![Cliquez sur une vignette pour ouvrir le panneau qu’elle représente.](./media/app-insights-dashboards/35.png)
 
-
 ## Partage de tableaux de bord avec votre équipe
-
 Lorsque vous avez créé un tableau de bord, vous pouvez le partager avec d’autres utilisateurs.
 
 ![Dans l’en-tête du tableau de bord, cliquez sur Partager](./media/app-insights-dashboards/41.png)
@@ -120,7 +102,6 @@ Lorsque vous avez créé un tableau de bord, vous pouvez le partager avec d’au
 Apprenez-en davantage sur [les rôles et le contrôle d’accès](app-insights-resources-roles-access-control.md).
 
 ## Paramètres
-
 Le bouton Paramètres du panneau de la vue d’ensemble ne se limite pas à la configuration, il permet également d’afficher plusieurs types de graphiques.
 
 * **Journaux d’audit** : examinez les alertes et les actions qui ont été appliquées à votre ressource d’application.
@@ -143,16 +124,15 @@ Le bouton Paramètres du panneau de la vue d’ensemble ne se limite pas à la c
 * [**Éléments de travail**](app-insights-diagnostic-search.md#create-work-item) : connectez-vous à un système de suivi du travail afin de créer des bogues lors de l’inspection de la télémétrie.
 * [**Utilisateurs**](app-insights-resources-roles-access-control.md) : gérez les personnes qui ont accès à vos ressources d’application.
 * [**Rôles**](app-insights-resources-roles-access-control.md) : gérez les actions exécutables par les utilisateurs.
-* [**Balises**](..\resource-group-using-tags.md) : organisez les ressources Azure.
-* [**Verrous**](..\resource-group-lock-resources.md) : verrouillez les ressources Azure.
+* [**Balises**](../resource-group-using-tags.md) : organisez les ressources Azure.
+* [**Verrous**](../resource-group-lock-resources.md) : verrouillez les ressources Azure.
 * [**Exporter un modèle**](app-insights-powershell.md) : exportez une définition de la ressource Azure afin de l’utiliser comme modèle pour créer d’autres ressources.
 
-## Et ensuite ?
-
-||
-|---|---
-|[Metrics Explorer](app-insights-metrics-explorer.md)<br/>Filtrez et segmentez les mesures.|![Exemple de recherche](./media/app-insights-dashboards/64.png)
-|[Recherche de diagnostic](app-insights-diagnostic-search.md)<br/>Recherchez et examinez des événements, ainsi que les événements associés, et créez des bogues. |![Exemple de recherche](./media/app-insights-dashboards/61.png)
-|[Analytics](app-insights-analytics.md)<br/>Tirez parti d’un puissant langage de requête.| ![Exemple de recherche](./media/app-insights-dashboards/63.png)
+## Et ensuite ?
+|  |  |
+| --- | --- |
+| [Metrics Explorer](app-insights-metrics-explorer.md)<br/>Filtrez et segmentez les mesures. |![Exemple de recherche](./media/app-insights-dashboards/64.png) |
+| [Recherche de diagnostic](app-insights-diagnostic-search.md)<br/>Recherchez et examinez des événements, ainsi que les événements associés, et créez des bogues. |![Exemple de recherche](./media/app-insights-dashboards/61.png) |
+| [Analytics](app-insights-analytics.md)<br/>Tirez parti d’un puissant langage de requête. |![Exemple de recherche](./media/app-insights-dashboards/63.png) |
 
 <!---HONumber=AcomDC_0817_2016-->

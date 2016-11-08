@@ -1,37 +1,37 @@
-<properties 
-   pageTitle="Interface utilisateur d'Azure Mobile Engagement - Tableau de bord" 
-   description="En savoir plus sur l’affichage et la gestion des graphiques de données relatifs à votre application à l’aide d’Azure Mobile Engagement" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
-   editor=""/>
+---
+title: Interface utilisateur d'Azure Mobile Engagement - Tableau de bord
+description: En savoir plus sur l’affichage et la gestion des graphiques de données relatifs à votre application à l’aide d’Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # Affichage et gestion des graphiques de données relatifs à votre application
-La section Tableau de bord de l'interface utilisateur permet aux clients de créer des graphiques personnalisés afin d'optimiser leur temps en fournissant les informations exactes qu'ils souhaitent au lieu de les rechercher dans la section Analyse. Un tableau de bord affiche les tendances de votre application et le nombre d'utilisateurs actifs pour les différentes versions de votre application pendant une période donnée (heure/jour/semaine/mois/personnalisé). Les tendances présentées sont basées sur les 7 derniers jours.
+La section Tableau de bord de l'interface utilisateur permet aux clients de créer des graphiques personnalisés afin d'optimiser leur temps en fournissant les informations exactes qu'ils souhaitent au lieu de les rechercher dans la section Analyse. Un tableau de bord affiche les tendances de votre application et le nombre d'utilisateurs actifs pour les différentes versions de votre application pendant une période donnée (heure/jour/semaine/mois/personnalisé). Les tendances présentées sont basées sur les 7 derniers jours.
 
 ### Voir aussi
--  [Guide de résolution des problèmes - Analyse][Link 21]
+* [Guide de résolution des problèmes - Analyse][Link 21]
 
 ## Tableau de bord
-- Vous pouvez ajouter des graphiques à un tableau de bord vide en choisissant l'action « Envoyer au tableau de bord » dans le menu engrenage de n'importe quel graphique dans la section Analyse de l'interface utilisateur que vous aimeriez voir dans un tableau de bord.
- 
+* Vous pouvez ajouter des graphiques à un tableau de bord vide en choisissant l'action « Envoyer au tableau de bord » dans le menu engrenage de n'importe quel graphique dans la section Analyse de l'interface utilisateur que vous aimeriez voir dans un tableau de bord.
+
 ## + (Ajouter un tableau de bord)
-- Vous pouvez utiliser l'élément de menu de ruban « + » pour créer un nouveau tableau de bord qui s'affichera dans le menu de ruban.
- 
-## Menu engrenage :
-- Vous pouvez utiliser le menu engrenage d'un tableau de bord pour supprimer, renommer, partager ou planifier (réception de messages électroniques) votre tableau de bord. Vous pouvez utiliser l'option de planification pour définir la fréquence à laquelle vous souhaitez recevoir votre tableau de bord personnalisé par courrier électronique. Vous pouvez choisir de le recevoir à un rythme quotidien, hebdomadaire ou mensuel. Vous pouvez choisir l'heure de la journée et le jour de la semaine ou du mois auxquels vous souhaitez recevoir le courrier électronique. Votre adresse de messagerie et le fuseau horaire sont basés sur les paramètres que vous avez configurés dans la section Mon compte de l'interface utilisateur.
- 
- ![Tableau de bord 1][34]
+* Vous pouvez utiliser l'élément de menu de ruban « + » pour créer un nouveau tableau de bord qui s'affichera dans le menu de ruban.
+
+## Menu engrenage :
+* Vous pouvez utiliser le menu engrenage d'un tableau de bord pour supprimer, renommer, partager ou planifier (réception de messages électroniques) votre tableau de bord. Vous pouvez utiliser l'option de planification pour définir la fréquence à laquelle vous souhaitez recevoir votre tableau de bord personnalisé par courrier électronique. Vous pouvez choisir de le recevoir à un rythme quotidien, hebdomadaire ou mensuel. Vous pouvez choisir l'heure de la journée et le jour de la semaine ou du mois auxquels vous souhaitez recevoir le courrier électronique. Votre adresse de messagerie et le fuseau horaire sont basés sur les paramètres que vous avez configurés dans la section Mon compte de l'interface utilisateur.
+  
+  ![Tableau de bord 1][34]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -127,6 +127,6 @@ La section Tableau de bord de l'interface utilisateur permet aux clients de cré
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
- 
+
 
 <!---HONumber=AcomDC_0824_2016-->

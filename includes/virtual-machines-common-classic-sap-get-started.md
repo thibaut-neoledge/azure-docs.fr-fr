@@ -1,6 +1,5 @@
 
 ## Planification et implémentation
-
 Titre : SAP NetWeaver sur Azure Virtual Machines – Guide de planification et d’implémentation
 
 Résumé : commencez par étudier ce document si vous envisagez d’exécuter SAP NetWeaver sur Azure Virtual Machines. Ce guide de planification et d’implémentation vous aidera à évaluer si un système existant ou planifié, basé sur SAP NetWeaver peut être déployé dans un environnement Azure Virtual Machines. Il comprend plusieurs scénarios de déploiement de SAP NetWeaver et inclut des configurations SAP spécifiques d’Azure. Il répertorie et décrit toutes les informations de configuration de SAP/Azure dont vous avez besoin pour exécuter dans un environnement SAP hybride. Il traite décrit également les mesures à prendre pour assurer une haute disponibilité des systèmes basés sur SAP NetWeaver déployés dans une infrastructure IaaS.
@@ -8,6 +7,7 @@ Résumé : commencez par étudier ce document si vous envisagez d’exécuter SA
 Mise à jour : août 2015
 
 [Télécharger ce guide maintenant](http://go.microsoft.com/fwlink/?LinkId=397963)
+
 ## Déploiement
 Titre : SAP NetWeaver sur Machines virtuelles Azure – Guide de déploiement
 
@@ -27,7 +27,6 @@ Mise à jour : décembre 2015
 [Télécharger ce guide maintenant](http://go.microsoft.com/fwlink/?LinkId=397965)
 
 ## SAP NetWeaver sur Azure
-
 Titre : SAP NetWeaver - Création d’une solution de récupération d’urgence Azure
 
 Résumé : ce document décrit de façon détaillée la création d’une solution de récupération d’urgence Azure pour SAP NetWeaver. La solution décrite est fondée sur l’hypothèse selon laquelle le paysage SAP s’exécute localement de façon virtualisée sur Hyper-V. La première partie du document présente les composants des services Azure Site Recovery (ASR). La deuxième partie du document décrit les environnements des paysages basés sur SAP NetWeaver. Les possibilités d’utiliser ASR avec des instances de l’application SAP NetWeaver et SAP Central Services y sont décrites. Une section de la deuxième partie indique comment exploiter les services ASR pour SAP Central Services protégés par des configurations de cluster de basculement Windows Server.

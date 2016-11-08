@@ -1,25 +1,25 @@
-<properties
-   pageTitle="Code SQL dynamique dans SQL Data Warehouse | Microsoft Azure"
-   description="Conseils relatifs à l’utilisation de code SQL dynamique dans Azure SQL Data Warehouse pour le développement de solutions."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Code SQL dynamique dans SQL Data Warehouse | Microsoft Docs
+description: Conseils relatifs à l’utilisation de code SQL dynamique dans Azure SQL Data Warehouse pour le développement de solutions.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/14/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # Code SQL dynamique dans SQL Data Warehouse
 Quand vous développez le code d’une application pour SQL Data Warehouse, vous pouvez avoir besoin d’utiliser un code SQL dynamique de façon à offrir des solutions flexibles, génériques et modulaires. SQL Data Warehouse ne prend pas en charge les données de type objet blob pour l’instant. Cette restriction peut limiter la taille de vos chaînes, car les types d’objet blob comprennent les types varchar(max) et nvarchar(max). Si vous avez utilisé ces types dans votre code d’application pendant la création de chaînes de très grande taille, vous devez segmenter le code et utiliser plutôt l’instruction EXEC.
 
-Voici un exemple simple :
+Voici un exemple simple :
 
 ```sql
 DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
@@ -29,12 +29,15 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-Si la chaîne est courte, vous pouvez utiliser [sp\_executesql][] comme d’habitude.
+Si la chaîne est courte, vous pouvez utiliser [sp\_executesql][sp\_executesql] comme d’habitude.
 
-> [AZURE.NOTE] Les instructions exécutées en tant qu'instructions SQL dynamiques sont toujours soumises à l'ensemble des règles de validation TSQL.
+> [!NOTE]
+> Les instructions exécutées en tant qu'instructions SQL dynamiques sont toujours soumises à l'ensemble des règles de validation TSQL.
+> 
+> 
 
 ## Étapes suivantes
-Pour obtenir des conseils supplémentaires en matière de développement, voir la [vue d’ensemble sur le développement][].
+Pour obtenir des conseils supplémentaires en matière de développement, voir la [vue d’ensemble sur le développement][vue d’ensemble sur le développement].
 
 <!--Image references-->
 

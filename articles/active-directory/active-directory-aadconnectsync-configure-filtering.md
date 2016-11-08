@@ -1,35 +1,37 @@
-<properties
-	pageTitle="Azure AD Connect Sync : configurer le filtrage | Microsoft Azure"
-	description="Explique comment configurer le filtrage dans Azure AD Connect Sync."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+---
+title: 'Azure AD Connect Sync : configurer le filtrage | Microsoft Docs'
+description: Explique comment configurer le filtrage dans Azure AD Connect Sync.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/13/2016"
-	ms.author="andkjell;markvi"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/13/2016
+ms.author: andkjell;markvi
 
+---
+# Azure AD Connect Sync : configurer le filtrage
+Le filtrage vous permet de contrôler les objets de votre annuaire local qui doivent apparaître dans Azure AD. La configuration par défaut concerne l’ensemble des objets présents dans tous les domaines des forêts configurées. En général, il s’agit de la configuration recommandée. Les utilisateurs finaux qui utilisent les charges de travail Office 365 telles qu’Exchange Online et Skype Entreprise peuvent utiliser une liste d’adresses globale complète pour envoyer des courriers électroniques et appeler tout le monde. La configuration par défaut leur offre la même expérience qu’une implémentation locale d’Exchange ou de Lync.
 
-# Azure AD Connect Sync : configurer le filtrage
-Le filtrage vous permet de contrôler les objets de votre annuaire local qui doivent apparaître dans Azure AD. La configuration par défaut concerne l’ensemble des objets présents dans tous les domaines des forêts configurées. En général, il s’agit de la configuration recommandée. Les utilisateurs finaux qui utilisent les charges de travail Office 365 telles qu’Exchange Online et Skype Entreprise peuvent utiliser une liste d’adresses globale complète pour envoyer des courriers électroniques et appeler tout le monde. La configuration par défaut leur offre la même expérience qu’une implémentation locale d’Exchange ou de Lync.
+Dans certains cas, il est nécessaire d’apporter certaines modifications à la configuration par défaut. Voici quelques exemples :
 
-Dans certains cas, il est nécessaire d’apporter certaines modifications à la configuration par défaut. Voici quelques exemples :
-
-- Vous prévoyez d’utiliser la [topologie multi-Azure AD-directory](active-directory-aadconnect-topologies.md#each-object-only-once-in-an-azure-ad-directory). Vous devez appliquer un filtre pour déterminer les objets à synchroniser avec un annuaire Azure AD particulier.
-- Vous exécutez un pilote pour Azure ou Office 365 et souhaitez uniquement disposer d’un sous-ensemble d’utilisateurs dans Azure AD. Dans le petit pilote, il n’est pas impératif de disposer d’une liste d’adresses globale complète pour illustrer la fonctionnalité.
-- Vous disposez d’un grand nombre de comptes de service et d’autres comptes non personnels dont vous ne voulez pas dans Azure AD.
-- Pour des raisons de conformité, vous ne supprimez aucun compte utilisateur local. Vous vous contentez de les désactiver. Cependant, vous souhaitez n’avoir que des comptes actifs dans Azure AD.
+* Vous prévoyez d’utiliser la [topologie multi-Azure AD-directory](active-directory-aadconnect-topologies.md#each-object-only-once-in-an-azure-ad-directory). Vous devez appliquer un filtre pour déterminer les objets à synchroniser avec un annuaire Azure AD particulier.
+* Vous exécutez un pilote pour Azure ou Office 365 et souhaitez uniquement disposer d’un sous-ensemble d’utilisateurs dans Azure AD. Dans le petit pilote, il n’est pas impératif de disposer d’une liste d’adresses globale complète pour illustrer la fonctionnalité.
+* Vous disposez d’un grand nombre de comptes de service et d’autres comptes non personnels dont vous ne voulez pas dans Azure AD.
+* Pour des raisons de conformité, vous ne supprimez aucun compte utilisateur local. Vous vous contentez de les désactiver. Cependant, vous souhaitez n’avoir que des comptes actifs dans Azure AD.
 
 Cet article explique comment configurer les différents modes de filtrage.
 
-> [AZURE.IMPORTANT]Microsoft ne prend pas en charge la modification ou le fonctionnement d’Azure AD Connect Sync en dehors des actions Azure documentées de façon formelle. Ces actions peuvent entraîner un état incohérent ou non pris en charge d’Azure AD Connect Sync et par conséquent, Microsoft ne peut pas fournir de support technique pour ces déploiements.
+> [!IMPORTANT]
+> Microsoft ne prend pas en charge la modification ou le fonctionnement d’Azure AD Connect Sync en dehors des actions Azure documentées de façon formelle. Ces actions peuvent entraîner un état incohérent ou non pris en charge d’Azure AD Connect Sync et par conséquent, Microsoft ne peut pas fournir de support technique pour ces déploiements.
+> 
+> 
 
 ## Principes de base et remarques importantes
 Dans Azure AD Connect Sync, vous pouvez activer le filtrage à tout moment. Si vous avez commencé par une configuration de synchronisation d’annuaires par défaut et configuré le filtrage, les objets éliminés par le filtrage ne sont plus synchronisés avec Azure AD. En raison de ce changement, tous les objets présents dans Azure AD précédemment synchronisés puis filtrés sont supprimés d’Azure AD.
@@ -40,7 +42,7 @@ Dans la mesure où le filtrage peut supprimer de nombreux objets simultanément,
 
 Pour vous protéger contre la suppression de nombreux objets par inadvertance, la fonctionnalité [éviter des suppressions accidentelles](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) est activée par défaut. Si vous supprimez de nombreux objets suite à un filtrage (500 par défaut), vous devez exécuter les étapes décrites dans cet article pour que les suppressions soient appliquées à Azure AD.
 
-Si vous utilisez une version antérieure à novembre 2015 ([1\.0.9125](active-directory-aadconnect-version-history.md#1091250)), modifiez la configuration du filtre et utilisez la synchronisation de mot de passe, vous devez déclencher une synchronisation complète de tous les mots de passe une fois la configuration terminée. Pour savoir comment déclencher une synchronisation complète des mots de passe, consultez [Déclencher une synchronisation complète de tous les mots de passe](active-directory-aadconnectsync-implement-password-synchronization.md#trigger-a-full-sync-of-all-passwords). Si vous utilisez la version 1.0.9125 ou une version ultérieure, l’opération standard de **synchronisation complète** détermine également si les mots de passe doivent être synchronisés. Cette étape supplémentaire n’est plus nécessaire.
+Si vous utilisez une version antérieure à novembre 2015 ([1\.0.9125](active-directory-aadconnect-version-history.md#1091250)), modifiez la configuration du filtre et utilisez la synchronisation de mot de passe, vous devez déclencher une synchronisation complète de tous les mots de passe une fois la configuration terminée. Pour savoir comment déclencher une synchronisation complète des mots de passe, consultez [Déclencher une synchronisation complète de tous les mots de passe](active-directory-aadconnectsync-implement-password-synchronization.md#trigger-a-full-sync-of-all-passwords). Si vous utilisez la version 1.0.9125 ou une version ultérieure, l’opération standard de **synchronisation complète** détermine également si les mots de passe doivent être synchronisés. Cette étape supplémentaire n’est plus nécessaire.
 
 Si des objets **utilisateur** ont été supprimés par inadvertance à la suite d’une erreur de filtrage Azure AD, vous pouvez recréer ces objets utilisateur dans Azure AD en supprimant les configurations de filtrage, puis synchroniser à nouveau vos annuaires. Cette opération restaure les utilisateurs présents dans la corbeille d’Azure AD. Toutefois, vous ne pouvez pas annuler la suppression d’autres types d’objets. Par exemple, si vous supprimez accidentellement un groupe de sécurité et que ce dernier a été utilisé comme liste de contrôle l’accès (ACL) d’une ressource, il est impossible de récupérer le groupe et les ACL.
 
@@ -67,15 +69,12 @@ Pour désactiver le planificateur intégré qui déclenche un cycle de synchroni
 Une fois vos modifications de filtrage terminées, n’oubliez pas de revenir et de **réactiver** la tâche.
 
 ## Options de filtrage
-Les types de configuration de filtrage suivants peuvent être appliqués à l’outil de synchronisation d’annuaire :
+Les types de configuration de filtrage suivants peuvent être appliqués à l’outil de synchronisation d’annuaire :
 
-- [**Basé sur un groupe**](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups) : un filtrage basé sur un seul groupe ne peut être configuré que lors d’une installation initiale à l’aide de l’Assistant installation. Cette option n’est pas traitée dans cette rubrique.
-
-- [**Basé sur un domaine**](#domain-based-filtering) : cette option vous permet de sélectionner les domaines synchronisés avec Azure AD. Elle permet également d’ajouter et de supprimer des domaines de la configuration du moteur de synchronisation si vous apportez des modifications à votre infrastructure locale une fois Azure AD Connect sync installé.
-
-- [**Basé sur une unité d’organisation**](#organizational-unitbased-filtering) : cette option de filtrage vous permet de sélectionner les unités d’organisation synchronisées avec Azure AD. Cette option s’applique à tous les types d’objets présents dans les unités d’organisation sélectionnées.
-
-- [**Basé sur l’attribut**](#attribute-based-filtering) : cette option permet de filtrer les objets en fonction des valeurs d’attribut sur les objets. Vous pouvez également avoir des filtres différents pour différents types d’objets.
+* [**Basé sur un groupe**](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups) : un filtrage basé sur un seul groupe ne peut être configuré que lors d’une installation initiale à l’aide de l’Assistant installation. Cette option n’est pas traitée dans cette rubrique.
+* [**Basé sur un domaine**](#domain-based-filtering) : cette option vous permet de sélectionner les domaines synchronisés avec Azure AD. Elle permet également d’ajouter et de supprimer des domaines de la configuration du moteur de synchronisation si vous apportez des modifications à votre infrastructure locale une fois Azure AD Connect sync installé.
+* [**Basé sur une unité d’organisation**](#organizational-unitbased-filtering) : cette option de filtrage vous permet de sélectionner les unités d’organisation synchronisées avec Azure AD. Cette option s’applique à tous les types d’objets présents dans les unités d’organisation sélectionnées.
+* [**Basé sur l’attribut**](#attribute-based-filtering) : cette option permet de filtrer les objets en fonction des valeurs d’attribut sur les objets. Vous pouvez également avoir des filtres différents pour différents types d’objets.
 
 Vous pouvez utiliser plusieurs options de filtrage en même temps. Vous pouvez par exemple utiliser le filtrage basé sur une unité d’organisation pour inclure des objets dans une unité d’organisation uniquement et, dans le même temps, utiliser un filtrage basé sur un attribut pour filtrer davantage les objets. Lorsque vous utilisez plusieurs méthodes de filtrage, les filtres utilisent l’élément logique AND entre les filtres.
 
@@ -86,11 +85,11 @@ La meilleure façon de modifier le filtrage basé sur le domaine consiste à ex�
 
 Vous devez uniquement suivre ces étapes si, pour une raison quelconque, vous ne pouvez pas exécuter l’Assistant d’installation.
 
-Configuration de filtrage basé sur un domaine se compose des étapes suivantes :
+Configuration de filtrage basé sur un domaine se compose des étapes suivantes :
 
-- [Sélectionnez les domaines](#select-domains-to-be-synchronized) à inclure dans la synchronisation.
-- Pour chaque domaine ajouté et supprimé, réglez les [profils d’exécution](#update-run-profiles).
-- [Appliquer et vérifier les modifications](#apply-and-verify-changes)
+* [Sélectionnez les domaines](#select-domains-to-be-synchronized) à inclure dans la synchronisation.
+* Pour chaque domaine ajouté et supprimé, réglez les [profils d’exécution](#update-run-profiles).
+* [Appliquer et vérifier les modifications](#apply-and-verify-changes)
 
 ### Sélectionnez les domaines à synchroniser
 **Pour définir le filtre de domaine, procédez comme suit :**
@@ -108,13 +107,13 @@ Si vous avez mis à jour votre filtre de domaine, vous devez également mettre �
 
 1. Dans la liste **Connecteurs**, assurez-vous que le connecteur que vous avez modifié à l’étape précédente est sélectionné. Dans **Actions**, sélectionnez **Configurer des profils d’exécution**. ![Profils d’exécution du connecteur](./media/active-directory-aadconnectsync-configure-filtering/connectorrunprofiles1.png)
 
-Vous devez ajuster les profils suivants :
+Vous devez ajuster les profils suivants :
 
-- Importation complète
-- Synchronisation complète
-- Importation d’écart
-- Synchronisation d’écart
-- Exportation
+* Importation complète
+* Synchronisation complète
+* Importation d’écart
+* Synchronisation d’écart
+* Exportation
 
 Pour chacun des cinq profils, procédez comme suit pour chaque domaine **ajouté** :
 
@@ -132,7 +131,7 @@ Chaque domaine à synchroniser doit normalement être répertorié en tant qu’
 
 Pour fermer la boîte de dialogue **Configurer des profils d’exécution**, cliquez sur **OK**.
 
-- Pour achever la configuration, [appliquez et vérifiez les modifications](#apply-and-verify-changes).
+* Pour achever la configuration, [appliquez et vérifiez les modifications](#apply-and-verify-changes).
 
 ## Filtrage basé sur une unité d’organisation
 La meilleure façon de modifier le filtrage basé sur une unité d’organisation consiste à exécuter l’Assistant d’installation et de modifier le [filtrage domaine et unité organisationnelle](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering). L’Assistant d’installation automatise toutes les tâches décrites dans cette rubrique.
@@ -147,10 +146,10 @@ Vous devez uniquement suivre ces étapes si, pour une raison quelconque, vous ne
 4. Cliquez sur **Configurer des partitions d’annuaire**, sélectionnez le domaine que vous voulez configurer, puis cliquez sur **Conteneurs**.
 5. Lorsque vous y êtes invité, fournissez des informations d’identification avec accès en lecture à Active Directory en local. Il ne s’agit pas forcément de l’utilisateur déjà renseigné dans la boîte de dialogue.
 6. Dans la boîte de dialogue **Sélectionner des conteneurs**, désactivez les unités d’organisation que vous ne voulez pas synchroniser avec l’annuaire cloud, puis cliquez sur **OK**. ![Unité d’organisation](./media/active-directory-aadconnectsync-configure-filtering/ou.png)
-  - Le conteneur **Ordinateurs** doit être sélectionné pour vos ordinateurs Windows 10 afin de réussir la synchronisation avec Azure AD. Si les ordinateurs rattachés à un domaine sont situés dans d’autres unités d’organisation, assurez-vous qu’elles sont sélectionnées.
-  - Le conteneur **ForeignSecurityPrincipals** doit être sélectionné si vous disposez de plusieurs forêts avec approbations. Ce conteneur permet de résoudre l’appartenance au groupe de sécurité inter-forêts.
-  - L’unité d’organisation **RegisteredDevices** doit être sélectionnée si vous avez activé la fonctionnalité d’écriture différée des appareils. Si vous utilisez une autre fonction d’écriture différée telle que l’écriture différée de groupe, assurez-vous que ces emplacements sont sélectionnés.
-  - Sélectionnez une autre unité d’organisation dans laquelle les utilisateurs, iNetOrgPersons, groupes, contacts et ordinateurs sont localisés. Dans l’illustration, tous ces éléments se trouvent dans l’unité d’organisation ManagedObjects.
+   * Le conteneur **Ordinateurs** doit être sélectionné pour vos ordinateurs Windows 10 afin de réussir la synchronisation avec Azure AD. Si les ordinateurs rattachés à un domaine sont situés dans d’autres unités d’organisation, assurez-vous qu’elles sont sélectionnées.
+   * Le conteneur **ForeignSecurityPrincipals** doit être sélectionné si vous disposez de plusieurs forêts avec approbations. Ce conteneur permet de résoudre l’appartenance au groupe de sécurité inter-forêts.
+   * L’unité d’organisation **RegisteredDevices** doit être sélectionnée si vous avez activé la fonctionnalité d’écriture différée des appareils. Si vous utilisez une autre fonction d’écriture différée telle que l’écriture différée de groupe, assurez-vous que ces emplacements sont sélectionnés.
+   * Sélectionnez une autre unité d’organisation dans laquelle les utilisateurs, iNetOrgPersons, groupes, contacts et ordinateurs sont localisés. Dans l’illustration, tous ces éléments se trouvent dans l’unité d’organisation ManagedObjects.
 7. Quand vous avez terminé, fermez la boîte de dialogue **Propriétés** en cliquant sur **OK**.
 8. Pour achever la configuration, [appliquez et vérifiez les modifications](#apply-and-verify-changes).
 
@@ -172,7 +171,7 @@ Dans les exemples et les étapes ci-dessous, vous vous servez de l’objet utili
 
 Dans les exemples ci-dessous, la valeur de priorité commence à 500. Cela permet de s’assurer que ces règles sont évaluées après les règles out-of-box (priorité plus faible, valeur numérique plus élevée).
 
-#### Filtrage négatif, « ne pas synchroniser »
+#### Filtrage négatif, « ne pas synchroniser »
 Dans l’exemple qui suit, vous excluez (ne synchronisez pas) tous les utilisateurs pour lesquels **extensionAttribute15** a pour valeur **NoSync**.
 
 1. Connectez-vous au serveur qui exécute Azure AD Connect Sync en utilisant un compte membre du groupe de sécurité **ADSyncAdmins**.
@@ -184,7 +183,7 @@ Dans l’exemple qui suit, vous excluez (ne synchronisez pas) tous les utilisate
 7. Cliquez sur **Ajouter une transformation**, définissez **Type de flux** sur **Constante**, sélectionnez l’attribut cible **cloudFiltered** et dans la zone de texte Source, saisissez la valeur **True**. Cliquez sur **Ajouter** pour enregistrer la règle. ![3 transformation entrante](./media/active-directory-aadconnectsync-configure-filtering/inbound3.png)
 8. Pour achever la configuration, [appliquez et vérifiez les modifications](#apply-and-verify-changes).
 
-#### Filtrage positif, « synchroniser uniquement ces éléments »
+#### Filtrage positif, « synchroniser uniquement ces éléments »
 L’expression d’un filtrage positif peut être plus difficile, car vous devez également prendre en compte les objets qui ne sont pas évidents à synchroniser, notamment les salles de conférence.
 
 L’option de filtrage positif nécessite deux règles de synchronisation : une (ou plusieurs) présentant l’étendue correcte des objets à synchroniser et une deuxième règle de synchronisation fourre-tout éliminant tous les objets qui n’ont pas encore été identifiés en tant qu’objets à synchroniser.
@@ -198,9 +197,8 @@ Dans l’exemple suivant, vous synchronisez uniquement les objets utilisateur do
 5. Dans **Filtre d’étendue**, cliquez sur **Ajouter un groupe**, sur **Ajouter une clause** et dans Attribut, sélectionnez **Service**. Vérifiez que l’opérateur est défini sur **EQUAL** et tapez la valeur **Ventes** dans la zone Valeur. Cliquez sur **Suivant**. ![5 étendue entrante](./media/active-directory-aadconnectsync-configure-filtering/inbound5.png)
 6. Laissez les règles de **Jointure**, puis cliquez sur**Suivant**.
 7. Cliquez sur **Ajouter une transformation**, définissez **Type de flux** sur **Constante**, sélectionnez l’attribut cible **cloudFiltered** et dans la zone de texte Source, tapez la valeur **False**. Cliquez sur **Ajouter** pour enregistrer la règle. ![6 transformation entrante](./media/active-directory-aadconnectsync-configure-filtering/inbound6.png) Il s’agit d’un cas particulier où vous définissez explicitement cloudFiltered sur False.
-
-	Nous devons maintenant créer la règle de synchronisation fourre-tout.
-
+   
+    Nous devons maintenant créer la règle de synchronisation fourre-tout.
 8. Donnez à la règle un nom descriptif, par exemple « *Entrée depuis Active Directory - Filtre fourre-tout utilisateur* ». Sélectionnez la forêt appropriée, **Utilisateur** en tant que **type d’objet CS**, et **Personne** en tant que **type d’objet MV**. Pour **Type de lien**, sélectionnez **Jointure** et pour le type de priorité, entrez une valeur actuellement non utilisée par une autre règle de synchronisation (par exemple 600). Vous avez sélectionné une valeur de priorité supérieure (priorité moindre) à la règle de synchronisation précédente, mais nous avons également laissé de la place de façon à pouvoir ajouter des règles de synchronisation de filtrage ultérieurement si vous souhaitez procéder à la synchronisation de services supplémentaires. Cliquez sur **Suivant**. ![7 description entrante](./media/active-directory-aadconnectsync-configure-filtering/inbound7.png)
 9. Laissez l’option **Filtre d’étendue** vide, puis cliquez sur **Suivant**. Un filtre vide indique que la règle doit être appliquée à tous les objets.
 10. Laissez les règles de **Jointure**, puis cliquez sur**Suivant**.
@@ -231,7 +229,7 @@ Si vous avez modifié la configuration à l’aide d’un filtrage par **domaine
 
 Si vous avez modifié la configuration en utilisant un filtrage par **attribut**, vous devez exécuter une **synchronisation complète**.
 
-Procédez comme suit :
+Procédez comme suit :
 
 1. Démarrez le **Service de synchronisation** depuis le menu Démarrer.
 2. Sélectionnez **Connecteurs**, puis, dans la liste **Connecteurs**, sélectionnez le connecteur dont vous avez modifié la configuration précédemment. Dans **Actions**, sélectionnez **Exécuter**. ![Exécution de connecteur](./media/active-directory-aadconnectsync-configure-filtering/connectorrun.png)
@@ -241,7 +239,7 @@ Après la synchronisation, toutes les modifications sont indexées pour l’expo
 
 1. Démarrez une invite de commande et accédez à `%Program Files%\Microsoft Azure AD Sync\bin`
 2. Exécution : `csexport "Name of Connector" %temp%\export.xml /f:x` le nom du connecteur se trouve dans le service de synchronisation. Le nom est similaire à « contoso.com – AAD » pour Azure AD.
-3. Exécuter : `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`
+3. Exécuter : `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`
 4. Vous disposez maintenant d’un fichier dans %temp% nommé export.csv qui peuvent être examiné dans Microsoft Excel. Ce fichier contient toutes les modifications sur le point d’être exportées.
 5. Apportez les modifications nécessaires aux données ou à la configuration et réexécutez ces opérations (importer, synchroniser et vérifier) jusqu’à ce que les modifications sur le point d’être exportées soient conformes aux attentes.
 

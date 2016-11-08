@@ -1,32 +1,30 @@
-<properties 
-    pageTitle="Vue d’ensemble des API Azure Event Hubs | Microsoft Azure"
-    description="Résumé de certaines API clientes .NET Event Hubs."
-    services="event-hubs"
-    documentationCenter="na"
-    authors="sethmanheim"
-    manager="timlt"
-    editor="" />
-<tags 
-    ms.service="event-hubs"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="08/16/2016"
-    ms.author="sethm" />
+---
+title: Vue d’ensemble des API Azure Event Hubs | Microsoft Docs
+description: Résumé de certaines API clientes .NET Event Hubs.
+services: event-hubs
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
 
+ms.service: event-hubs
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/16/2016
+ms.author: sethm
+
+---
 # Présentation des API Event Hubs
-
 Cet article passe en revue certaines des principales API clientes .NET Event Hubs. Il en existe deux catégories : les API de gestion et les API du runtime. Les API du runtime comportent toutes les opérations nécessaires pour envoyer et recevoir un message. Les opérations de gestion vous permettent de gérer l’état d’une entité Event Hubs en créant, modifiant et supprimant des entités.
 
 Les scénarios d’analyse couvrent la gestion et l’exécution. Pour obtenir une documentation de référence détaillée sur les API .NET, consultez les informations de référence de l’[API .NET Service Bus](https://msdn.microsoft.com/library/azure/mt419900.aspx) et de l’[API EventProcessorHost](https://msdn.microsoft.com/library/azure/mt445521.aspx).
 
 ## API de gestion
-
 Pour effectuer les opérations de gestion suivantes, vous devez avoir des autorisations de **gestion** sur l’espace de noms Event Hubs :
 
 ### Créer
-
 ```
 // Create the Event Hub
 EventHubDescription ehd = new EventHubDescription(eventHubName);
@@ -35,7 +33,6 @@ namespaceManager.CreateEventHubAsync(ehd).Wait();
 ```
 
 ### Mettre à jour
-
 ```
 EventHubDescription ehd = await namespaceManager.GetEventHubAsync(eventHubName);
 
@@ -48,22 +45,18 @@ namespaceManager.UpdateEventHubAsync(ehd).Wait();
 ```
 
 ### Supprimer
-
 ```
 namespaceManager.DeleteEventHubAsync("Event Hub name").Wait();
 ```
 
 ## API de runtime
-
 ### Créer un éditeur
-
 ```
 // EventHubClient model (uses implicit factory instance, so all links on same connection)
 EventHubClient eventHubClient = EventHubClient.Create("Event Hub name");
 ```
 
 ### Publier un message
-
 ```
 // Create the device/temperature metric
 MetricEvent info = new MetricEvent() { DeviceId = random.Next(SampleManager.NumDevices), Temperature = random.Next(100) };
@@ -82,7 +75,6 @@ await client.SendAsync(data);
 ```
 
 ### Créer un consommateur
-
 ```
 // Create the Event Hubs client
 EventHubClient eventHubClient = EventHubClient.Create(EventHubName);
@@ -95,26 +87,24 @@ EventHubReceiver consumer = await defaultConsumerGroup.CreateReceiverAsync(shard
 
 // From one day ago
 EventHubReceiver consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index, startingDateTimeUtc:DateTime.Now.AddDays(-1));
-                        
+
 // From specific offset, -1 means oldest
 EventHubReceiver consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index,startingOffset:-1); 
 ```
 
 ### Consommer un message
-
 ```
 var message = await consumer.ReceiveAsync();
 
 // Provide a serializer
 var info = message.GetBody<Type>(Serializer)
-                                    
+
 // Get a byte[]
 var info = message.GetBytes(); 
 msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 
 ## API d’hôte du processeur d’événements
-
 Ces API offrent une résilience aux processus de travail qui peuvent devenir indisponibles, en distribuant les partitions sur les workers disponibles.
 
 ```
@@ -132,7 +122,7 @@ EventProcessorHost host = new EventProcessorHost(WorkerName, EventHubName, defau
 host.UnregisterEventProcessorAsync().Wait();   
 ```
 
-L’interface [IEventProcessor](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ieventprocessor.aspx) est définie comme suit :
+L’interface [IEventProcessor](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ieventprocessor.aspx) est définie comme suit :
 
 ```
 public class SimpleEventProcessor : IEventProcessor
@@ -158,7 +148,7 @@ public class SimpleEventProcessor : IEventProcessor
         {
             Process messages here
         }
-        
+
         // Checkpoint when appropriate
         await context.CheckpointAsync();
 
@@ -176,17 +166,16 @@ public class SimpleEventProcessor : IEventProcessor
 ```
 
 ## Étapes suivantes
+Pour en savoir plus sur les scénarios des concentrateurs d’événements, consultez ces liens :
 
-Pour en savoir plus sur les scénarios des concentrateurs d’événements, consultez ces liens :
+* [Nouveautés des concentrateurs d'événements Azure ?](event-hubs-what-is-event-hubs.md)
+* [Vue d’ensemble des concentrateurs d’événements](event-hubs-overview.md)
+* [Guide de programmation Event Hubs](event-hubs-programming-guide.md)
+* [Exemples de code des concentrateurs d’événements](http://code.msdn.microsoft.com/site/search?query=event hub&f\[0\].Value=event hubs&f\[0\].Type=SearchText&ac=5)
 
-- [Nouveautés des concentrateurs d'événements Azure ?](event-hubs-what-is-event-hubs.md)
-- [Vue d’ensemble des concentrateurs d’événements](event-hubs-overview.md)
-- [Guide de programmation Event Hubs](event-hubs-programming-guide.md)
-- [Exemples de code des concentrateurs d’événements](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hubs&f[0].Type=SearchText&ac=5)
+Les informations de référence de l'API .NET se trouvent ici :
 
-Les informations de référence de l'API .NET se trouvent ici :
-
-- [Références des API .NET Service Bus et Event Hubs](https://msdn.microsoft.com/library/azure/mt419900.aspx)
-- [Informations de référence des API hôtes du processeur d'événements](https://msdn.microsoft.com/library/azure/mt445521.aspx)
+* [Références des API .NET Service Bus et Event Hubs](https://msdn.microsoft.com/library/azure/mt419900.aspx)
+* [Informations de référence des API hôtes du processeur d'événements](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
 <!---HONumber=AcomDC_0817_2016-->

@@ -1,5 +1,4 @@
 ### Modifications d’applet de commande de balise dans la dernière version de PowerShell
-
 La version d’août 2016 [d’Azure PowerShell 2.0][powershell] inclut des modifications importantes pour l’utilisation des balises. Avant de continuer, vérifiez la version de votre module AzureRm.Resources.
 
     Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
@@ -15,11 +14,10 @@ Si vous avez mis à jour Azure PowerShell après août 2016, les résultats doiv
     Version
     -------
     3.0.1
-    
+
 Si votre version du module est 3.0.1 ou ultérieur, vous disposez des applets de commande les plus récentes pour utiliser des balises. Cette version du module de ressources Azure s’installe automatiquement lorsque vous installez ou mettez à niveau Azure PowerShell à l’aide de PowerShell Gallery, PowerShellGet ou Web Platform Installer. Si votre version est antérieure à 3.0.1, vous pouvez continuer à utiliser cette version, mais vous pouvez envisager une mise à jour vers la version la plus récente. La dernière version inclut des modifications qui facilitent l’utilisation des balises. Les deux approches sont présentées dans cette rubrique.
 
-### Mise à jour de votre script pour prendre en compte les modifications apportées dans la version la plus récente 
-
+### Mise à jour de votre script pour prendre en compte les modifications apportées dans la version la plus récente
 Dans la dernière version, le nom de paramètre **Tags** est devenu **Tag**, tandis que le nom de type **Hashtable** et devenu **Hashtable**. Vous n’avez plus besoin de fournir **Name** et **Value** pour chaque entrée. Au lieu de cela, vous indiquez des paires clé-valeur selon le format **Clé = "Valeur"**.
 
 Pour mettre à jour un script existant, remplacez le paramètre **Tags** par **Tag** et modifiez le format de balise, comme illustré dans l’exemple suivant.
@@ -33,7 +31,6 @@ Pour mettre à jour un script existant, remplacez le paramètre **Tags** par **T
 Notez cependant que les groupes de ressources et les ressources retournent toujours une propriété **Tags** dans leurs métadonnées. Cette propriété n’est pas modifiée.
 
 ### Version 3.0.1 ou ultérieure
-
 Les balises se trouvent directement dans les ressources et les groupes de ressources. Pour afficher les balises existantes, affichez une ressource avec **Get-AzureRmResource** ou un groupe de ressources avec **Get-AzureRmResourceGroup**.
 
 Commençons par un groupe de ressources.
@@ -87,7 +84,7 @@ Pour récupérer des groupes de ressources comportant une valeur de balise, util
 Pour obtenir toutes les ressources contenant une balise et une valeur spécifiques, utilisez l’applet de commande **Find-AzureRmResource**.
 
     (Find-AzureRmResource -TagName Dept -TagValue Finance).Name
-    
+
 Pour ajouter une balise à un groupe de ressources qui n’en comporte pas, utilisez la commande **Set-AzureRmResourceGroup**, puis spécifiez l’objet de la balise.
 
     Set-AzureRmResourceGroup -Name test-group -Tag @{ Dept="IT"; Environment="Test" }
@@ -102,7 +99,7 @@ Ce qui renvoie le groupe de ressources avec ses nouvelles valeurs de balise.
                     =======       =====
                     Dept          IT
                     Environment   Test
-                    
+
 Vous pouvez ajouter des balises à une ressource qui n’en comporte pas à l’aide de la commande **Set-AzureRmResource**
 
     Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
@@ -120,7 +117,7 @@ Le processus est le même pour les ressources, sauf que vous utilisez les applet
 Pour obtenir une liste de toutes les balises d’un abonnement à l’aide de PowerShell, utilisez l’applet de commande **Get-AzureRmTag**.
 
     Get-AzureRmTag
-    
+
 Cette dernière retourne des noms de balise et le nombre de ressources et de groupes de ressources avec la balise.
 
     Name                      Count
@@ -128,12 +125,11 @@ Cette dernière retourne des noms de balise et le nombre de ressources et de gro
     Dept                       8
     Environment                8
 
-Vous pouvez consulter les balises commençant par « masqué-» et « lien: ». Il s'agit de balises internes, que vous devez ignorer et éviter de modifier.
+Vous pouvez consulter les balises commençant par « masqué-» et « lien: ». Il s'agit de balises internes, que vous devez ignorer et éviter de modifier.
 
 Pour ajouter des balises à la taxonomie, utilisez l’applet de commande **New-AzureRmTag**. Ces balises seront incluses dans la saisie semi-automatique, même si elles n'ont pas encore été appliquées à des ressources ou des groupes de ressources. Pour supprimer un nom ou une valeur de balise, commencez par supprimer la balise sur toutes les ressources où elle est appliquée, puis utilisez l’applet de commande **Remove-AzureRmTag** pour la supprimer de la taxonomie.
 
 ### Versions antérieures à 3.0.1
-
 Les balises se trouvent directement dans les ressources et les groupes de ressources. Pour afficher les balises existantes, affichez une ressource avec **Get-AzureRmResource** ou un groupe de ressources avec **Get-AzureRmResourceGroup**.
 
 Commençons par un groupe de ressources.
@@ -150,7 +146,7 @@ Cette cmdlet renvoie plusieurs octets de métadonnées sur le groupe de ressourc
                     ===========  ==========
                     Dept         Finance
                     Environment  Production
-                    
+
 Pour récupérer les métadonnées de ressources, utilisez l’exemple suivant. Les métadonnées de ressources n’affichent pas directement les balises.
 
     Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName testrg1
@@ -170,18 +166,18 @@ Les résultats indiquent que les balises s’affichent uniquement en tant qu’o
 Vous pouvez afficher les balises réelles en récupérant la propriété **Tags**.
 
     (Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group).Tags | %{ $_.Name + ": " + $_.Value }
-   
+
 Ce qui renvoie les résultats mis en forme :
-    
+
     Dept: Finance
     Environment: Production
-    
+
 Plutôt que d’afficher les balises d’une ressource ou d’un groupe de ressources en particulier, vous souhaitez sans doute récupérer toutes les ressources ou tous les groupes de ressources qui ont une valeur et une balise spécifiques. Pour récupérer des ressources ou des groupes de ressources avec une balise spécifique, utilisez l’applet de commande **Find-AzureRmResourceGroup** avec le paramètre **-Tag**.
 
 Pour récupérer des groupes de ressources comportant une valeur de balise, utilisez le format suivant.
 
     Find-AzureRmResourceGroup -Tag @{ Name="Dept"; Value="Finance" } | %{ $_.Name }
-    
+
 Pour obtenir toutes les ressources contenant une balise et une valeur spécifiques, utilisez l’applet de commande Find-AzureRmResource.
 
     Find-AzureRmResource -TagName Dept -TagValue Finance | %{ $_.ResourceName }
@@ -189,7 +185,7 @@ Pour obtenir toutes les ressources contenant une balise et une valeur spécifiqu
 Pour ajouter une balise à un groupe de ressources qui n’en comporte pas, utilisez simplement la commande Set-AzureRmResourceGroup, puis spécifiez l’objet de la balise.
 
     Set-AzureRmResourceGroup -Name test-group -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} )
-    
+
 Ce qui renvoie le groupe de ressources avec ses nouvelles valeurs de balise.
 
     ResourceGroupName : test-group
@@ -218,7 +214,7 @@ Le processus est le même pour les ressources, sauf que vous utilisez les applet
 Pour obtenir une liste de toutes les balises d’un abonnement à l’aide de PowerShell, utilisez l’applet de commande **Get-AzureRmTag**.
 
     Get-AzureRmTag
-    
+
 Cette dernière retourne des noms de balise et le nombre de ressources et de groupes de ressources avec la balise.
 
     Name                      Count
@@ -226,10 +222,9 @@ Cette dernière retourne des noms de balise et le nombre de ressources et de gro
     Dept                       8
     Environment                8
 
-Vous pouvez consulter les balises commençant par « masqué-» et « lien: ». Il s'agit de balises internes, que vous devez ignorer et éviter de modifier.
+Vous pouvez consulter les balises commençant par « masqué-» et « lien: ». Il s'agit de balises internes, que vous devez ignorer et éviter de modifier.
 
 Pour ajouter des balises à la taxonomie, utilisez l’applet de commande **New-AzureRmTag**. Ces balises seront incluses dans la saisie semi-automatique, même si elles n'ont pas encore été appliquées à des ressources ou des groupes de ressources. Pour supprimer un nom ou une valeur de balise, commencez par supprimer la balise sur toutes les ressources où elle est appliquée, puis utilisez l’applet de commande **Remove-AzureRmTag** pour la supprimer de la taxonomie.
-
 
 [powershell]: https://msdn.microsoft.com/library/mt619274(v=azure.200).aspx
 

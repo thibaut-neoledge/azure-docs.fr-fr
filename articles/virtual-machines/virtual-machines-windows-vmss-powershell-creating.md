@@ -1,24 +1,23 @@
-<properties
-	pageTitle="Création de jeux de mise à l’échelle de machine virtuelle à l’aide des applets de commande PowerShell | Microsoft Azure"
-	description="Prise en main de la création et de la gestion de vos premiers jeux de mise à l’échelle de machine virtuelle Azure à l’aide des applets de commande Azure PowerShell"
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="danielsollondon"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+---
+title: Création de jeux de mise à l’échelle de machine virtuelle à l’aide des applets de commande PowerShell | Microsoft Docs
+description: Prise en main de la création et de la gestion de vos premiers jeux de mise à l’échelle de machine virtuelle Azure à l’aide des applets de commande Azure PowerShell
+services: virtual-machines-windows
+documentationcenter: ''
+author: danielsollondon
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/30/2016"
-	ms.author="danielsollondon"/>
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/30/2016
+ms.author: danielsollondon
 
+---
 # Création de jeux de mise à l’échelle de machine virtuelle à l’aide des applets de commande PowerShell
-
 Il s’agit d’un exemple illustrant comment créer un jeu de mise à l’échelle de machine virtuelle (VMSS). Cet exemple crée un VMSS de 3 nœuds, avec la mise en réseau et le stockage associés.
 
 ## Premières étapes
@@ -27,9 +26,7 @@ Assurez-vous que le dernier module Azure PowerShell est installé. Celui-ci cont
 Pour trouver les applets de commande pour le VMSS, utilisez la chaîne de recherche *VMSS*.
 
 ## Création d’un jeu de mise à l’échelle de machine virtuelle (VMSS)
-
 ##### Créer un groupe de ressources
-
 ```
 $loc = 'westus';
 $rgname = 'mynewrgwu';
@@ -37,7 +34,6 @@ $rgname = 'mynewrgwu';
 ```
 
 ##### Créer un compte de stockage
-
 Définissez le type et le nom du compte de stockage.
 
 ```
@@ -49,16 +45,13 @@ $stoaccount = Get-AzureRmStorageAccount -ResourceGroupName $rgname -Name $stonam
 ```
 
 #### Créer la mise en réseau (réseau virtuel / sous-réseau)
-
 ##### Spécification du sous-réseau
-
 ```
 $subnetName = 'websubnet'
   $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix "10.0.0.0/24";
 ```
 
 ##### Spécification du réseau virtuel (VNET)
-
 ```
 $vnet = New-AzureRmVirtualNetwork -Force -Name ('vnet' + $rgname) -ResourceGroupName $rgname -Location $loc -AddressPrefix "10.0.0.0/16" -DnsServer "10.1.1.1" -Subnet $subnet;
 $vnet = Get-AzureRmVirtualNetwork -Name ('vnet' + $rgname) -ResourceGroupName $rgname;
@@ -68,7 +61,6 @@ $subnetId = $vnet.Subnets[0].Id;
 ```
 
 ##### Créer la ressource IP publique pour permettre l’accès externe
-
 Celle-ci est liée à l’équilibrage de charge.
 
 ```
@@ -77,7 +69,6 @@ $pubip = Get-AzureRmPublicIpAddress -Name ('pubip' + $rgname) -ResourceGroupName
 ```
 
 ##### Créer et configurer l’équilibrage de charge
-
 ```
 $frontendName = 'fe' + $rgname
 $backendAddressPoolName = 'bepool' + $rgname
@@ -141,7 +132,6 @@ $expectedLb = Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname
 ```
 
 ##### Configurer et créer le jeu de mise à l’échelle de machine virtuelle (VMSS)
-
 Notez que cet exemple d’infrastructure illustre comment configurer, distribuer et mettre à l’échelle le trafic web sur le VMSS, mais aucun service web n’est installé sur les images des machines virtuelles spécifiées ici.
 
 ```

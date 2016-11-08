@@ -1,110 +1,94 @@
-<properties 
-   pageTitle="Interface utilisateur d'Azure Mobile Engagement : Paramètres" 
-   description="Découvrez comment gérer les paramètres globaux de votre application grâce à Azure Mobile Engagement" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
-   editor=""/>
+---
+title: 'Interface utilisateur d''Azure Mobile Engagement : Paramètres'
+description: Découvrez comment gérer les paramètres globaux de votre application grâce à Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # Comment gérer les paramètres globaux de votre application
+Les options de menu **Paramètres** disponibles pour une application dépendent de la plateforme de l’application et des autorisations qui vous ont été accordées pour cette application. Les paramètres suivants sont inclus : Détails, Projets, Native Push, Push Speed, Balise (Information sur l’application) et Pression commerciale. L’option de menu Balise (Informations sur l’application) peut être gérée par votre application (à l’aide du Kit de développement logiciel (SDK)) ou par votre backend (à l’aide de l’API d’appareil).
 
-Les options de menu **Paramètres** disponibles pour une application dépendent de la plateforme de l’application et des autorisations qui vous ont été accordées pour cette application. Les paramètres suivants sont inclus : Détails, Projets, Native Push, Push Speed, Balise (Information sur l’application) et Pression commerciale. L’option de menu Balise (Informations sur l’application) peut être gérée par votre application (à l’aide du Kit de développement logiciel (SDK)) ou par votre backend (à l’aide de l’API d’appareil).
-
-
->[AZURE.NOTE] De nombreuses sections de l’interface utilisateur du portail **Mobile Engagement** contiennent un bouton **AFFICHER L’AIDE**. Appuyez sur ce bouton pour obtenir des informations contextuelles supplémentaires sur une section.
+> [!NOTE]
+> De nombreuses sections de l’interface utilisateur du portail **Mobile Engagement** contiennent un bouton **AFFICHER L’AIDE**. Appuyez sur ce bouton pour obtenir des informations contextuelles supplémentaires sur une section.
+> 
+> 
 
 ## Détails
-
 Permet de modifier le nom et la description de votre application, d’afficher le propriétaire de votre application et vos autorisations de rôle.
 
 La configuration de l’analyse permet d’afficher ou de modifier le jour du début de semaine et la durée de rétention en jour(s).
- 
-  ![settings1][46]
- 
-## Projets
 
+  ![settings1][46]
+
+## Projets
 Vous pouvez sélectionner tous les projets que vous souhaitez voir apparaître dans votre application.
 
 Vous pouvez également rechercher un projet et afficher le nom, la description, le propriétaire et vos autorisations de rôle pour n'importe quel projet dont votre application fait partie.
 
 Pour plus d’informations, consultez [Documentation sur l’interface utilisateur - Accueil][Link 13].
- 
+
   ![settings3][48]
 
-## Native Push
+## Native Push
+Vous pouvez inscrire un nouveau certificat ou supprimer un certificat existant pour une utilisation avec Native Push. Native Push permet à Azure Mobile Engagement de transmettre des opérations push à votre application à tout moment, même lorsqu'elle n'est pas en cours d'exécution.
 
-Vous pouvez inscrire un nouveau certificat ou supprimer un certificat existant pour une utilisation avec Native Push. Native Push permet à Azure Mobile Engagement de transmettre des opérations push à votre application à tout moment, même lorsqu'elle n'est pas en cours d'exécution.
-
-Après avoir fourni des informations d'identification ou des certificats pour au moins un service Native Push, vous pouvez sélectionner « Tout le temps » lors de la création de campagnes Reach et également utiliser le paramètre « Notification » dans l'API de PUSH.
-
-
+Après avoir fourni des informations d'identification ou des certificats pour au moins un service Native Push, vous pouvez sélectionner « Tout le temps » lors de la création de campagnes Reach et également utiliser le paramètre « Notification » dans l'API de PUSH.
 
 ### Service de notifications Push Apple (APNS)
-
-Pour activer Native Push à l'aide du Service de notifications Push Apple (APNS), vous devez enregistrer votre certificat. Vous devrez spécifier le type de certificat, soit de développement (DEV), soit de production (PROD). Vous allez ensuite devoir charger votre certificat et définir son mot de passe.
+Pour activer Native Push à l'aide du Service de notifications Push Apple (APNS), vous devez enregistrer votre certificat. Vous devrez spécifier le type de certificat, soit de développement (DEV), soit de production (PROD). Vous allez ensuite devoir charger votre certificat et définir son mot de passe.
 
 Pour plus d’informations, consultez [Documentation du Kit de développement logiciel (SDK) - iOS - Préparation de votre application pour les notifications Push Apple][Link 5]
- 
+
 ![settings4][49]
- 
+
 ### Service de notifications Push Windows (WPNS)
+Pour activer Native Push à l'aide du Service de notifications Push Windows (WPNS), vous devez fournir les informations d'identification de votre application. Vous aurez besoin de votre ID de sécurité (SID) de Package et la clé secrète.
 
-Pour activer Native Push à l'aide du Service de notifications Push Windows (WPNS), vous devez fournir les informations d'identification de votre application. Vous aurez besoin de votre ID de sécurité (SID) de Package et la clé secrète.
- 
 ![settings5][50]
- 
+
 ### Google Cloud Messaging pour Android (GCM)
+Pour activer le Push Native à l'aide de GCM, vous devez suivre les instructions fournies par Google. Puis vous devez coller une clé d'API simple de serveur, configurée sans restriction d'adresse IP. Requiert l'intégration avec le Kit de développement logiciel (SDK) pour Android v1.12.0 +.
 
-Pour activer le Push Native à l'aide de GCM, vous devez suivre les instructions fournies par Google. Puis vous devez coller une clé d'API simple de serveur, configurée sans restriction d'adresse IP. Requiert l'intégration avec le Kit de développement logiciel (SDK) pour Android v1.12.0 +.
+Pour plus d'informations, consultez les pages suivantes :
 
-Pour plus d'informations, consultez les pages suivantes :
+* [Documentation du Kit de développement logiciel Android - Intégrer GCM][Link 5]
+* [Guide de développement Google GCM](http://developer.android.com/guide/google/gcm/gs.html)
 
-- [Documentation du Kit de développement logiciel Android - Intégrer GCM][Link 5]
-- [Guide de développement Google GCM](http://developer.android.com/guide/google/gcm/gs.html)
- 
 ### Amazon Device Messaging pour Android (ADM)
+Pour activer le Push natif avec Amazon Device Messaging (ADM), vous devez fournir des <informations d’identification OAuth> Amazon qui consistent en un ID Client et Secret Client (requiert l’intégration avec le Kit de développement logiciel (SDK) pour Android v2.1.0 +).
 
-Pour activer le Push natif avec Amazon Device Messaging (ADM), vous devez fournir des <informations d’identification OAuth> Amazon qui consistent en un ID Client et Secret Client (requiert l’intégration avec le Kit de développement logiciel (SDK) pour Android v2.1.0 +).
+Pour plus d'informations, consultez les pages suivantes :
 
-Pour plus d'informations, consultez les pages suivantes :
+* [Documentation du Kit de développement logiciel Android - Intégrer ADM][Link 5]
+* [Documentation pour les développeurs Amazon ADM](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
 
-- [Documentation du Kit de développement logiciel Android - Intégrer ADM][Link 5]
-- [Documentation pour les développeurs Amazon ADM](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
- 
 ![settings6][51]
 
-## Push Speed
-
+## Push Speed
 Vous pouvez afficher la vitesse de transmission actuelle de votre application et définir la vitesse de transmission de votre application.
- 
+
   ![settings7][52]
 
 ## Balise (Informations sur l’application)
-
 ![settings11][56]
-  
+
 ## Pression commerciale
-
-
 ![settings12][57]
 
-
 ## Voir aussi
-
-- [Concepts][Link 6]
-- [Guide de résolution des problèmes - Service][Link 24]
-
- 
+* [Concepts][Link 6]
+* [Guide de résolution des problèmes - Service][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -200,6 +184,6 @@ Vous pouvez afficher la vitesse de transmission actuelle de votre application et
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
- 
+
 
 <!---HONumber=AcomDC_0824_2016-->

@@ -1,7 +1,7 @@
-Ressource|Limite par défaut|Limite maximale
----|---|---
-[Machines virtuelles](../articles/virtual-machines/virtual-machines-linux-about.md) par service cloud<sup>1</sup>|50|50
-Points de terminaison d’entrée par service cloud<sup>2</sup>|150|150
+| Ressource | Limite par défaut | Limite maximale |
+| --- | --- | --- |
+| [Machines virtuelles](../articles/virtual-machines/virtual-machines-linux-about.md) par service cloud<sup>1</sup> |50 |50 |
+| Points de terminaison d’entrée par service cloud<sup>2</sup> |150 |150 |
 
 <sup>1</sup>Les machines virtuelles créées dans Service Management (plutôt que dans Resource Manager) sont automatiquement stockées dans un service cloud. Vous pouvez ajouter plus de machines virtuelles à ce service cloud pour l’équilibrage de charge et la disponibilité. Consultez [Connexion de machines virtuelles à un réseau virtuel ou un service cloud](../articles/virtual-machines/virtual-machines-linux-classic-connect-vms.md).
 

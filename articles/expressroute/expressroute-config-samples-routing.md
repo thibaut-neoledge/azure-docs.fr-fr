@@ -1,39 +1,38 @@
-<properties
-   pageTitle="Exemples de configuration des routeurs clients ExpressRoute | Microsoft Azure"
-   description="Cette page fournit des exemples de configuration pour les routeurs Cisco et Juniper."
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="carmonm"
-   editor="" />
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="cherylmc"/>
+---
+title: Exemples de configuration des routeurs clients ExpressRoute | Microsoft Docs
+description: Cette page fournit des exemples de configuration pour les routeurs Cisco et Juniper.
+documentationcenter: na
+services: expressroute
+author: cherylmc
+manager: carmonm
+editor: ''
 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: cherylmc
 
+---
 # <a name="router-configuration-samples-to-setup-and-manage-routing"></a>Exemples de configuration de routeur pour configurer et gérer le routage
+Cette page fournit une interface et des exemples de configuration de routage pour les routeurs des séries Cisco IOS-XE et Juniper MX. Ces exemples sont fournis à titre indicatif uniquement et ne doivent pas être utilisés en l’état. Vous pouvez vous adresser au fournisseur pour rechercher les configurations adaptées à votre réseau. 
 
-Cette page fournit une interface et des exemples de configuration de routage pour les routeurs des séries Cisco IOS-XE et Juniper MX. Ces exemples sont fournis à titre indicatif uniquement et ne doivent pas être utilisés en l’état. Vous pouvez vous adresser au fournisseur pour rechercher les configurations adaptées à votre réseau. 
-
->[AZURE.IMPORTANT] Les exemples de cette page sont fournis à titre purement indicatif. Vous devez vous adresser à l’équipe commerciale/technique de votre fournisseur et à votre équipe de mise en réseau pour rechercher les configurations adaptées à vos besoins. Microsoft ne prend pas en charge les problèmes liés aux configurations répertoriées dans cette page. Vous devez contacter le fournisseur de votre périphérique pour la prise en charge des problèmes.
+> [!IMPORTANT]
+> Les exemples de cette page sont fournis à titre purement indicatif. Vous devez vous adresser à l’équipe commerciale/technique de votre fournisseur et à votre équipe de mise en réseau pour rechercher les configurations adaptées à vos besoins. Microsoft ne prend pas en charge les problèmes liés aux configurations répertoriées dans cette page. Vous devez contacter le fournisseur de votre périphérique pour la prise en charge des problèmes.
+> 
+> 
 
 Les exemples de configuration de routeur ci-dessous s’appliquent à toutes les homologations. Pour plus d’informations sur le routage, voir [Homologations ExpressRoute](expressroute-circuit-peerings.md) et [Configuration requise pour le routage ExpressRoute](expressroute-routing.md).
 
-## <a name="cisco-ios-xe-based-routers"></a>Routeurs Cisco IOS-XE
-
+## <a name="cisco-ios-xe-based-routers"></a>Routeurs Cisco IOS-XE
 Les exemples de cette section s’appliquent à tous les routeurs exécutant la famille de systèmes d’exploitation IOS-XE.
 
 ### <a name="1.-configuring-interfaces-and-sub-interfaces"></a>1. Configuration des interfaces et des sous-interfaces
-
 Vous aurez besoin d’une sous-interface par homologation dans chaque routeur que vous connectez à Microsoft. Une sous-interface peut être identifiée avec un ID de réseau local virtuel ou une paire empilée d’ID de réseau local virtuel, et une adresse IP.
 
 #### <a name="dot1q-interface-definition"></a>Définition de l’interface Dot1Q
-
 Cet exemple fournit la définition d’une sous-interface avec un ID de réseau local virtuel unique. L’ID de réseau local virtuel est unique pour chaque homologation. Le dernier octet de votre adresse IPv4 est toujours un nombre impair.
 
     interface GigabitEthernet<Interface_Number>.<Number>
@@ -41,15 +40,13 @@ Cet exemple fournit la définition d’une sous-interface avec un ID de réseau 
      ip address <IPv4_Address><Subnet_Mask>
 
 #### <a name="qinq-interface-definition"></a>Définition de l’interface QinQ
-
 Cet exemple fournit la définition d’une sous-interface avec deux ID de réseau local virtuel. L’ID de réseau local virtuel externe (s-tag), s’il est utilisé, est le même pour toutes les homologations. L’ID de réseau local virtuel interne (c-tag) est unique pour chaque homologation. Le dernier octet de votre adresse IPv4 est toujours un nombre impair.
 
     interface GigabitEthernet<Interface_Number>.<Number>
      encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
      ip address <IPv4_Address><Subnet_Mask>
-    
-### <a name="2.-setting-up-ebgp-sessions"></a>2. Configuration de sessions eBGP
 
+### <a name="2.-setting-up-ebgp-sessions"></a>2. Configuration de sessions eBGP
 Vous devez configurer une session BGP avec Microsoft pour chaque homologation. L’exemple suivant vous permet de configurer une session BGP avec Microsoft. Si l’adresse IPv4 utilisée pour votre sous-interface est a.b.c.d, l’adresse IP du voisin BGP (Microsoft) est a.b.c.d+1. Le dernier octet de l’adresse IPv4 du voisin BGP est toujours un nombre pair.
 
     router bgp <Customer_ASN>
@@ -62,7 +59,6 @@ Vous devez configurer une session BGP avec Microsoft pour chaque homologation. L
     !
 
 ### <a name="3.-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Configuration des préfixes à publier sur la session BGP
-
 Vous pouvez configurer votre routeur pour qu’il publie certains préfixes sur Microsoft. Pour ce faire, utilisez l’exemple ci-dessous.
 
     router bgp <Customer_ASN>
@@ -76,7 +72,6 @@ Vous pouvez configurer votre routeur pour qu’il publie certains préfixes sur 
     !
 
 ### <a name="4.-route-maps"></a>4. Cartes d’itinéraire
-
 Vous pouvez utiliser des cartes d’itinéraire et des listes de préfixes pour filtrer les préfixes propagés sur votre réseau. L’exemple ci-dessous peut vous aider dans cette tâche. Assurez-vous d’avoir configuré les listes de préfixe appropriées.
 
     router bgp <Customer_ASN>
@@ -94,14 +89,11 @@ Vous pouvez utiliser des cartes d’itinéraire et des listes de préfixes pour 
     !
 
 
-## <a name="juniper-mx-series-routers"></a>Routeurs de la série Juniper MX 
-
-Les exemples de cette section s’appliquent à tous les routeurs de la série Juniper MX.
+## <a name="juniper-mx-series-routers"></a>Routeurs de la série Juniper MX
+Les exemples de cette section s’appliquent à tous les routeurs de la série Juniper MX.
 
 ### <a name="1.-configuring-interfaces-and-sub-interfaces"></a>1. Configuration des interfaces et des sous-interfaces
-
 #### <a name="dot1q-interface-definition"></a>Définition de l’interface Dot1Q
-
 Cet exemple fournit la définition d’une sous-interface avec un ID de réseau local virtuel unique. L’ID de réseau local virtuel est unique pour chaque homologation. Le dernier octet de votre adresse IPv4 est toujours un nombre impair.
 
     interfaces {
@@ -118,7 +110,6 @@ Cet exemple fournit la définition d’une sous-interface avec un ID de réseau 
 
 
 #### <a name="qinq-interface-definition"></a>Définition de l’interface QinQ
-
 Cet exemple fournit la définition d’une sous-interface avec deux ID de réseau local virtuel. L’ID de réseau local virtuel externe (s-tag), s’il est utilisé, est le même pour toutes les homologations. L’ID de réseau local virtuel interne (c-tag) est unique pour chaque homologation. Le dernier octet de votre adresse IPv4 est toujours un nombre impair.
 
     interfaces {
@@ -134,7 +125,6 @@ Cet exemple fournit la définition d’une sous-interface avec deux ID de résea
     }                           
 
 ### <a name="2.-setting-up-ebgp-sessions"></a>2. Configuration de sessions eBGP
-
 Vous devez configurer une session BGP avec Microsoft pour chaque homologation. L’exemple suivant vous permet de configurer une session BGP avec Microsoft. Si l’adresse IPv4 utilisée pour votre sous-interface est a.b.c.d, l’adresse IP du voisin BGP (Microsoft) est a.b.c.d+1. Le dernier octet de l’adresse IPv4 du voisin BGP est toujours un nombre pair.
 
     routing-options {
@@ -151,7 +141,6 @@ Vous devez configurer une session BGP avec Microsoft pour chaque homologation. L
     }
 
 ### <a name="3.-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Configuration des préfixes à publier sur la session BGP
-
 Vous pouvez configurer votre routeur pour qu’il publie certains préfixes sur Microsoft. Pour ce faire, utilisez l’exemple ci-dessous.
 
     policy-options {
@@ -177,7 +166,6 @@ Vous pouvez configurer votre routeur pour qu’il publie certains préfixes sur 
 
 
 ### <a name="4.-route-maps"></a>4. Cartes d’itinéraire
-
 Vous pouvez utiliser des cartes d’itinéraire et des listes de préfixes pour filtrer les préfixes propagés sur votre réseau. L’exemple ci-dessous peut vous aider dans cette tâche. Assurez-vous d’avoir configuré les listes de préfixe appropriées.
 
     policy-options {
@@ -208,10 +196,7 @@ Vous pouvez utiliser des cartes d’itinéraire et des listes de préfixes pour 
     }
 
 ## <a name="next-steps"></a>Étapes suivantes
-
 Pour plus d’informations, consultez le [Forum Aux Questions sur ExpressRoute](expressroute-faqs.md) .
-
-
 
 <!--HONumber=Oct16_HO2-->
 

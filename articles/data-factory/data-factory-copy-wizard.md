@@ -1,34 +1,33 @@
-<properties
-	pageTitle="Assistant Data Factory Copy | Microsoft Azure"
-	description="Découvrez comment utiliser l’Assistant Data Factory Copy pour copier des données à partir de sources de données prises en charge dans des récepteurs."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
-	editor="monicar"/>
+---
+title: Assistant Data Factory Copy | Microsoft Docs
+description: Découvrez comment utiliser l’Assistant Data Factory Copy pour copier des données à partir de sources de données prises en charge dans des récepteurs.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/27/2016"
-	ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/27/2016
+ms.author: spelluru
 
+---
 # Assistant Data Factory Copy
 L’Assistant Azure Data Factory Copy vous permet de créer un pipeline pour copier des données de sources prises en charge vers des destinations sans avoir à écrire de définitions JSON pour les services liés, les jeux de données et les pipelines. Pour lancer l’Assistant Data Factory Copy, cliquez sur la mosaïque **Copier les données** sur la page d’accueil de votre fabrique de données.
 
 ![Assistant de copie](./media/data-factory-copy-wizard/copy-data-wizard.png)
 
 ## Caractéristiques
-
 ### Un Assistant intuitif et rapide pour copier des données
 Cet Assistant vous permet de déplacer facilement et rapidement des données d’une source vers une destination en procédant comme suit :
 
-1.	Sélectionnez la source.
-2.	Sélectionnez la destination.
-3.	Configurez les paramètres.
+1. Sélectionnez la source.
+2. Sélectionnez la destination.
+3. Configurez les paramètres.
 
 ![Sélectionnez la source de données](./media/data-factory-copy-wizard/select-data-source-page.png)
 
@@ -63,10 +62,10 @@ Vous pouvez utiliser des variables dans le chemin du dossier pour copier des don
 
 Supposons que vos dossiers d’entrée présentent le format suivant :
 
-	2016/03/01/01
-	2016/03/01/02
-	2016/03/01/03
-	...
+    2016/03/01/01
+    2016/03/01/02
+    2016/03/01/03
+    ...
 
 Cliquez sur le bouton **Parcourir** à côté de **Fichier ou dossier**, accédez à l’un de ces dossiers (par exemple, 2016->03->01->02), puis cliquez sur **Choisir**. Vous devez voir **2016/03/01/02** dans la zone de texte. À présent, remplacez **2016** par **{year}**, **03** par **{month}**, **01** par **{day}** et **02** par **{hour}**, puis appuyez sur la touche de tabulation. Vous devez maintenant voir des listes déroulantes pour sélectionner le format de ces quatre variables :
 

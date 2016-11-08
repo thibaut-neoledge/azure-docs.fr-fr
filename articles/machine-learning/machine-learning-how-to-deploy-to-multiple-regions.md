@@ -1,30 +1,27 @@
-<properties
-    pageTitle="Comment déployer un service web dans plusieurs régions | Microsoft Azure"
-    description="Étapes pour déployer (copier) un nouveau service web dans d’autres régions."
-    services="machine-learning"
-    documentationCenter=""
-    authors="vDonGlover"
-    manager="raymondl"
-    editor="cgronlun"/>
+---
+title: Comment déployer un service web dans plusieurs régions | Microsoft Docs
+description: Étapes pour déployer (copier) un nouveau service web dans d’autres régions.
+services: machine-learning
+documentationcenter: ''
+author: vDonGlover
+manager: raymondl
+editor: cgronlun
 
-<tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/05/2016"
-    ms.author="v-donglo"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/05/2016
+ms.author: v-donglo
 
-
+---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Comment déployer un service web dans plusieurs régions
-
 Les nouveaux services web Azure vous permettent de déployer facilement un service web dans plusieurs régions, sans avoir besoin de plusieurs abonnements ou espaces de travail. 
 
 Le tarif est spécifique à chaque région et vous devez donc définir un profil de facturation pour chaque région dans laquelle vous allez déployer le service web.
 
 ## <a name="to-create-a-plan-in-another-region"></a>Pour créer un profil dans une autre région
-
 1. Connectez-vous aux [services web Microsoft Azure Machine Learning](https://services.azureml.net/).
 2. Cliquez sur l’option de menu **Abonnements** .
 3. Sur la page de présentation des abonnements, cliquez sur **nouveau**.
@@ -35,9 +32,7 @@ Le tarif est spécifique à chaque région et vous devez donc définir un profil
 8. Sous **Plan Options**(Options du plan), cliquez sur le niveau de facturation du nouveau plan.
 9. Cliquez sur **Create**.
 
-
 ## <a name="deploying-the-web-service-to-another-region"></a>Déploiement du service web dans une autre région
-
 1. Cliquez sur l’option de menu **Services web** .
 2. Sélectionnez le service web que vous déployez dans une nouvelle région.
 3. Cliquez sur **Copy**.
@@ -49,9 +44,6 @@ Le tarif est spécifique à chaque région et vous devez donc définir un profil
 9. Dans la liste déroulante **Compte de stockage** , sélectionnez un compte de stockage où stocker le service web.
 10. Dans la liste déroulante **Plan de tarification** , sélectionnez un plan dans la région que vous avez sélectionnée à l’étape 8.
 11. Cliquez sur **Copy**.
-
-
-
 
 <!--HONumber=Oct16_HO2-->
 

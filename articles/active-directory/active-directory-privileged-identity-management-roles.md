@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Rôles dans PIM | Microsoft Azure"
-   description="Découvrez les rôles utilisés pour les identités dotées de privilèges avec l’extension Azure Privileged Identity Management."
-   services="active-directory"
-   documentationCenter=""
-   authors="kgremban"
-   manager="femila"
-   editor=""/>
+---
+title: Rôles dans PIM | Microsoft Docs
+description: Découvrez les rôles utilisés pour les identités dotées de privilèges avec l’extension Azure Privileged Identity Management.
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="07/01/2016"
-   ms.author="kgremban"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 07/01/2016
+ms.author: kgremban
 
+---
 # Rôles dans Azure AD Privileged Identity Management
-
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
 Vous pouvez affecter aux utilisateurs de votre organisation différents rôles administratifs dans Azure AD. Ces affectations de rôles contrôlent quelles tâches, telles que l’ajout/la suppression d’utilisateurs ou la modification des paramètres de service, les utilisateurs sont autorisés à effectuer sur Azure AD, Office 365 et autres services Microsoft Online Services et applications connectées.
@@ -29,22 +28,22 @@ Azure AD Privileged Identity Management (PIM) gère les stratégies pour l’acc
 Il n’existe aucune différence entre un accès accordé de façon permanente à un utilisateur et l’affectation d’un rôle éligible. La seule différence réside dans le fait que certaines personnes n’ont pas besoin d’un accès permanent. Ces personnes deviennent éligibles au rôle et peuvent l’activer et le désactiver chaque fois que cela est nécessaire.
 
 ## Rôles gérés dans PIM
-
 Privileged Identity Management vous permet d’affecter des utilisateurs à des rôles d’administrateur courants, notamment :
 
-
-- **Administrateur général** (également connu sous le nom d’administrateur d’entreprise) : a accès à toutes les fonctionnalités d’administration. Vous pouvez avoir plus d’un administrateur général dans votre organisation. La personne qui s’inscrit pour acheter Office 365 devient automatiquement un administrateur général.
-- **Administrateur de rôle privilégié** : gère Azure AD PIM et met à jour les attributions de rôles pour d’autres utilisateurs.
-- **Administrateur de facturation** : effectue des achats, gère les abonnements, gère les tickets de support et surveille l’état des services.
-- **Administrateur de mots de passe** : réinitialise les mots de passe, gère les demandes de service et surveille l’état des services. Les administrateurs de mot de passe sont limités à la réinitialisation des mots de passe des utilisateurs.
-- **Administrateur de services fédérés** : gère les demandes de service et surveille l’état des services.
-
-  > [AZURE.NOTE] Si vous utilisez Office 365, avant d’affecter le rôle d’administrateur de service à un utilisateur, commencez par affecter les autorisations d’administrateur à un service, comme Exchange Online.
-
-- **Administrateur de gestion des utilisateurs** : réinitialise les mots de passe, surveille l’état des services et gère les comptes d’utilisateur, les groupes d’utilisateurs et les demandes de service. L’administrateur de gestion des utilisateurs ne peut pas supprimer un administrateur général, créer d’autres rôles d’administrateur ou réinitialiser des mots de passe pour les administrateurs de facturation, généraux et du service.
-- **Administrateur Exchange** : dispose d’un accès administratif à Exchange Online par le biais du Centre d’administration Exchange (EAC) et peut effectuer presque n’importe quelle tâche dans Exchange Online.
-- **Administrateur SharePoint** : dispose d’un accès administratif à SharePoint Online par le biais du Centre d’administration SharePoint Online et peut effectuer presque n’importe quelle tâche dans SharePoint Online.
-- **Administrateur Skype Entreprise** : dispose d’un accès administratif à Skype Entreprise par le biais du Centre d’administration Skype Entreprise et peut effectuer presque n’importe quelle tâche dans Skype Entreprise Online.
+* **Administrateur général** (également connu sous le nom d’administrateur d’entreprise) : a accès à toutes les fonctionnalités d’administration. Vous pouvez avoir plus d’un administrateur général dans votre organisation. La personne qui s’inscrit pour acheter Office 365 devient automatiquement un administrateur général.
+* **Administrateur de rôle privilégié** : gère Azure AD PIM et met à jour les attributions de rôles pour d’autres utilisateurs.
+* **Administrateur de facturation** : effectue des achats, gère les abonnements, gère les tickets de support et surveille l’état des services.
+* **Administrateur de mots de passe** : réinitialise les mots de passe, gère les demandes de service et surveille l’état des services. Les administrateurs de mot de passe sont limités à la réinitialisation des mots de passe des utilisateurs.
+* **Administrateur de services fédérés** : gère les demandes de service et surveille l’état des services.
+  
+  > [!NOTE]
+  > Si vous utilisez Office 365, avant d’affecter le rôle d’administrateur de service à un utilisateur, commencez par affecter les autorisations d’administrateur à un service, comme Exchange Online.
+  > 
+  > 
+* **Administrateur de gestion des utilisateurs** : réinitialise les mots de passe, surveille l’état des services et gère les comptes d’utilisateur, les groupes d’utilisateurs et les demandes de service. L’administrateur de gestion des utilisateurs ne peut pas supprimer un administrateur général, créer d’autres rôles d’administrateur ou réinitialiser des mots de passe pour les administrateurs de facturation, généraux et du service.
+* **Administrateur Exchange** : dispose d’un accès administratif à Exchange Online par le biais du Centre d’administration Exchange (EAC) et peut effectuer presque n’importe quelle tâche dans Exchange Online.
+* **Administrateur SharePoint** : dispose d’un accès administratif à SharePoint Online par le biais du Centre d’administration SharePoint Online et peut effectuer presque n’importe quelle tâche dans SharePoint Online.
+* **Administrateur Skype Entreprise** : dispose d’un accès administratif à Skype Entreprise par le biais du Centre d’administration Skype Entreprise et peut effectuer presque n’importe quelle tâche dans Skype Entreprise Online.
 
 Consultez les articles suivants pour plus d’informations sur l’[attribution de rôles d’administrateur dans Azure AD](active-directory-assign-admin-roles.md) et sur l’[attribution de rôles d’administrateur dans Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
 
@@ -55,11 +54,9 @@ Consultez les articles suivants pour plus d’informations sur l’[attribution 
 
 Si vous souhaitez autoriser un autre utilisateur à effectuer la gestion dans PIM, les rôles que requiert PIM pour cet utilisateur sont décrits dans [Comment accorder l’accès à PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
-
 <!-- ## The PIM Security Administrator Role **PLACEHOLDER: Need description of the Security Administrator role.**-->
 
 ## Rôles non gérés dans PIM
-
 Les rôles dans Exchange Online ou SharePoint Online, à l’exception de ceux mentionnés ci-dessus, ne sont pas représentés dans Azure AD et par conséquent, ne sont pas visibles dans PIM. Pour plus d’informations sur la modification des affectations de rôles affinées dans ces services Office 365, consultez [Autorisations dans Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 Les groupes de ressources et les abonnements Azure ne sont pas représentés non plus dans Azure AD. Pour gérer les abonnements Azure, consultez [Comment ajouter ou modifier des rôles d’administrateur Azure](../billing-add-change-azure-subscription-administrator.md), et pour plus d’informations sur Azure RBAC, consultez [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md).
@@ -74,8 +71,7 @@ L’accès au portail Azure Classic nécessite que l’utilisateur soit un admin
 
 L’accès à Microsoft Online Services peut nécessiter l’affectation d’une licence à l’utilisateur pour qu’il puisse ouvrir le portail du service ou effectuer des tâches administratives.
 
-## Attribution d’une licence à un utilisateur dans Azure AD
-
+## Attribution d’une licence à un utilisateur dans Azure AD
 1. Avec un compte d’administrateur général ou un compte de coadministrateur, connectez-vous au [portail Azure Classic](http://manage.windowsazure.com).
 2. Sélectionnez **Tous les éléments** dans le menu principal.
 3. Sélectionnez l’annuaire que vous souhaitez utiliser et auquel des licences sont associées.
@@ -87,6 +83,6 @@ L’accès à Microsoft Online Services peut nécessiter l’affectation d’une
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
-[AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
+[!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 <!---HONumber=AcomDC_0706_2016-->

@@ -1,25 +1,26 @@
-<properties
-   pageTitle="Utilisation de OneDrive Entreprise et d’Azure RemoteApp | Microsoft Azure"
-   description="Utilisation de OneDrive Entreprise avec Azure RemoteApp."
-   services="remoteapp"
-   documentationCenter=""
-   authors="pavithir"
-   manager="mbaldwin"
-   editor=""/>
+---
+title: Utilisation de OneDrive Entreprise et d’Azure RemoteApp | Microsoft Docs
+description: Utilisation de OneDrive Entreprise avec Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: pavithir
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="remoteapp"
-   ms.devlang="na"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="compute"
-   ms.date="08/15/2016"
-   ms.author="elizapo"/>
+ms.service: remoteapp
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: compute
+ms.date: 08/15/2016
+ms.author: elizapo
 
+---
 # OneDrive Entreprise et Azure RemoteApp
-
-> [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+> [!IMPORTANT]
+> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 L’agent de synchronisation OneDrive Entreprise n’est pas pris en charge avec Azure RemoteApp.
 

@@ -1,38 +1,41 @@
-<properties
-	pageTitle="Ajout de la mise en cache pour améliorer les performances de Gestion des API Azure | Microsoft Azure"
-	description="Apprenez à améliorer la latence, la consommation de bande passante et la charge du service web pour les appels du service Gestion des API."
-	services="api-management"
-	documentationCenter=""
-	authors="steved0x"
-	manager="erikre"
-	editor=""/>
+---
+title: Ajout de la mise en cache pour améliorer les performances de Gestion des API Azure | Microsoft Docs
+description: Apprenez à améliorer la latence, la consommation de bande passante et la charge du service web pour les appels du service Gestion des API.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/24/2016"
-	ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/24/2016
+ms.author: sdanie
 
+---
 # Ajout de mise en cache pour améliorer les performances dans Gestion des API Azure
-
 Les opérations dans Gestion des API Azure peuvent être configurées pour mettre en cache la réponse. La mise en cache de la réponse peut réduire de façon importante la latence de l'API, la consommation de bande passante et la charge du service web pour les données qui ne changent pas fréquemment.
 
 Ce guide vous montre comment ajouter une mise en cache de la réponse pour votre API et configurer des stratégies pour les exemples d’opérations de l’API Echo. Vous pouvez ensuite appeler l’opération depuis le portail des développeurs pour vérifier l’action de mise en cache.
 
->[AZURE.NOTE] Pour plus d’informations sur la mise en cache des éléments par clé à l’aide d’expressions de stratégie, consultez [Mise en cache personnalisée dans la gestion des API Azure](api-management-sample-cache-by-key.md).
+> [!NOTE]
+> Pour plus d’informations sur la mise en cache des éléments par clé à l’aide d’expressions de stratégie, consultez [Mise en cache personnalisée dans la gestion des API Azure](api-management-sample-cache-by-key.md).
+> 
+> 
 
 ## Composants requis
-
-Avant de suivre la procédure décrite dans ce guide, vous devez disposer d’une instance de service de Gestion des API avec une API et un produit configurés. Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][] dans le didacticiel [Prise en main de Gestion des API Azure][].
+Avant de suivre la procédure décrite dans ce guide, vous devez disposer d’une instance de service de Gestion des API avec une API et un produit configurés. Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][Création d'une instance de service Gestion des API] dans le didacticiel [Prise en main de Gestion des API Azure][Prise en main de Gestion des API Azure].
 
 ## <a name="configure-caching"> </a>Configuration d’une opération de mise en cache
-
 Dans cette étape, vous allez consulter les paramètres de mise en cache de l’opération **GET Resource (cached)** de l’exemple d’API Echo.
 
->[AZURE.NOTE] Chaque instance du service Gestion des API est préconfigurée avec une API Echo qui peut être utilisée pour faire des expériences et en savoir plus sur la gestion des API. Pour plus d'informations, consultez la page [Prise en main de Gestion des API Azure][].
+> [!NOTE]
+> Chaque instance du service Gestion des API est préconfigurée avec une API Echo qui peut être utilisée pour faire des expériences et en savoir plus sur la gestion des API. Pour plus d'informations, consultez la page [Prise en main de Gestion des API Azure][Prise en main de Gestion des API Azure].
+> 
+> 
 
 Pour commencer, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
 
@@ -59,7 +62,6 @@ Chaque réponse de l’opération est générée en fonction des valeurs des cha
 Selon la configuration de mise en cache de cet exemple, la première demande envoyée à l’opération **GET Resource (cached)** renvoie une réponse du service principal. Cette réponse sera mise en cache, du fait des en-têtes et des paramètres de chaîne de requête spécifiés. Les autres appels à l'opération comportant des paramètres correspondants recevront la réponse mise en cache, jusqu'à expiration de la durée de mise en cache.
 
 ## <a name="caching-policies"> </a>Révision des stratégies de mise en cache
-
 Dans cette étape, vous allez consulter les paramètres de mise en cache de l’opération **GET Resource (cached)** de l’exemple d’API Echo.
 
 Lorsque les paramètres de mise en cache sont configurés pour une opération dans l'onglet **Mise en cache**, les stratégies de mise en cache sont ajoutées pour cette opération. Ces stratégies peuvent être consultées et modifiées dans l'éditeur de stratégies.
@@ -74,25 +76,27 @@ Affiche les stratégies de cette opération dans l'éditeur de stratégies.
 
 La définition de stratégie de cette opération comprend les stratégies qui définissent la configuration de la mise en cache que nous avons vues dans l'onglet **Mise en cache** lors de l'étape précédente.
 
-	<policies>
-		<inbound>
-			<base />
-			<cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
-				<vary-by-header>Accept</vary-by-header>
-				<vary-by-header>Accept-Charset</vary-by-header>
-			</cache-lookup>
-			<rewrite-uri template="/resource" />
-		</inbound>
-		<outbound>
-			<base />
-			<cache-store caching-mode="cache-on" duration="3600" />
-		</outbound>
-	</policies>
+    <policies>
+        <inbound>
+            <base />
+            <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
+                <vary-by-header>Accept</vary-by-header>
+                <vary-by-header>Accept-Charset</vary-by-header>
+            </cache-lookup>
+            <rewrite-uri template="/resource" />
+        </inbound>
+        <outbound>
+            <base />
+            <cache-store caching-mode="cache-on" duration="3600" />
+        </outbound>
+    </policies>
 
->[AZURE.NOTE] Les modifications apportées aux stratégies de mise en cache dans l’éditeur de stratégies sont affichées sous l’onglet **Mise en cache** d’une opération, et vice-versa.
+> [!NOTE]
+> Les modifications apportées aux stratégies de mise en cache dans l’éditeur de stratégies sont affichées sous l’onglet **Mise en cache** d’une opération, et vice-versa.
+> 
+> 
 
 ## <a name="test-operation"> </a>Appel d’une opération et test de la mise en cache
-
 Pour voir la mise en cache en action, nous pouvons appeler l'opération depuis le portail des développeurs. Cliquez sur **Portail de développement** dans le menu supérieur droit.
 
 ![Portail des développeurs][api-management-developer-portal-menu]
@@ -101,7 +105,9 @@ Cliquez sur **API** dans le menu supérieur, puis sélectionnez **API Echo**.
 
 ![API Echo][api-management-apis-echo-api]
 
->Si vous n'avez qu'une API configurée ou visible dans votre compte, cliquez sur des API pour accéder directement aux opérations associées.
+> Si vous n'avez qu'une API configurée ou visible dans votre compte, cliquez sur des API pour accéder directement aux opérations associées.
+> 
+> 
 
 Sélectionnez l’opération **Ressource GET (cached)**, puis cliquez sur **Ouvrir la console**.
 
@@ -128,9 +134,8 @@ Entrez **25** dans le champ **param2**, puis cliquez sur **HTTP Get**.
 Notez que la valeur de **sampleheader** dans la réponse est désormais **value2**. Comme les résultats de l'opération dépendent de la chaîne de requête, la réponse précédemment mise en cache n'est pas renvoyée.
 
 ## <a name="next-steps"> </a>Étapes suivantes
-
--	Pour plus d’informations sur les stratégies de mise en cache, voir la section [Stratégies de mise en cache][] dans [Référence de stratégie de Gestion des API][].
--	Pour plus d’informations sur la mise en cache des éléments par clé à l’aide d’expressions de stratégie, consultez [Mise en cache personnalisée dans la gestion des API Azure](api-management-sample-cache-by-key.md).
+* Pour plus d’informations sur les stratégies de mise en cache, voir la section [Stratégies de mise en cache][Stratégies de mise en cache] dans [Référence de stratégie de Gestion des API][Référence de stratégie de Gestion des API].
+* Pour plus d’informations sur la mise en cache des éléments par clé à l’aide d’expressions de stratégie, consultez [Mise en cache personnalisée dans la gestion des API Azure](api-management-sample-cache-by-key.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png

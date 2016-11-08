@@ -1,35 +1,35 @@
 
-<properties
-	pageTitle="Utilisation d’Azure AD Connect Health avec AD DS | Microsoft Azure"
-	description="Cette page dédiée à Azure AD Connect Health explique comment surveiller AD DS."
-	services="active-directory"
-	documentationCenter=""
-	authors="arluca"
-	manager="samueld"
-	editor="curtand"/>
+---
+title: Utilisation d’Azure AD Connect Health avec AD DS | Microsoft Docs
+description: Cette page dédiée à Azure AD Connect Health explique comment surveiller AD DS.
+services: active-directory
+documentationcenter: ''
+author: arluca
+manager: samueld
+editor: curtand
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/30/2016"
-	ms.author="arluca"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/30/2016
+ms.author: arluca
 
-# Utilisation d’Azure AD Connect Health avec AD DS
+---
+# Utilisation d’Azure AD Connect Health avec AD DS
 La documentation suivante s’applique à la surveillance des services de domaine Active Directory avec Azure AD Connect Health. Les versions prises en charge d’AD DS sont les suivantes : Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2.
 
-Pour plus d’informations sur la surveillance AD FS avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD FS](active-directory-aadconnect-health-adfs.md). En outre, pour plus d’informations sur la surveillance de la synchronisation Azure AD Connect avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health pour la synchronisation](active-directory-aadconnect-health-sync.md).
+Pour plus d’informations sur la surveillance AD FS avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD FS](active-directory-aadconnect-health-adfs.md). En outre, pour plus d’informations sur la surveillance de la synchronisation Azure AD Connect avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health pour la synchronisation](active-directory-aadconnect-health-sync.md).
 
 ![Azure AD Connect Health pour AD DS](./media/active-directory-aadconnect-health/aadconnect-health-adds-entry.png)
 
-## Alertes d’Azure AD Connect Health pour AD DS
+## Alertes d’Azure AD Connect Health pour AD DS
 La section Alertes disponible dans Azure AD Connect Health pour AD DS vous propose une liste d’alertes actives et résolues, liées à vos contrôleurs de domaine. Si vous sélectionnez une alerte active ou résolue, un nouveau panneau contenant des informations supplémentaires, ainsi que les étapes de résolution et des liens vers la documentation de support, s’ouvre. Chaque type d’alerte peut avoir une ou plusieurs instances, qui correspondent à chacun des contrôleurs de domaine affectés par cette alerte. Au bas du panneau d’alerte, vous pouvez double-cliquer sur un contrôleur de domaine affecté pour ouvrir un autre panneau contenant des informations supplémentaires sur cette instance d’alerte.
 
 Dans ce panneau, vous pouvez activer les notifications par courrier électronique pour les alertes et modifier l’intervalle de temps dans la vue. Étendez l’intervalle de temps pour voir les alertes résolues antérieures.
 
-![Erreur de synchronisation d’Azure AD Connect](./media/active-directory-aadconnect-health/aadconnect-health-adds-alerts.png)
+![Erreur de synchronisation d’Azure AD Connect](./media/active-directory-aadconnect-health/aadconnect-health-adds-alerts.png)
 
 ## Tableau de bord Contrôleurs de domaine
 Ce tableau de bord fournit une vue de topologie de votre environnement, ainsi que les mesures opérationnelles essentielles et l’état d’intégrité de chacun de vos contrôleurs de domaine surveillés. Les mesures présentées permettent d’identifier rapidement des contrôleurs de domaine qui peuvent nécessiter un examen supplémentaire. Par défaut, seul un sous-ensemble des colonnes est affiché. Cependant, vous pouvez accéder à l’ensemble des colonnes disponibles en double-cliquant sur la commande Colonnes. Sélectionnez les colonnes qui vous intéressent le plus pour faire de ce tableau de bord un emplacement unique et facile pour afficher l’état de votre environnement AD DS.
@@ -51,13 +51,12 @@ Cette fonctionnalité fournit les tendances graphiques de différents compteurs 
 Par défaut, nous avons présélectionné quatre compteurs de performances. Vous pouvez toutefois en inclure d’autres en cliquant sur la commande de filtre et en sélectionnant ou en désélectionnant les compteurs de performances de votre choix. En outre, vous pouvez double-cliquer sur un graphique de compteur de performances pour ouvrir un nouveau panneau incluant les points de données de chacun des contrôleurs de domaine surveillés.
 
 ## Liens connexes
-
-* [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [Installation de l'agent Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
+* [Azure AD Connect Health](active-directory-aadconnect-health.md)
+* [Installation de l'agent Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Opérations Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
-* [Utilisation d’Azure AD Connect Health avec AD FS](active-directory-aadconnect-health-adfs.md)
-* [Utilisation d'Azure AD Connect Health pour la synchronisation (en Anglais)](active-directory-aadconnect-health-sync.md)
-* [Forum Aux Questions (FAQ) Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
+* [Utilisation d’Azure AD Connect Health avec AD FS](active-directory-aadconnect-health-adfs.md)
+* [Utilisation d'Azure AD Connect Health pour la synchronisation (en Anglais)](active-directory-aadconnect-health-sync.md)
+* [Forum Aux Questions (FAQ) Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Historique de publication des versions d’Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 <!---HONumber=AcomDC_1005_2016-->

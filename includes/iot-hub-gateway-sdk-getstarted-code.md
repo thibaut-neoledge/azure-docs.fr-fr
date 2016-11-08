@@ -1,41 +1,38 @@
 ## Exemple de résultat
-
 Voici un exemple de résultat inscrit dans le fichier journal par l’exemple Hello World. Des sauts de ligne et des tabulations ont été ajoutés pour une meilleure lisibilité :
 
 ```
 [{
-	"time": "Mon Apr 11 13:48:07 2016",
-	"content": "Log started"
+    "time": "Mon Apr 11 13:48:07 2016",
+    "content": "Log started"
 }, {
-	"time": "Mon Apr 11 13:48:48 2016",
-	"properties": {
-		"helloWorld": "from Azure IoT Gateway SDK simple sample!"
-	},
-	"content": "aGVsbG8gd29ybGQ="
+    "time": "Mon Apr 11 13:48:48 2016",
+    "properties": {
+        "helloWorld": "from Azure IoT Gateway SDK simple sample!"
+    },
+    "content": "aGVsbG8gd29ybGQ="
 }, {
-	"time": "Mon Apr 11 13:48:55 2016",
-	"properties": {
-		"helloWorld": "from Azure IoT Gateway SDK simple sample!"
-	},
-	"content": "aGVsbG8gd29ybGQ="
+    "time": "Mon Apr 11 13:48:55 2016",
+    "properties": {
+        "helloWorld": "from Azure IoT Gateway SDK simple sample!"
+    },
+    "content": "aGVsbG8gd29ybGQ="
 }, {
-	"time": "Mon Apr 11 13:49:01 2016",
-	"properties": {
-		"helloWorld": "from Azure IoT Gateway SDK simple sample!"
-	},
-	"content": "aGVsbG8gd29ybGQ="
+    "time": "Mon Apr 11 13:49:01 2016",
+    "properties": {
+        "helloWorld": "from Azure IoT Gateway SDK simple sample!"
+    },
+    "content": "aGVsbG8gd29ybGQ="
 }, {
-	"time": "Mon Apr 11 13:49:04 2016",
-	"content": "Log stopped"
+    "time": "Mon Apr 11 13:49:04 2016",
+    "content": "Log stopped"
 }]
 ```
 
 ## Extraits de code
-
 Cette section présente certains éléments clés du code dans l'exemple Hello World.
 
 ### Création de la passerelle
-
 Le développeur doit écrire le *processus de passerelle*. Ce programme crée l’infrastructure interne (le répartiteur), charge les modules et configure tous les éléments pour qu’ils fonctionnent correctement. Le SDK fournit la fonction **Gateway\_Create\_From\_JSON** pour vous permettre d'amorcer une passerelle à partir d'un fichier JSON. Pour utiliser la fonction **Gateway\_Create\_From\_JSON**, vous devez lui transmettre le chemin d'accès à un fichier JSON qui spécifie les modules à charger.
 
 Vous trouverez le code du processus de passerelle dans l'exemple Hello World du fichier [main.c][lnk-main-c]. Pour une meilleure lisibilité, l'extrait de code ci-dessous montre une version abrégée du code du processus de passerelle. Ce programme crée une passerelle puis attend que l'utilisateur appuie sur la touche **ENTRÉE** avant de mettre fin à la passerelle.
@@ -55,19 +52,20 @@ int main(int argc, char** argv)
         (void)getchar();
         Gateway_LL_Destroy(gateway);
     }
-	return 0;
+    return 0;
 }
 ```
 
 Le fichier de paramètres JSON contient une liste des modules à charger. Chaque module doit spécifier les éléments suivants :
 
-- **nom\_module** : un nom unique pour le module.
-- **chemin\_module** : le chemin d'accès à la bibliothèque contenant le module. Il s’agit d’un fichier .so sous Linux, et d’un fichier .dll sous Windows.
-- **args** : toute information de configuration nécessaire au module.
+* **nom\_module** : un nom unique pour le module.
+* **chemin\_module** : le chemin d'accès à la bibliothèque contenant le module. Il s’agit d’un fichier .so sous Linux, et d’un fichier .dll sous Windows.
+* **args** : toute information de configuration nécessaire au module.
 
 Le fichier JSON contient également les liaisons entre les modules qui seront transmis au répartiteur. Une liaison possède deux propriétés :
-- **source** : un nom de module de la section `modules`, ou « * » ;
-- **récepteur** : un nom de module de la section `modules`.
+
+* **source** : un nom de module de la section `modules`, ou « * » ;
+* **récepteur** : un nom de module de la section `modules`.
 
 Chaque liaison définit un itinéraire de message et une direction. Les messages du module `source` doivent être remis au module `sink`. `source` peut avoir la valeur « * », qui signifie que `sink` recevra des messages à partir de n’importe quel module.
 
@@ -85,7 +83,7 @@ L'exemple suivant montre le fichier de paramètres JSON utilisé pour configurer
         {
             "module name" : "hello_world",
             "module path" : "./modules/hello_world/libhello_world_hl.so",
-			"args" : null
+            "args" : null
         }
     ],
     "links" :
@@ -99,7 +97,6 @@ L'exemple suivant montre le fichier de paramètres JSON utilisé pour configurer
 ```
 
 ### Publication des messages du module Hello World
-
 Vous trouverez le code utilisé par le module « hello world » pour publier des messages dans le fichier [« hello\_world.c »][lnk-helloworld-c]. L'extrait de code ci-dessous montre une version modifiée avec des commentaires supplémentaires et un code de gestion d’erreur supprimé pour une meilleure lisibilité :
 
 ```
@@ -109,7 +106,7 @@ int helloWorldThread(void *param)
     HELLOWORLD_HANDLE_DATA* handleData = param;
     MESSAGE_CONFIG msgConfig;
     MAP_HANDLE propertiesMap = Map_Create(NULL);
-    
+
     // add a property named "helloWorld" with a value of "from Azure IoT
     // Gateway SDK simple sample!" to a set of message properties that
     // will be appended to the message before publishing it. 
@@ -121,7 +118,7 @@ int helloWorldThread(void *param)
 
     // set the properties for the message
     msgConfig.sourceProperties = propertiesMap;
-    
+
     // create a message based on the msgConfig structure
     MESSAGE_HANDLE helloWorldMessage = Message_Create(&msgConfig);
 
@@ -149,7 +146,6 @@ int helloWorldThread(void *param)
 ```
 
 ### Traitement des messages du module Hello World
-
 Le module Hello World n’a jamais besoin de traiter les messages que les autres modules publient sur le répartiteur. Cela rend inopérante l’implémentation du rappel de message dans le module Hello World.
 
 ```
@@ -160,7 +156,6 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 ```
 
 ### Publication et traitement des messages du module enregistreur
-
 Le module enregistreur reçoit des messages du répartiteur et les inscrit dans un fichier. Il ne publie jamais les messages. Par conséquent, le code du module enregistreur n’appelle jamais la fonction **Broker\_Publish**.
 
 La fonction **Logger\_Receive** du fichier [logger.c][lnk-logger-c] est le rappel que le répartiteur appelle pour remettre les messages au module enregistreur. L'extrait de code ci-dessous montre une version modifiée avec des commentaires supplémentaires et un code de gestion d’erreur supprimé pour une meilleure lisibilité :
@@ -205,11 +200,10 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 ```
 
 ## Étapes suivantes
-
 Pour savoir comment utiliser le Kit de développement logiciel (SDK) de la passerelle, consultez les rubriques suivantes :
 
-- [Kit de développement logiciel (SDK) de la passerelle IoT– envoyer des messages appareil-à-cloud avec un appareil simulé à l’aide de Linux][lnk-gateway-simulated].
-- [Kit de développement logiciel (SDK) de la passerelle Azure IoT][lnk-gateway-sdk] sur GitHub.
+* [Kit de développement logiciel (SDK) de la passerelle IoT– envoyer des messages appareil-à-cloud avec un appareil simulé à l’aide de Linux][lnk-gateway-simulated].
+* [Kit de développement logiciel (SDK) de la passerelle Azure IoT][lnk-gateway-sdk] sur GitHub.
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c

@@ -1,7 +1,7 @@
-Ressource|Gratuit|De base (version préliminaire)|S1|S2
----|---|---|---|----
-Nombre maximal de services à chaque niveau par abonnement <sup>1</sup>|1 |12 |12 |1
-Mise à l’échelle maximale par niveau <sup>2</sup>|N/A|3 unités de recherche (3 réplicas et 1 partition)|36 unités de recherche|36 unités de recherche  
+| Ressource | Gratuit | De base (version préliminaire) | S1 | S2 |
+| --- | --- | --- | --- | --- |
+| Nombre maximal de services à chaque niveau par abonnement <sup>1</sup> |1 |12 |12 |1 |
+| Mise à l’échelle maximale par niveau <sup>2</sup> |N/A |3 unités de recherche (3 réplicas et 1 partition) |36 unités de recherche |36 unités de recherche |
 
 <sup>1</sup> Chaque service est approvisionné selon un niveau de tarification donné, une limite étant appliquée au nombre de services que vous pouvez approvisionner à chaque niveau au sein d’un même abonnement Azure. Les niveaux sont disponibles à un prix inférieur de 50 % du prix complet pendant la période de version préliminaire.
 

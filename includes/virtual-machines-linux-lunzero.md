@@ -9,11 +9,14 @@ Prenons l’exemple suivant montrant un extrait de code de sortie de `lsscsi`:
 
 Les deux disques de données existent sur le LUN 0 et sur le LUN 1 (la première colonne dans les détails de sortie `lsscsi` `[host:channel:target:lun]`). Les deux disques doivent être accessibles à partir de la machine virtuelle. Si vous aviez manuellement spécifié le premier disque à ajouter au LUN 1 et le deuxième disque au LUN 2, les disques peuvent ne pas s’afficher correctement à partir de votre machine virtuelle.
 
-> [AZURE.NOTE] La valeur Azure `host` est égale à 5 dans ces exemples, mais elle peut varier selon le type de stockage que vous sélectionnez.
+> [!NOTE]
+> La valeur Azure `host` est égale à 5 dans ces exemples, mais elle peut varier selon le type de stockage que vous sélectionnez.
+> 
+> 
 
-Ce comportement de disque n’est pas dû à un problème d’Azure, mais dépend de la façon dont le noyau Linux suit les spécifications SCSI. Lorsque le noyau Linux analyse le bus SCSI à la recherche des périphériques connectés, un périphérique doit être présent sur le LUN 0 pour que le système puisse continuer l’analyse des autres périphériques. Par conséquent :
+Ce comportement de disque n’est pas dû à un problème d’Azure, mais dépend de la façon dont le noyau Linux suit les spécifications SCSI. Lorsque le noyau Linux analyse le bus SCSI à la recherche des périphériques connectés, un périphérique doit être présent sur le LUN 0 pour que le système puisse continuer l’analyse des autres périphériques. Par conséquent :
 
-- Examinez la sortie de `lsscsi` après l’ajout d’un disque de données pour vérifier que vous disposez d’un disque sur le LUN 0.
-- Si le disque ne s’affiche pas correctement dans votre machine virtuelle, vérifiez qu'un disque existe sur le LUN 0.
+* Examinez la sortie de `lsscsi` après l’ajout d’un disque de données pour vérifier que vous disposez d’un disque sur le LUN 0.
+* Si le disque ne s’affiche pas correctement dans votre machine virtuelle, vérifiez qu'un disque existe sur le LUN 0.
 
 <!---HONumber=AcomDC_0803_2016-->

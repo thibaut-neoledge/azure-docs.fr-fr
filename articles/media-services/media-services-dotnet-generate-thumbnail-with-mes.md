@@ -1,45 +1,41 @@
-<properties 
-    pageTitle="Génération de miniatures à l’aide de Media Encoder Standard avec .NET" 
-    description="Cette rubrique montre comment utiliser .NET pour coder un élément multimédia tout en générant des miniatures à l’aide de Media Encoder Standard." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="juliako" 
-    manager="erikre" 
-    editor=""/>
+---
+title: Génération de miniatures à l’aide de Media Encoder Standard avec .NET
+description: Cette rubrique montre comment utiliser .NET pour coder un élément multimédia tout en générant des miniatures à l’aide de Media Encoder Standard.
+services: media-services
+documentationcenter: ''
+author: juliako
+manager: erikre
+editor: ''
 
-<tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/10/2016"
-    ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: juliako
 
-
-
-#<a name="how-to-generate-thumbnails-using-media-encoder-standard-with-.net"></a>Génération de miniatures à l’aide de Media Encoder Standard avec .NET
-
+---
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-.net"></a>Génération de miniatures à l’aide de Media Encoder Standard avec .NET
 Cette rubrique montre comment utiliser le Kit de développement logiciel (SDK) Media Services .NET pour coder un élément multimédia et générer des miniatures à l’aide de Media Encoder Standard. La rubrique définit les présélections de miniatures XML et JSON que vous pouvez utiliser pour créer une tâche de codage et de génération de miniatures en même temps. [Ce](https://msdn.microsoft.com/library/mt269962.aspx) document contient des descriptions d’éléments utilisés par ces présélections.
 
 Assurez-vous d’examiner la section [Considérations](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) .
 
-##<a name="example"></a>Exemple
+## <a name="example"></a>Exemple
+Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
 
-Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
-
-- Création d’une tâche d’encodage.
-- Obtention d’une référence à l’encodeur Media Encoder Standard.
-- Chargez le contenu [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) ou [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) comprenant l’encodage prédéfini, ainsi que les informations nécessaires pour générer des miniatures. Vous pouvez enregistrer le contenu [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) ou [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) dans un fichier, et utiliser le code suivant pour charger le fichier.
-
+* Création d’une tâche d’encodage.
+* Obtention d’une référence à l’encodeur Media Encoder Standard.
+* Chargez le contenu [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) ou [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) comprenant l’encodage prédéfini, ainsi que les informations nécessaires pour générer des miniatures. Vous pouvez enregistrer le contenu [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) ou [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) dans un fichier, et utiliser le code suivant pour charger le fichier.
+  
             // Load the XML (or JSON) from the local file.
             string configuration = File.ReadAllText(fileName);  
-- Ajout d’une tâche d’encodage unique. 
-- Spécification de l’élément multimédia d’entrée à encoder.
-- Création d’un élément multimédia de sortie qui contiendra l’élément multimédia encodé.
-- Ajout d’un gestionnaire d’événements pour vérifier la progression de la tâche.
-- Envoyez le travail.
-    
+* Ajout d’une tâche d’encodage unique. 
+* Spécification de l’élément multimédia d’entrée à encoder.
+* Création d’un élément multimédia de sortie qui contiendra l’élément multimédia encodé.
+* Ajout d’un gestionnaire d’événements pour vérifier la progression de la tâche.
+* Envoyez le travail.
+  
         using System;
         using System.Collections.Generic;
         using System.Configuration;
@@ -56,7 +52,7 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
         using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
         using System.Web;
         using System.Globalization;
-        
+  
         namespace EncodeAndGenerateThumbnails
         {
             class Program
@@ -66,17 +62,17 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
                     ConfigurationManager.AppSettings["MediaServicesAccountName"];
                 private static readonly string _mediaServicesAccountKey =
                     ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-        
+  
                 // Field for service context.
                 private static CloudMediaContext _context = null;
                 private static MediaServicesCredentials _cachedCredentials = null;
-        
+  
                 private static readonly string _mediaFiles =
                     Path.GetFullPath(@"../..\Media");
-        
+  
                 private static readonly string _singleMP4File =
                     Path.Combine(_mediaFiles, @"BigBuckBunny.mp4");
-        
+  
                 static void Main(string[] args)
                 {
                     // Create and cache the Media Services credentials in a static class variable.
@@ -85,16 +81,16 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
                                     _mediaServicesAccountKey);
                     // Used the chached credentials to create CloudMediaContext.
                     _context = new CloudMediaContext(_cachedCredentials);
-        
+  
                     // Get an uploaded asset.
                     var asset = _context.Assets.FirstOrDefault();
-        
+  
                     // Encode and generate the thumbnails.
                     EncodeToAdaptiveBitrateMP4Set(asset);
-        
+  
                     Console.ReadLine();
                 }
-        
+  
                 static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
                 {
                     // Declare a new job.
@@ -102,17 +98,16 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
                     // Get a media processor reference, and pass to it the name of the 
                     // processor to use for the specific task.
                     IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
-                
-        
+
                     // Load the XML (or JSON) from the local file.
                     string configuration = File.ReadAllText("ThumbnailPreset_JSON.json");
-                
+
                     // Create a task
                     ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
                         processor,
                         configuration,
                         TaskOptions.None);
-                
+
                     // Specify the input asset to be encoded.
                     task.InputAssets.Add(asset);
                     // Add an output asset to contain the results of the job. 
@@ -120,14 +115,14 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
                     // means the output asset is not encrypted. 
                     task.OutputAssets.AddNew("Output asset",
                         AssetCreationOptions.None);
-                
+
                     job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
                     job.Submit();
                     job.GetExecutionProgressTask(CancellationToken.None).Wait();
-                
+
                     return job.OutputMediaAssets[0];
                 }
-        
+
                 private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
                 {
                     Console.WriteLine("Job state changed event:");
@@ -147,34 +142,33 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
                             break;
                         case JobState.Canceled:
                         case JobState.Error:
-        
+
                             // Cast sender as a job.
                             IJob job = (IJob)sender;
-        
+
                             // Display or log error details as needed.
                             break;
                         default:
                             break;
                     }
                 }
-        
-        
+
+
                 private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
                 {
                     var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
                     ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-        
+
                     if (processor == null)
                         throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-        
+
                     return processor;
                 }
-        
+
             }
         }
 
-##<a name="<a-id="json"></a>thumbnail-json-preset"></a><a id="json"></a>JSON de miniature prédéfini
-
+## <a name="<a-id="json"></a>thumbnail-json-preset"></a><a id="json"></a>JSON de miniature prédéfini
 Pour plus d’informations sur le schéma, consultez [cette](https://msdn.microsoft.com/library/mt269962.aspx) rubrique.
 
     {
@@ -197,7 +191,7 @@ Pour plus d’informations sur le schéma, consultez [cette](https://msdn.micros
               "AdaptiveBFrame": true,
               "Type": "H264Layer",
               "FrameRate": "0/1"
-       
+
             }
           ],
           "Type": "H264Video"
@@ -276,10 +270,9 @@ Pour plus d’informations sur le schéma, consultez [cette](https://msdn.micros
     }
 
 
-##<a name="<a-id="xml"></a>thumbnail-xml-preset"></a><a id="xml"></a>XML de miniature prédéfini
-
+## <a name="<a-id="xml"></a>thumbnail-xml-preset"></a><a id="xml"></a>XML de miniature prédéfini
 Pour plus d’informations sur le schéma, consultez [cette](https://msdn.microsoft.com/library/mt269962.aspx) rubrique.
-    
+
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -352,38 +345,30 @@ Pour plus d’informations sur le schéma, consultez [cette](https://msdn.micros
       </Outputs>
     </Preset>
 
-##<a name="considerations"></a>Considérations
+## <a name="considerations"></a>Considérations
+Les considérations suivantes s'appliquent :
 
-Les considérations suivantes s'appliquent :
-
-- L’utilisation d’horodatages explicites pour Début/Étape/Plage suppose que la source d’entrée a une longueur minimale de 1 minute.
-- Les éléments Jpg/Png/BmpImage possèdent les attributs de chaîne Start, Step et Range, qui peuvent être interprétés comme suit :
-
-    - Entiers non négatifs : nombre d’images, par exemple "Start": "120"
-    - Présence du suffixe % : durée par rapport à la source, par exemple "Start": "15%"
-    - Horodatage, s’il est exprimé au format HH:MM:SS. par exemple "Start": "00: 01:00"
-
+* L’utilisation d’horodatages explicites pour Début/Étape/Plage suppose que la source d’entrée a une longueur minimale de 1 minute.
+* Les éléments Jpg/Png/BmpImage possèdent les attributs de chaîne Start, Step et Range, qui peuvent être interprétés comme suit :
+  
+  * Entiers non négatifs : nombre d’images, par exemple "Start": "120"
+  * Présence du suffixe % : durée par rapport à la source, par exemple "Start": "15%"
+  * Horodatage, s’il est exprimé au format HH:MM:SS. par exemple "Start": "00: 01:00"
+    
     Vous pouvez combiner et apparier les notations à votre guise.
     
     En outre, Start prend également en charge une macro spéciale, {Best}, qui tente de déterminer la première image de contenu « intéressante ». REMARQUE : Step et Range sont ignorés quand Start a la valeur {Best}.
-    
-    - La configuration par défaut est « Start:{Best} ».
-- Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
+  * La configuration par défaut est « Start:{Best} ».
+* Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
 
+## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
+## <a name="provide-feedback"></a>Fournir des commentaires
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-##<a name="provide-feedback"></a>Fournir des commentaires
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-##<a name="see-also"></a>Voir aussi 
-
+## <a name="see-also"></a>Voir aussi
 [Vue d’ensemble de l’encodage de Media Services](media-services-encode-asset.md)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

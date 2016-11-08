@@ -1,28 +1,29 @@
-<properties
-   pageTitle="Configuration d’un pare-feu d’applications web sur une passerelle Application Gateway nouvelle ou existante | Microsoft Azure"
-   description="Cet article explique comment utiliser un pare-feu d’applications web sur une passerelle d’application nouvelle ou existante."
-   documentationCenter="na"
-   services="application-gateway"
-   authors="georgewallace"
-   manager="carmonm"
-   editor="tysonn"/>
-<tags
-   ms.service="application-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/26/2016"
-   ms.author="gwallace"/>
+---
+title: Configuration d’un pare-feu d’applications web sur une passerelle Application Gateway nouvelle ou existante | Microsoft Docs
+description: Cet article explique comment utiliser un pare-feu d’applications web sur une passerelle d’application nouvelle ou existante.
+documentationcenter: na
+services: application-gateway
+author: georgewallace
+manager: carmonm
+editor: tysonn
 
+ms.service: application-gateway
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/26/2016
+ms.author: gwallace
 
+---
 # <a name="configure-web-application-firewall-on-a-new-or-existing-application-gateway"></a>Configuration d’un pare-feu d’applications web sur une passerelle Application Gateway nouvelle ou existante
+> [!div class="op_single_selector"]
+> * [Portail Azure](application-gateway-web-application-firewall-portal.md)
+> * [Commandes PowerShell pour Azure Resource Manager](application-gateway-web-application-firewall-powershell.md)
+> 
+> 
 
-> [AZURE.SELECTOR]
-- [Portail Azure](application-gateway-web-application-firewall-portal.md)
-- [Commandes PowerShell pour Azure Resource Manager](application-gateway-web-application-firewall-powershell.md)
-
-La passerelle Azure Application Gateway est un équilibreur de charge de couche 7. Elle assure l’exécution des requêtes HTTP de basculement et de routage des performances entre serveurs locaux ou dans le cloud. L’application offre de nombreuses fonctionnalités Application Delivery Controller (ADC), notamment : équilibrage de charge HTTP, affinité de session basée sur les cookies, déchargement SSL (Secure Sockets Layer), sondes d’intégrité personnalisées, prise en charge de plusieurs sites, etc. Pour obtenir une liste complète des fonctionnalités prises en charge, consultez Vue d’ensemble de la passerelle Application Gateway
+La passerelle Azure Application Gateway est un équilibreur de charge de couche 7. Elle assure l’exécution des requêtes HTTP de basculement et de routage des performances entre serveurs locaux ou dans le cloud. L’application offre de nombreuses fonctionnalités Application Delivery Controller (ADC), notamment : équilibrage de charge HTTP, affinité de session basée sur les cookies, déchargement SSL (Secure Sockets Layer), sondes d’intégrité personnalisées, prise en charge de plusieurs sites, etc. Pour obtenir une liste complète des fonctionnalités prises en charge, consultez Vue d’ensemble de la passerelle Application Gateway
 
 Le pare-feu d’applications web (WAF, Web Application Firewall) d’Azure Application Gateway protège les applications web des attaques basées sur le web courantes comme l’injection de code SQL, les attaques de script de site à site et les piratages de session.
 
@@ -31,7 +32,6 @@ L’article suivant montre comment [ajouter un pare-feu d’applications web à 
 ![image du scénario][scenario]
 
 ## <a name="waf-configuration-differences"></a>Différences de configuration WAF
-
 Si vous avez lu la rubrique [Création d’une passerelle Application Gateway avec PowerShell](application-gateway-create-gateway-arm.md), vous connaissez les paramètres de référence (SKU) à configurer lors de la création d’une passerelle d’application. WAF inclut des paramètres supplémentaires à définir lors de la configuration de la référence SKU sur une passerelle d’application. Aucune autre modification n’est nécessaire sur la passerelle d’application elle-même.
 
 **SKU** - Une passerelle Application Gateway standard sans WAF prend en charge les tailles **Standard\_Small**, **Standard\_Medium** et **Standard\_Large**. Avec l’introduction de WAF, deux autres SKU sont disponibles : **WAF\_Medium** et **WAF\_Large**. WAF n’est pas pris en charge sur les petites passerelles d’application.
@@ -41,44 +41,37 @@ Si vous avez lu la rubrique [Création d’une passerelle Application Gateway av
 **Mode** - Ce paramètre indique le mode de WAF. Les valeurs autorisées sont **Détection** et **Prévention**. Lorsque WAF est configuré en mode de détection, toutes les menaces sont stockées dans un fichier journal. En mode de prévention, les événements sont toujours consignés, mais l’attaquant reçoit une erreur d’autorisation de type 403 de la part de la passerelle d’application.
 
 ## <a name="add-web-application-firewall-to-an-existing-application-gateway"></a>Ajout d’un pare-feu d’applications web à une passerelle d’application existante
+Assurez-vous que vous disposez de la version la plus récente d’Azure PowerShell. Pour plus d’informations, voir [Utilisation de Windows PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-Assurez-vous que vous disposez de la version la plus récente d’Azure PowerShell. Pour plus d’informations, voir [Utilisation de Windows PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
-
-### <a name="step-1"></a>Étape 1 :
-
+### <a name="step-1"></a>Étape 1 :
 Connectez-vous à votre compte Azure.
 
     Login-AzureRmAccount
 
-### <a name="step-2"></a>Étape 2 :
-
+### <a name="step-2"></a>Étape 2 :
 Sélectionnez l’abonnement à utiliser pour ce scénario.
 
     Select-AzureRmSubscription -SubscriptionName "<Subscription name>"
 
-### <a name="step-3"></a>Étape 3
-
+### <a name="step-3"></a>Étape 3
 Récupérez la passerelle à laquelle vous ajoutez un pare-feu d’applications web.
 
     $gw = Get-AzureRmApplicationGateway -Name "AdatumGateway" -ResourceGroupName "MyResourceGroup"
 
 
-### <a name="step-4"></a>Étape 4
-
+### <a name="step-4"></a>Étape 4
 Configurez la référence SKU du pare-feu d’applications web. Les tailles disponibles sont **WAF\_Large** et **WAF\_Medium**. Lorsque l’application web est utilisée, le niveau doit être **WAF**.
 
     $gw | Set-AzureRmApplicationGatewaySku -Name WAF_Large -Tier WAF
 
-### <a name="step-5"></a>Étape 5
-
-Configurez les paramètres WAF comme indiqué dans l’exemple suivant :
+### <a name="step-5"></a>Étape 5
+Configurez les paramètres WAF comme indiqué dans l’exemple suivant :
 
 Pour le paramètre **WafMode** , les valeurs disponibles sont prévention et détection.
 
     $config = Add-AzureRmApplicationGatewayWafConfig -Enabled $true -WafMode "Prevention" -ApplicationGateway $gw
 
-### <a name="step-6"></a>Étape 6
-
+### <a name="step-6"></a>Étape 6
 Mettez à jour la passerelle d’application avec les paramètres définis à l’étape précédente.
 
     Set-AzureRmApplicationGateway -ApplicationGateway $gw
@@ -86,81 +79,79 @@ Mettez à jour la passerelle d’application avec les paramètres définis à l�
 Cette commande met à jour la passerelle d’application avec le pare-feu d’applications web. Il est recommandé de consulter la rubrique [Diagnostics Application Gateway](application-gateway-diagnostics.md) pour comprendre comment afficher les journaux de votre passerelle d’application. En raison des critères de sécurité inhérents à WAF, les journaux doivent être régulièrement examinés pour comprendre la politique de sécurité appliquée à vos applications web.
 
 ## <a name="create-an-application-gateway-with-web-application-firewall"></a>Création d’une passerelle Application Gateway avec le pare-feu d’applications web
-
 Les étapes suivantes vous guident tout au long de l’intégralité du processus de création d’une passerelle Application Gateway avec un pare-feu d’applications web.
 
-Assurez-vous que vous disposez de la version la plus récente d’Azure PowerShell. Pour plus d’informations, voir [Utilisation de Windows PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
+Assurez-vous que vous disposez de la version la plus récente d’Azure PowerShell. Pour plus d’informations, voir [Utilisation de Windows PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-### <a name="step-1"></a>Étape 1 :
-
+### <a name="step-1"></a>Étape 1 :
 Connexion à Azure
 
     Login-AzureRmAccount
 
 Vous êtes invité à vous authentifier à l’aide de vos informations d’identification.
 
-### <a name="step-2"></a>Étape 2 :
-
+### <a name="step-2"></a>Étape 2 :
 Vérifiez les abonnements associés au compte.
 
     Get-AzureRmSubscription
 
-### <a name="step-3"></a>Étape 3
-
+### <a name="step-3"></a>Étape 3
 Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.
 
     Select-AzureRmsubscription -SubscriptionName "<Subscription name>"
 
-### <a name="step-4"></a>Étape 4
-
+### <a name="step-4"></a>Étape 4
 Créez un groupe de ressources (ignorez cette étape si vous utilisez un groupe de ressources existant).
 
     New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 
 Azure Resource Manager requiert que tous les groupes de ressources spécifient un emplacement. Celui-ci est utilisé comme emplacement par défaut des ressources de ce groupe. Assurez-vous que toutes les commandes pour la création d’une passerelle Application Gateway utilisent le même groupe de ressources.
 
-Dans l’exemple précédent, nous avons créé un groupe de ressources appelé « appgw-RG », ainsi que l’emplacement « West US ».
+Dans l’exemple précédent, nous avons créé un groupe de ressources appelé « appgw-RG », ainsi que l’emplacement « West US ».
 
->[AZURE.NOTE] Si vous devez configurer une sonde personnalisée pour votre passerelle Application Gateway, consultez [Création d’une passerelle Application Gateway avec des sondes personnalisées à l’aide de PowerShell](application-gateway-create-probe-ps.md). Pour plus d’informations, découvrez les [sondes personnalisées et l’analyse du fonctionnement](application-gateway-probe-overview.md) .
+> [!NOTE]
+> Si vous devez configurer une sonde personnalisée pour votre passerelle Application Gateway, consultez [Création d’une passerelle Application Gateway avec des sondes personnalisées à l’aide de PowerShell](application-gateway-create-probe-ps.md). Pour plus d’informations, découvrez les [sondes personnalisées et l’analyse du fonctionnement](application-gateway-probe-overview.md) .
+> 
+> 
 
-### <a name="step-5"></a>Étape 5
-
+### <a name="step-5"></a>Étape 5
 Affectez une plage d’adresses au sous-réseau utilisé pour la passerelle Application Gateway elle-même.
 
     $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
 
-> [AZURE.NOTE] Le sous-réseau d’une application doit avoir un masque 28 bits minimum. Cette valeur offre 10 adresses disponibles dans le sous-réseau pour les instances de la passerelle Application Gateway. Avec un sous-réseau plus petit, vous risquez de ne plus pouvoir ajouter d’autres instances de votre passerelle d’application à l’avenir.
+> [!NOTE]
+> Le sous-réseau d’une application doit avoir un masque 28 bits minimum. Cette valeur offre 10 adresses disponibles dans le sous-réseau pour les instances de la passerelle Application Gateway. Avec un sous-réseau plus petit, vous risquez de ne plus pouvoir ajouter d’autres instances de votre passerelle d’application à l’avenir.
+> 
+> 
 
-### <a name="step-6"></a>Étape 6
-
+### <a name="step-6"></a>Étape 6
 Affectez une plage d’adresses au pool d’adresses principales.
 
     $nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
 
-### <a name="step-7"></a>Étape 7
-
+### <a name="step-7"></a>Étape 7
 Créez un réseau virtuel avec les sous-réseaux précédents dans le groupe de ressources créé à l’étape : [Création du groupe de ressources](#create-the-resource-group)
 
     $vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
 
-### <a name="step-8"></a>Étape 8
-
-Récupérez les ressources de réseau virtuel et les ressources de sous-réseau à utiliser dans les étapes suivantes :
+### <a name="step-8"></a>Étape 8
+Récupérez les ressources de réseau virtuel et les ressources de sous-réseau à utiliser dans les étapes suivantes :
 
     $vnet = Get-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg
     $gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -VirtualNetwork $vnet
     $nicSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'appsubnet' -VirtualNetwork $vnet
 
-### <a name="step-9"></a>Étape 9
-
-Créez une ressource IP publique à utiliser pour la passerelle d’application. Cette adresse IP publique est utilisée dans une des étapes suivantes :
+### <a name="step-9"></a>Étape 9
+Créez une ressource IP publique à utiliser pour la passerelle d’application. Cette adresse IP publique est utilisée dans une des étapes suivantes :
 
     $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name 'appgwpip' -Location "West US" -AllocationMethod Dynamic
 
-> [AZURE.IMPORTANT] La passerelle Application Gateway ne prend pas en charge l’utilisation d’une adresse IP publique créée avec un nom de domaine défini. Seule une adresse IP publique avec un nom de domaine créé dynamiquement est prise en charge. Si vous avez besoin d’un nom DNS convivial pour la passerelle Application Gateway, il est recommandé d’utiliser un enregistrement cname comme alias.
+> [!IMPORTANT]
+> La passerelle Application Gateway ne prend pas en charge l’utilisation d’une adresse IP publique créée avec un nom de domaine défini. Seule une adresse IP publique avec un nom de domaine créé dynamiquement est prise en charge. Si vous avez besoin d’un nom DNS convivial pour la passerelle Application Gateway, il est recommandé d’utiliser un enregistrement cname comme alias.
+> 
+> 
 
 ### <a name="step-10"></a>Étape 10
-
 Avant de créer la passerelle d’application, vous devez installer tous les éléments de configuration. Les étapes suivantes permettent de créer les éléments de configuration nécessaires à une ressource Application Gateway.
 
 Créez une configuration IP de passerelle application : ce paramètre détermine quel sous-réseau utilise la passerelle Application Gateway. Au démarrage, la passerelle Application Gateway sélectionne une adresse IP du sous-réseau configuré et achemine le trafic réseau vers les adresses IP du pool IP principal. Gardez à l’esprit que chaque instance utilise une adresse IP unique.
@@ -168,65 +159,57 @@ Créez une configuration IP de passerelle application : ce paramètre détermine
     $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
 
 ### <a name="step-11"></a>Étape 11
-
 Configurez le pool d’adresses IP principales avec les adresses IP des serveurs web principaux. Il s’agit des adresses IP qui recevront le trafic réseau provenant du point de terminaison IP frontal. Remplacez les adresses IP suivantes pour ajouter vos propres points de terminaison d’adresse IP d’application.
 
     $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
 
 ### <a name="step-12"></a>Étape 12
-
 Configurez les paramètres http principaux de la passerelle d’application. Affectez le certificat téléchargé à l’étape précédente aux paramètres http.
 
     $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
 
 ### <a name="step-13"></a>Étape 13
-
-Configurez le port IP frontal pour le point de terminaison IP public. Ce port est le port auquel les utilisateurs finaux se connectent.
+Configurez le port IP frontal pour le point de terminaison IP public. Ce port est le port auquel les utilisateurs finaux se connectent.
 
     $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
 
 ### <a name="step-14"></a>Étape 14
-
 Créez une configuration IP frontale : ce paramètre mappe une adresse IP privée ou publique au composant frontal de la passerelle d’application. L’étape suivante associe l’adresse IP publique à l’étape précédente à la configuration IP frontale.
 
     $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
 
 ### <a name="step-15"></a>Étape 15
-
 Créez l’écouteur HTTP pour la passerelle d’application. Affectez la configuration IP frontale, le port et le certificat SSL à utiliser.
 
     $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
 
 ### <a name="step-16"></a>Étape 16
-
 Créez une règle d'acheminement d'équilibrage de charge nommée qui configure le comportement d'équilibrage de charge. Dans cet exemple, une simple règle de type tourniquet (round robin) est créée.
 
     $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
-   
-### <a name="step-17"></a>Étape 17
 
+### <a name="step-17"></a>Étape 17
 Configurez la taille d'instance de la passerelle Application Gateway.
 
     $sku = New-AzureRmApplicationGatewaySku -Name WAF_Medium -Tier WAF -Capacity 2
 
->[AZURE.NOTE]  Vous pouvez choisir entre **WAF\_Medium** et **WAF\_Large**. Lorsque vous utilisez WAF, le niveau est toujours **WAF**. La capacité est un nombre compris entre 1 et 10.
+> [!NOTE]
+> Vous pouvez choisir entre **WAF\_Medium** et **WAF\_Large**. Lorsque vous utilisez WAF, le niveau est toujours **WAF**. La capacité est un nombre compris entre 1 et 10.
+> 
+> 
 
 ### <a name="step-18"></a>Étape 18
-
 Configurez le mode WAF. Les valeurs acceptables sont **Prévention** et **Détection**.
 
     $config = New-AzureRmApplicationGatewayWafConfig -Enabled $true -WafMode "Prevention"
 
 ### <a name="step-19"></a>Étape 19
-
-Créez une passerelle Application Gateway avec tous les éléments de configuration de la procédure précédente. Dans notre exemple, la passerelle Application Gateway est appelée « appgwtest ».
+Créez une passerelle Application Gateway avec tous les éléments de configuration de la procédure précédente. Dans notre exemple, la passerelle Application Gateway est appelée « appgwtest ».
 
     $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -WafConfig $config
 
 ## <a name="next-steps"></a>Étapes suivantes
-
 Apprenez à configurer la journalisation des diagnostics, à consigner les événements détectés ou bloqués par le pare-feu d’applications web en consultant la rubrique [Diagnostics de la passerelle Application Gateway](application-gateway-diagnostics.md)
-
 
 [scénario]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
 

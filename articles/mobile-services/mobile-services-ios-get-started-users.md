@@ -1,52 +1,49 @@
-<properties
-	pageTitle="Ajouter l’authentification à une application Azure Mobile Services existante (iOS) | Backend JavaScript | Microsoft Azure"
-	description="Apprenez à utiliser Mobile Services pour authentifier les utilisateurs de votre application iOS par l'intermédiaire de divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft."
-	services="mobile-services"
-	documentationCenter="ios"
-	authors="krisragh"
-	manager="erikre"
-	editor=""/>
+---
+title: Ajouter l’authentification à une application Azure Mobile Services existante (iOS) | Microsoft Docs
+description: Apprenez à utiliser Mobile Services pour authentifier les utilisateurs de votre application iOS par l'intermédiaire de divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft.
+services: mobile-services
+documentationcenter: ios
+author: krisragh
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="krisragh"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-ios
+ms.devlang: objective-c
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: krisragh
 
+---
 # Ajout de l’authentification à une application existante
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[!INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > Pour la version Mobile Apps équivalente de cette rubrique, consultez [Ajout de l’authentification à votre application iOS](../app-service-mobile/app-service-mobile-ios-get-started-users.md).
+> 
+> 
 
 Dans ce didacticiel, vous allez ajouter l’authentification au [didacticiel Démarrage rapide de Mobile Services] en faisant appel à un fournisseur d’identité pris en charge.
 
-Nous vous recommandons de terminer d'abord le [didacticiel Démarrage rapide de Mobile Services]. Vous pouvez également télécharger le projet Démarrage rapide iOS : dans le [portail Azure Classic] > **Mobile Services** > votre service mobile > l'authentification cloud en haut à gauche > **iOS** > **Créer une nouvelle application iOS** > **Télécharger et exécuter votre application** > **Objective-C** > **Télécharger**. N'oubliez pas de cliquer sur **Créer une table TodoItem** avant de cliquer sur **Télécharger** si vous n'avez pas encore créé la table.
+Nous vous recommandons de terminer d'abord le [didacticiel Démarrage rapide de Mobile Services]. Vous pouvez également télécharger le projet Démarrage rapide iOS : dans le [portail Azure Classic] > **Mobile Services** > votre service mobile > l'authentification cloud en haut à gauche > **iOS** > **Créer une nouvelle application iOS** > **Télécharger et exécuter votre application** > **Objective-C** > **Télécharger**. N'oubliez pas de cliquer sur **Créer une table TodoItem** avant de cliquer sur **Télécharger** si vous n'avez pas encore créé la table.
 
-##<a name="register"></a>Inscription de l’application pour l’authentification
+## <a name="register"></a>Inscription de l’application pour l’authentification
+[!INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
+## <a name="permissions"></a>Restriction des autorisations de données aux utilisateurs authentifiés
+[!INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-##<a name="permissions"></a>Restriction des autorisations de données aux utilisateurs authentifiés
+## <a name="add-authentication"></a>Ajout de l’authentification à l’application
+[!INCLUDE [mobile-services-ios-authenticate-app](../../includes/mobile-services-ios-authenticate-app.md)]
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
-
-##<a name="add-authentication"></a>Ajout de l’authentification à l’application
-
-[AZURE.INCLUDE [mobile-services-ios-authenticate-app](../../includes/mobile-services-ios-authenticate-app.md)]
-
-##<a name="store-authentication"></a>Stockage des jetons d’authentification dans l’application
-
-[AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
+## <a name="store-authentication"></a>Stockage des jetons d’authentification dans l’application
+[!INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-
 Ensuite, découvrez [comment utiliser la valeur d’ID d’utilisateur pour filtrer les données renvoyées](mobile-services-javascript-backend-service-side-authorization.md).
 
 <!-- Anchors. -->

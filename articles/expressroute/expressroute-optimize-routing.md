@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Optimiser le routage ExpressRoute | Microsoft Azure"
-   description="Cette page fournit des détails sur comment optimiser le routage lorsqu’un client a le choix entre plusieurs circuits ExpressRoute qui se connectent entre Microsoft et le réseau professionnel du client."
-   documentationCenter="na"
-   services="expressroute"
-   authors="charwen"
-   manager="carmonm"
-   editor=""/>
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="charwen"/>
+---
+title: Optimiser le routage ExpressRoute | Microsoft Docs
+description: Cette page fournit des détails sur comment optimiser le routage lorsqu’un client a le choix entre plusieurs circuits ExpressRoute qui se connectent entre Microsoft et le réseau professionnel du client.
+documentationcenter: na
+services: expressroute
+author: charwen
+manager: carmonm
+editor: ''
 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: charwen
 
+---
 # <a name="optimize-expressroute-routing"></a>Optimiser le routage ExpressRoute
 En présence de plusieurs circuits ExpressRoute, vous pouvez vous connecter à Microsoft par le biais de plusieurs chemins d’accès. Par conséquent, le routage pourrait ne pas être optimal. Autrement dit, votre trafic peut emprunter un chemin d’accès plus long pour atteindre Microsoft ; Microsoft peut faire de même pour atteindre votre réseau. Plus le chemin d’accès réseau est long, plus la latence est élevée. La latence a un impact direct sur les performances d’application ainsi que sur l’expérience utilisateur. Cet article aborde ce problème et explique comment optimiser le routage à l’aide des technologies de routage standard.
 
@@ -39,13 +39,17 @@ Il existe deux solutions à ce problème. La première consiste simplement à pu
 
 La deuxième solution est de continuer à publier les deux préfixes sur les deux circuits ExpressRoute, tout en nous indiquant quel préfixe correspond à chacun de vos bureaux. Étant donné que nous prenons en charge l’ajout de préfixe AS PATH BGP, vous pouvez configurer l’AS PATH pour influencer le routage. Dans cet exemple, vous pouvez allonger le chemin AS PATH pour 172.2.0.0/31 dans l’Est des États-Unis pour que nous privilégiions le circuit ExpressRoute dans l’Ouest pour le trafic destiné à ce préfixe ; notre réseau pensera que le chemin d’accès pour ce préfixe est plus court dans l’Ouest. De même, vous pouvez allonger le chemin AS PATH pour 172.2.0.2/31 dans l’Ouest des États-Unis pour que nous privilégiions le circuit ExpressRoute dans l’Est des États-Unis. Le routage est optimisé pour les deux bureaux. Grâce à cette conception, si un circuit ExpressRoute est défaillant, Exchange Online peut toujours vous joindre via un autre circuit ExpressRoute ainsi que par le biais de votre réseau étendu. 
 
->[AZURE.IMPORTANT] Nous supprimons les numéros AS privés dans le chemin AS PATH pour les préfixes reçus sur l’homologation Microsoft. Vous devez ajouter des numéros AS publics au chemin AS PATH pour influencer le routage pour l’homologation Microsoft.
+> [!IMPORTANT]
+> Nous supprimons les numéros AS privés dans le chemin AS PATH pour les préfixes reçus sur l’homologation Microsoft. Vous devez ajouter des numéros AS publics au chemin AS PATH pour influencer le routage pour l’homologation Microsoft.
+> 
+> 
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-solution.png)
 
->[AZURE.IMPORTANT] Bien que les exemples fournis ici s’appliquent aux homologations Microsoft et publiques, nous prenons en charge les mêmes fonctionnalités pour l’homologation privée. En outre, le préfixe AS Path fonctionne au sein d’un même circuit ExpressRoute pour influencer la sélection des chemins principaux et secondaires.
-
-
+> [!IMPORTANT]
+> Bien que les exemples fournis ici s’appliquent aux homologations Microsoft et publiques, nous prenons en charge les mêmes fonctionnalités pour l’homologation privée. En outre, le préfixe AS Path fonctionne au sein d’un même circuit ExpressRoute pour influencer la sélection des chemins principaux et secondaires.
+> 
+> 
 
 <!--HONumber=Oct16_HO2-->
 

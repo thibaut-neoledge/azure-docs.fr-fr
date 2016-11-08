@@ -1,28 +1,27 @@
-<properties 
-    pageTitle="Création de ContentKeys avec .NET" 
-    description="Apprenez à créer des clés de contenu qui fournissent un accès sécurisé aux ressources." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="Juliako" 
-    manager="erikre" 
-    editor=""/>
+---
+title: Création de ContentKeys avec .NET
+description: Apprenez à créer des clés de contenu qui fournissent un accès sécurisé aux ressources.
+services: media-services
+documentationcenter: ''
+author: Juliako
+manager: erikre
+editor: ''
 
-<tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/26/2016"
-    ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: juliako
 
-
-
-#<a name="create-contentkeys-with-.net"></a>Création de ContentKeys avec .NET
-
-> [AZURE.SELECTOR]
-- [REST](media-services-rest-create-contentkey.md)
-- [.NET](media-services-dotnet-create-contentkey.md)
+---
+# <a name="create-contentkeys-with-.net"></a>Création de ContentKeys avec .NET
+> [!div class="op_single_selector"]
+> * [REST](media-services-rest-create-contentkey.md)
+> * [.NET](media-services-dotnet-create-contentkey.md)
+> 
+> 
 
 Media Services vous permet de créer et de fournir des ressources chiffrées. **ContentKey** fournit un accès sécurisé à vos **éléments multimédias**. 
 
@@ -32,10 +31,12 @@ Quand vous fournissez des éléments multimédias à vos clients, vous pouvez [c
 
 Les ressources chiffrées doivent être associées à des **ContentKey**. Cet article décrit comment créer une clé de contenu.
 
->[AZURE.NOTE] Quand vous créez un élément multimédia **StorageEncrypted** à l’aide du SDK Media Services .NET, **ContentKey** est automatiquement créé et lié à l’élément multimédia.
+> [!NOTE]
+> Quand vous créez un élément multimédia **StorageEncrypted** à l’aide du SDK Media Services .NET, **ContentKey** est automatiquement créé et lié à l’élément multimédia.
+> 
+> 
 
-##<a name="contentkeytype"></a>ContentKeyType
-
+## <a name="contentkeytype"></a>ContentKeyType
 Une des valeurs que vous devez définir lors de la création d’une clé de contenu est le type de clé de contenu. Choisissez une des valeurs suivantes. 
 
     public enum ContentKeyType
@@ -62,8 +63,7 @@ Une des valeurs que vous devez définir lors de la création d’une clé de con
         EnvelopeEncryption = 4
     }
 
-##<a name="<a-id="envelope_contentkey"></a>create-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>Créer une ContentKey de type enveloppe
-
+## <a name="<a-id="envelope_contentkey"></a>create-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>Créer une ContentKey de type enveloppe
 L’extrait de code suivant crée une clé de contenu du type de chiffrement d’enveloppe. Il associe ensuite la clé à l’élément multimédia spécifié.
 
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
@@ -100,8 +100,7 @@ appel
 
 
 
-##<a name="<a-id="common_contentkey"></a>create-common-type-contentkey"></a><a id="common_contentkey"></a>Créer une ContentKey de type commun    
-
+## <a name="<a-id="common_contentkey"></a>create-common-type-contentkey"></a><a id="common_contentkey"></a>Créer une ContentKey de type commun
 L’extrait de code suivant crée une clé de contenu du type de chiffrement commun. Il associe ensuite la clé à l’élément multimédia spécifié.
 
     static public IContentKey CreateCommonTypeContentKey(IAsset asset)
@@ -139,15 +138,11 @@ appel
     IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
 
 
-##<a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
+## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-##<a name="provide-feedback"></a>Fournir des commentaires
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
+## <a name="provide-feedback"></a>Fournir des commentaires
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 <!--HONumber=Oct16_HO2-->
 

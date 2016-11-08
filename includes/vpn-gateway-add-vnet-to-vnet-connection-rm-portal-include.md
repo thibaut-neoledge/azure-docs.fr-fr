@@ -6,8 +6,8 @@ Lors de l'ajout d'une connexion de réseau virtuel à réseau virtuel, vérifiez
 4. Pour le **Type de connexion**, sélectionnez **Réseau virtuel à réseau virtuel**.
 5. Pour **Passerelle de réseau virtuel**, la valeur est fixe, car vous vous connectez à partir de cette passerelle.
 6. Pour **Seconde passerelle de réseau virtuel**, sélectionnez la passerelle à laquelle vous souhaitez créer une connexion à partir de cette passerelle.
-8. Les valeurs restantes pour **Abonnement**, **Groupe de ressources** et **Emplacement** sont fixes.
-9. Cliquez sur **OK** pour créer votre connexion. Le message *Création de la connexion* clignote à l'écran.
-10. Une fois la connexion terminée, elle s'affiche dans le volet **Connexions** de votre passerelle.
+7. Les valeurs restantes pour **Abonnement**, **Groupe de ressources** et **Emplacement** sont fixes.
+8. Cliquez sur **OK** pour créer votre connexion. Le message *Création de la connexion* clignote à l'écran.
+9. Une fois la connexion terminée, elle s'affiche dans le volet **Connexions** de votre passerelle.
 
 <!---HONumber=AcomDC_0107_2016-->

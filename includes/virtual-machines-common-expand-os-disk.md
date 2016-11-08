@@ -1,54 +1,55 @@
 ## Vue d'ensemble
 Lorsque vous créez une machine virtuelle (VM) dans un groupe de ressources en déployant une image à partir d’[Azure Marketplace](https://azure.microsoft.com/marketplace/), le lecteur du système d’exploitation par défaut est de 127 Go. Même s’il est possible d’ajouter des disques de données à la machine virtuelle (le nombre dépend de la référence (SKU) choisie) et de plus, il est recommandé d’installer les applications et les charges de travail intensives du processeur sur ces disques supplémentaires, il peut arriver que les clients doivent développer le lecteur du système d’exploitation pour prendre en charge certains scénarios, tels que les suivants :
 
-1.  Prendre en charge les applications héritées qui installent des composants sur le lecteur du système d’exploitation.
-2.  Migrer un ordinateur physique ou une machine virtuelle depuis un emplacement local avec un lecteur de système d’exploitation plus volumineux.
+1. Prendre en charge les applications héritées qui installent des composants sur le lecteur du système d’exploitation.
+2. Migrer un ordinateur physique ou une machine virtuelle depuis un emplacement local avec un lecteur de système d’exploitation plus volumineux.
 
->[AZURE.IMPORTANT]Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : Resource Manager et classique. Cet article traite de l’utilisation du modèle Resource Manager. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
+> [!IMPORTANT]
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : Resource Manager et classique. Cet article traite de l’utilisation du modèle Resource Manager. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
+> 
+> 
 
 ## Redimensionner le lecteur du système d’exploitation
 Dans cet article, nous allons exécuter la tâche consistant à redimensionner le lecteur du système d’exploitation à l’aide de modules Resource Manager d’[Azure Powershell](../articles/powershell-install-configure.md). Ouvrez votre Powershell ISE ou une fenêtre Powershell en mode administrateur et suivez les étapes ci-dessous :
 
-1.  Connectez-vous à votre compte Microsoft Azure en mode de gestion des ressources et sélectionnez votre abonnement comme suit :
-
-    ```Powershell
-    Login-AzureRmAccount
-    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
-    ```
-
-2.  Définissez le nom du groupe de ressources et le nom de la machine virtuelle comme suit :
-
-    ```Powershell
-    $rgName = 'my-resource-group-name'
-    $vmName = 'my-vm-name'
-    ```
-
-3.  Obtenez une référence à votre machine virtuelle comme suit :
-
-    ```Powershell
-    $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-    ```
-
+1. Connectez-vous à votre compte Microsoft Azure en mode de gestion des ressources et sélectionnez votre abonnement comme suit :
+   
+   ```Powershell
+   Login-AzureRmAccount
+   Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
+   ```
+2. Définissez le nom du groupe de ressources et le nom de la machine virtuelle comme suit :
+   
+   ```Powershell
+   $rgName = 'my-resource-group-name'
+   $vmName = 'my-vm-name'
+   ```
+3. Obtenez une référence à votre machine virtuelle comme suit :
+   
+   ```Powershell
+   $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+   ```
 4. Arrêtez la machine virtuelle avant de redimensionner le disque comme suit :
-
+   
     ```Powershell
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     ```
-
-5.  Et voici le moment que nous attendions ! Définissez la taille du disque du système d’exploitation sur la valeur souhaitée et mettez à jour la machine virtuelle comme suit :
-
-    ```Powershell
-    $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
-    Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
-    ```
-
-    >[AZURE.WARNING]La nouvelle taille doit être supérieure à la taille du disque actuelle. La valeur maximale autorisée est de 1 023 Go.
-
-6.  La mise à jour de la machine virtuelle peut prendre quelques secondes. Une fois que l’exécution de la commande est terminée, redémarrez la machine virtuelle comme suit :
-
-    ```Powershell
-    Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-    ```
+5. Et voici le moment que nous attendions ! Définissez la taille du disque du système d’exploitation sur la valeur souhaitée et mettez à jour la machine virtuelle comme suit :
+   
+   ```Powershell
+   $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
+   Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
+   ```
+   
+   > [!WARNING]
+   > La nouvelle taille doit être supérieure à la taille du disque actuelle. La valeur maximale autorisée est de 1 023 Go.
+   > 
+   > 
+6. La mise à jour de la machine virtuelle peut prendre quelques secondes. Une fois que l’exécution de la commande est terminée, redémarrez la machine virtuelle comme suit :
+   
+   ```Powershell
+   Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+   ```
 
 Vous avez terminé. Connectez-vous via RDP à la machine virtuelle, ouvrez Gestion de l’ordinateur (ou Gestion des disques) et développez le lecteur à l’aide de l’espace qui vient d’être alloué.
 

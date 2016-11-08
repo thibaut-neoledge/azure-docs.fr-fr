@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Événements Reliable Actors | Microsoft Azure"
-   description="Présentation des événements pour Reliable Actors Service Fabric"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="vturecek"
-   manager="timlt"
-   editor=""/>
+---
+title: Événements Reliable Actors | Microsoft Docs
+description: Présentation des événements pour Reliable Actors Service Fabric
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/30/2016"
-   ms.author="amanbha"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/30/2016
+ms.author: amanbha
 
-
+---
 # Événements d’acteurs
 Les événements d’acteur sont un moyen d’envoyer des notifications Meilleur effort de l’acteur aux clients. Les événements d’acteur sont conçus pour la communication acteur-client et ne doivent pas être utilisés pour la communication acteur-acteur.
 
@@ -73,9 +72,9 @@ ev.GameScoreUpdated(Id.GetGuidId(), score);
 ```
 
 ## Étapes suivantes
- - [Réentrance des acteurs](service-fabric-reliable-actors-reentrancy.md)
- - [Diagnostics et surveillance des performances d’acteur](service-fabric-reliable-actors-diagnostics.md)
- - [Documentation de référence de l’API d’acteur](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Exemple de code](https://github.com/Azure/servicefabric-samples)
+* [Réentrance des acteurs](service-fabric-reliable-actors-reentrancy.md)
+* [Diagnostics et surveillance des performances d’acteur](service-fabric-reliable-actors-diagnostics.md)
+* [Documentation de référence de l’API d’acteur](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Exemple de code](https://github.com/Azure/servicefabric-samples)
 
 <!---HONumber=AcomDC_0907_2016-->

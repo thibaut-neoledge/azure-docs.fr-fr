@@ -5,7 +5,6 @@ Lorsque vous définissez les paramètres, utilisez le champ **allowedValues** po
 Nous allons décrire chaque paramètre du modèle.
 
 ### siteName
-
 Le nom de l'application web que vous souhaitez créer.
 
     "siteName":{
@@ -13,15 +12,13 @@ Le nom de l'application web que vous souhaitez créer.
     }
 
 ### hostingPlanName
-
 Le nom du plan App Service à utiliser pour héberger l'application web.
-    
+
     "hostingPlanName":{
       "type":"string"
     }
 
 ### sku
-
 Le niveau de tarification du plan d'hébergement.
 
     "sku": {
@@ -49,7 +46,6 @@ Le niveau de tarification du plan d'hébergement.
 Le modèle définit les valeurs autorisées pour ce paramètre et affecte une valeur par défaut (S1) si aucune valeur n’est spécifiée.
 
 ### workerSize
-
 La taille d'instance du plan d'hébergement (petite, moyenne ou grande).
 
     "workerSize":{
@@ -61,6 +57,6 @@ La taille d'instance du plan d'hébergement (petite, moyenne ou grande).
       ],
       "defaultValue":"0"
     }
-    
+
 Le modèle définit les valeurs autorisées pour ce paramètre (0, 1 ou 2) et affecte une valeur par défaut (0) si aucune valeur n'est spécifiée. Les valeurs correspondent à une taille petite, moyenne et grande.
 

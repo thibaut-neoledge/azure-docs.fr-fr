@@ -1,30 +1,33 @@
-<properties
-   pageTitle="Configurer plusieurs cartes réseau sur une machine virtuelle Windows | Microsoft Azure"
-   description="Découvrez comment créer une machine virtuelle dotée de plusieurs cartes réseau à l’aide d’Azure PowerShell ou de modèles Resource Manager."
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Configurer plusieurs cartes réseau sur une machine virtuelle Windows | Microsoft Docs
+description: Découvrez comment créer une machine virtuelle dotée de plusieurs cartes réseau à l’aide d’Azure PowerShell ou de modèles Resource Manager.
+services: virtual-machines-windows
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure"
-   ms.date="08/04/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+ms.date: 08/04/2016
+ms.author: iainfou
 
+---
 # Création d’une machine virtuelle avec plusieurs cartes d’interface réseau (NIC)
 Vous pouvez créer une machine virtuelle dans Azure, à laquelle sont attachées plusieurs interfaces réseau virtuelles (NIC). Un scénario courant consisterait à avoir des sous-réseaux différents pour les connectivités frontale et principale, ou un réseau dédié à une solution de surveillance ou de sauvegarde. Cet article fournit des commandes rapides pour créer une machine virtuelle avec plusieurs cartes d’interface réseau. Pour plus d’informations, notamment sur la création de plusieurs cartes réseau dans vos propres scripts PowerShell, consultez la page consacrée au [déploiement de machines virtuelles avec plusieurs cartes d’interface réseau](../virtual-network/virtual-network-deploy-multinic-arm-ps.md). Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](virtual-machines-windows-sizes.md), pensez à dimensionner la vôtre en conséquence.
 
->[AZURE.WARNING] Vous devez attacher plusieurs cartes réseau quand vous créez une machine virtuelle ; vous ne pouvez pas ajouter de cartes réseau à une machine virtuelle existante. Vous pouvez [créer une machine virtuelle basée sur les disques virtuels d’origine](virtual-machines-windows-specialized-image.md) et créer plusieurs cartes réseau quand vous déployez la machine virtuelle.
+> [!WARNING]
+> Vous devez attacher plusieurs cartes réseau quand vous créez une machine virtuelle ; vous ne pouvez pas ajouter de cartes réseau à une machine virtuelle existante. Vous pouvez [créer une machine virtuelle basée sur les disques virtuels d’origine](virtual-machines-windows-specialized-image.md) et créer plusieurs cartes réseau quand vous déployez la machine virtuelle.
+> 
+> 
 
 ## Créer les ressources de base
 Vérifiez que la [dernière version d’Azure PowerShell est installée et configurée](../powershell-install-configure.md).
 
-Créez d’abord un groupe de ressources :
+Créez d’abord un groupe de ressources :
 
 ```powershell
 New-AzureRmResourceGroup -Name TestRG -Location WestUS
@@ -67,7 +70,6 @@ $NIC2 = New-AzureRmNetworkInterface -Name NIC2 -ResourceGroupName TestRG `
 ```
 
 En général, vous devez également créer un [groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md) ou un [équilibreur de charge](../load-balancer/load-balancer-overview.md) pour faciliter la gestion et la répartition du trafic entre vos machines virtuelles. L’article [plus détaillé consacré aux machines virtuelles dotées de plusieurs cartes réseau](../virtual-network/virtual-network-deploy-multinic-arm-ps.md) explique comment créer un groupe de sécurité réseau et affecter des cartes réseau.
-
 
 ## Créer la machine virtuelle
 Maintenant, commencez à élaborer la configuration de votre machine virtuelle. La taille d’une machine virtuelle détermine le nombre maximal de cartes réseau qu’elle peut accueillir. En savoir plus sur les [tailles des machines virtuelles Windows](virtual-machines-windows-sizes.md). L’exemple suivant utilise une taille de machine virtuelle qui prend en charge jusqu’à deux cartes réseau (`Standard_DS2_v2`) :

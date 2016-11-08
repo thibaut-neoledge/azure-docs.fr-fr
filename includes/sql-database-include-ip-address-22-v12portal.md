@@ -16,35 +16,24 @@ articles/sql-database/sql-database-connect-query.md
 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) sur http://portal.azure.com/.
-
 2. Dans la bannière de gauche, cliquez sur **PARCOURIR TOUT**. Le panneau **Parcourir** s’affiche.
-
 3. Faites défiler l’écran, puis cliquez sur **Serveurs SQL**. Le panneau **Serveurs SQL** s’affiche.
-
-	![Rechercher votre serveur Azure SQL Database sur le portail][b21-FindServerInPortal]
-
+   
+    ![Rechercher votre serveur Azure SQL Database sur le portail][b21-FindServerInPortal]
 4. Pour plus de commodité, cliquez sur la commande de réduction sur le panneau **Parcourir** précédent.
-
 5. Dans la zone de texte de filtre, tapez les premières lettres du nom de votre serveur. La ligne correspondante s’affiche.
-
 6. Cliquez dessus. Un panneau dédié à votre serveur s’affiche.
-
 7. Dans ce panneau, cliquez sur **Paramètres**. Le panneau **Paramètres** s’affiche.
-
 8. Cliquez sur **Pare-feu**. Le panneau **Paramètres du pare-feu** s’affiche.
-
-	![Cliquer sur Paramètres, puis sur Pare-feu][b31-SettingsFirewallNavig]
-
+   
+    ![Cliquer sur Paramètres, puis sur Pare-feu][b31-SettingsFirewallNavig]
 9. Cliquez sur **Ajouter une adresse IP cliente**. Dans la première zone de texte, tapez un nom pour votre nouvelle règle.
-
 10. Tapez les valeurs d’adresse IP basse et haute de la plage que vous souhaitez autoriser.
-	- Pour des raisons pratiques, vous pouvez terminer les valeurs basse et haute par **.0** et **.255**, respectivement.
-
-	![Ajouter une plage d’adresses IP à autoriser][b41-AddRange]
-
+    
+    * Pour des raisons pratiques, vous pouvez terminer les valeurs basse et haute par **.0** et **.255**, respectivement.
+    
+    ![Ajouter une plage d’adresses IP à autoriser][b41-AddRange]
 11. Cliquez sur **Enregistrer**.
-
-
 
 <!-- Image references. -->
 

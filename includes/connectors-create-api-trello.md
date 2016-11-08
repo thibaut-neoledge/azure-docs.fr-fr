@@ -1,5 +1,5 @@
 ### Composants requis
-- Un compte [Trello](http://trello.com) 
+* Un compte [Trello](http://trello.com) 
 
 Pour pouvoir utiliser votre compte Trello dans une application logique, vous devez autoriser l’application à se connecter à votre compte. Heureusement, cette opération est très simple à effectuer dans votre application logique sur le portail Azure.
 
@@ -10,3 +10,4 @@ Pour autoriser votre application logique à se connecter à votre compte Trello,
 3. Permet de se connecter à Trello : ![](./media/connectors-create-api-trello/trello-3.png)   
 4. Indiquez votre nom d’utilisateur et votre mot de passe Trello pour autoriser votre application logique : ![](./media/connectors-create-api-trello/trello-4.png)  
 5. Notez que la connexion a été créée et que vous pouvez maintenant poursuivre la procédure dans votre application logique : ![](./media/connectors-create-api-trello/trello-5.png)
+

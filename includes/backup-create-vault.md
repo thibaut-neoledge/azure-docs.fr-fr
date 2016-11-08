@@ -5,25 +5,22 @@ La procédure suivante vous guidera tout au long de la création du coffre utili
 
 1. Connectez-vous au [portail de gestion](https://manage.windowsazure.com/).
 2. Cliquez sur **Nouveau** -> **Services de données** -> **Services de récupération** -> **Archivage de sauvegarde** et choisissez **Création rapide**.
-
+   
     ![Créer le coffre](./media/backup-create-vault/createvault1.png)
-
 3. Pour le paramètre **Nom**, entrez un nom convivial permettant d’identifier l’archivage de sauvegarde. Cette opération doit être unique pour chaque abonnement.
-
 4. Pour le paramètre **Région**, sélectionnez la région géographique de l’archivage de sauvegarde. Le choix détermine la zone géographique vers laquelle vos données de sauvegarde sont envoyées. En choisissant une zone géographique proche de votre emplacement, vous pouvez réduire la latence du réseau lors de la sauvegarde dans Azure.
-
 5. Cliquez sur **Créer un archivage** pour terminer le flux de travail. La création du coffre de sauvegarde peut prendre du temps. Pour vérifier l’état d’avancement de l’opération, vous pouvez contrôler les notifications au bas du portail.
-
+   
     ![Création d’un archivage](./media/backup-create-vault/creatingvault1.png)
-
 6. Après avoir créé l’archivage de sauvegarde, un message vous indique que le coffre a été créé. Le coffre est également répertorié dans les ressources Recovery Services en tant que **Actif**.
-
+   
     ![Création d’un état de l’archivage](./media/backup-create-vault/backupvaultstatus1.png)
 
-
 ### Azure Backup - Options de redondance de stockage
-
->[AZURE.IMPORTANT] Idéalement, vous identifiez votre option de redondance de stockage juste après la création de l’archivage et avant l’inscription d’un ordinateur dans l’archivage. Une fois qu’un élément a été inscrit dans l’archivage, l’option de redondance de stockage est verrouillée et ne peut pas être modifiée.
+> [!IMPORTANT]
+> Idéalement, vous identifiez votre option de redondance de stockage juste après la création de l’archivage et avant l’inscription d’un ordinateur dans l’archivage. Une fois qu’un élément a été inscrit dans l’archivage, l’option de redondance de stockage est verrouillée et ne peut pas être modifiée.
+> 
+> 
 
 Déterminez la redondance du stockage Azure Backup principal en fonction des besoins de votre entreprise. Si vous utilisez Azure en tant que point de terminaison de stockage de sauvegarde principal (par exemple, vous sauvegardez vos données dans Azure à partir de Windows Server), choisissez l’option de stockage géo-redondant (par défaut). Elle se trouve sous l’option **Configurer** de votre coffre de sauvegarde.
 

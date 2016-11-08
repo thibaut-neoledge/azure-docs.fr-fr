@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Recherches de journal dans Log Analytics | Microsoft Azure"
-    description="Les recherches de journal vous permettent de combiner et de mettre en corrélation toutes les données de l’ordinateur à partir de plusieurs sources dans votre environnement."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bandersmsft"
-    manager="jwhit"
-    editor=""/>
+---
+title: Recherches de journal dans Log Analytics | Microsoft Docs
+description: Les recherches de journal vous permettent de combiner et de mettre en corrélation toutes les données de l’ordinateur à partir de plusieurs sources dans votre environnement.
+services: log-analytics
+documentationcenter: ''
+author: bandersmsft
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="banders"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: banders
 
-
+---
 # <a name="log-searches-in-log-analytics"></a>Recherches de journal dans Log Analytics
-
 La fonctionnalité de recherche de journal se trouve au cœur de Log Analytics et vous permet de combiner et de mettre en corrélation des données machine de plusieurs sources dans votre environnement. Des solutions sont également alimentées par la recherche de journal pour vous proposer des mesures cernant un domaine problématique en particulier.
 
 Sur la page Recherche, vous pouvez créer une requête, puis lorsque vous effectuez une recherche, vous pouvez filtrer les résultats en utilisant des contrôles de facette. Vous pouvez également créer des requêtes avancées pour la transformation, le filtrage et les rapports relatifs aux résultats.
@@ -32,18 +30,16 @@ Nous allons commencer par des exemples simples et pratiques, puis nous développ
 Une fois que vous êtes familiarisé avec les techniques de recherche, vous pouvez consulter les [informations de référence sur la recherche de journal Log Analytics](log-analytics-search-reference.md).
 
 ## <a name="use-basic-filters"></a>Utilisation de filtres de base
-
 La première chose à savoir est que la première partie d’une requête de recherche avant un caractère de barre verticale « | » est toujours un *filtre*. Considérez-la comme une clause WHERE dans TSQL : elle détermine *quel* sous-ensemble de données doit être extrait du magasin de données OMS. La recherche dans un magasin de données consiste principalement à préciser les caractéristiques de données que vous souhaitez extraire ; il est donc naturel qu’une requête commence par la clause WHERE.
 
-Les filtres les plus simples que vous pouvez utiliser sont des *mots clés*tels que « error » ou « timeout » ou un nom d'ordinateur. Ces types de requêtes simples retournent généralement différentes formes de données dans le même jeu de résultats. Cela est dû au fait que Log Analytics dispose de différents *types* de données dans le système.
-
+Les filtres les plus simples que vous pouvez utiliser sont des *mots clés*tels que « error » ou « timeout » ou un nom d'ordinateur. Ces types de requêtes simples retournent généralement différentes formes de données dans le même jeu de résultats. Cela est dû au fait que Log Analytics dispose de différents *types* de données dans le système.
 
 ### <a name="to-conduct-a-simple-search"></a>Pour effectuer une recherche simple
 1. Dans le portail OMS, cliquez sur **Recherche de journal**.  
     ![Vignette Rechercher](./media/log-analytics-log-searches/oms-overview-log-search.png)
 2. Dans le champ de requête, tapez `error` puis cliquez sur **Rechercher**.  
     ![Recherche d’erreur](./media/log-analytics-log-searches/oms-search-error.png)  
-    Par exemple, la requête pour `error` dans l’image suivante a retourné 100 000 enregistrements **Événement** (collectés par la gestion des journaux), 18 enregistrements **ConfigurationAlert** (générés par l’évaluation de la configuration), et 12 enregistrements **ConfigurationChange** (capturés par le suivi des modifications).   
+    Par exemple, la requête pour `error` dans l’image suivante a retourné 100 000 enregistrements **Événement** (collectés par la gestion des journaux), 18 enregistrements **ConfigurationAlert** (générés par l’évaluation de la configuration), et 12 enregistrements **ConfigurationChange** (capturés par le suivi des modifications).   
     ![Recherche de résultats](./media/log-analytics-log-searches/oms-search-results01.png)  
 
 Ces filtres ne sont pas vraiment des classes/types d'objet. *Type* est simplement une balise, une propriété ou une chaîne/un nom/une catégorie associés à un élément de données. Certains documents dans le système sont balisés en tant que **Type:ConfigurationAlert**, d’autres en tant que **Type:Perf** ou **Type:Event**, et ainsi de suite. Chaque résultat de recherche, document, enregistrement ou entrée affiche toutes les propriétés brutes et leurs valeurs pour chacun de ces éléments de données. Vous pouvez utiliser ces noms de champs pour préciser dans le filtre lorsque vous souhaitez récupérer uniquement les enregistrements dont le champ a cette valeur donnée.
@@ -54,10 +50,10 @@ Vous pouvez utiliser les deux-points (:) ou le signe égal (=) après le nom du 
 
 Ainsi, si les enregistrements Type=Perf ont un champ appelé « CounterName », vous pouvez alors écrire une requête qui ressemble à `Type=Perf CounterName="% Processor Time"`.
 
-Vous obtiendrez uniquement les données de performances où le nom du compteur de performance est « % Processor Time ».
+Vous obtiendrez uniquement les données de performances où le nom du compteur de performance est « % Processor Time ».
 
 ### <a name="to-search-for-processor-time-performance-data"></a>Pour rechercher des données de performance de temps du processeur
-- Dans le champ de requête de recherche, tapez `Type=Perf CounterName="% Processor Time"`
+* Dans le champ de requête de recherche, tapez `Type=Perf CounterName="% Processor Time"`
 
 Vous pouvez également être plus précis et utiliser **InstanceName=_’Total’** dans la requête, qui est un compteur de performances Windows. Vous pouvez également sélectionner une facette et une autre valeur **field:value**. Ce filtre est automatiquement ajouté à votre filtre dans la barre de requête. Vous pouvez le voir dans l'image suivante. Elle indique où cliquer pour ajouter **InstanceName:’_Total’** à la requête sans devoir taper quoi que ce soit.
 
@@ -66,19 +62,20 @@ Vous pouvez également être plus précis et utiliser **InstanceName=_’Total�
 Votre requête devient alors `Type=Perf CounterName="% Processor Time" InstanceName="_Total"`
 
 Dans cet exemple, vous n’êtes pas obligé de spécifier **Type=Perf** pour obtenir ce résultat. Étant donné que les champs CounterName et InstanceName existent uniquement pour les enregistrements de Type=Perf, la requête est suffisamment spécifique pour retourner les mêmes résultats que le résultat précédent plus long :
+
 ```
 CounterName="% Processor Time" InstanceName="_Total"
 ```
 
 Cela est dû au fait que tous les filtres dans la requête sont évalués comme étant dans chacun d’eux *ET* entre eux. En effet, plus vous ajoutez des champs aux critères, moins vous obtenez des résultats plus spécifiques et affinés.
 
-Par exemple, la requête `Type=Event EventLog="Windows PowerShell"` est identique à `Type=Event AND EventLog="Windows PowerShell"`. Elle retourne tous les événements qui ont été enregistrés dans et collectés à partir du journal des événements Windows PowerShell. Si vous ajoutez un filtre plusieurs fois en sélectionnant de manière répétée la même facette, le problème est alors purement esthétique : il peut surcharger la barre de recherche, mais il retourne toujours les mêmes résultats, car l'opérateur AND implicite est toujours présent.
+Par exemple, la requête `Type=Event EventLog="Windows PowerShell"` est identique à `Type=Event AND EventLog="Windows PowerShell"`. Elle retourne tous les événements qui ont été enregistrés dans et collectés à partir du journal des événements Windows PowerShell. Si vous ajoutez un filtre plusieurs fois en sélectionnant de manière répétée la même facette, le problème est alors purement esthétique : il peut surcharger la barre de recherche, mais il retourne toujours les mêmes résultats, car l'opérateur AND implicite est toujours présent.
 
-Vous pouvez facilement inverser l'opérateur AND implicite à l'aide d'un opérateur NOT explicite. Par exemple : 
+Vous pouvez facilement inverser l'opérateur AND implicite à l'aide d'un opérateur NOT explicite. Par exemple : 
 
 `Type:Event NOT(EventLog:"Windows PowerShell")` ou son équivalent `Type=Event EventLog!="Windows PowerShell"` retournent tous les événements de tous les autres journaux qui ne sont PAS le journal Windows PowerShell.
 
-Vous pouvez également utiliser un autre opérateur booléen tel que « OR ». La requête suivante retourne les enregistrements pour lesquels le journal des événements est une application OU un système.
+Vous pouvez également utiliser un autre opérateur booléen tel que « OR ». La requête suivante retourne les enregistrements pour lesquels le journal des événements est une application OU un système.
 
 ```
 EventLog=Application OR EventLog=System
@@ -94,7 +91,6 @@ EventLog=Application EventLog=System
 
 
 ## <a name="use-additional-filters"></a>Utilisation de filtres supplémentaires
-
 La requête suivante retourne les entrées pour deux journaux des événements pour tous les ordinateurs qui ont envoyé des données.
 
 ```
@@ -121,7 +117,7 @@ Chaque requête est évaluée dans l'ordre explicite suivant. Notez la parenthè
 (EventLog=Application OR EventLog=System) AND Computer=SERVER1.contoso.com
 ```
 
-Comme le champ du journal des événements, vous pouvez récupérer des données uniquement pour un ensemble d'ordinateurs spécifiques en ajoutant OR. Par exemple :
+Comme le champ du journal des événements, vous pouvez récupérer des données uniquement pour un ensemble d'ordinateurs spécifiques en ajoutant OR. Par exemple :
 
 ```
 (EventLog=Application OR EventLog=System) AND (Computer=SERVER1.contoso.com OR Computer=SERVER2.contoso.com OR Computer=SERVER3.contoso.com)
@@ -137,7 +133,6 @@ CounterName="% Processor Time"  AND InstanceName="_Total" AND (Computer=SERVER1.
 ### <a name="boolean-operators"></a>Opérateurs booléens
 Avec les champs numériques et DateHeure, vous pouvez rechercher des valeurs à l’aide d’opérateurs *supérieur à*, *inférieur à* et *inférieur ou égal à*. Vous pouvez utiliser des opérateurs simples tels que >, <, >=, <=, != dans la barre de recherche de requête.
 
-
 Vous pouvez interroger un journal des événements spécifique pour une période spécifique. Par exemple, l’expression mnémonique suivante permet d’exprimer les dernières 24 heures.
 
 ```
@@ -146,7 +141,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 
 #### <a name="to-search-using-a-boolean-operator"></a>Pour effectuer une recherche à l'aide d'un opérateur booléen
-- Dans le champ de requête de recherche, tapez `EventLog=System TimeGenerated>NOW-24HOURS"`  
+* Dans le champ de requête de recherche, tapez `EventLog=System TimeGenerated>NOW-24HOURS"`  
     ![Recherche avec des opérateurs booléens](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 Bien que vous puissiez contrôler graphiquement l'intervalle de temps, et nous vous invitons à faire cela la plupart du temps, l’ajout d’un filtre de temps directement dans la requête présente certains avantages. Par exemple, cela fonctionne très bien avec les tableaux de bord qui vous permettent de remplacer le temps pour chaque vignette, quel que soit le sélecteur de temps *global* sur la page du tableau de bord. Pour plus d'informations, consultez [Questions relatives au temps dans le tableau de bord](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/).
@@ -159,30 +154,32 @@ Cela signifie que, si les périodes ne présentent pas d’intersection, par exe
 
 Les opérateurs de comparaison utilisés pour le champ TimeGenerated sont également utiles dans d'autres situations. Par exemple, avec des champs numériques.
 
-Par exemple, étant donné que les alertes d'évaluation de configuration ont les valeurs de gravité suivantes :
+Par exemple, étant donné que les alertes d'évaluation de configuration ont les valeurs de gravité suivantes :
 
-- 0 = Information
-- 1 = Avertissement
-- 2 = Critique
+* 0 = Information
+* 1 = Avertissement
+* 2 = Critique
 
-Vous pouvez interroger pour les alertes d’avertissements et les alertes critiques et exclure également les alertes d'information avec la requête suivante :
+Vous pouvez interroger pour les alertes d’avertissements et les alertes critiques et exclure également les alertes d'information avec la requête suivante :
 
 ```
 Type=ConfigurationAlert  Severity>=1
 ```
 
 
-Vous pouvez aussi utiliser des requêtes de plage de données. Cela signifie que vous pouvez fournir la plage de valeurs de début et de fin dans une séquence. Par exemple, si vous souhaitez obtenir des événements du journal des événements Operations Manager où l'ID de l’événement est supérieur ou égal à 2100 mais inférieur ou égal à 2199, la requête suivante va alors les retourner.
+Vous pouvez aussi utiliser des requêtes de plage de données. Cela signifie que vous pouvez fournir la plage de valeurs de début et de fin dans une séquence. Par exemple, si vous souhaitez obtenir des événements du journal des événements Operations Manager où l'ID de l’événement est supérieur ou égal à 2100 mais inférieur ou égal à 2199, la requête suivante va alors les retourner.
 
 ```
 Type=Event EventLog="Operations Manager" EventID:[2100..2199]
 ```
 
 
->[AZURE.NOTE] La syntaxe de plage de données que vous devez utiliser est le séparateur field:value avec les deux-points (:) field:value et *non* le signe égal (=). Ajoutez l’extrémité supérieure et inférieure de la plage de données entre crochets et séparez-les par deux points (..).
+> [!NOTE]
+> La syntaxe de plage de données que vous devez utiliser est le séparateur field:value avec les deux-points (:) field:value et *non* le signe égal (=). Ajoutez l’extrémité supérieure et inférieure de la plage de données entre crochets et séparez-les par deux points (..).
+> 
+> 
 
 ## <a name="manipulate-search-results"></a>Manipulation des résultats de la recherche
-
 Lorsque vous recherchez des données, vous devez affiner votre requête de recherche et avoir un bon niveau de contrôle sur les résultats. Lorsque les résultats sont récupérés, vous pouvez appliquer des commandes pour les transformer.
 
 Les commandes dans les recherches de Log Analytics *doivent* se trouver après la barre verticale (|). La première partie d'une chaîne de requête doit toujours être un filtre. Celui-ci définit le jeu de données avec lequel vous travaillez, puis il envoie ces résultats dans une commande. Vous pouvez ensuite utiliser ce pipe pour ajouter des commandes supplémentaires. Cela est relativement similaire au pipeline Windows PowerShell.
@@ -192,8 +189,7 @@ En général, le langage de recherche de Log Analytics tente de respecter le sty
 Le nom des commandes est un verbe, ce qui vous permet de connaître facilement leur fonction.  
 
 ### <a name="sort"></a>Trier
-
-La commande de tri vous permet de définir l'ordre de tri avec un ou plusieurs champs. Même si vous ne l'utilisez pas, un ordre de temps décroissant est appliqué par défaut. Les résultats les plus récents sont toujours en haut des résultats de recherche. Cela signifie que lorsque vous exécutez une recherche avec `Type=Event EventID=1234` , ce qui est réellement exécuté pour vous est :
+La commande de tri vous permet de définir l'ordre de tri avec un ou plusieurs champs. Même si vous ne l'utilisez pas, un ordre de temps décroissant est appliqué par défaut. Les résultats les plus récents sont toujours en haut des résultats de recherche. Cela signifie que lorsque vous exécutez une recherche avec `Type=Event EventID=1234` , ce qui est réellement exécuté pour vous est :
 
 ```
 Type=Event EventID=1234 **| Sort TimeGenerated desc**
@@ -216,7 +212,7 @@ Type=Event EventID=1234 | Sort Computer asc,TimeGenerated desc
 ```
 
 
-Ces simples exemples ci-dessus vous montrent le fonctionnement des commandes : elles modifient la forme des résultats que le filtre a retournés.
+Ces simples exemples ci-dessus vous montrent le fonctionnement des commandes : elles modifient la forme des résultats que le filtre a retournés.
 
 ### <a name="limit-and-top"></a>Limit et Top
 Une autre commande moins connue est LIMIT. Limit est un verbe similaire à PowerShell. Limit a la même fonction que la commande TOP. Les requêtes suivantes retournent les mêmes résultats.
@@ -231,56 +227,49 @@ Type=Event EventID=600 | Top 1
 
 
 #### <a name="to-search-using-top"></a>Pour effectuer une recherche à l'aide de Top
-- Dans le champ de requête de recherche, tapez `Type=Event EventID=600 | Top 1` .  
+* Dans le champ de requête de recherche, tapez `Type=Event EventID=600 | Top 1` .  
     ![Recherche top](./media/log-analytics-log-searches/oms-search-top.png)
 
-Dans l’image ci-dessus, il existe des 358 000 enregistrements avec l’EventID=600. Les champs, les facettes et les filtres sur la gauche affichent toujours des informations sur les résultats retournés *par la partie du filtre* de la requête, qui est la partie située avant une barre verticale. Le panneau **Résultats** retourne uniquement le résultat le plus récent car l’exemple de commande a formé et transformé les résultats.
+Dans l’image ci-dessus, il existe des 358 000 enregistrements avec l’EventID=600. Les champs, les facettes et les filtres sur la gauche affichent toujours des informations sur les résultats retournés *par la partie du filtre* de la requête, qui est la partie située avant une barre verticale. Le panneau **Résultats** retourne uniquement le résultat le plus récent car l’exemple de commande a formé et transformé les résultats.
 
 ### <a name="select"></a>Sélectionnez
-
 La commande SELECT agit comme Select-Object dans PowerShell. Elle retourne des résultats filtrés qui n'ont pas toutes leurs propriétés d'origine. Au lieu de cela, elle sélectionne uniquement les propriétés que vous avez spécifiées.
 
 #### <a name="to-run-a-search-using-the-select-command"></a>Pour exécuter une recherche à l'aide de la commande select
-
 1. Dans Rechercher, tapez `Type=Event` puis cliquez sur **Rechercher**.
-2. Cliquez sur **+ Afficher plus** dans un des résultats pour afficher toutes les propriétés dont disposent les résultats.
-3. Sélectionnez certains d’entre eux de façon explicite ; la requête devient alors `Type=Event | Select Computer,EventID,RenderedDescription`.  
+2. Cliquez sur **+ Afficher plus** dans un des résultats pour afficher toutes les propriétés dont disposent les résultats.
+3. Sélectionnez certains d’entre eux de façon explicite ; la requête devient alors `Type=Event | Select Computer,EventID,RenderedDescription`.  
     ![Recherche select](./media/log-analytics-log-searches/oms-search-select.png)
 
 Il s'agit d’une commande particulièrement utile lorsque vous souhaitez contrôler les résultats de recherche et choisir uniquement des portions de données qui importent vraiment pour votre exploration et qui, bien souvent, ne sont pas l’enregistrement complet. Elle est également utile lorsque des enregistrements de différents types présentent *certaines* propriétés communes, mais que leurs propriétés ne sont pas *toutes *communes. Vous pouvez générer des résultats qui ressemblent plus naturellement à une table ou fonctionnent bien lorsqu’ils sont exportés vers un fichier CSV puis envoyés dans Excel.
 
-
-
 ## <a name="use-the-measure-command"></a>Utilisation de la commande measure
-
 MEASURE est une des commandes les plus polyvalentes dans les recherches de Log Analytics. Elle vous permet d'appliquer des *fonctions* statistiques à vos données et de regrouper des résultats par champ donné. Il existe plusieurs fonctions statistiques qui prennent en charge Measure.
 
 ### <a name="measure-count()"></a>La fonction count() de Measure
-
 La première fonction statistique à utiliser et la plus simple à comprendre est la fonction *count()* .
 
 Les résultats d'une requête de recherche telle que `Type=Event`, affichent des filtres, également appelés facettes, sur le côté gauche des résultats de la recherche. Les filtres montrent une distribution de valeurs pour un champ donné dans les résultats de la recherche effectuée.
 
 ![Recherche measure count](./media/log-analytics-log-searches/oms-search-measure-count01.png)
 
-Par exemple, dans l’image ci-dessus, vous voyez le champ **Computer**. L’image montre que, parmi les près de 739 000 événements figurant dans les résultats, 68 contiennent des valeurs uniques et distinctes dans le champ **Computer**. La vignette affiche uniquement les 5 premières, qui sont les 5 valeurs les plus courantes écrites dans le champ **Ordinateur** , triées par nombre de documents contenant cette valeur spécifique dans ce champ. L’image montre que, parmi ces près de 369 000 événements, 90 000 proviennent de l’ordinateur OpsInsights04.contoso.com, 83 0000 de l’ordinateur DB03.contoso.com, et ainsi de suite.
+Par exemple, dans l’image ci-dessus, vous voyez le champ **Computer**. L’image montre que, parmi les près de 739 000 événements figurant dans les résultats, 68 contiennent des valeurs uniques et distinctes dans le champ **Computer**. La vignette affiche uniquement les 5 premières, qui sont les 5 valeurs les plus courantes écrites dans le champ **Ordinateur** , triées par nombre de documents contenant cette valeur spécifique dans ce champ. L’image montre que, parmi ces près de 369 000 événements, 90 000 proviennent de l’ordinateur OpsInsights04.contoso.com, 83 0000 de l’ordinateur DB03.contoso.com, et ainsi de suite.
 
+Comment faire si vous souhaitez voir toutes les valeurs, étant donné que la vignette ne montre que les 5 premières ?
 
-Comment faire si vous souhaitez voir toutes les valeurs, étant donné que la vignette ne montre que les 5 premières ?
-
-C'est ce que la commande Measure permet de faire avec la fonction count(). Cette fonction n'utilise aucun paramètre. Vous spécifiez simplement le champ par lequel vous voulez regrouper – le champ **Ordinateur** dans ce cas :
+C'est ce que la commande Measure permet de faire avec la fonction count(). Cette fonction n'utilise aucun paramètre. Vous spécifiez simplement le champ par lequel vous voulez regrouper – le champ **Ordinateur** dans ce cas :
 
 `Type=Event | Measure count() by Computer`
 
 ![Recherche measure count](./media/log-analytics-log-searches/oms-search-measure-count-computer.png)
 
-Le champ **Computer** est toutefois simplement un champ utilisé *dans* chaque élément de données : aucune base de données relationnelle n’est impliquée, et il n’existe aucun objet **Computer**distinct nulle part. Simplement, les valeurs *dans* les données peuvent décrire l’entité qui les a générées, ainsi qu’un certain nombre d’autres caractéristiques et aspects des données, d’où le terme *facette*. Toutefois, vous pouvez également les regrouper par d'autres champs. Étant donné que les résultats d’origine des près de 739 000 événements canalisés dans la commande Measure ont également un champ nommé **EventID**, vous pouvez appliquer la même technique pour regrouper par ce champ et obtenir un nombre d’événements par EventID :
+Le champ **Computer** est toutefois simplement un champ utilisé *dans* chaque élément de données : aucune base de données relationnelle n’est impliquée, et il n’existe aucun objet **Computer**distinct nulle part. Simplement, les valeurs *dans* les données peuvent décrire l’entité qui les a générées, ainsi qu’un certain nombre d’autres caractéristiques et aspects des données, d’où le terme *facette*. Toutefois, vous pouvez également les regrouper par d'autres champs. Étant donné que les résultats d’origine des près de 739 000 événements canalisés dans la commande Measure ont également un champ nommé **EventID**, vous pouvez appliquer la même technique pour regrouper par ce champ et obtenir un nombre d’événements par EventID :
 
 ```
 Type=Event | Measure count() by EventID
 ```
 
-Si vous n'êtes pas intéressé par le nombre d'enregistrements réels qui contiennent une valeur spécifique, mais que vous souhaitez seulement une liste de valeurs elles-mêmes, vous pouvez ajouter une commande *Sélect* à la fin de celle-ci et simplement sélectionner la première colonne :
+Si vous n'êtes pas intéressé par le nombre d'enregistrements réels qui contiennent une valeur spécifique, mais que vous souhaitez seulement une liste de valeurs elles-mêmes, vous pouvez ajouter une commande *Sélect* à la fin de celle-ci et simplement sélectionner la première colonne :
 
 ```
 Type=Event | Measure count() by EventID | Select EventID
@@ -293,23 +282,20 @@ Type=Event | Measure count() by EventID | Select EventID | Sort EventID asc
 ```
 
 #### <a name="to-search-using-measure-count"></a>Pour effectuer une recherche à l'aide de measure count
+* Dans le champ de requête de recherche, tapez `Type=Event | Measure count() by EventID`
+* Ajoutez `| Select EventID` à la fin de la requête.
+* Enfin, ajoutez `| Sort EventID asc` à la fin de la requête.
 
-- Dans le champ de requête de recherche, tapez `Type=Event | Measure count() by EventID`
-- Ajoutez `| Select EventID` à la fin de la requête.
-- Enfin, ajoutez `| Sort EventID asc` à la fin de la requête.
+Il est important de comprendre et de mettre en évidence certains points essentiels :
 
+Tout d'abord, les résultats que vous voyez ne sont plus les résultats bruts d'origine. Il s’agit en fait de résultats agrégés : autrement dit, des groupes de résultats. Cela n'est pas un problème, mais vous devez comprendre que vous interagissez avec une toute autre forme de données qui diffère de la forme brute d'origine créée en cours de route lorsque la fonction d'agrégation ou statistique est utilisée.
 
-Il est important de comprendre et de mettre en évidence certains points essentiels :
-
-Tout d'abord, les résultats que vous voyez ne sont plus les résultats bruts d'origine. Il s’agit en fait de résultats agrégés : autrement dit, des groupes de résultats. Cela n'est pas un problème, mais vous devez comprendre que vous interagissez avec une toute autre forme de données qui diffère de la forme brute d'origine créée en cours de route lorsque la fonction d'agrégation ou statistique est utilisée.
-
-Ensuite, la fonction **Measure count** ne retourne pour le moment que les 100 premiers résultats distincts. Cette limite ne s'applique pas aux autres fonctions statistiques. Par conséquent, vous devez généralement utiliser d’abord un filtre plus précis pour rechercher des éléments spécifiques avant d'appliquer measure count().
+Ensuite, la fonction **Measure count** ne retourne pour le moment que les 100 premiers résultats distincts. Cette limite ne s'applique pas aux autres fonctions statistiques. Par conséquent, vous devez généralement utiliser d’abord un filtre plus précis pour rechercher des éléments spécifiques avant d'appliquer measure count().
 
 ## <a name="use-the-max-and-min-functions-with-the-measure-command"></a>Utilisation des fonctions min et max avec la commande measure
-
 Il existe plusieurs situations où les commandes **Measure Max()** et **Measure Min()** sont utiles. Toutefois, étant donné que chaque fonction est l'opposé de l'autre, nous démontrerons la fonction Max() et vous pourrez ensuite tester vous-même la fonction Min().
 
-Si vous interrogez des événements de sécurité, ceux-ci ont une propriété **Level** qui peut varier. Par exemple :
+Si vous interrogez des événements de sécurité, ceux-ci ont une propriété **Level** qui peut varier. Par exemple :
 
 ```
 Type=SecurityEvent
@@ -317,7 +303,7 @@ Type=SecurityEvent
 
 ![Recherche du début de la fonction measure count](./media/log-analytics-log-searches/oms-search-measure-max01.png)
 
-Si vous souhaitez afficher la valeur la plus élevée de toutes les alertes de sécurité pour un ordinateur commun donné, puis les grouper par champ, vous pouvez utiliser la syntaxe suivante :
+Si vous souhaitez afficher la valeur la plus élevée de toutes les alertes de sécurité pour un ordinateur commun donné, puis les grouper par champ, vous pouvez utiliser la syntaxe suivante :
 
 ```
 Type=ConfigurationAlert | Measure Max(Level) by Computer
@@ -325,7 +311,7 @@ Type=ConfigurationAlert | Measure Max(Level) by Computer
 
 ![Recherche l’ordinateur de la fonction measure max](./media/log-analytics-log-searches/oms-search-measure-max02.png)
 
-Elle indique que, pour les ordinateurs ayant des enregistrements **Level**, la plupart ont au moins le niveau 8, et un grand nombre ont le niveau 16.
+Elle indique que, pour les ordinateurs ayant des enregistrements **Level**, la plupart ont au moins le niveau 8, et un grand nombre ont le niveau 16.
 
 ```
 Type=ConfigurationAlert | Measure Max(Severity) by Computer
@@ -333,19 +319,18 @@ Type=ConfigurationAlert | Measure Max(Severity) by Computer
 
 ![Recherche l’ordinateur qui génère la valeur horaire measure max](./media/log-analytics-log-searches/oms-search-measure-max03.png)
 
-Cette fonction fonctionne bien avec les nombres, mais elle fonctionne également avec les champs DateHeure. Il est utile de vérifier l'horodatage de la dernière heure ou de l’heure la plus récente pour tout type de données indexé pour chaque ordinateur. Par exemple : quand l’événement de sécurité plus récent a-t-il été signalé pour chaque ordinateur ?
+Cette fonction fonctionne bien avec les nombres, mais elle fonctionne également avec les champs DateHeure. Il est utile de vérifier l'horodatage de la dernière heure ou de l’heure la plus récente pour tout type de données indexé pour chaque ordinateur. Par exemple : quand l’événement de sécurité plus récent a-t-il été signalé pour chaque ordinateur ?
 
 ```
 Type=ConfigurationChange | Measure Max(TimeGenerated) by Computer
 ```
 
 ## <a name="use-the-avg-function-with-the-measure-command"></a>Utilisation de la fonction avg avec la commande measure
-
 La fonction statistique Avg() utilisée avec measure vous permet de calculer la valeur moyenne pour un champ et de grouper les résultats selon ce même champ ou un autre. Cela est utile dans de nombreux cas, pour les données de performances par exemple.
 
 Nous allons commencer par les données de performances. Remarque : OMS collecte actuellement les compteurs de performance pour les ordinateurs Windows et Linux.
 
-Pour rechercher *toutes* les données de performances, la requête la plus simple est :
+Pour rechercher *toutes* les données de performances, la requête la plus simple est :
 
 ```
 Type=Perf
@@ -353,13 +338,13 @@ Type=Perf
 
 ![Recherche du début de la fonction avg](./media/log-analytics-log-searches/oms-search-avg01.png)
 
-La première chose que vous pouvez remarquer est que Log Analytics présente trois perspectives : Liste, qui montre les enregistrements réels sous-jacents aux graphiques ; Table, qui montre une vue tabulaire des données d’un compteur de performances ; et Mesures, qui montre des graphiques pour les compteurs de performances.
+La première chose que vous pouvez remarquer est que Log Analytics présente trois perspectives : Liste, qui montre les enregistrements réels sous-jacents aux graphiques ; Table, qui montre une vue tabulaire des données d’un compteur de performances ; et Mesures, qui montre des graphiques pour les compteurs de performances.
 
-Dans l'image ci-dessus, il existe deux ensembles de champs marqués qui indiquent les éléments suivants :
+Dans l'image ci-dessus, il existe deux ensembles de champs marqués qui indiquent les éléments suivants :
 
-- Le premier jeu identifie le nom du compteur de performances Windows, le nom de l’objet et le nom de l’instance dans le filtre de la requête. Il s’agit des champs que vous utiliserez probablement le plus souvent en tant que facettes ou filtres.
-- **CounterValue** est la valeur réelle du compteur. Dans cet exemple, la valeur est *75*.
-- **TimeGenerated** a la valeur 12:51, au format 24 heures.
+* Le premier jeu identifie le nom du compteur de performances Windows, le nom de l’objet et le nom de l’instance dans le filtre de la requête. Il s’agit des champs que vous utiliserez probablement le plus souvent en tant que facettes ou filtres.
+* **CounterValue** est la valeur réelle du compteur. Dans cet exemple, la valeur est *75*.
+* **TimeGenerated** a la valeur 12:51, au format 24 heures.
 
 Voici une vue des mesures dans un graphique.
 
@@ -367,7 +352,7 @@ Voici une vue des mesures dans un graphique.
 
 Après avoir lu ce qui concerne la forme d’enregistrement Perf et ce qui concerne d’autres techniques de recherche, vous pouvez utiliser measure Avg() pour agréger ce type de données numériques.
 
-Voici un exemple simple :
+Voici un exemple simple :
 
 ```
 Type=Perf  ObjectName:Processor  InstanceName:_Total  CounterName:"% Processor Time" | Measure Avg(CounterValue) by Computer
@@ -382,28 +367,27 @@ Type=Perf  ObjectName:Processor  InstanceName:_Total  CounterName:"% Processor T
 ```
 
 ### <a name="to-search-using-the-avg-function-with-the-measure-command"></a>Rechercher à l’aide de la fonction avg avec la commande measure
-- Dans le champ de requête de recherche, tapez `Type=Perf  ObjectName:Processor  InstanceName:_Total  CounterName:"% Processor Time" TimeGenerated>NOW-6HOURS | Measure Avg(CounterValue) by Computer`.
+* Dans le champ de requête de recherche, tapez `Type=Perf  ObjectName:Processor  InstanceName:_Total  CounterName:"% Processor Time" TimeGenerated>NOW-6HOURS | Measure Avg(CounterValue) by Computer`.
 
-
-Vous pouvez agréger et corréler les données *entre* plusieurs ordinateurs. Par exemple, imaginez que vous disposez d'un ensemble d'hôtes dans une sorte de batterie de serveurs où chaque nœud est égal à n'importe quel autre et ils effectuent simplement le même type de travail et la charge doit être à peu près équilibrée. Vous pouvez obtenir leurs compteurs en une seule fois avec la requête suivante et obtenir des moyennes pour l’ensemble de la batterie. Vous pouvez commencer en choisissant les ordinateurs avec l'exemple suivant :
+Vous pouvez agréger et corréler les données *entre* plusieurs ordinateurs. Par exemple, imaginez que vous disposez d'un ensemble d'hôtes dans une sorte de batterie de serveurs où chaque nœud est égal à n'importe quel autre et ils effectuent simplement le même type de travail et la charge doit être à peu près équilibrée. Vous pouvez obtenir leurs compteurs en une seule fois avec la requête suivante et obtenir des moyennes pour l’ensemble de la batterie. Vous pouvez commencer en choisissant les ordinateurs avec l'exemple suivant :
 
 ```
 Type=Perf AND (Computer="AzureMktg01" OR Computer="AzureMktg02" OR Computer="AzureMktg03")
 ```
 
-Maintenant que vous avez les ordinateurs, vous ne devez sélectionner que deux indicateurs de performance clés (KPI) : le pourcentage d’utilisation du processeur et le pourcentage d’espace disque disponible. Par conséquent, cette partie de la requête devient :
+Maintenant que vous avez les ordinateurs, vous ne devez sélectionner que deux indicateurs de performance clés (KPI) : le pourcentage d’utilisation du processeur et le pourcentage d’espace disque disponible. Par conséquent, cette partie de la requête devient :
 
 ```
 Type=Perf InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS
 ```
 
-Vous pouvez maintenant ajouter des ordinateurs et des compteurs avec l'exemple suivant :
+Vous pouvez maintenant ajouter des ordinateurs et des compteurs avec l'exemple suivant :
 
 ```
 Type=Perf InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer="AzureMktg01" OR Computer="AzureMktg02" OR Computer="AzureMktg03")
 ```
 
-Étant donné que vous avez une sélection très spécifique, la commande **measure Avg()** peut retourner la moyenne non par ordinateur mais pour l’ensemble de la batterie de serveurs, simplement en effectuant un regroupement par CounterName. Par exemple :
+Étant donné que vous avez une sélection très spécifique, la commande **measure Avg()** peut retourner la moyenne non par ordinateur mais pour l’ensemble de la batterie de serveurs, simplement en effectuant un regroupement par CounterName. Par exemple :
 
 ```
 Type=Perf  InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer="AzureMktg01" OR Computer="AzureMktg02" OR Computer="AzureMktg03") | Measure Avg(CounterValue) by CounterName
@@ -413,21 +397,18 @@ Cela vous donne une vue compacte utile de quelques indicateurs de performance cl
 
 ![Recherche du groupement de la fonction avg](./media/log-analytics-log-searches/oms-search-avg04.png)
 
-
 Vous pouvez facilement utiliser la requête de recherche dans un tableau de bord. Par exemple, vous pouvez enregistrer la requête de recherche, puis créer un tableau de bord à partir de celle-ci, nommé *Indicateurs de performance clés (KPI) de batterie de serveurs web*. Pour en savoir plus sur l’utilisation de tableaux de bord, consultez [Créer un tableau de bord personnalisé dans Log Analytics](log-analytics-dashboards.md).
 
 ![Tableau de bord de recherche avg](./media/log-analytics-log-searches/oms-search-avg05.png)
 
 ### <a name="use-the-sum-function-with-the-measure-command"></a>Utilisation de la fonction sum avec la commande measure
-
-La fonction sum est similaire à d'autres fonctions de la commande measure. Vous pouvez voir un exemple sur la façon d'utiliser la fonction sum dans [Recherche de journaux IIS W3C dans Microsoft Azure Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx).
+La fonction sum est similaire à d'autres fonctions de la commande measure. Vous pouvez voir un exemple sur la façon d'utiliser la fonction sum dans [Recherche de journaux IIS W3C dans Microsoft Azure Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx).
 
 Vous pouvez utiliser les fonctions Max() et Min() avec des chaînes de nombres, de dates et heures, et de texte. Avec des chaînes de texte, elles sont triées par ordre alphabétique et vous pouvez obtenir la première et la dernière.
 
 Toutefois, vous ne pouvez pas utiliser Sum() uniquement avec des champs numériques. Cela vaut également pour la fonction Avg().
 
 ### <a name="use-the-percentile-function-with-the-measure-command"></a>Utilisation de la fonction percentile avec la commande measure
-
 La fonction percentile est similaire à Avg() et Sum() dans la mesure où vous pouvez l’utiliser uniquement pour les champs numériques. Vous pouvez utiliser n’importe quel pourcentage entre 1 et 99 sur un champ numérique. Vous pouvez également utiliser les deux commandes **percentile** et **pct**. Voici quelques exemples :  
 
 ```
@@ -438,10 +419,9 @@ Type:Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Compute
 ```
 
 ## <a name="use-the-where-command"></a>Utilisation de la commande where
-
 La commande where fonctionne comme un filtre, mais elle peut être appliquée dans le pipeline pour filtrer davantage les résultats agrégés résultant d’une commande Measure – au lieu des résultats bruts qui sont filtrés au début d'une requête.
 
-Par exemple :
+Par exemple :
 
 ```
 Type=Perf  CounterName="% Processor Time"  InstanceName="_Total" | Measure Avg(CounterValue) as AVGCPU by Computer
@@ -460,7 +440,6 @@ Vous pouvez utiliser la requête sous forme de vignette dans **Mon tableau de bo
 ![Tableau de bord mobile](./media/log-analytics-log-searches/oms-search-mobile.png)
 
 ## <a name="use-the-in-operator"></a>Utilisation de l’opérateur in
-
 Les opérateurs *IN* et *NOT IN* vous permettent d’effectuer des sous-recherches, c’est-à-dire des recherches incluant une autre recherche en tant qu’argument. Elles sont contenues entre accolades {} à l’intérieur d’une autre recherche *principale* ou *externe*. Le résultat d’une sous-recherche, souvent une liste de résultats distincts, sert ensuite d’argument pour la recherche principale.
 
 Vous pouvez utiliser les sous-recherches pour faire correspondre des sous-ensembles de données que vous ne pouvez pas décrire directement dans une expression de recherche, mais qui peuvent être générés à partir d’une recherche. Par exemple, si vous souhaitez utiliser une recherche pour trouver tous les événements survenus sur des *ordinateurs auxquels manquent des mises à jour de sécurité*, vous devez concevoir une sous-recherche qui identifie d’abord les *ordinateurs auxquels manquent des mises à jour de sécurité*, avant de rechercher des événements associés à ces hôtes.
@@ -480,7 +459,6 @@ Type=Event Computer IN {Type:Update UpdateState=Needed Optional=false Classifica
 ```
 ![Exemple de recherche avec l’opérateur IN](./media/log-analytics-log-searches/oms-search-in02-revised.png)
 
-
 Notez également le filtre de temps utilisé dans la recherche interne, car l’évaluation des mises à jour du système prend un instantané de tous les ordinateurs toutes les 24 heures. Vous pouvez rendre la requête interne plus légère et plus précise en recherchant uniquement une journée. La recherche externe utilise pour sa part la sélection de temps de l’interface utilisateur, en récupérant les événements des 7 derniers jours. Consultez la page [Opérateurs booléens](#boolean-operators) pour plus d’informations sur les opérateurs de temps.
 
 Étant donné que vous utilisez uniquement les résultats de la recherche interne comme valeurs de filtre pour la recherche externe, vous pouvez toujours appliquer des commandes à la recherche externe. Par exemple, vous pouvez toujours regrouper les événements ci-dessus avec une autre commande measure :
@@ -490,7 +468,6 @@ Type=Event Computer IN {Type:Update UpdateState=Needed Optional=false Classifica
 ```
 
 ![Exemple de recherche avec l’opérateur IN](./media/log-analytics-log-searches/oms-search-in03-revised.png)
-
 
 En règle générale, vous souhaitez que la requête interne s’exécute rapidement, car elle nécessite des délais d’attente côté service dans Log Analytics, et qu’elle renvoie un nombre de résultats limité. Si la requête interne renvoie trop de résultats, la liste des résultats est tronquée, ce qui peut provoquer un renvoi de résultats incorrects de la part de la recherche externe.
 
@@ -518,14 +495,13 @@ Type=Event EventLevelName=error Computer IN {Type=SQLAssessmentRecommendation | 
 Type=SecurityEvent Computer IN { Type=ADAssessmentRecommendation | measure count() by Computer }
 ```
 
-**Quels autres comptes ont ouvert une session sur les ordinateurs auxquels le compte BACONLAND\jochan s’est connecté ?**
+**Quels autres comptes ont ouvert une session sur les ordinateurs auxquels le compte BACONLAND\jochan s’est connecté ?**
 
 ```
 Type=SecurityEvent EventID=4624   Account!="BACONLAND\\jochan" Computer IN { Type=SecurityEvent EventID=4624   Account="BACONLAND\\jochan" | measure count() by Computer } | measure count() by Account
 ```
 
 ## <a name="use-the-distinct-command"></a>Utilisation de la commande distinct
-
 Comme son nom l’indique, cette commande fournit une liste de valeurs distinctes pour un champ. Son utilisation est étonnamment simple mais cette commande s’avère très utile. Vous pouvez obtenir le même résultat avec la commande measure count(), comme indiqué ci-dessous.
 
 ```
@@ -583,19 +559,17 @@ Type=WireData | measure avg(ReceivedBytes), avg(SentBytes) by Direction interval
 ![OMS-multiaggregates1](./media/log-analytics-log-searches/oms-multiaggregates1.png)
 
 Voici un autre exemple :
+
  ```
 * | measure countdistinct(Computer) as Computers, count() as TotalRecords by Type
 ```
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-
 Pour plus d’informations sur les recherches de journal, consultez les ressources suivantes :
 
-- Utilisez [Champs personnalisés dans Log Analytics](log-analytics-custom-fields.md) pour étendre les recherches de journal.
-- Pour connaître tous les champs de recherche et facettes disponibles dans Log Analytics, consultez les [informations de référence sur la recherche de journal avec Log Analytics](log-analytics-search-reference.md) .
-
-
+* Utilisez [Champs personnalisés dans Log Analytics](log-analytics-custom-fields.md) pour étendre les recherches de journal.
+* Pour connaître tous les champs de recherche et facettes disponibles dans Log Analytics, consultez les [informations de référence sur la recherche de journal avec Log Analytics](log-analytics-search-reference.md) .
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,31 +1,32 @@
-<properties
-   pageTitle="Utilisation de l’écouteur HTTP et de l’action HTTP dans des applications logiques | Microsoft Azure App Service "
-   description="Comment créer et configurer l’écouteur HTTP et l’action HTTP ou une application API et l'utiliser dans une application logique d’Azure App Service"
-   services="logic-apps"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="erikre"
-   editor=""/>
+---
+title: Utilisation de l’écouteur HTTP et de l’action HTTP dans des applications logiques | Microsoft Docs
+description: Comment créer et configurer l’écouteur HTTP et l’action HTTP ou une application API et l'utiliser dans une application logique d’Azure App Service
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: anuragdalmia
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/31/2016"
-   ms.author="prkumar"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 08/31/2016
+ms.author: prkumar
 
-
+---
 # Utilisation et ajout de l’écouteur HTTP et de l’action HTTP dans votre application logique
+> [!NOTE]
+> La prise en charge de ce connecteur ne sera plus assurée car sa fonctionnalité est désormais incluse par défaut en tant que **déclencheur manuel** lorsque vous créez des applications logique. Nous vous recommandons de mettre à niveau toutes vos applications logiques qui utilisent ce connecteur. Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques.
+> 
+> 
 
-> [AZURE.NOTE] La prise en charge de ce connecteur ne sera plus assurée car sa fonctionnalité est désormais incluse par défaut en tant que **déclencheur manuel** lorsque vous créez des applications logique. Nous vous recommandons de mettre à niveau toutes vos applications logiques qui utilisent ce connecteur. Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques.
+Connectez-vous directement aux ressources HTTP pour écouter les demandes HTTP et configurer des demandes web HTTP. Il existe certains scénarios où vous devez travailler avec des connexions HTTP directes, notamment :
 
-Connectez-vous directement aux ressources HTTP pour écouter les demandes HTTP et configurer des demandes web HTTP. Il existe certains scénarios où vous devez travailler avec des connexions HTTP directes, notamment :
-
-1.	pour développer une application logique qui prend en charge un frontal interactif d'utilisateur web ou mobile,
-2.	pour obtenir et traiter les données d'un service web qui n'a pas de connecteur prêt à l'emploi,
-3.	pour effectuer des actions déjà exposées en tant que service web, mais non disponibles sous forme d'application API.
+1. pour développer une application logique qui prend en charge un frontal interactif d'utilisateur web ou mobile,
+2. pour obtenir et traiter les données d'un service web qui n'a pas de connecteur prêt à l'emploi,
+3. pour effectuer des actions déjà exposées en tant que service web, mais non disponibles sous forme d'application API.
 
 Dans ces cas de figure, il existe deux options :
 
@@ -39,29 +40,25 @@ Un connecteur peut être créé dans une application logique ou directement à p
 
 1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
 2. Recherchez « HTTP », sélectionnez Écouteur HTTP et sélectionnez **Créer**.
-3.	Configurez l'écouteur HTTP comme suit : ![][1]
-
-4.	Quand vous configurez les paramètres du package, vous voyez l'option suivante qui détermine si l'écouteur doit répondre automatiquement ou vous demander d'envoyer une réponse explicite. Affectez à cette option la valeur **False** pour envoyer votre propre réponse : ![][2]
-
-5.	Cliquez sur **OK** pour créer.
-6.	Une fois que l'instance de l'application API est créée, ouvrez les paramètres de configuration de la sécurité. L'écouteur HTTP prend actuellement en charge l'authentification de base. Vous pouvez la configurer à l'aide de l'option Sécurité quand vous ouvrez l'écouteur HTTP : ![][3]
-  
-	**Problème connu** *Les paramètres de sécurité affichent « None » comme valeur par défaut, mais ils ne sont pas définis. Vous devez modifier le paramètre de base et rétablir None avant de l’enregistrer pour vous assurer que l’écouteur HTTP est configuré correctement.*
-
-7. Enfin, définissez les paramètres de sécurité de l’application API en Public (anonyme) pour autoriser les clients externes à accéder au point de terminaison. Ce paramètre est disponible sous « Tous les paramètres > Paramètres de l’application » de l’application API d’écouteur HTTP : ![][10]
+3. Configurez l'écouteur HTTP comme suit : ![][1]
+4. Quand vous configurez les paramètres du package, vous voyez l'option suivante qui détermine si l'écouteur doit répondre automatiquement ou vous demander d'envoyer une réponse explicite. Affectez à cette option la valeur **False** pour envoyer votre propre réponse : ![][2]
+5. Cliquez sur **OK** pour créer.
+6. Une fois que l'instance de l'application API est créée, ouvrez les paramètres de configuration de la sécurité. L'écouteur HTTP prend actuellement en charge l'authentification de base. Vous pouvez la configurer à l'aide de l'option Sécurité quand vous ouvrez l'écouteur HTTP : ![][3]
+   
+   **Problème connu** *Les paramètres de sécurité affichent « None » comme valeur par défaut, mais ils ne sont pas définis. Vous devez modifier le paramètre de base et rétablir None avant de l’enregistrer pour vous assurer que l’écouteur HTTP est configuré correctement.*
+7. Enfin, définissez les paramètres de sécurité de l’application API en Public (anonyme) pour autoriser les clients externes à accéder au point de terminaison. Ce paramètre est disponible sous « Tous les paramètres > Paramètres de l’application » de l’application API d’écouteur HTTP : ![][10]
 
 Une fois cette opération effectuée, vous pouvez alors créer une application logique pour utiliser l'écouteur HTTP.
 
 ## Utilisation de l'écouteur HTTP dans votre application logique
-Une fois votre application API créée, vous pouvez utiliser l'écouteur HTTP comme déclencheur pour votre application logique. Pour cela, vous devez procéder comme suit :
+Une fois votre application API créée, vous pouvez utiliser l'écouteur HTTP comme déclencheur pour votre application logique. Pour cela, vous devez procéder comme suit :
 
-4.	Créer une application logique.
-5.	Ouvrez « Déclencheurs et actions » pour ouvrir le concepteur d’applications logiques et configurer votre flux. L’écouteur HTTP est répertorié dans la galerie. Sélectionnez-le.
-6.	Vous pouvez maintenant définir la méthode HTTP et l’URL relative sur laquelle vous voulez que l’écouteur déclenche le flux : ![][4] ![][5]
-
-7.	Pour obtenir l'URI complet, double-cliquez sur l'écouteur HTTP pour afficher ses paramètres de configuration et copiez l'URL de l'hôte de votre application API : ![][6]
-8.	Vous pouvez maintenant utiliser les données reçues dans la demande HTTP dans les autres actions du flux comme suit :![][7] ![][8]
-9.	Enfin, pour envoyer une réponse, ajoutez un autre écouteur HTTP et sélectionnez l'action Envoyer une réponse HTTP. Affectez à l’ID de demande la valeur RequestID obtenue de l’écouteur HTTP, puis remplissez le corps de la réponse et l’état HTTP à renvoyer : ![][9]
+1. Créer une application logique.
+2. Ouvrez « Déclencheurs et actions » pour ouvrir le concepteur d’applications logiques et configurer votre flux. L’écouteur HTTP est répertorié dans la galerie. Sélectionnez-le.
+3. Vous pouvez maintenant définir la méthode HTTP et l’URL relative sur laquelle vous voulez que l’écouteur déclenche le flux : ![][4] ![][5]
+4. Pour obtenir l'URI complet, double-cliquez sur l'écouteur HTTP pour afficher ses paramètres de configuration et copiez l'URL de l'hôte de votre application API : ![][6]
+5. Vous pouvez maintenant utiliser les données reçues dans la demande HTTP dans les autres actions du flux comme suit :![][7] ![][8]
+6. Enfin, pour envoyer une réponse, ajoutez un autre écouteur HTTP et sélectionnez l'action Envoyer une réponse HTTP. Affectez à l’ID de demande la valeur RequestID obtenue de l’écouteur HTTP, puis remplissez le corps de la réponse et l’état HTTP à renvoyer : ![][9]
 
 ## Utilisation de l'action HTTP
 L'action HTTP est prise en charge de façon native par les applications logiques et ne requiert pas la création préalable d'une application API pour pouvoir être utilisée. Vous pouvez insérer une action HTTP à n'importe quel endroit dans votre application logique et choisir l'URI, les en-têtes et le corps de l'appel. L'action HTTP prend en charge plusieurs options de sécurité côté client. Consultez les [options de sécurité côté client](../scheduler/scheduler-outbound-authentication.md).
@@ -75,7 +72,10 @@ Affichez la référence d’API REST Swagger sur [Référence de connecteurs et 
 
 Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Pour plus d'informations, consultez [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
-> [AZURE.NOTE] Si vous souhaitez commencer à utiliser Azure Logic Apps avant d’ouvrir un compte Azure, accédez à [Try Logic Apps (Essayer Logic Apps)](https://tryappservice.azure.com/?appservice=logic). Vous pouvez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> [!NOTE]
+> Si vous souhaitez commencer à utiliser Azure Logic Apps avant d’ouvrir un compte Azure, accédez à [Try Logic Apps (Essayer Logic Apps)](https://tryappservice.azure.com/?appservice=logic). Vous pouvez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> 
+> 
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-http/1.png

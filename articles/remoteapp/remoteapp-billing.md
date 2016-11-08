@@ -1,27 +1,26 @@
 
-<properties
-    pageTitle="Modifier la facturation pour Azure RemoteApp | Microsoft Azure"
-    description="Apprenez comment arrêter la facturation pour Azure RemoteApp."
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+---
+title: Modifier la facturation pour Azure RemoteApp | Microsoft Docs
+description: Apprenez comment arrêter la facturation pour Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/15/2016"
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
-
+---
 # Procédure d’arrêt de facturation pour Azure RemoteApp
-
-> [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+> [!IMPORTANT]
+> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 Tant que vous disposez de collections Azure RemoteApp, même sans utilisateur affecté, vous serez facturé pour RemoteApp. Pour arrêter cette facturation, supprimez tous vos collections.
 

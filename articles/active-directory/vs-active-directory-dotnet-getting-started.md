@@ -1,34 +1,33 @@
-<properties 
-	pageTitle="Prise en main d’Azure Active Directory et des services connectés de Visual Studio (projets MVC) |Microsoft Azure" 
-	description="Comment prendre en main Azure Active Directory dans les projets MVC après s’être connecté à un annuaire Azure AD ou avoir créé un annuaire Azure AD à l’aide des services connectés de Visual Studio" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="TomArcher" 
-	manager="douge" 
-	editor=""/>
-  
-<tags 
-	ms.service="active-directory" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/15/2016" 
-	ms.author="tarcher"/>
+---
+title: Prise en main d’Azure Active Directory et des services connectés de Visual Studio (projets MVC) | Microsoft Docs
+description: Comment prendre en main Azure Active Directory dans les projets MVC après s’être connecté à un annuaire Azure AD ou avoir créé un annuaire Azure AD à l’aide des services connectés de Visual Studio
+services: active-directory
+documentationcenter: ''
+author: TomArcher
+manager: douge
+editor: ''
 
+ms.service: active-directory
+ms.workload: web
+ms.tgt_pltfrm: vs-getting-started
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: tarcher
+
+---
 # Prise en main d’Azure Active Directory et des services connectés de Visual Studio (projets MVC)
+> [!div class="op_single_selector"]
+> * [Prise en main](vs-active-directory-dotnet-getting-started.md)
+> * [Que s'est-il passé ?](vs-active-directory-dotnet-what-happened.md)
+> 
+> 
 
-> [AZURE.SELECTOR]
-> - [Prise en main](vs-active-directory-dotnet-getting-started.md)
-> - [Que s'est-il passé ?](vs-active-directory-dotnet-what-happened.md)
- 
-##Demander une authentification pour l'accès aux contrôleurs 
-
+## Demander une authentification pour l'accès aux contrôleurs
 Tous les contrôleurs de votre projet ont été dotés de l'attribut **Authorize**. Cet attribut permet de demander à l'utilisateur de s'authentifier avant d'accéder à ces contrôleurs. Pour autoriser un accès anonyme au contrôleur, cet attribut doit être supprimé du contrôleur. Pour définir plus précisément les autorisations, appliquez cet attribut à chaque méthode nécessitant une autorisation, au lieu de l’appliquer à la classe de contrôleur.
- 
-##Ajouter des contrôles SignIn/SignOut 
 
-Pour ajouter des contrôles SignIn/SignOut à l’une de vos vues, vous pouvez utiliser la vue partielle **\_LoginPartial.cshtml**. Voici un exemple de la fonctionnalité ajoutée à la vue **Layout.cshtml** standard. (Notez le dernier élément de la classe div avec navbar-collapse) :
+## Ajouter des contrôles SignIn/SignOut
+Pour ajouter des contrôles SignIn/SignOut à l’une de vos vues, vous pouvez utiliser la vue partielle **\_LoginPartial.cshtml**. Voici un exemple de la fonctionnalité ajoutée à la vue **Layout.cshtml** standard. (Notez le dernier élément de la classe div avec navbar-collapse) :
 
 <pre>
     &lt;!DOCTYPE html> 

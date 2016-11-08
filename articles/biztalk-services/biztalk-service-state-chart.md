@@ -1,27 +1,25 @@
-<properties 
-	pageTitle="Tâches autorisées dans les différents états ou statuts de BizTalk Services | Microsoft Azure" 
-	description="Actions/opérations autorisées dans différents états MABS : arrêter, démarrer, redémarrer, suspendre, reprendre, supprimer, mettre à l'échelle, mettre à jour la configuration et sauvegarder" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="erikre" 
-	editor=""/>
+---
+title: Tâches autorisées dans les différents états ou statuts de BizTalk Services | Microsoft Docs
+description: 'Actions/opérations autorisées dans différents états MABS : arrêter, démarrer, redémarrer, suspendre, reprendre, supprimer, mettre à l''échelle, mettre à jour la configuration et sauvegarder'
+services: biztalk-services
+documentationcenter: ''
+author: MandiOhlinger
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/15/2016" 
-	ms.author="mandia"/>
+ms.service: biztalk-services
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: mandia
 
-
-
+---
 # Tableau comparatif des états de BizTalk Services
 Selon l'état actuel du service BizTalk, vous pouvez effectuer ou non certaines opérations sur celui-ci.
 
-Par exemple, vous approvisionnez un nouveau service BizTalk dans le portail Azure Classic. Lorsqu'il se termine correctement, le service BizTalk possède l'état Actif. Dans cet état, vous pouvez arrêter le service BizTalk. Si l'arrêt s'effectue correctement, le service BizTalk passe à l'état Arrêté. Si l'arrêt échoue, le service BizTalk passe à l'état StopFailed. Dans cet état, vous pouvez redémarrer le service BizTalk. Si vous tentez une opération non autorisée, telle que la reprise du service BizTalk, l'erreur suivante se produit :
+Par exemple, vous approvisionnez un nouveau service BizTalk dans le portail Azure Classic. Lorsqu'il se termine correctement, le service BizTalk possède l'état Actif. Dans cet état, vous pouvez arrêter le service BizTalk. Si l'arrêt s'effectue correctement, le service BizTalk passe à l'état Arrêté. Si l'arrêt échoue, le service BizTalk passe à l'état StopFailed. Dans cet état, vous pouvez redémarrer le service BizTalk. Si vous tentez une opération non autorisée, telle que la reprise du service BizTalk, l'erreur suivante se produit :
 
 **Opération non autorisée**
 
@@ -256,15 +254,12 @@ RestoreFailed<br/></b></td>
 </table>
 
 ## Voir aussi
-- [Approvisionnement de BizTalk Services avec le portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-- [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [Sauvegarde et restauration de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-- [Limitation BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-- [Nom et clé de l'émetteur dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-- [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
-
-
- 
+* [Approvisionnement de BizTalk Services avec le portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [Sauvegarde et restauration de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [Limitation BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [Nom et clé de l'émetteur dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+* [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 <!---HONumber=AcomDC_0817_2016-->

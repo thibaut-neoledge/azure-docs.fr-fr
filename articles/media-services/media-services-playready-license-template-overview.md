@@ -1,42 +1,43 @@
-<properties 
-    pageTitle="Présentation du modèle de licence PlayReady de Media Services" 
-    description="Cette rubrique donne un aperçu d’un modèle de licence PlayReady utilisé pour configurer des licences PlayReady." 
-    authors="juliako" 
-    manager="erikre" 
-    editor="" 
-    services="media-services" 
-    documentationCenter=""/>
+---
+title: Présentation du modèle de licence PlayReady de Media Services
+description: Cette rubrique donne un aperçu d’un modèle de licence PlayReady utilisé pour configurer des licences PlayReady.
+author: juliako
+manager: erikre
+editor: ''
+services: media-services
+documentationcenter: ''
 
-<tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/26/2016"  
-    ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: juliako
 
-
-#<a name="media-services-playready-license-template-overview"></a>Présentation du modèle de licence PlayReady de Media Services
-
+---
+# <a name="media-services-playready-license-template-overview"></a>Présentation du modèle de licence PlayReady de Media Services
 Azure Media Services fournit à présent un service pour la distribution de licences Microsoft PlayReady. Lorsque le lecteur de l’utilisateur final (par exemple Silverlight) tente de lire votre contenu PlayReady protégé, une demande est envoyée au service de remise de licence pour obtenir une licence. Si le service de licence approuve la demande, il émet la licence, qui est envoyée au client et peut être utilisée pour déchiffrer et lire le contenu spécifié.
 
 Media Services propose également des API qui vous permettent de configurer vos licences PlayReady. Les licences contiennent les droits et les restrictions que vous souhaitez pour le runtime DRM PlayReady, qui s’appliquent lorsqu’un utilisateur tente de lire du contenu protégé.
-Voici quelques exemples des restrictions de licences PlayReady que vous pouvez spécifier :
+Voici quelques exemples des restrictions de licences PlayReady que vous pouvez spécifier :
 
-- La valeur DateTime à partir de laquelle la licence est valide.
-- La valeur DateTime à laquelle la licence expire. 
-- Pour que la licence soit enregistrée dans un stockage persistant sur le client. Les licences persistantes servent généralement à autoriser la lecture hors connexion du contenu.
-- Le niveau de sécurité minimal qu'un lecteur doit avoir pour pouvoir lire votre contenu. 
-- Le niveau de protection de sortie des contrôles de sortie pour du contenu audio/vidéo. 
-- Pour plus d'informations, consultez la section Contrôles de sortie (3.5) dans le document [Règles de conformité PlayReady](https://www.microsoft.com/playready/licensing/compliance/) .
+* La valeur DateTime à partir de laquelle la licence est valide.
+* La valeur DateTime à laquelle la licence expire. 
+* Pour que la licence soit enregistrée dans un stockage persistant sur le client. Les licences persistantes servent généralement à autoriser la lecture hors connexion du contenu.
+* Le niveau de sécurité minimal qu'un lecteur doit avoir pour pouvoir lire votre contenu. 
+* Le niveau de protection de sortie des contrôles de sortie pour du contenu audio/vidéo. 
+* Pour plus d'informations, consultez la section Contrôles de sortie (3.5) dans le document [Règles de conformité PlayReady](https://www.microsoft.com/playready/licensing/compliance/) .
 
->[AZURE.NOTE]Actuellement, vous pouvez uniquement configurer le droit de lecture de la licence PlayReady (ce droit est requis). Le droit de lecture permet au client de lire le contenu. Il permet également de configurer les restrictions spécifiques à la lecture. Pour plus d'informations, consultez [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
+> [!NOTE]
+> Actuellement, vous pouvez uniquement configurer le droit de lecture de la licence PlayReady (ce droit est requis). Le droit de lecture permet au client de lire le contenu. Il permet également de configurer les restrictions spécifiques à la lecture. Pour plus d'informations, consultez [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
+> 
+> 
 
 Pour configurer des licences PlayReady à l'aide de Media Services, vous devez configurer le modèle de licence PlayReady de Media Services. Ce modèle est défini en XML.
 
 L'exemple ci-dessous illustre le modèle le plus simple (et le plus utilisé) pour configurer une licence de diffusion en continu de base. Avec cette licence, vos clients seraient en mesure de lire votre contenu protégé par PlayReady.
-    
+
     <?xml version="1.0" encoding="utf-8"?>
     <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" 
                                       xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
@@ -54,34 +55,30 @@ Media Services définit également un ensemble de classes .NET susceptibles d'ê
 
 Pour obtenir un exemple de bout en bout utilisant les classes .NET pour configurer le modèle de licence PlayReady, consultez [Utilisation du chiffrement dynamique et du service de fourniture de licence PlayReady](https://msdn.microsoft.com/library/azure/dn783467.aspx).
 
-##<a name="<a-id="classes"></a>media-services-.net-classes-that-are-used-to-configure-license-templates"></a><a id="classes"></a>Classes .NET de Media Services permettant de configurer des modèles de licence
-
+## <a name="<a-id="classes"></a>media-services-.net-classes-that-are-used-to-configure-license-templates"></a><a id="classes"></a>Classes .NET de Media Services permettant de configurer des modèles de licence
 Les classes .NET principales utilisées pour configurer des modèles de licence Media Services PlayReady sont répertoriées ci-dessous. Ces classes correspondent aux types définis dans [Schéma XML de modèle de licence PlayReady](media-services-playready-license-template-overview.md#schema).
 
 La classe [MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) permet de sérialiser et de désérialiser à destination et à partir du code XML de modèle de licence Media Services.
 
-###<a name="playreadylicenseresponsetemplate"></a>PlayReadyLicenseResponseTemplate
-
+### <a name="playreadylicenseresponsetemplate"></a>PlayReadyLicenseResponseTemplate
 [PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx) : Cette classe représente le modèle pour la réponse retournée à l'utilisateur final. Elle contient un champ pour une chaîne de données personnalisée entre le serveur de licences et l'application (peut être utile pour la logique d'application personnalisée), ainsi qu'une liste d'un ou plusieurs modèles de licence.
 
-Il s'agit de la classe « de niveau supérieur » dans la hiérarchie des modèles. Cela signifie que le modèle de réponse inclut une liste de modèles de licence et que les modèles de licence incluent (directement ou indirectement) toutes les autres classes qui composent les données de modèle à sérialiser.
+Il s'agit de la classe « de niveau supérieur » dans la hiérarchie des modèles. Cela signifie que le modèle de réponse inclut une liste de modèles de licence et que les modèles de licence incluent (directement ou indirectement) toutes les autres classes qui composent les données de modèle à sérialiser.
 
-
-###<a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
-
+### <a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
 [PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx) : Cette classe représente un modèle de licence permettant de créer les licences PlayReady à retourner aux utilisateurs finaux. Elle contient les données relatives à la clé de contenu figurant dans la licence et à tous les droits ou restrictions qui doivent être appliqués par le runtime de gestion des droits numériques (DRM) PlayReady quand la clé de contenu est utilisée.
 
-
-###<a name="<a-id="playreadyplayright"></a>playreadyplayright"></a><a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
-
+### <a name="<a-id="playreadyplayright"></a>playreadyplayright"></a><a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
 [PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) : Cette classe représente le droit de lecture d'une licence PlayReady. Elle accorde à l'utilisateur la capacité de lire le contenu faisant l'objet de restrictions de niveau zéro ou supérieur, configurées dans la licence et sur le droit de lecture lui-même (pour la stratégie spécifique de lecture). Une grande partie de la stratégie relative au droit de lecture se rapporte aux restrictions de sortie qui contrôlent les types de sortie utilisables pour la lecture du contenu, ainsi qu'aux restrictions qui doivent être mises en place quand une sortie donnée est utilisée. Par exemple, si la restriction DigitalVideoOnlyContentRestriction est activée, le runtime DRM autorise uniquement l'affichage de la vidéo via des sorties numériques (les sorties vidéo analogiques ne sont pas autorisées à transmettre le contenu).
 
->[AZURE.IMPORTANT]Ces types de restrictions peuvent être très puissants mais ils peuvent également affecter l'expérience des utilisateurs. Si les protections de sortie sont configurées de manière trop restrictive, le contenu risque de ne pas pouvoir être lu sur certains clients. Pour plus d’informations, consultez le document [Règles de conformité PlayReady](https://www.microsoft.com/playready/licensing/compliance/) .
+> [!IMPORTANT]
+> Ces types de restrictions peuvent être très puissants mais ils peuvent également affecter l'expérience des utilisateurs. Si les protections de sortie sont configurées de manière trop restrictive, le contenu risque de ne pas pouvoir être lu sur certains clients. Pour plus d’informations, consultez le document [Règles de conformité PlayReady](https://www.microsoft.com/playready/licensing/compliance/) .
+> 
+> 
 
 Pour obtenir un exemple des niveaux de protection que Silverlight prend charge, consultez [Protections de sortie prises en charge par Silverlight](http://go.microsoft.com/fwlink/?LinkId=617318).
 
-##<a name="<a-id="schema"></a>playready-license-template-xml-schema"></a><a id="schema"></a>Schéma XML de modèle de licence PlayReady
-    
+## <a name="<a-id="schema"></a>playready-license-template-xml-schema"></a><a id="schema"></a>Schéma XML de modèle de licence PlayReady
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
@@ -305,15 +302,11 @@ Pour obtenir un exemple des niveaux de protection que Silverlight prend charge, 
 
 
 
-##<a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
+## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-##<a name="provide-feedback"></a>Fournir des commentaires
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
+## <a name="provide-feedback"></a>Fournir des commentaires
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 <!--HONumber=Oct16_HO2-->
 

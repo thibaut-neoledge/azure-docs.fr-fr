@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Comment rogner une vidéo | Microsoft Azure"
-    description="Cet article explique comment rogner des vidéos avec Media Encoder Standard."
-    services="media-services"
-    documentationCenter=""
-    authors="anilmur"
-    manager="erikre"
-    editor=""/>
+---
+title: Comment rogner une vidéo | Microsoft Docs
+description: Cet article explique comment rogner des vidéos avec Media Encoder Standard.
+services: media-services
+documentationcenter: ''
+author: anilmur
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="09/26/2016"  
-    ms.author="anilmur;juliako;"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: anilmur;juliako;
 
-
+---
 # <a name="crop-videos-with-media-encoder-standard"></a>Rogner des vidéos avec l’encodeur multimédia standard
-
 Vous pouvez utiliser Media Encoder Standard (MES) pour rogner votre vidéo d’entrée. Le rognage consiste à sélectionner une fenêtre rectangulaire dans l’image vidéo et à encoder uniquement les pixels dans cette fenêtre. Le schéma suivant permet d’illustrer le processus.
 
 ![Rogner une vidéo](./media/media-services-crop-video/media-services-crop-video01.png)
@@ -30,18 +28,15 @@ Le rognage dans MES étant une étape de prétraitement, les paramètres de rogn
 La rubrique [suivante](media-services-advanced-encoding-with-mes.md#encoding_with_dotnet) montre comment créer une tâche d’encodage avec MES et comment spécifier une présélection personnalisée pour la tâche d’encodage. 
 
 ## <a name="creating-a-custom-preset"></a>Création d’une présélection personnalisée
-
 Dans l’exemple ci-dessous :
 
 1. L’entrée d’origine est 1920 x 1080.
-1. Elle doit être rognée sur une sortie de 1440 x 1080, centrée dans le cadre d’entrée.
-1. Cela implique un décalage X de (1920 – 1440)/2 = 240 et un décalage Y de zéro.
-1. La largeur et la hauteur du rectangle de rognage sont de 1440 et 1080, respectivement.
-1. Dans la phase de codage, la tâche consiste à produire trois couches avec des résolutions respectives de 1440 x 1080, 960 x 720 et 480 x 360.
+2. Elle doit être rognée sur une sortie de 1440 x 1080, centrée dans le cadre d’entrée.
+3. Cela implique un décalage X de (1920 – 1440)/2 = 240 et un décalage Y de zéro.
+4. La largeur et la hauteur du rectangle de rognage sont de 1440 et 1080, respectivement.
+5. Dans la phase de codage, la tâche consiste à produire trois couches avec des résolutions respectives de 1440 x 1080, 960 x 720 et 480 x 360.
 
-###<a name="json-preset"></a>Présélection JSON
-
-
+### <a name="json-preset"></a>Présélection JSON
     {
       "Version": 1.0,
       "Sources": [
@@ -126,28 +121,23 @@ Dans l’exemple ci-dessous :
     }
 
 
-##<a name="restrictions-on-cropping"></a>Restrictions sur le rognage
-
+## <a name="restrictions-on-cropping"></a>Restrictions sur le rognage
 La fonctionnalité de rognage est destinée à être manuelle. Vous devez charger votre vidéo d’entrée dans un outil d’édition approprié qui vous permet de sélectionner des images d’intérêt, de positionner le curseur pour déterminer les décalages du rectangle de rognage, de déterminer que la présélection d’encodage est réglée pour une vidéo en particulier, etc. Cette fonctionnalité n’est pas destinée à activer des éléments tels que la détection automatique et la suppression des bordures noires letterbox/pillarbox de votre vidéo d’entrée.
 
 Les contraintes suivantes s’appliquent à la fonctionnalité de rognage. Si elles ne sont pas remplies, la tâche de codage peut échouer ou produire un résultat inattendu.
 
 1. Les coordonnées et la taille du rectangle de rognage doivent tenir dans la vidéo d’entrée.
-1. Comme mentionné ci-dessus, la largeur et la hauteur dans les paramètres d’encodage doivent correspondre à la vidéo rognée.
-1. Le rognage s’applique aux vidéos capturées en mode paysage (c’est-à-dire qu’il ne s’applique pas aux vidéos enregistrées avec un smartphone maintenu verticalement ou en mode portrait).
-1. Fonctionne mieux avec une vidéo progressive capturée avec des pixels carrés.
+2. Comme mentionné ci-dessus, la largeur et la hauteur dans les paramètres d’encodage doivent correspondre à la vidéo rognée.
+3. Le rognage s’applique aux vidéos capturées en mode paysage (c’est-à-dire qu’il ne s’applique pas aux vidéos enregistrées avec un smartphone maintenu verticalement ou en mode portrait).
+4. Fonctionne mieux avec une vidéo progressive capturée avec des pixels carrés.
 
-##<a name="provide-feedback"></a>Fournir des commentaires
+## <a name="provide-feedback"></a>Fournir des commentaires
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-##<a name="next-step"></a>Étape suivante
- 
+## <a name="next-step"></a>Étape suivante
 Consultez les parcours d’apprentissage Azure Media Services pour en savoir plus sur les fonctionnalités exceptionnelles offertes par AMS.  
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 <!--HONumber=Oct16_HO2-->
 

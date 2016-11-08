@@ -1,48 +1,48 @@
-<properties
-   pageTitle="Glossaire du développeur Azure Active Directory | Microsoft Azure"
-   description="Liste de termes liés aux concepts et fonctionnalités de développeur Azure Active Directory couramment utilisés."
-   services="active-directory"
-   documentationCenter=""
-   authors="bryanla"
-   manager="mbaldwin"
-   editor=""/>
+---
+title: Glossaire du développeur Azure Active Directory | Microsoft Docs
+description: Liste de termes liés aux concepts et fonctionnalités de développeur Azure Active Directory couramment utilisés.
+services: active-directory
+documentationcenter: ''
+author: bryanla
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="08/31/2016"
-   ms.author="bryanla"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 08/31/2016
+ms.author: bryanla
 
+---
 # Glossaire du développeur Azure Active Directory
 Cet article contient des définitions pour certains des principaux concepts de développeur Azure Active Directory (AD), qui s’avèrent utiles lors de l’apprentissage du développement d’applications pour Azure AD.
 
-## access token 
+## access token
 Un type de [jeton de sécurité](#security-token) émis par une [serveur d’autorisation](#authorization-server) et utilisé par une [application cliente](#client-application) pour accéder à un [serveur de ressources protégé](#resource-server). Prenant généralement la forme d’un jeton [JSON Web Token (JWT)][JWT], le jeton représente l’autorisation accordée au client par le [propriétaire de la ressource](#resource-owner) pour un niveau d’accès demandé. Le jeton contient toutes les [revendications](#claim) applicables sur le sujet, permettant à l’application cliente de l’utiliser en guise d’informations d’identification lors de l’accès à une ressource donnée. Le propriétaire de la ressource n’a ainsi pas non plus besoin d’exposer ses informations d’identification au client.
 
 Les jetons d’accès sont parfois qualifiés de « utilisateur + Application » ou « d’application uniquement », selon les informations d’identification représentées. Par exemple, lorsqu’une application cliente utilise :
 
-- [L’octroi d’autorisation « code d’autorisation »](#authorization-grant), l’utilisateur final s’authentifie tout d’abord en tant que propriétaire de la ressource, délégant l’autorisation d’accès à la ressource au client. Le client s’authentifie après, lors de l’obtention du jeton d’accès. Le jeton est alors parfois désigné plus spécifiquement sous le nom de jeton « utilisateur + application », car il représente à la fois l’utilisateur qui a autorisé l’application cliente et l’application.
-- [L’octroi d’autorisation « informations d’identification du client »](#authorization-grant), le client fournit l’authentification unique, fonctionnant sans authentification/autorisation du propriétaire de la ressource. Le jeton est alors parfois être désigné sous le nom de jeton « d’application uniquement ».
+* [L’octroi d’autorisation « code d’autorisation »](#authorization-grant), l’utilisateur final s’authentifie tout d’abord en tant que propriétaire de la ressource, délégant l’autorisation d’accès à la ressource au client. Le client s’authentifie après, lors de l’obtention du jeton d’accès. Le jeton est alors parfois désigné plus spécifiquement sous le nom de jeton « utilisateur + application », car il représente à la fois l’utilisateur qui a autorisé l’application cliente et l’application.
+* [L’octroi d’autorisation « informations d’identification du client »](#authorization-grant), le client fournit l’authentification unique, fonctionnant sans authentification/autorisation du propriétaire de la ressource. Le jeton est alors parfois être désigné sous le nom de jeton « d’application uniquement ».
 
 Pour plus d’informations, voir [Référence de jeton Azure AD][AAD-Tokens-Claims].
 
-## manifeste d’application  
+## manifeste d’application
 Fonctionnalité fournie par le [portail Azure Classic][AZURE-classic-portal], qui produit une représentation JSON de la configuration d’identité de l’application servant de mécanisme de mise à jour des entités [Application][AAD-Graph-App-Entity] et [ServicePrincipal][AAD-Graph-Sp-Entity] associées. Pour plus d’informations, voir [Connaître le manifeste d’application Azure Active Directory][AAD-App-Manifest].
 
-## objet application  
+## objet application
 Lorsque vous inscrivez/mettez à jour une application dans le [portail Azure Classic][AZURE-classic-portal], le portail crée/met à jour un objet application et un [objet principal du service](#service-principal-object) correspondant pour ce client. L’objet application *définit* la configuration d’identité de l’application globalement (sur tous les clients où elle dispose d’un accès) et fournit un modèle à partir duquel son ou ses objets principal du service correspondants sont *dérivés* à des fins d’utilisation locale lors de l’exécution (sur un client spécifique).
 
 Pour plus d’informations, voir [Objets application et principal du service][AAD-App-SP-Objects].
 
-## inscription d’application  
+## inscription d’application
 Afin de pouvoir s’intégrer à Azure AD et déléguer à ce service les fonctions de gestion de l’identité et de l’accès, l’application doit être inscrite auprès d’un [client](#tenant) Azure AD. Lorsque vous inscrivez votre application auprès d’Azure AD, vous fournissez une configuration d’identité pour votre application, ce qui permet à cette dernière de s’intégrer à Azure AD et d’utiliser des fonctionnalités telles que :
 
-- Gestion robuste de l’authentification unique à l’aide de la gestion de l’identité Azure Active Directory et de l’implémentation du protocole [OpenID Connect][OpenIDConnect] ;
-- Accès réparti des [applications clientes](#client-application) aux [ressources protégées](#resource-server) via l’implémentation du [serveur d’autorisation](#authorization-server) OAuth 2.0 d’Azure AD ;
-- [Infrastructure de consentement](#consent) pour la gestion de l’accès client aux ressources protégées en fonction de l’autorisation du propriétaire des ressources.
+* Gestion robuste de l’authentification unique à l’aide de la gestion de l’identité Azure Active Directory et de l’implémentation du protocole [OpenID Connect][OpenIDConnect] ;
+* Accès réparti des [applications clientes](#client-application) aux [ressources protégées](#resource-server) via l’implémentation du [serveur d’autorisation](#authorization-server) OAuth 2.0 d’Azure AD ;
+* [Infrastructure de consentement](#consent) pour la gestion de l’accès client aux ressources protégées en fonction de l’autorisation du propriétaire des ressources.
 
 Pour plus d’informations, voir [Intégration d’applications dans Azure Active Directory][AAD-Integrating-Apps].
 
@@ -52,8 +52,8 @@ Action de demander à une partie des informations d’identification légitimes,
 ## autorisation
 Action de donner à un principal de sécurité authentifié le droit de faire quelque chose. Il existe deux cas d’utilisation principaux dans le modèle de programmation Azure AD :
 
-- Pendant un flux [d’octroi d’autorisation](#authorization-grant) OAuth2 : lorsque le [propriétaire des ressources](#resource-owner) accorde l’autorisation à [l’application cliente](#client-application), permettant au client d’accéder aux ressources du propriétaire.
-- Pendant l’accès aux ressources par le client : de la manière implémentée par le [serveur de ressources](#resource-server), en utilisant les valeurs de [revendication](#claim) présentes dans le [jeton d’accès](#access-token) pour prendre des décisions de contrôle d’accès.
+* Pendant un flux [d’octroi d’autorisation](#authorization-grant) OAuth2 : lorsque le [propriétaire des ressources](#resource-owner) accorde l’autorisation à [l’application cliente](#client-application), permettant au client d’accéder aux ressources du propriétaire.
+* Pendant l’accès aux ressources par le client : de la manière implémentée par le [serveur de ressources](#resource-server), en utilisant les valeurs de [revendication](#claim) présentes dans le [jeton d’accès](#access-token) pour prendre des décisions de contrôle d’accès.
 
 ## code d’autorisation
 « Jeton » à courte durée de vie fourni à une [application cliente](#client-application) par le [point de terminaison d’autorisation](#authorization-endpoint) dans le cadre du flux « code d’autorisation », l’un des quatre [octrois d’autorisation](#authorization-grant) OAuth2. Le code est renvoyé à l’application cliente en réponse à l’authentification d’un [propriétaire de ressources](#resource-owner), indiquant que le propriétaire des ressources a délégué l’autorisation d’accéder aux ressources. Dans le cadre de ce flux, le code est échangé plus tard contre un [jeton d’accès](#access-token).
@@ -76,7 +76,7 @@ Un [jeton de sécurité](#security-token) contient des revendications, qui fourn
 
 Pour plus d’informations, voir [Référence de jeton Azure AD][AAD-Tokens-Claims].
 
-## application cliente  
+## application cliente
 Comme le définit [l’infrastructure d’autorisation OAuth2][OAuth2-Role-Def], application qui effectue des demandes de ressources protégées au nom du [propriétaire des ressources](#resource-owner). Le terme « cliente » n’implique pas de caractéristiques d’implémentation matérielle particulières (par exemple, si l’application s’exécute sur un serveur, un ordinateur de bureau ou d’autres appareils).
 
 Une application cliente demande l’[autorisation](#authorization) à un propriétaire de ressources de participer à un [flux d’autorisation](#authorization-grant) OAuth2 et peut accéder aux API/données au nom du propriétaire des ressources. L’infrastructure d’autorisation OAuth2 [définit deux types de clients][OAuth2-Client-Types], « confidentiel » et « public », en fonction de la capacité du client à préserver la confidentialité de ses informations d’identification. Les applications peuvent implémenter un [client web (confidentiel)](#web-client) s’exécutant sur un serveur web, un [client natif (public)](#native-client) installé sur un appareil ou un [client basé sur un agent utilisateur (public)](#user-agent-based-client) s’exécutant dans le navigateur d’un appareil.
@@ -100,8 +100,8 @@ Type d’[application cliente](#client-application) installé en mode natif sur 
 ## Autorisations
 Une [application cliente](#client-application) accède à un [serveur de ressources](#resource-server) en déclarant des demandes d’autorisation. Deux types sont disponibles :
 
-- Les autorisations déléguées, qui demandent un accès [en fonction de la portée](#scopes) au titre de l’autorisation déléguée donnée par le [propriétaire de ressources](#resource-owner) connecté, sont présentées à la ressource lors de l’exécution sous forme de [revendications « scp »](#claim) dans le [jeton d’accès](#access-token) du client.
-- Les autorisations d’application, qui demandent un accès [en fonction du rôle ](#roles) au titre des informations d’identification/de l’identité de l’application cliente, sont présentées à la ressource lors de l’exécution sous forme de [revendications « de rôles »](#claim) dans le jeton d’accès du client.
+* Les autorisations déléguées, qui demandent un accès [en fonction de la portée](#scopes) au titre de l’autorisation déléguée donnée par le [propriétaire de ressources](#resource-owner) connecté, sont présentées à la ressource lors de l’exécution sous forme de [revendications « scp »](#claim) dans le [jeton d’accès](#access-token) du client.
+* Les autorisations d’application, qui demandent un accès [en fonction du rôle ](#roles) au titre des informations d’identification/de l’identité de l’application cliente, sont présentées à la ressource lors de l’exécution sous forme de [revendications « de rôles »](#claim) dans le jeton d’accès du client.
 
 Elles apparaissent également pendant le processus de [consentement](#consent), donnant à l’administrateur ou au propriétaire des ressources la possibilité d’autoriser/de refuser l’accès client aux ressources de son client.
 
@@ -132,7 +132,7 @@ Les portées sont des chaînes définies par les ressources (par exemple, « Mai
 Une convention d’affectation de noms recommandée consiste à utiliser le format « ressource.opération.contrainte ». Pour une présentation détaillée des portées exposées par l’API Graph Azure AD, voir [Étendues des autorisations de l’API Graph][AAD-Graph-Perm-Scopes]. Pour les portées exposées par les services Office 365, voir [Office 365 API permissions reference][O365-Perm-Ref] \(Référence sur les autorisations des API Office 365).
 
 ## jeton de sécurité
-Document signé contenant des revendications, tel qu’un jeton OAuth2 ou une assertion SAML 2.0. Pour un [octroi d’autorisation](#authorization-grant) OAuth2, un [jeton d’accès](#access-token) (OAuth2) et un [jeton d’ID](OpenID Connect) sont des types de jetons de sécurité, qui sont tous deux implémentés sous forme de jetons [JSON Web Token (JWT)][JWT].
+Document signé contenant des revendications, tel qu’un jeton OAuth2 ou une assertion SAML 2.0. Pour un [octroi d’autorisation](#authorization-grant) OAuth2, un [jeton d’accès](#access-token) (OAuth2) et un [jeton d’ID](OpenID Connect.md) sont des types de jetons de sécurité, qui sont tous deux implémentés sous forme de jetons [JSON Web Token (JWT)][JWT].
 
 ## objet principal du service
 Lorsque vous inscrivez/mettez à jour une application dans le [portail Azure Classic][AZURE-classic-portal], le portail crée/met à jour un [objet application](#application-object) et un objet principal du service correspondant pour ce client. L’objet application *définit* la configuration d’identité de l’application globalement (sur tous les clients où l’application associée s’est vue octroyer un accès) et constitue le modèle à partir duquel son ou ses objets principal du service correspondants sont *dérivés* à des fins d’utilisation locale lors de l’exécution (sur un client spécifique).
@@ -150,9 +150,9 @@ Processus de désactivation de l’authentification d’un utilisateur final par
 ## locataire
 Une instance d’un répertoire Azure AD est désignée sous le nom de client Azure AD. Elle offre une multitude de fonctionnalités, notamment :
 
-- un service de registre pour les applications intégrées
-- l’authentification des comptes utilisateurs et des applications enregistrées
-- les points de terminaison REST requis pour prendre en charge différents protocoles, notamment OAuth2 et SAML, y compris le [point de terminaison d’autorisation](#authorization-endpoint), le [point de terminaison de jeton](#token-endpoint) et le point de terminaison « commun » utilisé par les [applications mutualisées](#multi-tenant-application).
+* un service de registre pour les applications intégrées
+* l’authentification des comptes utilisateurs et des applications enregistrées
+* les points de terminaison REST requis pour prendre en charge différents protocoles, notamment OAuth2 et SAML, y compris le [point de terminaison d’autorisation](#authorization-endpoint), le [point de terminaison de jeton](#token-endpoint) et le point de terminaison « commun » utilisé par les [applications mutualisées](#multi-tenant-application).
 
 Un client est également associé à un abonnement Azure AD ou Office 365 lors de l’approvisionnement de l’abonnement, ce qui offre des fonctionnalités de gestion d’identité et d’accès pour l’abonnement. Pour plus d’informations sur les diverses méthodes permettant d’accéder à un client, voir [Obtention d’un client Azure Active Directory][AAD-How-To-Tenant]. Pour plus d’informations sur la relation entre les abonnements et un client Azure AD, voir [Association des abonnements Azure avec Azure Active Directory][AAD-How-Subscriptions-Assoc].
 

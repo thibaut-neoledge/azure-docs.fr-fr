@@ -1,28 +1,26 @@
-<properties
-   pageTitle="Scripts personnalisés sur des machines virtuelles Windows utilisant des modèles | Microsoft Azure"
-   description="Automatisation des tâches de configuration de machine virtuelle Windows à l’aide de l’extension de script personnalisé avec des modèles Resource Manager"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="kundanap"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+---
+title: Scripts personnalisés sur des machines virtuelles Windows utilisant des modèles | Microsoft Docs
+description: Automatisation des tâches de configuration de machine virtuelle Windows à l’aide de l’extension de script personnalisé avec des modèles Resource Manager
+services: virtual-machines-windows
+documentationcenter: ''
+author: kundanap
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="03/29/2016"
-   ms.author="kundanap"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 03/29/2016
+ms.author: kundanap
 
+---
 # Extension de script personnalisé de machine virtuelle Windows avec les modèles Azure Resource Manager
-
-[AZURE.INCLUDE [virtual-machines-common-extensions-customscript](../../includes/virtual-machines-common-extensions-customscript.md)]
+[!INCLUDE [virtual-machines-common-extensions-customscript](../../includes/virtual-machines-common-extensions-customscript.md)]
 
 ## Exemple de modèle pour une machine virtuelle sous Windows
-
 Définissez la ressource suivante dans la section Ressource du modèle.
 
        {
@@ -49,10 +47,9 @@ Définissez la ressource suivante dans la section Ressource du modèle.
 
 Dans l’exemple précédent, remplacez l’URL et le nom du fichier par vos propres paramètres. Une fois le modèle créé, vous pouvez le déployer en utilisant Azure PowerShell.
 
-Si vous souhaitez préserver la confidentialité des URL et paramètres de scripts, vous pouvez définir l’URL du script en tant que **privée**. Si l’URL du script est définie en tant que **privée**, elle est accessible uniquement avec un nom et une clé de compte de stockage envoyés en tant que paramètres protégés. Les paramètres du script peuvent également être fournis en tant que paramètres protégés avec la version 1.7 ou ultérieure de l’extension de script personnalisé.
+Si vous souhaitez préserver la confidentialité des URL et paramètres de scripts, vous pouvez définir l’URL du script en tant que **privée**. Si l’URL du script est définie en tant que **privée**, elle est accessible uniquement avec un nom et une clé de compte de stockage envoyés en tant que paramètres protégés. Les paramètres du script peuvent également être fournis en tant que paramètres protégés avec la version 1.7 ou ultérieure de l’extension de script personnalisé.
 
 ## Exemple de modèle pour une machine virtuelle Windows avec des paramètres protégés
-
         {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",

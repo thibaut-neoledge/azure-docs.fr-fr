@@ -1,34 +1,25 @@
 
 ## Fonctionnalités clés
-
 * **Matériel hautes performances** : ces instances sont conçues et optimisées pour des applications nécessitant des ressources réseau et de calcul importantes, notamment des applications de traitement par lot et de calcul hautes performances (HPC), la modélisation et les simulations à grande échelle.
-
-    Pour plus d’informations sur les spécifications de base, les capacités de stockage et les disques, voir [Tailles de machines virtuelles](virtual-machines-linux-sizes.md). Plus d’informations sur le processeur Intel Xeon E5-2667 v3 (utilisé dans la série H) et le processeur Intel Xeon E5-2670 (utilisé pour les tailles A8 à A11), notamment les extensions de jeu d’instructions prises en charge, voir sur le site web Intel.com.
-
+  
+    Pour plus d’informations sur les spécifications de base, les capacités de stockage et les disques, voir [Tailles de machines virtuelles](../articles/virtual-machines/virtual-machines-linux-sizes.md). Plus d’informations sur le processeur Intel Xeon E5-2667 v3 (utilisé dans la série H) et le processeur Intel Xeon E5-2670 (utilisé pour les tailles A8 à A11), notamment les extensions de jeu d’instructions prises en charge, voir sur le site web Intel.com.
 * **Conçu pour les clusters HPC** : déployez plusieurs instances nécessitant beaucoup de ressources système dans Azure pour créer un cluster HPC autonome ou pour augmenter la capacité d’un cluster local. Si vous le souhaitez, déployez des outils de gestion cluster et de planification des tâches. Ou bien, utilisez les instances de travail nécessitant beaucoup de ressources système dans un autre service Azure tel qu’Azure Batch.
-
 * **Connexion réseau RDMA pour applications MPI** : un sous-ensemble d’instances nécessitant beaucoup de ressources système (H16r, H16mr, A8 et A9) offre une deuxième interface réseau pour la connectivité par accès direct à la mémoire à distance (RDMA). Cette interface s’ajoute à l’interface réseau Azure standard disponible pour d’autres tailles de machine virtuelle.
-
-    Cette interface permet aux instances prenant en charge RDMA de communiquer entre elles sur un réseau InfiniBand, opérant à des vitesses FDR pour les machines virtuelles H16r et H16mr, et à des vitesses QDR pour les machines virtuelles A8 et A9. Les fonctionnalités RDMA exposées dans ces machines virtuelles peuvent améliorer l’extensibilité et les performances de certaines applications Linux et MPI Windows . Pour connaître les conditions requises, voir la section [Accès au réseau RDMA](#access-to-the-rdma-network) dans cet article.
-
-
+  
+    Cette interface permet aux instances prenant en charge RDMA de communiquer entre elles sur un réseau InfiniBand, opérant à des vitesses FDR pour les machines virtuelles H16r et H16mr, et à des vitesses QDR pour les machines virtuelles A8 et A9. Les fonctionnalités RDMA exposées dans ces machines virtuelles peuvent améliorer l’extensibilité et les performances de certaines applications Linux et MPI Windows . Pour connaître les conditions requises, voir la section [Accès au réseau RDMA](#access-to-the-rdma-network) dans cet article.
 
 ## Points à prendre en considération pour le déploiement
-
 * **Abonnement Azure** : pour déployer un plus grand nombre d’instances de calcul intensif, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat. Si vous utilisez un [compte gratuit Azure](https://azure.microsoft.com/free/), vous pouvez seulement utiliser un nombre limité de cœurs de calcul Azure.
-
 * **Tarification et la disponibilité** : les tailles de machines virtuelles nécessitant beaucoup de ressources système sont proposées uniquement au niveau de tarification standard. Pour connaître la disponibilité dans les différentes régions Azure, voir [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/).
-
 * **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs de votre abonnement Azure, qui est, par défaut, de 20 cœurs par abonnement (si vous utilisez le modèle de déploiement classique) ou de 20 cœurs par région (si vous utilisez le modèle de déploiement Resource Manager). Votre abonnement peut également limiter le nombre de cœurs, que vous pouvez déployer dans certaines familles de taille de machine virtuelle, dont la série H. Pour demander une augmentation de quota, [ouvrez une demande de service clientèle en ligne](../articles/azure-supportability/how-to-create-azure-support-request.md) gratuitement. (Les limites par défaut peuvent varier en fonction de la catégorie de votre abonnement.)
-
-    >[AZURE.NOTE]Si vous avez des besoins de capacité à grande échelle, contactez le support Azure. Les quotas d’Azure sont des limites de crédit et non des garanties de capacité. Quel que soit votre quota, vous êtes facturé uniquement pour les cœurs que vous utilisez.
-
+  
+  > [!NOTE]
+  > Si vous avez des besoins de capacité à grande échelle, contactez le support Azure. Les quotas d’Azure sont des limites de crédit et non des garanties de capacité. Quel que soit votre quota, vous êtes facturé uniquement pour les cœurs que vous utilisez.
+  > 
+  > 
 * **Réseau virtuel** : aucun [réseau virtuel](https://azure.microsoft.com/documentation/services/virtual-network/) Azure n’est requis pour utiliser les instances qui nécessitent beaucoup de ressources système. Cependant, vous pouvez avoir besoin d’au moins un réseau virtuel Azure cloud pour bon nombre de scénarios de déploiement, ou d’une connexion de site à site si vous devez accéder à des ressources locales telles qu’un serveur de licences d’application. Si nécessaire, créez un réseau virtuel avant de déployer les instances. L’ajout de machines virtuelles nécessitant beaucoup de ressources système à un réseau virtuel dans un groupe d’affinités n’est pas pris en charge.
-
 * **Service cloud ou groupe à haute disponibilité** : pour utiliser le réseau RDMA Azure, déployez les machines virtuelles prenant en charge RDMA dans le même service cloud (si vous utilisez le modèle de déploiement classique) ou le même groupe à haute disponibilité (si vous utilisez le modèle de déploiement Azure Resource Manager). Si vous utilisez Azure Batch, les machines virtuelles prenant en charge RDMA doivent être dans le même pool.
-
-* **Redimensionnement** : en raison du matériel spécialisé utilisé dans les instances nécessitant beaucoup de ressources système, vous pouvez redimensionner ces instances uniquement au sein de la même famille de taille (série H ou série A nécessitant beaucoup de ressources système). Par exemple, vous pouvez redimensionner une machine virtuelle de la série H uniquement d’une seule taille en une autre de cette même série. Le redimensionnement d’une taille ne nécessitant pas beaucoup de ressources système en une taille nécessitant beaucoup de ressources système n’est pas pris en charge.
-
+* **Redimensionnement** : en raison du matériel spécialisé utilisé dans les instances nécessitant beaucoup de ressources système, vous pouvez redimensionner ces instances uniquement au sein de la même famille de taille (série H ou série A nécessitant beaucoup de ressources système). Par exemple, vous pouvez redimensionner une machine virtuelle de la série H uniquement d’une seule taille en une autre de cette même série. Le redimensionnement d’une taille ne nécessitant pas beaucoup de ressources système en une taille nécessitant beaucoup de ressources système n’est pas pris en charge.
 * **Espace d’adressage réseau RDMA** : le réseau RDMA dans Azure réserve l’espace d’adressage 172.16.0.0/16. Si vous exécutez des applications MPI sur des instances déployées dans un réseau virtuel Azure, assurez-vous que l’espace d’adressage du réseau virtuel ne chevauche pas le réseau RDMA.
 
 <!---HONumber=AcomDC_0928_2016-->

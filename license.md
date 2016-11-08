@@ -1,7 +1,6 @@
-﻿Copyright (c) Microsoft Corporation.  Distribué en vertu des termes suivants :
- 
+Copyright (c) Microsoft Corporation.  Distribué en vertu des termes suivants :
+
 1. Microsoft et tous les contributeurs de ce projet vous concèdent chacun une licence, en vertu de leurs droits d'auteur respectifs, sur la Documentation Microsoft Azure conformément à la [Licence Creative Commons Attribution 3.0 États-Unis](http://creativecommons.org/licenses/by/3.0/us/legalcode).  De plus, en ce qui concerne tout éventuel code échantillon contenu dans la documentation, Microsoft et lesdits contributeurs vous concèdent une licence supplémentaire, en vertu de leurs droits de propriété intellectuelle respectifs, pour utiliser le code pour le développement ou la conception de votre logiciel pour Microsoft Azure.
- 
-2.  Microsoft, Windows, Microsoft Azure et/ou les autres produits et services Microsoft référencés dans la documentation peuvent aussi être des marques de fabrique ou des marques déposées de Microsoft aux États-Unis d’Amérique et/ou dans d’autres pays. Cette licence ne vous concède le droit d’utiliser aucun des noms, des logos ou des marques de fabrique. Pour les règles en matière d’utilisation des marques de fabrique de Microsoft, consultez [http://go.microsoft.com/fwlink/?LinkID=254653](http://go.microsoft.com/fwlink/?LinkID=254653).
- 
-3.  Microsoft et tous les contributeurs se réservent tous les autres droits, que ce soit en vertu de droits d'auteur, de brevets ou de marques de fabrique, ou par implication, préclusion ou de toute autre manière.
+2. Microsoft, Windows, Microsoft Azure et/ou les autres produits et services Microsoft référencés dans la documentation peuvent aussi être des marques de fabrique ou des marques déposées de Microsoft aux États-Unis d’Amérique et/ou dans d’autres pays. Cette licence ne vous concède le droit d’utiliser aucun des noms, des logos ou des marques de fabrique. Pour les règles en matière d’utilisation des marques de fabrique de Microsoft, consultez [http://go.microsoft.com/fwlink/?LinkID=254653](http://go.microsoft.com/fwlink/?LinkID=254653).
+3. Microsoft et tous les contributeurs se réservent tous les autres droits, que ce soit en vertu de droits d'auteur, de brevets ou de marques de fabrique, ou par implication, préclusion ou de toute autre manière.
+

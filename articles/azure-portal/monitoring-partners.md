@@ -1,29 +1,28 @@
-<properties
-	pageTitle="Intégrations partenaires d’Azure Monitor | Microsoft Azure"
-	description="Découvrez-en plus sur les partenaires Azure Monitor et comment vous pouvez accéder à la documentation pour les intégrer."
-	authors="johnkemnetz"
-	manager="rboucher"
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Intégrations partenaires d’Azure Monitor | Microsoft Docs
+description: Découvrez-en plus sur les partenaires Azure Monitor et comment vous pouvez accéder à la documentation pour les intégrer.
+author: johnkemnetz
+manager: rboucher
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/26/2016"
-	ms.author="johnkem"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: johnkem
 
+---
 # Intégrations partenaires d’Azure Monitor
-
-|Partenaires|||
-|-----------|-----------|-----------|
-| [![Logo partenaire][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Logo partenaire][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Logo partenaire][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [![Logo partenaire][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![Logo partenaire][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Logo partenaire][datadog-logo]<br/>**DataDog**][datadog-anchor] |
-| [![Logo partenaire][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Logo partenaire][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![Logo partenaire][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] |
-| [![Logo partenaire][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] | [![Logo partenaire][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Logo partenaire][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] |
+| Partenaires |  |  |
+| --- | --- | --- |
+| [![Logo partenaire][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] |[![Logo partenaire][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] |[![Logo partenaire][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
+| [![Logo partenaire][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |[![Logo partenaire][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] |[![Logo partenaire][datadog-logo]<br/>**DataDog**][datadog-anchor] |
+| [![Logo partenaire][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |[![Logo partenaire][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] |[![Logo partenaire][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] |
+| [![Logo partenaire][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |[![Logo partenaire][splunk-logo]<br/>**Splunk**][splunk-anchor] |[![Logo partenaire][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] |
 
 ## AlertLogic Log Manager
 Alert Logic Log Manager collecte les journaux de la plateforme Azure, des applications et des machines virtuelles pour l’analyse de la sécurité et la rétention. Cela comprend les journaux d’audit d’Azure via l’API d’Azure Insights. Ces informations sont utilisées pour détecter les méfaits et répondre aux exigences de conformité.
@@ -36,7 +35,7 @@ AppDynamics Application Performance Management (APM) permet aux propriétaires d
 [Consultez la documentation.][appdynamics-doc]
 
 ## Atlassian JIRA
-Bientôt disponible !
+Bientôt disponible !
 
 ## CloudMonix
 CloudMonix offre des services d’analyse, d’automatisation et de réparation automatique pour la plateforme Microsoft Azure.
@@ -59,7 +58,6 @@ Dynatrace OneAgent s’intègre aux machines virtuelles Azure et à App Services
 [Consultez la documentation.][dynatrace-doc]
 
 ## NewRelic
-
 [En savoir plus.][newrelic-doc]
 
 ## OpsGenie
@@ -80,12 +78,11 @@ Les informations de diagnostic et de performances sont collectées à partir de 
 [Consultez la documentation.][splunk-doc]
 
 ## Sumo Logic
-
 [En savoir plus.][sumologic-doc]
 
 ## Étapes suivantes
-- [En savoir plus sur le journal d’activité (autrefois appelé journal d’audit)](../resource-group-audit.md)
-- [Stream the Azure Activity Log to Event Hubs (Diffuser en continu le journal d’activités Azure vers Event Hubs)](./monitoring-stream-activity-logs-event-hubs.md)
+* [En savoir plus sur le journal d’activité (autrefois appelé journal d’audit)](../resource-group-audit.md)
+* [Stream the Azure Activity Log to Event Hubs (Diffuser en continu le journal d’activités Azure vers Event Hubs)](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
 
 <!--Connectors Documentation-->
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"

@@ -1,43 +1,40 @@
-<properties
-   pageTitle="Restauration d’un entrepôt de données Azure SQL Data Warehouse (PowerShell) | Microsoft Azure"
-   description="Tâches PowerShell permettant de restaurer un Azure SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="Lakshmi1812"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Restauration d’un entrepôt de données Azure SQL Data Warehouse (PowerShell) | Microsoft Docs
+description: Tâches PowerShell permettant de restaurer un Azure SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: NA
+author: Lakshmi1812
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="lakshmir;barbkess"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: lakshmir;barbkess
 
-
+---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Restauration d’un Azure SQL Data Warehouse (PowerShell)
-
-> [AZURE.SELECTOR]
-- [Vue d'ensemble][]
-- [Portail][]
-- [PowerShell][]
-- [REST][]
+> [!div class="op_single_selector"]
+> * [Vue d'ensemble][Vue d'ensemble]
+> * [Portail][Portail]
+> * [PowerShell][PowerShell]
+> * [REST][REST]
+> 
+> 
 
 Dans cet article, vous allez apprendre à restaurer un Azure SQL Data Warehouse à l’aide de PowerShell.
 
 ## <a name="before-you-begin"></a>Avant de commencer
-
-**Vérifiez votre capacité de DTU.**  Chaque SQL Data Warehouse est hébergé par un serveur SQL (par exemple, myserver.database.windows.net) qui dispose d’un quota DTU par défaut.  Avant de pouvoir restaurer un SQL Data Warehouse, vérifiez que le quota DTU restant sur le serveur SQL est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez [Request a DTU quota change][](Demander une modification du quota DTU).
+**Vérifiez votre capacité de DTU.**  Chaque SQL Data Warehouse est hébergé par un serveur SQL (par exemple, myserver.database.windows.net) qui dispose d’un quota DTU par défaut.  Avant de pouvoir restaurer un SQL Data Warehouse, vérifiez que le quota DTU restant sur le serveur SQL est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez [Request a DTU quota change][Request a DTU quota change](Demander une modification du quota DTU).
 
 ### <a name="install-powershell"></a>Installer PowerShell
-
-Pour utiliser Azure PowerShell avec SQL Data Warehouse, vous devez installer Azure PowerShell version 1.0 ou supérieure.  Vous pouvez vérifier la version en exécutant **Get-Module -ListAvailable -Name AzureRM**.  La version la plus récente peut être installée à partir de [Microsoft Web Platform Installer][].  Pour plus d’informations sur l’installation de la dernière version, consultez la page [Installation et configuration d’Azure PowerShell][].
+Pour utiliser Azure PowerShell avec SQL Data Warehouse, vous devez installer Azure PowerShell version 1.0 ou supérieure.  Vous pouvez vérifier la version en exécutant **Get-Module -ListAvailable -Name AzureRM**.  La version la plus récente peut être installée à partir de [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  Pour plus d’informations sur l’installation de la dernière version, consultez la page [Installation et configuration d’Azure PowerShell][Installation et configuration d’Azure PowerShell].
 
 ## <a name="restore-an-active-or-paused-database"></a>Restauration d’une base de données active ou en pause
-
-Pour restaurer une base de données à partir d’un instantané, utilisez l’applet de commande PowerShell [Restore-AzureRmSqlDatabase][] .
+Pour restaurer une base de données à partir d’un instantané, utilisez l’applet de commande PowerShell [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] .
 
 1. Ouvrez Windows PowerShell.
 2. Connectez-vous à votre compte Azure et répertoriez tous les abonnements associés à votre compte.
@@ -79,12 +76,13 @@ $RestoredDatabase.status
 
 ```
 
->[AZURE.NOTE] Une fois la restauration terminée, vous pouvez configurer votre base de données restaurée en suivant les instructions de la section [Configurer votre base de données après récupération][].
-
+> [!NOTE]
+> Une fois la restauration terminée, vous pouvez configurer votre base de données restaurée en suivant les instructions de la section [Configurer votre base de données après récupération][Configurer votre base de données après récupération].
+> 
+> 
 
 ## <a name="restore-a-deleted-database"></a>restauration d’une base de données supprimée.
-
-Pour restaurer une base de données supprimée, utilisez l’applet de commande [Restore-AzureRmSqlDatabase][] .
+Pour restaurer une base de données supprimée, utilisez l’applet de commande [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] .
 
 1. Ouvrez Windows PowerShell.
 2. Connectez-vous à votre compte Azure et répertoriez tous les abonnements associés à votre compte.
@@ -114,12 +112,13 @@ $RestoredDatabase = Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –D
 $RestoredDatabase.status
 ```
 
->[AZURE.NOTE] Une fois la restauration terminée, vous pouvez configurer votre base de données restaurée en suivant les instructions de la section [Configurer votre base de données après récupération][].
-
+> [!NOTE]
+> Une fois la restauration terminée, vous pouvez configurer votre base de données restaurée en suivant les instructions de la section [Configurer votre base de données après récupération][Configurer votre base de données après récupération].
+> 
+> 
 
 ## <a name="restore-from-an-azure-geographical-region"></a>Restauration à partir d’une région géographique Azure
-
-Pour restaurer une base de données, utilisez l’applet de commande [Restore-AzureRmSqlDatabase][] .
+Pour restaurer une base de données, utilisez l’applet de commande [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] .
 
 1. Ouvrez Windows PowerShell.
 2. Connectez-vous à votre compte Azure et répertoriez tous les abonnements associés à votre compte.
@@ -143,14 +142,15 @@ $GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGrou
 $GeoRestoredDatabase.status
 ```
 
->[AZURE.NOTE] Pour configurer votre base de données une fois la restauration terminée, consultez la page [Configurer votre base de données après récupération][]. 
-
+> [!NOTE]
+> Pour configurer votre base de données une fois la restauration terminée, consultez la page [Configurer votre base de données après récupération][Configurer votre base de données après récupération]. 
+> 
+> 
 
 La base de données récupérée sera compatible avec le chiffrement transparent des données si la base de données source l’est aussi.
 
-
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions d’Azure SQL Database, voir [Vue d’ensemble de la continuité des activités d’Azure SQL Database][].
+Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions d’Azure SQL Database, voir [Vue d’ensemble de la continuité des activités d’Azure SQL Database][Vue d’ensemble de la continuité des activités d’Azure SQL Database].
 
 <!--Image references-->
 

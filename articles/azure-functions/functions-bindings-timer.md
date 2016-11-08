@@ -1,33 +1,31 @@
-<properties
-	pageTitle="Déclencheur de minuteur Azure Functions| Microsoft Azure"
-	description="Découvrez comment utiliser des déclencheurs de minuteur dans Azure Functions."
-	services="functions"
-	documentationCenter="na"
-	authors="christopheranderson"
-	manager="erikre"
-	editor=""
-	tags=""
-	keywords="azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"/>
+---
+title: Déclencheur de minuteur Azure Functions| Microsoft Docs
+description: Découvrez comment utiliser des déclencheurs de minuteur dans Azure Functions.
+services: functions
+documentationcenter: na
+author: christopheranderson
+manager: erikre
+editor: ''
+tags: ''
+keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur
 
-<tags
-	ms.service="functions"
-	ms.devlang="multiple"
-	ms.topic="reference"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/22/2016"
-	ms.author="chrande; glenga"/>
+ms.service: functions
+ms.devlang: multiple
+ms.topic: reference
+ms.tgt_pltfrm: multiple
+ms.workload: na
+ms.date: 08/22/2016
+ms.author: chrande; glenga
 
+---
 # Déclencheur de minuteur Azure Functions
-
-[AZURE.INCLUDE [functions-selector-bindings (liaisons de sélecteur de fonctions)](../../includes/functions-selector-bindings.md)]
+[!INCLUDE [functions-selector-bindings (liaisons de sélecteur de fonctions)](../../includes/functions-selector-bindings.md)]
 
 Cet article explique comment configurer des déclencheurs de minuteur dans Azure Functions. Les déclencheurs de minuteur appellent des fonctions basées sur une planification ponctuelle ou périodique.
 
-[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## Fichier function.json pour le déclencheur de minuteur
-
 Le fichier *function.json* contient une expression de planification. Par exemple, la planification suivante exécute la fonction chaque minute :
 
 ```json
@@ -47,7 +45,6 @@ Le fichier *function.json* contient une expression de planification. Par exemple
 Le déclencheur de minuteur gère automatiquement l’augmentation de la taille des instances multi-instance : une seule instance d’une fonction de minuteur spécifique s’exécutera dans l’ensemble des instances.
 
 ## Format de l’expression schedule
-
 L’expression de planification est une [expression CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) qui contient 6 champs : `{second} {minute} {hour} {day} {month} {day of the week}`.
 
 Notez que la plupart des expressions cron disponibles en ligne omettent le champ {seconde} ; par conséquent, si vous copiez une expression de l’un de ces documents, vous devrez adapter votre code pour y inclure ce champ supplémentaire.
@@ -91,7 +88,6 @@ Pour déclencher la fonction à 9h30 tous les jours de la semaine :
 ```
 
 ## Exemple de code C# de déclencheur de minuteur
-
 Cet exemple de code C# écrit un journal spécifique chaque fois que la fonction est déclenchée.
 
 ```csharp
@@ -102,7 +98,6 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 ```
 
 ## Étapes suivantes
-
-[AZURE.INCLUDE [Étapes suivantes](../../includes/functions-bindings-next-steps.md)]
+[!INCLUDE [Étapes suivantes](../../includes/functions-bindings-next-steps.md)]
 
 <!---HONumber=AcomDC_0824_2016-->

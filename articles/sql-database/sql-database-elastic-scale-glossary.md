@@ -1,21 +1,21 @@
-<properties 
-    pageTitle="Glossaire des outils des bases de données élastiques | Microsoft Azure" 
-    description="Explication des termes utilisés pour les outils de base de données élastique" 
-    services="sql-database" 
-    documentationCenter="" 
-    manager="jhubbard" 
-    authors="ddove" 
-    editor=""/>
+---
+title: Glossaire des outils des bases de données élastiques | Microsoft Docs
+description: Explication des termes utilisés pour les outils de base de données élastique
+services: sql-database
+documentationcenter: ''
+manager: jhubbard
+author: ddove
+editor: ''
 
-<tags 
-    ms.service="sql-database" 
-    ms.workload="sql-database" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="05/27/2016" 
-    ms.author="ddove"/>
+ms.service: sql-database
+ms.workload: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/27/2016
+ms.author: ddove
 
+---
 # Glossaire des outils de base de données élastique
 Les termes suivants sont définis pour les [outils des bases de données élastiques](sql-database-elastic-scale-introduction.md), une fonction de Base de données SQL Azure. Les outils permettent de gérer les [cartes de partition](sql-database-elastic-scale-shard-map-management.md) et incluent la [bibliothèque cliente](sql-database-elastic-database-client-library.md), l’[outil de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge.md), les [pools élastiques](sql-database-elastic-pool.md) et les [requêtes](sql-database-elastic-query-overview.md).
 
@@ -33,7 +33,7 @@ Ces termes sont utilisés dans [Ajout d’une partition à l’aide des outils d
 
 **Carte de partitions locale** : stockée sur une partition, la carte de partitions locale contient des mappages pour les shardlets se trouvant sur la partition.
 
-**Requête sur plusieurs partitions** : possibilité d'émettre une requête sur plusieurs partitions ; les ensembles de résultats sont retournés à l'aide de la sémantique UNION ALL (également appelée « requête de distribution ramifiée »). Comparer au **routage dépendant des données**.
+**Requête sur plusieurs partitions** : possibilité d'émettre une requête sur plusieurs partitions ; les ensembles de résultats sont retournés à l'aide de la sémantique UNION ALL (également appelée « requête de distribution ramifiée »). Comparer au **routage dépendant des données**.
 
 **Mutualisée** et **mono-utilisateur** : montre une base de données à un seul utilisateur et une base de données à architecture mutualisée :
 
@@ -53,7 +53,7 @@ Voici une représentation de bases de données **partitionnées** de type mono-u
 
 **Tables partitionnées** : tables qui sont partitionnées, c'est-à-dire dont les données sont distribuées entre des partitions en fonction de la valeur de leur clé de partitionnement.
 
-**Clé de partitionnement** : valeur de colonne qui détermine comment les données sont réparties entre les partitions. Les types de valeur disponibles sont les suivants : **int**, **bigint**, **varbinary** ou **uniqueidentifier**.
+**Clé de partitionnement** : valeur de colonne qui détermine comment les données sont réparties entre les partitions. Les types de valeur disponibles sont les suivants : **int**, **bigint**, **varbinary** ou **uniqueidentifier**.
 
 **Ensemble de partitions** : collection de partitions qui sont attribuées à la même carte de partitions dans le gestionnaire des cartes de partitions.
 
@@ -65,9 +65,7 @@ Voici une représentation de bases de données **partitionnées** de type mono-u
 
 ![Mappages][2]
 
-
-##Verbes et adverbes
-
+## Verbes et adverbes
 **Mise à l'échelle horizontale** : montée en charge (augmentation ou réduction) d'une collection de partitions en ajoutant ou supprimant des partitions dans une carte de partitions, comme dans l'exemple ci-dessous.
 
 ![Mise à l’échelle horizontale et verticale][3]
@@ -82,12 +80,12 @@ Voici une représentation de bases de données **partitionnées** de type mono-u
 
 **Mise à l'échelle verticale** : mise à l'échelle (augmentation ou réduction) du niveau de performances d'une partition individuelle. Par exemple, modifier une partition standard vers l’édition Premium (qui génère plus de ressources informatiques).
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-glossary/glossary.png
 [2]: ./media/sql-database-elastic-scale-glossary/mappings.png
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
- 
+
 
 <!---HONumber=AcomDC_0601_2016-->
