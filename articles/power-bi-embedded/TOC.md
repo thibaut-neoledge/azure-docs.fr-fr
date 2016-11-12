@@ -1,37 +1,37 @@
-# Overview
-## [What is Power BI Embedded?](power-bi-embedded-what-is-power-bi-embedded.md)
-## [What's new in Power BI Embedded](power-bi-embedded-whats-new.md)
+# Vue d'ensemble
+## [Présentation de Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
+## [Nouveautés de Power BI Embedded](power-bi-embedded-whats-new.md)
 
-# Get started
-## [Get started with Power BI Embedded](power-bi-embedded-get-started.md)
-## [Get started with a sample](power-bi-embedded-get-started-sample.md)
+# Prise en main
+## [Prise en main de Power BI Embedded](power-bi-embedded-get-started.md)
+## [Prise en main d’un exemple](power-bi-embedded-get-started-sample.md)
 
-# How to 
-## Plan and design
-### [Common scenarios](power-bi-embedded-scenarios.md)
+# Procédures 
+## Planifier et concevoir
+### [Scénarios courants](power-bi-embedded-scenarios.md)
 
-## Manage
-### [Connect to a data source](power-bi-embedded-connect-datasource.md)
-### [Embed a Power BI report with an IFrame](power-bi-embedded-iframe.md)
-### [Interact with Reports](power-bi-embedded-interact-with-reports.md)
+## Gérer
+### [Se connecter à une source de données](power-bi-embedded-connect-datasource.md)
+### [Incorporer un rapport Power BI avec un IFrame](power-bi-embedded-iframe.md)
+### [Interagir avec les rapports](power-bi-embedded-interact-with-reports.md)
 
-## Secure
-### [Authenticating and authorizing](power-bi-embedded-app-token-flow.md)
-### [Row level security with Power BI Embedded ](power-bi-embedded-rls.md)
+## Sécuriser
+### [Authentification et autorisation](power-bi-embedded-app-token-flow.md)
+### [Sécurité au niveau des lignes avec Power BI Embedded](power-bi-embedded-rls.md)
 
-# Reference
-## [.NET API reference](https://msdn.microsoft.com/en-us/library/azure/mt669800)
-## [JavaScript SDK](https://github.com/Microsoft/PowerBI-JavaScript)
-## [REST API reference](https://msdn.microsoft.com/en-us/library/azure/mt712303)
-## [.NET SDK download](https://www.nuget.org/profiles/powerbi)
+# Référence
+## [Référence sur l’API .NET](https://msdn.microsoft.com/en-us/library/azure/mt669800)
+## [Kit de développement logiciel (SDK) JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
+## [Référence d’API REST](https://msdn.microsoft.com/en-us/library/azure/mt712303)
+## [Téléchargement du Kit de développement logiciel (SDK) .NET](https://www.nuget.org/profiles/powerbi)
 
-# Related 
+# Rubriques connexes 
 
-# Resources
-## [FAQ](power-bi-embedded-faq.md)
-## [Samples](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
-## [Power BI community](http://community.powerbi.com/t5/Developer/bd-p/Developer)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)
+# les ressources
+## [FORUM AUX QUESTIONS](power-bi-embedded-faq.md)
+## [Exemples](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
+## [Communauté Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/powerbi)
 
 
 

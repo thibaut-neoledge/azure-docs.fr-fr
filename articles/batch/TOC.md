@@ -1,45 +1,45 @@
-# Overview
-## [Batch basics](batch-technical-overview.md)
-## [Batch feature overview](batch-api-basics.md)
-## [Batch quotas and limits](batch-quota-limit.md)
-# Get Started
-## [Create a Batch account](batch-account-create-portal.md)
-## [Batch .NET tutorial](batch-dotnet-get-started.md)
-## [Batch Python tutorial](batch-python-tutorial.md)
-# How To
-## Develop
-### [Application packages](batch-application-packages.md)
-### [Autoscale compute nodes](batch-automatic-scaling.md)
-### [Concurrent node tasks](batch-parallel-node-tasks.md)
-### [Efficient list queries](batch-efficient-list-queries.md)
-### [Job preparation and completion tasks](batch-job-prep-release.md)
-### [Linux compute nodes](batch-linux-nodes.md)
-### [Manage Batch accounts with Batch Management .NET](batch-management-dotnet.md)
-### [Persist job and task output](batch-task-output.md)
-### [Run MPI jobs in Batch](batch-mpi.md)
-### [Task dependencies](batch-task-dependencies.md)
-### [Visual Studio project templates for Batch](batch-visual-studio-templates.md)
-## Manage
-### [Batch CLI](batch-cli-get-started.md)
-### [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
-### [Batch diagnostic logs](batch-diagnostics.md)
-# Reference
-## [Batch REST API reference](https://go.microsoft.com/fwlink/p/?linkid=833492)
-## [Batch .NET reference](https://go.microsoft.com/fwlink/p/?linkid=833494)
-## [Batch Python reference](https://go.microsoft.com/fwlink/p/?linkid=833496)
-## [Batch Node.js reference](https://go.microsoft.com/fwlink/p/?linkid=833544)
-## [Batch Java reference](https://go.microsoft.com/fwlink/p/?linkid=833497)
-## [Batch Management .NET reference](https://go.microsoft.com/fwlink/p/?linkid=833498)
-## [Batch PowerShell reference](https://go.microsoft.com/fwlink/p/?linkid=833500)
-# Related
-## [Batch and HPC solutions in the Azure cloud](batch-hpc-solutions.md)
-## [Big Compute in Azure: Technical resources](big-compute-resources.md)
-# Resources
-## [Service Updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=))
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
-## [Batch C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-## [Batch Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
+# Vue d'ensemble
+## [Concepts de base de Batch](batch-technical-overview.md)
+## [Aperçu des fonctionnalités d’Azure Batch](batch-api-basics.md)
+## [Quotas et limites de Batch](batch-quota-limit.md)
+# Prise en main
+## [Création d’un compte Batch](batch-account-create-portal.md)
+## [Didacticiel sur Batch pour .NET](batch-dotnet-get-started.md)
+## [Didacticiel Python Batch](batch-python-tutorial.md)
+# Procédure
+## Développement
+### [Packages d’applications](batch-application-packages.md)
+### [Mettre automatiquement à l’échelle les nœuds de calcul](batch-automatic-scaling.md)
+### [Tâches de nœud simultanées](batch-parallel-node-tasks.md)
+### [Requêtes de liste efficaces](batch-efficient-list-queries.md)
+### [Tâches d’achèvement et de préparation des travaux](batch-job-prep-release.md)
+### [Nœuds de calcul Linux](batch-linux-nodes.md)
+### [Gérer les comptes Batch avec Batch Management .NET](batch-management-dotnet.md)
+### [Conserver les résultats des tâches et des travaux](batch-task-output.md)
+### [Exécuter des tâches MPI dans Batch](batch-mpi.md)
+### [Dépendances de la tâche](batch-task-dependencies.md)
+### [Modèles de projet Visual Studio pour Batch](batch-visual-studio-templates.md)
+## Gérer
+### [Interface de ligne de commande Batch](batch-cli-get-started.md)
+### [Applets de commande PowerShell pour Batch](batch-powershell-cmdlets-get-started.md)
+### [Journaux de diagnostic de Batch](batch-diagnostics.md)
+# Référence
+## [Informations de référence de l'API REST de Batch](https://go.microsoft.com/fwlink/p/?linkid=833492)
+## [Référence .NET Batch](https://go.microsoft.com/fwlink/p/?linkid=833494)
+## [Référence Python Batch](https://go.microsoft.com/fwlink/p/?linkid=833496)
+## [Référence Node.js Batch](https://go.microsoft.com/fwlink/p/?linkid=833544)
+## [Référence Java Batch](https://go.microsoft.com/fwlink/p/?linkid=833497)
+## [Référence .NET de la gestion Batch](https://go.microsoft.com/fwlink/p/?linkid=833498)
+## [Référence PowerShell Batch](https://go.microsoft.com/fwlink/p/?linkid=833500)
+# Rubriques connexes
+## [Solutions Batch et HPC dans le cloud Azure](batch-hpc-solutions.md)
+## [Big Compute dans Azure : ressources techniques](big-compute-resources.md)
+# les ressources
+## [Mises à jour de service](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
+## [Exemples de code Batch](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
+## [Exemples de code Batch Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Lot chantier](https://github.com/Azure/batch-shipyard)
 
 
 <!--HONumber=Nov16_HO2-->
