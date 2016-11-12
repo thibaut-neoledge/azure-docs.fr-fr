@@ -1,58 +1,153 @@
-# Overview
-## [What is Mobile Engagement?](mobile-engagement-overview.md)
-## [Features overview](http://aka.ms/azmefeatures)
-## [Comparison with related services](mobile-engagement-comparison.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/mobile-engagement/)
-## [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
-## [Videos & Updates](https://azure.microsoft.com/documentation/services/mobile-engagement/)
-# Get Started
-## [Define your Engagement strategy](mobile-engagement-define-your-mobile-engagement-strategy.md)
-## [Concepts](mobile-engagement-concepts.md)
-## [Best practices](mobile-engagement-getting-started-best-practices.md)
-## [Sample Demo apps](mobile-engagement-demo-apps.md)
-## [Create a Mobile Engagement App](mobile-engagement-create.md)
+# [Vue d'ensemble](mobile-engagement-overview.md)
+## [Comparaison avec les services associés](mobile-engagement-comparison.md)
+## [Présentation des fonctionnalités](mobile-engagement-key-features.md)
+## [Tarification](https://azure.microsoft.com/pricing/details/mobile-engagement/)
 
-# How To
+# Prise en main
+## [Android](mobile-engagement-android-get-started.md)
+## [Cordova](mobile-engagement-cordova-get-started.md)
+## [iOS Objective-C](mobile-engagement-ios-get-started.md)
+## [iOS Swift](mobile-engagement-ios-swift-get-started.md)
+## [Unity Android](mobile-engagement-unity-android-get-started.md)
+## [Unity iOS](mobile-engagement-unity-ios-get-started.md)
+## [Windows universel](mobile-engagement-windows-store-dotnet-get-started.md)
+## [Web (VERSION PRÉLIMINAIRE)](mobile-engagement-web-app-get-started.md)
+## [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
+## [Xamarin.Android](mobile-engagement-xamarin-android-get-started.md)
+## [Xamarin.iOS](mobile-engagement-xamarin-ios-get-started.md)
 
-## Basic SDK Integration
-### [Universal Windows](mobile-engagement-windows-store-dotnet-get-started.md)
-### [iOS Objective-C](mobile-engagement-ios-get-started.md)
-### [iOS Swift](mobile-engagement-ios-swift-get-started.md)
-### [Android](mobile-engagement-android-get-started.md)
-### [Xamarin.iOS](mobile-engagement-xamarin-ios-get-started.md)
-### [Xamarin.Android](mobile-engagement-xamarin-android-get-started.md)
-### [Unity iOS](mobile-engagement-unity-ios-get-started.md)
-### [Unity Android](mobile-engagement-unity-android-get-started.md)
-### [Cordova](mobile-engagement-cordova-get-started.md)
-### [Web (PREVIEW)](mobile-engagement-web-app-get-started.md)
-### [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-## Advanced SDK Integration
-### [Universal Windows](mobile-engagement-windows-store-sdk-overview.md)
-### [Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-overview.md)
-### [iOS Objective-C](mobile-engagement-ios-sdk-overview.md)
+# Procédures
+## Planifier et concevoir
+### [meilleures pratiques](mobile-engagement-getting-started-best-practices.md)
+### [Concepts](mobile-engagement-concepts.md)
+### [Définir votre stratégie d’engagement](mobile-engagement-define-your-mobile-engagement-strategy.md)
+### Scénarios
+#### [Application multimédia](mobile-engagement-media-scenario.md)
+#### [Application de jeu](mobile-engagement-gaming-scenario.md)
+
+## Développement
+### [Créer une application Mobile Engagement](mobile-engagement-create.md)
+
 ### [Android](mobile-engagement-android-sdk-overview.md)
-### [Web (PREVIEW)](mobile-engagement-web-sdk-overview.md)
-## Service API Integration
-### [API Authentication](mobile-engagement-api-authentication.md)
+#### [Intégrer avec une application Android](mobile-engagement-android-integrate-engagement.md)
+#### Reporting
+##### [Génération de rapports avancés](mobile-engagement-android-advanced-reporting.md)
+##### [Rapports d'emplacement](mobile-engagement-android-location-reporting.md)
+##### [Configuration avancée](mobile-engagement-android-advanced-configuration.md)
+#### Notifications
+##### [Intégrer Reach](mobile-engagement-android-integrate-engagement-reach.md)
+##### [Google Cloud Messaging](mobile-engagement-android-gcm-integrate.md)
+##### [Amazon Device Messaging](mobile-engagement-android-adm-integrate.md)
+#### [Implémentation du plan de balise](mobile-engagement-android-use-engagement-api.md)
+#### [Mettre à niveau votre Kit de développement logiciel (SDK)](mobile-engagement-android-upgrade-procedure.md)
 
-### [.NET API Sample](mobile-engagement-dotnet-sdk-service-api.md)
-## Tutorials
-### [Send Emojis in notifications](mobile-engagement-use-emoji-with-push.md)
-### [Send personalized notifications](mobile-engagement-send-personalized-notifications.md)
-### [Bridge WebView to native SDKs](mobile-engagement-bridge-webview-native-ios.md)
-## Mobile Engagement Portal
-### [Home](mobile-engagement-user-interface-home.md)
-### [My account](mobile-engagement-user-interface-my-account.md)
-### [Settings](mobile-engagement-user-interface-settings.md)
-### [Monitor](mobile-engagement-user-interface-monitor.md)
-### [Analytics](mobile-engagement-user-interface-analytics.md)
+### [iOS](mobile-engagement-ios-sdk-overview.md)
+#### [Intégrer avec une application iOS](mobile-engagement-ios-integrate-engagement.md)
+#### [Intégrer Reach](mobile-engagement-ios-integrate-engagement-reach.md)
+#### [Implémentation du plan de balise](mobile-engagement-ios-use-engagement-api.md)
+#### [Mettre à niveau votre Kit de développement logiciel (SDK)](mobile-engagement-ios-upgrade-procedure.md)
+
+### Unity
+#### [Créer un jeu Unity Roll a Ball](mobile-engagement-unity-roll-a-ball.md)
+
+### [web](mobile-engagement-web-sdk-overview.md)
+#### [Intégrer avec une application web](mobile-engagement-web-integrate-engagement.md)
+#### [Implémentation du plan de balise](mobile-engagement-web-use-engagement-api.md)
+#### [Mettre à niveau votre Kit de développement logiciel (SDK)](mobile-engagement-web-upgrade-procedure.md)
+
+### Applications de pont WebView
+#### [Android WebView avec le Kit de développement logiciel (SDK) Android natif](mobile-engagement-bridge-webview-native-android.md)
+#### [iOS WebView avec le Kit de développement logiciel (SDK) iOS](mobile-engagement-bridge-webview-native-ios.md)
+
+### [Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-overview.md)
+
+#### [Intégrer avec une application Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+#### [Intégrer Reach](mobile-engagement-windows-phone-integrate-engagement-reach.md)
+#### [Implémentation du plan de balise](mobile-engagement-windows-phone-use-engagement-api.md)
+#### [Mettre à niveau votre Kit de développement logiciel (SDK)](mobile-engagement-windows-phone-upgrade-procedure.md)
+
+### [Windows Universal](mobile-engagement-windows-store-sdk-overview.md)
+#### [Intégrer avec une application universelle Windows](mobile-engagement-windows-store-integrate-engagement.md)                    
+#### [Configuration avancée](mobile-engagement-windows-store-advanced-configuration.md)
+#### [Intégrer Reach](mobile-engagement-windows-store-integrate-engagement-reach.md)
+#### [Génération de rapports avancés](mobile-engagement-windows-store-advanced-reporting.md)
+#### [Implémentation du plan de balise](mobile-engagement-windows-store-use-engagement-api.md)
+#### [Mettre à niveau votre Kit de développement logiciel (SDK)](mobile-engagement-windows-store-upgrade-procedure.md)
+
+### Reach
+#### [Prise en main de l’utilisation et de la gestion de PushPrise en main de l’utilisation et de la gestion de Push](mobile-engagement-how-tos.md)
+#### [Envoyer des emojis dans des notifications](mobile-engagement-use-emoji-with-push.md)
+#### [Envoi de notifications personnalisées](mobile-engagement-send-personalized-notifications.md)
+
+### Accéder aux API de service
+#### [REST](mobile-engagement-dotnet-rest-service-api.md)
+#### [Kit SDK .NET](mobile-engagement-dotnet-sdk-service-api.md)
+
+## [Gérer](mobile-engagement-user-interface-home.md)
+### [Compte](mobile-engagement-user-interface-my-account.md)
+### [Paramètres](mobile-engagement-user-interface-settings.md)
 ### [Reach](mobile-engagement-user-interface-reach.md)
+#### [Campagnes](mobile-engagement-user-interface-reach-campaign.md)
+#### [Contenu](mobile-engagement-user-interface-reach-content.md)
+#### [Critères](mobile-engagement-user-interface-reach-criterion.md)
 ### [Segments](mobile-engagement-user-interface-segments.md)
-## Troubleshoot
-### [Troubleshooting guide](mobile-engagement-troubleshooting-guide.md)
-### [Service limits/throttles](../azure-subscription-service-limits.md#mobile-engagement-limits.md)
 
-# Reference
-## [REST API Reference](https://msdn.microsoft.com/library/azure/mt683754)
-## [REST API Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json)
-## [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
+## Sécuriser
+### [Authentification des API](mobile-engagement-api-authentication.md)
+### [Configurer manuellement l’authentification des API](mobile-engagement-api-authentication-manual.md)
+
+## Surveiller
+### [Analyse des données en temps réel](mobile-engagement-user-interface-monitor.md)
+
+## Analyser
+### [Afficher et gérer les graphiques de données](mobile-engagement-user-interface-dashboard.md)
+### [Analyser les données de l’historique](mobile-engagement-user-interface-analytics.md)
+### [Exporter les données brutes à des fins d’analyse](mobile-engagement-api-export-overview.md)
+
+## Integrate
+### [Intégration des API](mobile-engagement-sample-backend-integration-sharepoint.md)
+
+## [Résolution des problèmes](mobile-engagement-troubleshooting-guide.md)
+### [Problèmes d’analyse, de surveillance, de segmentation et de tableaux de bord](mobile-engagement-troubleshooting-guide-analytics.md)
+### [Problèmes liés aux API](mobile-engagement-troubleshooting-guide-apis.md)
+### [Problèmes liés à Push et Reach](mobile-engagement-troubleshooting-guide-push-reach.md)
+### [Problèmes liés à l’intégration du Kit de développement logiciel (SDK)](mobile-engagement-troubleshooting-guide-sdk.md)
+### [Problèmes liés aux services](mobile-engagement-troubleshooting-guide-service.md)
+### [Informations de la demande de service](mobile-engagement-troubleshooting-guide-sr-info.md)
+### [Limites/limitations de service](../azure-subscription-service-limits.md#mobile-engagement-limits)
+
+# Référence
+## [Kit SDK .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
+## [Référence d’API REST](https://msdn.microsoft.com/en-us/library/azure/mt683754)
+## [Spécification Swagger de l’API REST](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json)
+## Contenu du Kit de développement logiciel (SDK)
+### [Kit de développement logiciel Android](mobile-engagement-android-sdk-content.md)
+### [Kit de développement logiciel (SDK) iOS](mobile-engagement-ios-sdk-content.md)
+### [Kit de développement logiciel (SDK) des applications universelles Windows](mobile-engagement-windows-store-sdk-content.md)
+### [Kit de développement logiciel (SDK) Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-content.md)
+
+# Rubriques connexes
+
+# les ressources
+## [Exemples d’applications de démonstration](mobile-engagement-demo-apps.md)
+## [Exemple d’API .NETExemple d’API .NET](mobile-engagement-dotnet-sdk-service-api.md)
+## [Vidéos et mises à jour](https://azure.microsoft.com/documentation/services/mobile-engagement/)
+## [Contrat de Niveau de Service (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
+## Notes de publication
+### [Kit de développement logiciel Android](mobile-engagement-android-release-notes.md)
+### [Kit de développement logiciel (SDK) iOS](mobile-engagement-ios-release-notes.md)
+### [Kit de développement logiciel (SDK) web](mobile-engagement-web-release-notes.md)
+### [Kit de développement logiciel (SDK) des applications universelles Windows](mobile-engagement-windows-store-release-notes.md)
+### [Kit de développement logiciel (SDK) Windows Phone Silverlight](mobile-engagement-windows-phone-release-notes.md)
+
+
+
+
+
+
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,25 +1,32 @@
-# Overview
-## [What is Relay?](service-bus-relay-overview.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
-## [FAQ](../service-bus-messaging/service-bus-faq.md)
-# Get Started
-## [How to use Relay](service-bus-dotnet-how-to-use-relay.md)
-## [Shared Access Signatures (SAS)](../service-bus-messaging/service-bus-sas-overview.md)
-## [An on-premises/cloud hybrid application using Service Bus Relay](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
-## [Relay .NET tutorial](service-bus-relay-tutorial.md)
-## [Relay REST tutorial](service-bus-relay-rest-tutorial.md)
+# Vue d'ensemble
+## [Qu’est-ce que Relay ?](service-bus-relay-overview.md)
+## [FAQ](../service-bus-messaging/service-bus-faq.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
 
-# How To
-## Develop
-### [Service Bus authentication and authorization](../service-bus-messaging/service-bus-authentication-and-authorization.md)
-### [Handling Service Bus outages and disasters](../service-bus-messaging/service-bus-outages-disasters.md)
-# Reference
-## [Samples](service-bus-relay-samples.md)
-## [.NET API reference](https://msdn.microsoft.com/library/azure/jj933424)
-## [Exceptions](../service-bus-messaging/service-bus-messaging-exceptions.md)
-## [Quotas](../service-bus-messaging/service-bus-quotas.md)
-# Resources
+# Prise en main
+## [Utilisation de Relay](service-bus-dotnet-how-to-use-relay.md)
+## [Signatures d’accès partagé](../service-bus-messaging/service-bus-sas-overview.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [Créer des applications hybrides à l’aide du Service Bus Relay](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
+## [Didacticiel sur .NET pour les relais](service-bus-relay-tutorial.md)
+## [Didacticiel sur REST pour les relais](service-bus-relay-rest-tutorial.md)
+
+# Procédure
+## [Authentification et autorisation](../service-bus-messaging/service-bus-authentication-and-authorization.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [Gestion des urgences et des pannes](../service-bus-messaging/service-bus-outages-disasters.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+
+# Référence
+## [Exemples](service-bus-relay-samples.md)
+## [Référence sur l’API .NET](https://msdn.microsoft.com/library/azure/jj933424)
+## [Exceptions](../service-bus-messaging/service-bus-messaging-exceptions.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [Quotas](../service-bus-messaging/service-bus-quotas.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+
+# les ressources
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
-## [MSDN forums](https://social.msdn.microsoft.com/forums/home?forum=servbus)
+## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/servicebus)
+## [Forums MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
+## [Tarification](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
+
+
+<!--HONumber=Nov16_HO2-->
+
+
