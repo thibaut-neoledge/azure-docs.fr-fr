@@ -1,13 +1,13 @@
 ---
-title: Création d’une homologation de réseaux virtuels à l’aide du portail Azure | Microsoft Docs
-description: Découvrez comment créer un réseau virtuel à l’aide du portail Azure dans Resource Manager.
+title: "Création d’une homologation de réseaux virtuels à l’aide du portail Azure | Microsoft Docs"
+description: "Découvrez comment créer un réseau virtuel à l’aide du portail Azure dans Resource Manager."
 services: virtual-network
-documentationcenter: ''
+documentationcenter: 
 author: NarayanAnnamalai
 manager: jefco
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 026bca75-2946-4c03-b4f6-9f3c5809c69a
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayanannamalai;annahar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 688fed72b32767f33010b9e8f17921b16320072d
+
 
 ---
-# Créer une homologation de réseaux virtuels à l’aide du portail Azure
+# <a name="create-a-virtual-network-peering-using-the-azure-portal"></a>Créer une homologation de réseaux virtuels à l’aide du portail Azure
 [!INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnetpeering-intro-include.md)]
@@ -27,7 +31,7 @@ ms.author: narayanannamalai;annahar
 Pour créer une homologation de réseaux virtuels selon le scénario ci-dessus à l’aide du portail Azure, suivez les étapes ci-dessous.
 
 1. Dans un navigateur, accédez à http://portal.azure.com et, si nécessaire, connectez-vous avec votre compte Azure.
-2. Pour établir une homologation de réseaux virtuels, vous devez créer un lien entre deux réseaux virtuels pour chaque direction. Vous pouvez créer tout d’abord le lien d’homologation de réseaux virtuels de VNET1 à VNET2. Dans le portail, cliquez sur **Parcourir**, puis choisissez **Réseaux virtuels**.
+2. Pour établir une homologation de réseaux virtuels, vous devez créer un lien entre deux réseaux virtuels pour chaque direction. Vous pouvez créer tout d’abord le lien d’homologation de réseaux virtuels de VNET1 à VNET2. Dans le portail, cliquez sur **Parcourir** > ** et choisissez Réseaux virtuels**.
    
     ![Créer une homologation de réseaux virtuels dans le portail Azure](./media/virtual-networks-create-vnetpeering-arm-portal/figure01.png)
 3. Dans le panneau Réseaux virtuels, choisissez VNET1 et cliquez sur Homologations, puis sur Ajouter
@@ -48,7 +52,7 @@ Pour créer une homologation de réseaux virtuels selon le scénario ci-dessus �
 8. Une fois ce lien d’homologation de réseaux virtuels créé, l’état du lien apparaît comme suit :
    
     ![État final du lien](./media/virtual-networks-create-vnetpeering-arm-portal/figure07.png)
-9. Vérifiez l’état du lien LinkToVnet2. Celui-ci est à présent également défini sur Connecté.
+9. Vérifiez l’état du lien LinkToVnet2. Celui-ci est à présent également défini sur Connecté.  
    
     ![État final du lien 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure08.png)
    
@@ -61,8 +65,8 @@ Il existe plusieurs propriétés configurables pour chaque lien :
 
 | Option | Description | Default |
 |:--- |:--- |:--- |
-| AllowVirtualNetworkAccess |Indique si l’espace d’adressage du réseau virtuel homologue doit être inclus dans le cadre de la balise Virtual\_network. |Oui |
-| AllowForwardedTraffic |Spécifie si le trafic ne provenant pas du réseau virtuel homologué doit être accepté ou rejeté. |Non |
+| AllowVirtualNetworkAccess |Indique si l’espace d’adressage du réseau virtuel homologue doit être inclus dans le cadre de la balise Virtual_network. |Oui |
+| AllowForwardedTraffic |Spécifie si le trafic ne provenant pas d’un réseau virtuel homologué est accepté ou rejeté. |Non |
 | AllowGatewayTransit |Permet au réseau virtuel homologue d’utiliser votre passerelle de réseau virtuel. |Non |
 | UseRemoteGateways |Permet d’utiliser la passerelle de votre réseau virtuel homologue. Une passerelle doit être configurée pour le réseau virtuel homologue et la propriété AllowGatewayTransit doit être sélectionnée. Vous ne pouvez pas utiliser cette option si vous avez une passerelle configurée. |Non |
 
@@ -90,7 +94,7 @@ Chaque lien de l’homologation de réseaux virtuels présente plusieurs des pro
    > 
 6. Connectez-vous au portail en tant qu’utilisateur A, accédez au panneau du réseau virtuel VNET3, cliquez sur Homologation, activez la case à cocher Je connais mon ID de ressource, puis tapez l’ID de ressource de VNET5 au format ci-dessous.
    
-    /subscriptions/<Subscription- ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/<VNET name>
+    /subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Network/VirtualNetwork/{VNETname}
    
     ![ID de ressource](./media/virtual-networks-create-vnetpeering-arm-portal/figure12.png)
 7. Connectez-vous au portail en tant qu’utilisateur B et répétez l’étape ci-dessus pour le lien d’homologation de VNET5 à VNET3.
@@ -111,8 +115,8 @@ Chaque lien de l’homologation de réseaux virtuels présente plusieurs des pro
 [!INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
 
 1. Dans un navigateur, accédez à http://portal.azure.com et, si nécessaire, connectez-vous avec votre compte Azure.
-2. Pour établir une homologation de réseaux virtuels dans ce scénario, vous n’avez besoin de créer qu’un seul lien, du réseau virtuel d’Azure Resource Manager à celui du portail Classic, c’est-à-dire de **VNET1** à **VNET2**. Dans le portail, cliquez sur **Parcourir** > **Réseaux virtuels**.
-3. Dans le panneau Réseaux virtuels, choisissez **VNET1**. Cliquez sur **omologations**, puis sur **Ajouter**.
+2. Pour établir une homologation de réseaux virtuels dans ce scénario, vous n’avez besoin de créer qu’un seul lien, du réseau virtuel d’Azure Resource Manager à celui du portail Classic, c’est-à-dire de **VNET1** à **VNET2**. Dans le portail, cliquez sur **Parcourir** et choisissez **Réseaux virtuels**.
+3. Dans le panneau Réseaux virtuels, choisissez **VNET1**. Cliquez sur **Homologations**, puis sur **Ajouter**.
 4. Dans le panneau Ajouter l’homologation, nommez votre lien. Ici, il est appelé **LinkToVNet2**. Sous Détails de l’homologue, sélectionnez **Classique**.
 5. Choisissez ensuite l’abonnement et le réseau virtuel homologue **VNET2**. Puis cliquez sur OK.
    
@@ -121,7 +125,7 @@ Chaque lien de l’homologation de réseaux virtuels présente plusieurs des pro
    
     ![Vérification de la connexion d’homologation](./media/virtual-networks-create-vnetpeering-arm-portal/figure19.png)
 
-## Supprimer l’homologation de réseaux virtuels
+## <a name="remove-vnet-peering"></a>Supprimer l’homologation de réseaux virtuels
 1. Dans un navigateur, accédez à http://portal.azure.com et, si nécessaire, connectez-vous avec votre compte Azure.
 2. Accédez au panneau Réseaux virtuels, cliquez sur Homologations, choisissez le lien à supprimer, puis cliquez sur le bouton Supprimer.
    
@@ -131,4 +135,9 @@ Chaque lien de l’homologation de réseaux virtuels présente plusieurs des pro
     ![Supprimer 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure16.png)
 4. Dans cet état, vous ne pouvez pas recréer le lien tant que l’état du lien d’homologation n’est pas défini sur Initiated (Initialisé). Nous vous recommandons de supprimer les deux liens avant de recréer l’homologation de réseaux virtuels.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -14,14 +14,18 @@
 5. Ajoutez la valeur suivante à l’élément 0 `App downloads content in response to push notifications`
    
     ![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push3.png)
-6. Une fois la modification apportée, le code XML du fichier info.plist doit contenir la clé et la valeur ci-dessous :
+6. Une fois la modification apportée, le code XML du fichier info.plist doit contenir la clé et la valeur ci-dessous :
    
         <key>UIBackgroundModes</key>
         <array>
         <string>remote-notification</string>
         </array>
-7. Si vous utilisez **Xcode 7+** et **iOS 9 +** :
+7. Si vous utilisez **Xcode 7+** et **iOS 9 +** :
    
-   * Activer **Notifications Push** dans Cibles > Nom de cible > Fonctionnalités.
+   * Activer **Notifications Push** dans Cibles > Nom de cible > Fonctionnalités.
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+
