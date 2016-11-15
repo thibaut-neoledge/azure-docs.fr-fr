@@ -1,4 +1,4 @@
-## Exemple de résultat
+## <a name="typical-output"></a>Exemple de résultat
 Voici un exemple de résultat inscrit dans le fichier journal par l’exemple Hello World. Des sauts de ligne et des tabulations ont été ajoutés pour une meilleure lisibilité :
 
 ```
@@ -29,13 +29,13 @@ Voici un exemple de résultat inscrit dans le fichier journal par l’exemple He
 }]
 ```
 
-## Extraits de code
+## <a name="code-snippets"></a>Extraits de code
 Cette section présente certains éléments clés du code dans l'exemple Hello World.
 
-### Création de la passerelle
-Le développeur doit écrire le *processus de passerelle*. Ce programme crée l’infrastructure interne (le répartiteur), charge les modules et configure tous les éléments pour qu’ils fonctionnent correctement. Le SDK fournit la fonction **Gateway\_Create\_From\_JSON** pour vous permettre d'amorcer une passerelle à partir d'un fichier JSON. Pour utiliser la fonction **Gateway\_Create\_From\_JSON**, vous devez lui transmettre le chemin d'accès à un fichier JSON qui spécifie les modules à charger.
+### <a name="gateway-creation"></a>Création de la passerelle
+Le développeur doit écrire le *processus de passerelle*. Ce programme crée l’infrastructure interne (le répartiteur), charge les modules et configure tous les éléments pour qu’ils fonctionnent correctement. Le SDK fournit la fonction **Gateway_Create_From_JSON** pour vous permettre d'amorcer une passerelle à partir d'un fichier JSON. Pour utiliser la fonction **Gateway_Create_From_JSON**, vous devez lui transmettre le chemin d'accès à un fichier JSON qui spécifie les modules à charger. 
 
-Vous trouverez le code du processus de passerelle dans l'exemple Hello World du fichier [main.c][lnk-main-c]. Pour une meilleure lisibilité, l'extrait de code ci-dessous montre une version abrégée du code du processus de passerelle. Ce programme crée une passerelle puis attend que l'utilisateur appuie sur la touche **ENTRÉE** avant de mettre fin à la passerelle.
+Vous trouverez le code du processus de passerelle dans l'exemple Hello World du fichier [main.c][lnk-main-c]. Pour une meilleure lisibilité, l'extrait de code ci-dessous montre une version abrégée du code du processus de passerelle. Ce programme crée une passerelle puis attend que l'utilisateur appuie sur la touche **ENTRÉE** avant de mettre fin à la passerelle. 
 
 ```
 int main(int argc, char** argv)
@@ -58,16 +58,16 @@ int main(int argc, char** argv)
 
 Le fichier de paramètres JSON contient une liste des modules à charger. Chaque module doit spécifier les éléments suivants :
 
-* **nom\_module** : un nom unique pour le module.
-* **chemin\_module** : le chemin d'accès à la bibliothèque contenant le module. Il s’agit d’un fichier .so sous Linux, et d’un fichier .dll sous Windows.
-* **args** : toute information de configuration nécessaire au module.
+* **nom_module** : un nom unique pour le module.
+* **chemin_module** : le chemin d'accès à la bibliothèque contenant le module. Il s’agit d’un fichier .so sous Linux, et d’un fichier .dll sous Windows.
+* **args**: toute information de configuration nécessaire au module.
 
 Le fichier JSON contient également les liaisons entre les modules qui seront transmis au répartiteur. Une liaison possède deux propriétés :
 
-* **source** : un nom de module de la section `modules`, ou « * » ;
-* **récepteur** : un nom de module de la section `modules`.
+* **source** : un nom de module de la section `modules`, ou « \* ».
+* **récepteur** : un nom de module de la section `modules`
 
-Chaque liaison définit un itinéraire de message et une direction. Les messages du module `source` doivent être remis au module `sink`. `source` peut avoir la valeur « * », qui signifie que `sink` recevra des messages à partir de n’importe quel module.
+Chaque liaison définit un itinéraire de message et une direction. Les messages du module `source` doivent être remis au module `sink`. `source` peut avoir la valeur « \* », qui signifie que `sink` recevra des messages à partir de n’importe quel module.
 
 L'exemple suivant montre le fichier de paramètres JSON utilisé pour configurer l'exemple Hello World sous Linux. Tous les messages générés par le module `hello_world` seront utilisés par le module `logger`. La nécessité d’attribuer un argument à un module dépend de la conception du module. Dans cet exemple, le module enregistreur prend un argument qui correspond au chemin d'accès au fichier de sortie, et le module Hello World n'accepte aucun argument :
 
@@ -77,12 +77,16 @@ L'exemple suivant montre le fichier de paramètres JSON utilisé pour configurer
     [ 
         {
             "module name" : "logger",
-            "module path" : "./modules/logger/liblogger_hl.so",
+            "loading args": {
+              "module path" : "./modules/logger/liblogger_hl.so"
+            },
             "args" : {"filename":"log.txt"}
         },
         {
             "module name" : "hello_world",
-            "module path" : "./modules/hello_world/libhello_world_hl.so",
+            "loading args": {
+              "module path" : "./modules/hello_world/libhello_world_hl.so"
+            },
             "args" : null
         }
     ],
@@ -96,8 +100,8 @@ L'exemple suivant montre le fichier de paramètres JSON utilisé pour configurer
 }
 ```
 
-### Publication des messages du module Hello World
-Vous trouverez le code utilisé par le module « hello world » pour publier des messages dans le fichier [« hello\_world.c »][lnk-helloworld-c]. L'extrait de code ci-dessous montre une version modifiée avec des commentaires supplémentaires et un code de gestion d’erreur supprimé pour une meilleure lisibilité :
+### <a name="hello-world-module-message-publishing"></a>Publication des messages du module Hello World
+Vous trouverez le code utilisé par le module « hello world » pour publier des messages dans le fichier ['hello_world.c'][lnk-helloworld-c]. L'extrait de code ci-dessous montre une version modifiée avec des commentaires supplémentaires et un code de gestion d’erreur supprimé pour une meilleure lisibilité :
 
 ```
 int helloWorldThread(void *param)
@@ -145,7 +149,7 @@ int helloWorldThread(void *param)
 }
 ```
 
-### Traitement des messages du module Hello World
+### <a name="hello-world-module-message-processing"></a>Traitement des messages du module Hello World
 Le module Hello World n’a jamais besoin de traiter les messages que les autres modules publient sur le répartiteur. Cela rend inopérante l’implémentation du rappel de message dans le module Hello World.
 
 ```
@@ -155,10 +159,10 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 }
 ```
 
-### Publication et traitement des messages du module enregistreur
-Le module enregistreur reçoit des messages du répartiteur et les inscrit dans un fichier. Il ne publie jamais les messages. Par conséquent, le code du module enregistreur n’appelle jamais la fonction **Broker\_Publish**.
+### <a name="logger-module-message-publishing-and-processing"></a>Publication et traitement des messages du module enregistreur
+Le module enregistreur reçoit des messages du répartiteur et les inscrit dans un fichier. Il ne publie jamais les messages. Par conséquent, le code du module enregistreur n’appelle jamais la fonction **Broker_Publish**.
 
-La fonction **Logger\_Receive** du fichier [logger.c][lnk-logger-c] est le rappel que le répartiteur appelle pour remettre les messages au module enregistreur. L'extrait de code ci-dessous montre une version modifiée avec des commentaires supplémentaires et un code de gestion d’erreur supprimé pour une meilleure lisibilité :
+La fonction **Logger_Receive** du fichier [logger.c][lnk-logger-c] est le rappel que le répartiteur appelle pour remettre les messages au module enregistreur. L'extrait de code ci-dessous montre une version modifiée avec des commentaires supplémentaires et un code de gestion d’erreur supprimé pour une meilleure lisibilité :
 
 ```
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -181,17 +185,17 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 
     // Start the construction of the final string to be logged by adding
     // the timestamp
-    STRING_HANDLE jsonToBeAppended = STRING_construct(",{"time":"");
+    STRING_HANDLE jsonToBeAppended = STRING_construct(",{\"time\":\"");
     STRING_concat(jsonToBeAppended, timetemp);
 
     // Add the message properties
-    STRING_concat(jsonToBeAppended, "","properties":"); 
+    STRING_concat(jsonToBeAppended, "\",\"properties\":"); 
     STRING_concat_with_STRING(jsonToBeAppended, jsonProperties);
 
     // Add the content
-    STRING_concat(jsonToBeAppended, ","content":"");
+    STRING_concat(jsonToBeAppended, ",\"content\":\"");
     STRING_concat_with_STRING(jsonToBeAppended, contentAsJSON);
-    STRING_concat(jsonToBeAppended, ""}]");
+    STRING_concat(jsonToBeAppended, "\"}]");
 
     // Write the formatted string
     LOGGER_HANDLE_DATA *handleData = (LOGGER_HANDLE_DATA *)moduleHandle;
@@ -199,8 +203,8 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 }
 ```
 
-## Étapes suivantes
-Pour savoir comment utiliser le Kit de développement logiciel (SDK) de la passerelle, consultez les rubriques suivantes :
+## <a name="next-steps"></a>Étapes suivantes
+Pour savoir comment utiliser le Kit de développement logiciel (SDK) de la passerelle IoT, consultez les rubriques suivantes :
 
 * [Kit de développement logiciel (SDK) de la passerelle IoT– envoyer des messages appareil-à-cloud avec un appareil simulé à l’aide de Linux][lnk-gateway-simulated].
 * [Kit de développement logiciel (SDK) de la passerelle Azure IoT][lnk-gateway-sdk] sur GitHub.
@@ -212,4 +216,6 @@ Pour savoir comment utiliser le Kit de développement logiciel (SDK) de la passe
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!---HONumber=AcomDC_0928_2016-->
+<!--HONumber=Nov16_HO2-->
+
+

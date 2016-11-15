@@ -1,27 +1,31 @@
 ---
-title: Protéger votre API avec Gestion des API Azure | Microsoft Docs
-description: Découvrez comment protéger votre API avec les quotas et les stratégies (limite de débit) de limitation.
+title: "Protéger votre API avec Gestion des API Azure | Microsoft Docs"
+description: "Découvrez comment protéger votre API avec les quotas et les stratégies (limite de débit) de limitation."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 450dc368-d005-401d-ae64-3e1a2229b12f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
+
 
 ---
-# Protéger votre API avec des limites de débit à l’aide de la gestion des API Azure
+# <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Protéger votre API avec des limites de débit à l’aide de la gestion des API Azure
 Ce guide vous montre combien il est facile d’ajouter une protection à votre API principale en configurant des limites de débit et des stratégies de quota avec la gestion des API Azure.
 
-Dans ce didacticiel, vous allez créer une version d’évaluation gratuite d’un produit API qui permet aux développeurs de passer jusqu’à 10 appels par minute dans la limite de 200 appels par semaine vers votre API en utilisant les stratégies consistant à [Limiter la fréquence des appels par abonnement](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) et à [Définir le quota d’utilisation par abonnement](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Vous pourrez ensuite publier l’API et tester la stratégie de limite de débit
+Dans ce didacticiel, vous allez créer une version d’évaluation gratuite d’un produit API qui permet aux développeurs de passer jusqu’à 10 appels par minute dans la limite de 200 appels par semaine vers votre API en utilisant les stratégies consistant à [Limiter la fréquence des appels par abonnement](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) et à [Définir le quota d’utilisation par abonnement](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Vous pourrez ensuite publier l’API et tester la stratégie de limite de débit
 
-Pour consulter des scénarios de limitation plus avancés utilisant les stratégies [limiter-fréquence-par-clé](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) et [quota-par-clé](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey), consultez l’article [Limitation de requêtes avancée avec la gestion des API Azure](api-management-sample-flexible-throttling.md).
+Pour consulter des scénarios de limitation plus avancés utilisant les stratégies [limiter-fréquence-par-clé](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) et [quota-par-clé](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey), consultez l’article [Limitation de requêtes avancée avec la gestion des API Azure](api-management-sample-flexible-throttling.md).
 
 ## <a name="create-product"> </a>Pour créer un produit.
 Dans cette étape, vous allez créer un produit en version d’évaluation gratuite, qui ne requiert aucune approbation d’abonnement.
@@ -31,7 +35,7 @@ Dans cette étape, vous allez créer un produit en version d’évaluation gratu
 > 
 > 
 
-Pour commencer, cliquez sur **Gérer** dans le portail Azure Classic votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
+Pour commencer, cliquez sur **Portail des éditeurs** dans le portail Azure de votre service Gestion des API.
 
 ![Portail des éditeurs][api-management-management-console]
 
@@ -45,11 +49,11 @@ Cliquez sur **Produits** dans le menu **Gestion des API** sur la gauche pour aff
 
 Cliquez sur **Ajouter un produit** pour afficher la boîte de dialogue **Ajouter un nouveau produit**.
 
-![Add new product][api-management-new-product-window]
+![Ajouter un nouveau produit][api-management-new-product-window]
 
 Dans la zone **Titre**, saisissez **Version d’évaluation gratuite**.
 
-Dans la zone **Description**, saisissez le texte suivant : **Les abonnés pourront effectuer 10 appels/minute jusqu’à un maximum de 200 appels/semaine, après lesquels l’accès est refusé.**
+Dans la zone **Description**, saisissez le texte suivant :  **Les abonnés pourront effectuer 10 appels/minute jusqu’à un maximum de 200 appels/semaine, après lesquels l’accès est refusé.**
 
 Les produits de Gestion des API peuvent être protégés ou ouverts. Pour pouvoir utiliser les produits protégés, vous devez vous y abonner au préalable. Les produits ouverts sont utilisables sans abonnement. Vérifiez que la case à cocher **Require subscription (Abonnement obligatoire)** est activée afin de créer un produit protégé qui requiert un abonnement. Il s’agit du paramètre par défaut.
 
@@ -61,7 +65,7 @@ Une fois toutes les valeurs saisies, cliquez sur **Enregistrer** pour créer le 
 
 ![Product added][api-management-product-added]
 
-Par défaut, les nouveaux produits sont visibles pour les utilisateurs dans le groupe **Administrateurs**. Nous allons ajouter le groupe **Développeurs**. Cliquez sur **Version d’évaluation gratuite**, puis sur l’onglet **Visibilité**.
+Par défaut, les nouveaux produits sont visibles pour les utilisateurs dans le groupe **Administrateurs** . Nous allons ajouter le groupe **Développeurs** . Cliquez sur **Version d’évaluation gratuite**, puis sur l’onglet **Visibilité**.
 
 > Dans Gestion des API, les groupes permettent de gérer la visibilité des produits pour les développeurs. Les produits accordent de la visibilité aux groupes. Les développeurs peuvent afficher les produits visibles pour les groupes auxquels ils appartiennent et s'y abonner. Pour plus d'informations, consultez la page [Création et utilisation de groupes dans Gestion des API Azure][Création et utilisation de groupes dans Gestion des API Azure].
 > 
@@ -71,7 +75,7 @@ Par défaut, les nouveaux produits sont visibles pour les utilisateurs dans le g
 
 Activez la case à cocher **Développeurs**, puis cliquez sur **Enregistrer**.
 
-## <a name="add-api"> </a> Ajout d’une API au produit
+## <a name="add-api"> </a>Ajout d’une API au produit
 Dans cette étape du didacticiel, nous allons ajouter l'API Echo au nouveau produit en version d'évaluation gratuite.
 
 > Chaque instance du service Gestion des API est pré-configurée avec une API Echo qui peut être utilisée pour faire des expériences et en savoir plus sur la gestion des API. Pour plus d’informations, consultez [Gérer votre première API dans Gestion des API Azure][Gérer votre première API dans Gestion des API Azure].
@@ -84,13 +88,13 @@ Cliquez sur **Produits** dans le menu **Gestion des API** sur la gauche, puis cl
 
 Cliquez sur **Ajouter l'API au produit**.
 
-![Add API to product][api-management-add-api]
+![Ajouter l'API au produit][api-management-add-api]
 
 Sélectionnez **API Echo**, puis cliquez sur **Enregistrer**.
 
 ![Add Echo API][api-management-add-echo-api]
 
-## <a name="policies"> </a> Configuration de la limite de débit d’appels et des stratégies de quota
+## <a name="policies"> </a>Configuration de la limite de débit d’appels et des stratégies de quota
 Les limites de débit et les quotas sont configurés dans l'éditeur de stratégie. Cliquez sur **Stratégies** sous le menu **Gestion des API** sur la gauche. Dans la liste **Produit** cliquez sur **Version d’évaluation gratuite**.
 
 ![Product policy][api-management-product-policy]
@@ -120,7 +124,7 @@ Une fois le curseur positionné dans l’élément de stratégie **inbound**, cl
     <rate-limit calls="number" renewal-period="seconds">
     </rate-limit>
 
-Dans le produit en version d’évaluation gratuite, le débit d’appels maximum autorisé est de 10 appels par minute. Tapez **10** en tant que valeur pour l’attribut **calls** et **60** pour l’attribut **renewal-period**.
+Dans le produit en version d’évaluation gratuite, le débit d’appels maximum autorisé est de 10 appels par minute. Tapez **10** en tant que valeur pour l’attribut **calls** et **60** pour l’attribut **renewal-period**.
 
     <rate-limit calls="10" renewal-period="60">
     </rate-limit>
@@ -143,7 +147,7 @@ Les quotas peuvent être basés sur le nombre d’appels par intervalle et/ou pa
     <quota calls="number" renewal-period="seconds">
     </quota>
 
-Dans le produit en version d'évaluation gratuite, le quota est de 200 appels par semaine. Indiquez **200** en tant que valeur pour l’attribut **calls**, puis indiquez **604800** en tant que valeur pour l’attribut **renewal-period**.
+Dans le produit en version d'évaluation gratuite, le quota est de 200 appels par semaine. Indiquez **200** en tant que valeur pour l’attribut **calls**, puis indiquez **604800** en tant que valeur pour l’attribut **renewal-period**.
 
     <quota calls="200" renewal-period="604800">
     </quota>
@@ -190,7 +194,7 @@ Maintenant que le produit est publié, il est disponible pour abonnement et util
 > 
 > 
 
-Cliquez sur **Utilisateurs** sur le menu **Gestion des API** situé à gauche, puis cliquez sur le nom de votre compte de développeur. Dans cet exemple, nous utilisons le compte de développeur **Clayton Gragg**.
+Cliquez sur **Utilisateurs** sur le menu **Gestion des API** situé à gauche, puis cliquez sur le nom de votre compte de développeur. Dans cet exemple, nous utilisons le compte de développeur **Clayton Gragg** .
 
 ![Configure developer][api-management-configure-developer]
 
@@ -214,7 +218,8 @@ Après avoir cliqué sur **S’abonner**, le produit s’affiche dans la liste *
 ![Abonnement ajouté][api-management-subscription-added]
 
 ## <a name="test-rate-limit"> </a>Appel d’une opération et test de la limite de débit
-Maintenant que le produit en version d'évaluation gratuite est configuré et publié, nous pouvons appeler des opérations et tester la stratégie de limite de débit. Basculez vers le portail de développeur en cliquant sur **Portail des développeurs** dans le menu supérieur droit.
+Maintenant que le produit en version d'évaluation gratuite est configuré et publié, nous pouvons appeler des opérations et tester la stratégie de limite de débit.
+Basculez vers le portail de développeur en cliquant sur **Portail des développeurs** dans le menu supérieur droit.
 
 ![Portail des développeurs][api-management-developer-portal-menu]
 
@@ -245,7 +250,7 @@ Cliquez sur **Envoyer** à une fréquence supérieure à la stratégie de limite
 
 Le **Contenu de réponse** indique l’intervalle restant avant la réussite des nouvelles tentatives.
 
-Lorsque la stratégie de limite de débit de 10 appels par minute est appliquée, les appels suivants échouent jusqu’à ce que 60 secondes se soient écoulées à partir du premier des 10 appels réussis vers le produit avant le dépassement de la limite de débit. Dans cet exemple, l’intervalle restant est de 54 secondes.
+Lorsque la stratégie de limite de débit de 10 appels par minute est appliquée, les appels suivants échouent jusqu’à ce que 60 secondes se soient écoulées à partir du premier des 10 appels réussis vers le produit avant le dépassement de la limite de débit. Dans cet exemple, l’intervalle restant est de 54 secondes.
 
 ## <a name="next-steps"> </a>Étapes suivantes
 * Consultez une démonstration relative à la définition de limites de débit et de quotas dans la vidéo suivante.
@@ -281,26 +286,30 @@ Lorsque la stratégie de limite de débit de 10 appels par minute est appliquée
 [api-management-subscription-added]: ./media/api-management-howto-product-with-rules/api-management-subscription-added.png
 [api-management-add-subscription-multiple]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-multiple.png
 
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to add and publish a product]: api-management-howto-add-products.md
-[Monitoring and analytics]: ../api-management-monitoring.md
-[Add APIs to a product]: api-management-howto-add-products.md#add-apis
-[Publish a product]: api-management-howto-add-products.md#publish-product
+[Ajout d'opérations à une API]: api-management-howto-add-operations.md
+[Ajout et publication d’un produit]: api-management-howto-add-products.md
+[Surveillance et analyse]: ../api-management-monitoring.md
+[Ajout d’API à un produit]: api-management-howto-add-products.md#add-apis
+[Publication d’un produit]: api-management-howto-add-products.md#publish-product
 [Gérer votre première API dans Gestion des API Azure]: api-management-get-started.md
 [Création et utilisation de groupes dans Gestion des API Azure]: api-management-howto-create-groups.md
-[View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
-[Get started with Azure API Management]: api-management-get-started.md
-[Création d’une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
-[Next steps]: #next-steps
+[Affichage des abonnés à un produit]: api-management-howto-add-products.md#view-subscribers
+[Prise en main de Gestion des API Azure]: api-management-get-started.md
+[Création d'une instance du service API Management]: api-management-get-started.md#create-service-instance
+[Étapes suivantes]: #next-steps
 
-[Create a product]: #create-product
+[Création d’un produit]: #create-product
 [Configuration de la limite de débit d’appels et des stratégies de quota]: #policies
-[Add an API to the product]: #add-api
-[Publish the product]: #publish-product
-[Subscribe a developer account to the product]: #subscribe-account
-[Call an operation and test the rate limit]: #test-rate-limit
+[Ajout d’une API au produit]: #add-api
+[Publication du produit]: #publish-product
+[Abonnement d’un compte de développeur au produit]: #subscribe-account
+[Appel d’une opération et test de la limite de débit]: #test-rate-limit
 
-[Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
-[Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
+[Débit limite d’appel]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
+[Définir le quota d’utilisation]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

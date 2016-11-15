@@ -1,56 +1,60 @@
 ---
-title: Gérer votre première API dans Gestion des API Azure | Microsoft Docs
-description: Découvrez comment créer des API et ajouter des opérations et comment prendre en main Gestion des API.
+title: "Gérer votre première API dans Gestion des API Azure | Microsoft Docs"
+description: "Découvrez comment créer des API et ajouter des opérations et comment prendre en main Gestion des API."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 51b7df8b-1c43-43c6-90c9-0aa24f48206b
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 587c7346bcb8e6549febd3904c8d0a9e46cbc50a
+
 
 ---
-# Gérer votre première API dans Gestion des API Azure
+# <a name="manage-your-first-api-in-azure-api-management"></a>Gérer votre première API dans Gestion des API Azure
 ## <a name="overview"> </a>Vue d’ensemble
-Ce guide décrit la prise en main rapide de la gestion des API Azure et la création de votre premier appel d’API.
+Ce guide décrit la prise en main rapide de la gestion des API Azure et la création de votre premier appel d’API.
 
-## <a name="concepts"> </a>Qu’est-ce que Gestion des API Azure ?
-Vous pouvez utiliser la gestion des API Azure pour prendre n’importe quel serveur principal et lancer un programme d’API à part entière qui repose sur ce dernier.
+## <a name="concepts"> </a>Qu’est-ce que Gestion des API Azure ?
+Vous pouvez utiliser la gestion des API Azure pour prendre n’importe quel serveur principal et lancer un programme d’API à part entière qui repose sur ce dernier.
 
-Scénarios courants :
+Scénarios courants :
 
-* **Sécurisation d’infrastructures mobiles** par régulation de l’accès à l’aide de clés d’API pour éviter les attaques par déni de service (DOS) en utilisant la limitation ou des stratégies de sécurité avancées, telles que la validation de jeton JWT
+* **Sécurisation d’infrastructures mobiles** par régulation de l’accès à l’aide de clés d’API pour éviter les attaques par déni de service (DOS) en utilisant la limitation ou des stratégies de sécurité avancées, telles que la validation de jeton JWT
 * **Activation d’écosystèmes de partenaires ISV** en proposant une intégration rapide des partenaires via le portail des développeurs et la création d’une façade d’API afin de se dissocier des implémentations internes qui ne sont pas appropriées à la consommation des partenaires.
 * **Exécution d’un programme d’API interne** en offrant un emplacement centralisé à l’organisation pour communiquer sur la disponibilité et les dernières modifications apportées aux API, tout en régulant l’accès basé sur des comptes professionnels, tous basés sur un canal sécurisé entre la passerelle de l’API et le serveur principal.
 
-Le système est constitué des composants suivants :
+Le système est constitué des composants suivants :
 
-* La **passerelle d’API** est le point de terminaison qui :
+* La **passerelle d’API** est le point de terminaison qui :
   
-  * accepte les appels d’API et les dirige vers vos serveurs principaux ;
-  * vérifie les clés d’API, les jetons JWT, les certificats et les autres informations d’identification ;
-  * applique des quotas d’utilisation et des limites de débit ;
-  * transforme votre API à la volée sans modification de code ;
-  * met en cache les réponses du serveur principal lorsqu’il est configuré ;
+  * accepte les appels d’API et les dirige vers vos serveurs principaux ;
+  * vérifie les clés d’API, les jetons JWT, les certificats et les autres informations d’identification ;
+  * applique des quotas d’utilisation et des limites de débit ;
+  * transforme votre API à la volée sans modification de code ;
+  * met en cache les réponses du serveur principal lorsqu’il est configuré ;
   * enregistre les métadonnées relatives aux appels à des fins d’analyse.
-* Le **portail des éditeurs** est l’interface d’administration où vous configurez votre programme d’API. Utilisez-le pour :
+* Le **portail des éditeurs** est l’interface d’administration où vous configurez votre programme d’API. Utilisez-le pour :
   
-  * définir ou importer le schéma d’API ;
-  * intégrer des API aux produits sous forme de packages ;
-  * définir des stratégies, telles que des quotas ou des transformations sur les API ;
-  * obtenir des informations issues de l’analyse ;
+  * définir ou importer le schéma d’API ;
+  * intégrer des API aux produits sous forme de packages ;
+  * définir des stratégies, telles que des quotas ou des transformations sur les API ;
+  * obtenir des informations issues de l’analyse ;
   * gérer les utilisateurs.
-* Le **portail des développeurs** est le principal lieu sur le web où les développeurs peuvent :
+* Le **portail des développeurs** est le principal lieu sur le web où les développeurs peuvent :
   
-  * lire la documentation de l’API ;
-  * essayer une API via la console interactive ;
-  * créer un compte et s’abonner pour obtenir les clés d’une API ;
+  * lire la documentation de l’API ;
+  * essayer une API via la console interactive ;
+  * créer un compte et s’abonner pour obtenir les clés d’une API ;
   * accéder aux analyses relatives à leur propre utilisation.
 
 ## <a name="create-service-instance"> </a>Création d’une instance du service Gestion des API
@@ -59,15 +63,13 @@ Le système est constitué des composants suivants :
 > 
 > 
 
-La première étape de travail avec Gestion des API consiste à créer une instance de service. Connectez-vous au [Portail Azure Classic][Portail Azure Classic] et cliquez sur **Nouveau**, **App Services**, **Gestion des API**, **Créer**.
+La première étape de travail avec Gestion des API consiste à créer une instance de service. Connectez-vous au [Portail Azure] et cliquez sur [Nouveau], **App Services**, **Gestion des API**, **Créer**.
 
 ![Nouvelle instance Gestion des API][api-management-create-instance-menu]
 
-Pour l’**URL**, spécifiez un nom de sous-domaine unique à utiliser pour l’URL du service.
+Pour le **nom**, spécifiez un nom de sous-domaine unique à utiliser pour l’URL du service.
 
-Choisissez l’**abonnement** et la **région** souhaités pour votre instance de service. Une fois vos sélections effectuées, cliquez sur le bouton **Suivant**.
-
-![Nouveau service Gestion des API][api-management-create-instance-step1]
+Choisissez **l’abonnement**, le **groupe de ressources** et **l’emplacement** souhaités pour votre instance de service.
 
 Entrez **Contoso Ltd.** pour le **nom de l’organisation**, ainsi que votre adresse de messagerie dans le champ **Adresse de messagerie de l’administrateur**.
 
@@ -76,16 +78,16 @@ Entrez **Contoso Ltd.** pour le **nom de l’organisation**, ainsi que votre adr
 > 
 > 
 
-![Nouveau service Gestion des API][api-management-create-instance-step2]
+![Nouveau service Gestion des API][api-management-create-instance-step1]
 
-Les instances du service Gestion des API sont disponibles dans trois niveaux : Développeur, Standard et Premium. Par défaut, les instances du service Gestion des API sont créées au niveau Développeur. Pour sélectionner le niveau Standard ou Premium, cochez la case **Paramètres avancés** et sélectionnez le niveau désiré sur l’écran suivant.
+Les instances du service Gestion des API sont disponibles dans trois niveaux : Développeur, Standard et Premium.
 
 > [!NOTE]
 > Le niveau Développeur est réservé aux programmes d’API de développement, de test et pilote pour lesquels la haute disponibilité n’est pas un problème. Aux niveaux Standard et Premium, vous pouvez étendre le nombre d’unités réservées pour gérer davantage de trafic. Les niveaux Standard et Premium permettent à votre service Gestion des API de disposer de la puissance de traitement et des performances maximales. Vous pouvez effectuer ce didacticiel à l’aide de n’importe quel niveau. Pour plus d’informations sur les niveaux du service Gestion des API, consultez la page relative à la [tarification du service Gestion des API][tarification du service Gestion des API].
 > 
 > 
 
-Cliquez sur la coche pour créer votre instance de service.
+Cliquez sur **Créer** pour démarrer la configuration de votre instance de service.
 
 ![Nouveau service Gestion des API][api-management-instance-created]
 
@@ -101,7 +103,7 @@ Il est possible de créer des API (et d’ajouter des opérations) manuellement 
 > 
 > 
 
-Les API sont configurées à partir du portail des éditeurs accessible via le portail Azure Classic. Pour accéder au portail des éditeurs, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API.
+Les API sont configurées à partir du portail des éditeurs. Pour y accéder, cliquez sur **Portail des éditeurs** à partir de la barre d’outils de services.
 
 ![Portail des éditeurs][api-management-management-console]
 
@@ -109,7 +111,7 @@ Pour importer l’API de calculatrice, cliquez sur **API** dans le menu **Gestio
 
 ![Bouton Importer l’API][api-management-import-api]
 
-Procédez comme suit pour configurer l’API de calculatrice :
+Procédez comme suit pour configurer l’API de calculatrice :
 
 1. Cliquez sur **À partir d’une URL**, entrez **http://calcapi.cloudapp.net/calcapi.json** dans la zone de texte **URL du document de spécification**, et cliquez sur la case d’option **Swagger**.
 2. Entrez **calc** dans la zone de texte **Suffixe de l’URL d’API web**.
@@ -119,7 +121,7 @@ Procédez comme suit pour configurer l’API de calculatrice :
 ![Ajouter une nouvelle API][api-management-import-new-api]
 
 > [!NOTE]
-> La **Gestion des API** prend actuellement en charge les versions 1.2 et 2.0 du document Swagger dans le cadre d’une importation. Même si la [spécification Swagger 2.0](http://swagger.io/specification) indique que les propriétés `host`, `basePath` et `schemes` sont facultatives, votre document Swagger 2.0 **DOIT** contenir ces propriétés ; dans le cas contraire, l’importation échouera.
+> **Gestion des API** prend actuellement en charge les versions 1.2 et 2.0 du document Swagger dans le cadre d’une importation. Même si la [spécification Swagger 2.0](http://swagger.io/specification) indique que les propriétés `host`, `basePath` et `schemes` sont facultatives, votre document Swagger 2.0 **DOIT** contenir ces propriétés ; dans le cas contraire, l’importation échouera. 
 > 
 > 
 
@@ -127,9 +129,9 @@ Une fois l’API importée, la page Résumé de l’API s’affiche dans le port
 
 ![Résumé des API][api-management-imported-api-summary]
 
-La section API comporte plusieurs onglets. L’onglet **Résumé** affiche les mesures de base et les informations concernant l’API. L’onglet [Paramètres](api-management-howto-create-apis.md#configure-api-settings) permet d’afficher et de modifier la configuration d’une API. L’onglet [Opérations](api-management-howto-add-operations.md) permet de gérer les opérations de l’API. L’onglet **Sécurité** permet de configurer l’authentification de la passerelle pour le serveur principal à l’aide de l’authentification de base ou de [l’authentification mutuelle des certificats](api-management-howto-mutual-certificates.md) et de configurer l’[autorisation de l’utilisateur à l’aide d’OAuth 2.0](api-management-howto-oauth2.md). L’onglet **Problèmes** est utilisé pour afficher les problèmes signalés par les développeurs qui utilisent votre API. L’onglet **Produits** permet de configurer les produits qui contiennent cette API.
+La section API comporte plusieurs onglets. L’onglet **Résumé** affiche les mesures de base et les informations concernant l’API. L’onglet [Paramètres](api-management-howto-create-apis.md#configure-api-settings) permet d’afficher et de modifier la configuration d’une API. L’onglet [Opérations](api-management-howto-add-operations.md) permet de gérer les opérations de l’API. L’onglet **Sécurité** permet de configurer l’authentification de la passerelle pour le serveur principal à l’aide de l’authentification de base ou de [l’authentification mutuelle des certificats](api-management-howto-mutual-certificates.md) et de configurer l’[autorisation de l’utilisateur à l’aide d’OAuth 2.0](api-management-howto-oauth2.md).  L’onglet **Problèmes** est utilisé pour afficher les problèmes signalés par les développeurs qui utilisent votre API. L’onglet **Produits** permet de configurer les produits qui contiennent cette API.
 
-Par défaut, chaque instance Gestion des API est fournie avec deux exemples de produits :
+Par défaut, chaque instance Gestion des API est fournie avec deux exemples de produits :
 
 * **Starter**
 * **Illimité**
@@ -168,7 +170,7 @@ Pour afficher les analyses relatives à Calculatrice de base, revenez au portail
 
 La vue par défaut du portail des éditeurs correspond au **tableau de bord**, lequel offre un aperçu de votre instance Gestion des API.
 
-![Tableau de bord][api-management-dashboard]
+![tableau de bord][api-management-dashboard]
 
 Passez la souris sur le graphique relatif à **Calculatrice de base** pour afficher les mesures spécifiques de l’utilisation de l’API à une période donnée.
 
@@ -185,9 +187,9 @@ Cliquez sur **Afficher les détails** pour afficher la page Résumé de l’API,
 
 Pour des mesures et des rapports détaillés, cliquez sur **Analyse** dans le menu **Gestion des API** à gauche.
 
-![Vue d'ensemble][api-management-analytics-overview]
+![Vue d’ensemble][api-management-analytics-overview]
 
-La section **Analyse** comporte les quatre onglets suivants :
+La section **Analyse** comporte les quatre onglets suivants :
 
 * **Aperçu rapide** présente l’utilisation générale et les mesures d’intégrité ainsi que les produits, les API, les opérations et les développeurs principaux.
 * **Utilisation** fournit une présentation détaillée des appels d’API et de la bande passante, y compris une représentation géographique.
@@ -199,24 +201,24 @@ La section **Analyse** comporte les quatre onglets suivants :
 
 [Version d'évaluation gratuite d'Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
-[Create an API Management instance]: #create-service-instance
-[Create an API]: #create-api
-[Add an operation]: #add-operation
-[Add the new API to a product]: #add-api-to-product
-[Subscribe to the product that contains the API]: #subscribe
+[Création d’une instance du service Gestion des API]: #create-service-instance
+[Création d'une API]: #create-api
+[Ajout d’une opération]: #add-operation
+[Ajout de la nouvelle API à un produit]: #add-api-to-product
+[Abonnement au produit contenant l'API]: #subscribe
 [Call an operation from the Developer Portal]: #call-operation
-[View analytics]: #view-analytics
-[Next steps]: #next-steps
+[Affichage des analyses]: #view-analytics
+[Étapes suivantes]: #next-steps
 
 
-[How to manage developer accounts in Azure API Management]: api-management-howto-create-or-invite-developers.md
-[Configure API settings]: api-management-howto-create-apis.md#configure-api-settings
+[Gestion des comptes des développeurs dans Gestion des API Azure]: api-management-howto-create-or-invite-developers.md
+[Configuration des paramètres de l’API]: api-management-howto-create-apis.md#configure-api-settings
 [Configuration des notifications et des modèles de messages électroniques dans Gestion des API Azure]: api-management-howto-configure-notifications.md
-[Responses]: api-management-howto-add-operations.md#responses
-[How create and publish a product]: api-management-howto-add-products.md
+[Réponses]: api-management-howto-add-operations.md#responses
+[Création et publication d’un produit]: api-management-howto-add-products.md
 [tarification du service Gestion des API]: http://azure.microsoft.com/pricing/details/api-management/
 
-[Portail Azure Classic]: https://manage.windowsazure.com/
+[Portail Azure]: https://portal.azure.com/
 
 [api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
 [api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
@@ -253,4 +255,8 @@ La section **Analyse** comporte les quatre onglets suivants :
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

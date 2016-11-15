@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD B2C : sécuriser une API web à l’aide de Node.js | Microsoft Docs'
-description: Comment créer une API web Node.js qui accepte les jetons d’un client B2C
+title: "Azure AD B2C : sécuriser une API web à l’aide de Node.js | Microsoft Docs"
+description: "Comment créer une API web Node.js qui accepte les jetons d’un client B2C"
 services: active-directory-b2c
-documentationcenter: ''
+documentationcenter: 
 author: brandwe
-manager: msmbaldwin
-editor: ''
-
+manager: mbaldwin
+editor: 
+ms.assetid: fc2b9af8-fbda-44e0-962a-8b963449106a
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,54 +14,58 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 08/30/2016
 ms.author: brandwe
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 833ba11df57e27cf1f5e4045d144550bb14ca1c2
+
 
 ---
-# Azure AD B2C : sécuriser une API web à l’aide de Node.js
+# <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C : sécuriser une API web à l’aide de Node.js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
-Avec Azure Active Directory (Azure AD) B2C, vous pouvez sécuriser une API web à l’aide de jetons d’accès OAuth 2.0, ce qui permet aux applications clientes qui utilisent Azure AD B2C de s’authentifier auprès de l’API. Cet article vous indique comment créer une API « liste de tâches » permettant aux utilisateurs d’ajouter des tâches et de les répertorier. L’API web est sécurisée à l’aide d’Azure AD B2C et autorise uniquement les utilisateurs authentifiés à gérer leur liste de tâches.
+Avec Azure Active Directory (Azure AD) B2C, vous pouvez sécuriser une API web à l’aide de jetons d’accès OAuth 2.0, ce qui permet aux applications clientes qui utilisent Azure AD B2C de s’authentifier auprès de l’API. Cet article vous indique comment créer une API « liste de tâches » permettant aux utilisateurs d’ajouter des tâches et de les répertorier. L’API web est sécurisée à l’aide d’Azure AD B2C et autorise uniquement les utilisateurs authentifiés à gérer leur liste de tâches.
 
 > [!NOTE]
 > Cet exemple a été écrit pour être connecté à notre [exemple d’application iOS B2C](active-directory-b2c-devquickstarts-ios.md). Effectuez d’abord la procédure pas à pas actuelle avant de passer à cet exemple.
 > 
 > 
 
-**Passport** est un intergiciel d’authentification pour Node.js. Flexible et modulaire, Passport peut être installé discrètement dans toute application web basée sur Express ou Restify. Une gamme complète de stratégies prend en charge l’authentification à l’aide d’un nom d’utilisateur et d’un mot de passe, de Facebook, de Twitter,etc. Nous avons développé une stratégie pour Azure Active Directory (Azure AD). Installez ce module, puis ajoutez le plug-in `passport-azure-ad` Azure AD.
+**Passport** est un intergiciel d’authentification pour Node.js. Flexible et modulaire, Passport peut être installé discrètement dans toute application web basée sur Express ou Restify. Une gamme complète de stratégies prend en charge l’authentification à l’aide d’un nom d’utilisateur et d’un mot de passe, de Facebook, de Twitter,etc. Nous avons développé une stratégie pour Azure Active Directory (Azure AD). Installez ce module, puis ajoutez le plug-in `passport-azure-ad` Azure AD.
 
 Pour effectuer cet exemple, vous devez procéder comme suit :
 
-1. inscrivez une application auprès d’Azure AD ;
+1. inscrivez une application auprès d’Azure AD ;
 2. configurez votre application pour utiliser le plug-in `azure-ad-passport` de Passport ;
 3. configurez une application cliente pour appeler l’API web to-do list.
 
-## Obtention d'un répertoire Azure AD B2C
-Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un client. Un répertoire est un conteneur destiné à recevoir tous les utilisateurs, applications, groupes et autres. Si vous n’en possédez pas déjà un, [créez un répertoire B2C](active-directory-b2c-get-started.md) avant de continuer.
+## <a name="get-an-azure-ad-b2c-directory"></a>Obtention d'un répertoire Azure AD B2C
+Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un client.  Un répertoire est un conteneur destiné à recevoir tous les utilisateurs, applications, groupes et autres.  Si vous n’en possédez pas déjà un, [créez un répertoire B2C](active-directory-b2c-get-started.md) avant de continuer.
 
-## Création d'une application
-Vous devez maintenant créer dans votre répertoire B2C une application fournissant à Azure AD certaines informations nécessaires pour communiquer de manière sécurisée avec votre application. Dans ce cas, l’application cliente et l’API web sont toutes les deux représentées par un seul **ID d’application**, car elles constituent une application logique. Pour créer une application, suivez [ces instructions](active-directory-b2c-app-registration.md). Veillez à effectuer les opérations suivantes :
+## <a name="create-an-application"></a>Création d'une application
+Vous devez maintenant créer dans votre répertoire B2C une application fournissant à Azure AD certaines informations nécessaires pour communiquer de manière sécurisée avec votre application. Dans ce cas, l’application cliente et l’API web sont toutes les deux représentées par un seul **ID d’application**, car elles constituent une application logique. Pour créer une application, suivez [ces instructions](active-directory-b2c-app-registration.md). Veillez à effectuer les opérations suivantes :
 
 * Inclure une **application web/API web** dans l’application.
 * Entrez `http://localhost/TodoListService` comme **URL de réponse**. Il s’agit de l’URL par défaut pour cet exemple de code.
 * Créez une **clé secrète d’application** pour votre application et copiez-la. Vous aurez besoin de cette donnée ultérieurement. Cette valeur doit être [placée dans une séquence d’échappement XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) avant son utilisation.
-* Copiez l’**ID d’application** affecté à votre application. Vous aurez besoin de cette donnée ultérieurement.
+* Copiez l’ **ID d’application** affecté à votre application. Vous aurez besoin de cette donnée ultérieurement.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## Création de vos stratégies
-Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cette application contient deux expériences d’identité : l’inscription et la connexion. Vous devez créer une stratégie de chaque type, comme décrit dans [l’article de référence sur les stratégies](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création de vos 3 stratégies, assurez-vous de :
+## <a name="create-your-policies"></a>Création de vos stratégies
+Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cette application contient deux expériences d’identité : l’inscription et la connexion. Vous devez créer une stratégie de chaque type, comme décrit dans [l’article de référence sur les stratégies](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).  Lors de la création de vos 3 stratégies, assurez-vous de :
 
 * Choisir le **Nom d’affichage** et d’autres attributs d’inscription dans votre stratégie d’inscription.
-* Choisir les revendications d’applications **Nom d'affichage** et **ID objet** dans chaque stratégie. Vous pouvez aussi choisir d'autres revendications.
-* Noter le **nom** de chaque stratégie après sa création. Il doit porter le préfixe `b2c_1_`. Vous aurez besoin des noms de ces stratégies ultérieurement.
+* Choisir le **nom d’affichage** et **l’ID objet** comme revendications d’application pour chaque stratégie.  Vous pouvez aussi choisir d'autres revendications.
+* Noter le **nom** de chaque stratégie après sa création. Il doit porter le préfixe `b2c_1_`.  Vous aurez besoin des noms de ces stratégies ultérieurement.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Une fois vos 3 stratégies créées, vous pouvez générer votre application.
+Une fois vos 3 stratégies créées, vous pouvez générer votre application.
 
 Pour en savoir plus sur le fonctionnement des stratégies dans Azure AD B2C, commencez par consulter le [didacticiel de prise en main des applications web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
-## Téléchargement du code
-Le code associé à ce didacticiel [est stocké sur GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS). Pour générer l’exemple à mesure que vous avancez, vous pouvez [télécharger une structure de projet sous la forme d’un fichier .zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/skeleton.zip). Vous pouvez également cloner la structure :
+## <a name="download-the-code"></a>Téléchargement du code
+Le code associé à ce didacticiel [est stocké sur GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS). Pour générer l’exemple à mesure que vous avancez, vous pouvez [télécharger une structure de projet sous la forme d’un fichier .zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/skeleton.zip). Vous pouvez également cloner la structure :
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS.git
@@ -69,12 +73,12 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Nod
 
 L’application terminée est également [disponible en tant que fichier .zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/complete.zip) ou sur la branche `complete` du même référentiel.
 
-## Télécharger Node.js pour votre plateforme
-Pour utiliser cet exemple avec succès, vous avez besoin d’une installation de travail de Node.js.
+## <a name="download-nodejs-for-your-platform"></a>Télécharger Node.js pour votre plateforme
+Pour utiliser cet exemple avec succès, vous avez besoin d’une installation de travail de Node.js. 
 
 Installez Node.js à partir de [nodejs.org](http://nodejs.org).
 
-## Installer MongoDB pour votre plateforme
+## <a name="install-mongodb-for-your-platform"></a>Installer MongoDB pour votre plateforme
 Pour utiliser cet exemple avec succès, vous avez besoin d’une installation de travail de MongoDB. Nous utilisons MongoDB afin que votre API REST soit persistante sur les instances de serveur.
 
 Installez MongoDB à partir de [mongodb.org](http://www.mongodb.org).
@@ -84,24 +88,24 @@ Installez MongoDB à partir de [mongodb.org](http://www.mongodb.org).
 > 
 > 
 
-## Installer les modules Restify sur votre API web
+## <a name="install-the-restify-modules-in-your-web-api"></a>Installer les modules Restify sur votre API web
 Nous utilisons Restify pour générer votre API REST. Restify est une infrastructure d’application Node.js minimale et flexible dérivée d’Express. Elle inclut un ensemble complet de fonctionnalités de création API REST sur Connect.
 
-### Installation de Restify
+### <a name="install-restify"></a>Installation de Restify
 À partir de la ligne de commande, changez de répertoire pour le définir sur `azuread`. Si le répertoire `azuread` n’existe pas, créez-le.
 
 `cd azuread` ou `mkdir azuread;`
 
-Entrez la commande suivante :
+Entrez la commande suivante :
 
 `npm install restify`
 
 Cette commande permet d’installer Restify.
 
-#### Une erreur est-elle survenue ?
+#### <a name="did-you-get-an-error"></a>Une erreur est-elle survenue ?
 Dans certains systèmes d’exploitation, lorsque vous utilisez `npm`, vous pouvez recevoir l’erreur `Error: EPERM, chmod '/usr/local/bin/..'`, ainsi qu’une requête vous demandant d’exécuter le compte en tant qu’administrateur. Si ce problème se produit, utilisez la commande `sudo` pour exécuter `npm` avec des privilèges plus élevés.
 
-#### Avez-vous reçu une erreur DTrace ?
+#### <a name="did-you-get-a-dtrace-error"></a>Avez-vous reçu une erreur DTrace ?
 Lors de l’installation de Restify, un texte semblable au suivant peut s’afficher :
 
 ```Shell
@@ -146,7 +150,7 @@ La sortie de la commande doit ressembler au texte suivant :
     ├── http-signature@0.10.0 (assert-plus@0.1.2, asn1@0.1.11, ctype@0.5.2)
     └── bunyan@0.22.0 (mv@0.0.5)
 
-## Installer Passport.dans votre API web
+## <a name="install-passport-in-your-web-api"></a>Installer Passport.dans votre API web
 À partir de la ligne de commande, changez de répertoire pour le définir sur `azuread`, si ce n’est pas déjà fait.
 
 Installez Passport à l’aide de la commande suivante :
@@ -159,8 +163,8 @@ La sortie de la commande doit ressembler au texte suivant :
     ├── pause@0.0.1
     └── pkginfo@0.2.3
 
-## Ajouter passport-azuread à votre API web
-Ajoutez alors la stratégie OAuth à l’aide de `passport-azuread`, une suite de stratégies qui connectent Azure AD à Passport. Utilisez cette stratégie pour les jetons du porteur dans cet exemple d’API Rest.
+## <a name="add-passportazuread-to-your-web-api"></a>Ajouter passport-azuread à votre API web
+Ajoutez alors la stratégie OAuth à l’aide de `passport-azuread`, une suite de stratégies qui connectent Azure AD à Passport. Utilisez cette stratégie pour les jetons du porteur dans cet exemple d’API Rest.
 
 > [!NOTE]
 > Bien qu’OAuth2 fournisse une infrastructure dans laquelle tout type de jeton connu peut être émis, seuls certains types de jeton sont utilisés de manière généralisée. Les jetons protégeant les points de terminaison sont des jetons du porteur. Il s’agit des types de jeton les plus fréquemment émis dans OAuth2. De nombreuses implémentations partent du principe qu’il s’agit du seul type de jeton émis.
@@ -190,12 +194,12 @@ passport-azure-ad@1.0.0 node_modules/passport-azure-ad
 └── xml2js@0.4.9 (sax@0.6.1, xmlbuilder@2.6.4)
 ``
 
-## Ajouter des modules MongoDB à votre API web
+## <a name="add-mongodb-modules-to-your-web-api"></a>Ajouter des modules MongoDB à votre API web
 Cet exemple utilise MongoDB comme magasin de données. Pour ce dernier, installez Mongoose, un plug-in largement utilisé pour la gestion des modèles et des schémas.
 
 * `npm install mongoose`
 
-## Installation de modules supplémentaires
+## <a name="install-additional-modules"></a>Installation de modules supplémentaires
 Ensuite, installez les autres modules requis.
 
 À partir de la ligne de commande, changez de répertoire pour le définir sur `azuread`, si ce n’est pas déjà fait :
@@ -210,14 +214,14 @@ Installez les modules dans votre répertoire `node_modules` :
 * `npm install express`
 * `npm install bunyan`
 
-## Créer un fichier server.js avec vos dépendances
-Le fichier `server.js` fournit la plupart des fonctionnalités de votre serveur d’API web.
+## <a name="create-a-serverjs-file-with-your-dependencies"></a>Créer un fichier server.js avec vos dépendances
+Le fichier `server.js` fournit la plupart des fonctionnalités de votre serveur d’API web. 
 
 À partir de la ligne de commande, changez de répertoire pour le définir sur `azuread`, si ce n’est pas déjà fait :
 
 `cd azuread`
 
-Créez un fichier `server.js` dans un éditeur. Ajoutez les informations suivantes :
+Créez un fichier `server.js` dans un éditeur. Ajoutez les informations suivantes :
 
 ```Javascript
 'use strict';
@@ -238,14 +242,14 @@ var OIDCBearerStrategy = require('passport-azure-ad').BearerStrategy;
 
 Enregistrez le fichier . Vous y reviendrez ultérieurement.
 
-## Créer un fichier .js de configuration pour stocker vos paramètres Azure AD
+## <a name="create-a-configjs-file-to-store-your-azure-ad-settings"></a>Créer un fichier .js de configuration pour stocker vos paramètres Azure AD
 Ce fichier de code transmet les paramètres de configuration de votre portail Azure AD au fichier `Passport.js`. Vous avez créé ces valeurs de configuration lorsque vous avez ajouté l’API web au portail, dans la première partie de la procédure détaillée. Copiez le code. Après quoi, nous vous expliquerons ce qu’il convient de placer dans les valeurs de ces paramètres.
 
 À partir de la ligne de commande, changez de répertoire pour le définir sur `azuread`, si ce n’est pas déjà fait :
 
 `cd azuread`
 
-Créez un fichier `config.js` dans un éditeur. Ajoutez les informations suivantes :
+Créez un fichier `config.js` dans un éditeur. Ajoutez les informations suivantes :
 
 ```Javascript
 // Don't commit this file to your public repos. This config is for first-run
@@ -263,30 +267,30 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 
 [!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-### Valeurs requises
+### <a name="required-values"></a>Valeurs requises
 `clientID` : ID client de votre application API web.
 
-`IdentityMetadata` : c’est ici que `passport-azure-ad` recherche vos données de configuration pour le fournisseur d’identité, ainsi que les clés pour valider les jetons web JSON.
+`IdentityMetadata` : c’est ici que `passport-azure-ad` recherche vos données de configuration pour le fournisseur d’identité, ainsi que les clés pour valider les jetons web JSON. 
 
-`audience` : URI du portail qui identifie votre application appelante.
+`audience`: URI du portail qui identifie votre application appelante. 
 
-`tenantName` : nom de votre locataire (par exemple, **contoso.onmicrosoft.com**).
+`tenantName`: nom de votre locataire (par exemple, **contoso.onmicrosoft.com**).
 
-`policyName` : stratégie que vous souhaitez utiliser pour valider les jetons atteignant votre serveur. Cette stratégie doit être la même que celle que vous utilisez sur l’application cliente pour vous connecter.
+`policyName`: stratégie que vous souhaitez utiliser pour valider les jetons atteignant votre serveur. Cette stratégie doit être la même que celle que vous utilisez sur l’application cliente pour vous connecter.
 
 > [!NOTE]
 > Pour notre aperçu B2C, utilisez les mêmes stratégies sur les installations client et serveur. Si vous avez déjà suivi une procédure pas à pas au cours de laquelle vous avez créé ces stratégies, vous n’avez pas besoin de répéter cette opération. Puisque vous avez suivi cette procédure, vous n’avez pas besoin de configurer de nouvelles stratégies pour les procédures pas à pas destinées au client sur le site.
 > 
 > 
 
-## Ajouter des paramètres de configuration dans votre fichier server.js
+## <a name="add-configuration-to-your-serverjs-file"></a>Ajouter des paramètres de configuration dans votre fichier server.js
 Pour lire les valeurs du fichier `config.js` que vous avez créé, ajoutez le fichier `.config` en tant que ressource requise dans votre application, puis définissez les variables globales sur celles utilisées dans le document `config.js`.
 
 À partir de la ligne de commande, changez de répertoire pour le définir sur `azuread`, si ce n’est pas déjà fait :
 
 `cd azuread`
 
-Ouvrez le fichier `server.js` dans un éditeur. Ajoutez les informations suivantes :
+Ouvrez le fichier `server.js` dans un éditeur. Ajoutez les informations suivantes :
 
 ```Javascript
 var config = require('./config');
@@ -326,32 +330,32 @@ var log = bunyan.createLogger({
 });
 ```
 
-## Ajouter les informations du modèle et du schéma MongoDB à l’aide de Moongoose
+## <a name="add-the-mongodb-model-and-schema-information-by-using-mongoose"></a>Ajouter les informations du modèle et du schéma MongoDB à l’aide de Moongoose
 La préparation anticipée porte ses fruits lorsque vous rassemblez ces trois fichiers dans un service API REST.
 
 Dans le cadre de cette procédure pas à pas, utilisez MongoDB pour stocker vos tâches, comme indiqué précédemment.
 
-Dans le fichier `config.js`, vous avez appelé votre base de données **tasklist**. Ce nom est également celui qui figure à la fin de l’URL de connexion `mongoose_auth_local`. Vous n’avez pas besoin de créer cette base de données au préalable dans MongoDB. Cette base de données est créée pour vous lors de la première exécution de votre application serveur.
+Dans le fichier `config.js` , vous avez appelé votre base de données **tasklist**. Ce nom est également celui qui figure à la fin de l’URL de connexion `mongoose_auth_local` . Vous n’avez pas besoin de créer cette base de données au préalable dans MongoDB. Cette base de données est créée pour vous lors de la première exécution de votre application serveur.
 
 Après avoir indiqué au serveur quelle base de données MongoDB utiliser, vous devez écrire du code supplémentaire pour créer le modèle et le schéma pour les tâches du serveur.
 
-### Développer le modèle
+### <a name="expand-the-model"></a>Développer le modèle
 Ce modèle de schéma est simple. Vous pouvez le développer en fonction de vos besoins.
 
-`owner` : personne à qui la tâche est affectée. Cet objet est une **chaîne**.
+`owner`: personne à qui la tâche est affectée. Cet objet est une **chaîne**.  
 
-`Text` : tâche proprement dite. Cet objet est une **chaîne**.
+`Text`: tâche proprement dite. Cet objet est une **chaîne**.
 
-`date` : date d’échéance de la tâche. Cet objet est une **dateHeure**.
+`date`: date d’échéance de la tâche. Cet objet est une **dateHeure**.
 
-`completed` : si la tâche est terminée. Cet objet est un **booléen**.
+`completed`: si la tâche est terminée. Cet objet est un **booléen**.
 
-### Créer le schéma dans le code
+### <a name="create-the-schema-in-the-code"></a>Créer le schéma dans le code
 À partir de la ligne de commande, changez de répertoire pour le définir sur `azuread`, si ce n’est pas déjà fait :
 
 `cd azuread`
 
-Ouvrez le fichier `server.js` dans un éditeur. Ajoutez les informations suivantes sous l’entrée de configuration :
+Ouvrez le fichier `server.js` dans un éditeur. Ajoutez les informations suivantes sous l’entrée de configuration :
 
 ```Javascript
 // MongoDB setup
@@ -378,13 +382,13 @@ var Task = mongoose.model('Task');
 ```
 Commencez par créer le schéma, puis créez un objet de modèle que vous utiliserez pour stocker vos données dans le code lorsque vous définirez vos **itinéraires**.
 
-## Ajouter des itinéraires pour votre serveur de la tâche API REST
+## <a name="add-routes-for-your-rest-api-task-server"></a>Ajouter des itinéraires pour votre serveur de la tâche API REST
 Maintenant que vous disposez d’un modèle de base de données, ajoutez les itinéraires que vous utiliserez pour le serveur d’API REST.
 
-### À propos des itinéraires dans Restify
-Dans Restify, les itinéraires fonctionnent de la même façon que lorsqu’ils utilisent la pile Express. Vous définissez des itinéraires à l’aide de l’URI qui, selon vous, sera appelé par les applications clientes.
+### <a name="about-routes-in-restify"></a>À propos des itinéraires dans Restify
+Dans Restify, les itinéraires fonctionnent de la même façon que lorsqu’ils utilisent la pile Express. Vous définissez des itinéraires à l’aide de l’URI qui, selon vous, sera appelé par les applications clientes. 
 
-Voici un exemple de modèle d’un itinéraire Restify :
+Voici un exemple de modèle d’un itinéraire Restify :
 
 ```Javascript
 function createObject(req, res, next) {
@@ -399,7 +403,7 @@ server.post('/service/:add/:object', createObject); // calls createObject on rou
 
 Restify et Express fournissent des fonctionnalités bien plus approfondies, comme la définition de types d’application et la création d’un routage complexe entre différents points de terminaison. Pour les besoins de ce didacticiel, nous utilisons des itinéraires simples.
 
-#### Ajouter des itinéraires par défaut à votre serveur
+#### <a name="add-default-routes-to-your-server"></a>Ajouter des itinéraires par défaut à votre serveur
 À présent, vous allez ajouter les itinéraires CRUD de base de **création** et de **liste** pour notre API REST. D’autres itinéraires se trouvent dans la branche `complete` de l’exemple.
 
 À partir de la ligne de commande, changez de répertoire pour le définir sur `azuread`, si ce n’est pas déjà fait :
@@ -495,10 +499,10 @@ function listTasks(req, res, next) {
 ```
 
 
-#### Ajouter la gestion des erreurs pour les itinéraires
+#### <a name="add-error-handling-for-the-routes"></a>Ajouter la gestion des erreurs pour les itinéraires
 Ajoutez la gestion des erreurs afin de pouvoir rapporter de manière intelligible au client les problèmes que vous rencontrez.
 
-Ajoutez le code suivant :
+Ajoutez le code suivant :
 
 ```Javascript
 ///--- Errors for communicating something interesting back to the client
@@ -537,10 +541,10 @@ util.inherits(TaskNotFoundError, restify.RestError);
 ```
 
 
-## Créer votre serveur
+## <a name="create-your-server"></a>Créer votre serveur
 Vous avez maintenant défini votre base de données et mis vos itinéraires en place. Pour finir, ajoutez l’instance de serveur qui gérera vos appels.
 
-Restify et Express permettent la personnalisation complète d’un serveur d’API REST, mais nous utilisons ici la configuration la plus simple.
+Restify et Express permettent la personnalisation complète d’un serveur d’API REST, mais nous utilisons ici la configuration la plus simple. 
 
 ```Javascript
 
@@ -590,7 +594,7 @@ server.use(passport.session()); // Provides session support
 
 
 ```
-## Ajouter les itinéraires au serveur (sans authentification)
+## <a name="add-the-routes-to-the-server-without-authentication"></a>Ajouter les itinéraires au serveur (sans authentification)
 ```Javascript
 server.get('/api/tasks', passport.authenticate('oauth-bearer', {
     session: false
@@ -662,16 +666,16 @@ server.listen(serverPort, function() {
 
 ``` 
 
-## Ajouter une authentification à votre serveur API REST
-Maintenant que vous disposez d’un serveur API REST en cours d’exécution, vous pouvez l’utiliser dans Azure AD.
+## <a name="add-authentication-to-your-rest-api-server"></a>Ajouter une authentification à votre serveur API REST
+Maintenant que vous disposez d’un serveur API REST en cours d’exécution, vous pouvez l’utiliser dans Azure AD.
 
 À partir de la ligne de commande, changez de répertoire pour le définir sur `azuread`, si ce n’est pas déjà fait :
 
 `cd azuread`
 
-### Utiliser la stratégie OIDCBearerStrategy incluse avec passport-azure-ad
+### <a name="use-the-oidcbearerstrategy-that-is-included-with-passportazuread"></a>Utiliser la stratégie OIDCBearerStrategy incluse avec passport-azure-ad
 > [!TIP]
-> Lors de l’écriture d’API, vous devez toujours lier les données à un élément unique du jeton, dont un utilisateur ne peut pas usurper l’identité. Lorsque le serveur stocke des tâches, il le fait en fonction de **l’OID** de l’utilisateur dans le jeton (appelé via token.oid) placé dans le champ « propriétaire ». Cette valeur permet de s’assurer que seul cet utilisateur peut accéder à ses propres tâches. Il n’y a pas d’exposition dans l’API du « propriétaire », afin qu’un utilisateur externe puisse demander les ToDo d’un tiers même s’ils sont authentifiés.
+> Lors de l’écriture d’API, vous devez toujours lier les données à un élément unique du jeton, dont un utilisateur ne peut pas usurper l’identité. Lorsque le serveur stocke des tâches, il le fait en fonction de **l’OID** de l’utilisateur dans le jeton (appelé via token.oid) placé dans le champ « propriétaire ». Cette valeur permet de s’assurer que seul cet utilisateur peut accéder à ses propres tâches. Il n’y a pas d’exposition dans l’API du « propriétaire », afin qu’un utilisateur externe puisse demander les ToDo d’un tiers même s’ils sont authentifiés.
 > 
 > 
 
@@ -721,10 +725,10 @@ Passport utilise le même modèle pour toutes ses stratégies. Vous lui transmet
 > 
 > 
 
-## Exécuter votre application serveur et vous assurer de votre rejet
+## <a name="run-your-server-application-to-verify-that-it-rejects-you"></a>Exécuter votre application serveur et vous assurer de votre rejet
 Vous pouvez utiliser `curl` pour voir si vous disposez à présent de la protection OAuth2 sur vos points de terminaison. Les en-têtes retournés doivent suffire pour vous indiquer que vous êtes sur la bonne voie.
 
-Vérifiez que votre instance MongoDB est en cours d’exécution :
+Vérifiez que votre instance MongoDB est en cours d’exécution :
 
     $sudo mongodb
 
@@ -733,9 +737,9 @@ Passez au répertoire et exécutez le serveur :
     $ cd azuread
     $ node server.js
 
-Dans une nouvelle fenêtre de terminal, exécutez `curl`.
+Dans une nouvelle fenêtre de terminal, exécutez `curl`
 
-Essayez une commande basique, comme POST :
+Essayez une commande basique, comme POST :
 
 `$ curl -isS -X POST http://127.0.0.1:3000/api/tasks/brandon/Hello`
 
@@ -749,12 +753,17 @@ Transfer-Encoding: chunked
 
 Une erreur 401 est la réponse souhaitée. Elle indique que la couche Passport tente de rediriger vers le point de terminaison d’autorisation.
 
-## Vous disposez maintenant d’un service API REST qui utilise OAuth2.
-Vous avez implémenté une API REST à l’aide de Restify et d’OAuth. Vous disposez maintenant de suffisamment de code pour pouvoir continuer à développer votre service et à vous appuyer sur cet exemple. Vous êtes allé aussi loin que possible avec ce serveur sans utiliser un client compatible OAuth2. Pour cette étape suivante, utilisez une autre procédure pas à pas comme celle-ci : [Se connecter à une API web en utilisant iOS avec B2C](active-directory-b2c-devquickstarts-ios.md).
+## <a name="you-now-have-a-rest-api-service-that-uses-oauth2"></a>Vous disposez maintenant d’un service API REST qui utilise OAuth2.
+Vous avez implémenté une API REST à l’aide de Restify et d’OAuth. Vous disposez maintenant de suffisamment de code pour pouvoir continuer à développer votre service et à vous appuyer sur cet exemple. Vous êtes allé aussi loin que possible avec ce serveur sans utiliser un client compatible OAuth2. Pour cette étape suivante, utilisez une autre procédure pas à pas comme celle-ci : [Se connecter à une API web en utilisant iOS avec B2C](active-directory-b2c-devquickstarts-ios.md) .
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez maintenant aborder des rubriques plus avancées, telles que :
 
 [Se connecter à une API web en utilisant iOS avec B2C](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

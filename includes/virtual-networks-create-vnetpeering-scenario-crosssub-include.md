@@ -1,4 +1,4 @@
-## Homologation entre des abonnements
+## <a name="peering-across-subscriptions"></a>Homologation entre des abonnements
 Dans ce scénario, vous allez créer une homologation entre deux réseaux virtuels appartenant à différents abonnements.
 
 ![scénario impliquant différents abonnements](./media/virtual-networks-create-vnetpeering-scenario-crosssub-include/figure01.PNG)
@@ -10,4 +10,8 @@ VNet Peering s’appuie sur le contrôle d’accès en fonction du rôle (RBAC) 
 > 
 > 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

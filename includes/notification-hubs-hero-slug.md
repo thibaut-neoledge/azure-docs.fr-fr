@@ -5,4 +5,8 @@ Si vous connaissez déjà Notification Hubs, vous pouvez sélectionner une autre
 
 Nous accordons de l’importance à vos commentaires. Si vous avez des difficultés à terminer cette rubrique, ou si vous avez des conseils pour améliorer ce contenu, nous apprécierions que vous nous fassiez part de vos commentaires en bas de la page.
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+
