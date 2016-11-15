@@ -12,6 +12,8 @@
 5. Cliquez sur l’onglet **Messagerie cloud** en haut. 
 6. Notez la **clé serveur** et l’**ID de l’expéditeur** que vous utiliserez ultérieurement dans le *fichier de manifeste Android*.  
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

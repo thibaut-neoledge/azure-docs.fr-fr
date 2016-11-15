@@ -1,13 +1,13 @@
 ---
-title: Qu’est-ce qu’Azure Data Catalog | Microsoft Docs
-description: Cet article présente Microsoft Azure Data Catalog, notamment ses fonctionnalités et les problèmes qu’il peut résoudre. Data Catalog fournit des fonctionnalités qui permettent à tous les utilisateurs (analystes, scientifiques, développeurs) d’enregistrer, découvrir, comprendre et utiliser des sources de données.
+title: "Qu’est-ce qu’Azure Data Catalog ? | Microsoft Docs"
+description: "Cet article présente Microsoft Azure Data Catalog, notamment ses fonctionnalités et les problèmes qu’il peut résoudre. Data Catalog fournit des fonctionnalités qui permettent à tous les utilisateurs (analystes, scientifiques, développeurs) d’enregistrer, découvrir, comprendre et utiliser des sources de données."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: cc733907-17ec-4153-9f0c-5b3754b2db19
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: get-started-article
@@ -15,24 +15,28 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 09/21/2016
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 97482bc365395e3d9218688bf38ded4a54bb556a
+
 
 ---
-# Qu’est-ce qu’Azure Data Catalog ?
+# <a name="what-is-azure-data-catalog"></a>Qu’est-ce qu’Azure Data Catalog ?
 Azure Data Catalog est un service cloud entièrement géré qui permet aux utilisateurs de découvrir les sources de données dont ils ont besoin et de comprendre celles qu’ils ont trouvées, tout en aidant les organisations à mieux exploiter leurs investissements existants. Data Catalog propose des fonctionnalités qui permettent à tous les utilisateurs (analystes, scientifiques, développeurs) de découvrir, comprendre et utiliser des sources de données. Data Catalog inclut un modèle de crowdsourcing des métadonnées et des annotations et permet à tous les utilisateurs d’apporter leurs connaissances pour créer une communauté et une culture des données.
 
-## Défis des consommateurs de données en matière de découverte
+## <a name="discovery-challenges-for-data-consumers"></a>Défis des consommateurs de données en matière de découverte
 La détection de sources de données d’entreprise est un processus organique basé sur des connaissances tribales. Elle présente de nombreux défis aux entreprises qui souhaitent tirer le meilleur parti de leurs informations.
 
 * Les utilisateurs ne savent pas que ces sources de données existent, sauf s’ils entrent en contact avec elle dans le cadre d'un autre processus ; aucun emplacement central ne leur permet d’inscrire des sources de données.
-* Un utilisateur ne peut pas se connecter aux données à l'aide d'une application cliente s’il ne connaît pas l’emplacement d’une source de données ; les expériences de consommation de données requièrent que les utilisateurs connaissent la chaîne de connexion ou le chemin d'accès.
-* L’utilisateur ne peut pas comprendre les utilisations prévues des données s’il ne connaît pas l’emplacement d’une source de données ; les sources de données et la documentation résident à des emplacements différents et elles sont consommées via différentes expériences.
+* Un utilisateur ne peut pas se connecter aux données à l'aide d'une application cliente s’il ne connaît pas l’emplacement d’une source de données ; les expériences de consommation de données requièrent que les utilisateurs connaissent la chaîne de connexion ou le chemin d'accès.
+* L’utilisateur ne peut pas comprendre les utilisations prévues des données s’il ne connaît pas l’emplacement d’une source de données ; les sources de données et la documentation résident à des emplacements différents et elles sont consommées via différentes expériences.
 * Si un utilisateur souhaite obtenir des précisions sur une ressource d'informations, il doit localiser l’expert ou l'équipe responsable des données et solliciter ces experts en mode hors connexion ; aucune connexion explicite n’est établie entre les données et les personnes pouvant apporter leurs points de vue d’expert sur leurs utilisations.
 * Sauf si un utilisateur comprend le processus de demande d’accès à la source de données, la découverte de la source de données et de sa documentation ne lui permet toujours pas d'accéder aux données qu'il requiert.
 
-## Défis des producteurs de données en matière de découverte
+## <a name="discovery-challenges-for-data-producers"></a>Défis des producteurs de données en matière de découverte
 Pendant que les consommateurs de données relèvent ces défis, les utilisateurs responsables de la production et de la gestion des ressources d’informations relèvent, quant à eux, des défis qui leur sont propres.
 
-* Annoter des sources de données avec des métadonnées descriptives est souvent peine perdue, car les applications clientes ignorent généralement les descriptions stockées dans la source de données.
+* Annoter des sources de données avec des métadonnées descriptives est souvent peine perdue, car les applications clientes ignorent généralement les descriptions stockées dans la source de données.
 * Créer une documentation sur les sources de données est souvent peine perdue, car sa synchronisation avec la source de données doit être permanente. De plus, les utilisateurs ne font généralement pas confiance aux documentations, car ils les considèrent comme obsolètes.
 * Restreindre l'accès à la source de données et veiller à ce que les consommateurs de données sachent comment demander l'accès est un défi récurrent.
 
@@ -40,7 +44,7 @@ Créer et gérer une documentation sur une source de données est une tâche plu
 
 Lorsqu’ils sont combinés, ces défis représentent un obstacle majeur pour les entreprises qui souhaitent encourager et promouvoir l'utilisation et la compréhension des données d'entreprise.
 
-## Azure Data Catalog peut être utile
+## <a name="azure-data-catalog-can-help"></a>Azure Data Catalog peut être utile
 Data Catalog est conçu pour résoudre ces problèmes et permettre aux entreprises de tirer le meilleur parti de leurs ressources d’informations existantes. Data Catalog permet de rendre les sources de données facilement détectables et compréhensibles par les utilisateurs qui ont besoin des données qu’ils gèrent.
 
 Data Catalog fournit un service cloud dans lequel des données source peuvent être inscrites. Les données restent à leur emplacement existant, mais une copie des métadonnées, ainsi qu’une référence à l’emplacement de la source de données, sont ajoutées à Data Catalog. Ces métadonnées sont également indexées de manière à ce que chaque source de données soit facilement détectable via la recherche, et compréhensible pour les utilisateurs qui la découvrent.
@@ -51,12 +55,12 @@ La détection, la compréhension et l’utilisation des sources de données sont
 
 ![Fonctionnalités Data Catalog](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
 
-## Prise en main de Data Catalog
+## <a name="get-started-with-data-catalog"></a>Prise en main de Data Catalog
 Pour commencer à utiliser Data Catalog dès aujourd’hui, visitez [www.azuredatacatalog.com](https://www.azuredatacatalog.com).
 
 Vous trouverez un guide de prise en main [ici](data-catalog-get-started.md).
 
-## En savoir plus sur Data Catalog
+## <a name="learn-more-about-data-catalog"></a>En savoir plus sur Data Catalog
 Pour en savoir plus sur les fonctions de Data Catalog, voir :
 
 * [Inscription de sources de données](data-catalog-how-to-register.md)
@@ -69,4 +73,9 @@ Pour en savoir plus sur les fonctions de Data Catalog, voir :
 * [Configuration du glossaire métier](data-catalog-how-to-business-glossary.md)
 * [Forum Aux Questions (FAQ)](data-catalog-frequently-asked-questions.md)
 
-<!-----HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+
