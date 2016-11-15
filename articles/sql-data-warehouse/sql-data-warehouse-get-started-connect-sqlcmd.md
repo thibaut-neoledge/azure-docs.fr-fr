@@ -1,43 +1,48 @@
 ---
 title: Interroger Azure SQL Data Warehouse (sqlcmd)| Microsoft Docs
-description: Interrogation d’Azure SQL Data Warehouse à l’aide de l’utilitaire de ligne de commande sqlcmd.
+description: "Interrogation d’Azure SQL Data Warehouse à l’aide de l’utilitaire de ligne de commande sqlcmd."
 services: sql-data-warehouse
 documentationcenter: NA
-author: sonyam
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: 6e2b69e5-4806-4e91-9ea1-e2b63bf28c46
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 09/06/2016
-ms.author: barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
+
 
 ---
-# Interroger Azure SQL Data Warehouse (sqlcmd)
+# <a name="query-azure-sql-data-warehouse-sqlcmd"></a>Interroger Azure SQL Data Warehouse (sqlcmd)
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-> * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+> * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
-Cette procédure pas à pas se sert de l’utilitaire de ligne de commande [sqlcmd][sqlcmd] pour interroger un entrepôt de données Azure SQL Data Warehouse.
+Cette procédure pas à pas se sert de l’utilitaire de ligne de commande [sqlcmd][sqlcmd] pour interroger un entrepôt de données Azure SQL Data Warehouse.  
 
-## 1\. Connecter
+## <a name="1-connect"></a>1. Connecter
 Pour commencer à utiliser [sqlcmd][sqlcmd], ouvrez l’invite de commandes et entrez **sqlcmd** suivi de la chaîne de connexion de votre base de données SQL Data Warehouse. La chaîne de connexion requiert les paramètres suivants :
 
-* **Serveur (-S) :** nom du serveur, sous la forme `<`Nom\_serveur`>`.database.windows.net.
+* **Serveur (-S) :** nom du serveur, sous la forme `<`Nom_serveur`>`.database.windows.net
 * **Base de données (-d) :** nom de la base de données.
 * **Activer les identificateurs marqués (-I) :** les identificateurs marqués doivent être activés pour permettre la connexion à une instance SQL Data Warehouse.
 
 Pour utiliser l’authentification SQL Server, vous devez ajouter les paramètres de nom d’utilisateur/mot de passe :
 
-* **Utilisateur (-U) :** utilisateur du serveur sous la forme `<`utilisateur`>`
-* **Mot de passe (-P) :** mot de passe associé à l’utilisateur.
+* **Utilisateur (-U) :** utilisateur du serveur sous la forme `<`utilisateur`>`
+* **Mot de passe (-P) :** mot de passe associé à l’utilisateur.
 
 Par exemple, votre chaîne de connexion peut ressembler à ceci :
 
@@ -60,8 +65,8 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 > 
 > 
 
-## 2\. Requête
-Une fois la connexion établie, vous pouvez envoyer des instructions Transact-SQL prises en charge à l’instance. Dans cet exemple, les requêtes sont soumises en mode interactif.
+## <a name="2-query"></a>2. Requête
+Une fois la connexion établie, vous pouvez envoyer des instructions Transact-SQL prises en charge à l’instance.  Dans cet exemple, les requêtes sont soumises en mode interactif.
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
@@ -80,7 +85,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez la [documentation sqlcmd][sqlcmd] pour en savoir plus sur les options disponibles dans sqlcmd.
 
 <!--Image references-->
@@ -89,8 +94,12 @@ Consultez la [documentation sqlcmd][sqlcmd] pour en savoir plus sur les options 
 
 <!--MSDN references--> 
 [sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
-[Azure portal]: https://portal.azure.com
+[portail Azure]: https://portal.azure.com
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

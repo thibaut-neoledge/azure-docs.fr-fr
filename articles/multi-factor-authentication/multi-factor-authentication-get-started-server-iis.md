@@ -1,12 +1,12 @@
 ---
 title: Authentification IIS et serveur Azure Multi-Factor Authentication
-description: Il s'agit de la page d'authentification multifacteur Azure qui facilite le déploiement de l’authentification IIS et du serveur Azure Multi-Factor Authentication.
+description: "Il s&quot;agit de la page d&quot;authentification multifacteur Azure qui facilite le déploiement de l’authentification IIS et du serveur Azure Multi-Factor Authentication."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: d1bf1c8a-2c10-4ae6-9f4b-75f0c3df43eb
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,20 +14,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 138e23a0964c0e540c6b2ddf8891aa9af6782233
+
 
 ---
-# Authentification IIS
+# <a name="iis-authentication"></a>Authentification IIS
 La section Authentification IIS du serveur Azure Multi-Factor Authentication vous permet d'activer et de configurer l'authentification IIS pour l'intégration avec les applications Web Microsoft IIS. Le serveur Azure Multi-Factor Authentication installe un plug-in capable de filtrer les demandes envoyées au serveur Web IIS afin d'ajouter Azure Multi-Factor Authentication. Le plug-in IIS prend en charge l'authentification par formulaire et l'authentification intégrée Windows HTTP. Les adresses IP de confiance peuvent également être configurées pour exempter les adresses IP internes de l'authentification à deux facteurs.
 
 ![Authentification IIS](./media/multi-factor-authentication-get-started-server-iis/iis.png)
 
-## Utilisation de l'authentification IIS basée sur le formulaire avec le serveur Azure Multi-Factor Authentication
+## <a name="using-formbased-iis-authentication-with-azure-multifactor-authentication-server"></a>Utilisation de l'authentification IIS basée sur le formulaire avec le serveur Azure Multi-Factor Authentication
 Pour sécuriser une application Web IIS qui utilise l'authentification par formulaire, installez le serveur Azure Multi-Factor Authentication sur le serveur Web IIS et configurez le serveur conformément à la procédure suivante.
 
 1. Depuis le serveur Azure Multi-Factor Authentication, cliquez sur l'icône de l'authentification IIS dans le menu de gauche.
 2. Cliquez sur l'onglet d’authentification basée sur formulaire.
-3. Cliquez sur le bouton Ajouter...
-4. Pour détecter automatiquement les variables de nom d'utilisateur, de mot de passe et de domaine, entrez l'URL de connexion (par exemple, https://localhost/contoso/auth/login.aspx) dans la boîte de dialogue Auto-configurer un site Web basé sur formulaire et cliquez sur OK.
+3. Cliquez sur Ajouter… .
+4. Pour détecter automatiquement les variables de nom d’utilisateur, de mot de passe et de domaine, entrez l’URL de connexion (par exemple, hhttps://localhost/contoso/auth/login.aspx) dans la boîte de dialogue Auto-configurer un site Web basé sur formulaire et cliquez sur OK.
 5. Cochez la case de correspondance d'utilisateur Authentification multifacteur requise si tous les utilisateurs ont été ou seront importés sur le serveur et soumis à l'authentification multifacteur. Si un grand nombre d'utilisateurs n'ont pas encore été importés sur le serveur et/ou ne seront pas soumis à l'authentification multifacteur, laissez la case désactivée.
 6. Si les variables de page ne peuvent pas être détectées automatiquement, cliquez sur le bouton Spécifier manuellement... dans la boîte de dialogue Auto-configurer un site Web basé sur formulaire.
 7. Dans la boîte de dialogue Ajouter un site Web basé sur formulaire, entrez l'URL de la page de connexion dans le champ URL de soumission et entrez un nom d'application (facultatif). Le nom de l'application apparaît dans les rapports du serveur Azure Multi-Factor Authentication et peut être affiché dans les messages d'authentification SMS ou d’application mobile. Voir le fichier d'aide pour plus d'informations sur l'URL de soumission.
@@ -39,32 +43,37 @@ Pour sécuriser une application Web IIS qui utilise l'authentification par formu
 13. Une fois les variables de page et d’URL détectées ou entrées, les données de site Web s’affichent dans le panneau de configuration basé sur formulaire.
 14. Consultez la section Activation des plug-ins IIS pour le serveur Azure Multi-Factor Authentication ci-dessous pour terminer la configuration de l'authentification IIS.
 
-## Utilisation de l'authentification Windows intégrée avec le serveur Azure Multi-Factor Authentication
+## <a name="using-integrated-windows-authentication-with-azure-multifactor-authentication-server"></a>Utilisation de l'authentification Windows intégrée avec le serveur Azure Multi-Factor Authentication
 Pour sécuriser une application Web IIS qui utilise l'authentification Windows HTTP intégrée, installez le serveur Azure Multi-Factor Authentication sur le serveur Web IIS et configurez le serveur conformément à la procédure suivante.
 
 1. Depuis le serveur Azure Multi-Factor Authentication, cliquez sur l'icône de l'authentification IIS dans le menu de gauche.
 2. Cliquez sur l'onglet HTTP. Cliquez sur l'onglet d’authentification basée sur formulaire.
-3. Cliquez sur le bouton Ajouter...
-4. Dans la boîte de dialogue Ajouter une URL de base, entrez l'URL du site Web où l'authentification HTTP est effectuée (par exemple, http://localhost/owa) dans le champ URL de base et entrez un nom d'application (facultatif). Le nom de l'application apparaît dans les rapports du serveur Azure Multi-Factor Authentication et peut être affiché dans les messages d'authentification SMS ou d’application mobile.
+3. Cliquez sur Ajouter… .
+4. Dans la boîte de dialogue Ajouter une URL de base, entrez l’URL du site Web où l’authentification HTTP est effectuée (par exemple, http://localhost/owa) dans le champ URL de base et entrez un nom d’application (facultatif). Le nom de l'application apparaît dans les rapports du serveur Azure Multi-Factor Authentication et peut être affiché dans les messages d'authentification SMS ou d’application mobile.
 5. Réglez le délai de déconnexion en cas d'inactivité et la durée maximale des sessions si les valeurs par défaut sont insuffisantes
 6. Cochez la case de correspondance d'utilisateur Authentification multifacteur requise si tous les utilisateurs ont été ou seront importés sur le serveur et soumis à l'authentification multifacteur. Si un grand nombre d'utilisateurs n'ont pas encore été importés sur le serveur et/ou ne seront pas soumis à l'authentification multifacteur, laissez la case désactivée. Voir le fichier d’aide pour plus d’informations sur cette fonctionnalité.
 7. Cochez la case de cache de cookie si vous le souhaitez.
 8. Cliquez sur le bouton OK.
 9. Consultez la section [Activation des plug-ins IIS pour le serveur Azure Multi-Factor Authentication](#enable-iis-plug-ins-for-azure-multi-factor-authentication-server) ci-dessous pour terminer la configuration de l'authentification IIS.
 
-## Activation des plug-ins IIS pour le serveur Azure Multi-Factor Authentication
-Une fois que vous avez configuré les URL et les réglages d’authentification basés sur formulaire ou HTTP, vous devez sélectionner les emplacements où les plug-ins IIS d'Azure multi-Factor Authentification IIS doivent être chargés et activés dans IIS. Procédez comme suit :
+## <a name="enable-iis-plugins-for-azure-multifactor-authentication-server"></a>Activation des plug-ins IIS pour le serveur Azure Multi-Factor Authentication
+Une fois que vous avez configuré les URL et les réglages d’authentification basés sur formulaire ou HTTP, vous devez sélectionner les emplacements où les plug-ins IIS d'Azure multi-Factor Authentification IIS doivent être chargés et activés dans IIS. Procédez comme suit :
 
 1. Si vous utilisez IIS 6, cliquez sur l'onglet ISAPI et sélectionnez le site Web où l'application Web est exécutée (par exemple, Site Web par défaut) pour activer le plug-in de filtre ISAPI Azure Multi-Factor Authentication pour ce site.
 2. Si vous utilisez IIS 7 ou version ultérieure, cliquez sur l'onglet Module natif et sélectionnez le serveur, les sites Web ou les applications pour activer le plug-in IIS aux niveaux de votre choix.
 3. Cochez la case Activer l’authentification IIS en haut de l'écran. L’application IIS sélectionnée est désormais protégée par le serveur Azure Multi-Factor Authentication. Assurez-vous que les utilisateurs ont été importés sur le serveur. Consultez la section Adresses IP de confiance ci-dessous si vous souhaitez ajouter des adresses IP internes à la liste blanche, de sorte que l'authentification à deux facteurs ne soit pas requise lors de la connexion au site Web à partir de ces emplacements.
 
-## Adresses IP approuvées
+## <a name="trusted-ips"></a>Adresses IP approuvées
 Les adresses IP approuvées permettent aux utilisateurs de contourner l'authentification multifacteur Azure pour les requêtes de sites Web provenant d'adresses IP ou de sous-réseaux spécifiques. Il se peut par exemple que vous souhaitiez exempter certains utilisateurs de l'authentification multifacteur Azure lorsqu’ils se connectent du bureau. Pour ce faire, vous devez définir le sous-réseau du bureau comme adresse IP de confiance. Pour configurer les adresses IP de confiance, utilisez la procédure suivante :
 
 1. Dans la section Authentification IIS, cliquez sur l'onglet Adresses IP de confiance.
-2. Cliquez sur le bouton Ajouter...
+2. Cliquez sur Ajouter… .
 3. Lorsque la boîte de dialogue Ajouter des adresses IP de confiance s'affiche, sélectionnez le bouton Adresse IP unique, Plage d'adresses IP ou Sous-réseau.
 4. Entrez l'adresse IP, la plage d'adresses IP ou le sous-réseau à ajouter à la liste blanche. Si vous entrez un sous-réseau, sélectionnez le masque réseau approprié et cliquez sur OK. La liste blanche est alors mise à jour.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

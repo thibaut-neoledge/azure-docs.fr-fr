@@ -1,12 +1,12 @@
 ---
-title: Utiliser le Contrôle d’accès en fonction du rôle dans le portail Azure | Microsoft Docs
-description: Découvrez la gestion de l’accès avec le contrôle d’accès en fonction du rôle dans le portail Azure. Utilisez des attributions de rôle pour attribuer des autorisations à vos ressources.
+title: "Utiliser le contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure | Microsoft Docs"
+description: "Découvrez la gestion de l’accès avec le contrôle d’accès en fonction du rôle dans le portail Azure. Utilisez des attributions de rôle pour attribuer des autorisations à vos ressources."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
+
 
 ---
 # <a name="use-role-assignments-to-manage-access-to-your-azure-subscription-resources"></a>Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure
@@ -78,6 +82,9 @@ Vous pouvez attribuer des rôles et gérer l’accès avec les commandes RBAC Az
 * Consulter les [rôles RBAC intégrés](role-based-access-built-in-roles.md)
 * Définissez vos propres [rôles personnalisés dans Azure RBAC](role-based-access-control-custom-roles.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Architecture Operations Management Suite (OMS) | Microsoft Docs
-description: Microsoft Operations Management Suite (OMS) est une solution de gestion informatique de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et de cloud.  Cet article identifie les différents services inclus dans OMS et fournit des liens vers leur documentation détaillée.
+title: "Architecture d’Operations Management Suite (OMS) | Microsoft Docs"
+description: "Microsoft Operations Management Suite (OMS) est une solution de gestion informatique de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et de cloud.  Cet article identifie les différents services inclus dans OMS et fournit des liens vers leur documentation détaillée."
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 40e41686-7e35-4d85-bbe8-edbcb295a534
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,26 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 88c0bd67562111baa5aa5882b7c1a4ef52bc6dd2
+
 
 ---
 # <a name="oms-architecture"></a>Architecture OMS
-[Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) est un ensemble de services informatiques destinés à gérer vos environnements locaux et de cloud.  Cet article décrit les différents composants OMS locaux et de cloud, ainsi que leur architecture de cloud computing de haut niveau.  Pour plus d’informations, vous pouvez consulter la documentation de chaque service.
+[Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) est un ensemble de services informatiques destinés à gérer vos environnements locaux et de cloud.  Cet article décrit les différents composants OMS locaux et de cloud, ainsi que leur architecture de cloud computing de haut niveau.  Pour plus d’informations, vous pouvez consulter la documentation de chaque service.
 
 ## <a name="log-analytics"></a>Log Analytics
 Toutes les données collectées par [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) sont stockées dans le référentiel OMS, qui est hébergé dans Azure.  Les Sources connectées génèrent des données collectées dans le référentiel OMS.  Actuellement, trois types de sources connectées sont pris en charge.
 
-* Un agent installé sur un ordinateur [Windows](../log-analytics/log-analytics-windows-agents.md) ou [Linux](../log-analytics/log-analytics-linux-agents.md) directement connecté à OMS.
+* Un agent installé sur un ordinateur [Windows](../log-analytics/log-analytics-windows-agents.md) ou [Linux](../log-analytics/log-analytics-linux-agents.md) directement connecté à OMS.
 * Un groupe d’administration System Center Operations Manager (SCOM) [connecté à Log Analytics](../log-analytics/log-analytics-om-agents.md) .  Les agents SCOM continuent à communiquer avec les serveurs d’administration qui transmettent des événements et des données de performances à Log Analytics.
-* Un [compte de stockage Azure](../log-analytics/log-analytics-azure-storage.md) qui collecte les données [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) à partir d’un rôle de travail, d’un rôle Web ou d’une machine virtuelle dans Azure.
+* Un [compte de stockage Azure](../log-analytics/log-analytics-azure-storage.md) qui collecte les données [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) à partir d’un rôle de travail, d’un rôle Web ou d’une machine virtuelle dans Azure.
 
 Les sources de données définissent les données que Log Analytics collecte auprès des sources connectées, y compris les journaux d’événements et les compteurs de performances.  Les solutions ajoutent des fonctionnalités à OMS et peuvent être facilement ajoutées à votre espace de travail à partir de la [Galerie des solutions OMS](../log-analytics/log-analytics-add-solutions.md).  Certaines solutions peuvent nécessiter une connexion directe à Log Analytics depuis les agents SCOM, tandis que d’autres nécessiteront l’installation d’un agent supplémentaire.
 
-Log Analytics présente un portail web que vous pouvez utiliser pour gérer les ressources OMS, ajouter et configurer des solutions OMS, et afficher et analyser des données dans le référentiel OMS.
+Log Analytics présente un portail web que vous pouvez utiliser pour gérer les ressources OMS, ajouter et configurer des solutions OMS, et afficher et analyser des données dans le référentiel OMS.
 
 ![Architecture Log Analytics haute performance](media/operations-management-suite-architecture/log-analytics.png)
 
 ## <a name="azure-automation"></a>Azure Automation
-[Runbooks Azure Automation](http://azure.microsoft.com/documentation/services/automation) sont exécutés dans le cloud Azure et peuvent accéder aux ressources situées dans Azure, dans d’autres services cloud ou accessibles depuis l’Internet public.  Vous pouvez également désigner des ordinateurs de votre centre de données local avec un [Runbook Worker hybride](../automation/automation-hybrid-runbook-worker.md), afin que les Runbooks puissent accéder aux ressources locales.
+[Runbooks Azure Automation](http://azure.microsoft.com/documentation/services/automation) sont exécutés dans le cloud Azure et peuvent accéder aux ressources situées dans Azure, dans d’autres services cloud ou accessibles depuis l’Internet public.  Vous pouvez également désigner des ordinateurs de votre centre de données local avec un [Runbook Worker hybride](../automation/automation-hybrid-runbook-worker.md), afin que les Runbooks puissent accéder aux ressources locales.
 
 [configurations DSC](../automation/automation-dsc-overview.md) stockées dans Azure Automation peuvent être directement appliquées aux machines virtuelles Azure.  Les autres machines physiques et virtuelles peuvent demander des configurations du serveur d’extraction Azure Automation DSC.
 
@@ -80,6 +84,9 @@ Dans Azure Site Recovery, il existe trois scénarios de réplication fondamentau
 * En savoir plus sur [Azure Backup](http://azure.microsoft.com/documentation/services/backup).
 * En savoir plus sur [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

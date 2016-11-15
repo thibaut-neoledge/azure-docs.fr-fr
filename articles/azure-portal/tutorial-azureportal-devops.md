@@ -1,12 +1,12 @@
 ---
-title: 'Didacticiel : Opérations de développement avec le portail Azure | Microsoft Docs'
-description: Découvrez les divers flux de travail DevOps dans le portail Azure.
+title: "Didacticiel : Opérations de développement avec le portail Azure | Microsoft Docs"
+description: "Découvrez les divers flux de travail DevOps dans le portail Azure."
 services: azure-portal
-documentationcenter: ''
+documentationcenter: 
 author: mlearned
 manager: douge
 editor: mlearned
-
+ms.assetid: 4f1c5bc1-c732-4d35-b5df-0fd68e547d38
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b3ef77cc1b3b13a1603f1ca7c6d4a000b69453e0
+
 
 ---
-# Didacticiel : Opérations de développement avec le portail Azure
+# <a name="tutorial-devops-with-the-azure-portal"></a>Didacticiel : Opérations de développement avec le portail Azure
 La plateforme Azure regorge de flux de travail DevOps flexibles. Dans ce didacticiel, vous apprendrez à exploiter les fonctionnalités du portail Azure pour développer, tester, déployer, dépanner, analyser et gérer les applications en cours d’exécution. Ce didacticiel se concentre sur les éléments suivants :
 
 1. Création d’une application web et possibilité de déploiement continu
@@ -24,21 +28,21 @@ La plateforme Azure regorge de flux de travail DevOps flexibles. Dans ce didacti
 3. Surveillance et dépannage d’une application
 4. Tâches de gestion des applications générales
 
-## Création d’une application web et possibilité de déploiement continu
+## <a name="creating-a-web-app-and-enabling-continuous-deployment"></a>Création d’une application web et possibilité de déploiement continu
 Créez une application web avec [Azure App Service](https://azure.microsoft.com/services/app-service/), et utilisez-la pour la suite de ce didacticiel. Vous allez d’abord activer le déploiement continu à partir de votre référentiel de code source dans notre environnement Azure en cours d’exécution.
 
 1. Se connecter au portail Azure
-2. Choisissez **App Services** &gt; **icône Ajouter**, puis entrez un nom, choisissez votre abonnement et créez un nouveau groupe de ressources qui servira de conteneur pour le service.
+2. Choisissez **App Services** &gt; **Add icon** (Ajouter une icône) et entrez un nom, choisissez votre abonnement, puis créez un groupe de ressources en guise de conteneur du service.
    
-   Les groupes de ressources vous permettent de gérer différents aspects de la solution, telles que la facturation, les déploiements et l’analyse, le tout grâce à un groupe unique via [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-overview/).
+   Les groupes de ressources vous permettent de gérer différents aspects de la solution, telles que la facturation, les déploiements et l’analyse, le tout grâce à un groupe unique via [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
    
    ![image1][image1]
 3. Après quelques instants, votre App Service est créé. Prenez quelques minutes pour explorer les différentes options de menu du service dans le portail.
    
-   ![image2][image2]
+   ![image2][image2]    
 4. Cliquez sur l'URL. Notez les divers outils et référentiels disponibles. Vous pouvez également utiliser les langages et infrastructures de votre choix, notamment .NET, Java et Ruby.
    
-   ![image3][image3]
+   ![image3][image3]    
 5. Le portail Azure simplifie le déploiement continu, en le limitant à quelques étapes simples. Dans le portail Azure, choisissez les paramètres en utilisant l’icône de l’App Service que vous venez de créer.
    
    ![image4][image4]
@@ -67,7 +71,7 @@ Créez une application web avec [Azure App Service](https://azure.microsoft.com/
 12. Après avoir effectué des modifications dans votre référentiel, le démarrage d’un nouveau déploiement est signalé dans la zone de notification du portail. Si vous ne voyez aucune modification rapidement après leur validation dans votre référentiel, cliquez sur Synchroniser.
     
     ![image12][image12]
-13. À ce stade, si vous essayez de charger la page pour l’App Service, il se peut que vous receviez une erreur 403. Dans cet exemple, elle apparaît car il n’existe aucune configuration de document par défaut pour la page, telle qu’un fichier index.htm ou default.html. Vous pouvez résoudre rapidement ce problème à l’aide des outils du portail Azure. Dans le portail Azure, choisissez Paramètres &gt; Paramètres de l’application.
+13. À ce stade, si vous essayez de charger la page pour l’App Service, il se peut que vous receviez une erreur 403. Dans cet exemple, elle apparaît car il n’existe aucune configuration de document par défaut pour la page, telle qu’un fichier index.htm ou default.html. Vous pouvez résoudre rapidement ce problème à l’aide des outils du portail Azure.  Dans le portail Azure, choisissez Paramètres &gt; Paramètres de l’application.
     
      ![image13][image13]
 14. Un panneau regroupant les paramètres de l’application s’ouvre. Entrez le nom de la page « SamplePage.html » et cliquez sur Enregistrer. Prenez quelques minutes pour explorer les autres paramètres.
@@ -79,7 +83,7 @@ Créez une application web avec [Azure App Service](https://azure.microsoft.com/
     
     L’activation du déploiement continu avec le portail Azure est une procédure simple. Vous pouvez également créer des pipelines de publication plus complexes et utiliser de nombreuses autres techniques avec contrôle de code source existant et systèmes d’intégration continue à déployer sur Azure, par exemple en exploitant les systèmes de gestion automatisée de la création et de la publication.
 
-## Développement et test d’une application
+## <a name="develop-and-test-an-app"></a>Développement et test d’une application
 Ensuite, apportez des modifications à la base de code et déployez-les rapidement. Vous configurerez également des tests de performance pour l’application web.
 
 1. Dans le portail Azure, sélectionnez App Services dans le volet de navigation, puis recherchez votre App Service.
@@ -145,7 +149,7 @@ Ensuite, apportez des modifications à la base de code et déployez-les rapideme
     
     ![image36][image36]
 
-## Surveillance et dépannage d’une application
+## <a name="monitoring-and-troubleshooting-an-app"></a>Surveillance et dépannage d’une application
 Azure fournit de nombreuses fonctionnalités de surveillance et de dépannage pour les applications en cours d’exécution.
 
 1. Dans le portail Azure de votre application web, sélectionnez Outils.
@@ -208,7 +212,7 @@ Azure fournit de nombreuses fonctionnalités de surveillance et de dépannage po
     
     Le portail Azure contribue à offrir une utilisation puissante et familière des outils, afin de contrôler et de dépanner nos applications en cours d’exécution. Vous pouvez également prendre rapidement des mesures en effectuant des tâches telles que le recyclage des processus, l’activation et la désactivation de différentes collectes de données, et même l’intégration au support professionnel Microsoft.
 
-## Gestion des applications générales
+## <a name="general-application-management"></a>Gestion des applications générales
 Lorsque vous gérez des applications, vous devez souvent effectuer de nombreuses tâches, telles que la configuration des stratégies de sauvegarde, l’implémentation et la gestion des fournisseurs d’identité, et la configuration des contrôles d’accès basés sur les rôles. Comme pour les autres expériences DevOps, la plateforme Azure intègre ces tâches directement dans le portail.
 
 1. Afin de protéger l’application web contre les pertes de données, vous devez configurer des sauvegardes. Accédez à la zone Paramètres de votre application web.
@@ -254,19 +258,19 @@ Lorsque vous gérez des applications, vous devez souvent effectuer de nombreuses
     
      ![image69][image69]
 
-## Résumé
+## <a name="summary"></a>Résumé
 Ce didacticiel a présenté succinctement la puissance de la plateforme Azure, qui passe par l’activation rapide d’un déploiement continu pour une application web, la réalisation de diverses activités de développement et de test, l’analyse et le dépannage des applications en activité et enfin la gestion des stratégies clés telles que la récupération d’urgence, l’identification et le contrôle d’accès en fonction du rôle. La plateforme Azure offre une expérience intégrée pour ces flux de travail DevOps. Vous pouvez ainsi travailler efficacement de manière appropriée à la tâche en cours.
 
-## Étapes suivantes
-* Azure Resource Manager est important pour permettre les opérations de développement sur la plateforme Azure. Pour en savoir plus, consultez la page [Vue d’ensemble d’Azure Resource Manager](../resource-group-overview.md).
+## <a name="next-steps"></a>Étapes suivantes
+* Azure Resource Manager est important pour permettre les opérations de développement sur la plateforme Azure.  Pour en savoir plus, consultez la page [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 * Pour en savoir plus sur le déploiement d’Azure App Service, consultez la page [Déploiement de votre application dans Azure App Service](../app-service-web/web-sites-deploy.md)
 
 [image1]: ./media/tutorial-azureportal-devops/image1.png
-[image2]: ./media/tutorial-azureportal-devops/image2.png
-[image3]: ./media/tutorial-azureportal-devops/image3.png
-[image4]: ./media/tutorial-azureportal-devops/image4.png
-[image5]: ./media/tutorial-azureportal-devops/image5.png
-[image6]: ./media/tutorial-azureportal-devops/image6.png
+[Image2]: ./media/tutorial-azureportal-devops/image2.png
+[Image3]: ./media/tutorial-azureportal-devops/image3.png
+[Image4]: ./media/tutorial-azureportal-devops/image4.png
+[Image5]: ./media/tutorial-azureportal-devops/image5.png
+[Image6]: ./media/tutorial-azureportal-devops/image6.png
 [image7]: ./media/tutorial-azureportal-devops/image7.png
 [image8]: ./media/tutorial-azureportal-devops/image8.png
 [image9]: ./media/tutorial-azureportal-devops/image9.png
@@ -331,4 +335,8 @@ Ce didacticiel a présenté succinctement la puissance de la plateforme Azure, q
 [image68]: ./media/tutorial-azureportal-devops/image68.png
 [image69]: ./media/tutorial-azureportal-devops/image69.png
 
-<!-----HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

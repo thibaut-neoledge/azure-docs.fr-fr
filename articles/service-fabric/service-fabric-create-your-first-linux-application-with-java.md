@@ -1,12 +1,12 @@
 ---
-title: Créer votre première application Service Fabric sur Linux à l’aide de Java | Microsoft Docs
-description: Créer et déployer une application Service Fabric à l’aide de Java
+title: "Créer votre première application Service Fabric sur Linux à l’aide de Java | Microsoft Docs"
+description: "Créer et déployer une application Service Fabric à l’aide de Java"
 services: service-fabric
 documentationcenter: java
 author: seanmck
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: hero-article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/04/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 288d504b44fd7588a03a31171da1bfb332e2429f
+
 
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Créer votre première application Azure Service Fabric
 > [!div class="op_single_selector"]
-> * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
-> * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
+> * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
+> * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
 > * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 > 
 > 
@@ -82,7 +86,7 @@ Les projets d’acteur n’effectuent aucune opération automatiquement. Ils ont
 3. Cliquez sur le nœud trouvé à l’étape précédente, puis sélectionnez **Désactiver (redémarrer)** à partir du menu Actions. Cela permettra de redémarrer l’un des cinq nœuds de votre cluster local et de forcer un basculement sur l’un des réplicas secondaires s’exécutant sur un autre nœud. Dans le même temps, prêtez attention à la sortie du client de test et notez que le compteur continue à être incrémenté malgré le basculement.
 
 ## <a name="build-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Générer et déployer une application avec le plug-in Eclipse Neon
-Si vous avez installé le plug-in Service pour Eclipse Neon, vous pouvez l’utiliser pour créer, générer et déployer des applications Service Fabric générées avec Java.  Lors de l’installation d’Eclipse, choisissez le **Environnement de développement intégré (IDE) Eclipse pour développeurs Java EE**.
+Si vous avez installé le plug-in Service pour Eclipse Neon, vous pouvez l’utiliser pour créer, générer et déployer des applications Service Fabric générées avec Java.  Lors de l’installation d’Eclipse, choisissez le **Environnement de développement intégré (IDE) Eclipse pour développeurs Java EE**.
 
 ### <a name="create-the-application"></a>Création de l'application
 Le plug-in Service Fabric est disponible via l’extensibilité Eclipse.
@@ -113,6 +117,6 @@ Votre application sera générée et déployée dans quelques instants. Vous pou
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Prise en main de la solution de sécurité et d’audit d’Operations Management Suite | Microsoft Docs
-description: Ce document vous aide à prendre en main les fonctionnalités de la solution de sécurité et d’audit d’Operations Management Suite, afin de surveiller les opérations de votre cloud hybride.
+title: "Prise en main de la solution de sécurité et d’audit d’Operations Management Suite | Microsoft Docs"
+description: "Ce document vous aide à prendre en main les fonctionnalités de la solution de sécurité et d’audit d’Operations Management Suite, afin de surveiller les opérations de votre cloud hybride."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
 ms.topic: get-started-article
 ms.devlang: na
@@ -14,27 +14,31 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fe043cd4438612ada9a31ae895aae75b913b0a37
+
 
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Prise en main de la solution de sécurité et d’audit d’Operations Management Suite
-Ce document vous aide à prendre rapidement en main les fonctionnalités de la solution de sécurité et d’audit d’Operations Management Suite (OMS), en vous présentant chaque option.
+Ce document vous aide à prendre rapidement en main les fonctionnalités de la solution de sécurité et d’audit d’Operations Management Suite (OMS), en vous présentant chaque option.
 
-## <a name="what-is-oms?"></a>Qu’est-ce qu’OMS ?
-Microsoft Operations Management Suite (OMS) est une solution de gestion informatique de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et de cloud. Pour plus d’informations sur OMS, lisez l’article [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
+## <a name="what-is-oms"></a>Qu’est-ce qu’OMS ?
+Microsoft Operations Management Suite (OMS) est une solution de gestion informatique de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et de cloud. Pour plus d’informations sur OMS, lisez l’article [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
 ## <a name="oms-security-and-audit-dashboard"></a>Tableau de bord de la solution de sécurité et d’audit d’OMS
-La solution de sécurité et d’audit d’OMS offre une vue détaillée de la sécurité informatique de votre organisation. Elle fournit des requêtes de recherche intégrées pour détecter les problèmes importants qui requièrent votre attention. Le tableau de bord **Sécurité et audit** est l’écran d’accueil pour tout ce qui se rapporte à la sécurité dans OMS. Il fournit un aperçu global de l’état de sécurité de vos ordinateurs. Il vous permet également de voir tous les événements des dernières 24 heures, des 7 derniers jours ou de n’importe quel intervalle de temps personnalisé. Pour accéder au tableau de bord **Sécurité et audit**, procédez comme suit :
+La solution de sécurité et d’audit d’OMS offre une vue détaillée de la sécurité informatique de votre organisation. Elle fournit des requêtes de recherche intégrées pour détecter les problèmes importants qui requièrent votre attention. Le tableau de bord **Sécurité et audit** est l’écran d’accueil pour tout ce qui se rapporte à la sécurité dans OMS. Il fournit un aperçu global de l’état de sécurité de vos ordinateurs. Il vous permet également de voir tous les événements des dernières 24 heures, des 7 derniers jours ou de n’importe quel intervalle de temps personnalisé. Pour accéder au tableau de bord **Sécurité et audit**, procédez comme suit :
 
-1. Dans le tableau de bord principal de **Microsoft Operations Management Suite**, cliquez sur la mosaïque **Paramètres** située sur la gauche.
+1. Dans le tableau de bord principal de **Microsoft Operations Management Suite**, cliquez sur la mosaïque **Paramètres** située sur la gauche.
 2. Dans le panneau **Paramètres**, sous **Solutions**, cliquez sur l’option **Sécurité et audit**.
-3. Le tableau de bord **Sécurité et audit** s’affiche :
+3. Le tableau de bord **Sécurité et audit** s’affiche :
    
     ![Tableau de bord de la solution de sécurité et d’audit d’OMS](./media/oms-security-getting-started/oms-getting-started-fig1-ga.png)
 
-Si vous accédez à ce tableau de bord pour la première fois et qu’aucun de vos périphériques n’est surveillé par OMS, les mosaïques ne seront pas remplies avec les données obtenues de l’agent. Lorsque vous installez l’agent, il peut mettre un certain temps à se remplir. Par conséquent, il est possible qu’il manque certaines données dans celles que vous verrez initialement, car elles seront en cours de téléchargement sur le cloud.  Dans ce cas, il est normal que certaines mosaïques n’affichent aucune information tangible. Consultez la rubrique [Connexion directe des ordinateurs Windows à OMS](https://technet.microsoft.com/library/mt484108.aspx) pour savoir comment installer l’agent OMS sur un système Windows, et la rubrique relative à la [connexion des ordinateurs Linux à OMS](https://technet.microsoft.com/library/mt622052.aspx) pour savoir comment l’installer sur un système Linux.
+Si vous accédez à ce tableau de bord pour la première fois et qu’aucun de vos périphériques n’est surveillé par OMS, les mosaïques ne seront pas remplies avec les données obtenues de l’agent. Lorsque vous installez l’agent, il peut mettre un certain temps à se remplir. Par conséquent, il est possible qu’il manque certaines données dans celles que vous verrez initialement, car elles seront en cours de téléchargement sur le cloud.  Dans ce cas, il est normal que certaines mosaïques n’affichent aucune information tangible. Consultez la rubrique [Connexion directe des ordinateurs Windows à OMS](https://technet.microsoft.com/library/mt484108.aspx) pour savoir comment installer l’agent OMS sur un système Windows, et la rubrique relative à la [connexion des ordinateurs Linux à OMS](https://technet.microsoft.com/library/mt622052.aspx) pour savoir comment l’installer sur un système Linux.
 
 > [!NOTE]
-> L’agent collecte les informations basées sur les événements en cours qui sont activés, par exemple le nom de l’ordinateur, le nom d’utilisateur et l’adresse IP. Toutefois, aucun document/fichier, aucun nom de base de données ni aucune donnée privée ne sont collectés.   
+> L’agent collecte les informations basées sur les événements en cours qui sont activés, par exemple le nom de l’ordinateur, le nom d’utilisateur et l’adresse IP. Toutefois, aucun document/fichier, aucun nom de base de données ni aucune donnée privée ne sont collectés.   
 > 
 > 
 
@@ -43,8 +47,8 @@ Les solutions sont une collection de règles de logique, de visualisation et d�
 Le tableau de bord de la solution de sécurité et d’audit d’OMS est organisé en quatre catégories principales :
 
 * **Security Domains**(Domaines de sécurité) : dans cette section, vous pourrez explorer plus en détail les enregistrements de sécurité au fil du temps, accéder à l’évaluation des programmes malveillants, l’évaluation des mises à jour, la sécurité du réseau, les informations d’identité et d’accès, les ordinateurs présentant des événements de sécurité, et accéder rapidement au tableau de bord du Centre de sécurité Azure.
-* **Problèmes notables** : cette option vous permet d’identifier rapidement le nombre de problèmes actifs et leur gravité.
-* **Détections (préversion)** : cette option vous permet d’identifier les modèles d’attaque en visualisant les alertes de sécurité au fur et à mesure qu’elles affectent vos ressources.
+* **Problèmes notables** : cette option vous permet d’identifier rapidement le nombre de problèmes actifs et leur gravité.
+* **Détections (préversion)** : cette option vous permet d’identifier les modèles d’attaque en visualisant les alertes de sécurité au fur et à mesure qu’elles affectent vos ressources.
 * **Informations sur les menaces**: cette option vous permet d’identifier les modèles d’attaque en visualisant le nombre total de serveurs présentant un trafic IP sortant malveillant, le type de menace malveillante et une carte indiquant l’origine de ces adresses IP. 
 * **Common security queries** (Requêtes de sécurité courantes) : cette option vous fournit une liste des requêtes de sécurité les plus courantes que vous pouvez utiliser pour surveiller votre environnement. Cliquez sur l’une de ces requêtes pour ouvrir le panneau **Recherche** affichant les résultats de cette requête.
 
@@ -65,11 +69,11 @@ Les scénarios d’investigation et de réponse aux incidents bénéficient dire
 
 ![Enregistrements de sécurité au fil du temps](./media/oms-security-getting-started/oms-getting-started-fig2.JPG)
 
-Lorsque vous cliquez sur cette mosaïque, le panneau **Recherche** s’ouvre, affichant les résultats d’une requête pour les **Événements de sécurité** (Type=SecurityEvents) et présentant les données des sept derniers jours, comme indiqué ci-dessous :
+Lorsque vous cliquez sur cette mosaïque, le panneau **Recherche** s’ouvre, affichant les résultats d’une requête pour les **Événements de sécurité** (Type=SecurityEvents) et présentant les données des sept derniers jours, comme indiqué ci-dessous :
 
 ![Enregistrements de sécurité au fil du temps](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
 
-Les résultats de la recherche sont répartis en deux volets : le volet de gauche vous fournit une analyse du nombre d’événements de sécurité qui ont été trouvés, les ordinateurs sur lesquels ils ont été détectés, le nombre de comptes présents sur ces ordinateurs et les types d’activités. Le volet de droite vous fournit les résultats totaux ainsi qu’une vue chronologique des événements de sécurité avec le nom de l’ordinateur et l’activité de l’événement. Vous pouvez également cliquer sur **Show More** (Afficher plus) pour afficher plus de détails sur un événement, tels que les données qui s’y rapportent, son identifiant et sa source.
+Les résultats de la recherche sont répartis en deux volets : le volet de gauche vous fournit une analyse du nombre d’événements de sécurité qui ont été trouvés, les ordinateurs sur lesquels ils ont été détectés, le nombre de comptes présents sur ces ordinateurs et les types d’activités. Le volet de droite vous fournit les résultats totaux ainsi qu’une vue chronologique des événements de sécurité avec le nom de l’ordinateur et l’activité de l’événement. Vous pouvez également cliquer sur **Show More** (Afficher plus) pour afficher plus de détails sur un événement, tels que les données qui s’y rapportent, son identifiant et sa source.
 
 > [!NOTE]
 > Pour plus d’informations sur la requête de recherche OMS, consultez [OMS search reference](https://technet.microsoft.com/library/mt450427.aspx)(Référence de recherche OMS).
@@ -81,7 +85,7 @@ Cette option vous permet d’identifier rapidement les ordinateurs disposant d�
 
 ![évaluation des programmes malveillants](./media/oms-security-getting-started/oms-getting-started-fig4-ga.png)
 
-Tout comme n’importe quelle autre mosaïque dynamique du tableau de bord OMS, lorsque vous cliquez dessus, le panneau **Recherche** s’ouvre et affiche le résultat de la requête. Pour cette option, si vous cliquez sur l’option **Not Reporting** (Pas de rapports) sous **Protection Status** (État de la protection), vous obtenez le résultat de la requête qui affiche cette entrée unique contenant le nom de l’ordinateur et son rang, comme indiqué ci-dessous :
+Tout comme n’importe quelle autre mosaïque dynamique du tableau de bord OMS, lorsque vous cliquez dessus, le panneau **Recherche** s’ouvre et affiche le résultat de la requête. Pour cette option, si vous cliquez sur l’option **Not Reporting** (Pas de rapports) sous **Protection Status** (État de la protection), vous obtenez le résultat de la requête qui affiche cette entrée unique contenant le nom de l’ordinateur et son rang, comme indiqué ci-dessous :
 
 ![résultat de la recherche](./media/oms-security-getting-started/oms-getting-started-fig5.png)
 
@@ -112,18 +116,18 @@ L’identité doit être le plan de contrôle de votre entreprise. Protéger vot
 
 Surveiller vos activités d’identité vous permet de prendre des mesures proactives avant qu’un événement ne survienne, ou des mesures réactives pour contrer une tentative d’attaque. Le tableau de bord **Identité et accès** vous offre une vue d’ensemble de l’état de votre identité, notamment le nombre de tentatives de connexion ayant échoué, les comptes d’utilisateurs utilisés au cours de ces tentatives, les comptes verrouillés, les comptes pour lesquels le mot de passe a été changé ou réinitialisé et le nombre de comptes actuellement connectés. 
 
-Cliquez sur la mosaïque **Identité et accès** pour afficher le tableau de bord suivant :
+Cliquez sur la mosaïque **Identité et accès** pour afficher le tableau de bord suivant :
 
 ![identité et accès](./media/oms-security-getting-started/oms-getting-started-fig7-ga.png)
 
-Les informations disponibles dans ce tableau de bord peuvent immédiatement vous aider à identifier une activité suspecte potentielle. Par exemple, il y a eu 338 tentatives de connexion en tant qu’**Administrateur**, et 100 % de ces tentatives ont échoué. Ce compte a peut-être été l’objet d’une attaque en force brute. Cliquez sur ce compte pour obtenir plus d’informations, ce qui peut vous aider à déterminer la ressource cible de cette attaque potentielle :
+Les informations disponibles dans ce tableau de bord peuvent immédiatement vous aider à identifier une activité suspecte potentielle. Par exemple, il y a eu 338 tentatives de connexion en tant qu’**Administrateur**, et 100 % de ces tentatives ont échoué. Ce compte a peut-être été l’objet d’une attaque en force brute. Cliquez sur ce compte pour obtenir plus d’informations, ce qui peut vous aider à déterminer la ressource cible de cette attaque potentielle :
 
 ![Recherche de résultats](./media/oms-security-getting-started/oms-getting-started-fig8.JPG)
 
 Le rapport détaillé fournit des informations sur cet événement, notamment : l’ordinateur cible, le type d’ouverture de session (dans ce cas, Connexion réseau), l’activité (dans ce cas, l’événement 4625) et une chronologie complète de chaque nouvelle tentative. 
 
 ### <a name="computers"></a>Ordinateurs
-Cette mosaïque peut être utilisée pour accéder à tous les ordinateurs où des événements de sécurité actifs ont été détectés. Cliquez dans cette mosaïque pour afficher la liste des ordinateurs présentant des événements de sécurité et leur nombre :
+Cette mosaïque peut être utilisée pour accéder à tous les ordinateurs où des événements de sécurité actifs ont été détectés. Cliquez dans cette mosaïque pour afficher la liste des ordinateurs présentant des événements de sécurité et leur nombre :
 
 ![Ordinateurs](./media/oms-security-getting-started/oms-getting-started-fig9.JPG)
 
@@ -139,7 +143,7 @@ L’objectif principal de ce groupe d’options est de fournir un aperçu rapide
 
 Comme vous pouvez le voir, ces problèmes ont déjà été traités dans différentes sections du groupe **Security Domains** (Domaines de sécurité), ce qui vient servir l’objectif de cette vue : visualiser les problèmes les plus importants rencontrés par votre environnement dans un emplacement unique.
 
-## <a name="detections-(preview)"></a>Détections (préversion)
+## <a name="detections-preview"></a>Détections (préversion)
 L’objectif principal de cette option consiste à permettre au département informatique d’identifier rapidement les menaces potentielles visant l’environnement, ainsi que leur niveau de gravité.
 
 ![Informations sur les menaces](./media/oms-security-getting-started/oms-getting-started-fig12.png)
@@ -147,12 +151,12 @@ L’objectif principal de cette option consiste à permettre au département inf
 Cette option peut également être utilisée pendant un examen dans le cadre d’une réponse à un incident, afin d’évaluer une attaque et d’obtenir des informations supplémentaires à son propos.
 
 > [!NOTE]
-> Pour en savoir plus sur l’utilisation d’OMS pour la réponse aux incidents, voir la vidéo indiquant [comment tirer parti de Microsoft Azure Security Center et de Microsoft Operations Management Suite pour la réponse aux incidents](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
+> Pour en savoir plus sur l’utilisation d’OMS pour la réponse aux incidents, voir la vidéo indiquant [comment tirer parti de Microsoft Azure Security Center et de Microsoft Operations Management Suite pour la réponse aux incidents](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
 > 
 > 
 
 ## <a name="threat-intelligence"></a>Informations sur les menaces
-La nouvelle section d’informations sur les menaces de la solution de sécurité et d’audit vous permet d’identifier les modèles d’attaque potentiels de plusieurs façons : via le nombre total de serveurs présentant un trafic IP sortant malveillant, via le type de menace malveillante et via une carte indiquant l’origine de ces adresses IP. Vous pouvez interagir avec la carte et cliquer sur les adresses IP pour plus d’informations.
+La nouvelle section d’informations sur les menaces de la solution de sécurité et d’audit vous permet d’identifier les modèles d’attaque potentiels de plusieurs façons : via le nombre total de serveurs présentant un trafic IP sortant malveillant, via le type de menace malveillante et via une carte indiquant l’origine de ces adresses IP. Vous pouvez interagir avec la carte et cliquer sur les adresses IP pour plus d’informations.
 
 Les repères jaunes sur la carte indiquent le trafic entrant provenant d’adresses IP malveillantes. Il n’est pas rare d’observer du trafic malveillant entrant sur les serveurs exposés à Internet, mais nous vous recommandons d’examiner ces tentatives pour vous assurer qu’aucune d’elles n’a réussi. Ces indicateurs sont basés sur les journaux IIS, WireData et les journaux du pare-feu Windows.  
 
@@ -179,6 +183,9 @@ Ce document vous a présenté la solution de sécurité et d’audit d’OMS. Po
 * [Surveiller et répondre aux alertes de sécurité dans la solution de sécurité et d’audit d’Operations Management Suite](oms-security-responding-alerts.md)
 * [Surveillance des ressources dans la solution de sécurité et d’audit d’Operations Management Suite](oms-security-monitoring-resources.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,11 +1,11 @@
 ---
-title: Query your Azure Search Index using the Azure Portal | Microsoft Docs
-description: Issue a search query in the Azure Portal's Search Explorer.
+title: "Interroger votre index de Recherche Azure à l’aide du portail Azure │ Microsoft Docs"
+description: "Émettez une requête de recherche dans l’Explorateur de recherche du portail Azure."
 services: search
 manager: jhubbard
-documentationcenter: ''
+documentationcenter: 
 author: ashmaka
-
+ms.assetid: 8e524188-73a7-44db-9e64-ae8bf66b05d3
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -13,42 +13,49 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: ashmaka
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a23372112e17703a3399e1bdc9eaf73b85a1f80d
+
 
 ---
-# <a name="query-your-azure-search-index-using-the-azure-portal"></a>Query your Azure Search index using the Azure Portal
+# <a name="query-your-azure-search-index-using-the-azure-portal"></a>Interroger votre index Azure Search à l’aide du portail Azure
 > [!div class="op_single_selector"]
-> * [Overview](search-query-overview.md)
-> * [Portal](search-explorer.md)
+> * [Vue d'ensemble](search-query-overview.md)
+> * [Portail](search-explorer.md)
 > * [.NET](search-query-dotnet.md)
 > * [REST](search-query-rest-api.md)
 > 
 > 
 
-This guide will show you how to query your Azure Search index in the Azure Portal.
+Ce guide vous explique comment interroger l’index Azure Search dans le portail Azure.
 
-Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md) and [populated it with data](search-what-is-data-import.md).
+Avant de commencer cette procédure, vous devez déjà avoir [créé un index de Recherche Azure](search-what-is-an-index.md) et y avoir [ajouté des données](search-what-is-data-import.md).
 
-## <a name="i.-go-to-your-azure-search-blade"></a>I. Go to your Azure Search blade
-1. Click on "All resources" in the menu on the left side of the [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
-2. Select your Azure Search service
+## <a name="i-go-to-your-azure-search-blade"></a>I. Accéder au panneau Azure Search
+1. Cliquez sur « Toutes les ressources » dans le menu de gauche du [portail Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
+2. Sélectionnez votre service Azure Search.
 
-## <a name="ii.-select-the-index-you-would-like-to-search"></a>II. Select the index you would like to search
-1. Select the index you would like to search from the "Indexes" tile.
+## <a name="ii-select-the-index-you-would-like-to-search"></a>II. Sélectionnez l’index dans lequel vous souhaitez effectuer la recherche
+1. Sélectionnez l’index dans lequel vous souhaitez effectuer la recherche à partir de la mosaïque « Index ».
 
 ![](./media/search-explorer/pick-index.png)
 
-## <a name="iii.-click-on-the-"search-explorer"-tile"></a>III. Click on the "Search Explorer" tile
+## <a name="iii-click-on-the-search-explorer-tile"></a>III. Cliquez sur la mosaïque « Explorateur de recherche »
 ![](./media/search-explorer/search-explorer-tile.png)
 
-## <a name="iii.-start-searching"></a>III. Start searching
-1. To search your Azure Search index, start typing into the "*Query string*" field and then press "**Search**".
+## <a name="iii-start-searching"></a>III. Commencez la recherche
+1. Pour effectuer une recherche dans l’index Azure Search, commencez à taper dans le champ «*Chaîne de requête*», puis appuyez sur «**Rechercher**».
    
-   * When using the Search Explorer, you can specify any of the [query parameters](https://msdn.microsoft.com/library/dn798927.aspx)
-2. In the "*Results*" section, the query's results will be presented in the raw JSON that you would receiving in an HTTP Response Body when issuing search requests against the Azure Search REST API.
-3. The query string is automatically parsed into the proper request URL to submit a HTTP request against the Azure Search REST API
+   * Lorsque vous utilisez l’Explorateur de recherche, vous pouvez spécifier les [paramètres de requête](https://msdn.microsoft.com/library/dn798927.aspx)
+2. Dans la section «*Résultats*», les résultats de la requête apparaîtront dans le fichier JSON brut qui vous aurait été adressé dans un corps de réponse HTTP si vous aviez lancé la requête de recherche dans l’API REST d’Azure Search.
+3. La chaîne de requête est automatiquement analysée dans l’URL de requête appropriée pour soumettre une requête HTTP à l’API REST d’Azure Search
 
 ![](./media/search-explorer/search-bar.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Service Bus architecture | Microsoft Docs
-description: Describes the message and relay processing architecture of Azure Service Bus.
+title: Architecture Service Bus | Microsoft Docs
+description: "Décrit l’architecture de traitement et de relais de message d’Azure Service Bus."
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: baf94c2d-0e58-4d5d-a588-767f996ccf7f
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,43 +14,50 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3c69783341eaed67ac29ab63d2127a4038bc0f6d
+
 
 ---
-# <a name="service-bus-architecture"></a>Service Bus architecture
-This article describes the message and relay processing architecture of Azure Service Bus.
+# <a name="service-bus-architecture"></a>Architecture de Service Bus
+Cet article décrit l’architecture de traitement et de relais de message d’Azure Service Bus.
 
-## <a name="service-bus-scale-units"></a>Service Bus scale units
-Service Bus is organized by *scale units*. A scale unit is a unit of deployment and contains all components required run the service. Each region deploys one or more Service Bus scale units.
+## <a name="service-bus-scale-units"></a>Unités d'échelle de Service Bus
+Service Bus est organisé par *unités d'échelle*. Une unité d'échelle est une unité de déploiement et contient tous les composants requis pour exécuter le service. Chaque région déploie une ou plusieurs unités d'échelle Service Bus.
 
-A Service Bus namespace is mapped to a scale unit. The scale unit handles all types of Service Bus entities: relays and brokered messaging entities (queues, topics, subscriptions). A Service Bus scale unit consists of the following components:
+Un espace de noms Service Bus est mappé à une unité d'échelle. L’unité d’échelle gère tous les types d’entités Service Bus : relais et entités de messagerie répartie (files d’attente, rubriques, abonnements). Une unité d'échelle Service Bus est constituée des éléments suivants :
 
-* **A set of gateway nodes.** Gateway nodes authenticate incoming requests and handle relay requests. Each gateway node has a public IP address.
-* **A set of messaging broker nodes.** Messaging broker nodes process requests concerning messaging entities.
-* **One gateway store.** The gateway store holds the data for every entity that is defined in this scale unit. The gateway store is implemented on top of a SQL Azure database.
-* **Multiple messaging stores.** Messaging stores hold the messages of all queues, topics and subscriptions that are defined in this scale unit. It also contains all subscription data. Unless [partitioned messaging entities](service-bus-partitioning.md) is enabled, a queue or topic is mapped to one messaging store. Subscriptions are stored in the same messaging store as their parent topic. Except for Service Bus [Premium Messaging](service-bus-premium-messaging.md), the messaging stores are implemented on top of SQL Azure databases.
+* **Un ensemble de nœuds de passerelle.**  Les nœuds de passerelle authentifient les requêtes entrantes et gèrent les requêtes de relais. Chaque nœud de passerelle a une adresse IP publique.
+* **Un ensemble de nœuds de broker de messagerie.**  Les nœuds de broker de messagerie traitent les requêtes concernant les entités de messagerie.
+* **Une banque de passerelle.**  La banque de passerelle conserve les données pour chaque entité définie dans cette unité d'échelle. La banque de passerelle est implémentée sur une base de données SQL Azure.
+* **Plusieurs banques de messagerie.**  Les banques de messagerie conservent les messages de l’ensemble des files d’attente, rubriques et abonnements qui sont définis dans cette unité d’échelle. Elles contiennent également toutes les données d’abonnement. Une file d’attente ou une rubrique est mappée à une banque de messagerie, sauf si l’option [Entités de messagerie partitionnées](service-bus-partitioning.md) est activée. Les abonnements sont stockés dans la même banque de messagerie que leur rubrique parent. Sauf pour Service Bus [Premium Messaging](service-bus-premium-messaging.md), les banques de messagerie sont implémentées sur des bases de données SQL Azure.
 
-## <a name="containers"></a>Containers
-Each messaging entity is assigned a specific container. A container is a logical construct that uses exactly one messaging store to store all relevant data for this container. Each container is assigned to a messaging broker node. Typically, there are more containers than messaging broker nodes. Therefore, each messaging broker node loads multiple containers. The distribution of containers to a messaging broker node is organized such that all messaging broker nodes are equally loaded. If the load pattern changes (for example, one of the containers gets very busy), or if a messaging broker node becomes temporarily unavailable, the containers are redistributed among the messaging broker nodes.
+## <a name="containers"></a>Conteneurs
+Un conteneur spécifique est assigné à chaque entité de messagerie. Un conteneur est une construction logique qui utilise exactement une banque de messagerie pour stocker toutes les données pertinentes pour ce conteneur. Chaque conteneur est affecté à un nœud de broker de messagerie. En règle générale, il existe plus de conteneurs que de nœuds de broker de messagerie. Par conséquent, chaque nœud de broker de messagerie charge plusieurs conteneurs. La distribution de conteneurs sur un nœud de broker de messagerie est organisée de façon à ce que tous les nœuds de broker de messagerie soient chargés de façon égale. Si le modèle de charge change (par exemple, un des conteneurs devient très occupé) ou si un nœud de broker de messagerie devient temporairement indisponible, les conteneurs sont redistribués entre les nœuds de broker de messagerie.
 
-## <a name="processing-of-incoming-messaging-requests"></a>Processing of incoming messaging requests
-When a client sends a request to Service Bus, the Azure load balancer routes it to any of the gateway nodes. The gateway node authorizes the request. If the request concerns a messaging entity (queue, topic, subscription), the gateway node looks up the entity in the gateway store and determines in which messaging store the entity is located. It then looks up which messaging broker node is currently servicing this container, and sends the request to that messaging broker node. The messaging broker node processes the request and updates the entity state in the container store. The messaging broker node then sends the response back to the gateway node, which sends an appropriate response back to the client that issued the original request.
+## <a name="processing-of-incoming-messaging-requests"></a>Traitement des requêtes de messagerie entrantes
+Lorsqu'un client envoie une requête à Service Bus, l'équilibrage de charge Azure la transmet à l'un des nœuds de passerelle. Le nœud de passerelle autorise la requête. Si la requête concerne une entité de messagerie (file d’attente, rubrique, abonnement), le nœud de passerelle recherche l’entité dans le magasin de passerelle et détermine dans quelle banque de messagerie se trouve l’entité. Il recherche ensuite quel nœud de broker de messagerie traite actuellement ce conteneur et envoie la requête à ce nœud de broker de messagerie. Le nœud de broker de messagerie traite la requête et met à jour l'état de l'entité dans le magasin de conteneur. Le nœud de broker de messagerie envoie ensuite la réponse au nœud de passerelle, qui envoie une réponse appropriée au client qui a émis la requête d'origine.
 
-![Processing of Incoming Messaging Requests](./media/service-bus-architecture/IC690644.png)
+![Traitement des requêtes de messagerie entrantes](./media/service-bus-architecture/IC690644.png)
 
-## <a name="processing-of-incoming-relay-requests"></a>Processing of incoming relay requests
-When a client sends a request to Service Bus, the Azure load balancer routes it to any of the gateway nodes. If the request is a listening request, the gateway node creates a new relay. If the request is a connection request to a specific relay, the gateway node forwards the connection request to the gateway node that owns the relay. The gateway node that owns the relay sends a rendezvous request to the listening client, asking the listener to create a temporary channel to the gateway node that received the connection request.
+## <a name="processing-of-incoming-relay-requests"></a>Traitement des requêtes de relais entrantes
+Lorsqu'un client envoie une requête à Service Bus, l'équilibrage de charge Azure la transmet à l'un des nœuds de passerelle. Si la requête est une requête d'écoute, le nœud de passerelle crée un relais. Si la requête est une requête de connexion à un relais spécifique, le nœud de passerelle transfère la requête de connexion au nœud de passerelle qui possède le relais. Le nœud de passerelle qui possède le relais envoie une requête de rendez-vous au client d'écoute, lui demandant de créer un canal temporaire au nœud de passerelle qui a reçu la requête de connexion.
 
-When the relay connection is established, the clients can exchange messages via the gateway node that is used for the rendezvous.
+Lorsque la connexion au relais est établie, les clients peuvent échanger des messages via le nœud de passerelle utilisé pour le rendez-vous.
 
-![Processing of Incoming Relay Requests](./media/service-bus-architecture/IC690645.png)
+![Traitement des requêtes WCF Relay entrantes](./media/service-bus-architecture/IC690645.png)
 
-## <a name="next-steps"></a>Next steps
-Now that you've read an overview of Service Bus architecture, to get started visit the following links:
+## <a name="next-steps"></a>Étapes suivantes
+Maintenant que vous avez lu une présentation de l’architecture Service Bus, consultez les liens suivants :
 
-* [Service Bus messaging overview](service-bus-messaging-overview.md)
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
-* [A queued messaging solution using Service Bus queues](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
+* [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
+* [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+* [Solution de messages de file d’attente utilisant les files d’attente Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

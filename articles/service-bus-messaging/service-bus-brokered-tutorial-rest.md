@@ -1,12 +1,12 @@
 ---
-title: Didacticiel REST sur la messagerie répartie Service Bus | Microsoft Docs
-description: Didacticiel REST sur la messagerie répartie.
+title: "Didacticiel REST sur la messagerie répartie Service Bus | Microsoft Docs"
+description: "Didacticiel REST sur la messagerie répartie."
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9b7a8147-a1b1-42fc-b30e-f52e79a902b5
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
+
 
 ---
 # <a name="service-bus-brokered-messaging-rest-tutorial"></a>Didacticiel REST sur la messagerie répartie Service Bus
@@ -22,7 +26,7 @@ ms.author: sethm
 Ce didacticiel montre comment créer une file d’attente et une rubrique/un abonnement Azure Service Bus de base REST.
 
 ## <a name="create-a-namespace"></a>Créer un espace de noms
-La première étape consiste à créer l’espace de noms de service et à obtenir une clé de [signature d’accès partagé](service-bus-sas-overview.md) (SAP). Un espace de noms fournit une limite d’application pour chaque application exposée via Service Bus. Une clé SAP est automatiquement générée par le système lors de la création d’un espace de noms de service. La combinaison de l’espace de noms de service et de la clé SAP fournit à Service Bus une information d’identification permettant d’authentifier l’accès à une application.
+La première étape consiste à créer l’espace de noms de service et à obtenir une clé de [signature d’accès partagé](service-bus-sas-overview.md) (SAP). Un espace de noms fournit une limite d’application pour chaque application exposée via Service Bus. Une clé SAP est automatiquement générée par le système lors de la création d’un espace de noms de service. La combinaison de l’espace de noms de service et de la clé SAP fournit à Service Bus une information d’identification permettant d’authentifier l’accès à une application.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -44,7 +48,7 @@ Après avoir obtenu l’espace de noms et les informations d’identification à
 ### <a name="create-a-console-application"></a>Création d’une application console
 1. Démarrez Visual Studio en tant qu’administrateur en cliquant avec le bouton droit sur le programme dans le menu **Démarrer**, puis cliquez sur **Exécuter en tant qu’administrateur**.
 2. Créez un projet d’application de console. Cliquez sur le menu **Fichier**, sur **Nouveau**, puis sur **Projet**. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Visual C#** (si **Visual C#** n’apparaît pas, regardez sous **Autres langages**), sélectionnez le modèle **Application console** et nommez-le **Microsoft.ServiceBus.Samples**. Utilisez l’emplacement par défaut. Cliquez sur **OK** pour créer le projet.
-3. Dans Program.cs, vérifiez que vos instructions `using` s’affichent comme suit :
+3. Dans Program.cs, vérifiez que vos instructions `using` s’affichent comme suit :
    
     ```
     using System;
@@ -56,7 +60,7 @@ Après avoir obtenu l’espace de noms et les informations d’identification à
     using System.Xml;
     ```
 4. Si nécessaire, renommez `Microsoft.ServiceBus.Samples` la valeur par défaut Visual Studio pour l’espace de noms du programme.
-5. Dans la classe `Program`, ajoutez les variables globales suivantes :
+5. Dans la classe `Program`, ajoutez les variables globales suivantes :
    
     ```
     static string serviceNamespace;
@@ -64,7 +68,7 @@ Après avoir obtenu l’espace de noms et les informations d’identification à
     static string token;
     const string sbHostName = "servicebus.windows.net";
     ```
-6. Dans `Main()`, collez le code suivant :
+6. Dans `Main()`, collez le code suivant :
    
     ```
     Console.Write("Enter your service namespace: ");
@@ -139,8 +143,8 @@ Après avoir obtenu l’espace de noms et les informations d’identification à
 ## <a name="create-management-credentials"></a>Créer des informations d’identification d’administration
 L’étape suivante consiste à écrire une méthode qui traite l’espace de noms et la clé SAP que vous avez saisis à l’étape précédente, puis renvoie un jeton SAP. Cet exemple crée un jeton SAP valide pendant une heure.
 
-### <a name="create-a-getsastoken()-method"></a>Créer une méthode GetSASToken()
-Collez le code suivant après la méthode `Main()`, dans la classe `Program` :
+### <a name="create-a-getsastoken-method"></a>Créer une méthode GetSASToken()
+Collez le code suivant après la méthode `Main()`, dans la classe `Program` :
 
 ```
 private static string GetSASToken(string SASKeyName, string SASKeyValue)
@@ -159,7 +163,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 ## <a name="create-the-queue"></a>Créer la file d’attente
 L’étape suivante consiste à écrire une méthode qui utilise la commande HTTP PUT de type REST pour créer une file d’attente.
 
-Collez le code suivant directement après le code `GetSASToken()` que vous avez ajouté à l’étape précédente :
+Collez le code suivant directement après le code `GetSASToken()` que vous avez ajouté à l’étape précédente :
 
 ```
 // Uses HTTP PUT to create the queue
@@ -187,7 +191,7 @@ private static string CreateQueue(string queueName, string token)
 ## <a name="send-a-message-to-the-queue"></a>Envoyer un message vers la file d’attente
 Dans cette étape, vous ajoutez une méthode qui utilise la commande de type REST HTTP POST pour envoyer un message à la file d’attente que vous avez créée à l’étape précédente.
 
-1. Collez le code suivant directement après le code `CreateQueue()` que vous avez ajouté à l’étape précédente :
+1. Collez le code suivant directement après le code `CreateQueue()` que vous avez ajouté à l’étape précédente :
    
     ```
     // Sends a message to the "queueName" queue, given the name and the value to enqueue
@@ -202,7 +206,7 @@ Dans cette étape, vous ajoutez une méthode qui utilise la commande de type RES
         webClient.UploadData(fullAddress, "POST", Encoding.UTF8.GetBytes(body));
     }
     ```
-2. Les propriétés du message réparti standard sont placées dans un en-tête HTTP `BrokerProperties`. Les propriétés du service broker doivent être sérialisées au format JSON. Pour spécifier une valeur **TimeToLive** de 30 secondes et ajouter une étiquette de message « M1 » au message, ajoutez le code suivant immédiatement devant l’appel `webClient.UploadData()` indiqué dans l’exemple précédent :
+2. Les propriétés du message réparti standard sont placées dans un en-tête HTTP `BrokerProperties`. Les propriétés du service broker doivent être sérialisées au format JSON. Pour spécifier une valeur **TimeToLive** de 30 secondes et ajouter une étiquette de message « M1 » au message, ajoutez le code suivant immédiatement devant l’appel `webClient.UploadData()` indiqué dans l’exemple précédent :
    
     ```
     // Add brokered message properties "TimeToLive" and "Label"
@@ -210,7 +214,7 @@ Dans cette étape, vous ajoutez une méthode qui utilise la commande de type RES
     ```
    
     Notez que les propriétés du message réparti ont été et seront ajoutées. Par conséquent, la demande d’envoi doit spécifier une version d’API qui prend en charge toutes les propriétés de message réparti faisant partie de la demande. Si la version d’API spécifiée ne prend pas en charge une propriété de message réparti, cette propriété est ignorée.
-3. Les propriétés de message personnalisées sont définies comme un ensemble de paires clé-valeur. Chaque propriété personnalisée est stockée dans son propre en-tête TPPT. Pour ajouter les propriétés personnalisées « Priority » et « Customer », ajoutez le code suivant immédiatement devant l’appel `webClient.UploadData()` indiqué dans l’exemple précédent :
+3. Les propriétés de message personnalisées sont définies comme un ensemble de paires clé-valeur. Chaque propriété personnalisée est stockée dans son propre en-tête TPPT. Pour ajouter les propriétés personnalisées « Priority » et « Customer », ajoutez le code suivant immédiatement devant l’appel `webClient.UploadData()` indiqué dans l’exemple précédent :
    
     ```
     // Add custom properties "Priority" and "Customer".
@@ -221,7 +225,7 @@ Dans cette étape, vous ajoutez une méthode qui utilise la commande de type RES
 ## <a name="receive-and-delete-a-message-from-the-queue"></a>Recevoir et supprimer un message de la file d’attente
 L’étape suivante consiste à ajouter une méthode qui utilise la commande HTTP DELETE de type REST pour recevoir et supprimer un message de la file d’attente.
 
-Collez le code suivant directement après le code `SendMessage()` que vous avez ajouté à l’étape précédente :
+Collez le code suivant directement après le code `SendMessage()` que vous avez ajouté à l’étape précédente :
 
 ```
 // Receives and deletes the next message from the given resource (queue, topic, or subscription)
@@ -270,7 +274,7 @@ private static string CreateTopic(string topicName)
 ```
 
 ### <a name="create-a-subscription"></a>Création d’un abonnement
-Le code suivant crée un abonnement à la rubrique que vous avez créée à l’étape précédente. Ajoutez le code suivant directement après la définition `CreateTopic()` :
+Le code suivant crée un abonnement à la rubrique que vous avez créée à l’étape précédente. Ajoutez le code suivant directement après la définition `CreateTopic()` :
 
 ```
 private static string CreateSubscription(string topicName, string subscriptionName)
@@ -297,7 +301,7 @@ private static string CreateSubscription(string topicName, string subscriptionNa
 Dans cette étape, vous ajoutez le code qui récupère les propriétés du message puis supprime les ressources de messagerie que vous avez créées dans les étapes précédentes.
 
 ### <a name="retrieve-an-atom-feed-with-the-specified-resources"></a>Récupérer un flux Atom avec les ressources spécifiées
-Ajoutez le code suivant directement après la méthode `CreateSubscription()` que vous avez ajoutée à l’étape précédente :
+Ajoutez le code suivant directement après la méthode `CreateSubscription()` que vous avez ajoutée à l’étape précédente :
 
 ```
 private static string GetResources(string resourceAddress)
@@ -327,7 +331,7 @@ private static string DeleteResource(string resourceName)
 ```
 
 ### <a name="format-the-atom-feed"></a>Mettre en forme le flux Atom
-La méthode `GetResources()` contient un appel à une méthode `FormatXml()` qui reformate le flux Atom récupéré pour le rendre plus lisible. Voici la définition de `FormatXml()`. Ajoutez ce code directement après le code `DeleteResource()` que vous avez ajouté à la section précédente :
+La méthode `GetResources()` contient un appel à une méthode `FormatXml()` qui reformate le flux Atom récupéré pour le rendre plus lisible. Voici la définition de `FormatXml()`. Ajoutez ce code directement après le code `DeleteResource()` que vous avez ajouté à la section précédente :
 
 ```
 // Formats the XML string to be more human-readable; intended for display purposes
@@ -594,9 +598,12 @@ namespace Microsoft.ServiceBus.Samples
 Pour en savoir plus, voir les articles suivants :
 
 * [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
-* [Concepts de base d’Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+* [Concepts de base d’Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Didacticiel REST sur Service Bus Relay](../service-bus-relay/service-bus-relay-rest-tutorial.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 
