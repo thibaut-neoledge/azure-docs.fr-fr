@@ -1,39 +1,81 @@
 ---
-title: 'Didacticiel : prise en main d’Analytique Data Lake Azure à l’aide du kit de développement logiciel .NET | Microsoft Docs'
-description: 'Apprenez à utiliser le kit de développement .NET pour créer les comptes Data Lake Store, créez des travaux Analytique Data Lake et envoyez des travaux rédigés en U-SQL. '
+title: "Prise en main d’Azure Data Lake Analytics à l’aide du kit de développement logiciel (SDK) .NET | Microsoft Docs"
+description: "Apprenez à utiliser le kit de développement .NET pour créer les comptes Data Lake Store, créez des travaux Analytique Data Lake et envoyez des travaux rédigés en U-SQL. "
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 1dfcbc3d-235d-4074-bc2a-e96def8298b6
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/23/2016
+ms.date: 10/26/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 60deb681b1090444f5c178fb0c9b0458ea83f73d
+
 
 ---
-# Didacticiel : prise en main d’Analytique Data Lake Azure à l’aide du kit de développement logiciel .NET
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-net-sdk"></a>Didacticiel : prise en main d’Analytique Data Lake Azure à l’aide du kit de développement logiciel .NET
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Découvrez comment utiliser le Kit de développement logiciel (SDK) .NET Azure pour soumettre des tâches écrites en [U-SQL](data-lake-analytics-u-sql-get-started.md) à Data Lake Analytics. Pour plus d’informations sur Analytique Data Lake, consultez [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md).
 
 Dans ce didacticiel, vous allez développer une application de console C# pour soumettre une tâche U-SQL qui lit un fichier TSV (valeurs séparées par des tabulations) et le convertit en fichier CSV (valeurs séparées par des virgules). Pour suivre ce didacticiel même à l’aide d’autres outils pris en charge, cliquez sur les onglets en haut de cet article.
 
-## Composants requis
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
+## <a name="prerequisites"></a>Composants requis
+Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-* **Visual Studio 2015, Visual Studio 2013 mise à jour 4 ou Visual Studio 2012 avec Visual C+**.
-* **Kit de développement logiciel (SDK) Microsoft Azure pour .NET version 2.5 ou ultérieure**. Installez-le avec [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
-* **Un compte Azure Data Lake Analytics**. Consultez [Manage Data Lake Analytics using Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md) (Gérer Data Lake Analytics à l’aide du Kit de développement logiciel (SDK) Azure .NET).
+* **Visual Studio 2015, Visual Studio 2013 mise à jour 4 ou Visual Studio 2012 avec Visual C+**.
+* **Kit de développement logiciel (SDK) Microsoft Azure pour .NET version 2.5 ou ultérieure**.  Installez-le avec [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
+* **Un compte Azure Data Lake Analytics**. Consultez [Manage Data Lake Analytics using Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)(Gérer Data Lake Analytics à l’aide du Kit de développement logiciel (SDK) Azure .NET).
 
-## Création d’une application de console
-Dans ce didacticiel, vous allez traiter des journaux de recherche. Le journal de recherche peut être stocké dans Data Lake Store ou dans le stockage d’objets blobs Azure.
+## <a name="create-console-application"></a>Création d’une application de console
+Dans ce didacticiel, vous traitez des journaux de recherche.  Le journal de recherche peut être stocké dans Data Lake Store ou dans le stockage d’objets blobs Azure. 
 
 Vous trouverez un exemple de journal de recherche dans un conteneur d’objets blobs Azure public. Dans l’application, vous allez télécharger le fichier sur votre station de travail, puis charger le fichier dans le compte Data Lake Store par défaut de votre compte Data Lake Analytics.
+
+**Pour créer un script U-SQL**
+
+Les travaux Data Lake Analytics sont écrits en langage U-SQL. Pour en savoir plus sur U-SQL, consultez [Prise en main du langage U-SQL](data-lake-analytics-u-sql-get-started.md) et [Référence du langage U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+
+Créez un fichier **SampleUSQLScript.txt** avec le script U-SQL suivant et placez le fichier dans le chemin d’accès **C:\temp\**.  Le chemin d’accès est codé en dur dans l’application .NET que vous créez dans la procédure suivante.  
+
+    @searchlog =
+        EXTRACT UserId          int,
+                Start           DateTime,
+                Region          string,
+                Query           string,
+                Duration        int?,
+                Urls            string,
+                ClickedUrls     string
+        FROM "/Samples/Data/SearchLog.tsv"
+        USING Extractors.Tsv();
+
+    OUTPUT @searchlog   
+        TO "/Output/SearchLog-from-Data-Lake.csv"
+    USING Outputters.Csv();
+
+Ce script U-SQL lit le fichier de données source avec **Extractors.Tsv()**, puis crée un fichier csv à l’aide d’**Outputters.Csv()**. 
+
+Dans le programme C#, vous devez préparer le fichier **/Samples/Data/SearchLog.tsv** et le dossier **/Output/**.    
+
+Il est plus simple d’utiliser des chemins d’accès relatifs pour les fichiers stockés dans les comptes Data Lake par défaut. Vous pouvez également utiliser des chemins d’accès absolus.  Par exemple : 
+
+    adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
+
+Vous devez utiliser des chemins d’accès absolus pour accéder aux fichiers dans les comptes de stockage liés.  La syntaxe des fichiers stockés dans les comptes Azure Storage liés est la suivante :
+
+    wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
+
+> [!NOTE]
+> Il existe actuellement un problème connu avec le service Azure Data Lake.  Si l’exemple d’application est interrompue ou rencontre une erreur, vous devrez peut-être supprimer manuellement les comptes Data Lake Store & Data Lake Analytics créés par le script.  Si vous n’êtes pas familiarisé avec le portail Azure, le guide [Gérer les analyses Azure Data Lake à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md) vous aidera à démarrer.       
+> 
+> 
 
 **Pour créer une application**
 
@@ -46,40 +88,7 @@ Vous trouverez un exemple de journal de recherche dans un conteneur d’objets b
         Install-Package Microsoft.Azure.Management.DataLake.StoreUploader -Pre
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package WindowsAzure.Storage
-4. Ajoutez un nouveau fichier au projet nommé **SampleUSQLScript.txt**, puis collez le script U-SQL suivant. Les travaux Data Lake Analytics sont écrits en langage U-SQL. Pour en savoir plus sur U-SQL, consultez [Prise en main du langage U-SQL](data-lake-analytics-u-sql-get-started.md) et [Référence du langage U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
-   
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv"
-            USING Extractors.Tsv();
-   
-        OUTPUT @searchlog   
-            TO "/Output/SearchLog-from-Data-Lake.csv"
-        USING Outputters.Csv();
-   
-    Ce script U-SQL lit le fichier de données source avec **Extractors.Tsv()**, puis crée un fichier csv à l’aide d’**Outputters.Csv()**.
-   
-    Dans le programme C#, vous devez préparer le dossier **/Samples/Data/SearchLog.tsv** fichier et le **/Output/**.
-   
-    Il est plus simple d’utiliser des chemins d’accès relatifs pour les fichiers stockés dans les comptes Data Lake par défaut. Vous pouvez également utiliser des chemins d’accès absolus. Par exemple :
-   
-        adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
-   
-    Vous devez utiliser des chemins d’accès absolus pour accéder aux fichiers dans les comptes de stockage liés. La syntaxe des fichiers stockés dans le compte de stockage Azure lié est la suivante :
-   
-        wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
-   
-   > [!NOTE]
-   > Il existe actuellement un problème connu avec le service Azure Data Lake. Si l’exemple d’application est interrompue ou rencontre une erreur, vous devrez peut-être supprimer manuellement les comptes Data Lake Store & Data Lake Analytics créés par le script. Si vous n’êtes pas familiarisé avec le portail, le guide [Gérer les analyses Azure Data Lake à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md) vous aidera à démarrer.
-   > 
-   > 
-5. Dans Program.cs, collez le code suivant :
+4. Dans Program.cs, collez le code suivant :
    
         using System;
         using System.IO;
@@ -110,7 +119,7 @@ Vous trouverez un exemple de journal de recherche dans un conteneur d’objets b
    
             private static void Main(string[] args)
             {
-                string localFolderPath = @"c:\temp";
+                string localFolderPath = @"c:\temp\";
    
                 // Connect to Azure
                 var creds = AuthenticateAzure(DOMAINNAME, CLIENTID);
@@ -235,14 +244,19 @@ Vous trouverez un exemple de journal de recherche dans un conteneur d’objets b
 1. Appuyez sur **F5** pour exécuter l'application. La sortie se présente comme suit :
    
     ![Sortie de la tâche Azure Data Lake Analytics dans le SDK .NET U-SQL](./media/data-lake-analytics-get-started-net-sdk/data-lake-analytics-dotnet-job-output.png)
-2. Vérifiez le fichier de sortie. Le chemin et le nom de fichier par défaut sont c:\\Temp\\SearchLog-from-Data-Lake.csv.
+2. Vérifiez le fichier de sortie.  Le chemin et le nom de fichier par défaut sont c:\Temp\SearchLog-from-Data-Lake.csv.
 
-## Voir aussi
+## <a name="see-also"></a>Voir aussi
 * Pour afficher le même didacticiel en utilisant d’autres outils, cliquez sur les sélecteurs d’onglet en haut de la page.
 * Pour voir une requête plus complexe, consultez [Analyse de journaux des sites web à l'aide d'Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-* Pour commencer à développer des applications U-SQL, consultez [Développer des scripts U-SQL avec les outils Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-* Pour découvrir U-SQL, consultez les articles [Prise en main du langage U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md) et [Référence sur le langage U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+* Pour commencer à développer des applications U-SQL, consultez [Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+* Pour découvrir U-SQL, consultez les articles [Prise en main du langage U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md) et [Référence sur le langage U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 * Pour les tâches de gestion, consultez [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md).
 * Pour obtenir une vue d’ensemble de l’analyse de données Analytique Data Lake, consultez [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

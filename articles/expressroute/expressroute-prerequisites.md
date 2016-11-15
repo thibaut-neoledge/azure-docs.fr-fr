@@ -1,12 +1,12 @@
 ---
-title: Configuration requise pour l’adoption du service ExpressRoute | Microsoft Docs
-description: Cette page fournit une liste des exigences à respecter avant de commander un circuit Azure ExpressRoute.
+title: "Configuration requise pour l’adoption du service ExpressRoute | Microsoft Docs"
+description: "Cette page fournit une liste des exigences à respecter avant de commander un circuit Azure ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: f872d25e-acfd-405d-9d1b-dcb9f323a2ff
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a582941b06fa7f81d7db188f2a9feba837b9bfd8
+
 
 ---
-# <a name="expressroute-prerequisites-&-checklist"></a>Configuration requise pour ExpressRoute et liste de contrôle
+# <a name="expressroute-prerequisites-checklist"></a>Configuration requise pour ExpressRoute et liste de contrôle
 Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, vous devez vérifier que les conditions requises des sections ci-dessous sont remplies.
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## <a name="azure-account"></a>Compte Azure
-* Un compte Microsoft Azure actif et valide. Cela est nécessaire pour configurer le circuit ExpressRoute. Les circuits ExpressRoute sont des ressources au sein des abonnements Azure. Un abonnement Azure est requis même si la connectivité est limitée aux services cloud de Microsoft étrangers à Azure, tels que les services Office 365 et CRM Online.
-* Un abonnement Office 365 actif (si vous utilisez les services Office 365). Consultez la section [Conditions requises spécifiques pour Office 365](#office-365-specific-requirements) de cet article pour plus d’informations.
+* Un compte Microsoft Azure actif et valide. Cela est nécessaire pour configurer le circuit ExpressRoute. Les circuits ExpressRoute sont des ressources au sein des abonnements Azure. Un abonnement Azure est requis même si la connectivité est limitée aux services cloud de Microsoft étrangers à Azure, tels que les services Office 365 et CRM Online.
+* Un abonnement Office 365 actif (si vous utilisez les services Office 365). Consultez la section [Conditions requises spécifiques pour Office 365](#office-365-specific-requirements) de cet article pour plus d’informations.
 
 ## <a name="connectivity-provider"></a>Fournisseur de connectivité
 * Vous pouvez travailler avec un [partenaire de connectivité ExpressRoute](expressroute-locations.md#partners) pour vous connecter à Microsoft Cloud. Vous pouvez établir une connexion entre votre réseau local et Microsoft de [trois façons différentes](expressroute-introduction.md#howtoconnect). 
@@ -36,15 +40,15 @@ Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, v
 * **Qualité de service (QoS)**: Skype Entreprise comprend différents services (par exemple, voix, vidéo, texte) nécessitant un traitement QoS différencié. Vous et votre fournisseur devez suivre la [configuration requise pour ExpressRoute QoS](expressroute-qos.md).
 * **Sécurité réseau**: pensez à la [sécurité réseau](../best-practices-network-security.md) lorsque vous vous connectez à Microsoft Cloud par le biais d’ExpressRoute.
 
-## <a name="office-365"></a>Office 365
+## <a name="office-365"></a>Office 365
 Si vous prévoyez d’activer Office 365 sur ExpressRoute, consultez les documents suivants pour plus d’informations sur la configuration requise pour Office 365.
 
-* [Vue d’ensemble d’ExpressRoute pour Office 365](https://support.office.com/en-us/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
-* [Routage avec ExpressRoute pour Office 365](https://support.office.com/en-us/article/Routing-with-ExpressRoute-for-Office-365-e1da26c6-2d39-4379-af6f-4da213218408)
-* [URL et plages d’adresses IP Office 365](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
-* [Planification réseau et optimisation des performances pour Office 365](https://support.office.com/en-us/article/Network-planning-and-performance-tuning-for-Office-365-e5f1228c-da3c-4654-bf16-d163daee8848)
+* [Vue d’ensemble d’ExpressRoute pour Office 365](https://support.office.com/en-us/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
+* [Routage avec ExpressRoute pour Office 365](https://support.office.com/en-us/article/Routing-with-ExpressRoute-for-Office-365-e1da26c6-2d39-4379-af6f-4da213218408)
+* [URL et plages d’adresses IP Office 365](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
+* [Planification réseau et optimisation des performances pour Office 365](https://support.office.com/en-us/article/Network-planning-and-performance-tuning-for-Office-365-e5f1228c-da3c-4654-bf16-d163daee8848)
 * [Outils et calculatrices de bande passante réseau](https://support.office.com/en-us/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
-* [Intégration d’Office 365 aux environnements locaux](https://support.office.com/en-us/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
+* [Intégration d’Office 365 aux environnements locaux](https://support.office.com/en-us/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
 
 ## <a name="crm-online"></a>CRM Online
 Si vous prévoyez d’activer CRM Online sur ExpressRoute, consultez les documents suivants pour plus d’informations sur la configuration requise pour CRM Online.
@@ -60,6 +64,9 @@ Si vous prévoyez d’activer CRM Online sur ExpressRoute, consultez les documen
   * [Configuration du routage](expressroute-howto-routing-classic.md)
   * [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 
