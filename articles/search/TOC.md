@@ -55,14 +55,18 @@
 ### [Recherche multilingue](search-language-support.md)
 
 # Référence
-## [Kit SDK .NET](https://msdn.microsoft.com/library/azure/dn951165)
-## [API REST du service](https://msdn.microsoft.com/library/azure/dn798935)
-## [API REST Service (version préliminaire)](search-api-2015-02-28-preview.md)
-## [l’API REST de gestion ;](https://msdn.microsoft.com/library/azure/dn832684)
-## [Versions d’APIVersions d’API](search-api-versions.md)
+## [Versions d’API](search-api-versions.md)
+## [Java](/java/api/)
+## [.NET](/dotnet/api/)
 ## [Syntaxe de requête Lucene](https://msdn.microsoft.com/library/azure/mt589323)
 ## [Syntaxe de requête simple](https://msdn.microsoft.com/library/azure/dn798920)
-# les ressources
+## [REST Service](/rest/api/searchservice/)
+## [REST Service (version préliminaire)](search-api-2015-02-28-preview.md)
+## [REST de gestion](/rest/api/searchmanagement/)
+
+# Ressources
+## [Mises à jour de service](https://azure.microsoft.com/updates/?product=search)
+## [Tarification](https://azure.microsoft.com/pricing/details/search/)
 ## Sites de démonstration
 ### [Application Annuaire des offres d’emploi (externe)](http://aka.ms/azjobsdemo)
 ### [Exemples d’applications de démonstration](https://searchsamples.azurewebsites.net/)
@@ -73,8 +77,8 @@
 ## Partenaires et communauté
 ### [Modèle de données relationnelles](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [Facettes à plusieurs niveaux](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [Forums MSDN](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
-### [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-search)
+### [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
+### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Github Recherche Azure](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 

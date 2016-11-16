@@ -53,18 +53,20 @@
 # Référence
 ## [Détails de la tarification](service-bus-pricing-billing.md)
 ## [Exemples](service-bus-samples.md)
-## [Référence sur l’API .NET](https://msdn.microsoft.com/library/azure/jj933424)
-## [Référence d’API REST](https://msdn.microsoft.com/library/azure/hh780717)
 ## [Exceptions](service-bus-messaging-exceptions.md)
 ## [Quotas](service-bus-quotas.md)
+## [.NET](/dotnet/api/)
+## [REST](/rest/api/servicebus/)
 
-# les ressources
+# Ressources
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Forums MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
 ## [Tarification](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
 ## [Explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer)
+## [Mises à jour de service](https://azure.microsoft.com/updates/?product=service-bus)
+## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
 <!--HONumber=Nov16_HO2-->

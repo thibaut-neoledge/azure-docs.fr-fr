@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Batch Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 00db07b08a15b37c38e6c3a303e3e35cf16b0774
+ms.openlocfilehash: fc268f8905ff7b1a0e0cc1e98776a9ec8fa132c4
 
-Azure Batch lets you run large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. With the Batch service, you define Azure compute resources to execute your applications in parallel and at scale. You can run on-demand or scheduled jobs without worrying about manually creating or managing the infrastructure.
+---
+#<a name="batch-documentation"></a>Documentation Batch
+
+Azure Batch vous permet d’exécuter efficacement des applications de calcul haute performance en parallèle et à grande échelle dans le cloud. Avec le service Batch, vous définissez des ressources de calcul Azure pour exécuter vos applications en parallèle et à grande échelle. Vous pouvez exécuter des travaux à la demande ou planifiés sans vous soucier de la création ou de la gestion manuelles de l’infrastructure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,25 +21,7 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Batch</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=batch">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure Batch Video Library</h3>
+                        <h3>En savoir plus sur Batch</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +39,25 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Batch</h3>
+                        <h3>Bien démarrer avec Azure Batch</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=batch">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Bibliothèque vidéo Azure Batch</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Batch using .NET</h3>
+                        <h3>Créer votre première application .NET</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +93,7 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started using Batch using Python</h3>
+                        <h3>Créer votre première application Python</h3>
                     </div>
                 </div>
             </div>
@@ -100,35 +104,41 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
 
 ---
 
-##Reference
+##<a name="reference"></a>Référence
 
-###PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
+###<a name="powershell"></a>PowerShell
+[Référence PowerShell Batch](/powershell)
 
-###Azure CLI
-[Batch using Azure CLI](/azure/batch/batch-cli-get-started)
+###<a name="azure-cli"></a>Interface de ligne de commande Azure
+[Batch avec interface de ligne de commande Azure](/azure/batch/batch-cli-get-started)
 
-###.NET
-[Batch Managed Reference](/dotnet/api)
 
-###Java
-[Java SDK Reference](/java/api)
+###<a name="net"></a>.NET
+[Informations de référence sur l’API managée de Batch](https://msdn.microsoft.com/library/azure/mt348682)
 
-###Node.js
-[Node.js Reference](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/)
+###<a name="java"></a>Java
+[Référence du Kit de développement logiciel (SDK) Java](/java/api)
 
-###Python
-[Python SDK reference](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementbatch.html)
+###<a name="nodejs"></a>Node.js
+[Référence Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/)
 
-###REST
-[Batch REST API Reference](/rest/api/batchmanagement)
+###<a name="python"></a>Python
+[Référence du Kit de développement logiciel (SDK) Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementbatch.html)
+
+###<a name="rest"></a>REST
+[Informations de référence de l’API REST Batch](/rest/api/batchmanagement)
 
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/batch.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Azure Batch Documentation
-        </div>
+Télécharger la documentation Azure Batch </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -135,7 +135,10 @@
 
 # les ressources
 ## [Tarification](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
-## [Dépassement de capacité de la pile](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+## [Mises à jour de service](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## Partenaires
 ### [Décisionnel](sql-data-warehouse-partner-business-intelligence.md)

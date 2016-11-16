@@ -73,6 +73,11 @@
 ## [Déploiement classique](https://msdn.microsoft.com/library/azure/mt163781)
 
 # les ressources
+## [Tarification](https://azure.microsoft.com/pricing/details/automation/)  
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
+## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=automation) 
+## [Mises à jour de service](https://azure.microsoft.com/updates/?product=automation) 
 ## [Formation Azure Automation](https://www.microsoftvirtualacademy.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323)
 ## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Vidéo de présentation d’Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)

@@ -15,16 +15,19 @@
 
 # Référence
 ## [Exemples](service-bus-relay-samples.md)
-## [Référence sur l’API .NET](https://msdn.microsoft.com/library/azure/jj933424)
 ## [Exceptions](../service-bus-messaging/service-bus-messaging-exceptions.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
 ## [Quotas](../service-bus-messaging/service-bus-quotas.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [.NET](/dotnet/api/)
+## [REST](/rest/api/servicebus/)
 
-# les ressources
+# Ressources
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Forums MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
 ## [Tarification](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
+## [Mises à jour de service](https://azure.microsoft.com/updates/?product=service-bus)
+## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
 <!--HONumber=Nov16_HO2-->

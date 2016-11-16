@@ -1,7 +1,6 @@
 # [Vue d'ensemble](mobile-engagement-overview.md)
 ## [Comparaison avec les services associés](mobile-engagement-comparison.md)
 ## [Présentation des fonctionnalités](mobile-engagement-key-features.md)
-## [Tarification](https://azure.microsoft.com/pricing/details/mobile-engagement/)
 
 # Prise en main
 ## [Android](mobile-engagement-android-get-started.md)
@@ -117,28 +116,27 @@
 ### [Limites/limitations de service](../azure-subscription-service-limits.md#mobile-engagement-limits)
 
 # Référence
-## [Kit SDK .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
-## [Référence d’API REST](https://msdn.microsoft.com/en-us/library/azure/mt683754)
-## [Spécification Swagger de l’API REST](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json)
+## [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
 ## Contenu du Kit de développement logiciel (SDK)
 ### [Kit de développement logiciel Android](mobile-engagement-android-sdk-content.md)
 ### [Kit de développement logiciel (SDK) iOS](mobile-engagement-ios-sdk-content.md)
 ### [Kit de développement logiciel (SDK) des applications universelles Windows](mobile-engagement-windows-store-sdk-content.md)
 ### [Kit de développement logiciel (SDK) Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-content.md)
-
-# Rubriques connexes
-
-# les ressources
-## [Exemples d’applications de démonstration](mobile-engagement-demo-apps.md)
-## [Exemple d’API .NETExemple d’API .NET](mobile-engagement-dotnet-sdk-service-api.md)
-## [Vidéos et mises à jour](https://azure.microsoft.com/documentation/services/mobile-engagement/)
-## [Contrat de Niveau de Service (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
 ## Notes de publication
 ### [Kit de développement logiciel Android](mobile-engagement-android-release-notes.md)
 ### [Kit de développement logiciel (SDK) iOS](mobile-engagement-ios-release-notes.md)
 ### [Kit de développement logiciel (SDK) web](mobile-engagement-web-release-notes.md)
 ### [Kit de développement logiciel (SDK) des applications universelles Windows](mobile-engagement-windows-store-release-notes.md)
 ### [Kit de développement logiciel (SDK) Windows Phone Silverlight](mobile-engagement-windows-phone-release-notes.md)
+
+
+# les ressources
+## [Tarification](https://azure.microsoft.com/pricing/details/mobile-engagement/)
+## [Exemples d’applications de démonstration](mobile-engagement-demo-apps.md)
+## [Exemple d’API .NETExemple d’API .NET](mobile-engagement-dotnet-sdk-service-api.md)
+## [Vidéos et mises à jour](https://azure.microsoft.com/documentation/services/mobile-engagement/)
+## [Contrat de Niveau de Service (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
+
 
 
 

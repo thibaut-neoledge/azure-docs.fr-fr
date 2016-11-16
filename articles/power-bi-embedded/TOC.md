@@ -5,8 +5,9 @@
 # Prise en main
 ## [Prise en main de Power BI Embedded](power-bi-embedded-get-started.md)
 ## [Prise en main d’un exemple](power-bi-embedded-get-started-sample.md)
+## [FAQ](power-bi-embedded-faq.md)
 
-# Procédures 
+# Procédures
 ## Planifier et concevoir
 ### [Scénarios courants](power-bi-embedded-scenarios.md)
 
@@ -20,19 +21,17 @@
 ### [Sécurité au niveau des lignes avec Power BI Embedded](power-bi-embedded-rls.md)
 
 # Référence
-## [Référence sur l’API .NET](https://msdn.microsoft.com/en-us/library/azure/mt669800)
-## [Kit de développement logiciel (SDK) JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
-## [Référence d’API REST](https://msdn.microsoft.com/en-us/library/azure/mt712303)
+## [PowerShell](/powershell/resourcemanager/)
+## [.NET](/dotnet/api/)
 ## [Téléchargement du Kit de développement logiciel (SDK) .NET](https://www.nuget.org/profiles/powerbi)
+## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
+## [REST](/rest/api/powerbiembedded/)
 
-# Rubriques connexes 
 
 # les ressources
-## [FORUM AUX QUESTIONS](power-bi-embedded-faq.md)
 ## [Exemples](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
 ## [Communauté Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
 ## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/powerbi)
-
 
 
 <!--HONumber=Nov16_HO2-->

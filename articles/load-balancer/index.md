@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Load Balancer Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 4d6fd9344eaee31de4ee1e614ae558ce159c9245
+ms.openlocfilehash: 926beb8579ccdb1b0ed502ecb1892063ba976025
 
-Azure Load Balancer delivers high availability and network performance to your applications.  Load Balancer can be configured to load balance incoming Internet traffic to virtual machines, traffic between cloud resources, traffic in a cross-premises virtual network, or external traffic to a specific virtual machine.
+---
+#<a name="load-balancer-documentation"></a>Documentation Load Balancer
+
+L’équilibrage de charge Azure offre une haute disponibilité et des performances réseau élevées pour vos applications.  L’équilibrage de charge peut être configuré pour équilibrer la charge du trafic Internet entrant sur les machines virtuelles, du trafic entre les ressources cloud, du trafic dans un réseau virtuel intersite ou du trafic vers une machine virtuelle spécifique.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Load Balancer</h3>
+                        <h3>En savoir plus sur l’équilibrage de charge</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Load Balancer Video Library</h3>
+                        <h3>Bibliothèque vidéo d’équilibrages de charge</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with an Internet-facing load balancer</h3>
+                        <h3>Prise en main d’un équilibrage de charge accessible sur Internet</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with an internal-facing load balancer</h3>
+                        <h3>Prise en main d’un équilibrage de charge interne</h3>
                     </div>
                 </div>
             </div>
@@ -82,29 +86,34 @@ Azure Load Balancer delivers high availability and network performance to your a
 
 ---
 
-##Reference
+##<a name="reference"></a>Référence
 
-###PowerShell
-[Load Balancer PowerShell Reference](/powershell/azureps-cmdlets-doc)
+###<a name="powershell"></a>PowerShell
+[Informations de référence PowerShell sur l’équilibrage de charge](/powershell/azureps-cmdlets-doc)
 
-###Azure CLI
-[Load Balancer Azure CLI] (/cli/azure/network/lb)
+###<a name="azure-cli"></a>Interface de ligne de commande Azure
+[Interface de ligne de commande Azure d’équilibrage de charge] (/cli/azure/network/lb)
 
-###.NET
-[.NET API Reference](/dotnet/api)
+###<a name="net"></a>.NET
+[Informations de référence sur l’API .NET](/dotnet/api)
 
-###Java
-[Java API Reference](/java/api)
+###<a name="java"></a>Java
+[Informations de référence sur l’API Java](/java/api)
 
-###REST
-[Load Balancer REST API Reference](https://msdn.microsoft.com/library/azure/mt163651.aspx)
+###<a name="rest"></a>REST
+[Infomations de référence sur l’API REST de l’équilibrage de charge](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Load Balancer Documentation
-        </div>
+Télécharger la documentation Load Balancer </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+
