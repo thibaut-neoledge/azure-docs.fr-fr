@@ -1,7 +1,7 @@
-## Configuration de l'environnement de développement
+## <a name="set-up-your-development-environment"></a>Configuration de l'environnement de développement
 Ensuite, configurez votre environnement de développement dans Visual Studio afin d’être prêt pour essayer les exemples de code fournis dans ce guide.
 
-### Créer un projet d’application de console Windows
+### <a name="create-a-windows-console-application-project"></a>Créer un projet d’application de console Windows
 Dans Visual Studio, créez une application de console Windows, comme indiqué ici :
 
 ![Créer une application de console Windows](./media/storage-development-environment-include/storage-development-environment-include-1.png)
@@ -10,30 +10,30 @@ Tous les exemples de code figurant dans ce didacticiel peuvent être ajoutés à
 
 Notez que vous pouvez utiliser la bibliothèque cliente d’Azure Storage à partir de n’importe quel type d’application .NET, notamment un service cloud Azure, une application web Azure, une application de bureau ou une application mobile. Dans ce guide, nous utilisons une application console pour plus de simplicité.
 
-### Utiliser NuGet pour installer les packages requis
+### <a name="use-nuget-to-install-the-required-packages"></a>Utiliser NuGet pour installer les packages requis
 Il existe deux packages que vous devez installer dans votre projet pour terminer ce didacticiel :
 
-* [Bibliothèque cliente Microsoft Azure Storage pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) : ce package fournit un accès par programme aux ressources de données dans votre compte de stockage.
-* [Bibliothèque Microsoft Azure Configuration Manager pour .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) : ce package fournit une classe pour l’analyse d’une chaîne de connexion à partir d’un fichier de configuration, quel que soit l’emplacement d’exécution de votre application.
+* [Bibliothèque cliente Microsoft Azure Storage pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): ce package fournit un accès par programme aux ressources de données dans votre compte de stockage.
+* [Bibliothèque Microsoft Azure Configuration Manager pour .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): ce package fournit une classe pour l’analyse d’une chaîne de connexion à partir d’un fichier de configuration, quel que soit l’emplacement d’exécution de votre application.
 
-Vous pouvez utiliser NuGet pour obtenir ces deux packages. Procédez comme suit :
+Vous pouvez utiliser NuGet pour obtenir ces deux packages. Procédez comme suit :
 
-1. Cliquez avec le bouton droit sur votre projet dans l’**Explorateur de solutions**, puis sélectionnez **Manage NuGet Packages**.
-2. Recherchez « WindowsAzure.Storage » en ligne, puis cliquez sur **Installer** pour installer la bibliothèque cliente Azure Storage et ses dépendances.
-3. Recherchez « ConfigurationManager » en ligne, puis cliquez sur **Installer** pour installer Azure Configuration Manager.
+1. Cliquez avec le bouton droit sur votre projet dans **l’Explorateur de solutions**, puis sélectionnez **Gérer les packages NuGet**.
+2. Recherchez « WindowsAzure.Storage » en ligne, puis cliquez sur **Installer** pour installer la bibliothèque cliente Azure Storage et ses dépendances.
+3. Recherchez « ConfigurationManager » en ligne, puis cliquez sur **Installer** pour installer Azure Configuration Manager.
 
 > [!NOTE]
 > Le package de bibliothèque cliente Azure Storage est également disponible dans le [Kit de développement logiciel (SDK) Azure pour .NET](https://azure.microsoft.com/downloads/). Toutefois, nous vous recommandons d’installer également la bibliothèque cliente Azure Storage à partir de NuGet pour vous assurer que vous avez toujours la dernière version de la bibliothèque cliente.
 > 
-> Les dépendances ODataLib de la bibliothèque cliente de stockage pour .NET sont résolues avec les packages ODataLib (versions 5.0.2 et ultérieures) disponibles auprès de NuGet, mais pas avec les services de données WCF. Vous pouvez télécharger directement les bibliothèques ODataLib ou les référencer avec votre projet de code via NuGet. Les packages ODataLib utilisés par la bibliothèque cliente de stockage sont [OData](http://nuget.org/packages/Microsoft.Data.OData/5.0.2), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/5.0.2) et [Spatial](http://nuget.org/packages/System.Spatial/5.0.2). Bien qu’elles soient utilisées par les classes de stockage de Table Azure, ces bibliothèques sont des dépendances requises pour la programmation avec la bibliothèque cliente de stockage.
+> Les dépendances ODataLib de la bibliothèque cliente de stockage pour .NET sont résolues avec les packages ODataLib (versions 5.0.2 et ultérieures) disponibles auprès de NuGet, mais pas avec les services de données WCF. Vous pouvez télécharger directement les bibliothèques ODataLib ou les référencer avec votre projet de code via NuGet. Les packages ODataLib utilisés par la bibliothèque cliente de stockage sont [OData](http://nuget.org/packages/Microsoft.Data.OData/5.0.2), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/5.0.2) et [Spatial](http://nuget.org/packages/System.Spatial/5.0.2). Bien qu’elles soient utilisées par les classes de stockage de Table Azure, ces bibliothèques sont des dépendances requises pour la programmation avec la bibliothèque cliente de stockage.
 > 
 > 
 
-### Déterminer votre environnement cible
+### <a name="determine-your-target-environment"></a>Déterminer votre environnement cible
 Vous avez le choix entre deux environnements pour exécuter les exemples de ce guide :
 
 * Vous pouvez exécuter votre code sur un compte Azure Storage dans le cloud. 
-* Vous pouvez exécuter votre code sur l’émulateur de stockage Azure. L’émulateur de stockage est un environnement local qui émule un compte Azure Storage dans le cloud. L’émulateur est une option gratuite permettant de tester et déboguer votre code lors du développement de votre application. L’émulateur utilise un compte et une clé connus. Pour plus d’informations, voir [Utilisation de l’émulateur de stockage Azure pour le développement et le test](../articles/storage/storage-use-emulator.md).
+* Vous pouvez exécuter votre code sur l’émulateur de stockage Azure. L’émulateur de stockage est un environnement local qui émule un compte Azure Storage dans le cloud. L’émulateur est une option gratuite permettant de tester et déboguer votre code lors du développement de votre application. L’émulateur utilise un compte et une clé connus. Pour plus d’informations, voir [Utilisation de l’émulateur de stockage Azure pour le développement et le test](../articles/storage/storage-use-emulator.md)
 
 Si vous ciblez un compte de stockage dans le cloud, copiez la clé d’accès primaire de votre compte de stockage à partir du portail Azure. Pour plus d’informations, voir [Affichage et copie de clés d’accès de stockage](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
@@ -42,8 +42,8 @@ Si vous ciblez un compte de stockage dans le cloud, copiez la clé d’accès pr
 > 
 > 
 
-### Configurer votre chaîne de connexion de stockage
-La bibliothèque du client de stockage Azure pour .NET prend en charge l’utilisation d’une chaîne de connexion de stockage pour la configuration de points de terminaison et d’informations d’identification permettant d’accéder aux services de stockage. La meilleure façon de conserver votre chaîne de connexion de stockage est dans un fichier de configuration.
+### <a name="configure-your-storage-connection-string"></a>Configurer votre chaîne de connexion de stockage
+La bibliothèque du client de stockage Azure pour .NET prend en charge l’utilisation d’une chaîne de connexion de stockage pour la configuration de points de terminaison et d’informations d’identification permettant d’accéder aux services de stockage. La meilleure façon de conserver votre chaîne de connexion de stockage est dans un fichier de configuration. 
 
 Pour plus d’informations sur les chaînes de connexion, voir [Configuration d’une chaîne de connexion dans Azure Storage](../articles/storage/storage-configure-connection-string.md).
 
@@ -52,7 +52,7 @@ Pour plus d’informations sur les chaînes de connexion, voir [Configuration d�
 > 
 > 
 
-Pour configurer votre chaîne de connexion, ouvrez le fichier `app.config` depuis l’Explorateur de solutions dans Visual Studio. Ajoutez le contenu de l’élément `<appSettings>` indiqué ci-dessous. Remplacez `account-name` par le nom de votre compte de stockage et `account-key` par votre clé d’accès au compte :
+Pour configurer votre chaîne de connexion, ouvrez le fichier `app.config` depuis l’Explorateur de solutions dans Visual Studio. Ajoutez le contenu de l’élément `<appSettings>` indiqué ci-dessous. Remplacez `account-name` par le nom de votre compte de stockage et `account-key` par votre clé d’accès au compte :
 
     <configuration>
         <startup> 
@@ -71,4 +71,8 @@ Pour cibler l’émulateur de stockage, vous pouvez utiliser un raccourci qui co
 
     <add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

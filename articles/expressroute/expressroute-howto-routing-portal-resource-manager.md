@@ -1,13 +1,13 @@
 ---
 title: Configuration du routage pour un circuit ExpressRoute utilisant le portail Azure | Microsoft Docs
-description: Cet article vous guide tout au long des étapes de création et d’approvisionnement de l’homologation privée, publique et Microsoft d’un circuit ExpressRoute. Cet article vous montre également comment vérifier l'état, mettre à jour ou supprimer des homologations pour votre circuit.
+description: "Cet article vous guide tout au long des étapes de création et d’approvisionnement de l’homologation privée, publique et Microsoft d’un circuit ExpressRoute. Cet article vous montre également comment vérifier l&quot;état, mettre à jour ou supprimer des homologations pour votre circuit."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 8c2a7ed2-ae5c-4e49-81f6-77cf9f2b2ac9
 ms.service: expressroute
 ms.devlang: na
 ms.topic: hero-article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1d78bdb6cbb9870298b050207fd1fa9c5e71d674
+
 
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Créer et modifier le routage le routage pour un circuit ExpressRoute
@@ -35,7 +39,7 @@ Cet article vous guide tout au long des étapes de création et de gestion d'une
 * Veillez à consulter les pages relatives aux [conditions préalables](expressroute-prerequisites.md), à la [configuration requise pour le routage](expressroute-routing.md) et aux [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
 * Vous devez disposer d’un circuit ExpressRoute actif. Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le activer par votre fournisseur de connectivité avant de poursuivre. Le circuit ExpressRoute doit être dans un état approvisionné et activé pour être en mesure d'exécuter les applets de commande décrites ci-dessous.
 
-Ces instructions s'appliquent uniquement aux circuits créés avec des fournisseurs de services proposant des services de connectivité de couche 2. Si vous utilisez un fournisseur de services proposant des services gérés de couche 3 (généralement IPVPN, à l’image de MPLS), votre fournisseur de connectivité configure et gère le routage pour vous. 
+Ces instructions s'appliquent uniquement aux circuits créés avec des fournisseurs de services proposant des services de connectivité de couche 2. Si vous utilisez un fournisseur de services proposant des services gérés de couche 3 (généralement IPVPN, à l’image de MPLS), votre fournisseur de connectivité configure et gère le routage pour vous. 
 
 > [!IMPORTANT]
 > Nous n'annonçons pas d’homologations configurées par les fournisseurs de services via le portail de gestion des services. Nous travaillons sur la prochaine activation de cette fonctionnalité. Contactez votre fournisseur de services avant de configurer des homologations BGP.
@@ -137,7 +141,7 @@ Cette section fournit des instructions sur la façon de créer, d’obtenir, de 
    * Un ID VLAN valide pour établir cette homologation. Assurez-vous qu'aucune autre homologation sur le circuit n'utilise le même ID VLAN.
    * Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets.
    * **Préfixes publiés :** vous devez fournir une liste de tous les préfixes que vous prévoyez de publier sur la session BGP. Seuls les préfixes d'adresses IP publiques sont acceptés. Vous pouvez envoyer une liste séparée par des virgules si vous prévoyez d'envoyer un jeu de préfixes. Ces préfixes doivent être enregistrés en votre nom dans un registre RIR / IRR.
-   * **ASN client :** si vous publiez des préfixes non enregistrés dans le numéro AS d’homologation, vous pouvez spécifier le numéro AS avec lequel ils sont enregistrés. **Cette étape est facultative**.
+   * **ASN client :** si vous publiez des préfixes non enregistrés dans le numéro AS d’homologation, vous pouvez spécifier le numéro AS avec lequel ils sont enregistrés. **Cette étape est facultative**.
    * **Nom du registre de routage :** vous pouvez spécifier les registres RIR/IRR par rapport auquel le numéro AS et les préfixes sont enregistrés. **Cette étape est facultative.**
    * Un hachage MD5 si vous choisissez d’en utiliser un. **Cette étape est facultative.**
 3. Vous pouvez sélectionner l'homologation que vous souhaitez configurer comme indiqué ci-dessous. Sélectionnez la ligne d'homologation Microsoft.
@@ -148,11 +152,11 @@ Cette section fournit des instructions sur la façon de créer, d’obtenir, de 
    ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft2.png)
 5. Enregistrez la configuration après avoir spécifié tous les paramètres. 
    
-    Si votre circuit obtient un état nécessaire à la validation (comme indiqué ci-dessous), vous devez ouvrir un ticket de support pour apporter la preuve de possession des préfixes à notre équipe de support.  
+    Si votre circuit obtient un état nécessaire à la validation (comme indiqué ci-dessous), vous devez ouvrir un ticket de support pour apporter la preuve de possession des préfixes à notre équipe de support.    
    
     ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft5.png)
 
-    Vous pouvez ouvrir un ticket de support directement depuis le portail, comme indiqué ci-dessous   
+    Vous pouvez ouvrir un ticket de support directement depuis le portail, comme indiqué ci-dessous     
 
     ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
 
@@ -183,6 +187,9 @@ Ensuite, [liez un réseau virtuel à un circuit ExpressRoute](expressroute-howto
 * Pour plus d’informations sur l’homologation du circuit, consultez [Circuits ExpressRoute et domaines de routage](expressroute-circuit-peerings.md).
 * Pour plus d’informations sur l’utilisation des réseaux virtuels, consultez la page [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

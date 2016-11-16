@@ -1,12 +1,12 @@
 ---
-title: Présentation d’ExpressRoute | Microsoft Docs
-description: Cette page fournit une vue d'ensemble du service ExpressRoute, y compris du fonctionnement d’une connexion ExpressRoute.
+title: "Présentation d’ExpressRoute | Microsoft Docs"
+description: "Cette page fournit une vue d&quot;ensemble du service ExpressRoute, y compris du fonctionnement d’une connexion ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: fd95dcd5-df1d-41d6-85dd-e91d0091af05
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,10 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3b3e0fd5342c4729d6ffee4858089099b31404a8
+
 
 ---
 # <a name="expressroute-technical-overview"></a>Présentation technique d’ExpressRoute
-Microsoft Azure ExpressRoute vous permet d'étendre vos réseaux locaux au cloud de Microsoft via une connexion privée dédiée assurée par un fournisseur de connectivité. Grâce à ExpressRoute, vous pouvez établir des connexions aux services de cloud computing Microsoft, comme Microsoft Azure, Office 365 et CRM Online. La connectivité peut provenir d'un réseau universel (IP VPN), d’un réseau Ethernet point à point ou d’une interconnexion virtuelle via un fournisseur de connectivité dans un centre de colocalisation. Les connexions ExpressRoute ne sont pas établies par le biais de l'Internet public. Elles offrent ainsi de meilleurs niveaux de fiabilité, de rapidité, de latence et de sécurité que les connexions classiques sur Internet.
+Microsoft Azure ExpressRoute vous permet d'étendre vos réseaux locaux au cloud de Microsoft via une connexion privée dédiée assurée par un fournisseur de connectivité. Grâce à ExpressRoute, vous pouvez établir des connexions aux services de cloud computing Microsoft, comme Microsoft Azure, Office 365 et CRM Online. La connectivité peut provenir d'un réseau universel (IP VPN), d’un réseau Ethernet point à point ou d’une interconnexion virtuelle via un fournisseur de connectivité dans un centre de colocalisation. Les connexions ExpressRoute ne sont pas établies par le biais de l'Internet public. Elles offrent ainsi de meilleurs niveaux de fiabilité, de rapidité, de latence et de sécurité que les connexions classiques sur Internet.
 
 ![](./media/expressroute-introduction/expressroute-basic.png)
 
@@ -33,16 +37,16 @@ Microsoft Azure ExpressRoute vous permet d'étendre vos réseaux locaux au cloud
 
 Pour plus d’informations, consultez le [Forum Aux Questions sur ExpressRoute](expressroute-faqs.md) .
 
-## <a name="<a-name="howtoconnect"></a>how-can-i-connect-my-network-to-microsoft-using-expressroute?"></a><a name="howtoconnect"></a>Comment puis-je utiliser ExpressRoute pour connecter mon réseau à Microsoft ?
+## <a name="a-namehowtoconnectahow-can-i-connect-my-network-to-microsoft-using-expressroute"></a><a name="howtoconnect"></a>Comment puis-je utiliser ExpressRoute pour connecter mon réseau à Microsoft ?
 Vous pouvez créer une connexion entre votre réseau local et le cloud de Microsoft de trois façons différentes :
 
-### <a name="co-located-at-a-cloud-exchange"></a>Colocalisation avec un échange de cloud
+### <a name="colocated-at-a-cloud-exchange"></a>Colocalisation avec un échange de cloud
 Si vous êtes colocalisé avec une installation dans le cadre d’un échange de cloud, vous pouvez commander des interconnexions virtuelles vers le cloud de Microsoft via l’échange Ethernet du fournisseur de colocalisation. Les fournisseurs de colocalisation peuvent offrir des interconnexions de couche 2 ou des interconnexions de couche 3 gérées entre votre infrastructure dans l’installation de colocalisation et le cloud de Microsoft.
 
-### <a name="point-to-point-ethernet-connections"></a>Connexions Ethernet point à point
+### <a name="pointtopoint-ethernet-connections"></a>Connexions Ethernet point à point
 Vous pouvez connecter vos centres de données/bureaux locaux au cloud de Microsoft via des liaisons Ethernet point à point. Les fournisseurs Ethernet point à point peuvent offrir des connexions de couche 2 ou des connexions de couche 3 gérées entre votre site et le cloud de Microsoft.
 
-### <a name="any-to-any-(ipvpn)-networks"></a>Réseaux universels (IPVPN)
+### <a name="anytoany-ipvpn-networks"></a>Réseaux universels (IPVPN)
 Vous pouvez intégrer votre réseau étendu au cloud de Microsoft. Les fournisseurs IPVPN (généralement des VPN MPLS) offrent une connectivité universelle entre vos succursales et vos centres de données. Le cloud de Microsoft peut être interconnecté à votre réseau étendu afin qu’il apparaisse comme n’importe quelle autre succursale. Les fournisseurs de réseaux étendus offrent généralement une connectivité de couche 3 gérée. Les capacités et fonctionnalités ExpressRoute sont identiques pour tous les modèles de connectivité ci-dessus. 
 
 Les fournisseurs de connectivité peuvent offrir un ou plusieurs modèles de connectivité. Vous pouvez contacter votre fournisseur de connectivité pour choisir le modèle qui vous convient le mieux.
@@ -64,7 +68,7 @@ Chaque circuit ExpressRoute se compose de deux connexions à deux routeurs Micro
 Les connexions ExpressRoute permettent d’accéder aux services suivants :
 
 * Services Microsoft Azure
-* Services Microsoft Office 365
+* Services Microsoft Office 365
 * Services Microsoft CRM Online 
 
 Vous pouvez visiter la page [Forum Aux Questions ExpressRoute](expressroute-faqs.md) pour consulter une liste détaillée des services pris en charge via ExpressRoute.
@@ -74,7 +78,7 @@ Vous pouvez vous connecter à Microsoft dans un de nos [emplacements d’homolog
 
 Par exemple, si vous êtes connecté à Microsoft à Amsterdam via ExpressRoute, vous aurez accès à tous les services de cloud Microsoft hébergés en Europe du Nord et en Europe occidentale. Reportez-vous à l’article [Partenaires ExpressRoute et emplacements d'homologation](expressroute-locations.md) pour obtenir une vue d'ensemble des régions géopolitiques, des zones de cloud Microsoft associées et des emplacements d’homologation ExpressRoute correspondants.
 
-### <a name="global-connectivity-with-expressroute-premium-add-on"></a>Connectivité globale avec le module complémentaire ExpressRoute premium
+### <a name="global-connectivity-with-expressroute-premium-addon"></a>Connectivité globale avec le module complémentaire ExpressRoute premium
 Vous pouvez activer la fonctionnalité du module complémentaire ExpressRoute premium pour étendre la connectivité au-delà des limites géopolitiques. Par exemple, si vous êtes connecté à Microsoft à Amsterdam via ExpressRoute, vous aurez accès à tous les services de cloud Microsoft hébergés dans toutes les régions du monde (à l’exception des clouds nationaux). Vous pouvez accéder aux services déployés en Amérique du Sud ou en Australie de la même façon que vous accédez aux régions d’Europe du Nord et d’Europe occidentales.
 
 ### <a name="rich-connectivity-partner-ecosystem"></a>Riche écosystème de partenaires de connectivité
@@ -86,14 +90,14 @@ Microsoft gère des environnements de cloud isolés dans des régions géopoliti
 ### <a name="supported-bandwidth-options"></a>Options relatives à la bande passante prise en charge
 Vous pouvez acheter des circuits ExpressRoute pour un large éventail de bandes passantes. Les bandes passantes prises en charge sont répertoriées ci-dessous. Veillez à vérifier auprès de votre fournisseur de connectivité la liste des bandes passantes prises en charge qu'il propose.
 
-* 50 Mbits/s
-* 100 Mbits/s
-* 200 Mbits/s
-* 500 Mbits/s
-* 1 Gbit/s
-* 2 Gbit/s
-* 5 Gbit/s
-* 10 Gbits/s
+* 50 Mbits/s
+* 100 Mbits/s
+* 200 Mbits/s
+* 500 Mbits/s
+* 1 Gbit/s
+* 2 Gbit/s
+* 5 Gbit/s
+* 10 Gbits/s
 
 ### <a name="dynamic-scaling-of-bandwidth"></a>Mise à l'échelle dynamique de la bande passante
 Vous avez la possibilité d'augmenter la bande passante du circuit ExpressRoute (dans la mesure du possible) sans ralentir vos connexions. 
@@ -118,6 +122,9 @@ Vous pouvez choisir le modèle de facturation qui vous convient le mieux. Choisi
   * [Configuration du routage](expressroute-howto-routing-classic.md)
   * [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

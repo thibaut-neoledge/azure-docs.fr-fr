@@ -1,13 +1,13 @@
 ---
-title: Apprendre à sauvegarder des fichiers et dossiers d’un serveur Windows Server ou d’un client Windows sur Azure avec Azure Backup et le modèle de déploiement Resource Manager | Microsoft Docs
-description: Apprenez à sauvegarder vos données Windows Server en créant un archivage, en installant l’agent de sauvegarde, puis en sauvegardant vos fichiers et dossiers dans Azure.
+title: "Apprendre à sauvegarder des fichiers et dossiers d’un serveur Windows Server ou d’un client Windows sur Azure avec la sauvegarde Azure et le modèle de déploiement Resource Manager | Microsoft Docs"
+description: "Apprenez à sauvegarder vos données Windows Server en créant un archivage, en installant l’agent de sauvegarde, puis en sauvegardant vos fichiers et dossiers dans Azure."
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: markgalioto
 manager: cfreeman
-editor: ''
-keywords: comment sauvegarder; procédure de sauvegarde
-
+editor: 
+keywords: "comment sauvegarder; procédure de sauvegarde"
+ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -15,31 +15,39 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: markgal;
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 900967975694a688b6d5054cb351746819b65f16
+
 
 ---
-# Premier aperçu : sauvegarder des fichiers et dossiers avec Azure Backup et le modèle de déploiement Resource Manager
+# <a name="first-look-back-up-files-and-folders-with-azure-backup-using-the-resource-manager-deployment-model"></a>Premier aperçu : sauvegarder des fichiers et dossiers avec Azure Backup et le modèle de déploiement Resource Manager
 Cet article explique comment sauvegarder vos fichiers et dossiers Windows Server (ou d’un client Windows) sur Azure avec Azure Backup et Resource Manager. Il s’agit d’un didacticiel destiné à vous présenter les notions de base. Vous verrez qu’il est extrêmement simple d’utiliser Azure Backup.
 
 Si vous souhaitez en savoir plus sur Azure Backup, lisez cette [présentation](backup-introduction-to-azure-backup.md).
 
 La sauvegarde des fichiers et dossiers sur Azure nécessite les activités suivantes :
 
-![Étape 1 :](./media/backup-try-azure-backup-in-10-mins/step-1.png) Obtenir un abonnement Azure (si vous n’en avez pas encore).<br> ![Étape 2 :](./media/backup-try-azure-backup-in-10-mins/step-2.png) Créer un archivage de Recovery Services.<br> ![Étape 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Télécharger les fichiers nécessaires.<br> ![Étape 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Installer et inscrire l’agent Recovery Services.<br> ![Étape 5](./media/backup-try-azure-backup-in-10-mins/step-5.png) Sauvegarder vos fichiers et dossiers.
+![Étape 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Obtenir un abonnement Azure (si vous n’en avez pas encore).<br>
+![Étape 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Créer un coffre Recovery Services.<br>
+![Étape 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Télécharger les fichiers nécessaires.<br>
+![Étape 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Installer et inscrire l’agent Recovery Services.<br>
+![Étape 5](./media/backup-try-azure-backup-in-10-mins/step-5.png) Sauvegarder vos fichiers et dossiers.
 
 ![Comment sauvegarder votre ordinateur Windows avec Azure Backup](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
-## Étape 1 : obtenir un abonnement Azure
-Si vous ne disposez pas d’un abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/). Celui-ci vous permettra d’accéder à n’importe quel service Azure.
+## <a name="step-1-get-an-azure-subscription"></a>Étape 1 : obtenir un abonnement Azure
+Si vous ne disposez pas d’un abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) pour accéder à n’importe quel service Azure.
 
-## Étape 2 : Création du coffre Recovery Services
+## <a name="step-2-create-a-recovery-services-vault"></a>Étape 2 : Création du coffre Recovery Services
 Pour sauvegarder vos fichiers et dossiers, vous devez créer un archivage de Recovery Services dans la région où vous souhaitez stocker les données. Vous devez également spécifier le mode de réplication de votre stockage.
 
-### Pour créer un archivage de Recovery Services
+### <a name="to-create-a-recovery-services-vault"></a>Pour créer un archivage de Recovery Services
 1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide de votre abonnement Azure.
 2. Dans le menu hub, cliquez sur **Parcourir**. Dans la liste des ressources, tapez **Recovery Services**, puis cliquez sur **Archivages de Recovery Services**.
    
     ![Créer un archivage de Recovery Services - Étape 1](./media/backup-try-azure-backup-in-10-mins/browse-to-rs-vaults.png) <br/>
-3. Dans le menu **Archivages de Recovery Services**, cliquez sur **Ajouter**.
+3. Dans le menu **Coffres Recovery Services**, cliquez sur **Ajouter**.
    
     ![Créer un archivage de Recovery Services - Étape 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
    
@@ -49,12 +57,12 @@ Pour sauvegarder vos fichiers et dossiers, vous devez créer un archivage de Rec
 4. Sous **Nom**, entrez un nom convivial permettant d’identifier l’archivage.
 5. Cliquez sur **Abonnement** pour afficher la liste des abonnements disponibles.
 6. Cliquez sur **Groupe de ressources** pour afficher la liste des groupes de ressources disponibles ou sur **Nouveau** pour en créer un.
-7. Cliquez sur **Emplacement** pour sélectionner la région géographique de l’archivage. Ce choix définit la région géographique où vos données de sauvegarde sont envoyées.
+7. Cliquez sur **Emplacement** pour sélectionner la région géographique du coffre. Ce choix définit la région géographique où vos données de sauvegarde sont envoyées.
 8. Cliquez sur **Create**.
    
     Si votre archivage n’est pas répertorié après avoir été créé, cliquez sur **Actualiser**. Une fois la liste actualisée, cliquez sur le nom de l’archivage.
 
-### Pour spécifier la redondance du stockage
+### <a name="to-determine-storage-redundancy"></a>Pour spécifier la redondance du stockage
 Lorsque vous créez un archivage de Recovery Services pour la première fois, vous devez spécifier le mode de réplication du stockage.
 
 1. Cliquez sur le nouvel archivage pour ouvrir le tableau de bord associé.
@@ -70,31 +78,31 @@ Lorsque vous créez un archivage de Recovery Services pour la première fois, vo
 
 Maintenant que vous avez créé un archivage, vous devez préparer votre infrastructure de sauvegarde des fichiers et des dossiers en téléchargeant l’agent Microsoft Azure Recovery Services agent et les informations d’identification de l’archivage.
 
-## Étape 3 : télécharger les fichiers
-1. Dans le tableau de bord de l’archivage de Recovery Services, cliquez sur **Paramètres**.
+## <a name="step-3-download-files"></a>Étape 3 : télécharger les fichiers
+1. Dans le tableau de bord de l’archivage de Recovery Services, cliquez sur **Paramètres** .
    
     ![Ouvrir le panneau Backup Goal (Objectif de la sauvegarde)](./media/backup-try-azure-backup-in-10-mins/settings-button.png)
-2. Dans le panneau Paramètres, cliquez sur **Mise en route > Sauvegarde**.
+2. Dans le panneau Paramètres, cliquez sur **Mise en route > Sauvegarde**.
    
     ![Ouvrir le panneau Backup Goal (Objectif de la sauvegarde)](./media/backup-try-azure-backup-in-10-mins/getting-started-backup.png)
-3. Dans le panneau Sauvegarde, cliquez sur **Objectif de la sauvegarde**.
+3. Dans le panneau Sauvegarde, cliquez sur **Objectif de la sauvegarde** .
    
     ![Ouvrir le panneau Backup Goal (Objectif de la sauvegarde)](./media/backup-try-azure-backup-in-10-mins/backup-goal.png)
-4. Sélectionnez **Local** dans le menu « Where is you workload running? » (Où votre charge de travail s’exécute-t-elle ?).
-5. Sélectionnez **Fichiers et dossiers** dans le menu « What do you want to backup? » (Que voulez-vous sauvegarder ?), puis cliquez sur **OK**.
+4. Sélectionnez **Local** dans le menu « Où s'exécute votre charge de travail ? ».
+5. Sélectionnez **Fichiers et dossiers** dans le menu « What do you want to backup? » (Que voulez-vous sauvegarder ?), puis cliquez sur **OK**.
 
-### Télécharger l’agent Azure Recovery Services
-1. Dans le panneau **Prepare infrastructure** (Préparer l’infrastructure), cliquez sur **Download Agent for Windows Server or Windows Client** (Télécharger l’agent pour Windows Server ou un client Windows).
+### <a name="download-the-recovery-services-agent"></a>Télécharger l’agent Azure Recovery Services
+1. Dans le panneau **Préparer l’infrastructure**, cliquez sur **Télécharger l’agent pour Windows Server ou pour le client Windows**.
    
-    ![Préparer l’infrastructure](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-short.png)
-2. Dans la fenêtre de téléchargement, cliquez sur **Enregistrer**. Par défaut, le fichier **MARSagentinstaller.exe** est enregistré dans le dossier Téléchargements.
+    ![Download Agent for Windows Server or Windows Client](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-short.png)
+2. Dans la fenêtre de téléchargement, cliquez sur **Enregistrer** . Par défaut, le fichier **MARSagentinstaller.exe** est enregistré dans le dossier Téléchargements.
 
-### Télécharger les informations d'identification de coffre
-1. Dans le panneau Préparer l’infrastructure, cliquez sur **Télécharger > Enregistrer**.
+### <a name="download-vault-credentials"></a>Télécharger les informations d'identification de coffre
+1. Dans le panneau Préparer l’infrastructure, cliquez sur **Télécharger > Enregistrer**.
    
-    ![Préparer l’infrastructure](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-download.png)
+    ![Download Agent for Windows Server or Windows Client](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-download.png)
 
-## Étape 4 : installer et inscrire l’agent
+## <a name="step-4-install-and-register-the-agent"></a>Étape 4 : installer et inscrire l’agent
 > [!NOTE]
 > La sauvegarde via le portail Azure sera disponible prochainement. Pour l’instant, vous devez utiliser l’agent Microsoft Azure Recovery Services en local pour sauvegarder vos fichiers et dossiers.
 > 
@@ -116,7 +124,7 @@ Maintenant que vous avez créé un archivage, vous devez préparer votre infrast
 
 L’agent est désormais installé et votre ordinateur est inscrit dans le coffre. Vous êtes prêt à configurer et à planifier votre sauvegarde.
 
-## Étape 5 : sauvegarder vos fichiers et dossiers
+## <a name="step-5-back-up-your-files-and-folders"></a>Étape 5 : sauvegarder vos fichiers et dossiers
 La sauvegarde initiale comprend deux tâches principales :
 
 * Planifier la sauvegarde
@@ -124,8 +132,8 @@ La sauvegarde initiale comprend deux tâches principales :
 
 Pour effectuer la sauvegarde initiale, vous devez utiliser l’agent Microsoft Azure Recovery Services.
 
-### Pour planifier la sauvegarde
-1. Ouvrez l’agent Microsoft Azure Recovery Services. Vous pouvez le trouver en recherchant **Microsoft Azure Backup** sur votre ordinateur.
+### <a name="to-schedule-the-backup"></a>Pour planifier la sauvegarde
+1. Ouvrez l’agent Microsoft Azure Recovery Services. Vous pouvez le trouver en recherchant **Microsoft Azure Backup**sur votre ordinateur.
    
     ![Lancer l’agent Azure Recovery Services](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
 2. Dans l’agent Recovery Services, cliquez sur **Planifier la sauvegarde**.
@@ -154,23 +162,28 @@ Pour effectuer la sauvegarde initiale, vous devez utiliser l’agent Microsoft A
 10. Sur la page Confirmation, passez en revue les informations, puis cliquez sur **Terminer**.
 11. Lorsque l’Assistant a terminé la création de la planification de la sauvegarde, cliquez sur **Fermer**.
 
-### Pour sauvegarder les fichiers et dossiers pour la première fois
+### <a name="to-back-up-files-and-folders-for-the-first-time"></a>Pour sauvegarder les fichiers et dossiers pour la première fois
 1. Dans l’agent Recovery Services, cliquez sur **Sauvegarder maintenant** pour effectuer l’amorçage initial sur le réseau.
    
     ![Sauvegarder Windows Server maintenant](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 2. Sur la page Confirmation, vérifiez les paramètres utilisés par l’Assistant Sauvegarder maintenant pour sauvegarder les données de l’ordinateur, puis cliquez sur **Sauvegarder**.
-3. Cliquez sur **Fermer** pour fermer l’Assistant. Si vous fermez l’Assistant avant la fin du processus de sauvegarde, celui-ci continuera de s’exécuter en arrière-plan.
+3. Cliquez sur **Fermer** pour fermer l’assistant. Si vous fermez l’Assistant avant la fin du processus de sauvegarde, celui-ci continuera de s’exécuter en arrière-plan.
 
 Une fois la sauvegarde initiale terminée, le statut **Tâche terminée** apparaît dans la console Backup.
 
 ![RI terminé](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
-## Des questions ?
+## <a name="questions"></a>Des questions ?
 Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Approfondissez vos connaissances sur la [sauvegarde de machines Windows](backup-configure-vault.md).
 * Maintenant que vous avez sauvegardé vos fichiers et vos dossiers, vous pouvez [gérer vos archivages et vos serveurs](backup-azure-manage-windows-server.md).
 * Si vous avez besoin de restaurer une sauvegarde, utilisez cet article pour [restaurer des fichiers sur un ordinateur Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

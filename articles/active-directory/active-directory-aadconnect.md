@@ -1,13 +1,13 @@
 ---
-title: 'Azure AD Connect : intégration de vos identités locales avec Azure Active Directory. | Microsoft Docs'
-description: Azure AD Connect intègre vos répertoires locaux à Azure Active Directory. Cela vous permet de fournir une identité commune pour les applications Office 365, Azure et SaaS intégrées à Azure AD.
-keywords: introduction à Azure AD Connect, présentation d’Azure AD Connect, qu’est-ce qu’Azure AD Connect, installation d’active directory
+title: "Azure AD Connect : intégration de vos identités locales avec Azure Active Directory. | Microsoft Docs"
+description: "Azure AD Connect intègre vos répertoires locaux à Azure Active Directory. Cela vous permet de fournir une identité commune pour les applications Office 365, Azure et SaaS intégrées à Azure AD."
+keywords: "introduction à Azure AD Connect, présentation d’Azure AD Connect, qu’est-ce qu’Azure AD Connect, installation d’active directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,26 +15,28 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/04/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eedb788b2a174d01a2ef661cf4093ff938649bce
+
 
 ---
-# <a name="integrating-your-on-premises-identities-with-azure-active-directory"></a>Intégration de vos identités locales avec Azure Active Directory
+# <a name="integrating-your-onpremises-identities-with-azure-active-directory"></a>Intégration de vos identités locales avec Azure Active Directory
 Azure AD Connect intègre vos répertoires locaux à Azure Active Directory. Cela vous permet de fournir une identité commune à vos utilisateurs pour les applications Office 365, Azure et SaaS intégrées à Azure AD. Cette rubrique vous guide dans les étapes de planification, de déploiement et opérationnelles. Elle comporte un ensemble de liens vers les rubriques associées à cette zone.
 
-<!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
-
 > [!IMPORTANT]
-> Azure AD Connect est la meilleure façon de connecter votre répertoire local avec Azure AD et Office 365. C’est l’occasion idéale d’effectuer la mise à niveau vers Azure AD Connect à partir de Microsoft Azure Active Directory Sync (DirSync) ou Azure AD Sync, car ces outils sont désormais déconseillés et ne seront plus pris en charge à partir du 13 avril 2017.]active-directory-aadconnect-dirsync-deprecated.md)
+> [Azure AD Connect est la meilleure façon de connecter votre répertoire local avec Azure AD et Office 365. C’est l’occasion idéale d’effectuer la mise à niveau vers Azure AD Connect à partir de Microsoft Azure Active Directory Sync (DirSync) ou Azure AD Sync, car ces outils sont désormais déconseillés et ne seront plus pris en charge à partir du 13 avril 2017.](active-directory-aadconnect-dirsync-deprecated.md)
 > 
 > 
 
-![Qu’est-ce qu’Azure AD Connect ?](./media/active-directory-aadconnect/arch.png)
+![Qu’est-ce qu’Azure AD Connect ?](./media/active-directory-aadconnect/arch.png)
 
 ## <a name="why-use-azure-ad-connect"></a>Pourquoi utiliser Azure AD Connect
 L’intégration de vos annuaires locaux avec Azure AD améliore la productivité de vos utilisateurs en leur fournissant une identité commune pour accéder aux ressources cloud et locales. Les utilisateurs et les organisations bénéficient des avantages suivants :
 
-* Les utilisateurs peuvent utiliser une identité unique pour accéder aux applications locales et aux services cloud comme Office 365.
+* Les utilisateurs peuvent utiliser une identité unique pour accéder aux applications locales et aux services cloud comme Office 365.
 * Outil unique offrant une expérience de déploiement simple pour la synchronisation et la connexion.
-* Fournit les fonctionnalités les plus récentes pour vos scénarios. Azure AD Connect remplace les versions antérieures des outils d’intégration d’identité tels que DirSync et Azure AD Sync. Pour plus d’informations, consultez [Identité hybride : Comparaison des outils d’intégration d’annuaire](active-directory-hybrid-identity-design-considerations-tools-comparison.md).
+* Fournit les fonctionnalités les plus récentes pour vos scénarios. Azure AD Connect remplace les versions antérieures des outils d’intégration d’identité tels que DirSync et Azure AD Sync. Pour plus d’informations, consultez [Identité hybride : Comparaison des outils d’intégration d’annuaire](active-directory-hybrid-identity-design-considerations-tools-comparison.md).
 
 ### <a name="how-azure-ad-connect-works"></a>Fonctionnement d’Azure AD Connect
 Azure Active Directory Connect est constitué de trois composants principaux : les services de synchronisation, le composant Active Directory Federation Services facultatif et le composant d’analyse nommé [Azure AD Connect Health](active-directory-aadconnect-health.md).
@@ -44,7 +46,7 @@ Azure Active Directory Connect est constitué de trois composants principaux : l
 
 * Synchronisation : ce composant est chargé de créer des utilisateurs, des groupes et autres objets. Il permet également de s’assurer que les informations d’identité relatives aux utilisateurs et aux groupes dans votre environnement local correspondent à celles qui se trouvent dans le cloud.
 * AD FS : ceci est une partie facultative d’Azure AD Connect, qui peut être utilisée pour configurer un environnement hybride à l’aide d’une infrastructure AD FS locale. Cette partie permet aux organisations de faire face à des déploiements complexes, par exemple l’authentification unique de jonction de domaine, l’application de la stratégie de connexion AD ou l’utilisation de cartes à puce ou d’une solution tierce d’authentification multifacteur.
-* Analyse d’intégrité : Azure AD Connect Health peut assurer une surveillance robuste et offrir l’accès à un emplacement central dans le portail Azure pour afficher ces activités. Pour plus d’informations, voir [Azure Active Directory Connect Health](active-directory-aadconnect-health.md).
+* Analyse d’intégrité : Azure AD Connect Health peut assurer une surveillance robuste et offrir l’accès à un emplacement central dans le portail Azure pour afficher ces activités. Pour plus d’informations, voir [Azure Active Directory Connect Health](active-directory-aadconnect-health.md).
 
 ## <a name="install-azure-ad-connect"></a>Installer Azure AD Connect
 Vous pouvez trouver le téléchargement d’Azure AD Connect sur le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=615771).
@@ -52,23 +54,23 @@ Vous pouvez trouver le téléchargement d’Azure AD Connect sur le [Centre de t
 | Solution | Scénario |
 | --- | --- |
 | Avant de commencer : [Matériel et conditions préalables](active-directory-aadconnect-prerequisites.md) |<li>Étapes à suivre avant de commencer à installer Azure AD Connect.</li> |
-| [Paramètres Express](active-directory-aadconnect-get-started-express.md) |<li>Si vous ne disposez que d’une seule forêt Active Directory, cette option est recommandée.</li> <li>Connexion de l’utilisateur avec le même mot de passe à l’aide de la synchronisation du mot de passe.</li> |
-| [Paramètres personnalisés](active-directory-aadconnect-get-started-custom.md) |<li>Utilisés lorsque vous disposez de plusieurs forêts. Prise en charge de nombreuses [topologies](active-directory-aadconnect-topologies.md) locales.</li> <li>Personnalisez votre option de connexion, par exemple AD FS pour la fédération, ou utilisez un fournisseur d’identité tiers.</li> <li>Personnalisez les fonctionnalités de synchronisation, telles que le filtrage et l’écriture différée.</li> |
-| [Mise à niveau à partir de DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>Utilisé lorsque vous disposez d’un serveur DirSync existant déjà en cours d’exécution.</li> |
-| [Mise à niveau à partir d’Azure AD Sync ou d’Azure AD Connect](active-directory-aadconnect-upgrade-previous-version.md) |<li>Il existe plusieurs méthodes différentes, en fonction de vos préférences.</li> |
+| [Paramètres Express](connect/active-directory-aadconnect-get-started-express.md) |<li>Si vous ne disposez que d’une seule forêt Active Directory, cette option est recommandée.</li> <li>Connexion de l’utilisateur avec le même mot de passe à l’aide de la synchronisation du mot de passe.</li> |
+| [Paramètres personnalisés](connect/active-directory-aadconnect-get-started-custom.md) |<li>Utilisés lorsque vous disposez de plusieurs forêts. Prise en charge de nombreuses [topologies](active-directory-aadconnect-topologies.md) locales.</li> <li>Personnalisez votre option de connexion, par exemple AD FS pour la fédération, ou utilisez un fournisseur d’identité tiers.</li> <li>Personnalisez les fonctionnalités de synchronisation, telles que le filtrage et l’écriture différée.</li> |
+| [Mise à niveau à partir de DirSync](connect/active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>Utilisé lorsque vous disposez d’un serveur DirSync existant déjà en cours d’exécution.</li> |
+| [Mise à niveau à partir d’Azure AD Sync ou d’Azure AD Connect](active-directory-aadconnect-upgrade-previous-version.md) |<li>Il existe plusieurs méthodes différentes, en fonction de vos préférences.</li> |
 
 [Après l’installation](active-directory-aadconnect-whats-next.md) , vous devez vérifier que tout fonctionne comme prévu et affecter des licences aux utilisateurs.
 
-### <a name="next-steps-to-install-azure-ad-connect"></a>Étapes suivantes pour installer Azure AD Connect
+### <a name="next-steps-to-install-azure-ad-connect"></a>Étapes suivantes pour installer Azure AD Connect
 | Rubrique |
 | --- | --- |
 | Téléchargez Azure AD Connect |
-| Installation à l’aide des paramètres Express |
+| Installation à l’aide de la configuration rapide |
 | Installation à l’aide des paramètres personnalisés |
 | Mise à niveau à partir de DirSync |
 | Après l’installation |
 
-### <a name="learn-more-about-install-azure-ad-connect"></a>En savoir plus sur l’installation d’Azure AD Connect
+### <a name="learn-more-about-install-azure-ad-connect"></a>En savoir plus sur l’installation d’Azure AD Connect
 Il peut également être judicieux de se préparer aux préoccupations [opérationnelles](active-directory-aadconnectsync-operations.md) . Vous pouvez souhaiter disposer d’un serveur de secours afin de pouvoir facilement basculer en cas de [sinistre](active-directory-aadconnectsync-operations.md#disaster-recovery). Si vous envisagez d’effectuer des modifications de configuration fréquentes, vous devriez planifier un serveur en [mode de préproduction](active-directory-aadconnectsync-operations.md#staging-mode) .
 
 | Rubrique |
@@ -98,9 +100,9 @@ La [mise à niveau automatique](active-directory-aadconnect-feature-automatic-up
 | Rubrique |
 | --- | --- |
 | Configurer le filtrage |
-| synchronisation de mot de passe |
-| écriture différée du mot de passe |
-| L’écriture différée d’appareils |
+| Synchronisation du mot de passe |
+| Écriture différée du mot de passe |
+| Écriture différée des appareils |
 | prévention des suppressions accidentelles |
 | Mise à jour automatique |
 
@@ -148,12 +150,15 @@ Si votre serveur ADFS n’a pas été configuré pour mettre à jour automatique
 
 **Ressources supplémentaires**
 
-Présentation d’Ignite 2015 sur l'extension de vos répertoires locaux dans le cloud.
+Présentation d’Ignite 2015 sur l'extension de vos répertoires locaux dans le cloud.
 
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3862/player]
 > 
 > 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

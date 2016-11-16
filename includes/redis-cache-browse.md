@@ -1,4 +1,4 @@
-Les caches sont accessibles dans le [portail Azure](https://portal.azure.com) à l’aide du panneau **Parcourir**.
+Les caches sont accessibles dans le [portail Azure](https://portal.azure.com) à l’aide du panneau **Parcourir** .
 
 ![Panneau de navigation Cache Redis Azure](media/redis-cache-browse/redis-cache-browse.png)
 
@@ -12,4 +12,8 @@ Cliquez sur **Paramètres** ou **Tous les paramètres** pour afficher et configu
 
 ![Tous les paramètres de Cache Redis](media/redis-cache-browse/redis-cache-blade.png)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

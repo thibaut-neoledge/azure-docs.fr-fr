@@ -1,12 +1,12 @@
 ---
-title: 'Didacticiel : Créer un pipeline à l’aide de l’Assistant de copie | Microsoft Docs'
-description: Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory avec une activité de copie, à l’aide de l’Assistant de copie et de Data Factory.
+title: "Didacticiel : Créer un pipeline à l’aide de l’Assistant de copie | Microsoft Docs"
+description: "Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory avec une activité de copie, à l’aide de l’Assistant de copie et de Data Factory."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
+
 
 ---
-# <a name="tutorial:-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et étapes préalables requises](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
 > * [Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
-> * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+> * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modèle Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
@@ -45,7 +49,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
 2. Dans le panneau **Nouvelle fabrique de données** :
    
    1. Entrez **ADFTutorialDataFactory** comme **nom**.
-       Le nom de la fabrique de données Azure doit être un nom global unique. Si l'erreur suivante s'affiche, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactory), puis tentez de la recréer : **Le nom de la fabrique de données « ADFTutorialDataFactory » n'est pas disponible**. Consultez la rubrique [Data Factory - Règles d'affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.  
+       Le nom de la fabrique de données Azure doit être un nom global unique. Si l'erreur suivante s'affiche, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactory), puis tentez de la recréer : **Le nom de la fabrique de données « ADFTutorialDataFactory » n'est pas disponible**. Consultez la rubrique [Data Factory - Règles d'affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.  
       
        ![Nom de la fabrique de données indisponible](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)
       
@@ -53,25 +57,27 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
       > Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
       > 
       > 
-3. Sélectionnez votre **abonnement**Azure.
-4. Pour Groupe de ressources, effectuez l’une des opérations suivantes : 1. Sélectionnez **Utiliser l’existant** pour sélectionner un groupe de ressources existant.
-5. Sélectionnez **Créer un nouveau** pour entrer un nom pour un groupe de ressources.
-   
-            Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
-   1. Sélectionnez un **emplacement** pour la fabrique de données.
-   2. Sélectionnez la case à cocher **Épingler au tableau de bord** en bas du panneau.  
-   3. Cliquez sur **Create**.
+   2. Sélectionnez votre **abonnement**Azure.
+   3. Pour Groupe de ressources, effectuez l’une des opérations suivantes : 
       
-       ![Panneau Nouvelle fabrique de données](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)          
-6. Une fois la création terminée, le panneau **Data Factory** s’affiche comme sur l’image suivante :
+      1. Sélectionnez **Utiliser l’existant** pour sélectionner un groupe de ressources existant.
+      2. Sélectionnez **Créer un nouveau** pour entrer un nom pour un groupe de ressources.
+         
+          Certaines étapes de ce didacticiel supposent que vous utilisez le groupe de ressources nommé **ADFTutorialResourceGroup** . Pour plus d'informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).
+   4. Sélectionnez un **emplacement** pour la fabrique de données.
+   5. Sélectionnez la case à cocher **Épingler au tableau de bord** en bas du panneau.  
+   6. Cliquez sur **Create**.
+      
+       ![Panneau Nouvelle fabrique de données](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)            
+3. Une fois la création terminée, le panneau **Data Factory** s’affiche comme sur l’image suivante :
    
    ![Page d'accueil Data Factory](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## <a name="launch-and-use-copy-wizard"></a>Lancer et utiliser l’Assistant Copie
+## <a name="launch-copy-wizard"></a>Lancer l’Assistant de copie
 1. Dans la page d’accueil Fabrique de données, cliquez sur la vignette **Copier les données** pour lancer l’**Assistant de copie**. 
    
    > [!NOTE]
-   > Si vous voyez que le navigateur web est bloqué au niveau « Autorisation... », désactivez/décochez l’option **Block third party cookies and site data** (Bloquer les cookies et les données de site tiers) (ou) laissez cette option activée et créez une exception pour **login.microsoftonline.com**, puis essayez de relancer l’Assistant.
+   > Si vous voyez que le navigateur web est bloqué au niveau « Autorisation... », désactivez/décochez l’option **Block third party cookies and site data** (Bloquer les cookies et les données de site tiers) (ou) laissez cette option activée et créez une exception pour **login.microsoftonline.com**, puis essayez de relancer l’Assistant.
    > 
    > 
 2. Dans la page **Propriétés** :
@@ -133,7 +139,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
     ![Outil de copie - Paramètres de performances](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
 ## <a name="launch-monitor-and-manage-application"></a>Lancer l’application Surveiller et gérer
-1. Dans la page **Déploiement**, cliquez sur le lien : `Click here to monitor copy pipeline`.
+1. Dans la page **Déploiement**, cliquez sur le lien : `Click here to monitor copy pipeline`.
    
    ![Outil de copie - Déploiement réussi](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
 2. Suivez les instructions de la section [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion](data-factory-monitor-manage-app.md) pour en savoir plus sur la surveillance du pipeline que vous venez de créer. Cliquez sur l’icône **Actualiser** dans la liste de **FENÊTRES D’ACTIVITÉ** pour afficher la tranche. 
@@ -154,6 +160,9 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
 | [Groupes de données](data-factory-create-datasets.md) |Cet article vous aide à comprendre les jeux de données dans Azure Data Factory. |
 | [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion.](data-factory-monitor-manage-app.md) |Cet article décrit comment surveiller, gérer et déboguer les pipelines à l’aide de l’application de surveillance et gestion. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

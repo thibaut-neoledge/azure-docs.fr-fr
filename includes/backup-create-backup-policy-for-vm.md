@@ -1,4 +1,4 @@
-## Définition d’une stratégie de sauvegarde
+## <a name="defining-a-backup-policy"></a>Définition d’une stratégie de sauvegarde
 Une stratégie de sauvegarde définit quand les instantanés de données sont pris ainsi que leur durée de conservation. Lors de la définition de la stratégie de sauvegarde d’une machine virtuelle, vous pouvez déclencher un travail de sauvegarde *une fois par jour*. Lorsque vous créez une stratégie, elle est appliquée à l’archivage. L'interface de la stratégie de sauvegarde ressemble à ceci :
 
 ![Stratégie de sauvegarde](./media/backup-create-policy-for-vms/backup-policy.png)
@@ -22,8 +22,12 @@ Pour créer une stratégie :
    > Lorsque vous protégez un ordinateur virtuel, un travail de sauvegarde s'exécute une fois par jour. L'heure d'exécution de la sauvegarde est le même pour chaque plage de rétention.
    > 
    > 
-4. Après avoir défini toutes les options de la stratégie, cliquez sur **Enregistrer** en haut du panneau.
+4. Après avoir défini toutes les options de la stratégie, cliquez sur **Enregistrer**en haut du panneau.
    
     La nouvelle stratégie est appliquée immédiatement au coffre.
 
-<!---HONumber=AcomDC_0608_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,11 +1,11 @@
-## Envoi de messages vers Event Hubs
+## <a name="send-messages-to-event-hubs"></a>Envoi de messages vers Event Hubs
 Dans cette section, vous allez écrire une application console Windows pour envoyer des événements à votre hub d'événements.
 
-1. Dans Visual Studio, créez un projet d'application de bureau Visual C# à l'aide du modèle de projet d'**application de console**. Nommez le projet **Sender**.
+1. Dans Visual Studio, créez un projet d'application de bureau Visual C# à l'aide du modèle de projet **d’application de console** . Nommez le projet **Sender**.
    
     ![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png)
-2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur la solution, puis cliquez sur **Gérer les packages NuGet pour la solution**.
-3. Cliquez sur l’onglet **Parcourir**, puis recherchez `Microsoft Azure Service Bus`. Vérifiez que le nom du projet (**Expéditeur**) est spécifié dans la zone **Version(s)**. Cliquez sur **Installer** et acceptez les conditions d’utilisation.
+2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur la solution, puis cliquez sur **Gérer les packages NuGet pour la solution**. 
+3. Cliquez sur l’onglet **Parcourir**, puis recherchez `Microsoft Azure Service Bus`. Vérifiez que le nom du projet (**Expéditeur**) est spécifié dans la zone **Version(s)**. Cliquez sur **Installer**et acceptez les conditions d’utilisation. 
    
     ![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png)
    
@@ -16,7 +16,7 @@ Dans cette section, vous allez écrire une application console Windows pour envo
     using System.Threading;
     using Microsoft.ServiceBus.Messaging;
     ```
-5. Ajoutez les champs suivants à la classe **Program**, en remplaçant les valeurs par le nom du Event Hub que vous avez créé dans la section précédente et par la chaîne de connexion au niveau de l’espace de noms, enregistrée précédemment.
+5. Ajoutez les champs suivants à la classe **Program** , en remplaçant les valeurs par le nom du Event Hub que vous avez créé dans la section précédente et par la chaîne de connexion au niveau de l’espace de noms, enregistrée précédemment.
    
     ```
     static string eventHubName = "{Event Hub name}";
@@ -48,7 +48,7 @@ Dans cette section, vous allez écrire une application console Windows pour envo
     }
     ```
    
-    Cette méthode envoie en continu les événements à votre hub d’événements avec un délai de 200 ms.
+    Cette méthode envoie en continu les événements à votre hub d’événements avec un délai de 200 ms.
 7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
    
     ```
@@ -58,4 +58,8 @@ Dans cette section, vous allez écrire une application console Windows pour envo
     SendingRandomMessages();
     ```
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

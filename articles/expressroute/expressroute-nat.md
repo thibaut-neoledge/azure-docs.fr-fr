@@ -1,12 +1,12 @@
 ---
-title: Configuration NAT requise pour les circuits ExpressRoute | Microsoft Docs
-description: Cette page détaille les conditions nécessaires à la configuration et à la gestion des NAT pour les circuits ExpressRoute.
+title: "Configuration NAT nécessaire pour les circuits ExpressRoute | Microsoft Docs"
+description: "Cette page détaille les conditions nécessaires à la configuration et à la gestion des NAT pour les circuits ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 867bf936-c851-485f-84c8-d8d6e33fee9f
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d16326340f668285e185a6e8adb1a8316d8bd0eb
+
 
 ---
 # <a name="expressroute-nat-requirements"></a>Configuration NAT requise pour ExpressRoute
@@ -63,6 +67,9 @@ Le chemin d’homologation Microsoft vous permet de vous connecter aux services 
   * [Configuration du routage](expressroute-howto-routing-classic.md)
   * [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 
