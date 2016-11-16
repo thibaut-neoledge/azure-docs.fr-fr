@@ -1,14 +1,14 @@
 ---
-title: Équilibrer la charge des conteneurs dans un cluster Azure Container Service | Microsoft Docs
-description: Équilibrer la charge de plusieurs conteneurs dans un cluster Azure Container Service.
+title: "Équilibrer la charge des conteneurs dans un cluster Azure Container Service | Microsoft Docs"
+description: "Équilibrer la charge de plusieurs conteneurs dans un cluster Azure Container Service."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rgardler
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
 keywords: Conteneurs, micro-services, DC/OS, Azure
-
+ms.assetid: f0ab5645-2636-42de-b23b-4c3a7e3aa8bb
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,6 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2016
 ms.author: rogardle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: cf255856302ad5bdb1f6022d231833610acbcac5
+
 
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-cluster"></a>Équilibrer la charge des conteneurs dans un cluster Azure Container Service
@@ -35,14 +39,14 @@ L’équilibreur de charge Marathon se reconfigure dynamiquement en fonction des
 
 Pour installer l’outil Marathon Load Balancer, vous pouvez utiliser l’IU du site web DC/OS ou la ligne de commande DC/OS.
 
-### <a name="install-marathon-lb-using-dc/os-web-ui"></a>Installer l’outil Marathon-LB à l’aide de l’IU du site web DC/OS
+### <a name="install-marathonlb-using-dcos-web-ui"></a>Installer l’outil Marathon-LB à l’aide de l’IU du site web DC/OS
 1. Cliquez sur Universe (Univers).
 2. Recherchez Marathon-LB.
 3. Cliquez sur Install (Installer).
 
 ![Installation de l’outil marathon-lb via l’interface web DC/OS](./media/dcos/marathon-lb-install.png)
 
-### <a name="install-marathon-lb-using-the-dc/os-cli"></a>Installer l’outil Marathon-LB à l’aide de l’interface CLI DC/OS
+### <a name="install-marathonlb-using-the-dcos-cli"></a>Installer l’outil Marathon-LB à l’aide de l’interface CLI DC/OS
 Après avoir installé l’interface CLI DC/OS et vous être assuré que vous pouvez vous connecter à votre cluster, exécutez la commande suivante à partir de votre ordinateur client :
 
 ```bash
@@ -97,13 +101,13 @@ Maintenant que nous avons le package marathon-lb, nous pouvons déployer le cont
 
 Il est intéressant de noter que, par défaut, Marathon se déploiera sur le cluster privé. Cela signifie que le déploiement ci-dessus sera accessible uniquement via votre équilibreur de charge, ce qui est généralement le comportement souhaité.
 
-### <a name="deploy-using-the-dc/os-web-ui"></a>Déployer à l’aide de l’IU du site web DC/OS
+### <a name="deploy-using-the-dcos-web-ui"></a>Déployer à l’aide de l’IU du site web DC/OS
 1. Visitez la page Marathon à l’adresse http://localhost/marathon (après avoir configuré votre [tunnel SSH](container-service-connect.md) et cliquez sur `Create Appliction`
 2. Dans la boîte de dialogue `New Application`, cliquez sur `JSON Mode` dans le coin supérieur droit
 3. Collez le code JSON ci-dessus dans l’éditeur.
 4. Cliquez sur `Create Appliction`
 
-### <a name="deploy-using-the-dc/os-cli"></a>Déployer à l’aide de l’interface CLI DC/OS
+### <a name="deploy-using-the-dcos-cli"></a>Déployer à l’aide de l’interface CLI DC/OS
 Pour déployer cette application avec l’interface CLI DC/OS, il vous suffit de copier le code JSON ci-dessus dans un fichier appelé `hello-web.json`, puis exécutez :
 
 ```bash
@@ -114,14 +118,14 @@ dcos marathon app add hello-web.json
 Par défaut, Azure Load Balancer expose les ports 80, 8080 et 443. Si vous utilisez l’un de ces trois ports (comme nous le faisons dans l’exemple ci-dessus), vous n’avez rien à faire. Vous devez pouvoir atteindre le nom de domaine complet de l’équilibreur de charge de votre agent. À chaque actualisation, vous atteindrez l’un de vos trois serveurs web par tourniquet (round robin). Toutefois, si vous utilisez un port différent, vous devez ajouter une règle de type tourniquet (round-robin) ainsi qu’une sonde sur l’équilibreur de charge pour le port que vous avez utilisé. Vous pouvez le faire depuis [l’interface de ligne de commande (CLI) Azure](../xplat-cli-azure-resource-manager.md), avec les commandes `azure network lb rule create` et `azure network lb probe create`. Vous pouvez également procéder à l’aide du portail Azure.
 
 ## <a name="additional-scenarios"></a>Autres cas de figure
-Un scénario possible serait l’utilisation de différents domaines pour exposer des services différents. Par exemple : 
+Un scénario possible serait l’utilisation de différents domaines pour exposer des services différents. Par exemple : 
 
 mydomain1.com -> Azure LB:80 -> marathon-lb:10001 -> mycontainer1:33292  
 mydomain2.com -> Azure LB:80 -> marathon-lb:10002 -> mycontainer2:22321
 
 Pour ce faire, consultez la section consacrée aux [hôtes virtuels](https://mesosphere.com/blog/2015/12/04/dcos-marathon-lb/), qui explique comment associer des domaines à des chemins d’accès marathon-lb spécifiques.
 
-Vous pouvez également exposer des ports différents et les remapper vers le service correct derrière marathon-lb. Par exemple : 
+Vous pouvez également exposer des ports différents et les remapper vers le service correct derrière marathon-lb. Par exemple : 
 
 Azure lb:80 -> marathon-lb:10001 -> mycontainer:233423  
 Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
@@ -129,6 +133,9 @@ Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/), consultez la documentation DC/OS.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,28 +1,32 @@
 ---
-title: Personnaliser le portail des développeurs dans Gestion des API Azure | Microsoft Docs
-description: Découvrez comment personnaliser le portail des développeurs dans Gestion des API Azure.
+title: "Personnaliser le portail des développeurs dans Gestion des API Azure | Microsoft Docs"
+description: "Découvrez comment personnaliser le portail des développeurs dans Gestion des API Azure."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+
 
 ---
-# Personnaliser le portail des développeurs dans Gestion des API Azure
+# <a name="customize-the-developer-portal-in-azure-api-management"></a>Personnaliser le portail des développeurs dans Gestion des API Azure
 Ce guide vous montre comment modifier l’aspect du portail des développeurs dans Gestion des API Azure pour le rendre cohérent avec votre marque.
 
 ## <a name="change-page-headers"> </a>Modification du texte ou logo dans les en-têtes de page
 L'un des principaux aspects de la personnalisation de portail est le remplacement du texte en haut de toutes les pages par le nom ou le logo de votre société.
 
-Le contenu du portail des développeurs se modifie grâce au portail des éditeurs, accessible via le portail Azure Classic. Pour accéder au portail des éditeurs d’API, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API.
+Le contenu du portail des développeurs se modifie grâce au portail des éditeurs, accessible via le portail Azure. Pour y accéder, cliquez sur **Portail des éditeurs** à partir de la barre d’outils de services de votre instance de gestion des API.
 
 ![Portail des éditeurs][api-management-management-console]
 
@@ -30,7 +34,7 @@ Le portail des développeurs s’appuie sur un système de gestion de contenu ou
 
 ![Widgets header][api-management-widgets-header]
 
-Le contenu de l'en-tête peut être modifié dans le champ **Corps**. Remplacez le texte par « Portail des développeurs Fabrikam », puis cliquez sur **Enregistrer** en bas de la page.
+Le contenu de l'en-tête peut être modifié dans le champ **Corps** . Remplacez le texte par « Portail des développeurs Fabrikam », puis cliquez sur **Enregistrer** en bas de la page.
 
 Vous devriez à présent pouvoir voir le nouvel en-tête sur chaque page du portail des développeurs.
 
@@ -45,17 +49,17 @@ Votre navigateur bascule vers une page masquée du portail des développeurs, co
 
 ![Customization toolbar][api-management-customization-toolbar]
 
-Il existe deux modes principaux de règles de style d’édition : **Modifier toutes les règles** affiche la liste de tous les styles utilisés ; **Choisir élément** vous permet de sélectionner un élément dans la page sur laquelle vous vous trouvez et affiche des styles uniquement pour cet élément.
+Il existe deux modes principaux de règles de style d’édition : **Modifier toutes les règles** affiche la liste de tous les styles utilisés ; **Choisir élément** vous permet de sélectionner un élément dans la page sur laquelle vous vous trouvez et affiche des styles uniquement pour cet élément.
 
-Dans cette section, nous souhaitons modifier le style des en-têtes uniquement. Cliquez sur l’option **Choisir élément** dans la barre d’outils de l’éditeur de style, puis cliquez sur **Sélectionner un élément à personnaliser**. Les éléments sont mis en évidence quand vous les survolez avec la souris, indiquant quels styles d’élément vous allez commencer à modifier si vous avez cliqué. Passez la souris sur le texte représentant le nom de la société dans l’en-tête (« Portail des développeurs Fabrikam », si vous avez suivi les instructions de la section précédente), puis cliquez dessus. Un ensemble de règles de style nommées et catégorisées s’affiche dans l’éditeur de style.
+Dans cette section, nous souhaitons modifier le style des en-têtes uniquement. Cliquez sur l’option **Choisir élément** dans la barre d’outils de l’éditeur de style, puis cliquez sur **Sélectionner un élément à personnaliser**. Les éléments sont mis en évidence quand vous les survolez avec la souris, indiquant quels styles d’élément vous allez commencer à modifier si vous avez cliqué. Passez la souris sur le texte représentant le nom de la société dans l’en-tête (« Portail des développeurs Fabrikam », si vous avez suivi les instructions de la section précédente), puis cliquez dessus. Un ensemble de règles de style nommées et catégorisées s’affiche dans l’éditeur de style.
 
 Chaque règle représente une propriété de style de l'élément sélectionné. Par exemple, pour le texte d'en-tête sélectionné ci-dessus, la taille du texte est en @font-size-h1, tandis que le nom de la police avec des alternatives est en @headings-font-family.
 
-> Si vous connaissez l'[amorçage][amorçage], ces règles sont en fait des [variables LESS][variables LESS] dans le thème d'amorçage utilisé par le portail des développeurs.
+> Si vous connaissez [l’amorçage][bootstrap], ces règles sont en fait des [variables LESS][variables LESS] dans le thème d'amorçage utilisé par le portail des développeurs.
 > 
 > 
 
-Modifions la couleur du texte d'en-tête. Sélectionnez l’entrée dans le champ **@headings-color**, puis tapez **#000000**. Il s'agit du code hexadécimal pour la couleur noire. Suite à cette action, un indicateur de couleur carré apparaît à la fin de la zone de texte. Si vous cliquez sur cet indicateur, un sélecteur de couleurs vous permet de faire votre choix.
+Modifions la couleur du texte d'en-tête. Sélectionnez l’entrée dans le champ **@headings-color** , puis tapez **#000000**. Il s'agit du code hexadécimal pour la couleur noire. Suite à cette action, un indicateur de couleur carré apparaît à la fin de la zone de texte. Si vous cliquez sur cet indicateur, un sélecteur de couleurs vous permet de faire votre choix.
 
 ![Color picker][api-management-customization-toolbar-color-picker]
 
@@ -76,19 +80,19 @@ Pour afficher la liste de toutes les pages de contenu existantes, cliquez sur **
 
 Cliquez sur la page **Bienvenue** pour modifier le texte s’affichant sur la page d’accueil du portail des développeurs. Apportez les modifications de votre choix, générez-en un aperçu si nécessaire, puis cliquez sur **Publier maintenant** pour les rendre visibles pour tous.
 
-> La page d’accueil utilise une configuration spéciale qui lui permet d’afficher une bannière en haut. Cette bannière n’est pas modifiable depuis la section **Contenu**. Pour modifier cette bannière, cliquez sur **Widgets** dans le menu **Portail des développeurs**, sélectionnez **Page d’accueil** dans la liste déroulante **Couche actuelle**, puis ouvrez l’élément **Bannière** sous la section **Proposé**. Le contenu de ce widget peut être modifié comme sur toute autre page.
+> La page d’accueil utilise une configuration spéciale qui lui permet d’afficher une bannière en haut. Cette bannière n’est pas modifiable depuis la section **Contenu** . Pour modifier cette bannière, cliquez sur **Widgets** dans le menu **Portail des développeurs**, sélectionnez **Page d’accueil** dans la liste déroulante **Couche actuelle**, puis ouvrez l’élément **Bannière** sous la section **Proposé**. Le contenu de ce widget peut être modifié comme sur toute autre page.
 > 
 > 
 
 ## <a name="next-steps"> </a>Étapes suivantes
 * Découvrez comment personnaliser le contenu des pages du portail des développeurs à l’aide de [modèles](api-management-developer-portal-templates.md).
 
-[Change the text/logo in the page headers]: #change-page-headers
-[Change the styling of the headers]: #change-headers-styling
-[Edit the contents of a page]: #edit-page-contents
-[Next steps]: #next-steps
+[Modification du texte/logo dans les en-têtes de page]: #change-page-headers
+[Modification du style des en-têtes]: #change-headers-styling
+[Modification du contenu d’une page]: #edit-page-contents
+[Étapes suivantes]: #next-steps
 
-[Azure Classic Portal]: https://manage.windowsazure.com/
+[Portail Azure Classic]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
@@ -98,7 +102,11 @@ Cliquez sur la page **Bienvenue** pour modifier le texte s’affichant sur la pa
 [api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
 
 
-[amorçage]: http://getbootstrap.com/
+[bootstrap]: http://getbootstrap.com/
 [variables LESS]: http://getbootstrap.com/css/
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

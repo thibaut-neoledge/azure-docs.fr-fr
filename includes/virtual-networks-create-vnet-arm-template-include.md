@@ -1,11 +1,11 @@
-## Télécharger et comprendre le modèle ARM
-Vous pouvez télécharger le modèle ARM existant pour créer un réseau virtuel et deux sous-réseaux sur GitHub, apporter les modifications souhaitées, puis le réutiliser. Pour ce faire, procédez comme suit :
+## <a name="download-and-understand-the-arm-template"></a>Télécharger et comprendre le modèle ARM
+Vous pouvez télécharger le modèle ARM existant pour créer un réseau virtuel et deux sous-réseaux sur GitHub, apporter les modifications souhaitées, puis le réutiliser. Pour ce faire, procédez comme suit :
 
 1. Accédez à la [page d’exemples de modèles](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
 2. Cliquez sur **azuredeploy.json**, puis sur **RAW**.
 3. Enregistrez le fichier dans un dossier local sur votre ordinateur.
-4. Si vous connaissez déjà les modèles ARM, passez à l’étape 7.
-5. Ouvrez le fichier que vous venez d’enregistrer et consultez le contenu sous **parameters** à la ligne 5. Les paramètres de modèle ARM fournissent un espace réservé pour les valeurs à remplir lors du déploiement.
+4. Si vous connaissez déjà les modèles ARM, passez à l’étape 7.
+5. Ouvrez le fichier que vous venez d’enregistrer et consultez le contenu sous **parameters** à la ligne 5. Les paramètres de modèle ARM fournissent un espace réservé pour les valeurs à remplir lors du déploiement.
    
    | Paramètre | Description |
    | --- | --- |
@@ -21,7 +21,7 @@ Vous pouvez télécharger le modèle ARM existant pour créer un réseau virtuel
    > Les modèles ARM de GitHub sont susceptibles d’évoluer. Vérifiez le modèle avant de l’utiliser.
    > 
    > 
-6. Vérifiez le contenu sous **resources** et notez les éléments suivants :
+6. Vérifiez le contenu sous **resources** et notez les éléments suivants :
    
    * **type**. Type de ressource créée par le modèle. Dans ce cas, **Microsoft.Network/virtualNetworks**, qui représente un réseau virtuel.
    * **name**. Nom de la ressource. Remarquez l’utilisation de **[parameters('vnetName')]**, ce qui signifie que le nom sera fourni par l’utilisateur ou un fichier de paramètres au cours du déploiement.
@@ -56,4 +56,8 @@ Vous pouvez télécharger le modèle ARM existant pour créer un réseau virtuel
         }
 11. Enregistrez le fichier.
 
-<!---HONumber=AcomDC_0211_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

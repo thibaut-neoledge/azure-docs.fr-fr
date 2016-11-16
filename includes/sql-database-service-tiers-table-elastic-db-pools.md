@@ -1,5 +1,5 @@
 
-### Limites du pool élastique de base
+### <a name="basic-elastic-pool-limits"></a>Limites du pool élastique de base
 |  |  |
 | --- |:---:|
 | eDTU max. par pool |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
@@ -16,11 +16,11 @@
 | Récupération d'urgence |Géo-réplication active |
 |  | |
 
-* Le nombre maximal et minimal d’eDTU par base de données peut être défini sur les valeurs répertoriées de votre choix dans la mesure où la taille du pool en DTU sélectionnée est au moins aussi grande que le nombre maximal d’eDTU par base de données
+* Le nombre maximal et minimal d’eDTU par base de données peut être défini sur les valeurs répertoriées de votre choix dans la mesure où la taille du pool en DTU sélectionnée est au moins aussi grande que le nombre maximal d’eDTU par base de données 
 
 ** Les bases de données élastiques se partagent l’espace de stockage du pool. Par conséquent, le stockage de base de données est limité au stockage de pool minimal restant ou au stockage maximal par base de données
 
-### Limites du pool élastique standard
+### <a name="standard-elastic-pool-limits"></a>Limites du pool élastique standard
 |  |  |
 | --- |:---:|
 | eDTU max. par pool |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
@@ -37,11 +37,11 @@
 | Récupération d'urgence |Géo-réplication active |
 |  | |
 
-* Le nombre maximal et minimal d’eDTU par base de données peut être défini sur les valeurs répertoriées de votre choix dans la mesure où la taille du pool en DTU sélectionnée est au moins aussi grande que le nombre maximal d’eDTU par base de données
+* Le nombre maximal et minimal d’eDTU par base de données peut être défini sur les valeurs répertoriées de votre choix dans la mesure où la taille du pool en DTU sélectionnée est au moins aussi grande que le nombre maximal d’eDTU par base de données 
 
 ** Les bases de données élastiques se partagent l’espace de stockage du pool. Par conséquent, le stockage de base de données est limité au stockage de pool minimal restant ou au stockage maximal par base de données
 
-### Limites du pool élastique Premium
+### <a name="premium-elastic-pool-limits"></a>Limites du pool élastique Premium
 |  |  |
 | --- |:---:|
 | eDTU max. par pool |125 &nbsp;&nbsp;&nbsp; 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; &nbsp;1500 |
@@ -58,8 +58,12 @@
 | Récupération d'urgence |Géo-réplication active |
 |  | |
 
-* Le nombre maximal et minimal d’eDTU par base de données peut être défini sur les valeurs répertoriées de votre choix dans la mesure où la taille du pool en DTU sélectionnée est au moins aussi grande que le nombre maximal d’eDTU par base de données
+* Le nombre maximal et minimal d’eDTU par base de données peut être défini sur les valeurs répertoriées de votre choix dans la mesure où la taille du pool en DTU sélectionnée est au moins aussi grande que le nombre maximal d’eDTU par base de données 
 
 ** Les bases de données élastiques se partagent l’espace de stockage du pool. Par conséquent, le stockage de base de données est limité au stockage de pool minimal restant ou au stockage maximal par base de données
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

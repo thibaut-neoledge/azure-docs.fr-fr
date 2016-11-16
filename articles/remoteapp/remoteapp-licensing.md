@@ -1,11 +1,11 @@
 ---
 title: Licences Azure RemoteApp | Microsoft Docs
-description: Découvrez comment fonctionnent les licences dans Azure RemoteApp.
+description: "Découvrez comment fonctionnent les licences dans Azure RemoteApp."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: lizap
 manager: mbaldwin
-
+ms.assetid: ff8ebd20-61a1-4f10-87a6-234a170534c9
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
@@ -13,11 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f4429461139a41644f87185bbb06b1f6a8011345
+
 
 ---
-# Fonctionnement des licences dans Azure RemoteApp
+# <a name="how-does-licensing-work-in-azure-remoteapp"></a>Fonctionnement des licences dans Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -27,9 +31,9 @@ RemoteApp ne requiert pas de licences Windows ni de licences d'accès client du 
 
 Si vous utilisez l’une des images incluses dans votre abonnement, vous pouvez partager n’importe laquelle des applications installées sur cette image sans avoir besoin d’une licence distincte. Par exemple, si vous utilisez l'image de modèle Windows Server 2012 R2 pour créer votre collection, vous pouvez partager System Center Endpoint Protection avec vos utilisateurs. Les seules exceptions à cette règle sont Office 365 ProPlus, qui requiert un abonnement distinct et Office 2013 qui ne peut pas être partagé dans une collection de production.
 
-Si vous voulez utiliser l'image de modèle Office 365 incluse dans RemoteApp, vous devez disposer d'une offre Office 365 ProPlus *existante*. Cela s'applique également à n'importe quelle application Office 365 que vous publiez à l'aide d'un modèle personnalisé. Vous devez activer les applications avec votre propre abonnement. Cela s’applique aux abonnements d’évaluation et payants. Si vous voulez utiliser l’image de modèle Office 365 pendant la période d’évaluation, *et que vous ne disposez pas déjà d’un abonnement*, accédez à la page Office 365 pour [souscrire](https://go.microsoft.com/fwlink/p/?LinkID=403802) un abonnement d’évaluation. Consultez [Comment RemoteApp et Office fonctionnent ensemble](remoteapp-o365.md) pour plus d'informations.
+Si vous voulez utiliser l'image de modèle Office 365 incluse dans RemoteApp, vous devez disposer d'une offre Office 365 ProPlus *existante* . Cela s'applique également à n'importe quelle application Office 365 que vous publiez à l'aide d'un modèle personnalisé. Vous devez activer les applications avec votre propre abonnement. Cela s’applique aux abonnements d’évaluation et payants. Si vous voulez utiliser l’image de modèle Office 365 pendant la période d’évaluation, *et que vous ne disposez pas déjà d’un abonnement*, accédez à la page Office 365 pour [souscrire](https://go.microsoft.com/fwlink/p/?LinkID=403802) un abonnement d’évaluation. Consultez [Comment RemoteApp et Office fonctionnent ensemble](remoteapp-o365.md) pour plus d'informations.
 
-Si pendant la période d’évaluation, vous ne voulez pas bénéficier d’un abonnement d’évaluation à Office 365, utilisez l’image de modèle Office Professionnel Plus 2013 incluse dans RemoteApp. Cette image de modèle peut uniquement être utilisée pendant 30 jours et ne peut pas être convertie en collection payante.
+Si pendant la période d’évaluation, vous ne voulez pas bénéficier d’un abonnement d’évaluation à Office 365, utilisez l’image de modèle Office Professionnel Plus 2013 incluse dans RemoteApp. Cette image de modèle peut uniquement être utilisée pendant 30 jours et ne peut pas être convertie en collection payante.
 
 Pour les autres applications, vous devez vous assurer de disposer de la licence appropriée pour partager l'application.
 
@@ -37,4 +41,9 @@ Ce qui paraît logique. Vous pouvez publier une application que vous êtes léga
 
 Notez que vous ne pouvez pas utiliser de contrat de licence d'accès client ou de contrat de licence en volume dans une collection cloud. Vous *pouvez* utiliser un contrat de licence en volume pour activer des applications dans votre collection hybride (sauf pour Office). Vous devez simplement les installer dans votre image de modèle à partir du support de la licence en volume. Suivez les instructions du fournisseur de l'application pour installer des licences dans un environnement Bureau à distance.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

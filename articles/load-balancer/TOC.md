@@ -32,18 +32,25 @@
 ## [Configurer plusieurs adresses IP virtuelles pour le service cloud](load-balancer-multivip.md)
 ## [Analyse des journaux de l'équilibreur de charge Azure](load-balancer-monitor-log.md)
 ## [Configuration de DHCPv6 pour les machines virtuelles Linux](load-balancer-ipv6-for-linux.md)
+
 # Référence
+## [PowerShell](https://go.microsoft.com/fwlink/p/?LinkId=536407)
+## [.NET](https://docs.microsoft.com/dotnet/api/)
 ## [API Resource Manager](https://go.microsoft.com/fwlink/p/?LinkId=536405)
-## [Applets de commande PowerShell pour Resource Manager](https://go.microsoft.com/fwlink/p/?LinkId=536407)
 ## [Utilisation des ressources réseau](https://go.microsoft.com/fwlink/p/?LinkId=536403)
+
 # Rubriques connexes
-## [Application Gateway](https://azure.microsoft.com/documentation/services/application-gateway/)
-## [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)
-## [Réseau virtuel](https://azure.microsoft.com/documentation/services/virtual-network/)
-## [Passerelle VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/)
-## [Machine virtuelle](https://azure.microsoft.com/documentation/services/virtual-machines/)
-## [Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-## [DNS](https://azure.microsoft.com/documentation/services/dns/)
+## [Application Gateway](/azure/application-gateway/)
+## [ExpressRoute](/azure/expressroute/)
+## [Réseau virtuel](/azure/virtual-network/)
+## [Passerelle VPN](/azure/vpn-gateway/)
+## [Machine virtuelle](/azure/virtual-machines/)
+## [Traffic Manager](/azure/traffic-manager/)
+## [DNS](/azure/dns/)
+
+# les ressources
+## [Tarification](https://azure.microsoft.com/pricing/details/load-balancer/) 
+## [Mises à jour de service](https://azure.microsoft.com/updates/?product=load-balancer) 
 
 
 <!--HONumber=Nov16_HO2-->

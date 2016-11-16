@@ -1,13 +1,13 @@
 ---
-title: Didacticiel NoSQL  kit de développement logiciel (SDK) .NET de DocumentDB | Microsoft Docs
-description: 'Un didacticiel NoSQL qui crée une application de base de données en ligne et de console #C à l’aide du Kit de développement logiciel (SDK) .NET de DocumentDB. DocumentDB est une base de données NoSQL pour JSON.'
-keywords: didacticiel nosql, base de données en ligne, application console c#
+title: "Didacticiel NoSQL : kit de développement logiciel (SDK) .NET de DocumentDB | Microsoft Docs"
+description: "Un didacticiel NoSQL qui crée une application de base de données en ligne et de console #C à l’aide du Kit de développement logiciel (SDK) .NET de DocumentDB. DocumentDB est une base de données NoSQL pour JSON."
+keywords: "didacticiel nosql, base de données en ligne, application console c#"
 services: documentdb
 documentationcenter: .net
 author: AndrewHoh
 manager: jhubbard
 editor: monicar
-
+ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,18 +15,22 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/29/2016
 ms.author: anhoh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f8f82859e072666ee9020af2422f1cb4d124abf2
+
 
 ---
-# Didacticiel NoSQL : générer une application de console C# DocumentDB
+# <a name="nosql-tutorial-build-a-documentdb-c-console-application"></a>Didacticiel NoSQL : générer une application de console C# DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [Node.JS](documentdb-nodejs-get-started.md)
 > 
 > 
 
-Bienvenue dans le didacticiel NoSQL pour le Kit de développement logiciel (SDK) .NET d’Azure DocumentDB ! À la fin de ce didacticiel, vous disposerez d’une application console qui crée et interroge des ressources DocumentDB.
+Bienvenue dans le didacticiel NoSQL pour le Kit de développement logiciel (SDK) .NET d’Azure DocumentDB ! À la fin de ce didacticiel, vous disposerez d’une application console qui crée et interroge des ressources DocumentDB.
 
-Nous allons aborder les points suivants :
+Nous allons aborder les points suivants :
 
 * Création et connexion à un compte DocumentDB
 * Configuration de votre solution Visual Studio
@@ -38,37 +42,41 @@ Nous allons aborder les points suivants :
 * Suppression d’un document
 * Suppression de la base de données
 
-Vous n’avez pas le temps ? Ne vous inquiétez pas ! La solution complète est disponible sur [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). Pour obtenir des instructions rapides, allez à la section [Obtenir la solution complète](#GetSolution).
+Vous n’avez pas le temps ? Ne vous inquiétez pas ! La solution complète est disponible sur [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). Pour obtenir des instructions rapides, allez à la section [Obtenir la solution complète](#GetSolution) .
 
 À la fin, utilisez les boutons de vote en haut ou en bas de cette page pour nous faire part de vos commentaires. Si vous souhaitez que nous vous contactions directement, n’hésitez pas à inclure votre adresse de messagerie dans vos commentaires.
 
-Commençons dès maintenant !
+Commençons dès maintenant !
 
-## Composants requis
-Vérifiez que vous disposez des éléments suivants :
+## <a name="prerequisites"></a>Composants requis
+Vérifiez que vous disposez des éléments suivants :
 
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [compte gratuit](https://azure.microsoft.com/free/).
-* [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/).
+* [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/).
 * .NET Framework 4.6
 
-## Étape 1 : créer un compte DocumentDB
+## <a name="step-1-create-a-documentdb-account"></a>Étape 1 : créer un compte DocumentDB
 Créons un compte DocumentDB. Si vous avez déjà un compte que vous souhaitez utiliser, vous pouvez passer directement à l’étape [Configurer votre solution Visual Studio](#SetupVS).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a id="SetupVS"></a> Étape 2 : configurer votre solution Visual Studio
+## <a name="a-idsetupvsastep-2-setup-your-visual-studio-solution"></a><a id="SetupVS"></a>Étape 2 : configurer votre solution Visual Studio
 1. Ouvrez **Visual Studio 2015** sur votre ordinateur.
 2. Dans le menu **Fichier**, sélectionnez **Nouveau**, puis choisissez **Projet**.
-3. Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Modèles** / **Visual C#** / **Application console**, nommez votre projet, puis cliquez sur **OK**. ![Capture d’écran de la fenêtre Nouveau projet](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
-4. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur votre nouvelle application console, qui se trouve sous votre solution Visual Studio.
-5. Ensuite, sans quitter le menu, cliquez sur **Gérer les packages NuGet...** ![Capture d'écran du menu du clic droit pour le projet](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-6. Dans l’onglet **Nuget**, cliquez sur **Parcourir** et tapez **azure documentdb** dans la zone de recherche.
-7. Dans les résultats, recherchez **Microsoft.Azure.DocumentDB** et cliquez sur **Installer**. L’ID de package de la bibliothèque cliente DocumentDB est [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) ![Capture d'écran du menu NuGet pour la recherche du Kit de développement logiciel (SDK) client DocumentDB](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+3. Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Modèles** / **Visual C#** / **Application console**, nommez votre projet, puis cliquez sur **OK**.
+   ![Capture d’écran de la fenêtre Nouveau projet](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
+4. Dans l' **Explorateur de solutions**, cliquez avec le bouton droit sur votre nouvelle application console, qui se trouve sous votre solution Visual Studio.
+5. Ensuite, sans quitter le menu, cliquez sur **Gérer les packages NuGet...**
+   ![Capture d’écran du menu contextuel du projet](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+6. Dans l’onglet **NuGet**, cliquez sur **Parcourir** et tapez **azure documentdb** dans la zone de recherche.
+7. Dans les résultats, recherchez **Microsoft.Azure.DocumentDB** et cliquez sur **Installer**.
+   L’ID de package de la bibliothèque cliente DocumentDB est [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)
+   ![Capture d’écran du menu NuGet pour la recherche du Kit de développement logiciel (SDK) client DocumentDB](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
-Parfait ! L’installation étant terminée, nous pouvons passer à l’écriture du code. Vous trouverez le projet de code complet de ce didacticiel dans [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
+Parfait ! L’installation étant terminée, nous pouvons passer à l’écriture du code. Vous trouverez le projet de code complet de ce didacticiel dans [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
-## <a id="Connect"></a> Étape 3 : se connecter à un compte DocumentDB
-Tout d’abord, ajoutez ces références au début de votre application C#, dans le fichier Program.cs :
+## <a name="a-idconnectastep-3-connect-to-a-documentdb-account"></a><a id="Connect"></a>Étape 3 : se connecter à un compte DocumentDB
+Tout d’abord, ajoutez ces références au début de votre application C#, dans le fichier Program.cs :
 
     using System;
     using System.Linq;
@@ -116,7 +124,7 @@ Sous la méthode **Main**, ajoutez la nouvelle tâche asynchrone appelée **GetS
         this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
     }
 
-Ajoutez le code suivant pour exécuter votre tâche asynchrone à partir de la méthode **Main**. La méthode **Main** va intercepter les exceptions et les consigner dans la console.
+Ajoutez le code suivant pour exécuter votre tâche asynchrone à partir de la méthode **Main** . La méthode **Main** va intercepter les exceptions et les consigner dans la console.
 
     static void Main(string[] args)
     {
@@ -144,9 +152,9 @@ Ajoutez le code suivant pour exécuter votre tâche asynchrone à partir de la m
 
 Appuyez sur **F5** pour exécuter votre application.
 
-Félicitations ! Vous êtes connecté à un compte DocumentDB. Jetons maintenant un œil à l’utilisation de ressources DocumentDB.
+Félicitations ! Vous êtes connecté à un compte DocumentDB. Jetons maintenant un œil à l’utilisation de ressources DocumentDB.  
 
-## Étape 4 : créer une base de données
+## <a name="step-4-create-a-database"></a>Étape 4 : créer une base de données
 Avant d'ajouter le code permettant de créer une base de données, ajoutez une méthode d'assistance pour l'écriture sur la console.
 
 Copiez et collez la méthode **WriteToConsoleAndPromptToContinue** sous la méthode **GetStartedDemo**.
@@ -198,15 +206,15 @@ Copiez et collez le code suivant dans votre méthode **GetStartedDemo** en desso
 
 Appuyez sur **F5** pour exécuter votre application.
 
-Félicitations ! Vous avez créé une base de données DocumentDB.
+Félicitations ! Vous avez créé une base de données DocumentDB.  
 
-## <a id="CreateColl"></a>Étape 5 : créer une collection
+## <a name="a-idcreatecollastep-5-create-a-collection"></a><a id="CreateColl"></a>Étape 5 : créer une collection
 > [!WARNING]
 > **CreateDocumentCollectionAsync** crée une collection avec un débit réservé, ce qui a des conséquences sur la tarification. Pour plus d'informations, visitez notre [page de tarification](https://azure.microsoft.com/pricing/details/documentdb/).
 > 
 > 
 
-Vous pouvez créer une [collection](documentdb-resources.md#collections) à l'aide de la méthode [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) de la classe **DocumentClient**. Une collection est un conteneur de documents JSON. Elle est associée à une logique d'application JavaScript.
+Vous pouvez créer une [collection](documentdb-resources.md#collections) à l’aide de la méthode [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) de la classe **DocumentClient**. Une collection est un conteneur de documents JSON. Elle est associée à une logique d'application JavaScript.
 
 Copiez et collez la méthode **CreateDocumentCollectionIfNotExists** sous votre méthode **CreateDatabaseIfNotExists**.
 
@@ -244,7 +252,7 @@ Copiez et collez la méthode **CreateDocumentCollectionIfNotExists** sous votre 
         }
     }
 
-Copiez et collez le code suivant dans votre méthode **GetStartedDemo** en dessous de la création de la base de données. Ce faisant, vous créez la collection de documents *FamilyCollection*.
+Copiez et collez le code suivant dans votre méthode **GetStartedDemo** en dessous de la création de la base de données. Ce faisant, vous créez la collection de documents *FamilyCollection_oa*.
 
         this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
@@ -255,12 +263,12 @@ Copiez et collez le code suivant dans votre méthode **GetStartedDemo** en desso
 
 Appuyez sur **F5** pour exécuter votre application.
 
-Félicitations ! Vous avez créé une collection de documents DocumentDB.
+Félicitations ! Vous avez créé une collection de documents DocumentDB.  
 
-## <a id="CreateDoc"></a>Étape 6 : Création de documents JSON
-Vous pouvez créer un [document](documentdb-resources.md#documents) à l'aide de la méthode [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) de la classe **DocumentClient**. Les documents correspondent à du contenu JSON (arbitraire) défini par l'utilisateur. Nous pouvons maintenant insérer un ou plusieurs documents. Si vous disposez déjà de données que vous souhaitez stocker dans votre base de données, vous pouvez utiliser de l’[outil de migration de données](documentdb-import-data.md) de DocumentDB.
+## <a name="a-idcreatedocastep-6-create-json-documents"></a><a id="CreateDoc"></a>Étape 6 : Création de documents JSON
+Vous pouvez créer un [document](documentdb-resources.md#documents) à l’aide de la méthode [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) de la classe **DocumentClient**. Les documents correspondent à du contenu JSON (arbitraire) défini par l'utilisateur. Nous pouvons maintenant insérer un ou plusieurs documents. Si vous disposez déjà de données que vous souhaitez stocker dans votre base de données, vous pouvez utiliser de l’ [outil de migration de données](documentdb-import-data.md)de DocumentDB.
 
-Nous devons tout d’abord créer une classe **Family** représentant les objets stockés dans DocumentDB dans cet exemple. Nous allons également créer les sous-classes **Parent**, **Child**, **Pet** et **Address** qui seront utilisées dans **Family**. Notez que les documents doivent avoir une propriété **Id** sérialisée comme un **id** dans JSON. Créez ces classes en ajoutant les sous-classes internes suivantes après la méthode **GetStartedDemo**.
+Nous devons tout d’abord créer une classe **Family** représentant les objets stockés dans DocumentDB dans cet exemple. Nous allons également créer les sous-classes **Parent**, **Child**, **Pet** et **Address** qui seront utilisées dans **Family**. Notez que les documents doivent avoir une propriété **Id** sérialisée comme **id** dans JSON. Créez ces classes en ajoutant les sous-classes internes suivantes après la méthode **GetStartedDemo** .
 
 Copiez et collez les classes **Family**, **Parent**, **Child**, **Pet** et **Address** sous la méthode **WriteToConsoleAndPromptToContinue**.
 
@@ -414,12 +422,12 @@ Copiez et collez le code suivant dans votre méthode **GetStartedDemo** en desso
 
 Appuyez sur **F5** pour exécuter votre application.
 
-Félicitations ! Vous avez créé deux collections de documents DocumentDB.
+Félicitations ! Vous avez créé deux collections de documents DocumentDB.  
 
 ![Diagramme illustrant la relation hiérarchique existant entre le compte, la base de données en ligne, la collection et les documents utilisés par le didacticiel NoSQL pour créer une application de console C#](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>Étape 7 : interroger les ressources DocumentDB
-DocumentDB prend en charge les [requêtes](documentdb-sql-query.md) enrichies sur les documents JSON stockés dans chaque collection. L'exemple de code suivant affiche différentes requêtes (à l'aide de la syntaxe SQL de DocumentDB et de LINQ) que nous pouvons exécuter sur les documents insérés à l'étape précédente.
+## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>Étape 7 : interroger les ressources DocumentDB
+DocumentDB prend en charge les [requêtes](documentdb-sql-query.md) enrichies sur les documents JSON stockés dans chaque collection.  L'exemple de code suivant affiche différentes requêtes (à l'aide de la syntaxe SQL de DocumentDB et de LINQ) que nous pouvons exécuter sur les documents insérés à l'étape précédente.
 
 Copiez et collez la méthode **ExecuteSimpleQuery** sous votre méthode **CreateFamilyDocumentIfNotExists**.
 
@@ -466,16 +474,16 @@ Copiez et collez le code suivant dans votre méthode **GetStartedDemo** en desso
 
 Appuyez sur **F5** pour exécuter votre application.
 
-Félicitations ! Vous avez effectué une requête sur une collection DocumentDB.
+Félicitations ! Vous avez effectué une requête sur une collection DocumentDB.
 
 Le diagramme suivant montre comment la syntaxe de requête SQL de DocumentDB est appelée sur la collection que vous avez créée. C'est par ailleurs cette même logique qui s'applique à la requête LINQ.
 
 ![Diagramme illustrant l’étendue et la signification de la requête utilisée par le didacticiel NoSQL pour créer une application de console C#](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
 
-Le mot clé [FROM](documentdb-sql-query.md#from-clause) est facultatif dans la requête, car les requêtes DocumentDB sont déjà étendues à une collection unique. Par conséquent, « FROM Families f » peut être remplacé par «FROM root r » ou par tout autre nom de variable que vous choisissez. DocumentDB déduira que Families, root ou le nom de variable choisi fait par défaut référence à la collection actuelle.
+Le mot clé [FROM](documentdb-sql-query.md#from-clause) est facultatif dans la requête, car les requêtes DocumentDB sont déjà étendues à une collection unique. Par conséquent, « FROM Families f » peut être remplacé par «FROM root r » ou par tout autre nom de variable que vous choisissez. DocumentDB déduira que Families, root ou le nom de variable choisi fait par défaut référence à la collection actuelle.
 
-## <a id="ReplaceDocument"></a>Étape 8 : remplacer le document JSON
-DocumentDB prend en charge le remplacement des documents JSON.
+## <a name="a-idreplacedocumentastep-8-replace-json-document"></a><a id="ReplaceDocument"></a>Étape 8 : remplacer le document JSON
+DocumentDB prend en charge le remplacement des documents JSON.  
 
 Copiez et collez la méthode **ReplaceFamilyDocument** sous votre méthode **ExecuteSimpleQuery**.
 
@@ -509,10 +517,10 @@ Copiez et collez le code suivant dans votre méthode **GetStartedDemo** en desso
 
 Appuyez sur **F5** pour exécuter votre application.
 
-Félicitations ! Vous avez remplacé un document DocumentDB.
+Félicitations ! Vous avez remplacé un document DocumentDB.
 
-## <a id="DeleteDocument"></a>Étape 9 : supprimer le document JSON
-DocumentDB prend en charge la suppression des documents JSON.
+## <a name="a-iddeletedocumentastep-9-delete-json-document"></a><a id="DeleteDocument"></a>Étape 9 : supprimer le document JSON
+DocumentDB prend en charge la suppression des documents JSON.  
 
 Copiez et collez la méthode **DeleteFamilyDocument** sous votre méthode **ReplaceFamilyDocument**.
 
@@ -541,9 +549,9 @@ Copiez et collez le code suivant dans votre méthode **GetStartedDemo** en desso
 
 Appuyez sur **F5** pour exécuter votre application.
 
-Félicitations ! Vous avez supprimé un document DocumentDB.
+Félicitations ! Vous avez supprimé un document DocumentDB.
 
-## <a id="DeleteDatabase"></a>Étape 10 : supprimer la base de données
+## <a name="a-iddeletedatabaseastep-10-delete-the-database"></a><a id="DeleteDatabase"></a>Étape 10 : supprimer la base de données
 Supprimer la base de données créée revient à supprimer la base de données et toutes les ressources enfants (collections, documents, etc.).
 
 Copiez et collez le code suivant dans votre méthode **GetStartedDemo** sous la suppression du document, pour supprimer la base de données et toutes ses ressources enfants.
@@ -558,9 +566,9 @@ Copiez et collez le code suivant dans votre méthode **GetStartedDemo** sous la 
 
 Appuyez sur **F5** pour exécuter votre application.
 
-Félicitations ! Vous avez supprimé une base de données DocumentDB.
+Félicitations ! Vous avez supprimé une base de données DocumentDB.
 
-## <a id="Run"></a>Étape 11 : exécuter votre application de console C
+## <a name="a-idrunastep-11-run-your-c-console-application-all-together"></a><a id="Run"></a>Étape 11 : exécuter votre application de console C#
 Appuyez sur F5 dans Visual Studio pour générer l'application en mode débogage.
 
 La sortie de votre application de prise en main doit s’afficher. Celle-ci doit présenter les résultats des requêtes que nous avons ajoutées, qui doivent correspondre au texte d'exemple ci-dessous.
@@ -586,10 +594,10 @@ La sortie de votre application de prise en main doit s’afficher. Celle-ci doit
     Deleted Family Andersen.1
     End of demo, press any key to exit.
 
-Félicitations ! Vous avez terminé ce didacticiel NoSQL et que vous disposez d’une application de console C# qui fonctionne !
+Félicitations ! Vous avez terminé ce didacticiel NoSQL et que vous disposez d’une application de console C# qui fonctionne !
 
-## <a id="GetSolution"></a> Obtenir la solution complète du didacticiel NoSQL
-Pour générer la solution GetStarted qui contient tous les exemples de cet article, vous devez avoir les éléments suivants :
+## <a name="a-idgetsolutiona-get-the-complete-nosql-tutorial-solution"></a><a id="GetSolution"></a> Obtenir la solution complète du didacticiel NoSQL
+Pour générer la solution GetStarted qui contient tous les exemples de cet article, vous devez avoir les éléments suivants :
 
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [compte gratuit](https://azure.microsoft.com/free/).
 * Un [compte DocumentDB][documentdb-create-account].
@@ -597,15 +605,19 @@ Pour générer la solution GetStarted qui contient tous les exemples de cet arti
 
 Pour restaurer les références au Kit de développement logiciel (SDK) .NET de DocumentDB dans Visual Studio, cliquez avec le bouton droit sur la solution **GetStarted** dans l’Explorateur de solutions, puis cliquez sur **Activer la restauration des packages NuGet**. Ensuite, dans le fichier App.config, mettez à jour les valeurs pour EndpointUrl et AuthorizationKey comme décrit à la section [Se connecter à un compte DocumentDB](#Connect).
 
-## Étapes suivantes
-* Vous voulez un exemple de didacticiel NoSQL ASP.NET MVC plus complexe ? Consultez [Création d'une application web avec ASP.NET MVC et DocumentDB](documentdb-dotnet-application.md).
+## <a name="next-steps"></a>Étapes suivantes
+* Vous voulez un exemple de didacticiel NoSQL ASP.NET MVC plus complexe ? Consultez [Création d'une application web avec ASP.NET MVC et DocumentDB](documentdb-dotnet-application.md).
 * Vous souhaitez effectuer un test des performances et de la mise à l’échelle avec DocumentDB ? Consultez la page [Test des performances et de la mise à l’échelle avec Azure DocumentDB](documentdb-performance-testing.md)
 * Apprenez à [surveiller un compte DocumentDB](documentdb-monitor-accounts.md).
 * Exécutez des requêtes sur notre exemple de dataset dans le [Query Playground](https://www.documentdb.com/sql/demo).
-* Consultez la section Développer de la [page de documentation DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/) pour découvrir plus en détail le modèle de programmation.
+* Consultez la section Développer de la [page de documentation DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/)pour découvrir plus en détail le modèle de programmation.
 
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

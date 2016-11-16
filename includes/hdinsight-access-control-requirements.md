@@ -8,4 +8,8 @@ Pour plus d’informations sur le fonctionnement de la gestion des accès, consu
 * [Prise en main de la gestion des accès dans le portail Azure](../articles/active-directory/role-based-access-control-what-is.md)
 * [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../articles/active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

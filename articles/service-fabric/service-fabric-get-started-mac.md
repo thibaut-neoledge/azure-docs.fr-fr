@@ -1,12 +1,12 @@
 ---
-title: Configurer votre environnement de développement sur Mac OS X | Microsoft Docs
-description: Installez le runtime, le kit de développement logiciel et créez un cluster de développement local. Une fois la configuration terminée, vous serez prêt à générer des applications sur Mac OS X.
+title: "Configurer votre environnement de développement sur Mac OS X | Microsoft Docs"
+description: "Installez le runtime, le kit de développement logiciel et créez un cluster de développement local. Une fois la configuration terminée, vous serez prêt à générer des applications sur Mac OS X."
 services: service-fabric
 documentationcenter: .net
 author: seanmck
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b25afa13010716188eab0623b1d8ea0d525a2b36
+
 
 ---
-# Configurer votre environnement de développement sur Mac OS X
+# <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurer votre environnement de développement sur Mac OS X
 > [!div class="op_single_selector"]
 > -[ Windows](service-fabric-get-started.md)
 > 
@@ -27,13 +31,13 @@ ms.author: seanmck
 
 Vous pouvez générer des applications Service Fabric pour qu’elles s’exécutent sur les clusters Linux à l’aide de Mac OS X. Cet article explique comment configurer votre Mac pour le développement.
 
-## Composants requis
+## <a name="prerequisites"></a>Composants requis
 Service Fabric n’est pas exécuté en mode natif sur OS X. Pour exécuter un cluster Service Fabric local, nous fournissons une machine virtuelle Ubuntu préconfigurée à l’aide de Vagrant et VirtualBox. Avant de commencer, vous avez besoin des éléments suivants :
 
 * [Vagrant (v1.8.4 ou version ultérieure)](http://wwww.vagrantup.com/downloads)
 * [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
-## Créer la machine virtuelle locale
+## <a name="create-the-local-vm"></a>Créer la machine virtuelle locale
 Pour créer la machine virtuelle locale contenant un cluster Service Fabric à 5 nœuds, procédez comme suit :
 
 1. Clonez le référentiel Vagrantfile.
@@ -67,20 +71,20 @@ Pour créer la machine virtuelle locale contenant un cluster Service Fabric à 5
    
     ![Service Fabric Explorer affiché depuis le Mac hôte][sfx-mac]
 
-## Installer le plug-in Service Fabric pour Eclipse Neon (facultatif)
+## <a name="install-the-service-fabric-plugin-for-eclipse-neon-optional"></a>Installer le plug-in Service Fabric pour Eclipse Neon (facultatif)
 Service Fabric fournit un plug-in pour l’IDE Eclipse Neon qui peut simplifier le processus de génération et de déploiement des services Java.
 
 1. Dans Eclipse, assurez-vous que vous avez Buildship version 1.0.17 ou une version ultérieure. Vous pouvez vérifier les versions des composants installés en choisissant **Aide > Détails de l’installation**. Vous pouvez mettre à jour Buildship en suivant les instructions [ici][buildship-update].
 2. Pour installer le plug-in Service Fabric, choisissez **Aide > Installer un nouveau logiciel...**
-3. Dans la zone de texte « Work with » (Utiliser), entrez : http://dl.windowsazure.com/eclipse/servicefabric
+3. Dans la zone de texte « Utiliser », entrez : http://dl.windowsazure.com/eclipse/servicefabric.
 4. Cliquez sur Ajouter.
    
     ![Plug-in Eclipse Neon pour Service Fabric][sf-eclipse-plugin-install]
 5. Choisissez le plug-in Service Fabric et cliquez sur Suivant.
 6. Suivez les étapes d’installation et acceptez le contrat de licence d’utilisateur final.
 
-## Étapes suivantes
-* [Create your first Service Fabric application for Linux](service-fabric-create-your-first-linux-application-with-java.md) (Créer votre première application Service Fabric pour Linux)
+## <a name="next-steps"></a>Étapes suivantes
+* [Create your first Service Fabric application for Linux](service-fabric-create-your-first-linux-application-with-java.md)
 
 <!-- Links -->
 
@@ -94,4 +98,8 @@ Service Fabric fournit un plug-in pour l’IDE Eclipse Neon qui peut simplifier 
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

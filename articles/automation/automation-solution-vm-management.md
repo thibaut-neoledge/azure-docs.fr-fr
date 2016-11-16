@@ -1,12 +1,12 @@
 ---
-title: Solution Start/Stop VMs during off-hours (Preview) (Démarrer/arrêter des machines virtuelles durant les heures creuses [version préliminaire]) | Microsoft Docs
-description: Cette solution de gestion de machines virtuelles assure le démarrage et l’arrêt de vos machines virtuelles Azure Resource Manager selon une planification, et permet une surveillance proactive depuis Log Analytics.
+title: "Solution Start/Stop VMs during off-hours (Preview) (Démarrer/arrêter des machines virtuelles durant les heures creuses [version préliminaire]) | Microsoft Docs"
+description: "Cette solution de gestion de machines virtuelles assure le démarrage et l’arrêt de vos machines virtuelles Azure Resource Manager selon une planification, et permet une surveillance proactive depuis Log Analytics."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/07/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b0fec06e4a167e615381fca17def46923d9f0f1b
+
 
 ---
-# <a name="start/stop-vms-during-off-hours-[preview]-solution-in-automation"></a>Solution Start/Stop VMs during off-hours (Preview) (Démarrer/arrêter des machines virtuelles durant les heures creuses [version préliminaire]) dans Automation
+# <a name="startstop-vms-during-offhours-preview-solution-in-automation"></a>Solution Start/Stop VMs during off-hours (Preview) (Démarrer/arrêter des machines virtuelles durant les heures creuses [version préliminaire]) dans Automation
 La solution Start/Stop VMs during off-hours (Preview) (Démarrer/arrêter des machines virtuelles durant les heures creuses [version préliminaire]) assure le démarrage et l’arrêt de vos machines virtuelles Azure Resource Manager et fournit des informations sur la réussite des tâches Automation qui démarrent et arrêtent vos machines virtuelles avec OMS Log Analytics.  
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 * Les runbooks fonctionnent avec un [compte d’identification Azure](automation-sec-configure-azure-runas-account.md).  Le compte d’identification est la méthode d’authentification recommandée, car elle utilise l’authentification par certificat au lieu d’un mot de passe, susceptible d’expirer ou de changer fréquemment.  
 * Cette solution permet uniquement de gérer les machines virtuelles qui se trouvent dans le même abonnement et le même groupe de ressources que le compte Automation.  
 * Cette solution peut seulement être déployée dans les régions Azure suivantes : Sud-Est de l’Australie, États-Unis de l’Est, Sud-Est Asiatique et Europe de l’Ouest.  Les runbooks qui gèrent la planification des machines virtuelles peuvent cibler les machines virtuelles de n’importe quelle région.  
-* L’envoi de notifications par courrier électronique à l’issue de l’exécution des runbooks de démarrage et d’arrêt de machines virtuelles nécessite un abonnement Office 365 professionnel.  
+* L’envoi de notifications par courrier électronique à l’issue de l’exécution des runbooks de démarrage et d’arrêt de machines virtuelles nécessite un abonnement Office 365 professionnel.  
 
 ## <a name="solution-components"></a>Composants de la solution
 Cette solution comprend les ressources suivantes, qui sont importées et ajoutées à votre compte Automation.
@@ -83,7 +87,7 @@ Procédez comme suit pour ajouter la solution Start/Stop VMs during off-hours (P
 2. Dans le panneau Marketplace, tapez **démarrer machine virtuelle** dans la zone de recherche, puis sélectionnez la solution **Start/Stop VMs during off-hours [Preview]** (Démarrer/arrêter des machines virtuelles durant les heures creuses [version préliminaire]) dans les résultats de la recherche.  
 3. Dans le panneau **Start/Stop VMs during off-hours [Preview]** (Démarrer/arrêter des machines virtuelles durant les heures creuses [version préliminaire]) de la solution sélectionnée, vérifiez les informations de résumé, puis cliquez sur **Créer**.  
 4. Le panneau **Ajouter une solution** s’affiche, vous invitant à configurer la solution pour pouvoir l’importer dans votre abonnement Automation.<br><br> ![Panneau Ajouter une solution de VM Management (Gestion de machines virtuelles)](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
-5. Dans le panneau **Ajouter une solution**, sélectionnez **Espace de travail**, puis sélectionnez un espace de travail OMS lié à l’abonnement Azure où le compte Automation se trouve ou créez un espace de travail OMS.  Si vous ne disposez pas d’espace de travail OMS, vous pouvez sélectionner **Créer un espace de travail**, puis dans le panneau **Espace de travail OMS**, procédez comme suit : 
+5. Dans le panneau **Ajouter une solution**, sélectionnez **Espace de travail**, puis sélectionnez un espace de travail OMS lié à l’abonnement Azure où le compte Automation se trouve ou créez un espace de travail OMS.  Si vous ne disposez pas d’espace de travail OMS, vous pouvez sélectionner **Créer un espace de travail**, puis dans le panneau **Espace de travail OMS**, procédez comme suit : 
    
    * Spécifiez un nom pour le nouvel **espace de travail OMS**.
    * Dans la liste déroulante **Abonnement**, sélectionnez un abonnement à lier si la valeur par défaut sélectionnée n’est pas appropriée.
@@ -96,14 +100,14 @@ Procédez comme suit pour ajouter la solution Start/Stop VMs during off-hours (P
      > 
      > 
 6. Après avoir entré les informations requises dans le panneau **Espace de travail OMS**, cliquez sur **Créer**.  Pendant que les informations sont vérifiées et l’espace de travail créé, vous pouvez suivre la progression sous **Notifications** dans le menu.  Vous serez redirigé vers le panneau **Ajouter une solution**.  
-7. Dans le panneau **Ajouter une solution**, sélectionnez **Compte Automation**.  Si vous créez un espace de travail OMS, vous devez également créer un compte Automation qui sera associé à l’espace de travail OMS spécifié précédemment, y compris votre abonnement, votre groupe de ressources et votre région Azure.  Vous pouvez sélectionner **Créer un compte Automation** et dans le panneau **Ajouter un compte Automation**, fournir les informations suivantes : 
+7. Dans le panneau **Ajouter une solution**, sélectionnez **Compte Automation**.  Si vous créez un espace de travail OMS, vous devez également créer un compte Automation qui sera associé à l’espace de travail OMS spécifié précédemment, y compris votre abonnement, votre groupe de ressources et votre région Azure.  Vous pouvez sélectionner **Créer un compte Automation** et dans le panneau **Ajouter un compte Automation**, fournir les informations suivantes : 
    
    * Dans le champ **Nom**, saisissez le nom du compte Automation.
      
      Toutes les autres options sont renseignées automatiquement en fonction de l’espace de travail OMS sélectionné et ne peuvent pas être modifiées.  Un compte d’identification Azure est la méthode d’authentification par défaut pour les runbooks inclus dans cette solution.  Lorsque vous cliquez sur **OK**, les options de configuration sont validées et le compte Automation est créé.  Vous pouvez suivre la progression sous **Notifications** dans le menu. 
      
      Sinon, vous pouvez sélectionner un compte d’identification Automation existant.  Notez que le compte que vous sélectionnez ne peut pas déjà être lié à un autre espace de travail OMS, ou un message s’affichera dans le panneau pour vous en informer.  Si le compte est déjà lié, vous devez sélectionner un autre compte d’identification Automation ou en créer un nouveau.<br><br> ![Compte Automation déjà lié à l’espace de travail OMS](media/automation-solution-vm-management/vm-management-solution-add-solution-blade-autoacct-warning.png)<br>
-8. Enfin, dans le panneau **Ajouter une solution**, sélectionnez **Configuration** pour afficher le panneau **Paramètres**.  Dans le panneau **Paramètres**, vous êtes invité à :  
+8. Enfin, dans le panneau **Ajouter une solution**, sélectionnez **Configuration** pour afficher le panneau **Paramètres**.  Dans le panneau **Paramètres**, vous êtes invité à :  
    
    * Spécifier le **nom du groupe de ressources cible**, c’est-à-dire le nom du groupe de ressources qui contient les machines virtuelles à gérer par cette solution.  Vous pouvez entrer plusieurs noms en les séparant à l’aide de points-virgules (les valeurs respectent la casse).  Si vous souhaitez cibler les machines virtuelles de tous les groupes de ressources de l’abonnement, l’utilisation d’un caractère générique est prise en charge.
    * Sélectionnez une **planification**, c’est-à-dire une date et une heure récurrentes pour le démarrage et l’arrêt des machines virtuelles du ou des groupes de ressources.  
@@ -121,19 +125,19 @@ La sélection de la solution entraîne l’ouverture du panneau de la solution *
 
 À ce stade, vous pouvez également ouvrir votre espace de travail OMS et analyser plus en détail les enregistrements de tâche.  Cliquez simplement sur **Tous les paramètres**, et dans le panneau **Paramètres**, sélectionnez **Démarrage rapide** puis, dans **Démarrage rapide**, sélectionnez **Portail OMS**.   Cela a pour effet d’ouvrir un nouvel onglet ou une nouvelle session de navigateur et de présenter votre espace de travail OMS associé à votre compte et votre abonnement Automation.  
 
-### <a name="configuring-e-mail-notifications"></a>Configuration des notifications par courrier électronique
-Pour activer l’envoi de notifications par courrier électronique à l’issue de l’exécution des runbooks de démarrage et d’arrêt de machines virtuelles, vous devez modifier les informations d’identification **O365Credential** et au moins les variables suivantes :
+### <a name="configuring-email-notifications"></a>Configuration des notifications par courrier électronique
+Pour activer l’envoi de notifications par courrier électronique à l’issue de l’exécution des runbooks de démarrage et d’arrêt de machines virtuelles, vous devez modifier les informations d’identification **O365Credential** et au moins les variables suivantes :
 
 * SendMailO365-IsSendEmail-MS-Mgmt
 * StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
 * StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
 
-Pour configurer les informations d’identification **O365Credential**, procédez comme suit :
+Pour configurer les informations d’identification **O365Credential**, procédez comme suit :
 
 1. Dans votre compte Automation, cliquez sur **Tous les paramètres** en haut de la fenêtre. 
 2. Dans le panneau **Paramètres** situé sous la section **Ressources Automation**, sélectionnez **Actifs**. 
 3. Dans le panneau **Actifs**, sélectionnez la vignette **Informations d’identification**, puis dans le panneau **Informations d’identification**, sélectionnez **O365Credential**.  
-4. Entrez un nom d’utilisateur et un mot de passe Office 365 valides, puis cliquez sur **Enregistrer** pour enregistrer vos modifications.  
+4. Entrez un nom d’utilisateur et un mot de passe Office 365 valides, puis cliquez sur **Enregistrer** pour enregistrer vos modifications.  
 
 Pour configurer les variables indiquées précédemment, procédez comme suit :
 
@@ -160,11 +164,11 @@ Automation crée deux types d’enregistrements dans le référentiel OMS.
 | ResourceGroup |Spécifie le nom du groupe de ressources de la tâche du runbook. |
 | ResourceProvider |Spécifie le service qui fournit les ressources que vous pouvez déployer et gérer.  Pour Automation, la valeur est Azure Automation. |
 | ResourceType |Spécifie le type de ressource dans Azure.  Pour Automation, la valeur est le compte Automation associé au runbook. |
-| resultType |L’état du travail du runbook.  Les valeurs possibles sont les suivantes :<br>- Started<br>- Stopped<br>- Suspended<br>- Failed<br>- Succeeded |
-| resultDescription |Décrit l’état résultant du travail du runbook.  Les valeurs possibles sont les suivantes :<br>- Job is started<br>- Job Failed<br>- Job Completed |
+| resultType |L’état du travail du runbook.  Les valeurs possibles sont les suivantes :<br>Démarré<br>Arrêté<br>Interrompu<br>Échec<br>- Succeeded |
+| resultDescription |Décrit l’état résultant du travail du runbook.  Les valeurs possibles sont les suivantes :<br>- Job is started<br>- Job Failed<br>- Job Completed |
 | RunbookName |Spécifie le nom du runbook. |
 | SourceSystem |Spécifie le système source pour les données soumises.  Pour Automation, la valeur sera OpsManager. |
-| StreamType |Spécifie le type d’événement. Les valeurs possibles sont les suivantes :<br>- Verbose<br>- Output<br>- Error<br>- Warning |
+| StreamType |Spécifie le type d’événement. Les valeurs possibles sont les suivantes :<br>- Verbose<br>Sortie<br>Error<br>Avertissement |
 | SubscriptionId |Spécifie l’ID d’abonnement de la tâche. |
 | Time |Date et heure d’exécution du travail du runbook. |
 
@@ -179,11 +183,11 @@ Automation crée deux types d’enregistrements dans le référentiel OMS.
 | resourceId |Spécifie l’ID de ressource dans Azure.  Pour Automation, la valeur est le compte Automation associé au runbook. |
 | ResourceProvider |Spécifie le service qui fournit les ressources que vous pouvez déployer et gérer.  Pour Automation, la valeur est Azure Automation. |
 | ResourceType |Spécifie le type de ressource dans Azure.  Pour Automation, la valeur est le compte Automation associé au runbook. |
-| resultType |Résultat de la tâche du runbook au moment où l’événement a été généré.  Les valeurs possibles sont les suivantes :<br>- InProgress |
+| resultType |Résultat de la tâche du runbook au moment où l’événement a été généré.  Les valeurs possibles sont les suivantes :<br>- InProgress |
 | resultDescription |Inclut le flux de sortie du runbook. |
 | RunbookName |Nom du runbook. |
 | SourceSystem |Spécifie le système source pour les données soumises.  Pour Automation, la valeur sera OpsManager. |
-| StreamType |Type de flux de travail. Les valeurs possibles sont les suivantes :<br>-Progress<br>- Output<br>- Warning<br>- Error<br>- Debug<br>- Verbose |
+| StreamType |Type de flux de travail. Les valeurs possibles sont les suivantes :<br>progress<br>Sortie<br>Avertissement<br>error<br>DEBUG<br>- Verbose |
 | Time |Date et heure d’exécution du travail du runbook. |
 
 Lorsque vous effectuez une recherche de journal qui retourne des enregistrements de la catégorie **JobLogs** ou **JobStreams**, vous pouvez sélectionner la vue **JobLogs** ou **JobStreams** pour afficher un ensemble de vignettes résumant les informations renvoyées par la recherche.
@@ -202,6 +206,9 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 * Pour en savoir plus sur l’exécution d’un runbook, la manière de surveiller des tâches de runbook et d’autres détails techniques, consultez [Suivre une tâche de runbook](automation-runbook-execution.md)
 * Pour en savoir plus sur OMS Log Analytics et sur les sources de collecte de données, consultez [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

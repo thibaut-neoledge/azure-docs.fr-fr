@@ -1,6 +1,5 @@
 # Vue d'ensemble
 ## [Présentation de Machine Learning](machine-learning-what-is-machine-learning.md)
-## [Forum Aux Questions](machine-learning-faq.md)
 ## [Nouveautés](machine-learning-whats-new.md)
 ## [Obtenir de l’aide de conversation en direct](machine-learning-live-chat.md)
 ## Machine Learning Studio
@@ -12,145 +11,12 @@
 ### [Cycle de vie](data-science-process-overview.md)
 ### [Outils et utilitaires](machine-learning-data-science-environment-setup.md)
 ### [Procédures pas à pas](data-science-process-walkthroughs.md)
-# Prise en main
-## [Créer votre première expérience](machine-learning-create-experiment.md)
-## Procédure pas à pas
-### [Créer une solution prédictive](machine-learning-walkthrough-develop-predictive-solution.md)
-### [1 : Créer un espace de travail](machine-learning-walkthrough-1-create-ml-workspace.md)
-### [2 : Charger des données](machine-learning-walkthrough-2-upload-data.md)
-### [3 : Créer une expérience](machine-learning-walkthrough-3-create-new-experiment.md)
-### [4 : Former et évaluer ](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-### [5 : Déployer un service web](machine-learning-walkthrough-5-publish-web-service.md)
-### [6 : Accéder au service web](machine-learning-walkthrough-6-access-web-service.md)
-## Science des données pour les débutants
-### [1 : Cinq questions](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
-### [2 : Vos données sont-elles prêtes ?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
-### [3 : Poser la bonne question](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
-### [4 : Prédire une réponse](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
-### [5 : copier le de travail des autres](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
-# Procédure
-## Présentation de l’entreprise
-### [Identifier des scénarios](machine-learning-data-science-plan-your-environment.md)
-### [Afficher des exemples de scénarios](machine-learning-data-science-plan-sample-scenarios.md)
-## Outils et utilitaires
-### [Configurer des environnements](machine-learning-data-science-environment-setup.md)
-### [Configurer des machines virtuelles](machine-learning-data-science-virtual-machines.md)
-### [Personnaliser Hadoop](machine-learning-data-science-customize-hadoop-cluster.md)
-### Configurer une machine virtuelle
-#### [Présentation de machine virtuelle DS](machine-learning-data-science-virtual-machine-overview.md)
-#### [Utilisation de la machine virtuelle DS](machine-learning-data-science-vm-do-ten-things.md)
-#### [Approvisionner la machine Virtuelle DS](machine-learning-data-science-provision-vm.md)
-#### [Configurer une machine virtuelle Azure](machine-learning-data-science-setup-virtual-machine.md)
-#### [Configurer une machine virtuelle SQL](machine-learning-data-science-setup-sql-server-virtual-machine.md)
-#### [Configurer une machine virtuelle Linux](machine-learning-data-science-linux-dsvm-intro.md)
-#### [Utiliser une machine virtuelle Linux](machine-learning-data-science-linux-dsvm-walkthrough.md)
-### Gérer un espace de travail
-#### [Créer un espace de travail](machine-learning-create-workspace.md)
-#### [Gérer un espace de travail](machine-learning-manage-workspace.md)
-#### [Résolution des problèmes](machine-learning-troubleshooting-creating-ml-workspace.md)
-#### [Déployer à l’aide d’ARM](machine-learning-deploy-with-resource-manager-template.md)
-#### [Créer dans une autre région](machine-learning-multi-geo.md)
-## Acquisition de données et compréhension
-### Charger les données dans le stockage
-#### [Vue d'ensemble](machine-learning-data-science-ingest-data.md)
-#### [Stockage d’objets blob](machine-learning-data-science-move-azure-blob.md)
-#### [Utiliser l’Explorateur de stockage](machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer.md)
-#### [Utiliser AzCopy](machine-learning-data-science-move-data-to-azure-blob-using-azcopy.md)
-#### [Utiliser Python](machine-learning-data-science-move-data-to-azure-blob-using-python.md)
-#### [Utiliser SSIS](machine-learning-data-science-move-data-to-azure-blob-using-ssis.md)
-#### [Migrer vers une machine Virtuelle](machine-learning-data-science-move-sql-server-virtual-machine.md)
-#### [Migrer vers SQL Database](machine-learning-data-science-move-sql-azure.md)
-#### [Charger dans des tables hive](machine-learning-data-science-move-hive-tables.md)
-#### [Charger à partir de SQL en local](machine-learning-data-science-move-sql-azure-adf.md)
-### Importer les données de formation
-#### [Vue d'ensemble](machine-learning-data-science-import-data.md)
-#### [À partir d’un fichier local](machine-learning-import-data-from-local-file.md)
-#### [À partir de sources en ligne](machine-learning-import-data-from-online-sources.md)
-#### [À partir d'une expérience](machine-learning-import-data-from-an-experiment.md)
-#### [Utiliser des tables de partition SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)
-#### [Utiliser du code SQL en local](machine-learning-use-data-from-an-on-premises-sql-server.md)
-### Explorer et visualiser des données
-#### [Préparer les données](machine-learning-data-science-prepare-data.md)
-#### Explorer les données
-##### [Vue d'ensemble](machine-learning-data-science-explore-data.md)
-##### [Utiliser Pandas](machine-learning-data-science-explore-data-blob.md)
-##### [Utilisez la machine virtuelle SQL](machine-learning-data-science-explore-data-sql-server.md)
-##### [Utiliser des tables Hive](machine-learning-data-science-explore-data-hive-tables.md)
-#### Exemples de données
-##### [Vue d'ensemble](machine-learning-data-science-sample-data.md)
-##### [Utiliser le stockage Blob](machine-learning-data-science-sample-data-blob.md)
-##### [Utiliser SQL Server](machine-learning-data-science-sample-data-sql-server.md)
-##### [Utiliser des tables Hive](machine-learning-data-science-sample-data-hive.md)
-#### Traitement des données
-##### [Accès avec Python](machine-learning-python-data-access.md)
-##### [Traiter des données blob](machine-learning-data-science-process-data-blob.md)
-##### [Utiliser Azure Data Lake](machine-learning-data-science-process-data-lake-walkthrough.md)
-##### [Utilisez la machine virtuelle SQL](machine-learning-data-science-process-sql-server-virtual-machine.md)
-##### [Utiliser un pipeline de données](machine-learning-automated-data-pipeline-cheat-sheet.md)
-#### Utiliser Spark
-##### [Vue d'ensemble](machine-learning-data-science-spark-overview.md)
-##### [Explorer les données](machine-learning-data-science-spark-data-exploration-modeling.md)
-##### [Modèles de score](machine-learning-data-science-spark-model-consumption.md)
-##### [Exploration de données avancée](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
-##### [Utiliser Scala et Spark](machine-learning-data-science-process-scala-walkthrough.md)
-## Modélisation
-### Ingénierie des caractéristiques
-#### [Vue d'ensemble](machine-learning-data-science-create-features.md)
-#### [pandas](machine-learning-data-science-create-features-blob.md)
-#### [Utiliser SQL + Python](machine-learning-data-science-create-features-sql-server.md)
-#### [Utiliser des requêtes Hive](machine-learning-data-science-create-features-hive.md)
-#### [Vue d'ensemble](machine-learning-data-science-select-features.md)
-### Créer et former des modèles
-#### [Créer votre première expérience](machine-learning-create-experiment.md)
-#### [Convertir au scorage](machine-learning-convert-training-experiment-to-scoring-experiment.md)
-#### [Gérer les itérations](machine-learning-manage-experiment-iterations.md)
-#### Sélectionner des algorithmes
-##### [Choisir des algorithmes](machine-learning-algorithm-choice.md)
-##### [Aide-mémoire d’algorithme](machine-learning-algorithm-cheat-sheet.md)
-##### [Utiliser une régression linéaire](machine-learning-linear-regression-in-azure.md)
-##### [Utiliser l’analyse de texte](machine-learning-text-analytics-module-tutorial.md)
-##### [Référence Algorithme](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-#### Évaluer et interpréter les résultats
-##### [Évaluer les performances](machine-learning-evaluate-model-performance.md)
-##### [Optimiser les paramètres](machine-learning-algorithm-parameters-optimize.md)
-##### [Interpréter les résultats](machine-learning-interpret-model-results.md)
-##### [Déboguer](machine-learning-debug-models.md)
-#### À l’aide de R et Python
-##### [Exécuter des scripts R](machine-learning-extend-your-experiment-with-r.md)
-##### [Créer des modules R personnalisés](machine-learning-custom-r-modules.md)
-##### [Exécuter des scripts Python](machine-learning-execute-python-scripts.md)
-## Déploiement
-### [Vue d'ensemble](machine-learning-deploy-consume-web-service-guide.md)
-### Déployer des modèles
-#### [Fonctionnement](machine-learning-model-progression-experiment-to-web-service.md)
-#### [Déployer comme un nouveau service web](machine-learning-webservice-deploy-a-web-service.md)
-#### [Déployer un service web](machine-learning-publish-a-machine-learning-web-service.md)
-#### [Obtenir des données externes](machine-learning-web-services-that-use-import-export-modules.md)
-#### [Déploiement dans plusieurs régions](machine-learning-how-to-deploy-to-multiple-regions.md)
-#### [Publier sur la Place de marché](machine-learning-publish-web-service-to-azure-marketplace.md)
-#### [Utiliser des paramètres de service web](machine-learning-web-service-parameters.md)
-#### [Activer la journalisation](machine-learning-web-services-logging.md)
-### Gérer des services web
-#### [Créer des points de terminaison](machine-learning-create-endpoint.md)
-#### [Utiliser le portail de Services Web](machine-learning-manage-new-webservice.md)
-#### [Gérer avec les API](machine-learning-manage-web-service-endpoints-using-api-management.md)
-#### [Mise à l'échelle](machine-learning-scaling-webservice.md)
-### Reformer des modèles
-#### [Vue d'ensemble](machine-learning-retrain-machine-learning-model.md)
-#### [Reformer par programme](machine-learning-retrain-models-programmatically.md)
-#### [Reformer un service web Classic](machine-learning-retrain-a-classic-web-service.md)
-#### [Reformer avec PowerShell](machine-learning-retrain-new-web-service-using-powershell.md)
-#### [Reformer un service web existant](machine-learning-retrain-existing-resource-manager-based-web-service.md)
-#### [Résolution des problèmes](machine-learning-troubleshooting-retraining-models.md)
-### Consommer des modèles
-#### [Vue d'ensemble](machine-learning-connect-to-azure-machine-learning-web-service.md)
-#### [Utiliser Excel](machine-learning-consuming-from-excel.md)
-#### [Utiliser le complément Excel](machine-learning-excel-add-in-for-web-services.md)
-#### [Utiliser un modèle d’application web](machine-learning-consume-web-service-with-web-app-template.md)
-# Exemples
-## [Exemples d'expérimentations](machine-learning-sample-experiments.md)
-## [Exemples de jeux de données](machine-learning-use-sample-datasets.md)
-## [Exemple d’évolution client](machine-learning-azure-ml-customer-churn-scenario.md)
+## [Identifier des scénarios](machine-learning-data-science-plan-your-environment.md)
+## [Afficher des exemples de scénarios](machine-learning-data-science-plan-sample-scenarios.md)
+## Exemples
+### [Exemples d'expérimentations](machine-learning-sample-experiments.md)
+### [Exemples de jeux de données](machine-learning-use-sample-datasets.md)
+### [Exemple d’évolution client](machine-learning-azure-ml-customer-churn-scenario.md)
 ## API
 ### [Détection des anomalies](machine-learning-apps-anomaly-detection.md)
 ### [Analyse de texte](machine-learning-apps-text-analytics.md)
@@ -189,16 +55,148 @@
 ### [Normal Distribution Suite](machine-learning-r-csharp-normal-distribution.md)
 ### [Suite de distribution binomiale](machine-learning-r-csharp-binomial-distribution.md)
 ### [FAQ Place de marché](machine-learning-marketplace-faq.md)
-# Référence
+
+# Prise en main
+## [Créer votre première expérience](machine-learning-create-experiment.md)
+## [Créer une solution prédictive](machine-learning-walkthrough-develop-predictive-solution.md)
+### [1 : Créer un espace de travail](machine-learning-walkthrough-1-create-ml-workspace.md)
+### [2 : Charger des données](machine-learning-walkthrough-2-upload-data.md)
+### [3 : Créer une expérience](machine-learning-walkthrough-3-create-new-experiment.md)
+### [4 : Former et évaluer ](machine-learning-walkthrough-4-train-and-evaluate-models.md)
+### [5 : Déployer un service web](machine-learning-walkthrough-5-publish-web-service.md)
+### [6 : Accéder au service web](machine-learning-walkthrough-6-access-web-service.md)
+## Science des données pour les débutants
+### [1 : Cinq questions](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
+### [2 : Vos données sont-elles prêtes ?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
+### [3 : Poser la bonne question](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
+### [4 : Prédire une réponse](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
+### [5 : copier le travail des autres](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
+## [Forum Aux Questions](machine-learning-faq.md)
+
+# Procédure
+## Installer des outils 
+### [Configurer des environnements](machine-learning-data-science-environment-setup.md)
+### [Configurer des machines virtuelles](machine-learning-data-science-virtual-machines.md)
+### [Personnaliser Hadoop](machine-learning-data-science-customize-hadoop-cluster.md)
+## Configurer une machine virtuelle
+### [Présentation de machine virtuelle DS](machine-learning-data-science-virtual-machine-overview.md)
+### [Utilisation de la machine virtuelle DS](machine-learning-data-science-vm-do-ten-things.md)
+### [Approvisionner la machine Virtuelle DS](machine-learning-data-science-provision-vm.md)
+### [Configurer une machine virtuelle Azure](machine-learning-data-science-setup-virtual-machine.md)
+### [Configurer une machine virtuelle SQL](machine-learning-data-science-setup-sql-server-virtual-machine.md)
+### [Configurer une machine virtuelle Linux](machine-learning-data-science-linux-dsvm-intro.md)
+### [Utiliser une machine virtuelle Linux](machine-learning-data-science-linux-dsvm-walkthrough.md)
+## Gérer un espace de travail
+### [Créer un espace de travail](machine-learning-create-workspace.md)
+### [Gérer un espace de travail](machine-learning-manage-workspace.md)
+### [Résolution des problèmes](machine-learning-troubleshooting-creating-ml-workspace.md)
+### [Déployer à l’aide d’ARM](machine-learning-deploy-with-resource-manager-template.md)
+### [Créer dans une autre région](machine-learning-multi-geo.md)
+## Charger les données dans le stockage
+### [Vue d'ensemble](machine-learning-data-science-ingest-data.md)
+### [Stockage d’objets blob](machine-learning-data-science-move-azure-blob.md)
+### [Utiliser l’Explorateur de stockage](machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer.md)
+### [Utiliser AzCopy](machine-learning-data-science-move-data-to-azure-blob-using-azcopy.md)
+### [Utiliser Python](machine-learning-data-science-move-data-to-azure-blob-using-python.md)
+### [Utiliser SSIS](machine-learning-data-science-move-data-to-azure-blob-using-ssis.md)
+### [Migrer vers une machine Virtuelle](machine-learning-data-science-move-sql-server-virtual-machine.md)
+### [Migrer vers SQL Database](machine-learning-data-science-move-sql-azure.md)
+### [Charger dans des tables hive](machine-learning-data-science-move-hive-tables.md)
+### [Charger à partir de SQL en local](machine-learning-data-science-move-sql-azure-adf.md)
+## Importer les données de formation
+### [Vue d'ensemble](machine-learning-data-science-import-data.md)
+### [À partir d’un fichier local](machine-learning-import-data-from-local-file.md)
+### [À partir de sources en ligne](machine-learning-import-data-from-online-sources.md)
+### [À partir d'une expérience](machine-learning-import-data-from-an-experiment.md)
+### [Utiliser des tables de partition SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)
+### [Utiliser du code SQL en local](machine-learning-use-data-from-an-on-premises-sql-server.md)
+## Explorer et visualiser des données
+### [Préparer les données](machine-learning-data-science-prepare-data.md)
+### Explorer les données
+#### [Vue d'ensemble](machine-learning-data-science-explore-data.md)
+#### [Utiliser Pandas](machine-learning-data-science-explore-data-blob.md)
+#### [Utilisez la machine virtuelle SQL](machine-learning-data-science-explore-data-sql-server.md)
+#### [Utiliser des tables Hive](machine-learning-data-science-explore-data-hive-tables.md)
+### Exemples de données
+#### [Vue d'ensemble](machine-learning-data-science-sample-data.md)
+#### [Utiliser le stockage Blob](machine-learning-data-science-sample-data-blob.md)
+#### [Utiliser SQL Server](machine-learning-data-science-sample-data-sql-server.md)
+#### [Utiliser des tables Hive](machine-learning-data-science-sample-data-hive.md)
+### Traitement des données
+#### [Accès avec Python](machine-learning-python-data-access.md)
+#### [Traiter des données blob](machine-learning-data-science-process-data-blob.md)
+#### [Utiliser Azure Data Lake](machine-learning-data-science-process-data-lake-walkthrough.md)
+#### [Utilisez la machine virtuelle SQL](machine-learning-data-science-process-sql-server-virtual-machine.md)
+#### [Utiliser un pipeline de données](machine-learning-automated-data-pipeline-cheat-sheet.md)
+### Utiliser Spark
+#### [Vue d'ensemble](machine-learning-data-science-spark-overview.md)
+#### [Explorer les données](machine-learning-data-science-spark-data-exploration-modeling.md)
+#### [Modèles de score](machine-learning-data-science-spark-model-consumption.md)
+#### [Exploration de données avancée](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
+#### [Utiliser Scala et Spark](machine-learning-data-science-process-scala-walkthrough.md)
+## Données de modèle
+### Ingénierie des caractéristiques
+#### [Vue d'ensemble](machine-learning-data-science-create-features.md)
+#### [pandas](machine-learning-data-science-create-features-blob.md)
+#### [Utiliser SQL + Python](machine-learning-data-science-create-features-sql-server.md)
+#### [Utiliser des requêtes Hive](machine-learning-data-science-create-features-hive.md)
+#### [Vue d'ensemble](machine-learning-data-science-select-features.md)
+### Créer et former des modèles
+#### [Créer votre première expérience](machine-learning-create-experiment.md)
+#### [Convertir au scorage](machine-learning-convert-training-experiment-to-scoring-experiment.md)
+#### [Gérer les itérations](machine-learning-manage-experiment-iterations.md)
+#### Sélectionner des algorithmes
+##### [Choisir des algorithmes](machine-learning-algorithm-choice.md)
+##### [Aide-mémoire d’algorithme](machine-learning-algorithm-cheat-sheet.md)
+##### [Utiliser une régression linéaire](machine-learning-linear-regression-in-azure.md)
+##### [Utiliser l’analyse de texte](machine-learning-text-analytics-module-tutorial.md)
+##### [Référence Algorithme](https://msdn.microsoft.com/library/azure/dn905974.aspx)
+#### Évaluer et interpréter les résultats
+##### [Évaluer les performances](machine-learning-evaluate-model-performance.md)
+##### [Optimiser les paramètres](machine-learning-algorithm-parameters-optimize.md)
+##### [Interpréter les résultats](machine-learning-interpret-model-results.md)
+##### [Déboguer](machine-learning-debug-models.md)
+#### À l’aide de R et Python
+##### [Exécuter des scripts R](machine-learning-extend-your-experiment-with-r.md)
+##### [Créer des modules R personnalisés](machine-learning-custom-r-modules.md)
+##### [Exécuter des scripts Python](machine-learning-execute-python-scripts.md)
+## Déployer
+### [Vue d’ensemble](machine-learning-deploy-consume-web-service-guide.md)
+### Déployer des modèles
+#### [Fonctionnement](machine-learning-model-progression-experiment-to-web-service.md)
+#### [Déployer comme un nouveau service web](machine-learning-webservice-deploy-a-web-service.md)
+#### [Déployer un service web](machine-learning-publish-a-machine-learning-web-service.md)
+#### [Obtenir des données externes](machine-learning-web-services-that-use-import-export-modules.md)
+#### [Déploiement dans plusieurs régions](machine-learning-how-to-deploy-to-multiple-regions.md)
+#### [Publier sur la Place de marché](machine-learning-publish-web-service-to-azure-marketplace.md)
+#### [Utiliser des paramètres de service web](machine-learning-web-service-parameters.md)
+#### [Activer la journalisation](machine-learning-web-services-logging.md)
+### Gérer des services web
+#### [Créer des points de terminaison](machine-learning-create-endpoint.md)
+#### [Utiliser le portail de Services Web](machine-learning-manage-new-webservice.md)
+#### [Gérer avec les API](machine-learning-manage-web-service-endpoints-using-api-management.md)
+#### [Mise à l'échelle](machine-learning-scaling-webservice.md)
+### Reformer des modèles
+#### [Vue d'ensemble](machine-learning-retrain-machine-learning-model.md)
+#### [Reformer par programme](machine-learning-retrain-models-programmatically.md)
+#### [Reformer un service web Classic](machine-learning-retrain-a-classic-web-service.md)
+#### [Reformer avec PowerShell](machine-learning-retrain-new-web-service-using-powershell.md)
+#### [Reformer un service web existant](machine-learning-retrain-existing-resource-manager-based-web-service.md)
+#### [Résolution des problèmes](machine-learning-troubleshooting-retraining-models.md)
+### Consommer des modèles
+#### [Vue d'ensemble](machine-learning-connect-to-azure-machine-learning-web-service.md)
+#### [Utiliser Excel](machine-learning-consuming-from-excel.md)
+#### [Utiliser le complément Excel](machine-learning-excel-add-in-for-web-services.md)
+#### [Utiliser un modèle d’application web](machine-learning-consume-web-service-with-web-app-template.md)
+
+#Référence
 ## [Démarrage rapide de R](machine-learning-r-quickstart.md)
 ## [Vue d’ensemble de PowerShell](machine-learning-powershell-module.md)
 ## [Utiliser PowerShell pour créer des modèles](machine-learning-create-models-and-endpoints-with-powershell.md)
 ## [API REST du service Web](https://msdn.microsoft.com/library/azure/dn950030.aspx)
 ## [Langage de réseaux neuronaux Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
+
 # Rubriques connexes
-# les ressources
-## [Blog](http://blogs.technet.com/b/machinelearning/)
-## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)
 ## galerie Cortana Intelligence
 ### [Vue d'ensemble](machine-learning-gallery-how-to-use-contribute-publish.md)
 ### [Secteurs d’activité](machine-learning-gallery-industries.md)
@@ -210,6 +208,11 @@
 ### [Didacticiels](machine-learning-gallery-tutorials.md)
 ### [Collections](machine-learning-gallery-collections.md)
 ### [Modules personnalisés](machine-learning-gallery-custom-modules.md)
+
+# Ressources
+## [Blog](http://blogs.technet.com/b/machinelearning/)
+## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)
+
 
 <!--HONumber=Nov16_HO2-->
 

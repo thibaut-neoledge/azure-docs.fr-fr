@@ -55,6 +55,9 @@
 ## Développement
 ### [Ajouter des fonctionnalités à votre première application web](app-service-web-get-started-2.md)
 ### [Créer une application web](app-service-linux-how-to-create-a-web-app.md)
+### [Référence sur App Service](app-service-changes-existing-services.md)
+### [portail Azure](app-service-web-app-azure-portal.md)
+### [Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-get-started.md)
 
 ### Applications ASP.NET
 #### [Déployer votre première application web .NET dans Azure en 5 minutes](app-service-web-get-started-dotnet.md)
@@ -243,9 +246,10 @@
 ### [Résoudre les problèmes de performances d’une application Web](app-service-web-troubleshoot-performance-degradation.md)
 
 # Référence
-## [Référence sur App Service](app-service-changes-existing-services.md)
-## [portail Azure](app-service-web-app-azure-portal.md)
-## [Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-get-started.md)
+## [Interface de ligne de commande Azure](/cli/azure/)
+## [Java](/java/api/)
+## [.NET](/dotnet/api)
+## [REST](/rest/api/appservice)
 
 # Rubriques connexes
 ## [Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET](azure-sdk-dotnet-release-notes.md)

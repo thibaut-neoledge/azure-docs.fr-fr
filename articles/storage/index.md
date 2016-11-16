@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Storage Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 4d6fd9344eaee31de4ee1e614ae558ce159c9245
+ms.openlocfilehash: 34ead7be5278478047f8c6e56c56dfb977ca1d7c
 
-Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers.  It is highly scalable, elastic, globally accessible, and automatically load-balances your data based on traffic.  Azure Storage provides the following four services to meet application needs:  Blob storage, Table storage, Queue storage, and File storage.
+---
+#<a name="storage-documentation"></a>Documentation Stockage
+
+Le service Stockage Azure est la solution de stockage cloud pour les applications récentes qui s’appuient sur la durabilité, la disponibilité et la scalabilité pour répondre aux besoins des clients.  Ce service est accessible globalement, hautement évolutif et élastique, et équilibre automatiquement la charge de vos données en fonction du trafic.  Stockage Azure propose les quatre services suivants afin de répondre aux besoins en matière d’application : Stockage Blob, Stockage Table, Stockage File d’attente et Stockage Fichier.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Storage</h3>
+                        <h3>En savoir plus sur Stockage Azure</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Storage Video Library</h3>
+                        <h3>Bibliothèque vidéo Stockage Azure</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Storage</h3>
+                        <h3>Bien démarrer avec Stockage</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Storage account</h3>
+                        <h3>Créer un compte de stockage</h3>
                     </div>
                 </div>
             </div>
@@ -82,23 +86,23 @@ Azure Storage is the cloud storage solution for modern applications that rely on
 
 ---
 
-##Reference
+##<a name="reference"></a>Référence
 
-###PowerShell
+###<a name="powershell"></a>PowerShell
 [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
-###Azure CLI 
-[Storage using Azure CLI Reference](/cli/azure/storage)
+###<a name="azure-cli"></a>Interface de ligne de commande Azure 
+[Informations de référence sur Stockage avec l’interface de ligne de commande Azure](/cli/azure/storage)
 
-###Java 
-[Storage in Java Reference](/java/api/)
+###<a name="java"></a>Java 
+[Informations de référence sur Stockage dans Java](/java/api/)
 
-###.NET 
-[Storage Managed Reference API](https://msdn.microsoft.com/library/azure/mt347887) 
+###<a name="net"></a>.NET 
+[Informations de référence sur l’API managée de Stockage](https://msdn.microsoft.com/library/azure/mt347887) 
 
-###REST 
-[Storage REST API Reference](/rest/api/storageservices) 
-[Storage Resource Provider REST API Reference](/rest/api/storagerp)  
+###<a name="rest"></a>REST 
+[Informations de référence sur l’API REST de Stockage](/rest/api/storageservices) 
+[Informations de référence sur l’API REST des fournisseurs de ressources de stockage](/rest/api/storagerp)  
 
 
 
@@ -108,7 +112,12 @@ Azure Storage is the cloud storage solution for modern applications that rely on
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storage.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Storage Documentation
-        </div>
+Télécharger la documentation Stockage </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

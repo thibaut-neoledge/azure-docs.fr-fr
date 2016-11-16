@@ -1,12 +1,12 @@
 ---
-title: Migration de circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager | Microsoft Docs
-description: Cette page décrit tout ce que vous devez savoir sur les liaisons entre les modèles de déploiement classique et Resource Manager.
+title: "Migration de circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager | Microsoft Docs"
+description: "Cette page décrit tout ce que vous devez savoir sur les liaisons entre les modèles de déploiement classique et Resource Manager."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 945923d9858ec0ed31272c23268b263f77b5c7a4
+
 
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Migration de circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager
@@ -74,7 +78,7 @@ Le débit cumulé est limité par le débit de la passerelle du réseau virtuel.
 ## <a name="access-to-azure-public-and-microsoft-peering-resources"></a>Accès aux ressources d’homologation publiques Azure et Microsoft
 Vous conservez l’accès aux ressources généralement accessibles via l’homologation publique Azure et l’homologation Microsoft, sans interruption.  
 
-## <a name="what's-supported"></a>Opérations prises en charge
+## <a name="whats-supported"></a>Opérations prises en charge
 Cette section décrit les opérations prises en charge pour les circuits ExpressRoute :
 
 * Vous pouvez utiliser un circuit ExpressRoute pour accéder aux réseaux virtuels déployés dans les modèles classique et Resource Manager.
@@ -84,7 +88,7 @@ Cette section décrit les opérations prises en charge pour les circuits Express
 * Le circuit ExpressRoute se comporte comme un pont entre les modèles de déploiement classique et Resource Manager. Le trafic entre les machines virtuelles des réseaux virtuels dans le modèle de déploiement classique et celles des réseaux virtuels dans le modèle de déploiement Resource Manager transite via ExpressRoute si les deux réseaux virtuels sont reliés au même circuit ExpressRoute.
 * La connectivité entre différents abonnements est prise en charge dans les modèles de déploiement classique et Resource Manager.
 
-## <a name="what's-not-supported"></a>Ce qui n'est pas pris en charge
+## <a name="whats-not-supported"></a>Ce qui n'est pas pris en charge
 Cette section décrit les opérations non prises en charge pour les circuits ExpressRoute :
 
 * Migration des liaisons de circuit, passerelles et réseaux virtuels du modèle de déploiement classique au modèle de déploiement Resource Manager.
@@ -102,6 +106,9 @@ Suivez les instructions dans [Migration d’un circuit ExpressRoute du modèle d
   * [Configuration du routage](expressroute-howto-routing-arm.md)
   * [Lier un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

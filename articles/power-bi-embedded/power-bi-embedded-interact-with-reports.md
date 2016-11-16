@@ -1,13 +1,13 @@
 ---
-title: Interagir avec des rapports Power BI à l’aide de l’API JavaScript | Microsoft Docs
-description: Power BI Embedded, interagit avec des rapports à l’aide de l’API JavaScript
+title: "Interagir avec des rapports Power BI à l’aide de l’API JavaScript | Microsoft Docs"
+description: "Power BI Embedded, interagit avec des rapports à l’aide de l’API JavaScript"
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: bdd885d3-1b00-4dcf-bdff-531eb1f97bfb
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: hero-article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 83d997577d3a5854eafd9906bd38d3e703c09f5e
+
 
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>Interagir avec des rapports Power BI à l’aide de l’API JavaScript
@@ -30,7 +34,7 @@ L’iframe facilite considérablement le processus d’incorporation, mais sans 
 
 L’API JavaScript de Power BI vous permet d’écrire du code capable de traverser en toute sécurité la limite de l’iframe. Cela permet à votre application d’exécuter par programmation une action dans un rapport et d’écouter des événements sur les actions effectuées par les utilisateurs dans le rapport.
 
-## <a name="what-can-you-do-with-the-power-bi-javascript-api?"></a>Que pouvez-vous faire avec l’API JavaScript de Power BI ?
+## <a name="what-can-you-do-with-the-power-bi-javascript-api"></a>Que pouvez-vous faire avec l’API JavaScript de Power BI ?
 Avec l’API JavaScript, vous pouvez gérer des rapports, accéder aux pages d’un rapport, filtrer un rapport et gérer l’incorporation des événements. Le schéma suivant présente la structure de l’API.
 
 ![Diagramme de l’API JavaScript de Power BI](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-3.png)
@@ -132,6 +136,9 @@ Pour plus d’informations sur l’API JavaScript de Power BI, cliquez sur les l
   * [Ember](https://github.com/Microsoft/powerbi-ember)
 * [Démonstration en direct](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

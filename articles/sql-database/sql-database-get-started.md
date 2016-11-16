@@ -1,13 +1,13 @@
 ---
-title: 'Didacticiel sur la base de données SQL : Créer une base de données SQL | Microsoft Docs'
-description: Découvrez comment configurer un serveur logique SQL Database, une règle de pare-feu de serveur, une base de données SQL et des exemples de données. Apprenez également à vous connecter avec les outils clients, à configurer des utilisateurs et à définir une règle de pare-feu de base de données.
-keywords: didacticiel sur la base de données sql, créer une base de données sql
+title: "Didacticiel sur la base de données SQL : Créer une base de données SQL | Microsoft Docs"
+description: "Découvrez comment configurer un serveur logique SQL Database, une règle de pare-feu de serveur, une base de données SQL et des exemples de données. Apprenez également à vous connecter avec les outils clients, à configurer des utilisateurs et à définir une règle de pare-feu de base de données."
+keywords: "didacticiel sur la base de données sql, créer une base de données sql"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/07/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 914d5f7e6b8e9165fc8ba9021e1030b865ba5fb2
+
 
 ---
-# Didacticiel sur SQL Database : Créer une base de données SQL en quelques minutes à l’aide du portail Azure
+# <a name="sql-database-tutorial-create-a-sql-database-in-minutes-by-using-the-azure-portal"></a>Didacticiel sur SQL Database : Créer une base de données SQL en quelques minutes à l’aide du portail Azure
 > [!div class="op_single_selector"]
 > * [Portail Azure](sql-database-get-started.md)
 > * [C#](sql-database-get-started-csharp.md)
@@ -32,11 +36,11 @@ Ce didacticiel vous montre comment utiliser le Portail Azure pour :
 
 Vous pouvez exécuter les mêmes tâches à l’aide de [C#](sql-database-get-started-csharp.md) ou de [PowerShell](sql-database-get-started-powershell.md).
 
-[!INCLUDE [Connexion](../../includes/azure-getting-started-portal-login.md)]
+[!INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
 
 <a name="create-logical-server-bk"></a>
 
-## Créer votre première base de données SQL Azure
+## <a name="create-your-first-azure-sql-database"></a>Créer votre première base de données SQL Azure
 1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](http://portal.azure.com).
 2. Cliquez sur **Nouveau**, cliquez sur **Données + stockage**, puis recherchez **SQL Database**.
    
@@ -44,7 +48,7 @@ Vous pouvez exécuter les mêmes tâches à l’aide de [C#](sql-database-get-st
 3. Cliquez sur **SQL Database** pour ouvrir le panneau SQL Database. Le contenu de ce panneau varie selon le nombre de vos abonnements et vos objets existants (tels que les serveurs existants).
    
     ![Nouvelle sql database 2](./media/sql-database-get-started/sql-database-new-database-2.png)
-4. Dans la zone de texte **Nom de la base de données**, entrez un nom pour votre première base de données, tel que « ma-base-de-données ». Une coche verte indique que vous avez fourni un nom valide.
+4. Dans la zone de texte **Nom de la base de données** , entrez un nom pour votre première base de données, tel que « ma-base-de-données ». Une coche verte indique que vous avez fourni un nom valide.
    
     ![Nouvelle sql database 3](./media/sql-database-get-started/sql-database-new-database-3.png)
 5. Si vous avez plusieurs abonnements, sélectionnez-en un.
@@ -63,13 +67,13 @@ Vous pouvez exécuter les mêmes tâches à l’aide de [C#](sql-database-get-st
 10. Examinez le panneau **Nouveau serveur** pour mieux comprendre les informations que vous devez fournir pour votre nouveau serveur.
     
     ![Nouvelle sql database 8](./media/sql-database-get-started/sql-database-new-database-8.png)
-11. Dans la zone de texte **Nom du serveur**, entrez un nom pour votre premier serveur, tel que « mon-nouvel-objet-serveur ». Une coche verte indique que vous avez fourni un nom valide.
+11. Dans la zone de texte **Nom du serveur** , entrez un nom pour votre premier serveur, tel que « mon-nouvel-objet-serveur ». Une coche verte indique que vous avez fourni un nom valide.
     
     ![Nouvelle sql database 9](./media/sql-database-get-started/sql-database-new-database-9.png)
 12. Sous **Connexion d’administrateur serveur**, fournissez un nom d’utilisateur pour la connexion d’administrateur pour ce serveur - par exemple « mon-compte-admin ». Cette connexion est connue comme la connexion principale du serveur. Une coche verte indique que vous avez fourni un nom valide.
     
     ![Nouvelle sql database 10](./media/sql-database-get-started/sql-database-new-database-10.png)
-13. Sous **Mot de passe** et **Confirmer le mot de passe**, fournissez un mot de passe pour le compte de connexion principal du serveur, tel que « p@ssw0rd1 ». Une coche verte indique que vous avez fourni un mot de passe valide.
+13. Sous **Mot de passe** et **Confirmer le mot de passe**, fournissez un mot de passe pour le compte de connexion principal du serveur, tel que "p@ssw0rd1". Une coche verte indique que vous avez fourni un mot de passe valide.
     
     ![Nouvelle sql database 11](./media/sql-database-get-started/sql-database-new-database-11.png)
 14. Sous **Emplacement**, sélectionnez un centre de données correspondant à votre emplacement, tel que « Est de l’Australie ».
@@ -99,9 +103,9 @@ Vous pouvez exécuter les mêmes tâches à l’aide de [C#](sql-database-get-st
 > 
 > 
 
-[!INCLUDE [Créer une règle de pare-feu de serveur](../../includes/sql-database-create-new-server-firewall-portal.md)]
+[!INCLUDE [Create server firewall rule](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez terminé ce didacticiel sur SQL Database et que vous avez créé une base de données avec des exemples de données, vous êtes prêt pour l’exploration à l’aide de vos outils préférés.
 
 * Si vous êtes familiarisé avec Transact-SQL et SQL Server Management Studio (SSMS), découvrez comment [connecter et interroger une base de données SQL avec SSMS](sql-database-connect-query-ssms.md).
@@ -111,7 +115,12 @@ Maintenant que vous avez terminé ce didacticiel sur SQL Database et que vous av
 * Si vous souhaitez charger des données dans une nouvelle table à partir d’un fichier CSV avec l’outil de ligne de commande BCP, consultez la page [Chargement de données dans une base de données SQL à partir d’un fichier CSV à l’aide de BCP](sql-database-load-from-csv-with-bcp.md).
 * Si vous souhaitez commencer à Explorer la sécurité Azure SQL Database, consultez [Prise en main de la sécurité](sql-database-get-started-security.md)
 
-## Ressources supplémentaires
+## <a name="additional-resources"></a>Ressources supplémentaires
 [Définition de la base de données SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

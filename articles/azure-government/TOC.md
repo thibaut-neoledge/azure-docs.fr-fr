@@ -1,13 +1,11 @@
-# Vue d'ensemble
-## [Introduction](../azure-government-overview.md?toc=%2fazure%2fazure-government%2ftoc.json)
+# Vue d’ensemble
+## [Qu’est-ce qu’Azure Government ?](../azure-government-overview.md?toc=%@Fazure%2fazure-government%2ftoc.json)
 ## [ITAR](documentation-government-overview-itar.md)
 ## [Justice et sécurité publique](documentation-government-overview-jps.md)
 ## [Ministère de la défense](documentation-government-overview-dod.md)
 
 # Prise en main
-## [Version d’évaluation](https://azuregov.microsoft.com/trial/azuregovtrial)
-## [Tarification](https://azure.microsoft.com/pricing/)
-## [Guide du développeur](../azure-government-developer-guide.md?toc=%2fazure%2fazure-government%2ftoc.json)
+## [Guide du développeur](../azure-government-developer-guide.md?toc=%@Fazure%2fazure-government%2ftoc.json)
 
 # Procédure
 ## Planification
@@ -16,11 +14,12 @@
 ## Gérer
 ### [Images](../azure-government-image-gallery.md?toc=%2fazure%2fazure-government%2ftoc.json)
 ### [Place de marché](documentation-government-manage-marketplace.md)
-### [Partenaires de la Place de marché](documentation-government-manage-marketplace-partners.md)
-### [Gestionnaire de ressources](documentation-government-manage-azure-resource-manager.md)
-### [À l’aide d’abonnement dans Azure Government](documentation-government-manage-subscriptions.md)
-## Services
-### [Résumé](documentation-government-services.md)
+### [Marketplace pour les partenaires](documentation-government-manage-marketplace-partners.md)
+### [Abonnement](documentation-government-manage-subscriptions.md)
+
+# Référence
+## [Gestionnaire de ressources](documentation-government-manage-azure-resource-manager.md)
+## [Services](documentation-government-services.md)
 ### [Calcul](documentation-government-compute.md)
 ### [Stockage](documentation-government-services-storage.md)
 ### [Base de données](documentation-government-services-database.md)
@@ -28,8 +27,9 @@
 ### [Sécurité et identité](documentation-government-services-securityandidentity.md)
 ### [Surveillance et gestion](documentation-government-services-monitoringandmanagement.md)
 
-
-
+# Ressources
+## [Version d’évaluation](https://azuregov.microsoft.com/trial/azuregovtrial)
+## [Tarification](https://azure.microsoft.com/pricing/)
 
 
 <!--HONumber=Nov16_HO2-->

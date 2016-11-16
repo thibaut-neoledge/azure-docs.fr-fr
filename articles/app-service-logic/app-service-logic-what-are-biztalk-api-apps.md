@@ -1,12 +1,12 @@
 ---
-title: Qu'est-ce qu'un connecteur et une application API BizTalk ?
-description: Découvrez les applications API, les connecteurs et les applications API BizTalk
+title: "Qu&quot;est-ce qu&quot;un connecteur et une application API BizTalk ?"
+description: "Découvrez les applications API, les connecteurs et les applications API BizTalk"
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 1295ea9c-30e0-4b5c-931e-51aefae2d4fe
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c89b0714a5c6e606cf8517a40be62cc856d5959c
+
 
 ---
-# <a name="what-are-connectors-and-biztalk-api-apps"></a>Qu'est-ce qu'un connecteur et une application API BizTalk ?
+# <a name="what-are-connectors-and-biztalk-api-apps"></a>Qu'est-ce qu'un connecteur et une application API BizTalk ?
 [!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Un *Connecteur* est un type d’application API axé sur la connectivité. Comme toute autre application API, les connecteurs s'utilisent à partir d'applications web, mobiles et logiques. Ils facilitent la connexion à des services existants et aident à gérer l'authentification, à fournir une analyse et bien plus encore.
@@ -32,10 +36,10 @@ Différents niveaux de service sont disponibles. Tous les niveaux incluent l’e
 [Tarification App Service](https://azure.microsoft.com/pricing/details/app-service/) décrit les niveaux de service et répertorie également ce qui y est inclus. Les sections suivantes décrivent les différentes catégories d’applications API et connecteurs BizTalk.
 
 ## <a name="hybrid-connectors"></a>Connecteurs hybrides
-Les connecteurs hybrides étendent la portée dans l’entreprise avec une connectivité pour [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) et WebSphere MQ. 
+Les connecteurs hybrides étendent la portée dans l’entreprise avec une connectivité pour [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) et WebSphere MQ. 
 
-Ressources complémentaires : [Connecteurs B2B et applications API](app-service-logic-b2b-connectors.md)  
-[Création d’un processus B2B](app-service-logic-create-a-b2b-process.md)  
+Ressources complémentaires : [Connecteurs B2B et applications API](app-service-logic-b2b-connectors.md)  
+[Création d’un processus B2B](app-service-logic-create-a-b2b-process.md)  
 [Créez un accord de partenariat commercial](app-service-logic-create-a-trading-partner-agreement.md)  
 [Suivre des messages B2B](app-service-logic-track-b2b-messages.md)  
 
@@ -45,6 +49,9 @@ Les règles d'entreprise englobent les stratégies et les décisions qui contrô
 ## <a name="connector-and-api-app-list"></a>Liste des connecteurs et applications API
 Consultez la page [Liste des connecteurs et applications API](app-service-logic-connectors-list.md) pour obtenir la liste complète des connecteurs et des applications API inclus dans chaque catégorie, y compris les connecteurs standard, IAE BizTalk, les connecteurs Premium et ainsi de suite.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

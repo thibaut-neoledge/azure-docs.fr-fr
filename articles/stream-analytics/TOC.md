@@ -1,6 +1,6 @@
 # Vue d'ensemble
 ## [Qu’est-ce que Stream Analytics ?](stream-analytics-introduction.md)
-## [Parcours d’apprentissage Stream Analytics](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
+## [Comparer Storm et Stream Analytics](stream-analytics-comparison-storm.md)
 
 # Prise en main
 ## [Traiter les données de diffusion en continu IoT](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
@@ -8,12 +8,12 @@
 
 # Procédures
 
-## Solutions de diffusion en continu
-### [Créer une solution IoT](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
-### [Analyse des réseaux sociaux](stream-analytics-twitter-sentiment-analysis-trends.md)
-### [Analyse des données de capteur avec Power BI] https://gallery.cortanaanalytics.com/Tutorial/Sensor-Data-Analytics-with-ASA-and-Power-BI-2?fromlegacydomain=1)
+## Créer des solutions de diffusion en continu
+### [Internet des objets](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
+### [Médias sociaux](stream-analytics-twitter-sentiment-analysis-trends.md)
+### [Données de capteur avec Power BI](https://gallery.cortanaanalytics.com/Tutorial/Sensor-Data-Analytics-with-ASA-and-Power-BI-2?fromlegacydomain=1)
 ### [Notation en temps réel avec Machine Learning](stream-analytics-machine-learning-integration-tutorial.md)
-### [Architecture de référence : traitement des événements en temps réel](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [Traitement d’événements en temps réel](stream-analytics-real-time-event-processing-reference-architecture.md)
 
 ## Développement
 ### [Modèles de requête courants](stream-analytics-stream-analytics-query-patterns.md)      
@@ -40,17 +40,21 @@
 ### [PowerShell en un clic](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Référence
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [.NET](/dotnet/api/)
 ## [Langage de requête](https://msdn.microsoft.com/library/azure/dn834998)
-## [API REST](https://msdn.microsoft.com/library/azure/dn835031)
-## [PowerShell](https://msdn.microsoft.com/library/azure/mt270341)
-## [Kit SDK .NET](https://msdn.microsoft.com/library/azure/mt416896)
-## [Comparer Storm et Stream Analytics](stream-analytics-comparison-storm.md)
+## [REST](/rest/api/streamanalytics/)
 ## [Notes de publication](stream-analytics-release-notes.md)
+
 # les ressources
-## [Blog MSDN](http://blogs.msdn.com/b/streamanalytics/)
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
-## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
+## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
+## [Tarification](https://azure.microsoft.com/pricing/details/stream-analytics/)
+## [Blog](http://blogs.msdn.com/b/streamanalytics/)
+## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [Forum de commentaires](http://feedback.azure.com/forums/270577-azure-stream-analytics)
+## [Mises à jour de service](https://azure.microsoft.com/updates/?product=stream-analytics)
+## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 
 
 <!--HONumber=Nov16_HO2-->

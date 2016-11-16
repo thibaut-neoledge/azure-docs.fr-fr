@@ -1,12 +1,12 @@
 ---
-title: Didacticiel .NET sur la messagerie répartie Service Bus | Microsoft Docs
-description: Didacticiel .NET sur la messagerie répartie
+title: "Didacticiel .NET sur la messagerie répartie Service Bus | Microsoft Docs"
+description: "Didacticiel .NET sur la messagerie répartie"
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 964e019a-8abe-42f3-8314-867010cb2608
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,28 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
+
 
 ---
-# <a name="service-bus-brokered-messaging-.net-tutorial"></a>Didacticiel .NET sur la messagerie répartie Service Bus
+# <a name="service-bus-brokered-messaging-net-tutorial"></a>Didacticiel .NET sur la messagerie répartie Service Bus
 Azure Service Bus offre deux solutions complètes de messagerie : la première s’appuie sur un service de « relais » centralisé exécuté dans le cloud, qui prend en charge une large gamme de protocoles de transport et de services web standard, notamment SOAP, WS-* et REST. Le client n’a pas besoin d’une connexion directe au service local ni de savoir où se trouve le service, et le service local n’a pas besoin d’ouvrir de ports entrants sur le pare-feu.
 
-La deuxième solution de messagerie offre des capacités de messagerie « répartie ». Ces capacités peuvent être considérées comme des fonctions de messagerie asynchrones ou découplées prenant en charge le découplage temporel de publication-souscription et les scénarios d’infrastructure d’équilibrage de charge à l’aide de l’infrastructure de messagerie Service Bus. La communication découplée présente de nombreux avantages ; par exemple, les clients et les serveurs peuvent se connecter en fonction des besoins et exécuter leurs opérations de manière asynchrone.
+La deuxième solution de messagerie offre des capacités de messagerie « répartie ». Ces capacités peuvent être considérées comme des fonctions de messagerie asynchrones ou découplées prenant en charge le découplage temporel de publication-souscription et les scénarios d’infrastructure d’équilibrage de charge à l’aide de l’infrastructure de messagerie Service Bus. La communication découplée présente de nombreux avantages ; par exemple, les clients et les serveurs peuvent se connecter en fonction des besoins et exécuter leurs opérations de manière asynchrone.
 
-Ce didacticiel vise à vous donner un aperçu et une expérience pratique des files d'attente, un des principaux composants de la messagerie répartie Service Bus. Après avoir étudié les différentes rubriques de ce didacticiel, vous disposerez d’une application qui remplit une liste de messages, crée une file d’attente et envoie des messages à cette file d’attente. Enfin, l'application reçoit et affiche les messages de la file d'attente, puis nettoie ses ressources avant de se fermer. Pour obtenir le didacticiel correspondant qui explique comment générer une application utilisant Service Bus Relay, consultez le [didacticiel sur la messagerie relayée Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
+Ce didacticiel vise à vous donner un aperçu et une expérience pratique des files d'attente, un des principaux composants de la messagerie répartie Service Bus. Après avoir étudié les différentes rubriques de ce didacticiel, vous disposerez d’une application qui remplit une liste de messages, crée une file d’attente et envoie des messages à cette file d’attente. Enfin, l'application reçoit et affiche les messages de la file d'attente, puis nettoie ses ressources avant de se fermer. Pour obtenir le didacticiel correspondant qui explique comment générer une application utilisant Service Bus WCF Relay, consultez le [didacticiel sur la messagerie relayée Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
 
 ## <a name="introduction-and-prerequisites"></a>Introduction et conditions préalables
-Les files d’attente permettent la remise de messages à un ou plusieurs destinataires concurrents sur le principe du premier entré, premier sorti (FIFO). Avec le principe FIFO, les messages sont généralement reçus et traités par les destinataires dans l’ordre dans lequel ils ont été ajoutés à la file d’attente ; chaque message sera reçu et traité par un seul consommateur de message uniquement. Un des principaux avantages de l’utilisation de files d’attente est la possibilité d’effectuer un *découplage temporel* des composants d’application : en d’autres termes, les producteurs et les consommateurs n’ont pas besoin de s’échanger des messages en même temps, puisque les messages sont stockés durablement dans la file d’attente. Un des avantages associés est le *nivellement de charge*, qui permet aux producteurs et aux consommateurs d’envoyer et de recevoir des messages à des vitesses différentes.
+Les files d’attente permettent la remise de messages à un ou plusieurs destinataires concurrents sur le principe du premier entré, premier sorti (FIFO). Avec le principe FIFO, les messages sont généralement reçus et traités par les destinataires dans l’ordre dans lequel ils ont été ajoutés à la file d’attente ; chaque message sera reçu et traité par un seul consommateur de message uniquement. Un des principaux avantages de l’utilisation de files d’attente est la possibilité d’effectuer un *découplage temporel* des composants d’application : en d’autres termes, les producteurs et les consommateurs n’ont pas besoin de s’échanger des messages en même temps, puisque les messages sont stockés durablement dans la file d’attente. Un des avantages associés est le *nivellement de charge*, qui permet aux producteurs et aux consommateurs d’envoyer et de recevoir des messages à des vitesses différentes.
 
-Voici quelques étapes d'administration et conditions préalables que vous devez suivre avant de commencer ce didacticiel : La première étape consiste à créer l’espace de noms de service et à obtenir une clé de signature d’accès partagé (SAP). Un espace de noms fournit une limite d’application pour chaque application exposée via Service Bus. Une clé SAP est automatiquement générée par le système lors de la création d’un espace de noms de service. La combinaison de l’espace de noms de service et de la clé SAP fournit à Service Bus une information d’identification permettant d’authentifier l’accès à une application.
+Voici quelques étapes d'administration et conditions préalables que vous devez suivre avant de commencer ce didacticiel : La première étape consiste à créer l’espace de noms de service et à obtenir une clé de signature d’accès partagé (SAP). Un espace de noms fournit une limite d’application pour chaque application exposée via Service Bus. Une clé SAP est automatiquement générée par le système lors de la création d’un espace de noms de service. La combinaison de l’espace de noms de service et de la clé SAP fournit à Service Bus une information d’identification permettant d’authentifier l’accès à une application.
 
 ### <a name="create-a-service-namespace-and-obtain-a-sas-key"></a>Créer un espace de noms de service et obtenir une clé SAP
-La première étape consiste à créer l’espace de noms de service et à obtenir une clé de [signature d’accès partagé](service-bus-sas-overview.md) (SAP). Un espace de noms fournit une limite d’application pour chaque application exposée via Service Bus. Une clé SAP est automatiquement générée par le système lors de la création d’un espace de noms de service. La combinaison de l’espace de noms de service et de la clé SAP fournit à Service Bus une information d’identification permettant d’authentifier l’accès à une application.
+La première étape consiste à créer l’espace de noms de service et à obtenir une clé de [signature d’accès partagé](service-bus-sas-overview.md) (SAP). Un espace de noms fournit une limite d’application pour chaque application exposée via Service Bus. Une clé SAP est automatiquement générée par le système lors de la création d’un espace de noms de service. La combinaison de l’espace de noms de service et de la clé SAP fournit à Service Bus une information d’identification permettant d’authentifier l’accès à une application.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 L’étape suivante consiste à créer un projet Visual Studio et à écrire deux fonctions d’assistance qui chargent une liste délimitée par des virgules de messages dans un objet [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) .NET [List](https://msdn.microsoft.com/library/6sh2ey19.aspx) fortement typé.
 
-### <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio
+### <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio
 1. Ouvrez Visual Studio en tant qu’administrateur en cliquant avec le bouton droit sur le programme dans le menu Démarrer, puis en cliquant sur **Exécuter en tant qu’administrateur**.
 2. Créez un projet d’application de console. Cliquez sur le menu **Fichier**, sélectionnez **Nouveau**, puis cliquez sur **Projet**. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Visual C#** (si **Visual C#** n’apparaît pas, regardez sous **Autres langages**), cliquez sur le modèle **Application console** et nommez-le **QueueSample**. Utilisez l’**emplacement** par défaut. Cliquez sur **OK** pour créer le projet.
 3. Utilisez le gestionnaire de package NuGet pour ajouter les bibliothèques Service Bus à votre projet :
@@ -43,7 +47,7 @@ L’étape suivante consiste à créer un projet Visual Studio et à écrire deu
    1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **QueueSample**, puis cliquez sur **Gérer les packages NuGet**.
    2. Dans la boîte de dialogue **Gérer les packages NuGet**, cliquez sur l’onglet **Parcourir** et recherchez **Azure Service Bus**, puis cliquez sur **Installer**.
       <br />
-4. Dans l’Explorateur de solutions, double-cliquez sur le fichier Program.cs pour l’ouvrir dans l’éditeur de Visual Studio. Remplacez le nom par défaut de l’espace de noms `QueueSample` par `Microsoft.ServiceBus.Samples`.
+4. Dans l’Explorateur de solutions, double-cliquez sur le fichier Program.cs pour l’ouvrir dans l’éditeur de Visual Studio. Remplacez le nom par défaut de l’espace de noms `QueueSample` par `Microsoft.ServiceBus.Samples`.
    
     ```
     Microsoft.ServiceBus.Samples
@@ -87,7 +91,7 @@ L’étape suivante consiste à créer un projet Visual Studio et à écrire deu
 8. Accédez au fichier Data.csv que vous avez créé à l’étape 6. Cliquez sur le fichier, puis sur **Ajouter**. Vérifiez que l’option **Tous les fichiers (*.*)** est sélectionnée dans la liste des types de fichiers.
 
 ### <a name="create-a-method-that-parses-a-list-of-messages"></a>Créer une méthode qui analyse une liste de messages
-1. Dans la classe `Program` avant la méthode `Main()`, déclarez deux variables : une de type **DataTable**, qui contiendra la liste des messages dans Data.csv. L’autre doit être un objet de type List, fortement typé en [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Cette dernière variable représente la liste des messages répartis qui sera utilisée dans les étapes suivantes du didacticiel.
+1. Dans la classe `Program` avant la méthode `Main()`, déclarez deux variables : une de type **DataTable**, qui contiendra la liste des messages dans Data.csv. L’autre doit être un objet de type List, fortement typé en [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Cette dernière variable représente la liste des messages répartis qui sera utilisée dans les étapes suivantes du didacticiel.
    
     ```
     namespace Microsoft.ServiceBus.Samples
@@ -198,7 +202,7 @@ L’étape suivante consiste à créer un projet Visual Studio et à écrire deu
             private static string sasKeyValue;
             …
     ```
-2. Ensuite, créez une fonction qui accepte et stocke l'espace de noms de service et la clé SAP. Ajoutez cette méthode à l’extérieur de `Main()`. Par exemple : 
+2. Ensuite, créez une fonction qui accepte et stocke l'espace de noms de service et la clé SAP. Ajoutez cette méthode à l’extérieur de `Main()`. Par exemple : 
    
     ```
     static void CollectUserInput()
@@ -233,7 +237,7 @@ Dans le menu **Générer** de Visual Studio, vous pouvez cliquer sur **Générer
 ## <a name="create-management-credentials"></a>Créer des informations d’identification d’administration
 Dans cette étape, vous définissez les opérations de gestion que vous allez utiliser pour créer les informations d'identification de signature d’accès partagé (SAP) qui serviront à autoriser votre application.
 
-1. Pour plus de clarté, ce didacticiel place toutes les opérations de la file d'attente dans une méthode distincte. Créez une méthode `Queue()` async dans la classe `Program` après la méthode `Main()`. Par exemple :
+1. Pour plus de clarté, ce didacticiel place toutes les opérations de la file d'attente dans une méthode distincte. Créez une méthode `Queue()` async dans la classe `Program` après la méthode `Main()`. Par exemple :
    
     ```
     public static void Main(string[] args)
@@ -244,7 +248,7 @@ Dans cette étape, vous définissez les opérations de gestion que vous allez ut
     {
     }
     ```
-2. L’étape suivante consiste à créer des informations d’identification SAP à l’aide d’un objet [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx). Cette méthode de création utilise le nom de la clé SAP et la valeur obtenue avec la méthode `CollectUserInput()`. Ajoutez le code suivant à la méthode `Queue()` :
+2. L’étape suivante consiste à créer des informations d’identification SAP à l’aide d’un objet [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx). Cette méthode de création utilise le nom de la clé SAP et la valeur obtenue avec la méthode `CollectUserInput()`. Ajoutez le code suivant à la méthode `Queue()` :
    
     ```
     static async Task Queue()
@@ -260,7 +264,7 @@ Dans cette étape, vous définissez les opérations de gestion que vous allez ut
     ```
 
 ### <a name="example"></a>Exemple
-À ce stade, votre code doit être semblable au code suivant :
+À ce stade, votre code doit être semblable au code suivant :
 
 ```
 using System;
@@ -611,14 +615,17 @@ Maintenant que vous avez effectué les étapes ci-dessus, vous pouvez générer 
 Dans le menu **Générer** de Visual Studio, cliquez sur **Générer la solution**, ou appuyez sur **Ctrl+Maj+B**. Si vous rencontrez des erreurs, vérifiez que votre code est correct en fonction de l'exemple complet présenté à la fin de l'étape précédente.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Ce didacticiel vous a montré comment créer une application cliente et un service Service Bus à l’aide des fonctionnalités de messagerie répartie Service Bus. Pour obtenir un didacticiel similaire utilisant Service Bus [Relay](service-bus-messaging-overview.md#Relayed-messaging), consultez le [didacticiel sur la messagerie relayée Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
+Ce didacticiel vous a montré comment créer une application cliente et un service Service Bus à l’aide des fonctionnalités de messagerie répartie Service Bus. Pour obtenir un didacticiel similaire utilisant Service Bus [WCF Relay](service-bus-messaging-overview.md#Relayed-messaging), consultez le [didacticiel sur la messagerie relayée Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
 
 Pour en savoir plus sur [Service Bus](https://azure.microsoft.com/services/service-bus/), consultez les rubriques qui suivent.
 
 * [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
-* [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-* [Architecture de Service Bus](service-bus-architecture.md)
+* [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+* [Architecture de Service Bus](service-bus-architecture.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

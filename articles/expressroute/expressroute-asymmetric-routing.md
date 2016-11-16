@@ -1,12 +1,12 @@
 ---
-title: Routage asymétrique | Microsoft Docs
-description: Cet article vous présente des solutions aux problèmes auxquels les clients peuvent être confrontés du fait d’un routage asymétrique dans un réseau lorsqu’il existe plusieurs connexions vers une même destination.
+title: "Routage asymétrique | Microsoft Docs"
+description: "Cet article vous présente des solutions aux problèmes auxquels les clients peuvent être confrontés du fait d’un routage asymétrique dans un réseau lorsqu’il existe plusieurs connexions vers une même destination."
 documentationcenter: na
 services: expressroute
 author: osamazia
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: a754bff9-95c9-44b5-9796-377fc21e8322
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: osamazia
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cebf1a1712b6ba7f1f6125369703694ba19d0244
+
 
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Routage asymétrique avec chemins d’accès réseau multiples
@@ -28,7 +32,7 @@ Lorsqu’un réseau d’entreprise ne dispose que d’une seule connexion à Int
 
 Même si cela se produit principalement sur Internet, le routage asymétrique s’applique également à d’autres combinaisons de chemins d’accès multiples. Par exemple, cela s’applique à un chemin d’accès Internet et à un chemin privé menant à la même destination, et à plusieurs chemins privés menant à la même destination.
 
-Chaque routeur présent entre la source et la destination calcule le meilleur chemin d’accès à une destination. La détermination du meilleur chemin d’accès par le routeur repose sur deux facteurs principaux :
+Chaque routeur présent entre la source et la destination calcule le meilleur chemin d’accès à une destination. La détermination du meilleur chemin d’accès par le routeur repose sur deux facteurs principaux :
 
 * Le routage entre des réseaux externes repose sur le protocole de routage BGP (protocole de passerelle frontière). Le BGP collecte les annonces voisines et les soumet à plusieurs opérations afin de déterminer le meilleur chemin d’accès à la destination prévue. Il stocke le meilleur chemin d’accès dans sa table de routage.
 * La longueur d’un masque de sous-réseau associé à un itinéraire influence les chemins de routage. Si un routeur reçoit plusieurs annonces pour la même adresse IP mais avec différents masques de sous-réseau, le routeur privilégie l’annonce présentant le masque de sous-réseau le plus long car l’itinéraire est considéré comme plus précis.
@@ -60,7 +64,7 @@ Assurez-vous que vos adresses IP publiques sont publiées sur les connexions WAN
 
 Si vous souhaitez utiliser ExpressRoute pour l’authentification, assurez-vous que vous publiez les adresses IP publiques ADFS via ExpressRoute sans NAT. De cette façon, le trafic provenant de Microsoft et se dirigeant vers le serveur ADFS local transite via ExpressRoute. Le trafic entrant transitant entre le client et Microsoft utilise ExpressRoute car il s’agit de l’itinéraire privilégié sur Internet.
 
-### <a name="source-based-nat"></a>NAT basé sur la source
+### <a name="sourcebased-nat"></a>NAT basé sur la source
 Les problèmes de routage asymétrique peuvent également être résolus à l’aide d’une NAT basée sur la source (SNAT). Par exemple, vous n’avez pas publié l’adresse IP publique d’un serveur SMTP (Simple Mail Transfer Protocol) local via ExpressRoute, car vous prévoyez d’utiliser Internet pour ce type de communication. Une requête en provenance de Microsoft qui accède au serveur SMTP local transite via Internet. Vous définissez l’adresse SNAT de la requête entrante sous une adresse IP interne. Le trafic sortant du serveur SMTP passe par le pare-feu périphérique (utilisé pour la NAT) à la place d’ExpressRoute. Le trafic sortant revient en transitant par Internet.
 
 ![Configuration réseau avec NAT basée sur la source](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
@@ -68,6 +72,9 @@ Les problèmes de routage asymétrique peuvent également être résolus à l’
 ## <a name="asymmetric-routing-detection"></a>Détection du routage asymétrique
 La détermination d’itinéraire constitue le meilleur moyen de vous assurer que le trafic réseau circule par le chemin attendu. Si vous souhaitez que le trafic entre votre serveur SMTP local et Microsoft passe par Internet, déterminez son itinéraire attendu à partir du serveur SMTP vers Office 365. Le résultat valide le passage du trafic sortant de votre réseau par Internet et non par ExpressRoute.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

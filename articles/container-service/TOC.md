@@ -1,5 +1,5 @@
-# Vue d'ensemble
-## [Présentation d’ACS](container-service-intro.md)
+# Vue d’ensemble
+## [Présentation d’Azure Container Service](container-service-intro.md)
 # Prise en main
 
 ## [Déployer un cluster ACS](container-service-deployment.md)
@@ -21,12 +21,11 @@
 ### [Présentation de Docker Swarm](container-service-docker-swarm.md)
 
 # Référence
-
-## [API REST](https://go.microsoft.com/fwlink/p/?linkid=833499)
+## [API REST](https://docs.microsoft.com/rest/api/compute/containerservices/)
 
 # les ressources
-
 ## [Disponibilité des régions](https://azure.microsoft.com/regions/services/)
+## [Tarification](https://azure.microsoft.com/pricing/details/container-service/)
 ## [Mises à jour de service](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 

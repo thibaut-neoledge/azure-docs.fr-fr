@@ -1,4 +1,4 @@
-### Niveau de service De base
+### <a name="basic-service-tier"></a>Niveau de service De base
 |  |  |
 | --- | --- |
 | DTU max |5 |
@@ -10,7 +10,7 @@
 | Restauration dans le temps |N’importe quel point dans les 7 derniers jours |
 | Récupération d'urgence |Géo-réplication active |
 
-### Niveau de service Standard
+### <a name="standard-service-tier"></a>Niveau de service Standard
 |  |  |
 | --- |:---:|
 | **S0** &nbsp;&nbsp;&nbsp;&nbsp; **S1** &nbsp;&nbsp;&nbsp;&nbsp; **S2** &nbsp;&nbsp;&nbsp; **S3** | |
@@ -23,7 +23,7 @@
 | Restauration dans le temps |N’importe quel point dans les 35 derniers jours |
 | Récupération d'urgence |Géo-réplication active |
 
-### Niveau de service Premium
+### <a name="premium-service-tier"></a>Niveau de service Premium
 |  |  |
 | --- |:---:|
 | **P1** &nbsp;&nbsp;&nbsp;&nbsp; **P2** &nbsp;&nbsp;&nbsp;&nbsp; **P4** &nbsp;&nbsp;&nbsp; **P6/P3** &nbsp;&nbsp; **P11** &nbsp;&nbsp; **P15** | |
@@ -36,4 +36,8 @@
 | Restauration dans le temps |N’importe quel point dans les 35 derniers jours |
 | Récupération d'urgence |Géo-réplication active |
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

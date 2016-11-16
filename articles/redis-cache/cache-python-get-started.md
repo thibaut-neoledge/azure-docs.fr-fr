@@ -2,11 +2,11 @@
 title: Utilisation du Cache Redis Azure avec Python | Microsoft Docs
 description: Prise en main du Cache Redis Azure avec Python
 services: redis-cache
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
 editor: v-lincan
-
+ms.assetid: f186202c-fdad-4398-af8c-aee91ec96ba3
 ms.service: cache
 ms.devlang: python
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/16/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6d1a948cd9b0b2b8b50ba04579de5455e7a44730
+
 
 ---
-# Utilisation du Cache Redis Azure avec Python
+# <a name="how-to-use-azure-redis-cache-with-python"></a>Utilisation du Cache Redis Azure avec Python
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -28,21 +32,21 @@ ms.author: sdanie
 
 Cette rubrique montre comment utiliser le Cache Redis Azure avec Python.
 
-## Composants requis
+## <a name="prerequisites"></a>Composants requis
 Installez [redis-py](https://github.com/andymccurdy/redis-py).
 
-## Créer un Cache Redis sur Azure
+## <a name="create-a-redis-cache-on-azure"></a>Créer un Cache Redis sur Azure
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## Récupérer les clés d’accès et le nom hôte
+## <a name="retrieve-the-host-name-and-access-keys"></a>Récupérer les clés d’accès et le nom hôte
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## Activer le point de terminaison non SSL
-Certains clients Redis ne prennent pas en charge SSL. Le [port non-SSL est désactivé par défaut pour les nouvelles instances Cache Redis Azure.](cache-configure.md#access-ports) Au moment de la rédaction de cet article, le client [redis-py](https://github.com/andymccurdy/redis-py) ne prend pas en charge SSL.
+## <a name="enable-the-nonssl-endpoint"></a>Activer le point de terminaison non SSL
+Certains clients Redis ne prennent pas en charge SSL. Le [port non SSL est désactivé par défaut pour les nouvelles instances Cache Redis Azure](cache-configure.md#access-ports). Le [redis-py](https://github.com/andymccurdy/redis-py) ne prend pas en charge SSL. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
 
-## Ajouter un élément au cache et le récupérer
+## <a name="add-something-to-the-cache-and-retrieve-it"></a>Ajouter un élément au cache et le récupérer
     >>> import redis
     >>> r = redis.StrictRedis(host='<name>.redis.cache.windows.net',
           port=6380, db=0, password='<key>', ssl=True)
@@ -58,4 +62,8 @@ Remplacez `<name>` par le nom de votre cache, et `key` par votre clé d’accès
 [1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png
 [2]: ./media/cache-python-get-started/redis-cache-cache-create.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

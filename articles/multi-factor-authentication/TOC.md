@@ -38,7 +38,7 @@
 ### [Applications web IIS](multi-factor-authentication-get-started-server-iis.md)
 ### [Passerelle Bureau à distance](multi-factor-authentication-get-started-server-rdg.md)
 
-## Développer des applications
+## Développement 
 ### [Création dans des applications personnalisées (kit de développement logiciel, SDK)](multi-factor-authentication-sdk.md)
 
 ## Résolution des problèmes

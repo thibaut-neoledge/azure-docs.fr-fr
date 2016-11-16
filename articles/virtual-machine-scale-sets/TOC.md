@@ -26,11 +26,12 @@
 ### [Résoudre les problèmes de mise à l’échelle](virtual-machine-scale-sets-troubleshoot.md)
 
 # Référence
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
 ## [Interface de ligne de commande Azure](../virtual-machines/azure-cli-arm-commands.md)
-## [Jeu de mise à l’échelle REST](/rest/api/compute/virtualmachinescalesets)
-## [Échelle définie API REST de machines virtuelles](/rest/api/compute/virtualmachinescalesetvms)
-## [Azure PowerShell](/powershell/resourcemanager/)
-## [Modèles Azure](https://azure.microsoft.com/documentation/templates/?term=vmss)
+## [REST](/rest/api/compute/)
+
+# les ressources
+## [Tarification](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 
 
 <!--HONumber=Nov16_HO2-->

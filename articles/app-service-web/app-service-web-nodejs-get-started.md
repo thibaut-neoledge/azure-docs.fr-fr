@@ -1,12 +1,12 @@
 ---
 title: Prise en main des applications web Node.js dans Azure App Service
-description: Découvrez comment déployer une application Node.js sur une application web dans Azure App Service.
+description: "Découvrez comment déployer une application Node.js sur une application web dans Azure App Service."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: fb2b90c8-02b6-4700-929b-5de9a35d67cc
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: nodejs
 ms.topic: get-started-article
 ms.date: 07/01/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
+
 
 ---
 # <a name="get-started-with-nodejs-web-apps-in-azure-app-service"></a>Prise en main des applications web Node.js dans Azure App Service
@@ -63,7 +67,7 @@ Ce didacticiel explique comment créer une application [Node.js] simple et la d�
         azure login
    
     Suivez les instructions de l’invite pour poursuivre la connexion à un compte Microsoft associé à votre abonnement Azure.
-5. Assurez-vous que vous vous trouvez toujours dans le répertoire racine de votre application, puis créez la ressource d’application App Service dans Azure avec un nom d’application unique à l’aide de la commande suivante. Par exemple : http://{appname}.azurewebsites.net
+5. Assurez-vous que vous vous trouvez toujours dans le répertoire racine de votre application, puis créez la ressource d’application App Service dans Azure avec un nom d’application unique à l’aide de la commande suivante. Par exemple : http://{appname}.azurewebsites.net
    
         azure site create --git {appname}
    
@@ -125,7 +129,7 @@ Consultez les didacticiels suivant pour savoir comment utiliser une infrastructu
 
 ## <a name="use-a-specific-nodejs-engine"></a>Utilisation d’un moteur Node.js spécifique
 Dans votre flux de travail classique, vous demandez à App Service d’utiliser un moteur Node.js spécifique de la même manière que dans le fichier package.json.
-Par exemple :
+Par exemple :
 
     "engines": {
         "node": "6.6.0"
@@ -170,7 +174,7 @@ Pour lire les journaux iisnode, suivez les étapes ci-après.
    
         https://{appname}.scm.azurewebsites.net/DebugConsole 
    
-    Cette URL diffère de celle de l’application web par l’ajout de « *.scm.* » au nom DNS. Si vous omettez cet ajout à l’URL, vous obtiendrez une erreur 404.
+    Cette URL diffère de celle de l’application web par l’ajout de « *.scm.* » au nom DNS. Si vous omettez cet ajout à l’URL, vous obtiendrez une erreur 404.
 5. Accédez à D:\home\site\wwwroot\iisnode
    
     ![Accès à l’emplacement des fichiers journaux iisnode.][iislog-kudu-console-find]
@@ -243,6 +247,6 @@ Pour activer Node-Inspector, procédez comme suit :
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

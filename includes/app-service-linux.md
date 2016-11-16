@@ -1,8 +1,10 @@
 > [!NOTE]
-> You can now try Azure App Service on Linux. For more information, see [getting started guide](../articles/app-service/app-service-linux-readme.md).
+> Vous pouvez maintenant essayer Azure App Service sur Linux. Pour plus d’informations, consultez le [Guide de mise en route](../articles/app-service/app-service-linux-readme.md).
 > 
 > 
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

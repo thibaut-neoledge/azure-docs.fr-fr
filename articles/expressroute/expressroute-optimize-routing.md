@@ -1,12 +1,12 @@
 ---
 title: Optimiser le routage ExpressRoute | Microsoft Docs
-description: Cette page fournit des détails sur comment optimiser le routage lorsqu’un client a le choix entre plusieurs circuits ExpressRoute qui se connectent entre Microsoft et le réseau professionnel du client.
+description: "Cette page fournit des détails sur comment optimiser le routage lorsqu’un client a le choix entre plusieurs circuits ExpressRoute qui se connectent entre Microsoft et le réseau professionnel du client."
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: fca53249-d9c3-4cff-8916-f8749386a4dd
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: charwen
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 26f0992e734f0aae96ac6e8b7040d661d5fb063c
+
 
 ---
 # <a name="optimize-expressroute-routing"></a>Optimiser le routage ExpressRoute
@@ -24,7 +28,7 @@ Voici un exemple de problème de routage. Imaginez que vous disposez de deux bur
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-problem.png)
 
-### <a name="solution:-use-bgp-communities"></a>Solution : utilisez des communautés BGP
+### <a name="solution-use-bgp-communities"></a>Solution : utilisez des communautés BGP
 Pour optimiser le routage pour les utilisateurs des deux bureaux, vous devez savoir faire la différence entre le préfixe Azure de l’Est et le préfixe Azure de l’Ouest. Nous encodons ces informations à l’aide des [valeurs de communauté BGP](expressroute-routing.md). Nous avons affecté une valeur de Communauté BGP unique à chaque région Azure, par exemple : « 12076:51004 » pour l’Est des États-Unis et « 12076:51006 » pour l’Ouest des États-Unis. À présent que vous savez à quelles régions Azure correspondent les préfixes, vous pouvez configurer les préférences de circuit ExpressRoute. Étant donné que nous utilisons le protocole BGP pour échanger des informations de routage, vous pouvez utiliser les préférences locales du protocole BGP pour influencer le routage. Dans notre exemple, vous pouvez affecter, dans l’Ouest des États-Unis, une valeur de préférence locale supérieure à celle de l’Est des États-Unis (13.100.0.0/16) et vice-versa dans l’Est des États-Unis (23.100.0.0/16). Cette configuration permet de garantir que, lorsque les deux chemins d’accès à Microsoft sont disponibles, vos utilisateurs de Los Angeles prendront le circuit ExpressRoute dans l’Ouest des États-Unis pour se connecter à Azure dans cette région, tandis que vos utilisateurs de New York prendront le circuit ExpressRoute de l’Est des États-Unis vers Azure dans cette région. Le routage est optimisé des deux côtés. 
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-solution.png)
@@ -34,7 +38,7 @@ Voici un autre exemple dans lequel les connexions en provenance de Microsoft pre
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-problem.png)
 
-### <a name="solution:-use-as-path-prepending"></a>Solution : ajoutez le préfixe AS PATH
+### <a name="solution-use-as-path-prepending"></a>Solution : ajoutez le préfixe AS PATH
 Il existe deux solutions à ce problème. La première consiste simplement à publier votre préfixe local pour le bureau de Los Angeles (177.2.0.0/31) sur le circuit ExpressRoute dans l’Ouest des États-Unis et celui pour le bureau de New York (177.2.0.2/31) sur le circuit ExpressRoute dans l’Est des États-Unis. Par conséquent, Microsoft ne dispose que d’un seul chemin d’accès pour se connecter à chacun de vos sites. Il n’existe aucune ambiguïté et le routage est optimisé. Avec cette conception, vous devez réfléchir à votre stratégie de basculement. Dans le cas où le chemin d’accès à Microsoft via ExpressRoute est interrompu, vous devez vous assurer qu’Exchange Online peut toujours se connecter à vos serveurs locaux. 
 
 La deuxième solution est de continuer à publier les deux préfixes sur les deux circuits ExpressRoute, tout en nous indiquant quel préfixe correspond à chacun de vos bureaux. Étant donné que nous prenons en charge l’ajout de préfixe AS PATH BGP, vous pouvez configurer l’AS PATH pour influencer le routage. Dans cet exemple, vous pouvez allonger le chemin AS PATH pour 172.2.0.0/31 dans l’Est des États-Unis pour que nous privilégiions le circuit ExpressRoute dans l’Ouest pour le trafic destiné à ce préfixe ; notre réseau pensera que le chemin d’accès pour ce préfixe est plus court dans l’Ouest. De même, vous pouvez allonger le chemin AS PATH pour 172.2.0.2/31 dans l’Ouest des États-Unis pour que nous privilégiions le circuit ExpressRoute dans l’Est des États-Unis. Le routage est optimisé pour les deux bureaux. Grâce à cette conception, si un circuit ExpressRoute est défaillant, Exchange Online peut toujours vous joindre via un autre circuit ExpressRoute ainsi que par le biais de votre réseau étendu. 
@@ -51,6 +55,9 @@ La deuxième solution est de continuer à publier les deux préfixes sur les deu
 > 
 > 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

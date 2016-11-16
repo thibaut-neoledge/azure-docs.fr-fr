@@ -1,12 +1,12 @@
 ---
-title: Création d’une application web avec le Cache Redis | Microsoft Docs
-description: Découvrez comment créer une application web avec le Cache Redis
+title: "Création d’une application web avec le Cache Redis | Microsoft Docs"
+description: "Découvrez comment créer une application web avec le Cache Redis"
 services: redis-cache
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/11/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 425729dde12d8477b7b8ecd6394b31b7c5a5e92b
+
 
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Création d’une application web avec le Cache Redis
@@ -28,13 +32,13 @@ ms.author: sdanie
 
 Ce didacticiel montre comment créer et déployer une application web ASP.NET dans une application web dans Azure App Service en utilisant Visual Studio 2015. L’exemple d’application affiche une liste des statistiques d’équipe d’une base de données et montre les différentes façons d’utiliser le Cache Redis Azure pour stocker et récupérer des données à partir du cache. Lorsque vous aurez terminé le didacticiel, vous disposerez d’une application web, optimisée avec le Cache Redis Azure et hébergée dans Azure, effectuant des opérations de lecture et écriture sur une base de données.
 
-Vous apprendrez ce qui suit :
+Vous apprendrez ce qui suit :
 
 * comment créer une application web ASP.NET MVC 5 dans Visual Studio ;
 * comment accéder aux données à partir d’une base de données à l’aide d’Entity Framework ;
 * comment améliorer le débit des données et réduire la charge de la base de données en stockant et en récupérant des données à l’aide du Cache Redis Azure ;
 * comment utiliser un ensemble trié Redis pour récupérer les 5 meilleures équipes ;
-* comment approvisionner des ressources Azure pour l’application à l’aide d’un modèle Resource Manager ;
+* comment approvisionner des ressources Azure pour l’application à l’aide d’un modèle Resource Manager ;
 * comment publier l’application sur Azure avec Visual Studio.
 
 ## <a name="prerequisites"></a>Composants requis
@@ -44,13 +48,13 @@ Pour suivre ce didacticiel, vous devez disposer des éléments suivants :
 * [Visual Studio 2015 avec le Kit de développement logiciel (SDK) Azure pour .NET](#visual-studio-2015-with-the-azure-sdk-for-net)
 
 ### <a name="azure-account"></a>Compte Azure
-Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Vous pouvez :
+Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Vous pouvez :
 
 * [Ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=redis_cache_hero). Vous obtenez des crédits que vous pouvez utiliser pour essayer des services Azure payants. Même après que les crédits sont épuisés, vous pouvez conserver le compte et utiliser les services et fonctionnalités Azure gratuits.
 * [Activez les avantages d’abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Votre abonnement MSDN vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
 
 ### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>Visual Studio 2015 avec le Kit de développement logiciel (SDK) Azure pour .NET
-Ce didacticiel a été rédigé pour Visual Studio 2015 avec le [Kit de développement logiciel (SDK) Azure pour .NET](../dotnet-sdk.md) version 2.8.2 ou ultérieure. [Cliquez ici pour télécharger la dernière version du Kit de développement logiciel (SDK) Azure pour Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio est automatiquement installé avec le SDK si vous n’en disposez pas déjà.
+Ce didacticiel a été rédigé pour Visual Studio 2015 avec le [Kit de développement logiciel (SDK) Azure pour .NET](../dotnet-sdk.md) version 2.8.2 ou ultérieure. [Cliquez ici pour télécharger la dernière version du Kit de développement logiciel (SDK) Azure pour Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio est automatiquement installé avec le SDK si vous n’en disposez pas déjà.
 
 Si vous utilisez Visual Studio 2013, vous pouvez [télécharger la dernière version du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Certains écrans diffèrent des illustrations présentées dans ce didacticiel.
 
@@ -59,7 +63,7 @@ Si vous utilisez Visual Studio 2013, vous pouvez [télécharger la dernière ver
 > 
 > 
 
-## <a name="create-the-visual-studio-project"></a>Créer le projet Visual Studio
+## <a name="create-the-visual-studio-project"></a>Créer le projet Visual Studio
 1. Ouvrez Visual Studio et cliquez sur **Fichier**, **Nouveau**, **Projet**.
 2. Développez le nœud **Visual C#** dans la liste **Modèles**, sélectionnez **Cloud**, puis cliquez sur **Application web ASP.NET**. Vérifiez que **.NET Framework 4.5.2** est sélectionné.  Tapez **ContosoTeamStats** dans la zone de texte **Nom** et cliquez sur **OK**.
    
@@ -174,7 +178,7 @@ Dans cette section du didacticiel, vous allez créer l’application de base qui
         <connectionStrings>
             <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ContosoTeamStats-20160216120918.mdf;Initial Catalog=aspnet-ContosoTeamStats-20160216120918;Integrated Security=True"
                 providerName="System.Data.SqlClient" />
-            <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"  providerName="System.Data.SqlClient" />
+            <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
         </connectionStrings>
 
 ### <a name="add-the-controller"></a>Ajouter le contrôleur
@@ -650,7 +654,7 @@ Le bouton **Déployer dans Azure** vous permet d’accéder au Portail Azure et 
 ![Déploiement sur Azure][cache-deploy-to-azure-step-1]
 
 1. Dans le panneau **Déploiement personnalisé**, sélectionnez l’abonnement Azure à utiliser et un groupe de ressources existant ou créez-en un nouveau et spécifiez l’emplacement du groupe de ressources.
-2. Dans le panneau **Paramètres**, spécifiez un nom de compte d’administrateur (**ADMINISTRATORLOGIN** ; n’utilisez pas **admin**), un mot de passe de connexion administrateur (**ADMINISTRATORLOGINPASSWORD**) et le nom de la base de données (**DATABASENAME**). Les autres paramètres sont configurés pour un plan d’hébergement Free App Service et des options moins coûteuses pour la base de données SQL et le Cache Redis Azure, qui ne sont pas fournis avec un niveau Gratuit.
+2. Dans le panneau **Paramètres**, spécifiez un nom de compte d’administrateur (**ADMINISTRATORLOGIN** ; n’utilisez pas **admin**), un mot de passe de connexion administrateur (**ADMINISTRATORLOGINPASSWORD**) et le nom de la base de données (**DATABASENAME**). Les autres paramètres sont configurés pour un plan d’hébergement Free App Service et des options moins coûteuses pour la base de données SQL et le Cache Redis Azure, qui ne sont pas fournis avec un niveau Gratuit.
 3. Modifiez les autres paramètres si nécessaire, ou conservez les valeurs par défaut, puis cliquez sur **OK**.
 
 ![Déployer dans Azure][cache-deploy-to-azure-step-2]
@@ -804,6 +808,6 @@ Une fois que vous avez sélectionné ou créé le cache à utiliser, accédez au
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
 title: Prise en main de Microsoft Power BI Embedded
-description: Power BI incorporée, ajoutez des rapports interactifs Power BI dans votre application business intelligence
+description: "Power BI incorporée, ajoutez des rapports interactifs Power BI dans votre application business intelligence"
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 4787cf44-5d1c-4bc3-b3fd-bf396e5c1176
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: hero-article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b8748ffac2159661d9496b7033b510e6e584fe0f
+
 
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Prise en main de Microsoft Power BI Embedded
@@ -72,7 +76,7 @@ Avec **Power BI Desktop**, vous vous connectez à votre source de données en im
 
 Voici les différences entre l’**importation** et l’utilisation de **DirectQuery**.
 
-| Importation | DirectQuery |
+| Importer | DirectQuery |
 | --- | --- |
 | Les tables, colonnes *et données* sont importées ou copiées dans **Power BI Desktop**. Comme pour les visualisations, **Power BI Desktop** interroge une copie des données. Pour voir les modifications apportées aux données sous-jacentes, vous devez actualiser ou réimporter un jeu de données à jour et complet. |Seules les *tables et colonnes* sont importées ou copiées dans **Power BI Desktop**. Comme pour les visualisations, **Power BI Desktop** interroge la source de données sous-jacente, ce qui signifie que vous visualisez toujours des données à jour. |
 
@@ -98,8 +102,11 @@ Dans les étapes précédentes, vous avez créé une collection d’espaces de t
 ## <a name="see-also"></a>Voir aussi
 * [Prise en main de l’exemple](power-bi-embedded-get-started-sample.md)
 * [Authentification et autorisation avec Power BI Embedded](power-bi-embedded-app-token-flow.md)
-* [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
+* [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

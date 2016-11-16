@@ -1,12 +1,12 @@
 ---
-title: Prise en main d’Azure Mobile Engagement pour Xamarin.iOS
-description: Découvrez comment utiliser Azure Mobile Engagement avec les analyses et les notifications Push pour les applications Xamarin.iOS.
+title: "Prise en main d’Azure Mobile Engagement pour Xamarin.iOS"
+description: "Découvrez comment utiliser Azure Mobile Engagement avec les analyses et les notifications Push pour les applications Xamarin.iOS."
 services: mobile-engagement
 documentationcenter: xamarin
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0448209e-fff6-47bd-985c-2cf074bac12f
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
@@ -14,17 +14,21 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 300403fb483818e5eb1851968ef7f36ff0507fb8
+
 
 ---
-# <a name="get-started-with-azure-mobile-engagement-for-xamarin.ios-apps"></a>Prise en main d’Azure Mobile Engagement pour les applications Xamarin.iOS
+# <a name="get-started-with-azure-mobile-engagement-for-xamarinios-apps"></a>Prise en main d’Azure Mobile Engagement pour les applications Xamarin.iOS
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Cette rubrique indique comment utiliser Azure Mobile Engagement pour comprendre l’utilisation de votre application et envoyer des notifications Push aux utilisateurs segmentés d’une application Xamarin.iOS.
 Dans ce didacticiel, vous allez créer une application Xamarin.iOS vide qui collecte des données de base et reçoit des notifications Push à l’aide du service APN (Apple Push Notification).
 
-Ce didacticiel requiert les éléments suivants :
+Ce didacticiel requiert les éléments suivants :
 
-* [Xamarin Studio](http://xamarin.com/studio). Vous pouvez également utiliser Visual Studio avec Xamarin, mais ce didacticiel utilise Xamarin Studio. Pour obtenir des instructions sur l’installation, consultez la page [Configuration et installation pour Visual Studio et Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). 
+* [Xamarin Studio](http://xamarin.com/studio). Vous pouvez également utiliser Visual Studio avec Xamarin, mais ce didacticiel utilise Xamarin Studio. Pour obtenir des instructions sur l’installation, consultez la page [Configuration et installation pour Visual Studio et Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). 
 * [Kit de développement logiciel (SDK) Mobile Engagement pour Xamarin](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
 > [!NOTE]
@@ -32,15 +36,15 @@ Ce didacticiel requiert les éléments suivants :
 > 
 > 
 
-## <a name="<a-id="setup-azme"></a>setup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Configuration de Mobile Engagement pour votre application iOS
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Configuration de Mobile Engagement pour votre application iOS
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="<a-id="connecting-app"></a>connect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Connexion de votre application au serveur principal Mobile Engagement
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Connexion de votre application au serveur principal Mobile Engagement
 Ce didacticiel aborde l'intégration de base qui correspond aux éléments nécessaires à la collection de données et à l'envoi de notifications push.
 
 Nous allons créer une application de base à l’aide de Xamarin afin d’illustrer l’intégration :
 
-### <a name="create-a-new-xamarin.ios-project"></a>Créer un projet Xamarin.iOS
+### <a name="create-a-new-xamarinios-project"></a>Créer un projet Xamarin.iOS
 1. Démarrez Xamarin Studio. Accédez à **Fichier** -> **Nouveau** -> **Solution** 
    
     ![][1]
@@ -61,7 +65,7 @@ Nous allons créer une application de base à l’aide de Xamarin afin d’illus
 
 Xamarin Studio crée l’application de démonstration dans laquelle nous allons intégrer Mobile Engagement. 
 
-### <a name="connect-your-app-to-mobile-engagement-backend"></a>Connexion de votre application au serveur principal Mobile Engagement
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Connexion de votre application au serveur principal Mobile Engagement
 1. Dans la fenêtre des solutions, cliquez avec le bouton droit sur le dossier **Packages** (Packages), puis sélectionnez **Add Packages...** (Ajouter des packages...).
    
     ![][5]
@@ -79,7 +83,7 @@ Xamarin Studio crée l’application de démonstration dans laquelle nous allons
                     };
         EngagementAgent.Init (config);
 
-## <a name="<a-id="monitor"></a>enabling-real-time-monitoring"></a><a id="monitor"></a>Activation de la surveillance en temps réel
+## <a name="a-idmonitoraenabling-realtime-monitoring"></a><a id="monitor"></a>Activation de la surveillance en temps réel
 Pour commencer à envoyer des données et à vous assurer que les utilisateurs sont actifs, vous devez envoyer au moins un écran au serveur principal Mobile Engagement.
 
 1. Ouvrez **ViewController.cs** et ajoutez-y l’instruction using suivante :
@@ -87,11 +91,11 @@ Pour commencer à envoyer des données et à vous assurer que les utilisateurs s
         using Microsoft.Azure.Engagement.Xamarin;
 2. Remplacez la classe dans laquelle `ViewController` hérite de `UIViewController` à `EngagementViewController`. 
 
-## <a name="<a-id="monitor"></a>connect-app-with-real-time-monitoring"></a><a id="monitor"></a>Connexion d’application avec l’analyse en temps réel
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Connexion d’application avec l’analyse en temps réel
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="<a-id="integrate-push"></a>enable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Activation des notifications push et de la messagerie in-app
-Mobile Engagement vous permet d’interagir et d’atteindre vos utilisateurs et REACH à l’aide de notifications push et de la messagerie in-app, dans le cadre d’une campagne. Ce module s'appelle Couverture dans le portail Mobile Engagement.
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Activation des notifications push et de la messagerie in-app
+Mobile Engagement vous permet d’interagir et d’atteindre vos utilisateurs et REACH à l’aide de notifications push et de la messagerie in-app, dans le cadre d’une campagne. Ce module s'appelle Couverture dans le portail Mobile Engagement.
 Les sections suivantes vous permettent de configurer votre application pour la réception.
 
 ### <a name="modify-your-application-delegate"></a>Modifier votre délégué d'Application
@@ -135,12 +139,12 @@ Les sections suivantes vous permettent de configurer votre application pour la r
         {
             Console.WriteLine("Failed to register for remote notifications: Error '{0}'", error);
         }
-4. Dans le fichier **Info.plist** de la solution, vérifiez que l’identificateur **Bundle Identifier** (Identificateur d’offre groupée) correspond à l’identificateur **App ID** (ID d’application) dont vous disposez dans le profil d’approvisionnement de l’Apple Dev Center. 
+4. Dans le fichier **Info.plist** de la solution, vérifiez que l’identificateur **Bundle Identifier** (Identificateur d’offre groupée) correspond à l’identificateur **App ID** (ID d’application) dont vous disposez dans le profil d’approvisionnement de l’Apple Dev Center. 
    
     ![][7]
 5. Dans le même fichier **Info.plist**, assurez-vous d’avoir coché les cases **Enable Background Modes** (Activer les modes en arrière-plan) et **Remote Notifications** (Notifications distantes). 
    
-    ![][8]
+     ![][8]
 6. Exécutez l’application sur l’appareil que vous avez associé à ce profil de publication. 
 
 [!INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
@@ -157,6 +161,6 @@ Les sections suivantes vous permettent de configurer votre application pour la r
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

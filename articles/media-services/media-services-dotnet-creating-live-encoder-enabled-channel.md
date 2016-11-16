@@ -1,22 +1,26 @@
 ---
-title: Comment effectuer une diffusion dynamique en continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples avec .NET | Microsoft Docs
-description: Ce didacticiel vous guide tout au long des étapes de création d’un canal qui reçoit un flux en temps réel à vitesse de transmission unique et qui l’encode en flux à vitesses de transmission multiples à l’aide du Kit de développement logiciel (SDK) .NET.
+title: "Comment effectuer une diffusion dynamique en continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples avec .NET | Microsoft Docs"
+description: "Ce didacticiel vous guide tout au long des étapes de création d’un canal qui reçoit un flux en temps réel à vitesse de transmission unique et qui l’encode en flux à vitesses de transmission multiples à l’aide du Kit de développement logiciel (SDK) .NET."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: anilmur
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4df5e690-ff63-47cc-879b-9c57cb8ec240
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/15/2016
+ms.date: 10/12/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 98498da5a8aaf10e37c355f05d6f6d83fd4df584
+
 
 ---
-# Comment effectuer une diffusion dynamique en continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples avec .NET
+# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multibitrate-streams-with-net"></a>Comment effectuer une diffusion dynamique en continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples avec .NET
 > [!div class="op_single_selector"]
 > * [Portail](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -27,49 +31,53 @@ ms.author: juliako;anilmur
 > 
 > 
 
-## Vue d'ensemble
+## <a name="overview"></a>Vue d'ensemble
 Ce didacticiel vous guide tout au long des étapes de création d’un **canal** qui reçoit un flux continu à débit binaire unique et qui l’encode en flux à débit binaire multiple.
 
 Pour obtenir des informations conceptuelles sur les canaux prenant en charge l’encodage dynamique, consultez [Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
-## Scénario courant de diffusion dynamique en continu
+## <a name="common-live-streaming-scenario"></a>Scénario courant de diffusion dynamique en continu
 Les étapes suivantes décrivent les tâches impliquées dans la création d’applications courantes de vidéo en flux continu.
 
 > [!NOTE]
-> Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l'adresse Microsoft.com si vous avez besoin d'exécuter un canal sur de plus longues périodes.
+> Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l'adresse Microsoft.com si vous avez besoin d'exécuter un canal sur de plus longues périodes.
 > 
 > 
 
-1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local capable de générer un flux à débit binaire unique dans l’un des protocoles suivants : RTMP, Smooth Streaming ou RTP (MPEG-TS). Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
-   
-    Cette étape peut également être effectuée après la création du canal.
-2. Créez et démarrez un canal.
-3. Récupérez l’URL de réception du canal.
-   
-    L’URL de réception est utilisée par l’encodeur dynamique pour envoyer le flux au canal.
-4. Récupérez l’URL d’aperçu du canal.
-   
-    Utilisez cette URL pour vérifier que votre canal reçoit correctement le flux dynamique.
-5. Créez un élément multimédia.
-6. Si vous souhaitez que l'élément multimédia soit chiffré dynamiquement pendant la lecture, procédez comme suit :
-7. Créez une clé de contenu.
-8. Configurez la stratégie d'autorisation de la clé de contenu.
-9. Configurez la stratégie de remise d'éléments multimédias (utilisée par l'empaquetage dynamique et le chiffrement dynamique).
-10. Créez un programme et spécifiez l'utilisation de l'élément multimédia créé.
-11. Publiez l'élément multimédia associé au programme en créant un localisateur OnDemand.
-    
-     Assurez-vous d'avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
-12. Démarrez le programme dès que vous êtes prêt à lancer la diffusion en continu et l’archivage.
-13. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
-14. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
-15. Supprimez le programme (et éventuellement la ressource).
+1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local capable de générer un flux à débit binaire unique dans l’un des protocoles suivants : RTMP, Smooth Streaming ou RTP (MPEG-TS). Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-## Ce que vous allez apprendre
+Cette étape peut également être effectuée après la création du canal.
+
+1. Créez et démarrez un canal.
+2. Récupérez l’URL de réception du canal.
+
+L’URL de réception est utilisée par l’encodeur dynamique pour envoyer le flux au canal.
+
+1. Récupérez l’URL d’aperçu du canal.
+
+Utilisez cette URL pour vérifier que votre canal reçoit correctement le flux dynamique.
+
+1. Créez un élément multimédia.
+2. Si vous souhaitez que l'élément multimédia soit chiffré dynamiquement pendant la lecture, procédez comme suit :
+3. Créez une clé de contenu.
+4. Configurez la stratégie d'autorisation de la clé de contenu.
+5. Configurez la stratégie de remise d'éléments multimédias (utilisée par l'empaquetage dynamique et le chiffrement dynamique).
+6. Créez un programme et spécifiez l'utilisation de l'élément multimédia créé.
+7. Publiez l'élément multimédia associé au programme en créant un localisateur OnDemand.
+
+Assurez-vous d'avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
+
+1. Démarrez le programme dès que vous êtes prêt à lancer la diffusion en continu et l’archivage.
+2. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
+3. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
+4. Supprimez le programme (et éventuellement la ressource).
+
+## <a name="what-youll-learn"></a>Ce que vous allez apprendre
 Cette rubrique montre comment exécuter différentes opérations sur des canaux et des programmes à l’aide du Kit de développement logiciel (SDK) .NET Media Services. Bon nombre d'opérations étant de longue durée, les API .NET qui gèrent les opérations de ce type sont utilisées.
 
 La rubrique montre comment effectuer les opérations suivantes :
 
-1. Créer et démarrer un canal. Des API de longue durée sont utilisées.
+1. Créez et démarrez un canal. Des API de longue durée sont utilisées.
 2. Obtenir le point de terminaison de réception (entrée) du canal. Ce point de terminaison doit être fourni à l'encodeur capable d'envoyer un flux continu à vitesse de transmission unique.
 3. Obtenir le point de terminaison d'aperçu. Ce point de terminaison permet d'afficher un aperçu de votre flux.
 4. Créer un élément multimédia qui sera utilisé pour stocker votre contenu. Les stratégies de remise d'éléments multimédias doivent également être configurées, comme le montre cet exemple.
@@ -78,33 +86,34 @@ La rubrique montre comment effectuer les opérations suivantes :
 7. Afficher et masquer des slates. Démarrer et arrêter des publicités. Des API de longue durée sont utilisées.
 8. Nettoyer votre canal et toutes les ressources associées.
 
-## Composants requis
+## <a name="prerequisites"></a>Composants requis
 Les éléments suivants sont requis pour suivre le didacticiel.
 
 * Pour suivre ce didacticiel, vous avez besoin d'un compte Azure.
-  
-    Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Vous obtenez des crédits que vous pouvez utiliser pour essayer des services Azure payants. Une fois que les crédits sont épuisés, vous pouvez quand même conserver le compte et utiliser les services et fonctionnalités Azure gratuits, comme la fonction Web Apps dans Azure App Service.
-* Un compte Media Services. Pour créer un compte Media Services, consultez [Créer un compte](media-services-create-account.md).
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou une version ultérieure.
-* Vous devez utiliser le Kit de développement logiciel (SDK) .NET de Media Services version 3.2.0.0 ou ultérieure.
+
+Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Vous obtenez des crédits que vous pouvez utiliser pour essayer des services Azure payants. Une fois que les crédits sont épuisés, vous pouvez quand même conserver le compte et utiliser les services et fonctionnalités Azure gratuits, comme la fonction Web Apps dans Azure App Service.
+
+* Un compte Media Services. Pour créer un compte Media Services, consultez [Créer un compte](media-services-portal-create-account.md).
+* Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou une version ultérieure.
+* Vous devez utiliser le Kit de développement logiciel (SDK) .NET de Media Services version 3.2.0.0 ou ultérieure.
 * Une webcam et un encodeur capable d’envoyer un flux dynamique à débit binaire unique.
 
-## Considérations
-* Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l'adresse Microsoft.com si vous avez besoin d'exécuter un canal sur de plus longues périodes.
+## <a name="considerations"></a>Considérations
+* Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l'adresse Microsoft.com si vous avez besoin d'exécuter un canal sur de plus longues périodes.
 * Assurez-vous d'avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
 
-## Charger l’exemple
+## <a name="download-sample"></a>Charger l’exemple
 Obtenez et exécutez un exemple [ici](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
-## Configurer le développement avec le Kit de développement logiciel (SDK) Media Services pour .NET
+## <a name="set-up-for-development-with-media-services-sdk-for-net"></a>Configurer le développement avec le Kit de développement logiciel (SDK) Media Services pour .NET
 1. Créer une application console à l'aide de Visual Studio.
 2. Ajouter le Kit de développement logiciel (SDK) Media Services pour .NET à votre application console à l'aide du package NuGet Media Services.
 
-## Connexion à Media Services
+## <a name="connect-to-media-services"></a>Connexion à Media Services
 Il est recommandé d'utiliser un fichier app.config pour stocker le nom et la clé du compte Media Services.
 
 > [!NOTE]
-> Pour obtenir les valeurs Nom et Clé, accédez au portail Azure Classic, sélectionnez votre compte Media Services, puis cliquez sur l'icône « GÉRER LES CLÉS » en bas de la fenêtre du portail. Cliquer sur l'icône en regard de chaque zone de texte copie la valeur dans le Presse-papiers du système.
+> Pour rechercher les valeurs Nom et Clé, accédez au portail Azure et sélectionnez votre compte. La fenêtre Paramètres s’affiche sur la droite. Dans la fenêtre Paramètres, sélectionnez Clés. Cliquer sur l'icône en regard de chaque zone de texte copie la valeur dans le Presse-papiers du système.
 > 
 > 
 
@@ -119,7 +128,7 @@ Ajoutez la section appSettings au fichier app.config, puis définissez les valeu
     </configuration>
 
 
-## Exemple de code
+## <a name="code-example"></a>Exemple de code
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -507,15 +516,20 @@ Ajoutez la section appSettings au fichier app.config, puis définissez les valeu
     }    
 
 
-## Étape suivante
+## <a name="next-step"></a>Étape suivante
 Consultez les parcours d’apprentissage de Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Fournir des commentaires
+## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### Vous recherchez quelque chose d’autre ?
+### <a name="looking-for-something-else"></a>Vous recherchez quelque chose d’autre ?
 Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas les informations recherchées, faites-nous part de vos commentaires à l’aide du fil de discussion Disqus ci-dessous.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

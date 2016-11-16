@@ -1,12 +1,12 @@
 ---
-title: Use Redgate's Data Platform Studio to load data into SQL Data Warehouse | Microsoft Docs
-description: Learn how to use Redgate's Data Platform Studio for data warehousing scenarios.
+title: "Utilisation de Redgate Data Platform Studio pour charger des données dans SQL Data Warehouse | Microsoft Docs"
+description: "Apprenez à utiliser Redgate Data Platform Studio pour les scénarios d’entreposage de données."
 services: sql-data-warehouse
 documentationcenter: NA
 author: twounder
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 670aef98-31f7-4436-86c0-cc989a39fe7f
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 804b0ba72ca73da1a076bd4dbca8bbca33cb76b1
+
 
 ---
-# <a name="load-data-with-redgate-data-platform-studio"></a>Load data with Redgate Data Platform Studio
+# <a name="load-data-with-redgate-data-platform-studio"></a>Chargement de données avec Redgate Data Platform Studio
 > [!div class="op_single_selector"]
 > * [Redgate](sql-data-warehouse-load-with-redgate.md)
 > * [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
@@ -25,111 +29,111 @@ ms.author: mausher;barbkess
 > 
 > 
 
-This tutorial shows you how to use [Redgate's Data Platform Studio](http://www.red-gate.com/products/azure-development/data-platform-studio/) (DPS) to move data from an on-premise SQL Server to Azure SQL Data Warehouse. Data Platform Studio applies the most appropriate compatibility fixes and optimizations, so it's the quickest way to get started with SQL Data Warehouse.
+Ce didacticiel vous montre comment utiliser [Redgate Data Platform Studio](http://www.red-gate.com/products/azure-development/data-platform-studio/) (DPS) pour déplacer des données d’un serveur SQL Server local vers Azure SQL Data Warehouse. Data Platform Studio applique les correctifs de compatibilité et optimisations les plus appropriés. Il s’agit donc du moyen le plus rapide pour vous familiariser avec SQL Data Warehouse.
 
 > [!NOTE]
-> [Redgate](http://www.red-gate.com) is a long-time Microsoft partner that delivers various SQL Server tools. This feature in Data Platform Studio has been made available freely for both commercial and non-commercial use.
+> [Redgate](http://www.red-gate.com) est un partenaire Microsoft de longue date, et fournit divers outils SQL Server. Cette fonctionnalité de Data Platform Studio est disponible gratuitement pour un usage commercial et non commercial.
 > 
 > 
 
-## <a name="before-you-begin"></a>Before you begin
-### <a name="create-or-identify-resources"></a>Create or identify resources
-Before starting this tutorial, you need to have:
+## <a name="before-you-begin"></a>Avant de commencer
+### <a name="create-or-identify-resources"></a>Créer ou identifier des ressources
+Avant de commencer ce didacticiel, vous devez disposer des ressources suivantes :
 
-* **On-premise SQL Server Database**: The data you want to import to SQL Data Warehouse needs to come from an on-premise SQL Server (version 2008R2 or above). Data Platform Studio cannot import data directly from an Azure SQL Database or from text files.
-* **Azure Storage Account**: Data Platform Studio stages the data in Azure Blob Storage before loading it into SQL Data Warehouse. The storage account must be using the “Resource Manager” deployment model (the default) rather than the “Classic” deployment model. If you don't have a storage account, learn how to Create a storage account. 
-* **SQL Data Warehouse**: This tutorial moves the data from on-premise SQL Server to SQL Data Warehouse, so you need to have a data warehouse online. If you do not already have a data warehouse, learn how to Create an Azure SQL Data Warehouse.
-
-> [!NOTE]
-> Performance is improved if the storage account and the data warehouse are created in the same region.
-> 
-> 
-
-## <a name="step-1-sign-in-to-data-platform-studio-with-your-azure-account"></a>Step 1: Sign in to Data Platform Studio with your Azure account
-Open your web browser and navigate to the [Data Platform Studio](https://www.dataplatformstudio.com/) website. Sign in with the same Azure account that you used to create the storage account and data warehouse. If your email address is associated with both a work or school account and a Microsoft account, be sure to choose the account that has access to your resources.
+* **Base de données SQL Server sur site** : les données que vous souhaitez importer dans SQL Data Warehouse doivent provenir d’un serveur SQL Server local (version 2008R2 ou ultérieure). Data Platform Studio ne peut pas importer les données directement à partir d’une base de données Azure SQL Database, ni à partir de fichiers texte.
+* **Compte de stockage Azure** : Data Platform Studio organise les données dans le stockage Blob Azure avant de les charger dans SQL Data Warehouse. Le compte de stockage doit utiliser le modèle de déploiement « Resource Manager » (la valeur par défaut) plutôt que le modèle de déploiement « Classic ». Si vous ne possédez pas de compte de stockage, découvrez comment créer un compte de stockage. 
+* **SQL Data Warehouse** : ce didacticiel déplace les données d’un serveur SQL Server local vers SQL Data Warehouse ; vous devez donc disposer d’un entrepôt de données en ligne. Si vous n’en possédez pas encore, découvrez comment créer un entrepôt Azure SQL Data Warehouse.
 
 > [!NOTE]
-> If this is your first time using Data Platform Studio, you are asked to grant the application permission to manage your Azure resources.
+> Les performances se trouvent améliorées si le compte de stockage et l’entrepôt de données sont créés dans la même région.
 > 
 > 
 
-## <a name="step-2-start-the-import-wizard"></a>Step 2: Start the Import Wizard
-From the DPS main screen, select the Import to Azure SQL Data Warehouse link to start the import wizard.
+## <a name="step-1-sign-in-to-data-platform-studio-with-your-azure-account"></a>Étape 1 : se connecter à Data Platform Studio avec votre compte Azure
+Ouvrez votre navigateur Web et accédez au site [Data Platform Studio](https://www.dataplatformstudio.com/). Connectez-vous avec le même compte Azure que celui que vous avez utilisé pour créer le compte de stockage et l’entrepôt de données. Si votre adresse de messagerie est associée à un compte professionnel ou scolaire et à un compte Microsoft, veillez à choisir le compte qui a accès à vos ressources.
+
+> [!NOTE]
+> S’il s’agit de votre première utilisation de Data Platform Studio, vous êtes invité à autoriser l’application à gérer vos ressources Azure.
+> 
+> 
+
+## <a name="step-2-start-the-import-wizard"></a>Étape 2 : démarrer l’Assistant Importation
+Dans l’écran principal de DPS, sélectionnez le lien Import to Azure SQL Data Warehouse (Importer dans Azure SQL Data Warehouse) pour démarrer l’Assistant Importation.
 
 ![][1]
 
-## <a name="step-3-install-the-data-platform-studio-gateway"></a>Step 3: Install the Data Platform Studio Gateway
-To connect to your on-premise SQL Server database, you need to install the DPS Gateway. The gateway is a client agent that provides access to your on-premise environment, extracts the data, and uploads it to your storage account. Your data never passes through Redgate’s servers. To install the Gateway:
+## <a name="step-3-install-the-data-platform-studio-gateway"></a>Étape 3 : installer la passerelle Data Platform Studio
+Pour vous connecter à votre base de données SQL Server locale, vous devez installer la passerelle DPS. La passerelle est un agent client qui donne accès à votre environnement local, extrait les données et les télécharge vers votre compte de stockage. Vos données ne transitent jamais via les serveurs de Redgate. Pour installer la passerelle :
 
-1. Click the **Create Gateway** link
-2. Download and install the Gateway using the provided installer
+1. Cliquez sur le lien **Create Gateway** (Créer une passerelle).
+2. Téléchargez et installez la passerelle via le programme d’installation fourni.
 
 ![][2]
 
 > [!NOTE]
-> The Gateway can be installed on any machine with network access to the source SQL Server database. It accesses the SQL Server database using Windows authentication with the credentials of the current user.
+> La passerelle peut être installée sur n’importe quel ordinateur ayant un accès réseau à la base de données SQL Server source. Elle accède à la base de données SQL Server en utilisant les identifiants d’authentification Windows de l’utilisateur actuel.
 > 
 > 
 
-Once installed, the Gateway status changes to Connected and you can select Next.
+Une fois la passerelle installée, elle passe à l’état Connected (Connecté) et vous pouvez sélectionner Next (Suivant).
 
-## <a name="step-4-identify-the-source-database"></a>Step 4: Identify the source database
-In the *Enter Server Name* textbox, enter the name of the server that hosts your database and select **Next**. Then, from the drop-down menu, select the database you want to import data from.
+## <a name="step-4-identify-the-source-database"></a>Étape 4 : identifier la base de données source
+Dans la zone de texte *Enter Server Name* (Entrer le nom du serveur), saisissez le nom du serveur qui héberge votre base de données et sélectionnez **Next** (Suivant). Ensuite, dans le menu déroulant, sélectionnez la base de données à partir de laquelle vous souhaitez importer les données.
 
 ![][3]
 
-DPS inspects the selected database for tables to import. By default, DPS imports all the tables in the database. You can select or deselect tables by expanding the All Tables link. Select the Next button to move forward.
+DPS recherche les tables à importer dans la base de données sélectionnée. Par défaut, DPS importe toutes les tables de la base de données. Vous pouvez sélectionner ou désélectionner des tables en développant le lien All Tables (Toutes les tables). Sélectionnez le bouton Next (Suivant) pour continuer.
 
-## <a name="step-5-choose-a-storage-account-to-stage-the-data"></a>Step 5: Choose a storage account to stage the data
-DPS prompts you for a location to stage the data. Choose an existing storage account from your subscription and select **Next**.
+## <a name="step-5-choose-a-storage-account-to-stage-the-data"></a>Étape 5 : choisir un compte de stockage à utiliser pour stocker les données
+DPS vous invite à entrer un emplacement à utiliser pour stocker les données. Choisissez un compte de stockage existant dans votre abonnement, puis sélectionnez **Next** (Suivant).
 
 > [!NOTE]
-> DPS will create a new blob container in the chosen storage account and use a distinct folder for each import.
+> DPS crée un nouveau conteneur d’objets blob dans le compte de stockage choisi et utilise un dossier distinct pour chaque importation.
 > 
 > 
 
 ![][4]
 
-## <a name="step-6-select-a-data-warehouse"></a>Step 6: Select a data warehouse
-Next, you select an online [Azure SQL Data Warehouse](http://aka.ms/sqldw) database to import the data into. Once you've selected your database, you need to enter the credentials to connect to the database and select **Next**.
+## <a name="step-6-select-a-data-warehouse"></a>Étape 6 : créer un entrepôt de données
+Sélectionnez ensuite une base de données [Azure SQL Data Warehouse](http://aka.ms/sqldw) en ligne dans laquelle importer les données. Une fois que vous avez sélectionné votre base de données, vous devez entrer les informations d’identification pour vous connecter à la base de données et sélectionner **Next** (Suivant).
 
 ![][5]
 
 > [!NOTE]
-> DPS merges the source data tables into the data warehouse. DPS warns you if the table name requires it to overwrite existing tables in the data warehouse. You may optionally delete any existing objects in the data warehouse by ticking Delete all existing objects before import.
+> DPS fusionne les tables de données source dans l’entrepôt de données. DPS vous avertit si le nom de la table nécessite d’écraser des tables existantes dans l’entrepôt de données. Vous pouvez supprimer des objets existants dans l’entrepôt de données en cochant Delete all existing objects before import (Supprimer tous les objets existants avant l’importation).
 > 
 > 
 
-## <a name="step-7-import-the-data"></a>Step 7: Import the data
-DPS confirms that you would like to import the data. Simply click the Start import button to begin the data import.
+## <a name="step-7-import-the-data"></a>Étape 7 : importer les données
+DPS vous demande de confirmer que vous souhaitez importer les données. Cliquez simplement sur le bouton de démarrage de l’importation pour commencer l’importation de données.
 
 ![][6]
 
-DPS displays a visualization that shows the progress of extracting and uploading the data from the on-premise SQL Server and the progress of the import into SQL Data Warehouse.
+DPS indique la progression de l’extraction et du chargement des données à partir du serveur SQL Server sur site, ainsi que la progression de l’importation dans SQL Data Warehouse.
 
 ![][7]
 
-Once the import is complete, DPS displays a summary of the data import and a change report of the compatibility fixes that have been performed.
+Une fois l’importation terminée, DPS affiche un résumé de l’importation des données et un rapport de modification des correctifs de compatibilité qui ont été effectués.
 
 ![][8]
 
-## <a name="next-steps"></a>Next steps
-To explore your data within SQL Data Warehouse, start by viewing:
+## <a name="next-steps"></a>Étapes suivantes
+Pour explorer les données dans SQL Data Warehouse, reportez-vous à :
 
-* [Query Azure SQL Data Warehouse (Visual Studio)][Query Azure SQL Data Warehouse (Visual Studio)]
-* [Visualize data with Power BI][Visualize data with Power BI]
+* [Interroger Azure SQL Data Warehouse (sqlcmd) (Visual Studio)][Interroger Azure SQL Data Warehouse (sqlcmd) (Visual Studio)]
+* [Visualiser des données avec Power BI][Visualiser des données avec Power BI]
 
-To learn more about Redgate’s Data Platform Studio:
+Pour en savoir plus sur Redgate Data Platform Studio :
 
-* [Visit the DPS homepage](http://www.dataplatformstudio.com/)
-* [Watch a demo of DPS on Channel9](https://channel9.msdn.com/Blogs/cloud-with-a-silver-lining/Loading-data-into-Azure-SQL-Datawarehouse-with-Redgate-Data-Platform-Studio)
+* [Visitez la page d’accueil de DPS](http://www.dataplatformstudio.com/)
+* [Regardez une démonstration de DPS sur Channel9](https://channel9.msdn.com/Blogs/cloud-with-a-silver-lining/Loading-data-into-Azure-SQL-Datawarehouse-with-Redgate-Data-Platform-Studio)
 
-For an overview of other ways to migrate and load your data in SQL Data Warehouse see:
+Pour obtenir une vue d’ensemble d’autres méthodes de migration et de chargement de vos données dans SQL Data Warehouse, voir :
 
-* [Migrate your solution to SQL Data Warehouse][Migrate your solution to SQL Data Warehouse]
-* [Load data into Azure SQL Data Warehouse](sql-data-warehouse-overview-load.md)
+* [Migration de votre solution vers SQL Data Warehouse][Migration de votre solution vers SQL Data Warehouse]
+* [Chargement de données dans Azure SQL Data Warehouse](sql-data-warehouse-overview-load.md)
 
-For more development tips, see the [SQL Data Warehouse development overview](sql-data-warehouse-overview-develop.md).
+Pour obtenir des conseils supplémentaires en matière de développement, consultez l’article [Vue d’ensemble sur le développement SQL Data Warehouse](sql-data-warehouse-overview-develop.md).
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-redgate/2016-10-05_15-59-56.png
@@ -142,13 +146,14 @@ For more development tips, see the [SQL Data Warehouse development overview](sql
 [8]: media/sql-data-warehouse-redgate/2016-10-05_12-57-10.png
 
 <!--Article references-->
-[Query Azure SQL Data Warehouse (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
-[Visualize data with Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Migrate your solution to SQL Data Warehouse]: ./sql-data-warehouse-overview-migrate.md
-[Load data into Azure SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[Interroger Azure SQL Data Warehouse (sqlcmd) (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
+[Visualiser des données avec Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
+[Migration de votre solution vers SQL Data Warehouse]: ./sql-data-warehouse-overview-migrate.md
+[Chargement de données dans Azure SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[Vue d’ensemble sur le développement SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO2-->
 
 

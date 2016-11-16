@@ -1,13 +1,13 @@
 ---
-title: Créer une homologation de réseaux virtuels à l’aide de modèles Resource Manager | Microsoft Docs
-description: Découvrez comment créer une homologation de réseaux virtuels à l’aide des modèles disponibles dans Resource Manager.
+title: "Création d’une homologation de réseaux virtuels à l’aide de modèles Resource Manager | Microsoft Docs"
+description: "Découvrez comment créer une homologation de réseaux virtuels à l’aide des modèles disponibles dans Resource Manager."
 services: virtual-network
-documentationcenter: ''
+documentationcenter: 
 author: narayanannamalai
 manager: jefco
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 75f8d10e-23e8-44bd-9972-aab74048cf38
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayanannamalai;annahar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5af02963f139648d9f1b662f2da913ffa0d6f128
+
 
 ---
-# Créer une homologation de réseaux virtuels à l’aide de modèles Resource Manager
+# <a name="create-vnet-peering-using-resource-manager-templates"></a>Créer une homologation de réseaux virtuels à l’aide de modèles Resource Manager
 [!INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnetpeering-intro-include.md)]
@@ -29,7 +33,7 @@ Pour créer une homologation de réseaux virtuels à l’aide de modèles Resour
 1. Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
    
    > [!NOTE]
-   > L’applet de commande PowerShell pour la gestion de l’homologation de réseaux virtuels est fournie avec [Azure PowerShell 1.6](http://www.powershellgallery.com/packages/Azure/1.6.0).
+   > L’applet de commande PowerShell pour la gestion de l’homologation de réseaux virtuels est fournie avec [Azure PowerShell 1.6](http://www.powershellgallery.com/packages/Azure/1.6.0)
    > 
    > 
 2. Le texte ci-dessous illustre la définition d’un lien d’homologation de réseaux virtuels de VNet1 à VNet2, d’après le scénario ci-dessus. Copiez le contenu ci-dessous et enregistrez-le dans un fichier nommé VNetPeeringVNet1.json.
@@ -59,7 +63,7 @@ Pour créer une homologation de réseaux virtuels à l’aide de modèles Resour
             }
         ]
         }
-3. La section ci-dessous illustre la définition d’un lien d’homologation de réseaux virtuels de VNet2 à VNet1, d’après le scénario ci-dessus. Copiez le contenu ci-dessous et enregistrez-le dans un fichier nommé VNetPeeringVNet2.json.
+3. La section ci-dessous illustre la définition d’un lien d’homologation de réseaux virtuels de VNet2 à VNet1, d’après le scénario ci-dessus.  Copiez le contenu ci-dessous et enregistrez-le dans un fichier nommé VNetPeeringVNet2.json.
    
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -91,7 +95,7 @@ Pour créer une homologation de réseaux virtuels à l’aide de modèles Resour
    
    | Option | Description | Default |
    |:--- |:--- |:--- |
-   | AllowVirtualNetworkAccess |Indique si l’espace d’adressage d’un réseau virtuel homologue est inclus ou non dans le cadre de la balise Virtual\_network. |Oui |
+   | AllowVirtualNetworkAccess |Indique si l’espace d’adressage d’un réseau virtuel homologue est inclus ou non dans le cadre de la balise Virtual_network. |Oui |
    | AllowForwardedTraffic |Spécifie si le trafic ne provenant pas d’un réseau virtuel homologué est accepté ou rejeté. |Non |
    | AllowGatewayTransit |Permet au réseau virtuel homologue d’utiliser votre passerelle de réseau virtuel. |Non |
    | UseRemoteGateways |Permet d’utiliser la passerelle de votre réseau virtuel homologue. Le réseau virtuel homologue doit avoir une passerelle configurée et la propriété AllowGatewayTransit sélectionnée. Vous ne pouvez pas utiliser cette option si vous avez une passerelle configurée. |Non |
@@ -157,7 +161,7 @@ Pour créer une homologation de réseaux virtuels à l’aide de modèles Resour
         RemoteGateways                   : null
         RemoteVirtualNetworkAddressSpace : null
    
-    Une fois l’homologation créée dans ce scénario, vous devez être en mesure d’établir des connexions de n’importe quelle machine virtuelle à n’importe quelle machine virtuelle des deux réseaux virtuels. Par défaut, la propriété AllowVirtualNetworkAccess est définie sur True et l’homologation de réseaux virtuels configure les listes de contrôle d’accès appropriées pour permettre la communication entre les réseaux virtuels. Vous pouvez toujours appliquer les règles de groupe de sécurité réseau pour bloquer la connectivité entre des sous-réseaux ou des machines virtuelles spécifiques afin d’avoir un contrôle précis de l’accès entre deux réseaux virtuels. Pour plus d’informations sur la création de règles de groupe de sécurité réseau, reportez-vous à [cet article](virtual-networks-create-nsg-arm-ps.md).
+    Une fois l’homologation créée dans ce scénario, vous devez être en mesure d’établir des connexions de n’importe quelle machine virtuelle à n’importe quelle machine virtuelle des deux réseaux virtuels. Par défaut, la propriété AllowVirtualNetworkAccess est définie sur True et l’homologation de réseaux virtuels configure les listes de contrôle d’accès appropriées pour permettre la communication entre les réseaux virtuels. Vous pouvez toujours appliquer les règles de groupe de sécurité réseau pour bloquer la connectivité entre des sous-réseaux ou des machines virtuelles spécifiques afin d’avoir un contrôle précis de l’accès entre deux réseaux virtuels.  Pour plus d’informations sur la création de règles de groupe de sécurité réseau, reportez-vous à [cet article](virtual-networks-create-nsg-arm-ps.md).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
@@ -175,7 +179,7 @@ Pour créer une homologation de réseaux virtuels entre différents abonnements,
    
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet3.json -DeploymentDebugLogLevel all
    
-    Voici comment le fichier JSON est défini :
+    Voici comment le fichier JSON est défini :  
    
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -238,7 +242,7 @@ Pour créer une homologation de réseaux virtuels entre différents abonnements,
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
-1. Dans ce scénario, vous pouvez déployer l’exemple de modèle ci-dessous pour établir l’homologation de réseaux virtuels. Vous devez définir la propriété AllowForwardedTraffic sur True pour permettre à l’appliance virtuelle du réseau virtuel homologué d’envoyer et de recevoir du trafic.
+1. Dans ce scénario, vous pouvez déployer l’exemple de modèle ci-dessous pour établir l’homologation de réseaux virtuels.  Vous devez définir la propriété AllowForwardedTraffic sur True pour permettre à l’appliance virtuelle du réseau virtuel homologué d’envoyer et de recevoir du trafic.
    
     Voici le modèle permettant de créer une homologation de réseaux virtuels de HubVNet à VNet1. Notez que la propriété AllowForwardedTraffic est définie sur False.
    
@@ -305,7 +309,25 @@ Pour créer une homologation entre des réseaux virtuels utilisant des modèles 
    
     Veillez à placer dans votre ID d’abonnement dans l’emplacement du réseau virtuel Classic, ou VNET2, et à remplacer MyResouceGroup par le nom du groupe de ressources approprié.
    
-    { "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#", "contentVersion": "1.0.0.0", "parameters": { }, "variables": { }, "resources": [ { "apiVersion": "2016-06-01", "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings", "name": "VNET1/LinkToVNET2", "location": "[resourceGroup().location]", "properties": { "allowVirtualNetworkAccess": true, "allowForwardedTraffic": false, "allowGatewayTransit": false, "useRemoteGateways": false, "remoteVirtualNetwork": { "id": "[resourceId(’Microsoft.ClassicNetwork/virtualNetworks’, ’VNET2’)]" } } } ] }
+    {  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",  "contentVersion": "1.0.0.0",  "parameters": {  },  "variables": {  },  "resources": [
+   
+        {
+        "apiVersion": "2016-06-01",
+        "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+        "name": "VNET1/LinkToVNET2",
+        "location": "[resourceGroup().location]",
+        "properties": {
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": false,
+        "allowGatewayTransit": false,
+        "useRemoteGateways": false,
+            "remoteVirtualNetwork": {
+            "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]"
+    }
+   
+        }
+        }
+    ]  }
 2. Pour déployer le fichier de modèle, exécutez l’applet de commande suivante afin de créer ou de mettre à jour le déploiement.
    
         New-AzureRmResourceGroupDeployment -ResourceGroupName MyResourceGroup -TemplateFile .\VnetPeering.json -DeploymentDebugLogLevel all
@@ -349,4 +371,9 @@ Pour créer une homologation entre des réseaux virtuels utilisant des modèles 
 
 Lorsque l’homologation est établie entre un réseau virtuel Classic et un réseau virtuel Resource Manager, vous devez être en mesure d’établir des connexions de n’importe quelle machine virtuelle de VNET1 à n’importe quelle machine virtuelle de VNET2, et inversement.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

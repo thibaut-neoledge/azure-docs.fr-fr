@@ -40,12 +40,12 @@
 ### [Gérer à l’aide d’Automation](automation-manage-api-management.md)
 ### [Configurer à l’aide de Git](api-management-configuration-repository-git.md)
 #Référence
-## [Modèles](https://msdn.microsoft.com/en-us/library/azure/mt697540)
-## [Référence sur les applets de commande PowerShell de déploiement des services](https://msdn.microsoft.com/en-us/library/azure/mt619282)
+## [Applet de commande Gestion des ressources]/powershell/resourcemanager()
+## [Informations de référence sur les applets de commande PowerShell de déploiement classique](https://msdn.microsoft.com/en-us/library/azure/mt613507)
+## [API REST](/rest/api/apimanagement/)
 ## [Stratégies](https://msdn.microsoft.com/en-us/library/azure/dn894081)
-## [API REST](https://msdn.microsoft.com/en-us/library/azure/dn776326)
-## [Référence sur les applets de commande PowerShell de gestion des services](https://msdn.microsoft.com/en-us/library/azure/mt613507)
-#les ressources
+## [Modèles](https://msdn.microsoft.com/en-us/library/azure/mt697540)
+#Ressources
 ## [Tarification](https://azure.microsoft.com/pricing/details/api-management/)
 ## [Livre blanc : gestion des API basée sur le cloud](http://j.mp/ms-apim-whitepaper)
 ## [Guide de conception d’API](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)

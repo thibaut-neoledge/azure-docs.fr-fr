@@ -1,12 +1,12 @@
 ---
-title: Hébergement de plusieurs sites sur Application Gateway | Microsoft Docs
-description: Cette page fournit une vue d’ensemble de la prise en charge de sites multiples pour la passerelle Application Gateway.
+title: "Hébergement de plusieurs sites sur Application Gateway | Microsoft Docs"
+description: "Cette page fournit une vue d’ensemble de la prise en charge de sites multiples pour la passerelle Application Gateway."
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-
+ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
@@ -14,10 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2016
 ms.author: amsriva
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 85fc1315f32811873c577fe75d88eb08a2bbac26
+
 
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hébergement de plusieurs sites Application Gateway
-L’hébergement de plusieurs sites vous permet de configurer plusieurs applications web sur la même instance de passerelle Application Gateway. Cette fonctionnalité vous permet de configurer une topologie plus efficace pour vos déploiements en ajoutant jusqu’à 20 sites web à une passerelle Application Gateway. Chaque site web peut être dirigé vers son propre pool principal. Dans l’exemple suivant, la passerelle Application Gateway gère le trafic pour contoso.com et fabrikam.com avec deux pools de serveurs principaux : ContosoServerPool et FabrikamServerPool.
+L’hébergement de plusieurs sites vous permet de configurer plusieurs applications web sur la même instance de passerelle Application Gateway. Cette fonctionnalité vous permet de configurer une topologie plus efficace pour vos déploiements en ajoutant jusqu’à 20 sites web à une passerelle Application Gateway. Chaque site web peut être dirigé vers son propre pool principal. Dans l’exemple suivant, la passerelle Application Gateway gère le trafic pour contoso.com et fabrikam.com avec deux pools de serveurs principaux : ContosoServerPool et FabrikamServerPool.
 
 ![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
 
@@ -25,7 +29,7 @@ Les demandes adressées à http://contoso.com sont acheminées vers ContosoServe
 
 De même, deux sous-domaines du même domaine parent peuvent également être hébergés sur le même déploiement de passerelle Application Gateway. Parmi les exemples d’utilisation de sous-domaines, peuvent figurer http://blog.contoso.com et http://app.contoso.com hébergés sur un déploiement de passerelle Application Gateway unique.
 
-## <a name="host-headers-and-server-name-indication-(sni)"></a>En-têtes d’hôte et Indication du nom du serveur (SNI)
+## <a name="host-headers-and-server-name-indication-sni"></a>En-têtes d’hôte et Indication du nom du serveur (SNI)
 Il existe trois mécanismes pour activer l’hébergement de plusieurs sites dans la même infrastructure.
 
 1. Hébergez plusieurs applications web, chacune sur une adresse IP unique.
@@ -77,7 +81,7 @@ L’élément de configuration HTTPListener existant a été amélioré pour pre
 Vous pouvez consulter le [modèle Resource Manager avec l’hébergement de sites multiples](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) pour un déploiement basé sur un modèle de bout en bout.
 
 ## <a name="routing-rule"></a>Règle de routage
-Aucune modification n’est requise dans la règle de routage. La règle de routage « De base » doit continuer à être choisie pour lier l’écouteur de site approprié au pool d’adresses principales correspondant.
+Aucune modification n’est requise dans la règle de routage. La règle de routage « De base » doit continuer à être choisie pour lier l’écouteur de site approprié au pool d’adresses principales correspondant.
 
     "requestRoutingRules": [
     {
@@ -117,6 +121,9 @@ Aucune modification n’est requise dans la règle de routage. La règle de rout
 ## <a name="next-steps"></a>Étapes suivantes
 Après avoir étudié l’hébergement de sites multiples, accédez à [Créer une passerelle Application Gateway avec l’hébergement de sites multiples](application-gateway-create-multisite-azureresourcemanager-powershell.md) pour créer une passerelle Application Gateway avec prise en charge de plusieurs applications web.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

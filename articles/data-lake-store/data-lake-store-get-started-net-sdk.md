@@ -1,12 +1,12 @@
 ---
-title: Utiliser le Kit de développement logiciel (SDK) .NET Data Lake Store pour développer des applications | Microsoft Docs
-description: Utiliser le Kit de développement logiciel (SDK) .NET Azure Data Lake Store pour développer des applications
+title: "Utiliser le Kit de développement logiciel (SDK) .NET Data Lake Store pour développer des applications | Microsoft Docs"
+description: "Utiliser le Kit de développement logiciel (SDK) .NET Azure Data Lake Store pour développer des applications"
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: ea57d5a9-2929-4473-9d30-08227912aba7
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 47f8601471c6b1f6da5d57d1f30da51af76fba85
+
 
 ---
-# Prise en main d’Azure Data Lake Store à l’aide du Kit de développement logiciel (SDK) .NET
+# <a name="get-started-with-azure-data-lake-store-using-net-sdk"></a>Prise en main d’Azure Data Lake Store à l’aide du Kit de développement logiciel (SDK) .NET
 > [!div class="op_single_selector"]
 > * [Portail](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -30,16 +34,16 @@ ms.author: nitinme
 
 Découvrez comment utiliser le [Kit de développement logiciel (SDK) .NET Azure Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx) pour effectuer des opérations de base comme créer des dossiers ou charger et télécharger des fichiers de données. Pour plus d’informations sur Data Lake, consultez [Azure Data Lake Store](data-lake-store-overview.md).
 
-## Composants requis
-* **Visual Studio 2013 ou 2015**. Les instructions ci-dessous utilisent Visual Studio 2015.
+## <a name="prerequisites"></a>Configuration requise
+* **Visual Studio 2013 ou 2015**. Les instructions ci-dessous utilisent Visual Studio 2015.
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Compte Azure Data Lake Store**. Pour savoir comment créer un compte, consultez [Prise en main d’Azure Data Lake Store](data-lake-store-get-started-portal.md)
-* **Créez une application Azure Active Directory**. Vous utilisez l’application Azure AD pour authentifier l’application Data Lake Store auprès d’Azure AD. Il existe différentes approches pour l’authentification auprès d’Azure AD : **authentification de l’utilisateur final** ou **authentification de service à service**. Pour plus d’informations sur l’authentification et la procédure associée, consultez [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) (Authentification auprès de Data Lake Store à l’aide d’Azure Active Directory).
+* **Créez une application Azure Active Directory**. Vous utilisez l’application Azure AD pour authentifier l’application Data Lake Store auprès d’Azure AD. Il existe différentes approches pour l’authentification auprès d’Azure AD : **authentification de l’utilisateur final** ou **authentification de service à service**. Pour plus d’informations sur l’authentification et la procédure associée, consultez [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md)(Authentification auprès de Data Lake Store à l’aide d’Azure Active Directory).
 
-## Créer une application .NET
+## <a name="create-a-net-application"></a>Créer une application .NET
 1. Ouvrez Visual Studio et créez une application console.
 2. Dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
-3. Dans **Nouveau projet**, entrez ou sélectionnez les valeurs suivantes :
+3. Dans **Nouveau projet**, entrez ou sélectionnez les valeurs suivantes :
    
    | Propriété | Valeur |
    | --- | --- |
@@ -50,14 +54,14 @@ Découvrez comment utiliser le [Kit de développement logiciel (SDK) .NET Azure 
 5. Ajoutez les packages Nuget à votre projet.
    
    1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le nom du projet, puis cliquez sur **Gérer les packages NuGet**.
-   2. Dans l’onglet **Gestionnaire de package Nuget**, vérifiez que **Source du package** a la valeur **nuget.org** et que la case **Inclure la version préliminaire** est cochée.
+   2. Dans l’onglet **Gestionnaire de package NuGet**, vérifiez que **Source du package** a la valeur **nuget.org** et que la case **Inclure la version préliminaire** est cochée.
    3. Recherchez et installez les packages NuGet suivants :
       
       * `Microsoft.Azure.Management.DataLake.Store` - Ce didacticiel utilise v0.12.5-preview.
       * `Microsoft.Azure.Management.DataLake.StoreUploader` - Ce didacticiel utilise v0.10.6-preview.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - Ce didacticiel utilise v2.2.8-preview.
         
-        ![Ajouter une source Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Créer un compte Azure Data Lake")
+        ![Ajouter une source Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Create a new Azure Data Lake account")
    4. Fermez le **Gestionnaire de package NuGet**.
 6. Ouvrez **Program.cs**, supprimez le code existant, puis insérez les instructions suivantes pour ajouter des références aux espaces de noms.
    
@@ -88,7 +92,7 @@ Découvrez comment utiliser le [Kit de développement logiciel (SDK) .NET Azure 
                     _location = "East US 2";
                     _subId = "<SUBSCRIPTION-ID>";
 
-                    string localFolderPath = @"C:\local_path"; // TODO: Make sure this exists and can be overwritten.
+                    string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
                     string localFilePath = localFolderPath + "file.txt"; // TODO: Make sure this exists and can be overwritten.
                     string remoteFolderPath = "/data_lake_path/";
                     string remoteFilePath = remoteFolderPath + "file.txt";
@@ -98,8 +102,8 @@ Découvrez comment utiliser le [Kit de développement logiciel (SDK) .NET Azure 
 
 Dans les sections suivantes de cet article, vous pouvez découvrir comment utiliser les méthodes .NET pour effectuer des opérations telles que l’authentification des utilisateurs et le chargement de fichiers.
 
-## Authentification
-### Si vous utilisez l’authentification de l’utilisateur final (recommandée pour ce didacticiel)
+## <a name="authentication"></a>Authentification
+### <a name="if-you-are-using-enduser-authentication-recommended-for-this-tutorial"></a>Si vous utilisez l’authentification de l’utilisateur final (recommandée pour ce didacticiel)
 Utilisez cette option avec une application « cliente native » Azure AD existante ; vous trouverez une telle application ci-dessous. Pour effectuer ce didacticiel plus rapidement, nous vous recommandons d’utiliser cette approche.
 
     // User login via interactive popup
@@ -113,15 +117,15 @@ Utilisez cette option avec une application « cliente native » Azure AD existan
 Voici quelques informations utiles concernant l’extrait de code ci-dessus.
 
 * Pour vous aider à effectuer le didacticiel plus rapidement, l’extrait de code ci-dessus utilise un domaine et un ID client Azure AD qui sont disponibles par défaut pour tous les abonnements Azure. Vous pouvez donc **utiliser cet extrait de code en l’état dans votre application**.
-* Cependant, si vous ne souhaitez pas utiliser vos propres domaine et ID client Azure AD, vous devez créer une application native Azure AD, puis utiliser le domaine, l’ID client et l’URI de redirection Azure AD de l’application que vous avez créée. Pour connaître la marche à suivre, consultez [Créer une application Active Directory](../resource-group-create-service-principal-portal.md#create-an-active-directory-application).
+* Cependant, si vous ne souhaitez pas utiliser vos propres domaine et ID client Azure AD, vous devez créer une application native Azure AD, puis utiliser le domaine, l’ID client et l’URI de redirection Azure AD de l’application que vous avez créée. Pour connaître la marche à suivre, consultez [Créer une application Active Directory](../resource-group-create-service-principal-portal.md#create-an-active-directory-application) .
 
 > [!NOTE]
-> Les instructions fournies dans les liens ci-dessus s’appliquent à une application web Azure AD. Cependant, la procédure est exactement la même si vous choisissez de créer une application cliente native à la place.
+> Les instructions fournies dans les liens ci-dessus s’appliquent à une application web Azure AD. Cependant, la procédure est exactement la même si vous choisissez de créer une application cliente native à la place. 
 > 
 > 
 
-### Si vous utilisez l’authentification de service à service avec une clé secrète client
-Vous pouvez faire appel à l’extrait de code suivant pour authentifier votre application en mode non interactif, en utilisant la clé secrète du client pour une application/un principal du service. Utilisez-le avec une [« application web » Azure AD](../resource-group-create-service-principal-portal.md) existante.
+### <a name="if-you-are-using-servicetoservice-authentication-with-client-secret"></a>Si vous utilisez l’authentification de service à service avec une clé secrète client
+Vous pouvez faire appel à l’extrait de code suivant pour authentifier votre application en mode non interactif, en utilisant la clé secrète du client pour une application/un principal du service. Utilisez-le avec une [« application web » Azure AD](../resource-group-create-service-principal-portal.md)existante.
 
     // Service principal / appplication authentication with client secret / key
     // Use the client ID and certificate of an existing AAD "Web App" application.
@@ -132,8 +136,8 @@ Vous pouvez faire appel à l’extrait de code suivant pour authentifier votre a
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
-### Si vous utilisez l’authentification de service à service avec un certificat
-Ou vous pouvez l’utiliser pour authentifier votre application en mode non interactif, en utilisant le certificat pour une application / un principal de service. Utilisez-le avec une [« application web » Azure AD](../resource-group-create-service-principal-portal.md) existante.
+### <a name="if-you-are-using-servicetoservice-authentication-with-certificate"></a>Si vous utilisez l’authentification de service à service avec un certificat
+Ou vous pouvez l’utiliser pour authentifier votre application en mode non interactif, en utilisant le certificat pour une application / un principal de service. Utilisez-le avec une [« application web » Azure AD](../resource-group-create-service-principal-portal.md)existante.
 
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
@@ -144,7 +148,7 @@ Ou vous pouvez l’utiliser pour authentifier votre application en mode non inte
     var clientAssertionCertificate = new ClientAssertionCertificate(webApp_clientId, clientCert);
     var creds = ApplicationTokenProvider.LoginSilentWithCertificateAsync(domain, clientAssertionCertificate).Result;
 
-## Créer des objets clients
+## <a name="create-client-objects"></a>Créer des objets clients
 L’extrait de code suivant crée le compte Data Lake Store et les objets clients filesystem, qui sont utilisés pour adresserdes demandes au service.
 
     // Create client objects and set the subscription ID
@@ -153,7 +157,7 @@ L’extrait de code suivant crée le compte Data Lake Store et les objets client
 
     _adlsClient.SubscriptionId = _subId;
 
-## Répertorier tous les comptes Data Lake Store d’un abonnement
+## <a name="list-all-data-lake-store-accounts-within-a-subscription"></a>Répertorier tous les comptes Data Lake Store d’un abonnement
 L’extrait de code suivant répertorie tous les comptes Data Lake Store d’un abonnement Azure donné.
 
     // List all ADLS accounts within the subscription
@@ -171,7 +175,7 @@ L’extrait de code suivant répertorie tous les comptes Data Lake Store d’un 
         return accounts;
     }
 
-## Créer un répertoire
+## <a name="create-a-directory"></a>Créer un répertoire
 L’extrait de code suivant montre une méthode `CreateDirectory` que vous pouvez utiliser pour créer un répertoire dans un compte Data Lake Store.
 
     // Create a directory
@@ -180,7 +184,7 @@ L’extrait de code suivant montre une méthode `CreateDirectory` que vous pouve
         _adlsFileSystemClient.FileSystem.Mkdirs(_adlsAccountName, path);
     }
 
-## Charger un fichier
+## <a name="upload-a-file"></a>Charger un fichier
 L’extrait de code suivant montre une méthode `UploadFile` que vous pouvez utiliser pour charger des fichiers vers un compte Data Lake Store.
 
     // Upload a file
@@ -192,10 +196,10 @@ L’extrait de code suivant montre une méthode `UploadFile` que vous pouvez uti
         uploader.Execute();
     }
 
-`DataLakeStoreUploader` prend en charge le chargement et le téléchargement récursifs entre un chemin d’accès local et un chemin d’accès Data Lake Store.
+`DataLakeStoreUploader` prend en charge le chargement et le téléchargement récursifs entre un chemin d’accès local et un chemin d’accès Data Lake Store.    
 
-## Obtenir des informations sur un fichier ou répertoire
-L’extrait de code suivant montre une méthode `GetItemInfo` que vous pouvez utiliser pour récupérer des informations sur un fichier ou un répertoire disponibles dans Data Lake Store.
+## <a name="get-file-or-directory-info"></a>Obtenir des informations sur un fichier ou répertoire
+L’extrait de code suivant montre une méthode `GetItemInfo` que vous pouvez utiliser pour récupérer des informations sur un fichier ou un répertoire disponibles dans Data Lake Store. 
 
     // Get file or directory info
     public static FileStatusProperties GetItemInfo(string path)
@@ -203,7 +207,7 @@ L’extrait de code suivant montre une méthode `GetItemInfo` que vous pouvez ut
         return _adlsFileSystemClient.FileSystem.GetFileStatus(_adlsAccountName, path).FileStatus;
     }
 
-## Répertorier des fichiers ou répertoires
+## <a name="list-file-or-directories"></a>Répertorier des fichiers ou répertoires
 L’extrait de code suivant montre une méthode `ListItem` que vous pouvez utiliser pour répertorier les fichiers et répertoires dans un compte Data Lake Store.
 
     // List files and directories
@@ -212,8 +216,8 @@ L’extrait de code suivant montre une méthode `ListItem` que vous pouvez utili
         return _adlsFileSystemClient.FileSystem.ListFileStatus(_adlsAccountName, directoryPath).FileStatuses.FileStatus.ToList();
     }
 
-## Concaténation de fichiers
-L’extrait de code suivant montre une méthode `ConcatenateFiles` qui vous permet de concaténer des fichiers.
+## <a name="concatenate-files"></a>Concaténation de fichiers
+L’extrait de code suivant montre une méthode `ConcatenateFiles` qui vous permet de concaténer des fichiers. 
 
     // Concatenate files
     public static void ConcatenateFiles(string[] srcFilePaths, string destFilePath)
@@ -221,7 +225,7 @@ L’extrait de code suivant montre une méthode `ConcatenateFiles` qui vous perm
         _adlsFileSystemClient.FileSystem.Concat(_adlsAccountName, destFilePath, srcFilePaths);
     }
 
-## Ajout à un fichier
+## <a name="append-to-a-file"></a>Ajout à un fichier
 L’extrait de code suivant montre une méthode `AppendToFile` qui permet d’ajouter des données à un fichier déjà stocké dans un compte Data Lake Store.
 
     // Append to file
@@ -232,7 +236,7 @@ L’extrait de code suivant montre une méthode `AppendToFile` qui permet d’aj
         _adlsFileSystemClient.FileSystem.Append(_adlsAccountName, path, stream);
     }
 
-## Téléchargement d’un fichier
+## <a name="download-a-file"></a>Téléchargement d’un fichier
 L’extrait de code suivant montre une méthode `DownloadFile` que vous pouvez utiliser pour télécharger un fichier depuis un compte Data Lake Store.
 
     // Download file
@@ -246,11 +250,16 @@ L’extrait de code suivant montre une méthode `DownloadFile` que vous pouvez u
         stream.Close();
     }
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 * [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Data Lake Store .NET SDK Reference (Informations de référence sur le Kit de développement logiciel (SDK) .NET Azure Data Lake Store)](https://msdn.microsoft.com/library/mt581387.aspx)
 * [Data Lake Store REST Reference (Informations de référence sur les API REST Data Lake Store)](https://msdn.microsoft.com/library/mt693424.aspx)
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

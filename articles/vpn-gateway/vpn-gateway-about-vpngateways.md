@@ -1,20 +1,24 @@
 ---
-title: À propos de la passerelle VPN | Microsoft Docs
-description: En savoir plus sur les connexions par passerelle VPN pour réseaux virtuels Azure.
+title: "À propos de la passerelle VPN | Microsoft Docs"
+description: "En savoir plus sur les connexions par passerelle VPN pour réseaux virtuels Azure."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2016
+ms.date: 10/18/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 909320f7f898a10ff58c50d276bbe9b2b2a92b48
+
 
 ---
 # <a name="about-vpn-gateway"></a>À propos de la passerelle VPN
@@ -30,11 +34,11 @@ Chaque réseau virtuel ne peut posséder qu’une seule passerelle de réseau vi
 [!INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)]
 
 ## <a name="gateway-skus"></a>SKU de passerelle
-Les réseaux privés virtuels PolicyBased [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)] ne peuvent être créés uniquement pour les passerelles à l’aide de la référence SKU de base.
-Pour plus d’informations sur les références de passerelle, consultez [Références (SKU) de passerelle](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-Le tableau ci-dessous présente les types de passerelle et le débit total estimé. Cette table s’applique aux modèles de déploiement classique et Resource Manager.
+Pour plus d’informations sur les références de passerelle pour la passerelle VPN, consultez [Références (SKU) de passerelle](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
+### <a name="estimated-aggregate-throughput-by-sku"></a>Débit agrégé estimé par SKU
 [!INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ## <a name="configuring-a-vpn-gateway"></a>Configuration d’une passerelle VPN
@@ -50,24 +54,24 @@ Les sections ci-après contiennent des tableaux répertoriant les éléments sui
 
 Utilisez les graphiques et les descriptions pour sélectionner la topologie de connexion répondant à vos besoins. Le graphique présente les principales topologies de base, mais il est possible de créer des configurations plus complexes à l’aide des diagrammes.
 
-## <a name="site-to-site-and-multi-site"></a>Connexions site à site et multi-sites
-### <a name="site-to-site"></a>De site à site
+## <a name="sitetosite-and-multisite"></a>Connexions site à site et multi-sites
+### <a name="sitetosite"></a>De site à site
 Une connexion par passerelle VPN site à site (S2S) est une connexion via un tunnel VPN IPsec/IKE (S2S ou IKEv1). Ce type de connexion requiert un périphérique VPN local auquel est affectée une IP publique, et qui ne se situe pas derrière un NAT. Les connexions S2S peuvent être utilisées pour les configurations hybrides et entre différents locaux.   
 
 ![Connexion S2S](./media/vpn-gateway-about-vpngateways/demos2s.png "site-to-site")
 
-### <a name="multi-site"></a>Multi-sites
+### <a name="multisite"></a>Multi-sites
 Vous pouvez créer et configurer une connexion par passerelle VPN entre votre réseau virtuel et plusieurs réseaux locaux. Lorsque vous travaillez avec plusieurs connexions, vous devez utiliser un type de VPN basé sur l’itinéraire (passerelle dynamique pour réseaux virtuels classiques). Un réseau virtuel ne pouvant disposer que d’une seule passerelle VPN, toutes les connexions passant par la passerelle partagent la bande passante disponible. Cela est souvent appelé connexion « multi-sites ».
 
 ![Connexion multi-sites](./media/vpn-gateway-about-vpngateways/demomulti.png "multi-site")
 
-### <a name="deployment-models-and-methods-for-site-to-site-and-multi-site"></a>Modèles et méthodes de déploiement pour les connexions site à site et multi-sites
+### <a name="deployment-models-and-methods-for-sitetosite-and-multisite"></a>Modèles et méthodes de déploiement pour les connexions site à site et multi-sites
 [!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-## <a name="vnet-to-vnet"></a>Connexion entre deux réseaux virtuels
+## <a name="vnettovnet"></a>Connexion entre deux réseaux virtuels
 La connexion entre deux réseaux virtuels est semblable à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE. Vous pouvez même combiner une communication de réseau virtuel à réseau virtuel avec des configurations de connexion multi-sites. Vous établissez ainsi des topologies réseau qui combinent une connectivité entre différents locaux et une connectivité entre différents réseaux virtuels.
 
-Les réseaux virtuels que vous connectez peuvent être situés :
+Les réseaux virtuels que vous connectez peuvent être situés :
 
 * dans la même région ou dans des régions différentes
 * dans le même abonnement ou dans des abonnements différents 
@@ -81,15 +85,15 @@ Azure propose actuellement deux modèles de déploiement : le modèle classique 
 #### <a name="vnet-peering"></a>Homologation de réseaux virtuels
 Vous pouvez utiliser l’homologation de réseau virtuel pour créer votre connexion, tant que votre réseau virtuel répond à certaines exigences. L’homologation de réseau virtuel n’utilise pas de passerelle de réseau virtuel. Pour plus d’informations, consultez l’article [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
 
-### <a name="deployment-models-and-methods-for-vnet-to-vnet"></a>Modèles et méthodes de déploiement pour les connexions de réseau virtuel à réseau virtuel
+### <a name="deployment-models-and-methods-for-vnettovnet"></a>Modèles et méthodes de déploiement pour les connexions de réseau virtuel à réseau virtuel
 [!INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-## <a name="point-to-site"></a>De point à site
-Une connexion par passerelle VPN point à site (P2S) vous permet de créer individuellement une connexion sécurisée à un réseau virtuel à partir d’un ordinateur client. Le P2S est une connexion VPN sur SSTP (Secure Socket Tunneling Protocol). Les connexions de ce type ne nécessitent pas de périphérique VPN ou d’adresse IP publique pour fonctionner. Vous établissez la connexion VPN en la démarrant depuis l’ordinateur client. Cette solution est utile lorsque vous souhaitez vous connecter à votre réseau virtuel à partir d’un site distant, comme depuis votre domicile ou une conférence ou lorsque seulement quelques clients doivent se connecter à un réseau virtuel. Les connexions P2S peuvent être utilisées conjointement avec des connexions S2S via la même passerelle VPN, dans la mesure où toutes les exigences de configuration des deux types de connexion sont compatibles.
+## <a name="pointtosite"></a>De point à site
+Une connexion par passerelle VPN point à site (P2S) vous permet de créer individuellement une connexion sécurisée à un réseau virtuel à partir d’un ordinateur client. Le P2S est une connexion VPN sur SSTP (Secure Socket Tunneling Protocol). Les connexions de ce type ne nécessitent pas de périphérique VPN ou d’adresse IP publique pour fonctionner. Vous établissez la connexion VPN en la démarrant depuis l’ordinateur client. Cette solution est utile lorsque vous souhaitez vous connecter à votre réseau virtuel à partir d’un site distant, comme depuis votre domicile ou une conférence ou lorsque seulement quelques clients doivent se connecter à un réseau virtuel. Les connexions P2S peuvent être utilisées conjointement avec des connexions S2S via la même passerelle VPN, dans la mesure où toutes les exigences de configuration des deux types de connexion sont compatibles.
 
 ![Connexion de point à site](./media/vpn-gateway-about-vpngateways/demop2s.png "point-to-site")
 
-### <a name="deployment-models-and-methods-for-point-to-site"></a>Méthodes et modèles de déploiement pour les connexions point à site
+### <a name="deployment-models-and-methods-for-pointtosite"></a>Méthodes et modèles de déploiement pour les connexions point à site
 [!INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## <a name="expressroute"></a>ExpressRoute
@@ -97,7 +101,7 @@ Une connexion par passerelle VPN point à site (P2S) vous permet de créer indiv
 
 Dans une connexion ExpressRoute, une passerelle de réseau virtuel est configurée avec le type de passerelle « ExpressRoute » plutôt que « Vpn ». Pour plus d’informations sur ExpressRoute, consultez [Présentation technique d’ExpressRoute](../expressroute/expressroute-introduction.md).
 
-## <a name="site-to-site-and-expressroute-coexisting-connections"></a>Coexistence de connexions ExpressRoute et de site à site
+## <a name="sitetosite-and-expressroute-coexisting-connections"></a>Coexistence de connexions ExpressRoute et de site à site
 ExpressRoute est une connexion directe et dédiée aux services Microsoft, notamment à Azure, à partir de votre WAN, qui ne passe pas par l’Internet public. Le trafic VPN de site à site transite via l’Internet public tout en étant chiffré. La possibilité de configurer des connexions VPN de site à site et ExpressRoute pour le même réseau virtuel présente plusieurs avantages.
 
 Vous pouvez configurer un VPN de site à site comme un chemin d’accès de basculement sécurisé pour ExpressRoute, ou utiliser des VPN de site à site pour vous connecter à des sites qui ne font pas partie de votre réseau, mais qui sont connectés via ExpressRoute. Notez que cela nécessite deux passerelles de réseau virtuel pour le même réseau virtuel, un utilisant le type de passerelle VPN et l’autre le type de passerelle ExpressRoute.
@@ -110,6 +114,9 @@ Vous pouvez configurer un VPN de site à site comme un chemin d’accès de basc
 ## <a name="next-steps"></a>Étapes suivantes
 Planifiez votre configuration de passerelle VPN. Consultez la page [Planification et conception de la passerelle VPN](vpn-gateway-plan-design.md) et [Connecting your on-premises network to Azure (Connexion de votre réseau local à Azure)](../guidance/guidance-connecting-your-on-premises-network-to-azure.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

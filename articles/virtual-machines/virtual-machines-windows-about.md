@@ -1,13 +1,13 @@
 ---
-title: À propos des machines virtuelles Windows | Microsoft Docs
-description: Découvrez les informations de base sur les machines virtuelles Windows dans Azure qui utilisent les deux modèles de déploiement.
+title: "À propos des machines virtuelles Windows | Microsoft Docs"
+description: "Découvrez les informations de base sur les machines virtuelles Windows dans Azure qui utilisent les deux modèles de déploiement."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: 316883a8-e526-48f6-a20b-7f1490b24d6c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/27/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b1e422d9d1ae36b8e8a84194020d2eef65b545d0
+
 
 ---
-# À propos des machines virtuelles Windows dans Azure
+# <a name="about-windows-virtual-machines-in-azure"></a>À propos des machines virtuelles Windows dans Azure
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Azure Virtual Machines est l’un des nombreux types de ressources informatiques évolutives, à la demande proposées par Azure. En règle générale, une machine virtuelle sera mieux adaptée à vos besoins si vous devez surtout améliorer le contrôle de votre environnement informatique.
@@ -30,9 +34,14 @@ Ce tableau vous permet de comparer les choix proposés par Azure.
 
 [!INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Essayez une machine virtuelle en en créant rapidement une simple. Pour obtenir des instructions, consultez la page [Créer une machine virtuelle exécutant Windows dans le portail Azure](virtual-machines-windows-hero-tutorial.md).
 
 Comme ce didacticiel vous aide à créer rapidement une machine virtuelle, il ne vous montre qu’une seule façon de procéder au lieu de décrire les différents outils que vous pouvez utiliser pour créer des machines virtuelles. Pour obtenir un résumé de ces outils et les liens qui renvoient vers des instructions, consultez la page [Différentes méthodes de création d’une machine virtuelle Windows](virtual-machines-windows-creation-choices.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+
