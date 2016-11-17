@@ -96,6 +96,6 @@ En suivant ces étapes et en épinglant toutes les mosaïques pertinentes à un 
 ## <a name="next-steps"></a>Étapes suivantes
 * Lisez la [Présentation d’Azure Monitor](monitoring-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 
