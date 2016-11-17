@@ -21,6 +21,6 @@ Vérifiez que vous avez déjà créé un espace de noms Service Bus, comme illus
 [azure-portal]: https://portal.azure.com
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

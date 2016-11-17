@@ -121,6 +121,6 @@ Pour utiliser [EventProcessorHost][EventProcessorHost], vous devez avoir un [com
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [portail Azure]: https://portal.azure.com
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

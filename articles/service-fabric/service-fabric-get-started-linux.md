@@ -168,6 +168,6 @@ Le Kit de développement logiciel (SDK) .NET Core fournit les bibliothèques et 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

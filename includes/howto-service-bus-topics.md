@@ -43,6 +43,6 @@ Pour créer un espace de noms :
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

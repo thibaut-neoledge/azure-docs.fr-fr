@@ -72,6 +72,6 @@ Ce démarrage rapide montre l’exécution très simple d’une fonction HTTP de
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

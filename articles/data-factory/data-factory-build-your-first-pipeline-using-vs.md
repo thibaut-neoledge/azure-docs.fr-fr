@@ -510,6 +510,6 @@ Dans cet article, vous avez créé un pipeline avec une activité de transformat
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

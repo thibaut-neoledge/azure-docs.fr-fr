@@ -163,6 +163,6 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

@@ -310,6 +310,6 @@ Lorsque la stratégie de limite de débit de 10 appels par minute est appliqué
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

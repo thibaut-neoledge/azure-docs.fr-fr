@@ -140,6 +140,6 @@ La disponibilité des services et des fonctionnalités du service cloud Microsof
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

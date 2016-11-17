@@ -282,6 +282,6 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

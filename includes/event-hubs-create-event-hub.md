@@ -34,6 +34,6 @@ Votre concentrateur d’événements est désormais créé et vous disposez des 
 
 [portail Azure]: https://portal.azure.com/
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

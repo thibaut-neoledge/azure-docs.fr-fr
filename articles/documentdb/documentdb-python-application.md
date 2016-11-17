@@ -409,6 +409,6 @@ Pour d’autres didacticiels Python Flask, consultez [The Flask Mega-Tutorial, P
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

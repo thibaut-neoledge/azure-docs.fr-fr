@@ -88,6 +88,6 @@ Maintenant que vous avez établi la connexion et créé le fichier avec les donn
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

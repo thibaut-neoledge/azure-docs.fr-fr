@@ -219,6 +219,6 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 
