@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 69ae7c09af46b933899692e81d60e040a1c02eb5
-ms.openlocfilehash: f7d40ef2fdfbed7ab9be633637aafbfd7963b232
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: f0ec0a2dff2e9bcea133dd1de0a92979d937580a
 
 ---
 #<a name="event-hubs-documentation"></a>Documentation Event Hubs
@@ -86,18 +86,54 @@ Les concentrateurs d’événements sont un service d’entrée de données haut
 
 ---
 
-##<a name="reference"></a>Référence
+## <a name="reference"></a>Référence
 
-###<a name="net"></a>.NET
-[Informations de référence sur l’API managée .NET](/dotnet/api)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Référence API managée .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="amqp"></a>AMQP 
-[Guide du protocole AMQP 1.0](/azure/service-bus-messaging/service-bus-amqp-protocol-guide)
+<li>
+        <a href="/azure/service-bus-messaging/service-bus-amqp-protocol-guide">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>AMQP</h3>
+                        <p>Guide du protocole AMQP 1.0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="rest"></a>REST
-[Informations de référence de l’API REST des concentrateurs d’événements](/rest/api/eventhub)
-
-
+<li>
+        <a href="/rest/api/eventhub">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Référence de l'API REST des concentrateurs d'événements</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/event-hubs.pdf">
@@ -109,6 +145,6 @@ Télécharger la documentation Event Hubs </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

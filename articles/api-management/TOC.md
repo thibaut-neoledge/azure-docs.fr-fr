@@ -40,13 +40,17 @@
 ### [Gérer à l’aide d’Automation](automation-manage-api-management.md)
 ### [Configurer à l’aide de Git](api-management-configuration-repository-git.md)
 #Référence
-## [Applet de commande Gestion des ressources]/powershell/resourcemanager()
-## [Informations de référence sur les applets de commande PowerShell de déploiement classique](https://msdn.microsoft.com/en-us/library/azure/mt613507)
-## [API REST](/rest/api/apimanagement/)
-## [Stratégies](https://msdn.microsoft.com/en-us/library/azure/dn894081)
-## [Modèles](https://msdn.microsoft.com/en-us/library/azure/mt697540)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell (Classic)](https://msdn.microsoft.com/library/azure/mt613507)
+## [REST](/rest/api/apimanagement/)
+## [Stratégies](https://msdn.microsoft.com/library/azure/dn894081)
+## [Modèles](https://msdn.microsoft.com/library/azure/mt697540)
 #Ressources
 ## [Tarification](https://azure.microsoft.com/pricing/details/api-management/)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
+## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
+## [Mises à jour de service](https://azure.microsoft.com/updates/?product=api-management)
 ## [Livre blanc : gestion des API basée sur le cloud](http://j.mp/ms-apim-whitepaper)
 ## [Guide de conception d’API](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
 ## [Recommandations relatives à l’implémentation de l’API](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
@@ -54,11 +58,11 @@
 ## [Connexion d’Event Hubs à Gestion des API](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
 ## [Gestion des API - Fonctionne étroitement avec les autres services Azure](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
 ## [Fournir un accès RBAC à l’aide de l’API REST](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
-## [Configurer PostMan pour appeler les API de gestion des API](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
+## [Configurer PostMan pour appeler les API Gestion des API](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
 ## [Plug-in Gestion des API pour l’API SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

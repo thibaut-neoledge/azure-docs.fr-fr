@@ -12,7 +12,7 @@
 ## [Gérer les licences AD](active-directory-licensing-what-is.md)
 ## [Obtenir Azure pour votre organisation](sign-up-organization.md)
 ## [FAQ](active-directory-faq.md)
-
+## [Didacticiels sur les applications SaaS](active-directory-saas-tutorial-list.md)
 
 # Procédures
 ## Gestion des utilisateurs
@@ -291,12 +291,12 @@
 # les ressources
 ## [Tarification](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory) 
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Forum de commentaires](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

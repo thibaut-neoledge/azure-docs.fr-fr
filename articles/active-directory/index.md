@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 844e18a1ab702773799cf9045844d982d9ee2581
-ms.openlocfilehash: 0e1d5e7e38aa23c0888e166d584b17fdcbdce40f
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: c0302bfd21b4982d13e859bbb1fe2d1557f33b96
 
 ---
 
@@ -89,18 +89,64 @@ Azure Active Directory (Azure AD) est le service Microsoft de gestion des annuai
 
 ## <a name="reference"></a>Référence
 
-###<a name="powershell"></a>PowerShell
-[Référence Azure PowerShell](/powershell/)
-
-###<a name="azure-cli"></a>Interface de ligne de commande Azure
-[Azure Active Directory avec l’interface de ligne de commande Azure](/cli/azure/ad)
-
-###<a name="net"></a>.NET
-[Référence .NET Azure Active Directory](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
-
-###<a name="java"></a>Java
-[Référence sur l’API Java Azure](/java/api/)
-
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Référence Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/cli/azure/ad">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Interface de ligne de commande Azure</h3>
+                        <p>Azure Active Directory à l’aide de l’interface de ligne de commande Azure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/active-directory/adal/microsoft.identitymodel.clients.activedirectory">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Référence .NET d’Azure Active Directory</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/java/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Référence API Java Azure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+   </ul>
 
 ---
 
@@ -114,6 +160,6 @@ Télécharger la documentation Active Directory </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
