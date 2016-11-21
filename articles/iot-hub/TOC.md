@@ -27,17 +27,21 @@
 ### [Dépannage](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
 ## [Prise en main du kit de développement logiciel (SDK) Gateway (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Prise en main du kit de développement logiciel (SDK) Gateway (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
-## Didacticiels
-### [Didacticiel sur le traitement des messages appareil-à-cloud (.NET)](iot-hub-csharp-csharp-process-d2c.md)
-### [Didacticiel sur le traitement des messages appareil-à-cloud (Java)](iot-hub-java-java-process-d2c.md)
-### [Didacticiel sur le chargement de fichiers à partir d’appareils](iot-hub-csharp-csharp-file-upload.md)
-### [Envoyer des messages cloud-à-appareil (.NET)](iot-hub-csharp-csharp-c2d.md)
-### [Envoyer des messages cloud-à-appareil (Java)](iot-hub-java-java-c2d.md)
-### [Envoyer des messages cloud-à-appareil (Node)](iot-hub-node-node-c2d.md)
-### [Prise en main des représentations d’appareils](iot-hub-node-node-twin-getstarted.md)
-### [Utilisation des propriétés des représentations](iot-hub-node-node-twin-how-to-configure.md)
 
 # Procédure
+## [Didacticiel sur le traitement des messages appareil-à-cloud (.NET)](iot-hub-csharp-csharp-process-d2c.md)
+## [Didacticiel sur le traitement des messages appareil-à-cloud (Java)](iot-hub-java-java-process-d2c.md)
+## [Didacticiel sur le chargement de fichiers à partir d’appareils](iot-hub-csharp-csharp-file-upload.md)
+## [Envoyer des messages cloud-à-appareil (.NET)](iot-hub-csharp-csharp-c2d.md)
+## [Envoyer des messages cloud-à-appareil (Java)](iot-hub-java-java-c2d.md)
+## [Envoyer des messages cloud-à-appareil (Node)](iot-hub-node-node-c2d.md)
+## [Prise en main des représentations d’appareils](iot-hub-node-node-twin-getstarted.md)
+## [Utilisation des propriétés des représentations](iot-hub-node-node-twin-how-to-configure.md)
+## [Utiliser des méthodes directes](iot-hub-c2d-methods.md)
+## [Prise en main de la gestion d’appareils](iot-hub-device-management-get-started.md)
+## [Utiliser des travaux d’appareils pour mettre à jour le microprogramme des appareils](iot-hub-firmware-update.md)
+## [Planifier et diffuser des travaux](iot-hub-schedule-jobs.md)
+
 ## Planifier votre déploiement
 ### [Comparaison entre IoT Hub et Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Mettre à l’échelle votre solution](iot-hub-scaling.md)
@@ -68,6 +72,10 @@
 ### [Gestion en bloc des appareils IoT](iot-hub-bulk-identity-mgmt.md)
 ### [Mesures d’utilisation](iot-hub-metrics.md)
 ### [Surveillance des opérations](iot-hub-operations-monitoring.md)
+## Kit de développement logiciel (SDK) Gateway
+### [Didacticiel sur la simulation d’un appareil avec le kit de développement logiciel (SDK) Gateway (Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
+### [Didacticiel sur la simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway (Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
+### [Didacticiel sur l’envoi de messages à partir d’un appareil avec le kit de développement logiciel (SDK) Gateway](iot-hub-gateway-sdk-physical-device.md)
 
 ## Sécuriser
 ### [Tout savoir sur la sécurité](iot-hub-security-ground-up.md)
@@ -80,16 +88,14 @@
 ## [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure)
 ## [Java](https://docs.microsoft.com/java/api)
 ## [API .NET](https://docs.microsoft.com/dotnet/api)
-## Kit de développement logiciel (SDK) Gateway
-### [Didacticiel sur la simulation d’un appareil avec le kit de développement logiciel (SDK) Gateway (Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
-### [Didacticiel sur la simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway (Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
-### [Didacticiel sur l’envoi de messages à partir d’un appareil avec le kit de développement logiciel (SDK) Gateway](iot-hub-gateway-sdk-physical-device.md)
-## [API du kit de développement logiciel (SDK) des appareils](http://azure.github.io/azure-iot-sdks/)
+## [Kits de développement logiciel (SDK) Azure IoT](http://azure.github.io/azure-iot-sdks/)
 ## [API du kit de développement logiciel (SDK) Gateway](http://azure.github.io/azure-iot-gateway-sdk)
+## [API REST des fournisseurs de ressources](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
+## [API REST des identités des appareils](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
+## [API REST de messagerie des appareils](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
 ## [Présentation du kit de développement logiciel (SDK) Azure IoT device pour C](iot-hub-device-sdk-c-intro.md)
 ## [Kit de développement logiciel (SDK) Azure IoT device pour C : en savoir plus sur IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ## [Kit de développement logiciel (SDK) Azure IoT device pour C : en savoir plus sur serializer](iot-hub-device-sdk-c-serializer.md)
-## [REST](https://docs.microsoft.com/en-us/rest/api/iothub/)
 
 # Rubriques connexes
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -109,6 +115,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

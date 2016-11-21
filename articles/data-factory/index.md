@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Azure Data Factory Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: 627543dce9888903254875eab218d33029000088
 
-Azure Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. Using the Data Factory service, you can create data integration solutions that can ingest data from various stores, transform and process the data, and publish the result data back to the data stores.
+---
+# <a name="azure-data-factory-documentation"></a>Documentation Azure Data Factory
+
+Azure Data Factory est un service d’intégration de données basé sur le cloud qui automatise le déplacement et la transformation des données. Le service Data Factory crée des solutions d’intégration de données qui peuvent ingérer des données provenant de différents magasins de données, transformer et traiter ces données, puis republier les données résultantes dans les magasins de données.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -17,7 +21,7 @@ Azure Data Factory is a cloud-based data integration service that orchestrates a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Data Factory</h3>
+                        <h3>En savoir plus sur Azure Data Factory</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure Data Factory is a cloud-based data integration service that orchestrates a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Data Factory Video Library</h3>
+                        <h3>Bibliothèque vidéo Azure Data Factory</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure Data Factory is a cloud-based data integration service that orchestrates a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure Data Factory</h3>
+                        <h3>Prise en main d’Azure Data Factory</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure Data Factory is a cloud-based data integration service that orchestrates a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your pipeline for Data Factory</h3>
+                        <h3>Prise en main de la création d’un pipeline pour Data Factory</h3>
                     </div>
                 </div>
             </div>
@@ -82,22 +86,67 @@ Azure Data Factory is a cloud-based data integration service that orchestrates a
 
 ---
 
-##Reference
+## <a name="reference"></a>Référence
 
-###PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Référence Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###.NET
-[Data Factory Managed Reference](/dotnet/api)
+    <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Informations de référence sur l’API managée de Data Factory</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###REST
-[Data Factory REST API Reference](/rest/api/datafactory)
+    <li>
+        <a href="/rest/api/datafactory">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Informations de référence sur l’API REST Data Factory</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
+
+---
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-factory.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Data Factory Documentation
-        </div>
+Télécharger la documentation Data Factory </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
