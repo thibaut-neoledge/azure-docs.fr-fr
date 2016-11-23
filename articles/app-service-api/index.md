@@ -6,7 +6,7 @@ ms.openlocfilehash: 078421d67ae2b2f0854b6f31bb97d146224ef685
 
 
 ---
-# <a name="app-service-api-apps-documentation"></a>App Service - Documentation API Apps
+# <a name="app-service---api-apps-documentation"></a>App Service - Documentation API Apps
 
 API Apps est l’un des quatre types d’applications proposés par Azure App Service. La fonction API Apps d’Azure App Service offre un ensemble complet de fonctionnalités en matière de développement, d’hébergement et d’utilisation des API dans le cloud et en local. Azure App Service est une plateforme entièrement gérée conçue pour les scénarios web et mobiles, ainsi que pour les scénarios d’intégration.
 
@@ -133,6 +133,6 @@ Télécharger la documentation Mobile Apps </div>
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

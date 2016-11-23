@@ -102,6 +102,6 @@ Azure Container Registry (version préliminaire) est un registre privé destiné
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -145,6 +145,6 @@ Télécharger la documentation sur les groupes de machines virtuelles identiques
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

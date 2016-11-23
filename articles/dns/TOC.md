@@ -53,6 +53,6 @@
 ## [Blog sur la mise en réseau](http://azure.microsoft.com/blog/topics/networking)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 
