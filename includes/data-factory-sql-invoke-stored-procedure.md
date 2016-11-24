@@ -1,13 +1,13 @@
-## Appel d’une procédure stockée pour un récepteur SQL
-Quand vous copiez des données dans SQL Server ou dans une base de données SQL Azure ou SQL Server, une procédure stockée spécifiée par l’utilisateur peut être configurée et appelée avec des paramètres supplémentaires.
+## <a name="invoking-stored-procedure-for-sql-sink"></a>Appel d’une procédure stockée pour un récepteur SQL
+Quand vous copiez des données dans SQL Server ou dans une base de données SQL Azure ou SQL Server, une procédure stockée spécifiée par l’utilisateur peut être configurée et appelée avec des paramètres supplémentaires. 
 
-Une procédure stockée peut être utilisée à la place des mécanismes de copie intégrée. C’est généralement le cas quand un traitement supplémentaire (fusion de colonnes, recherche de valeurs supplémentaires, insertion dans plusieurs tables, etc.) doit être effectué avant l’insertion finale des données sources vers la table de destination.
+Une procédure stockée peut être utilisée à la place des mécanismes de copie intégrée. C’est généralement le cas quand un traitement supplémentaire (fusion de colonnes, recherche de valeurs supplémentaires, insertion dans plusieurs tables, etc.) doit être effectué avant l’insertion finale des données sources vers la table de destination. 
 
-Vous pouvez appeler la procédure stockée de votre choix. L’exemple suivant montre comment utiliser une procédure stockée pour effectuer une insertion simple dans une table de la base de données.
+Vous pouvez appeler la procédure stockée de votre choix. L’exemple suivant montre comment utiliser une procédure stockée pour effectuer une insertion simple dans une table de la base de données. 
 
 **Jeu de données de sortie**
 
-Dans cet exemple, le type est défini sur SqlServerTable. Affectez-lui la valeur AzureSqlTable pour l’utiliser avec une base de données SQL Azure.
+Dans cet exemple, le type est défini sur SqlServerTable. Affectez-lui la valeur AzureSqlTable pour l’utiliser avec une base de données SQL Azure. 
 
     {
       "name": "SqlOutput",
@@ -59,4 +59,8 @@ Dans votre base de données, définissez le type de table portant le même nom q
 
 La fonction de procédure stockée tire parti des [paramètres Table-Valued](https://msdn.microsoft.com/library/bb675163.aspx).
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

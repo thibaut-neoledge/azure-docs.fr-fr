@@ -15,7 +15,7 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) sur http://portal.azure.com/.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/) à l’adresse http://portal.azure.com/.
 2. Dans la bannière de gauche, cliquez sur **PARCOURIR TOUT**. Le panneau **Parcourir** s’affiche.
 3. Faites défiler l’écran, puis cliquez sur **Serveurs SQL**. Le panneau **Serveurs SQL** s’affiche.
    
@@ -52,4 +52,7 @@ includes/sql-database-include-ip-address-22-v12portal.md
 ? includes/sql-database-include-ip-address-*.md
 -->
 
-<!---HONumber=AcomDC_0330_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

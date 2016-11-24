@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2016
+ms.date: 11/15/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7d833b7aaab8680d555f6503ec27994134a2519d
+ms.sourcegitcommit: 3ed7c49603891b9719819143003d27888f800a95
+ms.openlocfilehash: 21a7feb9eb2588643ffc67408de9f8e60aff7798
 
 
 ---
@@ -50,9 +50,9 @@ Si vous redéployez un modèle pour modifier la capacité, vous pouvez définir 
 Pour être guidé parmi les étapes qui crée un jeu de mise à l’échelle automatique, consultez les [machines de mise à l’échelle automatique dans un jeu de mise à l’échelle de machine virtuelle](virtual-machine-scale-sets-windows-autoscale.md)
 
 ## <a name="monitoring-your-vm-scale-set"></a>Surveillance de votre groupe de machines virtuelles identiques
-Le [Portail Azure](https://portal.azure.com) répertorie les groupes identiques de machines virtuelles et affiche les propriétés de base, ainsi que la liste des machines virtuelles du groupe. Pour obtenir plus de détails, vous pouvez utiliser [Azure Resource Explorer](https://resources.azure.com) pour afficher les groupes identiques de machines virtuelles. Les groupes de machines virtuelles identiques sont des ressources sous Microsoft.Compute, vous pouvez donc les voir à partir de ce site en développant les liens suivants :
+Le [portail Azure](https://portal.azure.com) répertorie les groupes identiques et affiche les propriétés et opérations de base, dont la liste des machines virtuelles contenues dans le groupe et un graphique d’utilisation des ressources. Pour obtenir plus de détails, vous pouvez utiliser [Azure Resource Explorer](https://resources.azure.com) pour afficher les groupes identiques de machines virtuelles. Les groupes de machines virtuelles identiques sont des ressources sous Microsoft.Compute, vous pouvez donc les voir à partir de ce site en développant les liens suivants :
 
-    subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
+**Abonnements -> votre abonnement -> resourceGroups -> fournisseurs -> Microsoft.Compute -> virtualMachineScaleSets -> votre groupe de machines virtuelles identiques -> etc.**
 
 ## <a name="vm-scale-set-scenarios"></a>Scénarios de jeu de mise à l’échelle de machine virtuelle
 Cette section répertorie quelques scénarios de jeu de mise à l’échelle de machine virtuelle classique. Certains services Azure de niveau supérieur (comme Batch, Service Fabric, Service de conteneur Azure) utilisent également ces scénarios.
@@ -71,15 +71,15 @@ Cette section répertorie quelques scénarios de jeu de mise à l’échelle de 
    Voici un exemple faisant la même chose avec RDP et Windows : [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
 * **Connectez-vous à la machine virtuelle à l’aide d’une « jumpbox »** -Si vous créez un jeu de mise à l’échelle de machine virtuelle et un ordinateur virtuel autonome dans le même réseau virtuel, la machine virtuelle autonome et les machines virtuelles de jeu de mise à l’échelle de machine virtuelle peuvent se connecter entre elles en utilisant leurs adresses IP internes comme défini par le réseau virtuel/sous-réseau. Si vous créez une adresse IP publique et l’affectez à la machine virtuelle autonome, vous pouvez lancer un RDP ou un SSH sur la machine virtuelle autonome, puis vous connecter depuis cette machine à vos instances de jeu de mise à l’échelle de machine virtuelle. À ce stade, vous pouvez remarquer qu’un simple groupe de machines virtuelles identiques est intrinsèquement plus sûr qu’une machine virtuelle autonome simple avec une adresse IP publique dans sa configuration par défaut.
   
-   [Pour obtenir un exemple de cette approche, ce modèle crée un cluster Mesos simple composé d’une machine virtuelle Master qui gère un cluster de machines virtuelles de jeu de mise à l’échelle de machine virtuelle.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
+   Par exemple, ce modèle déploie un groupe identique simple comportant une machine virtuelle autonome : [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-jumpbox](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-jumpbox)
 * **Équilibrage de charge pour les instances de groupes identiques de machines virtuelles** - Si vous souhaitez remettre un travail à un cluster de calcul de machines virtuelles selon une approche de type « tourniquet », vous pouvez configurer un équilibreur de charge Azure avec des règles d’équilibrage de charge appropriées. Vous pouvez définir des sondes pour vérifier que votre application s’exécute en envoyant des requêtes ping aux ports, en spécifiant un protocole, un intervalle et un chemin d'accès à la demande. Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/) prend également en charge les groupes identiques de machines virtuelles, ainsi que des scénarios d’équilibrage de charge plus sophistiqués.
   
-   [Voici un exemple qui montre comment créer un groupe identique de machines virtuelles exécutant le serveur web IIS, puis utiliser un équilibreur de charge pour équilibrer la charge reçue par chaque machine virtuelle. Il utilise également le protocole HTTP pour un test ping avec une URL spécifique sur chaque machine virtuelle.](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json)  (examiner le type de ressource Microsoft.Network/loadBalancers et networkProfile et extensionProfile dans virtualMachineScaleSet)
+   Voici un exemple qui crée un groupe de machines virtuelles identiques exécutant des serveurs web Apache, et utilise un équilibrage de charge pour équilibrer la charge de chaque machine virtuelle : [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-web-ssl](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-web-ssl) (Vérifiez le type de ressource Microsoft.Network/loadBalancers et les éléments networkProfile et extensionProfile dans virtualMachineScaleSet).
 * **Déploiement d’un jeu de mise à l’échelle en tant que cluster de calcul dans un gestionnaire de cluster PaaS** - les jeux de mise à l’échelle de machine virtuelle sont parfois décrits en tant que rôle de travail de la prochaine génération. Il s’agit d’une description valide, mais elle peut être confondue avec les fonctionnalités du rôle de travail PaaS v1. Dans un sens, les jeux de mise à l’échelle de machine virtuelle fournissent un véritable « rôle » ou une ressource de travail, car ils fournissent une ressource de calcul générale indépendante de la plateforme/runtime, personnalisable et s’intègrent au Gestionnaire de ressources IaaS Azure.
   
    Un rôle de travail PaaS v1, limité en termes de prise en charge de plateforme/runtime (images de plateforme Windows) inclut également les services d’échange d’adresse IP virtuelle, de paramètres de mise à niveau configurables, de paramètres spécifiques de runtime/déploiement d’application qui ne sont pas *encore* disponibles dans les jeux de mise à l’échelle de machine virtuelle ou seront fournis par des services PaaS de plus haut niveau tels que Service Fabric. Avec cela à l’esprit, vous pouvez considérer les jeux de mise à l’échelle de machine virtuelle comme une infrastructure qui prend en charge de PaaS. Par exemple, des solutions PaaS telles que Service Fabric ou gestionnaires de cluster comme Mesos peuvent se construire sur des groupes de machines virtuelles identiques en tant que couche de calcul évolutive.
   
-   [Pour obtenir un exemple de cette approche, ce modèle crée un cluster Mesos simple composé d’une machine virtuelle Master qui gère un cluster de machines virtuelles de jeu de mise à l’échelle de machine virtuelle.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json) Les versions futures de [Service de conteneur Azure](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) déploieront des versions plus complexes / renforcées de ce scénario basées sur des jeux de mise à l’échelle de machine virtuelle.
+   Pour obtenir un exemple de cette approche, le service Azure Container Service déploie un cluster basé sur les groupes identiques avec un orchestrateur de conteneur : [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos).
 
 ## <a name="vm-scale-set-performance-and-scale-guidance"></a>La performance de mise à l’échelle de machine virtuelle et guide de mise à l’échelle
 * Ne créez pas plus de 500 machines virtuelles dans plusieurs groupes de machines virtuelles identiques à la fois.
@@ -100,7 +100,7 @@ Cette section répertorie quelques scénarios de jeu de mise à l’échelle de 
 
 **Q.**  Les disques de données sont-ils pris en charge dans les jeux de mise à l’échelle de machine virtuelle ?
 
-**A.**  Pas dans la version initiale. Vos options de stockage des données sont :
+**A.** Pas dans la version initiale (même si les disques de données sont actuellement disponibles en version préliminaire). Vos options de stockage des données sont :
 
 * Fichiers Azure (lecteurs SMB partagés)
 * Système d’exploitation de lecteur
@@ -148,6 +148,6 @@ Cette section répertorie quelques scénarios de jeu de mise à l’échelle de 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

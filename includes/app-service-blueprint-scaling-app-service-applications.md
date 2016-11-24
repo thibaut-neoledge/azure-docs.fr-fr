@@ -3,7 +3,7 @@
   * Présentation de la fiabilité et la redondance
   * Applications avec état et sans état
     * [Configuration de votre application sans état](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
-* Applications de test de charge dans App Service
+* Applications de test de charge dans App Service   
 * Meilleures pratiques de mise à l'échelle d'App Service
   
   * Épuisement du port et regroupement des connexions
@@ -14,4 +14,8 @@
   
   * [Utilisation de Traffic Manager pour l'archivage à l'échelle mondiale](../articles/traffic-manager/traffic-manager-overview.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

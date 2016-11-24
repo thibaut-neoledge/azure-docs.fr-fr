@@ -1,12 +1,13 @@
-# Configuration avancée de la mise à l’échelle automatique à l’aide des modèles Resource Manager pour les groupes de machines virtuelles identiques
+# <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuration avancée de la mise à l’échelle automatique à l’aide des modèles Resource Manager pour les groupes de machines virtuelles identiques
 Vous pouvez diminuer ou augmenter la taille des instances dans les groupes de machines virtuelles identiques (VM Scale Sets) en fonction de certains seuils de métriques de performances, selon une planification périodique ou à une date donnée. Vous pouvez également configurer des e-mails et des webhooks de notification pour les actions de mise à l’échelle. Cette procédure pas à pas présente un exemple de configuration à l’aide d’un modèle Resource Manager sur un groupe de machines virtuelles identiques.
 
 > [!NOTE]
-> Bien que cette procédure concerne plus spécifiquement les groupes de machines virtuelles identiques, vous pouvez appliquer cette méthode pour effectuer une mise à l’échelle automatique de Cloud Services et de Web Apps. Pour utiliser un simple paramètre de mise à l’échelle (avec diminution ou augmentation de la taille des instances) sur un groupe de machines virtuelles identiques à partir d’une simple métrique de performances (par exemple, ressources processeur), reportez-vous à la documentation [Linux](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) et [Windows](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)
+> Bien que cette procédure concerne plus spécifiquement les groupes de machines virtuelles identiques, vous pouvez appliquer cette méthode pour effectuer une mise à l’échelle automatique de Cloud Services et de Web Apps.
+> Pour utiliser un simple paramètre de mise à l’échelle (avec diminution ou augmentation de la taille des instances) sur un groupe de machines virtuelles identiques à partir d’une simple métrique de performances (par exemple, ressources processeur), reportez-vous à la documentation [Linux](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) et [Windows](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)
 > 
 > 
 
-## Procédure pas à pas
+## <a name="walkthrough"></a>Procédure pas à pas
 Dans cette procédure pas à pas, nous utilisons [Azure Resource Explorer](https://resources.azure.com/) pour configurer et mettre à jour le paramètre de mise à l’échelle automatique pour un groupe de machines virtuelles identiques. L’Explorateur de ressources Azure est un moyen simple de gérer des ressources Azure via des modèles Resource Manager. Si vous débutez avec l’Explorateur de ressources Azure, lisez [cette introduction](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/).
 
 1. Déployez un nouveau groupe de machines virtuelles identiques avec un paramètre de mise à l’échelle automatique de base. Cet article utilise celui de la galerie de démarrage rapide Azure, qui comporte un groupe de machines virtuelles identiques Windows avec un modèle de mise à l’échelle automatique de base. Les groupes de machines virtuelles identiques Linux fonctionnent de la même façon.
@@ -15,14 +16,14 @@ Dans cette procédure pas à pas, nous utilisons [Azure Resource Explorer](https
     ![Azure Explorer](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
    
     L’exécution du modèle a créé un paramètre de mise à l’échelle automatique par défaut portant le nom **'autoscalewad'**. Dans la partie droite, vous pouvez afficher la définition complète de ce paramètre de mise à l’échelle. Dans ce cas, le paramètre de mise à l’échelle par défaut est associé à une règle de diminution et d’augmentation de la taille des instances basé sur le % de processeur.
-3. Vous pouvez maintenant ajouter d’autres profils et règles à partir d’un calendrier ou d’exigences spécifiques. Nous allons créer un paramètre de mise à l’échelle automatique avec trois profils. Pour comprendre les profils et les règles de mise à l’échelle automatique, consultez [Meilleures pratiques pour la mise à l’échelle automatique d’Azure Insights](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md).
+3. Vous pouvez maintenant ajouter d’autres profils et règles à partir d’un calendrier ou d’exigences spécifiques. Nous allons créer un paramètre de mise à l’échelle automatique avec trois profils. Pour comprendre les profils et les règles de mise à l’échelle automatique, consultez [Meilleures pratiques pour la mise à l’échelle automatique d’Azure Insights](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md). 
    
    | Profils et règles | Description |
    | --- | --- |
    | **Profil** |**En fonction des métriques/performances** |
    | Règle |Nombre de messages de la file d’attente Service Bus > x |
    | Règle |Nombre de messages de la file d’attente Service Bus < y |
-   | Règle |% UC, < n |
+   | Règle |%UC > n |
    | Règle |% UC, < p |
    | **Profil** |**Heures dans la matinée, en semaine (aucune règle)** |
    | **Profil** |**Jour de lancement de produit (aucune règle)** |
@@ -34,7 +35,8 @@ Dans cette procédure pas à pas, nous utilisons [Azure Resource Explorer](https
    * ***Dates particulières** : j’ai ajouté un profil « Jour de lancement de produit ». Je planifie à l’avance des dates spécifiques afin que mon application soit prête à gérer la charge, en fonction des annonces marketing et des dates d’introduction de nouveaux produits dans l’application.*
    * *Les deux derniers profils peuvent également contenir d’autres règles basées sur les métriques de performances. Dans mon cas, j’ai décidé de ne pas en utiliser et de me concentrer uniquement sur les règles basées sur les métriques de performances par défaut. Les règles sont facultatives pour les profils récurrents et les profils basés sur la date.*
      
-     La définition des priorités des profils et des règles du moteur de mise à l’échelle automatique est également décrite dans l’article [Meilleures pratiques pour la mise à l’échelle automatique d’Azure Insights](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md). Pour obtenir une liste des métriques communément utilisées pour la mise à l’échelle, consultez [Métriques courantes pour la mise à l’échelle automatique d’Azure Insights](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
+     La définition des priorités des profils et des règles du moteur de mise à l’échelle automatique est également décrite dans l’article [Meilleures pratiques pour la mise à l’échelle automatique d’Azure Insights](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md).
+     Pour obtenir une liste des métriques communément utilisées pour la mise à l’échelle, consultez [Métriques courantes pour la mise à l’échelle automatique d’Azure Insights](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 5. Assurez-vous que vous utilisez l’Explorateur de ressources en mode **lecture/écriture**
    
     ![Autoscalewad, paramètre de mise à l’échelle automatique par défaut](./media/insights-advanced-autoscale-vmss/autoscalewad.png)
@@ -121,7 +123,7 @@ Dans cette procédure pas à pas, nous utilisons [Azure Resource Explorer](https
                   "threshold": 60
                 },
                 "scaleAction": {
-                  "direction": "Increase",
+                  "direction": "Decrease",
                   "type": "ChangeCount",
                   "value": "1",
                   "cooldown": "PT5M"
@@ -172,7 +174,7 @@ Dans cette procédure pas à pas, nous utilisons [Azure Resource Explorer](https
             }
           }
     ```
-    Pour les champs pris en charge et leurs valeurs, consultez la [documentation API REST de la mise à l’échelle automatique](https://msdn.microsoft.com/fr-FR/library/azure/dn931928.aspx).
+    Pour les champs pris en charge et leurs valeurs, consultez la [documentation API REST de la mise à l’échelle automatique](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx).
    
     Votre paramètre de mise à l’échelle automatique contient à présent les trois profils expliqués précédemment.
 7. Examinons pour finir la section **notification** de la mise à l’échelle automatique. Les notifications de mise à l’échelle automatique permettent de faire trois choses au moment du déclenchement d’une action de diminution ou d’augmentation de la taille des instances.
@@ -213,7 +215,7 @@ Dans cette procédure pas à pas, nous utilisons [Azure Resource Explorer](https
 
 Vous avez mis à jour un paramètre de mise à l’échelle automatique sur un groupe de machines virtuelles identiques pour inclure plusieurs profils de mise à l’échelle ainsi que des notifications de mise à l’échelle.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Suivez ces liens pour en savoir plus sur la mise à l’échelle automatique.
 
 [Métriques courantes pour la mise à l’échelle automatique d’Azure Insights](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
@@ -226,4 +228,8 @@ Suivez ces liens pour en savoir plus sur la mise à l’échelle automatique.
 
 [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Insights](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

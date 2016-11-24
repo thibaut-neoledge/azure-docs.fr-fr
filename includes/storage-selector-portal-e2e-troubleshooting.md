@@ -1,7 +1,11 @@
 > [!div class="op_single_selector"]
-> * [Azure Portal](../articles/storage/storage-e2e-troubleshooting.md)
-> * [Azure Classic Portal](../articles/storage/storage-e2e-troubleshooting-classic-portal.md)
+> * [Portail Azure](../articles/storage/storage-e2e-troubleshooting.md)
+> * [Portail Azure Classic](../articles/storage/storage-e2e-troubleshooting-classic-portal.md)
 > 
 > 
 
-<!---HONumber=AcomDC_1203_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: minet
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: af7b1c3d302282920ce9b347a7686903d1c6fe03
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: bf8acbd37f717c0e055facde781966665ca67d2d
 
 
 ---
@@ -210,8 +210,8 @@ Lorsqu’un client accède au stockage de fichiers, la version de SMB utilisée 
 ### <a name="mount-the-file-share-from-an-azure-virtual-machine-running-windows"></a>Montage du partage de fichiers à partir d’une machine virtuelle Azure exécutant Windows
 Pour illustrer comment monter un partage de fichiers Azure, nous allons créer une machine virtuelle Azure exécutant Windows, à laquelle nous accéderons à distance pour monter le partage.
 
-1. Commencez par créer une machine virtuelle Azure en suivant les instructions de la page [Créer une machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-2. Connectez-vous ensuite à la machine virtuelle Azure en suivant les instructions de la page [Ouvrir une session sur une machine virtuelle Windows à l’aide du portail Azure](../virtual-machines/virtual-machines-windows-connect-logon.md).
+1. Commencez par créer une machine virtuelle Azure en suivant les instructions de la page [Créer une machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+2. Connectez-vous ensuite à la machine virtuelle Azure en suivant les instructions de la page [Ouvrir une session sur une machine virtuelle Windows à l’aide du portail Azure](../virtual-machines/virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 3. Ouvrez une fenêtre PowerShell sur la machine virtuelle.
 
 ### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>Conservation des informations d'identification de votre compte de stockage pour la machine virtuelle
@@ -242,7 +242,7 @@ Vous pouvez maintenant utiliser le partage de stockage de fichiers à partir de 
 
 Vous pouvez également monter le partage de fichiers à partir d’un rôle exécuté dans un service cloud Azure en vous connectant à distance à ce rôle.
 
-### <a name="mount-the-file-share-from-an-onpremises-client-running-windows"></a>Montage du partage de fichiers à partir d’un client local exécutant Windows
+### <a name="mount-the-file-share-from-an-on-premises-client-running-windows"></a>Montage du partage de fichiers à partir d’un client local exécutant Windows
 Pour monter le partage de fichiers à partir d’un client local, vous devez d’abord suivre ces étapes :
 
 * Installer une version de Windows qui prend en charge SMB 3.0. Windows exploitera le chiffrement SMB 3.0 pour transférer les données en toute sécurité entre votre client local et le partage de fichiers Azure dans le cloud.

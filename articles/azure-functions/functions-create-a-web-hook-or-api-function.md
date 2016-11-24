@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 08/30/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9484a637a1876f2cae644e43986bd5ef3201da1e
+ms.sourcegitcommit: 71ee49cd316563490677ad4efbe78e05dca93162
+ms.openlocfilehash: 293121f3eb626a3296d39be11d7b0294378a017b
 
 
 ---
@@ -33,7 +33,7 @@ La vidéo suivante montre comment effectuer les étapes de base de ce didacticie
 >
 >
 
-## <a name="create-a-webhooktriggered-function-from-the-template"></a>Créer une fonction déclenchée par webhook à partir du modèle
+## <a name="create-a-webhook-triggered-function-from-the-template"></a>Créer une fonction déclenchée par webhook à partir du modèle
 Une application de fonction héberge l’exécution de vos fonctions dans Azure. Pour créer une fonction, vous devez avoir un compte Azure actif. Si tel n’est pas le cas, des [comptes gratuits sont disponibles](https://azure.microsoft.com/free/). 
 
 1. Accédez au [Portail Azure Functions](https://functions.azure.com/signin) et connectez-vous avec votre compte Azure.

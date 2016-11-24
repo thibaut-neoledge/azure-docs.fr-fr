@@ -3,7 +3,7 @@
 2. Accédez à la page **Appareils** . Cliquez sur **Créer un appareil virtuel** en bas de la page **Appareils**.
 3. Dans la boîte de dialogue **Créer un appareil virtuel**, spécifiez les éléments suivants.
    
-     ![Création d’un appareil virtuel StorSimple](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
+    ![Création d’un appareil virtuel StorSimple](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
    
    1. **Nom** : nom unique de votre appareil virtuel.
    2. **Modèle** : sélectionnez le modèle de l'appareil virtuel. Ce champ n'apparaît que si vous exécutez Update 2 ou une version ultérieure. Un modèle d'appareil 8010 offre 30 To de stockage standard tandis qu'un modèle d'appareil 8020 offre 64 To de stockage Premium. Spécifiez 8010
@@ -28,6 +28,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

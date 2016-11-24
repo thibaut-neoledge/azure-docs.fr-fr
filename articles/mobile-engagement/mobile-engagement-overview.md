@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 58d8043e09cb04ef2cdf4f5c005d549a6cb6f73c
+ms.sourcegitcommit: a3e619d6e130212064093150d22d971a562a6601
+ms.openlocfilehash: 758680cf8ff8a9e2f0a6c241613a2ba254462f4a
 
 
 ---
@@ -30,10 +30,10 @@ Azure Mobile Engagement est une plateforme SaaS d'engagement des utilisateurs qu
 
 Avec Azure Mobile Engagement, les éditeurs d'applications et les professionnels du marketing peuvent mieux comprendre les utilisateurs de l'application et interagir avec ces derniers.
 
-## <a name="realtime-actionable-analytics-to-maximize-return-on-investment"></a>Analyse exploitable en temps réel afin d'optimiser le retour sur investissement
+## <a name="real-time-actionable-analytics-to-maximize-return-on-investment"></a>Analyse exploitable en temps réel afin d'optimiser le retour sur investissement
 Déclenchez des scénarios d'engagement en fonction des données démographiques et du comportement des utilisateurs, en combinant la collecte de `big data` et le traitement des messages en temps réel. Mobile Engagement peut répondre à presque toutes les questions relatives aux besoins spécifiques de votre entreprise. Par exemple, vous pouvez créer des tableaux de bord personnalisés afin de mesurer les indicateurs de performance clés (KPI), de trouver et corriger rapidement les goulots d'étranglement qui entravent la progression des utilisateurs, d'effectuer le suivi de la rétention et de l'adhérence des utilisateurs et, ainsi, de déterminer les campagnes qui génèrent le retour sur investissement le plus élevé. La vue de la progression des utilisateurs à 360° de Mobile Engagement vous permet d'optimiser de façon aisée et continue l'expérience des utilisateurs, d'accroître les taux de rétention et d'améliorer l'utilisation des applications.
 
-## <a name="valueadded-push-and-communications-platform"></a>Plateforme Push et de communication à valeur ajoutée
+## <a name="value-added-push-and-communications-platform"></a>Plateforme Push et de communication à valeur ajoutée
 Mobile Engagement fournit des fonctionnalités de messagerie au sein de l'application et fonctionne de façon transparente avec des passerelles de notifications Push natives, telles que Google GCM, Apple APNS et Microsoft MPNS. Et la plateforme va encore plus loin en vous donnant le pouvoir de créer des campagnes ciblées en analysant les comportements des utilisateurs pour identifier les segments de clientèle uniques.
 
 Les développeurs d’applications en tirent profit en atteignant leurs clients d’une manière très efficace et non intrusive.
@@ -47,7 +47,7 @@ Depuis longtemps, Microsoft fait preuve d'un engagement réel vis-à-vis de la c
 ### <a name="next-steps"></a>Étapes suivantes :
 [Meilleurs pratiques et processus pour créer votre Mobile Engagement](mobile-engagement-getting-started-best-practices.md)
 
-[Prise en main](/documentation/services/mobile-engagement/)
+[Prise en main](/index.md)
 
 [Télécharger des applications de démonstration avec le code source](https://aka.ms/azmedemoapps)
 

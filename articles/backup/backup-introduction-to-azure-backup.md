@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/31/2016
 ms.author: jimpark; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: e29891dc03f8a864ecacc893fd1cc0d3cc1436cb
-ms.openlocfilehash: c827c37ae4164ebd9cd2a971e94f073de8c59b46
+ms.sourcegitcommit: cf3930f209e84ee9b14b56566ca19d31382946aa
+ms.openlocfilehash: cefb405b4f30ca5fe20f6acfaee5ebba2690990b
 
 
 ---
@@ -44,7 +44,7 @@ Les solutions de sauvegarde traditionnelles ont évolué et considèrent désorm
 
 **Sauvegarde cohérente avec les applications** : pour sauvegarder un serveur de fichiers, une machine virtuelle ou une base de données SQL, vous avez besoin de savoir qu’un point de récupération contient toutes les données requises pour restaurer la copie de sauvegarde. Azure Backup fournit des sauvegardes cohérentes avec les applications, qui garantissent qu’aucun correctif supplémentaire n’est requis pour restaurer les données. La restauration de données cohérentes avec les applications réduit le délai de restauration, ce qui permet de rétablir rapidement le fonctionnement normal.
 
-**Rétention à long terme** : vous pouvez sauvegarder des données dans Azure pendant 99 ans. Au lieu de basculer les copies de sauvegarde sur disque vers la sauvegarde sur bande, puis de déplacer cette dernière vers un emplacement hors site pour le stockage à long terme, vous pouvez utiliser Azure pour la rétention à court terme et à long terme.
+**Conservation à long terme** : sauvegardez vos données dans Azure pendant 99 ans. Au lieu de basculer les copies de sauvegarde sur disque vers la sauvegarde sur bande, puis de déplacer cette dernière vers un emplacement hors site pour le stockage à long terme, vous pouvez utiliser Azure pour la rétention à court terme et à long terme.
 
 ## <a name="which-azure-backup-components-should-i-use"></a>Quels composants Azure Backup dois-je utiliser ?
 Si vous ne savez pas quel composant Azure Backup utiliser pour vos besoins, consultez le tableau suivant qui explique ce que vous pouvez protéger avec chaque composant. Le portail Azure fournit un Assistant intégré pour vous aider à choisir le composant à télécharger et à déployer. L’Assistant, qui fait partie de la création du coffre Recovery Services, vous permet de sélectionner un objectif de sauvegarde et de choisir les données ou les applications à protéger en quelques étapes.
@@ -52,9 +52,9 @@ Si vous ne savez pas quel composant Azure Backup utiliser pour vos besoins, cons
 | Composant | Avantages | limites | Qu’est-ce qui est protégé ? | Où sont stockées les sauvegardes ? |
 | --- | --- | --- | --- | --- |
 | Agent Azure Backup (MARS) |<li>Sauvegarde des fichiers et des dossiers sur un système d’exploitation Windows physique ou virtuel (les machines virtuelles peuvent être locales ou dans Azure)<li>Aucun serveur de sauvegarde distinct n’est requis. |<li>Sauvegarde 3 fois par jour <li>Ne tient pas compte des applications ; restauration au niveau du fichier, du dossier et du volume seulement, <li>  Linux non pris en charge. |<li>Fichiers, <li>Dossiers |Archivage de sauvegarde Azure |
-| System Center DPM |<li>Instantanés tenant compte des applications (VSS)<li>Flexibilité totale concernant le moment d’exécution de la sauvegarde<li>Granularité de récupération (tout)<li>Peut utiliser le coffre Azure Backup<li>Prise en charge de Linux (s’il est hébergé sur Hyper-V) |Absence de prise en charge hétérogène (sauvegarde de machine virtuelle VMware, sauvegarde de la charge de travail Oracle) |<li>Fichiers, <li>Dossiers,<li> Volumes, <li>Machines virtuelles,<li> Applications,<li> Charges de travail |<li>Coffre Azure Backup,<li> Disque connecté localement,<li>  Bande (locale uniquement) |
+| System Center DPM |<li>Instantanés tenant compte des applications (VSS)<li>Flexibilité totale concernant le moment d’exécution de la sauvegarde<li>Granularité de récupération (tout)<li>Peut utiliser le coffre Azure Backup<li>Prise en charge de Linux (s’il est hébergé sur Hyper-V) <li>Protection des machines virtuelles VMware avec DPM 2012 R2 |Ne prend pas en charge la sauvegarde de la charge de travail Oracle |<li>Fichiers, <li>Dossiers,<li> Volumes, <li>Machines virtuelles,<li> Applications,<li> Charges de travail |<li>Coffre Azure Backup,<li> Disque connecté localement,<li>  Bande (locale uniquement) |
 | Azure Backup Server |<li>Instantanés tenant compte des applications (VSS)<li>Flexibilité totale concernant le moment d’exécution de la sauvegarde<li>Granularité de récupération (tout)<li>Peut utiliser le coffre Azure Backup<li>Prise en charge de Linux (s’il est hébergé sur Hyper-V)<li>Ne nécessite pas de licence System Center |<li>Absence de prise en charge hétérogène (sauvegarde de machine virtuelle VMware, sauvegarde de la charge de travail Oracle)<li>Requiert toujours un abonnement Azure en direct<li>Aucune prise en charge de la sauvegarde sur bande |<li>Fichiers, <li>Dossiers,<li> Volumes, <li>Machines virtuelles,<li> Applications,<li> Charges de travail |<li>Coffre Azure Backup,<li> Disque connecté localement |
-| Sauvegarde des machines virtuelles IaaS Azure |<li>Sauvegardes natives pour Windows/Linux<li>Aucune installation spécifique d’agent n’est requise<li>Sauvegarde au niveau structure sans infrastructure de sauvegarde nécessaire |<li>Restauration de sauvegarde/disque une fois par jour<li>Impossible d’effectuer une sauvegarde en local |<li>Machines virtuelles, <li>Tous les disques (à l’aide de PowerShell) |<p>Archivage de sauvegarde Azure</p> |
+| Sauvegarde des machines virtuelles IaaS Azure |<li>Sauvegardes natives pour Windows/Linux<li>Aucune installation spécifique d’agent n’est requise<li>Sauvegarde au niveau structure sans nécessiter d’infrastructure de sauvegarde |<li>Sauvegarde des machines virtuelles une fois par jour <li>Restauration des machines virtuelles uniquement au niveau du disque<li>Impossible d’effectuer une sauvegarde en local |<li>Machines virtuelles, <li>Tous les disques (à l’aide de PowerShell) |<p>Archivage de sauvegarde Azure</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>Quels sont les scénarios de déploiement de chaque composant ?
 | Composant | Déploiement possible dans Azure ? | Déploiement possible localement ? | Stockage cible pris en charge |
@@ -122,10 +122,10 @@ Les sections suivantes comportent des tableaux qui résument la disponibilité o
 
 ![clé de table](./media/backup-introduction-to-azure-backup/table-key.png)
 
-Le coffre Azure Backup est la cible de stockage par défaut sur tous les composants. System Center DPM et le serveur de sauvegarde offrent également la possibilité d’avoir une copie du disque local. Toutefois, seul System Center DPM permet d’écrire des données sur un périphérique de stockage sur bande.
+Le coffre Azure Backup est la cible de stockage par défaut sur tous les composants. System Center DPM et le serveur de sauvegarde Azure offrent également la possibilité de disposer d’une copie du disque local. Toutefois, seul System Center DPM permet d’écrire des données sur un périphérique de stockage sur bande.
 
 #### <a name="compression"></a>Compression
-En outre, les sauvegardes sont compressées afin de réduire la quantité d’espace de stockage requise. L’extension de machine virtuelle est le seul composant qui n’effectue aucune compression. Lorsque vous utilisez l’extension de machine virtuelle, toutes les données de sauvegarde sont copiées du compte de stockage vers le coffre de sauvegarde dans la même région sans être compressées. L’absence de compression augmente légèrement le stockage utilisé. Toutefois, le stockage des données sans compression réduit les délais de restauration.
+En outre, les sauvegardes sont compressées afin de réduire la quantité d’espace de stockage requise. L’extension de machine virtuelle est le seul composant qui n’effectue aucune compression. L’extension de machine virtuelle copie toutes les données de sauvegarde de votre compte de stockage vers le coffre de sauvegarde dans la même région. Aucune compression n’est effectuée lors du transfert des données. Le transfert des données sans compression augmente légèrement le stockage utilisé. Toutefois, le stockage des données sans compression réduit les délais de restauration au cas où vous auriez besoin d’utiliser ce point de récupération.
 
 #### <a name="incremental-backup"></a>Sauvegarde incrémentielle
 Chaque composant prend en charge la sauvegarde incrémentielle quel que soit le stockage cible (disque, bande, coffre de sauvegarde). La sauvegarde incrémentielle garantit un stockage efficace des sauvegardes, en transférant uniquement les modifications apportées depuis la dernière sauvegarde.
@@ -169,7 +169,7 @@ La sauvegarde des machines virtuelles Azure exige la configuration du chiffremen
 
 L’extension de machine virtuelle lit directement les données à partir du compte de stockage Azure via le réseau de stockage. Il n’est donc pas nécessaire de compresser ce trafic.
 
-Si vous sauvegardez vos données sur un System Center DPM ou sur un serveur de sauvegarde Azure, compressez les données transférées du serveur principal vers le serveur de sauvegarde. Cela économise la bande passante.
+Si vous sauvegardez vos données sur un System Center DPM ou sur un serveur de sauvegarde Azure, compressez les données transférées du serveur principal vers le serveur de sauvegarde. Le fait de compresser les données avant de les sauvegarder dans DPM ou dans le serveur de sauvegarde Azure permet d’économiser de la bande passante.
 
 #### <a name="network-throttling"></a>Limitation du réseau
 L’agent Azure Backup assure une limitation du réseau qui permet de contrôler l’utilisation de la bande passante réseau pendant le transfert de données. Cette limitation peut s’avérer utile si vous avez besoin de sauvegarder des données pendant les heures de travail, mais ne souhaitez pas que le processus de sauvegarde interfère avec le reste du trafic internet. La limitation du transfert de données s’applique aux activités de sauvegarde et de restauration.
@@ -186,7 +186,7 @@ L’agent Azure Backup assure une limitation du réseau qui permet de contrôler
 | Points de récupération sur bande |Non applicable |Illimité |Non applicable |Non applicable |
 
 ## <a name="what-is-the-vault-credential-file"></a>Qu’est-ce que le fichier d’informations d’identification de coffre ?
-Le fichier d’informations d’identification de coffre est un certificat qui est généré par le portail pour chaque coffre de sauvegarde. Le portail télécharge ensuite la clé publique pour le Service de contrôle d’accès (ACS). La clé privée vous est fournie lors du téléchargement des informations d’identification. Elle vous permet d’enregistrer les ordinateurs à protéger. La clé privée vous permet d’authentifier les serveurs ou les ordinateurs pour envoyer des données de sauvegarde vers un coffre de sauvegarde particulier.
+Le fichier d’informations d’identification de coffre est un certificat qui est généré par le portail pour chaque coffre de sauvegarde. Le portail télécharge ensuite la clé publique pour le Service de contrôle d’accès (ACS). La clé privée vous est fournie lors du téléchargement des informations d’identification. Utilisez-la pour enregistrer les ordinateurs que vous protégez. La clé privée vous permet d’authentifier les serveurs ou les ordinateurs pour envoyer des données de sauvegarde vers un coffre de sauvegarde particulier.
 
 Vous utilisez uniquement les informations d’identification du coffre pour enregistrer les serveurs ou les ordinateurs. Toutefois, soyez attentif avec les informations d’identification du coffre. En cas de perte ou de récupération par d’autres personnes, les informations d’identification du coffre peuvent être utilisées pour enregistrer d’autres ordinateurs dans le même coffre. Comme les données de sauvegarde sont chiffrées à l’aide d’une phrase secrète à laquelle vous êtes le seul à avoir accès, les données de sauvegarde existantes ne peuvent pas être compromises. Les informations d’identification du coffre expirent au bout de 48 heures. Même si vous pouvez télécharger les informations d’identification du coffre de sauvegarde aussi souvent que vous le souhaitez, seules les dernières informations d’identification peuvent être utilisées pour l’enregistrement.
 
@@ -207,7 +207,7 @@ Les concepts qui suivent vont vous aider à prendre des décisions importantes e
 Utilisez l’une des didacticiels suivants pour obtenir des instructions complètes détaillées pour protéger les données sur Windows Server, ou protéger une machine virtuelle (VM) dans Azure :
 
 * [Sauvegarde des fichiers et dossiers](backup-try-azure-backup-in-10-mins.md)
-* [Sauvegarde des machines virtuelles Azure](backup-azure-vms-first-look.md)
+* [Sauvegarde des machines virtuelles Azure](backup-azure-vms-first-look-arm.md)
 
 Pour plus d’informations sur la protection des autres charges de travail, consultez l’un des articles suivants :
 
@@ -221,6 +221,6 @@ Pour plus d’informations sur la protection des autres charges de travail, cons
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

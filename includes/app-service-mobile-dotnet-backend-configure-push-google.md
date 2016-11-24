@@ -1,12 +1,12 @@
-Utilisez la procédure correspondant à votre type de projet de serveur principal : [serveur principal .NET](#dotnet) ou [serveur principal Node.js](#nodejs).
+Utilisez la procédure ci-dessous correspondant à votre type de projet de serveur principal &mdash; [serveur principal .NET](#dotnet) ou [serveur principal Node.js](#nodejs).
 
-### <a name="dotnet"></a>Projet de serveur principal .NET
-1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de serveur, puis cliquez sur **Gérer les packages NuGet**, recherchez `Microsoft.Azure.NotificationHubs` et cliquez sur **Installer**. Cette commande installe la bibliothèque cliente Notification Hubs.
-2. Dans le dossier Contrôleurs, ouvrez TodoItemController.cs et ajoutez les instructions `using` suivantes :
+### <a name="a-namedotnetanet-backend-project"></a><a name="dotnet"></a>Projet de serveur principal .NET
+1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de serveur, puis cliquez sur **Gérer les packages NuGet**, recherchez `Microsoft.Azure.NotificationHubs` et cliquez sur **Installer**. Cette commande installe la bibliothèque cliente Notification Hubs.
+2. Dans le dossier Contrôleurs, ouvrez TodoItemController.cs et ajoutez les instructions `using` suivantes :
    
         using Microsoft.Azure.Mobile.Server.Config;
         using Microsoft.Azure.NotificationHubs;
-3. Remplacez la méthode `PostTodoItem` par le code suivant :
+3. Remplacez la méthode `PostTodoItem` par le code suivant :  
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
@@ -27,7 +27,7 @@ Utilisez la procédure correspondant à votre type de projet de serveur principa
             .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
             // Android payload
-            var androidNotificationPayload = "{ "data" : {"message":"" + item.Text + ""}}";
+            var androidNotificationPayload = "{ \"data\" : {\"message\":\"" + item.Text + "\"}}";
 
             try
             {
@@ -48,9 +48,9 @@ Utilisez la procédure correspondant à votre type de projet de serveur principa
 
 1. Publier à nouveau le projet de serveur
 
-### <a name="nodejs"></a>Projet de back-end Node.js
-1. Si vous ne l’avez pas déjà fait, [téléchargez le projet de démarrage rapide](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou utilisez l’[éditeur en ligne du portail Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
-2. Remplacez le code présent dans le fichier todoitem.js par le code suivant :
+### <a name="a-namenodejsanodejs-backend-project"></a><a name="nodejs"></a>Projet de back-end Node.js
+1. Si vous ne l’avez pas déjà fait, [téléchargez le projet de démarrage rapide](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou utilisez [l’éditeur en ligne du portail Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+2. Remplacez le code présent dans le fichier todoitem.js par le code suivant :
    
         var azureMobileApps = require('azure-mobile-apps'),
         promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -95,7 +95,11 @@ Utilisez la procédure correspondant à votre type de projet de serveur principa
    
         module.exports = table;  
    
-    Ce code envoie une notification GCM contenant item.text quand un nouvel élément todo est inséré.
-3. Quand vous modifiez le fichier sur votre ordinateur local, republiez le projet serveur.
+    Ce code envoie une notification GCM contenant item.text quand un nouvel élément todo est inséré. 
+3. Quand vous modifiez le fichier sur votre ordinateur local, republiez le projet serveur. 
 
-<!---HONumber=AcomDC_1223_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

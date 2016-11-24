@@ -6,10 +6,14 @@
 > * [Curl](../articles/hdinsight/hdinsight-hadoop-use-hive-curl.md)
 > * [PowerShell](../articles/hdinsight/hdinsight-hadoop-use-hive-powershell.md)
 > * [.NET](../articles/hdinsight/hdinsight-hadoop-use-hive-dotnet-sdk.md)
-> * [Visual Studio](../articles/hdinsight/hdinsight-hadoop-use-hive-visual-studio.md)
+> * [Visual Studio](../articles/hdinsight/hdinsight-hadoop-use-hive-visual-studio.md)
 > * [Bureau à distance](../articles/hdinsight/hdinsight-hadoop-use-hive-remote-desktop.md)
 > * [Console de requête](../articles/hdinsight/hdinsight-hadoop-use-hive-query-console.md)
 > 
 > 
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

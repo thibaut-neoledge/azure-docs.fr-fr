@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: trinadhk; giridham; arunak; markgal; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: e29891dc03f8a864ecacc893fd1cc0d3cc1436cb
-ms.openlocfilehash: f85b3210fc1bdab65da29c3355ed3e1eb35da2ab
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: adee77b102d9c9326dad864f6f2f906f7b8acd0b
 
 
 ---
-# <a name="azure-backup-service-faq"></a>Service Azure Backup – Forum aux questions
+# <a name="azure-backup-service--faq"></a>Service Azure Backup – Forum aux questions
 Cet article est constitué d’une liste de questions fréquemment posées (et des réponses respectives) sur le service Azure Backup. Notre communauté répond rapidement, et si une question est souvent posée, nous l’ajouterons à cet article. Généralement, les réponses aux questions fournissent des informations de référence ou de prise en charge. Vous pouvez poser des questions sur Azure Backup dans la section Disques de cet article ou d’un article associé. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## <a name="what-is-the-list-of-supported-operating-systems-from-which-i-can-back-up-to-azure-using-azure-backup-br"></a>Quelle est la liste des systèmes d’exploitation pris en charge, sur lesquels je peux sauvegarder des fichiers dans Azure à l’aide d’Azure Backup ? <br/>
@@ -43,7 +43,7 @@ Azure Backup prend en charge les systèmes d’exploitation suivants pour la sau
 
 Pour la sauvegarde de machines virtuelles Azure,
 
-* **Linux** : Azure Backup prend en charge [une liste de distributions approuvées par Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) , à l’exception de CoreOS Linux.  D’autres distributions « Bring-Your-Own-Linux » fonctionnent également tant que l’agent de machine virtuelle est disponible sur la machine virtuelle et que Python est pris en charge.
+* **Linux** : Azure Backup prend en charge [une liste de distributions approuvées par Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , à l’exception de CoreOS Linux.  D’autres distributions « Bring-Your-Own-Linux » fonctionnent également tant que l’agent de machine virtuelle est disponible sur la machine virtuelle et que Python est pris en charge.
 * **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
 
 ## <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>Où puis-je télécharger le dernier agent Azure Backup ? <br/>
@@ -127,7 +127,7 @@ Absolument. Azure Backup fournit une sauvegarde au niveau de la machine virtuell
 ## <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-to-back-up-files-and-folders-present-on-temporary-storage-provided-by-the-azure-vm-br"></a>Puis-je installer l’agent Azure Backup sur une machine virtuelle Azure pour sauvegarder des fichiers et des dossiers situés sur le stockage temporaire fourni par la machine virtuelle Azure ? <br/>
 Vous pouvez installer l’agent Azure Backup sur le système d’exploitation Windows invité et sauvegarder des fichiers et des dossiers sur le stockage temporaire. Toutefois, notez que les sauvegardes échoueront une fois que les données de stockage temporaire seront effacées. En outre, si les données de stockage temporaire ont été supprimées, vous pouvez uniquement restaurer les stockages non volatiles.
 
-## <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-scdpm-to-work-with-azure-backup-agent-to-protect-onpremises-applicationvm-workloads-to-azure-br"></a>J’ai installé l’agent Azure Backup pour protéger mes fichiers et dossiers. Puis-je à présent installer SCDPM pour utiliser l’agent Azure Backup afin de protéger les charges de travail d’application/de machine virtuelle locales dans Azure ? <br/>
+## <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-scdpm-to-work-with-azure-backup-agent-to-protect-on-premises-applicationvm-workloads-to-azure-br"></a>J’ai installé l’agent Azure Backup pour protéger mes fichiers et dossiers. Puis-je à présent installer SCDPM pour utiliser l’agent Azure Backup afin de protéger les charges de travail d’application/de machine virtuelle locales dans Azure ? <br/>
 Pour utiliser Azure Backup avec SCDPM, il est recommandé d’installer d’abord SCDPM, puis l’agent Azure Backup. Cela garantit une intégration transparente de l’agent Azure Backup avec SCDPM et permet de protéger des fichiers, des dossiers, des charges de travail d’application et des machines virtuelles dans Azure, directement à partir de la console de gestion de SCDPM. Pour les raisons invoquées ci-avant, l’installation de SCDPM après l’agent Azure Backup n’est ni recommandée, ni prise en charge.
 
 ## <a name="what-is-the-length-of-file-path-that-can-be-specified-as-part-of-azure-backup-policy-using-azure-backup-agent-br"></a>Quelle est la longueur du chemin d’accès pouvant être spécifiée dans le cadre de la stratégie Azure Backup avec l’agent Azure Backup ? <br/>
@@ -240,13 +240,13 @@ La clé utilisée pour chiffrer les données de sauvegarde est présente uniquem
 
   Une fois les sauvegardes correctement effectuées avec le nouvel emplacement de cache, vous pouvez supprimer le dossier de cache d’origine.
 
-## <a name="where-can-i-put-the-cachefolder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>Où dois-je placer le dossier du cache de l’agent Azure Backup pour que ce dernier fonctionne comme prévu ?<br/>
+## <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>Où dois-je placer le dossier du cache de l’agent Azure Backup pour que ce dernier fonctionne comme prévu ?<br/>
 Les emplacements suivants pour le dossier du cache ne sont pas recommandés :
 
 * Partage réseau ou un média amovible : le dossier du cache doit être local sur le serveur nécessitant une sauvegarde avec la sauvegarde en ligne. Les emplacements réseau ou les médias amovibles (tels que les lecteurs USB) ne sont pas pris en charge.
 * Volumes hors connexion : le dossier du cache doit être en ligne pour la sauvegarde attendue avec l’agent Azure Backup.
 
-## <a name="are-there-any-attributes-of-the-cachefolder-that-are-not-supportedbr"></a>Existe-t-il des attributs du dossier du cache qui ne sont pas pris en charge ?<br/>
+## <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>Existe-t-il des attributs du dossier du cache qui ne sont pas pris en charge ?<br/>
  Les attributs suivants ou leurs combinaisons ne sont pas pris en charge pour le dossier du cache :
 
 * Chiffré

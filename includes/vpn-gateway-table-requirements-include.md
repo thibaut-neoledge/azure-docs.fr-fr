@@ -9,4 +9,8 @@ Le tableau suivant répertorie la configuration requise pour les passerelles VPN
 | **Nombre maximal de connexions de point à site** |Non pris en charge |128 |128 |128 |
 | **Prise en charge de routage actif (BGP)** |Non pris en charge |Non pris en charge |Pris en charge |Pris en charge |
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

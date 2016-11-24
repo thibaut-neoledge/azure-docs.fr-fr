@@ -14,15 +14,15 @@ ms.topic: get-started-article
 ms.date: 10/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: b70c8baab03703bc00b75c2c611f69e3b71d6cd7
-ms.openlocfilehash: 5159e7fc47d320d52eb7b94b5775158a3f09c769
+ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
+ms.openlocfilehash: 79819619ff7f25ba1097fe12f2da7453a1fcb4f1
 
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumenter des applications web lors de l’exécution avec Application Insights
-*Application Insights est à l'état de version préliminaire.*
 
-Vous pouvez instrumenter une application web dynamique avec Visual Studio Application Insights, sans avoir à modifier ou à redéployer votre code. Vous devez installer Status Monitor dans vos applications hébergées par un serveur IIS local. Si ce sont des applications web Azure ou si elles s’exécutent dans une machine virtuelle Azure, vous pouvez installer l’extension Application Insights. (Des articles distincts sont également consacrés à l’instrumentation des [applications web J2EE actives](app-insights-java-live.md) et [d’Azure Cloud Services](app-insights-cloudservices.md).)
+
+Vous pouvez instrumenter une application web dynamique avec Azure Application Insights, sans avoir à modifier ou à redéployer votre code. Vous devez installer Status Monitor dans vos applications hébergées par un serveur IIS local. Si ce sont des applications web Azure ou si elles s’exécutent dans une machine virtuelle Azure, vous pouvez installer l’extension Application Insights. (Des articles distincts sont également consacrés à l’instrumentation des [applications web J2EE actives](app-insights-java-live.md) et [d’Azure Cloud Services](app-insights-cloudservices.md).)
 
 ![Exemples de graphiques](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -38,7 +38,7 @@ Voici un résumé de ce que vous apporte chaque méthode :
 | --- | --- | --- |
 | Requêtes et exceptions |Oui |Oui |
 | [Exceptions plus détaillées](app-insights-asp-net-exceptions.md) | |Oui |
-| [Diagnostics de dépendance](app-insights-asp-net-dependencies.md) |Sur .NET 4.6 + |Oui |
+| [Diagnostics de dépendance](app-insights-asp-net-dependencies.md) |Sur .NET 4.6 +, mais moins détaillé |Oui, tous les détails : codes de résultat, texte de commande SQL, verbe HTTP|
 | [Compteurs de performances système](app-insights-performance-counters.md) | |IIS ou service cloud Azure, pas d’application web Azure |
 | [API pour la télémétrie personnalisée][api] |Oui | |
 | [Intégration des journaux de suivi](app-insights-asp-net-trace-logs.md) |Oui | |
@@ -67,7 +67,7 @@ Cette opération nécessite un abonnement [Microsoft Azure](http://azure.com) .
 
     Il est probable que vous choisirez de configurer une nouvelle ressource et un nouveau [groupe de ressources][rôles].
 
-    Vous pouvez aussi utiliser une ressource existante si vous avez déjà configuré des [tests web] [disponibilité] pour votre site ou une [surveillance du client web][client].
+    Vous pouvez aussi utiliser une ressource existante si vous avez déjà configuré des [tests web] [availability] pour votre site ou une [surveillance du client web][client].
 5. Redémarrez IIS.
 
     ![Cliquez sur Redémarrer en haut de la boîte de dialogue.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-restart.png)
@@ -214,7 +214,7 @@ Identifiez les applications qui sont surveillées :
 * Télécharge la version la plus récente du Kit de développement logiciel (SDK) Application Insights sur le serveur.
 
 ## <a name="a-namenextanext-steps"></a><a name="next"></a>Étapes suivantes
-* [Créez des tests web] [disponibilité] pour vous assurer que votre site reste actif.
+* [Créez des tests web] [availability] pour vous assurer que votre site reste actif.
 * [Recherchez les événements et les journaux][diagnostic] pour diagnostiquer les problèmes.
 * [Ajoutez la télémétrie de client web][utilisation] pour afficher les exceptions à partir du code de la page web et vous permettre d’insérer un suivi des appels.
 * [Ajoutez le kit de développement logiciel (SDK) Application Insights à votre code de service web] [greenbrown] afin de pouvoir insérer un suivi des appels et des appels de journaux dans le code du serveur.
@@ -227,11 +227,11 @@ Identifiez les applications qui sont surveillées :
 [diagnostic]: app-insights-diagnostic-search.md
 [greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
-[roles]: app-insights-resources-roles-access-control.md
-[usage]: app-insights-web-track-usage.md
+[rôles]: app-insights-resources-roles-access-control.md
+[utilisation]: app-insights-web-track-usage.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,15 +1,15 @@
-Dans cette section, vous mettez à jour le code dans votre projet backend Mobile Apps existant pour envoyer une notification push chaque fois qu’un nouvel élément est ajouté. Étant donné que les clients sont inscrits pour les notifications push à l’aide d’un modèle d’inscription, un même message de notification push peut être envoyé à toutes les plateformes clientes. Chaque inscription de modèle de client contient un paramètre *messageParam*. Lorsque la notification est envoyée, *messageParam* contient une chaîne qui représente le texte de l’élément inséré. Pour plus d’informations sur l’utilisation de modèles avec Notification Hubs, consultez [Modèles](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+Dans cette section, vous mettez à jour le code dans votre projet backend Mobile Apps existant pour envoyer une notification push chaque fois qu’un nouvel élément est ajouté. Cela est possible grâce à la fonction de [modèle](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) de Notification Hubs, qui permet d’activer l’envoi de notifications Push entre les plateformes. Les différents clients sont inscrits pour les notifications Push à l’aide de modèles, et une notification Push universelle unique peut accéder à toutes les plates-formes clientes.
 
-Choisissez la procédure ci-dessous correspondant à votre type de projet backend : [backend .NET](#dotnet) ou [backend Node.js](#nodejs).
+Sélectionnez la procédure ci-dessous qui correspond à votre type de projet de serveur principal &mdash;[serveur principal .NET](#dotnet) ou [serveur principal Node.js](#nodejs).
 
-### <a name="dotnet"></a>Projet de serveur principal .NET
-1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de serveur, puis cliquez sur **Gérer les packages NuGet**, recherchez `Microsoft.Azure.NotificationHubs` et cliquez sur **Installer**. Cette opération installe la bibliothèque Notification Hubs pour l’envoi de notifications à partir de votre serveur principal.
-2. Dans le projet de serveur, ouvrez **Contrôleurs** > **TodoItemController.cs** et ajoutez les instructions using suivantes :
+### <a name="a-namedotnetanet-backend-project"></a><a name="dotnet"></a>Projet de serveur principal .NET
+1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de serveur, puis cliquez sur **Gérer les packages NuGet**, recherchez `Microsoft.Azure.NotificationHubs` et cliquez sur **Installer**. Cette opération installe la bibliothèque Notification Hubs pour l’envoi de notifications à partir de votre serveur principal.
+2. Dans le projet de serveur, ouvrez **Contrôleurs** > **TodoItemController.cs** et ajoutez les instructions using suivantes :
    
         using System.Collections.Generic;
         using Microsoft.Azure.NotificationHubs;
         using Microsoft.Azure.Mobile.Server.Config;
-3. Dans la méthode **PostTodoItem**, ajoutez le code suivant après l’appel d’**InsertAsync** :
+3. Dans la méthode **PostTodoItem**, ajoutez le code suivant après l’appel à **InsertAsync** :  
    
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
@@ -46,11 +46,11 @@ Choisissez la procédure ci-dessous correspondant à votre type de projet backen
         }
    
     Une notification de modèle contenant item.Text est ensuite envoyée quand un nouvel élément est inséré.
-4. Publier à nouveau le projet de serveur
+4. Publier à nouveau le projet de serveur 
 
-### <a name="nodejs"></a>Projet de back-end Node.js
-1. Si vous ne l’avez pas déjà fait, [téléchargez le projet backend de démarrage rapide](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou utilisez l’[éditeur en ligne du portail Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
-2. Remplacez le code présent dans todoitem.js par le code suivant :
+### <a name="a-namenodejsanodejs-backend-project"></a><a name="nodejs"></a>Projet de back-end Node.js
+1. Si vous ne l’avez pas déjà fait, [téléchargez le projet de serveur principal de démarrage rapide](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou utilisez [l’éditeur en ligne du portail Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+2. Remplacez le code présent dans todoitem.js par le code suivant :
    
         var azureMobileApps = require('azure-mobile-apps'),
         promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -91,7 +91,11 @@ Choisissez la procédure ci-dessous correspondant à votre type de projet backen
    
         module.exports = table;  
    
-    Une notification de modèle contenant item.text est ensuite envoyée quand un nouvel élément est inséré.
+    Une notification de modèle contenant item.Text est ensuite envoyée quand un nouvel élément est inséré.
 3. Quand vous modifiez le fichier sur votre ordinateur local, republiez le projet serveur.
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

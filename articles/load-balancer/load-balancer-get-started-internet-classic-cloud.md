@@ -5,7 +5,6 @@ services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: 
 tags: azure-service-management
 ms.assetid: 0bb16f96-56a6-429f-88f5-0de2d0136756
 ms.service: load-balancer
@@ -16,50 +15,53 @@ ms.workload: infrastructure-services
 ms.date: 03/17/2016
 ms.author: sewhee
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 171d5cd41d900b83c22e1db4bc514471a3d4b556
+ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
+ms.openlocfilehash: 6a471050a03c8399b0715c331b54636c68fd71cb
 
 ---
 
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>Création d'un équilibreur de charge accessible sur Internet pour les services cloud
 
-[!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
+> [!div class="op_single_selector"]
+> * [Portail Azure Classic](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
+> * [Interface de ligne de commande Azure](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Services cloud Azure](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-Cet article traite du modèle de déploiement classique. Vous pouvez également [découvrir comment créer un équilibreur de charge accessible sur Internet à l’aide d’Azure Resource Manager](load-balancer-get-started-internet-arm-cli.md).
+> [!IMPORTANT]
+> Avant d’utiliser des ressources Azure, il est important de comprendre qu’Azure dispose actuellement de deux modèles de déploiement : Azure Resource Manager et classique. Veillez à bien comprendre les [modèles et outils de déploiement](../azure-classic-rm.md) avant d’utiliser une ressource Azure. Pour consulter la documentation relative aux différents outils, cliquez sur les onglets situés en haut de cet article. Cet article traite du modèle de déploiement classique. Vous pouvez également [découvrir comment créer un équilibreur de charge accessible sur Internet à l’aide d’Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 Les services cloud sont automatiquement configurés avec un équilibrage de charge et peuvent être personnalisés via le modèle de service
 
 ## <a name="create-a-load-balancer-using-the-service-definition-file"></a>Création d’un équilibreur de charge à l'aide du fichier de définition de service
 
-Vous pouvez utiliser le Kit de développement logiciel (SDK) Azure pour .NET 2.5 pour mettre à jour votre service cloud. Les paramètres de point de terminaison des services cloud sont définis dans le fichier de [définition de service](https://msdn.microsoft.com/library/azure/gg557553.aspx).csdef.
+Vous pouvez utiliser le Kit de développement logiciel (SDK) Azure pour .NET 2.5 pour mettre à jour votre service cloud. Les paramètres de point de terminaison des services cloud sont définis dans le fichier de [définition de service](https://msdn.microsoft.com/library/azure/gg557553.aspx) .csdef.
 
 L’exemple suivant montre la configuration d’un fichier servicedefinition.csdef pour un déploiement de cloud :
 
-En vérifiant l'extrait de code du fichier .csdef généré par un déploiement de cloud, vous pouvez voir le point de terminaison externe configuré pour utiliser les ports HTTP sur les ports 10000, 10001 et 10002.
+En vérifiant l’extrait de code du fichier .csdef généré par un déploiement de cloud, vous pouvez voir le point de terminaison externe configuré pour utiliser les ports HTTP sur les ports 10000, 10001 et 10002.
 
 ```xml
-    <ServiceDefinition name=“Tenant“>
-       <WorkerRole name=“FERole” vmsize=“Small“>
-    <Endpoints>
-        <InputEndpoint name=“FE_External_Http” protocol=“http” port=“10000“ />
-        <InputEndpoint name=“FE_External_Tcp“  protocol=“tcp“  port=“10001“ />
-        <InputEndpoint name=“FE_External_Udp“  protocol=“udp“  port=“10002“ />
+<ServiceDefinition name=“Tenant“>
+    <WorkerRole name=“FERole” vmsize=“Small“>
+<Endpoints>
+    <InputEndpoint name=“FE_External_Http” protocol=“http” port=“10000“ />
+    <InputEndpoint name=“FE_External_Tcp“  protocol=“tcp“  port=“10001“ />
+    <InputEndpoint name=“FE_External_Udp“  protocol=“udp“  port=“10002“ />
 
-        <InputEndpointname=“HTTP_Probe” protocol=“http” port=“80” loadBalancerProbe=“MyProbe“ />
+    <InputEndpointname=“HTTP_Probe” protocol=“http” port=“80” loadBalancerProbe=“MyProbe“ />
 
-        <InstanceInputEndpoint name=“InstanceEP” protocol=“tcp” localPort=“80“>
-           <AllocatePublicPortFrom>
-              <FixedPortRange min=“10110” max=“10120“  />
-           </AllocatePublicPortFrom>
-        </InstanceInputEndpoint>
-        <InternalEndpoint name=“FE_InternalEP_Tcp” protocol=“tcp“ />
-    </Endpoints>
-      </WorkerRole>
-    </ServiceDefinition>
+    <InstanceInputEndpoint name=“InstanceEP” protocol=“tcp” localPort=“80“>
+        <AllocatePublicPortFrom>
+            <FixedPortRange min=“10110” max=“10120“  />
+        </AllocatePublicPortFrom>
+    </InstanceInputEndpoint>
+    <InternalEndpoint name=“FE_InternalEP_Tcp” protocol=“tcp“ />
+</Endpoints>
+    </WorkerRole>
+</ServiceDefinition>
 ```
 
 ## <a name="check-load-balancer-health-status-for-cloud-services"></a>Vérifier l'état d'intégrité de l'équilibrage de charge pour les services cloud
@@ -67,12 +69,12 @@ En vérifiant l'extrait de code du fichier .csdef généré par un déploiement 
 Voici un exemple de sonde d’intégrité :
 
 ```xml
-    <LoadBalancerProbes>
-        <LoadBalancerProbe name=“MyProbe” protocol=“http” path=“Probe.aspx” intervalInSeconds=“5” timeoutInSeconds=“100“ />
-    </LoadBalancerProbes>
+<LoadBalancerProbes>
+    <LoadBalancerProbe name=“MyProbe” protocol=“http” path=“Probe.aspx” intervalInSeconds=“5” timeoutInSeconds=“100“ />
+</LoadBalancerProbes>
 ```
 
-L’équilibrage de charge combine les informations du point de terminaison et de la sonde pour créer une URL sous la forme de http://{DIP of VM}:80/Probe.aspx pour interroger l’intégrité du service.
+L’équilibreur de charge combine les informations du point de terminaison et de la sonde pour créer une URL sous la forme de `http://{DIP of VM}:80/Probe.aspx` pour interroger l’intégrité du service.
 
 Le service détecte les sondes périodiques à partir de la même adresse IP. Il s'agit de la requête de la sonde d'intégrité en provenance de l'hôte du nœud sur lequel la machine virtuelle s'exécute. Le service doit répondre avec un code d’état HTTP 200 pour que l’équilibrage de charge suppose que le service est sain. Tout autre code d'état HTTP (par exemple 503) prend directement la machine virtuelle hors service.
 
@@ -91,6 +93,6 @@ Vérifiez le schéma de définition de service de la [sonde d’intégrité](htt
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

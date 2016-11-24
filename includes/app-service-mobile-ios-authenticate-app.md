@@ -1,4 +1,4 @@
-**Objective-C** :
+**Objective-C**: 
 
 1. Sur votre Mac, ouvrez *QSTodoListViewController.m* dans Xcode et ajoutez la méthode suivante. Remplacez *google* par *microsoftaccount*, *twitter*, *facebook* ou *windowsazureactivedirectory* si vous n’utilisez pas Google comme fournisseur d’identité. Si vous utilisez Facebook, [vous devrez autoriser les domaines Facebook dans votre application](https://developers.facebook.com/docs/ios/ios9#whitelist).
    
@@ -13,12 +13,12 @@
                     [self refresh];
                 }];
             }
-2. Remplacez `[self refresh]` de `viewDidLoad` dans *QSTodoListViewController.m* par les éléments suivants :
+2. Remplacez `[self refresh]` dans `viewDidLoad` dans *QSTodoListViewController.m* par les éléments suivants :
    
             [self loginAndGetData];
 3. Appuyez sur *Exécuter* pour démarrer l’application, puis ouvrez une session. Une fois connecté, vous devez être en mesure d’afficher la liste des tâches et d’effectuer des mises à jour.
 
-**Swift** :
+**Swift**:
 
 1. Sur votre Mac, ouvrez *ToDoTableViewController.swift* dans Xcode et ajoutez la méthode suivante. Remplacez *google* par *microsoftaccount*, *twitter*, *facebook* ou *windowsazureactivedirectory* si vous n’utilisez pas Google comme fournisseur d’identité. Si vous utilisez Facebook, [vous devrez autoriser les domaines Facebook dans votre application](https://developers.facebook.com/docs/ios/ios9#whitelist).
    
@@ -38,4 +38,8 @@
             loginAndGetData()
 3. Appuyez sur *Exécuter* pour démarrer l’application, puis ouvrez une session. Une fois connecté, vous devez être en mesure d’afficher la liste des tâches et d’effectuer des mises à jour.
 
-<!---HONumber=AcomDC_0218_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d16326340f668285e185a6e8adb1a8316d8bd0eb
+ms.sourcegitcommit: 371c76ed36cd9d21026a5a49c6ef86a0cd3cc816
+ms.openlocfilehash: 8fd8b4b9611adb15df7e436a00f8ec35ea1e9614
 
 
 ---
@@ -45,7 +45,7 @@ Le chemin d’homologation Microsoft vous permet de vous connecter aux services 
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
-#### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Trafic en provenance de votre réseau et destiné à Microsoft
+### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Trafic en provenance de votre réseau et destiné à Microsoft
 * Vous devez vous assurer que le trafic qui entre via le chemin d'accès d’homologation Microsoft utilise une adresse IPv4 publique valide. Microsoft doit être en mesure de valider le propriétaire du pool d'adresses NAT IPv4 par rapport au Registre Internet de routage régional (RIR) ou à un Registre de routage Internet (IRR). Une vérification sera effectuée en fonction du numéro AS en cours d’homologation et des adresses IP utilisées pour le NAT. Reportez-vous à la page [Configuration requise pour le routage ExpressRoute](expressroute-routing.md) pour plus d'informations sur les registres de routage.
 * Les adresses IP utilisées pour la configuration de l'homologation publique Azure et d’autres circuits ExpressRoute ne doivent pas être proposées à Microsoft via la session BGP. Il n'existe aucune restriction concernant la longueur du préfixe IP NAT publié via cette homologation.
   
@@ -54,7 +54,7 @@ Le chemin d’homologation Microsoft vous permet de vous connecter aux services 
   > 
   > 
 
-#### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Trafic en provenance de Microsoft et destiné à votre réseau
+### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Trafic en provenance de Microsoft et destiné à votre réseau
 * Certains scénarios exigent que Microsoft initie la connectivité aux points de terminaison de service hébergés au sein de votre réseau. Un exemple typique de ce scénario est la connectivité avec des serveurs ADFS hébergés sur votre réseau à partir d'Office 365. Dans ce cas, vous devez transférer les préfixes appropriés de votre réseau vers l'homologation Microsoft. 
 * Vous devez configurer en SNAT le trafic destiné aux adresses IP au sein de votre réseau à partir de Microsoft. 
 
@@ -70,6 +70,6 @@ Le chemin d’homologation Microsoft vous permet de vous connecter aux services 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

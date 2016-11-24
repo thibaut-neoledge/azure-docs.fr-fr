@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2381b04e32a6d65075dadf04f717f4946ba4d464
+ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
+ms.openlocfilehash: c7e4d5c0b2602ba8c12184900eba05fee48c4450
 
 
 ---
@@ -29,7 +29,7 @@ Cette rubrique explique comment créer une nouvelle fonction en C# qui s’exéc
 ## <a name="prerequisites"></a>Composants requis
 Pour créer une fonction, vous devez avoir un compte Azure actif. Si tel n’est pas le cas, des [comptes gratuits sont disponibles](https://azure.microsoft.com/free/).
 
-## <a name="create-a-timertriggered-function-from-the-template"></a>Créer une fonction déclenchée par un minuteur à partir du modèle
+## <a name="create-a-timer-triggered-function-from-the-template"></a>Créer une fonction déclenchée par un minuteur à partir du modèle
 Une application de fonction héberge l’exécution de vos fonctions dans Azure. Pour créer une fonction, vous devez avoir un compte Azure actif. Si tel n’est pas le cas, des [comptes gratuits sont disponibles](https://azure.microsoft.com/free/). 
 
 1. Accédez au [Portail Azure Functions](https://functions.azure.com/signin) et connectez-vous avec votre compte Azure.

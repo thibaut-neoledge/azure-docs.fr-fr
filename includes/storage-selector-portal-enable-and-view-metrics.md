@@ -1,7 +1,11 @@
 > [!div class="op_single_selector"]
-> * [Azure Portal](../articles/storage/storage-enable-and-view-metrics.md)
-> * [Azure Classic Portal](../articles/storage/storage-enable-and-view-metrics-classic-portal.md)
+> * [Portail Azure](../articles/storage/storage-enable-and-view-metrics.md)
+> * [Portail Azure Classic](../articles/storage/storage-enable-and-view-metrics-classic-portal.md)
 > 
 > 
 
-<!---HONumber=AcomDC_1203_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

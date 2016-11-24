@@ -1,16 +1,16 @@
 
-**Objective-C** :
+**Objective-C**:
 
-1. Dans **QSAppDelegate.m**, importez le Kit de développement logiciel (SDK) iOS ainsi que **QSTodoService.h** :
+1. Dans **QSAppDelegate.m**, importez le Kit de développement logiciel (SDK) iOS ainsi que **QSTodoService.h** :
    
         #import <MicrosoftAzureMobile/MicrosoftAzureMobile.h>
         #import "QSTodoService.h"
-2. Dans `didFinishLaunchingWithOptions` de **QSAppDelegate.m**, insérez les lignes suivantes juste avant `return YES;` :
+2. Dans `didFinishLaunchingWithOptions` de **QSAppDelegate.m**, insérez les lignes suivantes juste avant `return YES;` :
    
         UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
-3. Dans **QSAppDelegate.m**, ajoutez les méthodes de gestionnaire suivantes. L’application est mise à jour et prend en charge les notifications Push.
+3. Dans **QSAppDelegate.m**, ajoutez les méthodes de gestionnaire suivantes. L’application est mise à jour et prend en charge les notifications Push. 
    
         // Registration with APNs is successful
         - (void)application:(UIApplication *)application
@@ -77,17 +77,17 @@
    
         }
 
-**Swift** :
+**Swift**:
 
-1. Ajoutez le fichier **ClientManager.swift** avec le contenu suivant. Remplacez *%AppUrl %* par l’URL du serveur principal Azure Mobile App.
+1. Ajoutez le fichier **ClientManager.swift** avec le contenu suivant. Remplacez *%AppUrl%* par l’URL du serveur principal Azure Mobile App.
    
         class ClientManager {
             static let sharedClient = MSClient(applicationURLString: "%AppUrl%")
         }
-2. Dans **ToDoTableViewController.swift**, remplacez la ligne `let client` chargée d’initialiser un `MSClient` par cette ligne :
+2. Dans **ToDoTableViewController.swift**, remplacez la ligne `let client` chargée d’initialiser un `MSClient` par cette ligne :
    
         let client = ClientManager.sharedClient
-3. Dans **AppDelegate.swift**, remplacez le corps de `func application` comme suit :
+3. Dans **AppDelegate.swift**, remplacez le corps de `func application` comme suit :
    
         func application(application: UIApplication,
           didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -139,4 +139,8 @@
    
         }
 
-<!---HONumber=AcomDC_0204_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

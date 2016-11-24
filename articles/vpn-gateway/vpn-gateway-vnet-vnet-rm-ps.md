@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/31/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 636606f5f5f651c10d174854de8471b5dd060dce
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 877947988bdddc9d88b5b91f28e94f9f93e08ad4
 
 
 ---
-# <a name="configure-a-vnettovnet-connection-for-resource-manager-using-powershell"></a>Configuration d’une connexion de réseau virtuel à réseau virtuel pour Resource Manager à l’aide de PowerShell
+# <a name="configure-a-vnet-to-vnet-connection-for-resource-manager-using-powershell"></a>Configuration d’une connexion de réseau virtuel à réseau virtuel pour Resource Manager à l’aide de PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -33,7 +33,7 @@ Cet article vous guidera au long des étapes de création d’une connexion entr
 
 ![Diagramme v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-### <a name="deployment-models-and-methods-for-vnettovnet-connections"></a>Modèles et méthodes de déploiement pour les connexions de réseau virtuel à réseau virtuel
+### <a name="deployment-models-and-methods-for-vnet-to-vnet-connections"></a>Modèles et méthodes de déploiement pour les connexions de réseau virtuel à réseau virtuel
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
 Le tableau suivant présente les modèles et les méthodes de déploiement disponibles pour les configurations de connexion de réseau virtuel à réseau virtuel. Quand un article avec les étapes de configuration est disponible, le lien vers cet article est ajouté à ce tableau.
@@ -43,7 +43,7 @@ Le tableau suivant présente les modèles et les méthodes de déploiement dispo
 #### <a name="vnet-peering"></a>Homologation de réseaux virtuels
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
-## <a name="about-vnettovnet-connections"></a>À propos des connexions de réseau virtuel à réseau virtuel
+## <a name="about-vnet-to-vnet-connections"></a>À propos des connexions de réseau virtuel à réseau virtuel
 La connexion entre deux réseaux virtuels est semblable à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN Azure pour offrir un tunnel sécurisé utilisant Ipsec/IKE. Les réseaux virtuels que vous connectez peuvent être situés dans différentes régions. Ou dans différents abonnements. Vous pouvez même combiner une communication de réseau virtuel à réseau virtuel avec des configurations multisites. Vous établissez ainsi des topologies réseau qui combinent une connectivité entre différents locaux et une connectivité entre différents réseaux virtuels, comme indiqué dans le schéma suivant :
 
 ![À propos des connexions](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
@@ -59,7 +59,7 @@ Vous pouvez décider de connecter des réseaux virtuels pour les raisons suivant
   
   * Dans la même région, vous pouvez configurer des applications multiniveaux avec plusieurs réseaux virtuels interconnectés pour des besoins d’isolement ou d’administration.
 
-### <a name="vnettovnet-faq"></a>Forum Aux Questions sur l’interconnexion de réseaux virtuels
+### <a name="vnet-to-vnet-faq"></a>Forum Aux Questions sur l’interconnexion de réseaux virtuels
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="which-set-of-steps-should-i-use"></a>Quelle procédure dois-je utiliser ?
@@ -75,7 +75,7 @@ Les étapes de cet article utilisent les variables déclarées au début de chaq
 ### <a name="before-you-begin"></a>Avant de commencer
 Avant de commencer, vous devez installer les applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) .
 
-### <a name="a-namestep1astep-1-plan-your-ip-address-ranges"></a><a name="Step1"></a>Étape 1 : planifier vos plages d’adresses IP
+### <a name="a-namestep1astep-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>Étape 1 : planifier vos plages d’adresses IP
 Dans les étapes suivantes, nous allons créer deux réseaux virtuels avec leurs sous-réseaux de passerelle respectifs et leur configuration. Nous allons ensuite créer une connexion VPN entre les deux réseaux virtuels. Il est important de planifier les plages d’adresses IP pour votre configuration réseau. N’oubliez pas que vous devez vous assurer qu’aucune plage de réseaux virtuels ou de réseaux locaux ne se chevauche.
 
 Nous utilisons les valeurs suivantes dans les exemples :
@@ -113,7 +113,7 @@ Nous utilisons les valeurs suivantes dans les exemples :
 * Connexion : VNet4toVNet1
 * Type de connexion : VNet2VNet
 
-### <a name="a-namestep2astep-2-create-and-configure-testvnet1"></a><a name="Step2"></a>Étape 2 : créez et configurez TestVNet1
+### <a name="a-namestep2astep-2---create-and-configure-testvnet1"></a><a name="Step2"></a>Étape 2 : créez et configurez TestVNet1
 1. Déclarer vos variables
    
     Commencez par déclarer les variables. Cet exemple déclare les variables avec les valeurs de cet exercice. Dans la plupart des cas, vous devez remplacer les valeurs par les vôtres. Cependant, vous pouvez utiliser ces variables si vous exécutez la procédure pour vous familiariser avec ce type de configuration. Si besoin, modifiez les variables, puis copiez et collez-les dans la console PowerShell.
@@ -187,7 +187,7 @@ Nous utilisons les valeurs suivantes dans les exemples :
         -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
         -VpnType RouteBased -GatewaySku Standard
 
-### <a name="step-3-create-and-configure-testvnet4"></a>Étape 3 : créez et configurez TestVNet4
+### <a name="step-3---create-and-configure-testvnet4"></a>Étape 3 : créez et configurez TestVNet4
 Une fois que vous avez configuré TestVNet1, créez TestVNet4. Suivez les étapes ci-dessous, en remplaçant les valeurs par les vôtres si nécessaire. Cette étape peut être réalisée dans la même session PowerShell, car elle se trouve dans le même abonnement.
 
 1. Déclarer vos variables
@@ -239,7 +239,7 @@ Une fois que vous avez configuré TestVNet1, créez TestVNet4. Suivez les étape
         -Location $Location4 -IpConfigurations $gwipconf4 -GatewayType Vpn `
         -VpnType RouteBased -GatewaySku Standard
 
-### <a name="step-4-connect-the-gateways"></a>Étape 4 : connectez les passerelles
+### <a name="step-4---connect-the-gateways"></a>Étape 4 : connectez les passerelles
 1. Obtenir les passerelles de réseau virtuel
    
     Dans cet exemple, étant donné que les deux passerelles se trouvent dans le même abonnement, cette étape peut être effectuée dans la même session PowerShell.
@@ -273,7 +273,7 @@ La différence réside dans le fait qu’une partie des étapes de configuration
 
 Ces instructions sont la suite des étapes précédentes répertoriées plus haut. Vous devez terminer les étapes [1](#Step1) et [2](#Step2) pour créer et configurer TestVNet1 et la passerelle VPN pour TestVNet1. Une fois les étapes 1 et 2 effectuées, passez à l’étape 5 pour créer TestVNet5.
 
-### <a name="step-5-verify-the-additional-ip-address-ranges"></a>Étape 5 : vérifiez les plages d’adresses IP supplémentaires
+### <a name="step-5---verify-the-additional-ip-address-ranges"></a>Étape 5 : vérifiez les plages d’adresses IP supplémentaires
 Il est important de s’assurer que l’espace d’adressage IP du nouveau réseau virtuel TestVNet5 ne chevauche aucune de vos plages de réseaux virtuels ou de passerelles de réseau locales. 
 
 Dans cet exemple, les réseaux virtuels peuvent appartenir à différentes organisations. Pour cet exercice, vous pouvez utiliser les valeurs suivantes pour TestVNet5 :
@@ -298,7 +298,7 @@ Dans cet exemple, les réseaux virtuels peuvent appartenir à différentes organ
 
 * Connexion : VNet1toVNet5
 
-### <a name="step-6-create-and-configure-testvnet5"></a>Étape 6 : créez et configurez TestVNet5
+### <a name="step-6---create-and-configure-testvnet5"></a>Étape 6 : créez et configurez TestVNet5
 Cette étape doit être effectuée dans le cadre du nouvel abonnement. Cette partie peut être effectuée par l’administrateur dans une organisation différente qui possède l’abonnement.
 
 1. Déclarer vos variables
@@ -361,7 +361,7 @@ Cette étape doit être effectuée dans le cadre du nouvel abonnement. Cette par
         New-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
         -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
 
-### <a name="step-7-connecting-the-gateways"></a>Étape 7 : connectez les passerelles
+### <a name="step-7---connecting-the-gateways"></a>Étape 7 : connectez les passerelles
 Dans cet exemple, étant donné que les passerelles se trouvent dans différents abonnements, nous avons divisé cette étape en deux sessions PowerShell notées [Abonnement 1] et [Abonnement 5].
 
 1. **[Abonnement 1]** Obtenir la passerelle de réseau virtuel pour Abonnement 1
@@ -426,7 +426,7 @@ Dans cet exemple, étant donné que les passerelles se trouvent dans différents
 [!INCLUDE [verify connection powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md) pour connaître les différentes étapes.
+* Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour connaître les différentes étapes.
 * Pour plus d’informations sur le protocole BGP, consultez les articles [Vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et [Comment configurer BGP](vpn-gateway-bgp-resource-manager-ps.md). 
 
 
