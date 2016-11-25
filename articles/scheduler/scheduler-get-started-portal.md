@@ -94,7 +94,7 @@ L’onglet **Historique** affiche les mesures sélectionnées pour chaque exécu
 1. État  
 2. Détails  
 3. Nouvelles tentatives
-4. Occurrence : 1er, 2e, 3e, etc..
+4. Occurrence : 1er, 2e, 3e, etc.
 5. Heure de début de l’exécution  
 6. Heure de fin de l’exécution
    
