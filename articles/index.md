@@ -1,10 +1,11 @@
 ---
 layout: HubPage
 hide_bc: true
-title: "Documentation Microsoft Azure"
+title: Documentation Microsoft Azure | Microsoft Docs
+description: "Découvrez comment créer et gérer des applications performantes à l’aide des services cloud Microsoft Azure. Accédez à la documentation associée, à des exemples de code, à des didacticiels et bien plus encore."
 translationtype: Human Translation
-ms.sourcegitcommit: 7fe73925e887652b7f0831c8e2381edf05db9548
-ms.openlocfilehash: 4c5242f5dbd7c714ae5d5b4efcef5f3b39a9b414
+ms.sourcegitcommit: 267a6facc9ed8e6f75c150d627545deafc589040
+ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
 
 ---
 <div id="main" class="v2">
@@ -303,6 +304,12 @@ ms.openlocfilehash: 4c5242f5dbd7c714ae5d5b4efcef5f3b39a9b414
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/data-catalog/">
+                                                <img src="media/index/data-catalog.svg" alt="" />
+                                                <p>Data Catalog</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/data-lake-analytics/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
                                                 <p>Data Lake Analytics</p>
@@ -334,8 +341,8 @@ ms.openlocfilehash: 4c5242f5dbd7c714ae5d5b4efcef5f3b39a9b414
                                         </li>
                                         <li>
                                             <a href="https://docs.botframework.com/en-us/azure-bot-service/">
-                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
-                                                <p>Service de robot</p>
+                                                <img src="media/index/bot-service.svg" alt="" />
+                                                <p>Service de robot Azure</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -506,16 +513,16 @@ ms.openlocfilehash: 4c5242f5dbd7c714ae5d5b4efcef5f3b39a9b414
                                         </li>
                                         <li>
                                             <a href="/azure/billing/">
-                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                <img src="media/index/billing.svg" alt="" />
                                                 <p>Facturation</p>
                                             </a>
                                         </li>
-                                        <!-- <li>
-                                            <a href="/azure/azure-advisor/">
-                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                        <li>
+                                            <a href="/azure/advisor">
+                                                <img src="media/index/advisor.svg" alt="" />
                                                 <p>Azure Advisor</p>
                                             </a>
-                                        </li> -->
+                                        </li>
                                         <li>
                                             <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
@@ -622,7 +629,7 @@ ms.openlocfilehash: 4c5242f5dbd7c714ae5d5b4efcef5f3b39a9b414
                                         </li>
                                         <li>
                                             <a href="/azure/sql-server-stretch-database/">
-                                                <img src="media/index/SQLDataWarehouse.svg" alt="" />
+                                                <img src="media/index/SQLDatabase.svg" alt="" />
                                                 <p>SQL Server Stretch Database</p>
                                             </a>
                                         </li>
@@ -1332,7 +1339,7 @@ ms.openlocfilehash: 4c5242f5dbd7c714ae5d5b4efcef5f3b39a9b414
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/SQLDataWarehouse.svg" alt="" />
+                                                        <img src="media/index/SQLDatabase.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1483,6 +1490,25 @@ ms.openlocfilehash: 4c5242f5dbd7c714ae5d5b4efcef5f3b39a9b414
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/data-catalog/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/data-catalog.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Catalog</h3>
+                                                    <p>Activez la détection des sources de données libre-service au sein de l’entreprise</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/data-lake-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1584,11 +1610,11 @@ ms.openlocfilehash: 4c5242f5dbd7c714ae5d5b4efcef5f3b39a9b414
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                        <img src="media/index/bot-service.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Service de robot</h3>
+                                                    <h3>Service de robot Azure</h3>
                                                     <p>Service de robot intelligent sans serveur évolutif à la demande</p>
                                                 </div>
                                             </div>
@@ -1841,7 +1867,7 @@ ms.openlocfilehash: 4c5242f5dbd7c714ae5d5b4efcef5f3b39a9b414
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/SQLDataWarehouse.svg" alt="" />
+                                                        <img src="media/index/SQLDatabase.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2274,7 +2300,7 @@ ms.openlocfilehash: 4c5242f5dbd7c714ae5d5b4efcef5f3b39a9b414
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                        <img src="media/index/billing.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2286,25 +2312,25 @@ ms.openlocfilehash: 4c5242f5dbd7c714ae5d5b4efcef5f3b39a9b414
                                     </div>
                                 </a>
                             </li>
-                            <!-- <li>
-                                <a href="/azure/azure-advisor/">
+                            <li>
+                                <a href="/azure/advisor/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                        <img src="media/index/advisor.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Advisor</h3>
-                                                    <p>Improve the cost effectiveness of your Azure resources</p>
+                                                    <p>Améliorez la rentabilité, les performances, la haute disponibilité et la sécurité de vos ressources Azure</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li> -->
+                            </li>
                             <li>
                                 <a href="/azure/azure-resource-manager/">
                                     <div class="cardSize">
@@ -2317,7 +2343,7 @@ ms.openlocfilehash: 4c5242f5dbd7c714ae5d5b4efcef5f3b39a9b414
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Resource Manager</h3>
-                                                    <p>Collaborez avec les ressources en tant que groupe pour les services Azure</p>
+                                                    <p>Déployez et gérez des ressources Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2377,10 +2403,10 @@ ms.openlocfilehash: 4c5242f5dbd7c714ae5d5b4efcef5f3b39a9b414
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/python/">Obtenir le Kit de développement logiciel (SDK) Python</a>
+                                                    <a href="https://azure.microsoft.com/develop/python">Obtenir le Kit de développement logiciel (SDK) Python</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://www.visualstudio.com/vs/python/">Prise en main</a>
+                                                    <a href="https://azure.microsoft.com/develop/python">Prise en main</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Référence API</a>
@@ -2702,13 +2728,13 @@ ms.openlocfilehash: 4c5242f5dbd7c714ae5d5b4efcef5f3b39a9b414
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://github.com/Microsoft/PTVS/releases/v2.2.4">Python Tools pour Visual Studio 2015</a>
+                                                    <a href="https://www.visualstudio.com/vs/python">Outils Python</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://ptvs.azureedge.net/download/PTVS%20Samples%202.2.4.vsix">Exemples</a>
+                                                    <a href="https://github.com/Microsoft/PTVS/wiki/PTVS-Installation">Prise en main de Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://ptvs.azureedge.net/download/PTVS%202.2.4%20VS%202015.msi">Télécharger</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python">Prise en main de Visual Studio Code</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2835,6 +2861,6 @@ ms.openlocfilehash: 4c5242f5dbd7c714ae5d5b4efcef5f3b39a9b414
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 
