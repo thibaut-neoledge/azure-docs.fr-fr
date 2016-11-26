@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 2bb861bf0e2d3505b3e2eeeb3ce779ab718e7013
-ms.openlocfilehash: 53f98b140cd1daa82b71a2924312cb0c2b3ac553
+ms.sourcegitcommit: 9e86ae23b3fe3b8134f4725035c03837425cc0c4
+ms.openlocfilehash: 9a05d78edbf2c186d4a4d84f38eb6deff0cdafc5
 
 ---
 #<a name="traffic-manager-documentation"></a>Documentation Traffic Manager
 
-Azure Traffic Manager vous permet de contrôler la répartition du trafic utilisateur pour les points de terminaison de service dans différents centres de données.  Traffic Manager utilise le DNS (Domain Name System) pour diriger les demandes des clients vers le point de terminaison approprié en fonction de la méthode de routage du trafic configurée et de l’intégrité des points de terminaison, assurant ainsi la disponibilité et la réactivité requises par les applications à grande échelle.
+Azure Traffic Manager vous permet de contrôler la répartition du trafic utilisateur pour les points de terminaison de service dans différentes régions. Traffic Manager utilise le DNS (Domain Name System) pour diriger les demandes des clients vers le point de terminaison approprié en fonction de la méthode de routage du trafic sélectionnée et de l’intégrité des points de terminaison, augmentant ainsi la disponibilité et la réactivité de vos applications.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -123,12 +123,12 @@ Azure Traffic Manager vous permet de contrôler la répartition du trafic utilis
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/traffic-manager.pdf">
         <div class="img"></div>
         <div class="text">
-Télécharger la documentation Service Fabric </div>
+Télécharger la documentation Traffic Manager </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -18,6 +18,7 @@
 #### [Azure Storage](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Gestionnaire de configuration](log-analytics-sccm.md)
+#### [Passerelle OMS](log-analytics-oms-gateway.md)
 ### Sources de données
 #### [Présentation des sources de données](log-analytics-data-sources.md)
 #### [Événements Windows](log-analytics-data-sources-windows-events.md)
@@ -49,6 +50,7 @@
 #### [Surface Hub](log-analytics-surface-hubs.md)
 #### [VMware](log-analytics-vmware.md)
 #### [Données de communication](log-analytics-wire-data.md)
+#### [Évaluation SCOM](log-analytics-scom-assessment.md)
 ## Analyser
 ### [Tableaux de bord](log-analytics-dashboards.md)
 ### [Concepteur de vues](log-analytics-view-designer.md)
@@ -65,6 +67,6 @@
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

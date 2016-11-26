@@ -5,12 +5,11 @@
 ## Scénarios
 ### [Cas d’utilisation courants](documentdb-use-cases.md)
 ### [Réseaux sociaux avec DocumentDB](documentdb-social-media-apps.md)
-### [Mutualisation](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)
-
 
 # Prise en main
 ## Écrire votre première application
 ### [Application console .NET](documentdb-get-started.md)
+### [Application console .NET Core](documentdb-dotnetcore-get-started.md)
 ### [Exécution de l’application console](documentdb-nodejs-get-started.md)
 ### [Application console C++](documentdb-cpp-get-started.md)
 ## Créer une application web
@@ -18,7 +17,8 @@
 ### [Application web Node.js](documentdb-nodejs-application.md)
 ### [Applications web Java](documentdb-java-application.md)
 ### [Application web Python Flask](documentdb-python-application.md)
-## [FAQ](documentdb-faq.md)
+## [Développer en local](documentdb-nosql-local-emulator.md)
+## [FORUM AUX QUESTIONS](documentdb-faq.md)
 
 # Procédure
 
@@ -84,7 +84,8 @@
 
 # Référence
 ## [Kit SDK Java](documentdb-sdk-java.md)
-## [Kit SDK .NET](documentdb-sdk-dotnet.md)
+## [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](documentdb-sdk-dotnet.md)
+## [Kit de développement logiciel (SDK) .NET Core](documentdb-sdk-dotnet-core.md)
 ## [Exemples relatifs à .NET](documentdb-dotnet-samples.md)
 ## [Kit de développement logiciel (SDK) Node.js](documentdb-sdk-node.md)
 ## [Exemples relatifs à Node.js](documentdb-nodejs-samples.md)
@@ -109,6 +110,6 @@
 ## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

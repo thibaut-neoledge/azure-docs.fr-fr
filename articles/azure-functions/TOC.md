@@ -8,7 +8,7 @@
 # Procédure
 ## Planifier et concevoir
 ### [Choisir entre Flow, Logic Apps, Functions et WebJobs](functions-compare-logic-apps-ms-flow-webjobs.md)
-### [Choisir entre la consommation et de Service d’application](functions-scale.md)
+### [Choisir un plan d’hébergement](functions-scale.md)
 
 ## Développement
 ### [Développer des applications de fonction](functions-reference.md)
@@ -21,7 +21,7 @@
 #### [Liaisons Mobile Apps](functions-bindings-mobile-apps.md)
 #### [Liaison de sortie du concentrateur de notification](functions-bindings-notification-hubs.md)
 #### [Déclencheurs et liaisons Service Bus pour les files d’attente et les rubriques](functions-bindings-service-bus.md)
-#### Storage
+#### Liaisons de stockage
 ##### [liaisons SSL](functions-bindings-storage-blob.md)
 ##### [Liaisons de la file d’attente](functions-bindings-storage-queue.md)
 ##### [Liaisons de tableau](functions-bindings-storage-table.md)
@@ -30,6 +30,7 @@
 ### [Créer une fonction à l’aide du Portail Azure](functions-create-first-azure-function-azure-portal.md)
 ### [Test d’Azure Functions](functions-test-a-function.md)
 ### [Développer et déboguer localement](functions-run-local.md)
+### [Meilleures pratiques pour Azure Functions](functions-best-practices.md)
 ### [Utiliser Azure Functions pour effectuer une tâche de nettoyage planifiée](functions-scenario-database-table-cleanup.md)
 
 ## Gérer
@@ -38,13 +39,16 @@
 ## Déployer
 ### [Déploiement continu pour Azure Functions](functions-continuous-deployment.md)
 
-# les ressources
+## Surveiller
+### [Surveillance d’Azure Functions](functions-monitoring.md)
+
+# Ressources
 ## [Tarification](https://azure.microsoft.com/pricing/details/functions/)  
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
 ## [Mises à jour de service](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

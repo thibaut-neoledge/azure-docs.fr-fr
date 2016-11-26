@@ -68,20 +68,17 @@
 ## [Gérer les mises à jour](azure-stack-updates.md)
 ## [Développer pour Azure Stack](azure-stack-developer.md)
 ## Déployer un fournisseur de ressources SQL ou MySQL
-### [Utiliser des bases de données MySQL en tant que PaaS sur Azure Stack](azure-stack-mysql-rp-deploy-short.md)
-### [Déployer l’adaptateur de fournisseur de ressources SQL Server sur Azure Stack](azure-stack-sql-rp-deploy-long.md)
-### [Utiliser des bases de données SQL sur Azure Stack](azure-stack-sql-rp-deploy-short.md)
+### [Utiliser des bases de données MySQL en tant que PaaS sur Azure Stack](azure-stack-mysql-resource-provider-deploy.md)
+### [Déployer l’adaptateur de fournisseur de ressources SQL Server sur Azure Stack](azure-stack-sql-resource-provider-deploy.md)
 
-## Planifier et déployer Web Apps
-### [Vue d’ensemble des applications web Azure Stack](azure-stack-webapps-overview.md)
-### [Avant de commencer avec des applications web Azure Stack](azure-stack-webapps-before-you-get-started.md)
-### [Déployer le fournisseur de ressources MySQL sur Azure Stack à utiliser avec les applications Web](azure-stack-mysql-rp-deploy-long.md)
+## Planifier et déployer App Service
+### [Vue d’ensemble des applications web Azure Stack](azure-stack-app-service-overview.md)
+### [Avant de commencer avec des applications web Azure Stack](azure-stack-app-service-before-you-get-started.md)
 ### [Les applications Web : Ajout de plusieurs rôles de travail web](azure-stack-webapps-add-worker-roles.md)
-### [Ajouter un fournisseur de ressources Web Apps](azure-stack-webapps-deploy.md)
+### [Ajouter un fournisseur de ressources Web Apps](azure-stack-app-service-deploy.md)
 
 # Résolution des problèmes
 ## [Résoudre les problèmes d’Azure Stack](azure-stack-troubleshooting.md)
-## [Réexécuter un déploiement à partir de l’échec d’une étape](azure-stack-rerun-deploy.md)
 ## [Fournisseur de ressources Web Apps](azure-stack-webapps-troubleshoot-known-issues.md)
 
 # les ressources
@@ -90,6 +87,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

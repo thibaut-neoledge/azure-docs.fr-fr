@@ -27,6 +27,7 @@
 ### [Modèles de conception pour les architectures multi-locataires](search-modeling-multitenant-saas-applications.md)
 ## Développement
 ### [Mettre à niveau le kit de développement logiciel (SDK)](search-dotnet-sdk-migration.md)
+### [Mettre à niveau l’API REST](search-api-migration.md)
 ### [Modéliser les types de données complexes](search-howto-complex-data-types.md)
 ## Gérer
 ### Administrer Recherche Azure
@@ -37,12 +38,14 @@
 ### [Rechercher l’analyse du trafic](search-traffic-analytics.md)
 ### [Performances et optimisation](search-performance-optimization.md)
 ## Charger des données
-### [Sources de données SaaS :](search-indexer-overview.md)
-#### [Stockage d’objets blob](search-howto-indexing-azure-blob-storage.md)
-#### [Tables Azure](search-howto-indexing-azure-tables.md)
-#### [Base de données SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-#### [Objets BLOB CSV](search-howto-index-csv-blobs.md)
-### [Configuration de la connexion de machine Virtuelle Azure SQL Server](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+### [Présentation de l’indexeur](search-indexer-overview.md)
+### [Indexeur Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md)
+### [Indexeur Stockage Table Azure](search-howto-indexing-azure-tables.md)
+### [Indexeur Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+### [Indexeur Azure DocumentDB](../documentdb/documentdb-search-indexer.md?toc=%2fazure%2fsearch%2ftoc.json)
+### [Indexer des objets blob CSV](search-howto-index-csv-blobs.md)
+### [Indexer des objets blob JSON](search-howto-index-json-blobs.md)
+### [Configurer des connexions d’indexeur à SQL Server sur une machine virtuelle Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Mappages de champs dans les indexeurs](search-indexer-field-mappings.md)
 ##  Concevoir une expérience de recherche
 ### [Exemples de requête de syntaxe Lucene](search-query-lucene-examples.md)
@@ -56,13 +59,13 @@
 
 # Référence
 ## [Versions d’API](search-api-versions.md)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
-## [Syntaxe de requête Lucene](https://msdn.microsoft.com/library/azure/mt589323)
-## [Syntaxe de requête simple](https://msdn.microsoft.com/library/azure/dn798920)
+## [.NET du service](/dotnet/api/microsoft.azure.search)
+## [.NET de gestion](/dotnet/api/microsoft.azure.management.search)
 ## [REST Service](/rest/api/searchservice/)
 ## [REST Service (version préliminaire)](search-api-2015-02-28-preview.md)
 ## [REST de gestion](/rest/api/searchmanagement/)
+## [Syntaxe de requête Lucene](https://msdn.microsoft.com/library/azure/mt589323)
+## [Syntaxe de requête simple](https://msdn.microsoft.com/library/azure/dn798920)
 
 # Ressources
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=search)
@@ -82,6 +85,6 @@
 ### [Github Recherche Azure](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

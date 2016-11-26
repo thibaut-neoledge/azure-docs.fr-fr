@@ -24,6 +24,8 @@
 #### [Niveau Premium](cdn-query-string-premium.md)
 ### [Vider les ressources mises en cache](cdn-purge-endpoint.md)
 ### [Précharger les ressources mises en cache](cdn-preload-endpoint.md)
+### [Jeton d’authentification](cdn-token-auth.md)
+### [Surveiller les ressources](cdn-resource-health.md)
 ### [Remplacer le comportement à l’aide de règles](cdn-rules-engine.md)
 ### [Obtenir des alertes en temps réel](cdn-real-time-alerts.md)
 
@@ -55,6 +57,6 @@
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

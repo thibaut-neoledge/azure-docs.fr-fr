@@ -105,15 +105,15 @@
 #### [Présentation du Kit de développement logiciel (SDK) Azure WebJobs](websites-dotnet-webjobs-sdk.md)
 #### [Créer une tâche web .NET](websites-dotnet-webjobs-sdk-get-started.md)
 #### [Utilisation du stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
-#### [Utilisation du stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
+#### [Utilisation du stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) de WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
 #### [Utilisation de Microsoft Azure Service Bus avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-service-bus.md)
 #### [Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 
 ### Environnement App Service
 #### [Comment créer un environnement App Service](app-service-web-how-to-create-an-app-service-environment.md)
 #### [Créer une application web dans un environnement App Service](app-service-web-how-to-create-a-web-app-in-an-ase.md)
-#### [Comment créer un ILB ASE à l’aide des modèles Azure Resource Manager](app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
-#### [Créer un équilibrage de charge interne](app-service-environment-with-internal-load-balancer.md)
+#### [Guide pratique pour créer un ILB ASE à l’aide des modèles Azure Resource Manager](app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
+#### [Utilisation d’un équilibreur de charge interne](app-service-environment-with-internal-load-balancer.md)
 
 ## [Déployer](../app-service/app-service-deployment-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [Déployer dans App Service](web-sites-deploy.md)
@@ -129,10 +129,10 @@
 ### [Migrer à partir d’IIS](web-sites-migration-from-iis-server.md)
 ### [Déployer des tâches web à l’aide de Visual Studio](websites-dotnet-deploy-webjobs.md)
 
-## [Scale](../app-service/app-service-scale-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+## [Mettre à l'échelle](../app-service/app-service-scale-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [Faire monter en puissance une application](web-sites-scale.md)
 ### [Environnement App Service](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [Mise à l’échelle géolocalisée avec les environnements App Service](app-service-app-service-environment-geo-distributed-scale.md)
+#### [Mise à l’échelle géodistribuée avec les environnements App Service](app-service-app-service-environment-geo-distributed-scale.md)
 #### [Mise à l'échelle des applications dans un environnement App Service](app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 #### [Mise à l’échelle automatique dans un environnement App Service](../app-service/app-service-environment-auto-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [Azure CDN](../cdn/cdn-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
@@ -153,11 +153,12 @@
 ### [Connexions locales](web-sites-hybrid-connection-get-started.md)
 ### [Réseau virtuel Azure](web-sites-integrate-with-vnet.md)
 ### [Configuration avancée](web-sites-transform-extend.md)
+### [Configurer le conteneur pour App Service sur Linux](app-service-linux-using-custom-docker-image.md)
 ### [Groupes de ressources](app-service-move-resources.md)
 ### [Convertir un site WordPress en multisite](web-sites-php-convert-wordpress-multisite.md) 
 
 ### [Travaux web](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [Exécuter des tâches en arrière-plan avec les tâches web](web-sites-create-web-jobs.md)
+#### [Exécuter des tâches en arrière-plan avec WebJobs](web-sites-create-web-jobs.md)
 
 ### [Environnement App Service](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [Configurer](app-service-web-configure-an-app-service-environment.md)
@@ -265,6 +266,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

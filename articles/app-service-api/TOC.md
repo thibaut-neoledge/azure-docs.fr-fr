@@ -36,7 +36,7 @@
 
 ### [Meilleures pratiques pour Azure App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Azure App Service et les services Azure existants](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Plans App Service en détail](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+### [Vue détaillée des plans App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Hébergement de haute densité](../app-service/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Utilisation de WebJobs dans Azure App Service](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Environnement App Service](../app-service-web/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -49,7 +49,7 @@
 
 ### Travaux web
 #### [Présentation du Kit de développement logiciel (SDK) Azure WebJobs](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Créer un WebJob .NET dans Azure App Service](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Créer une tâche web .NET dans Azure App Service](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Utilisation du stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Utilisation du stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Utilisation de Microsoft Azure Service Bus avec le Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -57,7 +57,7 @@
 
 ### Environnement App Service
 #### [Créer une application web dans un environnement App Service](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Comment créer un ILB ASE à l’aide des modèles Azure Resource Manager](../app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Guide pratique pour créer un ILB ASE à l’aide des modèles Azure Resource Manager](../app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Utilisation d’un équilibreur de charge interne](../app-service-web/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## [Déployer](../app-service/app-service-deployment-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -66,14 +66,14 @@
 ### [Déploiement continu](../app-service-web/app-service-continuous-deployment.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Environnements intermédiaires](../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Déploiement Git local](../app-service-web/app-service-deploy-local-git.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Déployer WebJobs avec Visual Studio](../app-service-web/websites-dotnet-deploy-webjobs.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+### [Déployer des WebJobs à l’aide de Visual Studio](../app-service-web/websites-dotnet-deploy-webjobs.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
-## [Mettre à l’échelle](../app-service/app-service-scale-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+## [Mettre à l'échelle](../app-service/app-service-scale-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Faire monter en puissance une application](../app-service-web/web-sites-scale.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Environnement App Service](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Mise à l’échelle géodistribuée avec les environnements App Service](../app-service-web/app-service-app-service-environment-geo-distributed-scale.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Mise à l'échelle des applications dans un environnement App Service](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
-#### [Mise à l'échelle automatique dans un environnement App Service](../app-service/app-service-environment-auto-scale.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Mise à l’échelle automatique dans un environnement App Service](../app-service/app-service-environment-auto-scale.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## Gérer
 ### [Configurer](../app-service-web/web-sites-configure.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -94,7 +94,7 @@
 ### [Environnement App Service](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Configurer](../app-service-web/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Paramètres de configuration personnalisés](../app-service-web/app-service-app-service-environment-custom-settings.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Guide pratique pour contrôler le trafic entrant](../app-service-web/app-service-app-service-environment-control-inbound-traffic.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Contrôle du trafic entrant](../app-service-web/app-service-app-service-environment-control-inbound-traffic.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Présentation de l’architecture réseau](../app-service-web/app-service-app-service-environment-network-architecture-overview.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Détails de la configuration réseau avec ExpressRoute](../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
@@ -154,7 +154,7 @@
 
 # Référence
 ## [Portail Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-## [Référence App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+## [Référence sur App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ## [Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 # Rubriques connexes
@@ -167,6 +167,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

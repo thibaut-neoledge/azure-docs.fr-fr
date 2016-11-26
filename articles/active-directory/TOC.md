@@ -279,7 +279,7 @@
 # Référence
 ## [Applets de commande PowerShell](/powershell/ )
 ## [Informations de référence sur l’API Java](/java/api)
-## [API .NET](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
+## [API .NET](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Restrictions et limites du service](active-directory-service-limits-restrictions.md)
 
 # Rubriques connexes
@@ -297,6 +297,6 @@
 ## [Forum de commentaires](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

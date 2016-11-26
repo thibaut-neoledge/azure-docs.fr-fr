@@ -81,8 +81,7 @@
 ### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [Charger - bcp depuis SQL Server](sql-data-warehouse-load-from-sql-server-with-bcp.md)
-### [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-### [Charger - Data Factory depuis le stockage blob](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
+### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
 ### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 ### [Guide PolyBase](sql-data-warehouse-load-polybase-guide.md)
 ### [Charger - PolyBase depuis le stockage blob](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
@@ -146,6 +145,6 @@
 ### [Gestion des données](sql-data-warehouse-partner-data-management.md)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

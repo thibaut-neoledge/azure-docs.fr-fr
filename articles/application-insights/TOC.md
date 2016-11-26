@@ -1,6 +1,6 @@
 # Vue d'ensemble
 ## [Présentation d’Application Insights](app-insights-overview.md)
-## [Fonctionnement](app-insights-detect-triage-diagnose.md)
+## [Analyse des performances dans un cycle DevOps](app-insights-detect-triage-diagnose.md)
 
 # Prise en main
 ## Analyse Azure
@@ -63,8 +63,8 @@
 #### [Alertes de métrique](app-insights-alerts.md)
 
 ### [Détection intelligente](app-insights-proactive-diagnostics.md)
-#### [Détection des défaillances](app-insights-proactive-failure-diagnostics.md)
-#### [Détection des anomalies](app-insights-proactive-performance-diagnostics.md)
+#### [Défaillances](app-insights-proactive-failure-diagnostics.md)
+#### [Anomalies de performance](app-insights-proactive-performance-diagnostics.md)
 
 ## Analyser
 
@@ -128,10 +128,10 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Référence
-## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+## [API Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
 ## [API .NET](https://docs.microsoft.com/dotnet/api)
 ## [API JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [Analyse](app-insights-analytics-reference.md)
+## [Documents de référence Analytics](app-insights-analytics-reference.md)
 ## [Échantillonnage](app-insights-sampling.md)
 ## [Adresses IP](app-insights-ip-addresses.md)
 ## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
@@ -145,7 +145,7 @@
 ## [Notes de publication pour le Kit de développement logiciel (SDK) Application Insights pour Windows Phone et Windows Store](app-insights-release-notes-windows.md)
 ## [Notes de publication de Developer Analytics Tools](app-insights-release-notes-vsix.md)
 ## [Notes de publication du Kit de développement logiciel (SDK) : Application Insights](app-insights-release-notes.md)
-## [API REST](https://dev.applicationinsights.io/)
+## [API REST d’accès aux données](https://dev.applicationinsights.io/)
 
 # Ressources
 ## [Tarification](https://azure.microsoft.com/pricing/details/application-insights/)  
@@ -157,6 +157,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -1,24 +1,27 @@
 # Vue d'ensemble
-## [Qu’est-ce que Relay ?](service-bus-relay-overview.md)
-## [FAQ](../service-bus-messaging/service-bus-faq.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [Qu’est-ce que Relay ?](relay-what-is-it.md)
+## [FAQ](relay-faq.md)
 
 # Prise en main
-## [Utilisation de Relay](service-bus-dotnet-how-to-use-relay.md)
+## [Créer un espace de noms](relay-create-namespace-portal.md)
+## [Prise en main des connexions hybrides](relay-hybrid-connections-dotnet-get-started.md)
+## [Prise en main des relais WCF](service-bus-dotnet-how-to-use-relay.md)
 ## [Signatures d’accès partagé](../service-bus-messaging/service-bus-sas-overview.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Créer des applications hybrides à l’aide du Service Bus Relay](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
-## [Didacticiel sur .NET pour les relais](service-bus-relay-tutorial.md)
-## [Didacticiel sur REST pour les relais](service-bus-relay-rest-tutorial.md)
+## [Didacticiel hybride pour les relais WCF](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
+## [Didacticiel .NET pour les relais WCF](service-bus-relay-tutorial.md)
+## [Didacticiel REST pour les relais WCF](service-bus-relay-rest-tutorial.md)
 
 # Procédure
 ## [Authentification et autorisation](../service-bus-messaging/service-bus-authentication-and-authorization.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
 ## [Gestion des urgences et des pannes](../service-bus-messaging/service-bus-outages-disasters.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [Protocole Connexions hybrides](relay-hybrid-connections-protocol.md)
+## [Exceptions courantes](relay-exceptions.md)
 
 # Référence
 ## [Exemples](service-bus-relay-samples.md)
-## [Exceptions](../service-bus-messaging/service-bus-messaging-exceptions.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Quotas](../service-bus-messaging/service-bus-quotas.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [.NET](/dotnet/api/)
-## [REST](/rest/api/servicebus/)
+## [API .NET pour les connexions hybrides](/dotnet/api/microsoft.servicebus)
+## [API .NET pour les relais WCF](/dotnet/api/microsoft.servicebus)
+
 
 # Ressources
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
@@ -30,6 +33,6 @@
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -20,7 +20,7 @@
 ### [Effectuer une mise à l’échelle automatique et groupes de machines virtuelles identiques](virtual-machine-scale-sets-autoscale-overview.md)
 ### [Mise à l’échelle verticale dans un groupe de machines virtuelles identiques](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Mises à jour pour les groupes de machines virtuelles identiques](virtual-machine-scale-sets-upgrade-scale-set.md)
-### [Mise à l’échelle automatique avancée](virtual-machine-scale-sets-advanced-autoscale.md)
+### [Mise à l’échelle automatique avancée](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Groupes de machines virtuelles identiques et configuration d’état souhaité](virtual-machine-scale-sets-dsc.md)
 
 ## Résolution des problèmes
@@ -38,6 +38,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

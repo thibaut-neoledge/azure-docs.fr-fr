@@ -108,7 +108,6 @@
 
 ## [Automatisation](../virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Extension de script personnalisé](../virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Extension d’accès aux machines virtuelles](../virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Surveillance de votre machine virtuelle](../virtual-machines-linux-vm-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Extensions dans les modèles](../virtual-machines-linux-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Exemples de configuration](../virtual-machines-linux-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -161,15 +160,20 @@
 ### [Résoudre des problèmes d’allocation](../virtual-machines-linux-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Résolution des problèmes de déploiement](../virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Redéployer une machine virtuelle vers un nouveau nœud Azure](../virtual-machines-linux-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### Attacher un disque dur virtuel pour résoudre des problèmes de machine virtuelle
+#### [Interface de ligne de commande Azure](../virtual-machines-linux-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
+#### [Portail Azure](../virtual-machines-linux-troubleshoot-recovery-disks-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 # Référence
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Interface de ligne de commande Azure](/cli/azure/vm)
-## [Java](/java/api/)
+## [Java](/java/api)
+## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Créer des modèles Resource Manager](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Modèles fournis par la communauté](https://azure.microsoft.com/documentation/templates/)
-## [REST Compute](/rest/api/compute/)
-## [REST Réseau](/rest/api/)
-## [REST Stockage](/rest/api/storageservices/)
+## [Modèles fournis par la communauté](https://azure.microsoft.com/documentation/templates)
+## [REST Compute](/rest/api/compute)
+## [REST Réseau](/rest/api)
+## [REST Stockage](/rest/api/storageservices)
 
 
 
@@ -180,6 +184,6 @@
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

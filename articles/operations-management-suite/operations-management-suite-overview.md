@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.sourcegitcommit: 4f14a461b842649de977d2c4c80edfc197e15657
 ms.openlocfilehash: 14274c7d94213681b3779b97a44296e6eaf90be9
 
 
@@ -27,22 +27,22 @@ En plus de fournir de précieux services de manière autonome, OMS peut intégre
 
 Les sections suivantes fournissent une description générale des différents avantages d’OMS et des services qui les implémentent.  Vous pouvez examiner l’architecture OMS afin d’avoir une vue d’ensemble des différents composants OMS avant de consulter la documentation détaillée de chacun d’entre eux.
 
-## <a name="insight-and-analyticsmediaoperationsmanagementsuiteoverviewiconinsightanalyticspng-insight-and-analytics"></a>![Insight & Analytics](media/operations-management-suite-overview/icon-insight-analytics.png) Insight & Analytics
+## <a name="insight-and-analyticsmediaoperations-management-suite-overviewicon-insight-analyticspng-insight-and-analytics"></a>![Insight & Analytics](media/operations-management-suite-overview/icon-insight-analytics.png) Insight & Analytics
 [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) vous permet de collecter, corréler, rechercher et agir sur les données de journal et de performance générées par les applications et les systèmes d’exploitation. Elle vous fournit des informations opérationnelles en temps réel à l’aide d’une recherche intégrée et de tableaux de bord personnalisés permettant d’analyser facilement des millions d’enregistrements dans l’ensemble de vos charges de travail et serveurs, quel que soit leur emplacement physique.
 
 Vous pouvez facilement ajouter des solutions à Log Analytics pour définir les données à collecter et la logique de leur analyse.  Ces solutions peuvent inclure des fonctionnalités supplémentaires qui sont fournies automatiquement aux agents avec une configuration minimale voire inexistante.  Outre l’utilisation d’outils d’analyse fournis par chacune des solutions, vous pouvez effectuer des recherches personnalisées sur l’ensemble du jeu de données afin de corréler les données entre les systèmes et les applications.  
 
-## <a name="automation-controlmediaoperationsmanagementsuiteoverviewiconautomationcontrolpng-automation-control"></a>![Automation & Control](media/operations-management-suite-overview/icon-automation-control.png) Automation & Control
+## <a name="automation-controlmediaoperations-management-suite-overviewicon-automation-controlpng-automation-control"></a>![Automation & Control](media/operations-management-suite-overview/icon-automation-control.png) Automation & Control
 Azure Automation automatise les processus administratifs grâce à des [Runbooks](../automation/automation-runbook-types.md) basés sur PowerShell et exécutés dans le cloud Azure.  Les Runbooks ont accès à tout produit ou service pouvant être géré avec PowerShell, y compris aux ressources situées dans d’autres clouds tels qu’Amazon Web Services (AWS).  Les Runbooks peuvent également être exécutés sur un serveur de votre centre de données local pour gérer des ressources locales.
 
 Azure Automation assure la gestion de la configuration avec [PowerShell DSC](../automation/automation-dsc-overview.md).  Vous pouvez créer et gérer les ressources DSC hébergées dans Azure et les appliquer à des systèmes de cloud et locaux pour définir et appliquer automatiquement leur configuration.
 
-## <a name="protection-and-recoverymediaoperationsmanagementsuiteoverviewiconprotectionrecoverypng-protection-and-disaster-recovery"></a>![Protection et récupération](media/operations-management-suite-overview/icon-protection-recovery.png) Protection et récupération d’urgence
+## <a name="protection-and-recoverymediaoperations-management-suite-overviewicon-protection-recoverypng-protection-and-disaster-recovery"></a>![Protection et récupération](media/operations-management-suite-overview/icon-protection-recovery.png) Protection et récupération d’urgence
 [Azure Backup](http://azure.microsoft.com/documentation/services/backup) protège les données de vos applications et les conserve des années, sans investissement en capital et avec des frais de fonctionnement minimaux.  Cette solution permet de sauvegarder des données à partir de serveurs Windows physiques et virtuels, en plus des charges de travail des applications telles que SQL Server et SharePoint.  Elle peut également être utilisée par System Center Data Protection Manager (DPM) afin de répliquer les données protégées vers Azure pour la redondance et le stockage à long terme.
 
 [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d’urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles locales Hyper-V et VMware, ainsi que de serveurs physiques Windows ou Linux. Vous pouvez répliquer des machines vers un centre de données secondaire ou étendre votre centre de données en les répliquant sur Azure. Site Recovery fournit également un basculement et une récupération des charges de travail en toute simplicité. Cette solution s’intègre avec des mécanismes de récupération d’urgence tels que SQL Server AlwaysOn et fournit des plans de récupération pour un basculement facile des charges de travail réparties sur plusieurs machines.
 
-## <a name="oms-security-and-compliancemediaoperationsmanagementsuiteoverviewiconsecuritycompliancepng-security-and-compliance"></a>![Sécurité et conformité d’OMS](media/operations-management-suite-overview/icon-security-compliance.png)  Sécurité et conformité
+## <a name="oms-security-and-compliancemediaoperations-management-suite-overviewicon-security-compliancepng-security-and-compliance"></a>![Sécurité et conformité d’OMS](media/operations-management-suite-overview/icon-security-compliance.png)  Sécurité et conformité
 La sécurité et la conformité vous aident à identifier, évaluer et atténuer les risques de sécurité qui menacent votre infrastructure.  Ces fonctionnalités d’OMS sont implémentées via plusieurs solutions dans Log Analytics, qui analysent les données de journal et la configuration de systèmes agents afin de vous aider à assurer la sécurité continue de votre environnement.
 
 * La [solution de sécurité et d’audit](oms-security-getting-started.md) collecte et analyse les événements de sécurité sur les systèmes gérés, afin d’identifier toute activité suspecte.
@@ -58,6 +58,6 @@ La sécurité et la conformité vous aident à identifier, évaluer et atténuer
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 
