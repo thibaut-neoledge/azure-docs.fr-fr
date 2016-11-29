@@ -21,7 +21,7 @@ ms.openlocfilehash: 8ed71ccd07385eb74f7afecf04590c2c00372c34
 
 
 ---
-# <a name="ad-fs-deployment-in-azure"></a>Déploiement des services AD FS dans Azure
+# <a name="ad-fs-deployment-in-azure"></a>Déploiement des services AD FS dans Azure
 AD FS simplifie et sécurise la fédération des identités et l’authentification unique (SSO) sur le web. La fédération avec AD Azure ou O365 permet aux utilisateurs de s’authentifier à l’aide de leurs informations d’identification locales et d’accéder à toutes les ressources du cloud. Par conséquent, il est important de disposer d’une infrastructure AD FS hautement disponible pour garantir l’accès aux ressources locales et dans le cloud. Le déploiement d’AD FS dans Azure peut contribuer à bénéficier d’une haute disponibilité avec un minimum d’efforts.
 Le déploiement d’AD FS dans Azure présente toute une série d’avantages, notamment :
 
@@ -121,7 +121,7 @@ Créez les groupes à haute disponibilité suivants :
 ### <a name="4-deploy-virtual-machines"></a>4.    Déployer les machines virtuelles
 L’étape suivante consiste à déployer les machines virtuelles qui hébergeront les différents rôles de votre infrastructure. Nous vous recommandons d’affecter au moins deux machines virtuelles à chaque groupe à haute disponibilité. Créez six machines virtuelles dans le cadre du déploiement de base.
 
-| Ordinateur | Rôle | Sous-réseau | Groupe à haute disponibilité | Compte de stockage | Adresse IP |
+| Ordinateur | Rôle | Sous-réseau | Groupe à haute disponibilité | Compte de stockage | Adresse IP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | contosodc1 |Contrôleur de domaine/AD FS |INT |contosodcset |contososac1 |Statique |
 | contosodc2 |Contrôleur de domaine/AD FS |INT |contosodcset |contososac2 |Statique |
@@ -273,7 +273,7 @@ En général, vous devez appliquer les règles suivantes pour sécuriser efficac
 
 ![Règles d’accès INT (entrant)](./media/active-directory-aadconnect-azure-adfs/nsg_int.png)
 
-[commentaire] : <> (![règles d’accès INT (entrant)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [commentaire] : <> (![(règles d’accès INT (sortant)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
+[comment]: <> (![règles d’accès INT (entrant)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [comment]: <> (![(règles d’accès INT (sortant)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
 
 **9.2.    Sécurisation du sous-réseau DMZ**
 
@@ -284,14 +284,14 @@ En général, vous devez appliquer les règles suivantes pour sécuriser efficac
 
 ![Règles d’accès EXT (entrant)](./media/active-directory-aadconnect-azure-adfs/nsg_dmz.png)
 
-[commentaire] : <> (![règles d’accès EXT (entrant)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [commentaire] : <> (![(règles d’accès EXT (sortant)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
+[comment]: <> (![règles d’accès EXT (entrant)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [comment]: <> (![(règles d’accès EXT (sortant)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
 
 > [!NOTE]
 > Si l’authentification du certificat utilisateur client (authentification clientTLS à l’aide de certificats utilisateur X509) est requise, AD FS nécessite l’activation du port TCP 49443 pour l’accès entrant.
 > 
 > 
 
-### <a name="10-test-the-ad-fs-signin"></a>10.    Tester l’authentification dans AD FS
+### <a name="10-test-the-ad-fs-sign-in"></a>10.    Tester l’authentification dans AD FS
 Le moyen le plus simple consiste à tester AD FS à l’aide de la page IdpInitiatedSignon.aspx. Pour cela, vous devez activer l’authentification IdpInitiatedSignOn sur les propriétés AD FS. Suivez les étapes ci-dessous pour vérifier votre configuration AD FS
 
 1. À l’aide de PowerShell, exécutez l’applet de commande ci-dessous sur le serveur AD FS pour l’activer.
