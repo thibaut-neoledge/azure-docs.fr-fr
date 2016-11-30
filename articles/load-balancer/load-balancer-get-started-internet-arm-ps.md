@@ -3,8 +3,8 @@ title: "Création d’un équilibreur de charge accessible sur Internet dans Res
 description: "Découvrir comment créer un équilibreur de charge accessible sur Internet dans Resource Manager à l’aide de PowerShell"
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 tags: azure-resource-manager
 ms.assetid: 8257f548-7019-417f-b15f-d004a1eec826
 ms.service: load-balancer
@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: 1a1c3c15c51b1e441f21158510e92cc8de057352
 ms.openlocfilehash: d489573e9a3efceb5bf8a4d6a7e0284c61bc24e9
@@ -133,7 +133,7 @@ Suivez ces étapes :
     $inboundNATRule2= New-AzureRmLoadBalancerInboundNatRuleConfig -Name RDP2 -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
     ```
 
-2. Créer une sonde d’intégrité. Il existe deux façons de configurer une sonde :
+2. Créer une sonde d’intégrité. Il existe deux façons de configurer une sonde :
 
     Sonde HTTP
 
@@ -186,7 +186,7 @@ Créez des interfaces réseau (ou modifiez des interfaces existantes), puis asso
 
         $backendnic1
 
-    Sortie attendue :
+    Sortie attendue :
 
         Name                 : lb-nic1-be
         ResourceGroupName    : NRP-RG

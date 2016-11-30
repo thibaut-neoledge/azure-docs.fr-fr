@@ -7,7 +7,7 @@ ms.openlocfilehash: cee95b961b45bb0a004eb6dd254222d909ea57b8
 ---
 # <a name="sql-data-warehouse-documentation"></a>Documentation SQL Data Warehouse
 
-Azure SQL Data Warehouse combine la base de données relationnelle SQL Server et les capacités de montée en puissance du cloud Azure.  Reposant sur notre architecture MPP (massively parallel processing), SQL Data Warehouse peut prendre en charge la charge de travail de votre entreprise.
+Azure SQL Data Warehouse combine la base de données relationnelle SQL Server et les capacités de montée en puissance du cloud Azure.  Reposant sur notre architecture MPP (massively parallel processing), SQL Data Warehouse peut prendre en charge la charge de travail de votre entreprise.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -47,7 +47,7 @@ Azure SQL Data Warehouse combine la base de données relationnelle SQL Server e
         </a>
     </li>
      <li>
-        <a href="/azure/SQL-Data-WArehouse/sql-data-warehouse-get-started-provision/">
+        <a href="/azure/sql-data-WArehouse/sql-data-warehouse-get-started-provision">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -77,7 +77,7 @@ Azure SQL Data Warehouse combine la base de données relationnelle SQL Server e
                 <div class="card">
                     <div class="cardText">
                         <h3>PowerShell</h3>
-                        <p>Référence Azure PowerShell</p>
+                        <p>Référence Azure PowerShell</p>
                     </div>
                 </div>
             </div>

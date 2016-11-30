@@ -3,8 +3,8 @@ title: "Créer un équilibreur de charge accessible sur Internet dans Resource M
 description: "Découvrez comment créer un équilibreur de charge accessible sur Internet dans Resource Manager à l’aide d’un modèle"
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 tags: azure-resource-manager
 ms.assetid: b24f4729-4559-4458-8527-71009d242647
 ms.service: load-balancer
@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
 ms.openlocfilehash: 9200174563523f40e425d4f6570e97f732d84129
@@ -64,7 +64,7 @@ Pour déployer le modèle à l’aide de l’interface de ligne de commande Azur
     azure config mode arm
     ```
 
-    Voici le résultat attendu pour la commande ci-dessus :
+    Voici le résultat attendu pour la commande ci-dessus :
 
         info:    New mode is arm
 

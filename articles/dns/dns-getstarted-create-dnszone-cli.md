@@ -1,10 +1,10 @@
 ---
 title: "Création d’une zone DNS à l’aide de l’interface de ligne de commande | Microsoft Docs"
-description: "Apprenez à créer des zones DNS pour Azure DNS étape par étape, afin d’héberger votre domaine DNS à l’aide de l’interface de ligne de commande"
+description: "Apprenez à créer des zones DNS pour Azure DNS étape par étape, afin d’héberger votre domaine DNS à l’aide de l’interface de ligne de commande"
 services: dns
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: georgewallace
+manager: timlt
 ms.assetid: 1514426a-133c-491a-aa27-ee0962cea9dc
 ms.service: dns
 ms.devlang: na
@@ -12,7 +12,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: sewhee
+ms.author: gwallace
 translationtype: Human Translation
 ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
 ms.openlocfilehash: 0dd7bc85776226b7f3a2ad75271a51c22d8205a5
@@ -32,15 +32,15 @@ Cet article vous indique la procédure à suivre pour créer une zone DNS à l�
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Ces instructions utilisent l’interface de ligne de commande Microsoft Azure. Veillez à effectuer une mise à jour vers la version la plus récente de l’interface de ligne de commande Azure (0.9.8 ou version ultérieure) pour utiliser les commandes Azure DNS. Tapez `azure -v` pour vérifier la version de la CLI Azure actuellement installée sur votre ordinateur.
+Ces instructions utilisent l’interface de ligne de commande Microsoft Azure. Veillez à effectuer une mise à jour vers la version la plus récente de l’interface de ligne de commande Azure (0.9.8 ou version ultérieure) pour utiliser les commandes Azure DNS. Tapez `azure -v` pour vérifier la version de la CLI Azure actuellement installée sur votre ordinateur.
 
 ## <a name="step-1---set-up-azure-cli"></a>Étape 1 : configuration de l’interface de ligne de commande Azure
 
 ### <a name="1-install-azure-cli"></a>1. Installation de l’interface de ligne de commande Azure
 
-Vous pouvez installer l’interface de ligne de commande Azure pour Windows, Linux ou Mac. Les étapes suivantes doivent être effectuées avant de pouvoir gérer Azure DNS à l’aide de l’interface de ligne de commande Azure. Pour plus d’informations, consultez la page [Installation de l’interface de ligne de commande Azure](../xplat-cli-install.md). Les commandes DNS nécessitent Azure CLI version 0.9.8 ou version ultérieure.
+Vous pouvez installer l’interface de ligne de commande Azure pour Windows, Linux ou Mac. Les étapes suivantes doivent être effectuées avant de pouvoir gérer Azure DNS à l’aide de l’interface de ligne de commande Azure. Pour plus d’informations, consultez la page [Installation de l’interface de ligne de commande Azure](../xplat-cli-install.md). Les commandes DNS nécessitent Azure CLI version 0.9.8 ou version ultérieure.
 
-Toutes les commandes du fournisseur réseau peuvent être exécutées sur l’interface de ligne de commande à l'aide de la commande suivante :
+Toutes les commandes du fournisseur réseau peuvent être exécutées sur l’interface de ligne de commande à l'aide de la commande suivante :
 
 ```azurecli
 azure network
@@ -92,7 +92,7 @@ azure provider register --namespace Microsoft.Network
 
 Une zone DNS est créée à l'aide de la commande `azure network dns zone create`. Vous pouvez éventuellement créer une zone DNS avec des balises. Les balises sont une liste de paires nom-valeur. Elles sont utilisées par Azure Resource Manager pour identifier les ressources à des fins de facturation ou de regroupement. Pour plus d’informations sur les balises, voir [Organisation des ressources Azure à l’aide de balises](../resource-group-using-tags.md).
 
-Dans Azure DNS, les noms de zone doivent être spécifiés sans point à la fin (**« . »**). Par exemple, spécifiez « **contoso.com** » plutôt que « **contoso.com.** ».
+Dans Azure DNS, les noms de zone doivent être spécifiés sans point à la fin (**« . »**). Par exemple, spécifiez « **contoso.com** » plutôt que « **contoso.com.** ».
 
 ### <a name="to-create-a-dns-zone"></a>Création d’une zone DNS
 
@@ -116,14 +116,14 @@ azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env
 
 ## <a name="view-records"></a>Affichage des enregistrements
 
-La création d’une zone DNS crée également les enregistrements DNS suivants :
+La création d’une zone DNS crée également les enregistrements DNS suivants :
 
-* L’enregistrement « SOA » (Start of Authority). Il est présent à la racine de chaque zone DNS.
+* L’enregistrement « SOA » (Start of Authority). Il est présent à la racine de chaque zone DNS.
 * Les enregistrements de serveur de noms faisant autorité (NS). Ceux-ci indiquent quels serveurs de noms hébergent la zone. Azure DNS utilise un pool de serveurs de noms. Il se peut donc que différents serveurs de noms soient attribués à différentes zones dans Azure DNS. Pour plus d’informations, consultez la page [Délégation d’un domaine à Azure DNS](dns-domain-delegation.md).
 
 Pour afficher ces enregistrements, utilisez `azure network dns-record-set show`.
 
-*Syntaxe : network dns record-set show \<resource-group\> \<dns-zone-name\> \<name\> \<type\>*
+*Syntaxe : network dns record-set show \<resource-group\> \<dns-zone-name\> \<name\> \<type\>*
 
 Dans l’exemple ci-dessous, si vous exécutez la commande avec le groupe de ressources *myresourcegroup*, le nom du jeu d’enregistrements *"@"* (pour un enregistrement racine) et au type *SOA*, vous obtenez la sortie suivante :
 
