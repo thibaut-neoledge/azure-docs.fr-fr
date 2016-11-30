@@ -1,12 +1,12 @@
 ---
-title: Préparation du déploiement d’Azure Site Recovery | Microsoft Docs
-description: Cet article décrit comment préparer le déploiement de la réplication avec Azure Site Recovery.
+title: "Préparation du déploiement d’Azure Site Recovery | Microsoft Docs"
+description: "Cet article décrit comment préparer le déploiement de la réplication avec Azure Site Recovery."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: jwhit
 editor: tysonn
-
+ms.assetid: e24eea6c-50a7-4cd5-aab4-2c5c4d72ee2d
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/05/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
+ms.openlocfilehash: 8a4d265694e5eef438b0560a42ea5a95c04f9b02
+
 
 ---
 # <a name="prepare-for-azure-site-recovery-deployment"></a>Préparer le déploiement d’Azure Site Recovery
@@ -22,7 +26,7 @@ Lisez cet article pour avoir une vue d’ensemble de haut niveau de la configura
 Après lecture de cet article, publiez vos commentaires ou questions au bas de celui-ci, ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="overview"></a>Vue d'ensemble
-Les organisations ont besoin d’une stratégie BCDR qui détermine la façon dont les applications, les charges de travail et les données demeurent opérationnelles et disponibles pendant les temps d’arrêt prévus et imprévus, et qui précise comment rétablir au plus vite des conditions de travail normales. Votre stratégie BCDR doit assurer la sécurisation et la récupération des données d’entreprise, ainsi que la disponibilité continue des charges de travail suite à un sinistre. 
+Les organisations ont besoin d’une stratégie BCDR qui détermine la façon dont les applications, les charges de travail et les données demeurent opérationnelles et disponibles pendant les temps d’arrêt prévus et imprévus, et qui précise comment rétablir au plus vite des conditions de travail normales. Votre stratégie BCDR doit assurer la sécurisation et la récupération des données d’entreprise, ainsi que la disponibilité continue des charges de travail suite à un sinistre.
 
 Site Recovery est un service Azure qui participe à votre stratégie de continuité des activités et de récupération d’urgence en orchestrant la réplication des machines virtuelles et des serveurs physiques locaux dans le cloud (Azure) ou sur un centre de données secondaire. Lorsque des pannes se produisent sur votre site principal, vous effectuez un basculement sur le site secondaire pour préserver la disponibilité des applications et des charges de travail. Vous restaurez votre site principal dès lors qu’il retrouve un fonctionnement normal. Pour en savoir plus, consultez [Qu’est-ce que Site Recovery ?](site-recovery-overview.md)
 
@@ -57,7 +61,7 @@ Lorsque vous choisissez un modèle de déploiement, tenez compte des remarques s
 | **Stockage Azure** |Les données répliquées sont stockées dans Azure Storage et les machines virtuelles Azure sont créées au moment du basculement. Pour répliquer des données vers Azure, vous aurez besoin d’un [compte de stockage Azure](../storage/storage-introduction.md).<br/><br/>Si vous déployez Site Recovery dans le portail Classic, vous aurez besoin d’un ou de plusieurs [comptes de stockage GRS standard](../storage/storage-redundancy.md#geo-redundant-storage).<br/><br/> Si vous déployez Site Recovery dans le portail Azure, vous pouvez utiliser le compte de stockage GRS ou LRS.<br/><br/>  Si vous répliquez des machines virtuelles VMware ou des serveurs physiques dans le portail Azure, Premium Storage est pris en charge. Notez que si vous utilisez un compte Premium Storage, vous aurez aussi besoin d’un compte de stockage standard afin de stocker les journaux de réplication qui capturent les modifications apportées en continu aux données locales. [Premium Storage](../storage/storage-premium-storage.md) est généralement utilisé pour les machines virtuelles nécessitant des performances d’E/S élevées et une faible latence pour héberger les charges de travail nécessitant beaucoup d’E/S.<br/><br/>  Si vous souhaitez utiliser un compte Premium pour stocker les données répliquées, vous avez aussi besoin d’un compte Standard Storage afin de stocker les journaux de réplication qui capturent les modifications apportées en continu aux données locales. |
 | **Réseau Azure** |Pour répliquer dans Azure, vous aurez besoin d’un réseau Azure auquel les machines virtuelles Azure se connecteront lorsqu’elles sont créées après le basculement.<br/><br/>  Si vous déployez dans le portail Classic, vous utiliserez un réseau classique. Si vous déployez dans le portail Azure, vous pouvez utiliser le réseau classique ou le réseau Resource Manager.<br/><br/>  Ce réseau doit se trouver dans la même région que le coffre. |
 | **Mappage réseau (VMM vers Azure)** |Si vous répliquez de VMM vers Azure, le [mappage réseau](site-recovery-network-mapping.md) garantit que les machines virtuelles Azure sont connectées aux réseaux appropriés après le basculement.<br/><br/>  Pour configurer le mappage réseau, vous devez configurer les réseaux de machines virtuelles dans le portail VMM. |
-| **Local** |**Machines virtuelles VMware**: vous aurez besoin d’un ordinateur local exécutant les composants Site Recovery, les hôtes VMware vSphere/le serveur vCenter et les machines virtuelles que vous souhaitez répliquer. [En savoir plus](site-recovery-vmware-to-azure.md#configuration-server-prerequisites).<br/><br/> **Serveurs physiques**: si vous répliquez des serveurs physiques, vous avez besoin d’ordinateurs en local exécutant les composants Site Recovery et les serveurs physiques que vous souhaitez répliquer. [En savoir plus](site-recovery-vmware-to-azure.md#configuration-server-prerequisites). Si vous souhaitez [restaurer](site-recovery-failback-azure-to-vmware.md) après un basculement vers Azure, vous aurez besoin d’une infrastructure VMware.<br/><br/> **Machines virtuelles Hyper-V**: If you want to replicate Machines virtuelles Hyper-V in VMM clouds you'll need a VMM server, and Hyper-V hosts on which VMs you want to protect are located. [En savoir plus](site-recovery-vmm-to-azure.md#on-premises-prerequisites).<br/><br/>  Si vous souhaitez répliquer des machines virtuelles Hyper-V sans VMM, vous aurez besoin des hôtes Hyper-V sur lesquels résident les machines virtuelles. [En savoir plus](site-recovery-hyper-v-site-to-azure.md#on-premises-prerequisites). |
+| **Local** |**Machines virtuelles VMware**: vous aurez besoin d’un ordinateur local exécutant les composants Site Recovery, les hôtes VMware vSphere/le serveur vCenter et les machines virtuelles que vous souhaitez répliquer. [En savoir plus](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites).<br/><br/> **Serveurs physiques**: si vous répliquez des serveurs physiques, vous avez besoin d’ordinateurs en local exécutant les composants Site Recovery et les serveurs physiques que vous souhaitez répliquer. [En savoir plus](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites). Si vous souhaitez [restaurer](site-recovery-failback-azure-to-vmware.md) après un basculement vers Azure, vous aurez besoin d’une infrastructure VMware.<br/><br/> **Machines virtuelles Hyper-V**: If you want to replicate Machines virtuelles Hyper-V in VMM clouds you'll need a VMM server, and Hyper-V hosts on which VMs you want to protect are located. [En savoir plus](site-recovery-vmm-to-azure.md#on-premises-prerequisites).<br/><br/>  Si vous souhaitez répliquer des machines virtuelles Hyper-V sans VMM, vous aurez besoin des hôtes Hyper-V sur lesquels résident les machines virtuelles. [En savoir plus](site-recovery-hyper-v-site-to-azure.md#on-premises-prerequisites). |
 | **Machines protégées** |Les ordinateurs protégés qui seront répliqués vers Azure doivent respecter les [conditions préalables pour Azure](#azure-virtual-machine-requirements) décrites ci-dessous. |
 
 ### <a name="replicate-to-a-secondary-site"></a>Réplication vers un site secondaire
@@ -143,6 +147,8 @@ Après avoir appris et comparé les conditions requises générales du déploiem
 * [Réplication de machines virtuelles Hyper-V vers un site secondaire avec SAN](site-recovery-vmm-san.md)
 * [Réplication de machines virtuelles Hyper-V avec un seul serveur VMM](site-recovery-single-vmm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 
