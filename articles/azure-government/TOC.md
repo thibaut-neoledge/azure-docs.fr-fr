@@ -1,5 +1,5 @@
 # Vue d’ensemble
-## [Qu’est-ce qu’Azure Government ?](../azure-government-overview.md?toc=%2fazure%2fazure-government%2ftoc.json)
+## [Qu’est-ce qu’Azure Government ?](../azure-government-overview.md?toc=%2fazure%2fazure-government%2ftoc.json)
 ## [ITAR](documentation-government-overview-itar.md)
 ## [Justice et sécurité publique](documentation-government-overview-jps.md)
 ## [Ministère de la défense](documentation-government-overview-dod.md)
@@ -16,6 +16,7 @@
 ### [Place de marché](documentation-government-manage-marketplace.md)
 ### [Marketplace pour les partenaires](documentation-government-manage-marketplace-partners.md)
 ### [Gestionnaire de ressources](documentation-government-manage-azure-resource-manager.md)
+### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [Abonnement](documentation-government-manage-subscriptions.md)
 
 # Référence

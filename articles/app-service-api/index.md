@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 84efac2879c77ea2ba71127db8a05970649f6863
-ms.openlocfilehash: 078421d67ae2b2f0854b6f31bb97d146224ef685
+ms.sourcegitcommit: 2169b6e72c82ad4d9bf4b443d681c22c770229d5
+ms.openlocfilehash: 48b251543871b3ac3a7aad89bc025feabb83e242
 
 
 ---
-# <a name="app-service---api-apps-documentation"></a>App Service - Documentation API Apps
+# <a name="app-service---api-apps-documentation"></a>App Service - Documentation API Apps
 
-API Apps est l’un des quatre types d’applications proposés par Azure App Service. La fonction API Apps d’Azure App Service offre un ensemble complet de fonctionnalités en matière de développement, d’hébergement et d’utilisation des API dans le cloud et en local. Azure App Service est une plateforme entièrement gérée conçue pour les scénarios web et mobiles, ainsi que pour les scénarios d’intégration.
+API Apps est l’un des quatre types d’applications proposés par Azure App Service. La fonction API Apps d’Azure App Service offre un ensemble complet de fonctionnalités en matière de développement, d’hébergement et d’utilisation des API dans le cloud et en local. Azure App Service est une plateforme entièrement gérée conçue pour les scénarios web et mobiles, ainsi que pour les scénarios d’intégration.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -22,7 +22,7 @@ API Apps est l’un des quatre types d’applications proposés par Azure App S
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>En savoir plus sur API Apps</h3>
+                        <h3>En savoir plus sur API Apps</h3>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@ API Apps est l’un des quatre types d’applications proposés par Azure App S
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Prise en main d’API Apps, d’ASP.NET et de Swagger dans Azure App Service</h3>
+                        <h3>Prise en main d’API Apps, d’ASP.NET et de Swagger dans Azure App Service</h3>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@ API Apps est l’un des quatre types d’applications proposés par Azure App S
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Prise en main de la création d’une application API Java dans Azure App Service</h3>
+                        <h3>Prise en main de la création d’une application API Java dans Azure App Service</h3>
                     </div>
                 </div>
             </div>
@@ -127,12 +127,12 @@ API Apps est l’un des quatre types d’applications proposés par Azure App S
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-api.pdf">
         <div class="img"></div>
         <div class="text">
-Télécharger la documentation Mobile Apps </div>
+Télécharger la documentation Mobile Apps </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

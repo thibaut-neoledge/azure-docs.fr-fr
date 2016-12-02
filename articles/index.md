@@ -4,8 +4,8 @@ hide_bc: true
 title: Documentation Microsoft Azure | Microsoft Docs
 description: "Découvrez comment créer et gérer des applications performantes à l’aide des services cloud Microsoft Azure. Accédez à la documentation associée, à des exemples de code, à des didacticiels et bien plus encore."
 translationtype: Human Translation
-ms.sourcegitcommit: 267a6facc9ed8e6f75c150d627545deafc589040
-ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
+ms.sourcegitcommit: 392db4d8261f6e927aa5ea4b2f6b30e244bfec50
+ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
 
 ---
 <div id="main" class="v2">
@@ -58,7 +58,7 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <h3>Vidéos de prise en main (5 minutes)</h3>
+                                    <h3>Vidéos de prise en main (5 minutes)</h3>
                                 </div>
                             </div>
                         </div>
@@ -151,7 +151,7 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                         <li>
                                             <a href="/azure/sql-data-warehouse/">
                                                 <img src="media/index/SQLDataWarehouse.svg" alt="" />
-                                                <p>SQL Data Warehouse</p>
+                                                <p>SQL Data Warehouse</p>
                                             </a>
                                         </li>
                                         <li>
@@ -508,7 +508,7 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                         <li>
                                             <a href="/azure/monitoring-and-diagnostics/">
                                                 <img src="media/index/AzureMonitoring.svg" alt="" />
-                                                <p>Azure Monitor</p>
+                                                <p>Azure Monitor</p>
                                             </a>
                                         </li>
                                         <li>
@@ -543,13 +543,13 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                         <li>
                                             <a href="/azure/app-service-web">
                                                 <img src="media/index/app-service-web.svg" alt="" />
-                                                <p>Applications Web</p>
+                                                <p>Applications Web</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/app-service-mobile">
                                                 <img src="media/index/app-service-mobile.svg" alt="" />
-                                                <p>Mobile Apps</p>
+                                                <p>Mobile Apps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -561,7 +561,7 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                         <li>
                                             <a href="/azure/logic-apps/">
                                                 <img src="media/index/LogicApp.svg" alt="" />
-                                                <p>Logic Apps</p>
+                                                <p>Logic Apps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -600,7 +600,7 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                         <li>
                                             <a href="/azure/logic-apps/">
                                                 <img src="media/index/LogicApp.svg" alt="" />
-                                                <p>Logic Apps</p>
+                                                <p>Logic Apps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -678,7 +678,7 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machines virtuelles Windows</h3>
-                                                    <p>Approvisionnez des machines virtuelles pour SQL Server, SharePoint et bien d’autres</p>
+                                                    <p>Approvisionnez des machines virtuelles pour SQL Server, SharePoint et bien d’autres</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1129,7 +1129,7 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Applications Web</h3>
+                                                    <h3>Applications Web</h3>
                                                     <p>Créez et déployez rapidement des applications web stratégiques à grande échelle</p>
                                                 </div>
                                             </div>
@@ -1148,7 +1148,7 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Mobile Apps</h3>
+                                                    <h3>Mobile Apps</h3>
                                                     <p>Créez et hébergez l’application principale pour toute application mobile</p>
                                                 </div>
                                             </div>
@@ -1186,7 +1186,7 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Logic Apps</h3>
+                                                    <h3>Logic Apps</h3>
                                                     <p>Automatisez l’accès à vos données et leur utilisation dans différents clouds sans écrire de code</p>
                                                 </div>
                                             </div>
@@ -1324,7 +1324,7 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>SQL Data Warehouse</h3>
+                                                    <h3>SQL Data Warehouse</h3>
                                                     <p>Entrepôt de données élastique en tant que service avec fonctionnalités destinées aux entreprises</p>
                                                 </div>
                                             </div>
@@ -1344,7 +1344,7 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Server Stretch Database</h3>
-                                                    <p>Étendez dynamiquement les bases de données SQL Server locales sur Azure</p>
+                                                    <p>Étendez dynamiquement les bases de données SQL Server locales sur Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1425,7 +1425,7 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>HDInsight</h3>
-                                                    <p>Approvisionnez les clusters Hadoop, Spark, R Server, HBase et Storm dans le cloud</p>
+                                                    <p>Approvisionnez les clusters Hadoop, Spark, R Server, HBase et Storm dans le cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1520,7 +1520,7 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Analytics</h3>
-                                                    <p>Service d’analyse distribué facilitant les Big Data</p>
+                                                    <p>Service d’analyse distribué facilitant les Big Data</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1576,7 +1576,7 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Power BI Embedded</h3>
+                                                    <h3>Power BI Embedded</h3>
                                                     <p>Incorporez des visualisations de données totalement interactives et saisissantes dans vos applications</p>
                                                 </div>
                                             </div>
@@ -1776,7 +1776,7 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Logic Apps</h3>
+                                                    <h3>Logic Apps</h3>
                                                     <p>Automatisez l’accès à vos données et leur utilisation dans différents clouds sans écrire de code</p>
                                                 </div>
                                             </div>
@@ -1872,7 +1872,7 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Server Stretch Database</h3>
-                                                    <p>Étendez dynamiquement les bases de données SQL Server locales sur Azure</p>
+                                                    <p>Étendez dynamiquement les bases de données SQL Server locales sur Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2285,7 +2285,7 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Monitor</h3>
+                                                    <h3>Azure Monitor</h3>
                                                     <p>Données de surveillance très précises en temps réel pour les ressources Azure</p>
                                                 </div>
                                             </div>
@@ -2355,11 +2355,11 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                 </ul>
             </li>
             <li>
-                <a href="#developer">Développeur</a>
-                <ul id="developer">
+                <a href="#sdktools">SDK/Outils</a>
+                <ul id="sdktools">
                     <li>
-                        <a href="#developer-all">Tout</a>
-                        <ul id="developer-all" class="cardsF">
+                        <a href="#sdktools-all">Tout</a>
+                        <ul id="sdktools-all" class="cardsF">
                             <li>
                                 <div class="container">
                                     <h1>Langages &amp; infrastructures</h1>
@@ -2539,12 +2539,12 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Version préliminaire d’Azure CLI 2.0 </h3>
+                                                <h3>Version préliminaire d’Azure CLI 2.0 </h3>
                                                 <p>
                                                     <a href="/cli/azure/get-started/">Prise en main</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-cli">Télécharger Azure CLI 2.0</a>
+                                                    <a href="https://github.com/Azure/azure-cli">Télécharger Azure CLI 2.0</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure">Référence</a>
@@ -2594,13 +2594,13 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                                     <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Prise en main</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/linux-azure-cli">Télécharger Azure CLI pour Linux</a>
+                                                    <a href="http://aka.ms/linux-azure-cli">Télécharger Azure CLI pour Linux</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/mac-azure-cli">Télécharger Azure CLI pour Mac</a>
+                                                    <a href="http://aka.ms/mac-azure-cli">Télécharger Azure CLI pour Mac</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/webpi-azure-cli">Télécharger Azure CLI pour Windows</a>
+                                                    <a href="http://aka.ms/webpi-azure-cli">Télécharger Azure CLI pour Windows</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/documentation/articles/azure-cli-arm-commands/">Référence</a>
@@ -2653,13 +2653,13 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                                     <a href="/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker">Prise en main</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Téléchargement pour Visual Studio</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Téléchargement pour Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Téléchargement pour Visual Studio Code</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Téléchargement pour Visual Studio Code</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Téléchargement pour Team Services</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Téléchargement pour Team Services</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2677,7 +2677,7 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Outils PowerShell pour Visual Studio</a>
+                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Outils PowerShell pour Visual Studio</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Télécharger</a>
@@ -2861,6 +2861,6 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

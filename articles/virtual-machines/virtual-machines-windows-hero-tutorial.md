@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/06/2016
+ms.date: 11/16/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aaef478107d9c9771a1dc799a101ff9a41f821c6
+ms.sourcegitcommit: 22156a9f3c5a57e10cad96661f50531b309c3a04
+ms.openlocfilehash: a25d394e83d7945f0ea50de1fc65a68a96190a34
 
 
 ---
@@ -31,7 +31,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 Nous allons utiliser une image Windows Server 2012 R2 Datacenter comme exemple, mais il s’agit simplement d’un des nombreux types d’images proposés par Azure. Les images disponibles dépendent de votre abonnement. Par exemple, certaines images de bureau sont disponibles pour les [abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le menu hub, cliquez sur **Nouveau** > **Machines virtuelles** > **Windows Server 2012 R2 Datacenter**.
+2. Dans le menu Hub, cliquez sur **Nouveau** > **Calculer** > **Windows Server 2012 R2 Datacenter**.
    
     ![Capture d’écran affichant les images de machines virtuelles Azure disponibles dans le portail](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
 3. Dans le panneau **Windows Server 2012 R2 Datacenter**, dans **Sélectionner un modèle de déploiement**, vérifiez que **Resource Manager** est sélectionné. Cliquez sur **Create**.
@@ -49,7 +49,7 @@ Après avoir sélectionné l’image, vous pouvez utiliser les paramètres par d
 4. Lorsque vous avez terminé, cliquez sur **OK** pour passer à la section suivante. 
    
     ![Capture d’écran affichant les paramètres dans le panneau **De base** pour la configuration d’une machine virtuelle Azure](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
-5. Choisissez une [taille](virtual-machines-windows-sizes.md)de machine virtuelle, puis cliquez sur **Sélectionner** pour continuer. 
+5. Choisissez une [taille](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)de machine virtuelle, puis cliquez sur **Sélectionner** pour continuer. 
    
     ![Capture d’écran du panneau Taille affichant les tailles de machine virtuelle Azure que vous pouvez sélectionner](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 6. Dans le panneau **Paramètres** , vous pouvez modifier les options de stockage et de réseau. Pour ce didacticiel, acceptez les paramètres par défaut. Si vous avez sélectionné une taille de machine virtuelle qui le prend en charge, vous pouvez essayer Azure Premium Storage en sélectionnant **Premium (SSD)** sous **Type de disque**. Une fois les modifications terminées, cliquez sur **OK**.
@@ -76,7 +76,7 @@ Après avoir sélectionné l’image, vous pouvez utiliser les paramètres par d
    
    ![Capture d'écran montrant un message relatif à la vérification de l'identité de la machine virtuelle](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)
 
-En cas de problème de connexion, consultez [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-windows-troubleshoot-rdp-connection.md).
+En cas de problème de connexion, consultez [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Vous pouvez désormais utiliser la machine virtuelle comme n’importe quel autre serveur.
 
@@ -88,13 +88,13 @@ Il est judicieux d’arrêter la machine virtuelle pour éviter les frais lorsqu
 Cliquez sur le bouton **Démarrer** pour redémarrer la machine virtuelle lorsque vous êtes prêt à l’utiliser à nouveau.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Vous pouvez tester votre nouvelle machine virtuelle en [installant IIS](virtual-machines-windows-hero-role.md). Ce didacticiel montre également comment ouvrir le port 80 pour le trafic web entrant à l’aide d’un groupe de sécurité réseau (NSG). 
-* Vous pouvez également [créer une machine virtuelle Windows à l’aide de Powershell](virtual-machines-windows-ps-create.md) ou [créer une machine virtuelle Linux](virtual-machines-linux-quick-create-cli.md) à l’aide de la CLI Azure.
-* Si vous souhaitez automatiser les déploiements, consultez [Création d’une machine virtuelle Windows avec un modèle du Gestionnaire de ressources](virtual-machines-windows-ps-template.md).
+* Vous pouvez tester votre nouvelle machine virtuelle en [installant IIS](virtual-machines-windows-hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Ce didacticiel montre également comment ouvrir le port 80 pour le trafic web entrant à l’aide d’un groupe de sécurité réseau (NSG). 
+* Vous pouvez également [créer une machine virtuelle Windows à l’aide de Powershell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [créer une machine virtuelle Linux](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) à l’aide de la CLI Azure.
+* Si vous souhaitez automatiser les déploiements, consultez [Création d’une machine virtuelle Windows avec un modèle du Gestionnaire de ressources](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

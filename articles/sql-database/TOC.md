@@ -111,7 +111,7 @@
 ### Découvrir
 #### [Vue d'ensemble](sql-database-business-continuity.md)
 #### [Sauvegardes de base de données](sql-database-automated-backups.md)
-#### [Rétention à long terme](sql-database-long-term-retention.md) 
+#### [Rétention à long terme](sql-database-long-term-retention.md)
 #### [Récupération de base de données à l’aide de sauvegardes](sql-database-recovery-using-backups.md)
 #### [Exigences d’authentification pour la récupération d’urgence](sql-database-geo-replication-security-config.md)
 #### [Scénarios de conception de la continuité d’activité](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
@@ -358,8 +358,6 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-
-
 
 
 <!--HONumber=Nov16_HO4-->

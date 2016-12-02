@@ -1,5 +1,5 @@
 # Vue d'ensemble
-## [Qu’est-ce que la messagerie Service Bus ?](service-bus-queues-topics-subscriptions.md)
+## [Qu’est-ce que la messagerie Service Bus ?](service-bus-queues-topics-subscriptions.md)
 ## [Comparer les files d’attente Azure et Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ## [FAQ](service-bus-faq.md)
 
@@ -47,7 +47,7 @@
 ### [Espaces de noms associés](service-bus-paired-namespaces.md)
 ### [Chaîner des entités avec le transfert automatique](service-bus-auto-forwarding.md)
 ## Gérer
-### [Utilisation de modèles ARM](service-bus-resource-manager-overview.md)
+### [Utilisation de modèles Azure Resource Manager](service-bus-resource-manager-overview.md)
 ### [Utilisation de PowerShell pour approvisionner des entités](service-bus-powershell-how-to-provision.md)
 
 # Référence
@@ -57,8 +57,12 @@
 ## [Quotas](service-bus-quotas.md)
 ## [.NET](/dotnet/api/)
 ## [REST](/rest/api/servicebus/)
+## [Syntaxe SQLFilter](service-bus-messaging-sql-filter.md)
+## [Syntaxe SQLRuleAction](service-bus-messaging-sql-rule-action.md)
+## [Guide du protocole AMQP1.0](service-bus-amqp-protocol-guide.md)
+### [Opérations basées sur les requêtes-réponses AMQP 1.0](service-bus-amqp-request-response.md)
 
-# Ressources
+# les ressources
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Forums MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
@@ -69,6 +73,6 @@
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

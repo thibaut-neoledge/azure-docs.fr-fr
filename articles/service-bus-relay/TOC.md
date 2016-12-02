@@ -1,5 +1,5 @@
 # Vue d'ensemble
-## [Qu’est-ce que Relay ?](relay-what-is-it.md)
+## [Qu’est-ce que Relay ?](relay-what-is-it.md)
 ## [FAQ](relay-faq.md)
 
 # Prise en main
@@ -21,9 +21,9 @@
 ## [Exemples](service-bus-relay-samples.md)
 ## [API .NET pour les connexions hybrides](/dotnet/api/microsoft.servicebus)
 ## [API .NET pour les relais WCF](/dotnet/api/microsoft.servicebus)
+## [Paramètres de port](service-bus-relay-port-settings.md)
 
-
-# Ressources
+# les ressources
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Forums MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
@@ -33,6 +33,6 @@
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

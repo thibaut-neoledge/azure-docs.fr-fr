@@ -30,7 +30,6 @@
 
 
 ## Utiliser Enterprise Integration Pack (EIP)
-### [Enterprise Integration Pack](../app-service-logic/app-service-logic-enterprise-integration-overview.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Vue d’ensemble des comptes d’intégration](../app-service-logic/app-service-logic-enterprise-integration-create-integration-account.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Accords](../app-service-logic/app-service-logic-enterprise-integration-agreements.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Traitement B2B](../app-service-logic/app-service-logic-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -77,7 +76,7 @@
 ### [GA](../app-service-logic/app-service-logic-schema-2016-04-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Version préliminaire](../app-service-logic/app-service-logic-schema-2015-08-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
-## [Applets de commande PowerShell](/powershell/resourcemanager/)
+## [Applets de commande PowerShell](/powershell/resourcemanager/)
 ## [.NET](https://msdn.microsoft.com/library/azure/mt416943)
 ## [API REST](/rest/api/logic/)
 
@@ -87,10 +86,9 @@
 
 # Ressources
 ## [Tarification](https://azure.microsoft.com/pricing/details/logic-apps/)  
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps) 
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)
-## [Mises à jour de service](https://azure.microsoft.com/updates/?product=logic-apps) 
-
+## [Mises à jour de service](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
 <!--HONumber=Nov16_HO4-->
