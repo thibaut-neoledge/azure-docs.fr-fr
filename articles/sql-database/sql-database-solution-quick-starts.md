@@ -1,5 +1,5 @@
 ---
-title: "Démarrages rapides de solutions Azure SQL Database | Microsoft Docs"
+title: "Démarrages rapides de solutions Azure SQL Database | Microsoft Docs"
 description: "Découvrez les solutions de base de données SQL Azure"
 services: sql-database
 documentationcenter: 
@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 21399478-6296-4ad3-bde2-5e14ee49a8eb
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA

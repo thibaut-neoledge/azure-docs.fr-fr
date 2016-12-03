@@ -1,5 +1,5 @@
 ---
-title: "Explorer les didacticiels relatifs à Azure SQL Database | Microsoft Docs"
+title: "Explorer les didacticiels relatifs à Azure SQL Database | Microsoft Docs"
 description: "En savoir plus sur les fonctions et capacités de la base de données SQL"
 keywords: 
 services: sql-database
@@ -9,6 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 04c0fd7f-d260-4e43-a4f0-41cdcd5e3786
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -92,8 +93,8 @@ Dans les didacticiels suivants, vous allez apprendre à [migrer une base de donn
 | [Déterminer la compatibilité de Base de données SQL à l’aide de SqlPackage.exe](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md#using-sqlpackageexe) |Ce didacticiel vous apprend à utiliser l’utilitaire de ligne de commande SQLPackage.exe afin de déterminer la compatibilité de la base de données SQL Azure. |
 | [Déterminer la compatibilité de Base de données SQL à l’aide de SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md#using-sql-server-management-studio) |Ce didacticiel vous apprend à utiliser SQL Server Management Studio afin de déterminer la compatibilité de la base de données SQL Azure. |
 | [Migration d’une base de données SQL Server vers Base de données SQL à l’aide de l’assistant de déploiement de base de données vers Microsoft Azure Database](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md#use-the-deploy-database-to-microsoft-azure-database-wizard) |Ce didacticiel vous apprend à migrer une base de données SQL Server compatible dans votre base de données SQL Azure à l’aide de l’Assistant de déploiement de base de données vers Microsoft Azure Database dans SQL Server Management Studio. |
-| [Exporter une base de données SQL Server vers un fichier BACPAC à l’aide de SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md) |Ce didacticiel vous apprend à exporter une base de données SQL Server compatible dans un fichier BACPAC à l’aide de l’Assistant Exportation d’une application de couche données dans SQL Server Management Studio. |
-| [Exporter une base de données SQL Server vers un fichier BACPAC à l’aide de SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md) |Ce didacticiel vous apprend à exporter une base de données SQL Server compatible vers un fichier BACPAC à l’aide de l’utilitaire de ligne de commande SQLPackage.exe. |
+| [Exporter une base de données SQL Server vers un fichier BACPAC à l’aide de SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md) |Ce didacticiel vous apprend à exporter une base de données SQL Server compatible dans un fichier BACPAC à l’aide de l’Assistant Exportation d’une application de couche données dans SQL Server Management Studio. |
+| [Exporter une base de données SQL Server vers un fichier BACPAC à l’aide de SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md) |Ce didacticiel vous apprend à exporter une base de données SQL Server compatible vers un fichier BACPAC à l’aide de l’utilitaire de ligne de commande SQLPackage.exe. |
 | [Importer un fichier BACPAC vers une base de données SQL Azure à l’aide de SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) |Ce didacticiel vous apprend à importer une base de données SQL Azure à partir d’un fichier BACPAC à l’aide de l’Assistant Exportation d’une application de couche données dans SQL Server Management Studio. |
 | [Importation vers Base de données SQL à partir d’un fichier BACPAC à l’aide de SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md#import-from-a-bacpac-file-into-azure-sql-database-using-sqlpackage) |Ce didacticiel vous apprend à importer une base de données dans une base de données SQL Azure à partir d’un fichier BACPAC à l’aide de l’utilitaire de ligne de commande SQLPackage. |
 | [Importer un fichier BACPAC pour créer une nouvelle base de données SQL Azure](sql-database-import.md) |Ce didacticiel vous apprend à importer une base de données dans une base de données SQL Azure à partir d’un fichier BACPAC stocké dans un objet bloc Azure à l’aide du portail Azure. |
@@ -152,8 +153,8 @@ Dans les didacticiels suivants, vous apprendrez à utiliser la [géorestauration
 
 | Didacticiel | Description |
 | --- | --- | --- |
-| [Restaurer une base de données SQL Azure à un point antérieur dans le temps avec le portail Azure](sql-database-point-in-time-restore-portal.md) |Ce didacticiel explique comment restaurer votre base de données à un point antérieur dans le temps à l’aide du portail Azure. |
-| [Restaurer une base de données SQL Azure à un point dans le temps avec PowerShell](sql-database-point-in-time-restore-powershell.md) |Ce didacticiel explique comment restaurer votre base de données à un point antérieur dans le temps à l’aide de PowerShell. |
+| [Restaurer une base de données SQL Azure à un point antérieur dans le temps avec le portail Azure](sql-database-point-in-time-restore-portal.md) |Ce didacticiel explique comment restaurer votre base de données à un point antérieur dans le temps à l’aide du portail Azure. |
+| [Restaurer une base de données SQL Azure à un point dans le temps avec PowerShell](sql-database-point-in-time-restore-powershell.md) |Ce didacticiel explique comment restaurer votre base de données à un point antérieur dans le temps à l’aide de PowerShell. |
 | [Restaurer une base de données SQL Azure supprimée à l’aide du portail Azure](sql-database-restore-deleted-database-portal.md) |Ce didacticiel vous apprend à restaurer une base de données supprimée à l’aide du portail Azure. |
 | [Restaurer une base de données SQL Azure supprimée avec PowerShell](sql-database-restore-deleted-database-powershell.md) |Ce didacticiel vous apprend à restaurer une base de données supprimée à l’aide de PowerShell. |
 | [Configurer la géoréplication pour Base de données SQL Azure avec le portail Azure](sql-database-geo-replication-portal.md) |Ce didacticiel vous apprend à configurer la géoréplication active à l’aide du portail Azure. |
