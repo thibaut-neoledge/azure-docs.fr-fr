@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#DNS Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: e0ec3ec5c8a24a84f54350441be73871e81b9761
+ms.openlocfilehash: 7af04a1619ea9d84eb3d477660d55eeea89e57bf
 
-Azure DNS (Domain Name System) is a service for DNS domains provide name resolution using Microsoft Azure infrastructure.  By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
+---
+#<a name="dns-documentation"></a>Documentation DNS
+
+Azure DNS (Domain Name System) est un service pour les domaines DNS qui offre une résolution de noms à l’aide de l’infrastructure Microsoft Azure.  En hébergeant vos domaines dans Azure, vous pouvez gérer vos enregistrements DNS avec les mêmes informations d’identification, les mêmes API, les mêmes outils et la même facturation que vos autres services Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure DNS</h3>
+                        <h3>En savoir plus sur Azure DNS</h3>
                     </div>
                 </div>
             </div>
@@ -25,17 +29,17 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
         </a>
     </li>
     <li>
-        <a href="/azure/dns-dns-getstarted-create-dnszone-portal">
+        <a href="/azure/dns/dns-getstarted-create-dnszone-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a DNS Zone in the Azure Portal</h3>
+                        <h3>Prise en main d’Azure DNS à l’aide du Portail Azure</h3>
                     </div>
                 </div>
             </div>
@@ -43,17 +47,17 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
         </a>
     </li>
     <li>
-        <a href="/azure/dns-dns-getstarted-create-dnszone">
+        <a href="/azure/dns/dns-getstarted-create-dnszone">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a DNS Zone using Azure PowerShell</h3>
+                        <h3>Prise en main d’Azure DNS à l’aide d’Azure PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -61,17 +65,17 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
         </a>
     </li>
      <li>
-        <a href="/azure/dns-dns-getstarted-create-recordset">
+        <a href="/azure/dns/dns-getstarted-create-recordset">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a DNS record set using Azure PowerShell</h3>
+                        <h3>Prise en main des jeux d’enregistrements DNS à l’aide d’Azure PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -82,25 +86,80 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
 
 ---
 
-##Reference
+## <a name="reference"></a>Référence
 
-###PowerShell
-[Azure PowerShell reference](/powershell/azureps-cmdlets-docs)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Référence Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###Azure CLI
-[Azure CLI reference](/cli/azure/network/dns)
+<li>
+        <a href="/cli/azure/network/dns">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Interface de ligne de commande Azure</h3>
+                        <p>Azure DNS à l’aide de l’interface de ligne de commande Azure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###REST
-[DNS REST API Reference](/rest/api/dns)
+<li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Référence API managée .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###.NET
-[DNS Managed Reference](/dotnet/api)
+<li>
+        <a href="/rest/api/dns">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Informations de référence sur l’API REST de DNS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/dns.pdf">
         <div class="img"></div>
         <div class="text">
-            Download DNS Documentation
-        </div>
+Télécharger la documentation DNS </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

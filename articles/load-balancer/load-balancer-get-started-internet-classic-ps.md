@@ -3,9 +3,8 @@ title: "Bien démarrer avec la création d’un équilibreur de charge accessibl
 description: "Découvrez comment créer un équilibreur de charge accessible sur Internet dans le mode classique à l’aide de PowerShell"
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: 
+author: kumudd
+manager: timlt
 tags: azure-service-management
 ms.assetid: 73e8bfa4-8086-4ef0-9e35-9e00b24be319
 ms.service: load-balancer
@@ -14,48 +13,51 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7344f2c3eeb7d52f8bc60e564d66b2cc51f10f75
+ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
+ms.openlocfilehash: 16ebe82b866565f676fb33bfa915465c08a5ea89
 
 ---
 
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-powershell"></a>Création d'un équilibreur de charge accessible sur Internet (classique) dans PowerShell
 
-[!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
+> [!div class="op_single_selector"]
+> * [portail Azure Classic](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
+> * [Interface de ligne de commande Azure](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Services cloud Azure](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-Cet article traite du modèle de déploiement classique. Vous pouvez également [découvrir comment créer un équilibreur de charge accessible sur Internet à l’aide d’Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+> [!IMPORTANT]
+> Avant d’utiliser des ressources Azure, il est important de comprendre qu’Azure dispose actuellement de deux modèles de déploiement : Azure Resource Manager et classique. Veillez à bien comprendre les [modèles et outils de déploiement](../azure-classic-rm.md) avant d’utiliser une ressource Azure. Pour consulter la documentation relative aux différents outils, cliquez sur les onglets situés en haut de cet article. Cet article traite du modèle de déploiement classique. Vous pouvez également [découvrir comment créer un équilibreur de charge accessible sur Internet à l’aide d’Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## <a name="set-up-load-balancer-using-powershell"></a>Configurer de l'équilibrage de charge à l'aide de PowerShell
 
-Pour configurer un équilibreur de charge à l’aide de PowerShell, procédez comme suit :
+Pour configurer un équilibreur de charge à l’aide de PowerShell, procédez comme suit :
 
 1. Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 2. Après avoir créé une machine virtuelle, vous pouvez utiliser les applets de commande PowerShell pour ajouter un équilibrage de charge à une machine virtuelle dans le même service cloud.
 
-Dans l'exemple suivant, vous allez ajouter un jeu d'équilibrage de charge appelé « webfarm » au service cloud « mytestcloud » (ou myctestcloud.cloudapp.net), puis ajouter les points de terminaison de l'équilibreur de charge aux machines virtuelles nommées « web1 » et « web2 ». L’équilibreur de charge reçoit le trafic réseau sur le port 80 et effectue l’équilibrage de charge entre les machines virtuelles définies par le point de terminaison local (dans ce cas, le port 80) avec TCP.
+Dans l'exemple suivant, vous allez ajouter un jeu d'équilibrage de charge appelé « webfarm » au service cloud « mytestcloud » (ou myctestcloud.cloudapp.net), puis ajouter les points de terminaison de l'équilibreur de charge aux machines virtuelles nommées « web1 » et « web2 ». L’équilibreur de charge reçoit le trafic réseau sur le port 80 et effectue l’équilibrage de charge entre les machines virtuelles définies par le point de terminaison local (dans ce cas, le port 80) avec TCP.
 
-### <a name="step-1"></a>Étape 1
+### <a name="step-1"></a>Étape 1
 
-Créez un point de terminaison d’équilibrage de charge pour la première machine virtuelle « web1 »
+Créez un point de terminaison d’équilibrage de charge pour la première machine virtuelle « web1 »
 
 ```powershell
-    Get-AzureVM -ServiceName "mytestcloud" -Name "web1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+Get-AzureVM -ServiceName "mytestcloud" -Name "web1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
 ```
 
-### <a name="step-2"></a>Étape 2
+### <a name="step-2"></a>Étape 2
 
-Créer un autre point de terminaison pour la deuxième machine virtuelle « web2 » en utilisant le même nom de jeu d’équilibrage de charge
+Créer un autre point de terminaison pour la deuxième machine virtuelle « web2 » en utilisant le même nom de jeu d’équilibrage de charge
 
 ```powershell
-    Get-AzureVM -ServiceName "mytestcloud" -Name "web2" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+Get-AzureVM -ServiceName "mytestcloud" -Name "web2" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
 ```
 
 ## <a name="remove-a-virtual-machine-from-a-load-balancer"></a>Supprimez une machine virtuelle de l’équilibreur de charge
@@ -63,7 +65,7 @@ Créer un autre point de terminaison pour la deuxième machine virtuelle « web
 Vous pouvez utiliser Remove-AzureEndpoint pour supprimer un point de terminaison de machine virtuelle de l'équilibreur de charge
 
 ```powershell
-    Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name httpin| Update-AzureVM
+Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name httpin | Update-AzureVM
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -74,6 +76,6 @@ Si votre application doit maintenir des connexions actives pour les serveurs sit
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

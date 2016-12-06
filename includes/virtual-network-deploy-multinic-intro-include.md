@@ -2,4 +2,8 @@ Vous pouvez créer des machines virtuelles (VM) dans Azure et joindre plusieurs 
 
 Avant de pouvoir implémenter plusieurs cartes d’interface réseau dans des machines virtuelles, il est nécessaire de comprendre à quel moment vous pouvez utiliser plusieurs cartes d’interface réseau, et de quelle façon elles sont utilisées. Lisez la [vue d'ensemble concernant les cartes d’interface réseau multiples](../articles/virtual-network/virtual-networks-multiple-nics.md) pour en savoir plus sur les machines virtuelles qui utilisent plusieurs cartes d’interface réseau.
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -60,6 +60,6 @@ Dans cette section, vous allez écrire une application console Windows pour envo
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

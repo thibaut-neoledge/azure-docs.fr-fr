@@ -5,10 +5,14 @@
 2. Arrêtez l’application Windows Store et répétez l’étape précédente pour l’application Windows Phone Store.
    
     À cette étape, les deux appareils sont enregistrés pour recevoir des notifications Push.
-3. Exécutez à nouveau l'application Windows Store, tapez du texte dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
+3. Exécutez à nouveau l’application Windows Store, tapez du texte dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
    
-       Notez qu'une fois l'insertion terminée, l'application Windows Store et l'application Windows Phone reçoivent toutes les deux une notification Push de WNS. La notification est affichée sur le Windows Phone, même si l'application n'est pas en cours d'exécution.
+       Note that after the insert completes, both the Windows Store and the Windows Phone apps receive a push notification from WNS. The notification is displayed on Windows Phone even when the app isn't running.
    
        ![](./media/app-service-mobile-windows-universal-test-push/mobile-quickstart-push5-wp8.png)
 
-<!---HONumber=Nov15_HO1-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

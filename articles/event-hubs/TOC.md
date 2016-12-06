@@ -24,22 +24,22 @@
 ### [Utiliser Python pour activer Event Hubs Archive](event-hubs-archive-python.md)
 
 # Référence
-## [Guide du protocole AMQP1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## [Référence de l'API REST des concentrateurs d'événements](https://msdn.microsoft.com/library/azure/dn790674)
-## [Référence sur l’API .NET Event Hubs](https://msdn.microsoft.com/library/azure/jj933424)
-## [Référence sur les API hôtes du processeur d’événements](https://msdn.microsoft.com/library/microsoft.servicebus.messaging(v=azure.95).aspx)
 ## [Quotas et limites](event-hubs-quotas.md)
-## [Exceptions de la messagerie Event Hubs](event-hubs-messaging-exceptions.md)
+## [Exceptions de messagerie](event-hubs-messaging-exceptions.md)
+## [Java](/java/api)
+## [.NET](/dotnet/api)
+## [Guide du protocole AMQP1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
+## [REST](/rest/api/eventhub)
 
 # les ressources
-## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-eventhub)
-## [Forums MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
-## [Gérer les ressources Service Bus et Event Hubs avec l’explorateur Service Bus](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
-## [Parcours d’apprentissage Event Hubs](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [Tarification](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
+## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [Explorateur Service Bus](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+## [Mises à jour de service](https://azure.microsoft.com/updates/?product=event-hubs)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
+## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

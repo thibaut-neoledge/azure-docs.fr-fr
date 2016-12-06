@@ -1,17 +1,17 @@
-## Équilibrage de charge
-Un équilibrage de charge est utilisé lorsque vous voulez étendre vos applications. Les scénarios de déploiement classiques impliquent des applications s'exécutant sur plusieurs instances de machine virtuelle. Les instances de machine virtuelle sont pilotées par un équilibrage de charge qui permet de répartir le trafic réseau entre les différentes instances.
+## <a name="load-balancer"></a>Équilibrage de charge
+Un équilibrage de charge est utilisé lorsque vous voulez étendre vos applications. Les scénarios de déploiement classiques impliquent des applications s'exécutant sur plusieurs instances de machine virtuelle. Les instances de machine virtuelle sont pilotées par un équilibrage de charge qui permet de répartir le trafic réseau entre les différentes instances. 
 
 ![Cartes d'interface réseau sur une seule machine virtuelle](./media/resource-groups-networking/figure8.png)
 
 | Propriété | Description |
 | --- | --- |
-| *frontendIPConfigurations* |un équilibrage de charge peut inclure une ou plusieurs adresses IP frontales, également appelées « adresses IP virtuelles ». Ces adresses IP servent d'entrée pour le trafic et peuvent être publiques ou privées |
-| *backendAddressPools* |il s'agit des adresses IP associées aux cartes réseau des machines virtuelles vers lesquelles la charge sera distribuée |
-| *loadBalancingRules* |une propriété de règle mappe une combinaison donnée d'adresse IP et de port frontaux vers un ensemble de combinaisons d'adresses IP et de port principaux. Avec une seule définition d'une ressource d'équilibrage de charge, vous pouvez définir plusieurs règles d'équilibrage de charge, chaque règle reflétant une combinaison d'une adresse IP et d'un port frontaux d'une part, et d'une adresse IP et d'un port principaux d'autre part, associés à des machines virtuelles. Vous devez utiliser un port dans le pool frontal pour plusieurs machines virtuelles dans le pool principal |
+| *frontendIPConfigurations* |un équilibrage de charge peut inclure une ou plusieurs adresses IP frontales, également appelées « adresses IP virtuelles ». Ces adresses IP servent d'entrée pour le trafic et peuvent être publiques ou privées |
+| *backendAddressPools* |il s'agit des adresses IP associées aux cartes réseau des machines virtuelles vers lesquelles la charge sera distribuée |
+| *loadBalancingRules* |une propriété de règle mappe une combinaison donnée d'adresse IP et de port frontaux vers un ensemble de combinaisons d'adresses IP et de port principaux. Avec une seule définition d'une ressource d'équilibrage de charge, vous pouvez définir plusieurs règles d'équilibrage de charge, chaque règle reflétant une combinaison d'une adresse IP et d'un port frontaux d'une part, et d'une adresse IP et d'un port principaux d'autre part, associés à des machines virtuelles. Vous devez utiliser un port dans le pool frontal pour plusieurs machines virtuelles dans le pool principal |
 | *Sondes* |les sondes vous permettent d'effectuer le suivi de l'intégrité des instances de machine virtuelle. En cas d'échec d'une sonde d'intégrité, l'instance de machine virtuelle est automatiquement mise hors service. |
-| *inboundNatRules* |règles NAT définissant le trafic entrant qui transite via l'adresse IP frontale et est distribué à l'adresse IP principale vers une instance de machine virtuelle spécifique. La règle NAT est d’utiliser un port dans le pool frontal pour une machine virtuelle dans le pool principal |
+| *inboundNatRules* |règles NAT définissant le trafic entrant qui transite via l'adresse IP frontale et est distribué à l'adresse IP principale vers une instance de machine virtuelle spécifique. La règle NAT est d’utiliser un port dans le pool frontal pour une machine virtuelle dans le pool principal |
 
-Exemple de modèle d'équilibrage de charge au format Json :
+Exemple de modèle d'équilibrage de charge au format Json :
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -186,7 +186,11 @@ Exemple de modèle d'équilibrage de charge au format Json :
       ]
     }
 
-### Ressources supplémentaires
-Pour plus d’informations, consultez la page [API REST d’équilibrage de charge](https://msdn.microsoft.com/library/azure/mt163651.aspx).
+### <a name="additional-resources"></a>Ressources supplémentaires
+Pour plus d’informations, consultez la page [API REST d’équilibrage de charge](https://msdn.microsoft.com/library/azure/mt163651.aspx) .
 
-<!---HONumber=AcomDC_1223_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -28,6 +28,6 @@ Pour créer un réseau virtuel selon le scénario ci-dessus à l’aide du porta
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

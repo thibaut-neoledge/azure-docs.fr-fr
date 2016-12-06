@@ -1,4 +1,4 @@
-1. Pour ajouter des balises à des ressources et à des groupes de ressources existants, sélectionnez l’icône balise.
+1. Pour ajouter des balises à des ressources et à des groupes de ressources existants, sélectionnez l’icône balise. 
    
      ![Balises des panneaux de ressources et de groupe de ressources](./media/resource-manager-tag-resources/select-tag-icon.png)
 2. Une liste des balises que votre organisation a déjà appliquées aux ressources apparaît. Si vous n’avez préalablement appliqué aucune balise, cette liste est vide. Pour ajouter une balise, indiquez simplement un nom et une valeur, puis appuyez sur ENTRÉE. Après avoir ajouté quelques balises, vous obtenez des options de saisie semi-automatique basées sur les noms de balises et les valeurs existantes. Ces options de saisie semi-automatique assurent la cohérence de l’organisation de vos ressources, tout en évitant des erreurs courantes, comme les fautes d’orthographe.
@@ -17,4 +17,8 @@
    
      ![Épingler des balises au tableau d'accueil](./media/resource-manager-tag-resources/show-pinned-tag.png)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,43 +1,36 @@
 ### <a name="basic-service-tier"></a>Niveau de service De base
-|  |  |
-| --- | --- |
-| DTU max |5 |
-| Taille de base de données maximale (Go) |2 |
-| Stockage In-Memory OLTP maximal (Go) |N/A |
+| **Niveau de service** | **De base** |
+| --- | :---: |
+| DTU max | 5 |
+| Taille de base de données maximale |2 Go|
+| Stockage In-Memory OLTP maximal |N/A |
 | Nombre maximal d’ouvriers simultanés |30 |
 | Nombre maximal de connexions simultanées |30 |
 | Nombre maximal de sessions simultanées |300 |
-| Restauration dans le temps |N’importe quel point dans les 7 derniers jours |
-| Récupération d'urgence |Géo-réplication active |
+|||
 
 ### <a name="standard-service-tier"></a>Niveau de service Standard
-|  |  |
-| --- |:---:|
-| **S0** &nbsp;&nbsp;&nbsp;&nbsp; **S1** &nbsp;&nbsp;&nbsp;&nbsp; **S2** &nbsp;&nbsp;&nbsp; **S3** | |
-| DTU max |&nbsp;&nbsp;10 &nbsp;&nbsp;&nbsp;&nbsp; 20 &nbsp;&nbsp;&nbsp;&nbsp; 50 &nbsp;&nbsp; 100 |
-| Taille de base de données maximale (Go) |250 |
-| Stockage In-Memory OLTP maximal (Go) |N/A |
-| Nombre maximal d’ouvriers simultanés |60 &nbsp;&nbsp;&nbsp; 90 &nbsp;&nbsp;&nbsp; 120 &nbsp;&nbsp;&nbsp; 200 |
-| Nombre maximal de connexions simultanées |60 &nbsp;&nbsp;&nbsp; 90 &nbsp;&nbsp;&nbsp; 120 &nbsp;&nbsp;&nbsp; 200 |
-| Nombre maximal de sessions simultanées |600 &nbsp; 900 &nbsp; 1200 &nbsp; 2400 |
-| Restauration dans le temps |N’importe quel point dans les 35 derniers jours |
-| Récupération d'urgence |Géo-réplication active |
+| **Niveau de service** | **S0** | **S1** | **S2** | **S3** |
+| --- |---:| ---:|---:|---:|---:|
+| DTU max | 10 | 20 | 50 | 100 |
+| Taille de base de données maximale | 250 Go| 250 Go | 250 Go | 250 Go |
+| Stockage In-Memory OLTP maximal | N/A | N/A | N/A | N/A |
+| Nombre maximal d’ouvriers simultanés | 60 | 90 | 120 | 200 |
+| Nombre maximal de connexions simultanées | 60 | 90 | 120 | 200 |
+| Nombre maximal de sessions simultanées |600 | 900 | 1 200 | 2 400 |
+||||||
 
-### <a name="premium-service-tier"></a>Niveau de service Premium
-|  |  |
-| --- |:---:|
-| **P1** &nbsp;&nbsp;&nbsp;&nbsp; **P2** &nbsp;&nbsp;&nbsp;&nbsp; **P4** &nbsp;&nbsp;&nbsp; **P6/P3** &nbsp;&nbsp; **P11** &nbsp;&nbsp; **P15** | |
-| DTU max |125 &nbsp;&nbsp; 250 &nbsp;&nbsp; 500 &nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; 1750 &nbsp;&nbsp; 4000 |
-| Taille de base de données maximale (Go) |500 &nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp; 1000 |
-| Stockage In-Memory OLTP maximal (Go) |&nbsp;&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 14 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 32 |
-| Nombre maximal d’ouvriers simultanés |&nbsp; 200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp; 2400 &nbsp;&nbsp; 6400 |
-| Nombre maximal de connexions simultanées |&nbsp; 200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp; 2400 &nbsp;&nbsp; 6400 |
-| Nombre maximal de sessions simultanées |2400 &nbsp;4800 &nbsp; 9600 &nbsp;19200 &nbsp;32000 &nbsp;32000 |
-| Restauration dans le temps |N’importe quel point dans les 35 derniers jours |
-| Récupération d'urgence |Géo-réplication active |
+### <a name="premium-service-tier"></a>Niveau de service Premium 
+| **Niveau de service** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
+| --- |---:|---:|---:|---:|---:|---:|
+| DTU max | 125 | 250 | 500 | 1 000 | 1 750 | 4000 |
+| Taille de base de données maximale | 500 Go | 500 Go | 500 Go | 500 Go | 1 To | 1 To |
+| Stockage In-Memory OLTP maximal | 1 Go | 2 Go | 4 Go | 8 Go | 14 Go | 32 Go |
+| Nombre maximal d’ouvriers simultanés | 200 | 400 | 800 | 1 600 | 2 400 | 6400 |
+| Nombre maximal de connexions simultanées | 200 | 400| 800| 1 600| 2 400| 6 400 |
+| Nombre maximal de sessions simultanées | 30000| 30000| 30000| 30000| 30000| 30000 |
+|||||||
 
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

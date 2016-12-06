@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/10/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d4da5dd65b39011ed0abb8bbbd47542d66e73ad6
+ms.sourcegitcommit: 3a8e5583f213c6d35f8e41dd31fe2ccad7389977
+ms.openlocfilehash: 3185e396380e9a550dbc94517e50e9223ff518f6
 
 
 ---
@@ -124,7 +124,7 @@ Attribuez une variable de sous-réseau pour les prochaines étapes de création 
 $subnet=$vnet.Subnets[0]
 ```
 
-## <a name="create-a-public-ip-address-for-the-frontend-configuration"></a>Création d'une adresse IP publique pour la configuration frontale
+## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Création d'une adresse IP publique pour la configuration frontale
 Créez une ressource IP publique « publicIP01 » dans le groupe de ressources « appw-rg » pour la région « West US ».
 
 ```powershell
@@ -195,7 +195,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 > 
 > 
 
-## <a name="create-an-application-gateway-by-using-newazurermapplicationgateway"></a>Création d'une passerelle Application Gateway avec New-AzureRmApplicationGateway
+## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>Création d'une passerelle Application Gateway avec New-AzureRmApplicationGateway
 Créez une passerelle Application Gateway avec tous les éléments de configuration de la procédure précédente. Dans notre exemple, la passerelle Application Gateway est appelée « appgwtest ».
 
 ```powershell

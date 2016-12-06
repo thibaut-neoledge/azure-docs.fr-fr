@@ -1,9 +1,9 @@
-## Réception des messages avec Apache Storm
-[**Apache Storm**](https://storm.incubator.apache.org) est un système de calcul distribué en temps réel qui simplifie de façon fiable le traitement de vastes flux de données. Cette section illustre comment utiliser une commande « spout » Storm Event Hubs pour recevoir des événements provenant d'Event Hubs. À l'aide d'Apache Storm, vous pouvez fractionner des événements entre plusieurs processus hébergés dans des nœuds différents. L'intégration d'Event Hubs à Storm simplifie la consommation d'événements grâce au contrôle transparent de sa progression via l'installation de Storm Zookeeper et à la gestion des points de contrôle permanents et des réceptions en parallèle d'Event Hubs.
+## <a name="receive-messages-with-apache-storm"></a>Réception des messages avec Apache Storm
+[**Apache Storm**](https://storm.incubator.apache.org) est un système de calcul distribué en temps réel qui simplifie de façon fiable le traitement de vastes flux de données. Cette section illustre comment utiliser une commande « spout » Storm Event Hubs pour recevoir des événements provenant d'Event Hubs. À l'aide d'Apache Storm, vous pouvez fractionner des événements entre plusieurs processus hébergés dans des nœuds différents. L'intégration d'Event Hubs à Storm simplifie la consommation d'événements grâce au contrôle transparent de sa progression via l'installation de Storm Zookeeper et à la gestion des points de contrôle permanents et des réceptions en parallèle d'Event Hubs.
 
-Pour plus d’informations sur les modèles de réception Event Hubs, consultez la page [Vue d’ensemble d’Event Hubs][Vue d’ensemble d’Event Hubs].
+Pour plus d’informations sur les modèles de réception Event Hubs, consultez l’article [Vue d’ensemble des concentrateurs d’événements][Vue d’ensemble des concentrateurs d’événements].
 
-Ce didacticiel utilise une installation [HDInsight Storm][HDInsight Storm], fournie avec la commande « spout » Event Hubs déjà disponible.
+Ce didacticiel utilise une installation [HDInsight Storm][HDInsight Storm], fournie avec la commande « spout » Event Hubs déjà disponible.
 
 1. Suivez la procédure [Prise en main de Storm avec HDInsight](../articles/hdinsight/hdinsight-storm-overview.md) pour créer un cluster HDInsight et le connecter par le biais du Bureau à distance.
 2. Copiez le fichier `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` dans votre environnement de développement local. Il contient la commande events-storm-spout.
@@ -13,10 +13,10 @@ Ce didacticiel utilise une installation [HDInsight Storm][HDInsight Storm], four
 4. Dans Eclipse, créez un projet Maven (cliquez sur **Fichier**, **Nouveau**, puis **Projet**).
    
     ![][12]
-5. Sélectionnez l'option **Utiliser l'emplacement d'espace de travail par défaut**, puis cliquez sur **Suivant**.
-6. Sélectionnez l'archétype **maven-archetype-quickstart**, puis cliquez sur **Suivant**.
+5. Sélectionnez l’option **Utiliser l’emplacement d’espace de travail par défaut**, puis cliquez sur **Suivant**.
+6. Sélectionnez l’archétype **maven-archetype-quickstart**, puis cliquez sur **Suivant**.
 7. Insérez un **GroupId** et un **ArtifactId**, puis cliquez sur **Terminer**.
-8. Dans **pom.xml**, ajoutez les dépendances suivantes dans le nœud `<dependency>`.
+8. Dans **pom.xml**, ajoutez les dépendances ci-après dans le nœud `<dependency>`.
    
         <dependency>
             <groupId>org.apache.storm</groupId>
@@ -45,7 +45,7 @@ Ce didacticiel utilise une installation [HDInsight Storm][HDInsight Storm], four
             </exclusions>
             <scope>provided</scope>
         </dependency>
-9. Dans le dossier **src**, créez un fichier nommé **Config.properties** et copiez le contenu suivant, en remplaçant les valeurs suivantes :
+9. Dans le dossier **src**, créez un fichier nommé **Config.properties**, puis copiez-y le contenu ci-après en remplaçant les valeurs suivantes :
    
         eventhubspout.username = ReceiveRule
    
@@ -64,8 +64,8 @@ Ce didacticiel utilise une installation [HDInsight Storm][HDInsight Storm], four
    
         eventhub.receiver.credits = 10
    
-    La valeur d'**eventhub.receiver.credits** détermine le nombre d'événements traités par lot avant leur introduction dans le pipeline Storm. Par souci de simplicité, cet exemple définit cette valeur à 10. En production, il doit généralement être défini sur des valeurs plus élevées ; par exemple 1024.
-10. Créez une classe nommée **LoggerBolt** en utilisant le code suivant :
+    La valeur d' **eventhub.receiver.credits** détermine le nombre d'événements traités par lot avant leur introduction dans le pipeline Storm. Par souci de simplicité, cet exemple définit cette valeur à 10. En production, il doit généralement être défini sur des valeurs plus élevées ; par exemple 1024.
+10. Créez une classe nommée **LoggerBolt** en utilisant le code suivant :
     
         import java.util.Map;
         import org.slf4j.Logger;
@@ -102,8 +102,8 @@ Ce didacticiel utilise une installation [HDInsight Storm][HDInsight Storm], four
     
         }
     
-    Cette commande « bolt » de Storm enregistre le contenu des événements reçus. Cette fonction peut facilement être étendue pour stocker des tuples dans un service de stockage. Le didacticiel [Analyse des données de capteur dans HDInsight] utilise cette approche pour stocker des données dans HBase.
-11. Créez une classe appelée **LogTopology** en utilisant le code suivant :
+    Cette commande « bolt » de Storm enregistre le contenu des événements reçus. Cette fonction peut facilement être étendue pour stocker des tuples dans un service de stockage. Le didacticiel [Analyse des données de capteur dans HDInsight] utilise cette approche pour stocker des données dans HBase.
+11. Créez une classe appelée **LogTopology** en utilisant le code suivant :
     
         import java.io.FileReader;
         import java.util.Properties;
@@ -205,10 +205,10 @@ Ce didacticiel utilise une installation [HDInsight Storm][HDInsight Storm], four
             }
         }
 
-    Cette classe crée une commande « spout » Event Hubs en utilisant les propriétés du fichier de configuration pour l'instancier. Il est important de noter que cet exemple crée autant de tâches « spout » que le nombre de partitions dans le hub d'événements, afin d'utiliser le parallélisme maximal autorisé par ce hub d'événements.
+    Cette classe crée une commande « spout » Event Hubs en utilisant les propriétés du fichier de configuration pour l'instancier. Il est important de noter que cet exemple crée autant de tâches « spout » que le nombre de partitions dans le hub d'événements, afin d'utiliser le parallélisme maximal autorisé par ce hub d'événements.
 
 <!-- Links -->
-[Vue d’ensemble d’Event Hubs]: ../articles/event-hubs/event-hubs-overview.md
+[Vue d’ensemble des concentrateurs d’événements]: ../articles/event-hubs/event-hubs-overview.md
 [HDInsight Storm]: ../articles/hdinsight/hdinsight-storm-overview.md
 [Analyse des données de capteur dans HDInsight]: ../articles/hdinsight/hdinsight-storm-sensor-data-analysis.md
 
@@ -216,4 +216,6 @@ Ce didacticiel utilise une installation [HDInsight Storm][HDInsight Storm], four
 
 [12]: ./media/service-bus-event-hubs-get-started-receive-storm/create-storm1.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!--HONumber=Nov16_HO3-->
+
+

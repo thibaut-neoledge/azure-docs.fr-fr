@@ -1,69 +1,72 @@
 
 ### <a name="basic-elastic-pool-limits"></a>Limites du pool élastique de base
-|  |  |
-| --- |:---:|
-| eDTU max. par pool |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
-| Espace de stockage maximal par pool (Go)* |&nbsp;&nbsp;&nbsp;&nbsp;10 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;39 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;73 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;117 |
-| Nombre maximal de bases de données par pool |&nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 |
-| Stockage In-Memory OLTP maximal par pool (Go) |N/A |
-| Nombre maximal d’ouvriers simultanés par pool |&nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp;&nbsp;2400 |
-| Nombre maximal de connexions simultanées par pool |&nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp;&nbsp;2400 |
-| Nombre maximal de sessions simultanées par pool |4800 &nbsp;9600 &nbsp; 19200 &nbsp; 28800 &nbsp; 28800 |
-| Nombre maximal d’eDTU par base de données* |5 |
-| Nombre minimal d’eDTU par base de données* |0,5 |
-| Espace de stockage maximal par base de données (Go)** |2 |
-| Restauration dans le temps |N’importe quel point dans les 7 derniers jours |
-| Récupération d'urgence |Géo-réplication active |
-|  | |
 
-* Le nombre maximal et minimal d’eDTU par base de données peut être défini sur les valeurs répertoriées de votre choix dans la mesure où la taille du pool en DTU sélectionnée est au moins aussi grande que le nombre maximal d’eDTU par base de données 
-
-** Les bases de données élastiques se partagent l’espace de stockage du pool. Par conséquent, le stockage de base de données est limité au stockage de pool minimal restant ou au stockage maximal par base de données
+| Taille du pool (nombre d’eDTU)  | **50** | **100** | **200** | **300** | **400** | **800** | **1 200** | **1 600** |
+|:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
+| Espace de stockage maximal par pool* | 5 GO| 10 Go| 20 Go| 29 Go| 39 Go| 78 Go| 117 Go| 156 Go|
+| Nombre maximal de bases de données par pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
+| Nombre maximal d’ouvriers simultanés par pool | 100 | 200 | 400 | 600 | 800 | 1 600 | 2 400 | 3200 |
+| Nombre maximal de connexions simultanées par pool | 100 | 200 | 400 | 600 | 800 | 1 600 | 2 400 | 3200 |
+| Nombre maximal de sessions simultanées par pool | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
+| Nombre minimal d’eDTU par base de données | {0, 5} | {0, 5} | {0, 5} | {0, 5} | {0, 5} | {0, 5} | {0, 5} | {0, 5} | {0, 5} |
+| Nombre maximal d’eDTU par base de données | {5} | {5} | {5} | {5} | {5} | {5} | {5} | {5} | {5} |
+||||||||
 
 ### <a name="standard-elastic-pool-limits"></a>Limites du pool élastique standard
-|  |  |
-| --- |:---:|
-| eDTU max. par pool |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
-| Espace de stockage maximal par pool (Go)* |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
-| Nombre maximal de bases de données par pool |&nbsp;200 &nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 |
-| Stockage In-Memory OLTP maximal par pool (Go) |N/A |
-| Nombre maximal d’ouvriers simultanés par pool |&nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
-| Nombre maximal de connexions simultanées par pool |&nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
-| Nombre maximal de sessions simultanées par pool |4800 &nbsp; 9600 &nbsp;19200 &nbsp;28800 &nbsp;&nbsp; 28800 |
-| Nombre maximal d’eDTU par base de données* |10, 20, 50, 100 |
-| Nombre minimal d’eDTU par base de données* |0, 10, 20, 50, 100 |
-| Espace de stockage maximal par base de données (Go)** |250 |
-| Restauration dans le temps |N’importe quel point dans les 35 derniers jours |
-| Récupération d'urgence |Géo-réplication active |
-|  | |
 
-* Le nombre maximal et minimal d’eDTU par base de données peut être défini sur les valeurs répertoriées de votre choix dans la mesure où la taille du pool en DTU sélectionnée est au moins aussi grande que le nombre maximal d’eDTU par base de données 
+| Taille du pool (nombre d’eDTU)  | **50** | **100** | **200** | **300** | **400** | **800** | 
+|:---|---:|---:|---:| ---: | ---: | ---: | ---: |---: |---: |---: |---: |
+| Espace de stockage maximal par pool* | 50 Go| 100 Go| 200 Go | 300 Go| 400 Go | 800 Go | 
+| Nombre maximal de bases de données par pool | 100 | 200 | 500 | 500 | 500 | 500 | 
+| Nombre maximal d’ouvriers simultanés par pool | 100 | 200 | 400 | 600 |  800 | 1 600 |
+| Nombre maximal de connexions simultanées par pool | 100 | 200 | 400 | 600 |  800 | 1 600 |
+| Nombre maximal de sessions simultanées par pool | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Nombre minimal d’eDTU par base de données | {0,10,20,<br>50} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} |
+| Nombre maximal d’eDTU par base de données | {10,20,<br>50} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | 
+||||||||
 
-** Les bases de données élastiques se partagent l’espace de stockage du pool. Par conséquent, le stockage de base de données est limité au stockage de pool minimal restant ou au stockage maximal par base de données
+### <a name="standard-elastic-pool-limits-continued"></a>Limites du pool élastique standard (suite)
+
+| Taille du pool (nombre d’eDTU)  |  **1 200** | **1 600** | **2 000** | **2 500** | 
+|:---|---:|---:|---:| ---: | ---: | ---: | ---: |---: |---: |---: |
+| Espace de stockage maximal par pool* | 1,2 To | 1,6 To | 2 To | 2,4 To | 
+| Nombre maximal de bases de données par pool | 500 | 500 | 500 | 500 | 500 | 
+| Nombre maximal d’ouvriers simultanés par pool |  2 400 | 3200 | 4000 | 5 000 |
+| Nombre maximal de connexions simultanées par pool |  2 400 | 3200 | 4000 | 5 000 | 
+| Nombre maximal de sessions simultanées par pool | 30000 | 30000 | 30000 | 30000 |30000 | 
+| Nombre minimal d’eDTU par base de données | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} |
+| Nombre maximal d’eDTU par base de données | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | 
+||||||||
 
 ### <a name="premium-elastic-pool-limits"></a>Limites du pool élastique Premium
-|  |  |
-| --- |:---:|
-| eDTU max. par pool |125 &nbsp;&nbsp;&nbsp; 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; &nbsp;1500 |
-| Espace de stockage maximal par pool (Go)* |250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 750 &nbsp;&nbsp;&nbsp;&nbsp; 750 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 750 |
-| Nombre maximal de bases de données par pool |50 |
-| Stockage In-Memory OLTP maximal par pool (Go) |N/A |
-| Nombre maximal d’ouvriers simultanés par pool |&nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
-| Nombre maximal de connexions simultanées par pool |&nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
-| Nombre maximal de sessions simultanées par pool |4800 &nbsp; 9600 &nbsp;19200 &nbsp;28800 &nbsp;&nbsp; 28800 |
-| Nombre maximal d’eDTU par base de données* |125, 250, 500, 1000 |
-| Nombre minimal d’eDTU par base de données* |0, 125, 250, 500, 1000 |
-| Espace de stockage maximal par base de données (Go)** |500 |
-| Restauration dans le temps |N’importe quel point dans les 35 derniers jours |
-| Récupération d'urgence |Géo-réplication active |
-|  | |
 
-* Le nombre maximal et minimal d’eDTU par base de données peut être défini sur les valeurs répertoriées de votre choix dans la mesure où la taille du pool en DTU sélectionnée est au moins aussi grande que le nombre maximal d’eDTU par base de données 
+| Taille du pool (nombre d’eDTU)  | **125** | **250** | **500** | **1 000** | **1 500** | 
+|:---|---:|---:|---:| ---: | ---: | ---: | ---: |---: |---: |---: |
+| Espace de stockage maximal par pool* | 250 Go| 500 Go| 750 Go| 750 Go| 750 Go| 
+| Nombre maximal de bases de données par pool | 50 | 100 | 100 | 100 | 100 |  
+| Nombre maximal d’ouvriers simultanés par pool | 200 | 400 | 800 | 1 600 |  2 400 | 
+| Nombre maximal de connexions simultanées par pool | 200 | 400 | 800 | 1 600 |  2 400 |
+| Nombre maximal de sessions simultanées par pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
+| Nombre minimal d’eDTU par base de données | {0,25,50,75,<br>125} | {0,25,50,75,<br>125,250} | {0,25,50,75,<br>125,250,500} | {0,25,50,75,<br>125,250,500,<br>1000} | {0,25,50,75,<br>125,250,500,<br>1000} | 
+| Nombre maximal d’eDTU par base de données | {25,50,75,<br>125} | {25,50,75,<br>125,250} | {25,50,75,<br>125,250,500} | {25,50,75,<br>125,250,500,<br>1000} | {25,50,75,<br>125,250,500,<br>1000} |  
+||||||||
 
-** Les bases de données élastiques se partagent l’espace de stockage du pool. Par conséquent, le stockage de base de données est limité au stockage de pool minimal restant ou au stockage maximal par base de données
+### <a name="premium-elastic-pool-limits-continued"></a>Limites du pool élastique Premium (suite)
+
+| Taille du pool (nombre d’eDTU)  |  **2 000** | **2 500** | **3 000** | **3 500** | 
+|:---|---:|---:|---:| ---: | ---: | ---: | ---: |---: |---: |---: |
+| Espace de stockage maximal par pool* | 750 Go| 750 Go| 750 Go| 750 Go| 
+| Nombre maximal de bases de données par pool | 100 | 100 | 100 | 100 | 100 | 
+| Nombre maximal d’ouvriers simultanés par pool |  3200 | 4000 | 4 800 | 5 600 | 
+| Nombre maximal de connexions simultanées par pool |  3200 | 4000 | 4 800 | 5 600 | 
+| Nombre maximal de sessions simultanées par pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
+| Nombre minimal d’eDTU par base de données | {0,25,50,75,<br>125,250,500,<br>1000,1750} | {0,25,50,75,<br>125,250,500,<br>1000,1750} | {0,25,50,75,<br>125,250,500,<br>1000,1750} | {0,25,50,75,<br>125,250,500,<br>1000,1750} | 
+| Nombre maximal d’eDTU par base de données | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | 
+||||||||
+
+\* Les bases de données élastiques se partagent l’espace de stockage du pool. Par conséquent, le stockage de base de données est limité au stockage de pool minimal restant ou au stockage maximal par base de données.
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

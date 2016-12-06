@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Connect : comptes et autorisations | Microsoft Docs'
-description: Cette rubrique décrit les comptes utilisés et créés, ainsi que les autorisations nécessaires.
+title: "Azure AD Connect : comptes et autorisations | Microsoft Docs"
+description: "Cette rubrique décrit les comptes utilisés et créés, ainsi que les autorisations nécessaires."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b2baa9ea093a36cadb2251bbd1f4390552d8ec0e
+
 
 ---
-# <a name="azure-ad-connect:-accounts-and-permissions"></a>Autorisations et comptes Azure AD Connect
-L’Assistant d’installation d’Azure AD Connect offre deux chemins d’accès différents :
+# <a name="azure-ad-connect-accounts-and-permissions"></a>Autorisations et comptes Azure AD Connect
+L’Assistant d’installation d’Azure AD Connect offre deux chemins d’accès différents :
 
 * Dans Configuration rapide, l’Assistant a besoin de davantage de privilèges pour configurer votre configuration facilement, sans que vous deviez créer des utilisateurs ou configurer des autorisations séparément.
 * Dans Configuration personnalisée, l’Assistant vous propose davantage d’options, mais certaines situations exigent que vous disposiez vous-même des autorisations appropriées.
@@ -34,10 +38,10 @@ Si vous n’avez pas lu la documentation sur [l’Intégration de vos identités
 ## <a name="express-settings-installation"></a>Installation à l’aide de la configuration rapide
 Dans la configuration rapide, l’Assistant d’installation demande des informations d’identification d’administrateur d’entreprise AD DS pour que votre annuaire Active Directory local puisse être configuré avec les autorisations nécessaires pour Azure AD Connect. Si vous effectuez une mise à niveau à partir de DirSync, les informations d’identification d’administrateur d’entreprise AD DS sont utilisées pour réinitialiser le mot de passe pour le compte utilisé par DirSync. Vous avez également besoin de vos informations d’identification d’administrateur général Azure AD.
 
-| Page de l’Assistant | Informations d’identification collectées | Autorisations requises | Utilisation |
+| Page de l’Assistant | Informations d’identification collectées | Autorisations requises | Utilisation |
 | --- | --- | --- | --- |
 | N/A |Utilisateur exécutant l’Assistant d’installation |Administrateur du serveur local |<li>Crée le compte local à utiliser comme [compte de service de moteur de synchronisation](#azure-ad-connect-sync-service-account). |
-| Se connecter à Azure AD |Informations d’identification Azure Active Directory |Rôle Administrateur général dans Azure AD |<li>Activation de la synchronisation dans l’annuaire Azure AD.</li>  <li>Création du [compte Azure AD](#azure-ad-service-account) à utiliser pour les opérations de synchronisation continue dans Azure AD.</li> |
+| Se connecter à Azure AD |Informations d’identification Azure Active Directory |Rôle Administrateur général dans Azure AD |<li>Activation de la synchronisation dans l’annuaire Azure AD.</li>  <li>Création du [compte Azure AD](#azure-ad-service-account) à utiliser pour les opérations de synchronisation continue dans Azure AD.</li> |
 | Connexion à AD DS |Informations d’identification Active Directory locales |Membre du groupe Administrateurs de l’entreprise dans Active Directory |<li>Crée un [compte](#active-directory-account) dans Active Directory et lui octroie des autorisations. Ce compte permet de lire et d’écrire les informations d’annuaire pendant la synchronisation.</li> |
 
 ### <a name="enterprise-admin-credentials"></a>Informations d’identification d’administrateur d’entreprise
@@ -61,15 +65,15 @@ Le [compte](#active-directory-account) destiné à la lecture et à l’écritur
 ## <a name="custom-settings-installation"></a>Installation à l’aide des paramètres personnalisés
 Quand vous recourez à des paramètres personnalisés, le compte utilisé pour la connexion à Active Directory doit être créé avant l’installation. Les autorisations que vous devez accorder à ce compte se trouvent sous [Créer le compte AD DS](#create-the-ad-ds-account).
 
-| Page de l’Assistant | Informations d’identification collectées | Autorisations requises | Utilisation |
+| Page de l’Assistant | Informations d’identification collectées | Autorisations requises | Utilisation |
 | --- | --- | --- | --- |
 | N/A |Utilisateur exécutant l’Assistant d’installation |<li>Administrateur du serveur local</li><li>Si vous utilisez un serveur SQL Server complet, l’utilisateur doit être administrateur système dans SQL</li> |Par défaut, crée le compte local à utiliser comme [compte de service de moteur de synchronisation](#azure-ad-connect-sync-service-account). Le compte n’est créé que si l’administrateur ne spécifie pas de compte particulier. |
 | Installation des services de synchronisation, option Compte de service |Informations d’identification du compte d’utilisateur local ou AD |Utilisateur, les autorisations sont accordées par l’Assistant d’installation |Si l’administrateur spécifie un compte, ce dernier est utilisé comme compte de service pour le service de synchronisation. |
-| Se connecter à Azure AD |Informations d’identification Azure Active Directory |Rôle Administrateur général dans Azure AD |<li>Activation de la synchronisation dans l’annuaire Azure AD.</li>  <li>Création du [compte Azure AD](#azure-ad-service-account) à utiliser pour les opérations de synchronisation continue dans Azure AD.</li> |
+| Se connecter à Azure AD |Informations d’identification Azure Active Directory |Rôle Administrateur général dans Azure AD |<li>Activation de la synchronisation dans l’annuaire Azure AD.</li>  <li>Création du [compte Azure AD](#azure-ad-service-account) à utiliser pour les opérations de synchronisation continue dans Azure AD.</li> |
 | Connexion de vos annuaires |Informations d’identification Active Directory locales pour chaque forêt connectée à Azure AD |Les autorisations varient selon les fonctionnalités que vous activez et se trouvent dans [Créer le compte AD DS](#create-the-ad-ds-account) |Ce compte permet de lire et d’écrire les informations d’annuaire pendant la synchronisation. |
-| Serveurs AD FS |Pour chaque serveur de la liste, l’Assistant recueille des informations d’identification si celles de l’utilisateur exécutant l’Assistant sont insuffisantes pour se connecter |Administrateur de domaine |Installation et configuration du rôle de serveur AD FS. |
+| Serveurs AD FS |Pour chaque serveur de la liste, l’Assistant recueille des informations d’identification si celles de l’utilisateur exécutant l’Assistant sont insuffisantes pour se connecter |Administrateur de domaine |Installation et configuration du rôle de serveur AD FS. |
 | Serveurs proxy d’application web |Pour chaque serveur de la liste, l’Assistant recueille des informations d’identification si celles de l’utilisateur exécutant l’Assistant sont insuffisantes pour se connecter |Administrateur local sur l’ordinateur cible |Installation et configuration du rôle de serveur WAP |
-| Informations d’identification de confiance du proxy |Informations d’identification de confiance du service de fédération (informations d’identification que le proxy utilise pour obtenir un certificat d’approbation à partir de FS) |Compte de domaine qui est un administrateur local du serveur AD FS |Inscription initiale du certificat d’approbation FS-WAP. |
+| Informations d’identification de confiance du proxy |Informations d’identification de confiance du service de fédération (informations d’identification que le proxy utilise pour obtenir un certificat d’approbation à partir de FS) |Compte de domaine qui est un administrateur local du serveur AD FS |Inscription initiale du certificat d’approbation FS-WAP. |
 | Page Compte de service AD FS, option Utilisation d’un compte d’utilisateur de domaine |Informations d’identification du compte d’utilisateur AD |Utilisateur de domaine |Le compte d’utilisateur AD dont les informations d’identification sont fournies est utilisé comme compte de connexion au service AD FS. |
 
 ### <a name="create-the-ad-ds-account"></a>Créer le compte AD DS
@@ -118,15 +122,18 @@ Un compte dans Azure AD est créé en vue de son utilisation par le service de s
 
 ![Compte AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
 
-Le nom du serveur sur lequel le compte est utilisé peut être identifié dans la deuxième partie du nom d’utilisateur. Sur l’image, le nom du serveur est FABRIKAMCON. Si vous disposez de serveurs intermédiaires, chaque serveur a son propre compte. Il existe une limite de 10 comptes de service de synchronisation dans Azure AD.
+Le nom du serveur sur lequel le compte est utilisé peut être identifié dans la deuxième partie du nom d’utilisateur. Sur l’image, le nom du serveur est FABRIKAMCON. Si vous disposez de serveurs intermédiaires, chaque serveur a son propre compte. Il existe une limite de 10 comptes de service de synchronisation dans Azure AD.
 
 Le compte de service est créé avec un mot de passe long et complexe qui n’expire pas. Il se voit octroyer le rôle de **Compte de synchronisation de répertoires**. À ce titre, il est uniquement autorisé à effectuer des tâches de synchronisation de répertoires. Ce rôle intégré spécial ne peut pas être accordé en dehors de l’Assistant Azure AD Connect, et le portail Azure affiche ce compte avec le rôle **Utilisateur**.
 
 ![Rôle de compte AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccountrole.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-En savoir plus sur [l’intégration de vos identités locales avec Azure Active Directory](../active-directory-aadconnect.md).
+En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](../active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

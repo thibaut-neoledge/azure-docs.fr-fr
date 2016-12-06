@@ -6,14 +6,16 @@
 ## [HBase](hdinsight-hbase-overview.md)
 ## [Apache Storm](hdinsight-storm-overview.md)
 ## [Version préliminaire de clusters HDInsight joints à un domaine](hdinsight-domain-joined-introduction.md)
+## [Version préliminaire de Kafka](hdinsight-apache-kafka-introduction.md)
 
 # Prise en main
 ## [Démarrer avec Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## [Démarrer avec la version préliminaire de Hive interactif](hdinsight-hadoop-use-interactive-hive.md)
-## [Démarrer avec la version préliminaire de R Server](hdinsight-hadoop-r-server-get-started.md)
+## [Démarrer avec R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Démarrer avec Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Démarrer avec HBase et NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Démarrer avec Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
+## [Démarrer avec la version préliminaire de Kafka](hdinsight-apache-kafka-get-started.md)
 ## [Bac à sable (sandbox) Hadoop](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake Tools avec bac à sable (sandbox) Hortonworks](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Outils pour Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
@@ -47,11 +49,12 @@
 ### [Utiliser DataFu avec Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [Clusters à la demande](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Envoyer des tâches Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md)
-## Utiliser la version préliminaire de R Server
+## Utiliser R Server
 ### [Options de stockage](hdinsight-hadoop-r-server-storage.md)
 ### [Installer RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Contextes de calcul](hdinsight-hadoop-r-server-compute-contexts.md)
 ## Utiliser Spark pour le traitement en mémoire
+### [Avec Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Avec les outils décisionnels](hdinsight-apache-spark-use-bi-tools.md)
 ### [Application autonome](hdinsight-apache-spark-create-standalone-application.md)
 ### [Traiter les événements de diffusion en continu](hdinsight-apache-spark-eventhub-streaming.md)
@@ -94,6 +97,10 @@
 ### [Configurer](hdinsight-domain-joined-configure.md)
 ### [Gérer](hdinsight-domain-joined-manage.md)
 ### [Configurer des stratégies Hive](hdinsight-domain-joined-run-hive.md)
+## Utiliser la version préliminaire de Kafka
+### [Répliquer les données Kafka](hdinsight-apache-kafka-mirroring.md)
+### [Utiliser avec Spark](hdinsight-apache-spark-with-kafka.md)
+### [Utiliser avec Storm](hdinsight-apache-storm-with-kafka.md)
 ## Développement
 ### [Développer des programmes Java MapReduce](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Développer des travaux MapReduce Scalding](hdinsight-hadoop-mapreduce-scalding.md)
@@ -174,12 +181,12 @@
 #### [Performances des requêtes Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Référence
-## [Référence d’API REST](https://msdn.microsoft.com/library/mt622197.aspx)
-## [API REST Spark pour les travaux à distance](https://msdn.microsoft.com/library/mt613023.aspx)
-## [Applets de commande PowerShell](https://msdn.microsoft.com/library/mt438705.aspx)
+## [Applets de commande PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.2.0/azurerm.hdinsight)
 ## [Kit de développement logiciel (SDK) .NET pour Hadoop](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [Kit de développement logiciel (SDK) .NET pour HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [Bibliothèque .NET pour Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+## [Référence d’API REST](/rest/api/hdinsight/)
+## [API REST Spark pour les travaux à distance](/rest/api/hdinsightspark/)
 
 # Rubriques connexes
 ## Clusters Windows
@@ -217,6 +224,6 @@
 ## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -98,9 +98,9 @@
 ### [Forum aux questions sur Cloud Services](cloud-services-faq.md)
 
 # Référence
-## [.NET](https://msdn.microsoft.com/library)
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
 ## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
+## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 ## [Correctifs du SE invité](cloud-services-guestos-msrc-releases.md)
 ## Suppression du SE invité
 ### [Stratégie de suppression](cloud-services-guestos-retirement-policy.md)
@@ -116,6 +116,6 @@
 ## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

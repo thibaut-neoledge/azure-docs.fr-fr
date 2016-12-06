@@ -1,44 +1,44 @@
 > [!div class="op_single_selector"]
-> * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
+> * [Node.JS](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
 > 
 > 
 
 ## <a name="introduction"></a>Introduction
-Device twins are JSON documents that store device state information (meta-data, configurations, and conditions). IoT Hub persists a device twin for each device that you connect to IoT Hub.
+Les représentations d’appareil sont des documents JSON qui stockent des informations sur l’état des appareils (métadonnées, configurations et conditions). IoT Hub conserve une représentation d’appareil pour chaque appareil que vous y connectez.
 
-Use device twins to:
+Vous pouvez utiliser des représentations d’appareil pour répondre aux besoins suivants :
 
-* Store device meta-data from your back end.
-* Report current state information such as available capabilities and conditions (for example, the connectivity method used) from your device app.
-* Synchronize the state of long-running workflows (such as firmware and configuration updates) between device app and back end.
-* Query your device meta-data, configuration, or state.
+* Stocker les métadonnées d’appareil à partir de votre serveur principal
+* Signaler les informations d’état actuel, telles que les capacités disponibles et les conditions (par exemple, méthode de connectivité utilisée), à partir de votre application d’appareil
+* Synchroniser l’état des workflows de longue durée (par exemple, mises à jour de microprogramme et de configuration) entre l’application d’appareil et le serveur principal
+* Interroger les métadonnées, la configuration ou l’état de vos appareils
 
 > [!NOTE]
-> Device twins are designed for synchronization and for querying device configurations and conditions. Use [device-to-cloud messages][lnk-d2c] for sequences of timestamped events (such as telemetry streams of time-based sensor data) and [cloud-to-device methods][lnk-methods] for interactive control of devices, such as turning on a fan from a user-controlled app.
+> Les représentations d’appareil sont conçues pour les synchronisations et pour l’interrogation des configurations et des conditions d’appareil. Utilisez des [messages Appareil vers cloud][lnk-d2c] pour les séquences d’événements horodatés (tels que les flux de télémétrie de données de capteur temporelles), et utilisez des [méthodes directes][lnk-methods] pour le contrôle interactif des appareils, comme la mise en marche d’un ventilateur à partir d’une application contrôlée par l’utilisateur.
 > 
 > 
 
-Device twins are stored in an IoT hub and contain:
+Les représentations d’appareil sont stockées dans un IoT Hub et contiennent les éléments suivants :
 
-* *tags*, device meta-data accessible only by the back end;
-* *desired properties*, JSON objects modifiable by the back end and observable by the device app; and
-* *reported properties*, JSON objects modifiable by the device app and readable by the back end. Tags and properties cannot contain arrays, but objects can be nested.
+* *Étiquettes* : métadonnées d’appareil uniquement accessibles par le serveur principal
+* *Propriétés souhaitées* : objets JSON modifiables par le serveur principal et observables par l’application d’appareil
+* *Propriétés signalées* : objets JSON modifiables par l’application d’appareil et consultables par le serveur principal Les étiquettes et les propriétés ne peuvent pas contenir de tableaux, mais les objets peuvent être imbriqués.
 
 ![][img-twin]
 
-Additionally, the app back end can query device twins based on all the above data.
-Refer to [Understand device twins][lnk-twins] for more information about device twins and to the [IoT Hub query language][lnk-query] reference for querying.
+En outre, le serveur principal d’applications peut interroger les représentations d’appareil concernant toutes les données ci-dessus.
+Pour plus d’informations sur les représentations d’appareil, consultez l’article [Comprendre les représentations d’appareil][lnk-twins] ; pour plus d’informations sur l’interrogation, consultez l’article de référence [Langage de requête IoT Hub][lnk-query].
 
 > [!NOTE]
-> At this time, device twins are accessible only from devices that connect to IoT Hub using the MQTT protocol. Please refer to the [MQTT support][lnk-devguide-mqtt] article for instructions on how to convert existing device app to use MQTT.
+> Actuellement, des représentations d’appareil sont accessibles uniquement à partir d’appareils qui se connectent à IoT Hub à l’aide du protocole MQTT. Pour obtenir des instructions sur la conversion d’une application d’appareil existante pour utiliser MQTT, voir [Support MQTT][lnk-devguide-mqtt].
 > 
 > 
 
-This tutorial shows you how to:
+Ce didacticiel vous explique les procédures suivantes :
 
-* Create a back-end app that adds *tags* to a device twin, and a simulated device that reports its connectivity channel as a *reported property* on the device twin.
-* Query devices from your back end app using filters on the tags and properties previously created.
+* Création d’une application principale ajoutant des *étiquettes* à une représentation d’appareil, et création d’un appareil simulé signalant son canal de connectivité sous la forme d’une *propriété signalée* sur la représentation d’appareil
+* Interrogation d’appareils à partir de votre application principale à l’aide de filtres sur les étiquettes et les propriétés précédemment créées
 
 <!-- images -->
 [img-twin]: media/iot-hub-selector-twin-get-started/twin.png
@@ -50,6 +50,6 @@ This tutorial shows you how to:
 [lnk-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

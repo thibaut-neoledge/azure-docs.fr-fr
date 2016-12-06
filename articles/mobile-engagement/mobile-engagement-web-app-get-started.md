@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 96f4fa714aa5a76f3e7e17c2741b17b626cfe010
+ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
+ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
 
 
 ---
@@ -40,7 +40,7 @@ Ce Kit de développement logiciel (SDK) web existe en version préliminaire et p
 ## <a name="setup-mobile-engagement-for-your-web-app"></a>Configuration de Mobile Engagement pour votre application web
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Connexion de votre application au serveur principal Mobile Engagement
+## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Connexion de votre application au serveur principal Mobile Engagement
 Ce didacticiel présente une intégration de base qui correspond aux éléments minimaux requis pour la collecte de données.
 
 Afin d’illustrer cette intégration, nous allons créer une application web de base avec Visual Studio, bien que vous puissiez également suivre cette procédure avec toute application web créée en dehors de Visual Studio. 
@@ -65,7 +65,7 @@ Vous avez à présent créé un projet d’application web vide dans lequel nous
    
     ![Visual Studio avec des fichiers js][1]
 
-## <a name="enable-realtime-monitoring"></a>Activer la surveillance en temps réel
+## <a name="enable-real-time-monitoring"></a>Activer la surveillance en temps réel
 Pour commencer à envoyer des données et vous assurer que les utilisateurs sont actifs, vous devez envoyer au moins une activité au serveur principal Mobile Engagement. Dans le contexte d’une application web, une activité est une page web. 
 
 1. Créez une page appelée **home.html** dans votre solution et définissez-la comme page de démarrage de votre application web. 
@@ -88,7 +88,7 @@ Pour commencer à envoyer des données et vous assurer que les utilisateurs sont
         </body>
         </html>
 
-## <a name="connect-app-with-realtime-monitoring"></a>Connexion d’application avec l’analyse en temps réel
+## <a name="connect-app-with-real-time-monitoring"></a>Connexion d’application avec l’analyse en temps réel
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
   ![][2]

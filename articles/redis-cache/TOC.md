@@ -46,7 +46,7 @@
 ###[Utiliser un cluster Redis pour augmenter/diminuer la taille des instances](cache-how-to-premium-clustering.md)
 
 #Référence
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 ## [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/)
 ## [Java](https://docs.microsoft.com/java/api/)
 ## [.NET](https://docs.microsoft.com/dotnet/api/)
@@ -60,6 +60,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

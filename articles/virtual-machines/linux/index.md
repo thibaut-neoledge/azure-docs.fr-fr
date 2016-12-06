@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 8125aca5030c869476499a07b17c8e21fcb76ef6
-ms.openlocfilehash: e5640566e8781441713ca5491abee1d9334b3970
+ms.sourcegitcommit: c5ed66f3a060dcd1bac9c04c70c493dcebcf9df8
+ms.openlocfilehash: 7b5078165e008819baed1c1e38d1c1a677648955
 
 ---
 #<a name="linux-virtual-machine-documentation"></a>Documentation Machine virtuelle Linux
@@ -11,7 +11,43 @@ Utilisez les machines virtuelles Azure pour créer et exécuter des machines vir
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-azure-overview">
+        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/cli.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Créer une machine virtuelle Linux à l’aide d’Azure CLI 2.0 (version préliminaire)</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/portal.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Créer une machine virtuelle à l’aide du portail</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/virtual-machines/virtual-machines-linux-azure-overview?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -46,18 +82,21 @@ Utilisez les machines virtuelles Azure pour créer et exécuter des machines vir
         </div>
         </a>
     </li>
+</ul>
+
+---
+
+##<a name="reference"></a>Référence
+
+<ul class="panelContent cardsW">
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal">
+        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/portal.svg" alt="" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>Créer une machine virtuelle à l’aide du portail</h3>
+                        <h3>PowerShell</h3>
+                        <p>Applets de commande PowerShell</p>
                     </div>
                 </div>
             </div>
@@ -65,17 +104,13 @@ Utilisez les machines virtuelles Azure pour créer et exécuter des machines vir
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys">
+        <a href="/cli/azure/install-az-cli2">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>Créer des clés SSH sur Linux et Mac pour les machines virtuelles Linux dans Azure</h3>
+                        <h3>Interface de ligne de commande Azure</h3>
+                        <p>Installer l’interface de ligne de commande Microsoft Azure</p>
                     </div>
                 </div>
             </div>
@@ -83,17 +118,13 @@ Utilisez les machines virtuelles Azure pour créer et exécuter des machines vir
         </a>
     </li>
     <li>
-        <a href="/azure/xplat-cli-install">
+        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/cli.svg" alt="" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>Installer l’interface de ligne de commande Microsoft Azure</h3>
+                        <h3>.NET</h3>
+                        <p>Référence API managée .NET</p>
                     </div>
                 </div>
             </div>
@@ -101,17 +132,55 @@ Utilisez les machines virtuelles Azure pour créer et exécuter des machines vir
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli">
+        <a href="/java/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/cli.svg" alt="" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>Créer une machine virtuelle Linux sur Azure à l’aide de l’interface de ligne de commande (CLI)</h3>
+                        <h3>Kit de développement logiciel (SDK) Java</h3>
+                        <p>Référence sur l’API Java</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/compute">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST (Compute)</h3>
+                        <p>Informations de référence sur l’API REST de Compute</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://msdn.microsoft.com/library/mt163658">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST (Réseau)</h3>
+                        <p>Informations de référence sur l’API REST de Réseau</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/storage">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST (Stockage)</h3>
+                        <p>Informations de référence sur l’API REST de Stockage</p>
                     </div>
                 </div>
             </div>
@@ -119,28 +188,7 @@ Utilisez les machines virtuelles Azure pour créer et exécuter des machines vir
         </a>
     </li>
 </ul>
-
----
-
-##<a name="reference"></a>Référence
-
-###<a name="azure-cli"></a>Interface de ligne de commande Azure
-[Interface de ligne de commande Azure](/cli/azure/vm)
-
-###<a name="net"></a>.NET
-[Informations de référence sur l’API managée .NET](/dotnet/api/)
-
-###<a name="java-sdk"></a>Kit de développement logiciel (SDK) Java
-[Java](/java/api/)
-
-###<a name="rest-compute"></a>REST (Compute)
-[Informations de référence sur l’API REST Compute](/rest/api/compute)
-
-###<a name="rest-network"></a>REST (Réseau)
-[Informations de référence sur l’API REST Réseau](https://msdn.microsoft.com/library/mt163658.aspx)
-
-###<a name="rest-storage"></a>REST (Stockage)
-[Informations de référence sur l’API REST Stockage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+    
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/linux.pdf">
@@ -152,6 +200,6 @@ Télécharger la documentation Machine virtuelle Linux </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

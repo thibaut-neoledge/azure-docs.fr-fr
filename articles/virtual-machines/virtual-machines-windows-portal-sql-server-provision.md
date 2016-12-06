@@ -302,6 +302,6 @@ Pour une présentation vidéo de SQL Server sur les machines virtuelles Azure, r
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

@@ -45,15 +45,15 @@
 ## [Développer avec LUIS (Language Understanding Intelligent Service)](https://www.luis.ai/Help/)
 
 # Référence
-## [Applets de commande PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [Applets de commande PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 ## [REST](https://docs.microsoft.com/rest/api/cognitiveservices/)
 
-# Ressources 
+# les ressources 
 ## [Tarification](https://azure.microsoft.com/pricing/details/cognitive-services/)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=cognitive-services)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=cognitive-services)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

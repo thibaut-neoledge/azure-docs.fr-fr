@@ -47,7 +47,7 @@ La sauvegarde d’une machine virtuelle se compose de cinq étapes principales :
 >
 >
 
-## <a name="step-1-create-a-backup-vault-for-a-vm"></a>Étape 1 : création d’un archivage (ou coffre) de sauvegarde pour une machine virtuelle
+## <a name="step-1---create-a-backup-vault-for-a-vm"></a>Étape 1 : création d’un archivage (ou coffre) de sauvegarde pour une machine virtuelle
 Un coffre de sauvegarde est une entité qui stocke les sauvegardes et les points de récupération créés au fil du temps. Le coffre de sauvegarde contient également les stratégies de sauvegarde qui sont appliquées aux machines virtuelles en cours de sauvegarde.
 
 1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/).
@@ -86,7 +86,7 @@ Un coffre de sauvegarde est une entité qui stocke les sauvegardes et les points
 
 Après avoir sélectionné l’option de stockage pour votre archivage, vous pouvez associer la machine virtuelle à l’archivage. Pour commencer l’association, découvrez et enregistrez les machines virtuelles Azure.
 
-## <a name="step-2-discover-and-register-azure-virtual-machines"></a>Étape 2 : découverte et enregistrement des machines virtuelles Azure
+## <a name="step-2---discover-and-register-azure-virtual-machines"></a>Étape 2 : découverte et enregistrement des machines virtuelles Azure
 Avant d’enregistrer la machine virtuelle dans un coffre, lancez le processus de découverte pour identifier les nouvelles machines virtuelles éventuelles. Ce dernier renvoie la liste des machines virtuelles de l’abonnement et des informations supplémentaires, comme le nom du service cloud et la région.
 
 1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/)
@@ -133,12 +133,12 @@ Avant d’enregistrer la machine virtuelle dans un coffre, lancez le processus d
 
     ![État de l’inscription 2](./media/backup-azure-vms/register-status02.png)
 
-## <a name="step-3-install-the-vm-agent-on-the-virtual-machine"></a>Étape 3 : installation de l’agent de machine virtuelle sur la machine virtuelle
+## <a name="step-3---install-the-vm-agent-on-the-virtual-machine"></a>Étape 3 : installation de l’agent de machine virtuelle sur la machine virtuelle
 L’agent de machine virtuelle Azure doit être installé sur la machine virtuelle Azure pour permettre la prise en charge de l’extension Backup. Si votre machine virtuelle a été créée à partir de la galerie Azure, l’agent est déjà installé sur la machine virtuelle ! Vous pouvez passer à la [protection de vos machines virtuelles](backup-azure-vms-first-look.md#step-4---create-the-backup-policy).
 
 Si votre machine virtuelle a migré à partir d'un centre de données local, il est probable que l’agent de machine virtuelle n’y soit pas installé. Vous devez installer l'agent sur la machine virtuelle avant de passer à l’étape de protection de la machine virtuelle. Pour obtenir des instructions détaillées sur l’installation de l’agent de machine virtuelle, consultez la [section Agent VM de l’article sur la sauvegarde des machines virtuelles](backup-azure-vms-prepare.md#vm-agent).
 
-## <a name="step-4-create-the-backup-policy"></a>Étape 4 : création de la stratégie de sauvegarde
+## <a name="step-4---create-the-backup-policy"></a>Étape 4 : création de la stratégie de sauvegarde
 Avant de déclencher le travail de sauvegarde initiale, définissez la planification des instantanés de sauvegarde. La planification des instantanés de sauvegarde et la durée de rétention de ces instantanés constituent la stratégie de sauvegarde. Les informations de rétention sont basées sur le schéma de rotation des sauvegardes grand-père-père-fils.
 
 1. Accédez au coffre de sauvegarde qui se trouve sous **Recovery Services** dans le portail Azure Classic, puis cliquez sur **Éléments inscrits**.
@@ -175,7 +175,7 @@ Avant de déclencher le travail de sauvegarde initiale, définissez la planifica
 
     Maintenant que vous avez créé la stratégie, passez à l'étape suivante et lancez la sauvegarde initiale.
 
-## <a name="step-5-initial-backup"></a>Étape 5 : sauvegarde initiale
+## <a name="step-5---initial-backup"></a>Étape 5 : sauvegarde initiale
 Une fois la machine virtuelle protégée par une stratégie, vous pouvez afficher cette relation dans l’onglet **Éléments protégés** . Avant l’exécution de la sauvegarde initiale, la valeur **Protégé (en attente de sauvegarde initiale)** s’affiche sous **État de la protection**. Par défaut, la première sauvegarde planifiée est la *sauvegarde initiale*.
 
 ![Sauvegarde en attente](./media/backup-azure-vms-first-look/protection-pending-border.png)

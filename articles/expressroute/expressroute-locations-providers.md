@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/02/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 86b7d396307761acb8baee5761f08a3e1120cddc
+ms.sourcegitcommit: 53a301bd501f223aa8489ba6592c8428c1fcd530
+ms.openlocfilehash: 877a70c162f23ced4606ee8a5c51db5e4eeaa89a
 
 
 ---
@@ -28,7 +28,10 @@ ExpressRoute est pris en charge dans tous les emplacements et régions Azure. La
 
 ![Carte géographique][0]
 
-Vous aurez accès aux services Azure dans toutes les régions au sein d’une région géopolitique si vous êtes connecté à au moins un emplacement ExpressRoute dans la région géopolitique. Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements ExpressRoute au sein d’une région géopolitique.
+Vous aurez accès aux services Azure dans toutes les régions au sein d’une région géopolitique si vous êtes connecté à au moins un emplacement ExpressRoute dans la région géopolitique. 
+
+### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Régions Azure vers des emplacements ExpressRoute au sein d’une région géopolitique
+Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements ExpressRoute au sein d’une région géopolitique.
 
 | **Région géopolitique** | **Régions Azure** | **Emplacements ExpressRoute** |
 | --- | --- | --- |
@@ -40,6 +43,7 @@ Vous aurez accès aux services Azure dans toutes les régions au sein d’une r�
 | **Australie** |Sud-est de l’Australie |Est de l’Australie |Melbourne, Sydney |
 | **Inde** |Inde-Ouest, Inde-Centre, Inde-Sud |Chennai, Mumbai |
 
+### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Régions et limites géopolitiques pour les clouds nationaux
 Le tableau ci-dessous fournit des informations sur les régions et les limites géopolitiques et des clouds nationaux.
 
 | **Région géopolitique** | **Régions Azure** | **Emplacements ExpressRoute** |
@@ -50,10 +54,10 @@ Le tableau ci-dessous fournit des informations sur les régions et les limites g
 
 La connectivité entre les régions géopolitiques n’est pas prise en charge dans la référence ExpressRoute Standard. Vous devez activer le module complémentaire ExpressRoute Premium pour prendre en charge la connectivité globale. La connectivité à des environnements de cloud nationaux n’est pas prise en charge. En cas de besoin, vous pouvez collaborer avec votre fournisseur de connectivité.
 
-## <a name="connectivity-provider-locations"></a>Emplacements de fournisseur de connectivité
+## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>Emplacements de fournisseur de connectivité
 > [!div class="op_single_selector"]
-> [Emplacements par fournisseur](expressroute-locations.md#connectivity-provider-locations)
-> [Fournisseurs par emplacement](expressroute-locations-providers.md#connectivity-provider-locations)
+> * [Emplacements par fournisseur](expressroute-locations.md#locations)
+> * [Fournisseurs par emplacement](expressroute-locations-providers.md#locations)
 > 
 > 
 
@@ -89,7 +93,8 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
  **+** = bientôt disponible
 
 ### <a name="national-cloud-environments"></a>Environnements de cloud national
-#### <a name="us-government-cloud"></a>Cloud du gouvernement des États-Unis
+
+### <a name="us-government-cloud"></a>Cloud du gouvernement des États-Unis
 | **Emplacement** | **Fournisseurs de services** |
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
@@ -97,7 +102,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **New York** |Equinix, Level 3 Communications+, Verizon |
 | **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
-#### <a name="china"></a>Chine
+### <a name="china"></a>Chine
 | **Emplacement** | **Fournisseurs de services** |
 | --- | --- |
 | **Beijing** |China Telecom |
@@ -105,7 +110,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 
 Pour plus d’informations, consultez [ExpressRoute en Chine](http://www.windowsazure.cn/home/features/expressroute/)
 
-#### <a name="germany"></a>Allemagne
+### <a name="germany"></a>Allemagne
 | **Emplacement** | **Fournisseurs de services** |
 | --- | --- |
 | **Berlin** |Colt+, e-shelter |
@@ -153,6 +158,6 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

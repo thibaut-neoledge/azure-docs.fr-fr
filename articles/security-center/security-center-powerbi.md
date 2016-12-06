@@ -123,6 +123,6 @@ Dans ce document, vous avez vu comment utiliser le service Power BI depuis le C
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

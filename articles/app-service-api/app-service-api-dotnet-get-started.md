@@ -442,6 +442,6 @@ Choisir le modèle de projet d’**Application API Azure** revient à sélection
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

@@ -17,4 +17,8 @@ Lorsque vous reprenez une base de données :
 * Vos données seront disponibles.
 * Vous devrez redémarrer vos requêtes de charge de travail.
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

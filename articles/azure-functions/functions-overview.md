@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 08/29/2016
 ms.author: cfowler;mahender;glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 601c5a61023fe1565dc0f8e22d9826ae5705fe22
+ms.sourcegitcommit: a06126707ad9942ba3b269b0e2e2a52f9cf0c61e
+ms.openlocfilehash: 7d6bcf84b8d1de1b9f77385909d81ad6baafe9d9
 
 
 ---
@@ -30,7 +30,7 @@ Cette rubrique fournit une vue d’ensemble d’Azure Functions. Si vous souhait
 ## <a name="features"></a>Caractéristiques
 Voici les principales fonctionnalités d’Azure Functions :
 
-* **Choix du langage** : écrivez des fonctions avec C#, F#, Node.js, Python, PHP, batch, bash, Java ou tout autre fichier exécutable.
+* **Choix du langage** : écrivez des fonctions avec C#, F#, Node.js, Python, PHP, Batch, Bash ou tout autre fichier exécutable.
 * **Modèle de tarification à l’utilisation** : seul le temps passé à exécuter votre code vous est facturé. Consultez le plan App Service dynamique dans la [section relative à la tarification](#pricing) ci-dessous.  
 * **Intégration de vos propres dépendances** : Azure Functions prenant en charge NuGet et NPM, vous pouvez utiliser vos bibliothèques préférées.  
 * **Sécurité intégrée** : protégez les fonctions déclenchées par HTTP à l’aide de fournisseurs OAuth comme Azure Active Directory, Facebook, Google, Twitter et Microsoft Account.  
@@ -90,6 +90,6 @@ Pour plus d’informations sur la mise à l’échelle de vos fonctions, consult
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

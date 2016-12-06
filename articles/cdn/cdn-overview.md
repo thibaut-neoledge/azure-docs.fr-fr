@@ -3,8 +3,8 @@ title: "Vue d’ensemble d’Azure CDN | Microsoft Docs"
 description: "Découvrez le réseau de distribution de contenu (CDN) Azure et comment l&quot;utiliser pour diffuser du contenu haut débit en mettant en cache les objets blob et le contenu statique."
 services: cdn
 documentationcenter: 
-author: camsoper
-manager: erikre
+author: lichard
+manager: akucer
 editor: 
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
 ms.service: cdn
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/30/2016
-ms.author: casoper
+ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 838a9ca3b77d5cd152ad2b8a54387149eafb6202
+ms.sourcegitcommit: 9a96e297711a949ac6bc464ad9154b4ad924666d
+ms.openlocfilehash: d6f56ed485eedd1e8250448c2c0794a066b11dc4
 
 
 ---
@@ -57,7 +57,7 @@ Il existe trois produits Azure CDN :  **Azure CDN Standard fourni par Akamai**, 
 | Double pile IPv4/IPv6 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Prise en charge du nom de domaine personnalisé](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Mise en cache des chaînes de requête](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Filtrage géographique](cdn-restrict-access-by-country.md) | |**&#x2713;** |**&#x2713;** |
+| [Filtrage géographique](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Purge rapide](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Préchargement de ressources](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Analyse principale](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
@@ -69,6 +69,8 @@ Il existe trois produits Azure CDN :  **Azure CDN Standard fourni par Akamai**, 
 | Paramètres du cache/des en-têtes (à l’aide du [moteur de règles](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Redirection/réécriture d’URL (à l’aide du [moteur de règles](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Règles d’appareil mobile (à l’aide du [moteur de règles](cdn-rules-engine.md)) | | |**&#x2713;** |
+| [Jeton d’authentification](cdn-token-auth.md)|  |  |**&#x2713;**| 
+
 
 > [!TIP]
 > Une idée de fonctionnalité à ajouter à Azure CDN ?  [Envoyez-nous vos commentaires](https://feedback.azure.com/forums/169397-cdn)! 
@@ -89,6 +91,6 @@ Pour obtenir des informations sur la tarification, consultez la page [Prix appli
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -407,6 +407,6 @@ Dans ce didacticiel, vous avez créé une fabrique de données Azure pour copier
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

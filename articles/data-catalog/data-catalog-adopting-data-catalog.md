@@ -16,8 +16,8 @@ ms.workload: data-catalog
 ms.date: 10/11/2016
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6299c6eaab1e62281e23d2dd43c14fbb9769a316
+ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
+ms.openlocfilehash: 4c6a07c4b3597e357c520bcafde501bc0850e685
 
 
 ---
@@ -102,8 +102,8 @@ Votre premier projet pilote doit être associé à quelques personnes, qui produ
 
 L’un des problèmes d’entreprise traités par **Azure Data Catalog** est de connecter les **producteurs de données** aux **consommateurs de données**. Pour ce faire, il fait office de référentiel central pour les informations sur les sources de données d’entreprise. À l’aide de Data Catalog, David inscrit les sources de données SQL Server Adventure Works. À l’aide du crowdsourcing, tout utilisateur qui découvre cette source de données peut partager son avis sur les données, en plus d’utiliser les données qu’il a découvertes. Par exemple, Nancy découvre les sources de données en effectuant une recherche dans le catalogue, puis partage ses connaissances approfondies relatives aux données.  À présent, les autres utilisateurs de l’organisation tirent parti des connaissances partagées par simple recherche dans le catalogue de données.
 
-* Pour en savoir plus sur l’inscription des sources de données, consultez la section [Inscrire des sources de données](data-catalog-get-started.md#exercise-2-registering-data-sources).
-* Pour en savoir plus sur la découverte des sources de données, consultez la section [Rechercher des sources de données](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets).
+* Pour en savoir plus sur l’inscription des sources de données, consultez la section [Inscrire des sources de données](data-catalog-get-started.md).
+* Pour en savoir plus sur la découverte des sources de données, consultez la section [Rechercher des sources de données](data-catalog-get-started.md).
 
 ### <a name="start-small-and-focused"></a>Démarrer petit et ciblé
 Pour la plupart des projets pilotes d’entreprise, vous devez alimenter le catalogue avec des sources de données de valeur élevée afin que les utilisateurs professionnels puissent rapidement constater la valeur de Data Catalog. Le service informatique est un bon emplacement pour commencer à identifier les sources de données qui seraient intéressantes pour votre équipe pilote. Pour les sources de données prises en charge, telles que SQL Server, nous recommandons d’utiliser l’outil d’inscription des sources de données d’ **Azure Data Catalog** . Avec l’outil d’inscription des sources de données, vous pouvez inscrire un large éventail de sources de données, y compris des bases de données SQL Server et Oracle, et des rapports SQL Server Reporting Services. Pour obtenir la liste complète des sources de données actuelles, consultez l’article [Sources de données prises en charge par Azure Data Catalog](data-catalog-dsr.md).
@@ -123,8 +123,8 @@ Dans le cadre du projet pilote, l’équipe de Nancy utilise également des sour
 
 > [!NOTE]
 > Nous avons écrit un exemple d’outil qui utilise l’API **Azure Data Catalog** pour migrer un classeur Excel vers Data Catalog. Pour en savoir plus sur l’API Data Catalog et l’exemple d’outil, vous pouvez [télécharger l’exemple de code de classeur Ad Hoc](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) et découvrir la documentation sur l’[API REST Azure Data Catalog](https://msdn.microsoft.com/library/azure/mt267593.aspx).
-> 
-> 
+>
+>
 
 Une fois le projet pilote en place, il est temps d’exécuter votre plan d’adoption Data Catalog.
 
@@ -142,9 +142,9 @@ Voici quelques conseils pour bien commencer :
 Avant que votre équipe pilote ne s’implique dans l’utilisation de Data Catalog, planifiez une réunion de lancement pour discuter des attentes du projet pilote, et dispensez une formation initiale.
 
 ### <a name="set-expectations"></a>Définir des attentes
-La définition d’objectifs et d’exceptions permet aux utilisateurs professionnels de se concentrer sur des livrables spécifiques. Pour suivre l’évolution du projet, attribuez régulièrement des travaux (sur une base quotidienne ou hebdomadaire en fonction de l’étendue et de la durée du pilote). L’une des fonctionnalités les plus intéressantes de Data Catalog est le crowdsourcing des ressources de données afin que les utilisateurs professionnels puissent bénéficier des connaissances tirées des données d’entreprise. Il est conseillé d’attribuer ce travail très intéressant : demandez à chaque membre d’équipe pilote d’inscrire ou d’annoter au moins une source de données qu’il a utilisée. Consultez les sections [Inscrire une source de données](data-catalog-get-started.md#exercise-2-registering-data-sources) et [Annotation des sources de données](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
+La définition d’objectifs et d’exceptions permet aux utilisateurs professionnels de se concentrer sur des livrables spécifiques. Pour suivre l’évolution du projet, attribuez régulièrement des travaux (sur une base quotidienne ou hebdomadaire en fonction de l’étendue et de la durée du pilote). L’une des fonctionnalités les plus intéressantes de Data Catalog est le crowdsourcing des ressources de données afin que les utilisateurs professionnels puissent bénéficier des connaissances tirées des données d’entreprise. Il est conseillé d’attribuer ce travail très intéressant : demandez à chaque membre d’équipe pilote d’inscrire ou d’annoter au moins une source de données qu’il a utilisée. Consultez les sections [Inscrire une source de données](data-catalog-get-started.md) et [Annotation des sources de données](data-catalog-get-started.md).
 
-Rencontrez régulièrement l’équipe pour passer en revue quelques-unes des annotations. Des annotations correctes sur les sources de données sont au cœur d’une adoption de Data Catalog réussie, car elles apportent des informations intéressantes sur les sources de données dans un emplacement central. Sans annotations de bonne qualité, les connaissances sur les sources de données restent dispersées dans toute l’entreprise. Consultez les sections [Annotation des sources de données](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
+Rencontrez régulièrement l’équipe pour passer en revue quelques-unes des annotations. Des annotations correctes sur les sources de données sont au cœur d’une adoption de Data Catalog réussie, car elles apportent des informations intéressantes sur les sources de données dans un emplacement central. Sans annotations de bonne qualité, les connaissances sur les sources de données restent dispersées dans toute l’entreprise. Consultez les sections [Annotation des sources de données](data-catalog-get-started.md).
 
 Et bien sûr, pour finir, il convient de tester le projet pour vérifier que les utilisateurs peuvent découvrir et comprendre les sources de données qu’ils doivent utiliser. Les utilisateurs du pilote doivent régulièrement tester le catalogue pour s’assurer que les sources de données qu’ils utilisent pour leurs tâches quotidiennes sont pertinentes. Lorsqu’une source de données requise est manquante ou si elle n’est pas correctement annotée, elle doit servir de rappel pour inscrire des sources de données supplémentaires ou pour fournir des annotations supplémentaires. Cette pratique n’ajoute pas seulement de la valeur au pilote : elle génère également des habitudes efficaces, qui sont reportées aux autres équipes à l’issue de l’application du pilote.
 
@@ -162,11 +162,10 @@ Cet article concernait la prise en main d’ **Azure Data Catalog** dans votre o
 * [Page du produit Azure Data Catalog](https://azure.microsoft.com/services/data-catalog/)
 * [Documentation Azure Data Catalog](https://azure.microsoft.com/documentation/services/data-catalog/)
 * [Scénarios courants avec Azure Data Catalog](data-catalog-common-scenarios.md)
-* [Inscription des sources de données](data-catalog-get-started.md#exercise-2-registering-data-sources)
-* [Rechercher des sources de données](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets)
-* [Annoter des sources de données](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
-* [Métadonnées en crowdsourcing](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
-
+* [Inscription des sources de données](data-catalog-get-started.md)
+* [Rechercher des sources de données](data-catalog-get-started.md)
+* [Annoter des sources de données](data-catalog-get-started.md)
+* [Métadonnées en crowdsourcing](data-catalog-get-started.md)
 
 
 

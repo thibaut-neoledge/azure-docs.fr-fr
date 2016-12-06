@@ -7,6 +7,6 @@ Vous avez déjà un compte Azure ? Cliquez sur le bouton ci-dessous pour créer 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

@@ -15,18 +15,18 @@ ms.topic: get-started-article
 ms.date: 10/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 20aefd2c94bca03653f11a91c5ade173cb6da9bf
+ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
+ms.openlocfilehash: 4a2d271be7fbd0d27163ead8f8eb2c05a43f7fbc
 
 
 ---
-# <a name="securing-cloud-resources-with-azure-multifactor-authentication-and-ad-fs"></a>Sécurisation des ressources de cloud avec le serveur Azure Multi-Factor Authentication et AD FS
+# <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Sécurisation des ressources de cloud avec le serveur Azure Multi-Factor Authentication et AD FS
 Si votre organisation est fédérée avec Azure Active Directory AD, utilisez l’authentification multifacteur Azure ou les services de fédération d’Active Directory pour sécuriser les ressources auxquelles Azure AD accède. Utilisez les procédures suivantes pour sécuriser les ressources Azure Active Directory avec l’authentification multifacteur Azure ou les services de fédération d’Active Directory.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Sécurisation des ressources Azure AD à l’aide d’AD FS
 Pour sécuriser vos ressources de cloud, activez tout d’abord un compte pour les utilisateurs, puis définissez une règle de revendication. Suivez cette procédure pour les différentes étapes :
 
-1. Utilisez la procédure décrite dans [Activez l’authentification multifacteur pour vos utilisateurs](multi-factor-authentication-get-started-cloud.md#turn-on-multi-factor-authentication-for-users) pour activer un compte.
+1. Utilisez la procédure décrite dans [Activez l’authentification multifacteur pour vos utilisateurs](multi-factor-authentication-get-started-cloud.md#turn-on-two-step-verification-for-users) pour activer un compte.
 2. Démarrez la console de gestion AD FS.
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
 3. Accédez aux **Approbations de partie de confiance** et cliquez avec le bouton droit de la souris sur Approbation de partie de confiance. Sélectionnez **Modifier les règles de revendication...**
@@ -34,13 +34,13 @@ Pour sécuriser vos ressources de cloud, activez tout d’abord un compte pour l
 5. Dans la liste déroulante, sélectionnez **Envoyer les revendications en utilisant une règle personnalisée**, puis cliquez sur **Suivant**.
 6. Donnez un nom à cette règle.
 7. Sous Règle personnalisée : ajoutez le texte suivant :
-   
+
     ```
     => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsreferences", Value = "http://schemas.microsoft.com/claims/multipleauthn");
     ```
-   
+
     Revendication correspondante :
-   
+
     ```
     <saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
     <saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
@@ -74,7 +74,7 @@ La première chose à faire consiste à configurer les revendications AD FS. Nou
 10. Dans l’Assistant Ajout de règle de revendication de transformation, sélectionnez **Envoyer les revendications en utilisant une règle personnalisée** dans la liste déroulante et cliquez sur **Suivant**.
 11. Dans la zone sous Nom de la règle de revendication : entrez *Keep Users Signed In (Maintenir les utilisateurs connectés)*.
 12. Dans la zone Règle personnalisée, entrez :
-    
+
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
     ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
@@ -83,7 +83,7 @@ La première chose à faire consiste à configurer les revendications AD FS. Nou
 15. Cliquez sur **OK**.
 16. Fermez Gestion AD FS.
 
-### <a name="configure-azure-multifactor-authentication-trusted-ips-with-federated-users"></a>Configuration d'adresses IP de confiance Azure Multi-Factor Authentication avec des utilisateurs fédérés
+### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configuration d'adresses IP de confiance Azure Multi-Factor Authentication avec des utilisateurs fédérés
 Maintenant que les revendications sont en place, nous pouvons configurer des adresses IP approuvées.
 
 1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
@@ -97,7 +97,6 @@ Maintenant que les revendications sont en place, nous pouvons configurer des adr
 8. Une fois les mises à jour appliquées, cliquez sur **Fermer**.
 
 Et voilà ! À ce stade, les utilisateurs fédérés d'Office 365 doivent pouvoir utiliser uniquement MFA lorsqu'une revendication provient de l'extérieur de l'intranet de l'entreprise.
-
 
 
 

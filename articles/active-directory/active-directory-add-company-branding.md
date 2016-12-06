@@ -224,6 +224,6 @@ Certains éléments personnalisables d’Azure AD peuvent être utilisés de pl
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

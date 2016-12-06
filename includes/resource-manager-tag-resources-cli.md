@@ -1,16 +1,16 @@
-To add a tag to a resource group, use **azure group set**. If the resource group does not have any existing tags, pass in the tag.
+Pour ajouter une balise à un groupe de ressources, utilisez **azure group set**. Si le groupe de ressources ne comporte aucune balise, transmettez la balise.
 
     azure group set -n tag-demo-group -t Dept=Finance
 
-Tags are updated as a whole. If you want to add a tag to a resource group that has existing tags, pass all the tags. 
+Les balises sont mises à jour en tant qu'ensemble. Si vous souhaitez ajouter une balise à un groupe de ressources comportant déjà des balises, transmettez toutes les balises. 
 
     azure group set -n tag-demo-group -t Dept=Finance;Environment=Production;Project=Upgrade
 
-Tags are not inherited by resources in a resource group. To add a tag to a resource, use **azure resource set**. You must pass the API version number for the resource type that you are adding the tag to. If you need to retrieve the API version, use the following command with the resource provider for the type you are setting:
+Les balises ne sont pas héritées par les ressources d’un groupe de ressources. Pour ajouter une balise à une ressource, utilisez **azure resource set**. Vous devez transmettre le numéro de version d’API associé au type de ressource auquel vous ajoutez la balise. Si vous avez besoin de récupérer la version d’API, utilisez la commande ci-après avec le fournisseur de ressources pour le type que vous définissez :
 
     azure provider show -n Microsoft.Storage --json
 
-In the results, look for the resource type you want.
+Dans les résultats, recherchez le type de ressource souhaité.
 
     "resourceTypes": [
     {
@@ -24,15 +24,15 @@ In the results, look for the resource type you want.
     }
     ...
 
-Now, provide that API version, resource group name, resource name, resource type, and tag value as parameters.
+Ensuite, indiquez cette version d’API, le nom du groupe de ressources, le nom de la ressource, le type de la ressource et la valeur de balise sous forme de paramètres.
 
     azure resource set -g tag-demo-group -n storagetagdemo -r Microsoft.Storage/storageAccounts -t Dept=Finance -o 2016-01-01
 
-Tags exist directly on resources and resource groups. To see the existing tags, simply get a resource group and its resources with **azure group show**.
+Les balises se trouvent directement dans les ressources et les groupes de ressources. Pour afficher les balises existantes, il suffit de récupérer un groupe de ressources et ses ressources avec **azure group show**.
 
     azure group show -n tag-demo-group --json
 
-Which returns metadata about the resource group, including any tags applied to it.
+Ce qui renvoie des métadonnées sur le groupe de ressources, y compris toutes les balises appliquées.
 
     {
       "id": "/subscriptions/4705409c-9372-42f0-914c-64a504530837/resourceGroups/tag-demo-group",
@@ -48,24 +48,24 @@ Which returns metadata about the resource group, including any tags applied to i
       },
       ...
 
-You view the tags for a particular resource by using **azure resource show**.
+Vous affichez les balises d’une ressource spécifique avec **azure resource show**.
 
     azure resource show -g tag-demo-group -n storagetagdemo -r Microsoft.Storage/storageAccounts -o 2016-01-01 --json
 
-To retrieve all the resources with a tag value, use:
+Pour récupérer toutes les ressources avec une valeur de balise, utilisez la commande suivante :
 
     azure resource list -t Dept=Finance --json
 
-To retrieve all the resource groups with a tag value, use:
+Pour récupérer tous les groupes de ressources avec une valeur de balise, utilisez la commande suivante :
 
     azure group list -t Dept=Finance
 
-You can view the existing tags in your subscription with the following command:
+Vous pouvez visualiser les balises existantes dans votre abonnement avec la commande suivante :
 
     azure tag list
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

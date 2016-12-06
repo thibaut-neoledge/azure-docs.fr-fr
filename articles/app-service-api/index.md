@@ -1,10 +1,14 @@
 ---
 layout: LandingPage
+translationtype: Human Translation
+ms.sourcegitcommit: 2169b6e72c82ad4d9bf4b443d681c22c770229d5
+ms.openlocfilehash: 48b251543871b3ac3a7aad89bc025feabb83e242
+
 
 ---
-# App Service - API Apps Documentation
+# <a name="app-service---api-apps-documentation"></a>App Service - Documentation API Apps
 
-Azure App Service is a cloud service that's designed to solve the practical problems that engineers face today. API apps in Azure App Service offer features that make it easier to develop, host, and consume APIs in the cloud and on-premises. With API apps, you get enterprise grade security, simple access control, hybrid connectivity, automatic SDK generation, and seamless integration with Logic Apps. Azure App Service is a fully managed platform for web, mobile, and integration scenarios. API Apps is one of four app types offered by Azure App Service.
+API Apps est l’un des quatre types d’applications proposés par Azure App Service. La fonction API Apps d’Azure App Service offre un ensemble complet de fonctionnalités en matière de développement, d’hébergement et d’utilisation des API dans le cloud et en local. Azure App Service est une plateforme entièrement gérée conçue pour les scénarios web et mobiles, ainsi que pour les scénarios d’intégration.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -14,11 +18,11 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/app-service-api.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about API Apps</h3>
+                        <h3>En savoir plus sur API Apps</h3>
                     </div>
                 </div>
             </div>
@@ -32,11 +36,11 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>App Service Video Library</h3>
+                        <h3>Bibliothèque vidéo App Service</h3>
                     </div>
                 </div>
             </div>
@@ -50,11 +54,11 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/dotnet.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with API Apps, ASP.NET adn Swagger in Azure App Service</h3>
+                        <h3>Prise en main d’API Apps, d’ASP.NET et de Swagger dans Azure App Service</h3>
                     </div>
                 </div>
             </div>
@@ -68,11 +72,11 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/java.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Java API app in Azure App Service</h3>
+                        <h3>Prise en main de la création d’une application API Java dans Azure App Service</h3>
                     </div>
                 </div>
             </div>
@@ -86,11 +90,11 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/nodejs.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Node.js API</h3>
+                        <h3>Prise en main de la création d’une API Node.js</h3>
                     </div>
                 </div>
             </div>
@@ -104,11 +108,11 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an API app from JavaScript using CORS</h3>
+                        <h3>Prise en main de la création d’une application API à partir de JavaScript à l’aide de CORS</h3>
                     </div>
                 </div>
             </div>
@@ -123,7 +127,12 @@ Azure App Service is a cloud service that's designed to solve the practical prob
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-api.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Mobile Apps Documentation
-        </div>
+Télécharger la documentation Mobile Apps </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO5-->
+
+

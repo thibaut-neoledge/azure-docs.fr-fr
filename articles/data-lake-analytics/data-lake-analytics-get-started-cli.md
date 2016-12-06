@@ -1,6 +1,6 @@
 ---
 title: "Prise en main du service Azure Data Lake Analytics à l’aide de l’interface de ligne de commande Azure (CLI) | Microsoft Docs"
-description: "Découvrez comment utiliser l’interface de ligne de commande Azure pour créer un compte Data Lake Store, créer un travail Data Lake Analytics avec U-SQL et le soumettre. "
+description: "Découvrez comment utiliser l’interface de ligne de commande Azure pour créer un compte Data Lake Analytics, créer un travail Data Lake Analytics avec U-SQL et le soumettre. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -15,12 +15,12 @@ ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8b38c62ae1a60728d08643990238e2cc69cb6447
+ms.sourcegitcommit: c9440e26a563ed9315225b34709b009d01e065d7
+ms.openlocfilehash: ff9b0d9e098fd8c6cde7c63c005c8f1906c6e0f2
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-commandline-interface-cli"></a>Tutoriel : prise en main du service Azure Data Lake Analytics à l’aide de l’interface de ligne de commande Azure (CLI)
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Tutoriel : prise en main du service Azure Data Lake Analytics à l’aide de l’interface de ligne de commande Azure (CLI)
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Découvrez comment utiliser l’interface de ligne de commande Azure pour créer des comptes Azure Data Lake Analytics, définir des travaux Data Lake Analytics dans [U-SQL](data-lake-analytics-u-sql-get-started.md), et envoyer des travaux à des comptes Data Lake Analytics. Pour plus d’informations sur Analytique Data Lake, consultez [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md).
@@ -165,6 +165,6 @@ Une fois le travail terminé, vous pouvez utiliser les applets de commande suiva
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

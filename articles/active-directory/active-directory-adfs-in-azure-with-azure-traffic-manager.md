@@ -126,6 +126,6 @@ Le moyen le plus simple de tester AD FS est d’utiliser la page IdpInitiatedSig
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

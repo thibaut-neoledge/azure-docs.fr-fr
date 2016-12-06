@@ -230,6 +230,6 @@ Vous souhaitez savoir ce que vos utilisateurs font avec votre application ?
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

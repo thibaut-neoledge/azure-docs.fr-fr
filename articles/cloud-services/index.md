@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Cloud Services Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: af0eb3ce49e509992ab582558a342933f950afdb
 
-Cloud Services is an example of a Platform-as-a-Service (PaaS) implementation. It is designed to support applications that are scalable, reliable, and cost-effective to operate. With Cloud Services, you have the benefit of virtualization, but you also have control over the virtual machine to configure, patch, and install software.  
+---
+#<a name="cloud-services-documentation"></a>Documentation Services cloud
+
+Services cloud est un exemple d’implémentation PaaS (platform as a service). Cette offre est conçue pour prendre en charge des applications évolutives, fiables et dont l’exploitation est rentable. Services cloud vous offre non seulement l’avantage de la virtualisation, mais également le contrôle de la machine virtuelle pour la configuration, la correction et l’installation du logiciel.  
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Cloud Services is an example of a Platform-as-a-Service (PaaS) implementation. I
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Cloud Services</h3>
+                        <h3>En savoir plus sur Services cloud</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Cloud Services is an example of a Platform-as-a-Service (PaaS) implementation. I
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Cloud Services Video Library</h3>
+                        <h3>Bibliothèque vidéo Services cloud</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Cloud Services is an example of a Platform-as-a-Service (PaaS) implementation. I
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your first .NET app with Cloud Services</h3>
+                        <h3>Prise en main de Services cloud à l’aide de .NET</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Cloud Services is an example of a Platform-as-a-Service (PaaS) implementation. I
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Python app </h3>
+                        <h3>Prise en main de Services cloud à l’aide de Python</h3>
                     </div>
                 </div>
             </div>
@@ -82,20 +86,61 @@ Cloud Services is an example of a Platform-as-a-Service (PaaS) implementation. I
 
 ---
 
-##Reference
+## <a name="reference"></a>Référence
 
-###REST
-[Cloud Services REST API Reference](https://msdn.microsoft.com/library/azure/ee460812.aspx)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/ee460812">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Informations de référence sur l’API REST des Services cloud</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###.Schemas
-[Cloud Services Definition Schema](https://msdn.microsoft.com/en-us/library/azure/ee758711.aspx)
-[Cloud Services Configuration Schema](https://msdn.microsoft.com/en-us/library/azure/ee758710.aspx)
+    <li>
+        <a href="https://msdn.microsoft.com/en-us/library/azure/ee758711">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Schémas</h3>
+                        <p>Schéma de définition de Services cloud</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+        <a href="https://msdn.microsoft.com/en-us/library/azure/ee758710">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <p>Schéma de configuration de Services cloud</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cloud-services.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Cloud Services Documentation
-        </div>
+Télécharger la documentation Services cloud </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

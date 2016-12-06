@@ -2,13 +2,12 @@
 ## [Présentation de Data Catalog](data-catalog-what-is-data-catalog.md)
 ## [Scénarios courants](data-catalog-common-scenarios.md)
 ## [Sources de données prises en charge](data-catalog-dsr.md)
-## [Nouveautés](data-catalog-whats-new.md)
 
 # Prise en main
 ## [Prise en main d’Azure Data Catalog](data-catalog-get-started.md)
 ## [Adoption d’Azure Data Catalog](data-catalog-adopting-data-catalog.md)
-## [Configuration requise pour Azure Data Catalog](data-catalog-prerequisites.md)
-## [Forum Aux Questions (FAQ)](data-catalog-frequently-asked-questions.md)
+## [Configuration requise](data-catalog-prerequisites.md)
+## [FAQ](data-catalog-frequently-asked-questions.md)
 
 # Procédure
 ## [Inscription des sources de données](data-catalog-how-to-register.md)
@@ -30,12 +29,16 @@
 ## [Raccourcis clavier pour Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
 ## [Terminologie](data-catalog-terminology.md)
 ## [Notes de publication](data-catalog-release-notes.md)
-## [REST](https://docs.microsoft.com/rest/api/datacatalog/)
+## [REST](/rest/api/datacatalog/)
 
 # les ressources
+## [Notes de publication](data-catalog-whats-new.md)
+## [Mises à jour de service](https://azure.microsoft.com/updates/?product=data-catalog)
 ## [Tarification](https://azure.microsoft.com/pricing/details/data-catalog/)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

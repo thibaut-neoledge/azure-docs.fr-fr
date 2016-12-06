@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 597043b17993ebddc9cf730ddce849e1d6ff3bc9
+ms.sourcegitcommit: 1a6dd35278f0a4a4f972642c40a0976986dd79ae
+ms.openlocfilehash: 25be292144e31c6f34ff1e015362aee31e242619
 
 
 ---
@@ -66,7 +66,7 @@ Lorsqu’un appareil se connecte pour la première fois à IoT Hub dans la solu
 * *Démarrer la télémétrie*: demande à l’appareil d’arrêter l’envoi des données de télémétrie.
 * *Modifier la température nominale*: contrôle les valeurs de télémétrie reflétant la température simulée envoyées par l’appareil. Cette commande est utile dans le cadre de tests de logique Back-end.
 * *Diagnostiquer la télémétrie*: détermine si l’appareil doit envoyer les données de température externe sous la forme de données de télémétrie.
-* *Modifier l’état de l’appareil*: définit la propriété des métadonnées d’état de l’appareil renvoyée par l’appareil. Cette commande est utile dans le cadre de tests de logique Back-end.
+* *Modifier l’état de l’appareil* : définit la propriété des métadonnées d’état de l’appareil renvoyée par l’appareil. Cette commande est utile dans le cadre de tests de logique Back-end.
 
 Vous pouvez ajouter à la solution d’autres appareils de simulation qui génèrent les mêmes données de télémétrie et répondent aux mêmes commandes. 
 
@@ -80,7 +80,7 @@ L’IoT Hub met les données de télémétrie qu’il reçoit à disposition via
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 La solution préconfigurée utilise trois tâches [Azure Stream Analytics][lnk-asa] (ASA) pour filtrer le flux de télémétrie en provenance des appareils :
 
-* *Tâche DeviceInfo* : génère des données vers un hub d'événements qui envoie des messages relatifs à l’instruction de l’inscription de l’appareil, envoyés lorsqu'un périphérique se connecte d'abord ou en réponse à une commande **Modifier l'état de l'appareil** , dans le registre d’appareils de la solution (une base de données DocumentDB). 
+* *Tâche DeviceInfo* : génère des données vers un hub d’événements qui envoie des messages relatifs à l’instruction de l’inscription de l’appareil, envoyés lorsqu’un périphérique se connecte d’abord ou en réponse à une commande **Modifier l’état de l’appareil**, dans le registre d’appareils de la solution (une base de données DocumentDB). 
 * *Tâche Telemetry* : envoie toutes les données de télémétrie brutes vers Azure Blob Storage pour un stockage à froid et calcule les données de télémétrie agrégées qui s’affichent dans le tableau de bord de la solution.
 * *Tâche Rules* : filtre le flux de télémétrie sur les valeurs qui dépassent les seuils de la règle et envoie les données vers un hub d’événements. Lorsqu’une règle se déclenche, la vue du tableau de bord du portail de la solution affiche cet événement sous la forme d’une nouvelle ligne dans la table d’historique des alarmes et déclenche une action compte tenu des paramètres définis dans les vues Règles et Actions du portail de la solution.
 
@@ -130,6 +130,6 @@ Pour plus d’informations sur les architectures de solution IoT, consultez le d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

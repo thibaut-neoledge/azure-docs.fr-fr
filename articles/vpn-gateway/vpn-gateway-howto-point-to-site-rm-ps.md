@@ -294,6 +294,6 @@ Vous pouvez ajouter une machine virtuelle à votre réseau virtuel. Consultez [C
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

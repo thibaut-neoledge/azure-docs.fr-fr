@@ -1,10 +1,10 @@
 # Vue d'ensemble
 ## [Qu’est-ce qu’Azure Backup ?](backup-introduction-to-azure-backup.md)
 # Prise en main
-## [FAQ](backup-azure-backup-faq.md)
 ## [Sauvegarder des fichiers et dossiers](backup-try-azure-backup-in-10-mins.md)
 ## [Sauvegarde des machines virtuelles Azure](backup-azure-vms-first-look.md)
 ## [Protéger des machines virtuelles Azure](backup-azure-vms-first-look-arm.md)
+## [FAQ](backup-azure-backup-faq.md)
 # Procédures
 ## Automatiser la sauvegarde à l’aide de PowerShell
 ### [Machines virtuelles Azure dans le portail Azure](backup-azure-vms-automation.md)
@@ -52,7 +52,13 @@
 ### [Échec de sauvegarde des machines virtuelles Azure : impossible de communiquer avec l’agent de machine virtuelle pour obtenir l’état de l’instantané ; la sous-tâche de capture instantanée de la machine virtuelle a expiré.](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Sauvegarde lente de fichiers et de dossiers dans Sauvegarde Azure](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
+# les ressources
+## [Tarification](https://azure.microsoft.com/pricing/details/backup/)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
+## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=backup) 
+## [Mises à jour de service](https://azure.microsoft.com/updates/?product=backup)
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

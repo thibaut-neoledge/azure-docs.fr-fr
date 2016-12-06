@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 29794682e0258a6d30c9b2ac96b6e58272bc3f48
-ms.openlocfilehash: 97a0f22bf72b30e6adc92e9b8d7e58a25e67c14b
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: 38ae37f4892fb32422ca8d7880a7b38674f29610
 
 ---
 # <a name="azure-web-apps-documentation"></a>Documentation Azure Web Apps
@@ -75,43 +75,25 @@ App Service Web Apps est une plateforme de calcul entièrement gérée, optim
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Créer une application web ASP.NET à l’aide de Visual Studio</h3>
+                        <h3>Prise en main de Web Apps à l’aide d’ASP.NET et de Visual Studio</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
-    </li>
-    <li>
-        <a href="/azure/app-service-web/web-sites-dotnet-get-started">
+    </li> 
+     <li>
+        <a href="/azure/app-service-web/web-sites-java-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/dotnet.svg" alt="" />
+                            <img src="media/index/java.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Créer une application web ASP.NET à l’aide de Visual Studio</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/app-service-web/web-sites-dotnet-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/dotnet.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Créer une application web ASP.NET à l’aide de Visual Studio</h3>
+                        <h3>Prise en main de Web Apps à l’aide de Java</h3>
                     </div>
                 </div>
             </div>
@@ -129,7 +111,7 @@ App Service Web Apps est une plateforme de calcul entièrement gérée, optim
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Prise en main des applications web Node.js dans Azure App Service</h3>
+                        <h3>Prise en main de Web Apps à l’aide de Node.js </h3>
                     </div>
                 </div>
             </div>
@@ -147,25 +129,26 @@ App Service Web Apps est une plateforme de calcul entièrement gérée, optim
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Créer une application web à l’aide de Python Tools 2.2</h3>
+                        <h3>Prise en main de Web Apps à l’aide d’Outils Python 2.2</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
-    <li>
-        <a href="/azure/app-service-web/web-sites-java-get-started">
+   
+     <li>
+        <a href="/azure/app-service-web/app-service-web-php-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/java.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Créer une application web Java dans Azure App Service</h3>
+                        <h3>Prise en main de Web Apps à l’aide de PHP</h3>
                     </div>
                 </div>
             </div>
@@ -183,7 +166,29 @@ App Service Web Apps est une plateforme de calcul entièrement gérée, optim
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Créer une application web WordPress dans Azure App Service</h3>
+                        <h3>Prise en main de WordPress dans Azure App Service</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+   
+</ul>
+
+---
+
+## <a name="reference"></a>Référence
+
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/cli/azure/appservice/web">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Interface de ligne de commande Azure</h3>
+                        <p>Référence de l’interface de ligne de commande Azure de Web Apps</p>
                     </div>
                 </div>
             </div>
@@ -191,40 +196,49 @@ App Service Web Apps est une plateforme de calcul entièrement gérée, optim
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/app-service-web-php-get-started">
+        <a href="/java/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>Créer, configurer et déployer une application web PHP dans Azure</h3>
+                        <h3>Java</h3>
+                        <p>Référence sur l’API Java</p>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
-</ul>
-
----
-
-## <a name="reference"></a>Référence
-
-### <a name="azure-cli"></a>Interface de ligne de commande Azure
-[Informations de référence sur Azure CLI de Web Apps](/cli/azure/)
-
-### <a name="java"></a>Java
-[Informations de référence sur l’API Java de Web Apps](/java/api/)
-
-### <a name="net"></a>.NET
-[Informations de référence sur l’API managée de Web Apps](/dotnet/api)
-
-### <a name="rest"></a>REST
-[Informations de référence sur l’API REST de Web Apps](/rest/api/appservice)
+     <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Référence API managée .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/rest/api/appservice">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Informations de référence sur l’API REST de Web Apps</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    </ul>
+    
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-web.pdf">
@@ -235,6 +249,7 @@ Télécharger la documentation Web Apps </div>
 </div>
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 
