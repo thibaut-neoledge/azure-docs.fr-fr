@@ -247,29 +247,41 @@ Voici les commandes et des exemples utiles pour préparer le disque dur à l’a
 
 Commande PrepImport de l’outil client Azure Import/Export pour copier un répertoire pendant la première session de copie :
 
-    WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
+WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
 
 **Exemple :**
 
 Dans l’exemple ci-dessous, nous copions tous les fichiers et sous-répertoires de « H:\Video » dans le disque dur monté sur « X: ». Les données sont importées dans le compte de stockage cible spécifié par la clé de compte de stockage et dans le conteneur de stockage appelé « video ». Si le compte de stockage n’existe pas, il est créé. Cette commande formate et chiffre le disque dur cible.
 
-    WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:storageaccountkey /t:x /format /encrypt /srcdir:H:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
+```
+WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:storageaccountkey /t:x /format /encrypt /srcdir:H:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
+```
 
 Commande PrepImport de l’outil client Azure Import/Export pour copier un répertoire pendant les sessions de copie suivantes :
 
-    WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
+WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
 
 Pour les sessions de copie suivantes sur le même disque dur, spécifiez le même nom de fichier journal et indiquez un nouvel ID de session. Il n’est pas nécessaire d’indiquer à nouveau la clé du compte de stockage et le disque cible, ni de formater ou chiffrer le disque. Dans cet exemple, nous copions le dossier « H:\Photo » et ses sous-répertoires sur le même disque cible, dans le conteneur de stockage appelé « photo ».
 
-    WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Photo /srcdir:H:\Photo /dstdir:photo/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
+```
+WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Photo /srcdir:H:\Photo /dstdir:photo/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
+```
 
 Commande PrepImport de l’outil client Azure Import/Export permettant de copier un fichier pendant la première session de copie :
 
-    WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
+WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
 
 Commande PrepImport de l’outil client Azure Import/Export permettant de copier un fichier pendant les sessions de copie suivantes :
 
-    WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
+WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
 
 **Attention**: par défaut, les données sont importées sous la forme d’objets blob de blocs. Vous pouvez utiliser le paramètre /BlobType pour importer les données sous la forme d’objets blob de page. Par exemple, si vous importez des fichiers de disque dur virtuel qui seront montés comme des disques sur une machine virtuelle Azure, vous devez les importer en tant qu’objets blob de page. Si vous ne savez pas quel type d’objet blob utiliser, vous pouvez spécifier /blobType:auto pour nous aider à déterminer le type approprié. Dans ce cas, tous les fichiers vhd et vhdx sont importés en tant qu’objets blob de page, le reste étant importé sous la forme d’objets blob de bloc.
 
