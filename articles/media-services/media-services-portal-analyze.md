@@ -1,143 +1,151 @@
 ---
-title: Analyze your media using the Azure portal | Microsoft Docs
-description: This topic discusses how to process your media with Media Analytics media processors (MPs) using the Azure portal.
+title: "Analyser vos éléments multimédias à l’aide du portail Azure | Microsoft Docs"
+description: "Cette rubrique explique comment traiter vos éléments multimédia avec des processeurs multimédia Media Analytics à l’aide du portail Azure."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 10/24/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d66b9e4c237ca195e2e0094aead7ce029f4fdf36
+
 
 ---
-# <a name="analyze-your-media-using-the-azure-portal"></a>Analyze your media using the Azure portal
+# <a name="analyze-your-media-using-the-azure-portal"></a>Analyser vos éléments multimédia à l’aide du portail Azure
 > [!NOTE]
-> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
+> Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
-## <a name="overview"></a>Overview
-Azure Media Services Analytics is a collection of speech and vision components (at enterprise scale, compliance, security and global reach) that make it easier for organizations and enterprises to derive actionable insights from their video files. For more detailed overview of Azure Media Services Analytics see [this](media-services-analytics-overview.md) topic. 
+## <a name="overview"></a>Vue d’ensemble
+Azure Media Services Analytics est un ensemble de composants de reconnaissance vocale et de vision qui répondent aux besoins des entreprises en termes de conformité, de sécurité et de portée mondiale, et qui aident les organisations et les entreprises à extraire des informations exploitables de leurs fichiers vidéo. Pour une présentation plus détaillée d’Azure Media Services Analytics, consultez [cette](media-services-analytics-overview.md) rubrique. 
 
-This topic discusses how to process your media with Media Analytics media processors (MPs) using the Azure portal. Media Analytics MPs produce MP4 files or JSON files. If a media processor produced an MP4 file, you can progressively download the file. If a media processor produced a JSON file, you can download the file from the Azure blob storage. 
+Cette rubrique explique comment traiter vos éléments multimédia avec des processeurs multimédia Media Analytics à l’aide du portail Azure. Les processeurs multimédia Media Analytics créent des fichiers MP4 ou JSON. Si un processeur multimédia a produit un fichier MP4, vous pouvez télécharger ce dernier progressivement. Si un processeur multimédia a produit un fichier JSON, vous pouvez télécharger ce dernier à partir d’Azure Blob Storage. 
 
-## <a name="choose-an-asset-that-you-want-to-analyze"></a>Choose an asset that you want to analyze
-1. In the **Settings** window, select **Assets**.  
+## <a name="choose-an-asset-that-you-want-to-analyze"></a>Sélectionner une ressource que vous souhaitez analyser
+1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre compte Azure Media Services.
+2. Dans la fenêtre **Paramètres**, sélectionnez **Éléments multimédias**.  
    .
-    ![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze001.png)
-2. Select the asset that you would like to analyze and press the **Analyze** button.
+    ![Analyser des vidéos](./media/media-services-portal-analyze/media-services-portal-analyze001.png)
+3. Sélectionnez l’élément que vous souhaitez analyser, puis appuyez sur le bouton **Analyser**.
    
-    ![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze002.png)
-3. In the **Process media asset with  Media Analytics** window, select the processor. 
+    ![Analyser des vidéos](./media/media-services-portal-analyze/media-services-portal-analyze002.png)
+4. Dans la fenêtre **Traiter un fichier multimédia avec Analytique multimédia**, sélectionnez le processeur. 
    
-    The rest of the article explains why and how to use each processor. 
-4. Press **Create** to the start a job.
+    Le reste de cet article explique pourquoi et comment utiliser chaque processeur. 
+5. Appuyez sur **Créer** pour démarrer un travail.
 
 ## <a name="azure-media-indexer"></a>Azure Media Indexer
-The **Azure Media Indexer** media processor enables you to make media files and content searchable, as well as generate closed captioning tracks. This sections gives some details about options that you can specify for this MP.
+Le processeur multimédia **Azure Media Indexer** permet d’effectuer des recherches dans les fichiers multimédias et le contenu et de générer des pistes de sous-titrage. Cette section donne des informations sur les options que vous pouvez spécifier pour ce processeur multimédia.
 
-![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
+![Analyser des vidéos](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
 
-### <a name="language"></a>Language
-The natural language to be recognized in the multimedia file. For example, English or Spanish. 
+### <a name="language"></a>Langage
+La langue naturelle à reconnaître dans le fichier multimédia. Par exemple, anglais ou espagnol. 
 
-### <a name="captions"></a>Captions
-You can choose a caption format that will be generated from your content. An indexing job can generate closed caption files in the following formats:  
+### <a name="captions"></a>Sous-titres
+Vous pouvez choisir un format de sous-titre qui sera généré à partir de votre contenu. Un travail d’indexation peut générer des fichiers de sous-titres dans les formats suivants :  
 
 * **SAMI**
 * **TTML**
 * **WebVTT**
 
-Closed Caption (CC) files in these formats can be used to make audio and video files accessible to people with hearing disability.
+Les fichiers de sous-titre dans ces formats permettent de rendre un fichier audio et vidéo accessible aux malentendants.
 
-### <a name="aib-file"></a>AIB file
-Select this option if you would like to generate the Audio Index Blob file for use with the custom SQL Server IFilter. For more information, see [this](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) blog.
+### <a name="aib-file"></a>Fichier AIB
+Sélectionnez cette option si vous souhaitez générer le fichier Audio Index Blob pour une utilisation avec SQL Server IFilter personnalisé. Pour plus d’informations, consultez [ce](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) blog.
 
-### <a name="keywords"></a>Keywords
-Select this option if you would like to generate a keywords XML file. This file contains keywords extracted from the speech content, with frequency and offset information.
+### <a name="keywords"></a>Mots clés
+Sélectionnez cette option si vous souhaitez générer un fichier XML de mots clés. Ce fichier contient les mots clés extraits à partir du contenu de la reconnaissance vocale, avec les informations relatives à la fréquence et à la référence.
 
-### <a name="job-name"></a>Job name
-A friendly name that lets you identify the job. [This](media-services-portal-check-job-progress.md) article describes how you can monitor the progress of a job. 
+### <a name="job-name"></a>Nom du travail
+Nom convivial qui vous permet d’identifier le travail. [Cet](media-services-portal-check-job-progress.md) article explique comment vous pouvez surveiller la progression d’un travail. 
 
-### <a name="output-file"></a>Output file
-A friendly name that lets you identify the output content. 
+### <a name="output-file"></a>Fichier de sortie
+Nom convivial qui vous permet d’identifier le contenu en sortie. 
 
 ## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-Azure Media Hyperlapse is an MP that creates smooth time-lapsed videos from first-person or action-camera content.  For more information, see [this](media-services-hyperlapse-content.md) topic. This sections gives some details about options that you can specify for this MP.
+Azure Media Hyperlapse est un processeur multimédia qui crée des vidéos exceptionnelles image par image accélérées (time-lapse) à partir d’un contenu de caméra à la première personne (first-person camera) ou d’action.  Pour plus d’informations, consultez [cette](media-services-hyperlapse-content.md) rubrique. Cette section donne des informations sur les options que vous pouvez spécifier pour ce processeur multimédia.
 
-![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
+![Analyser des vidéos](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
-### <a name="speed"></a>Speed
-Specify the speed with which to speed up the input video. The output is a stabilized and time-lapsed rendition of the input video.
+### <a name="speed"></a>Vitesse
+Indique la vitesse d’accélération de la vidéo d’entrée. La sortie est un rendu stabilisé et accéléré de l'entrée vidéo.
 
-### <a name="job-name"></a>Job name
-A friendly name that lets you identify the job. [This](media-services-portal-check-job-progress.md) article describes how you can monitor the progress of a job. 
+### <a name="job-name"></a>Nom du travail
+Nom convivial qui vous permet d’identifier le travail. [Cet](media-services-portal-check-job-progress.md) article explique comment vous pouvez surveiller la progression d’un travail. 
 
-### <a name="output-file"></a>Output file
-A friendly name that lets you identify the output content. 
+### <a name="output-file"></a>Fichier de sortie
+Nom convivial qui vous permet d’identifier le contenu en sortie. 
 
-## <a name="azure-media-face-detector"></a>Azure Media Face Detector
-The **Azure Media Face Detector** media processor (MP) enables you to count, track movements, and even gauge audience participation and reaction via facial expressions. This service contains two features: 
+## <a name="azure-media-face-detector"></a>Détecteur de visage Azure Media
+Le processeur multimédia **Azure Media Face Detector** vous permet de compter, de suivre le mouvement, voire de mesurer la participation du public ainsi que ses réactions en analysant les expressions faciales. Ce service présente deux fonctionnalités : 
 
-* **Face detection**
+* **Détection faciale**
   
-    Face detection finds and tracks human faces within a video. Multiple faces can be detected and subsequently be tracked as they move around, with the time and location metadata returned in a JSON file. During tracking, it will attempt to give a consistent ID to the same face while the person is moving around on screen, even if they are obstructed or briefly leave the frame.
+    La détection faciale détecte et suit les visages humains au sein d’une vidéo. Plusieurs visages peuvent être détectés et, par la suite, suivis dans leurs mouvements ; les métadonnées d’horodatage et de localisation seront retournées dans un fichier JSON. Lors du suivi, la fonctionnalité tente d’attribuer un identificateur cohérent à un visage en mouvement, même si ce dernier quitte momentanément l’image ou s’il est caché.
   
   > [!NOTE]
-  > This services does not perform facial recognition. An individual who leaves the frame or becomes obstructed for too long will be given a new ID when they return.
+  > Ce service n’effectue pas la reconnaissance faciale. Une personne qui quitte l’image ou dont le visage est caché pendant une période prolongée se voit attribuer un nouvel identifiant à son retour.
   > 
   > 
-* **Emotion detection**
+* **Détection d’émotions**
   
-    Emotion Detection is an optional component of the Face Detection Media Processor that returns analysis on multiple emotional attributes from the faces detected, including happiness, sadness, fear, anger, and more. 
+    La détection d’émotions est un composant facultatif du processeur multimédia de détection faciale, qui analyse plusieurs caractéristiques émotionnelles sur les visages détectés, telles que le bonheur, la tristesse, la peur, la colère et bien plus encore. 
 
-![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze005.png)
+![Analyser des vidéos](./media/media-services-portal-analyze/media-services-portal-analyze005.png)
 
-### <a name="detection-mode"></a>Detection mode
-One of the following modes can be used by the processor:
+### <a name="detection-mode"></a>Mode de détection
+Le processeur peut utiliser l’un des modes suivants :
 
-* face detection
-* per face emotion detection
-* aggregate emotion detection
+* détection faciale
+* détection d’émotion par visage
+* détection d’émotion agrégée
 
-### <a name="job-name"></a>Job name
-A friendly name that lets you identify the job. [This](media-services-portal-check-job-progress.md) article describes how you can monitor the progress of a job. 
+### <a name="job-name"></a>Nom du travail
+Nom convivial qui vous permet d’identifier le travail. [Cet](media-services-portal-check-job-progress.md) article explique comment vous pouvez surveiller la progression d’un travail. 
 
-### <a name="output-file"></a>Output file
-A friendly name that lets you identify the output content. 
+### <a name="output-file"></a>Fichier de sortie
+Nom convivial qui vous permet d’identifier le contenu en sortie. 
 
-## <a name="azure-media-motion-detector"></a>Azure Media Motion Detector
-The **Azure Media Motion Detector** media processor (MP) enables you to efficiently identify sections of interest within an otherwise long and uneventful video. Motion detection can be used on static camera footage to identify sections of the video where motion occurs. It generates a JSON file containing a metadata with timestamps and the bounding region where the event occurred.
+## <a name="azure-media-motion-detector"></a>Détecteur de mouvement Azure Media
+Le processeur multimédia **Azure Media Motion Detector** vous permet d’identifier efficacement les passages intéressants dans une vidéo qui, autrement, serait longue et monotone. La détection de mouvement peut être utilisée sur des séquences d’une caméra fixe pour identifier les passages de la vidéo où un mouvement se produit. Elle génère un fichier JSON contenant des métadonnées avec des horodateurs et le cadre de limitation de la vidéo où s’est produit l’événement.
 
-Targeted towards security video feeds, this technology is able to categorize motion into relevant events and false positives such as shadows and lighting changes. This allows you to generate security alerts from camera feeds without being spammed with endless irrelevant events, while being able to extract moments of interest from extremely long surveillance videos.
+Ciblant les vidéos de surveillance, cette technologie est en mesure de classer les mouvements en événements pertinents et en faux positifs, tels que les ombres et les variations d’éclairage. Cela vous permet de générer des alertes de sécurité à partir de séquences vidéo sans perdre de temps avec d’innombrables faux positifs, et tout en accédant rapidement aux moments clés dans des vidéos de surveillance extrêmement longues.
 
-![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze006.png)
+![Analyser des vidéos](./media/media-services-portal-analyze/media-services-portal-analyze006.png)
 
-## <a name="azure-media-video-thumbnails"></a>Azure Media Video Thumbnails
-This processor can help you create summaries of long videos by automatically selecting interesting snippets from the source video. This is useful when you want to provide a quick overview of what to expect in a long video. For detailed information and examples, see [Use Azure Media Video Thumbnails to Create a Video Summarization](media-services-video-summarization.md)
+## <a name="azure-media-video-thumbnails"></a>Miniatures vidéo Azure Media
+Ce processeur peut vous aider à créer des synthèses de longues vidéos en sélectionnant automatiquement des extraits intéressants à partir de la vidéo source. Elle est utile quand vous voulez offrir une présentation rapide de ce qui se trouve dans une vidéo longue. Pour obtenir des informations détaillées et des exemples, consultez [Utiliser Azure Media Video Thumbnails pour créer une synthèse d’une vidéo](media-services-video-summarization.md)
 
-![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze008.png)
+![Analyser des vidéos](./media/media-services-portal-analyze/media-services-portal-analyze008.png)
 
-### <a name="job-name"></a>Job name
-A friendly name that lets you identify the job. [This](media-services-portal-check-job-progress.md) article describes how you can monitor the progress of a job. 
+### <a name="job-name"></a>Nom du travail
+Nom convivial qui vous permet d’identifier le travail. [Cet](media-services-portal-check-job-progress.md) article explique comment vous pouvez surveiller la progression d’un travail. 
 
-### <a name="output-file"></a>Output file
-A friendly name that lets you identify the output content. 
+### <a name="output-file"></a>Fichier de sortie
+Nom convivial qui vous permet d’identifier le contenu en sortie. 
 
-## <a name="next-steps"></a>Next steps
-View Media Services learning paths.
+## <a name="next-steps"></a>Étapes suivantes
+Afficher les parcours d’apprentissage de Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Provide feedback
+## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

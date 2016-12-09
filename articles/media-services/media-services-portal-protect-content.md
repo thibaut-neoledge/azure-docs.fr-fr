@@ -1,19 +1,23 @@
 ---
-title: Configuration des stratégies de protection du contenu à l’aide du portail Azure | Microsoft Docs
-description: Cet article explique comment utiliser le portail Azure pour configurer des stratégies de protection du contenu. L’article montre également comment activer le chiffrement dynamique à vos ressources.
+title: "Configuration des stratégies de protection du contenu à l’aide du portail Azure | Microsoft Docs"
+description: "Cet article explique comment utiliser le portail Azure pour configurer des stratégies de protection du contenu. L’article montre également comment activer le chiffrement dynamique à vos ressources."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 10/24/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0f9b0cf4e88a1ab27546063ae89cde8de7761609
+
 
 ---
 # <a name="configuring-content-protection-policies-using-the-azure-portal"></a>Configuration des stratégies de protection du contenu à l’aide du portail Azure
@@ -39,12 +43,12 @@ Cet article explique comment configurer des stratégies de protection du contenu
 ## <a name="start-configuring-content-protection"></a>Commencer à configurer la protection de contenu
 Pour utiliser le portail pour commencer à configurer la protection de contenu, de manière globale sur votre compte AMS, procédez comme suit :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre compte Azure Media Services.
 2. Sélectionnez **Paramètres** > **Protection du contenu**.
 
 ![Protéger du contenu](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
-## <a name="key/license-authorization-policy"></a>stratégie d’autorisation de clé/licence
+## <a name="keylicense-authorization-policy"></a>stratégie d’autorisation de clé/licence
 AMS prend en charge plusieurs méthodes d’authentification des utilisateurs effectuant des demandes de clé ou de licence. La stratégie d’autorisation de la clé de contenu doit être configurée par vous et respectée par votre client afin que la clé/licence soit remise au client. La stratégie d’autorisation des clés de contenu peut comporter une ou plusieurs restrictions d’autorisation : **ouverte** ou **à jeton**.
 
 Le portail Azure vous permet de créer une **stratégie d’autorisation de clé/licence** pour tous les types de chiffrement.
@@ -130,6 +134,9 @@ Consultez les parcours d’apprentissage de Media Services.
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

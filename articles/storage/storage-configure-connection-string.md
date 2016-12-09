@@ -1,12 +1,12 @@
 ---
-title: Configuration d’une chaîne de connexion dans Azure Storage | Microsoft Docs
-description: Configurez une chaîne de connexion à un compte de stockage Azure. Une chaîne de connexion inclut les informations nécessaires pour authentifier l’accès à un compte de stockage à partir de votre application, pendant l’exécution.
+title: "Configuration d’une chaîne de connexion dans Azure Storage | Microsoft Docs"
+description: "Configurez une chaîne de connexion à un compte de stockage Azure. Une chaîne de connexion inclut les informations nécessaires pour authentifier l’accès à un compte de stockage à partir de votre application, pendant l’exécution."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: ecb0acb5-90a9-4eb2-93e6-e9860eda5e53
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 27c995e16f1137f6e18ebfc8210d492872d0e76c
+
 
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configuration des chaînes de connexion Azure Storage
 ## <a name="overview"></a>Vue d'ensemble
-Une chaîne de connexion inclut les informations d’authentification nécessaires pour accéder aux données dans un compte de stockage Azure à partir de votre application, pendant l’exécution. Vous pouvez configurer une chaîne de connexion des manières suivantes :
+Une chaîne de connexion inclut les informations d’authentification nécessaires pour accéder aux données dans un compte de stockage Azure à partir de votre application, pendant l’exécution. Vous pouvez configurer une chaîne de connexion des manières suivantes :
 
 * Connexion à l’émulateur de stockage Azure
 * Accès à un compte de stockage dans Azure
@@ -27,7 +31,7 @@ Une chaîne de connexion inclut les informations d’authentification nécessair
 [!INCLUDE [storage-account-key-note-include](../../includes/storage-account-key-note-include.md)]
 
 ## <a name="storing-your-connection-string"></a>Récupération de votre chaîne de connexion
-Votre application devra accéder à la chaîne de connexion pendant l’exécution pour authentifier les requêtes transmises à Azure Storage. Plusieurs options vous permettant de stocker votre chaîne de connexion s’offrent à vous :
+Votre application devra accéder à la chaîne de connexion pendant l’exécution pour authentifier les requêtes transmises à Azure Storage. Plusieurs options vous permettant de stocker votre chaîne de connexion s’offrent à vous :
 
 * Pour une application s’exécutant sur le bureau ou sur un appareil, vous pouvez stocker la chaîne de connexion dans un fichier `app.config ` ou `web.config`. Ajoutez la chaîne de connexion dans la section **AppSettings** .
 * Pour une application s’exécutant dans un service cloud Azure, vous pouvez stocker votre chaîne de connexion dans le [schéma de configuration du service Azure (fichier .cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Ajoutez la chaîne de connexion à la section **ConfigurationSettings** du fichier de configuration du service.
@@ -47,7 +51,7 @@ Pour créer une chaîne de connexion à votre compte de stockage Azure, utilisez
 
     DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey
 
-Par exemple, votre chaîne de connexion ressemble à l’exemple de chaîne de connexion suivant :
+Par exemple, votre chaîne de connexion ressemble à l’exemple de chaîne de connexion suivant :
 
     DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>
 
@@ -94,7 +98,7 @@ La valeur du point de terminaison indiquée dans la chaîne de connexion est uti
 Notez que si vous choisissez d’omettre un point de terminaison de service dans la chaîne de connexion, vous ne pourrez pas accéder aux données de ce service avec votre code à l’aide de cette chaîne de connexion.
 
 ### <a name="creating-a-connection-string-with-an-endpoint-suffix"></a>Création d’une chaîne de connexion avec un suffixe de point de terminaison
-Pour créer une chaîne de connexion pour le service de stockage dans les régions ou les instances avec des suffixes de point de terminaison différents, comme pour Azure China ou Azure Governance, utilisez le format de chaîne de connexion suivant. Indiquez si vous souhaitez vous connecter au compte de stockage via HTTP ou HTTPS, remplacez `myAccountName` par le nom de votre compte de stockage, remplacez `myAccountKey` par votre clé d’accès au compte et remplacez `mySuffix` par le suffixe d’URI :
+Pour créer une chaîne de connexion pour le service de stockage dans les régions ou les instances avec des suffixes de point de terminaison différents, comme pour Azure China ou Azure Governance, utilisez le format de chaîne de connexion suivant. Indiquez si vous souhaitez vous connecter au compte de stockage via HTTP ou HTTPS, remplacez `myAccountName` par le nom de votre compte de stockage, remplacez `myAccountKey` par votre clé d’accès au compte et remplacez `mySuffix` par le suffixe d’URI :
 
     DefaultEndpointsProtocol=[http|https];
     AccountName=myAccountName;
@@ -117,6 +121,9 @@ Par exemple, votre chaîne de connexion doit être similaire à celle-ci :
 * [Explorateurs du stockage Azure](storage-explorers.md)
 * [Utilisation des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

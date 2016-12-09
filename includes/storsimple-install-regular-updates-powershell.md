@@ -2,12 +2,12 @@
 
 #### <a name="to-install-regular-updates-via-windows-powershell-for-storsimple"></a>Pour installer des mises à jour périodiques via Windows PowerShell pour StorSimple
 1. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**. Saisissez le mot de passe. Le mot de passe par défaut est *Password1*. 
-2.  À l’invite de commandes, tapez :
+2.  À l’invite de commandes, tapez :
    
      `Get-HcsUpdateAvailability`
    
     Le système vous indique si des mises à jour sont disponibles et si elles risquent ou non de provoquer une interruption de service.
-3.  À l’invite de commandes, tapez :
+3.  À l’invite de commandes, tapez :
    
      `Start-HcsUpdate`
    

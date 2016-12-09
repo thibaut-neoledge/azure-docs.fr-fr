@@ -83,7 +83,7 @@ Utilisez les étapes présentées dans l’article [Sauvegarder des machines vir
 L’expérience de restauration est la même, que les machines virtuelles soient chiffrées ou non. Utilisez les étapes présentées dans [Restaurer des machines virtuelles dans le portail Azure](backup-azure-arm-restore-vms.md) pour restaurer la machine virtuelle chiffrée. Au cas où vous devez restaurer les clés et clés secrètes, vous devez vérifier que le coffre de clés permettant de les restaurer existe déjà.
 
 ## <a name="troubleshooting-errors"></a>Résolution des erreurs
-| Opération | Détails de l’erreur | Résolution : |
+| Opération | Détails de l’erreur | Résolution : |
 | --- | --- | --- |
 | Sauvegarde |La validation a échoué, car la machine virtuelle est chiffrée avec une clé BEK uniquement. Les sauvegardes peuvent être activées uniquement pour les machines virtuelles chiffrées aussi bien avec des clés BEK qu’avec des clés KEK. |La machine virtuelle doit être chiffrée simultanément à l’aide de clés BEK et KEK. Après l’application de ce chiffrement, la sauvegarde doit être activée. |
 | Restauration |Vous ne pouvez pas restaurer cette machine virtuelle chiffrée, car le coffre de clés associé à cette machine virtuelle n’existe pas. |Pour créer un coffre de clés, voir [Prise en main d’Azure Key Vault](../key-vault/key-vault-get-started.md). Consultez [Restore key vault key and secret using Azure Backup](backup-azure-restore-key-secret.md) (Restaurer la clé et le secret de coffre de clés à l’aide de Sauvegarde Azure) pour restaurer la clé et la clé secrète si celles-ci n’existent pas. |

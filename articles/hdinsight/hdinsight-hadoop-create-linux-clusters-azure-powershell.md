@@ -1,24 +1,28 @@
 ---
-title: Créer des clusters Hadoop, HBase, Storm ou Spark sur Linux dans HDInsight à l’aide d'Azure PowerShell | Microsoft Docs
-description: Découvrez comment créer des clusters Hadoop, HBase, Storm ou Spark sur Linux pour HDInsight à l’aide d’Azure PowerShell.
+title: "Créer des clusters Hadoop, HBase, Storm ou Spark sur Linux dans HDInsight à l’aide d&quot;Azure PowerShell | Microsoft Docs"
+description: "Découvrez comment créer des clusters Hadoop, HBase, Storm ou Spark sur Linux pour HDInsight à l’aide d’Azure PowerShell."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 4208deca-d64a-45e1-8948-2673d5d7678c
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/08/2016
+ms.date: 10/05/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 71f1ca77180c7b06f8c883c8c227bda63f28ed1c
+
 
 ---
-# Créer des clusters basés sur Linux dans HDInsight à l’aide d’Azure PowerShell
-[!INCLUDE [sélecteur](../../includes/hdinsight-selector-create-clusters.md)]
+# <a name="create-linux-based-clusters-in-hdinsight-by-using-azure-powershell"></a>Créer des clusters basés sur Linux dans HDInsight à l’aide d’Azure PowerShell
+[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 Azure PowerShell est un environnement puissant de création de scripts vous permettant de contrôler et d’automatiser le déploiement et la gestion de vos charges de travail dans Microsoft Azure. Ce document fournit des informations sur la création d’un cluster HDInsight basé sur Linux à l’aide d’Azure PowerShell. Il inclut également un exemple de script.
 
@@ -27,20 +31,24 @@ Azure PowerShell est un environnement puissant de création de scripts vous perm
 > 
 > 
 
-## Configuration requise
+## <a name="prerequisites"></a>Conditions préalables
 Avant de commencer cette procédure, vous devez disposer des éléments suivants :
 
-* Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Azure PowerShell. Pour plus d’informations sur l’utilisation d’Azure PowerShell avec HDInsight, consultez [Gestion des clusters Hadoop dans HDInsight au moyen d’Azure PowerShell](hdinsight-administer-use-powershell.md). Pour la liste des applets de commande Windows PowerShell pour HDInsight, consultez la [référence sur les applets de commande pour HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
+* Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Azure PowerShell.
+    Pour plus d’informations sur l’utilisation d’Azure PowerShell avec HDInsight, consultez [Gestion des clusters Hadoop dans HDInsight au moyen d’Azure PowerShell](hdinsight-administer-use-powershell.md). Pour la liste des applets de commande Windows PowerShell pour HDInsight, consultez la [référence sur les applets de commande pour HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
   
     [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-## Créer des clusters
+### <a name="access-control-requirements"></a>Exigences de contrôle d’accès
+[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+
+## <a name="create-clusters"></a>Créer des clusters
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Les procédures suivantes sont nécessaires pour créer un cluster HDInsight en utilisant Azure PowerShell :
 
-* Création d’un groupe de ressources Azure
+* Création d’un groupe de ressources Azure
 * Création d'un compte Azure Storage
 * Création d'un conteneur d'objets blob Azure
 * Création d'un cluster HDInsight
@@ -50,10 +58,10 @@ Les deux paramètres les plus importants que vous devez définir pour créer les
 * Vérifiez que le paramètre **-OSType** est défini sur **Linux**.
 * Pour utiliser le protocole SSH pour les sessions à distance sur les clusters, vous pouvez spécifier le mot de passe utilisateur SSH ou la clé publique SSH. Si vous spécifiez le mot de passe utilisateur SSH et la clé publique SSH, la clé sera ignorée. Si vous souhaitez utiliser la clé SSH pour les sessions à distance, vous devez spécifier un mot de passe SSH vide lorsque vous y êtes invité. Pour plus d’informations sur l’utilisation du protocole SSH avec HDInsight, consultez l’un des articles suivants :
   
-  * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-  * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+  * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+  * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-Le script suivant montre comment créer un nouveau cluster :
+Le script suivant montre comment créer un nouveau cluster :
 
     $token ="<SpecifyAnUniqueString>"
 
@@ -144,35 +152,40 @@ L’exemple suivant explique comment ajouter un compte de stockage supplémentai
         -SshCredential $sshCredentials `
         -Config $config
 
-## Personnalisation des clusters
+## <a name="customize-clusters"></a>Personnalisation des clusters
 * Consultez [Personnalisation de clusters HDInsight à l’aide de Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
 * Consultez [Personnalisation de clusters HDInsight basés sur Windows à l’aide d’une action de script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).
 
-## Suppression du cluster
+## <a name="delete-the-cluster"></a>Suppression du cluster
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez créé un cluster HDInsight, parcourez les ressources ci-dessous pour apprendre à l’utiliser.
 
-### Clusters Hadoop
+### <a name="hadoop-clusters"></a>Clusters Hadoop
 * [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-### Clusters HBase
+### <a name="hbase-clusters"></a>Clusters HBase
 * [Prise en main de HBase sur HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
 * [Développement d’applications Java pour HBase sur HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
-### Clusters Storm
+### <a name="storm-clusters"></a>Clusters Storm
 * [Développement de topologies Java pour Storm sur HDInsight](hdinsight-storm-develop-java-topology.md)
 * [Utilisation de composants Python dans Storm sur HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Déploiement et analyse des topologies avec Storm sur HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-### Clusters Spark
+### <a name="spark-clusters"></a>Clusters Spark
 * [Créer une application autonome avec Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Exécution de travaux à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
-* [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](hdinsight-apache-spark-use-bi-tools.md)
-* [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming Spark : utilisez Spark dans HDInsight pour créer des applications de streaming en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
+* [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](hdinsight-apache-spark-use-bi-tools.md)
+* [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Streaming Spark : utilisez Spark dans HDInsight pour créer des applications de streaming en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Indexation de fichiers multimédias avec Azure Media Indexer 2 | Microsoft Docs
-description: Azure Media Indexer permet de rendre le contenu de vos fichiers multimédias consultable et de générer une transcription en texte intégral de sous-titrages et de mots-clés. Cette rubrique explique comment utiliser Media Indexer 2 Preview.
+title: "Indexation de fichiers multimédias avec Azure Media Indexer 2 | Microsoft Docs"
+description: "Azure Media Indexer permet de rendre le contenu de vos fichiers multimédias consultable et de générer une transcription en texte intégral de sous-titrages et de mots-clés. Cette rubrique explique comment utiliser Media Indexer 2 Preview."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 85d25525-a498-44eb-ae3a-2ca5ceb8e53d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: adsolank;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 17571acfab870974186af9849d030e9702f3be76
+
 
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexation de fichiers multimédias avec Azure Media Indexer 2 Preview
@@ -25,13 +29,13 @@ Le processeur multimédia **Azure Media Indexer 2 Preview** est actuellement dis
 Cette rubrique explique comment créer des travaux d’indexation avec **Azure Media Indexer 2 Preview**.
 
 > [!NOTE]
-> Les considérations suivantes s'appliquent :
+> Les considérations suivantes s'appliquent :
 > 
 > Indexer 2 n’est pas pris en charge dans Azure China et Azure Government.
 > 
 > La version préliminaire est limitée à environ 10 minutes de traitement, mais elle est gratuite pour tous les clients.
 > 
-> Lors de l’indexation de contenu, veillez à utiliser des fichiers multimédias avec des mots clairs (sans musique de fond, bruit, effets ou sifflement du microphone). Voici quelques exemples de contenu approprié : des réunions, des conférences ou des présentations enregistrées. Le contenu suivant peut ne pas convenir à l’indexation : des films, des émissions de télévision, des fichiers avec du son et des effets sonores mélangés, du contenu mal enregistré avec un bruit de fond (sifflement).
+> Lors de l’indexation de contenu, veillez à utiliser des fichiers multimédias avec des mots clairs (sans musique de fond, bruit, effets ou sifflement du microphone). Voici quelques exemples de contenu approprié : des réunions, des conférences ou des présentations enregistrées. Le contenu suivant peut ne pas convenir à l’indexation : des films, des émissions de télévision, des fichiers avec du son et des effets sonores mélangés, du contenu mal enregistré avec un bruit de fond (sifflement).
 > 
 > 
 
@@ -50,7 +54,7 @@ Un travail d’indexation peut générer des fichiers de sous-titres dans les fo
 
 Les fichiers de sous-titre dans ces formats permettent de rendre un fichier audio et vidéo accessible aux malentendants.
 
-## <a name="task-configuration-(preset)"></a>Configuration de la tâche (préconfiguration)
+## <a name="task-configuration-preset"></a>Configuration de la tâche (préconfiguration)
 Lors de la création d’une tâche d’indexation avec **Azure Media Indexer 2 Preview**, vous devez spécifier une présélection de configuration.
 
 Le code JSON suivant définit les paramètres disponibles.
@@ -275,6 +279,9 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 [Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Utiliser une fonction définie par l’utilisateur (UDF) de Java avec Hive dans HDInsight | Microsoft Docs
-description: Découvrez comment créer et utiliser une fonction définie par l’utilisateur (UDF) de Java à partir de Hive dans HDInsight.
+title: "Utiliser une fonction définie par l’utilisateur (UDF) de Java avec Hive dans HDInsight | Microsoft Docs"
+description: "Découvrez comment créer et utiliser une fonction définie par l’utilisateur (UDF) de Java à partir de Hive dans HDInsight."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
 ms.devlang: java
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 240ba2289ededf7a65c71e2f5007cf3a52ca4f84
+
 
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Utiliser une fonction UDF Java avec Hive dans HDInsight
@@ -47,7 +51,7 @@ Le langage Hive est parfait pour traiter des données dans HDInsight, mais vous 
    > 
    
     Cette action crée un répertoire nommé **exampleudf**, qui contient le projet Maven.
-2. Une fois le projet créé, supprimez le répertoire **exampleudf/src/test** qui a été créé dans le cadre du projet ; il ne sera pas utilisé pour cet exemple.
+2. Une fois le projet créé, supprimez le répertoire **exampleudf/src/test** qui a été créé dans le cadre du projet ; il ne sera pas utilisé pour cet exemple.
 3. Ouvrez le fichier **exampleudf/pom.xml** et remplacez l’entrée `<dependencies>` existante par la suivante :
    
         <dependencies>
@@ -167,8 +171,8 @@ Le langage Hive est parfait pour traiter des données dans HDInsight, mais vous 
    
     Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez les documents suivants.
    
-   * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+   * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+   * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 4. À partir de la session SSH, copiez le fichier jar sur le stockage HDInsight.
    
         hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
@@ -209,6 +213,9 @@ Pour découvrir les autres façons de travailler avec Hive, consultez [Utilisati
 
 Pour plus d’informations sur les fonctions définies par l’utilisateur de Hive, consultez la section [Hive Operators and User-Defined Functions (Opérateurs et fonctions définies par l’utilisateur de Hive)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) du wiki Hive sur le site apache.org.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

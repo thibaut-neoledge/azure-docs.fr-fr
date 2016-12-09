@@ -2,11 +2,11 @@
 title: Streaming en direct avec des encodeurs locaux avec .NET | Microsoft Docs
 description: Cette rubrique montre comment utiliser .NET pour effectuer un encodage en direct avec des encodeurs locaux.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 15908152-d23c-4d55-906a-3bfd74927db5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/31/2016
 ms.author: cenkdin;juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 46cd4171b4d88aa68386b80471f1e7d05539cdd4
+
 
 ---
-# Streaming en direct avec des encodeurs locaux avec .NET
+# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-net"></a>Streaming en direct avec des encodeurs locaux avec .NET
 > [!div class="op_single_selector"]
 > * [Portail](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -24,23 +28,23 @@ ms.author: cenkdin;juliako
 > 
 > 
 
-Ce didacticiel vous guide tout au long des étapes d’utilisation du Kit de développement logiciel (SDK) .NET Azure Media Services afin de créer un **canal** configuré pour une livraison directe.
+Ce didacticiel vous guide tout au long des étapes d’utilisation du Kit de développement logiciel (SDK) .NET Azure Media Services afin de créer un **canal** configuré pour une livraison directe. 
 
-## Composants requis
-Les éléments suivants sont requis pour suivre le didacticiel :
+## <a name="prerequisites"></a>Conditions préalables
+Les éléments suivants sont requis pour suivre le didacticiel :
 
 * Un compte Azure.
-* Un compte Media Services. Pour créer un compte Media Services, voir [Création d’un compte Media Services](media-services-create-account.md).
+* Un compte Media Services.    Pour créer un compte Media Services, consultez [Création d’un compte Media Services](media-services-portal-create-account.md).
 * Un environnement de développement configuré. Pour plus d’informations, voir [Configuration de votre environnement](media-services-set-up-computer.md).
 * Une webcam. Par exemple, un [encodeur Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
 
-Il est recommandé de consulter les articles suivants :
+Il est recommandé de consulter les articles suivants :
 
-* [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services.](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
+* [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services.](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 * [Vidéo en flux continu avec des encodeurs locaux qui créent des flux à vitesses de transmission multiples](media-services-live-streaming-with-onprem-encoders.md)
 
-## Exemple
-L’exemple de code suivant montre comment réaliser les tâches suivantes :
+## <a name="example"></a>Exemple
+L’exemple de code suivant montre comment réaliser les tâches suivantes :
 
 * Connexion à Media Services
 * Créer un canal
@@ -382,12 +386,17 @@ Pour plus d’informations sur la configuration d’un encodeur dynamique, voir 
         }
     }
 
-## Étape suivante
+## <a name="next-step"></a>Étape suivante
 Consulter les parcours d’apprentissage de Media Services
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Fournir des commentaires
+## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

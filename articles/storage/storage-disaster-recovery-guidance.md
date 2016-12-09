@@ -1,12 +1,12 @@
 ---
-title: Que faire en cas de panne d’Azure Storage | Microsoft Docs
-description: Que faire en cas de panne d’Azure Storage
+title: "Que faire en cas de panne d’Azure Storage | Microsoft Docs"
+description: "Que faire en cas de panne d’Azure Storage"
 services: storage
 documentationcenter: .net
 author: robinsh
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 14997080496adfd363fee249c858ed9a0b553066
+
 
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Que faire en cas de panne d’Azure Storage
@@ -34,10 +38,10 @@ Pour déterminer l’état du service Azure, il est recommandé de s’abonner a
 ## <a name="what-to-do-if-a-storage-outage-occurs"></a>Que faire en cas de panne d’Azure Storage
 Si un ou plusieurs services Azure Storage sont provisoirement indisponibles dans une ou plusieurs régions, deux options s’offrent à vous. Si vous souhaitez un accès immédiat à vos données, envisagez l’Option 2.
 
-### <a name="option-1:-wait-for-recovery"></a>Option 1: attente de récupération
+### <a name="option-1-wait-for-recovery"></a>Option 1: attente de récupération
 Dans ce cas, aucune action n’est requise de votre part. Nous travaillons assidûment à la restauration de la disponibilité du service Azure. Vous pouvez analyser l’état actuel du service dans le [tableau de bord d’état du service Azure](https://azure.microsoft.com/status/).
 
-### <a name="option-2:-copy-data-from-secondary"></a>Option 2: copie de données à partir de la base de données secondaire
+### <a name="option-2-copy-data-from-secondary"></a>Option 2: copie de données à partir de la base de données secondaire
 Si vous avez choisi le [stockage géo-redondant avec accès en lecture (RA-GRS)](storage-redundancy.md#read-access-geo-redundant-storage) (recommandé) pour vos comptes de stockage, vous bénéficierez d’un accès en lecture à vos données à partir de la région secondaire. Vous pouvez utiliser des outils tels que [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) et la [bibliothèque de déplacement des données Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) pour copier des données de la région secondaire dans un autre compte de stockage situé dans une région non compromise, puis pointer vos applications vers ce compte de stockage pour bénéficier d’un accès en lecture et en écriture.
 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>Que se passe-t-il en cas de basculement d’Azure Storage ?
@@ -62,6 +66,9 @@ Il existe des approches recommandées pour sauvegarder régulièrement vos donn�
 * Tables: utilisez [AzCopy](storage-use-azcopy.md) pour exporter les données de table vers un autre compte de stockage dans une autre région.
 * Fichiers : utilisez [AzCopy](storage-use-azcopy.md) ou [Azure PowerShell](storage-powershell-guide-full.md) pour copier vos fichiers vers un autre compte de stockage dans une autre région.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Copie d’un objet blob existant dans un élément multimédia Media Services | Microsoft Docs
-description: Cette rubrique montre comment copier un objet blob existant dans un élément multimédia Media Services.
+title: "Copie d’un objet blob existant dans un élément multimédia Media Services | Microsoft Docs"
+description: "Cette rubrique montre comment copier un objet blob existant dans un élément multimédia Media Services."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6a63823f-f3c9-424c-91b8-566f70bec346
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 10/13/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 62e675d3e87e40a09d67eb5d00b58ea8857e9610
+
 
 ---
 # <a name="copying-an-existing-blob-into-a-media-services-asset"></a>Copie d'un objet blob existant dans un élément multimédia Media Services
@@ -29,11 +33,11 @@ Vos objets blob peuvent exister dans un compte de stockage associé à un compte
 ## <a name="download-sample"></a>Charger l’exemple
 Obtenez et exécutez un exemple [ici](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 * Deux comptes Media Services dans un abonnement Azure nouveau ou existant. Consultez la rubrique [Comment créer un compte Media Services](media-services-portal-create-account.md).
-* Systèmes d’exploitation : Windows 10, Windows 7, Windows 2008 R2 ou Windows 8.
-* .NET Framework 4.5.
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou une version ultérieure.
+* Systèmes d’exploitation : Windows 10, Windows 7, Windows 2008 R2 ou Windows 8.
+* .NET Framework 4.5.
+* Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou une version ultérieure.
 
 ## <a name="set-up-your-project"></a>Configuration de votre projet
 Dans cette section, vous aller créer et configurer un projet d'application console C#.
@@ -41,8 +45,8 @@ Dans cette section, vous aller créer et configurer un projet d'application cons
 1. Utilisez Visual Studio pour créer une solution qui contient le projet d'application console C#. 
 2. Entrez CopyExistingBlobsIntoAsset pour le nom, puis cliquez sur OK.
 3. Utilisez Nuget pour ajouter des références aux DLL associées à Media Services. Dans le menu principal de Visual Studio, sélectionnez OUTILS -> Gestionnaire de package de bibliothèques -> Console du Gestionnaire de package. Dans la fenêtre de la console, tapez Install-Package windowsazure.mediaservices, puis appuyez sur Entrée.
-4. Ajoutez les autres références requises pour ce projet : System.Configuration.
-5. Remplacez les instructions using qui ont été ajoutées au fichier Programs.cs par défaut par les suivantes :
+4. Ajoutez les autres références requises pour ce projet : System.Configuration.
+5. Remplacez les instructions using qui ont été ajoutées au fichier Programs.cs par défaut par les suivantes :
    
         using System;
         using System.Linq;
@@ -70,11 +74,11 @@ Dans cette section, vous aller créer et configurer un projet d'application cons
         </appSettings>
 
 ## <a name="copy-blobs-from-a-storage-account-into-a-media-services-asset"></a>Copie d'objets blob à partir d'un compte de stockage dans un élément multimédia Media Services
-L'exemple de code ci-dessous effectue les tâches suivantes :
+L'exemple de code ci-dessous effectue les tâches suivantes :
 
 1. Crée l'instance CloudMediaContext. 
-2. Crée des instances CloudStorageAccount : _sourceStorageAccount et _destinationStorageAccount.
-3. Télécharge des fichiers Smooth Streaming depuis un répertoire local vers un conteneur d'objets blob qui se trouve dans *sourceStorageAccount.* 
+2. Crée des instances CloudStorageAccount : _sourceStorageAccount et _destinationStorageAccount.
+3. Télécharge des fichiers Smooth Streaming depuis un répertoire local vers un conteneur d'objets blob qui se trouve dans _sourceStorageAccount._ 
 4. Crée un nouvel élément multimédia. Le conteneur d'objets blob qui est créé pour cet élément multimédia se trouve dans _destinationStorageAccount. 
 5. Utilise le Kit de développement logiciel (SDK) Azure Storage pour copier les objets blob spécifiés dans le conteneur associé à l'élément multimédia.
    
@@ -317,6 +321,9 @@ L'exemple de code ci-dessous effectue les tâches suivantes :
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

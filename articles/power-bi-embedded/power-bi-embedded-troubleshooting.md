@@ -1,13 +1,13 @@
 ---
-title: 'Résolution des problèmes de Microsoft Power BI Embedded Preview '
-description: 'Résolution des problèmes de Microsoft Power BI Embedded Preview '
+title: "Résolution des problèmes de Microsoft Power BI Embedded Preview "
+description: "Résolution des problèmes de Microsoft Power BI Embedded Preview "
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: c8aee652-ed8b-4c66-9c63-f798b7a655b4
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1f4cf4a04e7a921f8e11c94f74d53ac80c231933
+
 
 ---
-# <a name="microsoft-power-bi-embedded-preview-troubleshooting"></a>Résolution des problèmes de Microsoft Power BI Embedded Preview
+# <a name="microsoft-power-bi-embedded-preview-troubleshooting"></a>Résolution des problèmes de Microsoft Power BI Embedded Preview 
 Cet article apporte des réponses concernant la résolution des problèmes de **Power BI Embedded**.
 
 <a name="connection-string"/>
@@ -43,6 +47,9 @@ Dans le cas où vous possédez des informations d'identification pour un environ
 * [Prise en main de l’exemple](power-bi-embedded-get-started-sample.md)
 * [Présentation de Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

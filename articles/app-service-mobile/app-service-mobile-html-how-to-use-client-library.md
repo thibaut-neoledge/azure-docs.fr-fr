@@ -1,12 +1,12 @@
 ---
-title: Utilisation du Kit de développement logiciel (SDK) JavaScript pour Azure Mobile Apps
-description: Utilisation de v pour Azure Mobile Apps
+title: "Utilisation du Kit de développement logiciel (SDK) JavaScript pour Azure Mobile Apps"
+description: "Utilisation de v pour Azure Mobile Apps"
 services: app-service\mobile
 documentationcenter: javascript
 author: adrianhall
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 53b78965-caa3-4b22-bb67-5bd5c19d03c4
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: html
@@ -14,6 +14,10 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7705670592c353032740bd80d03bc8f174028e39
+
 
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Utilisation de la bibliothèque cliente JavaScript pour Azure Mobile Apps
@@ -26,7 +30,7 @@ Nous limitons la prise en charge aux versions actuelles, ainsi qu’aux dernièr
 
 Le package est distribué comme un module JavaScript universel et prend donc en charge les format Globals, AMD et CommonJS.
 
-## <a name="<a-name="setup"></a>setup-and-prerequisites"></a><a name="Setup"></a>Configuration et conditions préalables
+## <a name="a-namesetupasetup-and-prerequisites"></a><a name="Setup"></a>Configuration et conditions préalables
 Ce guide part du principe que vous avez créé un serveur principal avec une table. Ce guide suppose que la table a le même schéma que les tables dans ces didacticiels.
 
 Installez le Kit de développement logiciel (SDK) JavaScript Azure Mobile Apps à partir de la commande `npm` :
@@ -41,7 +45,7 @@ Une fois le Kit installé, la bibliothèque se trouve dans `node_modules/azure-m
 <script src="path/to/MobileServices.Web.min.js"></script>
 ```
 
-La bibliothèque peut également être utilisée en tant que module ES2015, au sein d'environnements CommonJS tels que Browserify et Webpack, et en tant que bibliothèque AMD.  Par exemple :
+La bibliothèque peut également être utilisée en tant que module ES2015, au sein d'environnements CommonJS tels que Browserify et Webpack, et en tant que bibliothèque AMD.  Par exemple :
 
 ```
 # For ECMAScript 5.1 CommonJS
@@ -52,15 +56,15 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="<a-name="auth"></a>how-to:-authenticate-users"></a><a name="auth"></a>Procédure : authentification des utilisateurs
-Azure App Service prend en charge l’authentification et l’autorisation des utilisateurs d’applications par le biais de divers fournisseurs d’identité externes : Facebook, Google, compte Microsoft et Twitter. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l’identité des utilisateurs authentifiés pour implémenter des règles d’autorisation dans les scripts serveur. Pour plus d'informations, consultez la page [Prise en main de l'authentification] .
+## <a name="a-nameauthahow-to-authenticate-users"></a><a name="auth"></a>Procédure : authentification des utilisateurs
+Azure App Service prend en charge l’authentification et l’autorisation des utilisateurs d’applications par le biais de divers fournisseurs d’identité externes : Facebook, Google, compte Microsoft et Twitter. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l’identité des utilisateurs authentifiés pour implémenter des règles d’autorisation dans les scripts serveur. Pour plus d'informations, consultez la page [Prise en main de l'authentification] .
 
-Deux flux d’authentification sont pris en charge : un flux serveur et un flux client.  Le flux serveur fournit l'authentification la plus simple, car il repose sur l'interface d'authentification Web du fournisseur. Le flux client permet une intégration approfondie avec les fonctionnalités propres aux appareils, telles que l'authentification unique, car il repose sur des Kits de développement logiciel (SDK) propres aux fournisseurs.
+Deux flux d’authentification sont pris en charge : un flux serveur et un flux client.  Le flux serveur fournit l'authentification la plus simple, car il repose sur l'interface d'authentification Web du fournisseur. Le flux client permet une intégration approfondie avec les fonctionnalités propres aux appareils, telles que l'authentification unique, car il repose sur des Kits de développement logiciel (SDK) propres aux fournisseurs.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="<a-name="configure-external-redirect-urls"></a>how-to:-configure-your-mobile-app-service-for-external-redirect-urls."></a><a name="configure-external-redirect-urls"></a>Configurer votre Mobile App Service pour les URL de redirection externes
-Plusieurs types d’applications JavaScript utilisent une fonctionnalité de bouclage pour gérer les flux d’interface utilisateur OAuth.  Ces fonctionnalités sont les suivantes :
+### <a name="a-nameconfigure-external-redirect-urlsahow-to-configure-your-mobile-app-service-for-external-redirect-urls"></a><a name="configure-external-redirect-urls"></a>Configurer votre Mobile App Service pour les URL de redirection externes
+Plusieurs types d’applications JavaScript utilisent une fonctionnalité de bouclage pour gérer les flux d’interface utilisateur OAuth.  Ces fonctionnalités sont les suivantes :
 
 * Exécuter votre service en local
 * Utilisation de Live Reload avec l’infrastructure Ionic
@@ -74,7 +78,7 @@ L’exécution locale peut entraîner des problèmes car, par défaut, l’authe
 4. Cliquez sur **Aller** pour ouvrir l’Explorateur de ressources pour votre application mobile principale dans une fenêtre ou un nouvel onglet.
 5. Développez le nœud **config** > **authsettings** pour votre application.
 6. Cliquez sur le bouton **Modifier** pour activer la modification de la ressource.
-7. Trouvez l’élément **allowedExternalRedirectUrls** , qui doit être null. Ajoutez vos URL dans un tableau :
+7. Trouvez l’élément **allowedExternalRedirectUrls** , qui doit être null. Ajoutez vos URL dans un tableau :
    
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
@@ -106,6 +110,6 @@ Après que le serveur principal sera mis à jour, vous serez en mesure d’utili
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

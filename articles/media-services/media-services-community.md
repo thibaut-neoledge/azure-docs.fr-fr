@@ -1,12 +1,12 @@
 ---
-title: Vue d’ensemble de la communauté Azure Media Services | Microsoft Docs
-description: 'Cette page de la communauté Azure Media Services (AMS) aborde les diverses manières d’obtenir des mises à jour relatives à AMS, d’afficher de nouvelles vidéos et de nouveaux podcasts, de poser des questions et de faire des commentaires. '
+title: "Vue d’ensemble de la communauté Azure Media Services | Microsoft Docs"
+description: "Cette page de la communauté Azure Media Services (AMS) aborde les diverses manières d’obtenir des mises à jour relatives à AMS, d’afficher de nouvelles vidéos et de nouveaux podcasts, de poser des questions et de faire des commentaires. "
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0df020f4-8297-4f31-92bf-de098283e997
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 735f8d81ce089727b14b8b67de7233ab71fc5abd
+
 
 ---
 # <a name="azure-media-services-community"></a>Communauté Azure Media Services
@@ -56,6 +60,9 @@ Le tableau suivant répertorie les adresses de messagerie des sous-équipes char
 | Azure Media Explorer |amse@microsoft.com |
 | Concepteur de flux de travail |mepd@microsoft.com |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

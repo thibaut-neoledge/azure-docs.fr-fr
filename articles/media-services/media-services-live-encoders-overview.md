@@ -1,12 +1,12 @@
 ---
-title: Configuration des encodeurs locaux quand Azure Media Services est utilisé pour créer des flux à vitesses de transmission multiples | Microsoft Docs
-description: Cette rubrique répertorie les encodeurs en direct locaux que vous pouvez utiliser pour capturer vos événements en direct et envoyer un flux en direct à débit unique vers des canaux AMS (avec activation de l’encodage en direct) en vue d’un traitement ultérieur. La rubrique contient des liens vers des didacticiels expliquant comment configurer les encodeurs répertoriés.
+title: "Configuration des encodeurs locaux quand Azure Media Services est utilisé pour créer des flux à vitesses de transmission multiples | Microsoft Docs"
+description: "Cette rubrique répertorie les encodeurs en direct locaux que vous pouvez utiliser pour capturer vos événements en direct et envoyer un flux en direct à débit unique vers des canaux AMS (avec activation de l’encodage en direct) en vue d’un traitement ultérieur. La rubrique contient des liens vers des didacticiels expliquant comment configurer les encodeurs répertoriés."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0ec6f046-0841-4673-9057-883bdbc30d5c
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6ae703cd1edcfca58aea40376e3b961e3e77d5ee
+
 
 ---
 # <a name="how-to-configure-on-premise-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Comment configurer des encodeurs locaux lorsque Azure Media Services est utilisé pour créer des flux à vitesses de transmission multiples
@@ -40,6 +44,9 @@ Pour plus d’informations sur la configuration de l’encodeur [Tricaster](http
 ## <a name="see-also"></a>Voir aussi
 [Comment effectuer une diffusion dynamique en continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples](media-services-manage-live-encoder-enabled-channels.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

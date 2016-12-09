@@ -1,23 +1,27 @@
 ---
-title: Nouveautés à venir dans Azure RemoteApp | Microsoft Docs
-description: Découvrez quand les nouvelles fonctionnalités pour Azure RemoteApp seront disponibles
+title: "Nouveautés à venir dans Azure RemoteApp | Microsoft Docs"
+description: "Découvrez quand les nouvelles fonctionnalités pour Azure RemoteApp seront disponibles"
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: b4aedf83-dd93-4573-b432-abbbabaee07a
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: NA
 ms.devlang: NA
 ms.topic: article
 ms.date: 09/19/2016
-ms.author: elizapo
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4bfc5ac853833b8e51e7e3a556ed6208f22884d3
+
 
 ---
-# Nouveautés à venir sur Azure RemoteApp
+# <a name="whats-coming-in-azure-remoteapp"></a>Nouveautés à venir sur Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -34,19 +38,24 @@ ms.author: elizapo
 | Disponibilité en Inde |**Canceled** |
 | Disponibilité au Royaume-Uni |**Canceled** |
 
-Autres améliorations apportées au cours de l’année :
+Autres améliorations apportées au cours de l’année :
 
 * Client de type HTML5 pour Azure RemoteApp
-* Application universelle Windows 10 avec Continuum pour la version préliminaire d'Azure RemoteApp
+* Application universelle Windows 10 avec Continuum pour la version préliminaire d'Azure RemoteApp
 * Effectuez des déploiements vers un réseau virtuel sans joindre de domaine (connexion de la collection cloud aux machines virtuelles Azure).
 * Réutilisez un réseau virtuel existant pour la collection hybride RemoteApp (également compatible avec ExpressRoute).
 * ExpressRoute
 * Applets de commande PowerShell et SDK RemoteApp pour le déploiement et la gestion
-* Créez et chargez une image à partir d’une machine virtuelle Azure
+* Créez et chargez une image à partir d’une machine virtuelle Azure
 * Chargez des applications cœur de métier vers une collection cloud et vers une collection hybride
-* Prise en charge de Windows Phone
+* Prise en charge de Windows Phone
 * Tableau de bord des mesures d’utilisation
-* Provisionnez un grand nombre d’utilisateurs à l’aide d’un fichier CSV
+* Provisionnez un grand nombre d’utilisateurs à l’aide d’un fichier CSV
 * Disponibilité dans les centres de données australiens
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Détecter les mouvements avec Azure Media Analytics | Microsoft Docs
-description: Le processeur multimédia Azure Media Motion Detector vous permet d’identifier efficacement les passages intéressants dans une vidéo qui, autrement, serait longue et monotone.
+title: "Détecter les mouvements avec Azure Media Analytics | Microsoft Docs"
+description: "Le processeur multimédia Azure Media Motion Detector vous permet d’identifier efficacement les passages intéressants dans une vidéo qui, autrement, serait longue et monotone."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: d144f813-1a55-442f-a895-5c4cb6d0aeae
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: milanga;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7b92e9290396009e59bfadb2eb3f75cf4952a45d
+
 
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Détecter les mouvements avec Azure Media Analytics
@@ -29,7 +33,7 @@ Cette rubrique fournit des informations détaillées sur **Azure Media Motion De
 ## <a name="motion-detector-input-files"></a>Fichiers d’entrée du détecteur de mouvement
 Fichiers vidéo. Les formats suivants sont actuellement pris en charge : MP4, MOV et WMV.
 
-## <a name="task-configuration-(preset)"></a>Configuration de la tâche (préconfiguration)
+## <a name="task-configuration-preset"></a>Configuration de la tâche (préconfiguration)
 Lors de la création d’une tâche de vidéo **Azure Media Motion Detector**, vous devez spécifier une présélection de configuration. 
 
 ### <a name="parameters"></a>Paramètres
@@ -78,7 +82,7 @@ Une tâche de détection de mouvement renvoie un fichier JSON dans l’élément
 
 L’API de détecteur de mouvement indique lorsqu’un mouvement a été détecté dans une vidéo d’arrière-plan fixe (par exemple, une vidéo de surveillance). Le détecteur de mouvement est optimisé pour réduire au minimum les fausses alertes, telles que les ombres et les variations d’éclairage. Les limitations actuelles des algorithmes incluent les vidéos en vision nocturne, les objets semi-transparents et les petits objets.
 
-### <a name="<a-id="output_elements"></a>elements-of-the-output-json-file"></a><a id="output_elements"></a>Éléments du fichier de sortie JSON
+### <a name="a-idoutputelementsaelements-of-the-output-json-file"></a><a id="output_elements"></a>Éléments du fichier de sortie JSON
 > [!NOTE]
 > Dans la dernière version, le format de sortie JSON a été modifié et peut représenter une rupture pour certains clients.
 > 
@@ -365,6 +369,9 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 [Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

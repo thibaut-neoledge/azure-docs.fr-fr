@@ -15,7 +15,7 @@ Voici quelques utilisations courantes du partage de fichiers :
 ## <a name="file-storage-concepts"></a>Concepts du stockage de fichiers
 Le stockage de fichiers est composé des éléments suivants :
 
-![files-concepts][files-concepts]
+![files-concepts](./media/storage-file-concepts-include/files-concepts.png)
 
 * **Compte de stockage :** tout accès au stockage Azure s'effectue via un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez la page [Objectifs de performance et évolutivité du stockage Azure](../articles/storage/storage-scalability-targets.md) .
 * **Partage** : un partage de stockage de fichiers est un partage de fichiers SMB dans Azure. 
@@ -31,8 +31,7 @@ Le stockage de fichiers est composé des éléments suivants :
 
 Pour plus d'informations sur la façon de nommer les partages, les répertoires et les fichiers, consultez la rubrique [Affectation de noms et références aux partages, répertoires, fichiers et métadonnées](http://msdn.microsoft.com/library/azure/dn167011.aspx).
 
-[files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

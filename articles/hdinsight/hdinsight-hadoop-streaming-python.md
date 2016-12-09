@@ -1,13 +1,13 @@
 ---
-title: Développement de travaux MapReduce Python avec HDInsight | Microsoft Docs
-description: Découvrez comment créer et exécuter des tâches MapReduce Python sur des clusters HDInsight Linux.
+title: "Développement de travaux MapReduce Python avec HDInsight | Microsoft Docs"
+description: "Découvrez comment créer et exécuter des tâches MapReduce Python sur des clusters HDInsight Linux."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 729550243e18c7a9f514aa18d1f4fdd8142d141b
+
 
 ---
 # <a name="develop-python-streaming-programs-for-hdinsight"></a>Développement de programmes de diffusion en continu Python pour HDInsight
@@ -27,10 +31,10 @@ Hadoop fournit une API de diffusion en continu pour MapReduce qui vous permet d'
 
 Cet article est basé sur des informations et des exemples publiés par Michael Noll dans le didacticiel [Writing an Hadoop MapReduce Program in Python](http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/).
 
-## <a name="prerequisites"></a>Composants requis
-Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
+## <a name="prerequisites"></a>Conditions préalables
+Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
-* Un cluster Hadoop Linux sur HDInsight
+* Un cluster Hadoop Linux sur HDInsight
 * Un éditeur de texte
   
   > [!IMPORTANT]
@@ -46,13 +50,13 @@ L’organigramme suivant illustre ce qui se passe durant les phases de mappage e
 
 ![illustration du mappage de réduction](./media/hdinsight-hadoop-streaming-python/HDI.WordCountDiagram.png)
 
-## <a name="why-python?"></a>Pourquoi Python
+## <a name="why-python"></a>Pourquoi Python
 Python est un langage de programmation d'usage général et de haut niveau, qui, comparé à de nombreux autres langages, vous permet d'exprimer des concepts avec beaucoup moins de lignes de code. Des données scientifiques l’ont récemment fait connaître en tant que langage de prototypage, du fait de sa nature interprétée, sa saisie dynamique et sa syntaxe élégante qui lui permettent de développer très rapidement des applications.
 
 Python est installé sur tous les clusters HDInsight.
 
 ## <a name="streaming-mapreduce"></a>Diffusion en continu de MapReduce
-Hadoop vous permet de spécifier un fichier qui dispose de la logique de mappage et de réduction utilisée par un travail. Parmi les exigences spécifiques de mappage et de réduction, on retrouve les éléments suivants :
+Hadoop vous permet de spécifier un fichier qui dispose de la logique de mappage et de réduction utilisée par un travail. Parmi les exigences spécifiques de mappage et de réduction, on retrouve les éléments suivants :
 
 * **Entrée**: les composants de mappage et de réduction doivent lire les données d’entrée depuis STDIN.
 * **Sortie**: les composants de mappage et de réduction doivent écrire les données de sortie vers STDOUT.
@@ -63,8 +67,8 @@ Python peut facilement gérer ces exigences en utilisant le module **sys** pour 
 ## <a name="create-the-mapper-and-reducer"></a>Création du mappeur et du raccord de réduction
 Le mappeur et le raccord de réduction ne sont que des fichiers texte, ici **mapper.py** et **reducer.py**. De ce fait, nous savons exactement qui fait quoi. Vous pouvez les créer à l’aide de l’éditeur de votre choix.
 
-### <a name="mapper.py"></a>Mapper.py
-Créez un fichier nommé **mapper.py** et utilisez le code suivant comme contenu :
+### <a name="mapperpy"></a>Mapper.py
+Créez un fichier nommé **mapper.py** et utilisez le code suivant comme contenu :
 
     #!/usr/bin/env python
 
@@ -92,8 +96,8 @@ Créez un fichier nommé **mapper.py** et utilisez le code suivant comme contenu
 
 Prenez quelques instants pour lire le code et comprendre à quoi il sert.
 
-### <a name="reducer.py"></a>Reducer.py
-Créez un fichier nommé **reducer.py** et utilisez le code suivant comme contenu :
+### <a name="reducerpy"></a>Reducer.py
+Créez un fichier nommé **reducer.py** et utilisez le code suivant comme contenu :
 
     #!/usr/bin/env python
 
@@ -145,7 +149,7 @@ De cette façon, les fichiers du système local sont copiés dans le nœud princ
 > 
 
 ## <a name="run-mapreduce"></a>Exécution de MapReduce
-1. Connectez-vous au cluster à l’aide de SSH :
+1. Connectez-vous au cluster à l’aide de SSH :
    
         ssh username@clustername-ssh.azurehdinsight.net
    
@@ -157,11 +161,11 @@ De cette façon, les fichiers du système local sont copiés dans le nœud princ
    
         perl -pi -e 's/\r\n/\n/g' mappery.py
         perl -pi -e 's/\r\n/\n/g' reducer.py
-3. Exécutez la commande suivante pour démarrer la tâche MapReduce :
+3. Exécutez la commande suivante pour démarrer la tâche MapReduce :
    
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasbs:///example/data/gutenberg/davinci.txt -output wasbs:///example/wordcountout
    
-    Cette commande dispose des éléments suivants :
+    Cette commande dispose des éléments suivants :
    
    * **hadoop-streaming.jar**: utilisé lors de l’exécution d’opérations de diffusion en contenu MapReduce. Il établit un lien entre Hadoop et le code externe MapReduce que vous fournissez
    * **-files**: indique à Hadoop que les fichiers spécifiés sont nécessaires pour effectuer cette tâche MapReduce, et qu’ils doivent être copiés sur tous les nœuds de travail.
@@ -184,11 +188,11 @@ Vous devriez voir apparaître des instructions **INFO** à mesure que la tâche 
 Lorsque le travail se termine, vous recevez les informations sur son état.
 
 ## <a name="view-the-output"></a>Affichage du résultat
-Une fois le travail terminé, utilisez la commande suivante pour afficher le résultat :
+Une fois le travail terminé, utilisez la commande suivante pour afficher le résultat :
 
     hdfs dfs -text /example/wordcountout/part-00000
 
-Celle-ci énumère les mots qui sont utilisés, et elle vous indique, par la même occasion, le nombre de fois où ils apparaissent. Voici un exemple de données de sortie :
+Celle-ci énumère les mots qui sont utilisés, et elle vous indique, par la même occasion, le nombre de fois où ils apparaissent. Voici un exemple de données de sortie :
 
     wrenching       1
     wretched        6
@@ -198,12 +202,15 @@ Celle-ci énumère les mots qui sont utilisés, et elle vous indique, par la mê
     wrinkling       2
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous avez découvert comment utiliser des travaux de diffusion en continu MapReduce avec HDInsight, cliquez sur les liens suivants pour explorer d’autres façons d’utiliser Azure HDInsight.
+Maintenant que vous avez découvert comment utiliser des travaux de diffusion en continu MapReduce avec HDInsight, cliquez sur les liens suivants pour explorer d’autres façons d’utiliser Azure HDInsight.
 
 * [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

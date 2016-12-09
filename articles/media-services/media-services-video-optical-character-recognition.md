@@ -1,12 +1,12 @@
 ---
-title: Utilisation d’Azure Media Analytics pour convertir le contenu texte de fichiers vidéo en texte numérique | Microsoft Docs
-description: Azure Media Analytics OCR (reconnaissance optique de caractères) vous permet de convertir le contenu texte de fichiers vidéo en un texte numérique modifiable et pouvant faire l’objet d’une recherche.  Vous pouvez ainsi automatiser l’extraction de métadonnées explicites à partir du signal vidéo de votre contenu multimédia.
+title: "Utilisation d’Azure Media Analytics pour convertir le contenu texte de fichiers vidéo en texte numérique | Microsoft Docs"
+description: "Azure Media Analytics OCR (reconnaissance optique de caractères) vous permet de convertir le contenu texte de fichiers vidéo en un texte numérique modifiable et pouvant faire l’objet d’une recherche.  Vous pouvez ainsi automatiser l’extraction de métadonnées explicites à partir du signal vidéo de votre contenu multimédia."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 307c196e-3a50-4f4b-b982-51585448ffc6
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 39fc755a632ae8e06109a3ea996521310424ba82
+
 
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Utilisation d’Azure Media Analytics pour convertir le contenu texte de fichiers vidéo en texte numérique
@@ -80,7 +84,7 @@ La sortie du processeur multimédia OCR est un fichier JSON.
 ### <a name="elements-of-the-output-json-file"></a>Éléments du fichier de sortie JSON
 La sortie vidéo OCR fournit des données temporelles segmentées sur les caractères présents dans votre vidéo.  Vous pouvez utiliser des attributs tels que la langue ou l’orientation pour cibler exactement les mots que vous souhaitez analyser. 
 
-La sortie contient les attributs suivants :
+La sortie contient les attributs suivants :
 
 | Élément | Description |
 | --- | --- |
@@ -335,6 +339,9 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 ## <a name="related-links"></a>Liens connexes
 [Vue d’ensemble d’Azure Media Services Analytics](media-services-analytics-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

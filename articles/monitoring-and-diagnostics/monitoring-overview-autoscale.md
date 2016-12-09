@@ -1,12 +1,12 @@
 ---
-title: Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services, and Web Apps | Microsoft Docs
-description: Overview of autoscale in Microsoft Azure. Applies to Virtual Machines, Cloud Services and Web Apps.
+title: "Vue d’ensemble de la mise à l’échelle automatique sur les machines virtuelles Microsoft Azure, les services cloud et les applications web | Microsoft Docs"
+description: "Vue d’ensemble de la mise à l’échelle automatique dans Microsoft Azure. S’applique aux machines virtuelles, aux services cloud et aux applications web."
 author: rboucher
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 74bf03be-e658-4239-a214-c12424b53e4c
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,101 +14,108 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: robb
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: e4ea8b18a9aba44906ed9085fa046859cc186aa1
+
 
 ---
-# <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines,-cloud-services,-and-web-apps"></a>Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services, and Web Apps
-This article describes what Microsoft Azure autoscale is, its benefits, and how to get started using it.  
+# <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Vue d’ensemble de la mise à l’échelle automatique sur les machines virtuelles Microsoft Azure, les services cloud et les applications web
+Cet article décrit la mise à l’échelle automatique Microsoft Azure ainsi que ses avantages, et comment commencer à l’utiliser.  
 
-Azure Insights autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), and [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/). 
+La mise à l’échelle automatique Azure Monitor s’applique uniquement aux [jeux de mise à l’échelle de machine virtuelle](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [services cloud](https://azure.microsoft.com/services/cloud-services/) et à [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/).
 
 > [!NOTE]
-> Azure has two autoscale methods. An older version of autoscale applies to Virtual Machines (availability sets). This feature has limited support and we recommend migrating to VM Scale Sets for faster and more reliable autoscale support. A link on how to use the older technology is included in this article.  
+> Azure dispose de deux méthodes de mise à l’échelle automatique. L’ancienne version de la mise à l’échelle automatique s’applique aux machines virtuelles (groupes à haute disponibilité). Cette fonctionnalité assure une prise en charge limitée et nous vous recommandons de migrer vers les jeux de mise à l’échelle de machine virtuelle pour une prise en charge plus rapide et plus fiable de la mise à l’échelle automatique. Un lien sur la façon d’utiliser l’ancienne technologie est inclus dans cet article.  
 > 
 > 
 
-## <a name="what-is-autoscale?"></a>What is autoscale?
-Autoscale allows you to have the right amount of resources running to handle the load on your application. It allows you to add resources to handle increases in load and also save money by removing resources which are sitting idle. You specify a minimum and maximum number of instances to run and add or remove VMs automatically based on a set of rules. Having a minimum makes sure your application is always running even under no load. Having a maximum limits your total possible hourly cost. You automatically scale between these two extremes using rules you create. 
+## <a name="what-is-autoscale"></a>Qu’est-ce que la mise à l’échelle automatique ?
+La mise à l’échelle automatique vous permet de disposer de la bonne quantité de ressources en cours d’exécution pour gérer la charge sur votre application. Elle vous permet d’ajouter des ressources pour gérer les augmentations de charge et d’économiser de l’argent en supprimant les ressources qui sont inactives. Vous spécifiez un nombre minimal et maximal d’instances à exécuter et ajoutez ou supprimez des machines virtuelles automatiquement en fonction d’un ensemble de règles. Avoir un nombre minimal d’instances permet de vous assurer que votre application est toujours en cours d’exécution même en l’absence de charge. Avoir un nombre maximal d’instances limite votre coût total possible par heure. Vous effectuez une mise à l’échelle automatique entre ces deux extrêmes, à l’aide de règles que vous créez.
 
- ![Autoscale explained. Add and remove VMs](./media/monitoring-autoscale-overview/AutoscaleConcept.png)
+ ![Description de la mise à l’échelle automatique. Ajouter et supprimer des machines virtuelles](./media/monitoring-autoscale-overview/AutoscaleConcept.png)
 
-When rule conditions are met, one or more autoscale actions is triggered. You can add and remove VMs, or perform other actions. The following conceptual diagram shows this process.  
+Lorsque les conditions relatives aux règles sont remplies, une ou plusieurs actions de mise à l’échelle automatique sont déclenchées. Vous pouvez ajouter et supprimer des machines virtuelles ou effectuer d’autres actions. Le schéma conceptuel suivant illustre ce processus.  
 
- ![Conceptual Autoscale Flow Diagram](./media/monitoring-autoscale-overview/AutoscaleOverview3.png)
+ ![Diagramme de flux conceptuel de la mise à l’échelle automatique](./media/monitoring-autoscale-overview/AutoscaleOverview3.png)
 
-## <a name="autoscale-process-explained"></a>Autoscale Process Explained
-The following explanation apply to the pieces of the previous diagram.   
+## <a name="autoscale-process-explained"></a>Description du processus de mise à l’échelle
+La description suivante s’applique aux éléments du schéma précédent.   
 
-### <a name="resource-metrics"></a>Resource metrics
-Resources emit metrics, which are later processed by rules. Metrics come via different methods.
-VM Scale Sets uses telemetry data from Azure diagnostics agents whereas telemetry for Web apps and Cloud services comes directly from the Azure Infrastructure. Some commonly used statistics include CPU Usage, memory usage, thread counts, queue length, and disk usage. For a list of what telemetry data you can use, see [Autoscale Common Metrics](insights-autoscale-common-metrics.md). 
+### <a name="resource-metrics"></a>Mesures de ressources
+Les ressources génèrent des mesures, qui sont ensuite traitées par des règles. Les mesures sont fournies via différentes méthodes.
+Les jeux de mise à l’échelle de machine virtuelle utilisent les données de télémétrie des agents de diagnostics Azure, tandis que les données de télémétrie pour les applications web et les services cloud proviennent directement de l’infrastructure Azure. Parmi les statistiques couramment utilisées figurent l’utilisation du processeur, l’utilisation de la mémoire, le nombre de threads, la longueur de la file d’attente et l’utilisation du disque. Pour obtenir une liste des données de télémétrie que vous pouvez utiliser, voir [Mesures courantes pour la mise à l’échelle automatique](insights-autoscale-common-metrics.md).
 
 ### <a name="time"></a>Time
-Schedule-based rules are based on UTC. You must set your time zone properly when setting up your rules.  
+Les règles basées sur la planification s’appuient sur l’heure UTC. Vous devez définir votre fuseau horaire correctement lorsque vous configurez vos règles.  
 
-### <a name="rules"></a>Rules
-The diagram shows only one autoscale rule, but you can have many of them. You can create complex overlapping rules as needed for your situation.  Rule types include  
+### <a name="rules"></a>Règles
+Le diagramme montre une seule règle de mise à l’échelle automatique, mais vous pouvez en avoir plusieurs. Vous pouvez créer des règles complexes qui se chevauchent en fonction de vos besoins.  Les types de règles incluent  
 
-* **Metric-based** - For example, do this action when CPU usage is above 50%. 
-* **Time-based** - For example, trigger a webhook every 8am on Saturday in a given time zone.
+* **Basées sur des mesures** : par exemple, effectuer cette action lorsque l’utilisation du processeur est supérieure à 50 %.
+* **Basées sur l’heure** : par exemple, déclencher un webhook chaque samedi à 8h dans un fuseau horaire donné.
 
-Metric-based rules measure application load and add or remove VMs based on that load. Schedule-based rules allow you to scale when you see time patterns in your load and want to scale before a possible load increase or decrease occurs.  
+Les règles basées sur les mesures mesurent la charge de l’application et ajoutent ou suppriment des machines virtuelles en fonction de cette charge. Les règles basées sur la planification vous permettent d’effectuer une mise à l’échelle lorsque vous voyez des modèles horaires dans votre charge et que vous souhaitez effectuer la mise à l’échelle avant qu’une augmentation ou diminution de charge possible ne se produise.  
 
-### <a name="actions-and-automation"></a>Actions and automation
-Rules can trigger one or more types of actions.
+### <a name="actions-and-automation"></a>Actions et automatisation
+Les règles peuvent déclencher un ou plusieurs types d’actions.
 
-* **Scale** - Scale VMs in or out
-* **Email** - Send email to subscription admins, co-admins, and/or additional email address you specify
-* **Automate via webhooks** - Call webhooks, which can trigger multiple complex actions inside or outside Azure. Inside Azure, you can start an Azure Automation runbook, Azure Function, or Azure Logic App. Example 3rd party URL outside Azure include services like Slack and Twilio. 
+* **Mise à l’échelle** : mettre les machines virtuelles à l’échelle
+* **E-mail** : envoyer un e-mail aux administrateurs et coadministrateurs d’un abonnement, et/ou à toute adresse e-mail supplémentaire que vous spécifiez
+* **Automatisation via webhooks** : appeler des webhooks, qui peuvent déclencher plusieurs actions complexes à l’intérieur ou en dehors d’Azure. Dans Azure, vous pouvez démarrer un runbook Azure Automation, une fonction Azure ou une application logique Azure. Parmi les URL tierces en dehors d’Azure figurent des services comme Slack et Twilio.
 
-## <a name="autoscale-settings"></a>Autoscale Settings
-Autoscale use the following terminology and structure. 
+## <a name="autoscale-settings"></a>Paramètres de mise à l’échelle automatique
+La mise à l’échelle automatique utilise la terminologie et la structure suivantes.
 
-* An **autoscale setting** is read by the autoscale engine to determine whether to scale up or down. It contains one or more profiles, information about the target resource, and notification settings.
-  * An **autoscale profile** is a combination of a capacity setting, a set of rules governing the triggers, and scale actions for the profile, and a recurrence. You can have multiple profiles, which allow you to take care of different overlapping requirements. 
-    * A **capacity setting** indicates the minimum, maximum, and default values for number of instances. [appropriate place to use fig 1]
-    * A **rule** includes a trigger—either a metric trigger or a time trigger—and a scale action, indicating whether autoscale should scale up or down when that rule is satisfied. 
-    * A **recurrence** indicates when autoscale should put this profile into effect. You can have different autoscale profiles for different times of day or days of the week, for example.
-* A **notification setting** defines what notifications should occur when an autoscale event occurs based on satisfying the criteria of one of the autoscale setting’s profiles. Autoscale can notify one or more email addresses or make calls to one or more webhooks.
+* Un **paramètre de mise à l’échelle automatique** est lu par le moteur de mise à l’échelle automatique afin de déterminer si une montée ou une descente en puissance est nécessaire. Il contient un ou plusieurs profils, des informations sur la ressource cible et des paramètres de notification.
+  * Un **profil de mise à l’échelle automatique** est une combinaison d’un paramètre de capacité, d’un ensemble de règles régissant les déclencheurs et d’actions de mise à l’échelle pour le profil et d’une périodicité. Vous pouvez avoir plusieurs profils, ce qui vous permet de prendre en charge des exigences différentes qui se chevauchent.
+    * Un **paramètre de capacité** indique les valeurs minimum, maximum et par défaut pour le nombre d’instances. [emplacement approprié pour utiliser la Fig. 1]
+    * Une **règle** inclut un déclencheur (métrique ou horaire) et une action de mise à l’échelle indiquant si la mise à l’échelle automatique doit monter ou descendre en puissance lorsque cette règle est satisfaite.
+    * Une **périodicité** indique quand une mise à l’échelle automatique doit appliquer ce profil. Vous pouvez avoir des profils de mise à l’échelle automatique différents pour différentes heures de la journée ou jours de la semaine, par exemple.
+* Un **paramètre de notification** définit quelles notifications doivent se produire lorsqu’un événement de mise à l’échelle automatique a lieu en fonction de la satisfaction des critères de l’un des profils de paramètre de mise à l’échelle automatique. La mise à l’échelle automatique peut notifier une ou plusieurs adresses e-mail ou appeler un ou plusieurs webhooks.
 
-![Azure autoscale setting, profile, and rule structure](./media/monitoring-autoscale-overview/AzureResourceManagerRuleStructure3.png)
+![Structure de règle, de profil et de paramètre de mise à l’échelle automatique Azure](./media/monitoring-autoscale-overview/AzureResourceManagerRuleStructure3.png)
 
-The full list of configurable fields and descriptions is available in the [Autoscale REST API](https://msdn.microsoft.com/library/dn931928.aspx).
+La liste complète des descriptions et champs configurables est disponible dans [l’API REST de mise à l’échelle automatique](https://msdn.microsoft.com/library/dn931928.aspx).
 
-For code examples, see
+Pour plus d’exemples de code, consultez
 
-* [Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md)  
-* [Autoscale REST API](https://msdn.microsoft.com/library/dn931953.aspx) 
+* [Configuration avancée de la mise à l’échelle automatique à l’aide des modèles Resource Manager pour les groupes de machines virtuelles identiques](insights-advanced-autoscale-virtual-machine-scale-sets.md)  
+* [Paramètres de mise à l’échelle automatique](https://msdn.microsoft.com/library/dn931953.aspx)
 
-## <a name="horizontal-vs-vertical-scaling"></a>Horizontal vs vertical scaling
-Autoscale increases resources in only scales horizontally, which is an increase ("out") or decrease ("in") in the number of VM instances.  Horizontal scaling, which is more flexible in a cloud situation as it allows you to run potentially thousands of VMs to handle load. Vertical scaling is different. It keeps the same number of VMs, but makes the VM more ("up") or less ("down") powerful. Power is measured in memory, CPU speed, disk space, etc.  Vertical scaling has more limitations. It's dependent on the availability of larger hardware, which can vary by region and quickly hits and upper limit. Vertical scaling also usually requires a VM stop and start. For more information, see [Vertically scale Azure virtual machine with Azure Automation](../virtual-machines/virtual-machines-linux-vertical-scaling-automation.md). 
+## <a name="horizontal-vs-vertical-scaling"></a>Mise à l’échelle horizontale/verticale
+La mise à l’échelle automatique augmente uniquement les ressources horizontalement, ce qui correspond à une augmentation (« out ») ou à une diminution (« in ») du nombre d’instances de machine virtuelle.  La mise à l’échelle horizontale est plus flexible dans un environnement cloud, car elle vous permet d’exécuter des milliers de machines virtuelles pour gérer la charge. La mise à l’échelle verticale est différente. Elle conserve le même nombre de machines virtuelles, mais rend la machine virtuelle plus (« up ») ou moins (« down ») puissante. La puissance se mesure en termes de mémoire, de vitesse du processeur, d’espace disque, etc.  La mise à l’échelle verticale a davantage de limites. Elle est dépendante de la disponibilité d’un matériel plus puissant, ce qui peut varier d’une région à l’autre, et peut atteindre rapidement sa limite. La mise à l’échelle verticale nécessite généralement un début et une fin de machine virtuelle. Pour plus d’informations, voir [Évolution verticale des machines virtuelles Azure avec Azure Automation](../virtual-machines/virtual-machines-linux-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="methods-of-access"></a>Methods of access
-You can set up autoscale via 
+## <a name="methods-of-access"></a>Méthodes d’accès
+Vous pouvez configurer la mise à l’échelle automatique via
 
-* [Azure portal](../azure-portal/insights-how-to-scale.md)
-* [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings) 
-* [Cross-platform Command Line Interface (CLI)](insights-cli-samples.md#autoscale)
-* [Insights REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
+* [Portail Azure](insights-how-to-scale.md)
+* [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings)
+* [Interface de ligne de commande interplateforme (CLI)](insights-cli-samples.md#autoscale)
+* [API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
-## <a name="supported-services-for-autoscale"></a>Supported services for autoscale
-| Service | Schema & Docs |
+## <a name="supported-services-for-autoscale"></a>Services pris en charge pour la mise à l’échelle automatique
+| de diffusion en continu | Schéma et documentation |
 | --- | --- |
-| Web Apps |[Scaling Web Apps](../azure-portal/insights-how-to-scale.md) |
-| Cloud Services |[Autoscale a Cloud Service](../cloud-services/cloud-services-how-to-scale.md) |
-| Virtual Machines : Classic |[Scaling Classic Virtual Machine Availability Sets](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Virtual Machines : Windows Scale Sets |[Scaling VM Scale Sets in Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
-| Virtual Machines : Linux Scale Sets |[Scaling VM Scale Sets in Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
-| Virtual Machines : Windows Example |[Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
+| Applications Web |[Mise à l’échelle des applications web](insights-how-to-scale.md) |
+| Services cloud |[Mise à l’échelle automatique d’un service cloud](../cloud-services/cloud-services-how-to-scale.md) |
+| Machines virtuelles : classiques |[Mise à l’échelle de groupes à haute disponibilité de machines virtuelles classiques](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
+| Machines virtuelles : jeux de mise à l’échelle |[Mise à l’échelle de jeux de mise à l’échelle de machine virtuelle sous Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
+| Machines virtuelles : jeux de mise à l’échelle Linux |[Mise à l’échelle de jeux de mise à l’échelle de machine virtuelle sous Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
+| Machines virtuelles : exemple Windows |[Configuration avancée de la mise à l’échelle automatique à l’aide des modèles Resource Manager pour les groupes de machines virtuelles identiques](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
 
-## <a name="next-steps"></a>Next steps
-To learn more about autoscale, use the Autoscale Walkthroughs listed previously or refer to the following resources: 
+## <a name="next-steps"></a>Étapes suivantes
+Pour en savoir plus sur la mise à l’échelle automatique, utilisez les guides sur la mise à l’échelle automatique répertoriés précédemment ou consultez les ressources suivantes :
 
-* [Azure Insights autoscale common metrics](insights-autoscale-common-metrics.md)
-* [Best practices for Azure Insights autoscale](insights-autoscale-best-practices.md)
-* [Use autoscale actions to send email and webhook alert notifications](insights-autoscale-to-webhook-email.md)
-* [Autoscale REST API](https://msdn.microsoft.com/library/dn931953.aspx)
-* [Troubleshooting Virtual Machine Scale Sets Autoscale](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md) 
+* [Mesures courantes pour la mise à l’échelle automatique dans Azure Monitor](insights-autoscale-common-metrics.md)
+* [Meilleures pratiques pour la mise à l’échelle automatique d’Azure Insights](insights-autoscale-best-practices.md)
+* [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique](insights-autoscale-to-webhook-email.md)
+* [Paramètres de mise à l’échelle automatique](https://msdn.microsoft.com/library/dn931953.aspx)
+* [Dépannage de la mise à l’échelle automatique avec des jeux de mise à l’échelle de machine virtuelle](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

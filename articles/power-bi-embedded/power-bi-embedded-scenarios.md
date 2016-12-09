@@ -1,13 +1,13 @@
 ---
-title: Scénarios Microsoft Power BI Embedded courants
-description: Scénarios Microsoft Power BI Embedded courants
+title: "Scénarios Microsoft Power BI Embedded courants"
+description: "Scénarios Microsoft Power BI Embedded courants"
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 0bf9706c-11bd-432a-bab3-89c04bc4dd1f
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bcfb9370af716756440a09f4f0c2e4ca0af70b45
+
 
 ---
 # <a name="common-power-bi-embedded-scenarios"></a>Scénarios Power BI Embedded courants
@@ -30,6 +34,9 @@ Voici quelques scénarios d'utilisation de **Power BI Embedded** dans vos applic
 * [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 * [Prise en main de l'exemple](power-bi-embedded-get-started.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

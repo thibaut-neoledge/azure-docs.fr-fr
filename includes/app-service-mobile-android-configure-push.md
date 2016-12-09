@@ -1,14 +1,14 @@
 
-1. Dans le [portail Azure](https://azure.portal.com/), cliquez sur **Parcourir** > **App Services**, recherchez et cliquez sur votre serveur principal d’applications mobiles > **Tous les paramètres**, puis sous **Mobile** cliquez sur **Push**.
-2. Dans les Services de notification Push, cliquez sur **Google (GCM)**, entrez la valeur de la **clé API** obtenue de GCM au cours de la procédure précédente, puis cliquez sur **Enregistrer**.
-   
-    ![Définition de la clé API GCM dans le portail](./media/app-service-mobile-android-configure-push/mobile-push-api-key.png)
+1. Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Parcourir tout** > **App Services** > votre serveur principal d’application mobile. Sous **Paramètres**, cliquez sur **App Service Push** (Notification Push App Service), puis cliquez sur le nom de votre concentrateur de notifications.
+2. Accédez à **Google (GCM)**, entrez la clé du serveur FCM obtenue à partir de la console Firebase, puis cliquez sur **Enregistrer**.
 
-Le serveur principal d'applications mobiles est maintenant configuré pour utiliser GCM pour envoyer des notifications Push à votre application en cours d'exécution sur un appareil Android à l'aide du concentrateur de notification.
+Votre service est désormais configuré et prêt à fonctionner avec Firebase Cloud Messaging !
 
 <!-- URLs. -->
 
-
 <!-- images -->
 
-<!---HONumber=AcomDC_1203_2015-->
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,9 +1,9 @@
 
-1. Ouvrez le fichier de projet MainPage.xaml.cs et ajoutez les instructions **using** suivantes :
+1. Ouvrez le fichier de projet MainPage.xaml.cs et ajoutez les instructions **using** suivantes :
    
         using System.Linq;        
         using Windows.Security.Credentials;
-2. Remplacez la méthode **AuthenticateAsync** par le code suivant :
+2. Remplacez la méthode **AuthenticateAsync** par le code suivant :
    
         private async System.Threading.Tasks.Task<bool> AuthenticateAsync()
         {
@@ -72,14 +72,18 @@
             return success;
         }
    
-    Dans cette version de **AuthenticateAsync**, l'application essaye d'utiliser des informations d'identification stockées dans le **coffre de mots de passe** pour accéder au service. Une connexion normale est également effectuée quand il n'y a pas d'informations d'identification stockées.
+    Dans cette version d’**AuthenticateAsync**, l’application essaie d’utiliser les informations d’identification stockées dans le **coffre de mots de passe** pour accéder au service. Une connexion normale est également effectuée quand il n'y a pas d'informations d'identification stockées.
    
    > [!NOTE]
-   > Un jeton en cache peut avoir expiré et l'expiration des jetons peut également survenir après l'authentification, alors que l'application est en cours d'utilisation. Pour savoir comment déterminer si un jeton est arrivé à expiration, consultez [Rechercher les jetons d'authentification expirés](http://aka.ms/jww5vp). Pour une solution permettant de gérer les erreurs d'autorisation liées à des jetons expirés, consultez le post [Mise en cache et gestion des jetons expirés dans le Kit de développement logiciel (SDK) managé d'Azure Mobile Services](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx).
+   > Un jeton en cache peut avoir expiré et l'expiration des jetons peut également survenir après l'authentification, alors que l'application est en cours d'utilisation. Pour savoir comment déterminer si un jeton est arrivé à expiration, consultez [Rechercher les jetons d'authentification expirés](http://aka.ms/jww5vp). Pour une solution permettant de gérer les erreurs d'autorisation liées à des jetons expirés, consultez le post [Mise en cache et gestion des jetons expirés dans le Kit de développement logiciel (SDK) managé d'Azure Mobile Services](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
    > 
    > 
 3. Redémarrez l'application deux fois.
    
-    Notez que lors du premier démarrage, la connexion avec le fournisseur est à nouveau requise. Cependant, lors du second redémarrage, les informations d'identification mises en cache sont utilisées et l'étape de connexion est ignorée.
+    Notez que lors du premier démarrage, la connexion avec le fournisseur est à nouveau requise. Cependant, lors du second redémarrage, les informations d'identification mises en cache sont utilisées et l'étape de connexion est ignorée. 
 
-<!---HONumber=AcomDC_0211_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Stream Azure Diagnostic Logs to Event Hubs | Microsoft Docs
-description: Learn how to stream Azure Diagnostic Logs to Event Hubs.
+title: Stream Azure Diagnostic Logs to Event Hubs (Diffuser en continu les journaux de diagnostic vers Event Hubs) | Microsoft Docs
+description: "Découvrez comment diffuser en continu les journaux de diagnostic vers Event Hubs."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 42bc4845-c564-4568-b72d-0614591ebd80
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,19 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4ff5fb57cba6dea1bee9d2e2d25f6fcf8354ce79
+
 
 ---
-# <a name="stream-azure-diagnostic-logs-to-event-hubs"></a>Stream Azure Diagnostic Logs to Event Hubs
-**[Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)** can be streamed in near real time to any application using the built-in “Export to Event Hubs” option in the Portal, or by enabling the Service Bus Rule Id in a Diagnostic Setting via the Azure PowerShell Cmdlets or Azure CLI.
+# <a name="stream-azure-diagnostic-logs-to-event-hubs"></a>Diffuser en continu les journaux de diagnostic vers Event Hubs
+Les **[journaux de diagnostic Azure](monitoring-overview-of-diagnostic-logs.md)** peuvent être diffusés quasiment en temps réel sur n’importe quelle application à l’aide de l’option « Exporter vers Event Hubs » intégrée au portail, ou en activant l’identifiant de règle Service Bus dans un paramètre de diagnostic via les applets de commande PowerShell Azure ou l’interface de ligne de commande Azure.
 
-## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>What you can do with Diagnostics Logs and Event Hubs
-Here are just a few ways you might use the streaming capability for Diagnostic Logs:
+## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>Ce que vous pouvez faire avec les journaux de diagnostic et Event Hubs
+Voici quelques façons d’utiliser la fonctionnalité de diffusion en continu pour les journaux de diagnostic :
 
-* **Stream logs to 3rd party logging and telemetry systems** – Over time, Event Hubs streaming will become the mechanism to pipe your Diagnostic Logs into third party SIEMs and log analytics solutions.
-* **View service health by streaming “hot path” data to PowerBI** – Using Event Hubs, Stream Analytics, and PowerBI, you can easily transform your diagnostics data into near real-time insights on your Azure services. [This documentation article gives a great overview of how to set up an Event Hubs, process data with Stream Analytics, and use PowerBI as an output](../stream-analytics/stream-analytics-power-bi-dashboard.md). Here’s a few tips for getting set up with Diagnostic Logs:
+* **Diffuser en continu des journaux sur des systèmes de journalisation et de télémétrie tiers** : au fil du temps, la diffusion en continu sur Event Hubs deviendra le mécanisme de diffusion de vos journaux de diagnostic vers les SIEM et les solutions d’analyse de journaux tiers.
+* **Afficher l’état d’intégrité du service en diffusant des données de chemin réactif vers PowerBI** : en utilisant Event Hubs, Stream Analytics et PowerBI, vous pouvez facilement transformer vos données de diagnostic en informations en temps réel sur vos services Azure. [Cette documentation vous explique comment configurer un client Event Hubs, traiter les données avec Stream Analytics et utiliser PowerBI comme sortie](../stream-analytics/stream-analytics-power-bi-dashboard.md). Voici quelques conseils pour la configuration des journaux de diagnostic :
   
-  * The Event Hubs for a category of Diagnostic Logs is created automatically when you check the option in the portal or enable it through PowerShell, so you want to select the Event Hubs in the Service Bus namespace with the name that starts with “insights-”
-  * Here’s a sample Stream Analytics query you can use to simply parse all the log data in to a PowerBI table:
+  * Un client Event Hubs est automatiquement créé pour une catégorie de journaux de diagnostic lorsque vous activez l’option dans le portail ou via PowerShell. Dans l’espace de noms Service Bus, sélectionnez le client Event Hubs avec le nom commençant par « insights- ».
+  * Voici un exemple de requête Stream Analytics que vous pouvez utiliser pour analyser simplement toutes les données de journal dans une table PowerBI :
 
 ```
 SELECT
@@ -38,45 +42,45 @@ FROM
 CROSS APPLY GetArrayElements(e.records) AS records
 ```
 
-* **Build a custom telemetry and logging platform** – If you already have a custom-built telemetry platform or are just thinking about building one, the highly scalable publish-subscribe nature of Event Hubs allows you to flexibly ingest diagnostic logs. [See Dan Rosanova’s guide to using Event Hubs in a global scale telemetry platform here](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
+* **Créer une plateforme de journalisation et de télémétrie personnalisée** : si vous disposez déjà d’une plateforme de télémétrie personnalisée, ou si vous envisagez d’en créer une, la nature hautement évolutive de publication et d’abonnement d’Event Hubs vous permet d’intégrer avec souplesse les journaux de diagnostic. [Consultez ici le guide de Dan Rosanova sur l’utilisation d’Event Hubs dans une plateforme de télémétrie à échelle mondiale.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
-## <a name="enable-streaming-of-diagnostic-logs"></a>Enable streaming of Diagnostic Logs
-You can enable streaming of Diagnostic Logs programmatically, via the portal, or using the [Insights REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx). Either way, you pick a Service Bus Namespace and an Event Hubs is created in the namespace for each log category you enable. A Diagnostic **Log Category** is a type of log that a resource may collect. You can select which log categories you’d like to collect for a particular resource in the Azure Portal under the Diagnostics blade.
+## <a name="enable-streaming-of-diagnostic-logs"></a>Activer la diffusion en continu des journaux de diagnostic
+Vous pouvez activer la diffusion en continu des journaux de diagnostic par programme, via le portail ou à l’aide de [l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx). Dans les deux cas, vous choisissez un espace de noms Service Bus et un client Event Hubs est créé dans l’espace de noms pour chaque catégorie de journal que vous activez. Une **catégorie de journal** de diagnostic est un type de journal qu’une ressource peut collecter. Vous pouvez sélectionner les catégories de journaux que vous souhaitez collecter pour une ressource particulière dans le portail Azure sous le panneau Diagnostics.
 
-![Log categories in the Portal](./media/monitoring-stream-diagnostic-logs-to-event-hubs/log-categories.png)
+![Catégories de journaux disponibles dans le portail](./media/monitoring-stream-diagnostic-logs-to-event-hubs/log-categories.png)
 
 > [!WARNING]
-> Enabling and streaming diagnostic logs from Compute resources (for example, VMs or Service Fabric) [requires a different set of steps](../event-hubs/event-hubs-streaming-azure-diags-data.md).
+> L’activation et la diffusion en continu de journaux de diagnostic à partir de ressources de calcul (par exemple, les machines virtuelles ou Service Fabric) [nécessitent des étapes de configuration différentes](../event-hubs/event-hubs-streaming-azure-diags-data.md).
 > 
 > 
 
-### <a name="via-powershell-cmdlets"></a>Via PowerShell Cmdlets
-To enable streaming via the [Azure PowerShell Cmdlets](insights-powershell-samples.md), you can use the `Set-AzureRmDiagnosticSetting` cmdlet with these parameters:
+### <a name="via-powershell-cmdlets"></a>Via les applets de commande PowerShell
+Pour activer la diffusion en continu via les [applets de commande Azure PowerShell](insights-powershell-samples.md), vous pouvez utiliser l’applet de commande `Set-AzureRmDiagnosticSetting` avec ces paramètres :
 
 ```
 Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
 ```
 
-The Service Bus Rule ID is a string with this format: `{service bus resource ID}/authorizationrules/{key name}`, for example, `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{service bus namespace}/authorizationrules/RootManageSharedAccessKey`.
+L’ID de règle Service Bus est une chaîne au format `{service bus resource ID}/authorizationrules/{key name}`, par exemple, `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{service bus namespace}/authorizationrules/RootManageSharedAccessKey`.
 
-### <a name="via-azure-cli"></a>Via Azure CLI
-To enable streaming via the [Azure CLI](insights-cli-samples.md), you can use the `insights diagnostic set` command like this:
+### <a name="via-azure-cli"></a>Via l’interface de ligne de commande Azure
+Pour activer la diffusion en continu via [l’interface de ligne de commande Azure](insights-cli-samples.md), vous pouvez utiliser la commande `insights diagnostic set` comme suit :
 
 ```
 azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
 ```
 
-Use the same format for Service Bus Rule ID as explained for the PowerShell Cmdlet.
+Utilisez le même format pour l’ID de règle Service Bus, comme expliqué pour l’applet de commande PowerShell.
 
-### <a name="via-azure-portal"></a>Via Azure Portal
-To enable streaming via the Azure Portal, navigate to the diagnostics settings of a resource and select ‘Export to Event Hub.’
+### <a name="via-azure-portal"></a>Via le portail Azure
+Pour activer la diffusion en continu via le portail Azure, accédez aux paramètres de diagnostic d’une ressource et sélectionnez « Exporter vers Event Hub ».
 
-![Export to Event Hubs in the Portal](./media/monitoring-stream-diagnostic-logs-to-event-hubs/portal-export.png)
+![Exporter vers Event Hubs dans le portail](./media/monitoring-stream-diagnostic-logs-to-event-hubs/portal-export.png)
 
-To configure it, select an existing Service Bus Namespace. The namespace selected will be where the Event Hubs is created (if this is your first time streaming diagnostic logs) or streamed to (if there are already resources that are streaming that log category to this namespace), and the policy defines the permissions that the streaming mechanism has. Today, streaming to an Event Hubs requires Manage, Read, and Send permissions. You can create or modify Service Bus Namespace shared access policies in the classic portal under the “Configure” tab for your Service Bus Namespace. To update one of these Diagnostic Settings, the client must have the ListKey permission on the Service Bus Authorization Rule.
+Sélectionnez un espace de noms Service Bus pour le configurer. L’espace de noms sélectionné sera l’espace où le client Event Hubs sera créé (si c’est la première fois que vous diffusez en continu des journaux de diagnostic) ou vers lequel le client Event Hubs diffusera les journaux (si des ressources diffusent déjà cette catégorie de journal vers cet espace de noms). La stratégie définit les autorisations dont dispose le mécanisme de diffusion en continu. À l’heure actuelle, la diffusion vers les clients Event Hubs requiert des autorisations de gestion, de lecture et d’envoi. Vous pouvez créer ou modifier les stratégies d’accès partagé de l’espace de noms Service Bus dans le portail Azure Classic sous l’onglet « Configurer » pour votre espace de noms Service Bus. Pour mettre à jour l’un de ces paramètres de diagnostic, le client doit avoir l’autorisation ListKey sur la règle d’autorisation Service Bus.
 
-## <a name="how-do-i-consume-the-log-data-from-event-hubs?"></a>How do I consume the log data from Event Hubs?
-Here is sample output data from the Event Hubs:
+## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Comment utiliser les données de journal d’Event Hubs ?
+Voici des exemples de données de sortie provenant d’Event Hubs :
 
 ```
 {
@@ -139,22 +143,25 @@ Here is sample output data from the Event Hubs:
 }
 ```
 
-| Element Name | Description |
+| Nom de l’élément | Description |
 | --- | --- |
-| records |An array of all log events in this payload. |
-| time |Time at which the event occurred. |
-| category |Log category for this event. |
-| resourceId |Resource ID of the resource that generated this event. |
-| operationName |Name of the operation. |
-| level |Optional. Indicates the log event level. |
-| properties |Properties of the event. |
+| records |Un tableau regroupant tous les événements de journal de cette charge utile. |
+| time |L’heure à laquelle l’événement s’est produit. |
+| category |La catégorie de journal associée à cet événement. |
+| resourceId |L’ID de la ressource qui a généré cet événement. |
+| operationName |Le nom de l’opération. |
+| level |facultatif. Indique le niveau de l’événement de journal. |
+| properties |Les propriétés de l’événement. |
 
-You can view a list of all resource providers that support streaming to Event Hub [here](monitoring-overview-of-diagnostic-logs.md).
+Une liste de tous les fournisseurs de ressources qui prennent en charge la diffusion en continu vers Event Hubs est disponible [ici](monitoring-overview-of-diagnostic-logs.md).
 
-## <a name="next-steps"></a>Next Steps
-* [Read more about Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)
-* [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+## <a name="next-steps"></a>Étapes suivantes
+* [En savoir plus sur les journaux de diagnostic Azure](monitoring-overview-of-diagnostic-logs.md)
+* [Prise en main des hubs d’événements](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

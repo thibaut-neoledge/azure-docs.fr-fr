@@ -7,13 +7,13 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 -->
 
 
-### Obtenir la chaîne de connexion sur le portail Azure
-Utilisez le [portail Azure](https://portal.azure.com/) pour obtenir la chaîne de connexion nécessaire pour que votre programme client interagisse avec la base de données SQL Azure :
+### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Obtenir la chaîne de connexion sur le portail Azure
+Utilisez le [portail Azure](https://portal.azure.com/) pour obtenir la chaîne de connexion nécessaire pour que votre programme client interagisse avec la base de données SQL Azure :
 
 1. Cliquez sur **PARCOURIR** > **Bases de données SQL**.
    
     ![Sélectionner SQL][1-select-sql]
-2. Entrez le nom de votre base de données dans la zone de texte de filtre, en haut à gauche du panneau **Bases de données SQL**.
+2. Entrez le nom de votre base de données dans la zone de texte de filtre, en haut à gauche du panneau **Bases de données SQL** .
    
     ![Sélectionner la base de données][2-select-database]]
 3. Cliquez sur la ligne qui correspond à votre base de données.
@@ -22,9 +22,9 @@ Utilisez le [portail Azure](https://portal.azure.com/) pour obtenir la chaîne d
 6. Si vous prévoyez d’utiliser la bibliothèque de connexions JDBC, copiez la chaîne intitulée **JDBC**.
    
     ![Copier la chaîne de connexion JDBC pour votre base de données][3-get-connection-string]
-7. Collez les informations de chaîne de connexion dans le code de votre programme client. Vous devez remplacer {your\_password\_here} par votre mot de passe réel.
+7. Collez les informations de chaîne de connexion dans le code de votre programme client.  Vous devez remplacer {your_password_here} par votre mot de passe réel.
 
-Pour plus d’informations, consultez :<br/>[Chaînes de connexion et fichiers de configuration](https://msdn.microsoft.com/library/ms378428.aspx).
+Pour plus d’informations, consultez :<br/>[Chaînes de connexion et fichiers de configuration](https://msdn.microsoft.com/library/ms378428.aspx).
 
 <!-- Image references. -->
 
@@ -44,4 +44,7 @@ includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
 
-<!---HONumber=AcomDC_0406_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

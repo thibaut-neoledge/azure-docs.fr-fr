@@ -1,58 +1,62 @@
 ---
-title: Utiliser la vue Tez d’Ambari avec HDInsight | Microsoft Docs
-description: Découvrez comment utiliser la vue Tez d’Ambari pour déboguer les travaux Tez dans HDInsight.
+title: "Utiliser la vue Tez d’Ambari avec HDInsight | Microsoft Docs"
+description: "Découvrez comment utiliser la vue Tez d’Ambari pour déboguer les travaux Tez dans HDInsight."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 9c39ea56-670b-4699-aba0-0f64c261e411
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/19/2016
+ms.date: 10/04/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b1099d742e555bcc7b7730409c85c10778967678
+
 
 ---
-# Utiliser les vues Ambari pour déboguer les travaux Tez dans HDInsight
+# <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Utiliser les vues Ambari pour déboguer les travaux Tez dans HDInsight
 L’interface utilisateur Web d’Ambari pour HDInsight contient une vue Tez qui peut servir à comprendre et à déboguer les travaux utilisant Tez comme moteur d’exécution. La vue Tez vous permet de visualiser le travail sous forme de graphique d’éléments connectés, d’explorer chacun d’entre eux, ainsi que d’extraire des statistiques et des informations de journalisation.
 
 > [!NOTE]
-> Les informations présentes sur le document sont spécifiques aux clusters HDInsight sous Linux. Pour plus d’informations sur le débogage des travaux Tez à l’aide de HDInsight sous Windows, consultez l’article [Use the Tez UI to debug Tez jobs on Windows-based HDInsight](hdinsight-debug-tez-ui.md) (Utiliser l’interface utilisateur Tez pour déboguer les travaux Tez dans HDInsight sous Windows).
+> Les informations présentes sur le document sont spécifiques aux clusters HDInsight sous Linux. Pour plus d’informations sur le débogage des travaux Tez à l’aide de HDInsight sous Windows, consultez l’article [Use the Tez UI to debug Tez jobs on Windows-based HDInsight](hdinsight-debug-tez-ui.md)(Utiliser l’interface utilisateur Tez pour déboguer les travaux Tez dans HDInsight sous Windows).
 > 
 > 
 
-## Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 * Un cluster HDInsight sous Linux Pour plus d’informations sur la création d’un cluster, consultez l’article [Prise en main de HDInsight sur Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 * Un navigateur web moderne qui prend en charge HTML5.
 
-## Présentation de Tez
+## <a name="understanding-tez"></a>Présentation de Tez
 Tez est une infrastructure extensible pour le traitement des données dans Hadoop plus rapide que le traitement MapReduce traditionnel. Pour les clusters HDInsight sous Linux, Tez est le moteur par défaut pour Hive.
 
-Lorsque Tez reçoit un travail à effectuer, il crée un graphe orienté acyclique (Directed Acyclic Graph - DAG) qui décrit l’ordre d’exécution des actions requises. Les actions individuelles sont appelées des vertex et exécutent une partie du travail global. L’exécution réelle du travail décrit par un vertex est appelée une tâche, et peut être répartie sur plusieurs nœuds du cluster.
+Lorsque Tez reçoit un travail à effectuer, il crée un graphe orienté acyclique (Directed Acyclic Graph - DAG) qui décrit l’ordre d’exécution des actions requises. Les actions individuelles sont appelées des vertex et exécutent une partie du travail global. L’exécution réelle du travail décrit par un vertex est appelée une tâche, et peut être répartie sur plusieurs nœuds du cluster.
 
-### Présentation de la vue Tez
-La vue Tez fournit des informations sur les processus en cours d’exécution, ou qui ont été exécutés à l’aide de Tez. Elle vous permet d’afficher le DAG généré par Tez, de connaître la répartition entre les clusters, et d’accéder aux compteurs tels que la mémoire utilisée par les tâches et les vertex, ainsi qu’aux informations d’erreur. Elle peut fournir des informations utiles dans les scénarios suivants :
+### <a name="understanding-the-tez-view"></a>Présentation de la vue Tez
+La vue Tez fournit des informations sur les processus en cours d’exécution, ou qui ont été exécutés à l’aide de Tez. Elle vous permet d’afficher le DAG généré par Tez, de connaître la répartition entre les clusters, et d’accéder aux compteurs tels que la mémoire utilisée par les tâches et les vertex, ainsi qu’aux informations d’erreur. Elle peut fournir des informations utiles dans les scénarios suivants :
 
 * Surveiller les processus à long terme, voir l'avancement des tâches de mappage et de réduction.
 * Analyser les données historiques des processus ayant réussi ou échoué, afin de savoir comment le traitement peut être amélioré ou pourquoi il a échoué.
 
-## Générer un DAG
+## <a name="generate-a-dag"></a>Générer un DAG
 La vue Tez contient des données uniquement si une tâche qui utilise le moteur Tez est en cours d’exécution ou a déjà été exécutée. Les requêtes Hive simples peuvent généralement être résolues sans utiliser Tez. Toutefois, Tez est généralement nécessaire pour les requêtes plus complexes destinées à filtrer, regrouper, classer, joindre, etc.
 
 Utilisez les étapes suivantes pour exécuter une requête Hive à l'aide de Tez.
 
-1. Dans un navigateur web, accédez à https://CLUSTERNAME.azurehdinsight.net, où **CLUSTERNAME** est le nom de votre cluster HDInsight.
-2. Dans le menu situé en haut de la page, sélectionnez l’icône **Vues**. Cette icône représente une série de carrés. Dans la liste déroulante qui s’affiche, sélectionnez **Vue Hive**.
+1. Dans un navigateur web, accédez à l’adresse https://CLUSTERNAME.azurehdinsight.net, où **CLUSTERNAME** est le nom de votre cluster HDInsight.
+2. Dans le menu situé en haut de la page, sélectionnez l’icône **Vues** . Cette icône représente une série de carrés. Dans la liste déroulante qui s’affiche, sélectionnez **Vue Hive**. 
    
     ![Sélectionner la vue Hive](./media/hdinsight-debug-ambari-tez-view/selecthive.png)
 3. Une fois la vue Hive chargée, collez le code suivant dans l’éditeur de requête, puis cliquez sur **Exécuter**.
    
         select market, state, country from hivesampletable where deviceplatform='Android' group by market, country, state;
    
-    Une fois le travail terminé, le résultat devrait s’afficher dans la section **Résultats du processus de requête**. Le contenu doit ressembler à ce qui suit.
+    Une fois le travail terminé, le résultat devrait s’afficher dans la section **Résultats du processus de requête** . Le contenu doit ressembler à ce qui suit.
    
         market  state       country
         en-GB   Hessen      Germany
@@ -64,16 +68,16 @@ Utilisez les étapes suivantes pour exécuter une requête Hive à l'aide de Tez
    
         INFO : Status: Running (Executing on YARN cluster with App id application_1454546500517_0063)
    
-    Enregistrez la valeur **ID d’application**, car elle sera utilisée dans la section suivante.
+    Enregistrez la valeur **ID d’application** , car elle sera utilisée dans la section suivante.
 
-## Utiliser la vue Tez
-1. Dans le menu situé en haut de la page, sélectionnez l’icône **Vues**. Dans la liste déroulante qui s’affiche, sélectionnez **Vue Tez**.
+## <a name="use-the-tez-view"></a>Utiliser la vue Tez
+1. Dans le menu situé en haut de la page, sélectionnez l’icône **Vues** . Dans la liste déroulante qui s’affiche, sélectionnez **Vue Tez**.
    
     ![Sélectionner la vue Tez](./media/hdinsight-debug-ambari-tez-view/selecttez.png)
 2. Une fois la vue Tez chargée, vous voyez apparaître la liste des DAG en cours d’exécution ou qui ont été exécutés sur le cluster. La vue par défaut inclut le nom du DAG, l’ID, l’émetteur, l’état, l’heure de début, l’heure de fin, la durée, l’ID d’application et la file d’attente. Il est possible d’ajouter des colonnes à l’aide de l’icône d’engrenage à droite de la page.
    
     ![Tous les DAG](./media/hdinsight-debug-ambari-tez-view/alldags.png)
-3. Si vous ne voyez qu’une seule entrée, il s’agit de la requête que vous avez exécutée dans la section précédente. Si vous en voyez plusieurs, vous pouvez faire une recherche en entrant ID d’application dans le champ **ID d’Application**, puis appuyez sur Entrée.
+3. Si vous ne voyez qu’une seule entrée, il s’agit de la requête que vous avez exécutée dans la section précédente. Si vous en voyez plusieurs, vous pouvez faire une recherche en entrant ID d’application dans le champ **ID d’Application** , puis appuyez sur Entrée.
 4. Sélectionnez le **nom du DAG**. Cette action permet d’afficher les informations sur le DAG, et offre la possibilité de télécharger un fichier compressé des fichiers JSON contenant des informations sur le DAG.
    
     ![Détails du DAG](./media/hdinsight-debug-ambari-tez-view/dagdetails.png)
@@ -96,9 +100,9 @@ Utilisez les étapes suivantes pour exécuter une requête Hive à l'aide de Tez
 6. Sélectionnez **Vue graphique**. Cette action permet d’afficher une représentation graphique du DAG. Dans cette vue, vous pouvez placer la souris sur chaque vertex pour afficher les informations le concernant.
    
     ![Vue graphique](./media/hdinsight-debug-ambari-tez-view/dagdiagram.png)
-7. Cliquez sur un vertex pour charger ses **Détails**. Cliquez sur le vertex **Map 1** pour afficher les détails de cet élément.
+7. Cliquez sur un vertex pour charger ses **Détails du vertex**. Cliquez sur le vertex **Map 1** pour afficher les détails de cet élément.
    
-    ![Détails du vertex](./media/hdinsight-debug-ambari-tez-view/vertexdetails.png)
+    ![Détails](./media/hdinsight-debug-ambari-tez-view/vertexdetails.png)
 8. Notez qu’en haut de la page, vous disposez maintenant de liens relatifs aux vertex et aux tâches.
    
    > [!NOTE]
@@ -112,18 +116,23 @@ Utilisez les étapes suivantes pour exécuter une requête Hive à l'aide de Tez
    * **Sources et récepteurs** permet d’afficher les sources et les récepteurs de données pour ce vertex.
      
      > [!NOTE]
-     > Comme avec le menu précédent, vous pouvez parcourir les colonnes Tâches, Tentatives de tâche et Sources et récepteurs\_\_ afin d’afficher des liens vers d’autres informations pour chaque élément.
+     > Comme avec le menu précédent, vous pouvez parcourir les colonnes Tâches, Tentatives de tâche et Sources et récepteurs__ afin d’afficher des liens vers d’autres informations pour chaque élément.
      > 
      > 
-9. Sélectionnez **Tâches**, puis sélectionnez l’élément nommé **00_000000_\_. Cette action permet d’afficher les __détails de la tâche**. À partir de cet écran, vous pouvez consulter les **compteurs de tâche** et les *_Tentatives de tâche\*\_.
+9. Sélectionnez **Tâches**, puis sélectionnez l’élément nommé **00_000000**. Cette action permet d’afficher les **détails de la tâche**. À partir de cet écran, vous pouvez consulter les **compteurs de tâche** et les **tentatives de tâche**.
    
    ![Détails de la tâche](./media/hdinsight-debug-ambari-tez-view/taskdetails.png)
 
-## Étapes suivantes
-Maintenant que vous avez appris à utiliser la vue Tez, obtenez plus d’informations sur l’[Utilisation de Hive dans HDInsight](hdinsight-use-hive.md).
+## <a name="next-steps"></a>Étapes suivantes
+Maintenant que vous avez appris à utiliser la vue Tez, obtenez plus d’informations sur l’ [Utilisation de Hive dans HDInsight](hdinsight-use-hive.md).
 
-Pour plus d’informations techniques sur Tez, consultez la [page Tez sur Hortonworks](http://hortonworks.com/hadoop/tez/) (en anglais).
+Pour plus d’informations techniques sur Tez, consultez la [page Tez sur Hortonworks](http://hortonworks.com/hadoop/tez/)(en anglais).
 
-Pour plus d’informations sur l’utilisation d’Ambari avec HDInsight, consultez la page [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md).
+Pour plus d’informations sur l’utilisation d’Ambari avec HDInsight, consultez la page [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
