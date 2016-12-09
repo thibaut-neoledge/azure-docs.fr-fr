@@ -1,13 +1,13 @@
 ---
-title: Commandes de l’interface de ligne de commande Azure en mode Service Management | Microsoft Docs
-description: Commandes de l'interface de ligne de commande (CLI) Azure en mode Service Management pour gérer les déploiements dans le modèle de déploiement classique
+title: "Commandes de l’interface de ligne de commande Azure en mode Service Management | Microsoft Docs"
+description: "Commandes de l&quot;interface de ligne de commande (CLI) Azure en mode Service Management pour gérer les déploiements dans le modèle de déploiement classique"
 services: virtual-machines-linux,virtual-machines-windows,mobile-services, cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: dlepow
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: b9ccdeed-0ab8-4de2-937f-4046c7918bd8
 ms.service: multiple
 ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2016
 ms.author: danlep
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 614adbd3536d6740e6a46895b36575f0f4c66a8c
+
 
 ---
-# <a name="azure-cli-commands-in-azure-service-management-(asm)-mode"></a>Commandes de l’interface de ligne de commande Azure en mode Azure Service Management (ASM)
+# <a name="azure-cli-commands-in-azure-service-management-asm-mode"></a>Commandes de l’interface de ligne de commande Azure en mode Azure Service Management (ASM)
 [!INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)]
 
 Vous pouvez également [approfondir les commandes du modèle Resource Manager](virtual-machines/azure-cli-arm-commands.md) et utiliser l’interface CLI pour [migrer les ressources](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) du modèle Classic au modèle Resource Manager.
@@ -204,25 +208,25 @@ Comme le portail Azure Classic, la commande vm create ne crée les machines virt
 
 Vous pouvez spécifier un emplacement via le paramètre --location ou un groupe d'affinités via le paramètre --affinity-group. Si aucun n'est fourni, vous êtes invité à en fournir un dans la liste des emplacements valides.
 
-Le mot de passe fourni doit être constitué de 8 à 123 caractères et doit respecter les exigences de complexité des mots de passe du système d'exploitation que vous utilisez pour la machine virtuelle.
+Le mot de passe fourni doit être constitué de 8 à 123 caractères et doit respecter les exigences de complexité des mots de passe du système d'exploitation que vous utilisez pour la machine virtuelle.
 
 Si vous prévoyez de recourir à SSH pour gérer une machine virtuelle Linux déployée (comme c’est généralement le cas), vous devez activer SSH via l’option -e au moment de créer la machine virtuelle. Il n’est pas possible d’activer SSH une fois que la machine virtuelle a été créée.
 
-Sur les machines virtuelles Windows, il est possible d'activer RDP ultérieurement en ajoutant le port 3389 comme point de terminaison.
+Sur les machines virtuelles Windows, il est possible d'activer RDP ultérieurement en ajoutant le port 3389 comme point de terminaison.
 
-Les paramètres facultatifs pris en charge pour cette commande sont les suivants :
+Les paramètres facultatifs pris en charge pour cette commande sont les suivants :
 
 **-c, --connect** crée la machine virtuelle dans un déploiement déjà créé dans un service d’hébergement. Si -vmname n’est pas utilisé avec cette option, le nom de la nouvelle machine virtuelle est généré automatiquement.<br />
 **-n, --vm-name** spécifie le nom de la machine virtuelle. Ce paramètre prend le nom du service d'hébergement par défaut. Si -vm-name n’est pas spécifié, le nom de la nouvelle machine virtuelle est généré sous la forme &lt;service-name>&lt;id>, où &lt;id> correspond au nombre de machines virtuelles existantes dans le service plus 1. Par exemple, si vous utilisez cette commande pour ajouter une machine virtuelle à un service d’hébergement MyService disposant d’une machine virtuelle, la nouvelle machine virtuelle est appelée MyService2.<br />
 **-u, --blob-url** spécifie l’URL du stockage d’objets blob cible, à laquelle le disque système de la machine virtuelle est créé. <br />
-**-z, --vm-size** spécifie la taille de la machine virtuelle. Les valeurs valides sont : ExtraSmall, Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9, A10, A11, Basic_A0, Basic_A1, Basic_A2, Basic_A3, Basic_A4, Standard_D1, Standard_D2, Standard_D3, Standard_D4, Standard_D11, Standard_D12, Standard_D13, Standard_D14, Standard_DS1, Standard_DS2, Standard_DS3, Standard_DS4, Standard_DS11, Standard_DS12, Standard_DS13, Standard_DS14, Standard_G1, Standard_G2, Standard_G3, Standard_G4, Standard_G55. La valeur par défaut est « Small » (petite). <br />
+**-z, --vm-size** spécifie la taille de la machine virtuelle. Les valeurs valides sont : ExtraSmall, Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9, A10, A11, Basic_A0, Basic_A1, Basic_A2, Basic_A3, Basic_A4, Standard_D1, Standard_D2, Standard_D3, Standard_D4, Standard_D11, Standard_D12, Standard_D13, Standard_D14, Standard_DS1, Standard_DS2, Standard_DS3, Standard_DS4, Standard_DS11, Standard_DS12, Standard_DS13, Standard_DS14, Standard_G1, Standard_G2, Standard_G3, Standard_G4, Standard_G55. La valeur par défaut est « Small » (petite). <br />
 **-r** Ajoute la connectivité RDP à une machine virtuelle Windows. <br />
 **-e, --ssh** Ajoute la connectivité SSH à une machine virtuelle Windows. <br />
 **-t, --sh-cert** Spécifie le certificat SSH. <br />
 **-t, --sh-cert** L’abonnement <br />
 **-o, --community** L’image spécifiée est une image de communauté <br />
 **-w** Nom du réseau virtuel <br/>
-**-l, --location** Spécifie le lieu (par exemple, « Nord du centre des États-Unis »). <br />
+**-l, --location** Spécifie le lieu (par exemple, « Nord du centre des États-Unis »). <br />
 **-a, --affinity-group** Spécifie le groupe d’affinités.<br />
 **-w, --virtual-network-name** Spécifie le réseau virtuel sur lequel la nouvelle machine virtuelle doit être ajoutée. Les réseaux virtuels peuvent être configurés et gérés à partir du portail Azure.<br />
 **-b, --subnet-names** Spécifie les noms de sous-réseau à attribuer à la machine virtuelle.
@@ -433,7 +437,7 @@ Les images de machine virtuelle sont des captures de machines virtuelles déjà 
 
 **vm image list [options]**
 
-Cette commande permet d'obtenir une liste d'images de machine virtuelle. Il existe trois types d’images : les images créées par Microsoft, ayant pour préfixe « MSFT », les images créées par des tiers, qui ont le nom du fournisseur en préfixe, et les images que vous créez. Pour créer des images, vous pouvez capturer une machine virtuelle existante ou créer une image à partir d'un fichier .vhd personnalisé téléchargé sur le stockage d'objets blob. Pour plus d'informations sur l'utilisation d'un fichier .vhd personnalisé, consultez la commande vm image create.
+Cette commande permet d'obtenir une liste d'images de machine virtuelle. Il existe trois types d’images : les images créées par Microsoft, ayant pour préfixe « MSFT », les images créées par des tiers, qui ont le nom du fournisseur en préfixe, et les images que vous créez. Pour créer des images, vous pouvez capturer une machine virtuelle existante ou créer une image à partir d'un fichier .vhd personnalisé téléchargé sur le stockage d'objets blob. Pour plus d'informations sur l'utilisation d'un fichier .vhd personnalisé, consultez la commande vm image create.
 L'option -json spécifie que les résultats sont retournés au format JSON brut.
 
     ~$ azure vm image list
@@ -502,12 +506,12 @@ Certains systèmes imposent des limites de descripteurs de fichiers par processu
 ## <a name="commands-to-manage-your-azure-virtual-machine-data-disks"></a>Commandes pour gérer vos disques de données de machine virtuelle Azure
 Les disques de données sont des fichiers .vhd contenus dans le stockage d'objets blob qui peuvent être utilisés par une machine virtuelle. Pour plus d'informations sur le déploiement de disques de données dans le stockage d'objets blob, consultez le schéma technique Azure présenté plus haut.
 
-Les commandes permettant d'attacher des disques de données (azure vm disk attach et azure vm disk attach-new) attribuent un numéro d'unité logique (LUN) au disque de données attaché, comme l'exige le protocole SCSI. Le premier disque de données attaché à une machine virtuelle est le LUN 0, le suivant est le LUN 1 et ainsi de suite.
+Les commandes permettant d'attacher des disques de données (azure vm disk attach et azure vm disk attach-new) attribuent un numéro d'unité logique (LUN) au disque de données attaché, comme l'exige le protocole SCSI. Le premier disque de données attaché à une machine virtuelle est le LUN 0, le suivant est le LUN 1 et ainsi de suite.
 
 Lorsque vous détachez un disque de données à l’aide de la commande azure vm disk detach, utilisez le paramètre &lt;lun&gt; pour indiquer quel disque détacher.
 
 > [!NOTE]
-> Vous devez toujours détacher les disques de données dans l’ordre inverse des numéros d’unité logique attribués, c’est-à-dire en commençant par le numéro le plus élevé. En effet, la couche SCSI Linux ne permet pas de détacher un numéro d'unité logique inférieur à un autre toujours attaché. Par exemple, vous ne devez pas détacher LUN 0 si LUN 1 est toujours attaché.
+> Vous devez toujours détacher les disques de données dans l’ordre inverse des numéros d’unité logique attribués, c’est-à-dire en commençant par le numéro le plus élevé. En effet, la couche SCSI Linux ne permet pas de détacher un numéro d'unité logique inférieur à un autre toujours attaché. Par exemple, vous ne devez pas détacher LUN 0 si LUN 1 est toujours attaché.
 > 
 > 
 
@@ -530,7 +534,7 @@ Cette commande permet d'afficher les détails concernant un disque Azure.
 
 **vm disk list [options] [vm-name]**
 
-Cette commande répertorie les disques Azure, ou les disques attachés à une machine virtuelle spécifiée. Si elle est exécutée avec un paramètre de nom de machine virtuelle, elle retourne tous les disques attachés à la machine virtuelle. LUN 1 est créé avec la machine virtuelle et les autres disques éventuellement répertoriés sont attachés séparément.
+Cette commande répertorie les disques Azure, ou les disques attachés à une machine virtuelle spécifiée. Si elle est exécutée avec un paramètre de nom de machine virtuelle, elle retourne tous les disques attachés à la machine virtuelle. LUN 1 est créé avec la machine virtuelle et les autres disques éventuellement répertoriés sont attachés séparément.
 
     ~$ azure vm disk list mycentos
     info:   Executing command vm disk list
@@ -702,8 +706,8 @@ Cette commande permet de supprimer un certificat.
     info:   nghinazz : cert deleted
     info:   service cert delete command OK
 
-## <a name="commands-to-manage-your-web-apps"></a>Commandes pour gérer vos applications Web
-Une application Web Microsoft Azure est une configuration Web accessible par URI. Les applications Web sont hébergées sur des machines virtuelles, mais la création et le déploiement de la machine virtuelle ne sont pas de votre ressort. Azure s'en charge à votre place.
+## <a name="commands-to-manage-your-web-apps"></a>Commandes pour gérer vos applications Web
+Une application Web Microsoft Azure est une configuration Web accessible par URI. Les applications Web sont hébergées sur des machines virtuelles, mais la création et le déploiement de la machine virtuelle ne sont pas de votre ressort. Azure s'en charge à votre place.
 
 **site list [options]**
 
@@ -720,7 +724,7 @@ Cette commande répertorie vos applications Web.
 
 **site set [options] [name]**
 
-Cette commande définit les options de configuration de votre application web [nom].
+Cette commande définit les options de configuration de votre application web [nom].
 
     ~$ azure site set
     info:    Executing command site set
@@ -741,7 +745,7 @@ Cette commande permet de générer un script de déploiement personnalisé.
 
 **site create [options] [name]**
 
-Cette commande permet de créer une application web et un répertoire local.
+Cette commande permet de créer une application web et un répertoire local.
 
     ~$ azure site create mysite
     info:   Executing command site create
@@ -759,7 +763,7 @@ Cette commande permet de créer une application web et un répertoire local.
 
 **site browse [options] [name]**
 
-Cette commande ouvre votre application Web dans un navigateur.
+Cette commande ouvre votre application Web dans un navigateur.
 
     ~$ azure site browse mysite
     info:   Executing command site browse
@@ -768,7 +772,7 @@ Cette commande ouvre votre application Web dans un navigateur.
 
 **site show [options] [name]**
 
-Cette commande affiche les détails associés à une application Web.
+Cette commande affiche les détails associés à une application Web.
 
     ~$ azure site show mysite
     info:   Executing command site show
@@ -808,15 +812,15 @@ Cette commande permet de supprimer une application Web.
 
  **site swap [options] [name]**
 
-Cette commande échange deux connecteurs d’applications Web.
+Cette commande échange deux connecteurs d’applications Web.
 
-Cette commande prend en charge l'option supplémentaire suivante :
+Cette commande prend en charge l'option supplémentaire suivante :
 
 **-q ou **--quiet** : ne demande pas de confirmation. Utilisez cette option dans les scripts automatisés.
 
 **site start [options] [name]**
 
-Cette commande permet de démarrer une application Web.
+Cette commande permet de démarrer une application Web.
 
     ~$ azure site start mysite
     info:   Executing command site start
@@ -826,7 +830,7 @@ Cette commande permet de démarrer une application Web.
 
 **site stop [options] [name]**
 
-Cette commande permet d’arrêter une application Web.
+Cette commande permet d’arrêter une application Web.
 
     ~$ azure site stop mysite
     info:   Executing command site stop
@@ -836,15 +840,15 @@ Cette commande permet d’arrêter une application Web.
 
 **site restart [options] [name]**
 
-Cette commande arrête puis démarre une application Web spécifique.
+Cette commande arrête puis démarre une application Web spécifique.
 
-Cette commande prend en charge l'option supplémentaire suivante :
+Cette commande prend en charge l'option supplémentaire suivante :
 
 **--slot** &lt;slot>: nom de l’emplacement à redémarrer.
 
 **site location list [options]**
 
-Cette commande répertorie les emplacements de vos applications Web.
+Cette commande répertorie les emplacements de vos applications Web.
 
     ~$ azure site location list
     info:    Executing command site location list
@@ -859,10 +863,10 @@ Cette commande répertorie les emplacements de vos applications Web.
     data:    East US
     info:    site location list command OK
 
-### <a name="commands-to-manage-your-web-app-application-settings"></a>Commandes pour gérer les paramètres de vos applications Web
+### <a name="commands-to-manage-your-web-app-application-settings"></a>Commandes pour gérer les paramètres de vos applications Web
 **site appsetting list [options] [name]**
 
-Cette commande répertorie les paramètres ajoutés à l’application Web.
+Cette commande répertorie les paramètres ajoutés à l’application Web.
 
     ~$ azure site appsetting list
     info:    Executing command site appsetting list
@@ -888,7 +892,7 @@ Cette commande ajoute un paramètre à votre application Web, sous la forme d’
 
 **site appsetting delete [options] &lt;key> [name]**
 
-Cette commande supprime le paramètre spécifique de l’application Web.
+Cette commande supprime le paramètre spécifique de l’application Web.
 
     ~$ azure site appsetting delete test
     info:    Executing command site appsetting delete
@@ -911,17 +915,17 @@ Cette commande permet d'afficher des détails concernant le paramètre d'applica
     data:    Value:  value
     info:    site appsetting show command OK
 
-### <a name="commands-to-manage-your-web-app-certificates"></a>Commandes pour gérer vos certificats d’applications Web
+### <a name="commands-to-manage-your-web-app-certificates"></a>Commandes pour gérer vos certificats d’applications Web
 **site cert list [options] [name]**
 
-Cette commande affiche une liste des certificats d’applications Web.
+Cette commande affiche une liste des certificats d’applications Web.
 
     ~$ azure site cert list
     info:    Executing command site cert list
     Web site name: mydemosite
     + Getting sites
     + Getting site information
-    data:    Subject                       Expiration Date                    Thumbprint
+    data:    Subject                       Expiration Date                      Thumbprint
     data:    ----------------------------  -----------------------------------------
     ----------------  ----------------------------------------
     data:    *.msopentech.com              Fri Nov 28 2014 09:49:57 GMT-0800 (Pacific Standard Time)  A40E82D3DC0286D1F58650E570ECF8224F69A148
@@ -950,7 +954,7 @@ Cette commande permet d'afficher des détails concernant les certificats.
     data:    Certificate thumbprint CE1CD65852B38DC32001C2E0E8F7A526A29B541F
     info:    site cert show command OK
 
-### <a name="commands-to-manage-your-web-app-connection-strings"></a>Commandes pour gérer les chaînes de connexion de vos applications Web
+### <a name="commands-to-manage-your-web-app-connection-strings"></a>Commandes pour gérer les chaînes de connexion de vos applications Web
 **site connectionstring list [options] [name]**
 
 **site connectionstring add [options] &lt;connectionname> &lt;value> &lt;type> [name]**
@@ -959,14 +963,14 @@ Cette commande permet d'afficher des détails concernant les certificats.
 
 **site connectionstring show [options] &lt;connectionname> [name]**
 
-### <a name="commands-to-manage-your-web-app-default-documents"></a>Commandes pour gérer les documents par défaut de vos applications Web
+### <a name="commands-to-manage-your-web-app-default-documents"></a>Commandes pour gérer les documents par défaut de vos applications Web
 **site defaultdocument list [options] [name]**
 
 **site defaultdocument add [options] &lt;document> [name]**
 
 **site defaultdocument delete [options] &lt;document> [name]**
 
-### <a name="commands-to-manage-your-web-app-deployments"></a>Commandes pour gérer vos déploiements d’applications Web
+### <a name="commands-to-manage-your-web-app-deployments"></a>Commandes pour gérer vos déploiements d’applications Web
 **site deployment list [options] [name]**
 
 **site deployment show [options] &lt;commitId> [name]**
@@ -977,48 +981,48 @@ Cette commande permet d'afficher des détails concernant les certificats.
 
 **site deployment user set [options] [username] [pass]**
 
-### <a name="commands-to-manage-your-web-app-domains"></a>Commandes pour gérer vos domaines d’applications Web
+### <a name="commands-to-manage-your-web-app-domains"></a>Commandes pour gérer vos domaines d’applications Web
 **site domain list [options] [name]**
 
 **site domain add [options] &lt;dn> [name]**
 
 **site domain delete [options] &lt;dn> [name]**
 
-### <a name="commands-to-manage-your-web-app-handler-mappings"></a>Commandes pour gérer vos mappages de gestionnaire d’applications Web
+### <a name="commands-to-manage-your-web-app-handler-mappings"></a>Commandes pour gérer vos mappages de gestionnaire d’applications Web
 **site handler list [options] [name]**
 
 **site handler add [options] &lt;extension> &lt;processor> [name]**
 
 **site handler delete [options] &lt;extension> [name]**
 
-### <a name="commands-to-manage-your-web-jobs"></a>Commandes pour gérer vos tâches Web
+### <a name="commands-to-manage-your-web-jobs"></a>Commandes pour gérer vos tâches Web
 **site job list [options] [name]**
 
-Cette commande répertorie l’ensemble des tâches Web associées à une application Web.
+Cette commande répertorie l’ensemble des tâches Web associées à une application Web.
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
-* **--job-type** &lt;job-type> : facultatif. Type de tâche Web. Les valeurs valides sont « triggered » et « continuous ». Renvoie par défaut tous les types de tâches Web.
+* **--job-type** &lt;job-type> : facultatif. Type de tâche Web. Les valeurs valides sont « triggered » et « continuous ». Renvoie par défaut tous les types de tâches Web.
 * **--slot** &lt;slot>: nom de l’emplacement à redémarrer.
 
 **site job show [options] &lt;jobName> &lt;jobType> [name]**
 
 Cette commande permet d'afficher les détails d'une tâche Web spécifique.
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **--job-name** &lt;job-name> : obligatoire. Nom de la tâche Web.
-* **--job-type** &lt;job-type> : obligatoire. Type de tâche Web. Les valeurs valides sont « triggered » et « continuous ».
+* **--job-type** &lt;job-type> : obligatoire. Type de tâche Web. Les valeurs valides sont « triggered » et « continuous ».
 * **--slot** &lt;slot>: nom de l’emplacement à redémarrer.
 
 **site job delete [options] &lt;jobName> &lt;jobType> [name]**
 
 Cette commande permet de supprimer la tâche Web spécifiée.
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **--job-name** &lt;job-name> : obligatoire. Nom de la tâche Web.
-* **--job-type** &lt;job-type> : obligatoire. Type de tâche Web. Les valeurs valides sont « triggered » et « continuous ».
+* **--job-type** &lt;job-type> : obligatoire. Type de tâche Web. Les valeurs valides sont « triggered » et « continuous ».
 * **-q** ou **--quiet** : ne demande pas de confirmation. Utilisez cette option dans les scripts automatisés.
 * **--slot** &lt;slot>: nom de l’emplacement à redémarrer.
 
@@ -1026,10 +1030,10 @@ Cette commande prend en charge les options supplémentaires suivantes :
 
 Cette commande permet de supprimer la tâche Web spécifiée.
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **--job-name** &lt;job-name> : obligatoire. Nom de la tâche Web.
-* **--job-type** &lt;job-type> : obligatoire. Type de tâche Web. Les valeurs valides sont « triggered » et « continuous ».
+* **--job-type** &lt;job-type> : obligatoire. Type de tâche Web. Les valeurs valides sont « triggered » et « continuous ».
 * **--job-file** &lt;job-file> : obligatoire. Fichier de tâche.
 * **--slot** &lt;slot>: nom de l’emplacement à redémarrer.
 
@@ -1037,17 +1041,17 @@ Cette commande prend en charge les options supplémentaires suivantes :
 
 Cette commande permet de démarrer la tâche Web spécifiée.
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **--job-name** &lt;job-name> : obligatoire. Nom de la tâche Web.
-* **--job-type** &lt;job-type> : obligatoire. Type de tâche Web. Les valeurs valides sont « triggered » et « continuous ».
+* **--job-type** &lt;job-type> : obligatoire. Type de tâche Web. Les valeurs valides sont « triggered » et « continuous ».
 * **--slot** &lt;slot>: nom de l’emplacement à redémarrer.
 
 **site job stop [options] &lt;nom-tâche> &lt;type-tâche> [nom]**
 
 Cette commande permet d'arrêter la tâche web spécifiée. Seules les tâches continues peuvent être arrêtées.
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **--job-name** &lt;job-name> : obligatoire. Nom de la tâche Web.
 * **--slot** &lt;slot>: nom de l’emplacement à redémarrer.
@@ -1057,7 +1061,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 
 Cette commande permet d'afficher l'historique des exécutions de la tâche Web spécifiée.
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **--job-name** &lt;job-name> : obligatoire. Nom de la tâche Web.
 * **--slot** &lt;slot>: nom de l’emplacement à redémarrer.
@@ -1066,16 +1070,16 @@ Cette commande prend en charge les options supplémentaires suivantes :
 
 Cette commande permet d'obtenir les détails relatifs à l'exécution de la tâche pour la tâche Web spécifiée.
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **--job-name** &lt;job-name> : obligatoire. Nom de la tâche Web.
 * **--run-id** &lt;id-exécution>: facultatif. Identifiant de l'historique des exécutions. S'il n'est pas spécifié, la dernière exécution s'affiche.
 * **--slot** &lt;slot>: nom de l’emplacement à redémarrer.
 
-### <a name="commands-to-manage-your-web-app-diagnostics"></a>Commandes pour gérer les diagnostics de vos applications Web
+### <a name="commands-to-manage-your-web-app-diagnostics"></a>Commandes pour gérer les diagnostics de vos applications Web
 **site log download [options] [name]**
 
-Télécharge un fichier compressé contenant les diagnostics de vos applications Web.
+Télécharge un fichier compressé contenant les diagnostics de vos applications Web.
 
     ~$ azure site log download
     info:    Executing command site log download
@@ -1098,7 +1102,7 @@ Cette commande permet de connecter votre terminal au service de diffusion de jou
 
 **site log set [options] [name]**
 
-Cette commande permet de configurer les options de diagnostic de votre application Web.
+Cette commande permet de configurer les options de diagnostic de votre application Web.
 
     ~$ azure site log set -a
     info:    Executing command site log set
@@ -1115,7 +1119,7 @@ Cette commande permet de configurer les options de diagnostic de votre applicati
     + Updating diagnostic settings
     info:    site log set command OK
 
-### <a name="commands-to-manage-your-web-app-repositories"></a>Commandes pour gérer vos référentiels d’applications Web
+### <a name="commands-to-manage-your-web-app-repositories"></a>Commandes pour gérer vos référentiels d’applications Web
 **site repository branch [options] &lt;branch> [name]**
 
 **site repository delete [options] [name]**
@@ -1128,7 +1132,7 @@ Cette commande permet de configurer les options de diagnostic de votre applicati
 **site scale instances [options] &lt;instances> [name]**
 
 ## <a name="commands-to-manage-azure-mobile-services"></a>Commandes pour gérer Azure Mobile Services
-Azure Mobile Services réunit un ensemble de services Azure qui dotent vos applications de fonctionnalités principales. Les commandes Mobile Services se répartissent en différentes catégories, à savoir :
+Azure Mobile Services réunit un ensemble de services Azure qui dotent vos applications de fonctionnalités principales. Les commandes Mobile Services se répartissent en différentes catégories, à savoir :
 
 * [Commandes pour gérer les instances de services mobiles](#Mobile_Services)
 * [Commandes pour gérer la configuration des services mobiles](#Mobile_Configuration)
@@ -1137,14 +1141,14 @@ Azure Mobile Services réunit un ensemble de services Azure qui dotent vos appli
 * [Commandes pour gérer les tâches planifiées](#Mobile_Jobs)
 * [Commandes pour mettre à l’échelle un service mobile](#Mobile_Scale)
 
-Les options suivantes s'appliquent à la plupart des commandes Mobile Services :
+Les options suivantes s'appliquent à la plupart des commandes Mobile Services :
 
 * **-h** ou **--help** : affiche des informations sur l’utilisation de la sortie.
 * **-s `<id>`** or **--subscription `<id>`** : utilise un abonnement spécifique, sous la forme `<id>`.
 * **-v** ou **--verbose** : écrit une sortie détaillée.
 * **--json** : écrit la sortie JSON.
 
-### <a name="<a-name="mobile_services"></a>commands-to-manage-mobile-service-instances"></a><a name="Mobile_Services"></a>Commandes pour gérer les instances de services mobiles
+### <a name="a-namemobileservicesacommands-to-manage-mobile-service-instances"></a><a name="Mobile_Services"></a>Commandes pour gérer les instances de services mobiles
 **mobile locations [options]**
 
 Cette commande permet de répertorier les emplacements géographiques pris en charge par Mobile Services.
@@ -1168,7 +1172,7 @@ Cette commande permet de créer un service mobile avec une base de données et u
     info:    SQL server (e96ean1c6v) state: ProvisionConfigured
     info:    mobile create command OK
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **-r `<sqlServer>`** ou **--sqlServer `<sqlServer>`** : utilise un serveur de base de données SQL existant, spécifié sous la forme `<sqlServer>`.
 * **-d `<sqlDb>`** ou **--sqlDb `<sqlDb>`** : utilise une base de données SQL existante, spécifiée sous la forme `<sqlDb>`.
@@ -1192,7 +1196,7 @@ Cette commande permet de supprimer un service mobile en même temps que la base 
     info:    Deleted mobile application
     info:    mobile delete command OK
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **-d** ou **--deleteData** : supprime toutes les données de ce service mobile de la base de données.
 * **-a** or **--deleteAll** : supprime la base de données et le serveur SQL.
@@ -1260,7 +1264,7 @@ Cette commande renvoie les journaux du service mobile, en filtrant tous les type
     data:
     info:    mobile log command OK
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **-r `<query>`** ou **--query `<query>`** : exécute la requête de journal spécifiée.
 * **-t `<type>`** ou **--type `<type>`** : filtre les journaux renvoyés par l’entrée `<type>`, qui peut être `information`, `warning` ou `error`.
@@ -1276,7 +1280,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 
 Cette commande permet de récupérer un service mobile défectueux en le déplaçant vers un service mobile sain dans une autre région.
 
-Cette commande prend en charge l'option supplémentaire suivante :
+Cette commande prend en charge l'option supplémentaire suivante :
 
 **-q** ou **--quiet** : supprime l’invite de confirmation de la récupération.
 
@@ -1300,7 +1304,7 @@ Les types de clés sont `master` et `application`.
 
 Cette commande permet de définir la clé du service mobile sur une valeur spécifique.
 
-### <a name="<a-name="mobile_configuration"></a>commands-to-manage-mobile-service-configuration"></a><a name="Mobile_Configuration"></a>Commandes pour gérer la configuration des services mobiles
+### <a name="a-namemobileconfigurationacommands-to-manage-mobile-service-configuration"></a><a name="Mobile_Configuration"></a>Commandes pour gérer la configuration des services mobiles
 **mobile config list [options] [servicename]**
 
 Cette commande permet de répertorier les options de configuration d'un service mobile.
@@ -1341,7 +1345,7 @@ Cette commande permet de définir une option de configuration spécifique pour u
     info:    mobile config set command OK
 
 
-### <a name="<a-name="mobile_tables"></a>commands-to-manage-mobile-service-tables"></a><a name="Mobile_Tables"></a>Commandes pour gérer les tables des services mobiles
+### <a name="a-namemobiletablesacommands-to-manage-mobile-service-tables"></a><a name="Mobile_Tables"></a>Commandes pour gérer les tables des services mobiles
 **mobile table list [options] [servicename]**
 
 Cette commande permet de répertorier toutes les tables de votre service mobile.
@@ -1387,7 +1391,7 @@ Cette commande permet de créer une table.
     + Creating table
     info:    mobile table create command OK
 
-Cette commande prend en charge l'option supplémentaire suivante :
+Cette commande prend en charge l'option supplémentaire suivante :
 
 * **-p `&lt;permissions>`** ou **--permissions `&lt;permissions>`** : liste de paires `<operation>`=`<permission>` séparées par des virgules, où `<operation>` est `insert`, `read`, `update` ou `delete` et `&lt;permissions>` est `public`, `application` (par défaut), `user` ou `admin`.
 
@@ -1405,7 +1409,7 @@ Cette commande permet de lire les données d'une table.
     data:    4   item #4  true
     info:    mobile data read command OK
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **-k `<skip>`** ou **--skip `<skip>`** : ignore le nombre de lignes spécifié par `<skip>`.
 * **-t `<top>`** or **--top `<top>`** : renvoie un nombre spécifique de lignes, spécifié par `<top>`.
@@ -1421,7 +1425,7 @@ Cette commande permet de modifier les autorisations de suppression d'une table, 
     info:    Updated permissions
     info:    mobile table update command OK
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **-p `&lt;permissions>`** ou **--permissions `&lt;permissions>`** : liste de paires `<operation>`=`<permission>` séparées par des virgules, où `<operation>` est `insert`, `read`, `update` ou `delete` et `&lt;permissions>` est `public`, `application` (par défaut), `user` ou `admin`.
 * **--deleteColumn `<columns>`** : liste de colonnes séparées par des virgules, sous la forme `<columns>`.
@@ -1453,8 +1457,8 @@ Cette commande permet de supprimer toutes les lignes de données de la table.
     info:    mobile data truncate command OK
 
 
-### <a name="<a-name="mobile_scripts"></a>commands-to-manage-scripts"></a><a name="Mobile_Scripts"></a>Commandes pour gérer les scripts
-Les commandes de cette section permettent de gérer les scripts de serveur qui appartiennent à un service mobile. Pour plus d’informations, consultez [Work with server scripts in Mobile Services (Utilisation des scripts serveur dans Mobile Services)](mobile-services/mobile-services-how-to-use-server-scripts.md).
+### <a name="a-namemobilescriptsacommands-to-manage-scripts"></a><a name="Mobile_Scripts"></a>Commandes pour gérer les scripts
+Les commandes de cette section permettent de gérer les scripts de serveur qui appartiennent à un service mobile. Pour plus d’informations, consultez [Work with server scripts in Mobile Services (Utilisation des scripts serveur dans Mobile Services)](https://github.com/Azure/azure-mobile-services/blob/master/docs/mobile-services-how-to-use-server-scripts.md).
 
 **mobile script list [options] [servicename]**
 
@@ -1485,7 +1489,7 @@ Cette commande permet de télécharger le script d’insertion de la table Todol
     info:    Saved script to ./table/todoitem.insert.js
     info:    mobile script download command OK
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **-p `<path>`** ou **--path `<path>`** : emplacement où enregistrer le script dans le fichier, lorsque le répertoire de travail actuel est celui par défaut.
 * **-f `<file>`** ou **--file `<file>`** : nom du fichier dans lequel enregistrer le script.
@@ -1510,7 +1514,7 @@ Cette commande permet de supprimer le script d'insertion existant de la table To
     info:    Executing command mobile script delete
     info:    mobile script delete command OK
 
-### <a name="<a-name="mobile_jobs"></a>commands-to-manage-scheduled-jobs"></a><a name="Mobile_Jobs"></a>Commandes pour gérer les tâches planifiées
+### <a name="a-namemobilejobsacommands-to-manage-scheduled-jobs"></a><a name="Mobile_Jobs"></a>Commandes pour gérer les tâches planifiées
 Les commandes de cette section permettent de gérer les travaux planifiés qui appartiennent à un service mobile. Pour plus d’informations, consultez [Planifier les travaux](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx).
 
 **mobile job list [options] [servicename]**
@@ -1536,7 +1540,7 @@ Cette commande permet de créer un travail nommé `getUpdates`, dont l’exécut
     info:    You can manipulate the scheduled job script using the 'azure mobile script' command.
     info:    mobile job create command OK
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **-i `<number>`** ou **--interval `<number>`** : intervalle de travail, défini sous la forme d’un entier. La valeur par défaut est `15`.
 * **-u `<unit>`** ou **--intervalUnit`<unit>`** : unité du paramètre *interval*, qui peut avoir l’une des valeurs suivantes :
@@ -1545,7 +1549,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
   * **day**
   * **month**
   * **none** (travaux à la demande)
-* **-t `<time>`** **--startTime `<time>`** : heure de début de la première exécution du script, au format ISO. La valeur par défaut est `now`.
+* **-t `<time>`** **--startTime `<time>`** : heure de début de la première exécution du script, au format ISO. La valeur par défaut est `now`.
 
 > [!NOTE]
 > Les nouveaux travaux créés sont désactivés, car il reste encore à télécharger un script. Utilisez la commande **mobile script upload** pour télécharger un script et la commande **mobile job update** pour activer la tâche.
@@ -1560,7 +1564,7 @@ La commande suivante active la tâche `getUpdates` désactivée.
     info:    Executing command mobile job update
     info:    mobile job update command OK
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **-i `<number>`** ou **--interval `<number>`** : intervalle de travail, défini sous la forme d’un entier. La valeur par défaut est `15`.
 * **-u `<unit>`** ou **--intervalUnit`<unit>`** : unité du paramètre *interval*, qui peut avoir l’une des valeurs suivantes :
@@ -1569,7 +1573,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
   * **day**
   * **month**
   * **none** (travaux à la demande)
-* **-t `<time>`** **--startTime `<time>`** : heure de début de la première exécution du script, au format ISO. La valeur par défaut est `now`.
+* **-t `<time>`** **--startTime `<time>`** : heure de début de la première exécution du script, au format ISO. La valeur par défaut est `now`.
 * **-a `<status>`** ou **--status `<status>`** : statut de la tâche, qui peut être `enabled` ou `disabled`.
 
 **mobile job delete [options] [servicename] [jobname]**
@@ -1585,7 +1589,7 @@ Cette commande permet de supprimer le travail planifié getUpdates du serveur To
 > 
 > 
 
-### <a name="<a-name="mobile_scale"></a>commands-to-scale-a-mobile-service"></a><a name="Mobile_Scale"></a>Commandes pour mettre à l’échelle un service mobile
+### <a name="a-namemobilescaleacommands-to-scale-a-mobile-service"></a><a name="Mobile_Scale"></a>Commandes pour mettre à l’échelle un service mobile
 Les commandes de cette section permettent de mettre à l'échelle un service mobile. Pour plus d’informations, consultez [Augmenter l’extensibilité d’un service mobile](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx).
 
 **mobile scale show [options] [servicename]**
@@ -1608,7 +1612,7 @@ Cette commande permet de modifier l'échelle du service mobile, la faisant passe
     + Rescaling the mobile service
     info:    mobile scale change command OK
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **-c `<mode>`** ou **--computeMode `<mode>`** : le mode de calcul doit être `Free` ou `Reserved`.
 * **-i `<count>`** ou **--numberOfInstances `<count>`** : nombre d’instances utilisées lors de l’exécution en mode réservé.
@@ -1662,7 +1666,7 @@ Crée une API personnalisée de service mobile.
     info:    API was created successfully. You can modify the API using the 'azure mobile script' command.
     info:    mobile api create command OK
 
-Cette commande prend en charge l'option supplémentaire suivante :
+Cette commande prend en charge l'option supplémentaire suivante :
 
 **-p** ou **--permissions** &lt;autorisations> :  liste de paires &lt;méthode>=&lt;autorisation>, délimitées par des virgules.
 
@@ -1670,9 +1674,9 @@ Cette commande prend en charge l'option supplémentaire suivante :
 
 Cette commande permet de mettre à jour l'API personnalisée de service mobile spécifiée.
 
-Cette commande prend en charge l'option supplémentaire suivante :
+Cette commande prend en charge l'option supplémentaire suivante :
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **-p** ou **--permissions** &lt;autorisations> : liste de paires &lt;méthode>=&lt;autorisation> délimitées par des virgules.
 * **-f** ou **--force** : remplace les modifications personnalisées apportées au fichier de métadonnées des autorisations.
@@ -1878,7 +1882,7 @@ Cette commande permet de créer un compte de stockage basé sur les options four
     + Creating storage account
     info:    storage account create command OK
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **-e** ou **--label** &lt;label> : étiquette du compte de stockage.
 * **-d** ou **--description** &lt;description> : description du compte de stockage.
@@ -1895,7 +1899,7 @@ Cette commande permet de mettre à jour le compte de stockage spécifié.
     + Updating storage account
     info:    storage account set command OK
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **-e** ou **--label** &lt;label> : étiquette du compte de stockage.
 * **-d** ou **--description** &lt;description> : description du compte de stockage.
@@ -1906,7 +1910,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 
 Cette commande permet de supprimer le compte de stockage spécifié.
 
-Cette commande prend en charge l'option supplémentaire suivante :
+Cette commande prend en charge l'option supplémentaire suivante :
 
 **-q** ou **--quiet** : ne demande pas de confirmation. Utilisez cette option dans les scripts automatisés.
 
@@ -1922,7 +1926,7 @@ Cela commande permet de répertorier les clés primaires et secondaires du compt
 
 Cette commande permet d'afficher la liste des conteneurs de stockage pour un compte de stockage spécifié. Le compte de stockage est spécifié par la chaîne de connexion ou le nom du compte de stockage et la clé du compte.
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **-p** ou **-prefix** &lt;prefix> : préfixe du nom du conteneur de stockage.
 * **-a** ou **--account-name** &lt;accountName> : nom du compte de stockage.
@@ -1935,7 +1939,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 
 Cette commande permet de créer un conteneur de stockage pour le compte de stockage spécifié. Le compte de stockage est spécifié par la chaîne de connexion ou le nom du compte de stockage et la clé du compte.
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **--container** &lt;container> : nom du conteneur de stockage à créer.
 * **-p** ou **-prefix** &lt;prefix> : préfixe du nom du conteneur de stockage.
@@ -1948,7 +1952,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 
 Cette commande permet de supprimer le conteneur de stockage spécifié. Le compte de stockage est spécifié par la chaîne de connexion ou le nom du compte de stockage et la clé du compte.
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **--container** &lt;container> : nom du conteneur de stockage à créer.
 * **-p** ou **-prefix** &lt;prefix> : préfixe du nom du conteneur de stockage.
@@ -1961,7 +1965,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 
 Cette commande permet de définir la liste de contrôle d'accès pour le conteneur de stockage. Le compte de stockage est spécifié par la chaîne de connexion ou le nom du compte de stockage et la clé du compte.
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **--container** &lt;container> : nom du conteneur de stockage à créer.
 * **-p** ou **-prefix** &lt;prefix> : préfixe du nom du conteneur de stockage.
@@ -1975,7 +1979,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 
 Cette commande renvoie une liste des objets blobs de stockage dans le conteneur de stockage spécifié.
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **--container** &lt;container> : nom du conteneur de stockage à créer.
 * **-p** ou **-prefix** &lt;prefix> : préfixe du nom du conteneur de stockage.
@@ -1988,7 +1992,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 
 Cette commande permet d'afficher les détails concernant l'objet blob de stockage spécifié.
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **--container** &lt;container> : nom du conteneur de stockage à créer.
 * **-p** ou **-prefix** &lt;prefix> : préfixe du nom du conteneur de stockage.
@@ -1999,7 +2003,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 
 **storage blob delete [options] [container] [blob]**
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **--container** &lt;container> : nom du conteneur de stockage à créer.
 * **-b** ou **--blob** &lt;blobName> : nom de l’objet blob de stockage à supprimer.
@@ -2013,12 +2017,12 @@ Cette commande prend en charge les options supplémentaires suivantes :
 
 Cette commande permet de mettre à jour le fichier spécifié sur l'objet blob de stockage spécifié.
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **--container** &lt;container> : nom du conteneur de stockage à créer.
 * **-b** ou **--blob** &lt;blobName> : nom de l’objet blob de stockage à télécharger.
 * **-t** ou **--blobtype** &lt;blobtype> : type d’objet blob de stockage (page ou bloc).
-* **-p** ou **--properties** &lt;properties> : propriétés de l’objet blob de stockage pour le fichier téléchargé. Les propriétés sont des paires clé-valeur séparées par un point-virgule (;). Les propriétés disponibles sont contentType, contentEncoding, contentLanguage et cacheControl.
+* **-p** ou **--properties** &lt;properties> : propriétés de l’objet blob de stockage pour le fichier téléchargé. Les propriétés sont des paires clé-valeur séparées par un point-virgule (;). Les propriétés disponibles sont contentType, contentEncoding, contentLanguage et cacheControl.
 * **-m** ou **--metadata** &lt;metadata> : métadonnées de l’objet blob de stockage pour le fichier téléchargé. Les métadonnées sont des paires clé-valeur séparées par un point-virgule (;).
 * **--concurrenttaskcount** &lt;concurrenttaskcount> : nombre maximal de demandes de téléchargement simultanées.
 * **-q** ou **--quiet** : remplace l’objet blob de stockage spécifié sans confirmation.
@@ -2031,7 +2035,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 
 Cette commande permet de télécharger l'objet blob de stockage spécifié.
 
-Cette commande prend en charge les options supplémentaires suivantes :
+Cette commande prend en charge les options supplémentaires suivantes :
 
 * **--container** &lt;container> : nom du conteneur de stockage à créer.
 * **-b** ou **--blob** &lt;blobName> : nom de l’objet blob de stockage.
@@ -2047,7 +2051,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 ## <a name="commands-to-manage-sql-databases"></a>Commandes pour gérer les bases de données SQL
 Utilisez ces commandes pour gérer vos bases de données SQL Azure.
 
-### <a name="commands-to-manage-sql-servers."></a>Commandes pour gérer les serveurs SQL
+### <a name="commands-to-manage-sql-servers"></a>Commandes pour gérer les serveurs SQL
 Utilisez ces commandes pour gérer vos serveurs SQL.
 
 **sql server create &lt;administratorLogin> &lt;administratorPassword> &lt;location>**
@@ -2350,6 +2354,6 @@ Supprime une entrée de serveur DNS de la configuration réseau.
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

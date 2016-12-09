@@ -1,13 +1,13 @@
 ---
-title: Azure Government documentation | Microsoft Docs
+title: "Sécurité et identité Azure Government | Microsoft Docs"
 description: This provides a comparision of features and guidance on developing applications for Azure Government
 services: Azure-Government
 cloud: gov
-documentationcenter: ''
+documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: ''
-
+editor: 
+ms.assetid: e2fe7983-5870-43e9-ae01-2d45d3102c8a
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,24 +15,31 @@ ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/12/2016
 ms.author: ryansoc
+translationtype: Human Translation
+ms.sourcegitcommit: cd01170c3c0a3f62024de3357d342af1f4f90c6c
+ms.openlocfilehash: 27d447e8e3c336bbce2e1ca81d2c7c413b0360fc
+
 
 ---
-# <a name="azure-government-security-and-identity"></a>Azure Government Security and Identity
+# <a name="azure-government-security-identity"></a>Sécurité et identité Azure Government
 ## <a name="key-vault"></a>Key Vault
-For details on this service and how to use it, see the <a href="https://azure.microsoft.com/documentation/services/key-vault">Azure Key Vault public documentation. </a>
+Pour plus d’informations sur ce service et son utilisation, consultez la [documentation publique d’Azure Key Vault](../key-vault/index.md).
 
-### <a name="data-considerations"></a>Data Considerations
-The following information identifies the Azure Government boundary for Azure Key Vault:
+### <a name="data-considerations"></a>Considérations sur les données
+Les informations suivantes identifient les limites d’Azure Government pour Azure Key Vault :
 
-| Regulated/controlled data permitted | Regulated/controlled data not permitted |
+| Données réglementées/contrôlées autorisées | Données réglementées/contrôlées non autorisées |
 | --- | --- |
-| All data encrypted with an Azure Key Vault key may contain Regulated/controlled data. |Azure Key Vault metadata is not permitted to contain export controlled data. This metadata includes all configuration data entered when creating and maintaining your Key Vault.  Do not enter Regulated/controlled data into the following fields: Resource group names, Key Vault names, Subscription name |
+| Toutes les données chiffrées avec une clé Azure Key Vault peuvent contenir des données contrôlées/réglementées. |Les métadonnées Azure Key Vault n’ont pas le droit de contenir de données contrôlées à l’exportation. Ces métadonnées incluent toutes les données de configuration entrées lors de la création et la gestion de votre coffre de clés.  N’entrez pas de données réglementées/contrôlées dans les champs suivants : Noms de groupes de ressources, Noms de coffres de clés, Nom d’abonnement |
 
-Key Vault is generally available in Azure Government. As in public, there is no extension, so Key Vault is available through PowerShell and CLI only.
+Azure Key Vault est mis à la disposition générale dans Azure Government. Comme en environnement public, il n’y a pas d’extension. Key Vault est donc uniquement disponible via PowerShell et l’interface CLI.
 
-## <a name="next-steps"></a>Next Steps
-For supplemental information and updates, subscribe to the <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+## <a name="next-steps"></a>Étapes suivantes
+Pour obtenir des informations supplémentaires et des mises à jour, inscrivez-vous au <a href="https://blogs.msdn.microsoft.com/azuregov/">blog Microsoft Azure Government. </a>
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

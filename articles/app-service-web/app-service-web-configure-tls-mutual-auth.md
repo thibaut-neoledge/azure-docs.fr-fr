@@ -1,12 +1,12 @@
 ---
-title: Configuration de l'authentification mutuelle TLS pour une application Web
-description: Découvrez comment configurer votre application Web pour utiliser l'authentification par certificat client sur TLS.
+title: Configuration de l&quot;authentification mutuelle TLS pour une application Web
+description: "Découvrez comment configurer votre application Web pour utiliser l&quot;authentification par certificat client sur TLS."
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: naziml
 manager: wpickett
 editor: jimbe
-
+ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,41 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: db2f48b248e2232f913a99b4ffbc0d18b77407e8
+
 
 ---
-# Configuration de l'authentification mutuelle TLS pour une application Web
-## Vue d'ensemble
+# <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Configuration de l'authentification mutuelle TLS pour une application Web
+## <a name="overview"></a>Vue d'ensemble
 Vous pouvez restreindre l'accès à votre application Web Azure en activant différents types d'authentification. Une méthode consiste à authentifier à l'aide d'un certificat client lorsque la requête est exécutée sur TLS/SSL. Ce mécanisme est appelé authentification mutuelle TLS ou authentification par certificat client. Cet article décrit en détail comment configurer votre application Web pour utiliser l'authentification par certificat client.
 
-> **Remarque :** si vous accédez à votre site sur HTTP et non HTTPS, vous ne recevez pas de certificat client. Par conséquent, si votre application requiert des certificats clients, vous ne devez pas autoriser les demandes à votre application sur HTTP.
+> **Remarque :** si vous accédez à votre site sur HTTP et non HTTPS, vous ne recevez pas de certificat client. Par conséquent, si votre application requiert des certificats clients, vous ne devez pas autoriser les demandes à votre application sur HTTP.
 > 
 > 
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Configuration d'une application Web pour l'authentification par certificat client
+## <a name="configure-web-app-for-client-certificate-authentication"></a>Configuration d'une application Web pour l'authentification par certificat client
 Pour configurer votre application Web afin qu'elle exige des certificats clients, vous devez ajouter le paramètre de site clientCertEnabled pour votre application Web et lui donner la valeur true. Ce paramètre n’est actuellement pas disponible par le biais de l’expérience de gestion dans le portail et vous devrez utiliser l’API REST pour y parvenir.
 
-Vous pouvez utiliser l'[outil ARMClient](https://github.com/projectkudu/ARMClient) pour faciliter l’élaboration de l’appel de l’API REST. Une fois que vous êtes connecté avec l'outil, vous devez émettre la commande suivante :
+Vous pouvez utiliser l' [outil ARMClient](https://github.com/projectkudu/ARMClient) pour faciliter l’élaboration de l’appel de l’API REST. Une fois que vous êtes connecté avec l'outil, vous devez émettre la commande suivante :
 
     ARMClient PUT subscriptions/{Subscription Id}/resourcegroups/{Resource Group Name}/providers/Microsoft.Web/sites/{Website Name}?api-version=2015-04-01 @enableclientcert.json -verbose
 
-en remplaçant tous les éléments {} par des informations de votre application Web et en créant un fichier appelé enableclientcert.json avec le contenu JSON suivant :
+en remplaçant tous les éléments {} par des informations de votre application Web et en créant un fichier appelé enableclientcert.json avec le contenu JSON suivant :
 
-> { "location": "My Web App Location", "properties": { "clientCertEnabled": true } }
+> { "location": "My Web App Location",   
+> "properties": {  
+> "clientCertEnabled": true } }  
 > 
 > 
 
-Veillez à modifier la valeur de « location » par l'emplacement de votre application Web ; par exemple, Nord du centre des États-Unis ou Ouest des États-Unis, etc.
+Veillez à modifier la valeur de « location » par l'emplacement de votre application Web ; par exemple, Nord du centre des États-Unis ou Ouest des États-Unis, etc.
 
-> **Remarque :** si vous exécutez ARMClient à partir de PowerShell, vous devrez placer dans une séquence d'échappement le symbole pour le fichier JSON avec une apostrophe inversée `.
+> **Remarque :** si vous exécutez ARMClient à partir de PowerShell, vous devez placer dans une séquence d’échappement le symbole @ pour le fichier JSON avec une apostrophe inversée `.
 > 
 > 
 
-## Accès au certificat client à partir de votre application Web
-Si vous utilisez ASP.NET et configurez votre application pour utiliser l’authentification de certificat client, le certificat est disponible au moyen de la propriété **HttpRequest.ClientCertificate**. Pour les autres piles d’application, le certificat client est disponible dans votre application par le biais d’une valeur codée en base64 dans l’en-tête de la requête « X-ARR-ClientCert ». Votre application peut créer un certificat à partir de cette valeur et ensuite l'utiliser à des fins d'authentification et d'autorisation dans votre application.
+## <a name="accessing-the-client-certificate-from-your-web-app"></a>Accès au certificat client à partir de votre application Web
+Si vous utilisez ASP.NET et configurez votre application pour utiliser l’authentification de certificat client, le certificat est disponible au moyen de la propriété **HttpRequest.ClientCertificate** . Pour les autres piles d’application, le certificat client est disponible dans votre application par le biais d’une valeur codée en base64 dans l’en-tête de la requête « X-ARR-ClientCert ». Votre application peut créer un certificat à partir de cette valeur et ensuite l'utiliser à des fins d'authentification et d'autorisation dans votre application.
 
-## Considérations spéciales pour la validation de certificat
+## <a name="special-considerations-for-certificate-validation"></a>Considérations spéciales pour la validation de certificat
 Le certificat client qui est envoyé à l'application n'est soumis à aucune validation par la plateforme Azure Web Apps. La validation de ce certificat est la responsabilité de l'application Web. Voici un exemple de code ASP.NET qui valide les propriétés du certificat pour l'authentification.
 
     using System;
@@ -186,4 +192,8 @@ Le certificat client qui est envoyé à l'application n'est soumis à aucune val
         }
     }
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

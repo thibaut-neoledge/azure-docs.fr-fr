@@ -1,13 +1,13 @@
 ---
 title: Guide de surveillance et de diagnostic | Microsoft Docs
-description: Meilleures pratiques pour la surveillance des applications distribuées dans le cloud.
-services: ''
+description: "Meilleures pratiques pour la surveillance des applications distribuées dans le cloud."
+services: 
 documentationcenter: na
 author: dragon119
 manager: christb
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 2d2a8497-73d0-4a46-aac6-6d504003de2b
 ms.service: best-practice
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 8d149069c95b5b68904ab6a5a47b1fa6215da23d
+
 
 ---
 # <a name="monitoring-and-diagnostics-guidance"></a>Guide de surveillance et de diagnostic
@@ -41,7 +45,7 @@ Vous pouvez utiliser la surveillance pour mieux comprendre le fonctionnement d�
 > 
 > 
 
-Les sections suivantes décrivent ces scénarios plus en détail. Les informations pour chaque scénario sont décrites selon le format suivant :
+Les sections suivantes décrivent ces scénarios plus en détail. Les informations pour chaque scénario sont décrites selon le format suivant :
 
 1. Une brève vue d’ensemble du scénario.
 2. Les conditions requises typiques de ce scénario.
@@ -60,7 +64,7 @@ Un opérateur doit être averti rapidement (en quelques secondes) si une partie 
 
 Un système complet de surveillance de l’intégrité permet à un opérateur d’explorer le système pour afficher l’état d’intégrité des sous-systèmes et des composants. Par exemple, si l’ensemble du système est représenté comme partiellement sain, l’opérateur doit être en mesure de zoomer et de déterminer la fonctionnalité qui est actuellement indisponible.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Sources de données, instrumentation et conditions de collecte de données
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Sources de données, instrumentation et conditions de collecte de données
 Les données brutes requises pour la surveillance de l’intégrité peuvent être générées après les opérations suivantes :
 
 * Le suivi de l’exécution des demandes utilisateur. Ces informations peuvent être utilisées pour déterminer les demandes qui ont réussi, celles qui ont échoué et le temps de réponse pour chaque demande.
@@ -93,7 +97,7 @@ Un opérateur doit également être en mesure d’afficher la disponibilité his
 
 Une solution de surveillance doit fournir une vue immédiate et historique de la disponibilité ou de l’indisponibilité de chaque sous-système. Elle doit également être en mesure d’alerter rapidement un opérateur en cas d’échec d’un ou de plusieurs services ou si les utilisateurs ne peuvent pas se connecter aux services. Il ne s’agit pas uniquement de surveiller chaque service, mais également d’examiner les actions effectuées par chaque utilisateur en cas d’échec de ces actions lorsqu’il tente de communiquer avec un service. Dans une certaine mesure, un degré de problème de connectivité est normal et peut être dû à des erreurs temporaires. Cependant il peut être utile d’autoriser le système à déclencher une alerte pour un nombre d’échecs de connectivité à un sous-système spécifié se produisant au cours d’une période spécifique.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Sources de données, instrumentation et conditions de collecte de données
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Sources de données, instrumentation et conditions de collecte de données
 Comme pour la surveillance de l’intégrité, les données brutes requises pour prendre en charge la surveillance de la disponibilité peuvent être générées suite à la surveillance d’utilisateurs synthétiques et à l’enregistrement de l’ensemble des exceptions, erreurs et avertissements pouvant se produire. En outre, les données de disponibilité peuvent être obtenues à partir de la surveillance de point de terminaison. L’application peut exposer un ou plusieurs points de terminaison d’intégrité, chacun d’entre eux testant l’accès à une zone fonctionnelle du système. Le système de surveillance peut envoyer une commande ping sur chaque point de terminaison en suivant un calendrier défini, et collecter les résultats (réussite ou échec).
 
 Tous les délais d’attente, les échecs de connectivité au réseau et les nouvelles tentatives de connexion doivent être enregistrés. Toutes les données doivent être horodatées.
@@ -101,7 +105,7 @@ Tous les délais d’attente, les échecs de connectivité au réseau et les nou
 <a name="analyzing-availability-data"></a>
 
 ### <a name="analyzing-availability-data"></a>Analyse des données de disponibilité
-Les données d’instrumentation doivent être agrégées et corrélées pour prendre en charge les types d’analyse suivants :
+Les données d’instrumentation doivent être agrégées et corrélées pour prendre en charge les types d’analyse suivants :
 
 * La disponibilité immédiate du système et des sous-systèmes.
 * Les taux d’échec de la disponibilité du système et des sous-systèmes. Dans l’idéal, un opérateur doit être en mesure de mettre en corrélation les défaillances avec des activités spécifiques : que s’est-il passé lors de l’échec du système ?
@@ -137,7 +141,7 @@ Pour examiner les performances du système, un opérateur doit généralement co
 * Les vitesses auxquelles les transactions sont terminées.
 * Le temps de traitement moyen des demandes.
 
-Il peut également être utile de fournir des outils qui permettent à un opérateur de repérer des corrélations, par exemple :
+Il peut également être utile de fournir des outils qui permettent à un opérateur de repérer des corrélations, par exemple :
 
 * Le nombre d’utilisateurs simultanés par rapport au temps de latence des requêtes (temps nécessaire au démarrage du traitement d’une requête une fois que l’utilisateur l’a envoyée).
 * Le nombre d’utilisateurs simultanés par rapport au temps de réponse moyen (temps nécessaire pour effectuer une requête après le début du traitement).
@@ -157,7 +161,7 @@ Toutes les visualisations doivent permettre à un opérateur de spécifier une p
 
 Un opérateur doit être en mesure de déclencher une alerte basée sur une mesure des performances pour toute valeur spécifiée durant n’importe quel intervalle de temps spécifié.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Sources de données, instrumentation et conditions de collecte de données
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Sources de données, instrumentation et conditions de collecte de données
 Vous pouvez collecter les données de performances de haut niveau (débit, nombre d’utilisateurs simultanés, nombre de transactions commerciales, taux d’erreur, etc.) en surveillant la progression des requêtes des utilisateurs lorsqu’elles arrivent et passent par le système. Cela implique d’incorporer des instructions de suivi à des points clés dans le code d’application ainsi que des informations de minutage. L’ensemble des erreurs, exceptions et avertissements doit être capturé avec des données suffisantes pour leur mise en corrélation avec les requêtes qui les ont générés. Le journal des services IIS (Internet Information Services) est une autre source utile.
 
 Vous devez également capturer, si possible, les données de performances pour les systèmes externes que l’application utilise. Ces systèmes externes peuvent fournir leurs propres compteurs de performances ou d’autres fonctionnalités pour demander des données de performances. Si ce n’est pas possible, enregistrez des informations telles que l’heure de début et de fin de chaque requête adressée à un système externe, ainsi que l’état (réussite, échec ou avertissement) de l’opération. Par exemple, vous pouvez utiliser une approche de type chronomètre pour chronométrer les requêtes : démarrer un minuteur au démarrage de la requête, puis l’arrêter lorsque la requête est terminée.
@@ -183,13 +187,13 @@ Tous les systèmes commerciaux qui contiennent des données sensibles doivent im
 La surveillance peut aider à détecter les attaques visant le système. Par exemple, un grand nombre de tentatives de connexion en échec peut indiquer une attaque par force brute. Un bond inattendu du nombre de requêtes peut être le résultat d’une attaque de déni de service distribué (DDoS). Vous devez être prêt à surveiller toutes les requêtes effectuées vers toutes les ressources indépendamment de la source de ces requêtes. Un système présentant un problème de connexion peut exposer accidentellement des ressources au monde extérieur sans nécessiter la connexion réelle d’un utilisateur.
 
 ### <a name="requirements-for-security-monitoring"></a>Conditions requises pour la surveillance de la sécurité
-Les aspects les plus critiques de surveillance de la sécurité doivent rapidement permettre à un opérateur d’effectuer les actions suivantes :
+Les aspects les plus critiques de surveillance de la sécurité doivent rapidement permettre à un opérateur d’effectuer les actions suivantes :
 
 * Détecter les tentatives d’intrusion par une entité non authentifiée.
 * Identifier les tentatives des entités d’effectuer des opérations sur les données auxquelles aucun accès ne leur a été accordé.
 * Déterminer si tout ou partie du système subit une attaque externe ou interne. (Par exemple, un utilisateur authentifié malveillant peut tenter d’arrêter le système.)
 
-Pour prendre en charge ces conditions, un opérateur doit être informé des éléments suivants :
+Pour prendre en charge ces conditions, un opérateur doit être informé des éléments suivants :
 
 * Si un compte effectue des tentatives de connexion en échec répétées pendant une période spécifiée.
 * Si un compte authentifié tente d’accéder plusieurs fois à une ressource interdite pendant une période spécifiée.
@@ -199,7 +203,7 @@ Les informations fournies à un opérateur doivent inclure l’adresse hôte de 
 
 Une partie essentielle du maintien de la sécurité d’un système est de pouvoir détecter rapidement les actions qui s’écartent du modèle habituel. Des informations comme le nombre de demandes de connexion en échec et/ou réussies peuvent être affichées visuellement pour aider à détecter la présence d’un pic d’activité à un moment inhabituel. (Des utilisateurs se connectant à 3 h 00 et effectuant un grand nombre d’opérations alors que leur journée de travail commence à 9 h 00 en constituent un bon exemple). Ces informations permettent également de configurer une mise à l’échelle automatique à durée définie. Par exemple, si un opérateur observe que de nombreux utilisateurs se connectent régulièrement à un moment précis de la journée, il peut mettre en place des services d’authentification supplémentaires pour gérer le volume de travail, puis les arrêter à la fin du pic.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Sources de données, instrumentation et conditions de collecte de données
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Sources de données, instrumentation et conditions de collecte de données
 La sécurité est un aspect global de la plupart des systèmes distribués. Les données pertinentes sont susceptibles d’être générées en plusieurs points d’un système. Vous devez envisager d’adopter une approche SIEM pour rassembler les informations relatives à la sécurité résultant des événements déclenchés par l’application, l’équipement réseau, les serveurs, les pare-feu, les logiciels antivirus et d’autres éléments de prévention des intrusions.
 
 La surveillance de la sécurité peut intégrer des données d’outils qui ne font pas partie de votre application. Ces outils peuvent inclure des utilitaires qui identifient les activités d’analyse de port par des agences externes ou des filtres réseau qui détectent les tentatives d’accès non authentifié à votre application et à vos données.
@@ -233,7 +237,7 @@ Les contrats SLA sont souvent définis en termes de :
 ### <a name="requirements-for-sla-monitoring"></a>Conditions requises pour la surveillance des contrats SLA
 Au niveau le plus élevé, un opérateur doit être en mesure de déterminer d’un coup d’œil si le système respecte ou non les contrats SLA adoptés. Dans le cas contraire, l’opérateur doit être à même d’explorer et d’examiner les facteurs sous-jacents afin de déterminer les raisons conduisant à des performances inférieures aux normes.
 
-Les indicateurs de niveau supérieur classiques pouvant être représentés visuellement sont les suivants :
+Les indicateurs de niveau supérieur classiques pouvant être représentés visuellement sont les suivants :
 
 * Le pourcentage de disponibilité du service.
 * Le débit de l’application (mesuré en matière de transactions réussies et/ou opérations par seconde).
@@ -251,8 +255,8 @@ Une application cloud sera probablement constituée de plusieurs sous-systèmes 
 
 À des fins d’alerte, le système doit être en mesure de déclencher un événement si l’un des indicateurs de niveau supérieur dépasse un seuil spécifié. Les détails de niveau inférieur des différents facteurs qui composent l’indicateur de niveau supérieur doivent être disponibles en tant que données contextuelles pour le système d’alerte.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Sources de données, instrumentation et conditions de collecte de données
-Les données brutes requises pour prendre en charge la surveillance des contrats SLA sont semblables à celles qui sont requises pour la surveillance des performances, ainsi qu’à certains aspects de la surveillance de l’intégrité et de la disponibilité. (Voir ces sections pour plus de détails.) Vous pouvez capturer ces données en effectuant :
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Sources de données, instrumentation et conditions de collecte de données
+Les données brutes requises pour prendre en charge la surveillance des contrats SLA sont semblables à celles qui sont requises pour la surveillance des performances, ainsi qu’à certains aspects de la surveillance de l’intégrité et de la disponibilité. (Voir ces sections pour plus de détails.) Vous pouvez capturer ces données en effectuant :
 
 * La surveillance de point de terminaison.
 * L’enregistrement des exceptions, erreurs et avertissements.
@@ -263,7 +267,7 @@ Les données brutes requises pour prendre en charge la surveillance des contrats
 Toutes les données doivent être chronométrées et horodatées.
 
 ### <a name="analyzing-sla-data"></a>Analyse des données des contrats SLA
-Les données d’instrumentation doivent être agrégées pour générer une image des performances globales du système. Les données agrégées doivent également prendre en charge le zoom avant pour permettre l’examen des performances des sous-systèmes sous-jacents. Par exemple, vous devez pouvoir :
+Les données d’instrumentation doivent être agrégées pour générer une image des performances globales du système. Les données agrégées doivent également prendre en charge le zoom avant pour permettre l’examen des performances des sous-systèmes sous-jacents. Par exemple, vous devez pouvoir :
 
 * Calculer le nombre total de requêtes utilisateur pendant une période spécifiée, et déterminer le taux de réussite et d’échec de ces requêtes.
 * Combiner les temps de réponse des demandes utilisateur pour générer une vue d’ensemble des temps de réponse.
@@ -283,8 +287,8 @@ Un analyste doit pouvoir suivre la séquence des opérations commerciales réali
 
 Les informations d’audit sont très sensibles. Elles incluent probablement des données qui identifient les utilisateurs du système, ainsi que les tâches qu’ils effectuent. Pour cette raison, les informations d’audit sont, de préférence, affichées sous la forme de rapports qui sont disponibles uniquement pour les analystes approuvés plutôt que sous la forme d’un système interactif prenant en charge l’exploration des opérations graphiques. Un analyste doit pouvoir générer une série de rapports. Par exemple, les rapports peuvent répertorier toutes les activités des utilisateurs se produisant pendant une période spécifiée, détailler la chronologie de l’activité d’un seul utilisateur ou répertorier la séquence des opérations exécutées sur une ou plusieurs ressources.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Sources de données, instrumentation et conditions de collecte de données
-Les principales sources d’informations d’audit peuvent inclure :
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Sources de données, instrumentation et conditions de collecte de données
+Les principales sources d’informations d’audit peuvent inclure :
 
 * Le système de sécurité qui gère l’authentification des utilisateurs.
 * Les journaux de suivi qui enregistrent l’activité utilisateur.
@@ -314,8 +318,8 @@ Pour examiner l’utilisation du système, un opérateur doit généralement con
 
 Un opérateur doit également être en mesure de générer des graphiques. Par exemple, un graphique peut indiquer les utilisateurs les plus gourmands en ressources ou bien les ressources ou fonctionnalités système les plus fréquemment sollicitées.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Sources de données, instrumentation et conditions de collecte de données
-Le suivi de l’utilisation peut être effectué à un niveau relativement élevé. Il peut indiquer l’heure de début et de fin de chaque requête, ainsi que la nature de la requête (lecture, écriture, etc., en fonction de la ressource en question). Vous pouvez obtenir ces informations en effectuant :
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Sources de données, instrumentation et conditions de collecte de données
+Le suivi de l’utilisation peut être effectué à un niveau relativement élevé. Il peut indiquer l’heure de début et de fin de chaque requête, ainsi que la nature de la requête (lecture, écriture, etc., en fonction de la ressource en question). Vous pouvez obtenir ces informations en effectuant :
 
 * Le suivi des activités des utilisateurs.
 * La capture des compteurs de performances qui mesurent l’utilisation de chaque ressource.
@@ -331,7 +335,7 @@ Les clients et les autres utilisateurs peuvent signaler les problèmes si des é
 ### <a name="requirements-for-issue-tracking"></a>Conditions requises pour le suivi des problèmes
 Les opérateurs effectuent souvent le suivi des problèmes à l’aide d’un système distinct qui leur permet d’enregistrer et de rapporter les détails des problèmes signalés par les utilisateurs. Ces détails peuvent inclure les tâches que l’utilisateur tentait d’effectuer, les symptômes du problème, la séquence des événements et tout message d’erreur ou d’avertissement ayant été émis.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Sources de données, instrumentation et conditions de collecte de données
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Sources de données, instrumentation et conditions de collecte de données
 L’utilisateur ayant signalé le problème en premier lieu est la source de données initiale pour les données de suivi des problèmes. Il peut être en mesure de fournir les données supplémentaires suivantes :
 
 * Un vidage sur incident (si l’application inclut un composant qui s’exécute sur le Bureau de l’utilisateur).
@@ -358,7 +362,7 @@ Lorsqu’un utilisateur signale un problème, il ne connaît bien souvent que so
 ### <a name="requirements-for-tracing-and-debugging"></a>Conditions requises pour le suivi et le débogage
 Pour le suivi d’événements inattendus et d’autres problèmes, il est essentiel que les données de surveillance fournissent suffisamment d’informations pour permettre à un analyste de retrouver l’origine de ces problèmes et de reconstruire la séquence des événements qui se sont produits. Ces informations doivent être suffisantes pour permettre à un analyste de diagnostiquer la cause première des problèmes. Un développeur peut alors apporter les modifications nécessaires pour les empêcher de se reproduire.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Sources de données, instrumentation et conditions de collecte de données
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Sources de données, instrumentation et conditions de collecte de données
 La résolution des problèmes peut impliquer le suivi de toutes les méthodes (et de leurs paramètres) appelées dans le cadre d’une opération de création d’une arborescence illustrant le flux logique à travers le système quand un client effectue une requête spécifique. Les exceptions et les avertissements générés par le système en raison de ce flux doivent être capturés et consignés.
 
 Pour prendre en charge le débogage, le système peut fournir des hooks qui permettent à un opérateur de capturer les informations d’état à des moments cruciaux dans le système. Le système peut également fournir des informations étape par étape détaillées à mesure que les opérations sélectionnées progressent. La capture des données à ce niveau de détail peut imposer une charge supplémentaire sur le système et doit être un processus temporaire. Un opérateur utilise ce processus principalement lorsqu’une série d’événements très rares se produit et s’avère difficile à répliquer, ou lorsqu’une publication d’un ou de plusieurs éléments dans un système requiert une surveillance minutieuse pour s’assurer que les éléments fonctionnent comme prévu.
@@ -370,7 +374,7 @@ Vous pouvez envisager l’ensemble du processus de surveillance et de diagnostic
 
 ![Étapes du pipeline de surveillance et de diagnostic](media/best-practices-monitoring/Pipeline.png)
 
-*Figure 1 : Les étapes du pipeline de surveillance et de diagnostic*
+*Figure 1 : Les étapes du pipeline de surveillance et de diagnostic*
 
 La figure 1 montre comment les données de surveillance et de diagnostic peuvent provenir de diverses sources de données. Les étapes d’instrumentation et de collecte portent sur l’identification des sources à partir desquelles les données doivent être capturées, la détermination des données à capturer, et la capture et la mise en forme de ces données afin de pouvoir les examiner facilement. L’étape d’analyse et de diagnostic prend les données brutes et les utilise pour générer des informations pertinentes pouvant être utilisées par un opérateur afin de déterminer l’état du système. L’opérateur peut utiliser ces informations pour prendre des décisions concernant les actions possibles à effectuer, puis réinjecter les résultats dans les étapes d’instrumentation et de collecte. L’étape de visualisation et d’alerte présente une vue utilisable de l’état du système. Elle permet d’afficher des informations en temps quasi réel à l’aide d’une série de tableaux de bord. Elle permet également de générer des rapports, des graphiques et des tableaux pour fournir une vue historique des données qui peut contribuer à l’identification des tendances à long terme. Si les informations montrent qu’un indicateur KPI est susceptible de dépasser les limites acceptables, cette étape peut également déclencher une alerte destinée à un opérateur. Dans certains cas, une alerte peut également servir à déclencher un processus automatisé qui tente de prendre des mesures correctives, telles que la mise à l’échelle automatique.
 
@@ -494,7 +498,7 @@ La collecte de données est souvent effectuée via un service de collecte qui pe
 
 ![Exemple de collecte des données d’instrumentation](media/best-practices-monitoring/TelemetryService.png)
 
-*Figure 2 : Collecte des données d’instrumentation*
+*Figure 2 : Collecte des données d’instrumentation*
 
 Notez qu’il s’agit d’une vue simplifiée. Le service de collecte n’est pas nécessairement un processus unique et peut comporter plusieurs parties constituantes s’exécutant sur différents ordinateurs, comme le décrivent les sections suivantes. En outre, si l’analyse de certaines données de télémétrie doit être effectuée rapidement (analyse à chaud, comme décrit dans la section [Prise en charge de l’analyse à chaud, modérée et à froid](#supporting-hot-warm-and-cold-analysis) plus loin dans ce document), des composants locaux fonctionnant en dehors du service de collecte peuvent effectuer les tâches d’analyse immédiatement. La figure 2 illustre cette situation pour les événements sélectionnés. Les résultats du traitement analytique peuvent être envoyés directement au sous-système de visualisation et d’alerte. Les données soumises aux analyses modérée ou à froid sont stockées pendant qu’elles attendent le traitement.
 
@@ -517,14 +521,14 @@ Considérant la nature évolutive du cloud et pour éviter la nécessité de ré
 
 Pour optimiser l’utilisation de la bande passante, vous pouvez choisir de transférer les données moins urgentes en blocs, en tant que lots. Toutefois, les données de ne doivent pas être retardées indéfiniment, surtout si elles contiennent des informations soumises à une contrainte de temps.
 
-#### <a name="_pulling-and-pushing-instrumentation-data_"></a>*Extraction et transmission des données d’instrumentation*
+#### <a name="pulling-and-pushing-instrumentation-data"></a>*Extraction et transmission des données d’instrumentation*
 Le sous-système de collecte des données d’instrumentation peut récupérer activement les données d’instrumentation à partir de divers journaux et d’autres sources pour chaque instance de l’application ( *modèle d’extraction*). Il peut également servir de récepteur passif qui attend que les données soient envoyées à partir des composants qui constituent chaque instance de l’application ( *modèle d’émission*).
 
 Une approche de l’implémentation du modèle d’extraction consiste à utiliser des agents de surveillance s’exécutant localement avec chaque instance de l’application. Un agent de surveillance est un processus distinct qui récupère (extrait) régulièrement les données de télémétrie collectées au niveau du nœud local et écrit ces informations directement dans le stockage centralisé qui est partagé par toutes les instances de l’application. Il s’agit du mécanisme implémenté par les diagnostics Azure. Chaque instance d’un rôle web ou d’un rôle de travail Azure peut être configurée pour capturer le diagnostic et d’autres informations de traçage stockées localement. L’agent de surveillance qui s’exécute avec chaque instance copie les données spécifiées dans Azure Storage. L’article [Activation des diagnostics Azure dans Azure Cloud Services](cloud-services/cloud-services-dotnet-diagnostics.md) fournit plus d’informations sur ce processus. Certains éléments comme les journaux IIS, les vidages sur incident et les journaux d’erreurs personnalisés sont écrits dans le stockage d’objets blob. Les données du journal des événements Windows, des événements ETW et des compteurs de performances sont enregistrées dans un stockage de table. La figure 3 illustre ce mécanisme.
 
 ![Illustration de l’utilisation d’un agent de surveillance pour extraire des informations et les écrire dans un stockage partagé](media/best-practices-monitoring/PullModel.png)
 
-*Figure 3 : Utilisation d’un agent de surveillance pour extraire des informations et les écrire dans un stockage partagé*
+*Figure 3 : Utilisation d’un agent de surveillance pour extraire des informations et les écrire dans un stockage partagé*
 
 > [!NOTE]
 > L’utilisation d’un agent de surveillance convient idéalement à la capture des données d’instrumentation qui sont naturellement extraites d’une source de données. Les informations des vues de gestion dynamique SQL Server ou la longueur d’une file d’attente Azure Service Bus en sont un bon exemple.
@@ -537,7 +541,7 @@ Pour résoudre ces problèmes, vous pouvez implémenter un mécanisme de mise en
 
 ![Illustration de l’utilisation d’une file d’attente pour mettre en mémoire tampon les données d’instrumentation](media/best-practices-monitoring/BufferedQueue.png)
 
-*Figure 4 : Utilisation d’une file d’attente pour mettre en mémoire tampon les données d’instrumentation*
+*Figure 4 : Utilisation d’une file d’attente pour mettre en mémoire tampon les données d’instrumentation*
 
 Le service de collecte des données local peut ajouter des données à une file d’attente dès leur réception. La file d’attente agit comme une mémoire tampon et le service d’écriture dans le stockage peut récupérer et écrire les données à son propre rythme. Par défaut, une file d’attente fonctionne sur la base du premier entré, premier sorti. Cependant, vous pouvez hiérarchiser les messages pour accélérer leur avancée dans la file d’attente s’ils contiennent des données qui doivent être traitées plus rapidement. Pour plus d’informations, consultez [Priority Queue Pattern](https://msdn.microsoft.com/library/dn589794.aspx) . Vous pouvez également utiliser différents canaux (par exemple, les rubriques Service Bus) pour diriger les données vers différentes destinations en fonction de la forme de traitement analytique nécessaire.
 
@@ -545,17 +549,17 @@ Le service de collecte des données local peut ajouter des données à une file 
 
 <a name="consolidating-instrumentation-data"></a>
 
-#### <a name="_consolidating-instrumentation-data_"></a>*Consolidation des données d’instrumentation*
+#### <a name="consolidating-instrumentation-data"></a>*Consolidation des données d’instrumentation*
 Les données d’instrumentation récupérées par le service de collecte des données à partir d’une seule instance d’une application fournissent une vue localisée de l’intégrité et des performances de cette instance. Pour évaluer l’intégrité globale du système, il est nécessaire de consolider certains aspects des données dans les vues locales. Vous pouvez effectuer cette consolidation une fois que les données ont été stockées, mais dans certains cas, vous pouvez également la réaliser lors de la collecte des données. Au lieu d’être écrites directement dans le stockage partagé, les données d’instrumentation peuvent passer par un service de consolidation de données distinct qui combine les données et agit comme un processus de filtrage et de nettoyage. Par exemple, les données d’instrumentation qui incluent les mêmes informations de corrélation, par exemple un ID d’activité, peuvent être fusionnées. (Il est possible qu’un utilisateur démarre une opération sur un nœud, puis soit transféré vers un autre nœud en cas de défaillance du premier ou selon la configuration de l’équilibrage de charge). Ce processus peut également détecter et supprimer les données dupliquées (toujours une possibilité si le service de télémétrie utilise des files d’attente de messages pour envoyer des données d’instrumentation vers le stockage). La figure 5 illustre un exemple de cette structure.
 
 ![Exemple d’utilisation d’un service pour consolider les données d’instrumentation](media/best-practices-monitoring/Consolidation.png)
 
-*Figure 5 : Utilisation d’un service distinct pour consolider et nettoyer les données d’instrumentation*
+*Figure 5 : Utilisation d’un service distinct pour consolider et nettoyer les données d’instrumentation*
 
 ### <a name="storing-instrumentation-data"></a>Stockage des données d’instrumentation
 Les discussions précédentes ont représenté une vue assez simple du mode de stockage des données d’instrumentation. En réalité, il peut être judicieux de stocker les différents types d’informations à l’aide des technologies les plus appropriées au mode d’utilisation de chacun des types.
 
-Par exemple, le stockage de table et le stockage d’objets blob Azure présentent certaines similitudes dans leur mode d’accès. Néanmoins, elles connaissent des restrictions dans les opérations que vous pouvez effectuer en les utilisant, et la granularité des données qu’elles conservent est assez différente. Si vous devez effectuer plusieurs opérations analytiques ou si vous avez besoin de fonctionnalités de recherche en texte intégral sur les données, il peut être plus pertinent d’utiliser le stockage de données qui fournit des fonctionnalités optimisées pour des types spécifiques de requêtes et d’accès aux données. Par exemple :
+Par exemple, le stockage de table et le stockage d’objets blob Azure présentent certaines similitudes dans leur mode d’accès. Néanmoins, elles connaissent des restrictions dans les opérations que vous pouvez effectuer en les utilisant, et la granularité des données qu’elles conservent est assez différente. Si vous devez effectuer plusieurs opérations analytiques ou si vous avez besoin de fonctionnalités de recherche en texte intégral sur les données, il peut être plus pertinent d’utiliser le stockage de données qui fournit des fonctionnalités optimisées pour des types spécifiques de requêtes et d’accès aux données. Par exemple :
 
 * Les données des compteurs de performances peuvent être stockées dans une base de données SQL pour activer l’analyse ad hoc.
 * Les journaux de suivi peuvent être mieux stockés dans Azure DocumentDB.
@@ -566,7 +570,7 @@ Vous pouvez implémenter un service supplémentaire qui extrait régulièrement 
 
 ![Partitionnement et stockage des données](media/best-practices-monitoring/DataStorage.png)
 
-*Figure 6 : Partitionnement des données en fonction des exigences d’analyse et de stockage*
+*Figure 6 : Partitionnement des données en fonction des exigences d’analyse et de stockage*
 
 Les mêmes données d’instrumentation peuvent servir à plus d’une fin. Par exemple, les compteurs de performances permettent de fournir une vue historique des performances du système au fil du temps. Ces informations peuvent être combinées avec d’autres données d’utilisation pour générer les informations de facturation client. Dans ces situations, les mêmes données peuvent être envoyées à plusieurs destinations, par exemple une base de données de documents qui peut agir comme un magasin à long terme pour la conservation des informations de facturation et un magasin multidimensionnel pour la gestion des analyses des performances complexes.
 
@@ -574,12 +578,12 @@ Vous devez également tenir compte du degré d’urgence de ces données. Les do
 
 Les informations utilisées pour une analyse plus réfléchie, le reporting et l’identification des tendances historiques sont moins urgentes et peuvent être stockées d’une manière qui prend en charge l’exploration de données et les requêtes ad hoc. Pour plus d’informations, consultez la section [Prise en charge de l’analyse à chaud, modérée et à froid](#supporting-hot-warm-and-cold-analysis) plus loin dans ce document.
 
-#### <a name="_log-rotation-and-data-retention_"></a>*Rotation des journaux et conservation des données*
+#### <a name="log-rotation-and-data-retention"></a>*Rotation des journaux et conservation des données*
 L’instrumentation peut générer des volumes considérables de données. Ces données peuvent être conservées dans des emplacements différents, des fichiers journaux bruts, fichiers de suivi et autres informations capturées sur chaque nœud à la vue consolidée, nettoyée et partitionnée de ces données conservées dans le stockage partagé. Dans certains cas, une fois que les données ont été traitées et transférées, les données sources brutes d’origine peuvent être supprimées de chaque nœud. Dans d’autres cas, il peut être nécessaire ou simplement utile d’enregistrer les informations brutes. Par exemple, les données générées à des fins de débogage peuvent être laissées disponibles dans leur forme brute, mais peuvent être ensuite ignorées rapidement une fois que les bogues ont été corrigés.
 
 Les données de performances ont souvent une durée de vie plus longue afin de pouvoir être utilisées à des fins d’identification des tendances de performances et de planification de la capacité. La vue consolidée de ces données est en général conservée en ligne pour une période limitée afin de permettre un accès rapide. Après quoi, elle peut être archivée ou ignorée. Les données collectées pour le contrôle et la facturation des clients peuvent devoir être enregistrées indéfiniment. En outre, des exigences réglementaires peuvent imposer l’archivage et l’enregistrement des informations collectées à des fins d’audit et de sécurité. Ces données sont également sensibles et peuvent devoir être chiffrées ou protégées d’une quelconque façon pour empêcher toute falsification. Vous ne devez jamais enregistrer les mots de passe des utilisateurs ou d’autres informations qui peuvent être utilisées pour valider l’usurpation d’identité. Ces informations doivent être supprimées des données avant leur stockage.
 
-#### <a name="_down-sampling_"></a>*Sous-échantillonnage*
+#### <a name="down-sampling"></a>*Sous-échantillonnage*
 Il est souvent utile de stocker les données historiques afin de pouvoir identifier les tendances à long terme. Plutôt que d’enregistrer les données anciennes dans leur intégralité, il peut être possible de sous-échantillonner les données pour réduire leur résolution et les coûts de stockage. Par exemple, plutôt que d’enregistrer des indicateurs de performance minute par minute, vous pouvez consolider les données antérieures à plus d’un mois pour former une vue heure par heure.
 
 ### <a name="best-practices-for-collecting-and-storing-logging-information"></a>Meilleures pratiques pour collecter et stocker des informations de journalisation
@@ -597,7 +601,7 @@ Comme décrit dans la section [Consolidation des données d’instrumentation](#
 
 <a name="supporting-hot-warm-and-cold-analysis"></a>
 
-### <a name="supporting-hot,-warm,-and-cold-analysis"></a>Prise en charge de l’analyse à chaud, modérée et à froid
+### <a name="supporting-hot-warm-and-cold-analysis"></a>Prise en charge de l’analyse à chaud, modérée et à froid
 L’analyse et le reformatage des données à des fins de visualisation, de reporting et d’alerte peuvent être un processus complexe qui utilise son propre ensemble de ressources. Certaines formes de surveillance sont prioritaires et nécessitent que l’analyse immédiate des données soit efficace. C’est ce qu’on appelle *l’analyse à chaud*. Les exemples incluent les analyses nécessaires pour les alertes et certains aspects de la surveillance de la sécurité (comme la détection d’une attaque sur le système). Les données requises pour ces besoins doivent être rapidement disponibles et structurées en vue d’un traitement efficace. Dans certains cas, il peut être nécessaire de déplacer le traitement de l’analyse vers les nœuds individuels où les données sont conservées.
 
 D’autres formes d’analyse sont moins prioritaires et peuvent nécessiter des opérations de calcul et d’agrégation une fois les données brutes reçues. Il s’agit *d’analyse modérée*. L’analyse des performances fait souvent partie de cette catégorie. Dans ce cas, un événement de performances unique et isolé a peu de chances d’être statistiquement significatif. (Il peut être provoqué par une erreur ou un pic soudains.) Les données d’une série d’événements doivent fournir une image plus fiable des performances du système.
@@ -609,11 +613,11 @@ Certains types de surveillance génèrent des données à plus long terme. Cette
 Un opérateur peut également utiliser l’analyse à froid pour fournir les données pour l’analyse prédictive de l’intégrité. Il peut collecter les informations historiques sur une période spécifiée et les utiliser conjointement avec les données d’intégrité actuelles (récupérées à partir du chemin réactif) pour identifier les tendances qui peuvent provoquer rapidement des problèmes d’intégrité. Dans ces cas, il peut être nécessaire de déclencher une alerte afin que des mesures correctives puissent être prises.
 
 ### <a name="correlating-data"></a>Corrélation des données
-Les données capturées par l’instrumentation peuvent fournir un instantané de l’état du système, mais l’objectif de l’analyse est de rendre ces données exploitables. Par exemple :
+Les données capturées par l’instrumentation peuvent fournir un instantané de l’état du système, mais l’objectif de l’analyse est de rendre ces données exploitables. Par exemple :
 
 * Quelle est la cause d’un chargement d’E/S intense au niveau du système à un moment spécifique ?
-* Est-il le résultat d’un grand nombre d’opérations de base de données ?
-* A-t-il une influence sur les temps de réponse de la base de données, le nombre de transactions par seconde et les temps de réponse de l’application au même point de jonction ?
+* Est-il le résultat d’un grand nombre d’opérations de base de données ?
+* A-t-il une influence sur les temps de réponse de la base de données, le nombre de transactions par seconde et les temps de réponse de l’application au même point de jonction ?
 
 Dans ce cas, une mesure corrective pouvant réduire la charge peut consister à partitionner les données sur plusieurs serveurs. Par ailleurs, des exceptions peuvent se produire suite à une erreur à un niveau quelconque du système. Une exception se produisant à un niveau déclenche souvent une autre erreur au niveau supérieur.
 
@@ -661,7 +665,7 @@ La génération d’alerte consiste à analyser les données de surveillance et 
 
 Les alertes permettent de s’assurer que le système reste sain, réactif et sécurisé. C’est une partie importante de tout système qui donne des garanties de performances, de disponibilité et de confidentialité aux utilisateurs, et dans lequel les données peuvent devoir être traitées immédiatement. Un opérateur peut devoir être notifié de l’événement qui a déclenché l’alerte. La génération d’alerte peut également servir à appeler des fonctions système telles que la mise à l’échelle automatique.
 
-La génération d’alerte dépend généralement des données d’instrumentation suivantes :
+La génération d’alerte dépend généralement des données d’instrumentation suivantes :
 
 * Événements de sécurité. Si les journaux d’événements indiquent que des échecs d’authentification et/ou d’autorisation répétés se produisent, le système peut être attaqué, et un opérateur doit en être informé.
 * Mesures de performances Le système doit répondre rapidement si une mesure de performance spécifique dépasse un seuil spécifié.
@@ -672,9 +676,9 @@ Les opérateurs peuvent recevoir les informations d’alerte à l’aide de plus
 Un système d’alerte doit être personnalisable, et les valeurs appropriées peuvent être fournies en tant que paramètres à partir des données d’instrumentation sous-jacentes. Cette approche permet à un opérateur de filtrer les données et de se concentrer sur ces seuils ou combinaisons de valeurs qui présentent un intérêt. Notez que dans certains cas, les données d’instrumentation brutes peuvent être fournies au système d’alerte. Dans d’autres situations, il peut être mieux approprié de fournir des données agrégées. (Par exemple, une alerte peut être déclenchée si l’utilisation du processeur pour un nœud a dépassé 90 % au cours des 10 dernières minutes.) Les détails fournis au système d’alerte doivent également inclure toutes les informations de résumé et de contexte appropriées. Ces données peuvent aider à réduire la possibilité que des événements de type faux positif déclenchent une alerte.
 
 ### <a name="reporting"></a>Reporting
-Le reporting permet de générer une vue d’ensemble du système. Il peut intégrer des données historiques en plus des informations actuelles. Les exigences de reporting elles-mêmes se répartissent en deux grandes catégories : reporting opérationnel et reporting de sécurité.
+Le reporting permet de générer une vue d’ensemble du système. Il peut intégrer des données historiques en plus des informations actuelles. Les exigences de reporting elles-mêmes se répartissent en deux grandes catégories : reporting opérationnel et reporting de sécurité.
 
-Le reporting opérationnel inclut généralement les aspects suivants :
+Le reporting opérationnel inclut généralement les aspects suivants :
 
 * Agrégation des statistiques qui vous permettent de comprendre l’utilisation des ressources du système global ou des sous-systèmes spécifiés pendant un laps de temps spécifié.
 * Identification des tendances de l’utilisation des ressources pour le système global ou des sous-systèmes spécifiés pendant une période spécifiée.
@@ -698,11 +702,14 @@ Dans de nombreux cas, les traitements par lots peuvent générer des rapports en
 * [Azure: Telemetry Basics and Troubleshooting (Azure : Concepts de base de la télémétrie et résolution des problèmes)](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx)
 * [Activation de Diagnostics dans les services cloud et les machines virtuelles Azure](cloud-services/cloud-services-dotnet-diagnostics.md)
 * [Cache Redis Azure](https://azure.microsoft.com/services/cache/), [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) et [HDInsight](https://azure.microsoft.com/services/hdinsight/)
-* [Utilisation des files d’attente Service Bus](service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
-* [Business Intelligence de SQL Server dans Azure Virtual Machines](virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md)
-* [Réception de notifications d’alerte](azure-portal/insights-receive-alert-notifications.md) et [Suivi de l’intégrité du service](azure-portal/insights-service-health.md)
+* [Utilisation des files d’attente Service Bus](service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
+* [Business Intelligence de SQL Server dans Azure Virtual Machines](virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Réception de notifications d’alerte](monitoring-and-diagnostics/insights-receive-alert-notifications.md) et [Suivi de l’intégrité du service](monitoring-and-diagnostics/insights-service-health.md)
 * [Application Insights](application-insights/app-insights-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

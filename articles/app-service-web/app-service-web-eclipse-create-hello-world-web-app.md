@@ -1,12 +1,12 @@
 ---
-title: Créer une application web « Hello World » pour Azure dans Eclipse | Microsoft Docs
-description: Ce didacticiel vous montre comment utiliser le Kit de ressources Azure pour Eclipse pour créer une application Web Hello World pour Azure.
+title: "Créer une application web « Hello World » pour Azure dans Eclipse | Microsoft Docs"
+description: "Ce didacticiel vous montre comment utiliser le Kit de ressources Azure pour Eclipse pour créer une application Web Hello World pour Azure."
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 20d41e88-9eab-462e-8ee3-89da71e7a33f
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,27 +14,31 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d3549bca22266aab2deca1d9fcaabfc4034956cf
+
 
 ---
-# <a name="create-a-hello-world-web-app-for-azure-in-eclipse"></a>Créer une application web « Hello World » pour Azure dans Eclipse
-Ce didacticiel explique comment créer une application Hello World de base et la déployer sur Azure en tant qu’application web à l’aide du [Kit de ressources Azure pour Eclipse]. Un exemple JSP de base est présenté par souci de simplicité, mais des étapes très similaires conviennent également pour un servlet Java en ce qui concerne le déploiement d’Azure.
+# <a name="create-a-hello-world-web-app-for-azure-in-eclipse"></a>Créer une application web « Hello World » pour Azure dans Eclipse
+Ce didacticiel explique comment créer une application Hello World de base et la déployer sur Azure en tant qu’application web à l’aide du [Kit de ressources Azure pour Eclipse]. Un exemple JSP de base est présenté par souci de simplicité, mais des étapes très similaires conviennent également pour un servlet Java en ce qui concerne le déploiement d’Azure.
 
-À la fin de ce didacticiel, votre application ressemble à l’illustration suivante quand vous l’affichez dans un navigateur web :
+À la fin de ce didacticiel, votre application ressemble à l’illustration suivante quand vous l’affichez dans un navigateur web :
 
 ![Version préliminaire de l’application Hello World][01]
 
 ## <a name="prerequisites"></a>Composants requis
-* JDK (Java Development Kit) version 1.8 ou ultérieure.
+* JDK (Java Development Kit) version 1.8 ou ultérieure.
 * IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Luna ou ultérieur. Vous pouvez le télécharger à l’adresse suivante : <http://www.eclipse.org/downloads/>.
 * Une distribution d’un serveur web ou d’un serveur d’applications basé sur Java, comme Apache Tomcat ou Jetty.
 * Un abonnement Azure, qui peut être obtenu à l’adresse <https://azure.microsoft.com/free/> ou <http://azure.microsoft.com/pricing/purchase-options/>.
-* Kit de ressources Azure pour Eclipse. Pour plus d’informations, consultez [Installation du kit de ressources Azure pour Eclipse].
+* Kit de ressources Azure pour Eclipse. Pour plus d’informations, consultez [Installation du kit de ressources Azure pour Eclipse].
 
 ## <a name="to-create-a-hello-world-application"></a>Pour créer une application Hello World
 Tout d’abord, nous allons commencer par créer un projet Java.
 
 1. Démarrez Eclipse, puis, dans le menu, cliquez successivement sur **File (Fichier)**, **New (Nouveau)** et **Projet web dynamique (Dynamic Web Project)**. (si **Dynamic Web Project (Projet web dynamique)** n’est pas répertorié en tant que projet disponible une fois que vous avez cliqué sur **File (Fichier)** et **New (Nouveau)**, procédez comme suit : cliquez sur **File (Fichier)**, cliquez sur **New (Nouveau)**, sur **Project (Projet)...**, développez **Web**, puis cliquez sur **Dynamic Web Project (Projet web dynamique)** et sur **Next (Suivant)**).
-2. Pour l’exemple de ce didacticiel, nommez le projet **MyWebApp**. Votre écran se présente comme suit :
+2. Pour l’exemple de ce didacticiel, nommez le projet **MyWebApp**. Votre écran se présente comme suit :
    
     ![Création d’un nouveau projet Web dynamique][02]
 3. Cliquez sur **Terminer**.
@@ -47,7 +51,7 @@ Tout d’abord, nous allons commencer par créer un projet Java.
 8. Enregistrez index.jsp.
 
 ## <a name="to-deploy-your-application-to-an-azure-web-app-container"></a>Pour déployer votre application sur un conteneur d’application web Azure
-Vous pouvez déployer une application web Java sur Azure de plusieurs façons. Ce didacticiel décrit l’une des plus simples : votre application est déployée sur un conteneur d’application web Azure ; ainsi, aucun type de projet spécifique ni outil supplémentaire n’est nécessaire. Le JDK et le logiciel du conteneur web vous étant fournis par Azure, vous n’avez pas besoin de charger les vôtres ; vous devez uniquement être en possession de votre application web Java. Ainsi, le processus de publication de votre application ne prend que quelques secondes.
+Vous pouvez déployer une application web Java sur Azure de plusieurs façons. Ce didacticiel décrit l’une des plus simples : votre application est déployée sur un conteneur d’application web Azure ; ainsi, aucun type de projet spécifique ni outil supplémentaire n’est nécessaire. Le JDK et le logiciel du conteneur web vous étant fournis par Azure, vous n’avez pas besoin de charger les vôtres ; vous devez uniquement être en possession de votre application web Java. Ainsi, le processus de publication de votre application ne prend que quelques secondes.
 
 1. Dans l’Explorateur de projets d’Eclipse, cliquez avec le bouton droit sur **MyWebApp**.
 2. Dans le menu contextuel, sélectionnez **Azure**, puis cliquez sur **Publish as Azure Web App...** (Publier en tant qu’application web Azure...).
@@ -68,7 +72,7 @@ Vous pouvez déployer une application web Java sur Azure de plusieurs façons. C
 5. Quand la boîte de dialogue **Deploy to Azure Web App Container** (Déployer sur le conteneur d’application web Azure) s’affiche, elle présente tous les conteneurs d’application web déjà créés ; si vous n’avez pas créé de conteneur, la liste est vide.
    
     ![Boîte de dialogue Déployer sur le conteneur d’application web Azure][06]
-6. Si vous n’avez pas déjà créé de conteneur d’application web Azure ou que vous souhaitez publier votre application dans un nouveau conteneur, procédez comme suit. Sinon, sélectionnez un conteneur d’application web existant et passez à l’étape 7 ci-dessous.
+6. Si vous n’avez pas déjà créé de conteneur d’application web Azure ou que vous souhaitez publier votre application dans un nouveau conteneur, procédez comme suit. Sinon, sélectionnez un conteneur d’application web existant et passez à l’étape 7 ci-dessous.
    
    1. Cliquez sur **New...**
       
@@ -91,7 +95,7 @@ Vous pouvez déployer une application web Java sur Azure de plusieurs façons. C
           ![Boîte de dialogue Nouveau groupe de ressources][08]
       * Dans la zone de texte **Name** (Nom), spécifiez un nom pour votre nouveau groupe de ressources.
       * Dans le menu déroulant **Region** (Région), sélectionnez l’emplacement de centre de données Azure approprié pour votre groupe de ressources.
-      * FACULTATIF : par défaut, une distribution récente de Java 8 sera déployée automatiquement par Azure sur votre conteneur d’application web en tant que votre machine virtuelle Java. Vous pouvez cependant spécifier une version et une distribution de machine virtuelle Java différentes si votre application web l’exige. Pour spécifier le JDK de votre application web, cliquez sur l’onglet **JDK** et sélectionnez une des options suivantes :
+      * FACULTATIF : par défaut, une distribution récente de Java 8 sera déployée automatiquement par Azure sur votre conteneur d’application web en tant que votre machine virtuelle Java. Vous pouvez cependant spécifier une version et une distribution de machine virtuelle Java différentes si votre application web l’exige. Pour spécifier le JDK de votre application web, cliquez sur l’onglet **JDK** et sélectionnez une des options suivantes :
         
         * **Deploy the default JDK offered by Azure Web Apps service**(Déployer le JDK par défaut offert par le service Azure Web Apps) : cette option déploiera une distribution récente de Java 8.
         * **Deploy a 3rd party JDK available on Azure**(Déployer un JDK tiers disponible sur Azure) : cette option vous permet de choisir dans la liste des JDK fournis par Microsoft Azure.
@@ -111,13 +115,13 @@ Vous pouvez déployer une application web Java sur Azure de plusieurs façons. C
       * Dans le menu déroulant **Location** (Emplacement), sélectionnez l’emplacement de centre de données Azure approprié pour le plan.
       * Dans le menu déroulant **Pricing Tier** (Niveau de tarification), sélectionnez la tarification appropriée pour le plan. À des fins de test, vous pouvez choisir **Free**(Gratuit).
       * Dans le menu déroulant **Instance Size** (Taille de l’instance), sélectionnez la taille d’instance appropriée pour le plan. À des fins de test, vous pouvez choisir **Small**(Petite).
-   9. Une fois effectuées toutes les étapes ci-dessus, la boîte de dialogue New Web App Container doit ressembler à ceci :
+   9. Une fois effectuées toutes les étapes ci-dessus, la boîte de dialogue New Web App Container doit ressembler à ceci :
       
        ![Boîte de dialogue Nouveau conteneur d’application web][10]
    10. Cliquez sur **OK** pour terminer la création de votre conteneur d’application web.
        
         Attendez quelques secondes pour que la liste des conteneurs d’application web s’actualise. Votre conteneur d’application web nouvellement créée doit maintenant être sélectionné dans la liste.
-7. Vous êtes maintenant prêt à lancer le déploiement initial de votre application web sur Azure :
+7. Vous êtes maintenant prêt à lancer le déploiement initial de votre application web sur Azure :
    
     ![Boîte de dialogue Déployer sur le conteneur d’application web Azure][11]
    
@@ -131,12 +135,12 @@ Vous pouvez déployer une application web Java sur Azure de plusieurs façons. C
     Le processus de déploiement de votre application web sur Azure doit prendre seulement quelques secondes. Quand votre application est prête, un lien nommé **Publié** in the **État** . Quand vous cliquez sur le lien, vous êtes redirigé vers la page d’accueil de votre application web déployée.
 
 ## <a name="updating-your-web-app"></a>Mise à jour de votre application web
-La mise à jour d’une application web Azure existante en cours d’exécution est un processus simple et rapide, que vous pouvez effectuer de deux façons :
+La mise à jour d’une application web Azure existante en cours d’exécution est un processus simple et rapide, que vous pouvez effectuer de deux façons :
 
 * Vous pouvez mettre à jour le déploiement d’une application web Java existante.
 * Vous pouvez publier une application Java supplémentaire dans le même conteneur d’application web.
 
-Dans les deux cas, le processus est identique et ne prend que quelques secondes :
+Dans les deux cas, le processus est identique et ne prend que quelques secondes :
 
 1. Dans l’Explorateur de projets Eclipse, cliquez avec le bouton droit sur l’application Java que vous souhaitez mettre à jour ou ajouter à un conteneur d’application web existant.
 2. Lorsque le menu contextuel s’affiche, sélectionnez **Azure** puis **Publish as Azure Web App...** (Publier en tant qu’application Web Azure...).
@@ -163,7 +167,7 @@ Pour plus d’informations sur les boîtes à outils Azure pour les environnemen
 
 * [Kit de ressources Azure pour Eclipse]
   * [Installation du kit de ressources Azure pour Eclipse]
-  * *Créer une application web « Hello World » pour Azure dans Eclipse (cet article)*
+  * *Créer une application web « Hello World » pour Azure dans Eclipse (cet article)*
   * [Nouveautés du kit de ressources Azure pour Eclipse]
 * [Kit de ressources Azure pour IntelliJ]
   * [Installation du kit de ressources Azure pour IntelliJ]
@@ -180,7 +184,7 @@ Pour plus d’informations sur la création d’Azure Web Apps, consultez la [Vu
 
 [Kit de ressources Azure pour Eclipse]: ../azure-toolkit-for-eclipse.md
 [Kit de ressources Azure pour IntelliJ]: ../azure-toolkit-for-intellij.md
-[Créer une application web « Hello World » pour Azure dans Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
+[Créer une application web « Hello World » pour Azure dans Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
 [Créer une application web « Hello World » pour Azure dans IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
 [Installation du kit de ressources Azure pour Eclipse]: ../azure-toolkit-for-eclipse-installation.md
 [Installation du kit de ressources Azure pour IntelliJ]: ../azure-toolkit-for-intellij-installation.md
@@ -211,6 +215,6 @@ Pour plus d’informations sur la création d’Azure Web Apps, consultez la [Vu
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
