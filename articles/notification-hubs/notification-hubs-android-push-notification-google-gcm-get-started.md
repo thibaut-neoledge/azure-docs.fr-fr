@@ -59,7 +59,7 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
 
 Votre hub de notification est à présent configuré pour GCM, et vous disposez des chaînes de connexion vous permettant d’inscrire votre application pour la réception et l’envoi de notifications Push.
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Connexion de votre application au hub de notification
+## <a name="a-idconnecting-appaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Connexion de votre application au hub de notification
 ### <a name="create-a-new-android-project"></a>Créer un projet Android
 1. Dans Android Studio, démarrez un nouveau projet Android Studio.
    
