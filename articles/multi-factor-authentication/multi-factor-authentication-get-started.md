@@ -25,12 +25,12 @@ ms.openlocfilehash: bcf8a709b9c457f517386b4a4baf9fdf5864cc65
 
 * [les éléments à protéger](#what-am-i-trying-to-secure)
 * [l’emplacement des utilisateurs](#where-are-the-users-located)
-* [quelles sont les fonctionnalités nécessaires ?](#what-featured-do-i-need)
+* [quelles sont les fonctionnalités nécessaires ?](#what-featured-do-i-need)
 
 Les sections suivantes fournissent des conseils sur la détermination de ces réponses.
 
 ## <a name="what-am-i-trying-to-secure"></a>Les éléments à protéger.
-Afin de déterminer la solution de vérification en deux étapes appropriée, nous devons tout d’abord connaître les éléments à protéger avec une seconde méthode d’authentification.  S’agit-il d’une application dans Azure ?  Ou d’un système d’accès à distance ?  En déterminant les éléments à protéger, nous pouvons répondre à la question de savoir où l’authentification multifacteur doit être activée.  
+Afin de déterminer la solution de vérification en deux étapes appropriée, nous devons tout d’abord connaître les éléments à protéger avec une seconde méthode d’authentification.  S’agit-il d’une application dans Azure ?  Ou d’un système d’accès à distance ?  En déterminant les éléments à protéger, nous pouvons répondre à la question de savoir où l’authentification multifacteur doit être activée.  
 
 | Les éléments que vous souhaitez protéger | MFA dans le cloud | Serveur MFA |
 | --- |:---:|:---:|
@@ -47,11 +47,11 @@ Ensuite, selon l’emplacement de nos utilisateurs, nous pouvons déterminer la 
 | --- |:---:|:---:|
 | Azure Active Directory |● | |
 | Azure AD et AD local à l'aide de la fédération avec AD FS |● |● |
-| Azure AD et AD local à l'aide de DirSync, Azure AD Sync, Azure Connect AD : aucune synchronisation de mot de passe |● |● |
-| Azure AD et AD local à l'aide de DirSync, Azure AD Sync, Azure Connect AD : avec synchronisation de mot de passe |● | |
+| Azure AD et AD local à l'aide de DirSync, Azure AD Sync, Azure Connect AD : aucune synchronisation de mot de passe |● |● |
+| Azure AD et AD local à l'aide de DirSync, Azure AD Sync, Azure Connect AD : avec synchronisation de mot de passe |● | |
 | Active Directory local | |● |
 
-## <a name="what-features-do-i-need"></a>Quelles sont les fonctionnalités nécessaires ?
+## <a name="what-features-do-i-need"></a>Quelles sont les fonctionnalités nécessaires ?
 Le tableau suivant présente une comparaison des fonctionnalités disponibles de Multi-Factor Authentication dans le cloud et du serveur Multi-Factor Authentication.
 
 | Fonctionnalité | MFA dans le cloud | Serveur MFA |
@@ -75,7 +75,7 @@ Le tableau suivant présente une comparaison des fonctionnalités disponibles de
 | Accès conditionnel | ● | ● |
 | Cache | ● | ● |
 
-Maintenant que nous avons déterminé s'il faut utiliser l'authentification multifacteur de cloud ou le serveur MFA local, nous pouvons commencer à configurer et à utiliser Azure Multi-Factor Authentication. **Sélectionnez l'icône qui représente votre scénario !**
+Maintenant que nous avons déterminé s'il faut utiliser l'authentification multifacteur de cloud ou le serveur MFA local, nous pouvons commencer à configurer et à utiliser Azure Multi-Factor Authentication. **Sélectionnez l'icône qui représente votre scénario !**
 
 <center>
 
