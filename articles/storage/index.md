@@ -5,7 +5,8 @@ ms.sourcegitcommit: a6c333ae45868d5c29ce2f2587f1417fa9fafc0b
 ms.openlocfilehash: 27fd664b69ca4467daa2b0abc6e53c9cece221ae
 
 ---
-#<a name="storage-documentation"></a>Documentation Stockage
+
+# <a name="storage-documentation"></a>Documentation Stockage
 
 Le service Stockage Azure est la solution de stockage cloud pour les applications récentes qui s’appuient sur la durabilité, la disponibilité et la scalabilité pour répondre aux besoins des clients.  Ce service est accessible globalement, hautement évolutif et élastique, et équilibre automatiquement la charge de vos données en fonction du trafic.  Stockage Azure propose les cinq services suivants pour répondre aux besoins en matière d’application : Stockage Blob, Stockage Table, Stockage File d’attente, Stockage sur disque et Stockage Fichier.
 
@@ -102,7 +103,7 @@ Le service Stockage Azure est la solution de stockage cloud pour les application
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -123,7 +124,7 @@ Le service Stockage Azure est la solution de stockage cloud pour les application
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

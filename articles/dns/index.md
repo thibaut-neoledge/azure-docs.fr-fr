@@ -5,7 +5,7 @@ ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
 ms.openlocfilehash: e32393348fc26fa4cb0a5221695a9bf8bb4d36e1
 
 ---
-#<a name="dns-documentation"></a>Documentation DNS
+# <a name="dns-documentation"></a>Documentation DNS
 
 Azure DNS (Domain Name System) est un service pour les domaines DNS qui offre une résolution de noms à l’aide de l’infrastructure Microsoft Azure.  En hébergeant vos domaines dans Azure, vous pouvez gérer vos enregistrements DNS avec les mêmes informations d’identification, les mêmes API, les mêmes outils et la même facturation que vos autres services Azure.
 
@@ -89,7 +89,7 @@ Azure DNS (Domain Name System) est un service pour les domaines DNS qui offre u
 <h2>Référence</h2>
 <ul class="panelContent cardsW">
 <li>
-    <div class="cardSize"><p />
+    <div class="cardSize">
         <div class="cardPadding">
             <div class="card">
                 <div class="cardText">
