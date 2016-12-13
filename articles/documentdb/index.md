@@ -195,7 +195,7 @@ Azure DocumentDB est un service de base de données NoSQL entièrement géré, 
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

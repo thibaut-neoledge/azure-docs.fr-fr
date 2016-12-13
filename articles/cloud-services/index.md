@@ -5,7 +5,7 @@ ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
 ms.openlocfilehash: 4985185ad8cb4a21e05d4668458e82411cd88ee0
 
 ---
-#<a name="cloud-services-documentation"></a>Documentation Services cloud
+# <a name="cloud-services-documentation"></a>Documentation Services cloud
 
 Services cloud est un exemple d’implémentation PaaS (platform as a service). Cette offre est conçue pour prendre en charge des applications évolutives, fiables et dont l’exploitation est rentable. Services cloud vous offre non seulement l’avantage de la virtualisation, mais également le contrôle de la machine virtuelle pour la configuration, la correction et l’installation du logiciel.  
 
@@ -89,8 +89,7 @@ Services cloud est un exemple d’implémentation PaaS (platform as a service).
 <h2>Référence</h2>
 <ul class="panelContent cardsW">
     <li>
-    <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -103,7 +102,7 @@ Services cloud est un exemple d’implémentation PaaS (platform as a service).
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
