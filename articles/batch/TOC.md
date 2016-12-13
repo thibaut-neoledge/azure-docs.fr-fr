@@ -25,12 +25,12 @@
 ### [Journaux de diagnostic de Batch](batch-diagnostics.md)
 
 # Référence
-## [Applets de commande PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs)
-## [Java](https://docs.microsoft.com/java/api)
-## [API .NET](https://docs.microsoft.com/dotnet/api)
-## [Kit de développement logiciel (SDK) Python](https://go.microsoft.com/fwlink/p/?linkid=833496)
-## [Node.JS](https://go.microsoft.com/fwlink/p/?linkid=833544)
-## [REST](https://docs.microsoft.com/rest/api/batchservice/)
+## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch)
+## [.NET](/dotnet/api/microsoft.azure.batch)
+## [Java](/java/api/com.microsoft.azure.batch)
+## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
+## [Kit de développement logiciel (SDK) Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch)
+## [REST](/rest/api/batchservice)
 
 # Rubriques connexes
 ## [Lot chantier](https://github.com/Azure/batch-shipyard)
@@ -48,6 +48,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

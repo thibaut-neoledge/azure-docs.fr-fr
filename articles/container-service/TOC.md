@@ -5,9 +5,7 @@
 ## [Déployer dans ACS à l’aide de la version préliminaire d’Azure CLI 2.0](container-service-create-acs-cluster-cli.md)
 ## [Se connecter avec un cluster ACS](container-service-connect.md)
 ## [Mettre à l’échelle un cluster ACS](container-service-scale.md)
-
 # Procédure
-
 ## Gérer avec un contrôleur de domaine/système d’exploitation
 ### [Gestion de conteneur - interface utilisateur web DC/OS](container-service-mesos-marathon-ui.md)
 ### [Gestion de conteneur - API REST DC/OS](container-service-mesos-marathon-rest.md)
@@ -21,16 +19,16 @@
 ### [Analyser avec Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
 ## [Gérer avec Kubernetes](container-service-kubernetes-walkthrough.md)
 ## [Gérer avec Docker Swarm](container-service-docker-swarm.md)
-
 # Référence
-## [API REST](/rest/api/compute/containerservices)
-
+## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
+## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
+## [REST](/rest/api/compute/containerservices)
 # les ressources
 ## [Disponibilité des régions](https://azure.microsoft.com/regions/services/)
 ## [Tarification](https://azure.microsoft.com/pricing/details/container-service/)
 ## [Mises à jour de service](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

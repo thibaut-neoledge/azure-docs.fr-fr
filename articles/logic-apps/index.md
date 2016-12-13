@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 4885c54a2bc592d0e6da8c1f39ec7360fa97d6fd
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: ba5941d636a605059d981ddda8ea66288a682451
 
 ---
 # <a name="logic-apps-documentation"></a>Documentation Logic Apps
@@ -144,7 +144,7 @@ Logic Apps est un outil de conception permettant de modéliser et d’automatis
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Informations de référence sur l’API REST de Logic Apps</p>
+                        <p>API REST de Logic Apps</p>
                     </div>
                 </div>
             </div>
@@ -162,6 +162,6 @@ Télécharger la documentation Logic Apps </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

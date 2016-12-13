@@ -3,6 +3,7 @@
 ## [Comprendre les microservices](service-fabric-overview-microservices.md)
 ## [Scénarios d’application](service-fabric-application-scenarios.md)
 ## [Architecture](service-fabric-architecture.md)
+## [Terminologie](service-fabric-technical-overview.md)
 
 # Prise en main
 ## Configuration de l'environnement de développement
@@ -176,28 +177,20 @@
 ### [Tester la charge de votre application](service-fabric-vso-load-test.md)
 
 # Référence
-## [Terminologie](service-fabric-technical-overview.md)
-## [Acteurs fiables (Reliable Actors)](https://go.microsoft.com/fwlink/p/?linkid=833398)
-## [Acteurs fiables WCF](https://go.microsoft.com/fwlink/p/?linkid=833401)
-## [Services fiables (Reliable Services)](https://go.microsoft.com/fwlink/p/?linkid=833402)
-## [Services fiables WCF](https://go.microsoft.com/fwlink/p/?linkid=833403)
-## [Données](https://go.microsoft.com/fwlink/p/?linkid=833404)
-## [Interfaces de données](https://go.microsoft.com/fwlink/p/?linkid=833406)
-## [Système](https://go.microsoft.com/fwlink/p/?linkid=833407)
-## [Exemple de code](http://aka.ms/servicefabricsamples)
-## [PowerShell](/powershell/servicefabric/vlatest/servicefabric)
-## [API Java](https://go.microsoft.com/fwlink/p/?linkid=833410)
-## [.NET](/dotnet/api)
-## [REST](/rest/api/servicefabric/)
+## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
+## [API Java](/java/api/microsoft.servicefabric.services)
+## [.NET](/dotnet/api/microsoft.servicefabric.services)
+## [REST](/rest/api/servicefabric)
 
 # les ressources
-## [Parcours de formation](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
+## [Exemple de code](http://aka.ms/servicefabricsamples)
+## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [Tarification](https://azure.microsoft.com/pricing/details/service-fabric/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

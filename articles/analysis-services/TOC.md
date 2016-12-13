@@ -11,9 +11,13 @@
 ## Integrate
 ###[Passerelle de données locales](analysis-services-gateway.md)
 
-# Références
+# Référence
+##[PowerShell](/powershell/resourcemanager)
+##[REST](/rest/api/analysisservices/)
+
+# Rubriques connexes
 ##[Connexions de source de données](analysis-services-datasource.md)
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

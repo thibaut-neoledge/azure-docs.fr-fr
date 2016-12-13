@@ -7,14 +7,14 @@
 # Procédure
 ## Integrate
 ### [Web Apps](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
-### [Cloud Services](cdn-cloud-service-with-cdn.md)
+### [Services Cloud](cdn-cloud-service-with-cdn.md)
 ### [Stockage](cdn-create-a-storage-account-with-cdn.md)
 ### [Partage de ressources cross-origin](cdn-cors.md)
 
 ## Gérer
 ### [Gérer avec PowerShell](cdn-manage-powershell.md)
 ### Configurer la durée de vie
-#### [Web Apps/Cloud Services, ASP.NET ou contenu IIS](cdn-manage-expiration-of-cloud-service-content.md)
+#### [Web Apps/Services Cloud, ASP.NET ou contenu IIS](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Contenu de service BLOB de stockage](cdn-manage-expiration-of-blob-content.md)
 ### [Mapper un domaine personnalisé à CDN](cdn-map-content-to-custom-domain.md)
 ### [Restreindre l’accès par pays](cdn-restrict-access-by-country.md)
@@ -44,12 +44,13 @@
 ### [Compression de fichiers](cdn-troubleshoot-compression.md)
 
 # Référence
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
-## [Emplacements POP des CDN Azure](cdn-pop-locations.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn)
+## [.NET](/dotnet/api/microsoft.azure.management.cdn)
+## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)
 
 # les ressources
+## [Emplacements POP des CDN Azure](cdn-pop-locations.md)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=cdn)
 ## [Tarification](https://azure.microsoft.com/pricing/details/cdn/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
@@ -57,6 +58,6 @@
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

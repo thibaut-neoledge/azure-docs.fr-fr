@@ -83,18 +83,20 @@
 
 
 # Référence
-## [Kit SDK Java](documentdb-sdk-java.md)
-## [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](documentdb-sdk-dotnet.md)
-## [Kit de développement logiciel (SDK) .NET Core](documentdb-sdk-dotnet-core.md)
-## [Exemples relatifs à .NET](documentdb-dotnet-samples.md)
-## [Kit de développement logiciel (SDK) Node.js](documentdb-sdk-node.md)
-## [Exemples relatifs à Node.js](documentdb-nodejs-samples.md)
-## [Kit de développement logiciel (SDK) Python](documentdb-sdk-python.md)
-## [Exemples Python Batch](documentdb-python-samples.md)
-## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-## [Aide-mémoire sur la grammaire SQL](documentdb-sql-query-cheat-sheet.md)
+## [Java](documentdb-sdk-java.md)
+## [.NET](documentdb-sdk-dotnet.md)
+## [.NET Core](documentdb-sdk-dotnet-core.md)
+## [Node.JS](documentdb-sdk-node.md)
+## [Python](documentdb-sdk-python.md)
 ## [REST](/rest/api/documentdb/)
 ## [API REST Resource Provider](/rest/api/documentdbresourceprovider/)
+
+# Rubriques connexes
+## [Exemples relatifs à .NET](documentdb-dotnet-samples.md)
+## [Exemples relatifs à Node.js](documentdb-nodejs-samples.md)
+## [Exemples Python Batch](documentdb-python-samples.md)
+## [Syntaxe SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+## [Aide-mémoire sur la grammaire SQL](documentdb-sql-query-cheat-sheet.md)
 
 # les ressources
 ## [Tarification](https://azure.microsoft.com/pricing/details/documentdb/)
@@ -110,6 +112,6 @@
 ## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

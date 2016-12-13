@@ -1,5 +1,5 @@
 # Vue d'ensemble
-## [Qu’est-ce que la messagerie Service Bus ?](service-bus-queues-topics-subscriptions.md)
+## [Qu’est-ce que la messagerie Service Bus ?](service-bus-queues-topics-subscriptions.md)
 ## [Comparer les files d’attente Azure et Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ## [FAQ](service-bus-faq.md)
 
@@ -51,18 +51,20 @@
 ### [Utilisation de PowerShell pour approvisionner des entités](service-bus-powershell-how-to-provision.md)
 
 # Référence
-## [Détails de la tarification](service-bus-pricing-billing.md)
-## [Exemples](service-bus-samples.md)
-## [Exceptions](service-bus-messaging-exceptions.md)
-## [Quotas](service-bus-quotas.md)
-## [.NET](/dotnet/api/)
-## [REST](/rest/api/servicebus/)
+## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [.NET](/dotnet/api/microsoft.azure.management.servicebus)
+## [Java](/java/api/com.microsoft.azure.servicebus.amqp)
+## [REST](/rest/api/servicebus)
+
+# les ressources
 ## [Syntaxe SQLFilter](service-bus-messaging-sql-filter.md)
 ## [Syntaxe SQLRuleAction](service-bus-messaging-sql-rule-action.md)
 ## [Guide du protocole AMQP1.0](service-bus-amqp-protocol-guide.md)
 ### [Opérations basées sur les requêtes-réponses AMQP 1.0](service-bus-amqp-request-response.md)
-
-# les ressources
+## [Détails de la tarification](service-bus-pricing-billing.md)
+## [Exemples](service-bus-samples.md)
+## [Exceptions](service-bus-messaging-exceptions.md)
+## [Quotas](service-bus-quotas.md)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Forums MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
@@ -73,6 +75,6 @@
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

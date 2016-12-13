@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 43f480acb3e49a1b6a081a8338bb66daa571be55
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 79b75ae11af07735449714d3a3034c867224ebf4
 
 ---
 # <a name="api-management-documentation"></a>Documentation Gestion des API
 
-API Management aide les organisations à publier des API pour des développeurs externes, partenaires et internes, afin de libérer le potentiel de leurs données et services.  Gestion des API offre les compétences principales pour assurer un programme d'API réussi à travers l'engagement du développeur, les perspectives commerciales, l'analyse, la sécurité et la protection.
+Gestion des API aide les organisations à publier des API pour des développeurs externes, partenaires et internes, afin de libérer le potentiel de leurs données et services.  Gestion des API offre les compétences principales pour assurer un programme d'API réussi à travers l'engagement du développeur, les perspectives commerciales, l'analyse, la sécurité et la protection.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -57,7 +57,7 @@ API Management aide les organisations à publier des API pour des développeurs 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Prendre en main la gestion des API</h3>
+                        <h3>Prendre en main la Gestion des API</h3>
                     </div>
                 </div>
             </div>
@@ -86,36 +86,46 @@ API Management aide les organisations à publier des API pour des développeurs 
 
 ---
 
-## <a name="reference"></a>Référence
-
+<h2>Référence</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Applet de commande PowerShell de Gestion des API pour Resource Manager</p>
+                        <h3>Ligne de commande</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt613507">Classic PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/apimanagement/">
-        <div class="cardSize">
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Informations de référence sur l’API REST de Gestion des API</p>
+                        <p><a href="/rest/api/apimanagement/">API REST</a></p>
+                        <p><a href="/rest/api/apimanagement/ApiManagementREST/API-Management-REST">API REST (original)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
+    </li>
+    <li>
+        <div class="cardSize"><p />
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Autres</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn894081">Stratégies</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt697540">Modèles</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
 
@@ -131,6 +141,6 @@ Télécharger la documentation Gestion des API </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

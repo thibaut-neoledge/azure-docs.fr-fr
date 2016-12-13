@@ -6,7 +6,7 @@
 
 # Prise en main
 
-## Applications Web
+## Web Apps
 ### [.NET](web-sites-dotnet-get-started.md)
 ### [Node.JS](app-service-web-nodejs-get-started.md)
 ### [Python](web-sites-python-ptvs-django-mysql.md)
@@ -37,7 +37,7 @@
 ### [Azure App Service et les services Azure existants](app-service-changes-existing-services.md)
 ### [Vue d’ensemble du cache local](../app-service/app-service-local-cache.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [Vue détaillée des plans App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-### [Offres d’applications Web pour l’entreprise](web-sites-enterprise-offerings.md)
+### [Offres Web Apps pour l’entreprise](web-sites-enterprise-offerings.md)
 ### [Comparaison : App Service, machines virtuelles, Service Fabric et services cloud](choose-web-site-cloud-service-vm.md)
 ### [Développement de sites WordPress sur App Service](develop-wordpress-on-app-service-web-apps.md)
 ### [App Service sur Linux](../app-service/app-service-linux-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
@@ -67,7 +67,7 @@
 ### Applications Node.js
 #### [Créer une application web Node.js](web-sites-nodejs-develop-deploy-mac.md)
 #### [Créer une application de conversation instantanée Node.js avec Socket.IO](web-sites-nodejs-chat-app-socketio.md)
-#### [Utilisation de io.js avec des applications web](web-sites-nodejs-iojs.md)
+#### [Utilisation de io.js avec Web Apps](web-sites-nodejs-iojs.md)
 #### [Deploy a Sails.js web app to Azure App Service (Déployer une application web Sails.js dans Azure App Service)](app-service-web-nodejs-sails.md)
 #### [Génération et déploiement à l’aide de WebMatrix](web-sites-nodejs-use-webmatrix.md)
 
@@ -99,7 +99,7 @@
 #### [Django et SQL Database sur Azure avec Python Tools 2.2 pour Visual Studio](web-sites-python-ptvs-django-sql.md)
 
 ### [Déployer votre première application web de base dans Azure en 5 minutes](app-service-web-get-started-html.md)
-### [Prise en main de la fonction de test en production pour les applications web](app-service-web-test-in-production-get-start.md)
+### [Prise en main de la fonction de test en production pour Web Apps](app-service-web-test-in-production-get-start.md)
 
 ### [Travaux web](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [Présentation du Kit de développement logiciel (SDK) Azure WebJobs](websites-dotnet-webjobs-sdk.md)
@@ -247,9 +247,9 @@
 ### [Résoudre les problèmes de performances d’une application Web](app-service-web-troubleshoot-performance-degradation.md)
 
 # Référence
-## [Interface de ligne de commande Azure](/cli/azure/)
-## [Java](/java/api/)
+## [Version préliminaire d’Azure CLI 2.0](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
+## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
 
 # Rubriques connexes
@@ -266,6 +266,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

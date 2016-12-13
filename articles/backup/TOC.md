@@ -52,6 +52,10 @@
 ### [Échec de sauvegarde des machines virtuelles Azure : impossible de communiquer avec l’agent de machine virtuelle pour obtenir l’état de l’instantané ; la sous-tâche de capture instantanée de la machine virtuelle a expiré.](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Sauvegarde lente de fichiers et de dossiers dans Sauvegarde Azure](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
+# Référence
+## [PowerShell](/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup)
+## [.NET](/dotnet/api/microsoft.azure.management.backupservices)
+
 # les ressources
 ## [Tarification](https://azure.microsoft.com/pricing/details/backup/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
@@ -59,6 +63,6 @@
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=backup)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

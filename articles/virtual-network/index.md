@@ -2,8 +2,8 @@
 layout: LandingPage
 +toc_rel: breadcrumb.json
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: f03b3e68dd62cdf429162d3fe7d2342bbf254b52
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: c3607bf6699b83fb3fedf7cb7ccf9f1d97ad4c56
 
 ---
 #<a name="virtual-network-documentation"></a>Documentation Réseau virtuel
@@ -171,7 +171,7 @@ Un Réseau virtuel Azure (VNet) est une représentation logique de votre propre 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Informations de référence sur l’API REST de Réseau virtuel</p>
+                        <p>API REST Réseau virtuel</p>
                     </div>
                 </div>
             </div>
@@ -191,6 +191,6 @@ Télécharger la documentation Réseau virtuel </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -45,21 +45,21 @@
 ###[Mettre à jour vers une taille et un niveau différents](cache-how-to-scale.md)
 ###[Utiliser un cluster Redis pour augmenter/diminuer la taille des instances](cache-how-to-premium-clustering.md)
 
-#Référence
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/)
-## [Java](https://docs.microsoft.com/java/api/)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
+# Référence
+## [PowerShell](/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache)
+## [Version préliminaire d’Azure CLI 2.0](/cli/azure/redis)
+## [.NET](/dotnet/api/microsoft.azure.management.redis)
+## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Clients redis](http://redis.io/clients)
 ## [Commandes redis](http://redis.io/commands#)
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
+
+# les ressources
 ## [Exemples de Cache Redis](cache-redis-samples.md)
-
-#les ressources
-##[Tarification](https://azure.microsoft.com/pricing/details/cache/)
+## [Tarification](https://azure.microsoft.com/pricing/details/cache/)
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 1253538f479de3dc4200956f85229ee4892cf9a7
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 99a123b0efaea3e4e298aed44cea72547bfa7094
 
 ---
 #<a name="redis-cache-documentation"></a>Documentation Cache Redis
 
-Le Cache Redis Azure est basé sur le cache Redis open source connu de tous. Il vous permet d’accéder à un cache Redis sécurisé dédié, géré par Microsoft et accessible depuis une application dans Azure. Le Cache Redis Azure offre un accès homogène et à débit élevé aux données à faible latence pour alimenter des applications Azure rapides et évolutives.
+Le Cache Redis Azure est basé sur le cache Redis open source connu de tous. Il vous permet d’accéder à un cache Redis sécurisé dédié, géré par Microsoft et accessible depuis une application dans Azure. Le Cache Redis Azure offre un accès homogène et à débit élevé aux données à faible latence pour alimenter des applications Azure rapides et évolutives.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -21,7 +21,7 @@ Le Cache Redis Azure est basé sur le cache Redis open source connu de tous. Il 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>En savoir plus sur le niveau Premium du Cache Redis Azure</h3>
+                        <h3>En savoir plus sur le niveau Premium du Cache Redis Azure</h3>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@ Le Cache Redis Azure est basé sur le cache Redis open source connu de tous. Il 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Bibliothèque vidéo du Cache Redis Azure</h3>
+                        <h3>Bibliothèque vidéo du Cache Redis Azure</h3>
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@ Le Cache Redis Azure est basé sur le cache Redis open source connu de tous. Il 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Bien démarrer avec le Cache Redis en utilisant .NET</h3>
+                        <h3>Bien démarrer avec le Cache Redis en utilisant .NET</h3>
                     </div>
                 </div>
             </div>
@@ -74,7 +74,7 @@ Le Cache Redis Azure est basé sur le cache Redis open source connu de tous. Il 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Bien démarrer avec le Cache Redis en utilisant ASP.NET MVC</h3>
+                        <h3>Bien démarrer avec le Cache Redis en utilisant ASP.NET MVC</h3>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@ Le Cache Redis Azure est basé sur le cache Redis open source connu de tous. Il 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Bien démarrer avec le Cache Redis en utilisant Node.js</h3>
+                        <h3>Bien démarrer avec le Cache Redis en utilisant Node.js</h3>
                     </div>
                 </div>
             </div>
@@ -110,7 +110,7 @@ Le Cache Redis Azure est basé sur le cache Redis open source connu de tous. Il 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Bien démarrer avec le Cache Redis en utilisant Java</h3>
+                        <h3>Bien démarrer avec le Cache Redis en utilisant Java</h3>
                     </div>
                 </div>
             </div>
@@ -128,7 +128,7 @@ Le Cache Redis Azure est basé sur le cache Redis open source connu de tous. Il 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Bien démarrer avec le Cache Redis en utilisant Python</h3>
+                        <h3>Bien démarrer avec le Cache Redis en utilisant Python</h3>
                     </div>
                 </div>
             </div>
@@ -149,7 +149,7 @@ Le Cache Redis Azure est basé sur le cache Redis open source connu de tous. Il 
                 <div class="card">
                     <div class="cardText">
                         <h3>PowerShell</h3>
-                        <p>Référence Azure PowerShell</p>
+                        <p>Référence Azure PowerShell</p>
                     </div>
                 </div>
             </div>
@@ -205,7 +205,7 @@ Le Cache Redis Azure est basé sur le cache Redis open source connu de tous. Il 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Informations de référence sur l’API REST du cache Redis</p>
+                        <p>API REST du cache Redis</p>
                     </div>
                 </div>
             </div>
@@ -225,6 +225,6 @@ Télécharger la documentation Cache Redis </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

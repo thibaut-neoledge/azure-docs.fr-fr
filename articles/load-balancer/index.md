@@ -1,11 +1,11 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3c37b481761af546060e36b4a51e7d96dd4646
-ms.openlocfilehash: 7814791b5308152fa2b7d6d640401079b1a46107
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 4c909a151ec60d62ae472e24617b28fc71342eae
 
 ---
-#<a name="load-balancer-documentation"></a>Documentation Load Balancer
+#<a name="load-balancer-documentation"></a>Documentation Équilibreur de charge
 
 L’équilibrage de charge Azure offre une haute disponibilité et des performances réseau élevées pour vos applications.  L’équilibrage de charge peut être configuré pour équilibrer la charge du trafic Internet entrant sur les machines virtuelles, du trafic entre les ressources cloud, du trafic dans un réseau virtuel intersite ou du trafic vers une machine virtuelle spécifique.
 
@@ -96,7 +96,7 @@ L’équilibrage de charge Azure offre une haute disponibilité et des performan
                 <div class="card">
                     <div class="cardText">
                         <h3>PowerShell</h3>
-                        <p>Référence PowerShell de Load Balancer</p>
+                        <p>Référence PowerShell de l’équilibreur de charge</p>
                     </div>
                 </div>
             </div>
@@ -111,7 +111,7 @@ L’équilibrage de charge Azure offre une haute disponibilité et des performan
                 <div class="card">
                     <div class="cardText">
                         <h3>Interface de ligne de commande Azure</h3>
-                        <p>Interface de ligne de commande Azure de Load Balancer</p>
+                        <p>Interface de ligne de commande Azure de l’équilibreur de charge</p>
                     </div>
                 </div>
             </div>
@@ -156,7 +156,7 @@ L’équilibrage de charge Azure offre une haute disponibilité et des performan
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Informations de référence sur l’API REST de Load Balancer</p>
+                        <p>API REST de l’équilibreur de charge</p>
                     </div>
                 </div>
             </div>
@@ -169,12 +169,12 @@ L’équilibrage de charge Azure offre une haute disponibilité et des performan
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
         <div class="img"></div>
         <div class="text">
-Télécharger la documentation Load Balancer </div>
+Télécharger la documentation Équilibreur de charge </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 
