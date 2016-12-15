@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 07/22/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 370978187cffa2e5a9544bf99e6a15e13f97ac53
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1062af9abfd167dd251621a43943dea399aed027
 
 
 ---
@@ -34,11 +34,11 @@ Vous devez maintenant créer dans votre répertoire B2C une application fourniss
 * Incluez une **application web** ou une **API web** dans l’application.
 * Utilisez **l’URI de redirection`https://localhost:44316/` ** pour l’application web. Il s’agit de l’emplacement par défaut du client d’application web pour cet exemple de code.
 * Copiez **l’ID de l’application** affecté à votre application. Vous en aurez besoin ultérieurement.
-  
+
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Création de vos stratégies
-Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Dans cet exemple de code, le client contient trois expériences liées à l’identité : l’inscription, la connexion et la modification du profil. Vous devez créer une stratégie pour chaque type, comme décrit dans [l’article de référence sur les stratégies](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création de vos 3 stratégies, assurez-vous de :
+Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Dans cet exemple de code, le client contient trois expériences liées à l’identité : l’inscription, la connexion et la modification du profil. Vous devez créer une stratégie pour chaque type, comme décrit dans [l’article de référence sur les stratégies](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Lors de la création de vos 3 stratégies, assurez-vous de :
 
 * Choisir **Inscription par le biais d’un ID utilisateur** ou **Inscription par le biais d’une adresse e-mail** dans le panneau des fournisseurs d’identité.
 * Choisir **Nom d’affichage** et d’autres attributs d’inscription dans votre stratégie d’inscription.
@@ -217,6 +217,6 @@ You can now move onto more advanced B2C topics. You may try:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 0d9d87d0dc26d2fcaa3886a9f8c0849b71b26847
-ms.openlocfilehash: 61ea806ec3ad620d454e2de0910fa2b49de66493
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 645fa2574efb9501da173f8ac8aea146d1e79ff8
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 61ea806ec3ad620d454e2de0910fa2b49de66493
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
-> Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
+> Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). 
 > 
 > 
 
@@ -50,7 +50,7 @@ Les éléments suivants sont requis pour suivre le didacticiel.
 
 * Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. 
   
-    Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Vous obtenez des crédits que vous pouvez utiliser pour essayer des services Azure payants. Une fois que les crédits sont épuisés, vous pouvez quand même conserver le compte et utiliser les services et fonctionnalités Azure gratuits, comme la fonction Web Apps dans Azure App Service.
+    Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Vous obtenez des crédits que vous pouvez utiliser pour essayer des services Azure payants. Une fois que les crédits sont épuisés, vous pouvez quand même conserver le compte et utiliser les services et fonctionnalités Azure gratuits, comme la fonction Web Apps dans Azure App Service.
 * Systèmes d’exploitation : Windows 8 ou ultérieur, Windows 2008 R2, Windows 7.
 * .NET Framework 4.0 ultérieur
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou une version ultérieure.
@@ -441,10 +441,10 @@ Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas 
 
 <!-- URLs. -->
 [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
-[Portail]: http://manage.windowsazure.com/
+[Portal]: http://manage.windowsazure.com/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

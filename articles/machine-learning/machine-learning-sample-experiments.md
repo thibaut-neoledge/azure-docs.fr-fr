@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/11/2016
 ms.author: cgronlun;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: 35579eda8b92a481525ad987e99e7d9c9ed6b942
-ms.openlocfilehash: 7c712cb20d9e008c74436fc602326afa00250c63
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9c710e6f959afd8a4f4b965931ed4868d94c6d25
 
 
 ---
@@ -42,8 +42,8 @@ Pour parcourir toutes les expériences :
 2. Sous **Refine by** (Affiner par), sélectionnez **Experiment** (Expérience) pour afficher toutes les expériences de la galerie.
 3. Vous y trouverez des expériences qui répondent à vos besoins de différentes façons :
    * **Sélectionnez des filtres à gauche.** Par exemple, pour parcourir les expériences utilisant un algorithme de détection des anomalies PCA, sélectionnez **Experiment** (Expérience) sous **Categories** (Catégories), puis **PCA-Based Anomaly Detection** (Détection des anomalies PCA) sous **Algorithms Used** (Algorithmes utilisés). (Si vous ne voyez pas cet algorithme, cliquez sur **Show all** (Afficher tout) en bas de la liste.)<br></br>
-     ![](./media/machine-learning-sample-experiments/refine-the-view.png)
-   * **Utilisez la zone de recherche.**  Par exemple, pour rechercher les expériences partagées par Microsoft sur la reconnaissance de chiffres et qui utilisent un algorithme de machine à vecteurs de support à deux classes, entrez « reconnaissance de chiffres » dans la zone de recherche. Ensuite, sélectionnez les filtres **Experiment** (Expérience), **Microsoft content only** (Contenu Microsoft uniquement) et **Two-Class Support Vector Machine** (Machine à vecteurs de support à deux classes) : ![](./media/machine-learning-sample-experiments/search-for-experiments.png)
+     ![Sélectionner des filtres](./media/machine-learning-sample-experiments/refine-the-view.png)
+   * **Utilisez la zone de recherche.**  Par exemple, pour rechercher les expériences partagées par Microsoft sur la reconnaissance de chiffres et qui utilisent un algorithme de machine à vecteurs de support à deux classes, entrez « reconnaissance de chiffres » dans la zone de recherche. Ensuite, sélectionnez les filtres **Experiment** (Expérience), **Microsoft content only** (Contenu Microsoft uniquement) et **Two-Class Support Vector Machine** (Machine à vecteurs de support à deux classes) : ![Utiliser la zone de recherche](./media/machine-learning-sample-experiments/search-for-experiments.png)
 4. Cliquez sur une expérience pour en savoir plus à propos de celle-ci.
 5. Pour exécuter et/ou modifier l’expérience, cliquez sur **Ouvrir dans Studio** sur la page de l’expérience.
 
@@ -52,7 +52,7 @@ Pour parcourir toutes les expériences :
    >
    >
 
-    ![](./media/machine-learning-sample-experiments/example-experiment.png)
+    ![Exemple d'expérience](./media/machine-learning-sample-experiments/example-experiment.png)
 
 ## <a name="use-a-template-in-machine-learning-studio"></a>Utiliser un modèle dans Machine Learning Studio
 Vous pouvez également créer une expérience dans Machine Learning Studio en prenant un exemple de la galerie comme modèle.
@@ -70,6 +70,6 @@ Une expérience est créée dans votre espace de travail, et l’exemple d’exp
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

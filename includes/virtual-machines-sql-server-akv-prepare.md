@@ -8,7 +8,7 @@ Il existe plusieurs conditions préalables pour utiliser Azure Key Vault Integra
 Les sections suivantes décrivent ces conditions préalables et les informations que vous devez collecter pour exécuter ultérieurement des applets de commande PowerShell.
 
 ### <a name="install-azure-powershell"></a>Installation d'Azure Powershell
-Assurez-vous que vous avez installé la dernière version du kit de développement logiciel (SDK) Azure PowerShell. Pour plus d’informations, consultez la rubrique [Installation et configuration d’Azure PowerShell](../articles/powershell-install-configure.md).
+Assurez-vous que vous avez installé la dernière version du kit de développement logiciel (SDK) Azure PowerShell. Pour plus d’informations, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ### <a name="create-an-azure-active-directory"></a>Création d'un Azure Active Directory
 Tout d’abord, votre abonnement doit comporter un [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (ADD). Cela vous permet, entre autres avantages, d'accorder des droits d'accès à votre coffre de clés à certains utilisateurs et d'applications.
@@ -34,6 +34,6 @@ L’URL du coffre de clés est affectée ultérieurement au paramètre **$akvURL
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

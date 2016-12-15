@@ -6,13 +6,8 @@ Les passerelles de réseau virtuel ExpressRoute peuvent utiliser les référence
 * HighPerformance
 * UltraPerformance
 
-> [!IMPORTANT]
-> La passerelle ExpressRoute UltraPerformance est actuellement disponible dans les régions Centre des États-Unis et Centre Ouest des États-Unis, et elle peut être liée à des circuits ExpressRoute situés à Chicago et à Dallas. D’autres emplacements ExpressRoute et régions Azure seront disponibles dans les prochaines semaines. 
-> 
-> 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

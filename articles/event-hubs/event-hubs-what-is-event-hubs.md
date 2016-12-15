@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 11/30/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fcc3e2cb76a06607d0bfbbad810968b70d67e4f4
+ms.sourcegitcommit: 05ca343cfdfc602759eb3ea30a7186a0bb47bd74
+ms.openlocfilehash: eddc3e7c4914936a8a83a042dc0f7d528b91f059
 
 
 ---
@@ -38,14 +38,14 @@ Pour plus d’informations sur les hubs d’événements, consultez les rubrique
 * [Vue d’ensemble des concentrateurs d’événements](event-hubs-overview.md)
 * [Guide de programmation de concentrateurs d’événements](event-hubs-programming-guide.md)
 * [Forum Aux Questions sur la disponibilité et le support des hubs d’événements](event-hubs-availability-and-support-faq.md)
-* Prise en main avec un [didacticiel Event Hubs][didacticiel Event Hubs]
-* Un [exemple d'application complet qui utilise des hubs d’événements][exemple d'application complet qui utilise des hubs d’événements]
+* Prise en main avec un [didacticiel des hubs d'événements][Event Hubs tutorial]
+* Un [exemple d'application complet qui utilise des hubs d’événements][sample application that uses Event Hubs]
 
-[didacticiel Event Hubs]: event-hubs-csharp-ephcs-getstarted.md
-[exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Event Hubs tutorial]: event-hubs-csharp-ephcs-getstarted.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -127,7 +127,7 @@ Vous pouvez maintenant choisir précisément l'image que vous voulez utiliser. P
 
 ## <a name="powershell"></a>PowerShell
 > [!NOTE]
-> Installez et configurez la [dernière version d’Azure PowerShell](../articles/powershell-install-configure.md). Si vous utilisez des modules Azure PowerShell antérieurs à la version 1.0, vous vous servez des commandes suivantes, mais devez d’abord `Switch-AzureMode AzureResourceManager`. 
+> Installez et configurez la [dernière version d’Azure PowerShell](/powershell/azureps-cmdlets-docs). Si vous utilisez des modules Azure PowerShell antérieurs à la version 1.0, vous vous servez des commandes suivantes, mais devez d’abord `Switch-AzureMode AzureResourceManager`. 
 > 
 > 
 
@@ -229,6 +229,6 @@ Dans cette liste, copiez le nom de référence SKU choisi. Vous disposez de tout
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

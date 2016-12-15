@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 10/03/2016
 ms.author: anandy;billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8ed71ccd07385eb74f7afecf04590c2c00372c34
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 02d271e43c369e2aa6d716fc24a78cc9f4045c7c
 
 
 ---
-# <a name="ad-fs-deployment-in-azure"></a>Déploiement des services AD FS dans Azure
+# <a name="ad-fs-deployment-in-azure"></a>Déploiement des services AD FS dans Azure
 AD FS simplifie et sécurise la fédération des identités et l’authentification unique (SSO) sur le web. La fédération avec AD Azure ou O365 permet aux utilisateurs de s’authentifier à l’aide de leurs informations d’identification locales et d’accéder à toutes les ressources du cloud. Par conséquent, il est important de disposer d’une infrastructure AD FS hautement disponible pour garantir l’accès aux ressources locales et dans le cloud. Le déploiement d’AD FS dans Azure peut contribuer à bénéficier d’une haute disponibilité avec un minimum d’efforts.
 Le déploiement d’AD FS dans Azure présente toute une série d’avantages, notamment :
 
@@ -121,7 +121,7 @@ Créez les groupes à haute disponibilité suivants :
 ### <a name="4-deploy-virtual-machines"></a>4.    Déployer les machines virtuelles
 L’étape suivante consiste à déployer les machines virtuelles qui hébergeront les différents rôles de votre infrastructure. Nous vous recommandons d’affecter au moins deux machines virtuelles à chaque groupe à haute disponibilité. Créez six machines virtuelles dans le cadre du déploiement de base.
 
-| Ordinateur | Rôle | Sous-réseau | Groupe à haute disponibilité | Compte de stockage | Adresse IP |
+| Ordinateur | Rôle | Sous-réseau | Groupe à haute disponibilité | Compte de stockage | Adresse IP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | contosodc1 |Contrôleur de domaine/AD FS |INT |contosodcset |contososac1 |Statique |
 | contosodc2 |Contrôleur de domaine/AD FS |INT |contosodcset |contososac2 |Statique |
@@ -357,6 +357,6 @@ Vous pouvez utiliser un réseau virtuel existant ou créer un nouveau réseau vi
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

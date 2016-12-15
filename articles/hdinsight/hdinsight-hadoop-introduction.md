@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/21/2016
 ms.author: cgronlun
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cefda0778fed4ab8d502955dd8eae4bdac70a48e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 66200ad8688928c368146a177130f6e2fad4849b
 
 
 ---
@@ -74,7 +74,7 @@ Les composants et les utilitaires suivants sont inclus dans les clusters HDInsig
 * **[ZooKeeper](#zookeeper)**: coordination des processus dans les systèmes distribués.
 
 > [!NOTE]
-> Pour plus d’informations sur les composants et leurs versions, consultez [Composants, contrôle de version et offres de services dans HDInsight][component-versioning]
+> Pour plus d’informations sur les composants et leurs versions, consultez [Composants, contrôle de version et offres de services Hadoop dans HDInsight][component-versioning]
 > 
 > 
 
@@ -148,7 +148,7 @@ Les langages JVM suivants sont pris en charge sur les clusters HDInsight :
 * Jython (Python pour Java)
 * Scala
 
-### <a name="hadoopspecific-languages"></a>Langages spécifiques à Hadoop
+### <a name="hadoop-specific-languages"></a>Langages spécifiques à Hadoop
 Les clusters HDInsight prennent en charge les langages suivants, spécifiques à l’écosystème Hadoop :
 
 * Pig Latin pour les travaux Pig
@@ -162,17 +162,17 @@ En tant que partie intégrante de l'écosystème du cloud Azure, Hadoop dans HDI
 * Disponibilité et fiabilité élevées des clusters. Consultez la rubrique [Disponibilité et fiabilité des clusters Hadoop dans HDInsight](hdinsight-high-availability-linux.md) pour plus d'informations.
 * Stockage efficace et économique des données avec le stockage d'objets blob Azure, une option compatible Hadoop. Consultez la rubrique [Utilisation du stockage d’objets blob Azure avec Hadoop dans HDInsight](hdinsight-hadoop-use-blob-storage.md) pour plus d’informations.
 * Intégration aux autres services Azure, notamment [Web Apps](https://azure.microsoft.com/documentation/services/app-service/web/) et [Base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/).
-* Tailles et types de machines virtuelles supplémentaires pour l’exécution de clusters HDInsight. Pour plus d’informations, consultez [Composants, contrôle de version et offres de services Hadoop dans HDInsight][component-versioning].
+* Tailles et types de machines virtuelles supplémentaires pour l’exécution de clusters HDInsight. Consultez [Composants, contrôle de version et offres de services Hadoop dans HDInsight][component-versioning] pour plus d’informations.
 * Mise à l’échelle du cluster. La mise à l’échelle du cluster permet de modifier le nombre de nœuds d’un cluster HDInsight en cours d’exécution, sans avoir à le supprimer ou à le recréer.
 * Prise en charge des réseaux virtuels. les clusters HDInsight peuvent être utilisés avec Azure Virtual Network pour prendre en charge l'isolement des ressources de cloud ou de scénarios hybrides liant les ressources cloud avec celles de votre centre de données.
 * Faible coût d’entrée. Essayez une [version d’évaluation gratuite](https://azure.microsoft.com/free/) ou consultez la rubrique [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Pour plus d’informations sur les avantages de Hadoop dans HDInsight, consultez [Page de fonctionnalités Azure pour HDInsight][marketing-page].
+Pour plus d'informations sur les avantages de Hadoop dans HDInsight, consultez la rubrique [Page de fonctionnalités Azure pour HDInsight][marketing-page].
 
 ## <a name="hdinsight-standard-and-hdinsight-premium"></a>HDInsight Standard et HDInsight Premium
 HDInsight propose deux catégories d’offres de cloud Big Data : Standard et Premium. HDInsight Standard fournit un cluster de niveau entreprise que les organisations peuvent utiliser pour exécuter leurs charges de travail Big Data. HDInsight Premium est dérivé de cette offre et introduit des fonctionnalités d’analyse et de sécurité avancées dans un cluster HDInsight. Pour plus d’informations, consultez [Azure HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)
 
-## <a name="a-idresourcesaresources-for-learning-more-about-bigdata-analysis-hadoop-and-hdinsight"></a><a id="resources"></a>Ressources supplémentaires sur l'analyse des données volumineuses, Hadoop et HDInsight
+## <a name="a-idresourcesaresources-for-learning-more-about-big-data-analysis-hadoop-and-hdinsight"></a><a id="resources"></a>Ressources supplémentaires sur l'analyse des données volumineuses, Hadoop et HDInsight
 Créez sur cette présentation de Hadoop dans le cloud et l'analyse de données volumineuses avec les ressources ci-dessous.
 
 ### <a name="hadoop-documentation-for-hdinsight"></a>Documentation Hadoop pour HDInsight.
@@ -204,6 +204,6 @@ Ces outils décisionnels peuvent s’avérer utiles lors de vos analyses de donn
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1a6dd35278f0a4a4f972642c40a0976986dd79ae
-ms.openlocfilehash: 25be292144e31c6f34ff1e015362aee31e242619
+ms.sourcegitcommit: 7c289437beca78dacc7d3136680c54dde01f3798
+ms.openlocfilehash: fb4b12543ac4910ea9c4789f4ebe5ef0ca5997ae
 
 
 ---
@@ -40,7 +40,7 @@ Le tableau suivant montre le mappage entre les solutions et des fonctionnalités
 
 | Solution | Ingestion de données | Identité d’appareil | Commande et contrôle | Règles et actions | Analyse prédictive |
 | --- | --- | --- | --- | --- | --- |
-| [Surveillance à distance][lnk-getstarted-preconfigured] |yes |Oui |Oui |yes |- |
+| [Surveillance à distance][lnk-getstarted-preconfigured] |Oui |Oui |Oui |Oui |- |
 | [Maintenance prédictive][lnk-predictive-maintenance] |Oui |Oui |Oui |Oui |yes |
 
 * *Données*: entrer des données à l'échelle dans le cloud.
@@ -78,7 +78,7 @@ Un IoT Hub reçoit la télémétrie provenant des appareils à un seul système 
 L’IoT Hub met les données de télémétrie qu’il reçoit à disposition via un système d’extrémité de lecture de télémétrie côté service.
 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
-La solution préconfigurée utilise trois tâches [Azure Stream Analytics][lnk-asa] (ASA) pour filtrer le flux de télémétrie en provenance des appareils :
+Cette solution préconfigurée utilise trois travaux [Azure Stream Analytics][lnk-asa] (ASA) pour filtrer le flux de télémétrie des appareils :
 
 * *Tâche DeviceInfo* : génère des données vers un hub d’événements qui envoie des messages relatifs à l’instruction de l’inscription de l’appareil, envoyés lorsqu’un périphérique se connecte d’abord ou en réponse à une commande **Modifier l’état de l’appareil**, dans le registre d’appareils de la solution (une base de données DocumentDB). 
 * *Tâche Telemetry* : envoie toutes les données de télémétrie brutes vers Azure Blob Storage pour un stockage à froid et calcule les données de télémétrie agrégées qui s’affichent dans le tableau de bord de la solution.
@@ -130,6 +130,6 @@ Pour plus d’informations sur les architectures de solution IoT, consultez le d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

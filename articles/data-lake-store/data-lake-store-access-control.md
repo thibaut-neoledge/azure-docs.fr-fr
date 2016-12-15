@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2016
+ms.date: 12/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c73d85497e936b0bfb9a0ee97e0172a70e1706ae
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9637a4dfeaf3d3f95ccdb4bbc5d1f96ec08b6dad
 
 
 ---
@@ -110,11 +110,11 @@ Voici quelques scénarios courants pour comprendre les autorisations nécessaire
 
 ![ACL Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-Ensuite, dans le panneau **Accès**, cliquez sur **Affichage simple** pour afficher une vue plus simple.
+Dans ce panneau, la section supérieure affiche une vue d’ensemble des autorisations dont vous disposez (dans la capture d’écran, l’utilisateur se nomme Bob). En dessous, les autorisations d’accès sont affichées.
 
 ![ACL Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
-Cliquez sur **Affichage avancé** pour afficher une vue plus avancée.
+Cliquez sur **Avancé** pour afficher la vue plus avancée où figurent les concepts d’ACL par défaut, de masque et de super utilisateur.
 
 ![ACL Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
@@ -133,6 +133,10 @@ Dans Azure, il existe plusieurs rôles Azure pour les comptes Data Lake Store :
 * etc.
 
 Toutes les personnes ayant le rôle **Propriétaire** pour un compte Data Lake Store sont automatiquement considérées comme des super utilisateurs pour ce compte. Pour en savoir plus sur le contrôle d’accès en fonction du rôle Azure (RBAC), consultez [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md).
+
+Si vous souhaitez créer un rôle RBAC personnalisé qui dispose des autorisations de super utilisateur. Il doit disposer de ces autorisations :
+* Microsoft.DataLakeStore/accounts/Superuser/action
+* Microsoft.Authorization/roleAssignments/write
 
 ## <a name="the-owning-user"></a>L’utilisateur propriétaire
 L’utilisateur qui a créé l’élément est automatiquement l’utilisateur propriétaire de l’élément. Les utilisateurs propriétaires peuvent :
@@ -244,7 +248,11 @@ Non. Le contrôle d’accès via les ACL est toujours activé pour les comptes D
 ### <a name="what-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Quelles sont les autorisations nécessaires pour supprimer de manière récursive un dossier et son contenu ?
 * L’utilisateur doit disposer des autorisations **Écriture + Exécution**sur le dossier parent.
 * L’utilisateur doit disposer des autorisations **Lecture + Écriture + Exécution**sur le dossier à supprimer, et tous les dossiers qu’il contient.
-  >[AZURE.NOTE] La suppression des fichiers dans des dossiers ne nécessite pas l’autorisation Écriture sur ces fichiers. En outre, le dossier racine « / » ne peut **jamais** être supprimé.
+
+> [!NOTE] 
+> La suppression des fichiers dans des dossiers ne nécessite pas l’autorisation Écriture sur ces fichiers. En outre, le dossier racine « / » ne peut **jamais** être supprimé.
+>
+>
 
 ### <a name="who-is-set-as-the-owner-of-a-file-or-folder"></a>Qui est défini comme propriétaire d’un fichier ou d’un dossier ?
 Le créateur d’un fichier ou d’un dossier en devient le propriétaire.
@@ -254,6 +262,12 @@ Cette information est copiée à partir du groupe propriétaire du dossier paren
 
 ### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Je suis l’utilisateur propriétaire d’un fichier, mais je n’ai pas les autorisations RWX dont j’ai besoin. Que faire ?
 L’utilisateur propriétaire peut modifier les autorisations du fichier pour s’accorder les autorisations RWX dont il a besoin.
+
+### <a name="when-i-look-at-acls-in-the-azure-portal-i-see-user-names-but-through-apis-i-see-guids-why-is-that"></a>Lorsque j’examine les listes de contrôle d’accès dans le portail Azure, je vois des noms d’utilisateur alors que je vois des GUID via les API. Pourquoi ?
+Les entrées dans les listes de contrôle d’accès sont stockées sous forme de GUID correspondant aux utilisateurs dans Azure Active Directory (AAD). Les API retourneront les GUID en l’état. Le portail Azure tente de simplifier l’utilisation des listes de contrôle d’accès en traduisant les GUID en noms conviviaux lorsque cela est possible. 
+
+### <a name="why-do-i-sometimes-see-guids-in-the-acls-when-using-the-portal"></a>Pourquoi est-ce que je vois parfois des GUID dans les listes de contrôle d’accès lors de l’utilisation du portail ?
+Un GUID apparaît lorsque l’utilisateur n’existe plus dans AAD. Cela se produit généralement lorsque l’utilisateur a quitté l’entreprise ou que son compte a été supprimé dans AAD.
 
 ### <a name="does-data-lake-store-support-inheritance-of-acls"></a>Data Lake Store prend-il en charge l’héritage des ACL ?
 Non.
@@ -282,6 +296,6 @@ Non.
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

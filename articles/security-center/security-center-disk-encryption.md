@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 05/27/2016
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 65d586405bc79ccf0d5e27c09d750818e5f3dd24
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 
 
 ---
@@ -47,7 +47,7 @@ Il existe de nombreuses méthodes permettant d’obtenir la configuration requis
 > 
 
 ## <a name="install-and-configure-azure-powershell"></a>Installation et configuration d'Azure PowerShell
-Vous devez disposer d’Azure PowerShell version 1.2.1 ou ultérieure. L’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) décrit toutes les étapes à suivre pour configurer votre ordinateur avec Azure PowerShell. L’approche la plus simple consiste à installer Web PI, selon la procédure décrite dans la suite de cet article. Même si vous disposez déjà d’Azure PowerShell, nous vous recommandons de le réinstaller avec la méthode Web PI afin d’avoir la garantie d’utiliser la version la plus récente d’Azure PowerShell.
+Vous devez disposer d’Azure PowerShell version 1.2.1 ou ultérieure. L’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) décrit toutes les étapes à suivre pour configurer votre ordinateur avec Azure PowerShell. L’approche la plus simple consiste à installer Web PI, selon la procédure décrite dans la suite de cet article. Même si vous disposez déjà d’Azure PowerShell, nous vous recommandons de le réinstaller avec la méthode Web PI afin d’avoir la garantie d’utiliser la version la plus récente d’Azure PowerShell.
 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Récupérer et exécuter le script de configuration d’Azure Disk Encryption
 Le script de configuration d’Azure Disk Encryption permet de configurer toutes les conditions préalables requises pour le chiffrement de vos machines virtuelles Azure.
@@ -182,6 +182,6 @@ Dans ce document, vous avez appris à chiffrer une machine virtuelle Azure. Pour
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

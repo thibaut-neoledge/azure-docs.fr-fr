@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b6b6b19d82bfcf77dc72bae8926b8f696bfd9c0c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cdbf4b164af4a8077b8f9a166d6c4ad752b25ff4
 
 
 ---
-# <a name="deploying-the-user-portal-for-the-azure-multifactor-authentication-server"></a>Déploiement du portail de l'utilisateur pour le serveur Azure Multi-Factor Authentication
+# <a name="deploying-the-user-portal-for-the-azure-multi-factor-authentication-server"></a>Déploiement du portail de l'utilisateur pour le serveur Azure Multi-Factor Authentication
 Le portail de l'utilisateur permet à l'administrateur installer et de configurer le portail utilisateur Azure Multi-Factor Authentication. Le portail de l'utilisateur est un site web IIS qui permet aux utilisateurs de s'inscrire dans Azure Multi-Factor Authentication et de gérer leurs comptes. L’utilisateur peut modifier son numéro de téléphone ou son code PIN, ou contourner Azure Multi-Factor Authentication lors de sa prochaine connexion.
 
 Les utilisateurs se connecteront au portail de l’utilisateur grâce à leur nom d'utilisateur normal et leur mot de passe et effectueront soit un appel Azure Multi-Factor Authentication soit une réponse aux questions de sécurité pour terminer leur authentification. Si l'inscription de l'utilisateur est autorisée, il pourra configurer son numéro de téléphone et un PIN la première fois qu'il se connecte au portail de l’utilisateur.
@@ -29,13 +29,13 @@ Les administrateurs du portail de l’utilisateur peuvent être configurés et a
 
 <center>![Configuration](./media/multi-factor-authentication-get-started-portal/install.png)</center>
 
-## <a name="deploying-the-user-portal-on-the-same-server-as-the-azure-multifactor-authentication-server"></a>Déploiement du portail de l'utilisateur sur le même serveur qu’Azure Multi-Factor Authentication
+## <a name="deploying-the-user-portal-on-the-same-server-as-the-azure-multi-factor-authentication-server"></a>Déploiement du portail de l'utilisateur sur le même serveur qu’Azure Multi-Factor Authentication
 Les conditions préalables suivantes sont requises pour l'installation du portail de l’utilisateur sur le même serveur qu’Azure Multi-Factor Authentication :
 
 * IIS doit être installé, y compris asp.net et IIS 6 avec la métabase (IIS 7 ou version ultérieure)
 * L’utilisateur connecté doit disposer des droits d'administrateur sur l'ordinateur et le domaine le cas échéant,  car le compte doit être autorisé à créer des groupes de sécurité Active Directory.
 
-### <a name="to-deploy-the-user-portal-for-the-azure-multifactor-authentication-server"></a>Déploiement du portail de l'utilisateur pour le serveur Azure Multi-Factor Authentication
+### <a name="to-deploy-the-user-portal-for-the-azure-multi-factor-authentication-server"></a>Déploiement du portail de l'utilisateur pour le serveur Azure Multi-Factor Authentication
 1. Dans le serveur Azure Multi-Factor Authentication, cliquez sur l'icône Portail de l'utilisateur dans le menu de gauche, puis cliquez sur le bouton Installer le portail de l'utilisateur.
 2. Cliquez sur Suivant.
 3. Cliquez sur Suivant.
@@ -47,7 +47,7 @@ Les conditions préalables suivantes sont requises pour l'installation du portai
 
 <center>![Configuration](./media/multi-factor-authentication-get-started-portal/portal.png)</center>
 
-## <a name="deploying-the-azure-multifactor-authentication-server-user-portal-on-a-separate-server"></a>Déploiement du portail de l'utilisateur d’Azure Multi-Factor Authentication sur un serveur distinct
+## <a name="deploying-the-azure-multi-factor-authentication-server-user-portal-on-a-separate-server"></a>Déploiement du portail de l'utilisateur d’Azure Multi-Factor Authentication sur un serveur distinct
 Pour utiliser l'application Azure Multi-Factor Authentication, les éléments suivants sont requis afin que l'application puisse communiquer avec le portail de l'utilisateur :
 
 Consultez Configuration matérielle et logicielle requise pour la configuration matérielle et logicielle requise :
@@ -89,7 +89,7 @@ Avant d'installer le portail de l'utilisateur sur un serveur distinct, tenez com
 7. Si le site web sur lequel le portail de l'utilisateur a été installé (par exemple site web par défaut) n'a pas encore été lié avec un certificat signé publiquement, installez le certificat sur le serveur si ce n'est pas déjà fait, ouvrez le gestionnaire IIS et liez le certificat au site web.
 8. Ouvrez un navigateur web à partir de n'importe quel ordinateur et accédez à l'URL où le portail de l'utilisateur a été installé (par exemple https://www.publicwebsite.com/MultiFactorAuth). Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.
 
-## <a name="configure-the-user-portal-settings-in-the-azure-multifactor-authentication-server"></a>Configuration des paramètres du portail de l'utilisateur pour le serveur Azure Multi-Factor Authentication
+## <a name="configure-the-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Configuration des paramètres du portail de l'utilisateur pour le serveur Azure Multi-Factor Authentication
 Maintenant que le portail est installé, vous devez configurer le serveur Azure Multi-Factor Authentication pour travailler avec le portail.
 
 Le serveur Azure Multi-Factor Authentication fournit plusieurs options pour le portail de l'utilisateur.  Le tableau suivant fournit une liste de ces options, ainsi qu'une explication de leur utilisation.
@@ -113,7 +113,7 @@ L'utilisateur peut voir la plupart de ces paramètres une fois qu'ils sont activ
 
 ![Paramètres du portail de l'utilisateur](./media/multi-factor-authentication-get-started-portal/portalsettings.png)
 
-### <a name="to-configure-the-user-portal-settings-in-the-azure-multifactor-authentication-server"></a>Configuration des paramètres du portail de l'utilisateur pour le serveur Azure Multi-Factor Authentication
+### <a name="to-configure-the-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Configuration des paramètres du portail de l'utilisateur pour le serveur Azure Multi-Factor Authentication
 1. Dans le serveur Azure Multi-Factor Authentication, cliquez sur l’icône Portail de l’utilisateur. Sous l'onglet Paramètres, saisissez l'URL qui mène au portail de l'utilisateur dans la zone de texte URL du portail de l’utilisateur. Cette URL sera insérée dans des courriers électroniques qui sont envoyés aux utilisateurs lorsqu'ils sont importés dans le serveur Azure Multi-Factor Authentication si la fonctionnalité de courrier électronique a été activée.
 2. Choisissez les paramètres que vous souhaitez utiliser dans le portail de l'utilisateur. Par exemple, si les utilisateurs sont autorisés à contrôler leurs méthodes d'authentification, assurez-vous que l'option Autoriser les utilisateurs à sélectionner la méthode est activée, ainsi que les méthodes qu’ils peuvent choisir.
 3. Cliquez sur le lien Aide dans le coin supérieur droit pour comprendre les paramètres affichés.
@@ -142,7 +142,7 @@ Cet onglet vous permet de spécifier des adresses IP uniques ou des plages d'adr
 
 ![Adresses IP de confiance du portail de l'utilisateur](./media/multi-factor-authentication-get-started-portal/trusted.png)
 
-## <a name="selfservice-user-enrollment"></a>Inscription utilisateur libre-service
+## <a name="self-service-user-enrollment"></a>Inscription utilisateur libre-service
 Si vous souhaitez que vos utilisateurs se connectent et s'inscrivent, vous devez sélectionner les options Autoriser les utilisateurs à se connecter et Autoriser l'inscription utilisateur. N'oubliez pas que les paramètres que vous sélectionnez affecteront l'expérience de connexion de l'utilisateur.
 
 Par exemple, lorsqu'un utilisateur se connecte au portail de l'utilisateur et clique sur le bouton de connexion, il est ensuite dirigé vers la page de configuration de l'utilisateur d'Azure Multi-Factor Authentication.  Selon la façon dont vous avez configuré Azure Multi-Factor Authentication, l'utilisateur peut être en mesure de choisir sa méthode d'authentification.  
@@ -177,6 +177,6 @@ L'inscription automatique de l'utilisateur est à présent terminée et l'utilis
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

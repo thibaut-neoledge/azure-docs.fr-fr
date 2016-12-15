@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2016
-ms.author: osamazia
+ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bd7537a81661bc175a770fdbd6388ba07ea912ae
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5e3c65d9ada5c75e0ddef3b3778a79ca77aa07d8
 
 
 ---
@@ -101,7 +101,7 @@ Nous prenons en charge jusqu'à 4 000 préfixes qui nous sont proposés via l'ho
 
 La session BGP s’arrêtera si le nombre de préfixes dépasse la limite. Nous accepterons les routages par défaut uniquement sur le lien d'homologation privée. Le fournisseur doit filtrer les adresses IP de routage et privées par défaut (RFC 1918) des chemins d’homologation publique Azure et Microsoft. 
 
-## <a name="transit-routing-and-crossregion-routing"></a>Routage de transit et routage entre régions
+## <a name="transit-routing-and-cross-region-routing"></a>Routage de transit et routage entre régions
 ExpressRoute ne peut pas être configuré comme des routeurs de transit. Vous devez vous appuyer sur votre fournisseur de connectivité pour les services de routage de transit.
 
 ## <a name="advertising-default-routes"></a>Publication des routages par défaut
@@ -194,6 +194,6 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

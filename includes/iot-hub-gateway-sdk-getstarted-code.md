@@ -35,7 +35,7 @@ Cette section présente certains éléments clés du code dans l'exemple Hello W
 ### <a name="gateway-creation"></a>Création de la passerelle
 Le développeur doit écrire le *processus de passerelle*. Ce programme crée l’infrastructure interne (le répartiteur), charge les modules et configure tous les éléments pour qu’ils fonctionnent correctement. Le SDK fournit la fonction **Gateway_Create_From_JSON** pour vous permettre d'amorcer une passerelle à partir d'un fichier JSON. Pour utiliser la fonction **Gateway_Create_From_JSON**, vous devez lui transmettre le chemin d'accès à un fichier JSON qui spécifie les modules à charger. 
 
-Vous trouverez le code du processus de passerelle dans l'exemple Hello World du fichier [main.c][lnk-main-c]. Pour une meilleure lisibilité, l'extrait de code ci-dessous montre une version abrégée du code du processus de passerelle. Ce programme crée une passerelle puis attend que l'utilisateur appuie sur la touche **ENTRÉE** avant de mettre fin à la passerelle. 
+Vous trouverez le code du processus de passerelle dans l’exemple Hello World du fichier [main.c][lnk-main-c]. Pour une meilleure lisibilité, l'extrait de code ci-dessous montre une version abrégée du code du processus de passerelle. Ce programme crée une passerelle puis attend que l'utilisateur appuie sur la touche **ENTRÉE** avant de mettre fin à la passerelle. 
 
 ```
 int main(int argc, char** argv)
@@ -53,51 +53,64 @@ int main(int argc, char** argv)
         Gateway_LL_Destroy(gateway);
     }
     return 0;
-}
+} 
 ```
 
-Le fichier de paramètres JSON contient une liste des modules à charger. Chaque module doit spécifier les éléments suivants :
+Le fichier de paramètres JSON contient une liste des modules à charger et des liens entre les modules.
+Chaque module doit spécifier les éléments suivants :
 
-* **nom_module** : un nom unique pour le module.
-* **chemin_module** : le chemin d'accès à la bibliothèque contenant le module. Il s’agit d’un fichier .so sous Linux, et d’un fichier .dll sous Windows.
+* **nom** : un nom unique pour le module.
+* **chargeur** : un chargeur qui sait comment charger le module souhaité.  Les chargeurs correspondent à un point d’extension pour le chargement des différents types de modules. Nous fournissons des chargeurs compatibles avec des modules écrits nativement en C, en Node.js, en Java et en .NET. L’exemple Hello World utilise uniquement le chargeur « natif », étant donné que tous les modules de cet exemple sont des bibliothèques dynamiques écrites en C. Reportez-vous aux exemples [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) ou [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample) pour plus d’informations sur l’utilisation des modules écrits dans d’autres langages.
+    * **nom** : nom du chargeur utilisé pour charger le module.  
+    * **point d’entrée** : le chemin d'accès à la bibliothèque contenant le module. Il s’agit d’un fichier .so sous Linux, et d’un fichier .dll sous Windows. Notez que ce point d’entrée est spécifique au type de chargeur utilisé. Par exemple, le point d’entrée d’un chargeur Node.js est un fichier .js, le point d’entrée d’un chargeur Java est un chemin d’accès des classes + nom de classe et le point d’entrée d’un chargeur .NET est un nom d’assembly + nom de classe.
+
 * **args**: toute information de configuration nécessaire au module.
+
+Le code suivant correspond au JSON utilisé pour déclarer tous les modules de l’exemple Hello World sur Linux. La nécessité d’attribuer un argument à un module dépend de la conception du module. Dans cet exemple, le module enregistreur prend un argument qui correspond au chemin d'accès au fichier de sortie, et le module Hello World n'accepte aucun argument.
+
+```
+"modules" :
+[
+    {
+        "name" : "logger",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "./modules/logger/liblogger.so"
+        }
+        },
+        "args" : {"filename":"log.txt"}
+    },
+    {
+        "name" : "hello_world",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "./modules/hello_world/libhello_world.so"
+        }
+        },
+        "args" : null
+    }
+]
+```
 
 Le fichier JSON contient également les liaisons entre les modules qui seront transmis au répartiteur. Une liaison possède deux propriétés :
 
 * **source** : un nom de module de la section `modules`, ou « \* ».
-* **récepteur** : un nom de module de la section `modules`
+* **récepteur** : un nom de module de la section `modules`.
 
 Chaque liaison définit un itinéraire de message et une direction. Les messages du module `source` doivent être remis au module `sink`. `source` peut avoir la valeur « \* », qui signifie que `sink` recevra des messages à partir de n’importe quel module.
 
-L'exemple suivant montre le fichier de paramètres JSON utilisé pour configurer l'exemple Hello World sous Linux. Tous les messages générés par le module `hello_world` seront utilisés par le module `logger`. La nécessité d’attribuer un argument à un module dépend de la conception du module. Dans cet exemple, le module enregistreur prend un argument qui correspond au chemin d'accès au fichier de sortie, et le module Hello World n'accepte aucun argument :
+Le code suivant correspond au JSON utilisé pour configurer les liens entre les modules utilisés dans l’exemple Hello World sur Linux. Tous les messages générés par le module `hello_world` seront utilisés par le module `logger`.
 
 ```
-{
-    "modules" :
-    [ 
-        {
-            "module name" : "logger",
-            "loading args": {
-              "module path" : "./modules/logger/liblogger_hl.so"
-            },
-            "args" : {"filename":"log.txt"}
-        },
-        {
-            "module name" : "hello_world",
-            "loading args": {
-              "module path" : "./modules/hello_world/libhello_world_hl.so"
-            },
-            "args" : null
-        }
-    ],
-    "links" :
-    [
-        {
-            "source" : "hello_world",
-            "sink" : "logger"
-        }
-    ]
-}
+"links": 
+[
+    {
+        "source": "hello_world",
+        "sink": "logger"
+    }
+]
 ```
 
 ### <a name="hello-world-module-message-publishing"></a>Publication des messages du module Hello World
@@ -162,7 +175,7 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 ### <a name="logger-module-message-publishing-and-processing"></a>Publication et traitement des messages du module enregistreur
 Le module enregistreur reçoit des messages du répartiteur et les inscrit dans un fichier. Il ne publie jamais les messages. Par conséquent, le code du module enregistreur n’appelle jamais la fonction **Broker_Publish**.
 
-La fonction **Logger_Receive** du fichier [logger.c][lnk-logger-c] est le rappel que le répartiteur appelle pour remettre les messages au module enregistreur. L'extrait de code ci-dessous montre une version modifiée avec des commentaires supplémentaires et un code de gestion d’erreur supprimé pour une meilleure lisibilité :
+La fonction **Logger_Recieve** du fichier [logger.c][lnk-logger-c] est le rappel que le répartiteur appelle pour remettre les messages au module enregistreur. L'extrait de code ci-dessous montre une version modifiée avec des commentaires supplémentaires et un code de gestion d’erreur supprimé pour une meilleure lisibilité :
 
 ```
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -216,6 +229,6 @@ Pour savoir comment utiliser le Kit de développement logiciel (SDK) de la passe
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

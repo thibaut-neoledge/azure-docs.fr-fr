@@ -17,12 +17,12 @@ ms.topic: get-started-article
 ms.date: 09/06/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7baf1aa756221df62a36cd975ffb92fc8cd27232
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: 74416d2740c4eaa49d508468df68fdb786ea2902
 
 
 ---
-# <a name="use-hdfscompatible-azure-blob-storage-with-hadoop-in-hdinsight"></a>Utilisation du stockage d’objets blob Azure compatible avec HDFS avec Hadoop dans HDInsight
+# <a name="use-hdfs-compatible-azure-blob-storage-with-hadoop-in-hdinsight"></a>Utilisation du stockage d’objets blob Azure compatible avec HDFS avec Hadoop dans HDInsight
 Découvrez comment utiliser le stockage d’objets blob Azure à faible coût avec HDInsight, créer un compte de stockage Azure et un conteneur de stockage d’objets blob, puis y envoyer des données.
 
 Le stockage d’objets blob Azure est une solution de stockage à la fois robuste et polyvalente qui s’intègre en toute transparence à HDInsight. Grâce à une interface HDFS (Hadoop Distributed File System), l’ensemble des composants de HDInsight peut fonctionner directement sur les données structurées ou non structurées dans le stockage d’objets blob.
@@ -39,7 +39,7 @@ Pour plus d'informations sur la création d'un cluster HDInsight, consultez la r
 ## <a name="hdinsight-storage-architecture"></a>Architecture de stockage HDInsight
 Le schéma suivant résume l'architecture de stockage HDInsight :
 
-![Les clusters Hadoop utilisent l’API HDFS pour accéder aux données structurées et non structurées et les stocker dans le stockage d’objets blob.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage Architecture")
+![Les clusters Hadoop utilisent l’API HDFS pour accéder aux données structurées et non structurées et les stocker dans le stockage d’objets blob.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "Architecture de stockage HDInsight")
 
 HDInsight permet d'accéder au système de fichiers distribués (DFS) connecté localement aux nœuds de calcul. Vous pouvez accéder à ce système de fichiers en utilisant l'URI complet, par exemple :
 
@@ -78,7 +78,7 @@ La réduction des performances entraînée par la séparation des clusters de ca
 
 Voici les avantages offerts par le stockage de données dans un stockage d'objets blob Azure au lieu d'un système HDFS :
 
-* **Réutilisation et partage des données :** les données du système HDFS sont situées dans le cluster de calcul. Seules les applications pouvant accéder au cluster de calcul peuvent utiliser les données avec l'API HDFS. Vous pouvez accéder aux données du stockage blob Azure en utilisant les API HDFS ou les [API REST de stockage blob][blob-storage-restAPI]. Vous pouvez donc utiliser un plus grand nombre d'applications (notamment d'autres clusters HDInsight) et d'outils pour produire et consommer des données.
+* **Réutilisation et partage des données :** les données du système HDFS sont situées dans le cluster de calcul. Seules les applications pouvant accéder au cluster de calcul peuvent utiliser les données avec l'API HDFS. Vous pouvez accéder aux données du stockage d'objets blob Azure via les API HDFS ou les [API REST de stockage d'objets blob][blob-storage-restAPI]. Vous pouvez donc utiliser un plus grand nombre d'applications (notamment d'autres clusters HDInsight) et d'outils pour produire et consommer des données.
 * **Archivage des données** : le stockage de données dans le stockage d'objets blob Azure permet de supprimer les clusters HDInsight ayant servi aux calculs, sans perte de données utilisateur.
 * **Coût de stockage des données :** le stockage à long terme des données dans DFS est plus coûteux que le stockage des données dans un stockage d'objets blob Azure, car le coût d'un cluster de calcul est plus élevé que celui d'un conteneur de stockage d'objets blob Azure. De plus, comme vous n'avez pas à recharger les données pour chaque génération de cluster de calcul, vous faites également des économies sur les chargements de données.
 * **Montée en charge élastique :** même si le système HDFS offre un système de fichiers monté en charge, cette capacité est déterminée par le nombre de nœuds que vous créez pour votre cluster. Au lieu de procéder ainsi, il est parfois plus simple de profiter des capacités d'évolution flexible que vous obtenez automatiquement dans le stockage d’objets blob Azure.
@@ -126,7 +126,7 @@ Pour créer un conteneur, utilisez la commande suivante :
     azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
 
 ### <a name="using-azure-powershell"></a>Utilisation de Microsoft Azure PowerShell
-Si vous avez [installé et configuré Azure PowerShell][powershell-install], vous pouvez utiliser la commande suivante dans l’invite Azure PowerShell pour créer un compte de stockage et un conteneur :
+Si vous avez [installé et configuré Azure PowerShell][powershell-install], vous pouvez utiliser la commande suivante dans l’invite Azure PowerShell pour créer un compte de stockage et un conteneur :
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -216,7 +216,7 @@ Utilisez la commande suivante pour répertorier les cmdlets relatives aux objets
 ![Liste des cmdlets PowerShell relatives aux objets blob.][img-hdi-powershell-blobcommands]
 
 ### <a name="upload-files"></a>Charger des fichiers
-Consultez la page [Téléchargement de données vers HDInsight][hdinsight-upload-data].
+Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-upload-data].
 
 ### <a name="download-files"></a>Téléchargement de fichiers
 Le script suivant télécharge un objet blob de blocs vers le dossier actuel. Avant d'exécuter le script, remplacez le répertoire par un dossier sur lequel vous disposez d'accès en écriture.
@@ -286,10 +286,10 @@ Pour plus d'informations, consultez les pages suivantes :
 * [Téléchargement de données vers HDInsight][hdinsight-upload-data]
 * [Utilisation de Hive avec HDInsight][hdinsight-use-hive]
 * [Utilisation de Pig avec HDInsight][hdinsight-use-pig]
-* [Utiliser des signatures d’accès partagé Stockage Azure pour restreindre l’accès aux données avec HDInsight][hdinsight-use-sas]
+* [Utilisation des signatures d’accès partagé Azure Storage pour restreindre l’accès aux données avec HDInsight][hdinsight-use-sas]
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
-[powershell-install]: ../powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-creation]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -305,6 +305,6 @@ Pour plus d'informations, consultez les pages suivantes :
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

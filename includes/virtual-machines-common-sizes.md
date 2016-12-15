@@ -231,6 +231,8 @@ Les machines virtuelles de la série H sont des machines virtuelles de calcul h
 
 En plus de la puissance substantielle du processeur, la série H offre différentes options pour des réseaux RDMA à faible latence, en utilisant FDR InfiniBand et plusieurs configurations de mémoire pouvant satisfaire des exigences de calcul nécessitant une mémoire conséquente.
 
+Pour plus d’informations et pour connaître les éléments à prendre en compte pour l’utilisation de ces tailles, consultez [À propos des machines virtuelles de série H ou de série A nécessitant beaucoup de ressources système](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
 | Taille | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | Disques de données max. | Débit de disque max : E/S par seconde | Cartes réseau (max)/Bande passante réseau |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_H8 |8 |56 |1 000 |16 |16 x 500 |2 / Élevée |
@@ -244,26 +246,43 @@ En plus de la puissance substantielle du processeur, la série H offre différe
 
 <br>
 
-## <a name="n-series-preview"></a>Série N (version préliminaire)
+## <a name="n-series"></a>Série N
 Les tailles NC et NV sont également appelées instances compatibles GPU. Il s’agit de machines virtuelles spécialisées qui incluent des cartes GPU NVIDIA, optimisées pour différents scénarios et cas d’utilisation. Les tailles NV sont optimisées et conçues pour la visualisation à distance, la diffusion en continu, les jeux, le codage et les scénarios VDI utilisant des infrastructures comme OpenGL et DirectX. Les tailles NC sont optimisées pour les applications nécessitant des ressources réseau et de calcul importantes, les algorithmes, notamment les applications et simulations CUDA et OpenCL. 
 
 ### <a name="nv-instances"></a>Instances NV
-Les instances NV sont alimentées par des GPU NVIDIA Tesla M60 et NVIDIA GRID pour les applications de bureautique accélérées et les bureaux virtuels où les clients pourront visualiser leurs données ou simulations. Les utilisateurs pourront de visualiser leurs flux de travail nécessitant beaucoup de graphismes sur les instances NV afin d’obtenir des fonctionnalités graphiques de qualité supérieure et exécuter par ailleurs des charges de travail simple précision comme le codage et le rendu. Le modèle Tesla M60 offre 4 096 cœurs CUDA dans une conception à double GPU avec jusqu'à 36 flux H.264 1080p.
+Les instances NV sont alimentées par une carte GPU NVIDIA Tesla M60 et NVIDIA GRID pour les applications de bureautique accélérées et les bureaux virtuels où les clients pourront visualiser leurs données ou simulations. Les utilisateurs pourront de visualiser leurs flux de travail nécessitant beaucoup de graphismes sur les instances NV afin d’obtenir des fonctionnalités graphiques de qualité supérieure et exécuter par ailleurs des charges de travail simple précision comme le codage et le rendu. Le modèle Tesla M60 offre 4 096 cœurs CUDA dans une conception à double GPU avec jusqu'à 36 flux H.264 1080p. 
+
 
 | Taille | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | GPU |
 | --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 |1 x NVIDIA M60 |
-| Standard_NV12 |12 |112 |680 |2 x NVIDIA M60 |
-| Standard_NV24 |24 |224 |1 440 |4 x NVIDIA M60 |
+| Standard_NV6 |6 |56 |380 | 1 |
+| Standard_NV12 |12 |112 |680 | 2 |
+| Standard_NV24 |24 |224 |1 440 | 4 |
+
+1 GPU = une moitié de carte M60.
+
+**Systèmes d’exploitation pris en charge**
+
+* Windows Server 2016, Windows Server 2012 R2 - consultez [Configuration du pilote série N pour Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md)
 
 ### <a name="nc-instances"></a>Instances NC
-Les instances NC sont équipés de modules NVIDIA Tesla K80. Les utilisateurs peuvent désormais exploiter plus rapidement leurs données en tirant parti de CUDA pour les applications d’exploration d’énergie, de simulations de crash, de rendu avec lancer de rayon, de formation approfondie et bien plus encore. Le module Tesla K80 offre 4 992 cœurs CUDA avec une conception à double GPU, jusqu'à 2,91 téraflops double précision et 8,93 téraflops simple précision. 
+Les instances NC sont alimentées par une carte NVIDIA Tesla K80. Les utilisateurs peuvent désormais exploiter plus rapidement leurs données en tirant parti de CUDA pour les applications d’exploration d’énergie, de simulations de crash, de rendu avec lancer de rayon, de formation approfondie et bien plus encore. Le module Tesla K80 offre 4 992 cœurs CUDA avec une conception à double GPU, jusqu'à 2,91 téraflops double précision et 8,93 téraflops simple précision.
 
 | Taille | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | GPU |
 | --- | --- | --- | --- | --- |
-| Standard_NC6 |6 |56 |380 |1 x NVIDIA K80 |
-| Standard_NC12 |12 |112 |680 |2 x NVIDIA K80 |
-| Standard_NC24 |24 |224 |1 440 |4 x NVIDIA K80 |
+| Standard_NC6 |6 |56 | 380 | 1 |
+| Standard_NC12 |12 |112 | 680 | 2 |
+| Standard_NC24 |24 |224 | 1 440 | 4 |
+| Standard_NC24r* |24 |224 | 1 440 | 4 |
+
+1 GPU = une moitié de carte K80.
+
+*Prenant en charge RDMA
+
+**Systèmes d’exploitation pris en charge**
+
+* Windows Server 2016, Windows Server 2012 R2 - consultez [Configuration du pilote série N pour Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md)
+* Ubuntu 16.04 LTS - consultez [Configuration du pilote série N pour Linux](../articles/virtual-machines/virtual-machines-linux-n-series-driver-setup.md)
 
 <br>
 
@@ -282,6 +301,6 @@ Dans le modèle de déploiement classique, certains noms de tailles de machines 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

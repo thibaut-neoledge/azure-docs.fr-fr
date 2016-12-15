@@ -8,15 +8,16 @@ manager: swadhwa
 editor: 
 ms.assetid: 17837c8b-3e79-47c0-9b83-a51c6ca44ca6
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2016
+ms.date: 12/05/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1c3e2cf86a33f9bbe6b34f4f52b82a078b91661f
+ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
+ms.openlocfilehash: f29b20ba11b030d98a7a5574f816ea132edc3f6d
 
 
 ---
@@ -75,7 +76,7 @@ Dans ce résultat de journal, vous voyez apparaître le type de règle de base a
 > 
 
 ### <a name="accessing-computers-missing-baseline-assessment"></a>Accès aux ordinateurs sans évaluation de la ligne de base
-OMS prend en charge le profil de base de référence des membres de domaine sur des systèmes Windows Server 2008 R2 à Windows Server 2012 R2. La ligne de base de Windows Server 2016 n’est pas encore finalisée. Elle sera ajoutée dès sa publication. Tous les autres systèmes d’exploitation analysés par la solution de sécurité et d’audit d’OMS apparaissent sous la section **Ordinateurs sans évaluation de la ligne de base**.
+OMS prend en charge le profil de base de référence du contrôleur de domaine et des membres de domaine sur des systèmes Windows Server 2008 R2 à Windows Server 2012 R2. La ligne de base de Windows Server 2016 n’est pas encore finalisée. Elle sera ajoutée dès sa publication. Tous les autres systèmes d’exploitation analysés par la solution de sécurité et d’audit d’OMS apparaissent sous la section **Ordinateurs sans évaluation de la ligne de base**.
 
 ## <a name="see-also"></a>Voir aussi
 Dans ce document, vous avez découvert la fonction d’évaluation de la base de référence de la solution de sécurité et d’audit d’OMS. Pour plus d’informations sur la sécurité OMS, consultez les articles suivants :
@@ -87,6 +88,6 @@ Dans ce document, vous avez découvert la fonction d’évaluation de la base de
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

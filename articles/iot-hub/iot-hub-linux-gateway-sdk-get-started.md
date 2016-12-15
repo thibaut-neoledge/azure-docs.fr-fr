@@ -1,6 +1,6 @@
 ---
-title: "Bien démarrer avec le SDK de la passerelle IoT Hub | Microsoft Docs"
-description: "Ce guide sur le Kit de développement logiciel (SDK) de passerelle Azure IoT fait appel à Linux pour illustrer les concepts clés que vous devez comprendre lorsque vous utilisez le Kit de développement logiciel (SDK) de passerelle Azure IoT."
+title: Prise en main du SDK de la passerelle Azure IoT (Linux) | Microsoft Docs
+description: "Comment créer une passerelle sur une machine Linux et en savoir plus sur les concepts clés dans le kit de développement logiciel de passerelles IoT Azure, comme les modules et les fichiers de configuration JSON."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -12,15 +12,15 @@ ms.devlang: cpp
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/23/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: fb085ca229beba1757efa100ffca1e42089aedfa
-ms.openlocfilehash: 827ecc587dabfba58e87d192001c2714a1d7ce4a
+ms.sourcegitcommit: 6b41567f7b43fd6a56da1f571e007d31cef97b92
+ms.openlocfilehash: 68965a1157b31d75595e546b2b227844ddff2eb9
 
 
 ---
-# <a name="azure-iot-gateway-sdk-beta---get-started-using-linux"></a>Kit de développement logiciel de passerelle Azure IoT (bêta) - Prise en main de Linux
+# <a name="get-started-with-the-azure-iot-gateway-sdk-linux"></a>Prise en main du SDK de la passerelle Azure IoT (Linux)
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Comment créer l'exemple
@@ -28,7 +28,7 @@ Avant de commencer, vous devez [configurer votre environnement de développement
 
 1. Ouvrez un interpréteur de commandes.
 2. Accédez au dossier racine de votre copie locale du référentiel **azure-iot-gateway-sdk** .
-3. Exécutez le script **tools/build.sh** . Ce script utilise l’utilitaire **cmake** pour créer un dossier appelé **build** dans le dossier racine de votre copie locale du référentiel **azure-iot-gateway-sdk** et pour générer un makefile. Le script crée ensuite la solution puis exécute les tests.
+3. Exécutez le script **tools/build.sh --skip-unittests**. Ce script utilise l’utilitaire **cmake** pour créer un dossier appelé **build** dans le dossier racine de votre copie locale du référentiel **azure-iot-gateway-sdk** et pour générer un makefile. Le script crée ensuite la solution et ignore les tests unitaires. Supprimez le paramètre **--skip-unittests** si vous souhaitez générer et exécuter les tests unitaires.
 
 > [!NOTE]
 > Chaque fois que vous exécutez le script **build.sh**, celui-ci supprime et recrée le dossier **build** dans le dossier racine de votre copie locale du référentiel **azure-iot-gateway-sdk**.
@@ -46,40 +46,43 @@ Avant de commencer, vous devez [configurer votre environnement de développement
    
     ```
     {
-      "modules" :
-      [ 
-        {
-          "module name" : "logger",
-          "loading args": {
-            "module path" : "./build/modules/logger/liblogger.so"
-          },
-          "args" : 
-          {
-            "filename":"log.txt"
-          }
-        },
-        {
-          "module name" : "hello_world",
-          "loading args": {
-            "module path" : "./build/modules/hello_world/libhello_world.so"
-          },
-          "args" : null
-        }
-      ],
-      "links" :
-      [
-        {
-          "source": "hello_world",
-          "sink": "logger"
-        }
-      ]
+        "modules" :
+        [
+            {
+              "name" : "logger",
+              "loader": {
+                "name": "native",
+                "entrypoint": {
+                  "module.path": "./modules/logger/liblogger.so"
+                }
+              },
+              "args" : {"filename":"log.txt"}
+            },
+            {
+                "name" : "hello_world",
+              "loader": {
+                "name": "native",
+                "entrypoint": {
+                  "module.path": "./modules/hello_world/libhello_world.so"
+                }
+              },
+                "args" : null
+            }
+        ],
+        "links": 
+        [
+            {
+                "source": "hello_world",
+                "sink": "logger"
+            }
+        ]
     }
     ```
-3. Accédez au dossier **azure-iot-gateway-sdk**.
+3. Accédez au dossier **azure-iot-gateway-sdk/build**.
 4. Exécutez la commande suivante :
    
    ```
-   ./build/samples/hello_world/hello_world_sample ./samples/hello_world/src/hello_world_lin.json
+   ./samples/hello_world/hello_world_sample ./../samples/hello_world/src/hello_world_lin.json
    ``` 
 
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-code](../../includes/iot-hub-gateway-sdk-getstarted-code.md)]
@@ -89,6 +92,6 @@ Avant de commencer, vous devez [configurer votre environnement de développement
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

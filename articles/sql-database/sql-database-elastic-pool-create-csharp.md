@@ -8,15 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: 2dedddbb-618d-462b-80dd-e4a57857c737
 ms.service: sql-database
+ms.custom: sharded databases pool
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: hero-article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 28f792cd5afd194445666aeb1d17d5fbf27a835d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0e670c1bbc6266d24e089ce460529661dbb99b8d
 
 
 ---
@@ -59,7 +60,7 @@ Pour créer une base de données SQL avec C#, chargez les bibliothèques de gest
 > 
 > 
 
-## <a name="create-a-sql-elastic-database-pool-c-example"></a>Créer un pool de base de données élastique SQL - Exemple C#
+## <a name="create-a-sql-elastic-database-pool---c-example"></a>Créer un pool de base de données élastique SQL - Exemple C#
 L’exemple suivant crée un groupe de ressources, un serveur, une règle de pare-feu, un pool élastique, puis crée une base de données SQL dans le pool. Consultez [Créer un principal du service pour accéder aux ressources](#create-a-service-principal-to-access-resources) afin d’obtenir les variables `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`.
 
 Remplacez le contenu du fichier **Program.cs** par les éléments suivants et mettez à jour l’élément `{variables}` en indiquant les valeurs de votre application (sans inclure `{}`).
@@ -314,6 +315,6 @@ Le script PowerShell suivant crée l’application Active Directory (AD) et le p
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

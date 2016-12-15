@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 11/17/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 73bd16f44f0848c74ce3edd5042900525e4811db
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ac0044da9cf804dabd9d71e3380782120728a55a
 
 
 ---
@@ -200,7 +200,7 @@ Les ressources Azure Storage sont accessibles par n’importe quel langage capab
 * [Outils clients d’Azure Storage](storage-explorers.md)
 * [Outils et Kit de développement logiciel (SDK) d’Azure](https://azure.microsoft.com/tools/)
 * [Émulateur de stockage Azure](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](../powershell-install-configure.md)
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Utilitaire de ligne de commande AzCopy](http://aka.ms/downloadazcopy)
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -246,9 +246,12 @@ Pour en savoir plus sur Azure Storage, explorez les ressources suivantes :
 * [Utilisation du stockage de files d'attente à partir de Python](storage-python-how-to-use-queue-storage.md)
 * [Utilisation du stockage de fichiers à partir de Python](storage-python-how-to-use-file-storage.md)
 
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Créer un compte de stockage](storage-create-storage-account.md)
+* [Familiarisez-vous avec Azure Storage en cinq minutes](storage-getting-started-guide.md)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

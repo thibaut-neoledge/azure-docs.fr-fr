@@ -1,6 +1,6 @@
 ---
 title: "Gestion de la sécurité dans Azure | Microsoft Docs"
-description: " Cet article décrit les étapes permettant d’améliorer la sécurité de l’administration à distance lors de l’administration des environnements Microsoft Azure, notamment les services cloud, les machines virtuelles et les applications personnalisées."
+description: "Cet article décrit les étapes permettant d’améliorer la sécurité de l’administration à distance lors de l’administration des environnements Microsoft Azure, notamment les services cloud, les machines virtuelles et les applications personnalisées."
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/21/2016
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 83d13b9b104ae19c6d49103d6a2ffdc6e57dd956
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b1f757678c9a88bd834482d67bf098279c463bfb
 
 
 ---
@@ -74,8 +74,8 @@ Avec la configuration de sécurité côté client et le déploiement du centre d
 
 > [!NOTE]
 > Certaines recommandations contenues dans cet article peuvent entraîner une augmentation des taux d’utilisation des données, des réseaux ou des ressources de calcul, débouchant sur des coûts de licence ou d’abonnement supplémentaires.
-> 
-> 
+>
+>
 
 ## <a name="hardened-workstation-for-management"></a>Station de travail renforcée pour la gestion
 Le renforcement d’une station de travail permet de conserver uniquement les fonctions les plus essentielles afin de réduire autant que possible la surface d’attaque potentielle. Le renforcement du système inclut la diminution du nombre de services et d’applications, la restriction de l’exécution d’applications, la limitation de l’accès réseau et la mise à jour permanente du système. En outre, une station de travail renforcée pour la gestion permet de faire la distinction entre les outils et les activités d’administration d’une part, et les autres tâches incombant à l’utilisateur final d’autre part.
@@ -106,9 +106,9 @@ Pour centraliser tous les accès d’administration et simplifier l’analyse ai
 
 Une passerelle des services Bureau à distance désigne un service de proxy RDP basé sur une stratégie et qui met en application des exigences de sécurité. L’implémentation d’une passerelle des services Bureau à distance avec la protection d’accès réseau (NAP) Windows Server garantit que seuls les clients répondant aux critères d’intégrité de la sécurité établis par les objets de stratégie de groupe des services de domaine Active Directory (AD DS) peuvent se connecter. Par ailleurs :
 
-* Configurez un [certificat de gestion Azure](http://msdn.microsoft.com/library/azure/gg551722.aspx) sur la passerelle des services Bureau à distance afin qu’il soit le seul hôte autorisé à accéder au portail de gestion Azure.
+* Configurez un [certificat de gestion Azure](http://msdn.microsoft.com/library/azure/gg551722.aspx) sur la passerelle des services Bureau à distance afin qu’il soit le seul hôte autorisé à accéder au portail Azure.
 * Associez la passerelle des services Bureau à distance au même [domaine de gestion](http://technet.microsoft.com/library/bb727085.aspx) que les stations de travail d’administration. Cette opération est indispensable lorsque vous utilisez une connexion VPN IPsec de site à site ou ExpressRoute au sein d’un domaine offrant une approbation à sens unique vers Azure AD, ou lorsque vous fédérez des informations d’identification entre votre instance AD DS locale et Azure AD.
-* Configurez une [stratégie d’autorisation de connexion client](http://technet.microsoft.com/library/cc753324.aspx) pour permettre à la passerelle des services Bureau à distance de vérifier que le nom de l’ordinateur client est valide (joint au domaine) et que l’ordinateur est autorisé à accéder au portail de gestion Azure.
+* Configurez une [stratégie d’autorisation de connexion client](http://technet.microsoft.com/library/cc753324.aspx) pour permettre à la passerelle des services Bureau à distance de vérifier que le nom de l’ordinateur client est valide (joint au domaine) et que l’ordinateur est autorisé à accéder au portail Azure.
 * Utilisez IPsec pour [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) afin de protéger le trafic de gestion contre les écoutes clandestines et les vols de jeton, ou vérifiez un lien Internet isolé par le biais d’[Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 * Activez l’authentification multifacteur (grâce à [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)) ou l’authentification par carte à puce pour les administrateurs qui se connectent au moyen de la passerelle des services Bureau à distance.
 * Configurez les [restrictions d’adresse IP](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) sources ou les [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md) dans Azure afin de limiter le nombre de points de terminaison de gestion autorisés.
@@ -117,12 +117,12 @@ Une passerelle des services Bureau à distance désigne un service de proxy RDP 
 En règle générale, la sécurisation des stations de travail d’administration pour le cloud s’apparente aux pratiques utilisées pour les stations de travail locales, comme la minimisation de la build et les autorisations restrictives. Certains aspects uniques de la gestion du cloud relèvent plutôt de la gestion d’entreprise à distance ou hors bande. Ces derniers incluent l’utilisation et l’audit des informations d’identification, de l’accès à distance sécurisé, ainsi que de la détection des menaces et des interventions associées.
 
 ### <a name="authentication"></a>Authentification
-Vous pouvez vous servir des restrictions d’ouverture de session Azure dans l’optique de limiter les adresses IP sources pouvant accéder aux outils d’administration et aux demandes d’accès à l’audit. Pour permettre à Azure d’identifier les clients de gestion (stations de travail et/ou applications), vous pouvez configurer SMAPI (avec des outils clients tels que les applets de commande Windows PowerShell) et le portail de gestion Azure en vue d’exiger l’installation de certificats de gestion côté client en plus des certificats SSL. Il est vivement recommandé d’exiger l’application de l’authentification multifacteur pour tous les accès administrateur.
+Vous pouvez vous servir des restrictions d’ouverture de session Azure dans l’optique de limiter les adresses IP sources pouvant accéder aux outils d’administration et aux demandes d’accès à l’audit. Pour permettre à Azure d’identifier les clients de gestion (stations de travail et/ou applications), vous pouvez configurer SMAPI (avec des outils clients tels que les applets de commande Windows PowerShell) et le portail Azure en vue d’exiger l’installation de certificats de gestion côté client en plus des certificats SSL. Il est vivement recommandé d’exiger l’application de l’authentification multifacteur pour tous les accès administrateur.
 
 Certaines applications ou certains services déployés dans Azure peuvent avoir leurs propres mécanismes d’authentification pour l’accès utilisateur ou administrateur, tandis que d’autres tirent pleinement avantage d’Azure AD. Selon que vous fédérez des informations d’identification par le biais des services de fédération Active Directory (AD FS), que vous utilisiez la synchronisation de répertoires ou que vous conserviez uniquement les comptes d’utilisateur dans le cloud, [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (qui fait partie d’Azure AD Premium) vous aide à gérer les cycles de vie d’identité entre les ressources.
 
 ### <a name="connectivity"></a>Connectivité
-Plusieurs mécanismes permettent de sécuriser les connexions client vers vos réseaux virtuels Azure. Deux de ces mécanismes (connexion [VPN de site à site](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) et connexion [VPN de point à site](../vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S)) acceptent la norme IPsec standard (S2S) ou le protocole [Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) pour le chiffrement et le tunneling. Lorsque Azure se connecte à un système de gestion des services Azure public, comme le portail de gestion Azure, un protocole HTTPS (Hypertext Transfer Protocol Secure) est requis.
+Plusieurs mécanismes permettent de sécuriser les connexions client vers vos réseaux virtuels Azure. Deux de ces mécanismes (connexion [VPN de site à site](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) et connexion [VPN de point à site](../vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S)) acceptent la norme IPsec standard (S2S) ou le protocole [Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) pour le chiffrement et le tunneling. Lorsque Azure se connecte à un système de gestion des services Azure public, comme le portail Azure, un protocole HTTPS (Hypertext Transfer Protocol Secure) est requis.
 
 Une station de travail renforcée autonome qui ne se connecte pas à Azure par le biais d’une passerelle des services Bureau à distance doit utiliser une connexion VPN de point à site basée sur le protocole SSTP pour mettre en place la connexion initiale vers le réseau virtuel Azure, puis établir la connexion RDP avec des machines virtuelles individuelles dans le tunnel VPN.
 
@@ -139,13 +139,13 @@ Nous recommandons trois configurations principales pour une station de travail r
 | Configuration | Avantages | Inconvénients |
 | --- | --- | --- |
 | Station de travail renforcée autonome |Station de travail étroitement contrôlée |Coût plus élevé pour les stations de travail dédiées |
-| Réduction des risques d’exploitation de l’application |Efforts de gestion accrus | |
-| Séparation nette des responsabilités | | |
-| PC d’entreprise servant de machine virtuelle |Réduction des coûts matériels | |
-| Séparation des rôles et des applications | | |
+| - | Réduction des risques d’exploitation de l’application |Efforts de gestion accrus |
+| - | Séparation nette des responsabilités | - |
+| PC d’entreprise servant de machine virtuelle |Réduction des coûts matériels | - |
+| - | Séparation des rôles et des applications | - |
 | Windows To Go avec chiffrement de lecteur BitLocker |Compatibilité avec la plupart des ordinateurs |Suivi des ressources |
-| Rentabilité et portabilité | | |
-| Environnement de gestion isolé | | |
+| - | Rentabilité et portabilité | - |
+| - | Environnement de gestion isolé |- |
 
 La station de travail renforcée doit être l’hôte et non l’invité, et rien ne doit se trouver entre le système d’exploitation de l’hôte et le matériel. Le « principe de source propre » (ou « origine sécurisée ») signifie que l’ordinateur hôte doit être renforcé de manière optimale. Autrement, la station de travail renforcée (invité) est vulnérable aux attaques portant sur le système d’hébergement.
 
@@ -153,7 +153,7 @@ Vous pouvez isoler des fonctions d’administration au moyen d’images système
 
 Pour les environnements informatiques sans infrastructure locale (par exemple, sans accès à une instance AD DS locale pour les objets de stratégie de groupe en raison de la présence de tous les serveurs sur le cloud), un service comme [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx) peut simplifier le déploiement et la maintenance de la configuration des stations de travail.
 
-### <a name="standalone-hardened-workstation-for-management"></a>Station de travail renforcée autonome pour la gestion
+### <a name="stand-alone-hardened-workstation-for-management"></a>Station de travail renforcée autonome pour la gestion
 Avec une station de travail renforcée autonome, les administrateurs disposent d’un ordinateur de bureau ou d’un ordinateur portable pour les tâches d’administration, et d’un autre ordinateur de bureau ou ordinateur portable pour les tâches restantes. Une station de travail dédiée à la gestion de vos services Azure ne nécessite pas d’autres applications. En outre, l’utilisation de stations de travail compatibles avec le [Module de plateforme sécurisée](https://technet.microsoft.com/library/cc766159) (TPM) ou une technologie de chiffrement matériel similaire permet d’authentifier les appareils et empêche certaines attaques. Le Module de plateforme sécurisée prend également en charge la protection du volume complet du lecteur système avec le [Chiffrement de lecteur BitLocker](https://technet.microsoft.com/library/cc732774.aspx).
 
 Dans une station de travail renforcée autonome (voir ci-dessous), l’instance locale du pare-feu Windows (ou un pare-feu client tiers) est configurée de manière à bloquer les connexions entrantes, comme le protocole RDP. L’administrateur peut ouvrir une session sur la station de travail renforcée et lancer une session RDP qui se connecte à Azure après l’établissement d’une connexion VPN avec Azure Virtual Network, mais il ne peut pas utiliser un PC d’entreprise et le protocole RDP pour se connecter à la station de travail renforcée elle-même.
@@ -187,14 +187,14 @@ Même si une station de travail est verrouillée, les autres exigences de sécur
 | À ne pas faire | À faire |
 | --- | --- |
 | N’envoyez pas d’informations d’identification administrateur ou d’autres informations sensibles (par exemple, certificats SSL ou certificats de gestion) par courrier électronique. |Préservez la confidentialité des données en fournissant oralement les noms et les mots de passe de compte (sans les stocker dans la messagerie vocale), installez les certificats client/serveur à distance (par le biais d’une session chiffrée), effectuez des téléchargements à partir d’un partage réseau protégé ou procédez à une distribution manuelle au moyen de supports amovibles. |
-| Gérez de manière proactive les cycles de vie de votre certificat de gestion. | |
+| - | Gérez de manière proactive les cycles de vie de votre certificat de gestion. |
 | Ne stockez pas de mots de passe non chiffrés ou non hachés dans le système de stockage de l’application (feuilles de calcul, sites SharePoint, partages de fichiers, etc.). |Établissez des principes de gestion de sécurité et des stratégies de renforcement de système, et appliquez-les à votre environnement de développement. |
-| Utilisez les règles d’épinglage de certificat [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) pour garantir un accès approprié aux sites Azure SSL/TLS. | |
+| - | Utilisez les règles d’épinglage de certificat [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) pour garantir un accès approprié aux sites Azure SSL/TLS. |
 | Ne partagez pas de comptes ni de mots de passe entre plusieurs administrateurs, et ne réutilisez pas les mots de passe sur plusieurs comptes d’utilisateur ou services, notamment pour les médias sociaux ou d’autres activités non administratives. |Créez un compte Microsoft dédié pour gérer votre abonnement Azure, que vous n’utiliserez pas pour le courrier électronique personnel. |
 | N’envoyez pas de fichiers de configuration par courrier électronique. |Les profils et les fichiers de configuration doivent être installés à partir d’une source approuvée (par exemple, lecteur flash USB chiffré), et non à partir d’un mécanisme qui peut être facilement compromis, comme le courrier électronique. |
 | N’utilisez pas de mots de passe d’ouverture de session trop simples ou trop faibles. |Appliquez des stratégies de mot de passe fort, des cycles d’expiration (modification à la première utilisation), des délais d’expiration de la console et l’automatisation des verrouillages de compte. Utilisez un système de gestion de mot de passe client compatible avec l’authentification multifacteur pour l’accès par mot de passe. |
 | N’exposez pas les ports de gestion sur Internet. |Verrouillez les ports Azure et les adresses IP afin de limiter l’accès à la gestion. Pour plus d’informations, consultez le livre blanc sur la [sécurité du réseau Azure](http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx). |
-| Utilisez des pare-feu, des réseaux privés virtuels et une protection d’accès réseau pour toutes les connexions de gestion. | |
+| - | Utilisez des pare-feu, des réseaux privés virtuels et une protection d’accès réseau pour toutes les connexions de gestion. |
 
 ## <a name="azure-operations"></a>Opérations Azure
 Dans le cadre du fonctionnement de la technologie Azure, les ingénieurs d’exploitation et le support technique qui peuvent accéder aux systèmes de production Azure utilisent [des stations de travail PC renforcées avec des machines virtuelles](#stand-alone-hardened-workstation-for-management) configurées pour autoriser un accès au réseau d’entreprise interne et aux applications (courrier électronique, intranet, etc.). Toutes les stations de travail de gestion sont dotées de Modules de plateforme sécurisée ; le lecteur de démarrage hôte est chiffré avec BitLocker ; et ces composants sont joints à une unité d’organisation spéciale dans le domaine d’entreprise principal de Microsoft.
@@ -235,6 +235,6 @@ Les ressources suivantes fournissent des informations générales sur les servic
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -3,7 +3,7 @@ title: "Azure AD B2C : sécuriser une API web à l’aide de Node.js | Microsoft
 description: "Comment créer une API web Node.js qui accepte les jetons d’un client B2C"
 services: active-directory-b2c
 documentationcenter: 
-author: brandwe
+author: xerners
 manager: mbaldwin
 editor: 
 ms.assetid: fc2b9af8-fbda-44e0-962a-8b963449106a
@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/30/2016
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: a977cb509fb64d7c986e2e0f7e2b5e4e3e45dec0
-ms.openlocfilehash: 6ac89d753ccbdd188e473b5d13a30b4622ad848d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cea04afd22270c77d91148d3c4a95e87f37406db
 
 
 ---
@@ -55,7 +55,7 @@ Vous devez maintenant créer dans votre répertoire B2C une application fourniss
 Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cette application contient deux expériences d’identité : l’inscription et la connexion. Vous devez créer une stratégie de chaque type, comme décrit dans [l’article de référence sur les stratégies](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  Lors de la création de vos 3 stratégies, assurez-vous de :
 
 * Choisir le **Nom d’affichage** et d’autres attributs d’inscription dans votre stratégie d’inscription.
-* Choisir le **nom d’affichage** et **l’ID objet** comme revendications d’application pour chaque stratégie.  Vous pouvez aussi choisir d'autres revendications.
+* Choisissez le **nom d’affichage** et **l’ID objet** comme revendications d’application pour chaque stratégie.  Vous pouvez aussi choisir d'autres revendications.
 * Noter le **nom** de chaque stratégie après sa création. Il doit porter le préfixe `b2c_1_`.  Vous aurez besoin des noms de ces stratégies ultérieurement.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
@@ -763,6 +763,6 @@ Vous pouvez maintenant aborder des rubriques plus avancées, telles que :
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

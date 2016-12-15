@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 804b0ba72ca73da1a076bd4dbca8bbca33cb76b1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: dd77457bfa7ebfc701750e090778f2976d82b141
 
 
 ---
@@ -120,8 +120,8 @@ Une fois l’importation terminée, DPS affiche un résumé de l’importation d
 ## <a name="next-steps"></a>Étapes suivantes
 Pour explorer les données dans SQL Data Warehouse, reportez-vous à :
 
-* [Interroger Azure SQL Data Warehouse (sqlcmd) (Visual Studio)][Interroger Azure SQL Data Warehouse (sqlcmd) (Visual Studio)]
-* [Visualiser des données avec Power BI][Visualiser des données avec Power BI]
+* [Interroger Azure SQL Data Warehouse (sqlcmd) (Visual Studio)][Query Azure SQL Data Warehouse (Visual Studio)]
+* [Visualiser des données avec Power BI][Visualize data with Power BI]
 
 Pour en savoir plus sur Redgate Data Platform Studio :
 
@@ -130,7 +130,7 @@ Pour en savoir plus sur Redgate Data Platform Studio :
 
 Pour obtenir une vue d’ensemble d’autres méthodes de migration et de chargement de vos données dans SQL Data Warehouse, voir :
 
-* [Migration de votre solution vers SQL Data Warehouse][Migration de votre solution vers SQL Data Warehouse]
+* [Migration de votre solution vers SQL Data Warehouse][Migrate your solution to SQL Data Warehouse]
 * [Chargement de données dans Azure SQL Data Warehouse](sql-data-warehouse-overview-load.md)
 
 Pour obtenir des conseils supplémentaires en matière de développement, consultez l’article [Vue d’ensemble sur le développement SQL Data Warehouse](sql-data-warehouse-overview-develop.md).
@@ -146,14 +146,14 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 [8]: media/sql-data-warehouse-redgate/2016-10-05_12-57-10.png
 
 <!--Article references-->
-[Interroger Azure SQL Data Warehouse (sqlcmd) (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
-[Visualiser des données avec Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Migration de votre solution vers SQL Data Warehouse]: ./sql-data-warehouse-overview-migrate.md
-[Chargement de données dans Azure SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
-[Vue d’ensemble sur le développement SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
+[Query Azure SQL Data Warehouse (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
+[Visualize data with Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
+[Migrate your solution to SQL Data Warehouse]: ./sql-data-warehouse-overview-migrate.md
+[Load data into Azure SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

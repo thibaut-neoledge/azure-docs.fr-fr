@@ -123,7 +123,7 @@ Vous pouvez également utiliser le Portail Azure Classic ou Azure PowerShell pou
 Pour assurer la redondance, placez au moins deux machines virtuelles configurées de manière similaire dans le même groupe à haute disponibilité. Cela contribue à garantir qu’au moins une machine virtuelle est disponible pendant la maintenance, planifiée ou non. Azure garantit certains niveaux de disponibilité des machines virtuelles pour cette configuration. Pour plus d’informations, consultez l’article [Gestion de la disponibilité des machines virtuelles](../articles/virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
-[À propos de Machines virtuelles Azure](../articles/virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[À propos de Machines virtuelles Azure](../articles/virtual-machines/virtual-machines-linux-about.md)
 
 [Différentes façons de créer une machine virtuelle Linux](../articles/virtual-machines/virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -131,6 +131,6 @@ Pour assurer la redondance, placez au moins deux machines virtuelles configurée
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

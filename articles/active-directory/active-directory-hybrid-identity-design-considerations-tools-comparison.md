@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/08/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1df15de1c24e80b0692149dfc7cb660f74941886
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2fb248f3e71b248ce0b5ae02ebeff291bbd28dce
 
 
 ---
@@ -38,7 +38,7 @@ Le code suivant s’applique aux tableaux ci-dessous.
 FR = Version à venir  
 PP = Version préliminaire publique  
 
-## <a name="onpremises-to-cloud-synchronization"></a>Synchronisation des ressources locales avec le cloud
+## <a name="on-premises-to-cloud-synchronization"></a>Synchronisation des ressources locales avec le cloud
 | Fonctionnalité | Azure Active Directory Connect | Services de synchronisation Azure Active Directory (AAD Sync) | Outil de synchronisation Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Connexion à une forêt AD locale |● |● |● |● |● |
@@ -52,7 +52,7 @@ PP = Version préliminaire publique
 | Connexion à un système de ressources humaines local (par exemple, SAP, Oracle eBusiness, PeopleSoft) |FR | | |● |● |
 | Prise en charge des connecteurs et des règles de synchronisation FIM pour le déploiement sur des systèmes locaux. | | | |● |● |
 
-## <a name="cloud-to-onpremises-synchronization"></a>Synchronisation du cloud avec les ressources locales
+## <a name="cloud-to-on-premises-synchronization"></a>Synchronisation du cloud avec les ressources locales
 | Fonctionnalité | Azure Active Directory Connect | Services de synchronisation Azure Active Directory | Outil de synchronisation Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Écriture différée des appareils |● | |● | | |
@@ -68,7 +68,7 @@ PP = Version préliminaire publique
 | Authentification unique à l’aide de la fédération |● |● |● |● |● |
 | Écriture différée des mots de passe (à partir de la réinitialisation de mot de passe libre-service et de la modification de mot de passe) |● |● | | | |
 
-## <a name="setup-and-installation"></a>Configuration et installation
+## <a name="set-up-and-installation"></a>Configuration et installation
 | Fonctionnalité | Azure Active Directory Connect | Services de synchronisation Azure Active Directory | Outil de synchronisation Azure Active Directory (DirSync) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|
 | Installation des supports sur un contrôleur de domaine |● |● |● | |
@@ -95,6 +95,6 @@ En savoir plus sur l’ [intégration de vos identités locales avec Azure Activ
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

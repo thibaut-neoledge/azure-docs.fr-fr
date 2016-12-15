@@ -15,19 +15,18 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 567a998102558626df73878865b317b830ba1faa
+ms.sourcegitcommit: ff2e3c27f9fc02ebe30380798be00211113208e3
+ms.openlocfilehash: 4f3c0cee8fe686c5355ce460064a7188d35f3e44
 
 
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Préparer votre environnement de développement sur Linux
 > [!div class="op_single_selector"]
-> -[ Windows](service-fabric-get-started.md)
-> 
+> * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
 > * [OSX](service-fabric-get-started-mac.md)
 > 
-> 
+>  
 
  Pour déployer et exécuter des [applications Azure Service Fabric](service-fabric-application-model.md) sur votre ordinateur de développement Linux, installez le runtime et le Kit de développement logiciel (SDK) courant. Vous pouvez également installer les Kits de développement logiciel (SDK) facultatifs pour Java et .NET Core.
 
@@ -71,8 +70,9 @@ Une fois vos sources mises à jour, vous pouvez installer le Kit de développeme
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
-## <a name="set-up-the-azure-crossplatform-cli"></a>Configurer l’interface de ligne de commande interplateforme Azure
-[L’interface de ligne de commande multiplateforme Azure][azure-xplat-cli-github] inclut des commandes permettant d’interagir avec des entités Service Fabric, y compris des clusters et des applications. Parce qu’elle est basée sur Node.js, [vérifiez que vous avez installé Node][install-node] avant de suivre les instructions ci-dessous.
+
+## <a name="set-up-the-azure-cross-platform-cli"></a>Configurer l’interface de ligne de commande interplateforme Azure
+[L’interface de ligne de commande interplateforme Azure][azure-xplat-cli-github] inclut des commandes permettant d’interagir avec des entités Service Fabric, y compris des clusters et des applications. Puisqu’elle est basée sur Node.js, [assurez-vous que vous avez installé Node][install-node] avant de suivre les instructions ci-dessous.
 
 1. Clonez le référentiel Github sur votre ordinateur de développement.
    
@@ -150,10 +150,20 @@ Le Kit de développement logiciel (SDK) .NET Core fournit les bibliothèques et 
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
     ```
+## <a name="updating-the-sdk-and-runtime"></a>Mise à jour du kit de développement logiciel et du runtime
+
+Pour mettre à jour vers la dernière version du kit de développement logiciel et du runtime, exécutez les étapes suivantes (supprimez de la liste les kits de développement logiciel que vous ne souhaitez pas mettre à jour ou installer) :
+
+    ```bash
+    sudo apt-get update
+    sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
+    ```
+
+Pour mettre à jour l’interface CLI, accédez au répertoire où vous avez cloné le CLI et exécutez `git pull` pour mettre à jour. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Create your first Java application on Linux](service-fabric-create-your-first-linux-application-with-java.md)
-* [Prepare your development environment on OSX (Préparer votre environnement de développement sur OSX)](service-fabric-get-started-mac.md)
+* [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
 
 <!-- Links -->
 
@@ -168,6 +178,6 @@ Le Kit de développement logiciel (SDK) .NET Core fournit les bibliothèques et 
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

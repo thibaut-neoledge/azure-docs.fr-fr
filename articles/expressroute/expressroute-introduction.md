@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3b3e0fd5342c4729d6ffee4858089099b31404a8
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 57b95d5018fa197096992f7cd255a54501875dea
 
 
 ---
@@ -40,13 +40,13 @@ Pour plus d’informations, consultez le [Forum Aux Questions sur ExpressRoute](
 ## <a name="a-namehowtoconnectahow-can-i-connect-my-network-to-microsoft-using-expressroute"></a><a name="howtoconnect"></a>Comment puis-je utiliser ExpressRoute pour connecter mon réseau à Microsoft ?
 Vous pouvez créer une connexion entre votre réseau local et le cloud de Microsoft de trois façons différentes :
 
-### <a name="colocated-at-a-cloud-exchange"></a>Colocalisation avec un échange de cloud
+### <a name="co-located-at-a-cloud-exchange"></a>Colocalisation avec un échange de cloud
 Si vous êtes colocalisé avec une installation dans le cadre d’un échange de cloud, vous pouvez commander des interconnexions virtuelles vers le cloud de Microsoft via l’échange Ethernet du fournisseur de colocalisation. Les fournisseurs de colocalisation peuvent offrir des interconnexions de couche 2 ou des interconnexions de couche 3 gérées entre votre infrastructure dans l’installation de colocalisation et le cloud de Microsoft.
 
-### <a name="pointtopoint-ethernet-connections"></a>Connexions Ethernet point à point
+### <a name="point-to-point-ethernet-connections"></a>Connexions Ethernet point à point
 Vous pouvez connecter vos centres de données/bureaux locaux au cloud de Microsoft via des liaisons Ethernet point à point. Les fournisseurs Ethernet point à point peuvent offrir des connexions de couche 2 ou des connexions de couche 3 gérées entre votre site et le cloud de Microsoft.
 
-### <a name="anytoany-ipvpn-networks"></a>Réseaux universels (IPVPN)
+### <a name="any-to-any-ipvpn-networks"></a>Réseaux universels (IPVPN)
 Vous pouvez intégrer votre réseau étendu au cloud de Microsoft. Les fournisseurs IPVPN (généralement des VPN MPLS) offrent une connectivité universelle entre vos succursales et vos centres de données. Le cloud de Microsoft peut être interconnecté à votre réseau étendu afin qu’il apparaisse comme n’importe quelle autre succursale. Les fournisseurs de réseaux étendus offrent généralement une connectivité de couche 3 gérée. Les capacités et fonctionnalités ExpressRoute sont identiques pour tous les modèles de connectivité ci-dessus. 
 
 Les fournisseurs de connectivité peuvent offrir un ou plusieurs modèles de connectivité. Vous pouvez contacter votre fournisseur de connectivité pour choisir le modèle qui vous convient le mieux.
@@ -78,7 +78,7 @@ Vous pouvez vous connecter à Microsoft dans un de nos [emplacements d’homolog
 
 Par exemple, si vous êtes connecté à Microsoft à Amsterdam via ExpressRoute, vous aurez accès à tous les services de cloud Microsoft hébergés en Europe du Nord et en Europe occidentale. Reportez-vous à l’article [Partenaires ExpressRoute et emplacements d'homologation](expressroute-locations.md) pour obtenir une vue d'ensemble des régions géopolitiques, des zones de cloud Microsoft associées et des emplacements d’homologation ExpressRoute correspondants.
 
-### <a name="global-connectivity-with-expressroute-premium-addon"></a>Connectivité globale avec le module complémentaire ExpressRoute premium
+### <a name="global-connectivity-with-expressroute-premium-add-on"></a>Connectivité globale avec le module complémentaire ExpressRoute premium
 Vous pouvez activer la fonctionnalité du module complémentaire ExpressRoute premium pour étendre la connectivité au-delà des limites géopolitiques. Par exemple, si vous êtes connecté à Microsoft à Amsterdam via ExpressRoute, vous aurez accès à tous les services de cloud Microsoft hébergés dans toutes les régions du monde (à l’exception des clouds nationaux). Vous pouvez accéder aux services déployés en Amérique du Sud ou en Australie de la même façon que vous accédez aux régions d’Europe du Nord et d’Europe occidentales.
 
 ### <a name="rich-connectivity-partner-ecosystem"></a>Riche écosystème de partenaires de connectivité
@@ -125,6 +125,6 @@ Vous pouvez choisir le modèle de facturation qui vous convient le mieux. Choisi
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

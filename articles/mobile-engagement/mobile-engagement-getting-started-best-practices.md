@@ -15,13 +15,13 @@ ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7be266a6f8b3e18f2f6a27908ad75b5c19d3d862
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0cb54f6c4b84597fbc21fa691f88f6f7a37beedd
 
 
 ---
-# <a name="azure-mobile-engagement-getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - Guide de prise en main et meilleures pratiques
-## <a name="overview"></a>Vue d'ensemble
+# <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - Guide de prise en main et meilleures pratiques
+## <a name="overview"></a>Vue d’ensemble
 **L’écran mobile est un espace très encombré :** en 2013, une étude révélait que l’appareil mobile moyen avait 27 applications installées. Les utilisateurs passaient généralement 30 heures par mois sur leurs applications. La majeure partie de ce temps était consacrée aux réseaux sociaux et aux jeux (environ 20 heures). En 2014, les utilisateurs Android avaient le choix parmi environ 1,5 million d’applications. L’App Store d’Apple contenait environ 1,2 million d’applications. L’utilisation des applications mobiles continue à augmenter alors que les développeurs se font concurrence sur ce marché en pleine expansion. 
 
 L’utilisateur mobile moyen installe et désinstalle des applications très fréquemment en fonction de l’évolution de ses intérêts et de l’expérience au sein des applications. Pour déterminer le succès d’une application, la simple connaissance du nombre d’utilisateurs qui installent votre application ne suffit plus. Il est essentiel de savoir dans quelle mesure votre application est utile et si cette tendance d’utilisation évolue. Les questions suivantes deviennent importantes :
@@ -105,7 +105,7 @@ Créez un tableau de bord de KPI qui contient les informations suivantes :
 3. Où ces données se trouvent-elles pour mon application (écran, paramètres, système, etc.) ?
 4. Puis-je exécuter une séquence d’engagement pour ce KPI ?
 
-Pour obtenir des exemples et des conseils, vous pouvez utiliser la feuille de calcul **KPI Builder** de notre modèle [Media Playbook Template][lien Media Playbook].
+Pour obtenir des exemples et des conseils, vous pouvez utiliser la feuille de calcul **KPI Builder** de notre modèle [Media Playbook Template][Media Playbook link].
 
 ## <a name="step-2-your-engagement-program"></a>Étape 2 : votre programme d’engagement
 Un programme d’engagement mobile de qualité doit être considéré comme un composant clé de votre application. Il doit absolument inclure un excellent programme de bienvenue qui s’exécute au cours des premiers jours d’utilisation de l’application. Ce type de programme a généralement un effet très positif sur l’engagement et la rétention de votre application. Des études ont montré que la majorité des utilisateurs arrêtent d’utiliser une application au cours des premiers jours suivant l’installation. Vous devez vous efforcer de satisfaire ou de dépasser les attentes des clients en prenant soin de susciter très tôt leur intérêt, pendant que leur attention est toujours tournée vers votre application. Veillez à présenter la valeur et les avantages clés de votre application à vos clients. 
@@ -215,7 +215,7 @@ Pour obtenir des exemples et des conseils, utilisez la feuille de calcul **Engag
 #### <a name="create-a-tag-plan"></a>Création d’un plan de balises
 Pour intégrer Azure Mobile Engagement à votre application, vous devez créer un plan de balises. Le plan de balises est la pierre angulaire du projet. Il définit la relation entre les spécifications marketing, le workflow de l’application et les données de balise réelles collectées dans l’application pour mesurer les KPI. Il indique quelles analyses vous pourrez voir dans le portail. Il vous permet également de définir les segments d’utilisateurs et d’envoyer des notifications Push ciblées à des fins d’engagement avec vos utilisateurs finaux. Une fois le plan de balises défini, l’ajout du code pour l’intégrer à votre application se fait en toute simplicité à l’aide du Kit de développement logiciel (SDK) Azure Mobile Engagement.
 
-Un plan de balises ne doit pas baliser tous les éléments d’une application. Il doit uniquement inclure les données de balise faisant partie de votre stratégie d’engagement mobile. Celles-ci seront probablement différentes d’une application à une autre. Le modèle [Media Playbook Template][lien Media Playbook] fourni par Azure Mobile Engagement vous aide à élaborer un plan de balises à l’aide d’une méthode donnée. Utilisez la feuille de calcul **Tag Plan** pour vous guider dans la création de votre plan de balises.
+Un plan de balises ne doit pas baliser tous les éléments d’une application. Il doit uniquement inclure les données de balise faisant partie de votre stratégie d’engagement mobile. Celles-ci seront probablement différentes d’une application à une autre. Le modèle [Media Playbook Template][Media Playbook link] fourni par Azure Mobile Engagement vous aide à élaborer un plan de balises à l’aide d’une méthode donnée. Utilisez la feuille de calcul **Tag Plan** pour vous guider dans la création de votre plan de balises.
 
 Soyez très spécifique lorsque vous définissez une section de balises dans la feuille de calcul. C’est très important pour éviter toute confusion. Détaillez chaque scénario attendu pour lequel chaque balise sera envoyée. Incluez le nom de l’activité où chaque balise est incorporée. Toutes ces informations doivent être ajoutées dans la partie **Informative** de la feuille de calcul. La feuille de calcul du plan de balises doit servir de référence principale pour la vérification de test. 
 
@@ -322,10 +322,10 @@ Après avoir acquis un peu d’expérience, vous pouvez envisager d’ajouter le
 
 
 <!--Link references-->
-[Lien Media Playbook]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
+[Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -4,7 +4,7 @@
 > 
 > 
 
-Cet article fournit une description détaillée de [l’exemple de code Hello World][lnk-helloworld-sample] pour illustrer les composants fondamentaux de l’architecture du [Kit de développement logiciel (SDK) de passerelle Azure IoT][lnk-gateway-sdk]. L’exemple utilise le SDK de passerelle IoT Hub pour créer une passerelle simple qui enregistre un message « hello world » dans un fichier toutes les cinq secondes.
+Cet article fournit une description détaillée de l’[exemple de code Hello World][lnk-helloworld-sample] pour illustrer les composants fondamentaux de l’architecture du [Kit de développement logiciel (SDK) de passerelle Azure IoT][lnk-gateway-sdk]. L’exemple utilise le SDK de passerelle Azure IoT pour créer une passerelle simple qui enregistre un message « hello world » dans un fichier toutes les cinq secondes.
 
 Cette procédure pas à pas inclut les étapes suivantes :
 
@@ -72,6 +72,6 @@ La figure ci-dessus montre l’architecture de l’exemple Hello World et les ch
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

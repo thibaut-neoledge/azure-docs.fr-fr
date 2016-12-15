@@ -1,6 +1,6 @@
 
 ## <a name="start-your-powershell-session"></a>Démarrer votre session PowerShell
-Tout d’abord, la dernière version [d’Azure PowerShell](https://msdn.microsoft.com/library/mt619274\(v=azure.300\).aspx) doit être installée et en cours d’exécution. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../articles/powershell-install-configure.md).
+Tout d’abord, la dernière version [d’Azure PowerShell](https://msdn.microsoft.com/library/mt619274\(v=azure.300\).aspx) doit être installée et en cours d’exécution. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 > [!NOTE]
 > Nombre des nouvelles fonctionnalités de SQL Database ne sont prises en charge que si vous utilisez le [modèle de déploiement Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). Les exemples cités utilisent donc les [applets de commande PowerShell Azure SQL Database](https://msdn.microsoft.com/library/azure/mt574084\(v=azure.300\).aspx) pour Resource Manager. Les [applets de commande Azure SQL Database](https://msdn.microsoft.com/library/azure/dn546723\(v=azure.300\).aspx) de gestion des services du modèle de déploiement de gestion des services existant sont prises en charge à des fins de compatibilité descendante. Cependant, nous vous recommandons l’utilisation d’applets de commande Resource Manager.
@@ -16,6 +16,6 @@ Si vous possédez plusieurs abonnements, utilisez l’applet de commande [**Set-
     Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: bf07b8a10dd7e5ee9259c6fab9da886578504fe7
-ms.openlocfilehash: a652dcd2427d579db42e963ad54ac3078cba6857
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8dc246755c90686f890d2ac9df05b3a8b2a9341f
 
 
 ---
@@ -54,7 +54,7 @@ Avant de suivre les instructions de cet article, vérifiez que les éléments su
 * [Visual Studio 2013](http://www.visualstudio.com/) ou une version ultérieure, ou [Visual Studio Express](), qui est la version gratuite. Les instructions de ce didacticiel sont écrites spécifiquement pour Visual Studio 2015. 
 * Outils Python pour Visual Studio disponibles dans [GitHub](http://microsoft.github.io/PTVS/). Ce didacticiel utilise Python Tools for Visual Studio 2015. 
 * Kit de développement logiciel (SDK) Azure Python pour Visual Studio 2.4 ou ultérieur, disponible sur [azure.com](https://azure.microsoft.com/downloads/). Nous avons utilisé le Kit de développement logiciel (SDK) Microsoft Azure pour Python 2.7.
-* Python 2.7 disponible sur [python.org][2]. Nous avons utilisé Python 2.7.11. 
+* Python 2.7 disponible auprès de [python.org][2]. Nous avons utilisé Python 2.7.11. 
 
 > [!IMPORTANT]
 > Si vous installez Python 2.7 pour la première fois, sélectionnez **Ajouter python.exe au chemin d’accès**dans l’écran Personnaliser Python 2.7.11.
@@ -63,7 +63,7 @@ Avant de suivre les instructions de cet article, vérifiez que les éléments su
 > 
 > 
 
-* Compilateur Microsoft Visual C++ pour Python 2.7 disponible auprès du [Centre de téléchargement Microsoft][3].
+* Compilateur Microsoft Visual C++ pour Python 2.7 disponible auprès du [Centre de téléchargement Microsoft][3].
 
 ## <a name="step-1-create-a-documentdb-database-account"></a>Étape 1 : Création d’un compte de base de données DocumentDB
 Commençons par créer un compte DocumentDB. Si vous possédez déjà un compte ou si vous utilisez l’émulateur DocumentDB pour ce didacticiel, vous pouvez passer à [l’Étape 2 : Création d’une application web Python Flask](#step-2:-create-a-new-python-flask-web-application).
@@ -409,10 +409,10 @@ Pour d’autres didacticiels Python Flask, consultez [The Flask Mega-Tutorial, P
 [2]: https://www.python.org/downloads/windows/
 [3]: https://www.microsoft.com/download/details.aspx?id=44266
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[portail Azure]: http://portal.azure.com
+[Azure portal]: http://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

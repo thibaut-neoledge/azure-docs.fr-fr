@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0bb3fcf1963819b5e8787c042fa895348dc69e12
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f48aab02e0229c440848dc8e4a3d26d0d43d96aa
 
 
 ---
@@ -40,7 +40,7 @@ Azure Marketplace met à votre disposition une large gamme d’applications web 
 Le site WordPress déployé dans le cadre de ce didacticiel utilise MySQL pour la base de données. Si vous préférez utiliser Base de données SQL à la place, consultez [Project Nami](http://projectnami.org/). **Project Nami** est également disponible dans Marketplace.
 
 > [!NOTE]
-> Pour suivre ce didacticiel, vous avez besoin d'un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir un essai gratuit](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
+> Pour suivre ce didacticiel, vous avez besoin d'un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir un essai gratuit](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 > 
 > Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
 > 
@@ -117,6 +117,6 @@ Pour plus d’informations sur l’utilisation d’App Service Web Apps, consult
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

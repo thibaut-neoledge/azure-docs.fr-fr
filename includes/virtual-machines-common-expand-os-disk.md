@@ -10,7 +10,7 @@ Lorsque vous créez une machine virtuelle (VM) dans un groupe de ressources en d
 > 
 
 ## <a name="resize-the-os-drive"></a>Redimensionner le lecteur du système d’exploitation
-Dans cet article, nous allons exécuter la tâche consistant à redimensionner le lecteur du système d’exploitation à l’aide de modules Resource Manager d’ [Azure Powershell](../articles/powershell-install-configure.md). Ouvrez votre Powershell ISE ou une fenêtre Powershell en mode administrateur et suivez les étapes ci-dessous :
+Dans cet article, nous allons exécuter la tâche consistant à redimensionner le lecteur du système d’exploitation à l’aide de modules Resource Manager d’ [Azure Powershell](/powershell/azureps-cmdlets-docs). Ouvrez votre Powershell ISE ou une fenêtre Powershell en mode administrateur et suivez les étapes ci-dessous :
 
 1. Connectez-vous à votre compte Microsoft Azure en mode de gestion des ressources et sélectionnez votre abonnement comme suit :
    
@@ -84,6 +84,6 @@ Si vous souhaitez savoir comment associer des disques à une machine virtuelle A
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

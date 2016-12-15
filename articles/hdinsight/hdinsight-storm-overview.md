@@ -16,12 +16,12 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e2fa11046adf828497b142e1043ac1c2a15443ef
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: e0353fe07c98060c88f8fefdcc3c1052437f23ab
 
 
 ---
-# <a name="introduction-to-apache-storm-on-hdinsight-realtime-analytics-for-hadoop"></a>Présentation d’Apache Storm sur HDInsight : analyse en temps réel pour Haddop
+# <a name="introduction-to-apache-storm-on-hdinsight-real-time-analytics-for-hadoop"></a>Présentation d’Apache Storm sur HDInsight : analyse en temps réel pour Haddop
 Apache Storm sur HDInsight offre la possibilité de créer des solutions d‘analyse distribuée et en temps réel dans l‘environnement Azure à l‘aide d’ [Apache Hadoop](http://hadoop.apache.org).
 
 ## <a name="what-is-apache-storm"></a>Qu’est-ce qu’Apache Storm ?
@@ -53,7 +53,7 @@ Pour découvrir Storm, consultez la rubrique [Prise en main de Storm sur HDInsig
 Vous pouvez approvisionner un nouveau cluster Storm sur HDInsight en quelques minutes. Précisez le nom du cluster, sa taille, le compte d‘administrateur et le compte de stockage. Azure créera le cluster, y compris des exemples de topologies et un tableau de bord de gestion web.
 
 > [!NOTE]
-> Vous pouvez également configurer des clusters Storm en utilisant l’[interface de ligne de commande](../xplat-cli-install.md) ou [Azure PowerShell](../powershell-install-configure.md).
+> Vous pouvez également configurer des clusters Storm en utilisant l’[interface de ligne de commande](../xplat-cli-install.md) ou [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 > 
 > 
 
@@ -107,7 +107,7 @@ Bien que vous puissiez spécifier le nombre de nœuds dans votre cluster lors de
 ### <a name="support"></a>Support
 Storm sur HDInsight bénéficie d’une assistance professionnelle complète 24h/24 7j/7. Storm sur HDInsight possède également un contrat SLA garantissant un taux de disponibilité de 99,9 %. Cela signifie que nous garantissons une disponibilité de la connectivité externe du cluster au moins 99,9 % du temps.
 
-## <a name="common-use-cases-for-realtime-analytics"></a>Scénarios d‘utilisation courants d’analyse en temps réel
+## <a name="common-use-cases-for-real-time-analytics"></a>Scénarios d‘utilisation courants d’analyse en temps réel
 Voici quelques scénarios courants dans lesquels vous pouvez utiliser Apache Storm sur HDInsight. Pour plus d‘informations sur les scénarios réels, consultez la rubrique [Comment les entreprises utilisent-elles Storm ?](https://storm.apache.org/documentation/Powered-By.html).
 
 * Internet des objets (IoT)
@@ -138,7 +138,7 @@ Apache Storm exécute des **topologies** au lieu de tâches MapReduce que vous 
   
   * **Nimbus** est un service de Thrift et une **topologie** est une définition de Thrift. Il est donc possible de développer des topologies en utilisant plusieurs langages de programmation.
 
-Pour plus d’informations sur les composants de Storm, consultez le didacticiel [Storm][apachetutorial] sur apache.org.
+Pour plus d‘informations sur les composants de Storm, consultez le [didacticiel Storm][apachetutorial] sur le site apache.org.
 
 ## <a name="what-programming-languages-can-i-use"></a>Quels langages de programmation utiliser ?
 Le cluster Storm sur HDInsight prend en charge C#, Java et Python.
@@ -196,7 +196,7 @@ Pour découvrir un exemple de topologie indiquant comment configurer la journali
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur les solutions d‘analyse en temps réel avec Apache Storm dans HDInsight :
 
-* [Prise en main de Storm dans HDInsight][gettingstarted]
+* [Prise en main de Storm sur HDInsight][gettingstarted]
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
 
 [stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
@@ -206,6 +206,6 @@ En savoir plus sur les solutions d‘analyse en temps réel avec Apache Storm d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

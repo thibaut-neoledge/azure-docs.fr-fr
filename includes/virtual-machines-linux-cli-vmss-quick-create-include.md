@@ -4,12 +4,20 @@ Si vous ne l’avez pas encore fait, vous pouvez obtenir un [essai gratuit d’a
 azure config mode arm
 ```
 
-À présent, créez maintenant votre groupe de machines virtuelles identiques à l’aide de la commande `azure vmss quick-create`. L’exemple suivant crée un groupe identique nommé `myVMSS` avec 5 instances de machine virtuelle dans le groupe de ressources nommé `myResourceGroup` :
+À présent, créez maintenant votre groupe de machines virtuelles identiques à l’aide de la commande `azure vmss quick-create`. L’exemple suivant crée un groupe identique Linux nommé `myVMSS` avec 5 instances de machine virtuelle dans le groupe de ressources nommé `myResourceGroup` :
 
 ```azurecli
 azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
     -u ops -p P@ssw0rd! \
-    -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
+    -C 5 -Q Canonical:UbuntuServer:16.04.0-LTS:latest
+```
+
+L’exemple suivant crée un groupe identique Windows avec la même configuration :
+
+```azurecli
+azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
+    -u ops -p P@ssw0rd! \
+    -C 5 -Q MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest
 ```
 
 Si vous souhaitez personnaliser l’emplacement ou l’URN de l’image, examinez les commandes `azure location list` et `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
@@ -56,6 +64,6 @@ FQDN=${split_line[3]}
 ssh -p 50000 negat@$FQDN
 ```
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

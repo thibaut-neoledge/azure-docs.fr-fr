@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/30/2016
+ms.date: 11/29/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 71ee49cd316563490677ad4efbe78e05dca93162
-ms.openlocfilehash: 293121f3eb626a3296d39be11d7b0294378a017b
+ms.sourcegitcommit: 44e397c7521ba8f0ba11893c364f51177561bee4
+ms.openlocfilehash: a74fc30480068788f33df092594119253df9487b
 
 
 ---
@@ -34,39 +34,49 @@ La vidéo suivante montre comment effectuer les étapes de base de ce didacticie
 >
 
 ## <a name="create-a-webhook-triggered-function-from-the-template"></a>Créer une fonction déclenchée par webhook à partir du modèle
-Une application de fonction héberge l’exécution de vos fonctions dans Azure. Pour créer une fonction, vous devez avoir un compte Azure actif. Si tel n’est pas le cas, des [comptes gratuits sont disponibles](https://azure.microsoft.com/free/). 
+Une application de fonction héberge l’exécution de vos fonctions dans Azure. Si vous ne disposez pas d’un compte Azure, vivez l’expérience [Try Functions](https://functions.azure.com/try) ou [créez un compte Azure gratuit](https://azure.microsoft.com/free/). 
 
 1. Accédez au [Portail Azure Functions](https://functions.azure.com/signin) et connectez-vous avec votre compte Azure.
-2. Si vous avez une application de fonction existante à utiliser, sélectionnez-la à partir de vos **applications de fonction**, puis cliquez sur **Ouvrir**. Pour créer un nouveau conteneur de fonctions, dans **Nom**, tapez le nom unique de votre nouveau conteneur de fonctions ou acceptez le nom généré, sélectionnez votre **Région**, puis cliquez sur **Créer + Prise en main**. 
-3. Dans votre application de fonction, cliquez sur **+ Nouvelle fonction** > **Webhook GitHub - Nœud** > **Créer**. Cela crée une fonction avec un nom par défaut basé sur le modèle spécifié. 
+
+2. Si vous avez une application de fonction existante à utiliser, sélectionnez-la à partir de vos **applications de fonction**, puis cliquez sur **Ouvrir**. Pour créer un conteneur de fonctions, dans **Nom**, tapez le nom unique de votre nouveau conteneur de fonctions ou acceptez le nom généré, sélectionnez votre **Région**, puis cliquez sur **Créer + Prise en main**. 
+
+3. Dans votre application de fonction, cliquez sur **+ Nouvelle fonction** > **Webhook GitHub - Nœud** > **Créer**. Cette étape crée une fonction avec un nom par défaut basé sur le modèle spécifié. 
    
-    ![Créer une nouvelle fonction de webhook GitHub](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook.png) 
+    ![Créer une fonction de déclenchement de webhook GitHub](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook.png) 
+
 4. Dans **Développer**, notez l’exemple de fonction express.js dans la fenêtre **Code**. Cette fonction reçoit une demande GitHub à partir d’un webhook de commentaire du problème, enregistre le texte du problème et envoie une réponse au webhook au format `New GitHub comment: <Your issue comment text>`.
 
-    ![Créer une nouvelle fonction de webhook GitHub](./media/functions-create-a-web-hook-or-api-function/functions-new-webhook-in-portal.png) 
+    ![Examiner le code de fonction](./media/functions-create-a-web-hook-or-api-function/functions-new-webhook-in-portal.png) 
 
-1. Copiez les valeurs **URL de la fonction** et **Secret GitHub**. Vous en aurez besoin lors de la création du webhook dans GitHub. 
-2. Faites défiler jusqu’à **Exécuter**, notez le corps JSON prédéfini d’un commentaire du problème dans le corps de la demande, puis cliquez sur **Exécuter**. 
+1. Copiez les valeurs **URL de la fonction** et **Secret GitHub**. Vous avez besoin de ces valeurs pour créer le webhook dans GitHub. 
+
+2. Cliquez sur **Tester**, notez le corps JSON prédéfini d’un commentaire du problème dans le **corps de la demande**, puis cliquez sur **Exécuter**. 
+
+    ![Tester une fonction webhook dans le portail](./media/functions-create-a-web-hook-or-api-function/functions-test-webhook-in-portal.png)
    
-    Vous pouvez toujours tester une nouvelle fonction basée sur un modèle dans l’onglet **Développer** en fournissant un corps de données JSON attendu et en cliquant sur le bouton **Exécuter**. Dans ce cas, le modèle a un corps prédéfini pour un commentaire de problème. 
+    > [!NOTE]
+    > Vous pouvez toujours tester une nouvelle fonction basée sur un modèle dans l’onglet **Développer** en fournissant un corps de données JSON attendu et en cliquant sur le bouton **Exécuter**. Dans ce cas, le modèle a un corps prédéfini pour un commentaire de problème. 
 
 Ensuite, vous allez créer le webhook lui-même dans votre référentiel GitHub.
 
 ## <a name="configure-the-webhook"></a>Configurer le webhook
-1. Dans GitHub, accédez à un référentiel que vous possédez. Cela inclut tous les référentiels que vous avez dupliqués.
+1. Dans GitHub, accédez à un référentiel que vous possédez. Vous pouvez également utiliser les référentiels que vous avez dupliqués.
+ 
 2. Cliquez sur **Paramètres** > **Webhooks & services** > **Ajouter un webhook**.
    
-    ![Créer une nouvelle fonction de webhook GitHub](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook-2.png)   
+    ![Ajouter un webhook GitHub](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook-2.png)   
 3. Collez l’URL et le secret de votre fonction dans **URL de la charge utile** et **Secret**, puis cliquez sur **Me laisser choisir les événements individuels**, sélectionnez **Émettre un commentaire** et cliquez sur **Ajouter un webhook**.
    
-    ![Créer une nouvelle fonction de webhook GitHub](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook-3.png) 
+    ![Définir l’URL et le secret du webhook](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook-3.png) 
 
 À ce stade, le webhook GitHub est configuré pour déclencher votre fonction lors de l’ajout d’un nouveau commentaire de problème.  
 À présent, il est temps de tout tester.
 
 ## <a name="test-the-function"></a>Tester la fonction
 1. Dans votre référentiel GitHub, ouvrez l’onglet **Problèmes** dans une nouvelle fenêtre de navigateur, cliquez sur **Nouveau problème**, tapez un titre, puis cliquez sur **Envoyer nouveau problème**. Vous pouvez également ouvrir un problème existant.
+
 2. Dans le problème, entrez un commentaire et cliquez sur **Commentaire**. À ce stade, vous pouvez revenir à votre nouveau webhook dans GitHub et, sous **Dernières livraisons**, vous verrez qu’une demande de webhook a été envoyée et que le corps de la réponse est `New GitHub comment: <Your issue comment text>`.
+
 3. Dans le portail Functions, faites défiler jusqu’aux journaux et vous verrez que la fonction a été déclenchée et que la valeur `New GitHub comment: <Your issue comment text>` est écrite dans les journaux de diffusion en continu.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -77,13 +87,13 @@ Pour plus d’informations sur Azure Functions, consultez ces rubriques.
 * [Test d’Azure Functions](functions-test-a-function.md)  
    décrit plusieurs outils et techniques permettant de tester vos fonctions.
 * [Comment mettre à l’échelle Azure Functions](functions-scale.md)  
-   présente les plans de services disponibles dans Azure Functions, dont le plan de service dynamique, et explique comment choisir le plan adapté à vos besoins.  
+  Présente les plans de service disponibles pour Azure Functions, dont le plan d’hébergement de consommation, et explique comment choisir le plan adapté à vos besoins.  
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

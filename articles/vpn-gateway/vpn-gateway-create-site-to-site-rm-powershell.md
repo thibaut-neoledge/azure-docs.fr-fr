@@ -16,27 +16,27 @@ ms.workload: infrastructure-services
 ms.date: 10/14/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cdc41f9068de3e1ea796e1a3172a99dd185d9f9c
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: e2c1a99a23f8d2d8ceb1fd8a9fe3c0e86abc0b02
 
 
 ---
-# <a name="create-a-vnet-with-a-sitetosite-connection-using-powershell"></a>Création d’un réseau virtuel avec une connexion de site à site à l’aide de PowerShell
+# <a name="create-a-vnet-with-a-site-to-site-connection-using-powershell"></a>Création d’un réseau virtuel avec une connexion de site à site à l’aide de PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [Classic - Portail Classic](vpn-gateway-site-to-site-create.md)
-> 
-> 
+>
+>
 
 Cet article vous guide lors de la création d’un réseau virtuel et d’une connexion de passerelle VPN de site à site à votre réseau local, à l’aide du modèle de déploiement Azure Resource Manager. Les connexions site à site peuvent être utilisées pour les configurations hybrides et entre les différents locaux.
 
-![Diagramme de site à site](./media/vpn-gateway-create-site-to-site-rm-powershell/s2srmps.png "site-to-site") 
+![Diagramme de site à site](./media/vpn-gateway-create-site-to-site-rm-powershell/s2srmps.png "site-to-site")
 
-### <a name="deployment-models-and-methods-for-sitetosite-connections"></a>Méthodes et modèles de déploiement pour les connexions de site à site
+### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Méthodes et modèles de déploiement pour les connexions de site à site
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
-Le tableau suivant présente les modèles et les méthodes de déploiement disponibles pour les configurations de site à site. Quand un article avec les étapes de configuration est disponible, le lien vers cet article est ajouté à ce tableau. 
+Le tableau suivant présente les modèles et les méthodes de déploiement disponibles pour les configurations de site à site. Quand un article avec les étapes de configuration est disponible, le lien vers cet article est ajouté à ce tableau.
 
 [!INCLUDE [site-to-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
@@ -48,8 +48,8 @@ Vérifiez que vous disposez des éléments suivants avant de commencer la config
 
 * Un périphérique VPN compatible et une personne qui est en mesure de le configurer. Consultez [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md). Si vous ne maîtrisez pas la configuration de votre appareil VPN ou les plages d’adresses IP mentionnées dans la configuration de votre réseau local, vous devez contacter une personne qui peut vous fournir ces informations.
 * Une adresse IP publique exposée en externe pour votre appareil VPN. Cette adresse IP ne peut pas se trouver derrière un NAT.
-* Un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
-* La dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) .
+* Un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial).
+* La dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 
 ## <a name="a-namelogina1-connect-to-your-subscription"></a><a name="Login"></a>1. Connexion à votre abonnement
 Pour utiliser les applets de commande Resource Manager, passez au mode PowerShell. Pour plus d'informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](../powershell-azure-resource-manager.md).
@@ -60,7 +60,7 @@ Ouvrez la console PowerShell et connectez-vous à votre compte. Utilisez l’exe
 
 Vérifiez les abonnements associés au compte.
 
-    Get-AzureRmSubscription 
+    Get-AzureRmSubscription
 
 Spécifiez l’abonnement que vous souhaitez utiliser.
 
@@ -74,7 +74,7 @@ Si vous disposez déjà d’un réseau virtuel avec un sous-réseau de passerell
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ### <a name="to-create-a-virtual-network-and-a-gateway-subnet"></a>Pour créer un réseau virtuel et un sous-réseau de passerelle
-Utilisez l’exemple suivant pour créer un réseau virtuel et un sous-réseau de passerelle. Remplacez les valeurs par les vôtres. 
+Utilisez l’exemple suivant pour créer un réseau virtuel et un sous-réseau de passerelle. Remplacez les valeurs par les vôtres.
 
 Créez d’abord un groupe de ressources :
 
@@ -82,7 +82,7 @@ Créez d’abord un groupe de ressources :
 
 Ensuite, créez votre réseau virtuel Vérifiez que les espaces d’adressage que vous spécifiez ne chevauchent pas les espaces d’adressage de votre réseau local.
 
-L’exemple suivant crée un réseau virtuel nommé *testvnet* et deux sous-réseaux, l’un nommé *GatewaySubnet* et l’autre *Subnet1*. Il est important de créer un sous-réseau nommé spécifiquement *GatewaySubnet*. Si vous le nommez autrement, la configuration de votre connexion échouera. 
+L’exemple suivant crée un réseau virtuel nommé *testvnet* et deux sous-réseaux, l’un nommé *GatewaySubnet* et l’autre *Subnet1*. Il est important de créer un sous-réseau nommé spécifiquement *GatewaySubnet*. Si vous le nommez autrement, la configuration de votre connexion échouera.
 
 Définissez les variables.
 
@@ -107,18 +107,18 @@ Créez le sous-réseau de passerelle.
 
     Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
 
-Définissez la configuration. 
+Définissez la configuration.
 
     Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 ## <a name="3-a-namelocalnetaadd-your-local-network-gateway"></a>3. <a name="localnet"></a>Ajouter votre passerelle de réseau local
-Dans un réseau virtuel, la passerelle de réseau local fait généralement référence à votre emplacement local. Vous donnez à cet emplacement un nom auquel Azure pourra se référer, puis vous spécifierez le préfixe de l’espace d’adressage de la passerelle de réseau local. 
+Dans un réseau virtuel, la passerelle de réseau local fait généralement référence à votre emplacement local. Vous donnez à cet emplacement un nom auquel Azure pourra se référer, puis vous spécifierez le préfixe de l’espace d’adressage de la passerelle de réseau local.
 
-Azure utilise le préfixe d’adresse IP que vous spécifiez pour identifier le trafic à envoyer vers votre emplacement local. Cela signifie que vous devez spécifier chaque préfixe d’adresse que vous voulez associer à votre passerelle de réseau local. Vous pouvez facilement mettre à jour ces préfixes si votre réseau local est modifié. 
+Azure utilise le préfixe d’adresse IP que vous spécifiez pour identifier le trafic à envoyer vers votre emplacement local. Cela signifie que vous devez spécifier chaque préfixe d’adresse que vous voulez associer à votre passerelle de réseau local. Vous pouvez facilement mettre à jour ces préfixes si votre réseau local est modifié.
 
 Lorsque vous utilisez les exemples PowerShell, notez les points suivants :
 
-* *GatewayIPAddress* est l’adresse IP de votre périphérique VPN local. Votre périphérique VPN ne peut pas se trouver derrière un NAT. 
+* *GatewayIPAddress* est l’adresse IP de votre périphérique VPN local. Votre périphérique VPN ne peut pas se trouver derrière un NAT.
 * *AddressPrefix* est votre espace d’adressage local.
 
 Pour ajouter une passerelle de réseau local avec un préfixe d’adresse unique :
@@ -148,17 +148,17 @@ La configuration de la passerelle définit le sous-réseau et l’adresse IP pub
 
     $vnet = Get-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg
     $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-    $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
+    $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 
 ## <a name="a-namecreategatewaya6-create-the-virtual-network-gateway"></a><a name="CreateGateway"></a>6. Créer la passerelle de réseau virtuel
-Dans cette étape, vous créez la passerelle de réseau virtuel. La création d’une passerelle peut durer un certain temps. Souvent 45 minutes, voire plus. 
+Dans cette étape, vous créez la passerelle de réseau virtuel. La création d’une passerelle peut durer un certain temps. Souvent 45 minutes, voire plus.
 
 Utilisez les valeurs suivantes :
 
-* Le paramètre *-GatewayType* pour une configuration de site à site est *Vpn*. Le type de passerelle dépend toujours de la configuration que vous implémentez. Par exemple, d’autres configurations de passerelle peuvent nécessiter GatewayType ExpressRoute. 
-* Le paramètre *-VpnType* peut avoir pour valeur *RouteBased* (appelé passerelle dynamique dans certaines documentations) ou *PolicyBased* (appelé passerelle statique dans certaines documentations). Pour plus d’informations sur les types de passerelles VPN, consultez [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md#vpntype).
+* Le paramètre *-GatewayType* pour une configuration de site à site est *Vpn*. Le type de passerelle dépend toujours de la configuration que vous implémentez. Par exemple, d’autres configurations de passerelle peuvent nécessiter GatewayType ExpressRoute.
+* Le paramètre *-VpnType* peut avoir pour valeur *RouteBased* (appelé passerelle dynamique dans certaines documentations) ou *PolicyBased* (appelé passerelle statique dans certaines documentations). Pour plus d’informations sur les types de passerelles VPN, consultez [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md).
 * La valeur de *-GatewaySku* peut être *Basic*, *Standard* ou *HighPerformance*.     
-  
+
         New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
         -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
         -VpnType RouteBased -GatewaySku Standard
@@ -171,7 +171,7 @@ Pour trouver l’adresse IP publique de votre passerelle de réseau virtuel, uti
     Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg
 
 ## <a name="a-namecreateconnectiona8-create-the-vpn-connection"></a><a name="CreateConnection"></a>8. Créer la connexion VPN
-Créez ensuite la connexion VPN de site à site entre votre passerelle de réseau virtuel et votre périphérique VPN. Assurez-vous de remplacer ces valeurs par les vôtres. La clé partagée doit correspondre à la valeur que vous avez utilisée pour la configuration de votre périphérique VPN. Notez que le `-ConnectionType` de site à site est *IPsec*. 
+Créez ensuite la connexion VPN de site à site entre votre passerelle de réseau virtuel et votre périphérique VPN. Assurez-vous de remplacer ces valeurs par les vôtres. La clé partagée doit correspondre à la valeur que vous avez utilisée pour la configuration de votre périphérique VPN. Notez que le `-ConnectionType` de site à site est *IPsec*.
 
 Définissez les variables.
 
@@ -184,7 +184,7 @@ Créez la connexion.
     -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
     -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
-Après un bref délai, la connexion sera établie. 
+Après un bref délai, la connexion sera établie.
 
 ## <a name="a-nametoverifyato-verify-a-vpn-connection"></a><a name="toverify"></a>Pour vérifier une connexion VPN
 Il existe différentes façons de vérifier votre connexion VPN.
@@ -192,7 +192,7 @@ Il existe différentes façons de vérifier votre connexion VPN.
 [!INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
 ## <a name="a-namemodifyato-modify-ip-address-prefixes-for-a-local-network-gateway"></a><a name="modify"></a>Pour modifier des préfixes d’adresses IP d’une passerelle de réseau local
-Si vous devez modifier les préfixes de votre passerelle de réseau local, suivez les instructions suivantes. Deux ensembles d’instructions vous sont fournis : Les instructions que vous choisissez d’appliquer varient selon que vous avez déjà créé ou non votre connexion à la passerelle. 
+Si vous devez modifier les préfixes de votre passerelle de réseau local, suivez les instructions suivantes. Deux ensembles d’instructions vous sont fournis : Les instructions que vous choisissez d’appliquer varient selon que vous avez déjà créé ou non votre connexion à la passerelle.
 
 [!INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
@@ -200,12 +200,11 @@ Si vous devez modifier les préfixes de votre passerelle de réseau local, suive
 [!INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md) pour connaître les différentes étapes.
+*  Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * Pour plus d’informations sur le protocole BGP, consultez les articles [Vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et [Comment configurer BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

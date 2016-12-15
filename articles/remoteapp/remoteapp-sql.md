@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cfd3da08a8c8674e686ae2933db331809fb0e34d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 52edc23e0f677567beeb33c47b14f6ea66989890
 
 
 ---
@@ -46,7 +46,7 @@ Quelques points doivent être pris en compte lors de l’utilisation de SQL Azur
 
 Découvrez [Comment configurer votre pare-feu Microsoft Azure SQL Database](../sql-database/sql-database-firewall-configure.md). Un extrait de l’article mentionne « Initialement, tout accès à votre serveur de base de données SQL Azure est bloqué par le pare-feu. Pour commencer à utiliser votre serveur Azure SQL Database, vous devez accéder au portail Azure Classic et spécifier une ou plusieurs règles de pare-feu au niveau du serveur qui permettent l’accès à votre serveur Azure SQL Database. Utilisez les règles de pare-feu pour spécifier les plages d’adresses IP Internet qui sont autorisées, et si les applications Azure peuvent essayer de se connecter à votre serveur Azure SQL Database. »
 
-De plus, quand un ordinateur tente de se connecter à votre serveur de base de données à partir d’Internet, le pare-feu vérifie l’adresse IP d’origine de la demande par rapport à la totalité des règles de pare-feu au niveau du serveur et, si nécessaire, au niveau de la base de données : « Si l’adresse IP de la demande appartient à une des plages spécifiées dans les règles de pare-feu au niveau du serveur, la connexion est accordée à votre serveur Azure SQL Database. » Par conséquent, nous pouvons utiliser des plages d’adresses IP, et pas uniquement des adresses IP source individuelles.
+De plus, quand un ordinateur tente de se connecter à votre serveur de base de données à partir d’Internet, le pare-feu vérifie l’adresse IP d’origine de la demande par rapport à la totalité des règles de pare-feu au niveau du serveur et, si nécessaire, au niveau de la base de données : « Si l’adresse IP de la demande appartient à une des plages spécifiées dans les règles de pare-feu au niveau du serveur, la connexion est accordée à votre serveur Azure SQL Database. » Par conséquent, nous pouvons utiliser des plages d’adresses IP, et pas uniquement des adresses IP source individuelles.
 
 Suivez les instructions étape par étape de la section [Procédure : Configuration des paramètres du pare-feu sur une base de données SQL à l’aide du portail Azure](../sql-database/sql-database-configure-firewall-settings.md) pour spécifier la plage IP. Lorsque vous configurez les règles de pare-feu de SQL, indiquez la plage IP du sous-réseau spécifiée pour la collection Azure RemoteApp. Cela devrait permettre aux serveurs ARA de se connecter à la base de données SQL, même si des adresses IP sont affectées de manière dynamique.
 
@@ -60,6 +60,6 @@ Si l’expérience d’utilisation d’une application cliente hébergée dans A
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

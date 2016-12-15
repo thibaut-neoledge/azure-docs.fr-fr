@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/07/2016
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5d58210a155666642cec8c180249c4e43b69fb9c
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: fd93a6634175df47cd3ef871b01d08e9f5fea27b
 
 
 ---
@@ -71,8 +71,8 @@ Les contrôles d’accès au plan de gestion et au plan de données fonctionnent
 ## <a name="management-plane-access-control"></a>Contrôle d’accès au plan de gestion
 Le plan de gestion se compose des opérations qui affectent le coffre de clés proprement dit. Par exemple, vous pouvez créer ou supprimer un coffre de clés. Vous pouvez obtenir la liste des coffres d’un abonnement. Vous pouvez récupérer les propriétés d’un coffre de clés (par exemple, sa référence SKU et ses balises) et définir des stratégies d’accès qui contrôlent les utilisateurs et les applications qui peuvent accéder aux clés et aux secrets du coffre de clés. Le contrôle d’accès au plan de gestion utilise la fonctionnalité RBAC. Vous trouverez la liste complète des opérations de coffre de clés qui peuvent être effectuées via le plan de gestion dans le tableau de la section précédente. 
 
-### <a name="rolebased-access-control-rbac"></a>Contrôle d’accès en fonction du rôle (RBAC)
-À chaque abonnement Azure correspond un annuaire Azure Active Directory. Les utilisateurs, les groupes et les applications de cet annuaire peuvent être autorisés à gérer les ressources de l’abonnement Azure qui reposent sur le modèle de déploiement Azure Resource Manager. Ce type de contrôle d’accès porte le nom de contrôle d’accès en fonction du rôle (RBAC). Pour gérer cet accès, vous pouvez utiliser le [Portail Azure](https://portal.azure.com/), les [outils de l’interface de ligne de commande Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) ou les [API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+### <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle (RBAC)
+À chaque abonnement Azure correspond un annuaire Azure Active Directory. Les utilisateurs, les groupes et les applications de cet annuaire peuvent être autorisés à gérer les ressources de l’abonnement Azure qui reposent sur le modèle de déploiement Azure Resource Manager. Ce type de contrôle d’accès porte le nom de contrôle d’accès en fonction du rôle (RBAC). Pour gérer cet accès, vous pouvez utiliser le [Portail Azure](https://portal.azure.com/), les [outils de l’interface de ligne de commande Azure](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) ou les [API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 Avec le modèle Azure Resource Manager, vous créez votre coffre de clés dans un groupe de ressources et contrôlez l’accès au plan de gestion de ce coffre de clés à l’aide d’Azure Active Directory. Par exemple, vous pouvez autoriser des utilisateurs ou un groupe à gérer les coffres de clés d’un groupe de ressources spécifique.
 
@@ -89,7 +89,7 @@ Le plan de données d’un coffre de clés concerne les opérations qui affecten
 L’accès au plan de données est octroyé en définissant des stratégies d’accès pour un coffre de clés. Un utilisateur, un groupe ou une application doit posséder des autorisations de collaborateur (RBAC) pour le plan de gestion d’un coffre de clés afin de pouvoir définir des stratégies d’accès pour ce coffre de clés. Un utilisateur, un groupe ou une application peut se voir autorisée à effectuer des opérations spécifiques pour les clés ou les secrets d’un coffre de clés. Un coffre de clés prend en charge jusqu’à 16 entrées de stratégie d’accès. Créez un groupe de sécurité Azure Active Directory et ajoutez des utilisateurs à ce groupe afin d’accorder l’accès au plan de données à plusieurs utilisateurs pour un coffre de clés.
 
 ### <a name="key-vault-access-policies"></a>Stratégies d’accès à un coffre de clés
-Les stratégies d’accès à un coffre de clés accordent des autorisations s’appliquant soit aux clés, soit aux secrets, soit aux certificats. Par exemple, vous pouvez donner accès aux clés à un utilisateur, mais aucune autorisation pour les secrets. Toutefois, les autorisations d’accès aux clés, aux secrets ou aux certificats concernent le niveau du coffre. En d’autres termes, la stratégie d’accès à un coffre de clés ne prend pas en charge les autorisations de niveau objet. Vous pouvez utiliser le [portail Azure](https://portal.azure.com/), les [outils de la CLI Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) ou les [API REST de gestion de coffre de clés](https://msdn.microsoft.com/library/azure/mt620024.aspx) pour définir des stratégies d’accès pour un coffre de clés.
+Les stratégies d’accès à un coffre de clés accordent des autorisations s’appliquant soit aux clés, soit aux secrets, soit aux certificats. Par exemple, vous pouvez donner accès aux clés à un utilisateur, mais aucune autorisation pour les secrets. Toutefois, les autorisations d’accès aux clés, aux secrets ou aux certificats concernent le niveau du coffre. En d’autres termes, la stratégie d’accès à un coffre de clés ne prend pas en charge les autorisations de niveau objet. Vous pouvez utiliser le [portail Azure](https://portal.azure.com/), les [outils de la CLI Azure](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) ou les [API REST de gestion de coffre de clés](https://msdn.microsoft.com/library/azure/mt620024.aspx) pour définir des stratégies d’accès pour un coffre de clés.
 
 > [!IMPORTANT]
 > Notez que les stratégies d’accès à un coffre de clés s’appliquent au niveau du coffre. Par exemple, lorsqu’un utilisateur est autorisé à créer et à supprimer des clés, il peut effectuer ces opérations sur toutes les clés de ce coffre de clés.
@@ -210,7 +210,7 @@ Cet exemple illustre un scénario simple. Les scénarios réels peuvent être pl
 * [RBAC : rôles intégrés](../active-directory/role-based-access-built-in-roles.md)
   
   Cet article explique en détail tous les rôles intégrés disponibles dans RBAC.
-* [Présentation du déploiement de Resource Manager et du déploiement classique](../resource-manager-deployment-model.md)
+* [Présentation du déploiement de Resource Manager et du déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md)
   
   Cet article décrit le modèle de déploiement de Resource Manager et le modèle de déploiement classique et explique les avantages liés à l’utilisation de Resource Manager et des groupes de ressources.
 * [Gestion du contrôle d’accès en fonction du rôle (RBAC) avec Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
@@ -253,6 +253,6 @@ Pour toute question concernant les coffres de clés, rendez-vous sur les [forums
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

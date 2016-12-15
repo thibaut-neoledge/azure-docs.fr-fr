@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e3c045d652c04a8a03525753d9c18c3017c04f08
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
 
 
 ---
@@ -48,7 +48,7 @@ Ce didacticiel vous montre comment créer et surveiller une fabrique de données
   2. Obtenez un **ID client** et une **clé secrète**. 
   3. Obtenez l’ **ID de locataire**. 
   4. Attribuez l’application **ADFCopyTutorialApp** au rôle **Collaborateur de Data Factory**.  
-* Installez [Azure PowerShell](../powershell-install-configure.md).  
+* Installez [Azure PowerShell](/powershell/azureps-cmdlets-docs).  
 * Démarrez **PowerShell** et exécutez la commande suivante. Conservez Azure PowerShell ouvert jusqu’à la fin de ce didacticiel. Si vous fermez puis rouvrez Azure PowerShell, vous devrez réexécuter ces commandes.
   
   1. Exécutez la commande suivante, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.
@@ -84,7 +84,7 @@ Créez les fichiers JSON suivants dans le dossier où se trouve le fichier curl.
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Remplacez **accountname** et **accountkey** par le nom et la clé de votre compte de stockage Azure. Pour savoir comment obtenir votre clé d’accès de stockage, voir [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+> Remplacez **accountname** et **accountkey** par le nom et la clé de votre compte de stockage Azure. Pour savoir comment obtenir votre clé d’accès de stockage, voir [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
 > 
 > 
 
@@ -272,7 +272,7 @@ Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière
 Dans l’exemple ci-dessus, il existe 24 tranches de données, car une tranche est générée par heure.
 
 > [!NOTE]
-> Pour plus d’informations sur les propriétés JSON utilisées dans l’exemple ci-dessus, consultez [Anatomie d’un pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) .
+> Pour plus d’informations sur les propriétés JSON utilisées dans l’exemple ci-dessus, consultez [Anatomie d’un pipeline](data-factory-create-pipelines.md) .
 > 
 > 
 
@@ -402,7 +402,7 @@ Effectuez les étapes suivantes pour préparer le stockage d’objets blob Azure
 
         CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID); 
 
-    Si vous avez installé SQL Server 2014 sur votre ordinateur : suivez les instructions de l’article [Étape 2 : se connecter à la base de données SQL de la gestion de base de données SQL à l’aide de SQL Server Management Studio][sql-management-studio] pour vous connecter à votre serveur SQL Azure et exécuter le script SQL.
+    Si vous avez installé SQL Server 2014 sur votre ordinateur : suivez les instructions de l’article [Étape 2 : se connecter à la base de données SQL de la gestion de base de données SQL à l’aide de SQL Server Management Studio][sql-management-studio] pour vous connecter à votre serveur SQL Azure et exécuter le script SQL.
 
     Si votre client n’est pas autorisé à accéder au serveur SQL Azure, vous devez configurer le pare-feu pour votre serveur SQL Azure afin d’autoriser l’accès à partir de votre ordinateur (adresse IP). Consultez [cet article](../sql-database/sql-database-configure-firewall-settings.md) pour savoir comment configurer le pare-feu de votre serveur SQL Azure.
 
@@ -495,7 +495,7 @@ Dans ce didacticiel, vous avez utilisé une API REST pour créer une fabrique de
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [azure-portal]: http://portal.azure.com
-[download-azure-powershell]: ../powershell-install-configure.md
+[download-azure-powershell]: /powershell/azureps-cmdlets-docs
 [data-factory-introduction]: data-factory-introduction.md
 
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png
@@ -504,6 +504,6 @@ Dans ce didacticiel, vous avez utilisé une API REST pour créer une fabrique de
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

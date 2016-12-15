@@ -31,26 +31,26 @@
     ![](./media/app-service-mobile-android-configure-push/android-studio-create-class.png)
 
 
-1. Dans le fichier MyHandler, remplacez la déclaration de classe par
+9. Dans le fichier MyHandler, remplacez la déclaration de classe par
    
         public class MyHandler extends NotificationsHandler {
-2. Ajoutez les instructions import suivantes pour la classe `MyHandler` :
+10. Ajoutez les instructions import suivantes pour la classe `MyHandler` :
    
-       import com.microsoft.windowsazure.notifications.NotificationsHandler;
-       import android.app.NotificationManager;
-       import android.app.PendingIntent;
-       import android.content.Context;
-       import android.content.Intent;
-       import android.os.AsyncTask;
-       import android.os.Bundle;
-       import android.support.v4.app.NotificationCompat;
-3. Ensuite, ajoutez ce membre à la classe `MyHandler` :
+        import com.microsoft.windowsazure.notifications.NotificationsHandler;
+        import android.app.NotificationManager;
+        import android.app.PendingIntent;
+        import android.content.Context;
+        import android.content.Intent;
+        import android.os.AsyncTask;
+        import android.os.Bundle;
+        import android.support.v4.app.NotificationCompat;
+11. Ensuite, ajoutez ce membre à la classe `MyHandler` :
    
-       public static final int NOTIFICATION_ID = 1;
-4. Dans la classe `MyHandler` , ajoutez le code suivant pour remplacer la méthode **onRegistered** , qui permet d’enregistrer votre appareil auprès du hub de notification du service mobile.
+        public static final int NOTIFICATION_ID = 1;
+12. Dans la classe `MyHandler` , ajoutez le code suivant pour remplacer la méthode **onRegistered** , qui permet d’enregistrer votre appareil auprès du hub de notification du service mobile.
    
-       @Override
-       public void onRegistered(Context context,  final String gcmRegistrationId) {
+        @Override
+        public void onRegistered(Context context,  final String gcmRegistrationId) {
            super.onRegistered(context, gcmRegistrationId);
    
            new AsyncTask<Void, Void, Void>() {
@@ -67,10 +67,10 @@
                }
            }.execute();
        }
-5. Dans la classe `MyHandler` , ajoutez le code suivant pour remplacer la méthode **onReceive** qui entraîne l'affichage de la notification lors de sa réception.
+13. Dans la classe `MyHandler` , ajoutez le code suivant pour remplacer la méthode **onReceive** qui entraîne l'affichage de la notification lors de sa réception.
    
-       @Override
-       public void onReceive(Context context, Bundle bundle) {
+        @Override
+        public void onReceive(Context context, Bundle bundle) {
                String msg = bundle.getString("message");
    
                PendingIntent contentIntent = PendingIntent.getActivity(context,
@@ -90,13 +90,13 @@
                        context.getSystemService(Context.NOTIFICATION_SERVICE);
                notificationManager.notify(NOTIFICATION_ID, notification);
        }
-6. Dans le fichier TodoActivity.java, mettez à jour la méthode **onCreate** de la classe *ToDoActivity* pour enregistrer la classe de gestionnaire de notification. Veillez à ajouter ce code après l'instanciation de *MobileServiceClient* .
+14. Dans le fichier TodoActivity.java, mettez à jour la méthode **onCreate** de la classe *ToDoActivity* pour enregistrer la classe de gestionnaire de notification. Veillez à ajouter ce code après l'instanciation de *MobileServiceClient* .
 
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
     L'application est mise à jour et prend en charge les notifications Push.
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

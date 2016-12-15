@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: bf07b8a10dd7e5ee9259c6fab9da886578504fe7
-ms.openlocfilehash: 3b756b11ce762cbbc56650ea9d49715d899bfbdb
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a896240331d901ae839c2489c6266daac2780899
 
 
 ---
@@ -37,7 +37,7 @@ Pour mettre en évidence la façon dont vous pouvez exploiter efficacement Azure
 Cette procédure pas à pas montre comment utiliser le service DocumentDB fourni par Azure pour stocker des données et y accéder à partir d'une application web ASP.NET MVC hébergée sur Azure. Si vous recherchez un didacticiel portant uniquement sur DocumentDB et non sur les composants ASP.NET MVC, voir [Didacticiel NoSQL : générer une application de console C# DocumentDB](documentdb-get-started.md).
 
 > [!TIP]
-> Ce didacticiel suppose que vous disposez d'une expérience préalable de l'utilisation d'ASP.NET MVC et d'Azure Websites. Si vous débutez avec ASP.NET ou avec les [outils requis](#_Toc395637760), nous vous recommandons de télécharger le projet exemple complet sur [GitHub][GitHub] et de suivre les instructions fournies dans cet exemple. Une fois que vous l'avez créé, vous pouvez consulter cet article pour obtenir des informations sur le code dans le contexte du projet.
+> Ce didacticiel suppose que vous disposez d'une expérience préalable de l'utilisation d'ASP.NET MVC et d'Azure Websites. Si vous débutez avec ASP.NET ou les [outils requis](#_Toc395637760), nous vous recommandons de télécharger le projet exemple complet à partir de [GitHub][GitHub] et de suivre les instructions fournies dans cet exemple. Une fois que vous l'avez créé, vous pouvez consulter cet article pour obtenir des informations sur le code dans le contexte du projet.
 > 
 > 
 
@@ -50,7 +50,7 @@ Avant de suivre les instructions de cet article, vérifiez que les éléments su
 
     Une installation locale de [l’émulateur Azure DocumentDB](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2015](http://www.visualstudio.com/) ou Visual Studio 2013 mise à jour 4 ou ultérieure. Si vous utilisez Visual Studio 2013, vous devrez installer le [package NuGet Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/) pour prendre en charge C# 6.0. 
-* Kit de développement logiciel (SDK) Azure pour .NET 2.5.1 ou version ultérieure, disponible par le biais de [Microsoft Web Platform Installer][Microsoft Web Platform Installer].
+* Kit de développement logiciel (SDK) Azure pour .NET 2.5.1 ou version ultérieure, disponible via [Microsoft Web Platform Installer][Microsoft Web Platform Installer].
 
 Toutes les captures d'écran figurant dans cet article ont été prises avec Visual Studio 2013 Update 4 et le Kit de développement logiciel (SDK) Azure pour .NET 2.5.1. Si votre système est configuré avec différentes versions, il est probable que vos écrans et options ne correspondent pas totalement. Toutefois, si vous respectez la configuration requise citée plus haut, cette solution devrait fonctionner.
 
@@ -430,9 +430,9 @@ Ajoutons du code à DocumentDBRepository et ItemController pour rendre l’enreg
    
     Ce code invoque le référentiel DocumentDB et utilise la méthode CreateItemAsync pour conserver la nouvelle tâche dans la base de données. 
    
-    **Note de sécurité** : L’attribut **ValidateAntiForgeryToken** est utilisé ici pour protéger cette application contre les attaques de type falsification de requête intersites. En plus d'ajouter cet attribut, vous devez vérifier que vos vues fonctionnent avec ce jeton anti-falsification. Pour plus d’informations sur le sujet et pour obtenir des exemples illustrant une implémentation adéquate, consultez la rubrique [Prévention des falsifications de requête intersites][Prévention des falsifications de requête intersites]. Le code source fourni sur [GitHub][GitHub] comporte l’implémentation complète.
+    **Note de sécurité** : L’attribut **ValidateAntiForgeryToken** est utilisé ici pour protéger cette application contre les attaques de type falsification de requête intersites. En plus d'ajouter cet attribut, vous devez vérifier que vos vues fonctionnent avec ce jeton anti-falsification. Pour plus d’informations sur le sujet et pour obtenir des exemples illustrant une implémentation adéquate, consultez la rubrique [Prévention des falsifications de requête intersites][Preventing Cross-Site Request Forgery]. Le code source fourni sur [GitHub][GitHub] comporte l’implémentation complète.
    
-    **Note de sécurité** : Nous utilisons également l’attribut **Bind** sur le paramètre de la méthode pour établir une protection contre les attaques par surcharge. Pour plus d’informations, consultez la rubrique [Opérations CRUD de base dans ASP.NET MVC][Opérations CRUD de base dans ASP.NET MVC].
+    **Note de sécurité** : Nous utilisons également l’attribut **Bind** sur le paramètre de la méthode pour établir une protection contre les attaques par surcharge. Pour plus d’informations, consultez la rubrique [Opérations CRUD de base dans ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
 
 Le code qui permet d'ajouter de nouveaux éléments à la base de données est à présent complet.
 
@@ -563,19 +563,19 @@ Si vous rencontrez l’erreur « Une erreur s’est produite lors du traitement
 
 
 ## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Étapes suivantes
-Félicitations ! Vous venez de créer votre première application web ASP.NET MVC à l’aide d’Azure DocumentDB et de la publier sur les sites web Azure. Le code source de l’application complète, y compris les fonctionnalités de détail et de suppression qui n’étaient pas incluses dans ce didacticiel, peuvent être téléchargés ou clonés à partir de [GitHub][GitHub]. Si vous êtes intéressé par l'ajout de ce code à votre application, copiez-le et ajoutez-le à cette dernière.
+Félicitations ! Vous venez de créer votre première application web ASP.NET MVC à l’aide d’Azure DocumentDB et de la publier sur les sites web Azure. Le code source de l'application complète, y compris les fonctionnalités de détail et de suppression qui n'étaient pas incluses dans ce didacticiel, peuvent être téléchargés ou clonés à partir de [GitHub][GitHub]. Si vous êtes intéressé par l'ajout de ce code à votre application, copiez-le et ajoutez-le à cette dernière.
 
 Pour ajouter des fonctionnalités supplémentaires à votre application, passez en revue les API disponibles dans la [bibliothèque DocumentDB .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx) et n’hésitez pas à contribuer à la bibliothèque DocumentDB .NET sur [GitHub][GitHub]. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[Prévention des falsifications de requête intersites]: http://go.microsoft.com/fwlink/?LinkID=517254
-[Opérations CRUD de base dans ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
+[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
+[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
