@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 9bff89b6bb049e4a5ca1fa54950f67a7cb2eb150
-ms.openlocfilehash: a1b3dd4445ea1dd3ccecc2fd7cfc2d74bdfb0d4d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b241d70ab7c7e8468a3f358fef5af47a89d42e56
 
 
 ---
@@ -103,7 +103,7 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 |:---:|:---:|:---:|:---:|
 | Jusqu’à 500 000 objets |Aucune limite d’objets |Aucune limite d’objets |Aucune limite d’objets pour les comptes d’utilisateurs Office 365 |
 
-#### <a name="usergroup-management-addupdatedelete-user-based-provisioning-device-registration"></a>Gestion des groupes/utilisateurs (ajout/mise à jour/suppression)/ approvisionnement basé sur l’utilisateur, inscription d’appareil
+#### <a name="usergroup-management-addupdatedelete-user-based-provisioning-device-registration"></a>Gestion des groupes/utilisateurs (ajout/mise à jour/suppression), approvisionnement basé sur l’utilisateur, inscription d’appareil
 **Type :** Fonctionnalités communes
 
 **Disponibilité :**
@@ -180,7 +180,7 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 
 | Édition gratuite | Édition de base | Éditions Premium (P1 et P2) | Applications Office 365 uniquement |
 |:---:|:---:|:---:|:---:|
-| |![Vérification][12] | ![Vérification][12] | |
+| &nbsp; |![Vérification][12] | ![Vérification][12] | &nbsp; |
 
 **Détails supplémentaires :**
 
@@ -193,7 +193,7 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 
 | Édition gratuite | Édition de base | Éditions Premium (P1 et P2) | Applications Office 365 uniquement |
 |:---:|:---:|:---:|:---:|
-|  |![Vérification][12] |![Vérification][12] | ![Vérification][12] |
+| &nbsp; |![Vérification][12] |![Vérification][12] | ![Vérification][12] |
 
 **Détails supplémentaires :**
 
@@ -206,7 +206,7 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 
 | Édition gratuite | Édition de base | Éditions Premium (P1 et P2) | Applications Office 365 uniquement |
 |:---:|:---:|:---:|:---:|
-|  |![Vérification][12] |![Vérification][12] | ![Vérification][12] |
+| &nbsp; |![Vérification][12] |![Vérification][12] | ![Vérification][12] |
 
 **Détails supplémentaires :**
 
@@ -219,7 +219,7 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 
 | Édition gratuite | Édition de base | Éditions Premium (P1 et P2) | Applications Office 365 uniquement |
 |:---:|:---:|:---:|:---:|
-| |![Vérification][12] | ![Vérification][12] | |
+| &nbsp; |![Vérification][12] | ![Vérification][12] | &nbsp; |
 
 **Détails supplémentaires :**
 
@@ -232,7 +232,7 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 
 | Édition gratuite | Édition de base | Éditions Premium (P1 et P2) | Applications Office 365 uniquement |
 |:---:|:---:|:---:|:---:|
-| |![Vérification][12] |![Vérification][12] | ![Vérification][12] |
+| &nbsp; |![Vérification][12] |![Vérification][12] | ![Vérification][12] |
 
 **Détails supplémentaires :**
 
@@ -248,7 +248,7 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 
 | Édition gratuite | Édition de base | Éditions Premium (P1 et P2) | Applications Office 365 uniquement |
 |:---:|:---:|:---:|:---:|
-|  | | ![Vérification][12]|  |
+| &nbsp; | &nbsp; | ![Vérification][12]| &nbsp; |
 
 #### <a name="self-service-password-resetchangeunlock-with-on-premises-write-back"></a>Réinitialisation, modification et déverrouillage de mot de passe libre-service avec écriture différée locale
 **Type :** Fonctionnalités Premium
@@ -257,7 +257,7 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 
 | Édition gratuite | Édition de base | Éditions Premium (P1 et P2) | Applications Office 365 uniquement |
 |:---:|:---:|:---:|:---:|
-|  | | ![Vérification][12] | |
+| &nbsp; | &nbsp; | ![Vérification][12] | &nbsp; |
 
 #### <a name="multi-factor-authentication-cloud-and-on-premises-mfa-server"></a>Multi-Factor Authentication (dans le cloud et localement - MFA Server)
 **Type :** Fonctionnalités Premium
@@ -266,7 +266,7 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 
 | Édition gratuite | Édition de base | Éditions Premium (P1 et P2) | Applications Office 365 uniquement |
 |:---:|:---:|:---:|:---:|
-| | |![Vérification][12] |Limité au cloud uniquement pour les applications Office 365 |
+| &nbsp; | &nbsp; |![Vérification][12] |Limité au cloud uniquement pour les applications Office 365 |
 
 **Détails supplémentaires :**
 
@@ -282,7 +282,7 @@ Les droits du logiciel Microsoft Identity Manager Server sont octroyés avec les
 
 | Édition gratuite | Édition de base | Éditions Premium (P1 et P2) | Applications Office 365 uniquement |
 |:---:|:---:|:---:|:---:|
-| | |![Vérification][12] | |
+| &nbsp; | &nbsp; |![Vérification][12] | &nbsp; |
 
 #### <a name="cloud-app-discovery"></a>Cloud App Discovery
 **Type :** Fonctionnalités Premium
@@ -291,7 +291,7 @@ Les droits du logiciel Microsoft Identity Manager Server sont octroyés avec les
 
 | Édition gratuite | Édition de base | Éditions Premium (P1 et P2) | Applications Office 365 uniquement |
 |:---:|:---:|:---:|:---:|
-|  | | ![Vérification][12] | |
+| &nbsp; | &nbsp; | ![Vérification][12] | &nbsp; |
 
 **Détails supplémentaires :**
 
@@ -304,7 +304,7 @@ Les droits du logiciel Microsoft Identity Manager Server sont octroyés avec les
 
 | Édition gratuite | Édition de base | Éditions Premium (P1 et P2) | Applications Office 365 uniquement |
 |:---:|:---:|:---:|:---:|
-|  |  | ![Vérification][12] | |
+| &nbsp; | &nbsp; | ![Vérification][12] | &nbsp; |
 
 **Détails supplémentaires :**
 
@@ -317,21 +317,21 @@ Les droits du logiciel Microsoft Identity Manager Server sont octroyés avec les
 
 | Édition gratuite | Édition de base | Éditions Premium (P1 et P2) | Applications Office 365 uniquement |
 |:---:|:---:|:---:|:---:|
-|  | | ![Vérification][12] | |
+| &nbsp; | &nbsp; | ![Vérification][12] | &nbsp; |
 
 #### <a name="identity-protection"></a>Identity Protection
 **Type :** Fonctionnalités Premium
 
 | Édition gratuite | Édition de base | Édition Premium P2 | Applications Office 365 uniquement |
 |:---:|:---:|:---:|:---:|
-|  | | ![Vérification][12] | |
+| &nbsp; | &nbsp; | ![Vérification][12] | &nbsp; |
 
 #### <a name="privileged-identity-management"></a>Privileged Identity Management
 **Type :** Fonctionnalités Premium
 
 | Édition gratuite | Édition de base | Édition Premium P2 | Applications Office 365 uniquement |
 |:---:|:---:|:---:|:---:|
-|  |  | ![Vérification][12] | |
+| &nbsp; | &nbsp; | ![Vérification][12] | &nbsp; |
 
 ## <a name="azure-active-directory-join-windows-10-only-related-features"></a>Azure Active Directory Join - Fonctionnalités propres à Windows 10
 #### <a name="join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery"></a>Joindre un appareil à Azure AD, Desktop SSO, Microsoft Passport pour Azure AD, récupération Bitlocker de l’administrateur
@@ -351,7 +351,7 @@ Les droits du logiciel Microsoft Identity Manager Server sont octroyés avec les
 
 | Édition gratuite | Édition de base | Éditions Premium (P1 et P2) | Applications Office 365 uniquement |
 |:---:|:---:|:---:|:---:|
-|  |  | ![Vérification][12] | |
+| &nbsp; | &nbsp; | ![Vérification][12] | &nbsp; |
 
 #### <a name="enterprise-state-roaming"></a>Enterprise State Roaming
 **Type :** Azure Active Directory Join - Fonctionnalités propres à Windows 10
@@ -360,7 +360,7 @@ Les droits du logiciel Microsoft Identity Manager Server sont octroyés avec les
 
 | Édition gratuite | Édition de base | Éditions Premium (P1 et P2) | Applications Office 365 uniquement |
 |:---:|:---:|:---:|:---:|
-|  | | ![Vérification][12] | |
+| &nbsp; | &nbsp; | ![Vérification][12] | &nbsp; |
 
 **Détails supplémentaires :**
 
@@ -387,6 +387,6 @@ Outre les fonctionnalités généralement disponibles des éditions gratuite, de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
