@@ -1,32 +1,36 @@
 ---
-title: Créer un groupe dans la version préliminaire d’Azure Active Directory | Microsoft Docs
-description: Comment créer un groupe dans Active Directory Azure et ajouter des utilisateurs (membres) au groupe
+title: "Créer un groupe dans la version préliminaire d’Azure Active Directory | Microsoft Docs"
+description: "Comment créer un groupe dans Active Directory Azure et ajouter des utilisateurs (membres) au groupe"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: cc5f232a-1e77-45c2-b28b-1fcb4621725c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 10/17/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 21e36b4bb812eb614332a060ffbfd5b7cc76749a
+
 
 ---
 # <a name="create-a-new-group-in-azure-active-directory-preview"></a>Créez un groupe dans la version préliminaire d’Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Portail Azure](active-directory-groups-create-azure-portal.md)
 > * [Portail Azure Classic](active-directory-accessmanagement-manage-groups.md)
-> * [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+> * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 > 
 > 
 
 Cet article explique comment créer un remplir un nouveau groupe dans la version préliminaire d’Azure Active Directory (Azure AD). [Nouveautés de la version préliminaire](active-directory-preview-explainer.md)  Un groupe vous permet d’effectuer différentes tâches de gestion, par exemple l’attribution de licences ou autorisations à plusieurs utilisateurs ou appareils simultanément.
 
-## <a name="how-do-i-create-a-group?"></a>Comment créer un groupe ?
+## <a name="how-do-i-create-a-group"></a>Comment créer un groupe ?
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 2. Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
    
@@ -55,6 +59,9 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 * [Gérer l’appartenance à un groupe](active-directory-groups-membership-azure-portal.md)
 * [Gérer les règles dynamiques pour les utilisateurs dans un groupe](active-directory-groups-dynamic-membership-azure-portal.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

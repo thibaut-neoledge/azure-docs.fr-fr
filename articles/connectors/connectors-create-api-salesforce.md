@@ -1,13 +1,13 @@
 ---
-title: Découvrez comment utiliser le connecteur Salesforce dans vos applications logiques | Microsoft Docs
-description: Créez des applications logiques avec Azure App Service. Le connecteur Salesforce offre une API permettant de travailler avec des objets Salesforce.
+title: "Découvrez comment utiliser le connecteur Salesforce dans vos applications logiques | Microsoft Docs"
+description: "Créez des applications logiques avec Azure App Service. Le connecteur Salesforce offre une API permettant de travailler avec des objets Salesforce."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 54fe5af8-7d2a-4da8-94e7-15d029e029bf
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/05/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f2f9a4d182527d2772e78d78a0c10bd94742d0fe
+
 
 ---
 # <a name="get-started-with-the-salesforce-connector"></a>Prise en main du connecteur Salesforce
@@ -83,8 +87,8 @@ Cette opération récupère les objets d’un certain type d’objet, tel que «
 | table* |Type d'objet |Type d’objet Salesforce, tel que « Prospect » |
 | $filter |Requête de filtre |Requête filter ODATA pour limiter le nombre d’entrées |
 | $orderby |Trier par |Requête orderBy ODATA pour spécifier l’ordre des entrées |
-| $skip |Nombre à ignorer |Nombre d’entrées à ignorer (valeur par défaut : 0) |
-| $top |Nombre maximal à récupérer |Nombre maximal d’entrées à récupérer (valeur par défaut : 256) |
+| $skip |Nombre à ignorer |Nombre d’entrées à ignorer (valeur par défaut : 0) |
+| $top |Nombre maximal à récupérer |Nombre maximal d’entrées à récupérer (valeur par défaut : 256) |
 
 Le caractère * indique qu’une propriété est obligatoire.
 
@@ -165,8 +169,8 @@ Cette opération déclenche un flux lorsqu’un objet est créé.
 | table* |Type d’objet |Type d’objet, tel que « Prospect » |
 | $filter |Requête de filtre |Requête filter ODATA pour limiter le nombre d’entrées |
 | $orderby |Trier par |Requête orderBy ODATA pour spécifier l’ordre des entrées |
-| $skip |Nombre à ignorer |Nombre d’entrées à ignorer (valeur par défaut : 0) |
-| $top |Nombre maximal à récupérer |Nombre maximal d’entrées à récupérer (valeur par défaut : 256) |
+| $skip |Nombre à ignorer |Nombre d’entrées à ignorer (valeur par défaut : 0) |
+| $top |Nombre maximal à récupérer |Nombre maximal d’entrées à récupérer (valeur par défaut : 256) |
 
 Le caractère * indique qu’une propriété est obligatoire.
 
@@ -185,8 +189,8 @@ Cette opération déclenche un flux lorsqu’un objet est modifié.
 | table* |Type d’objet |Type d’objet, tel que « Prospect » |
 | $filter |Requête de filtre |Requête filter ODATA pour limiter le nombre d’entrées |
 | $orderby |Trier par |Requête orderBy ODATA pour spécifier l’ordre des entrées |
-| $skip |Nombre à ignorer |Nombre d’entrées à ignorer (valeur par défaut : 0) |
-| $top |Nombre maximal à récupérer |Nombre maximal d’entrées à récupérer (valeur par défaut : 256) |
+| $skip |Nombre à ignorer |Nombre d’entrées à ignorer (valeur par défaut : 0) |
+| $top |Nombre maximal à récupérer |Nombre maximal d’entrées à récupérer (valeur par défaut : 256) |
 
 Le caractère * indique qu’une propriété est obligatoire.
 
@@ -226,6 +230,9 @@ Les actions et déclencheurs ci-dessus peuvent renvoyer un ou plusieurs des code
 ## <a name="next-steps"></a>Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

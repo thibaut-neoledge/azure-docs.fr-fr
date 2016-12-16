@@ -1,23 +1,27 @@
 ---
-title: Nom et clé de l’émetteur dans BizTalk Services | Microsoft Docs
-description: Découvrez comment récupérer le nom et la clé de l'émetteur pour le bus des services ou le contrôle d'accès (ACS) dans BizTalk Services. MABS, WABS
+title: "Nom et clé de l’émetteur dans BizTalk Services | Microsoft Docs"
+description: "Découvrez comment récupérer le nom et la clé de l&quot;émetteur pour le bus des services ou le contrôle d&quot;accès (ACS) dans BizTalk Services. MABS, WABS"
 services: biztalk-services
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
-manager: erikre
-editor: ''
-
+manager: anneta
+editor: 
+ms.assetid: 067fe356-d1aa-420f-b2f2-1a418686470a
 ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/07/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
+ms.openlocfilehash: 4fb13a158c660105a5fc8f79a92c67ba65c5356d
+
 
 ---
-# Nom et clé de l'émetteur dans BizTalk Services
-Azure BizTalk Services utilise le nom et la clé de l'émetteur Service Bus, ainsi que le nom et la clé de l'émetteur Access Control. Plus précisément :
+# <a name="biztalk-services-issuer-name-and-issuer-key"></a>Nom et clé de l'émetteur dans BizTalk Services
+Azure BizTalk Services utilise le nom et la clé de l'émetteur Service Bus, ainsi que le nom et la clé de l'émetteur Access Control. Plus précisément :
 
 | Task | Nom et clé de l'émetteur |
 | --- | --- |
@@ -25,66 +29,78 @@ Azure BizTalk Services utilise le nom et la clé de l'émetteur Service Bus, ain
 | Configuration du portail Azure BizTalk Services |Nom et clé de l'émetteur Access Control |
 | Création de relais métier avec les services d'adaptateur BizTalk dans Visual Studio |Nom et clé de l'émetteur Service Bus |
 
-La présente rubrique répertorie les étapes permettant de récupérer le nom et la clé de l’émetteur.
+La présente rubrique répertorie les étapes permettant de récupérer le nom et la clé de l’émetteur. 
 
-## Nom et clé de l'émetteur Access Control
-Le nom et la clé de l'émetteur Access Control sont utilisés par les éléments suivants :
+## <a name="access-control-issuer-name-and-issuer-key"></a>Nom et clé de l'émetteur Access Control
+Le nom et la clé de l'émetteur Access Control sont utilisés par les éléments suivants :
 
-* Votre application Azure BizTalk Service créée dans Visual Studio : pour déployer correctement votre application BizTalk Service dans Visual Studio sur Azure, entrez le nom et la clé de l’émetteur Access Control.
-* Le portail Azure BizTalk Services : lorsque vous créez un service BizTalk et que vous ouvrez le portail BizTalk Services, votre nom et votre clé de l'émetteur Access Control sont automatiquement enregistrés pour vos déploiements avec les mêmes valeurs Access Control.
+* Votre application Azure BizTalk Service créée dans Visual Studio : pour déployer correctement votre application BizTalk Service dans Visual Studio sur Azure, entrez le nom et la clé de l’émetteur Access Control. 
+* Portail Azure BizTalk Services : lorsque vous créez un service BizTalk et que vous ouvrez le portail BizTalk Services, votre nom et votre clé de l’émetteur Access Control sont automatiquement inscrits pour vos déploiements avec les mêmes valeurs Access Control.
 
-### Pour copier et coller le nom et la clé de l'émetteur Access Control
-1. Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Dans le volet de navigation de gauche, sélectionnez **BizTalk Services**.
-3. Sélectionnez votre service BizTalk.
-4. Sélectionnez **Informations de connexion** dans la barre des tâches. L'espace de noms Access Control, l'émetteur par défaut (Nom de l'émetteur) et la clé par défaut (Clé de l'émetteur) sont répertoriés et peuvent être copiés-collés.
+### <a name="get-the-access-control-issuer-name-and-issuer-key"></a>Obtenir le nom et la clé de l’émetteur Access Control
 
-En résumé : Nom de l’émetteur = Émetteur par défaut Clé de l’émetteur = Clé par défaut
+Pour utiliser ACS pour l’authentification et obtenir les valeurs de nom et de clé de l’émetteur, les étapes générales sont les suivantes :
 
-Vous pouvez également cliquer sur **Ouvrir le portail de gestion ACS** pour récupérer les valeurs Access Control :
+1. Installez les [applets de commande Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+2. Ajoutez votre compte Azure : `Add-AzureAccount`
+3. Retournez le nom de votre abonnement : `get-azuresubscription`
+4. Sélectionnez votre abonnement : `select-azuresubscription <name of your subscription>` 
+5. Créez un espace de noms : `new-azuresbnamespace <name for the service bus> "Location" -CreateACSNamespace $true -NamespaceType Messaging`
 
-1. Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Dans le volet de navigation de gauche, sélectionnez **BizTalk Services**.
-3. Sélectionnez votre service BizTalk.
-4. Sélectionnez le bouton Informations de connexion, puis **Ouvrir le portail de gestion ACS**.
-5. Dans le portail, sous **Paramètres de service**, sélectionnez **Identités de service**. Cette action affiche votre identité de service, qui correspond à la valeur de votre nom d'émetteur Access Control. Cliquez sur votre lien d'identité de service pour afficher le mot de passe, qui correspond à la valeur de votre clé d'émetteur. Leurs valeurs peuvent être copiées.<br/><br/> Par exemple, dans **Identités du service**, vous voyez « owner ». « Owner » correspond au nom de votre émetteur Access Control. Lorsque vous cliquez sur le lien « Owner », vous voyez le **Mot de passe**. Lorsque vous cliquez sur le lien « Password », vous voyez la valeur. Cette valeur Password correspond à votre clé d'émetteur Access Control.
+    Exemple :    `new-azuresbnamespace biztalksbnamespace "South Central US" -CreateACSNamespace $true -NamespaceType Messaging`
+      
+5. Lorsque le nouvel espace de noms ACS est créé (ce qui peut prendre plusieurs minutes), les valeurs de nom et de clé de l’émetteur sont répertoriées dans la chaîne de connexion : 
 
-En résumé : Nom de l’émetteur = Nom de l’identité du service Clé de l’émetteur = Valeur du mot de passe
+    ```
+    Name                  : biztalksbnamespace
+    Region                : South Central US
+    DefaultKey            : abcdefghijklmnopqrstuvwxyz
+    Status                : Active
+    CreatedAt             : 10/18/2016 9:36:30 PM
+    AcsManagementEndpoint : https://biztalksbnamespace-sb.accesscontrol.windows.net/
+    ServiceBusEndpoint    : https://biztalksbnamespace.servicebus.windows.net/
+    ConnectionString      : Endpoint=sb://biztalksbnamespace.servicebus.windows.net/;SharedSecretIssuer=owner;SharedSecretValue=abcdefghijklmnopqrstuvwxyz
+    NamespaceType         : Messaging
+    ```
 
-Dans le volet de navigation de gauche, vous pouvez également sélectionner **Active Directory** pour récupérer les valeurs Access Control.
+Pour résumer :  
+Nom de l’émetteur = SharedSecretIssuer  
+Clé de l’émetteur = SharedSecretKey
 
-> [!IMPORTANT]
-> Lorsqu'un espace de noms Access Control est créé au moyen d'**Active Directory**, une identité de service n'est **pas** créée automatiquement. Lorsque vous approvisionnez un service BizTalk, un espace de noms Access Control, une identité de service appelée « Owner » (nom de l'émetteur), un mot de passe (clé de l'émetteur) et une clé symétrique sont automatiquement créés.<br /> La page [Utilisation du service de gestion ACS pour configurer des identités de service](http://go.microsoft.com/fwlink/p/?LinkID=303942) fournit des informations supplémentaires sur les identités de service Access Control.
-> 
-> 
+Informations complémentaires sur l’applet de commande [New-AzureSBNamespace](https://msdn.microsoft.com/library/dn495165.aspx). 
 
-## Nom et clé de l'émetteur Service Bus
+## <a name="service-bus-issuer-name-and-issuer-key"></a>Nom et clé de l'émetteur Service Bus
 Le nom et la clé de l'émetteur Service Bus sont utilisés par BizTalk Adapter Services. Dans votre projet BizTalk Services dans Visual Studio, vous utilisez les services d'adaptateur BizTalk pour vous connecter à un système métier local. Pour vous connecter, vous créez le relais métier et entrez les détails relatifs à votre système métier. À cette occasion, vous entrez également le nom et la clé de l'émetteur Service Bus.
 
-### Pour récupérer le nom et la clé de l'émetteur Service Bus
+### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Pour récupérer le nom et la clé de l'émetteur Service Bus
 1. Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Dans le volet de navigation de gauche, sélectionnez **Service Bus**.
-3. Sélectionnez votre espace de noms. Dans la barre des tâches, sélectionnez **Informations de connexion**. Cette action affiche l'**Émetteur par défaut** (Nom de l'émetteur) et la **Clé par défaut** (Clé de l'émetteur). Leurs valeurs peuvent être copiées.
+3. Sélectionnez votre espace de noms. Dans la barre des tâches, sélectionnez **Informations de connexion**. Cette action affiche **l’Émetteur par défaut** (Nom de l’émetteur) et la **Clé par défaut** (Clé de l’émetteur). Leurs valeurs peuvent être copiées.  
 
-En résumé :  
-Nom de l’émetteur = Émetteur par défaut  
-Clé de l’émetteur = Clé par défaut
+Pour résumer :  
+Nom de l'émetteur = émetteur par défaut  
+Clé de l'émetteur = clé par défaut
 
-## Suivant
+## <a name="next"></a>Suivant
 Autres rubriques Azure BizTalk Services :
 
-* [Installation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
-* [Didacticiels : Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+* [Installation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+* [Didacticiels : Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
 * [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 * [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
-## Voir aussi
+## <a name="see-also"></a>Voir aussi
 * [Utilisation du service de gestion ACS pour configurer des identités de service](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
 * [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [BizTalk Services : approvisionnement avec le portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [BizTalk Services : approvisionnement à l’aide du portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [Tableau comparatif des états d'approvisionnement BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
 * [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [Sauvegarde et restauration de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [Limitation BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [Limitation dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

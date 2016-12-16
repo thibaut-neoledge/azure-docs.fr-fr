@@ -1,12 +1,12 @@
 ---
-title: 'Azure Active Directory Domain Services : guide d’administration | Microsoft Docs'
-description: Créer une UO sur des domaines gérés par les services de domaine Azure Active Directory
+title: "Azure Active Directory Domain Services : guide d’administration | Microsoft Docs"
+description: "Créer une UO sur des domaines gérés par les services de domaine Azure Active Directory"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0707a8efd91d646bf7c417f881ccb9ebb6f2a470
+
 
 ---
-# <a name="create-an-organizational-unit-(ou)-on-an-azure-ad-domain-services-managed-domain"></a>Créer une UO sur un domaine géré par les services de domaine Azure Active Directory
+# <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Créer une UO sur un domaine géré par les services de domaine Azure Active Directory
 Les domaines gérés par les services de domaine Azure Active Directory incluent deux conteneurs intégrés, appelés « Ordinateurs AADDC » et « Utilisateurs AADDC », respectivement. Le conteneur « Ordinateurs AADDC » inclut des objets ordinateur associés à tous les ordinateurs qui sont joints au domaine géré. Le conteneur « Utilisateurs AADDC » comprend les utilisateurs et les groupes du client Azure AD. Parfois, il peut être nécessaire de créer des comptes de service sur le domaine géré, afin de déployer des charges de travail. Pour cela, vous pouvez créer une unité d’organisation (UO) personnalisée dans le domaine géré, puis générer des comptes de service dans cette UO. Cet article vous explique comment créer une UO dans votre domaine géré.
 
 ## <a name="install-ad-administration-tools-on-a-domain-joined-virtual-machine-for-remote-administration"></a>Installer les outils d’administration Active Directory sur une machine virtuelle jointe à un domaine à des fins de gestion à distance
 Vous pouvez administrer à distance les domaines gérés par les services de domaine Azure Active Directory (AD) par l’intermédiaire des outils d’administration familiers d’Active Directory, par exemple le Centre d’administration Active Directory (ADAC, Active Directory Administrative Center) ou AD PowerShell. Les administrateurs clients ne disposent pas des privilèges permettant la connexion aux contrôleurs de domaine sur le domaine géré, via le Bureau à distance. Pour administrer le domaine géré, installez les outils d’administration Active Directory sur une machine virtuelle jointe au domaine géré. Pour savoir comment faire, voir [Administer an Azure AD Domain Services managed domain (Administrer un domaine géré par les services de domaine Azure AD)](active-directory-ds-admin-guide-administer-domain.md) .
 
 ## <a name="create-an-organizational-unit-on-the-managed-domain"></a>Créer une UO sur le domaine géré
-Maintenant que les outils d’administration AD sont installés sur la machine virtuelle jointe au domaine, nous pouvons les utiliser pour créer une unité d’organisation sur le domaine géré. Procédez comme suit :
+Maintenant que les outils d’administration AD sont installés sur la machine virtuelle jointe au domaine, nous pouvons les utiliser pour créer une unité d’organisation sur le domaine géré. Procédez comme suit :
 
 > [!NOTE]
 > Seuls les membres du groupe « AAD DC Administrators » disposent des privilèges requis pour créer une UO personnalisée. Veillez à effectuer les étapes suivantes en tant qu’utilisateur appartenant à ce groupe.
@@ -50,7 +54,7 @@ Maintenant que les outils d’administration AD sont installés sur la machine v
    
     ![ADAC - Unité d’organisation créée](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
 
-## <a name="permissions/security-for-newly-created-ous"></a>Sécurité/autorisations associées aux nouvelles unités d’organisation
+## <a name="permissionssecurity-for-newly-created-ous"></a>Sécurité/autorisations associées aux nouvelles unités d’organisation
 Par défaut, l’utilisateur (membre du groupe « AAD DC Administrators ») ayant créé l’UO personnalisée bénéficie de privilèges d’administration (contrôle total) concernant l’unité d’organisation. L’utilisateur peut ensuite accorder des privilèges à d’autres utilisateurs ou au groupe « AAD DC Administrators », au besoin. Comme indiqué dans la capture d’écran ci-dessous, l’utilisateur 'bob@domainservicespreview.onmicrosoft.com', qui a créé la nouvelle UI « MyCustomOU », bénéficie d’un contrôle absolu sur cette dernière.
 
  ![ADAC - Sécurité de la nouvelle UO](./media/active-directory-domain-services-admin-guide/create-ou-permissions.png)
@@ -68,6 +72,9 @@ Maintenant que vous avez créé une UO personnalisée, vous pouvez créer des ut
 * [Centre d’administration Active Directory : Prise en main](https://technet.microsoft.com/library/dd560651.aspx)
 * [Guide pas à pas des comptes de service (éventuellement en anglais)](https://technet.microsoft.com/library/dd548356.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
