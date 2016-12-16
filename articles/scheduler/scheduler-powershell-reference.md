@@ -1,25 +1,29 @@
 ---
-title: Informations de référence sur les applets de commande PowerShell de Scheduler
-description: Informations de référence sur les applets de commande PowerShell de Scheduler
+title: "Informations de référence sur les applets de commande PowerShell de Scheduler"
+description: "Informations de référence sur les applets de commande PowerShell de Scheduler"
 services: scheduler
 documentationcenter: .NET
-author: krisragh
-manager: dwrede
-editor: ''
-
+author: derek1ee
+manager: kevinlam1
+editor: 
+ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: krisragh
+ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e36a52f44bc30662a01299d2d4a2f3c36d9033a7
+
 
 ---
-# Informations de référence sur les applets de commande PowerShell de Scheduler
+# <a name="scheduler-powershell-cmdlets-reference"></a>Informations de référence sur les applets de commande PowerShell de Scheduler
 Le tableau suivant décrit chacune des principales applets de commande disponibles dans Azure Scheduler et établit un lien vers la page de référence correspondante.
 
-Pour installer Azure PowerShell et l’associer à votre abonnement Azure, consultez l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+Pour installer Azure PowerShell et l’associer à votre abonnement Azure, consultez l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). 
 
 Pour plus d’informations sur les [applets de commande Azure Resource Manager](https://msdn.microsoft.com/library/mt125356\(v=azure.200\).aspx), consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
 
@@ -43,7 +47,7 @@ Pour plus d’informations sur les [applets de commande Azure Resource Manager](
 | [Set-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490137\(v=azure.200\).aspx) |Modifie un travail de rubrique Service Bus. |
 | [Set-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490128\(v=azure.200\).aspx) |Modifie un travail de file d’attente de stockage. |
 
-Pour plus d’informations, vous pouvez exécuter les applets de commande suivantes :
+Pour plus d’informations, vous pouvez exécuter les applets de commande suivantes : 
 
 ```
 Get-Help <cmdlet name> -Detailed
@@ -55,7 +59,7 @@ Get-Help <cmdlet name> -Examples
 Get-Help <cmdlet name> -Full
 ```
 
-## Voir aussi
+## <a name="see-also"></a>Voir aussi
  [Présentation d'Azure Scheduler](scheduler-intro.md)
 
  [Concepts, terminologie et hiérarchie d’entités d’Azure Scheduler](scheduler-concepts-terms.md)
@@ -72,4 +76,9 @@ Get-Help <cmdlet name> -Full
 
  [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

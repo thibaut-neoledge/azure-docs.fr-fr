@@ -1,12 +1,12 @@
 ---
-title: Exportation de données Log Analytics vers Power BI | Microsoft Docs
-description: Power BI est un service Microsoft d’analyse commerciale basé sur le cloud qui fournit de riches fonctions de visualisation et de rapport afin de faciliter l’analyse de différents jeux de données.  Log Analytics peut exporter des données en continu entre le référentiel OMS et Power BI afin de vous permettre de tirer parti de ses visualisations et de ses outils d’analyse.  Cet article décrit comment configurer des requêtes dans Log Analytics pour exécuter automatiquement des exportations vers Power BI à intervalles réguliers.
+title: "Exportation de données Log Analytics vers Power BI | Microsoft Docs"
+description: "Power BI est un service Microsoft d’analyse commerciale basé sur le cloud qui fournit de riches fonctions de visualisation et de rapport afin de faciliter l’analyse de différents jeux de données.  Log Analytics peut exporter des données en continu entre le référentiel OMS et Power BI afin de vous permettre de tirer parti de ses visualisations et de ses outils d’analyse.  Cet article décrit comment configurer des requêtes dans Log Analytics pour exécuter automatiquement des exportations vers Power BI à intervalles réguliers."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 83edc411-6886-4de1-aadd-33982147b9c3
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7870e2aebf6c142b0f3103a500ca73d691e6d3e6
+
 
 ---
 # <a name="export-log-analytics-data-to-power-bi"></a>Exportation de données Log Analytics vers Power BI
@@ -114,6 +118,9 @@ Pour enregistrer le rapport, cliquez sur le bouton Enregistrer en haut de l’é
 * Découvrez comment les [recherches de journaux](log-analytics-log-searches.md) peuvent vous aider à générer des requêtes pouvant être exportées vers Power BI.
 * Découvrez comment utiliser [Power BI](http://powerbi.microsoft.com) pour créer des visualisations basées sur des exportations Log Analytics.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

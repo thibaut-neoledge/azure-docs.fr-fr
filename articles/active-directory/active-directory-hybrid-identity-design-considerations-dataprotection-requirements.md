@@ -1,12 +1,12 @@
 ---
-title: 'Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les exigences en matière de protection des données | Microsoft Docs'
-description: Lorsque vous planifiez votre solution d’identité hybride, vous devez identifier les exigences de protection des données pour votre entreprise et les options disponibles pour remplir au mieux ces exigences.
-documentationcenter: ''
+title: "Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les exigences en matière de protection des données | Microsoft Docs"
+description: "Lorsque vous planifiez votre solution d’identité hybride, vous devez identifier les exigences de protection des données pour votre entreprise et les options disponibles pour remplir au mieux ces exigences."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 40dc4baa-fe82-4ab6-a3e4-f36fa9dcd0df
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 797b467e480ba51c531ea6eddf3ad2447ec16f1a
+
 
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Planifier l'amélioration de la sécurité des données grâce à une solution d'identité solide
@@ -53,16 +57,16 @@ Bien que la technique de contrôle qui permettra au personnel informatique de pr
 Indépendamment de l'endroit où les données sont au repos (appareil, cloud ou en local), il est important d'effectuer une évaluation pour comprendre les besoins de l'organisation à cet égard. Pour cette zone, assurez-vous que les questions suivantes sont posées :
 
 * Votre entreprise a-t-elle besoin de protéger des données au repos ?
-  * Si oui, la solution d'identité hybride peut-elle être intégrée à votre infrastructure locale actuelle ?
-  * Si oui, la solution d’identité hybride peut-elle être intégrée à vos charges de travail situées dans le cloud ?
+  * Si oui, la solution d'identité hybride peut-elle être intégrée à votre infrastructure locale actuelle ?
+  * Si oui, la solution d’identité hybride peut-elle être intégrée à vos charges de travail situées dans le cloud ?
 * La gestion d'identité de cloud est-elle en mesure de protéger les informations d'identification de l'utilisateur et d'autres données stockées dans le cloud ?
 
 ## <a name="data-protection-in-transit"></a>Protection des données en transit
 Les données en transit entre l'appareil et le centre de données ou entre l'appareil et le cloud doivent être protégées. Toutefois, être en transit n'implique pas nécessairement un processus de communication avec un composant en dehors de votre service cloud ; le déplacement se fait en interne, comme entre deux réseaux virtuels. Pour cette zone, assurez-vous que les questions suivantes sont posées :
 
-* Votre entreprise a-t-elle besoin de protéger des données en transit ?
-  * Si oui, la solution d’identité hybride peut-elle être intégrée à vos contrôles de sécurité, comme SSL/TLS ?
-* La gestion des identités de cloud maintient-elle l'authentification du trafic vers et dans le magasin d'annuaires (dans et entre les centres de données) ?
+* Votre entreprise a-t-elle besoin de protéger des données en transit ?
+  * Si oui, la solution d’identité hybride peut-elle être intégrée à vos contrôles de sécurité, comme SSL/TLS ?
+* La gestion des identités de cloud maintient-elle l'authentification du trafic vers et dans le magasin d'annuaires (dans et entre les centres de données) ?
 
 ## <a name="compliance"></a>Conformité
 Les règlements, les lois et les exigences de conformité aux réglementations varieront selon le secteur d'activité de votre entreprise. Les entreprises de secteurs très réglementés doivent résoudre les problèmes de gestion des identités liés à des problèmes de conformité. Les réglementations telles que Sarbanes-Oxley (SOX), Health Insurance Portability Accountability Act (HIPAA), la loi Gramm-Leach-Bliley (GLBA) et le paiement carte norme (PCI DSS) sont très strictes en ce qui concerne l'identité et l'accès. La solution d'identité hybride adoptée par votre entreprise doit avoir les fonctionnalités essentielles répondant aux exigences d'une ou plusieurs de ces règlements. Pour cette zone, assurez-vous que les questions suivantes sont posées :
@@ -81,6 +85,9 @@ Les règlements, les lois et les exigences de conformité aux réglementations v
 ## <a name="see-also"></a>Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Visualisation de votre cluster à l'aide de l'outil Service Fabric Explorer | Microsoft Docs
-description: Service Fabric Explorer est un outil web dédié à l’inspection et à la gestion des applications cloud et des nœuds dans un cluster Microsoft Azure Service Fabric.
+title: "Visualisation de votre cluster à l’aide de l’outil Service Fabric Explorer | Microsoft Docs"
+description: "Service Fabric Explorer est un outil web dédié à l’inspection et à la gestion des applications cloud et des nœuds dans un cluster Microsoft Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: seanmck
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,35 +14,39 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b97cd5d2f9a29d3fa8f13363b937ace276e556ff
+
 
 ---
-# Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer
+# <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer
 Service Fabric Explorer est un outil web dédié à l’inspection et à la gestion d’applications et de nœuds dans un cluster Azure Service Fabric. Service Fabric Explorer est hébergé directement au sein du cluster, de sorte qu’il est toujours disponible, quel que soit l’emplacement d’exécution de votre cluster.
 
-## Se connecter à Service Fabric Explorer
+## <a name="connect-to-service-fabric-explorer"></a>Se connecter à Service Fabric Explorer
 Si vous avez suivi les instructions pour [préparer votre environnement de développement](service-fabric-get-started.md), vous pouvez lancer Service Fabric Explorer sur votre cluster local en accédant à http://localhost:19080/Explorer.
 
 > [!NOTE]
-> Si vous utilisez Internet Explorer avec Service Fabric Explorer pour gérer un cluster distant, vous devez configurer certains paramètres d’Internet Explorer. Accédez à **Outils** > **Paramètres d’affichage de compatibilité** et désactivez **Afficher les sites intranet dans Affichage de compatibilité** pour vérifier que toutes les informations sont chargées correctement.
+> Si vous utilisez Internet Explorer avec Service Fabric Explorer pour gérer un cluster distant, vous devez configurer certains paramètres d’Internet Explorer. Accédez à **Outils** > **Paramètres d’affichage de compatibilité** et désactivez **Afficher les sites intranet dans Affichage de compatibilité** pour garantir le chargement correct de toutes les informations.
 > 
 > 
 
-## Comprendre la disposition de Service Fabric Explorer
+## <a name="understand-the-service-fabric-explorer-layout"></a>Comprendre la disposition de Service Fabric Explorer
 Vous pouvez naviguer dans Service Fabric Explorer à l’aide de l’arborescence située à gauche. À la racine de l'arborescence, le tableau de bord de cluster fournit une vue d'ensemble de votre cluster, y compris un résumé de l’intégrité de l'application et du nœud.
 
 ![Tableau de bord de cluster de Service Fabric Explorer][sfx-cluster-dashboard]
 
-### Afficher la disposition du cluster
+### <a name="view-the-clusters-layout"></a>Afficher la disposition du cluster
 Les nœuds dans un cluster Service Fabric sont répartis dans une grille à deux dimensions composée de domaines d’erreur et de domaines de mise à niveau. Cette répartition garantit la disponibilité de vos applications en cas de défaillances matérielles et de mises à niveau de l’application. Vous pouvez examiner la disposition du cluster actif à l’aide de la carte du cluster.
 
 ![Mappage de cluster de Service Fabric Explorer][sfx-cluster-map]
 
-### Afficher les applications et les services
-Le cluster contient deux sous-arborescences : une pour les applications et l’autre pour les nœuds.
+### <a name="view-applications-and-services"></a>Afficher les applications et les services
+Le cluster contient deux sous-arborescences : une pour les applications et l’autre pour les nœuds.
 
-Vous pouvez utiliser la vue des applications pour naviguer dans la hiérarchie logique de Service Fabric : applications, services, partitions et réplicas.
+Vous pouvez utiliser la vue des applications pour naviguer dans la hiérarchie logique de Service Fabric : applications, services, partitions et réplicas.
 
-Dans l’exemple ci-dessous, l’application **MyApp** est constituée de deux services : **MyStatefulService** et **WebService**. Étant donné que **MyStatefulService** est une application avec état, elle inclut une partition avec un réplica principal et deux réplicas secondaires. En revanche, WebSvcService est une application sans état qui ne contient qu’une seule instance.
+Dans l’exemple ci-dessous, l’application **MyApp** est constituée de deux services : **MyStatefulService** et **WebService**. Étant donné que **MyStatefulService** est une application avec état, elle inclut une partition avec un réplica principal et deux réplicas secondaires. En revanche, WebSvcService est une application sans état qui ne contient qu’une seule instance.
 
 ![Affichage des applications de Service Fabric Explorer][sfx-application-tree]
 
@@ -50,10 +54,10 @@ Dans l’exemple ci-dessous, l’application **MyApp** est constituée de deux s
 
 ![Volet des éléments essentiels de Service Fabric Explorer][sfx-service-essentials]
 
-### Afficher les nœuds du cluster
+### <a name="view-the-clusters-nodes"></a>Afficher les nœuds du cluster
 L’affichage des nœuds montre la disposition physique du cluster. Vous pouvez identifier les applications ayant déployé du code sur un nœud donné. Plus particulièrement, vous pouvez voir les réplicas en cours d’exécution sur ce nœud.
 
-## Actions
+## <a name="actions"></a>Actions
 Service Fabric Explorer offre un moyen rapide d’appeler des actions sur les nœuds, les applications et les services au sein de votre cluster.
 
 Par exemple, pour supprimer une instance d’application, choisissez simplement l’application dans l’arborescence à gauche, puis sélectionnez **Actions** > **Supprimer l’application**.
@@ -65,7 +69,7 @@ Par exemple, pour supprimer une instance d’application, choisissez simplement 
 > 
 > 
 
-Le tableau suivant répertorie les actions disponibles pour chaque entité :
+Le tableau suivant répertorie les actions disponibles pour chaque entité :
 
 | **Entité** | **Action** | **Description** |
 | --- | --- | --- |
@@ -94,22 +98,22 @@ Vous pouvez également utiliser Service Fabric Explorer pour créer des instance
 > 
 > 
 
-## Se connecter à un cluster Service Fabric distant
+## <a name="connect-to-a-remote-service-fabric-cluster"></a>Se connecter à un cluster Service Fabric distant
 Étant donné que Service Fabric Explorer est basé sur le Web et s'exécute au sein du cluster, il est accessible à partir de n'importe quel navigateur, tant que vous connaissez le point de terminaison du cluster et disposez des autorisations suffisantes pour y accéder.
 
-### Découvrir le point de terminaison de Service Fabric Explorer pour un cluster distant
-Pour atteindre Service Fabric Explorer pour un cluster donné, il vous suffit de diriger votre navigateur vers :
+### <a name="discover-the-service-fabric-explorer-endpoint-for-a-remote-cluster"></a>Découvrir le point de terminaison de Service Fabric Explorer pour un cluster distant
+Pour atteindre Service Fabric Explorer pour un cluster donné, il vous suffit de diriger votre navigateur vers :
 
-http://&lt;your-cluster-endpoint&gt;:19080/Explorer
+http://&lt;point-de-terminaison-de-votre-cluster&gt;:19080/Explorer
 
 L'URL complète est également disponible dans le volet des éléments essentiels du cluster dans le portail Azure.
 
-### Se connecter à un cluster sécurisé
+### <a name="connect-to-a-secure-cluster"></a>Se connecter à un cluster sécurisé
 Vous pouvez contrôler l’accès client à votre cluster Service Fabric avec des certificats ou à l’aide d’Azure Active Directory (AAD).
 
 Si vous essayez de vous connecter à Service Fabric Explorer sur un cluster sécurisé, vous devez présenter un certificat client ou vous connecter à l’aide d’AAD, en fonction de la configuration du cluster.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Vue d’ensemble de la testabilité](service-fabric-testability-overview.md)
 * [Gestion de vos applications Service Fabric dans Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Déploiement d’application Service Fabrix à l’aide de PowerShell](service-fabric-deploy-remove-applications.md)
@@ -122,4 +126,8 @@ Si vous essayez de vous connecter à Service Fabric Explorer sur un cluster séc
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 [sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,22 +1,26 @@
 ---
-title: Chiffrement transparent des données dans SQL Data Warehouse (portail)| Microsoft Docs
-description: Chiffrement transparent des données (TDE) dans SQL Data Warehouse
+title: "Chiffrement transparent des données dans SQL Data Warehouse (portail) | Microsoft Docs"
+description: "Chiffrement transparent des données (TDE) dans SQL Data Warehouse"
 services: sql-data-warehouse
-documentationcenter: ''
+documentationcenter: 
 author: ronortloff
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: fabf75d3-9bbf-4e0d-9b31-8b5a8713f08d
 ms.service: sql-data-warehouse
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2016
-ms.author: rortloff;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: rortloff;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 177062eab9f2825a510aa1b66117ce942c959352
+
 
 ---
-# Mise en route avec le chiffrement transparent des données (TDE) dans SQL Data Warehouse
+# <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>Mise en route avec le chiffrement transparent des données (TDE) dans SQL Data Warehouse
 > [!div class="op_single_selector"]
 > * [Présentation de la sécurité](sql-data-warehouse-overview-manage-security.md)
 > * [Authentification](sql-data-warehouse-authentication.md)
@@ -25,37 +29,39 @@ ms.author: rortloff;barbkess;sonyama
 > 
 > 
 
-## Autorisations requises
+## <a name="required-permssions"></a>Autorisations requises
 Pour activer le chiffrement transparent des données (TDE), vous devez être un administrateur ou un membre du rôle dbmanager.
 
-## Activation du chiffrement
-Pour activer le chiffrement transparent des données pour SQL Data Warehouse, procédez comme suit :
+## <a name="enabling-encryption"></a>Activation du chiffrement
+Pour activer le chiffrement transparent des données pour SQL Data Warehouse, procédez comme suit :
 
 1. Ouvrez la base de données dans le [portail Azure](https://portal.azure.com)
 2. Dans le panneau de la base de données, cliquez sur le bouton **Paramètres**
-3. Sélectionnez l’option **Chiffrement transparent des données** ![][1]
+3. Sélectionnez l’option **Chiffrement transparent des données**![][1]
 4. Sélectionnez le paramètre **Activé** ![][2]
-5. Sélectionnez **Enregistrer** ![][3]
+5. Sélectionnez **Enregistrer**
+   ![][3]  
 
-## Désactivation du chiffrement
-Pour désactiver le chiffrement transparent des données pour SQL Data Warehouse, procédez comme suit :
+## <a name="disabling-encryption"></a>Désactivation du chiffrement
+Pour désactiver le chiffrement transparent des données pour SQL Data Warehouse, procédez comme suit :
 
 1. Ouvrez la base de données dans le [portail Azure](https://portal.azure.com)
 2. Dans le panneau de la base de données, cliquez sur le bouton **Paramètres**
-3. Sélectionnez l’option **Chiffrement transparent des données** ![][1]
+3. Sélectionnez l’option **Chiffrement transparent des données**![][1]
 4. Sélectionnez le paramètre **Désactivé** ![][4]
-5. Sélectionnez **Enregistrer** ![][5]
+5. Sélectionnez **Enregistrer**
+   ![][5]  
 
-## DMV de chiffrement
+## <a name="encryption-dmvs"></a>DMV de chiffrement
 Le chiffrement peut être vérifié avec les vues DMV suivantes :
 
 * [sys.databases]
-* [sys.dm\_pdw\_nodes\_database\_encryption\_keys]
+* [sys.dm_pdw_nodes_database_encryption_keys]
 
 <!--MSDN references-->
-[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Chiffrement transparent des données (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 [sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx
-[sys.dm\_pdw\_nodes\_database\_encryption\_keys]: https://msdn.microsoft.com/library/mt203922.aspx
+[sys.dm_pdw_nodes_database_encryption_keys]: https://msdn.microsoft.com/library/mt203922.aspx
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png
@@ -66,4 +72,8 @@ Le chiffrement peut être vérifié avec les vues DMV suivantes :
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
