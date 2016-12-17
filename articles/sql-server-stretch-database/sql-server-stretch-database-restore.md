@@ -1,12 +1,12 @@
 ---
-title: Restore Stretch-enabled databases | Microsoft Docs
-description: Learn how to restore Stretch\-enabled databases.
+title: "Restaurer des bases de données Stretch | Microsoft Docs"
+description: "Découvrez comment restaurer des bases de données Stretch."
 services: sql-server-stretch-database
-documentationcenter: ''
+documentationcenter: 
 author: douglaslMS
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 97fdf8d4-1d91-409f-bfce-755e15c79498
 ms.service: sql-server-stretch-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -14,55 +14,59 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2016
 ms.author: douglasl
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7f892604d863225625c8d3b05bb4c8b985be7d5f
+
 
 ---
-# <a name="restore-stretch-enabled-databases"></a>Restore Stretch-enabled databases
-Restore a backed up database when necessary to recover from many types of failures, errors, and disasters.
+# <a name="restore-stretch-enabled-databases"></a>Restaurer des bases de données Stretch
+Restaurez une base de données sauvegardée lorsque c’est nécessaire pour effectuer une récupération à partir de nombreux types d’échecs, d’erreurs et de sinistres.
 
-For more info about backup, see [Backup Stretch-enabled databases](sql-server-stretch-database-backup.md).
+Pour plus d’informations sur la sauvegarde, consultez [Sauvegarder des bases de données Stretch](sql-server-stretch-database-backup.md).
 
 > [!NOTE]
-> Backup is only one part of a complete high availability and business continuity solution. For more info about high availability, see [High Availability Solutions](https://msdn.microsoft.com/library/ms190202.aspx).
+> La sauvegarde n’est qu’une partie d’une solution complète de haute disponibilité et de continuité d’activité. Pour plus d’informations sur la haute disponibilité, consultez [Solutions de haute disponibilité](https://msdn.microsoft.com/library/ms190202.aspx).
 > 
 > 
 
-## <a name="restore-your-sql-server-data"></a>Restore your SQL Server data
-To recover from hardware failure or corruption, restore the Stretch\-enabled SQL Server database from a backup. You can continue to use the SQL Server restore methods that you currently use. For more info, see [Restore and Recovery Overview](https://msdn.microsoft.com/library/ms191253.aspx).
+## <a name="restore-your-sql-server-data"></a>Restaurer vos données SQL Server
+Pour récupérer à partir d’une défaillance ou d’un endommagement matériel, restaurez la base de données\-Stretch SQL Server à partir d’une sauvegarde. Vous pouvez continuer à utiliser les méthodes de restauration SQL Server que vous utilisez actuellement. Pour plus d’informations, consultez [Vue d’ensemble de la récupération et de la restauration](https://msdn.microsoft.com/library/ms191253.aspx).
 
-After you restore the SQL Server database, you have to run the stored procedure **sys.sp_rda_reauthorize_db** to re-establish the connection between the Stretch\-enabled SQL Server database and the remote Azure database. For more info, see [Restore the connection between the SQL Server database and the remote Azure database](#restore-the-connection-between-the-sql-server-database-and-the-remote-azure-database).
+Après avoir restauré la base de données SQL Server, vous devez exécuter la procédure stockée **sys.sp_rda_reauthorize_db** pour restaurer la connexion entre la base de données\-Stretch SQL Server et la base de données Azure distante. Pour plus d’informations, consultez [Restaurer la connexion entre la base de données SQL Server et la base de données Azure distante](#restore-the-connection-between-the-sql-server-database-and-the-remote-azure-database).
 
-## <a name="restore-your-remote-azure-data"></a>Restore your remote Azure data
-### <a name="recover-a-live-azure-database"></a>Recover a live Azure database
-The SQL Server Stretch Database service on Azure snapshots all live data at least every 8 hours using Azure Storage Snapshots. These snapshots are maintained for 7 days. This allows you to restore the data to one of at least 21 points in time within the past 7 days up to the time when the last snapshot was taken.
+## <a name="restore-your-remote-azure-data"></a>Restaurer vos données Azure distantes
+### <a name="recover-a-live-azure-database"></a>Restaurer une base de données Azure active
+Le service SQL Server Stretch Database sur Azure crée des instantanés de toutes les données actives au moins toutes les huit heures, à l’aide d’instantanés Azure Storage. Ces instantanés sont conservés pendant 7 jours. Ainsi, vous pouvez restaurer les données à 21 instants différents au cours des 7 derniers jours, jusqu’au moment de la prise du dernier instantané.
 
-To restore a live Azure database to an earlier point in time by using the Azure portal, do the following things.
+Pour restaurer une base de données Azure active à un point antérieur dans le temps à l’aide du portail Azure, procédez comme suit.
 
-1. Log in to the Azure portal.
-2. On the left side of the screen select **BROWSE** and then select **SQL Databases**.
-3. Navigate to your database and select it.
-4. At the top of the database blade, click **Restore**.
-5. Specify a new **Database name**, select a **Restore Point** and then click **Create**.
-6. The database restore process will begin and can be monitored using **NOTIFICATIONS**.
+1. Connectez-vous au portail Azure.
+2. Sur le côté gauche de l’écran, sélectionnez l’option **PARCOURIR**, puis choisissez **Bases de données SQL**.
+3. Accédez à votre base de données et sélectionnez-la.
+4. En haut du panneau de la base de données, cliquez sur **Restaurer**.
+5. Spécifiez un nouveau **nom de base de données**, sélectionnez un **point de restauration**, puis cliquez sur **Créer**.
+6. Le processus de restauration de la base de données commence. Vous pouvez le surveiller dans **NOTIFICATIONS**.
 
-### <a name="recover-a-deleted-azure-database"></a>Recover a deleted Azure database
-The SQL Server Stretch Database service on Azure takes a database snapshot before a database is dropped and retains it for 7 days. After this occurs, it no longer retains snapshots from the live database. This lets you restore a deleted database to the point when it was deleted.
+### <a name="recover-a-deleted-azure-database"></a>Récupérer une base de données Azure supprimée
+Avant qu’une base de données ne soit supprimée, le service SQL Server Stretch Database sur Azure en effectue une capture instantanée et la conserve pendant sept jours. Une fois cette opération achevée, il ne conserve plus les instantanés de la base de données active. Cela vous permet de restaurer une base de données supprimée dans son état au moment de sa suppression.
 
-To restore a deleted Azure database to the point when it was deleted by using the Azure portal, do the following things.
+Pour restaurer une base de données Azure supprimée au moment de sa suppression à l’aide du portail Azure, procédez comme suit.
 
-1. Log in to the Azure portal.
-2. On the left side of the screen select **BROWSE** and then select **SQL Servers**.
-3. Navigate to your server and select it.
-4. Scroll down to Operations on your server's blade, click the **Deleted Databases** tile.
-5. Select the deleted database you want to restore.
-6. Specify a new **Database name** and click **Create**.
-7. The database restore process will begin and can be monitored using **NOTIFICATIONS**.
+1. Connectez-vous au portail Azure.
+2. Sur le côté gauche de l’écran, sélectionnez **PARCOURIR**, puis choisissez **Serveurs SQL**.
+3. Accédez à votre serveur et sélectionnez-le.
+4. Dans le panneau du serveur, faites défiler jusqu’à Opérations, puis cliquez sur la vignette **Bases de données supprimées** .
+5. Sélectionnez la base de données supprimée que vous souhaitez restaurer.
+6. Spécifiez un nouveau **nom pour la base de données** et cliquez sur **Créer**.
+7. Le processus de restauration de la base de données commence. Vous pouvez le surveiller dans **NOTIFICATIONS**.
 
-## <a name="restore-the-connection-between-the-sql-server-database-and-the-remote-azure-database"></a>Restore the connection between the SQL Server database and the remote Azure database
-1. If you're going to connect to a restored Azure database with a different name or in a different region, run the stored procedure [sys.sp_rda_deauthorize_db](https://msdn.microsoft.com/library/mt703716.aspx) to disconnect from the previous Azure database.  
-2. Run the stored procedure [sys.sp_rda_reauthorize_db](https://msdn.microsoft.com/library/mt131016.aspx) to reconnect the local Stretch\-enabled database to the Azure database.  
+## <a name="restore-the-connection-between-the-sql-server-database-and-the-remote-azure-database"></a>Restaurer la connexion entre la base de données SQL Server et la base de données Azure distante
+1. Si vous souhaitez vous connecter à une base de données Azure restaurée avec un nom différent ou dans une région différente, exécutez la procédure stockée [sys.sp_rda_deauthorize_db](https://msdn.microsoft.com/library/mt703716.aspx) pour vous déconnecter de la base de données Azure précédente.  
+2. Exécutez la procédure stockée [sys.sp_rda_reauthorize_db](https://msdn.microsoft.com/library/mt131016.aspx) pour reconnecter la base de données\-Stretch locale à la base de données Azure.  
    
-   * Provide the existing database scoped credential as a sysname or a varchar\(128\) value. \(Don't use varchar\(max\).\) You can look up the credential name in the view **sys.database\_scoped\_credentials**.  
-   * Specify whether to make a copy of the remote data and connect to the copy (recommended).  
+   * Fournissez les informations d’identification de portée de base de données sous forme de valeur varchar\(128\) ou sysname. \((N’utilisez pas varchar\(max\).\) Vous pouvez rechercher le nom d’identification dans la vue **sys.database\_scoped\_credentials**.  
+   * Indiquez s’il est nécessaire d’effectuer une copie des données distantes et de s’y connecter (recommandé).  
    
    ```tsql  
    USE <Stretch-enabled database name>;
@@ -73,13 +77,16 @@ To restore a deleted Azure database to the point when it was deleted by using th
    GO
    ```  
 
-## <a name="see-also"></a>See also
-[Manage and troubleshoot Stretch Database](sql-server-stretch-database-manage.md)
+## <a name="see-also"></a>Voir aussi
+[Gérer et dépanner Stretch Database](sql-server-stretch-database-manage.md)
 
 [sys.sp_rda_reauthorize_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx)
 
-[Back Up and Restore of SQL Server Databases](https://msdn.microsoft.com/library/ms187048.aspx)
+[Sauvegarder et restaurer des bases de données SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

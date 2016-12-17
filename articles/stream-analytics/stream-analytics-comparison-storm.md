@@ -1,13 +1,13 @@
 ---
-title: 'Plateformes d’analyse : comparaison d’Apache Storm et de Stream Analytics | Microsoft Docs'
-description: Comparez Apache Storm et Stream Analytics pour vous aider à choisir une plateforme d’analyse cloud. Découvrez les fonctionnalités et les différences.
-keywords: plateforme d’analyse, plateformes d’analyse, plateforme d’analyse cloud, comparaison avec storm
+title: "Plateformes d’analyse : comparaison entre Apache Storm et Stream Analytics | Microsoft Docs"
+description: "Comparez Apache Storm et Stream Analytics pour vous aider à choisir une plateforme d’analyse cloud. Découvrez les fonctionnalités et les différences."
+keywords: "plateforme d’analyse, plateformes d’analyse, plateforme d’analyse cloud, comparaison avec storm"
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: b9aac017-9866-4d0a-b98f-6f03881e9339
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,14 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/26/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 528266346733fff72113104d585540d75512b3a6
+
 
 ---
-# <a name="help-choosing-a-streaming-analytics-platform:-apache-storm-comparison-to-azure-stream-analytics"></a>Conseils pour choisir une plateforme d’analyse de diffusion en continu : comparaison d’Apache Storm et d’Azure Stream Analytics
+# <a name="help-choosing-a-streaming-analytics-platform-apache-storm-comparison-to-azure-stream-analytics"></a>Conseils pour choisir une plateforme d’analyse de diffusion en continu : comparaison d’Apache Storm et d’Azure Stream Analytics
 Comparez Apache Storm et Azure Stream Analytics pour vous aider à choisir une plateforme d’analyse cloud. Identifiez les propositions de valeur de Stream Analytics et d’Apache Storm en tant que service géré sur Azure HDInsight, et choisissez la solution qui convient aux cas d’utilisation de votre entreprise.
 
-Si ces deux plateformes d’analyse fournissent les avantages d’une solution PaaS, il existe quelques fonctionnalités principales qui les différencient. Ces fonctionnalités et les limitations des services sont répertoriées ci-dessous pour vous aider à identifier la solution qui vous permettra d’atteindre vos objectifs.
+Si ces deux plateformes d’analyse fournissent les avantages d’une solution PaaS, il existe quelques fonctionnalités principales qui les différencient. Ces fonctionnalités et les limitations des services sont répertoriées ci-dessous pour vous aider à identifier la solution qui vous permettra d’atteindre vos objectifs.
 
-## <a name="storm-comparison-to-stream-analytics:-general-features"></a>Comparaison de Storm et de Stream Analytics : fonctionnalités générales
+## <a name="storm-comparison-to-stream-analytics-general-features"></a>Comparaison de Storm et de Stream Analytics : fonctionnalités générales
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -38,7 +42,7 @@ Si ces deux plateformes d’analyse fournissent les avantages d’une solution P
             </td>
             <td width="246" valign="top">
                 <p>
-                    <strong>Apache Storm sur HDInsight</strong>
+                    <strong>Apache Storm sur HDInsight</strong>
                 </p>
             </td>
         </tr>
@@ -87,7 +91,7 @@ Aucune configuration matérielle requise. Azure Stream Analytics est un service 
             </td>
             <td width="246" valign="top">
                 <p>
-Aucune configuration matérielle requise. Apache Storm est un service Azure.
+Aucune configuration matérielle requise. Apache Storm est un service Azure.
                 </p>
             </td>
         </tr>
@@ -149,31 +153,31 @@ Pour Apache Storm sur HDInsight, l’unité d’achat est basée sur le cluster 
             </td>
             <td width="246" valign="top">
                 <p>
-                    <strong>Apache Storm sur HDInsight</strong>
+                    <strong>Apache Storm sur HDInsight</strong>
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Fonctionnalités : DSL SQL</strong>
+                    <strong>Fonctionnalités : DSL SQL</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-Oui. Une prise en charge du langage SQL facile à utiliser est disponible.
+Oui. Une prise en charge du langage SQL facile à utiliser est disponible.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Non. Les utilisateurs doivent écrire du code en Java C# ou utiliser les API Trident.
+Non. Les utilisateurs doivent écrire du code en Java C# ou utiliser les API Trident.
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Fonctionnalités : Opérateurs temporels</strong>
+                    <strong>Fonctionnalités : Opérateurs temporels</strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -200,7 +204,7 @@ Création et débogage interactifs via le portail Azure sur des exemples de donn
             </td>
             <td width="246" valign="top">
                 <p>
-L’expérience de développement, de débogage et de surveillance est fournie via Visual Studio aux utilisateurs de .NET, tandis que pour Java et les autres langages, les développeurs peuvent utiliser l’IDE de leur choix.
+L’expérience de développement, de débogage et de surveillance est fournie via Visual Studio aux utilisateurs de .NET, tandis que pour Java et les autres langages, les développeurs peuvent utiliser l’IDE de leur choix.
                 </p>
             </td>
         </tr>
@@ -217,7 +221,7 @@ Stream Analytics propose un état de travail de base et des journaux d’opérat
             </td>
             <td width="246" valign="top">
                 <p>
-Des journaux détaillés sont disponibles pour le débogage. Il existe deux moyens de présenter les journaux aux utilisateurs : via Visual Studio, ou les utilisateurs peuvent utiliser une connexion RDP au cluster pour accéder aux journaux.
+Des journaux détaillés sont disponibles pour le débogage. Il existe deux moyens de présenter les journaux aux utilisateurs : via Visual Studio, ou les utilisateurs peuvent utiliser une connexion RDP au cluster pour accéder aux journaux.
                 </p>
             </td>
         </tr>
@@ -229,19 +233,19 @@ Des journaux détaillés sont disponibles pour le débogage. Il existe deux moye
             </td>
             <td width="204" valign="top">
                 <p>
-Il n’existe actuellement aucune prise en charge des fonctions UDF.
+Il n’existe actuellement aucune prise en charge des fonctions UDF.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Les fonctions UDF peuvent être écrites en C#, Java ou dans le langage de votre choix.
+Les fonctions UDF peuvent être écrites en C#, Java ou dans le langage de votre choix.
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Code extensible - Code personnalisé </strong>
+                    <strong>Code extensible - Code personnalisé </strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -251,7 +255,7 @@ Aucune prise en charge de code extensible n’existe dans Stream Analytics.
             </td>
             <td width="246" valign="top">
                 <p>
-Oui, il est possible d’écrire du code personnalisé en C#, Java ou dans d’autres langages pris en charge sur Storm.
+Oui, il est possible d’écrire du code personnalisé en C#, Java ou dans d’autres langages pris en charge sur Storm.
                 </p>
             </td>
         </tr>
@@ -273,7 +277,7 @@ Oui, il est possible d’écrire du code personnalisé en C#, Java ou dans d’a
             </td>
             <td width="246" valign="top">
                 <p>
-                    <strong>Apache Storm sur HDInsight</strong>
+                    <strong>Apache Storm sur HDInsight</strong>
                 </p>
             </td>
         </tr>
@@ -301,7 +305,7 @@ Des connecteurs sont disponibles pour Event Hubs, Service Bus, Kafka, etc. Des c
             </td>
             <td width="204" valign="top">
                 <p>
-Les formats d’entrée pris en charge sont Avro, JSON et CSV.
+Les formats d’entrée pris en charge sont Avro, JSON et CSV.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -318,12 +322,12 @@ Tous les formats peuvent être implémentés via du code personnalisé.
             </td>
             <td width="204" valign="top">
                 <p>
-Un travail de diffusion en continu peut avoir plusieurs sorties. Sorties prises en charge : Azure Event Hubs, Azure Blob Storage, Azure Tables, Azure SQL DB et PowerBI.
+Un travail de diffusion en continu peut avoir plusieurs sorties. Sorties prises en charge : Azure Event Hubs, Azure Blob Storage, Azure Tables, Azure SQL DB et PowerBI.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Prise en charge de nombreuses sorties dans une topologie, chacune pouvant disposer d’une logique personnalisée pour le traitement en aval. Storm prêt à l’emploi inclut des connecteurs pour PowerBI, Azure Event Hubs, Azure Blob Store, Azure DocumentDB, SQL et HBase. Des connecteurs non pris en charge peuvent être implémentés via du code personnalisé.
+Prise en charge de nombreuses sorties dans une topologie, chacune pouvant disposer d’une logique personnalisée pour le traitement en aval. Storm prêt à l’emploi inclut des connecteurs pour PowerBI, Azure Event Hubs, Azure Blob Store, Azure DocumentDB, SQL et HBase. Des connecteurs non pris en charge peuvent être implémentés via du code personnalisé.
                 </p>
             </td>
         </tr>
@@ -335,7 +339,7 @@ Prise en charge de nombreuses sorties dans une topologie, chacune pouvant dispos
             </td>
             <td width="204" valign="top">
                 <p>
-Stream Analytics requiert l’utilisation du format de données UTF-8.
+Stream Analytics requiert l’utilisation du format de données UTF-8.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -362,7 +366,7 @@ Tous les formats de codage de données peuvent être implémentés via du code p
             </td>
             <td width="246" valign="top">
                 <p>
-                    <strong>Apache Storm sur HDInsight</strong>
+                    <strong>Apache Storm sur HDInsight</strong>
                 </p>
             </td>
         </tr>
@@ -383,12 +387,12 @@ Tous les formats de codage de données peuvent être implémentés via du code p
             </td>
             <td width="204" valign="top">
                 <p>
-Le déploiement est implémenté via le portail Azure, PowerShell et les API REST.
+Le déploiement est implémenté via le portail Azure, PowerShell et les API REST.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Le déploiement est implémenté via le portail Azure, PowerShell, Visual Studio et les API REST.
+Le déploiement est implémenté via le portail Azure, PowerShell, Visual Studio et les API REST.
                 </p>
             </td>
         </tr>
@@ -400,7 +404,7 @@ Le déploiement est implémenté via le portail Azure, PowerShell, Visual Studio
             </td>
             <td width="204" valign="top">
                 <p>
-L’analyse est implémentée via le portail Azure et les API REST.
+L’analyse est implémentée via le portail Azure et les API REST.
                 </p>
                 <p>
 L’utilisateur peut également configurer des alertes Azure.
@@ -408,7 +412,7 @@ L’utilisateur peut également configurer des alertes Azure.
             </td>
             <td width="246" valign="top">
                 <p>
-L’analyse est implémentée via l’interface utilisateur de Storm et les API REST.
+L’analyse est implémentée via l’interface utilisateur de Storm et les API REST.
                 </p>
             </td>
         </tr>
@@ -420,12 +424,12 @@ L’analyse est implémentée via l’interface utilisateur de Storm et les API 
             </td>
             <td width="204" valign="top">
                 <p>
-Nombre d’unités de diffusion en continu pour chaque travail. Chaque unité de diffusion en continu traite jusqu’à 1 Mo/s. Maximum de 50 unités par défaut. Appel à l’augmentation de la limite.
+Nombre d’unités de diffusion en continu pour chaque travail. Chaque unité de diffusion en continu traite jusqu’à 1 Mo/s. Maximum de 50 unités par défaut. Appel à l’augmentation de la limite.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Nombre de nœuds dans le cluster Storm HDI. Aucune limite quant au nombre de nœuds (limite supérieure définie par votre quota Azure). Appel à l’augmentation de la limite.
+Nombre de nœuds dans le cluster Storm HDI. Aucune limite quant au nombre de nœuds (limite supérieure définie par votre quota Azure). Appel à l’augmentation de la limite.
                 </p>
             </td>
         </tr>
@@ -440,7 +444,7 @@ Nombre de nœuds dans le cluster Storm HDI. Aucune limite quant au nombre de nœ
 Les utilisateurs peuvent augmenter ou réduire le nombre d’unités de diffusion en continu pour améliorer le traitement des données ou optimiser les coûts.
                 </p>
                 <p>
-Montée en puissance jusqu’à 1 Go/s </p>
+Montée en puissance jusqu’à 1 Go/s </p>
             </td>
             <td width="246" valign="top">
                 <p>
@@ -490,7 +494,7 @@ Mise à jour corrective automatique sans temps d’arrêt.
             </td>
             <td width="204" valign="top">
                 <p>
-Contrat SLA de temps d’activité de 99,9 % </p>
+Contrat SLA de temps d’activité de 99,9 % </p>
                 <p>
 Récupération automatique des défaillances </p>
                 <p>
@@ -499,7 +503,7 @@ La récupération des opérateurs temporels avec état est intégrée.
             </td>
             <td width="246" valign="top">
                 <p>
-Contrat SLA de temps d’activité de 99,9 % du cluster Storm. Apache Storm est une plateforme de diffusion en continu à tolérance de panne. Cependant, il incombe aux clients de s’assurer que leurs travaux de diffusion en continu s’exécutent sans interruption.
+Contrat SLA de temps d’activité de 99,9 % du cluster Storm. Apache Storm est une plateforme de diffusion en continu à tolérance de panne. Cependant, il incombe aux clients de s’assurer que leurs travaux de diffusion en continu s’exécutent sans interruption.
                 </p>
             </td>
         </tr>
@@ -521,7 +525,7 @@ Contrat SLA de temps d’activité de 99,9 % du cluster Storm. Apache Storm est 
             </td>
             <td width="246" valign="top">
                 <p>
-                    <strong>Apache Storm sur HDInsight</strong>
+                    <strong>Apache Storm sur HDInsight</strong>
                 </p>
             </td>
         </tr>
@@ -550,7 +554,7 @@ L’utilisateur doit implémenter une logique pour gérer ce scénario.
             </td>
             <td width="204" valign="top">
                 <p>
-Données de référence disponibles à partir des objets blob Azure avec une taille maximale de 100 Mo de cache de recherche en mémoire. L’actualisation des données de référence est gérée par le service.
+Données de référence disponibles à partir des objets blob Azure avec une taille maximale de 100 Mo de cache de recherche en mémoire. L’actualisation des données de référence est gérée par le service.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -570,7 +574,7 @@ L’actualisation des données de référence doit être gérée par du code per
             </td>
             <td width="204" valign="top">
                 <p>
-En configurant des modèles Azure Machine Learning publiés en tant que fonctions lors de la création de travail ASA <a href="http://blogs.msdn.com/b/streamanalytics/archive/2015/05/24/real-time-scoring-of-streaming-data-using-machine-learning-models.aspx">(aperçu privé)</a>.
+En configurant des modèles Azure Machine Learning publiés en tant que fonctions lors de la création de travail ASA <a href="http://blogs.msdn.com/b/streamanalytics/archive/2015/05/24/real-time-scoring-of-streaming-data-using-machine-learning-models.aspx">(aperçu privé)</a>.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -584,6 +588,6 @@ Disponible via Storm Bolts.
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
