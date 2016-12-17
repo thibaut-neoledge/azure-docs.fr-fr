@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Connect Sync : Concepts techniques | Microsoft Docs'
-description: Explique les concepts techniques liés à Azure AD Connect Sync.
+title: "Azure AD Connect Sync : Concepts techniques | Microsoft Docs"
+description: "Explique les concepts techniques liés à Azure AD Connect Sync."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: markusvi;andkjell
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 74b7aae21ec81f891c73461989e641a2d7a042e8
+
 
 ---
-# <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect Sync : Concepts techniques
+# <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect Sync : Concepts techniques
 Cet article est un résumé de la rubrique [Présentation de l’architecture](active-directory-aadconnectsync-technical-concepts.md).
 
 Azure AD Connect Sync repose sur une plateforme de synchronisation de méta-annuaire solide.
@@ -25,7 +29,7 @@ S’appuyant sur MIIS, ILM et FIM, les services Azure Active Directory Sync four
 
 ![Concepts techniques](./media/active-directory-aadconnectsync-technical-concepts/scenario.png)
 
-Les sections suivantes fournissent plus de détails sur les aspects suivants du service de synchronisation FIM :
+Les sections suivantes fournissent plus de détails sur les aspects suivants du service de synchronisation FIM :
 
 * Connecteur
 * Flux d’attributs
@@ -78,10 +82,10 @@ Quand une source faisant autorité projette un nouvel objet dans le métaverse, 
 
 Cela établit intrinsèquement un lien, et le flux d’attributs peut se produire de manière bidirectionnelle.
 
-Chaque fois qu’une règle détermine qu’un nouvel objet d’espace de connecteur doit être créé, on emploie le terme d’« approvisionnement ». Toutefois, étant donné que cette opération n’a lieu que dans l’espace de connecteur, elle n’est reportée dans la source de données connectée qu’une fois qu’une exportation est effectuée.
+Chaque fois qu’une règle détermine qu’un nouvel objet d’espace de connecteur doit être créé, on emploie le terme d’« approvisionnement ». Toutefois, étant donné que cette opération n’a lieu que dans l’espace de connecteur, elle n’est reportée dans la source de données connectée qu’une fois qu’une exportation est effectuée.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
-* [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
+* [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
 <!--Image references-->
@@ -89,6 +93,6 @@ Chaque fois qu’une règle détermine qu’un nouvel objet d’espace de connec
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

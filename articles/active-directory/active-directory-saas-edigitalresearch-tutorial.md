@@ -1,12 +1,12 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec eDigitalResearch | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et eDigitalResearch.
+title: "Didacticiel : Intégration d’Azure Active Directory avec eDigitalResearch | Microsoft Docs"
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et eDigitalResearch."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: c6b66ea0-16ba-45b4-b550-e81c56262b1f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ce449d6a64b4ef9022939f0487a30157f7014673
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-edigitalresearch"></a>Didacticiel : Intégration d’Azure Active Directory avec eDigitalResearch
+# <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Didacticiel : Intégration d’Azure Active Directory avec eDigitalResearch
 L’objectif de ce didacticiel est de vous montrer comment intégrer eDigitalResearch dans Azure AD (Azure Active Directory).
 
 L’intégration d’eDigitalResearch à Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à eDigitalResearch.
 * Vous pouvez autoriser les utilisateurs à se connecter automatiquement à eDigitalResearch (via l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
+* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Composants requis
 Pour configurer l’intégration d’Azure AD avec eDigitalResearch, vous avez besoin des éléments suivants :
@@ -38,7 +42,7 @@ Pour configurer l’intégration d’Azure AD avec eDigitalResearch, vous avez b
 > 
 > 
 
-Vous devez en outre suivre les recommandations ci-dessous :
+Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
 * Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
@@ -89,7 +93,7 @@ Pour configurer et tester l’authentification unique Microsoft Azure AD avec eD
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Microsoft Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test eDigitalResearch](#creating-a-edigitalresearch-test-user)** pour avoir un équivalent de Britta Simon dans eDigitalResearch lié à la représentation Azure AD associée.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Microsoft Azure AD.
-5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-microsoft-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Microsoft Azure AD
 Dans cette section, vous allez activer l’authentification unique Microsoft Azure AD dans le portail Azure Classic et configurer l’authentification unique dans votre application eDigitalResearch.
@@ -122,7 +126,7 @@ Dans cette section, vous allez activer l’authentification unique Microsoft Azu
    
     a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
    
-    b. Cliquez sur **Suivant**.
+    b. Cliquez sur **Next**.
 5. Pour obtenir la configuration de l’authentification unique pour votre application, contactez l’équipe de support eDigitalResearch et envoyez-lui les éléments suivants : 
    
       -Le fichier de **certificat téléchargé**
@@ -130,7 +134,7 @@ Dans cette section, vous allez activer l’authentification unique Microsoft Azu
       - **L’ID d’entité**
    
       - **L’URL du service de déconnexion unique**
-6. Dans le portail Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
+6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
     ![Authentification unique Azure AD][10]
 7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
@@ -142,7 +146,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ![Créer un utilisateur Azure AD][20]
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
    
@@ -162,7 +166,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    
     b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
    
-    c. Cliquez sur **Suivant**.
+    c. Cliquez sur **Next**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_06.png)
@@ -175,7 +179,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    
    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
    
-   e. Cliquez sur **Suivant**.
+   e. Cliquez sur **Next**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_07.png)
@@ -199,7 +203,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 **Pour affecter Britta Simon à eDigitalResearch, procédez comme suit :**
 
-1. Pour ouvrir l’affichage des applications dans le portail Classic, dans l’affichage de l’annuaire, cliquez sur l’option **Applications** figurant dans le menu du haut.
+1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue d’annuaire, cliquez sur l’option **Applications** figurant dans le menu du haut.
    
     ![Affecter des utilisateurs][201]
 2. Dans la liste des applications, sélectionnez **eDigitalResearch**.
@@ -220,7 +224,7 @@ Lorsque vous cliquez sur la vignette eDigitalResearch dans le volet d’accès, 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 
@@ -242,6 +246,6 @@ Lorsque vous cliquez sur la vignette eDigitalResearch dans le volet d’accès, 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

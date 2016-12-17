@@ -1,12 +1,12 @@
 ---
-title: Technical prerequisites for creating a virtual machine image for the Azure Marketplace | Microsoft Docs
-description: Understand the requirements for creating and deploying a virtual machine image to the Azure Marketplace for others to purchase.
+title: "Conditions techniques préalables pour créer une image de machine virtuelle pour Azure Marketplace | Microsoft Docs"
+description: "Découvrez la configuration requise pour créer et déployer une image de machine virtuelle dans Azure Marketplace que d’autres utilisateurs peuvent acheter."
 services: marketplace-publishing
-documentationcenter: ''
+documentationcenter: 
 author: HannibalSII
 manager: hascipio
-editor: ''
-
+editor: 
+ms.assetid: 63c16966-0304-4b17-a715-368a0a5ccb2c
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
@@ -14,50 +14,54 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 8c2dbd0a79a616e291c974c16d20d423cbb25ce2
+
 
 ---
-# <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Technical prerequisites for creating a virtual machine image for the Azure Marketplace
-Read the process thoroughly before beginning and understand where and why each step is performed. As much as possible, you should prepare your company information and other data, download necessary tools, and/or create technical components before beginning the offer creation process. These items should be clear from reviewing this article.  
+# <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Conditions techniques préalables pour créer une image de machine virtuelle pour Azure Marketplace
+Avant de commencer, lisez attentivement cette procédure, de manière à comprendre à quel moment effectuer une étape et pourquoi chaque étape doit être exécutée. Autant que possible, préparez les informations et autres données de votre entreprise, téléchargez les outils nécessaires et/ou créez les composants techniques avant de lancer le processus de création de l’offre. Cet article devrait vous aider à mieux comprendre ces étapes.  
 
-## <a name="download-needed-tools-&-applications"></a>Download needed tools & applications
-You should have the following items ready before beginning the process:
+## <a name="download-needed-tools-applications"></a>Télécharger les outils et applications nécessaires
+Vous devez préparer les éléments suivants avant de commencer le processus :
 
-* Depending on which operating system you are targeting, install the [Azure PowerShell cmdlets](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) or [Linux command-line interface tool](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409) from the [Azure Downloads](https://azure.microsoft.com/downloads/) page.
-* Install Azure Storage Explorer from CodePlex.
-* Download and install the Certification Test Tool for Azure Certified:
-  * [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913). You need a Windows-based computer to run the certification tool. If you do not have a Windows-based computer available, you can run the tool using a Windows-based VM in Azure.
+* En fonction du système d’exploitation que vous ciblez, installez les [applets de commande Azure PowerShell](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) ou [l’outil d’interface de ligne de commande Linux](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409) à partir de la page de [téléchargements Azure](https://azure.microsoft.com/downloads/).
+* Installez l’Explorateur de stockage Azure à partir de CodePlex.
+* Téléchargez et installez l’outil « Certification Test Tool for Azure Certified » :
+  * [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913). Vous avez besoin d’un ordinateur Windows pour exécuter l’outil de certification. Si vous n’avez pas d’ordinateur Windows disponible, vous pouvez exécuter l’outil dans une machine virtuelle Windows dans Azure.
 
-## <a name="platforms-supported"></a>Platforms supported
-You can develop Azure-based VMs on Windows or Linux. Some elements of the publishing process--such as creating an Azure-compatible virtual hard disk (VHD)--use different tools and steps depending on which operating system you are using:  
+## <a name="platforms-supported"></a>Plateformes prises en charge :
+Vous pouvez développer des machines virtuelles Azure sur Windows ou Linux. Certains éléments du processus de publication, tels que la création d’un disque dur virtuel compatible Azure, demandent différents outils et étapes en fonction du système d’exploitation que vous utilisez.  
 
-* If you are using Linux, refer to the “Create an Azure-compatible VHD (Linux-based)” section of the [Virtual machine image publishing guide](marketplace-publishing-vm-image-creation.md).
-* If you are using Windows, refer to the “Create an Azure-compatible VHD (Windows-based)” section of the [Virtual machine image publishing guide](marketplace-publishing-vm-image-creation.md).
+* Si vous utilisez Linux, reportez-vous à la section « Créer un disque dur virtuel compatible Azure (basé sur Linux) » du [Guide de publication d’une image de machine virtuelle](marketplace-publishing-vm-image-creation.md).
+* Si vous utilisez Windows, reportez-vous à la section « Créer un disque dur virtuel compatible Azure (basé sur Windows) » du [Guide de publication d’une image de machine virtuelle](marketplace-publishing-vm-image-creation.md).
 
 > [!NOTE]
-> You need access to a Windows-based machine to:
+> Vous devez accéder à une machine virtuelle Windows pour :
 > 
-> * Run the certification validation tool.
-> * Create the VHD shared access signature URL for the VHD certification submission.
+> * Exécuter l’outil de validation de certification.
+> * Créer l’URL de signature d’accès partagé au disque dur virtuel pour l’envoi de la certification du disque dur virtuel.
 > 
 > 
 
-## <a name="develop-your-vhd"></a>Develop your VHD
-You can develop Azure VHDs in the cloud or on-premises:
+## <a name="develop-your-vhd"></a>Développement de votre disque dur virtuel
+Vous pouvez développer des disques durs virtuels Azure dans le cloud ou localement :
 
-* Cloud-based development means all development steps are performed remotely on a VHD resident on Azure.
-* On-premises development requires downloading a VHD and developing it using on-premises infrastructure. Although this is possible, we do not recommend it. Note that developing for Windows or SQL on-premises requires you to have the relevant on-premises license keys. You cannot include or install SQL Server after creating a VM. You must also base your offer on an approved SQL image from the Azure portal. If you decide to develop on-premises, you must perform some steps differently than if you were developing in the cloud. You can find relevant information in [Create an on-premises VM image](marketplace-publishing-vm-image-creation-on-premise.md).
+* Un développement dans le cloud signifie que toutes les étapes de développement sont effectuées à distance sur un disque dur virtuel résidant sur Azure.
+* Un développement local nécessite de télécharger un disque dur virtuel et de le développer dans une infrastructure locale. Bien que cela soit possible, nous ne le recommandons pas. Notez que le développement local pour Windows ou SQL implique que vous disposiez des clés de licence locales correspondantes. Vous ne pouvez pas inclure ou installer SQL Server après la création d'une machine virtuelle. Vous devez également baser votre offre sur une image SQL approuvée du portail Azure. Si vous décidez d’effectuer un développement local, certaines étapes diffèrent de celle d’un développement dans le cloud. Pour les informations correspondantes, consultez [Création d’une image de machine virtuelle locale](marketplace-publishing-vm-image-creation-on-premise.md).
 
-## <a name="next-steps"></a>Next steps
-Now that you reviewed the prerequisites and completed the necessary tasks, you can move forward with creating your virtual machine image offer as detailed in the [Virtual machine image publishing guide](marketplace-publishing-vm-image-creation.md).
+## <a name="next-steps"></a>Étapes suivantes
+Maintenant que vous avez passé en revue les conditions préalables et effectué les tâches nécessaires, vous pouvez procéder à la création de votre offre d’image de machine virtuelle, comme indiqué dans le [Guide de publication d’une image de machine virtuelle](marketplace-publishing-vm-image-creation.md).
 
-## <a name="see-also"></a>See also
-* [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
-* [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+## <a name="see-also"></a>Voir aussi
+* [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Création d’une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

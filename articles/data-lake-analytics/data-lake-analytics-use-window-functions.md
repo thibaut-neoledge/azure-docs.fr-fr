@@ -1,12 +1,12 @@
 ---
-title: Utilisation des fonctions fenêtre U-SQL dans les travaux Analytique Data Lake Azure | Microsoft Docs
-description: 'Apprenez à utiliser les fonctions de fenêtre U-SQL. '
+title: "Utilisation des fonctions fenêtre U-SQL dans les travaux Analytique Data Lake Azure | Microsoft Docs"
+description: "Apprenez à utiliser les fonctions de fenêtre U-SQL. "
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: a5e14b32-d5eb-4f4b-9258-e257359f9988
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,68 +14,76 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 22aafaa80d8d7a5d7e57819acadc6c7985bf2c93
+ms.openlocfilehash: fde657c6c59852a07fd8f565572732f7a25d9e55
+
 
 ---
-# Utilisation des fonctions U-SQL dans les travaux Analytique Data Lake Azure
+# <a name="using-u-sql-window-functions-for-azure-data-lake-analytics-jobs"></a>Utilisation des fonctions U-SQL dans les travaux Analytique Data Lake Azure
 Les fonctions de fenêtre ont été intégrées à la norme SQL ISO/ANSI en 2003. U-SQL adopte un sous-ensemble de fonctions Windows comme défini par la norme ANSI SQL Standard.
 
 Les fonctions de fenêtre sont utilisées pour faire des calculs dans les ensembles de lignes nommées *fenêtres*. Les fenêtres sont définies par la clause OVER. Les fonctions de fenêtre peuvent résoudre certains scénarios clés de façon très efficace.
 
 Ce guide de formation utilise deux jeux de données exemple pour vous guider dans un exemple de scénario dans lequel vous pouvez appliquer des fonctions de fenêtre. Pour plus d’informations, consultez [Référence U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
-Les fonctions de fenêtre sont classées dans les catégories :
+Les fonctions de fenêtre sont classées dans les catégories : 
 
 * [Fonctions de rapport d’agrégation](#reporting-aggregation-functions), telles que SUM ou AVG
-* [Fonctions de classement](#ranking-functions), par exemple DENSE\_RANK, ROW\_NUMBER, NTILE et RANK
+* [Fonctions de classement](#ranking-functions), par exemple DENSE_RANK, ROW_NUMBER, NTILE et RANK
 * Les [fonctions analytiques](#analytic-functions) telles que la distribution cumulative, les centiles ou les accès à des données depuis une ligne précédente dans le même ensemble de résultats sans utilisation d’une jointure automatique
 
-**Configuration requise :**
+**Configuration requise :**
 
-* Examinez les deux didacticiels suivants :
+* Examinez les deux didacticiels suivants :
   
   * [Prise en main des outils Azure Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
   * [Prise en main de l’utilisation U-SQL pour les travaux d’Analytique Data Lake Azure](data-lake-analytics-u-sql-get-started.md).
 * Créer un compte d’analytique Data Lake comme indiqué dans [Prise en main des outils de l’utilisation Data Lake Azure Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * Créer un projet Visual Studio U-SQL, comme indiqué dans [prise en main de l’utilisation de U-SQL pour les travaux Analytique Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 
-## Exemples de jeux de données
-Ce didacticiel utilise deux jeux de données :
+## <a name="sample-datasets"></a>Exemples de jeux de données
+Ce didacticiel utilise deux jeux de données :
 
-* QueryLog
+* QueryLog 
   
-    QueryLog présente une liste de ce que les personnes ont recherché dans le moteur de recherche. Chaque journal des requêtes inclut :
+    QueryLog présente une liste de ce que les personnes ont recherché dans le moteur de recherche. Chaque journal des requêtes inclut :
   
-        - Query - What the user was searching for.
-        - Latency - How fast the query came back to the user in milliseconds.
-        - Vertical - What kind of content the user was interested in (Web links, Images, Videos).
+    - Requête : ce que recherchait l’utilisateur.
+    - Latence : la vitesse à laquelle vitesse la requête est renvoyée à l’utilisateur, en millisecondes.
+    - Vertical - le type de contenu qui intéressait l’utilisateur (liens Web, images, vidéos).
   
-    Copiez et collez le script suivant dans votre projet U-SQL pour former l’ensemble de lignes QueryLog :
+    Copiez et collez le script suivant dans votre projet U-SQL pour former l’ensemble de lignes QueryLog :
   
-        @querylog = 
-            SELECT * FROM ( VALUES
-                ("Banana"  , 300, "Image" ),
-                ("Cherry"  , 300, "Image" ),
-                ("Durian"  , 500, "Image" ),
-                ("Apple"   , 100, "Web"   ),
-                ("Fig"     , 200, "Web"   ),
-                ("Papaya"  , 200, "Web"   ),
-                ("Avocado" , 300, "Web"   ),
-                ("Cherry"  , 400, "Web"   ),
-                ("Durian"  , 500, "Web"   ) )
-            AS T(Query,Latency,Vertical);
+    ```
+    @querylog = 
+        SELECT * FROM ( VALUES
+            ("Banana"  , 300, "Image" ),
+            ("Cherry"  , 300, "Image" ),
+            ("Durian"  , 500, "Image" ),
+            ("Apple"   , 100, "Web"   ),
+            ("Fig"     , 200, "Web"   ),
+            ("Papaya"  , 200, "Web"   ),
+            ("Avocado" , 300, "Web"   ),
+            ("Cherry"  , 400, "Web"   ),
+            ("Durian"  , 500, "Web"   ) )
+        AS T(Query,Latency,Vertical);
+    ```
+
+    Dans la pratique, les données sont probablement stockées dans un fichier de données. Vous accéderez à ces données dans un fichier délimité par des tabulations en utilisant le code suivant : 
   
-    Dans la pratique, les données sont probablement stockées dans un fichier de données. Vous accéderez à ces données dans un fichier délimité par des tabulations en utilisant le code suivant :
-  
-        @querylog = 
-        EXTRACT 
-            Query    string, 
-            Latency  int, 
-            Vertical string
-        FROM "/Samples/QueryLog.tsv"
-        USING Extractors.Tsv();
+    ```
+    @querylog = 
+    EXTRACT 
+        Query    string, 
+        Latency  int, 
+        Vertical string
+    FROM "/Samples/QueryLog.tsv"
+    USING Extractors.Tsv();
+    ```
 * Employés
   
-    Le jeu de données Employé inclut les champs suivants :
+    Le jeu de données Employé inclut les champs suivants :
   
         - EmpID - Employee ID.
         - EmpName  Employee name.
@@ -83,7 +91,7 @@ Ce didacticiel utilise deux jeux de données :
         - DeptID - Deparment ID.
         - Salary - Employee salary.
   
-    Copiez et collez le script suivant dans votre projet U-SQL pour former un ensemble de lignes Employés :
+    Copiez et collez le script suivant dans votre projet U-SQL pour former un ensemble de lignes Employés :
   
         @employees = 
             SELECT * FROM ( VALUES
@@ -112,18 +120,18 @@ Ce didacticiel utilise deux jeux de données :
 
 Lorsque vous testez les exemples dans le didacticiel, vous devez inclure les définitions de l’ensemble de lignes. U-SQL exige que vous définissiez uniquement les ensembles de lignes utilisés. Certains exemples n’ont besoin que d’un ensemble de lignes.
 
-Vous devez également ajouter l’instruction suivante pour la sortie de l’ensemble de lignes de résultat vers un fichier de données :
+Vous devez également ajouter l’instruction suivante pour la sortie de l’ensemble de lignes de résultat vers un fichier de données :
 
     OUTPUT @result TO "/wfresult.csv" 
         USING Outputters.Csv();
 
  La plupart des exemples utilisent la variable appelée **@result** pour les résultats.
 
-## Comparer les fonctions de fenêtre au regroupement
+## <a name="compare-window-functions-to-grouping"></a>Comparer les fonctions de fenêtre au regroupement
 Les concepts de fenêtrage et de regroupement sont proches, mais cependant différents. Il peut être utile de connaître cette relation.
 
-### Utiliser l’agrégation et le regroupement
-La requête suivante utilise l’agrégation pour calculer le salaire total de tous les employés :
+### <a name="use-aggregation-and-grouping"></a>Utiliser l’agrégation et le regroupement
+La requête suivante utilise l’agrégation pour calculer le salaire total de tous les employés :
 
     @result = 
         SELECT 
@@ -135,25 +143,25 @@ La requête suivante utilise l’agrégation pour calculer le salaire total de t
 > 
 > 
 
-Le résultat est une seule ligne avec une seule colonne. 165 000 $ est la somme de la valeur Salaire correspondant à la table entière.
+Le résultat est une seule ligne avec une seule colonne. 165 000 $ est la somme de la valeur Salaire correspondant à la table entière. 
 
 | TotalSalary |
 | --- |
 | 165000 |
 
 > [!NOTE]
-> Si vous êtes novice en matière de fonctions de fenêtres, il peut être utile de rappeler les nombres dans les sorties.
+> Si vous êtes novice en matière de fonctions de fenêtres, il peut être utile de rappeler les nombres dans les sorties.  
 > 
 > 
 
-L’instruction suivante utilise la clause GROUP BY pour calculer le salaire total correspondant à chaque service :
+L’instruction suivante utilise la clause GROUP BY pour calculer le salaire total correspondant à chaque service :
 
     @result=
         SELECT DeptName, SUM(Salary) AS SalaryByDept
         FROM @employees
         GROUP BY DeptName;
 
-Les résultats sont :
+Les résultats sont :
 
 | DeptName | SalaryByDept |
 | --- | --- |
@@ -162,17 +170,17 @@ Les résultats sont :
 | Responsable |50000 |
 | Marketing |25000 |
 
-La somme de la colonne SalaryByDept est 165 000 $, qui correspond à la quantité dans le dernier script.
+La somme de la colonne SalaryByDept est 165 000 $, qui correspond à la quantité dans le dernier script.
 
-Dans ces deux cas, le nombre de lignes de sortie est inférieur à celui des lignes d’entrée :
+Dans ces deux cas, le nombre de lignes de sortie est inférieur à celui des lignes d’entrée :
 
-* Sans GROUP BY, l’agrégation réduit toutes les lignes dans une seule ligne.
-* Avec GROUP BY, il y a N lignes de sortie, N étant le nombre de valeurs distinctes apparaissant dans les données, dans ce cas, la sortie contiendra 4 lignes.
+* Sans GROUP BY, l’agrégation réduit toutes les lignes dans une seule ligne. 
+* Avec GROUP BY, il y a N lignes de sortie, N étant le nombre de valeurs distinctes apparaissant dans les données, dans ce cas, la sortie contiendra 4 lignes.
 
-### Utiliser une fonction de fenêtre
-La clause OVER dans l’exemple suivant est vide. Définit la « fenêtre » qui inclura toutes les lignes. Dans cet exemple, la somme SUM est appliquée à la clause OVER qu’elle précède.
+### <a name="use-a-window-function"></a>Utiliser une fonction de fenêtre
+La clause OVER dans l’exemple suivant est vide. Définit la « fenêtre » qui inclura toutes les lignes. Dans cet exemple, la somme SUM est appliquée à la clause OVER qu’elle précède.
 
-Vous pouvez lire cette requête comme suit : « La somme des salaires sur une fenêtre contenant toutes les lignes ».
+Vous pouvez lire cette requête comme suit : « La somme des salaires sur une fenêtre contenant toutes les lignes ».
 
     @result=
         SELECT
@@ -180,7 +188,7 @@ Vous pouvez lire cette requête comme suit : « La somme des salaires sur une fe
             SUM(Salary) OVER( ) AS SalaryAllDepts
         FROM @employees;
 
-Contrairement à GROUP BY, il y a autant de lignes de sortie que de lignes d’entrée :
+Contrairement à GROUP BY, il y a autant de lignes de sortie que de lignes d’entrée : 
 
 | EmpName | TotalAllDepts |
 | --- | --- |
@@ -194,9 +202,9 @@ Contrairement à GROUP BY, il y a autant de lignes de sortie que de lignes d’e
 | Ava |165000 |
 | Ethan |165000 |
 
-La valeur 165000 (le total de tous les salaires) est placée dans chaque ligne de sortie. Ce total est calculé à partir de la « fenêtre » de toutes les lignes, et inclut donc tous les salaires.
+La valeur 165000 (le total de tous les salaires) est placée dans chaque ligne de sortie. Ce total est calculé à partir de la « fenêtre » de toutes les lignes, et inclut donc tous les salaires. 
 
-Les exemples qui suivent montrent comment affiner la « fenêtre » pour répertorier tous les employés, le service et le salaire total pour le service. PARTITION BY est ajouté à la clause OVER.
+Les exemples qui suivent montrent comment affiner la « fenêtre » pour répertorier tous les employés, le service et le salaire total pour le service. PARTITION BY est ajouté à la clause OVER.
 
     @result=
     SELECT
@@ -204,7 +212,7 @@ Les exemples qui suivent montrent comment affiner la « fenêtre » pour répert
         SUM(Salary) OVER( PARTITION BY DeptName ) AS SalaryByDept
     FROM @employees;
 
-Les résultats sont :
+Les résultats sont :
 
 | EmpName | DeptName | SalaryByDep |
 | --- | --- | --- |
@@ -220,8 +228,8 @@ Les résultats sont :
 
 Là encore, il existe le même nombre de lignes en entrée qu’en sortie. Toutefois, chaque ligne comporte le salaire total d’un service correspondant.
 
-## Fonctions d’agrégation de rapport
-Les fonctions de fenêtre prennent également en charge les agrégats suivants :
+## <a name="reporting-aggregation-functions"></a>Fonctions de rapport d’agrégation
+Les fonctions de fenêtre prennent également en charge les agrégats suivants :
 
 * COUNT
 * SUM
@@ -231,17 +239,17 @@ Les fonctions de fenêtre prennent également en charge les agrégats suivants :
 * STDEV
 * VAR
 
-La syntaxe :
+La syntaxe :
 
     <AggregateFunction>( [DISTINCT] <expression>) [<OVER_clause>]
 
-Remarque :
+Remarque : 
 
 * Par défaut, les fonctions agrégées, excepté COUNT, ignorent les valeurs nulles.
 * Lorsque les fonctions d’agrégation sont spécifiées avec la clause OVER, la clause ORDER BY n’est pas autorisée dans la clause OVER.
 
-### Utiliser SUM
-L’exemple suivant ajoute le total du salaire par service pour chaque ligne d’entrée :
+### <a name="use-sum"></a>Utiliser SUM
+L’exemple suivant ajoute le total du salaire par service pour chaque ligne d’entrée :
 
     @result=
         SELECT 
@@ -249,7 +257,7 @@ L’exemple suivant ajoute le total du salaire par service pour chaque ligne d�
             SUM(Salary) OVER( PARTITION BY DeptName ) AS TotalByDept
         FROM @employees;
 
-Voici la sortie :
+Voici la sortie :
 
 | EmpID | EmpName | DeptName | DeptID | Salaire | TotalByDept |
 | --- | --- | --- | --- | --- | --- |
@@ -263,7 +271,7 @@ Voici la sortie :
 | 8 |Ava |Marketing |400 |15000 |25000 |
 | 9 |Ethan |Marketing |400 |10000 |25000 |
 
-### NOMBRE d’utilisations
+### <a name="use-count"></a>NOMBRE d’utilisations
 L’exemple suivant ajoute un champ supplémentaire à chaque ligne pour afficher le nombre total d’employés de chaque service.
 
     @result =
@@ -271,7 +279,7 @@ L’exemple suivant ajoute un champ supplémentaire à chaque ligne pour affiche
             COUNT(*) OVER(PARTITION BY DeptName) AS CountByDept 
         FROM @employees;
 
-Résultat :
+Résultat :
 
 | EmpID | EmpName | DeptName | DeptID | Salaire | CountByDept |
 | --- | --- | --- | --- | --- | --- |
@@ -285,7 +293,7 @@ Résultat :
 | 8 |Ava |Marketing |400 |15000 |2 |
 | 9 |Ethan |Marketing |400 |10000 |2 |
 
-### Utilisez MIN et MAX
+### <a name="use-min-and-max"></a>Utilisez MIN et MAX
 L’exemple suivant ajoute un champ supplémentaire à chaque ligne pour afficher le salaire minimum pratiqué dans chaque service.
 
     @result =
@@ -294,7 +302,7 @@ L’exemple suivant ajoute un champ supplémentaire à chaque ligne pour affiche
             MIN(Salary) OVER( PARTITION BY DeptName ) AS MinSalary
         FROM @employees;
 
-Résultats :
+Résultats :
 
 | EmpID | EmpName | DeptName | DeptID | Salaire | MinSalary |
 | --- | --- | --- | --- | --- | --- |
@@ -310,17 +318,17 @@ Résultats :
 
 Remplacez MIN par MAX, puis faites un essai.
 
-## Fonctions de classement
+## <a name="ranking-functions"></a>Fonctions de classement
 Les fonctions de classement renvoient une valeur de classement (longue) pour chaque ligne de chaque partition comme défini par les clauses PARTITION BY et OVER. L’ordre du rang est contrôlé par ORDER BY dans la clause OVER.
 
-Vous trouverez plus loin les fonctions de classement prises en charge :
+Vous trouverez plus loin les fonctions de classement prises en charge :
 
 * RANK
-* DENSE\_RANK
+* DENSE_RANK 
 * NTILE
-* ROW\_NUMBER
+* ROW_NUMBER
 
-**Syntaxe :**
+**Syntaxe :**
 
     [ RANK() | DENSE_RANK() | ROW_NUMBER() | NTILE(<numgroups>) ]
         OVER (
@@ -329,11 +337,11 @@ Vous trouverez plus loin les fonctions de classement prises en charge :
     ) AS <alias>
 
 * La clause ORDER BY est facultative pour les fonctions de classement. Si ORDER BY est spécifié, il détermine l’ordre de classement. Si ORDER BY n’est pas spécifié, U-SQL affecte des valeurs en fonction de l’ordre, dans lequel il lit l’enregistrement. Il en résulte une valeur non déterminante de nombre de ligne, de classement ou de classement sans vide dans le cas où ordre par clause n’est pas spécifié.
-* NTILE exige une expression qui s’évalue en entier positif. Ce nombre indique le nombre de groupes en lequel chaque partition doit être divisée. Cet identificateur est utilisé uniquement avec la fonction de classement de NTILE.
+* NTILE exige une expression qui s’évalue en entier positif. Ce nombre indique le nombre de groupes en lequel chaque partition doit être divisée. Cet identificateur est utilisé uniquement avec la fonction de classement de NTILE. 
 
 Pour plus d’informations sur la clause OVER, consultez [Référence U-SQL]().
 
-ROW\_NUMBER, RANK et DENSE\_RANK affectent des numéros de lignes dans une fenêtre. Plutôt qu’aborder les sujets séparément, il est plus intuitif de voir comment ils répondent à la même entrée.
+ROW_NUMBER, RANK et DENSE_RANK affectent des numéros de lignes dans une fenêtre. Plutôt qu’aborder les sujets séparément, il est plus intuitif de voir comment ils répondent à la même entrée.
 
     @result =
     SELECT 
@@ -343,9 +351,9 @@ ROW\_NUMBER, RANK et DENSE\_RANK affectent des numéros de lignes dans une fenê
         DENSE_RANK() OVER (PARTITION BY Vertical ORDER BY Latency) AS DenseRank 
     FROM @querylog;
 
-Notez que les clauses OVER sont identiques. Résultat :
+Notez que les clauses OVER sont identiques. Résultat :
 
-| Interroger | Latence : int | Vertical | RowNumber | Rank | DenseRank |
+| Interroger | Latence : int | Vertical | RowNumber | RANK | DenseRank |
 | --- | --- | --- | --- | --- | --- |
 | Banane |300 |Image |1 |1 |1 |
 | Cerise |300 |Image |2 |1 |1 |
@@ -357,39 +365,39 @@ Notez que les clauses OVER sont identiques. Résultat :
 | Cerise |400 |Web |5 |5 |4 |
 | Durion |500 |Web |6 |6 |5 |
 
-### ROW\_NUMBER
-Dans chaque fenêtre (Vertical, Image ou Web), le nombre de lignes est incrémenté de 1 classé par latence.
+### <a name="rownumber"></a>ROW_NUMBER
+Dans chaque fenêtre (Vertical, Image ou Web), le nombre de lignes est incrémenté de 1 classé par latence.  
 
-![Fonction fenêtre ROW\_NUMBER de fenêtre U-SQL](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-row-number-result.png)
+![Fonction fenêtre ROW_NUMBER de fenêtre U-SQL](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-row-number-result.png)
 
-### RANK
-Différent de ROW\_NUMBER(), RANK() prend en compte la valeur de latence spécifiée dans la clause ORDER BY de la fenêtre.
+### <a name="rank"></a>RANK
+Différent de ROW_NUMBER(), RANK() prend en compte la valeur de latence spécifiée dans la clause ORDER BY de la fenêtre.
 
-RANK commence par (1,1,3), car les deux premières valeurs de latence sont les mêmes. Puis la valeur suivante est 3, car la valeur de latence est passée à 500. L’objectif clé étant que même si les valeurs en double se voient appliquer le même classement, le nombre RANK « passe » à la valeur ROW\_NUMBER suivante. Vous pouvez voir ce schéma se répéter avec la suite (2,2,4) dans le Web vertical.
+RANK commence par (1,1,3), car les deux premières valeurs de latence sont les mêmes. Puis la valeur suivante est 3, car la valeur de latence est passée à 500. L’objectif clé étant que même si les valeurs en double se voient appliquer le même classement, le nombre RANK « passe » à la valeur ROW_NUMBER suivante. Vous pouvez voir ce schéma se répéter avec la suite (2,2,4) dans le Web vertical.
 
 ![Fonction fenêtre RANK U-SQL](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-rank-result.png)
 
-### DENSE\_RANK
-DENSE\_RANK est similaire à RANK, sauf qu’il ne « passe » pas au ROW\_NUMBER suivant, au lieu de ça, il passe au numéro suivant dans la séquence. Notez les séquences: (1,1,2) et (2,2,3) dans l’exemple.
+### <a name="denserank"></a>DENSE_RANK
+DENSE_RANK est similaire à RANK, sauf qu’il ne « passe » pas au ROW_NUMBER suivant, au lieu de ça, il passe au numéro suivant dans la séquence. Notez les séquences: (1,1,2) et (2,2,3) dans l’exemple.
 
-![Fonction fenêtre DENSE\_RANK U-SQL](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-dense-rank-result.png)
+![Fonction fenêtre DENSE_RANK U-SQL](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-dense-rank-result.png)
 
-### Remarques
+### <a name="remarks"></a>Remarques
 * Si ORDER BY n’est pas spécifié, la fonction de classement est appliquée à l’ensemble de lignes sans respecter un ordre. Cela débouche sur un comportement non déterminant sur la façon dont la fonction de classement est appliquée
-* Il n’existe aucune garantie que les lignes retournées par une requête à l’aide de ROW\_NUMBER respecteront exactement le même ordre avec chaque exécution, sauf si les conditions suivantes sont remplies.
+* Il n’existe aucune garantie que les lignes retournées par une requête à l’aide de ROW_NUMBER respecteront exactement le même ordre avec chaque exécution, sauf si les conditions suivantes sont remplies.
   
   * Les valeurs de la colonne partitionnée sont uniques.
   * Les valeurs des colonnes ORDER BY sont uniques.
   * Les combinaisons de valeurs de la colonne de partition et les colonnes ORDER BY sont uniques.
 
-### NTILE
-NTILE distribue les lignes d’une partition ordonnée dans un nombre spécifié de groupes. Les groupes sont numérotés à partir de un.
+### <a name="ntile"></a>NTILE
+NTILE distribue les lignes d’une partition ordonnée dans un nombre spécifié de groupes. Les groupes sont numérotés à partir de un. 
 
-L’exemple qui suit fractionne l’ensemble de lignes dans chaque partition (vertical) en 4 groupes dans l’ordre de latence de la requête et renvoie le numéro de groupe de chaque ligne.
+L’exemple qui suit fractionne l’ensemble de lignes dans chaque partition (vertical) en 4 groupes dans l’ordre de latence de la requête et renvoie le numéro de groupe de chaque ligne. 
 
-La verticale de l’Image comporte 3 lignes, et donc, est composée de 3 groupes.
+La verticale de l’Image comporte 3 lignes, et donc, est composée de 3 groupes. 
 
-La verticale Web comporte 6 lignes, les deux lignes supplémentaires sont réparties entre les deux premiers groupes. C’est pour cette raison qu’il existe 2 lignes dans le groupe 1 et le groupe 2 et seulement 1 ligne dans les groupes 3 et 4.
+La verticale Web comporte 6 lignes, les deux lignes supplémentaires sont réparties entre les deux premiers groupes. C’est pour cette raison qu’il existe 2 lignes dans le groupe 1 et le groupe 2 et seulement 1 ligne dans les groupes 3 et 4.  
 
     @result =
         SELECT 
@@ -397,7 +405,7 @@ La verticale Web comporte 6 lignes, les deux lignes supplémentaires sont répar
             NTILE(4) OVER(PARTITION BY Vertical ORDER BY Latency) AS Quartile   
         FROM @querylog;
 
-Résultats :
+Résultats :
 
 | Interroger | Latence | Vertical | Quartile |
 | --- | --- | --- | --- |
@@ -411,20 +419,20 @@ Résultats :
 | Cerise |400 |Web |3 |
 | Durion |500 |Web |4 |
 
-NTILE prend un paramètre (« numgroups »). Numgroups est un entier positif ou une expression constante longue qui spécifie le nombre de groupes en lequel chaque partition doit être divisée.
+NTILE prend un paramètre (« numgroups »). Numgroups est un entier positif ou une expression constante longue qui spécifie le nombre de groupes en lequel chaque partition doit être divisée. 
 
-* Si le nombre de lignes présentes dans la partition est divisible par numgroups, alors les groupes auront tous une taille égale.
-* Si le nombre de lignes d’une partition n’est pas divisible par numgroups, les groupes auront deux tailles différentes à cause d’un membre. Les groupes plus grands viennent avant les plus petits dans l’ordre spécifié par la clause OVER.
+* Si le nombre de lignes présentes dans la partition est divisible par numgroups, alors les groupes auront tous une taille égale. 
+* Si le nombre de lignes d’une partition n’est pas divisible par numgroups, les groupes auront deux tailles différentes à cause d’un membre. Les groupes plus grands viennent avant les plus petits dans l’ordre spécifié par la clause OVER. 
 
-Par exemple :
+Par exemple :
 
-* 100 lignes divisées en 4 groupes : [25, 25, 25, 25]
-* 102 lignes divisées en 4 groupes : [26, 26, 25, 25]
+* 100 lignes divisées en 4 groupes : [25, 25, 25, 25]
+* 102 lignes divisées en 4 groupes : [26, 26, 25, 25]
 
-### Enregistrements Top N par Partition via RANK, DENSE\_RANK ou ROW\_NUMBER
-Nombre d’utilisateurs souhaitent sélectionner uniquement n premières (TOP) lignes par groupe. Cela n’est pas possible avec la clause GROUP BY traditionnelle.
+### <a name="top-n-records-per-partition-via-rank-denserank-or-rownumber"></a>Enregistrements Top N par Partition via RANK, DENSE_RANK ou ROW_NUMBER
+Nombre d’utilisateurs souhaitent sélectionner uniquement n premières (TOP) lignes par groupe. Cela n’est pas possible avec la clause GROUP BY traditionnelle. 
 
-Vous avez vu l’exemple suivant au début de la section des fonctions de classement. Elle n’affiche pas les N premiers enregistrement de chaque partition :
+Vous avez vu l’exemple suivant au début de la section des fonctions de classement. Elle n’affiche pas les N premiers enregistrement de chaque partition :
 
     @result =
     SELECT 
@@ -434,9 +442,9 @@ Vous avez vu l’exemple suivant au début de la section des fonctions de classe
         DENSE_RANK() OVER (PARTITION BY Vertical ORDER BY Latency) AS DenseRank
     FROM @querylog;
 
-Résultats :
+Résultats :
 
-| Interroger | Latence | Vertical | Rank | DenseRank | RowNumber |
+| Interroger | Latence | Vertical | RANK | DenseRank | RowNumber |
 | --- | --- | --- | --- | --- | --- |
 | Banane |300 |Image |1 |1 |1 |
 | Cerise |300 |Image |1 |1 |2 |
@@ -448,8 +456,8 @@ Résultats :
 | Cerise |400 |Web |5 |4 |5 |
 | Durion |500 |Web |6 |5 |6 |
 
-### TOP N avec DENSE RANK
-L’exemple suivant retourne les 3 premiers enregistrements de chaque groupe sans espace dans la numérotation de classement séquentiel de chaque partition de fenêtrage.
+### <a name="top-n-with-dense-rank"></a>TOP N avec DENSE RANK
+L’exemple suivant retourne les 3 premiers enregistrements de chaque groupe sans espace dans la numérotation de classement séquentiel de chaque partition de fenêtrage.
 
     @result =
     SELECT 
@@ -462,7 +470,7 @@ L’exemple suivant retourne les 3 premiers enregistrements de chaque groupe san
         FROM @result
         WHERE DenseRank <= 3;
 
-Résultats :
+Résultats :
 
 | Interroger | Latence | Vertical | DenseRank |
 | --- | --- | --- | --- |
@@ -474,7 +482,7 @@ Résultats :
 | Papaye |200 |Web |2 |
 | Figue |300 |Web |3 |
 
-### TOP N avec RANK
+### <a name="top-n-with-rank"></a>TOP N avec RANK
     @result =
         SELECT 
             *,
@@ -486,9 +494,9 @@ Résultats :
         FROM @result
         WHERE Rank <= 3;
 
-Résultats :
+Résultats :    
 
-| Interroger | Latence | Vertical | Rank |
+| Interroger | Latence | Vertical | RANK |
 | --- | --- | --- | --- |
 | Banane |300 |Image |1 |
 | Cerise |300 |Image |1 |
@@ -497,7 +505,7 @@ Résultats :
 | Figue |200 |Web |2 |
 | Papaye |200 |Web |2 |
 
-### TOP N avec ROW\_NUMBER
+### <a name="top-n-with-rownumber"></a>TOP N avec ROW_NUMBER
     @result =
         SELECT 
             *,
@@ -509,7 +517,7 @@ Résultats :
         FROM @result
         WHERE RowNumber <= 3;
 
-Résultats :
+Résultats :   
 
 | Interroger | Latence | Vertical | RowNumber |
 | --- | --- | --- | --- |
@@ -520,7 +528,7 @@ Résultats :
 | Figue |200 |Web |2 |
 | Papaye |200 |Web |3 |
 
-### Affecter un numéro de ligne unique global
+### <a name="assign-globally-unique-row-number"></a>Affecter un numéro de ligne unique global
 Il est souvent utile d’affecter un numéro unique à chaque ligne. C’est facile (et plus efficace que l’utilisation d’un réducteur) avec les fonctions de classement.
 
     @result =
@@ -530,20 +538,20 @@ Il est souvent utile d’affecter un numéro unique à chaque ligne. C’est fac
         FROM @querylog;
 
 <!-- ################################################### -->
-## Fonctions analytiques
+## <a name="analytic-functions"></a>fonctions analytiques
 Les fonctions analytiques sont utilisées pour comprendre les distributions de valeurs dans les fenêtres. Le scénario le plus courant pour l’utilisation de fonctions analytiques est le calcul de centiles.
 
 **Prise en charge des fonctions de fenêtre analytique**
 
-* CUME\_DIST
-* PERCENT\_RANK
-* PERCENTILE\_CONT
-* PERCENTILE\_DISC
+* CUME_DIST 
+* PERCENT_RANK
+* PERCENTILE_CONT
+* PERCENTILE_DISC
 
-### CUME\_DIST
-CUME\_DIST calcule la position relative d’une valeur spécifiée dans un groupe de valeurs. Elle calcule le pourcentage de requêtes qui ont une latence inférieure ou égale à la latence de la requête actuelle dans la même verticale. Pour une ligne R, en supposant l’utilisation d’un ordre croissant, le CUME\_DIST de R correspond au nombre de lignes avec des valeurs inférieures ou égales à la valeur de R, divisé par le nombre de lignes évaluées dans le jeu de résultats de la partition ou de la requête. CUME\_DIST renvoie des nombres dans la plage 0 < x < = 1.
+### <a name="cumedist"></a>CUME_DIST
+CUME_DIST calcule la position relative d’une valeur spécifiée dans un groupe de valeurs. Elle calcule le pourcentage de requêtes qui ont une latence inférieure ou égale à la latence de la requête actuelle dans la même verticale. Pour une ligne R, en supposant l’utilisation d’un ordre croissant, le CUME_DIST de R correspond au nombre de lignes avec des valeurs inférieures ou égales à la valeur de R, divisé par le nombre de lignes évaluées dans le jeu de résultats de la partition ou de la requête. CUME_DIST renvoie des nombres dans la plage 0 < x < = 1.
 
-**Syntaxe**
+** Syntaxe**
 
     CUME_DIST() 
         OVER (
@@ -551,7 +559,7 @@ CUME\_DIST calcule la position relative d’une valeur spécifiée dans un group
             ORDER BY <identifier, > …[n] [ASC|DESC] 
     ) AS <alias>
 
-L’exemple suivant utilise la fonction CUME\_DIST pour calculer le centile de latence pour chaque requête au sein d’une verticale.
+L’exemple suivant utilise la fonction CUME_DIST pour calculer le centile de latence pour chaque requête au sein d’une verticale. 
 
     @result=
         SELECT 
@@ -559,41 +567,41 @@ L’exemple suivant utilise la fonction CUME\_DIST pour calculer le centile de l
             CUME_DIST() OVER(PARTITION BY Vertical ORDER BY Latency) AS CumeDist
         FROM @querylog;
 
-Résultats :
+Résultats :
 
 | Interroger | Latence | Vertical | CumeDist |
 | --- | --- | --- | --- |
 | Durion |500 |Image |1 |
-| Banane |300 |Image |0\.666666666666667 |
-| Cerise |300 |Image |0\.666666666666667 |
+| Banane |300 |Image |0.666666666666667 |
+| Cerise |300 |Image |0.666666666666667 |
 | Durion |500 |Web |1 |
-| Cerise |400 |Web |0\.833333333333333 |
-| Figue |300 |Web |0\.666666666666667 |
-| Figue |200 |Web |0\.5 |
-| Papaye |200 |Web |0\.5 |
-| Pomme |100 |Web |0\.166666666666667 |
+| Cerise |400 |Web |0.833333333333333 |
+| Figue |300 |Web |0.666666666666667 |
+| Figue |200 |Web |0.5 |
+| Papaye |200 |Web |0.5 |
+| Pomme |100 |Web |0.166666666666667 |
 
-Il existe 6 lignes dans la partition dont la clé de partition est « Web » (4 lignes et vers le bas) :
+Il existe 6 lignes dans la partition dont la clé de partition est « Web » (4 lignes et vers le bas) :
 
-* Il existe des 6 lignes avec une valeur égale ou inférieure à 500, donc le CUME\_DIST est égal à 6/6 = 1
-* Il existe 5 lignes avec une valeur égale ou inférieure à 400, et donc CUME\_DIST est égal à 5/6 = 0,83.
-* Il existe 4 lignes avec une valeur égale ou inférieure à 300, et CUME\_DIST est donc égal à 4/6 = 0,66
-* Il existe 3 lignes avec une valeur égale ou inférieure à 200, et donc CUME\_DIST est égal à 3/6 = 0,5. Il existe deux lignes avec la même valeur de latence.
-* Il existe 1 ligne avec une valeur égale ou inférieure à 100, et donc CUME\_DIST est égal à 1/6 = 0,16.
+* Il existe des 6 lignes avec une valeur égale ou inférieure à 500, donc le CUME_DIST est égal à 6/6 = 1
+* Il existe 5 lignes avec une valeur égale ou inférieure à 400, et donc CUME_DIST est égal à 5/6 = 0,83.
+* Il existe 4 lignes avec une valeur égale ou inférieure à 300, et CUME_DIST est donc égal à 4/6 = 0,66
+* Il existe 3 lignes avec une valeur égale ou inférieure à 200, et donc CUME_DIST est égal à 3/6 = 0,5. Il existe deux lignes avec la même valeur de latence.
+* Il existe 1 ligne avec une valeur égale ou inférieure à 100, et donc CUME_DIST est égal à 1/6 = 0,16. 
 
-**Notes d’utilisation :**
+**Notes d’utilisation :**
 
 * Les valeurs de lien sont toujours évaluées à la même valeur de distribution cumulative.
 * Les valeurs NULL sont traitées comme les valeurs les plus basses possible.
-* Vous devez spécifier la clause ORDER BY pour calculer CUME\_DIST.
-* CUME\_DIST s’apparente à la fonction PERCENT\_RANK
+* Vous devez spécifier la clause ORDER BY pour calculer CUME_DIST.
+* CUME_DIST s’apparente à la fonction PERCENT_RANK
 
-Remarque : La clause ORDER BY n’est pas autorisée si l’instruction SELECT n’est pas suivie de OUTPUT. Ainsi, la clause ORDER BY dans l’instruction OUTPUT détermine l’ordre d’affichage de l’ensemble de lignes qui en résulte.
+Remarque : La clause ORDER BY n’est pas autorisée si l’instruction SELECT n’est pas suivie de OUTPUT. Ainsi, la clause ORDER BY dans l’instruction OUTPUT détermine l’ordre d’affichage de l’ensemble de lignes qui en résulte.
 
-### PERCENT\_RANK
-PERCENT\_RANK calcule le classement relatif d’une ligne dans un groupe de lignes. PERCENT\_RANK est utilisé pour évaluer la position relative d’une valeur dans un ensemble de lignes ou une partition. La plage de valeurs retournée par PERCENT\_RANK est supérieure à 0 et inférieure ou égale à 1. Contrairement à CUME\_DIST, la première ligne de PERCENT\_RANK est toujours 0.
+### <a name="percentrank"></a>PERCENT_RANK
+PERCENT_RANK calcule le classement relatif d’une ligne dans un groupe de lignes. PERCENT_RANK est utilisé pour évaluer la position relative d’une valeur dans un ensemble de lignes ou une partition. La plage de valeurs retournée par PERCENT_RANK est supérieure à 0 et inférieure ou égale à 1. Contrairement à CUME_DIST, la première ligne de PERCENT_RANK est toujours 0.
 
-**Syntaxe**
+** Syntaxe**
 
     PERCENT_RANK() 
         OVER (
@@ -603,16 +611,16 @@ PERCENT\_RANK calcule le classement relatif d’une ligne dans un groupe de lign
 
 **Remarques**
 
-* La première ligne de n’importe quel jeu a une valeur PERCENT\_RANK de 0.
+* La première ligne de n’importe quel jeu a une valeur PERCENT_RANK de 0.
 * Les valeurs NULL sont traitées comme les valeurs les plus basses possible.
-* Vous devez spécifier la clause ORDER BY pour calculer PERCENT\_RANK.
-* CUME\_DIST s’apparente à la fonction PERCENT\_RANK
+* Vous devez spécifier la clause ORDER BY pour calculer PERCENT_RANK.
+* CUME_DIST s’apparente à la fonction PERCENT_RANK 
 
-L’exemple suivant utilise la fonction PERCENT\_RANK. pour calculer le centile de latence pour chaque requête au sein d’une verticale.
+L’exemple suivant utilise la fonction PERCENT_RANK. pour calculer le centile de latence pour chaque requête au sein d’une verticale. 
 
-La clause PARTITION BY est spécifiée pour partitionner les lignes du jeu de résultats défini par la verticale. La clause ORDER BY dans la clause OVER met les lignes dans l’ordre dans chaque partition.
+La clause PARTITION BY est spécifiée pour partitionner les lignes du jeu de résultats défini par la verticale. La clause ORDER BY dans la clause OVER met les lignes dans l’ordre dans chaque partition. 
 
-La valeur retournée par la fonction PERCENT\_RANK représente le classement de la latence des requêtes dans un vertical sous forme de pourcentage.
+La valeur retournée par la fonction PERCENT_RANK représente le classement de la latence des requêtes dans un vertical sous forme de pourcentage. 
 
     @result=
         SELECT 
@@ -620,7 +628,7 @@ La valeur retournée par la fonction PERCENT\_RANK représente le classement de 
             PERCENT_RANK() OVER(PARTITION BY Vertical ORDER BY Latency) AS PercentRank
         FROM @querylog;
 
-Résultats :
+Résultats :
 
 | Interroger | Latence : int | Vertical | PercentRank |
 | --- | --- | --- | --- |
@@ -628,30 +636,31 @@ Résultats :
 | Cerise |300 |Image |0 |
 | Durion |500 |Image |1 |
 | Pomme |100 |Web |0 |
-| Figue |200 |Web |0\.2 |
-| Papaye |200 |Web |0\.2 |
+| Figue |200 |Web |0.2 |
+| Papaye |200 |Web |0.2 |
 | Figue |300 |Web |0,6 |
 | Cerise |400 |Web |0,8 |
 | Durion |500 |Web |1 |
 
-### PERCENTILE\_CONT et PERCENTILE\_DISC
+### <a name="percentilecont-percentiledisc"></a>PERCENTILE_CONT et PERCENTILE_DISC
 Ces deux fonctions calculent un centile basé sur une distribution continue ou discrète des valeurs de colonne.
 
 **Syntaxe**
 
-    [PERCENTILE_CONT | PERCENTILE_DISC] \( numeric_literal ) 
+    [PERCENTILE_CONT | PERCENTILE_DISC] ( numeric_literal ) 
         WITHIN GROUP ( ORDER BY <identifier> [ ASC | DESC ] )
         OVER ( [ PARTITION BY <identifier,>…[n] ] ) AS <alias>
 
-**numeric\_literal** -centile à calculer. La valeur doit être comprise entre 0,0 et 1,0.
+**numeric_literal** - centile à calculer. La valeur doit être comprise entre 0,0 et 1,0.
 
-WITHIN GROUP (ORDER BY <identificateur> [ASC | DESC]) - spécifie une liste de valeurs numériques à trier et pour lesquelles calculer le centile. Un seul identificateur de colonne est autorisé. L’expression doit correspondre à un type numérique. Les autres types de données ne sont pas autorisés. L’ordre de tri par défaut est croissant.
+WITHIN GROUP (ORDER BY <identifier> [ASC | DESC]) - spécifie une liste de valeurs numériques à trier et pour lesquelles calculer le centile. Un seul identificateur de colonne est autorisé. L’expression doit correspondre à un type numérique. Les autres types de données ne sont pas autorisés. L’ordre de tri par défaut est croissant.
 
-OVER ([PARTITION BY <identificateur,>... [n] ] ) - divise l’ensemble de lignes d’entrée en fonction de la clé de partition à laquelle la fonction centile est appliquée. Pour plus d’informations, voir la section RANKING du présent document. Remarque : Toutes les valeurs null présentes dans le jeu de données sont ignorées.
+OVER ([PARTITION BY <identificateur,>... [n] ] ) - divise l’ensemble de lignes d’entrée en fonction de la clé de partition à laquelle la fonction centile est appliquée. Pour plus d’informations, voir la section RANKING du présent document.
+Remarque : Toutes les valeurs null présentes dans le jeu de données sont ignorées.
 
-**PERCENTILE\_CONT** calcule un centile en fonction d’une distribution continue ou discrète de la valeur de colonne. Le résultat est interpolé et peut ne pas être égal à une des valeurs spécifiques de la colonne.
+**PERCENTILE_CONT** calcule un centile en fonction d’une distribution continue ou discrète de la valeur de colonne. Le résultat est interpolé et peut ne pas être égal à une des valeurs spécifiques de la colonne. 
 
-**PERCENTILE\_DISC** calcule le centile selon une répartition discrète des valeurs de colonne. Le résultat est égal à une valeur spécifique de la colonne. En d’autres termes, PERCENTILE\_DISC, à l’inverse de PERCENTILE\_CONT, retourne toujours une valeur réelle (entrée d’origine).
+**PERCENTILE_DISC** calcule le centile selon une répartition discrète des valeurs de colonne. Le résultat est égal à une valeur spécifique de la colonne. En d’autres termes, PERCENTILE_DISC, à l’inverse de PERCENTILE_CONT, retourne toujours une valeur réelle (entrée d’origine).
 
 Vous pouvez voir comment les deux fonctionnent dans l’exemple ci-dessous, qui essaie de trouver la valeur médiane (centile = 0,50) de latence dans chaque Verticale
 
@@ -668,7 +677,7 @@ Vous pouvez voir comment les deux fonctionnent dans l’exemple ci-dessous, qui 
 
         FROM @querylog;
 
-Résultats :
+Résultats :
 
 | Interroger | Latence : int | Vertical | PercentileCont50 | PercentilDisc50 |
 | --- | --- | --- | --- | --- |
@@ -682,11 +691,11 @@ Résultats :
 | Cerise |400 |Web |250 |200 |
 | Durion |500 |Web |250 |200 |
 
-Pour PERCENTILE\_CONT, comme les valeurs peuvent être interpolées, la valeur médiane pour le web est 250 même si aucune requête dans le site web vertical a une latence de 250 seulement.
+Pour PERCENTILE_CONT, comme les valeurs peuvent être interpolées, la valeur médiane pour le web est 250 même si aucune requête dans le site web vertical a une latence de 250 seulement. 
 
-PERCENTILE\_DISC n’interpole pas les valeurs, et par conséquent, la valeur médiane pour le Web est de 200 - c’est-à-dire une réelle valeur trouvée dans les lignes d’entrée.
+PERCENTILE_DISC n’interpole pas les valeurs, et par conséquent, la valeur médiane pour le Web est de 200 - c’est-à-dire une réelle valeur trouvée dans les lignes d’entrée.
 
-## Voir aussi
+## <a name="see-also"></a>Voir aussi
 * [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Prise en main de Data Lake Analytics à l'aide du portail Azure](data-lake-analytics-get-started-portal.md)
 * [Prise en main de Data Lake Analytics à l'aide d'Azure PowerShell](data-lake-analytics-get-started-powershell.md)
@@ -698,4 +707,9 @@ PERCENTILE\_DISC n’interpole pas les valeurs, et par conséquent, la valeur m�
 * [Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 * [Surveiller et résoudre les problèmes des tâches Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
