@@ -1,12 +1,12 @@
 ---
-title: Exemple d’application à utiliser avec des environnements comprenant des limites de sécurité | Microsoft Docs
-description: Déployez cette application web simple pour tester des scénarios de flux de trafic suite à la création d’un réseau de périmètre.
+title: "Exemple d’application à utiliser avec des environnements comprenant des limites de sécurité | Microsoft Docs"
+description: "Déployez cette application web simple pour tester des scénarios de flux de trafic suite à la création d’un réseau de périmètre."
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-
+editor: 
+ms.assetid: 60340ab7-b82b-40e0-bd87-83e41fe4519c
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4d3f5e759f46bd4c4998c5d4bf70d64190ad972e
+
 
 ---
-# Exemple d’application à utiliser avec des environnements comprenant des limites de sécurité
-[Revenir à la page Meilleures pratiques relatives aux limites de sécurité][HOME]
+# <a name="sample-application-for-use-with-security-boundary-environments"></a>Exemple d’application à utiliser avec des environnements comprenant des limites de sécurité
+[Revenir à la page des bonnes pratiques concernant les limites de sécurité][Accueil]
 
 Ces scripts PowerShell peuvent être exécutés localement sur les serveurs IIS01 et AppVM01. Ils installent et configurent une application web très simple qui affiche une page html à partir du serveur frontal IIS01 avec du contenu provenant du serveur principal AppVM01.
 
 Cette application fournit un environnement de test simple pour la plupart des exemples de réseau de périmètre. Elle permet aussi de voir l’impact des modifications apportées aux points de terminaison, groupes de sécurité réseau, itinéraires définis par l’utilisateur et règles de pare-feu sur les flux de trafic.
 
-## Règle de pare-feu pour autoriser ICMP
+## <a name="firewall-rule-to-allow-icmp"></a>Règle de pare-feu pour autoriser ICMP
 Cette instruction PowerShell simple peut être exécutée sur n’importe quelle machine virtuelle Windows pour autoriser le trafic ICMP (Ping). Elle permet au protocole ping de franchir le Pare-feu Windows (pour la plupart des distributions Linux, ICMP est activé par défaut), ce qui facilite les tests et la résolution des problèmes.
 
     # Turn On ICMPv4
@@ -32,13 +36,13 @@ Cette instruction PowerShell simple peut être exécutée sur n’importe quelle
 
 **Remarque** : si vous utilisez les scripts ci-dessous, l’ajout de cette règle de pare-feu est la première instruction.
 
-## IIS01 - Script d’installation de l’application web
-Ce script :
+## <a name="iis01---web-application-installation-script"></a>IIS01 - Script d’installation de l’application web
+Ce script :
 
-1. ouvre IMCPv4 (Ping) sur le Pare-feu Windows du serveur local pour faciliter les tests ;
-2. installe IIS et le .NET Framework 4.5 ;
-3. crée une page web ASP.NET et un fichier Web.config ;
-4. modifie le pool d’applications par défaut pour faciliter l’accès aux fichiers ;
+1. ouvre IMCPv4 (Ping) sur le Pare-feu Windows du serveur local pour faciliter les tests ;
+2. installe IIS et le .NET Framework 4.5 ;
+3. crée une page web ASP.NET et un fichier Web.config ;
+4. modifie le pool d’applications par défaut pour faciliter l’accès aux fichiers ;
 5. affecte votre compte d’administrateur et votre mot de passe à l’utilisateur Anonyme.
 
 Ce script PowerShell doit être exécuté localement, l’accès à IIS01 s’effectuant via RDP.
@@ -138,17 +142,17 @@ Ce script PowerShell doit être exécuté localement, l’accès à IIS01 s’ef
         Write-Host
 
 
-## AppVM01 - Script d’installation du serveur de fichiers
-Ce script configure le serveur principal pour cette application simple. Ce script :
+## <a name="appvm01---file-server-installation-script"></a>AppVM01 - Script d’installation du serveur de fichiers
+Ce script configure le serveur principal pour cette application simple. Ce script :
 
-1. ouvre IMCPv4 (Ping) sur le pare-feu pour faciliter les tests ;
-2. crée un répertoire ;
-3. crée un fichier texte auquel la page web ci-dessus accédera à distance ;
-4. affecte au répertoire et au fichier des autorisations Anonyme pour autoriser l’accès ;
+1. ouvre IMCPv4 (Ping) sur le pare-feu pour faciliter les tests ;
+2. crée un répertoire ;
+3. crée un fichier texte auquel la page web ci-dessus accédera à distance ;
+4. affecte au répertoire et au fichier des autorisations Anonyme pour autoriser l’accès ;
 5. désactive la sécurité renforcée d’Internet Explorer pour faciliter la navigation à partir de ce serveur. 
 
 > [!IMPORTANT]
-> **Meilleure pratique** : ne désactivez jamais la sécurité renforcée d’Internet Explorer sur un serveur de production, et sachez qu’il est généralement déconseillé de surfer sur le web à partir d’un serveur de production. Sachez aussi que l’ouverture de partages de fichiers en vue d’un accès anonyme, bien que déconseillée, est effectuée ici par souci de simplicité.
+> **Meilleure pratique**: ne désactivez jamais la sécurité renforcée d’Internet Explorer sur un serveur de production, et sachez qu’il est généralement déconseillé de surfer sur le web à partir d’un serveur de production. Sachez aussi que l’ouverture de partages de fichiers en vue d’un accès anonyme, bien que déconseillée, est effectuée ici par souci de simplicité.
 > 
 > 
 
@@ -184,10 +188,14 @@ Ce script PowerShell doit être exécuté localement, l’accès à AppVM01 s’
         Write-Host
 
 
-## DNS01 - Script d’installation du serveur DNS
-Aucun script n’est inclus dans cet exemple d’application pour configurer le serveur DNS. Si les tests que vous conduisez sur les règles de pare-feu, groupes de sécurité réseau ou itinéraires définis par l’utilisateur nécessitent l’inclusion du trafic DNS, le serveur DNS01 doit être configuré manuellement. Dans le fichier XML de configuration réseau pour les deux exemples, DNS01 est le serveur DNS principal, et le serveur DNS public hébergé par le niveau 3 est le serveur DNS secondaire. Le serveur DNS de niveau 3 est le serveur DNS utilisé pour le trafic non local, et comme DNS01 n’est pas configuré, aucun traffic DNS local n’a lieu.
+## <a name="dns01---dns-server-installation-script"></a>DNS01 - Script d’installation du serveur DNS
+Aucun script n’est inclus dans cet exemple d’application pour configurer le serveur DNS. Si les tests que vous conduisez sur les règles de pare-feu, groupes de sécurité réseau ou itinéraires définis par l’utilisateur nécessitent l’inclusion du trafic DNS, le serveur DNS01 doit être configuré manuellement. Dans le fichier XML de configuration réseau pour les deux exemples, DNS01 est le serveur DNS principal, et le serveur DNS public hébergé par le niveau 3 est le serveur DNS secondaire. Le serveur DNS de niveau 3 est le serveur DNS utilisé pour le trafic non local, et comme DNS01 n’est pas configuré, aucun traffic DNS local n’a lieu.
 
 <!--Link References-->
-[HOME]: ../best-practices-network-security.md
+[Accueil]: ../best-practices-network-security.md
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

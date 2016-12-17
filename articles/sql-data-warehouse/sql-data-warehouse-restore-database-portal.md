@@ -1,12 +1,12 @@
 ---
-title: Restauration d’un Azure SQL Data Warehouse (Portail) | Microsoft Docs
-description: Tâches du portail Azure permettant de restaurer un Azure SQL Data Warehouse.
+title: "Restauration d’un entrepôt Azure SQL Data Warehouse (portail) | Microsoft Docs"
+description: "Tâches du portail Azure permettant de restaurer un Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: Lakshmi1812
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: b0aef539-7657-4b0e-9899-74098f5c21bc
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 09/21/2016
 ms.author: lakshmir;barbkess;sonyama
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2cb8cb2b58df5cc209b1f966c792ca0f4082e652
+
 
 ---
-# <a name="restore-an-azure-sql-data-warehouse-(portal)"></a>Restauration d’un Azure SQL Data Warehouse (Portail)
+# <a name="restore-an-azure-sql-data-warehouse-portal"></a>Restauration d’un Azure SQL Data Warehouse (Portail)
 > [!div class="op_single_selector"]
 > * [Vue d'ensemble][Vue d'ensemble]
 > * [Portail][Portail]
@@ -33,7 +37,7 @@ Dans cet article, vous allez apprendre à restaurer un Azure SQL Data Warehouse 
 ## <a name="restore-an-active-or-paused-database"></a>Restauration d’une base de données active ou en pause
 Pour restaurer une base de données :
 
-1. Connectez-vous au [portail Azure][portail Azure]
+1. Connectez-vous au [portail Azure][portail Azure].
 2. Sur le côté gauche de l’écran, sélectionnez **Parcourir**, puis choisissez **Serveurs SQL Server**.
    
     ![](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
@@ -61,9 +65,9 @@ Pour restaurer une base de données :
 > 
 
 ## <a name="restore-a-deleted-database"></a>restauration d’une base de données supprimée.
-Pour restaurer une base de données supprimée :
+Pour restaurer une base de données supprimée :
 
-1. Connectez-vous au [portail Azure][portail Azure]
+1. Connectez-vous au [portail Azure][portail Azure].
 2. Sur le côté gauche de l’écran, sélectionnez **Parcourir**, puis choisissez **Serveurs SQL Server**.
    
     ![](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
@@ -84,22 +88,22 @@ Pour restaurer une base de données supprimée :
 9. Le processus de restauration de la base de données commence. Vous pouvez le surveiller dans **NOTIFICATIONS**.
 
 > [!NOTE]
-> Pour configurer votre base de données une fois la restauration terminée, consultez la page [Configurer votre base de données après récupération][Configurer votre base de données après récupération]. 
+> Pour configurer votre base de données une fois la restauration terminée, consultez la page [Configurer votre base de données après récupération][Configurer votre base de données après récupération].
 > 
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions de Base de données SQL Azure, voir [Vue d’ensemble de la continuité des activités de la base de données SQL Azure][Vue d’ensemble de la continuité des activités de la base de données SQL Azure].
+Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions d’Azure SQL Database, voir [Vue d’ensemble de la continuité des activités de la base de données SQL Azure][Vue d’ensemble de la continuité des activités de la base de données SQL Azure].
 
 <!--Image references-->
 
 <!--Article references-->
-[vue d’ensemble de la continuité des activités de la base de données SQL Azure]: ./sql-database-business-continuity.md
+[Vue d’ensemble de la continuité des activités de la base de données SQL Azure]: ../sql-database/sql-database-business-continuity.md
 [Vue d'ensemble]: ./sql-data-warehouse-restore-database-overview.md
 [Portail]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
-[Configurer votre base de données après récupération]: ./sql-database-disaster-recovery.md#configure-your-database-after-recovery
+[Configurer votre base de données après récupération]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 [Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 
 <!--MSDN references-->
@@ -111,6 +115,6 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
