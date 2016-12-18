@@ -1,12 +1,12 @@
 ---
-title: Ajouter ou supprimer des nœuds d’un cluster Service Fabric autonome | Microsoft Docs
-description: Apprenez à ajouter ou supprimer des nœuds d’un cluster Azure Service Fabric sur une machine physique ou virtuelle sous Windows Server, qu’elle soit locale ou dans un cloud.
+title: "Ajouter ou supprimer des nœuds d’un cluster Service Fabric autonome | Microsoft Docs"
+description: "Apprenez à ajouter ou supprimer des nœuds d’un cluster Azure Service Fabric sur une machine physique ou virtuelle sous Windows Server, qu’elle soit locale ou dans un cloud."
 services: service-fabric
 documentationcenter: .net
 author: dsk-2015
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: bc6b8fc0-d2af-42f8-a164-58538be38d02
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/20/2016
 ms.author: dkshir;chackdan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 335ab9d3746b089e9e7a8d640a89a2d381295b46
+
 
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Ajouter ou supprimer des nœuds d’un cluster Service Fabric autonome sous Windows Server
@@ -38,13 +42,18 @@ Une fois que vous avez [créé votre cluster Service Fabric autonome sur des ord
 3. Avec Bureau à distance (RDP), accédez à la machine virtuelle ou à l’ordinateur que vous souhaitez supprimer du cluster.
 4. Copiez ou [téléchargez le package autonome Service Fabric pour Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) et décompressez le package sur cette machine virtuelle ou cet ordinateur.
 5. Exécutez PowerShell en tant qu’administrateur, puis naviguez jusqu’à l’emplacement du package décompressé.
-6. Exécutez le script PowerShell *RemoveNode.ps1* . L’exemple ci-dessous supprime le nœud actif du cluster. *ExistingClusterConnectionEndPoint* est un point de terminaison de connexion pour un nœud déjà présent dans le cluster existant. Pour ce point de terminaison, vous devez choisir l’adresse IP de *tout* **autre nœud** du cluster.
+6. Exécutez le script *RemoveNode.ps1* dans PowerShell. L’exemple ci-dessous supprime le nœud actif du cluster. Le *ExistingClientConnectionEndpoint* est un point de terminaison de connexion client pour tout nœud restant dans le cluster. Choisissez l’adresse IP et le port de point de terminaison de *tout* **autre nœud** du cluster. Cet **autre nœud** mettra à jour à son tour la configuration du cluster pour le nœud supprimé. 
 
 ```
-.\RemoveNode.ps1 -ExistingClusterConnectionEndPoint 182.17.34.50:19000
+.\RemoveNode.ps1 -ExistingClientConnectionEndpoint 182.17.34.50:19000
 ```
 
-Défaut connu qui sera résolu dans la prochaine version : même après avoir supprimé un nœud, le nœud apparaît comme indisponible dans les requêtes et SFX. 
+> [!NOTE]
+> Certains nœuds ne peuvent pas être supprimés en raison des dépendances de services système. Ces nœuds sont des nœuds principaux et peuvent être identifiés en interrogeant le manifeste de cluster à l’aide de `Get-ServiceFabricClusterManifest` et en recherchant des entrées de nœud marquées avec `IsSeedNode=”true”`. 
+> 
+> 
+
+Même après la suppression d’un nœud, il peut apparaître comme défaillant dans des requêtes et dans SFX. Il s’agit d’un problème connu. Il sera résolu dans la prochaine version. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Paramètres de configuration pour un cluster Windows autonome](service-fabric-cluster-manifest.md)
@@ -52,6 +61,9 @@ Défaut connu qui sera résolu dans la prochaine version : même après avoir su
 * [Sécuriser un cluster autonome sur Windows à l’aide de certificats X509](service-fabric-windows-cluster-x509-security.md)
 * [Créer un cluster Service Fabric autonome avec des machines virtuelles Azure Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

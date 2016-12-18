@@ -1,12 +1,12 @@
 ---
-title: Configuration des paramètres de groupe avec les applets de commande Azure Active Directory | Microsoft Docs
-description: Comment gérer les paramètres des groupes à l’aide des applets de commande Azure Active Directory.
+title: "Configuration des paramètres de groupe avec les applets de commande Azure Active Directory | Microsoft Docs"
+description: "Comment gérer les paramètres des groupes à l’aide des applets de commande Azure Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 9f2090e6-3af4-4f07-bbb2-1d18dae89b73
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6a8bd076830d9b639007ee0130320869d2a63746
+
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Configuration des paramètres de groupe avec les applets de commande Azure Active Directory
@@ -54,10 +58,10 @@ Voici les paramètres définis dans l’objet SettingsTemplate Group.Unified.
 
 | **Paramètre** | **Description** |
 | --- | --- |
-|  <ul><li>ClassificationList<li>Type : string<li>Valeur par défaut : “” |Liste des valeurs de classification valides séparées par des virgules pouvant être appliquées à des groupes unifiés. |
-|  <ul><li>EnableGroupCreation<li>Type : booléen<li> Par défaut : True |Indicateur spécifiant si la création de groupes unifiés est autorisée dans le répertoire. |
-|  <ul><li>GroupCreationAllowedGroupId<li>Type : string<li>Valeur par défaut : “” |GUID du groupe de sécurité autorisé à créer des groupes unifiés même lorsque EnableGroupCreation == false. |
-|  <ul><li>UsageGuidelinesUrl<li>Type : string<li>Valeur par défaut : “” |Lien vers les instructions d’utilisation du groupe. |
+|  <ul><li>ClassificationList<li>Type : string<li>Valeur par défaut : “” |Liste des valeurs de classification valides séparées par des virgules pouvant être appliquées à des groupes unifiés. |
+|  <ul><li>EnableGroupCreation<li>Type : booléen<li> Par défaut : True |Indicateur spécifiant si la création de groupes unifiés est autorisée dans le répertoire. |
+|  <ul><li>GroupCreationAllowedGroupId<li>Type : string<li>Valeur par défaut : “” |GUID du groupe de sécurité autorisé à créer des groupes unifiés même lorsque EnableGroupCreation == false. |
+|  <ul><li>UsageGuidelinesUrl<li>Type : string<li>Valeur par défaut : “” |Lien vers les instructions d’utilisation du groupe. |
 
 ## <a name="read-settings-at-the-directory-level"></a>Lire les paramètres au niveau du répertoire
 Les étapes suivantes permettent de lire les paramètres au niveau du répertoire qui s’appliquent à tous les groupes Office du répertoire.
@@ -98,7 +102,7 @@ Les étapes suivantes permettent de supprimer les paramètres au niveau du répe
 ## <a name="cmdlet-syntax-reference"></a>Informations de référence sur la syntaxe des applets de commande
 Vous trouverez plus d’informations sur Azure Active Directory PowerShell dans la page dédiée aux [applets de commande Azure Active Directory](http://go.microsoft.com/fwlink/p/?LinkId=808260).
 
-## <a name="settingstemplate-object-reference-(group.unified-settingstemplate-object)"></a>Référence d’objet SettingsTemplate (OBJE SettingsTemplate Group.Unified)
+## <a name="settingstemplate-object-reference-groupunified-settingstemplate-object"></a>Référence d’objet SettingsTemplate (OBJE SettingsTemplate Group.Unified)
 * "name": "EnableGroupCreation", "type": "System.Boolean", "defaultValue": "true", "description": "Indicateur booléen spécifiant si la fonctionnalité de création de groupes unifiés est activée."
 * "name": "GroupCreationAllowedGroupId", "type": "System.Guid", "defaultValue": "", "description": "GUID du groupe de sécurité qui se trouve dans la liste approuvée pour créer des groupes unifiés."
 * "name": "ClassificationList", "type": "System.String", "defaultValue": "", "description": "Liste de valeurs de classification valides séparées par une virgule pouvant être appliquées à des groupes unifiés."
@@ -119,6 +123,9 @@ Pour des instructions supplémentaires fournies par le responsable de programme 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
