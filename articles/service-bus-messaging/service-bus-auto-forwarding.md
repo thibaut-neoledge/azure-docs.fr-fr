@@ -1,26 +1,30 @@
 ---
-title: Transfert automatique d'entités de messagerie de Service Bus | Microsoft Docs
-description: Comment chaîner une file d’attente ou un abonnement à une autre file d’attente ou rubrique.
-services: service-bus
+title: "Transfert automatique d’entités de messagerie de Service Bus | Microsoft Docs"
+description: "Comment chaîner une file d’attente ou un abonnement à une autre file d’attente ou rubrique."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: f7060778-3421-402c-97c7-735dbf6a61e8
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a20450442a8471534e4cd3faab9167d1db65d9b3
+
 
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>Chaînage des entités Service Bus avec transfert automatique
 La fonctionnalité de *transfert automatique* vous permet de chaîner une file d’attente ou un abonnement à une autre file d’attente ou rubrique qui fait partie du même espace de noms. Lorsque le transfert automatique est activé, Service Bus supprime automatiquement les messages placés dans la première file d’attente ou le premier abonnement (source) pour les placer dans la deuxième file d’attente ou rubrique (destination). Notez qu'il est toujours possible d'envoyer un message à l'entité de destination directement. Notez également qu’il n’est pas possible de chaîner une sous-file d’attente, comme une file d’attente de rebut, à une autre file d’attente ou rubrique.
 
 ## <a name="using-auto-forwarding"></a>Utilisation du transfert automatique
-Vous pouvez activer le transfert automatique en définissant les propriétés [QueueDescription.ForwardTo][QueueDescription.ForwardTo] ou [SubscriptionDescription.ForwardTo][] sur les objets [QueueDescription][] ou [SubscriptionDescription][] pour la source, comme dans l’exemple suivant.
+Vous pouvez activer le transfert automatique en définissant les propriétés [QueueDescription.ForwardTo][QueueDescription.ForwardTo] ou [SubscriptionDescription.ForwardTo Property][SubscriptionDescription.ForwardTo Property] sur les objets [QueueDescription Class][QueueDescription Class] ou [SubscriptionDescription Class][SubscriptionDescription Class] pour la source, comme dans l’exemple suivant.
 
 ```
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -30,11 +34,11 @@ namespaceManager.CreateSubscription(srcSubscription));
 
 L'entité de destination doit exister au moment de la création de l'entité source. Si l'entité de destination n'existe pas, Service Bus renvoie une exception lorsqu'il lui est demandé de créer l'entité source.
 
-Vous pouvez utiliser le transfert automatique pour faire évoluer une rubrique particulière. Service Bus limite le [nombre d’abonnements à une rubrique donnée](service-bus-quotas.md) à 2 000. Vous pouvez créer des abonnements supplémentaires en créant des rubriques de second niveau. Même si vous n’êtes pas lié par la limitation de Service Bus sur le nombre d’abonnements, l’ajout d’un deuxième niveau de rubriques peut améliorer le débit global de votre rubrique.
+Vous pouvez utiliser le transfert automatique pour faire évoluer une rubrique particulière. Service Bus limite le [nombre d’abonnements à une rubrique donnée](service-bus-quotas.md) à 2 000. Vous pouvez créer des abonnements supplémentaires en créant des rubriques de second niveau. Même si vous n’êtes pas lié par la limitation de Service Bus sur le nombre d’abonnements, l’ajout d’un deuxième niveau de rubriques peut améliorer le débit global de votre rubrique.
 
 ![Scénario de transfert automatique][0]
 
-Vous pouvez également utiliser le transfert automatique pour découpler les expéditeurs de messages des récepteurs. Par exemple, considérez un système ERP qui se compose de trois modules : Traitement des commandes, Gestion des stocks et Gestion des relations client. Chacun de ces modules génère des messages qui sont placés en file d’attente dans une rubrique correspondante. Alice et Bob sont des représentants commerciaux qui s'intéressent à tous les messages liés à leurs clients. Pour recevoir ces messages, Alice et Bob créent chacun une file d’attente personnelle et un abonnement sur chacune des rubriques ERP qui transfèrent automatiquement tous les messages à leur file d’attente.
+Vous pouvez également utiliser le transfert automatique pour découpler les expéditeurs de messages des récepteurs. Par exemple, considérez un système ERP qui se compose de trois modules : Traitement des commandes, Gestion des stocks et Gestion des relations client. Chacun de ces modules génère des messages qui sont placés en file d’attente dans une rubrique correspondante. Alice et Bob sont des représentants commerciaux qui s'intéressent à tous les messages liés à leurs clients. Pour recevoir ces messages, Alice et Bob créent chacun une file d’attente personnelle et un abonnement sur chacune des rubriques ERP qui transfèrent automatiquement tous les messages à leur file d’attente.
 
 ![Scénario de transfert automatique][1]
 
@@ -52,11 +56,11 @@ Pour créer un abonnement qui est chaîné à une autre file d’attente ou rubr
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur le transfert automatique, consultez les rubriques de référence suivantes :
 
-* [SubscriptionDescription.ForwardTo Property][SubscriptionDescription.ForwardTo Property] (Propriété SubscriptionDescription.ForwardTo)
-* [QueueDescription Class][QueueDescription Class] (Classe QueueDescription)
-* [SubscriptionDescription Class][SubscriptionDescription Class] (Classe SubscriptionDescription)
+* [SubscriptionDescription.ForwardTo Property][SubscriptionDescription.ForwardTo Property]
+* [QueueDescription Class][QueueDescription Class]
+* [SubscriptionDescription Class][SubscriptionDescription Class]
 
-Pour en savoir plus sur les améliorations des performances de Service Bus, consultez [Files d’attente et rubriques partitionnées][].
+Pour en savoir plus sur les améliorations des performances de Service Bus, consultez [Entités de messagerie partitionnées][Entités de messagerie partitionnées].
 
 [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
 [SubscriptionDescription.ForwardTo Property]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx (Propriété SubscriptionDescription.ForwardTo)
@@ -67,6 +71,7 @@ Pour en savoir plus sur les améliorations des performances de Service Bus, cons
 [Entités de messagerie partitionnées]: service-bus-partitioning.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

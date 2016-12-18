@@ -1,12 +1,12 @@
 ---
-title: Analyser les journaux de diagnostic Azure à l’aide de Log Analytics | Microsoft Docs
-description: Log Analytics peut lire les journaux des services Azure qui écrivent des journaux de diagnostic Azure dans Stockage Blob au format JSON.
+title: "Analyser les journaux de diagnostic Azure à l’aide de Log Analytics | Microsoft Docs"
+description: "Log Analytics peut lire les journaux des services Azure qui écrivent des journaux de diagnostic Azure dans Stockage Blob au format JSON."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: adf2f366-ea98-4250-ae66-6d2cfce5b4f9
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,30 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 08274c03dd1ebb7533efde4c01744ed5293fb4dd
+
 
 ---
 # <a name="analyze-azure-diagnostic-logs-using-log-analytics"></a>Analyser les journaux de diagnostic Azure à l’aide de Log Analytics
-Log Analytics peut collecter les journaux pour les services Azure suivants, qui écrivent des [journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) dans le Stockage Blob au format JSON :
+Log Analytics peut collecter les journaux pour les services Azure suivants, qui écrivent des [journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) dans le Stockage Blob au format JSON :
 
 * Automation (version préliminaire)
 * Key Vault (version préliminaire)
 * Application Gateway (version préliminaire)
 * Groupe de sécurité réseau (version préliminaire)
 
-Les sections suivantes vous guident dans l’utilisation de PowerShell pour effectuer les opérations suivantes :
+Les sections suivantes vous guident dans l’utilisation de PowerShell pour effectuer les opérations suivantes :
 
 * Configurer Log Analytics afin qu’il collecte les journaux à partir du stockage pour chaque ressource  
 * Activer la solution Log Analytics pour le service Azure
 
 Pour que Log Analytics puisse collecter les données pour ces ressources, les diagnostics Azure doivent être activés. Utilisez l’applet de commande `Set-AzureRmDiagnosticSetting` pour activer la journalisation.
 
-Pour plus d’informations sur la façon d’activer la journalisation des diagnostics, voir les articles suivants :
+Pour plus d’informations sur la façon d’activer la journalisation des diagnostics, voir les articles suivants :
 
 * [Key Vault](../key-vault/key-vault-logging.md)
 * [Application Gateway](../application-gateway/application-gateway-diagnostics.md)
 * [Groupe de sécurité réseau](../virtual-network/virtual-network-nsg-manage-log.md)
 
-Cette documentation comprend également des détails concernant les aspects suivants :
+Cette documentation comprend également des détails concernant les aspects suivants :
 
 * Résolution des problèmes de collecte de données
 * Arrêt de la collecte de données
@@ -45,7 +49,7 @@ Cette documentation comprend également des détails concernant les aspects suiv
 ## <a name="configure-log-analytics-to-collect-azure-diagnostic-logs"></a>Configurer Log Analytics pour collecter les journaux de diagnostic Azure
 La collecte de journaux pour ces services et l’activation de la solution pour visualiser les journaux sont effectuées à l’aide de scripts PowerShell.
 
-L’exemple suivant active la journalisation sur toutes les ressources prises en charge :
+L’exemple suivant active la journalisation sur toutes les ressources prises en charge :
 
 ```
 # update to be the storage account that logs will be written to. Storage account must be in the same region as the resource to monitor
@@ -80,7 +84,7 @@ Nous avons fourni un module de script PowerShell qui exporte les deux applets de
 4. Le module PowerShell AzureDiagnosticsAndLogAnalytics
    * Téléchargez le module [AzureDiagnosticsAndLogAnalytics](https://www.powershellgallery.com/packages/AzureDiagnosticsAndLogAnalytics/) à partir de la galerie PowerShell
 
-### <a name="option-1:-run-the-interactive-configuration-scripts"></a>Option 1 : Exécuter les scripts de configuration interactive
+### <a name="option-1-run-the-interactive-configuration-scripts"></a>Option 1 : Exécuter les scripts de configuration interactive
 Ouvrez PowerShell et exécutez :
 
 ```
@@ -98,7 +102,7 @@ Add-AzureDiagnosticsToLogAnalyticsUI
 ```
 
 La liste des sélections disponibles s’affiche et vous êtes invité à effectuer votre sélection.
-Vous êtes invité à opérer des sélections pour chacun des éléments suivants :
+Vous êtes invité à opérer des sélections pour chacun des éléments suivants :
 
 * Types de ressources (Services Azure) à partir desquels les journaux doivent être collectés
 * Instances de ressources à partir desquelles les journaux doivent être collectés
@@ -106,7 +110,7 @@ Vous êtes invité à opérer des sélections pour chacun des éléments suivant
 
 Après exécution de ce script, vous devriez voir les enregistrements dans Log Analytics environ 30 minutes après l’écriture de nouvelles données de diagnostic dans le stockage. Si les enregistrements ne sont pas disponibles après ce délai, consultez la section de dépannage ci-dessous.
 
-### <a name="option-2:-build-a-list-of-resources-and-pass-them-to-the-configuration-cmdlet"></a>Option 2 : Créer une liste de ressources et la transmettre à l’applet de commande de configuration
+### <a name="option-2-build-a-list-of-resources-and-pass-them-to-the-configuration-cmdlet"></a>Option 2 : Créer une liste de ressources et la transmettre à l’applet de commande de configuration
 Vous pouvez dresser la liste des ressources pour lesquelles les diagnostics Azure sont activés, puis transmettre les ressources à l’applet de commande de configuration.
 
 Vous pouvez voir des informations supplémentaires sur l’applet de commande en exécutant la commande `Get-Help Add-AzureDiagnosticsToLogAnalytics`.
@@ -157,7 +161,7 @@ Pour supprimer la configuration Log Analytics pour une ressource, utilisez l’a
 ## <a name="troubleshooting-configuration-for-azure-diagnostic-logs"></a>Résolution des problèmes de configuration pour les journaux de diagnostic Azure
 *Problème*
 
-L’erreur suivante s’affiche lors de la configuration d’une ressource qui se connecte au stockage classique :
+L’erreur suivante s’affiche lors de la configuration d’une ressource qui se connecte au stockage classique :
 
 ```
 Select-AzureSubscription : The subscription id 7691b0d1-e786-4757-857c-7360e61896c3 doesn't exist.
@@ -165,12 +169,12 @@ Select-AzureSubscription : The subscription id 7691b0d1-e786-4757-857c-7360e6189
 Parameter name: id
 ```
 
-*Résolution :*
+*Résolution :*
 
 Connectez-vous à l’API pour le modèle de déploiement classique avec `Add-AzureAccount`.
 
 ## <a name="troubleshooting-data-collection-for-azure-diagnostic-logs"></a>Résolution des problèmes de collecte de données pour les journaux de diagnostic Azure
-Si vous ne voyez pas de données pour votre ressource Azure dans Log Analytics, vous pouvez suivre les étapes de résolution de problèmes suivantes :
+Si vous ne voyez pas de données pour votre ressource Azure dans Log Analytics, vous pouvez suivre les étapes de résolution de problèmes suivantes :
 
 * Vérifier que les données circulent vers le compte de stockage
 * Vérifier que la solution Log Analytics est activée pour le service
@@ -207,7 +211,7 @@ Pour trouver le nom de la solution à activer pour chaque type de ressource, uti
 
 ### <a name="verify-that-log-analytics-is-configured-to-read-from-storage"></a>Vérifier que Log Analytics est configuré pour lire à partir du stockage
 Si vous ajoutez des ressources Azure, vous devez activer la journalisation des diagnostics et configurer Log Analytics pour celles-ci.
-Pour vérifier les comptes de stockage et les ressources pour lesquels Log Analytics est configuré pour collecter les journaux, utilisez la commande PowerShell suivante :
+Pour vérifier les comptes de stockage et les ressources pour lesquels Log Analytics est configuré pour collecter les journaux, utilisez la commande PowerShell suivante :
 
 ```
 # Find the Workspace ResourceGroup and Name
@@ -233,6 +237,9 @@ Pour rechercher le nom Storage Insight, utilisez l’applet de commande `Get-Azu
 * [Activer les solutions](log-analytics-add-solutions.md) pour fournir des informations sur les données.
 * [Utiliser les requêtes de recherche](log-analytics-log-searches.md) pour analyser les données.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

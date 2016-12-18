@@ -1,48 +1,52 @@
 ---
-title: Déplacer des données depuis Cassandra à l’aide de Data Factory | Microsoft Docs
-description: Découvrez comment déplacer des données depuis une base de données Cassandra locale à l’aide d’Azure Data Factory.
+title: "Déplacer des données depuis Cassandra à l’aide de Data Factory | Microsoft Docs"
+description: "Découvrez comment déplacer des données depuis une base de données Cassandra locale à l’aide d’Azure Data Factory."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 085cc312-42ca-4f43-aa35-535b35a102d5
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 12/07/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
+ms.openlocfilehash: 21ec253e35b31af770cacb9747210deb4b9f5fa0
+
 
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Déplacer des données depuis une base de données Cassandra locale à l’aide d’Azure Data Factory
-Cet article décrit la façon dont vous pouvez utiliser l’activité de copie dans une Azure Data Factory pour copier des données depuis une base de données Cassandra locale vers n’importe quel magasin de données de la colonne du récepteur dans la section [Sources et récepteurs pris en charge](data-factory-data-movement-activities.md#supported-data-stores) . Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de magasins de données prises en charge.
+Cet article décrit la façon dont vous pouvez utiliser l’activité de copie dans une Azure Data Factory pour copier des données depuis une base de données Cassandra locale vers n’importe quel magasin de données de la colonne du récepteur dans la section [Sources et récepteurs pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de magasins de données prises en charge.
 
-Actuellement, Data Factory prend uniquement en charge le déplacement de données depuis une base de données Cassandra vers les [magasins récepteurs pris en charge](data-factory-data-movement-activities.md#supported-data-stores), et non le déplacement de données depuis d’autres magasins de données vers une base de données Cassandra.
+Actuellement, Data Factory prend uniquement en charge le déplacement de données depuis une base de données Cassandra vers les [magasins récepteurs pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats), et non le déplacement de données depuis d’autres magasins de données vers une base de données Cassandra.
 
 ## <a name="prerequisites"></a>Composants requis
-Pour permettre au service Azure Data Factory de se connecter à votre base de données Cassandra locale, vous devez installer ce qui suit : 
+Pour permettre au service Azure Data Factory de se connecter à votre base de données Cassandra locale, vous devez installer ce qui suit :
 
 * Une passerelle de gestion de données version 2.0 ou ultérieure sur l’ordinateur qui héberge la base de données ou sur un autre ordinateur afin d’éviter toute mise en concurrence avec la base de données pour les ressources. La passerelle de gestion de données est un logiciel qui connecte des sources de données locales à des services cloud de manière gérée et sécurisée. Pour plus d’informations sur la passerelle de gestion de données, consultez l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) .
-  
-    L’installation de la passerelle engendre automatiquement l’installation d’un pilote Microsoft ODBC Cassandra, utilisé pour se connecter à la base de données Cassandra. 
+
+    L’installation de la passerelle engendre automatiquement l’installation d’un pilote Microsoft ODBC Cassandra, utilisé pour se connecter à la base de données Cassandra.
 
 > [!NOTE]
-> Consultez [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle. 
-> 
-> 
+> Consultez [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
+>
+>
 
 ## <a name="copy-data-wizard"></a>Assistant Copier des données
-Le moyen le plus simple de créer un pipeline qui copie les données à partir d’une base de données Cassandra vers n’importe quel magasin de données récepteur pris en charge consiste à utiliser l’Assistant Copier des données. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données. 
+Le moyen le plus simple de créer un pipeline qui copie les données à partir d’une base de données Cassandra vers n’importe quel magasin de données récepteur pris en charge consiste à utiliser l’Assistant Copier des données. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
 
-L’exemple suivant présente des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide du [portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données depuis une base de données Cassandra vers Azure Blob Storage. Toutefois, les données peuvent être copiées vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores) , via l’activité de copie d’Azure Data Factory.   
+L’exemple suivant présente des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide du [portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données depuis une base de données Cassandra vers Azure Blob Storage. Toutefois, les données peuvent être copiées vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie d’Azure Data Factory.   
 
-## <a name="sample:-copy-data-from-cassandra-to-blob"></a>Exemple : copie de données à partir de Cassandra vers un objet blob
-L’exemple copie des données à partir d’une base de données Cassandra vers un objet blob Azure toutes les heures. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples. Les données peuvent être copiées directement vers l’un des récepteurs indiqués dans l’article [Activités de déplacement des données](data-factory-data-movement-activities.md#supported-data-stores) , par le biais de l’activité de copie d’Azure Data Factory. 
+## <a name="sample-copy-data-from-cassandra-to-blob"></a>Exemple : copie de données à partir de Cassandra vers un objet blob
+L’exemple copie des données à partir d’une base de données Cassandra vers un objet blob Azure toutes les heures. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples. Les données peuvent être copiées directement vers l’un des récepteurs indiqués dans l’article [Activités de déplacement des données](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , par le biais de l’activité de copie d’Azure Data Factory.
 
 * Un service lié de type [OnPremisesCassandra](#onpremisescassandra-linked-service-properties).
-* Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+* Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 * Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [CassandraTable](#cassandratable-properties).
 * Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 * Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [CassandraSource](#cassandrasource-type-properties) et [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
@@ -69,7 +73,7 @@ Cet exemple utilise le service lié **Cassandra** . Consultez la section [Servic
     }
 
 
-**Service lié Azure Storage**
+**Service lié Azure Storage**
 
     {
         "name": "AzureStorageLinkedService",
@@ -90,7 +94,7 @@ Cet exemple utilise le service lié **Cassandra** . Consultez la section [Servic
             "type": "CassandraTable",
             "typeProperties": {
                 "tableName": "mytable",
-                "keySpace": "mykeyspace" 
+                "keySpace": "mykeyspace"
             },
             "availability": {
                 "frequency": "Hour",
@@ -107,11 +111,11 @@ Cet exemple utilise le service lié **Cassandra** . Consultez la section [Servic
         }
     }
 
-La définition de **external** sur **true** informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à la Data Factory et non produit par une activité dans la Data Factory.
+La définition de **external** sur **true** informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à la Data Factory et non produit par une activité dans la Data Factory.
 
 **Jeu de données de sortie d’objet Blob Azure**
 
-Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). 
+Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1).
 
     {
         "name": "AzureBlobOutput",
@@ -134,9 +138,9 @@ Les données sont écrites dans un nouvel objet blob toutes les heures (fréquen
 
 **Pipeline avec activité de copie**
 
-Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **CassandraSource** et le type **sink** est défini sur **BlobSink**. 
+Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **CassandraSource** et le type **sink** est défini sur **BlobSink**.
 
-Pour obtenir la liste des propriétés prises en charge par RelationalSource, consultez [propriétés du type RelationalSource](#cassandrasource-type-properties) . 
+Pour obtenir la liste des propriétés prises en charge par RelationalSource, consultez [propriétés du type RelationalSource](#cassandrasource-type-properties) .
 
     {  
         "name":"SamplePipeline",
@@ -180,10 +184,10 @@ Pour obtenir la liste des propriétés prises en charge par RelationalSource, co
                     "timeout": "01:00:00"
                 }
             }
-            ]   
+            ]    
         }
     }
-## <a name="onpremisescassandra-linked-service-properties"></a>Propriétés du service lié OnPremisesCassandra
+## <a name="onpremisescassandra-linked-service-properties"></a>Propriétés du service lié OnPremisesCassandra
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié Cassandra.
 
 | Propriété | Description | Requis |
@@ -208,7 +212,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 | TableName |Nom de la table dans la base de données Cassandra. |Oui (si la **requête** pour **CassandraSource** n’est pas définie). |
 
 ## <a name="cassandrasource-type-properties"></a>Propriétés de type CassandraSource
-Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d’entrée et de sortie et la stratégie sont disponibles pour tous les types d’activités. 
+Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d’entrée et de sortie et la stratégie sont disponibles pour tous les types d’activités.
 
 En revanche, les propriétés disponibles dans la section typeProperties de l'activité varient pour chaque type d'activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
 
@@ -219,7 +223,7 @@ Lorsque la source est de type **CassandraSource**, les propriétés suivantes so
 | query |Utilise la requête personnalisée pour lire des données. |Requête SQL-92 ou requête CQL. Reportez-vous à [référence CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Lorsque vous utilisez la requête SQL, indiquez **keyspace name.table name** pour représenter la table que vous souhaitez interroger. |Non (si tableName et keyspace sur le jeu de données sont définis). |
 | Niveau de cohérence |Le niveau de cohérence spécifie le nombre de réplicas devant répondre à une demande de lecture avant de renvoyer des données à l’application cliente. Cassandra vérifie le nombre de réplicas spécifié pour permettre aux données de répondre à la demande de lecture. |UN, DEUX, TROIS, QUORUM, TOUT, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Reportez-vous à [Configuring data consistency (Configuration de la cohérence des données)](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) pour plus d’informations. |Non. La valeur par défaut est UN. |
 
-### <a name="type-mapping-for-cassandra"></a>Mappage de type pour Cassandra
+### <a name="type-mapping-for-cassandra"></a>Mappage de type pour Cassandra
 | Type Cassandra | Type basé sur .Net |
 | --- | --- |
 | ASCII |String |
@@ -239,13 +243,13 @@ Lorsque la source est de type **CassandraSource**, les propriétés suivantes so
 | VARINT |DÉCIMAL |
 
 > [!NOTE]
-> Pour les types de collections (mappages, ensembles, listes, etc.), reportez-vous à la section [Work with Cassandra collection types using virtual table (Travailler avec les types de collections Cassandra à l’aide d’une table virtuelle)](#work-with-collections-using-virtual-table) . 
-> 
+> Pour les types de collections (mappages, ensembles, listes, etc.), reportez-vous à la section [Work with Cassandra collection types using virtual table (Travailler avec les types de collections Cassandra à l’aide d’une table virtuelle)](#work-with-collections-using-virtual-table) .
+>
 > Les types définis par l’utilisateur ne sont pas pris en charge.
-> 
-> La longueur des colonnes binaires et des colonnes de chaîne ne peut pas être supérieure à 4 000. 
-> 
-> 
+>
+> La longueur des colonnes binaires et des colonnes de chaîne ne peut pas être supérieure à 4 000.
+>
+>
 
 ## <a name="work-with-collections-using-virtual-table"></a>Travailler avec des collections à l’aide d’une table virtuelle
 Azure Data Factory utilise un pilote ODBC intégré pour assurer la connexion à votre base de données Cassandra et copier des données à partir de cette dernière. Pour les types de collection, notamment les cartes, ensembles et listes, le pilote renormalise les données dans des tables virtuelles correspondantes. En particulier, si une table contient des colonnes de n’importe quelle collection, le pilote génère les tables virtuelles suivantes :
@@ -255,7 +259,7 @@ Azure Data Factory utilise un pilote ODBC intégré pour assurer la connexion à
 
 Les tables virtuelles font référence aux données présentées dans la table réelle, de manière à permettre au pilote d’accéder aux données dénormalisées. Consultez la section Exemple pour plus d’informations. Vous pouvez accéder au contenu des collections Cassandra en interrogeant et en joignant les tables virtuelles.
 
-Vous pouvez utiliser l’ [Assistant de copie](data-factory-data-movement-activities.md#data-factory-copy-wizard) afin d’afficher de manière intuitive la liste des tables dans la base de données Cassandra, y compris les tables virtuelles, et de prévisualiser les données qui s’y trouvent. Vous pouvez également construire une requête dans l’Assistant de copie et valider pour voir le résultat.
+Vous pouvez utiliser l’ [Assistant de copie](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity) afin d’afficher de manière intuitive la liste des tables dans la base de données Cassandra, y compris les tables virtuelles, et de prévisualiser les données qui s’y trouvent. Vous pouvez également construire une requête dans l’Assistant de copie et valider pour voir le résultat.
 
 ### <a name="example"></a>Exemple
 Par exemple, « ExampleTable » ci-après est une table de base de données Cassandra qui contient une colonne clé primaire entière nommée « pk_int », une colonne de texte nommée « value », une colonne de liste, une colonne de mappage et une colonne de jeu (nommée « StringSet »).
@@ -265,7 +269,7 @@ Par exemple, « ExampleTable » ci-après est une table de base de données Cass
 | 1 |« exemple de valeur 1 » |[« 1 », « 2 », « 3 »] |{« S1 » : « a », « S2 » : « b »} |{« A », « B », « C »} |
 | 3 |« exemple de valeur 3 » |[« 100 », « 101 », « 102 », « 105 »] |{« S1 » : « t »} |{« A », « E »} |
 
-Le pilote génère plusieurs tables virtuelles pour représenter cette table. Les colonnes de clés étrangères dans les tables virtuelles font référence aux colonnes de clés primaires dans la table réelle, et indiquent à quelles lignes de la table réelle les lignes de la table virtuelle correspondent. 
+Le pilote génère plusieurs tables virtuelles pour représenter cette table. Les colonnes de clés étrangères dans les tables virtuelles font référence aux colonnes de clés primaires dans la table réelle, et indiquent à quelles lignes de la table réelle les lignes de la table virtuelle correspondent.
 
 La première table virtuelle est la table de base nommée « ExampleTable » affichée dans le tableau suivant. La table de base contient les mêmes données que la table de base de données d’origine, à l’exception des collections, qui sont omises de cette table et développées dans d’autres tables virtuelles.
 
@@ -276,7 +280,7 @@ La première table virtuelle est la table de base nommée « ExampleTable » aff
 
 Les tableaux suivants montrent les tables virtuelles qui renormalisent les données des colonnes Liste, Mappage et StringSet. Les colonnes portant des noms se terminant par « _index » ou « _key » indiquent la position des données dans la liste ou le mappage d’origine. Les colonnes portant des noms se terminant par « _value » contiennent les données étendues de la collection.
 
-#### <a name="table-“exampletable_vt_list”:"></a>Table « ExampleTable_vt_List » :
+#### <a name="table-exampletablevtlist"></a>Table « ExampleTable_vt_List » :
 | pk_int | List_index | List_value |
 | --- | --- | --- |
 | 1 |0 |1 |
@@ -287,20 +291,20 @@ Les tableaux suivants montrent les tables virtuelles qui renormalisent les donn�
 | 3 |2 |102 |
 | 3 |3 |103 |
 
-#### <a name="table-“exampletable_vt_map”:"></a>Table « ExampleTable_vt_List » :
+#### <a name="table-exampletablevtmap"></a>Table « ExampleTable_vt_List » :
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
-| 1 |S1 |Un |
+| 1 |S1 |Un  |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
-#### <a name="table-“exampletable_vt_stringset”:"></a>Table « ExampleTable_vt_List » :
+#### <a name="table-exampletablevtstringset"></a>Table « ExampleTable_vt_List » :
 | pk_int | StringSet_value |
 | --- | --- |
-| 1 |Un |
+| 1 |Un  |
 | 1 |b |
 | 1 |C |
-| 3 |Un |
+| 3 |Un  |
 | 3 |E |
 
 [!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
@@ -310,6 +314,8 @@ Les tableaux suivants montrent les tables virtuelles qui renormalisent les donn�
 ## <a name="performance-and-tuning"></a>Performances et réglage
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

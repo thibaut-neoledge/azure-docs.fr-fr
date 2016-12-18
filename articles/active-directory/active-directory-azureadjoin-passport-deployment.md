@@ -1,14 +1,14 @@
 ---
 title: Activer Microsoft Windows Hello Entreprise dans votre organisation | Microsoft Docs
-description: Instructions de déploiement pour activer Microsoft Passport dans votre organisation.
+description: "Instructions de déploiement pour activer Microsoft Passport dans votre organisation."
 services: active-directory
-documentationcenter: ''
-keywords: configurer le déploiement Microsoft Passport, Microsoft Windows Hello Entreprise
+documentationcenter: 
+keywords: "configurer le déploiement Microsoft Passport, Microsoft Windows Hello Entreprise"
 author: MarkusVi
 manager: femila
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: 7dbbe3c6-1cd7-429c-a9b2-115fcbc02416
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,23 +16,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 115fbee1990b20f6a7186e5f36d0b618cf2e3b7b
+
 
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Activer Microsoft Windows Hello Entreprise dans votre organisation
-Après avoir [connecté les appareils du domaine Windows 10 à Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), procédez comme suit pour activer Microsoft Windows Hello Entreprise dans votre organisation :
+Après avoir [connecté les appareils du domaine Windows 10 à Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), procédez comme suit pour activer Microsoft Windows Hello Entreprise dans votre organisation :
 
 1. Déployer System Center Configuration Manager  
 2. Configuration des paramètres de stratégie
 3. Configurer le profil de certificat  
 
 ## <a name="deploy-system-center-configuration-manager"></a>Déployer System Center Configuration Manager
-Pour déployer des certificats utilisateur en fonction des clés de Windows Hello Entreprise, vous avez besoin des ressources suivantes :
+Pour déployer des certificats utilisateur en fonction des clés de Windows Hello Entreprise, vous avez besoin des ressources suivantes :
 
 * **System Center Configuration Manager Current Branch** - Vous devez installer la version 1606 ou une version ultérieure. Pour plus d’informations, consultez [Documentation de System Center Configuration Manager](https://technet.microsoft.com/library/mt346023.aspx) et [Blog de l’équipe System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).
 * **Infrastructure à clé publique (PKI)** : pour activer Microsoft Windows Hello Entreprise à l’aide de certificats utilisateur, vous devez disposer d’une infrastructure PKI. Si vous n’en avez pas ou si vous ne souhaitez pas l’utiliser pour les certificats utilisateur, vous pouvez déployer un nouveau contrôleur de domaine disposant de Windows Server 2016 version 10551 (ou version ultérieure). Suivez les étapes pour [installer un contrôleur de domaine réplica dans un domaine existant](https://technet.microsoft.com/library/jj574134.aspx) ou [installer une nouvelle forêt Active Directory, si vous créez un nouvel environnement](https://technet.microsoft.com/library/jj574166). (Les fichiers ISO sont disponibles en téléchargement sur [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true).)
 
 ## <a name="configure-policy-settings"></a>Configuration des paramètres de stratégie
-Pour configurer les paramètres de stratégie de Microsoft Windows Hello Entreprise, vous avez deux options :
+Pour configurer les paramètres de stratégie de Microsoft Windows Hello Entreprise, vous avez deux options :
 
 * Stratégie de groupe dans Active Directory 
 * System Center Configuration Manager 
@@ -54,9 +58,9 @@ Il est conseillé d’utiliser System Center Configuration Manager lorsque vous 
 5. Accédez à **Configuration ordinateur** > **Stratégies** > **Modèles d’administration** > **Composants Windows** > **Windows Hello Entreprise**.
 6. Avec le bouton droit, cliquez sur **Activer Windows Hello Entreprise**, puis sélectionnez **Modifier**.
 7. Sélectionnez l’option **Activé**, puis cliquez sur **Appliquer**. Cliquez sur **OK**.
-8. Vous pouvez maintenant lier l’objet de stratégie de groupe à l’emplacement de votre choix. Pour activer cette stratégie pour tous les appareils joints à un domaine Windows 10 de votre organisation, liez la stratégie de groupe au domaine. Par exemple :
-   * Une unité d’organisation spécifique dans Active Directory où les ordinateurs Windows 10 joints au domaine seront situés
-   * Un groupe de sécurité spécifique contenant des ordinateurs Windows 10 joints au domaine qui sera inscrit automatiquement auprès d’Azure AD
+8. Vous pouvez maintenant lier l’objet de stratégie de groupe à l’emplacement de votre choix. Pour activer cette stratégie pour tous les appareils joints à un domaine Windows 10 de votre organisation, liez la stratégie de groupe au domaine. Par exemple :
+   * Une unité d’organisation spécifique dans Active Directory où les ordinateurs Windows 10 joints au domaine seront situés
+   * Un groupe de sécurité spécifique contenant des ordinateurs Windows 10 joints au domaine qui sera inscrit automatiquement auprès d’Azure AD
 
 ### <a name="configure-windows-hello-for-business-using-system-center-configuration-manager"></a>Configurer Windows Hello Entreprise à l’aide de System Center Configuration Manager
 **Étapes** :
@@ -67,13 +71,13 @@ Il est conseillé d’utiliser System Center Configuration Manager lorsque vous 
 2. Dans la barre d’outils en haut, cliquez sur **Créer un profil Windows Hello Entreprise**.
    
     ![Configurer Windows Hello Entreprise](./media/active-directory-azureadjoin-passport-deployment/02.png)
-3. Dans la boîte de dialogue **Général** , procédez comme suit :
+3. Dans la boîte de dialogue **Général** , procédez comme suit :
    
     ![Configurer Windows Hello Entreprise](./media/active-directory-azureadjoin-passport-deployment/03.png)
    
     a. Dans la zone de texte **Nom**, entrez un nom pour votre profil, par exemple, **Mon profil WHfB**.
    
-    b. Cliquez sur **Suivant**.
+    b. Cliquez sur **Next**.
 4. Dans la boîte de dialogue **Plateformes prises en charge**, sélectionnez les plateformes qui seront configurées avec ce profil Windows Hello Entreprise, puis cliquez sur **Suivant**.
    
     ![Configurer Windows Hello Entreprise](./media/active-directory-azureadjoin-passport-deployment/04.png)
@@ -87,7 +91,7 @@ Il est conseillé d’utiliser System Center Configuration Manager lorsque vous 
    
     c. En tant que **Méthode d’authentification**, sélectionnez **Basée sur un certificat**.
    
-    d. Cliquez sur **Suivant**.
+    d. Cliquez sur **Next**.
 6. Sur la page **Résumé**, cliquez sur **Suivant**.
 7. Dans la boîte de dialogue **Exécution terminée**, cliquez sur **Fermer**.
 8. Dans la barre d’outils en haut, cliquez sur **Déployer**.
@@ -103,13 +107,16 @@ Si vous utilisez l’authentification basée sur un certificat pour l’authenti
 Sur la page **Enregistrement SCEP** du profil de certificat, vous devez choisir **Installer dans Passport for Work, sinon mettre en échec** en tant que **Fournisseur de stockage de clés**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
+* [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [Authentification des identités sans mot de passe avec Microsoft Passport](active-directory-azureadjoin-passport.md)
 * [En savoir plus sur les scénarios d’utilisation pour Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec Domo | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Domo.
+title: "Didacticiel : Intégration d’Azure Active Directory avec Domo | Microsoft Docs"
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Domo."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 058626e4-73b3-4dc2-86ca-b060d002d70a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,20 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0b3eea4df3728b54554014eed99a911ec8770161
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-domo"></a>Didacticiel : intégration d’Azure Active Directory à Domo
+# <a name="tutorial-azure-active-directory-integration-with-domo"></a>Didacticiel : intégration d’Azure Active Directory à Domo
 L’objectif de ce didacticiel est de vous montrer comment intégrer Domo dans Azure Active Directory (Azure AD).  
 L’intégration de Domo dans Azure AD vous offre les avantages suivants :
 
-* Dans Azure AD, vous pouvez contrôler qui a accès à Domo
-* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Domo (via l’authentification unique) avec leur compte Azure AD
-* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
+* Dans Azure AD, vous pouvez contrôler qui a accès à Domo
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Domo (via l’authentification unique) avec leur compte Azure AD
+* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Composants requis
-Pour configurer l’intégration d’Azure AD avec Domo, vous avez besoin des éléments suivants :
+Pour configurer l’intégration d’Azure AD avec Domo, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD
 * Un abonnement Domo pour lequel l’authentification unique est activée
@@ -37,7 +41,7 @@ Pour configurer l’intégration d’Azure AD avec Domo, vous avez besoin des é
 > 
 > 
 
-Vous devez en outre suivre les recommandations ci-dessous :
+Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
 * Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
@@ -50,9 +54,9 @@ Le scénario décrit dans ce didacticiel se compose des deux sections principale
 2. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-domo-from-the-gallery"></a>Ajout de Domo depuis la galerie
-Pour configurer l’intégration de Domo avec Azure AD, vous devez ajouter Domo, à partir de la galerie, à votre liste d’applications SaaS gérées.
+Pour configurer l’intégration de Domo avec Azure AD, vous devez ajouter Domo, à partir de la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Domo à partir de la galerie, procédez comme suit :**
+**Pour ajouter Domo à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
    
@@ -75,27 +79,27 @@ Pour configurer l’intégration de Domo avec Azure AD, vous devez ajouter Domo,
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-domo-tutorial/tutorial_domo_02.png)
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Domo avec un utilisateur de test appelé « Britta Simon ».
+L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Domo avec un utilisateur de test appelé « Britta Simon ».
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Domo équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Domo associé doit être établie.  
-Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Domo.
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Domo équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Domo associé doit être établie.  
+Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Domo.
 
-Pour configurer et tester l’authentification unique Azure AD avec Domo, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec Domo, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Domo](#creating-a-domo-test-user)** pour avoir un équivalent de Britta Simon dans Domo lié à la représentation Azure AD associée.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application Domo.
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application Domo.
 
-L’application Domo attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de l’onglet **Attribut** de l’application. La capture d’écran suivante montre un exemple : 
+L’application Domo attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de l’onglet **Attribut** de l’application. La capture d’écran suivante montre un exemple : 
 
 ![Configurer l’authentification unique](./media/active-directory-saas-domo-tutorial/tutorial_domo_06.png) 
 
-**Pour configurer l’authentification unique Azure AD avec Domo, procédez comme suit :**
+**Pour configurer l’authentification unique Azure AD avec Domo, procédez comme suit :**
 
 1. Dans le portail Azure Classic, dans la page d’intégration d’application **Domo**, dans le menu situé en haut, cliquez sur **Attributs**.
    
@@ -115,20 +119,20 @@ L’application Domo attend les assertions SAML dans un format spécifique. Conf
    
     c. Dans la liste **Valeur d’attribut** , sélectionnez la valeur d’attribut indiquée pour cette ligne.
    
-    d. Cliquez sur **Terminé**.  
+    d. Cliquez sur **Terminé**.    
 3. Dans le portail Azure Classic, sur la page d’intégration d’applications **Domo**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
     ![Configurer l’authentification unique][6] 
 4. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Domo**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-domo-tutorial/tutorial_domo_03.png) 
-5. Sur la page **Configurer les paramètres d’application** , procédez comme suit :
+5. Sur la page **Configurer les paramètres d’application** , procédez comme suit :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-domo-tutorial/tutorial_domo_04.png) 
 
     a. Dans la zone de texte **URL d’authentification**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Domo au format suivant : `https://<company name>.domo.com`
 
-    b. Cliquez sur **Suivant**.
+    b. Cliquez sur **Next**.
 
 1. Sur la page **Configurer l’authentification unique sur Domo** , procédez comme suit :
    
@@ -136,7 +140,7 @@ L’application Domo attend les assertions SAML dans un format spécifique. Conf
    
     a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
    
-    b. Cliquez sur **Suivant**.
+    b. Cliquez sur **Next**.
 2. Pour configurer l’authentification unique pour votre application, contactez votre équipe de support technique Domo à l’adresse [support@domo.com](mailto: support@domo.com), joignez le certificat téléchargé et fournissez-lui **l’URL de l’émetteur**, **l’URL d’authentification unique SAML** et **l’URL de déconnexion unique**.
 3. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
@@ -150,7 +154,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ![Créer un utilisateur Azure AD][20]
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
    
@@ -170,7 +174,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    
     b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
    
-    c. Cliquez sur **Suivant**.
+    c. Cliquez sur **Next**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-domo-tutorial/create_aaduser_06.png) 
@@ -183,7 +187,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    
    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
    
-   e. Cliquez sur **Suivant**.
+   e. Cliquez sur **Next**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-domo-tutorial/create_aaduser_07.png) 
@@ -198,7 +202,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 ### <a name="creating-a-domo-test-user"></a>Création d’un utilisateur de test Domo
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Domo. Domo prend en charge l’approvisionnement juste-à-temps, option activée par défaut.
 
-Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à Domo s’il n’existe pas déjà. [Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on).
+Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à Domo s’il n’existe pas déjà. [Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on).
 
 > [!NOTE]
 > Si vous devez créer un utilisateur manuellement, contactez l’équipe du support technique Domo.
@@ -210,7 +214,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ![Affecter des utilisateurs][200] 
 
-**Pour affecter Britta Simon à Domo, procédez comme suit :**
+**Pour affecter Britta Simon à Domo, procédez comme suit :**
 
 1. Pour ouvrir la vue des applications dans le portail Azure Classic, cliquez dans la vue de répertoire sur **Applications** dans le menu du haut.
    
@@ -227,12 +231,12 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
     ![Affecter des utilisateurs][205]
 
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.  
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.  
 Lorsque vous cliquez sur la mosaïque Domo dans le volet d’accès, vous devez être connecté automatiquement à votre application Domo.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 
@@ -254,6 +258,6 @@ Lorsque vous cliquez sur la mosaïque Domo dans le volet d’accès, vous devez 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

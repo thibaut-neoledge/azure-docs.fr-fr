@@ -1,18 +1,22 @@
 ---
-title: Paramètres de Registre de Cloud App Discovery pour les services de proxy | Microsoft Docs
-description: L’objectif de cette rubrique est de présenter les étapes que vous devez effectuer pour définir le port nécessaire sur les ordinateurs exécutant l’agent Cloud App Discovery.
+title: "Paramètres de Registre de Cloud App Discovery pour les services de proxy | Microsoft Docs"
+description: "L’objectif de cette rubrique est de présenter les étapes que vous devez effectuer pour définir le port nécessaire sur les ordinateurs exécutant l’agent Cloud App Discovery."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-
+ms.assetid: 8d78e925-e331-40ba-904a-e4ef14260cac
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: markusvi
+ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: be013882339bca88600e678ae7905b96ac94d0d9
+
 
 ---
 # <a name="cloud-app-discovery-registry-settings-for-proxy-services"></a>Paramètres de Registre de Cloud App Discovery pour les services de proxy
@@ -20,13 +24,13 @@ Par défaut, l’agent Cloud App Discovery est configuré pour utiliser uniqueme
 
 L’objectif de cette rubrique est de présenter les étapes que vous devez effectuer pour définir le port nécessaire sur les ordinateurs exécutant l’agent Cloud App Discovery.
 
-**Pour modifier le port utilisé par l’ordinateur exécutant l’agent Cloud App Discovery, effectuez les opérations suivantes :**
+**Pour modifier le port utilisé par l’ordinateur exécutant l’agent Cloud App Discovery, effectuez les opérations suivantes :**
 
 1. Démarrez l’Éditeur du Registre. <br> ![Exécuter](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy01.png)
-2. Créez ou accédez à la clé de Registre suivante :  <br> **HKLM_LOCAL_MACHINE\Software\Microsoft\Cloud App Discovery\Endpoint** 
+2. Créez ou accédez à la clé de Registre suivante :  <br> **HKLM_LOCAL_MACHINE\Software\Microsoft\Cloud App Discovery\Endpoint** 
 3. Créez une valeur de **chaînes multiples** nommée **Ports**. ![Nouveau](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy02.png)
 4. Pour ouvrir la boîte de dialogue **Modifier les chaînes multiples** , double-cliquez sur la valeur de Ports.
-5. Dans la zone de texte Données de la valeur, tapez les valeurs suivantes et ajoutez tous les ports personnalisés qui sont utilisés par votre organisation :  <br><br>
+5. Dans la zone de texte Données de la valeur, tapez les valeurs suivantes et ajoutez tous les ports personnalisés qui sont utilisés par votre organisation :  <br><br>
    **80** <br>
    **8080** <br>
    **8118** <br>
@@ -44,8 +48,11 @@ L’objectif de cette rubrique est de présenter les étapes que vous devez effe
 
 **Ressources supplémentaires**
 
-* [Comment puis-je détecter les applications cloud non approuvées utilisées au sein de mon organisation ?](active-directory-cloudappdiscovery-whatis.md) 
+* [Comment puis-je détecter les applications cloud non approuvées utilisées au sein de mon organisation ?](active-directory-cloudappdiscovery-whatis.md) 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Connecter des ordinateurs Linux à Log Analytics | Microsoft Docs
-description: Avec Log Analytics, vous pouvez collecter et exploiter les données générées par des ordinateurs Linux.
+title: "Connecter des ordinateurs Linux à Log Analytics | Microsoft Docs"
+description: "Avec Log Analytics, vous pouvez collecter et exploiter les données générées par des ordinateurs Linux."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: ab5b76d8-9ab5-406e-8768-76fb0632d830
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 218ffec4601c5b0b4ee9872b5bbd03489cb3ddcf
+
 
 ---
 # <a name="connect-linux-computers-to-log-analytics"></a>Connecter des ordinateurs Linux à Log Analytics
@@ -162,9 +166,9 @@ Chaque objet, ou catégorie, de mesures de performances à collecter doit être 
 
 Les paramètres configurables de cet élément sont :
 
-* **Object\_name** : nom de l’objet à collecter.
-* **Instance\_regex** : a *expression régulière* définissant les instances à collecter. La valeur `.*` spécifie toutes les instances. Pour ne collecter les mesures de processeur que de l’instance \_Total, vous pouvez spécifier `_Total`. Pour ne collecter les mesures de processeur que des instances crond ou sshd, vous pouvez spécifier `(crond|sshd)`.
-* **Counter\_name\_regex** : *expression régulière* définissant les compteurs (de l’objet) à collecter. Pour collecter tous les compteurs de l’objet, spécifiez : `.*`. Pour ne collecter que les compteurs du fichier d’échange de l’objet mémoire, vous pouvez spécifier : `.+Swap.+`
+* **Object\_name** : nom de l’objet à collecter.
+* **Instance\_regex** : a *expression régulière* définissant les instances à collecter. La valeur `.*` spécifie toutes les instances. Pour ne collecter les mesures de processeur que de l’instance \_Total, vous pouvez spécifier `_Total`. Pour ne collecter les mesures de processeur que des instances crond ou sshd, vous pouvez spécifier `(crond|sshd)`.
+* **Counter\_name\_regex** : *expression régulière* définissant les compteurs (de l’objet) à collecter. Pour collecter tous les compteurs de l’objet, spécifiez : `.*`. Pour ne collecter que les compteurs du fichier d’échange de l’objet mémoire, vous pouvez spécifier : `.+Swap.+`
 * **Interval**: fréquence de collecte des compteurs de l’objet.
 
 La configuration par défaut des mesures de performances est la suivante :
@@ -355,7 +359,7 @@ Pour collecter les alertes d’un serveur Nagios, vous devez apporter les modifi
 ### <a name="collect-alerts-from-zabbix"></a>Collecter les alertes de Zabbix
 Pour collecter les alertes d’un serveur Zabbix, vous allez effectuer des étapes similaires à celles de Nagios ci-dessus, mais vous devez spécifier un utilisateur et un mot de passe en *clair*. Cette solution n’est pas idéale, mais elle devrait changer rapidement. Pour résoudre ce problème, nous vous recommandons de créer l’utilisateur et de ne lui accorder que l’autorisation de surveillance.
 
-Une section du fichier de configuration omsagent.conf (/etc/opt/microsoft/omsagent/conf/omsagent.conf) pour Zabbix pourrait ressembler à celle ci-dessous :
+Une section du fichier de configuration omsagent.conf (/etc/opt/microsoft/omsagent/conf/omsagent.conf) pour Zabbix pourrait ressembler à celle ci-dessous :
 
 ```
 <source>
@@ -536,7 +540,7 @@ Si aucune des informations de résolution de problèmes de cette section ne vous
 | Configurations supplémentaires |`/etc/opt/microsoft/omsagent/conf.d/*.conf` |
 
 > [!NOTE]
-> Les fichiers de changement de configuration pour les compteurs de performances et Syslog sont remplacés si la Configuration du portail OMS est activée. Vous pouvez désactiver la configuration sur le portail OMS pour tous les nœuds ou un seul d’entre eux en exécutant la commande suivante :
+> Les fichiers de changement de configuration pour les compteurs de performances et Syslog sont remplacés si la Configuration du portail OMS est activée. Vous pouvez désactiver la configuration sur le portail OMS pour tous les nœuds ou un seul d’entre eux en exécutant la commande suivante :
 > 
 > 
 
@@ -570,7 +574,7 @@ Près du bas du fichier de configuration, modifiez la propriété `log_level` de
 
 La journalisation du débogage vous permet de voir les chargements par lot sur le Service OMS, répartis par type, nombre d’éléments de données et temps d’envoi.
 
-*Exemple de journal activé pour le débogage :*
+*Exemple de journal activé pour le débogage :*
 
 ```
 Success sending oms.nagios x 1 in 0.14s
@@ -614,10 +618,10 @@ Sous le plug-in de sortie, retirez le commentaire de la section suivante en supp
 
 #### <a name="resolutions"></a>Résolutions
 * Vérifiez que la configuration du portail OMS pour Syslog possède toutes les fonctionnalités nécessaires et les niveaux du journal corrects.
-  * **Portail OMS > Paramètres > Données > Syslog**
+  * **Portail OMS > Paramètres > Données > Syslog**
 * Vérifiez que les démons de messagerie Syslog natifs (`rsyslog`, `syslog-ng`) sont en mesure de recevoir les messages transférés.
 * Vérifiez les paramètres de pare-feu sur le serveur Syslog pour vous assurer que les messages ne sont pas bloqués.
-* Simulez un message Syslog à OMS à l’aide de la commande `logger`. Par exemple :
+* Simulez un message Syslog à OMS à l’aide de la commande `logger`. Par exemple :
   * `logger -p local0.err "This is my test message"`
 
 ### <a name="problems-connecting-to-oms-when-using-a-proxy"></a>Problèmes de connexion à OMS lors de l’utilisation d’un proxy
@@ -633,18 +637,18 @@ Sous le plug-in de sortie, retirez le commentaire de la section suivante en supp
 
 | Ressource de l'agent | Ports |
 | --- | --- |
-| &#42;.ods.opinsights.azure.com |Port 443 |
-| &#42;.oms.opinsights.azure.com |Port 443 |
-| ods.systemcenteradvisor.com |Port 443 |
-| &#42;.blob.core.windows.net/ |Port 443 |
+| &#42;.ods.opinsights.azure.com |Port 443 |
+| &#42;.oms.opinsights.azure.com |Port 443 |
+| ods.systemcenteradvisor.com |Port 443 |
+| &#42;.blob.core.windows.net/ |Port 443 |
 
 ### <a name="a-403-error-is-displayed-when-onboarding"></a>Une erreur 403 s’affiche lors de l’intégration
 #### <a name="probable-causes"></a>Causes probables
 * La date et l’heure sont incorrectes sur le serveur Linux.
 * L’ID et la clé d’espace de travail utilisés sont incorrects.
 
-#### <a name="resolution"></a>Résolution :
-* Vérifiez l’heure sur votre serveur Linux avec la commande `date`. Si les données sont postérieures ou antérieures de 15 minutes par rapport à l’heure actuelle, l’intégration échoue. Pour corriger ce problème, mettez à jour de la date et/ou le fuseau horaire de votre serveur Linux.
+#### <a name="resolution"></a>Résolution :
+* Vérifiez l’heure sur votre serveur Linux avec la commande `date`. Si les données sont postérieures ou antérieures de 15 minutes par rapport à l’heure actuelle, l’intégration échoue. Pour corriger ce problème, mettez à jour de la date et/ou le fuseau horaire de votre serveur Linux.
 * La dernière version de l’Agent OMS pour Linux vous avertit si un décalage horaire entraîne l’échec de l’intégration.
 * Recommencez l’intégration à l’aide de l’ID et de la clé d’espace de travail corrects. Pour plus d’informations, voir [Onboarding using the command line](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line) (Intégration à l’aide de la ligne de commande).
 
@@ -674,7 +678,7 @@ Il s’agit d’un problème connu qui se produit lors du premier chargement de 
 ```
 
 
-### <a name="linux-data-doesn't-appear-in-the-oms-portal"></a>Les données Linux n’apparaissent pas dans le portail OMS
+### <a name="linux-data-doesnt-appear-in-the-oms-portal"></a>Les données Linux n’apparaissent pas dans le portail OMS
 #### <a name="probable-causes"></a>Causes probables
 * L’intégration au Service OMS a échoué.
 * La connexion au Service OMS est bloquée.
@@ -684,7 +688,7 @@ Il s’agit d’un problème connu qui se produit lors du premier chargement de 
 * Vérifiez que l’intégration au Service OMS a réussi en vous assurant que le fichier `/etc/opt/microsoft/omsagent/conf/omsadmin.conf` existe.
 * Recommencez l’intégration à l’aide de la ligne de commande omsadmin.sh. Pour plus d’informations, voir [Onboarding using the command line](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line) (Intégration à l’aide de la ligne de commande).
 * Si vous utilisez un proxy, suivez les étapes de résolution de problèmes de proxy décrites plus haut.
-* Dans certains cas, lorsque l’Agent OMS pour Linux ne peut pas communiquer avec le Service OMS, les données de l’Agent sont sauvegardées à la taille de mémoire tampon saturée de 50 Mo. Redémarrez l’Agent OMS pour Linux en exécutant la commande `service omsagent restart` ou `systemctl restart omsagent`.
+* Dans certains cas, lorsque l’Agent OMS pour Linux ne peut pas communiquer avec le Service OMS, les données de l’Agent sont sauvegardées à la taille de mémoire tampon saturée de 50 Mo. Redémarrez l’Agent OMS pour Linux en exécutant la commande `service omsagent restart` ou `systemctl restart omsagent`.
   >[AZURE.NOTE] Ce problème est résolu dans l’Agent version 1.1.0-28 et versions ultérieures.
 
 ### <a name="syslog-linux-performance-counter-configuration-is-not-applied-in-the-oms-portal"></a>La configuration du compteur de performances Syslog Linux n’est pas appliquée dans le portail OMS
@@ -696,7 +700,7 @@ Il s’agit d’un problème connu qui se produit lors du premier chargement de 
 `omsconfig` est l’agent de configuration de l’Agent OMS pour Linux qui récupère les changements de configuration du portail OMS toutes les 5 minutes. Cette configuration est ensuite appliquée aux fichiers de configuration de l’Agent OMS pour Linux dans `/etc/opt/microsoft/omsagent/conf/omsagent.conf`.
 
 * Dans certains cas, l’agent de configuration de l’Agent OMS pour Linux n’est pas en mesure de communiquer avec le service de configuration du portail, de sorte que la configuration la plus récente n’est pas appliquée.
-* Vérifiez que l’agent `omsconfig` est installé avec les éléments suivants :
+* Vérifiez que l’agent `omsconfig` est installé avec les éléments suivants :
   
   * `dpkg --list omsconfig` ou `rpm -qi omsconfig`
   * S’il n’est pas installé, réinstallez la dernière version de l’Agent OMS pour Linux.
@@ -711,7 +715,7 @@ Il s’agit d’un problème connu qui se produit lors du premier chargement de 
 * L’intégration au Service OMS a échoué.
 * Le paramètre **Appliquer la configuration suivante à mes serveurs Linux** n’a pas été sélectionné.
 * L’agent omsconfig n’a pas récupéré le dernier journal personnalisé sur le portail.
-* Le programme `omsagent` ne peut pas accéder au journal personnalisé en raison d’un problème d’autorisation ou parce que le programme `omsagent` est introuvable. Dans ce cas, la sortie suivante s’affiche :
+* Le programme `omsagent` ne peut pas accéder au journal personnalisé en raison d’un problème d’autorisation ou parce que le programme `omsagent` est introuvable. Dans ce cas, la sortie suivante s’affiche :
   * `[DATETIME] [warn]: file not found. Continuing without tailing it.`
   * `[DATETIME] [error]: file not accessible by omsagent.`
 * Il s’agit d’un problème connu lié à la condition de concurrence, qui a été résolu dans l’Agent OMS pour Linux version 1.1.0-217.
@@ -729,12 +733,12 @@ Il s’agit d’un problème connu qui se produit lors du premier chargement de 
 
 Au lieu que l’utilisateur de l’Agent OMS pour Linux opère en tant qu’utilisateur `root` privilégié, l’Agent OMS pour Linux opère en tant qu’utilisateur `omsagent` . Dans la plupart des cas, une autorisation explicite doit être accordée à l’utilisateur pour la lecture de certains fichiers.
 
-Pour accorder l’autorisation à l’utilisateur `omsagent`, exécutez les commandes suivantes :
+Pour accorder l’autorisation à l’utilisateur `omsagent`, exécutez les commandes suivantes :
 
 1. Ajoutez l’utilisateur `omsagent` à un groupe spécifique avec `sudo usermod -a -G <GROUPNAME> <USERNAME>`.
 2. Accordez l’accès en lecture universel au fichier requis avec `sudo chmod -R ugo+rw <FILE DIRECTORY>`.
 
-Il existe un problème connu lié à la condition de concurrence, qui a été résolu dans l’Agent OMS pour Linux version 1.1.0-217. Après mise à jour vers le dernier agent, exécutez la commande suivante pour obtenir la dernière version du plug-in de sortie :
+Il existe un problème connu lié à la condition de concurrence, qui a été résolu dans l’Agent OMS pour Linux version 1.1.0-217. Après mise à jour vers le dernier agent, exécutez la commande suivante pour obtenir la dernière version du plug-in de sortie :
 
 ```
 sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.conf /etc/opt/microsoft/omsagent/conf/omsagent.conf
@@ -779,6 +783,9 @@ rsyslog ou syslog-ng est requis pour collecter les messages syslog. Le démon sy
 * Familiarisez-vous avec les [recherches de journal](log-analytics-log-searches.md) pour afficher les informations détaillées collectées par les solutions.
 * Utilisez les [tableaux de bord](log-analytics-dashboards.md) pour enregistrer et afficher vos propres recherches personnalisées.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,76 +1,86 @@
 ---
-title: Surveillance des performances d’application web Azure | Microsoft Docs
-description: Analyse des performances des applications pour les applications web Azure. Graphique de charge et de temps de réponse, informations de dépendance et alertes sur les performances.
+title: "Surveillance des performances d’application web Azure | Microsoft Docs"
+description: "Analyse des performances des applications pour les applications web Azure. Graphique de charge et de temps de réponse, informations de dépendance et alertes sur les performances."
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
 manager: douge
-
+ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
 ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 10/24/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
+ms.openlocfilehash: c5869c2f4f593d8ffd1992ec2a7dbc473898f3ad
+
 
 ---
-# Surveillance des performances d'application web Azure
-Dans le [portail Azure](https://portal.azure.com), vous pouvez configurer la surveillance des performances d’application pour vos [applications web Azure](../app-service-web/app-service-web-overview.md). [Visual Studio Application Insights](app-insights-overview.md) instrumente votre application afin qu’elle envoie des données de télémétrie concernant ses activités au service Application Insights, où elles sont stockées et analysées. Les graphiques de mesure et les outils de recherche peuvent alors être utilisés pour aider à diagnostiquer les problèmes, améliorer les performances et évaluer l’utilisation.
+# <a name="monitor-azure-web-app-performance"></a>Surveillance des performances d'application web Azure
+Dans le [portail Azure](https://portal.azure.com), vous pouvez configurer la surveillance des performances d’application pour vos [applications web Azure](../app-service-web/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) instrumente votre application afin qu’elle envoie des données de télémétrie concernant ses activités au service Application Insights, où elles sont stockées et analysées. Les graphiques de mesure et les outils de recherche peuvent alors être utilisés pour aider à diagnostiquer les problèmes, améliorer les performances et évaluer l’utilisation.
 
-## En cours d’exécution ou en cours de création
+## <a name="run-time-or-build-time"></a>En cours d’exécution ou en cours de création
 Vous pouvez configurer la surveillance par l’instrumentation de l’application de deux manières :
 
-* **En cours d’exécution** : vous pouvez sélectionner une extension de surveillance des performances lorsque votre application est déjà active. Il n’est pas nécessaire de reconstruire ou de réinstaller votre application. Vous obtenez un ensemble standard de packages qui analyse les temps de réponse, les taux de réussite, les exceptions, les dépendances, etc.
-  
-    **Application Insights** et **New Relic** sont deux des extensions de surveillance des performances disponibles en cours d’exécution.
-* **En cours de création** : vous pouvez installer un package dans votre application en cours de développement. Cette option est plus souple. Outre les mêmes packages standard, vous pouvez écrire du code pour personnaliser les données de télémétrie ou pour envoyer vos propres données de télémétrie. Vous pouvez consigner des activités spécifiques ou enregistrer les événements en fonction de la sémantique de votre domaine d’application.
-  
-    **Application Insights** fournit les packages en cours de création.
+* **En cours d’exécution** : vous pouvez sélectionner une extension de surveillance des performances lorsque votre application est déjà active. Il n’est pas nécessaire de reconstruire ou de réinstaller votre application. Vous obtenez un ensemble standard de packages qui analyse les temps de réponse, les taux de réussite, les exceptions, les dépendances, etc. 
+* **En cours de création** : vous pouvez installer un package dans votre application en cours de développement. Cette option est plus souple. Outre les mêmes packages standard, vous pouvez écrire du code pour personnaliser les données de télémétrie ou pour envoyer vos propres données de télémétrie. Vous pouvez consigner des activités spécifiques ou enregistrer les événements en fonction de la sémantique de votre domaine d’application. 
 
-## Créez l’application avec le package Application Insights...
-Application Insights peut fournir des données de télémétrie détaillée par l’installation d’un SDK dans votre application.
+## <a name="run-time-instrumentation-with-application-insights"></a>Instrumentation d’exécution avec Application Insights
+Si vous exécutez déjà une application web dans Azure, vous obtenez déjà certains éléments de surveillance, tels que le taux de demande et d’erreur. Ajoutez Application Insights pour bénéficier d’un plus grand nombre de fonctionnalités, telles que les temps de réponse, la surveillance des appels vers les dépendances, la détection intelligente et le puissant langage de requête Analytics. 
 
-Dans Visual Studio (2013 mise à jour 2 ou ultérieure), ajoutez le Kit de développement logiciel (SDK) Application Insights à votre projet.
-
-![Cliquez avec le bouton droit sur le projet web et sélectionnez Ajouter Application Insights.](./media/app-insights-azure-web-apps/03-add.png)
-
-Si vous êtes invité à vous connecter, utilisez les informations d'identification de votre compte Azure.
-
-Cette opération a deux effets :
-
-1. Création d’une ressource Application Insights dans Azure, à l’endroit où vos données de télémétrie sont stockées, analysées et affichées.
-2. Ajout du package NuGet Application Insights à votre code, et configuration du package pour l’envoi de données de télémétrie à la ressource Azure.
-
-Vous pouvez tester la télémétrie en exécutant l’application sur votre ordinateur de développement (F5) ou vous pouvez simplement republier l’application.
-
-Le Kit de développement logiciel (SDK) contient une API qui vous permet d’[écrire de la télémétrie personnalisée](app-insights-api-custom-events-metrics.md) pour suivre l’utilisation.
-
-### .. .ou définissez manuellement une ressource
-Si vous n’avez pas ajouté le Kit de développement logiciel dans Visual Studio, vous devez configurer une ressource Application Insights dans Azure, à l’emplacement de stockage, d’analyse et d’affichage de vos données de télémétrie.
-
-![Cliquez sur Ajouter, Services de développement, Application Insights. Choisissez le type d’application ASP.NET.](./media/app-insights-azure-web-apps/01-new.png)
-
-## Activation d’une extension
-1. Accédez au panneau de contrôle de l’application web ou de la machine virtuelle que vous souhaitez instrumenter.
-2. Ajoutez l’extension Application Insights ou New Relic.
+1. **Sélectionnez Application Insights** dans le panneau de configuration Azure pour votre application web.
    
-    Si vous instrumentez une application web :
+    ![Sous Surveillance, choisissez Application Insights](./media/app-insights-azure-web-apps/05-extend.png)
+   
+   * Choisissez de créer une nouvelle ressource, sauf si vous avez déjà configuré une ressource Application Insights pour cette application par un autre itinéraire.
+2. **Instrumentez votre application web** après l’installation d’Application Insights. 
+   
+    ![Instrumenter votre application web](./media/app-insights-azure-web-apps/restart-web-app-for-insights.png)
+3. **Surveillez votre application web**.  [Explorez les données](#explore-the-data).
 
-![Paramètres, Extensions, Ajouter, Application Insights](./media/app-insights-azure-web-apps/05-extend.png)
+Plus tard, vous pourrez générer et redéployer l’application avec Application Insights si vous le souhaitez.
 
-Ou, si vous utilisez une machine virtuelle :
+*Comment supprimer Application Insights, ou basculer vers l’envoi vers une autre ressource ?*
 
-![Cliquez sur la vignette Analyse](./media/app-insights-azure-web-apps/10-vm1.png)
+* Dans Azure, ouvrez le panneau de contrôle de l’application web, puis sous Outils, ouvrez **Extensions**. Supprimez l’extension Application Insights. Puis sous Surveillance, sélectionnez Application Insights et créez ou sélectionnez la ressource souhaitée.
 
-## Exploration des données
-1. Ouvrez la ressource Application Insights (soit directement à partir du menu Parcourir, soit à l’aide de l’outil d’analyse des performances de l’application web).
-2. Cliquez sur n’importe quel graphique pour afficher plus de détails :
+## <a name="build-the-app-with-application-insights"></a>Générez l’application avec Application Insights
+Application Insights peut fournir des données de télémétrie détaillée par l’installation d’un SDK dans votre application. En particulier, vous pouvez collecter les journaux de suivi, [écrire une télémétrie personnalisée](app-insights-api-custom-events-metrics.md), et obtenir des rapports d’exception plus détaillées.
+
+1. **Dans Visual Studio** (2013 mise à jour 2 ou ultérieure), ajoutez le Kit de développement logiciel (SDK) Application Insights à votre projet.
+   
+    ![Cliquez avec le bouton droit sur le projet web et sélectionnez Ajouter Application Insights.](./media/app-insights-azure-web-apps/03-add.png)
+   
+    Si vous êtes invité à vous connecter, utilisez les informations d'identification de votre compte Azure.
+   
+    Cette opération a deux effets :
+   
+   1. Création d’une ressource Application Insights dans Azure, à l’endroit où vos données de télémétrie sont stockées, analysées et affichées.
+   2. Ajout du package NuGet Application Insights à votre code, et configuration du package pour l’envoi de données de télémétrie à la ressource Azure.
+2. **Testez la télémétrie** en exécutant l’application sur votre ordinateur de développement (F5).
+3. **Publiez l’application** sur Azure comme d’habitude. 
+
+*Comment modifier la configuration pour envoyer des données vers une autre ressource Application Insights ?*
+
+* Dans Visual Studio, cliquez avec le bouton droit sur le projet, choisissez **Application Insights > Configurer** et sélectionnez la ressource de votre choix. Vous avez la possibilité de créer une nouvelle ressource. Procédez maintenant à la régénération et au redéploiement.
+
+## <a name="explore-the-data"></a>Exploration des données
+1. Dans le panneau Application Insights du panneau de configuration de l’application web, des mesures actives, indiquant les demandes et les échecs ou les deux survenant au cours d’une seconde, s’affichent. L’affichage de ces informations est très utile lorsque vous republiez votre application. Vous pouvez voir immédiatement les problèmes.
+2. Cliquez sur la ressource Application Insights complète.
+
+    ![Cliquez sur](./media/app-insights-azure-web-apps/view-in-application-insights.png)
+
+    Vous pouvez également y accéder directement à partir de la navigation dans les ressources Azure.
+
+1. Cliquez sur n’importe quel graphique pour afficher plus de détails :
    
     ![Dans le panneau de vue d’ensemble d’Application Insights, cliquez sur un graphique](./media/app-insights-azure-web-apps/07-dependency.png)
    
     Vous pouvez [personnaliser les panneaux de mesures](app-insights-metrics-explorer.md).
-3. Cliquez de nouveau pour afficher des événements ainsi que leurs propriétés :
+2. Cliquez de nouveau pour afficher des événements ainsi que leurs propriétés :
    
     ![Cliquez sur un type d’événement pour ouvrir une recherche filtrée sur ce type](./media/app-insights-azure-web-apps/08-requests.png)
    
@@ -80,17 +90,16 @@ Ou, si vous utilisez une machine virtuelle :
 
 Pour des recherches plus abouties sur vos données de télémétrie, utilisez le [langage de requête Analytics](app-insights-analytics-tour.md).
 
-## Questions et réponses
-Comment modifier la configuration pour envoyer des données vers une autre ressource Application Insights ?
-
-* *Si vous avez ajouté Application Insights à votre code dans Visual Studio :* cliquez avec le bouton droit sur le projet, choisissez **Application Insights > Configurer** et sélectionnez la ressource de votre choix. Vous avez la possibilité de créer une nouvelle ressource. Procédez maintenant à la régénération et au redéploiement.
-* *Sinon :* dans Azure, ouvrez le panneau de contrôle de l’application web, puis accédez à **Outils > Extensions**. Supprimez l’extension Application Insights. Ouvrez **Outils > Performances**, sélectionnez « cliquez ici », puis choisissez Application Insights et la ressource de votre choix. (Commencez par cela si vous souhaitez créer une nouvelle ressource Application Insights.)
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Autorisation de l’envoi de diagnostics Azure](app-insights-azure-diagnostics.md) vers Application Insights.
-* [Analyse des mesures d’intégrité du service](../azure-portal/insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
-* [Réceptions de notifications d'alerte](../azure-portal/insights-receive-alert-notifications.md) lorsque des événements opérationnels se produisent ou que des mesures dépassent un seuil.
+* [Analyse des mesures d’intégrité du service](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
+* [Réceptions de notifications d’alerte](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) lorsque des événements opérationnels se produisent ou que des mesures dépassent un seuil.
 * Utilisation [d’Application Insights pour les pages Web et les applications JavaScript](app-insights-web-track-usage.md) pour obtenir les données de télémétrie du client à partir des navigateurs qui consultent une page web.
-* [Configuration des tests de disponibilité web](app-insights-monitor-web-app-availability.md), pour recevoir des alertes en cas d’interruption de votre site.
+* [Configuration des tests de disponibilité web](app-insights-monitor-web-app-availability.md) , pour recevoir des alertes en cas d’interruption de votre site.
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

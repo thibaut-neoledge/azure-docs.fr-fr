@@ -1,12 +1,12 @@
 ---
-title: Rapports Azure Multi-Factor Authentication
-description: Cette section décrit comment utiliser la fonctionnalité de rapports d’Azure Multi-Factor Authentication.
+title: "Rapports Azure Multi-Factor Authentication"
+description: "Cette section décrit comment utiliser la fonctionnalité de rapports d’Azure Multi-Factor Authentication."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: 3f6b33c4-04c8-47d4-aecb-aa39a61c4189
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 738f9862ce8a8e4a0d63ec94583c4c868d914686
+
 
 ---
-# Rapports dans Azure Multi-Factor Authentication
+# <a name="reports-in-azure-multi-factor-authentication"></a>Rapports dans Azure Multi-Factor Authentication
 Azure Multi-Factor Authentication fournit plusieurs rapports qui peuvent être utilisés par vous et votre organisation. Ces rapports sont accessibles par le biais du portail de gestion Multi-Factor Authentication. Celui-ci exige un fournisseur Azure MFA ou une licence Azure MFA, Azure AD Premium ou Enterprise Mobility Suite. Voici la liste des rapports disponibles.
 
 Vous pouvez accéder à ces rapports via le portail de gestion d’Azure.
@@ -30,12 +34,12 @@ Vous pouvez accéder à ces rapports via le portail de gestion d’Azure.
 | Alerte de fraude |Affiche un historique des alertes de fraude soumises au cours de la plage de dates spécifiée. |
 | Mis en file d'attente. |Répertorie les rapports en file d'attente de traitement et leur état. Un lien pour télécharger ou afficher le rapport est fourni lorsque ce dernier est terminé. |
 
-## Pour afficher des rapports
-1. Connectez-vous à http://azure.microsoft.com.
-2. Sélectionnez à gauche Active Directory.
-3. Sélectionnez l’une des options suivantes :
-   * **Option 1** : cliquez sur l’onglet Fournisseurs d’authentification multifacteur. Sélectionnez votre fournisseur MFA et cliquez sur le bouton Gérer dans la partie inférieure.
-   * **Option 2** : sélectionnez votre annuaire et cliquez sur l’onglet Configurer. Dans la section Authentification multifacteur, sélectionnez Gérer les paramètres du service. En bas de la page Paramètres du service MFA, cliquez sur le lien Accéder au portail.
+## <a name="to-view-reports"></a>Pour afficher des rapports
+1. Ouvrez une session sur http://azure.microsoft.com
+2. Sélectionnez à gauche Active Directory.
+3. Sélectionnez l’une des options suivantes :
+   * **Option 1**: cliquez sur l’onglet Fournisseurs d’authentification multifacteur. Sélectionnez votre fournisseur MFA et cliquez sur le bouton Gérer dans la partie inférieure.
+   * **Option 2**: sélectionnez votre annuaire et cliquez sur l’onglet Configurer. Dans la section Authentification multifacteur, sélectionnez Gérer les paramètres du service. En bas de la page Paramètres du service MFA, cliquez sur le lien Accéder au portail.
 4. Dans le portail de gestion Azure Multi-Factor Authentication, la section Afficher un rapport apparaît dans le volet de navigation gauche. Ici, vous pouvez sélectionner les rapports décrits ci-dessus.
 
 <center>![Cloud](./media/multi-factor-authentication-manage-reports/report.png)</center>
@@ -43,7 +47,12 @@ Vous pouvez accéder à ces rapports via le portail de gestion d’Azure.
 
 **Ressources supplémentaires**
 
-* [Pour les utilisateurs](multi-factor-authentication-end-user.md)
+* [Pour les utilisateurs](end-user/multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication sur MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
