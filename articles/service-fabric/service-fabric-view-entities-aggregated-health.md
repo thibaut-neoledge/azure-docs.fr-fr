@@ -1,12 +1,12 @@
 ---
-title: Affichage de l’état d’intégrité agrégé des entités Azure Service Fabric | Microsoft Docs
-description: Explique comment interroger, afficher et évaluer l’état d’intégrité agrégé des entités Azure Service Fabric, via des requêtes d’intégrité et des requêtes générales.
+title: "Affichage de l’état d’intégrité agrégé des entités Azure Service Fabric | Microsoft Docs"
+description: "Explique comment interroger, afficher et évaluer l’état d’intégrité agrégé des entités Azure Service Fabric, via des requêtes d’intégrité et des requêtes générales."
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: fa34c52d-3a74-4b90-b045-ad67afa43fe5
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,20 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2016
 ms.author: oanapl
+translationtype: Human Translation
+ms.sourcegitcommit: dde0c217324518b5eb15bec7cbe9546b0597752d
+ms.openlocfilehash: 51c32fafed50f831e2bf8d283b72e24081dcd32f
+
 
 ---
 # <a name="view-service-fabric-health-reports"></a>Affichage rapports d’intégrité de Service Fabric
-Azure Service Fabric propose un [modèle d’intégrité](service-fabric-health-introduction.md) constitué d’entités d’intégrité sur lesquelles les composants système et les agents de surveillance peuvent signaler les conditions locales qu’ils identifient. Le [magasin d’intégrité](service-fabric-health-introduction.md#health-store) agrège toutes les données d’intégrité pour déterminer si les entités sont saines.
+Azure Service Fabric propose un [modèle d’intégrité](service-fabric-health-introduction.md) constitué d’entités d’intégrité sur lesquelles les composants système et les agents de surveillance peuvent signaler les conditions locales qu’ils identifient. Le [magasin d’intégrité](service-fabric-health-introduction.md#health-store) agrège toutes les données d’intégrité pour déterminer si les entités sont saines.
 
 Dès le départ, le cluster comprend des rapports d’intégrité envoyés par les composants système. Pour en savoir plus, consultez l’article [Utiliser les rapports d’intégrité du système pour la résolution des problèmes](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
-Service Fabric offre de multiples moyens d’obtenir les données d’intégrité agrégée des entités :
+Service Fabric offre de multiples moyens d’obtenir les données d’intégrité agrégée des entités :
 
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) ou d’autres outils de visualisation
-* Requêtes d’intégrité (via PowerShell, l’API ou REST)
-* Requêtes générales renvoyant une liste d’entités qui présentent l’intégrité comme l’une de leurs propriétés (via PowerShell, l’API ou REST)
+* Requêtes d’intégrité (via PowerShell, l’API ou REST)
+* Requêtes générales renvoyant une liste d’entités qui présentent l’intégrité comme l’une de leurs propriétés (via PowerShell, l’API ou REST)
 
-Pour illustrer ces options, utilisons un cluster local présentant cinq nœuds. Mis à part l’application **fabric:/System** (qui existe de façon standard), d’autres applications sont déployées, dont **fabric:/WordCount**. Cette application contient un service avec état configuré avec sept réplicas. Comme il n’existe que cinq nœuds, les composants système affichent un avertissement indiquant que la partition présente une valeur inférieure au nombre cible.
+Pour illustrer ces options, utilisons un cluster local présentant cinq nœuds. Mis à part l’application **fabric:/System** (qui existe de façon standard), d’autres applications sont déployées, dont **fabric:/WordCount**. Cette application contient un service avec état configuré avec sept réplicas. Comme il n’existe que cinq nœuds, les composants système affichent un avertissement indiquant que la partition présente une valeur inférieure au nombre cible.
 
 ```xml
 <Service Name="WordCountService">
@@ -38,7 +42,7 @@ Pour illustrer ces options, utilisons un cluster local présentant cinq nœuds. 
 ```
 
 ## <a name="health-in-service-fabric-explorer"></a>Intégrité dans Service Fabric Explorer
-Service Fabric Explorer procure un aperçu visuel du cluster. Dans l’image ci-dessous, vous pouvez constater que :
+Service Fabric Explorer procure un aperçu visuel du cluster. Dans l’image ci-dessous, vous pouvez constater que :
 
 * L’application **fabric:/WordCount** apparaît en rouge (erreur), car un événement d’erreur a été signalé par **MyWatchdog** pour la propriété **Availability**.
 * L’un de ses services, **fabric:/WordCount/WordCountService** apparaît en jaune (avertissement). Comme le service est configuré avec sept réplicas, ces derniers ne peuvent pas tous être placés (puisqu’il n’existe que cinq nœuds). Même si elle n’est pas représentée ici, la partition de service est en jaune, conformément au rapport système. La partition en jaune déclenche le service en jaune.
@@ -46,7 +50,7 @@ Service Fabric Explorer procure un aperçu visuel du cluster. Dans l’image ci-
 
 L’évaluation utilise les stratégies par défaut du manifeste de cluster et du manifeste de l’application. Il s’agit de stratégies strictes qui ne tolèrent aucun échec.
 
-Vue du cluster avec Service Fabric Explorer :
+Vue du cluster avec Service Fabric Explorer :
 
 ![Vue du cluster avec Service Fabric Explorer.][1]
 
@@ -55,33 +59,33 @@ Vue du cluster avec Service Fabric Explorer :
 
 > [!NOTE]
 > En savoir plus sur [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-> 
-> 
+>
+>
 
 ## <a name="health-queries"></a>Requêtes d'intégrité
-Service Fabric expose les requêtes d’intégrité pour chacun des [types d’entité](service-fabric-health-introduction.md#health-entities-and-hierarchy)pris en charge. Elles sont accessibles via l’API (les méthodes se trouvent sur **FabricClient.HealthManager**), les applets de commande PowerShell et REST. Ces requêtes renvoient des informations complètes sur l’intégrité de l’entité : l’état d’intégrité agrégé, les événements d’intégrité de l’entité, les états d’intégrité enfants (le cas échéant) et les évaluations de défaut d’intégrité de l’entité.
+Service Fabric expose les requêtes d’intégrité pour chacun des [types d’entité](service-fabric-health-introduction.md#health-entities-and-hierarchy)pris en charge. Elles sont accessibles via l’API (les méthodes se trouvent sur **FabricClient.HealthManager**), les applets de commande PowerShell et REST. Ces requêtes renvoient des informations complètes sur l’intégrité de l’entité : l’état d’intégrité agrégé, les événements d’intégrité de l’entité, les états d’intégrité enfants (le cas échéant) et les évaluations de défaut d’intégrité de l’entité.
 
 > [!NOTE]
 > Une entité d’intégrité est renvoyée si elle est intégralement renseignée dans le magasin d’intégrité. Elle doit être active (pas supprimée) et doit disposer d’un rapport système. Ses entités parentes dans la chaîne hiérarchique doivent également disposer de rapports système. Si l’une de ces conditions n’est pas satisfaite, les requêtes d’intégrité renvoient une exception indiquant le non-renvoi de l’entité.
-> 
-> 
+>
+>
 
 Les requêtes d’intégrité doivent transmettre l’identificateur de l’entité, qui dépend du type d’entité. Elles acceptent des paramètres facultatifs de stratégie de contrôle d’intégrité. Si aucune stratégie d’intégrité n’est indiquée, les [stratégies de contrôle d’intégrité](service-fabric-health-introduction.md#health-policies) du manifeste de cluster ou d’application sont utilisées pour l’évaluation. Les requêtes acceptent également des filtres pour ne renvoyer le cas échéant que des enfants ou des événements partiels.
 
 > [!NOTE]
 > Les filtres de sortie sont appliqués côté serveur, ce qui réduit la taille de la réponse du message. Nous vous recommandons d’utiliser les filtres de sortie afin de limiter le volume de données renvoyées, plutôt que d’appliquer des filtres côté client.
-> 
-> 
+>
+>
 
 Les données d’intégrité d’une entité incluent les éléments suivants :
 
-* L’état agrégé d’intégrité de l’entité. Il est calculé par le magasin d’intégrité en fonction des rapports d’intégrité de l’entité, de l’état d’intégrité des enfants (le cas échéant) et des stratégies de contrôle d’intégrité. En savoir plus sur l’ [évaluation de l’intégrité de l’entité](service-fabric-health-introduction.md#entity-health-evaluation).  
+* L’état agrégé d’intégrité de l’entité. Il est calculé par le magasin d’intégrité en fonction des rapports d’intégrité de l’entité, de l’état d’intégrité des enfants (le cas échéant) et des stratégies de contrôle d’intégrité. En savoir plus sur l’ [évaluation de l’intégrité de l’entité](service-fabric-health-introduction.md#health-evaluation).  
 * Les événements d’intégrité sur l’entité.
 * La collection des états d’intégrité de l’ensemble des enfants pour les entités pouvant en avoir. Les états d’intégrité contiennent les identificateurs d’entité et l’état d’intégrité agrégé. Pour obtenir les données d’intégrité complètes d’un enfant, sollicitez la requête d’intégrité du type de l’entité enfant et transmettez l’identificateur de l’enfant.
 * Les évaluations de défaut d’intégrité qui indiquent le rapport qui a déclenché l’état de l’entité si celle-ci n’est pas saine.
 
 ## <a name="get-cluster-health"></a>Obtenir les données d’intégrité du cluster
-Cette requête renvoie les données d’intégrité de l’entité du cluster et contient les états d’intégrité des applications et des nœuds (enfants du cluster). Entrée :
+Cette requête renvoie les données d’intégrité de l’entité du cluster et contient les états d’intégrité des applications et des nœuds (enfants du cluster). Entrée :
 
 * [Facultatif] La stratégie d’intégrité du cluster utilisée pour évaluer les événements de nœuds et de cluster
 * [Facultatif] Mappage de la stratégie de contrôle d’intégrité de l’application avec les stratégies de contrôle d’intégrité utilisées pour remplacer les stratégies du manifeste de l’application.
@@ -172,7 +176,7 @@ ApplicationHealthStates :
 HealthEvents            : None
 ```
 
-L’applet de commande PowerShell suivante permet d’obtenir les données d’intégrité du cluster à l’aide d’une stratégie d’application personnalisée. Elle filtre les résultats afin d’identifier uniquement les applications et les nœuds indiquant une erreur ou un avertissement. En conséquence, aucun nœud n’est renvoyé puisqu’ils sont tous sains. Seule l’application fabric:/WordCount respecte le filtre d’applications. Comme la stratégie personnalisée exige de considérer les avertissements comme des erreurs pour l’application fabric:/WordCount, l’application présente l’état d’erreur tout comme le cluster.
+L’applet de commande PowerShell suivante permet d’obtenir les données d’intégrité du cluster à l’aide d’une stratégie d’application personnalisée. Elle filtre les résultats afin d’identifier uniquement les applications et les nœuds indiquant une erreur ou un avertissement. En conséquence, aucun nœud n’est renvoyé puisqu’ils sont tous sains. Seule l’application fabric:/WordCount respecte le filtre d’applications. Comme la stratégie personnalisée exige de considérer les avertissements comme des erreurs pour l’application fabric:/WordCount, l’application présente l’état d’erreur tout comme le cluster.
 
 ```powershell
 PS c:\> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
@@ -211,7 +215,7 @@ HealthEvents            : None
 Vous pouvez obtenir les données d’intégrité du cluster grâce à une [requête GET](https://msdn.microsoft.com/library/azure/dn707669.aspx) ou [POST](https://msdn.microsoft.com/library/azure/dn707696.aspx) qui inclut les stratégies d’intégrité décrites dans le corps.
 
 ## <a name="get-node-health"></a>Obtenir les données d’intégrité du nœud
-Cette requête renvoie les données d’intégrité d’une entité de nœud et contient les événements d’intégrité signalés sur le nœud. Entrée :
+Cette requête renvoie les données d’intégrité d’une entité de nœud et contient les événements d’intégrité signalés sur le nœud. Entrée :
 
 * [Obligatoire] Nom du nœud qui identifie le nœud.
 * [Facultatif] Paramètres de la stratégie de contrôle d’intégrité du cluster utilisés pour l’évaluation de l’intégrité.
@@ -240,7 +244,7 @@ NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(quer
 
 ### <a name="powershell"></a>PowerShell
 L’applet de commande permettant d’obtenir les données d’intégrité du nœud est [Get-ServiceFabricNodeHealth](https://msdn.microsoft.com/library/mt125937.aspx). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) .
-L’applet de commande suivante permet d’obtenir les données d’intégrité du nœud à l’aide des stratégies de contrôle d’intégrité par défaut :
+L’applet de commande suivante permet d’obtenir les données d’intégrité du nœud à l’aide des stratégies de contrôle d’intégrité par défaut :
 
 ```powershell
 PS C:\> Get-ServiceFabricNodeHealth _Node_1
@@ -262,7 +266,7 @@ HealthEvents          :
                         Transitions           : Error->Ok = 3/22/2016 7:48:19 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-L’applet de commande suivante permet d’obtenir les données d’intégrité de tous les nœuds du cluster :
+L’applet de commande suivante permet d’obtenir les données d’intégrité de tous les nœuds du cluster :
 
 ```powershell
 PS C:\> Get-ServiceFabricNode | Get-ServiceFabricNodeHealth | select NodeName, AggregatedHealthState | ft -AutoSize
@@ -280,7 +284,7 @@ _Node_4                     Ok
 Vous pouvez obtenir les données d’intégrité du nœud grâce à une [requête GET](https://msdn.microsoft.com/library/azure/dn707650.aspx) ou [POST](https://msdn.microsoft.com/library/azure/dn707665.aspx) qui inclut les stratégies d’intégrité décrites dans le corps.
 
 ## <a name="get-application-health"></a>Obtenir les données d’intégrité des applications
-Renvoie les données d’intégrité d’une entité d’application. Elle contient les états d’intégrité de l’application déployée et des enfants du service. Entrée :
+Renvoie les données d’intégrité d’une entité d’application. Elle contient les états d’intégrité de l’application déployée et des enfants du service. Entrée :
 
 * [Obligatoire] Nom de l’application (URI) qui identifie l’application.
 * [Facultatif] Stratégie de contrôle d’intégrité d’application remplaçant les stratégies du manifeste d’application.
@@ -426,7 +430,7 @@ HealthEvents                    : None
 Vous pouvez obtenir les données d’intégrité de l’application grâce à une [requête GET](https://msdn.microsoft.com/library/azure/dn707681.aspx) ou [POST](https://msdn.microsoft.com/library/azure/dn707643.aspx) qui inclut les stratégies d’intégrité décrites dans le corps.
 
 ## <a name="get-service-health"></a>Obtenir l’état d’intégrité du service
-Renvoie les données d’intégrité d’une entité de service. Elle contient les états d’intégrité des partitions. Entrée :
+Renvoie les données d’intégrité d’une entité de service. Elle contient les états d’intégrité des partitions. Entrée :
 
 * [Obligatoire] Nom (URI) qui identifie le service.
 * [Facultatif] Stratégie de contrôle d’intégrité d’application remplaçant la stratégie du manifeste d’application.
@@ -435,7 +439,7 @@ Renvoie les données d’intégrité d’une entité de service. Elle contient l
 ### <a name="api"></a>API
 Pour obtenir les données d’intégrité de service via l’API, créez un élément `FabricClient` et appelez la méthode [GetServiceHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getservicehealthasync.aspx) sur son élément HeathManager.
 
-L’exemple suivant permet d’obtenir les données d’intégrité d’un service présentant un nom (URI) spécifique :
+L’exemple suivant permet d’obtenir les données d’intégrité d’un service présentant un nom (URI) spécifique :
 
 ```charp
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
@@ -456,7 +460,7 @@ ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthA
 ### <a name="powershell"></a>PowerShell
 L’applet de commande permettant d’obtenir les données d’intégrité du service est [Get-ServiceFabricServiceHealth](https://msdn.microsoft.com/library/mt125984.aspx). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) .
 
-L’applet de commande suivante permet d’obtenir les données d’intégrité du service à l’aide des stratégies de contrôle d’intégrité par défaut :
+L’applet de commande suivante permet d’obtenir les données d’intégrité du service à l’aide des stratégies de contrôle d’intégrité par défaut :
 
 ```powershell
 PS C:\> Get-ServiceFabricServiceHealth -ServiceName fabric:/WordCount/WordCountService
@@ -528,7 +532,7 @@ HealthEvents          :
 Vous pouvez obtenir les données d’intégrité du service grâce à une [requête GET](https://msdn.microsoft.com/library/azure/dn707609.aspx) ou [POST](https://msdn.microsoft.com/library/azure/dn707646.aspx) qui inclut les stratégies d’intégrité décrites dans le corps.
 
 ## <a name="get-partition-health"></a>Obtenir l'intégrité de la partition
-Renvoie les données d’intégrité d’une entité de partition. Elle contient les états d’intégrité des réplicas. Entrée :
+Renvoie les données d’intégrité d’une entité de partition. Elle contient les états d’intégrité des réplicas. Entrée :
 
 * [Obligatoire] ID de partition (GUID) qui identifie la partition.
 * [Facultatif] Stratégie de contrôle d’intégrité d’application remplaçant la stratégie du manifeste d’application.
@@ -589,7 +593,7 @@ HealthEvents          :
 Vous pouvez obtenir les données d’intégrité des partitions grâce à une [requête GET](https://msdn.microsoft.com/library/azure/dn707683.aspx) ou [POST](https://msdn.microsoft.com/library/azure/dn707680.aspx) qui inclut les stratégies d’intégrité décrites dans le corps.
 
 ## <a name="get-replica-health"></a>Obtenir les données d’intégrité des réplicas
-Représente l’intégrité d’un réplica de service avec état ou d’une instance de service sans état. Entrée :
+Représente l’intégrité d’un réplica de service avec état ou d’une instance de service sans état. Entrée :
 
 * [Obligatoire] ID de partition (GUID) et ID de réplica qui identifient le réplica.
 * [Facultatif] Paramètres de stratégie de contrôle d’intégrité d’application remplaçant les stratégies de manifeste d’application.
@@ -605,7 +609,7 @@ ReplicaHealth replicaHealth = await fabricClient.HealthManager.GetReplicaHealthA
 ### <a name="powershell"></a>PowerShell
 L’applet de commande permettant d’obtenir les données d’intégrité du réplica est [Get-ServiceFabricReplicaHealth](https://msdn.microsoft.com/library/mt125808.aspx). Commencez par vous connecter au cluster à l’aide de l’applet de commande [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) .
 
-L’applet de commande suivante permet d’obtenir les données d’intégrité du réplica principal de l’ensemble des partitions du service :
+L’applet de commande suivante permet d’obtenir les données d’intégrité du réplica principal de l’ensemble des partitions du service :
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
@@ -632,7 +636,7 @@ HealthEvents          :
 Vous pouvez obtenir les données d’intégrité du service grâce à une [requête GET](https://msdn.microsoft.com/library/azure/dn707673.aspx) ou [POST](https://msdn.microsoft.com/library/azure/dn707641.aspx) qui inclut les stratégies d’intégrité décrites dans le corps.
 
 ## <a name="get-deployed-application-health"></a>Obtenir les données d’intégrité des applications déployées
-Renvoie les données d’intégrité d’une application déployée sur une entité de nœud. Elle contient les états d’intégrité du package de services déployé. Entrée :
+Renvoie les données d’intégrité d’une application déployée sur une entité de nœud. Elle contient les états d’intégrité du package de services déployé. Entrée :
 
 * [Obligatoire] Nom d’application (URI) et nom de nœud (chaîne) qui identifient l’application déployée.
 * [Facultatif] Stratégie de contrôle d’intégrité d’application remplaçant les stratégies du manifeste d’application.
@@ -685,7 +689,7 @@ HealthEvents                       :
 Vous pouvez obtenir les données d’intégrité de l’application déployée grâce à une [requête GET](https://msdn.microsoft.com/library/azure/dn707644.aspx) ou [POST](https://msdn.microsoft.com/library/azure/dn707688.aspx) qui inclut les stratégies d’intégrité décrites dans le corps.
 
 ## <a name="get-deployed-service-package-health"></a>Obtenir les données d’intégrité d’un package de services déployé
-Renvoie les données d’intégrité d’une entité de package de services déployé. Entrée :
+Renvoie les données d’intégrité d’une entité de package de services déployé. Entrée :
 
 * [Obligatoire] Nom d’application (URI), nom de nœud (chaîne) et nom de manifeste de service (chaîne) qui identifient le package de services déployé.
 * [Facultatif] Stratégie de contrôle d’intégrité d’application remplaçant la stratégie du manifeste d’application.
@@ -774,7 +778,7 @@ Actuellement, la requête par segment d’intégrité est exposée uniquement po
 * La liste d’applications du segment d’intégrité, conformément aux filtres d’entrée. Chaque segment d’intégrité d’application comporte une liste de segments contenant l’ensemble des services retenus par les filtres d’entrée et une autre liste de segments contenant l’ensemble des applications déployées retenues par les filtres. Il en va de même pour les enfants des services et des applications déployées. Ainsi, l’ensemble des entités du cluster peuvent être potentiellement renvoyées si demandées, suivant un ordre hiérarchique.
 
 ### <a name="cluster-health-chunk-query"></a>Requête par segment d’intégrité de cluster
-Renvoie les données d’intégrité de l’entité du cluster et contient les segments d’intégrité hiérarchiques des enfants requis. Entrée :
+Renvoie les données d’intégrité de l’entité du cluster et contient les segments d’intégrité hiérarchiques des enfants requis. Entrée :
 
 * [Facultatif] La stratégie d’intégrité du cluster utilisée pour évaluer les événements de nœuds et de cluster
 * [Facultatif] Mappage de la stratégie de contrôle d’intégrité de l’application avec les stratégies de contrôle d’intégrité utilisées pour remplacer les stratégies du manifeste de l’application.
@@ -984,12 +988,12 @@ ApplicationHealthStateChunks :
 Vous pouvez obtenir le segment d’intégrité du cluster grâce à une [requête GET](https://msdn.microsoft.com/library/azure/mt656722.aspx) ou [POST](https://msdn.microsoft.com/library/azure/mt656721.aspx) qui inclut les stratégies d’intégrité et les filtres avancés décrits dans le corps.
 
 ## <a name="general-queries"></a>Requêtes générales
-Les requêtes générales renvoient la liste des entités Service Fabric d’un type spécifié. Elles sont exposées par l’intermédiaire de l’API (via les méthodes sur **FabricClient.QueryManager**), des applets de commande PowerShell et de REST. Ces requêtes agrègent les sous-requêtes de plusieurs composants. L’un d’eux est le [magasin d’intégrité](service-fabric-health-introduction.md#health-store), qui renseigne l’état d’intégrité agrégé pour chaque résultat de requête.  
+Les requêtes générales renvoient la liste des entités Service Fabric d’un type spécifié. Elles sont exposées par l’intermédiaire de l’API (via les méthodes sur **FabricClient.QueryManager**), des applets de commande PowerShell et de REST. Ces requêtes agrègent les sous-requêtes de plusieurs composants. L’un d’eux est le [magasin d’intégrité](service-fabric-health-introduction.md#health-store), qui renseigne l’état d’intégrité agrégé pour chaque résultat de requête.  
 
 > [!NOTE]
 > Les requêtes générales renvoient l’état d’intégrité agrégé de l’entité et ne contiennent pas de données d’intégrité enrichies. Si une entité n’est pas saine, vous pouvez recourir à des requêtes d’intégrité afin d’obtenir l’ensemble des informations sur son intégrité, comme les événements, l’état d’intégrité des enfants et les évaluations de défaut d’intégrité.
-> 
-> 
+>
+>
 
 Si les requêtes générales renvoient un état d’intégrité inconnu pour une entité, il se peut que le magasin d’intégrité ne dispose pas des données complètes sur l’entité. Il est également possible qu’une sous-requête adressée au magasin d’intégrité ait échoué (par exemple, en cas d’erreur de communication ou de limitation du magasin d’intégrité). Recourez à une requête d’intégrité sur l’entité. Si la sous-requête a rencontré des erreurs temporaires telles que des problèmes de réseau, cette requête de suivi peut aboutir. Elle peut également vous donner plus de détails du magasin d’intégrité sur la raison pour laquelle l’entité n’est pas exposée.
 
@@ -997,30 +1001,30 @@ Les requêtes contenant le paramètre **HealthState** pour les entités sont les
 
 * Liste de nœuds : renvoie la liste de nœuds du cluster (paginée).
   * API : [FabricClient.QueryClient.GetNodeListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getnodelistasync.aspx)
-  * Powershell : Get-ServiceFabricNode
+  * Powershell : Get-ServiceFabricNode
 * Liste d’applications : renvoie la liste des applications du cluster (paginée).
   * API : [FabricClient.QueryClient.GetApplicationListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getapplicationlistasync.aspx)
-  * Powershell : Get-ServiceFabricApplication
+  * Powershell : Get-ServiceFabricApplication
 * Liste de services : renvoie la liste des services d’une application (paginée).
   * API : [FabricClient.QueryClient.GetServiceListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getservicelistasync.aspx)
-  * Powershell : Get-ServiceFabricService
+  * Powershell : Get-ServiceFabricService
 * Liste de partitions : renvoie la liste des partitions d’un service (paginée).
   * API : [FabricClient.QueryClient.GetPartitionListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getpartitionlistasync.aspx)
-  * PowerShell : Get-ServiceFabricPartition
+  * PowerShell : Get-ServiceFabricPartition
 * Liste de réplicas : renvoie la liste des réplicas d’une partition (paginée).
   * API : [FabricClient.QueryClient.GetReplicaListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getreplicalistasync.aspx)
-  * PowerShell : Get-ServiceFabricReplica
+  * PowerShell : Get-ServiceFabricReplica
 * Liste des applications déployées : renvoie la liste des applications déployées sur un nœud.
   * API : [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync.aspx)
-  * PowerShell : Get-ServiceFabricDeployedApplication
+  * PowerShell : Get-ServiceFabricDeployedApplication
 * Liste des packages de services déployés : renvoie la liste des packages de services d’une application déployée.
   * API : [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync.aspx)
-  * PowerShell : Get-ServiceFabricDeployedApplication
+  * PowerShell : Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
 > Certaines des requêtes renvoient des résultats paginés. Ces requêtes renvoient une liste dérivée de [PagedList<T>](https://msdn.microsoft.com/library/azure/mt280056.aspx). Si les résultats ne tiennent pas dans un message, une seule page est renvoyée. Un élément ContinuationToken effectue un suivi de l’emplacement de l’arrêt de l’énumération. Vous devez continuer à appeler la même requête et transmettre le jeton de liaison de la requête précédente pour obtenir les résultats suivants.
-> 
-> 
+>
+>
 
 ### <a name="examples"></a>Exemples
 Le code suivant permet d’obtenir la liste des applications défectueuses du cluster :
@@ -1050,7 +1054,7 @@ ApplicationParameters  : { "WordCountWebService_InstanceCount" = "1";
                          [ProcessId] -tid [ThreadId]","EnvironmentBlock":"_NO_DEBUG_HEAP=1\u0000"}]" }
 ```
 
-L’applet de commande suivante permet d’obtenir les services présentant un état d’intégrité d’avertissement :
+L’applet de commande suivante permet d’obtenir les services présentant un état d’intégrité d’avertissement :
 
 ```powershell
 PS C:\> Get-ServiceFabricApplication | Get-ServiceFabricService | where {$_.HealthState -eq "Warning"}
@@ -1067,7 +1071,7 @@ HealthState            : Warning
 ```
 
 ## <a name="cluster-and-application-upgrades"></a>Mises à niveau d’applications et de clusters
-Au cours d’une mise à niveau surveillée d’un cluster et d’une application, Service Fabric vérifie les données d’intégrité afin de garantir le maintien de l’état d’intégrité. Si une entité n’est pas saine au vu de l’évaluation effectuée à l’aide des stratégies de contrôle d’intégrité configurées, la mise à niveau applique des stratégies qui lui sont propres pour déterminer l’action ultérieure. La mise à niveau peut être interrompue pour permettre une intervention de l’utilisateur (par exemple la correction des conditions d’erreur ou la modification des stratégies), ou elle peut automatiquement restaurer la version correcte précédente.
+Au cours d’une mise à niveau surveillée d’un cluster et d’une application, Service Fabric vérifie les données d’intégrité afin de garantir le maintien de l’état d’intégrité. Si une entité n’est pas saine au vu de l’évaluation effectuée à l’aide des stratégies de contrôle d’intégrité configurées, la mise à niveau applique des stratégies qui lui sont propres pour déterminer l’action ultérieure. La mise à niveau peut être interrompue pour permettre une intervention de l’utilisateur (par exemple la correction des conditions d’erreur ou la modification des stratégies), ou elle peut automatiquement restaurer la version correcte précédente.
 
 Pendant la mise à niveau d’un *cluster* , vous pouvez obtenir son statut de mise à niveau. Ce statut inclut les évaluations de défaut d’intégrité, qui désignent les éléments qui ne sont pas sains dans le cluster. Si la mise à niveau est annulée en raison de problèmes d’intégrité, son statut se rappelle les derniers motifs de défaut d’intégrité. Ces informations peuvent aider les administrateurs à examiner la cause du problème après que la mise à niveau a été annulée ou arrêtée.
 
@@ -1134,8 +1138,8 @@ Chaque fois qu’un problème est identifié dans le cluster ou dans une applica
 
 > [!NOTE]
 > Les évaluations de défaut d’intégrité mettent en rapport le premier motif d’évaluation de l’entité avec l’état d’intégrité actuel. D’autres événements peuvent déclencher cet état, mais ils ne sont pas représentés dans les évaluations. Pour en savoir plus, vous devez examiner les entités d’intégrité afin de prendre connaissance de l’ensemble des rapports d’intégrité du cluster.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Utiliser les rapports d’intégrité du système pour la résolution des problèmes](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
@@ -1148,6 +1152,8 @@ Chaque fois qu’un problème est identifié dans le cluster ou dans une applica
 
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

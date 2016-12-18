@@ -1,36 +1,41 @@
 ---
-title: 'Chiffrement intégral : protéger les données sensibles dans Azure SQL Database avec le chiffrement de base de données | Microsoft Docs'
-description: Protéger les données sensibles de votre base de données SQL en quelques minutes.
-keywords: chiffrer les données, chiffrement sql, chiffrement de base de données, données sensibles, chiffrement intégral
+title: "Chiffrement intégral : protéger les données sensibles dans Azure SQL Database avec le chiffrement de base de données | Microsoft Docs"
+description: "Protéger les données sensibles de votre base de données SQL en quelques minutes."
+keywords: "chiffrer les données, chiffrement sql, chiffrement de base de données, données sensibles, chiffrement intégral"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: ce7e052e-8bf6-4d7c-9204-4c6f4afeba4b
 ms.service: sql-database
+ms.custom: secure and protect
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 66044ef8353e61f0de5afb8c61d91335ecd6dcbb
+
 
 ---
-# Chiffrement intégral : protéger les données sensibles dans Base de données SQL et stocker vos clés de chiffrement dans le magasin de certificats Windows
+# <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Chiffrement intégral : protéger les données sensibles dans Base de données SQL et stocker vos clés de chiffrement dans le magasin de certificats Windows
 > [!div class="op_single_selector"]
-> * [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
+> * [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
 > * [Magasin de certificats Windows](sql-database-always-encrypted.md)
 > 
 > 
 
-Cet article montre comment sécuriser des données sensibles dans une base de données SQL avec un chiffrement de base de données en utilisant l’[Assistant Chiffrement intégral](https://msdn.microsoft.com/library/mt459280.aspx) dans [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Il montre également comment stocker vos clés de chiffrement dans le magasin de certificats Windows.
+Cet article montre comment sécuriser des données sensibles dans une base de données SQL avec un chiffrement de base de données en utilisant [l’Assistant Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx) dans [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Il montre également comment stocker vos clés de chiffrement dans le magasin de certificats Windows.
 
 Le chiffrement intégral est une nouvelle technologie de chiffrement de données d’Azure SQL Database et de SQL Server qui contribue à protéger les données sensibles au repos sur le serveur, pendant le déplacement entre le client et le serveur, ainsi que pendant l’utilisation des données, pour s’assurer que les données sensibles ne s’affichent pas en clair dans le système de base de données. Une fois que vous avez chiffré les données, seuls les applications clientes ou les serveurs d’applications ayant accès aux clés peuvent accéder aux données texte en clair. Pour plus d’informations, consultez [Chiffrement intégral (moteur de base de données)](https://msdn.microsoft.com/library/mt163865.aspx).
 
 Après avoir configuré la base de données pour le chiffrement intégral, vous allez créer une application cliente en C# avec Visual Studio afin de l’utiliser avec les données chiffrées.
 
-Suivez les étapes de cet article et découvrez comment configurer le chiffrement intégral pour une base de données SQL Azure. Dans cet article, vous allez apprendre à effectuer les tâches suivantes :
+Suivez les étapes de cet article et découvrez comment configurer le chiffrement intégral pour une base de données SQL Azure. Dans cet article, vous allez apprendre à effectuer les tâches suivantes :
 
 * Utiliser l’Assistant Chiffrement intégral dans SSMS pour créer des [clés intégralement chiffrées](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3).
   * Créer une [clé principale de colonne (CMK)](https://msdn.microsoft.com/library/mt146393.aspx).
@@ -38,17 +43,17 @@ Suivez les étapes de cet article et découvrez comment configurer le chiffremen
 * Créer une table de base de données et chiffrer des colonnes.
 * Créer une application qui insère, sélectionne et affiche les données des colonnes chiffrées.
 
-## Conditions préalables
-Pour ce didacticiel, vous devez disposer des éléments suivants :
+## <a name="prerequisites"></a>Conditions préalables
+Pour ce didacticiel, vous devez disposer des éléments suivants :
 
 * Un compte et un abonnement Azure. Si vous n’en avez pas, inscrivez-vous pour un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
-* [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx), version 13.0.700.242 ou ultérieure.
+* [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) , version 13.0.700.242 ou ultérieure.
 * [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) ou version ultérieure (sur l’ordinateur client).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 
-## Créer une base de données SQL vide
+## <a name="create-a-blank-sql-database"></a>Créer une base de données SQL vide
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Cliquez sur **Nouveau** > **Données et stockage** > **Base de données SQL**.
+2. Cliquez sur **Nouveau** > **Données + stockage** > **SQL Database**.
 3. Créez une base de données **vide** nommée **Clinique** sur un serveur nouveau ou existant. Pour obtenir des instructions détaillées sur la création d’une base de données dans le portail Azure, voir [Créer une base de données SQL en quelques minutes](sql-database-get-started.md).
    
     ![Créer une base de données vide](./media/sql-database-always-encrypted/create-database.png)
@@ -60,7 +65,7 @@ Vous aurez besoin de la chaîne de connexion plus loin dans le didacticiel. Une 
    
     ![Copier la chaîne de connexion](./media/sql-database-always-encrypted/connection-strings.png)
 
-## Connexion à la base de données avec SSMS
+## <a name="connect-to-the-database-with-ssms"></a>Connexion à la base de données avec SSMS
 Ouvrez SSMS et connectez-vous au serveur avec la base de données Clinique.
 
 1. Ouvrez SSMS. (Cliquez sur **Connexion** > **Moteur de base de données** pour ouvrir la fenêtre **Connexion au serveur** si ce n’est déjà fait).
@@ -70,7 +75,7 @@ Ouvrez SSMS et connectez-vous au serveur avec la base de données Clinique.
 
 Si la fenêtre **Nouvelle règle de pare-feu** s’ouvre, connectez-vous à Azure et laissez SSMS créer une règle de pare-feu pour vous.
 
-## Création d’une table
+## <a name="create-a-table"></a>Création d’une table
 Dans cette section, vous allez créer une table pour stocker les données des patients. Au départ, il s’agira d’une table normale. Vous allez configurer le chiffrement dans la section suivante.
 
 1. Développez **Bases de données**.
@@ -92,51 +97,51 @@ Dans cette section, vous allez créer une table pour stocker les données des pa
          GO
 
 
-## Chiffrer des colonnes (configurer le chiffrement intégral)
+## <a name="encrypt-columns-configure-always-encrypted"></a>Chiffrer des colonnes (configurer le chiffrement intégral)
 SSMS intègre un Assistant permettant de configurer facilement le chiffrement intégral en définissant la CMK, la CEK et les colonnes chiffrées pour vous.
 
 1. Développez **Bases de données** > **Clinique** > **Tables**.
-2. Cliquez avec le bouton droit sur la table **Patients**, puis sélectionnez **Chiffrer les colonnes** pour ouvrir l’Assistant Chiffrement intégral :
+2. Cliquez avec le bouton droit sur la table **Patients**, puis sélectionnez **Chiffrer les colonnes** pour ouvrir l’Assistant Always Encrypted :
    
-    ![Chiffrer des colonnes](./media/sql-database-always-encrypted/encrypt-columns.png)
+    ![Chiffrer les colonnes](./media/sql-database-always-encrypted/encrypt-columns.png)
 
 L’Assistant Chiffrement intégral comprend les sections suivantes : **Sélection de la colonne**, **Configuration de la clé principale** (CMK), **Validation** et **Résumé**.
 
-### Sélection de colonnes
+### <a name="column-selection"></a>Sélection de colonnes
 Dans la page **Introduction**, cliquez sur **Suivant** pour ouvrir la page **Sélection de colonne**. Dans cette page, sélectionnez les colonnes à chiffrer, [le type de chiffrement et la clé de chiffrement de colonne (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) à utiliser.
 
 Chiffrez les informations **SSN** et **BirthDate** pour chaque patient. La colonne **SSN** utilise un chiffrement déterministe qui prend en charge les recherches d’égalité, les jointures et les regroupements. La colonne **BirthDate** utilise un chiffrement aléatoire, qui ne prend pas en charge ces opérations.
 
 Définissez le **Type de chiffrement** de la colonne **SSN** sur **Déterministe**, et celui de la colonne **BirthDate** sur **Lu aléatoirement**. Cliquez sur **Next**.
 
-![Chiffrer des colonnes](./media/sql-database-always-encrypted/column-selection.png)
+![Chiffrer les colonnes](./media/sql-database-always-encrypted/column-selection.png)
 
-### Configuration de la clé principale
+### <a name="master-key-configuration"></a>Configuration de la clé principale
 La page **Configuration de la clé principale** vous permet de définir votre clé principale de colonne (CMK) et de sélectionner le fournisseur de magasin de clés dans lequel la CMK sera stockée. Actuellement, vous pouvez stocker une CMK dans le magasin de certificats Windows, dans Azure Key Vault ou dans un module de sécurité matériel (HSM). Ce didacticiel montre comment stocker les clés dans le magasin de certificats Windows.
 
 Vérifiez que l’option **Magasin de certificats Windows** est sélectionnée, puis cliquez sur **Suivant**.
 
 ![Configuration de la clé principale](./media/sql-database-always-encrypted/master-key-configuration.png)
 
-### Validation
+### <a name="validation"></a>Validation
 Vous pouvez chiffrer les colonnes maintenant ou enregistrer un script PowerShell à exécuter ultérieurement. Pour ce didacticiel, sélectionnez **Continuer pour terminer maintenant**, puis cliquez sur **Suivant**.
 
-### Résumé
+### <a name="summary"></a>Résumé
 Vérifiez que les paramètres sont corrects, puis cliquez sur **Terminer** afin d’achever la configuration du Chiffrement intégral.
 
 ![Résumé](./media/sql-database-always-encrypted/summary.png)
 
-### Vérifier les actions de l’Assistant
-Une fois l’exécution de l’Assistant terminée, votre base de données est configurée pour le chiffrement intégral. L’Assistant a effectué les actions suivantes :
+### <a name="verify-the-wizards-actions"></a>Vérifier les actions de l’Assistant
+Une fois l’exécution de l’Assistant terminée, votre base de données est configurée pour le chiffrement intégral. L’Assistant a effectué les actions suivantes :
 
 * Création d’une CMK.
 * Création d’une CEK.
 * Configuration des colonnes sélectionnées pour le chiffrement. Votre table **Patients** ne contient actuellement aucune donnée, mais toutes les données existantes dans les colonnes sélectionnées sont chiffrées.
 
-Vous pouvez vérifier la création des clés dans SSMS en accédant à **Clinique** > **Sécurité** > **Clés intégralement chiffrées**. Vous pouvez maintenant afficher les nouvelles clés générées pour vous par l'Assistant.
+Vous pouvez vérifier la création des clés dans SSMS en accédant à **Clinique** > **Sécurité** > **Clés Always Encrypted**. Vous pouvez maintenant afficher les nouvelles clés générées pour vous par l'Assistant.
 
-## Création d’une application cliente compatible avec les données chiffrées
-À présent que le chiffrement intégral est configuré, nous allons créer une application qui effectue des *insertions* et des *sélections* sur les colonnes chiffrées. Pour exécuter correctement l’exemple d’application, vous devez le faire sur l’ordinateur utilisé pour exécuter l’Assistant Chiffrement intégral. Pour exécuter l’application sur un autre ordinateur, vous devez déployer vos certificats intégralement chiffrés sur l’ordinateur exécutant l’application cliente.
+## <a name="create-a-client-application-that-works-with-the-encrypted-data"></a>Création d’une application cliente compatible avec les données chiffrées
+À présent qu’Always Encrypted est configuré, nous allons créer une application qui effectue des *insertions* et des *sélections* sur les colonnes chiffrées. Pour exécuter correctement l’exemple d’application, vous devez le faire sur l’ordinateur utilisé pour exécuter l’Assistant Chiffrement intégral. Pour exécuter l’application sur un autre ordinateur, vous devez déployer vos certificats intégralement chiffrés sur l’ordinateur exécutant l’application cliente.  
 
 > [!IMPORTANT]
 > Votre application doit utiliser des objets [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) lors de la transmission de données en clair vers le serveur avec des colonnes intégralement chiffrées. La transmission de valeurs littérales sans objets SqlParameter entraînera une exception.
@@ -148,10 +153,10 @@ Vous pouvez vérifier la création des clés dans SSMS en accédant à **Cliniqu
 
 ![Nouvelle application de console](./media/sql-database-always-encrypted/console-app.png)
 
-## Modification de votre chaîne de connexion pour activer le chiffrement intégral
-Cette section explique simplement comment activer le chiffrement intégral dans votre chaîne de connexion de base de données. Vous allez modifier l’application console que vous venez de créer dans la section suivante, « Exemple d’application console intégralement chiffrée ».
+## <a name="modify-your-connection-string-to-enable-always-encrypted"></a>Modification de votre chaîne de connexion pour activer le chiffrement intégral
+Cette section explique simplement comment activer le chiffrement intégral dans votre chaîne de connexion de base de données. Vous allez modifier l’application console que vous venez de créer dans la section suivante, « Exemple d’application console intégralement chiffrée ».
 
-Pour activer le chiffrement intégral, vous devez ajouter le mot clé **Paramètre de chiffrement de colonne** à votre chaîne de connexion et le définir sur **Activé**.
+Pour activer le chiffrement intégral, vous devez ajouter le mot clé **Paramètre de chiffrement de colonne** à votre chaîne de connexion, et le définir sur **Activé**.
 
 Vous pouvez définir cette option directement dans la chaîne de connexion, ou la définir à l’aide d’un paramètre [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx). L’exemple d’application de la section suivante montre comment utiliser le paramètre **SqlConnectionStringBuilder**.
 
@@ -160,13 +165,13 @@ Vous pouvez définir cette option directement dans la chaîne de connexion, ou l
 > 
 > 
 
-### Activation du chiffrement intégral dans la chaîne de connexion
+### <a name="enable-always-encrypted-in-the-connection-string"></a>Activation du chiffrement intégral dans la chaîne de connexion
 Ajoutez le mot-clé suivant à votre chaîne de connexion :
 
     Column Encryption Setting=Enabled
 
 
-### Activation du chiffrement intégral avec un paramètre SqlConnectionStringBuilder
+### <a name="enable-always-encrypted-with-a-sqlconnectionstringbuilder"></a>Activation du chiffrement intégral avec un paramètre SqlConnectionStringBuilder
 Le code suivant montre comment activer le chiffrement intégral en définissant le paramètre [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) sur [Activé](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
 
     // Instantiate a SqlConnectionStringBuilder.
@@ -179,7 +184,7 @@ Le code suivant montre comment activer le chiffrement intégral en définissant 
 
 
 
-## Exemple d’application console intégralement chiffrée
+## <a name="always-encrypted-sample-console-application"></a>Exemple d’application console intégralement chiffrée
 Cet exemple montre comment :
 
 * Modifier votre chaîne de connexion pour activer le chiffrement intégral.
@@ -470,8 +475,8 @@ Exécutez l’application pour voir le chiffrement intégral en action.
     }
 
 
-## Vérifier que les données sont chiffrées.
-Vous pouvez vérifier rapidement que les données réelles sur le serveur sont chiffrées en interrogeant les données **Patients** à l’aide de SSMS (utilisez votre connexion actuelle où le paramètre de chiffrement de colonne n’est pas encore activé).
+## <a name="verify-that-the-data-is-encrypted"></a>Vérifier que les données sont chiffrées.
+Vous pouvez vérifier rapidement que les données réelles sur le serveur sont chiffrées en interrogeant les données **Patients** à l’aide de SSMS. (utilisez votre connexion actuelle où le paramètre de chiffrement de colonne n’est pas encore activé).
 
 Exécutez la requête suivante sur la base de données Clinique.
 
@@ -483,12 +488,12 @@ Vous pouvez voir que les colonnes chiffrées ne contiennent pas de donnée en cl
 
 Pour utiliser SSMS afin d’accéder aux données texte en clair, vous pouvez ajouter le paramètre **Column Encryption Setting=enabled** à la connexion.
 
-1. Dans SSMS, cliquez avec le bouton droit sur votre serveur dans l’**Explorateur d’objets**, puis cliquez sur **Déconnexion**.
+1. Dans SSMS, cliquez avec le bouton droit sur votre serveur dans **l’Explorateur d’objets**, puis cliquez sur **Déconnexion**.
 2. Cliquez sur **Connexion** > **Moteur de base de données** pour ouvrir la fenêtre **Connexion au serveur**, puis cliquez sur **Options**.
 3. Cliquez sur **Paramètres de connexion supplémentaires** et tapez **Column Encryption Setting=enabled**.
    
     ![Nouvelle application de console](./media/sql-database-always-encrypted/ssms-connection-parameter.png)
-4. Exécutez la requête suivante sur la base de données **Clinique**.
+4. Exécutez la requête suivante sur la base de données **Clinique** .
    
         SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
    
@@ -503,19 +508,24 @@ Pour utiliser SSMS afin d’accéder aux données texte en clair, vous pouvez aj
 > 
 > 
 
-## Étapes suivantes
-Après avoir créé une base de données utilisant le chiffrement intégral, vous pouvez effectuer les opérations suivantes :
+## <a name="next-steps"></a>Étapes suivantes
+Après avoir créé une base de données utilisant le chiffrement intégral, vous pouvez effectuer les opérations suivantes :
 
 * Exécuter cet exemple à partir d'un autre ordinateur. Il n’aura pas accès aux clés de chiffrement, ne pourra donc pas accéder aux données texte en clair, et ne s’exécutera pas correctement.
 * [Faire pivoter et nettoyer vos clés](https://msdn.microsoft.com/library/mt607048.aspx).
 * [Migrer des données déjà chiffrées avec le chiffrement intégral](https://msdn.microsoft.com/library/mt621539.aspx).
-* [Déployer des certificats intégralement chiffrés sur d’autres ordinateurs client](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) (voir la section intitulée « Mettre les certificats à disposition des applications et des utilisateurs »).
+* [Déployer des certificats intégralement chiffrés sur d’autres ordinateurs client](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) (voir la section intitulée « Mettre les certificats à disposition des applications et des utilisateurs »).
 
-## Informations connexes
+## <a name="related-information"></a>Informations connexes
 * [Chiffrement intégral (développement client)](https://msdn.microsoft.com/library/mt147923.aspx)
 * [Chiffrement transparent des données](https://msdn.microsoft.com/library/bb934049.aspx)
 * [Chiffrement SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Assistant Chiffrement intégral.](https://msdn.microsoft.com/library/mt459280.aspx)
 * [Blog Chiffrement intégral.](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

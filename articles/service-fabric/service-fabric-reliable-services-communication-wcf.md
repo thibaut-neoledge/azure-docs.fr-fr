@@ -1,12 +1,12 @@
 ---
-title: Pile de communication WCF Reliable Services | Microsoft Docs
-description: La pile de communication WCF intégrée dans Service Fabric fournit une communication WCF client-service pour Reliable Services.
+title: Pile de communication WCF de Reliable Services | Documents Microsoft
+description: "La pile de communication WCF intégrée dans Service Fabric fournit une communication WCF client-service pour Reliable Services."
 services: service-fabric
 documentationcenter: .net
 author: BharatNarasimman
 manager: timlt
 editor: vturecek
-
+ms.assetid: 75516e1e-ee57-4bc7-95fe-71ec42d452b2
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 07/26/2016
 ms.author: bharatn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a3b0362f0c3b42e4a61348abe306c3beaa6f0c86
+
 
 ---
-# Pile de communication WCF pour Reliable Services
-L'infrastructure Reliable Services permet aux auteurs de service de choisir la pile de communication qu'ils souhaitent utiliser pour leur service. Ils peuvent intégrer la pile de communication de leur choix par le biais du **ICommunicationListener** retourné à partir des méthodes [CreateServiceReplicaListeners ou CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md). L'infrastructure fournit une implémentation de la pile de communication basée sur Windows Communication Foundation (WCF) pour les auteurs de service qui souhaitent utiliser une communication WCF.
+# <a name="wcf-based-communication-stack-for-reliable-services"></a>Pile de communication WCF pour Reliable Services
+L'infrastructure Reliable Services permet aux auteurs de service de choisir la pile de communication qu'ils souhaitent utiliser pour leur service. Ils peuvent intégrer la pile de communication de leur choix par le biais du **ICommunicationListener** retourné à partir des méthodes [CreateServiceReplicaListeners ou CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) . L'infrastructure fournit une implémentation de la pile de communication basée sur Windows Communication Foundation (WCF) pour les auteurs de service qui souhaitent utiliser une communication WCF.
 
-## Écouteur de communication WCF
-L'implémentation spécifique à WCF de **ICommunicationListener** est fournie par la classe **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener**.
+## <a name="wcf-communication-listener"></a>Écouteur de communication WCF
+La classe **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** fournit l’implémentation WCF de **ICommunicationListener**.
 
 Supposons que nous disposions d’un contrat de service de type `ICalculator`
 
@@ -59,7 +63,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 ```
 
-## Écriture de clients pour la pile de communication WCF
+## <a name="writing-clients-for-the-wcf-communication-stack"></a>Écriture de clients pour la pile de communication WCF
 Pour l’écriture de clients communiquant avec les services à l’aide de la méthode WCF, l’infrastructure fournit **WcfClientCommunicationFactory**, qui est l’implémentation propre à WCF de [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
 
 ```csharp
@@ -72,7 +76,7 @@ public WcfCommunicationClientFactory(
     object callback = null);
 ```
 
-Le canal de communication WCF est accessible à partir de **WcfCommunicationClient** créé par **WcfCommunicationClientFactory**.
+Le canal de communication WCF est accessible à partir du **WcfCommunicationClient** créé par **WcfCommunicationClientFactory**.
 
 ```csharp
 
@@ -86,7 +90,7 @@ public class WcfCommunicationClient : ServicePartitionClient<WcfCommunicationCli
 
 ```
 
-Le code client peut utiliser **WcfCommunicationClientFactory**, avec **WcfCommunicationClient** qui implémente **ServicePartitionClient** pour déterminer le point de terminaison du service et communiquer avec le service.
+Le code client peut utiliser **WcfCommunicationClientFactory** avec **WcfCommunicationClient** qui implémente **ServicePartitionClient** pour déterminer le point de terminaison du service et communiquer avec le service.
 
 ```csharp
 // Create binding
@@ -118,9 +122,14 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 > 
 > 
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Appel de procédure distante avec Reliable Services à distance](service-fabric-reliable-services-communication-remoting.md)
 * [API Web avec OWIN dans Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [Sécurisation des communications pour Reliable Services](service-fabric-reliable-services-secure-communication.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
