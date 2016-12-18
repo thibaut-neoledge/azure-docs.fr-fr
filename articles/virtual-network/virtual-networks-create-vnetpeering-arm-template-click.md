@@ -10,14 +10,14 @@ tags: azure-resource-manager
 ms.assetid: 75f8d10e-23e8-44bd-9972-aab74048cf38
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayanannamalai;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5af02963f139648d9f1b662f2da913ffa0d6f128
+ms.sourcegitcommit: bd5f3b3cd46ce347896ed9ef229e438b2a3c830f
+ms.openlocfilehash: 3556e4a10f17490fd08357d644c664a2b74705dd
 
 
 ---
@@ -308,26 +308,34 @@ Pour créer une homologation entre des réseaux virtuels utilisant des modèles 
 1. Le texte ci-dessous illustre la définition d’un lien d’homologation de réseaux virtuels de VNET1 à VNET2 dans ce scénario. Un seul lien est requis pour homologuer un réseau virtuel Classic à un réseau virtuel Azure Resource Manager.
    
     Veillez à placer dans votre ID d’abonnement dans l’emplacement du réseau virtuel Classic, ou VNET2, et à remplacer MyResouceGroup par le nom du groupe de ressources approprié.
-   
-    {  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",  "contentVersion": "1.0.0.0",  "parameters": {  },  "variables": {  },  "resources": [
-   
+
         {
-        "apiVersion": "2016-06-01",
-        "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
-        "name": "VNET1/LinkToVNET2",
-        "location": "[resourceGroup().location]",
-        "properties": {
-        "allowVirtualNetworkAccess": true,
-        "allowForwardedTraffic": false,
-        "allowGatewayTransit": false,
-        "useRemoteGateways": false,
-            "remoteVirtualNetwork": {
-            "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]"
-    }
-   
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+        },
+        "variables": {
+        },
+        "resources": [
+
+            {
+            "apiVersion": "2016-06-01",
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "name": "VNET1/LinkToVNET2",
+            "location": "[resourceGroup().location]",
+            "properties": {
+            "allowVirtualNetworkAccess": true,
+            "allowForwardedTraffic": false,
+            "allowGatewayTransit": false,
+            "useRemoteGateways": false,
+                "remoteVirtualNetwork": {
+                "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]"
         }
+
+            }
+            }
+        ]
         }
-    ]  }
 2. Pour déployer le fichier de modèle, exécutez l’applet de commande suivante afin de créer ou de mettre à jour le déploiement.
    
         New-AzureRmResourceGroupDeployment -ResourceGroupName MyResourceGroup -TemplateFile .\VnetPeering.json -DeploymentDebugLogLevel all
@@ -374,6 +382,6 @@ Lorsque l’homologation est établie entre un réseau virtuel Classic et un ré
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
