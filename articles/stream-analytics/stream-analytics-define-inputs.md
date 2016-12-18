@@ -1,13 +1,13 @@
 ---
-title: 'Connexion de données : entrées de données d’événements depuis un flux d’événement | Microsoft Docs'
-description: En savoir plus sur la configuration d’une connexion de données à Stream Analytics nommée « entrées ». Les données incluent un flux de données de partir d’événements et également des données de référence.
-keywords: flux de données, connexion de données, flux d’événements
+title: "Connexion de données : entrées de flux de données issues d’un flux d’événements | Microsoft Docs"
+description: "En savoir plus sur la configuration d’une connexion de données à Stream Analytics nommée « entrées ». Les données incluent un flux de données de partir d’événements et également des données de référence."
+keywords: "flux de données, connexion de données, flux d’événements"
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,30 +15,35 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 09/26/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 59e968f26193f3fb10f947830812b62bb8d69ee5
+
 
 ---
-# Connexion de données : en savoir plus sur les entrées de flux de données pour Stream Analytics
-La connexion de données à Stream Analytics est un flux de données d’événements depuis une source de données. Il s’agit d’une « entrée ». Stream Analytics propose une meilleure intégration aux sources de flux de données Azure Event Hub, IoT Hub et Stockage Blob pouvant être issues du même abonnement Azure ou d’un autre abonnement comme votre travail d’analyse.
+# <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Connexion de données : en savoir plus sur les entrées de flux de données pour Stream Analytics
+La connexion de données à Stream Analytics est un flux de données d’événements depuis une source de données. Il s’agit d’une « entrée ». Stream Analytics propose une meilleure intégration aux sources de flux de données Azure Event Hub, IoT Hub et Stockage Blob pouvant être issues du même abonnement Azure ou d’un autre abonnement comme votre travail d’analyse.
 
-## Types d’entrée de données : flux de données et données de référence.
-Lorsque les données sont transmises à une source de données, elles sont utilisées par la tâche Stream Analytics et traitées en temps réel. Les entrées sont divisées en deux types distincts : les entrées de flux de données et les entrées de données de référence.
+## <a name="data-input-types-data-stream-and-reference-data"></a>Types d’entrée de données : flux de données et données de référence.
+Lorsque les données sont transmises à une source de données, elles sont utilisées par la tâche Stream Analytics et traitées en temps réel. Les entrées sont divisées en deux types distincts : les entrées de flux de données et les entrées de données de référence.
 
-### Entrées de flux de données
-Un flux de données est une séquence illimitée d’événements arrivant au fil du temps. Les tâches Stream Analytics doivent contenir au moins une entrée de flux de données qui sera traitée et transformée par la tâche. Le stockage d’objets, Event Hubs et IoT Hubs sont pris en charge en tant que sources d’entrée de flux de données. Les hubs d’événements sont utilisés pour collecter des flux d’événements à partir de plusieurs appareils et services, comme les flux d’activités sur les réseaux sociaux, des informations boursières ou des données de capteurs. Les conteneurs IoT Hub sont optimisés pour collecter des données à partir d’appareils connectés dans les scénarios Internet des objets (IoT). Le stockage d’objets blob peut être utilisé comme source d’entrée pour la réception de données en bloc en tant que flux.
+### <a name="data-stream-inputs"></a>Entrées de flux de données
+Un flux de données est une séquence illimitée d’événements arrivant au fil du temps. Les tâches Stream Analytics doivent contenir au moins une entrée de flux de données qui sera traitée et transformée par la tâche. Le stockage d’objets, Event Hubs et IoT Hubs sont pris en charge en tant que sources d’entrée de flux de données. Les hubs d’événements sont utilisés pour collecter des flux d’événements à partir de plusieurs appareils et services, comme les flux d’activités sur les réseaux sociaux, des informations boursières ou des données de capteurs. Les conteneurs IoT Hub sont optimisés pour collecter des données à partir d’appareils connectés dans les scénarios Internet des objets (IoT).  Le stockage d’objets blob peut être utilisé comme source d’entrée pour la réception de données en bloc en tant que flux.  
 
-### Données de référence
-Stream Analytics prend en charge un second type d'entrée : les données de référence. Il s’agit de données auxiliaires, statiques ou variant lentement au fil du temps, qui sont généralement utilisées pour effectuer des corrélations et des recherches. Le stockage d’objets blob Azure est la seule source d’entrée prise en charge pour les données de référence. Les objets blob de source de données de référence sont limités à une taille de 100 Mo. Pour savoir comment créer des entrées de données de référence, consultez [Utiliser les données de référence](stream-analytics-use-reference-data.md).
+### <a name="reference-data"></a>Données de référence
+Stream Analytics prend en charge un second type d'entrée : les données de référence. Il s’agit de données auxiliaires, statiques ou variant lentement au fil du temps, qui sont généralement utilisées pour effectuer des corrélations et des recherches. Le stockage d’objets blob Azure est la seule source d’entrée prise en charge pour les données de référence. Les objets blob de source de données de référence sont limités à une taille de 100 Mo.
+Pour savoir comment créer des entrées de données de référence, consultez [Utiliser les données de référence](stream-analytics-use-reference-data.md)  
 
-## Créer une entrée de flux de données avec Event Hub
+## <a name="create-a-data-stream-input-with-an-event-hub"></a>Créer une entrée de flux de données avec Event Hub
 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) est un service de réception d’événements de publication/d’abonnement hautement évolutif. Il peut collecter des millions d’événements par seconde afin que vous puissiez traiter et analyser les grandes quantités de données générées par vos appareils connectés et vos applications. Il s’agit des entrées les plus couramment utilisées pour Stream Analytics. Event Hubs et Stream Analytics fournissent au client une solution complète pour des analyses en temps réel. Event Hubs permet aux clients d’alimenter Azure en événements en temps réel et les tâches Stream Analytics peuvent traiter ces événements en temps réel. Par exemple, les clients peuvent envoyer des clics web, des lectures de capteurs ou des journaux des événements en ligne sur Event Hubs et créer des tâches Stream Analytics pour utiliser Event Hubs comme flux de données d’entrée pour les opérations de filtrage, d’agrégation et de corrélation en temps réel.
 
-Il est important de noter que l’horodatage par défaut des événements issus d’Event Hubs dans Stream Analytics est l’horodatage de l’arrivée de l’événement dans Event Hub, EventEnqueuedUtcTime. Pour traiter les données en tant que flux à l’aide d’un horodatage dans la charge utile d’événement, vous devez utiliser le mot clé [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
+Il est important de noter que l’horodatage par défaut des événements issus d’Event Hubs dans Stream Analytics est l’horodatage de l’arrivée de l’événement dans Event Hub, EventEnqueuedUtcTime. Pour traiter les données en tant que flux à l’aide d’un horodatage dans la charge utile d’événement, vous devez utiliser le mot clé [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) .
 
-### Groupes de consommateurs
-Chaque entrée Event Hub Stream Analytics doit être configurée de manière à disposer de son propre groupe de consommateurs. Quand une tâche contient une jointure réflexive ou plusieurs entrées, certaines entrées peuvent être lues par plus d'un lecteur en aval, ce qui impacte le total de lecteurs d'un même groupe de consommateurs. Pour éviter de dépasser la limite d'Event Hub de 5 lecteurs par groupe de consommateurs par partition, il est recommandé de désigner un groupe de consommateurs pour chaque tâche Stream Analytics. Notez qu’il existe également une limite de 20 groupes de consommateurs par hub d’événements. Pour plus d’informations, consultez [Guide de programmation Event Hubs](../event-hubs/event-hubs-programming-guide.md).
+### <a name="consumer-groups"></a>Groupes de consommateurs
+Chaque entrée Event Hub Stream Analytics doit être configurée de manière à disposer de son propre groupe de consommateurs. Quand une tâche contient une jointure réflexive ou plusieurs entrées, certaines entrées peuvent être lues par plus d'un lecteur en aval, ce qui impacte le total de lecteurs d'un même groupe de consommateurs. Pour éviter de dépasser la limite d'Event Hub de 5 lecteurs par groupe de consommateurs par partition, il est recommandé de désigner un groupe de consommateurs pour chaque tâche Stream Analytics. Notez qu’il existe également une limite de 20 groupes de consommateurs par hub d’événements. Pour plus d’informations, consultez [Guide de programmation Event Hubs](../event-hubs/event-hubs-programming-guide.md).
 
-### Configurer Event Hub comme un flux de données d’entrée
-Le tableau ci-dessous explique chaque propriété de l’onglet des entrées Event Hub et fournit la description correspondante :
+### <a name="configure-event-hub-as-an-input-data-stream"></a>Configurer Event Hub comme un flux de données d’entrée
+Le tableau ci-dessous explique chaque propriété de l’onglet des entrées Event Hub et fournit la description correspondante :
 
 | NOM DE LA PROPRIÉTÉ | DESCRIPTION |
 | --- | --- |
@@ -59,7 +64,7 @@ Lorsque vos données proviennent d’une source Event Hub, vous pouvez accéder 
 | EventEnqueuedUtcTime |Date et heure de la réception de l’événement par le hub d’événements. |
 | PartitionId |ID de partition de base zéro de l'adaptateur d'entrée. |
 
-Par exemple, vous pouvez écrire une requête comme suit :
+Par exemple, vous pouvez écrire une requête comme suit :
 
 ````
 SELECT
@@ -69,19 +74,20 @@ SELECT
 FROM Input
 ````
 
-## Créer d’une entrée de flux de données IoT Hub
-Azure Iot Hub est un service de réception d’événements de publication/d’abonnement hautement évolutif optimisé pour les scénarios IoT. Il est important de noter que l’horodatage par défaut des événements issus des conteneurs IoT Hub dans Stream Analytics est l’horodatage de l’arrivée de l’événement dans IoT Hub, EventEnqueuedUtcTime. Pour traiter les données en tant que flux à l’aide d’un horodatage dans la charge utile d’événement, vous devez utiliser le mot clé [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
+## <a name="create-an-iot-hub-data-stream-input"></a>Créer d’une entrée de flux de données IoT Hub
+Azure Iot Hub est un service de réception d’événements de publication/d’abonnement hautement évolutif optimisé pour les scénarios IoT.
+Il est important de noter que l’horodatage par défaut des événements issus des conteneurs IoT Hub dans Stream Analytics est l’horodatage de l’arrivée de l’événement dans IoT Hub, EventEnqueuedUtcTime. Pour traiter les données en tant que flux à l’aide d’un horodatage dans la charge utile d’événement, vous devez utiliser le mot clé [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) .
 
 > [!NOTE]
 > Seuls les messages envoyés avec une propriété DeviceClient peuvent être traités.
 > 
 > 
 
-### Groupes de consommateurs
-Chaque entrée IoT Hub Stream Analytics doit être configurée de manière à disposer de son propre groupe de consommateurs. Quand une tâche contient une jointure réflexive ou plusieurs entrées, certaines entrées peuvent être lues par plus d’un lecteur en aval, ce qui impacte le total de lecteurs d’un même groupe de consommateurs. Pour éviter de dépasser la limite d’IoT Hub de 5 lecteurs par groupe de consommateurs par partition, il est recommandé de désigner un groupe de consommateurs pour chaque tâche Stream Analytics.
+### <a name="consumer-groups"></a>Groupes de consommateurs
+Chaque entrée IoT Hub Stream Analytics doit être configurée de manière à disposer de son propre groupe de consommateurs. Quand une tâche contient une jointure réflexive ou plusieurs entrées, certaines entrées peuvent être lues par plus d'un lecteur en aval, ce qui impacte le total de lecteurs d'un même groupe de consommateurs. Pour éviter de dépasser la limite d’IoT Hub de 5 lecteurs par groupe de consommateurs par partition, il est recommandé de désigner un groupe de consommateurs pour chaque tâche Stream Analytics.
 
-### Configurer IoT Hub comme flux de données d’entrée
-Le tableau ci-dessous explique chaque propriété de l’onglet des entrées IoT Hub et fournit la description correspondante :
+### <a name="configure-iot-hub-as-an-data-stream-input"></a>Configurer IoT Hub comme flux de données d’entrée
+Le tableau ci-dessous explique chaque propriété de l’onglet des entrées IoT Hub et fournit la description correspondante :
 
 | NOM DE LA PROPRIÉTÉ | DESCRIPTION |
 | --- | --- |
@@ -108,10 +114,10 @@ Quand vos données proviennent d’une source IoT Hub, vous pouvez accéder à c
 | IoTHub.EnqueuedTime |Heure à laquelle le message a été reçu par IoT Hub. |
 | IoTHub.StreamId |Propriété d’événement personnalisée ajoutée par l’appareil de l’expéditeur. |
 
-## Créer une entrée de flux de données de stockage d’objets blob
-Quand il est nécessaire de stocker de grandes quantités de données non structurées dans le cloud, le stockage d’objets blob offre une solution peu coûteuse et évolutive. Les données dans le [stockage d’objets blob](https://azure.microsoft.com/services/storage/blobs/) sont généralement considérées comme « au repos », mais elles peuvent être traitées comme un flux de données par Stream Analytics. Le traitement du journal est un scénario courant pour les entrées de stockage d’objets Blob avec Stream Analytics dans lequel la télémétrie est capturée à partir d’un système et doit être analysée et traitée pour extraire des données pertinentes.
+## <a name="create-a-blob-storage-data-stream-input"></a>Créer une entrée de flux de données de stockage d’objets blob
+Quand il est nécessaire de stocker de grandes quantités de données non structurées dans le cloud, le stockage d’objets blob offre une solution peu coûteuse et évolutive. Les données dans le [stockage d’objets blob](https://azure.microsoft.com/services/storage/blobs/) sont généralement considérées comme « au repos », mais elles peuvent être traitées comme un flux de données par Stream Analytics. Le traitement du journal est un scénario courant pour les entrées de stockage d’objets Blob avec Stream Analytics dans lequel la télémétrie est capturée à partir d’un système et doit être analysée et traitée pour extraire des données pertinentes.
 
-Il est important de noter que l’horodatage par défaut des événements de stockage d’objets blob dans Stream Analytics est l’horodatage de la dernière modification de l’objet blob, *BlobLastModifiedUtcTime*. Pour traiter les données en tant que flux à l’aide d’un horodatage dans la charge utile d’événement, vous devez utiliser le mot-clé [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
+Il est important de noter que l’horodatage par défaut des événements de stockage d’objets blob dans Stream Analytics est l’horodatage de la dernière modification de l’objet blob, *BlobLastModifiedUtcTime*. Pour traiter les données en tant que flux à l’aide d’un horodatage dans la charge utile d’événement, vous devez utiliser le mot clé [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) .
 
 Notez également que des entrées au format CSV **nécessitent** une ligne d’en-tête pour définir les champs du jeu de données. Les champs de ligne d’en-tête suivants doivent tous être **uniques**.
 
@@ -120,7 +126,7 @@ Notez également que des entrées au format CSV **nécessitent** une ligne d’e
 > 
 > 
 
-Le tableau ci-dessous explique chaque propriété de l’onglet des entrées de stockage d’objets blob et fournit la description correspondante :
+Le tableau ci-dessous explique chaque propriété de l’onglet des entrées de stockage d’objets blob et fournit la description correspondante :
 
 <table>
 <tbody>
@@ -147,15 +153,16 @@ Le tableau ci-dessous explique chaque propriété de l’onglet des entrées de 
 </tr>
 <tr>
 <td>Séquence d’octets préfixe du chemin d’accès [facultatif]</td>
-<td>Chemin d’accès de fichier utilisé pour localiser vos objets blob dans le conteneur spécifié. Dans le chemin d’accès, vous pouvez choisir de spécifier une ou plusieurs instances de l’une des 3 variables suivantes&#160;:<BR>{date}, {time},<BR>{partition}<BR>Exemple&#160;1&#160;: cluster1/logs/{date}/{time}/{partition}<BR>Exemple&#160;2&#160;: cluster1/logs/{date}<P>Notez que «&#160;*&#160;» n’est pas une valeur autorisée pour pathprefix. Seuls les <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caractères d’objet blob Azure</a> valides sont autorisés.</td>
+<td>Chemin d’accès de fichier utilisé pour localiser vos objets blob dans le conteneur spécifié.
+Dans le chemin d’accès, vous pouvez choisir de spécifier une ou plusieurs instances de l’une des 3 variables suivantes :<BR>{date}, {time},<BR>{partition}<BR>Exemple 1 : cluster1/logs/{date}/{time}/{partition}<BR>Exemple 2 : cluster1/logs/{date}<P>Notez que « * » n’est pas une valeur autorisée pour pathprefix. Seuls les <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caractères d’objet blob Azure</a> valides sont autorisés.</td>
 </tr>
 <tr>
 <td>Format de la date [facultatif]</td>
-<td>Si le jeton de la date est utilisé dans le chemin d’accès du préfixe, vous pouvez sélectionner le format de date dans lequel vos fichiers sont organisés. Exemple&#160;: JJ/MM/AAAA</td>
+<td>Si le jeton de la date est utilisé dans le chemin d’accès du préfixe, vous pouvez sélectionner le format de date dans lequel vos fichiers sont organisés. Exemple : JJ/MM/AAAA</td>
 </tr>
 <tr>
 <td>Format de l’heure [facultatif]</td>
-<td>Si le jeton de l’heure est utilisé dans le chemin d’accès du préfixe, spécifiez le format d’heure dans lequel vos fichiers sont organisés. Actuellement, la seule valeur possible est&#160;HH.</td>
+<td>Si le jeton de l’heure est utilisé dans le chemin d’accès du préfixe, spécifiez le format d’heure dans lequel vos fichiers sont organisés. Actuellement, la seule valeur possible est HH.</td>
 </tr>
 <tr>
 <td>Format de sérialisation de l’événement</td>
@@ -167,7 +174,7 @@ Le tableau ci-dessous explique chaque propriété de l’onglet des entrées de 
 </tr>
 <tr>
 <td>Délimiteur</td>
-<td>Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge&#160;: virgule, point-virgule, espace, tabulation et barre verticale.</td>
+<td>Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale.</td>
 </tr>
 </tbody>
 </table>
@@ -181,7 +188,7 @@ Lorsque vos données proviennent d’une source de stockage d’objets blob, vou
 | BlobLastModifiedUtcTime |Date et heure de la dernière modification apportée à l’objet blob. |
 | PartitionId |ID de partition de base zéro de l'adaptateur d'entrée. |
 
-Par exemple, vous pouvez écrire une requête comme suit :
+Par exemple, vous pouvez écrire une requête comme suit :
 
 ````
 SELECT
@@ -192,16 +199,16 @@ FROM Input
 ````
 
 
-## Obtenir de l’aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
+## <a name="get-help"></a>Obtenir de l’aide
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-## Étapes suivantes
-Vous avez appris à connaître les options de connexion de données dans Azure pour vos travaux Stream Analytics. Pour en savoir plus sur Stream Analytics, consultez :
+## <a name="next-steps"></a>Étapes suivantes
+Vous avez appris à connaître les options de connexion de données dans Azure pour vos travaux Stream Analytics. Pour en savoir plus sur Stream Analytics, consultez :
 
 * [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
 * [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
@@ -211,4 +218,8 @@ Vous avez appris à connaître les options de connexion de données dans Azure p
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
