@@ -457,7 +457,7 @@ Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une
             }
         }
 3. Nous avons besoin d'une interface utilisateur web à afficher à l'utilisateur. Réécrivons le fichier index.jsp créé précédemment :
-   
+    ```html
         <html>
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -544,6 +544,7 @@ Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une
           <script src="assets/todo.js"></script>
         </body>
         </html>
+    ```
 4. Et enfin, écrivons le code Javascript côté client pour lier l'interface utilisateur web et le servlet :
    
         var todoApp = {
