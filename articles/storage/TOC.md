@@ -114,7 +114,7 @@
 ## [Interface de ligne de commande Azure](/cli/azure/storage)
 ## .NET
 ### [Gestionnaire de ressources](/dotnet/api/microsoft.azure.management.storage)
-### [Déplacement des données)](https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx)
+### [Déplacement des données](https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx)
 ### [Objets blob, files d’attente, tables et fichiers](https://msdn.microsoft.com/library/azure/mt347887.aspx)
 ## [Java](/java/api/)
 ## [Node.JS](http://azure.github.io/azure-storage-node)
@@ -123,7 +123,7 @@
 ## [C++](http://azure.github.io/azure-storage-cpp)
 ## [iOS](https://github.com/Azure/azure-storage-ios)
 ## [Android](http://azure.github.io/azure-storage-android)
-## [REST]
+## REST
 ### [Objets blob, files d’attente, tables et fichiers](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
 ### [Fournisseur de ressources](/rest/api/storagerp)
 ### [Import/Export](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)

@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/6/2016
+ms.date: 12/7/2016
 ms.author: jimpark; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: b9737c3da308aecf25d5f18088f96c319edeafd5
-ms.openlocfilehash: 76ec51a75240710b24c0e91042d6229e60eeada9
+ms.sourcegitcommit: 9de8032bc69b054d5d13857159ff994f505497a6
+ms.openlocfilehash: 08e7d4402ad52835d193b2083e3c9b2776e0332e
 
 
 ---
@@ -33,10 +33,11 @@ Les solutions de sauvegarde traditionnelles ont évolué et considèrent désorm
 
 **Mise à l’échelle illimitée** : Azure Backup utilise la puissance et l’échelle illimitée du cloud Azure pour garantir la haute disponibilité, sans supplément de maintenance ou de surveillance. Vous pouvez configurer des alertes pour fournir des informations sur les événements, mais vous n’avez pas à vous soucier de la haute disponibilité de vos données dans le cloud.
 
-**Diverses options de stockage** : la réplication du stockage est l’un des facteurs de haute disponibilité. La sauvegarde Azure propose deux types de réplication : le [stockage localement redondant](../storage/storage-redundancy.md#locally-redundant-storage) et le [stockage géorépliqué](../storage/storage-redundancy.md#geo-redundant-storage). Choisissez l’option de stockage de sauvegarde en fonction de vos besoins :
+**Diverses options de stockage** : la réplication du stockage est l’un des facteurs de haute disponibilité. La solution Sauvegarde Azure propose deux types de réplications : le [stockage localement redondant](../storage/storage-redundancy.md#locally-redundant-storage) et le [stockage géoredondant](../storage/storage-redundancy.md#geo-redundant-storage). Choisissez l’option de stockage de sauvegarde en fonction de vos besoins :
 
-* Le stockage localement redondant (LRS) réplique vos données trois fois (il crée trois copies de vos données) dans un centre de données associé au sein de la même région. Le stockage LRS est une option économique qui convient parfaitement aux clients désireux de maîtriser leur budget, car il protège les données contre les défaillances matérielles locales.
-* Le stockage par géoréplication (GRS) réplique vos données vers une région secondaire à des centaines de kilomètres de l’emplacement primaire des données sources. Le stockage GRS est plus onéreux que le stockage LRS, mais il fournit un niveau supérieur de durabilité des données, même en cas de panne régionale.
+* Le stockage localement redondant (LRS) réplique vos données trois fois (il crée trois copies de vos données) dans un centre de données associé au sein de la même région. Le stockage LRS est une option à faible coût qui protège vos données contre les défaillances matérielles locales.
+
+* Le stockage géoredondant (GRS) réplique vos données vers une région secondaire, distante de plusieurs centaines de kilomètres de l’emplacement principal des données sources. Le stockage GRS est plus onéreux que le stockage LRS, mais il offre une durabilité des données supérieure, même en cas de panne au niveau régional.
 
 **Transfert de données illimité** : Azure Backup ne limite pas la quantité de données entrantes ou sortantes transférées. Par ailleurs, les données transférées ne sont pas facturées par Azure Backup. Toutefois, si vous utilisez le service Azure Import/Export pour importer de grandes quantités de données, les données entrantes ont un coût. Pour plus d’informations sur ce coût, consultez [Flux de travail de la sauvegarde hors connexion dans Azure Backup](backup-azure-backup-import-export.md). Les données sortantes sont les données transférées depuis un coffre de sauvegarde pendant une opération de restauration.
 
@@ -176,17 +177,26 @@ L’agent Azure Backup assure une limitation du réseau qui permet de contrôler
 
 ### <a name="backup-and-retention"></a>Sauvegarde et rétention
 
-Sauvegarde Azure possède une limite de 9 999 points de récupération, également appelés copies ou instantanés de sauvegarde, par coffre de sauvegarde. Le tableau suivant indique la fréquence de sauvegarde maximale (dans le coffre) pour chaque composant. Votre configuration de votre stratégie de sauvegarde détermine la rapidité avec laquelle vous consommez les points de récupération. Par exemple, si vous créez un point de récupération chaque jour, vous pouvez conserver les points de récupération pendant 27 ans avant d’en manquer. Si vous optez pour un point de récupération par mois, vous pouvez conserver les points de récupération pendant 833 ans avant d’en manquer. Le service de sauvegarde ne définit pas de délai d’expiration pour un point de récupération.
+La solution Sauvegarde Azure présente une limite de 9 999 points de récupération, également appelés copies ou instantanés de sauvegarde, par *instance protégée*. Une instance protégée est un ordinateur, un serveur (physique ou virtuel) ou une charge de travail configurés pour sauvegarder des données dans Azure. Pour plus d’informations, consultez la section [Qu’est-ce qu’une instance protégée ?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Une instance est protégée une fois qu’une copie de sauvegarde des données a été enregistrée. La copie de sauvegarde des données constitue la protection. Si les données sources sont perdues ou endommagées, la copie de sauvegarde peut les restaurer. Le tableau ci-après indique la fréquence de sauvegarde maximale pour chaque composant. Votre configuration de votre stratégie de sauvegarde détermine la rapidité avec laquelle vous consommez les points de récupération. Par exemple, si vous créez un point de récupération chaque jour, vous pouvez conserver les points de récupération pendant 27 ans avant d’en manquer. Si vous optez pour un point de récupération par mois, vous pouvez conserver les points de récupération pendant 833 ans avant d’en manquer. Le service de sauvegarde ne définit pas de délai d’expiration pour un point de récupération.
 
 |  | Agent Azure Backup | System Center DPM | Azure Backup Server | Sauvegarde des machines virtuelles IaaS Azure |
 | --- | --- | --- | --- | --- |
 | Fréquence de sauvegarde<br/> (vers le coffre de sauvegarde) |Trois sauvegardes par jour |Deux sauvegardes par jour |Deux sauvegardes par jour |Une sauvegarde par jour |
 | Fréquence de sauvegarde<br/> (vers le disque) |Non applicable |<li>Toutes les 15 minutes pour SQL Server <li>Toutes les heures pour les autres charges de travail |<li>Toutes les 15 minutes pour SQL Server <li>Toutes les heures pour les autres charges de travail</p> |Non applicable |
 | Options de rétention |Quotidienne, hebdomadaire, mensuelle, annuelle |Quotidienne, hebdomadaire, mensuelle, annuelle |Quotidienne, hebdomadaire, mensuelle, annuelle |Quotidienne, hebdomadaire, mensuelle, annuelle |
-| Points de récupération maximaux par serveur |9 999|9 999|9 999|9 999|
+| Nombre maximal de points de récupération par instance protégée |9 999|9 999|9 999|9 999|
 | Période de rétention maximale |Dépend de la fréquence de sauvegarde |Dépend de la fréquence de sauvegarde |Dépend de la fréquence de sauvegarde |Dépend de la fréquence de sauvegarde |
 | Points de récupération sur le disque local |Non applicable |<li>64 pour les serveurs de fichiers,<li>448 pour les serveurs d’applications |<li>64 pour les serveurs de fichiers,<li>448 pour les serveurs d’applications |Non applicable |
 | Points de récupération sur bande |Non applicable |Illimité |Non applicable |Non applicable |
+
+## <a name="what-is-a-protected-instance"></a>Qu’est-ce qu’une instance protégée ?
+Une instance protégée est une référence générique à un ordinateur Windows, à un serveur (physique ou virtuel) ou à une base de données SQL qui ont été configurés pour sauvegarder des données dans Azure. Une instance est protégée une fois que vous configurez une stratégie de sauvegarde pour l’ordinateur, le serveur ou la base de données et que vous créez une copie de sauvegarde des données. Les copies ultérieures des données de sauvegarde pour cette instance protégée (qui sont appelées points de récupération), augmentent la quantité de stockage consommée. Vous pouvez créer jusqu’à 9 999 points de récupération pour une instance protégée. Si vous supprimez un point de récupération du stockage, ce point n’entre pas dans le total des 9 999 points de récupération.
+Parmi les exemples d’instances protégées, citons les machines virtuelles, les serveurs d’applications, les bases de données et les ordinateurs personnels exécutant le système d’exploitation Windows. Par exemple :
+
+* Machine virtuelle exécutant la structure d’hyperviseur Hyper-V ou Azure IaaS. Les systèmes d’exploitation invités de cette machine virtuelle peuvent être Windows Server ou Linux.
+* Serveur d’applications : le serveur d’applications peut être une machine physique ou virtuelle exécutant Windows Server et des charges de travail impliquant des données à sauvegarder. Les charges de travail courantes sont Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server, Microsoft Dynamics et le rôle Serveur de fichiers sur Windows Server. Pour sauvegarder ces charges de travail, vous avez besoin de System Center Data Protection Manager (DPM) ou du serveur de sauvegarde Azure.
+* Un ordinateur personnel ou un portable exécutant le système d’exploitation Windows.
+
 
 ## <a name="what-is-the-vault-credential-file"></a>Qu’est-ce que le fichier d’informations d’identification de coffre ?
 Le fichier d’informations d’identification de coffre est un certificat qui est généré par le portail pour chaque coffre de sauvegarde. Le portail télécharge ensuite la clé publique pour le Service de contrôle d’accès (ACS). La clé privée vous est fournie lors du téléchargement des informations d’identification. Utilisez-la pour enregistrer les ordinateurs que vous protégez. La clé privée vous permet d’authentifier les serveurs ou les ordinateurs pour envoyer des données de sauvegarde vers un coffre de sauvegarde particulier.

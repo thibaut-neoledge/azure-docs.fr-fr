@@ -18,6 +18,7 @@
 ### [Applications web Java](documentdb-java-application.md)
 ### [Application web Python Flask](documentdb-python-application.md)
 ## [Développer en local](documentdb-nosql-local-emulator.md)
+### [Exporter les certificats d’émulateur](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 ## [FORUM AUX QUESTIONS](documentdb-faq.md)
 
 # Procédure
@@ -41,13 +42,17 @@
 ### [Quotas de ressources](documentdb-limits.md)
 ### [Augmenter les quotas](documentdb-increase-limits.md)
 ### [Unités de demande](documentdb-request-units.md)
-### [Interface de ligne de commande Azure et Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
+### Interface de ligne de commande Azure
+#### [Créer un compte](documentdb-automation-resource-manager-cli.md)
+#### [Ajouter ou supprimer des régions](documentdb-automation-region-management.md)
+### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Prise en charge de pare-feu](documentdb-firewall-support.md)
 ### [Améliorer votre compte](documentdb-supercharge-your-account.md)
 
 ## Développement
 ### [SQL query](documentdb-sql-query.md)
 ### [procédures stockées, déclencheurs et fonctions définies par l'utilisateur](documentdb-programming.md)
+### [Suivre les modifications avec Change Feed](documentdb-change-feed.md)
 ### [Tests de performances](documentdb-performance-testing.md)
 ### [Conseils sur les performances](documentdb-performance-tips.md)
 ### DocumentDB pour les développeurs MongoDB
@@ -112,6 +117,6 @@
 ## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

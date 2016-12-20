@@ -1,6 +1,6 @@
 # Baie virtuelle StorSimple
 ## Vue d'ensemble
-### [Quelle est la solution ?](storsimple-ova-overview.md)
+### [Quelle est la solution ?](storsimple-ova-overview.md)
 
 ## Prise en main
 ### Planification
@@ -59,7 +59,7 @@
 ### [Update 0.3 - en cours](storsimple-ova-update-03-release-notes.md)
 ### [Update 0.2 et 0.1](storsimple-ova-update-01-release-notes.md)
 
-# Gamme StorSimple 8000
+# Gamme StorSimple 8000
 
 ## Vue d'ensemble
 ### [Quelle est la solution ?](storsimple-overview.md)
@@ -78,7 +78,7 @@
 #### [Déballer, monter en rack et brancher un appareil 8100](storsimple-8100-hardware-installation.md)
 
 #### [Déballer, monter en rack et brancher un appareil 8600](storsimple-8600-hardware-installation.md)
-#### [Matériel pris en charge pour les interfaces réseau 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+#### [Matériel pris en charge pour les interfaces réseau 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 ### Déployer
 #### [Service StorSimple Manager](storsimple-manage-service.md)
@@ -107,7 +107,7 @@
 ##### [Gestion des comptes de stockage](storsimple-manage-storage-accounts.md)
 ##### [Gestion de conteneurs de volume](storsimple-manage-volume-containers.md)
 ##### [Gérer les volumes - en cours](storsimple-manage-volumes-u2.md)
-###### [Forum aux Questions : volumes épinglés localement](storsimple-local-volume-faq.md)
+###### [Forum aux Questions : volumes épinglés localement](storsimple-local-volume-faq.md)
 ###### [Gérer les volumes - Update 1](storsimple-manage-volumes.md)
 ##### [Gérer les ACR](storsimple-manage-acrs.md)
 ##### [Modèles de bande passante](storsimple-manage-bandwidth-templates.md)
@@ -127,7 +127,7 @@
 ##### [Modifier les paramètres DATA 0](storsimple-modify-data-0.md)
 
 #### [Utilisation de StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md)
-##### [Qu’est-ce que le Gestionnaire d’instantanés StorSimple ?](storsimple-what-is-snapshot-manager.md)
+##### [Qu’est-ce que le Gestionnaire d’instantanés StorSimple ?](storsimple-what-is-snapshot-manager.md)
 ##### [À propos de l’interface StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md)
 ##### [Gérer les appareils via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-devices.md)
 ##### [Gérer les stratégies de sauvegarde via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-policies.md)
@@ -138,6 +138,9 @@
 ##### [Utiliser les actions MMC dans StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
 
 ### Créer des solutions
+#### [StorSimple avec Veeam](storsimple-configure-backup-target-veeam.md)
+#### [StorSimple avec Veritas Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)
+#### [StorSimple with Veritas NetBackup](storsimple-configure-backuptarget-netbackup.md)
 #### [Automatiser le serveur de fichiers DR dans Azure](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [StorSimple avec Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 #### [StorSimple avec VMware](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
@@ -165,7 +168,7 @@
 ##### [Créer un package de support](storsimple-create-manage-support-package.md)
 
 ### Migrer
-#### [À partir d’appareils de la gamme 5000-7000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
+#### [À partir d’appareils de la gamme 5000-7000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [À partir d’autres appareils de stockage](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Mettre à jour
@@ -192,7 +195,7 @@
 # StorSimple Data Manager (version préliminaire privée)
 
 ## Vue d’ensemble
-### [Quelle est la solution ?](storsimple-data-manager-overview.md)
+### [Quelle est la solution ?](storsimple-data-manager-overview.md)
 
 ## Prise en main
 ### [Utilisation de StorSimple Data Manager](storsimple-data-manager-ui.md)
@@ -217,6 +220,6 @@
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: d772dabf84fc3b6c061c0f4607c989aabf9dd272
-ms.openlocfilehash: 6d15839ce4084a808d9ecd5900a39a4f67dec822
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 6b016384339f0dc943237a88787c2c86debd9016
 
 
 ---
@@ -30,15 +30,15 @@ Ce didacticiel de mise en route vous montre comment utiliser le portail Azure po
 * créer un serveur logique Azure SQL ;
 * afficher les propriétés de serveur logique Azure SQL ;
 * créer une règle de pare-feu au niveau du serveur ;
-* créer l’exemple de base de données Adventure Works LT ;
+* créer l’exemple de base de données Adventure Works LT sous la forme d’une base de données autonome ;
 * afficher les propriétés de l’exemple de base de données Adventure Works LT dans Azure.
 
 Dans ce didacticiel, vous utilisez également la version la plus récente de SQL Server Management Studio pour :
 
 * se connecter au serveur logique et à sa base de données master ;
-* afficher les propriétés de la base de données master ;
+* interroger la base de données MASTER ;
 * se connecter à l’exemple de base de données ;
-* afficher les propriétés de la base de données utilisateur.
+* interroger l’exemple de base de données.
 
 Lorsque vous aurez terminé ce didacticiel, vous aurez un exemple de base de données et une base de données vide en cours d’exécution dans un groupe de ressources Azure et attachés à un serveur logique. Vous aurez également une règle de pare-feu de niveau serveur configurée pour permettre au principal de niveau serveur de se connecter au serveur à partir d’une adresse IP spécifiée (ou d’une plage d’adresses IP). 
 
@@ -208,7 +208,7 @@ Lorsque vous aurez terminé ce didacticiel, vous aurez un exemple de base de don
     ![server credentials](./media/sql-database-get-started/server-credentials.png)
 
     > [!NOTE]
-    > Lorsque vous ajoutez une base de données à un serveur, elle peut être ajoutée en tant que base de données unique (valeur par défaut) ou à un pool élastique SQL. Pour plus d’informations sur les pools élastiques, consultez [Pools élastiques](sql-database-elastic-pool.md).
+    > Lorsqu’une base de données est ajoutée à un serveur, elle peut être ajoutée en tant que base de données autonome (valeur par défaut) ou ajoutée à un pool élastique. Pour plus d’informations sur les pools élastiques, consultez [Pools élastiques](sql-database-elastic-pool.md).
     >
 
 7. Sous Niveau tarifaire, changez le niveau de tarification pour choisir **De base** (vous pouvez augmenter le niveau de tarification ultérieurement si vous le souhaitez, mais à des fins d’apprentissage, nous vous recommandons d’utiliser le niveau de coût le plus bas).
@@ -304,6 +304,6 @@ Maintenant que vous avez terminé ce didacticiel, vous souhaiterez peut-être ex
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 
