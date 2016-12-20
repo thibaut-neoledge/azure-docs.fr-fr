@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d9e5f3b177f6b91abe48d3bb6d49a2d3195e6f79
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a14be6bf8135cdfc7e5b9eb3b6d7af3bdd4561a7
 
 
 ---
-# <a name="deploy-your-onpremises-storsimple-device"></a>Déploiement de votre appareil StorSimple local
+# <a name="deploy-your-on-premises-storsimple-device"></a>Déploiement de votre appareil StorSimple local
 > [!div class="op_single_selector"]
 > * [Update 2](storsimple-deployment-walkthrough-u2.md)
 > * [Update 1](storsimple-deployment-walkthrough-u1.md)
@@ -146,7 +146,7 @@ Avant de commencer, assurez-vous que :
 |  | | |
 | **Inscription** |Vérifiez si les ports TCP sortants 443, 80, 9354 sont ouverts. |`Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Plus d'informations sur l'applet de commande Test-NetConnection](https://technet.microsoft.com/library/dn372891.aspx) |
 
-## <a name="stepbystep-deployment"></a>DÉPLOIEMENT ÉTAPE PAR ÉTAPE
+## <a name="step-by-step-deployment"></a>DÉPLOIEMENT ÉTAPE PAR ÉTAPE
 Utilisez la procédure détaillée ci-dessous pour déployer votre appareil StorSimple dans le centre de données.
 
 ## <a name="step-1-create-a-new-service"></a>Étape 1 : Création d’un nouveau service
@@ -286,6 +286,6 @@ Pour créer une sauvegarde manuelle à la demande pour un seul volume sur votre 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Développement de programmes MapReduce en Java pour HDInsight basé sur Linux | Microsoft Docs
-description: Découvrez comment développer des programmes MapReduce en Java et les déployer dans HDInsight basé sur Linux.
+title: "Développement de programmes MapReduce en Java pour HDInsight basé sur Linux | Microsoft Docs"
+description: "Découvrez comment développer des programmes MapReduce en Java et les déployer dans HDInsight basé sur Linux."
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 author: Blackmist
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
-
+ms.assetid: 9ee6384c-cb61-4087-8273-fb53fa27c1c3
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,13 +15,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e22d28c76902fbfe549f2a7aeb22b62eb0a540fb
+
 
 ---
 # <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight-linux"></a>Développer des programmes MapReduce en Java pour Hadoop dans HDInsight Linux
 Ce document vous guide dans l’utilisation d’Apache Maven pour créer une application MapReduce, la déployer vers un cluster Hadoop Linux dans HDInsight, puis l’exécuter.
 
-## <a name="<a-name="prerequisites"></a>prerequisites"></a><a name="prerequisites"></a>Configuration requise
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
+## <a name="a-nameprerequisitesaprerequisites"></a><a name="prerequisites"></a>Configuration requise
+Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 7 ou ultérieur (ou un équivalent, par exemple, OpenJDK)
 * [Apache Maven](http://maven.apache.org/)
@@ -33,8 +37,8 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 ## <a name="configure-environment-variables"></a>Configuration des variables d’environnement
 Les variables d’environnement suivantes peuvent être définies lors de l’installation de Java et du JDK. Toutefois, vous devez vérifier qu’elles existent et qu’elles contiennent les valeurs correctes pour votre système.
 
-* **JAVA_HOME** : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur un système OS X, Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`
-* **PATH** :doit contenir les chemins d’accès suivants :
+* **JAVA_HOME** : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur un système OS X, Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`
+* **PATH** :doit contenir les chemins d’accès suivants :
   
   * **JAVA_HOME** (ou le chemin d’accès équivalent)
   * **JAVA_HOME\bin** (ou le chemin d’accès équivalent)
@@ -46,14 +50,14 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
    
         mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    
-    Cela créera un répertoire dans le répertoire actuel avec le nom spécifié par le paramètre **artifactID** (**wordcountjava** dans cet exemple). Ce répertoire contiendra les éléments ci-après :
+    Cela créera un répertoire dans le répertoire actuel avec le nom spécifié par le paramètre **artifactID** (**wordcountjava** dans cet exemple). Ce répertoire contiendra les éléments ci-après :
    
    * **pom.xml** - Le [modèle d’objet du projet (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) qui contient les informations et la configuration utilisées pour générer le projet.
    * **src** - Le répertoire contenant le répertoire **main\java\org\apache\hadoop\examples** dans lequel vous créerez l’application.
 3. Supprimez le fichier **src\test\java\org\apache\hadoop\examples\apptest.java** , car il ne sera pas utilisé dans cet exemple.
 
 ## <a name="add-dependencies"></a>Ajout de dépendances
-1. Modifiez le fichier **pom.xml** et ajoutez l’élément suivant dans la section `<dependencies>` :
+1. Modifiez le fichier **pom.xml** et ajoutez l’élément suivant dans la section `<dependencies>` :
    
         <dependency>
           <groupId>org.apache.hadoop</groupId>
@@ -62,15 +66,15 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
           <scope>provided</scope>
         </dependency>
         <dependency>
-          <groupId>org.apache.hadoop</groupId>
-          <artifactId>hadoop-mapreduce-client-common</artifactId>
-          <version>2.5.1</version>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-mapreduce-client-common</artifactId>
+            <version>2.5.1</version>
           <scope>provided</scope>
         </dependency>
         <dependency>
-          <groupId>org.apache.hadoop</groupId>
-          <artifactId>hadoop-common</artifactId>
-          <version>2.5.1</version>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <version>2.5.1</version>
           <scope>provided</scope>
         </dependency>
    
@@ -80,26 +84,26 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 2. Ajoutez le code suivant au fichier **pom.xml** . Il doit être contenu entre les balises `<project>...</project>` dans le fichier, par exemple entre `</dependencies>` et `</project>`.
    
         <build>
-          <plugins>
+            <plugins>
             <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-shade-plugin</artifactId>
-              <version>2.3</version>
-              <configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
                 <transformers>
-                  <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
+                    <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
                   </transformer>
                 </transformers>
-              </configuration>
-              <executions>
+                </configuration>
+                <executions>
                 <execution>
-                  <phase>package</phase>
-                    <goals>
+                    <phase>package</phase>
+                      <goals>
                       <goal>shade</goal>
-                    </goals>
+                      </goals>
                 </execution>
-              </executions>
-            </plugin>
+                </executions>
+              </plugin>
             <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-compiler-plugin</artifactId>
@@ -108,7 +112,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
                <target>1.7</target>
               </configuration>
             </plugin>
-          </plugins>
+            </plugins>
         </build>
    
     Le premier plug-in configure le [plug-in Maven Shade](http://maven.apache.org/plugins/maven-shade-plugin/), qui est également utilisé pour créer un uberjar (parfois appelé fatjar) contenant toutes les dépendances nécessaires à l’application. Il empêche également la duplication des licences dans le package jar, ce qui peut entraîner des problèmes sur certains systèmes.
@@ -118,7 +122,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 ## <a name="create-the-mapreduce-application"></a>Création de l’application MapReduce
 1. Accédez au répertoire **wordcountjava\src\main\java\org\apache\hadoop\examples** et renommez le fichier **app.java** en **WordCount.java**.
-2. Ouvrez le fichier **WordCount.java** dans un éditeur de texte et remplacez le contenu par les éléments suivants :
+2. Ouvrez le fichier **WordCount.java** dans un éditeur de texte et remplacez le contenu par les éléments suivants :
    
         package org.apache.hadoop.examples;
    
@@ -194,7 +198,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 ## <a name="build-the-application"></a>Création de l'application
 1. Remplacez le répertoire par **wordcountjava** , si cela n’a pas déjà été fait.
-2. Utilisez la commande suivante pour générer un fichier JAR contenant l’application :
+2. Utilisez la commande suivante pour générer un fichier JAR contenant l’application :
    
         mvn clean package
    
@@ -206,8 +210,8 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
    > 
    > 
 
-## <a name="<a-id="upload"></a>upload-the-jar"></a><a id="upload"></a>Téléchargement du fichier jar
-Utilisez la commande suivante pour télécharger le fichier jar dans le nœud principal HDInsight :
+## <a name="a-iduploadaupload-the-jar"></a><a id="upload"></a>Téléchargement du fichier jar
+Utilisez la commande suivante pour télécharger le fichier jar dans le nœud principal HDInsight :
 
     scp wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
 
@@ -216,31 +220,31 @@ Utilisez la commande suivante pour télécharger le fichier jar dans le nœud pr
 De cette façon, les fichiers du système local sont copiés dans le nœud principal.
 
 > [!NOTE]
-> Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous serez invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin d'accès à la clé privée. Par exemple : `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+> Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous serez invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin d'accès à la clé privée. Par exemple : `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 > 
 > 
 
-## <a name="<a-name="run"></a>run-the-mapreduce-job"></a><a name="run"></a>Exécution de la tâche MapReduce
-1. Connectez-vous à HDInsight à l’aide de SSH comme décrit dans les articles suivants :
+## <a name="a-namerunarun-the-mapreduce-job"></a><a name="run"></a>Exécution de la tâche MapReduce
+1. Connectez-vous à HDInsight à l’aide de SSH comme décrit dans les articles suivants :
    
-   * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-2. À partir de la session SSH, utilisez la commande suivante pour exécuter l’application MapReduce :
+   * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+   * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+2. À partir de la session SSH, utilisez la commande suivante pour exécuter l’application MapReduce :
    
         yarn jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasbs:///example/data/gutenberg/davinci.txt wasbs:///example/data/wordcountout
    
     Elle utilise l’application MapReduce WordCount pour compter les mots dans le fichier davinci.txt et stocker les résultats dans **wasbs:///example/data/wordcountout**. Les fichiers d’entrée et de sortie sont stockés dans le stockage par défaut du cluster.
-3. Une fois la tâche terminée, utilisez la commande suivante pour afficher les résultats :
+3. Une fois la tâche terminée, utilisez la commande suivante pour afficher les résultats :
    
         hdfs dfs -cat wasbs:///example/data/wordcountout/*
    
-    Vous devez recevoir une liste de mots et de nombres, avec des valeurs similaires à ce qui suit :
+    Vous devez recevoir une liste de mots et de nombres, avec des valeurs similaires à ce qui suit :
    
         zeal    1
         zelus   1
         zenith  2
 
-## <a name="<a-id="nextsteps"></a>next-steps"></a><a id="nextsteps"></a>Étapes suivantes
+## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Étapes suivantes
 Dans ce document, vous avez appris à développer une tâche MapReduce Java. Consultez les documents suivants pour découvrir les autres façons de travailler avec HDInsight.
 
 * [Utilisation de Hive avec HDInsight][hdinsight-use-hive]
@@ -268,6 +272,6 @@ Pour plus d’informations, consultez également le [Centre pour développeurs J
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

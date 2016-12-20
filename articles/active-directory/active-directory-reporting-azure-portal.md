@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/31/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 96784e006b5986cbc6dfd4f264b22bd1d1bf208d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
 
 
 ---
-# <a name="azure-active-directory-reporting-preview"></a>Création de rapports Azure Active Directory - version préliminaire
+# <a name="azure-active-directory-reporting---preview"></a>Création de rapports Azure Active Directory - version préliminaire
 > [!div class="op_single_selector"]
 > * [Portail Azure](active-directory-reporting-azure-portal.md)
 > * [Portail Azure Classic](active-directory-reporting-guide.md)
@@ -38,8 +38,8 @@ La création de rapports couvre principalement deux domaines :
 
 Selon l’étendue des données que vous recherchez, vous pouvez accéder à ces rapports en cliquant sur **Utilisateurs et groupes** ou **Applications d’entreprise** dans la liste des services au sein du [portail Azure](https://portal.azure.com).
 
-## <a name="signin-activities"></a>Activités de connexion
-### <a name="user-signin-activities"></a>Activités de connexion des utilisateurs
+## <a name="sign-in-activities"></a>Activités de connexion
+### <a name="user-sign-in-activities"></a>Activités de connexion des utilisateurs
 Avec les informations fournies par le rapport sur les connexions des utilisateurs, trouvez des réponses aux questions telles que :
 
 * Quel est le modèle de connexion d’un utilisateur ?
@@ -97,7 +97,7 @@ En utilisant le sélecteur de colonne, vous pouvez sélectionner les champs de d
 
 ![Reporting](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
 
-### <a name="filtering-signins"></a>Filtrage des connexions
+### <a name="filtering-sign-ins"></a>Filtrage des connexions
 Vous pouvez filtrer les connexions pour limiter la quantité de données affichées en utilisant les champs suivants :
 
 * Date et heure 
@@ -203,6 +203,6 @@ Consultez le [Guide Azure Active Directory Reporting Guide](active-directory-rep
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

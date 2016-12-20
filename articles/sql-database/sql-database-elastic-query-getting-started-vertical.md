@@ -1,11 +1,11 @@
 ---
-title: Prise en main des requêtes de bases de données croisées (partitionnement vertical) | Microsoft Docs
-description: comment utiliser une requête de base de données élastique avec des bases de données partitionnées verticalement
+title: "Prise en main des requêtes de bases de données croisées (partitionnement vertical) | Microsoft Docs"
+description: "comment utiliser une requête de base de données élastique avec des bases de données partitionnées verticalement"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 manager: jhubbard
 author: torsteng
-
+ms.assetid: e5b44b10-c432-4f96-b20e-08615ff4d5dd
 ms.service: sql-database
 ms.workload: sql-database
 ms.tgt_pltfrm: na
@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: torsteng
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b1906835deb4ca413af3a1df7cfb4a86cf26a9bf
+
 
 ---
-# Prise en main des requêtes de bases de données croisées (partitionnement vertical) (version préliminaire)
-Les requêtes de bases de données élastiques (en version préliminaire) pour base de données SQL Azure vous permettent d’exécuter des requêtes T-SQL qui s’étendent sur plusieurs bases de données via un seul point de connexion. Cette rubrique s'applique aux [bases de données partitionnées verticalement](sql-database-elastic-query-vertical-partitioning.md).
+# <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Prise en main des requêtes de bases de données croisées (partitionnement vertical) (version préliminaire)
+Les requêtes de bases de données élastiques (en version préliminaire) pour base de données SQL Azure vous permettent d’exécuter des requêtes T-SQL qui s’étendent sur plusieurs bases de données via un seul point de connexion. Cette rubrique s'applique aux [bases de données partitionnées verticalement](sql-database-elastic-query-vertical-partitioning.md).  
 
-À l’issue du processus, vous serez capable de configurer et d’utiliser une base de données SQL Azure pour exécuter des requêtes qui s’étendent sur plusieurs bases de données associées.
+À l’issue du processus, vous serez capable de configurer et d’utiliser une base de données SQL Azure pour exécuter des requêtes qui s’étendent sur plusieurs bases de données associées. 
 
-Pour plus d’informations sur la fonctionnalité de requête de base de données élastique, veuillez consulter la [Vue d’ensemble de la requête de base de données élastique Azure SQL Database](sql-database-elastic-query-overview.md).
+Pour plus d’informations sur la fonctionnalité de requête de base de données élastique, consultez l’article [Vue d’ensemble de la requête de base de données élastique Azure SQL Database](sql-database-elastic-query-overview.md). 
 
-## Créer les exemples de bases de données
-Pour commencer, nous devons créer deux bases de données, **Customers** et **Orders**, dans les mêmes serveurs logiques ou non.
+## <a name="create-the-sample-databases"></a>Créer les exemples de bases de données
+Pour commencer, nous devons créer deux bases de données, **Customers** et **Orders**, dans les mêmes serveurs logiques ou non.   
 
-Exécutez les requêtes suivantes sur la base de données **Orders** pour créer la table **OrderInformation** et ajouter les exemples de données.
+Exécutez les requêtes suivantes sur la base de données **Orders** pour créer la table **OrderInformation** et ajouter les exemples de données. 
 
     CREATE TABLE [dbo].[OrderInformation]( 
         [OrderID] [int] NOT NULL, 
@@ -37,7 +41,7 @@ Exécutez les requêtes suivantes sur la base de données **Orders** pour créer
     INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1) 
     INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8) 
 
-Exécutez maintenant la requête suivante sur la base de données **Customers** pour créer la table **CustomerInformation** et ajouter les exemples de données.
+Exécutez maintenant la requête suivante sur la base de données **Customers** pour créer la table **CustomerInformation** et ajouter les exemples de données. 
 
     CREATE TABLE [dbo].[CustomerInformation]( 
         [CustomerID] [int] NOT NULL, 
@@ -49,20 +53,21 @@ Exécutez maintenant la requête suivante sur la base de données **Customers** 
     INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (2, 'Steve', 'XYZ') 
     INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (3, 'Lylla', 'MNO') 
 
-## Créez des objets de base de données
-### Clé principale et informations d’identification de la base de données
+## <a name="create-database-objects"></a>Créez des objets de base de données
+### <a name="database-scoped-master-key-and-credentials"></a>Clé principale et informations d’identification de la base de données
 1. Ouvrez SQL Server Management Studio ou SQL Server Data Tools dans Visual Studio.
-2. Connectez-vous à la base de données Orders et exécutez les commandes T-SQL suivantes :
+2. Connectez-vous à la base de données Orders et exécutez les commandes T-SQL suivantes :
    
         CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>'; 
         CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred 
         WITH IDENTITY = '<username>', 
         SECRET = '<password>';  
    
-    Le « username » et le « password » doivent être le nom d'utilisateur et le mot de passe de connexion à la base de données Customers. L’authentification à l’aide d’Azure Active Directory avec des requêtes élastiques n’est pas prise en charge actuellement.
+    Le « username » et le « password » doivent être le nom d'utilisateur et le mot de passe de connexion à la base de données Customers.
+    L’authentification à l’aide d’Azure Active Directory avec des requêtes élastiques n’est pas prise en charge actuellement.
 
-### Sources de données externes
-Pour créer une source de données externe, exécutez la commande suivante sur la base de données Orders :
+### <a name="external-data-sources"></a>Sources de données externes
+Pour créer une source de données externe, exécutez la commande suivante sur la base de données Orders : 
 
     CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH 
         (TYPE = RDBMS, 
@@ -71,8 +76,8 @@ Pour créer une source de données externe, exécutez la commande suivante sur l
         CREDENTIAL = ElasticDBQueryCred, 
     ) ;
 
-### Tables externes
-Créez une table externe sur la base de données Orders qui corresponde à la définition de la table CustomerInformation :
+### <a name="external-tables"></a>Tables externes
+Créez une table externe sur la base de données Orders qui corresponde à la définition de la table CustomerInformation :
 
     CREATE EXTERNAL TABLE [dbo].[CustomerInformation] 
     ( [CustomerID] [int] NOT NULL, 
@@ -81,18 +86,18 @@ Créez une table externe sur la base de données Orders qui corresponde à la d�
     WITH 
     ( DATA_SOURCE = MyElasticDBQueryDataSrc) 
 
-## Exécutez un exemple de requête T-SQL de base de données élastique
-Après avoir défini vos tables externes et votre source de données externe, vous pouvez utiliser T-SQL pour exécuter des requêtes sur vos tables externes. Exécutez cette requête sur la base de données Orders :
+## <a name="execute-a-sample-elastic-database-t-sql-query"></a>Exécutez un exemple de requête T-SQL de base de données élastique
+Après avoir défini vos tables externes et votre source de données externe, vous pouvez utiliser T-SQL pour exécuter des requêtes sur vos tables externes. Exécutez cette requête sur la base de données Orders : 
 
     SELECT OrderInformation.CustomerID, OrderInformation.OrderId, CustomerInformation.CustomerName, CustomerInformation.Company 
     FROM OrderInformation 
     INNER JOIN CustomerInformation 
     ON CustomerInformation.CustomerID = OrderInformation.CustomerID 
 
-## Coût
-Actuellement, la fonctionnalité de requête de base de données élastique est incluse dans le coût de votre base de données SQL Azure.
+## <a name="cost"></a>Coût
+Actuellement, la fonctionnalité de requête de base de données élastique est incluse dans le coût de votre base de données SQL Azure.  
 
-Pour plus d’informations sur la tarification, voir [Tarification des bases de données SQL](/pricing/details/sql-database).
+Pour plus d’informations sur la tarification, voir [Tarification des bases de données SQL](/pricing/details/sql-database). 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -100,4 +105,8 @@ Pour plus d’informations sur la tarification, voir [Tarification des bases de 
 
 <!--anchors-->
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

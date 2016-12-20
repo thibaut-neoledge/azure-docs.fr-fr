@@ -1,13 +1,13 @@
 ---
-title: Créer, configurer et déployer une application web PHP dans Azure
-description: Ce didacticiel vous montre comment exécuter une application web PHP (Laravel) dans Azure App Service. Découvrez comment configurer Azure App Service pour répondre aux exigences de l’infrastructure PHP de votre choix.
+title: "Créer, configurer et déployer une application web PHP dans Azure"
+description: "Ce didacticiel vous montre comment exécuter une application web PHP (Laravel) dans Azure App Service. Découvrez comment configurer Azure App Service pour répondre aux exigences de l’infrastructure PHP de votre choix."
 services: app-service\web
 documentationcenter: php
 author: cephalin
 manager: wpickett
-editor: ''
+editor: 
 tags: mysql
-
+ms.assetid: cb73859d-48aa-470a-b486-d984746d6d26
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -15,14 +15,18 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 06/03/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: aafd6378709ec584bc1bfa0aeb8a1593c103dacb
+
 
 ---
-# <a name="create,-configure,-and-deploy-a-php-web-app-to-azure"></a>Créer, configurer et déployer une application web PHP dans Azure
+# <a name="create-configure-and-deploy-a-php-web-app-to-azure"></a>Créer, configurer et déployer une application web PHP dans Azure
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 Ce didacticiel vous montre comment créer, configurer et déployer une application web PHP pour Azure. Il explique également comment configurer Azure App Service pour répondre aux exigences de votre application web PHP. À la fin du didacticiel, vous disposerez d’une application web [Laravel](https://www.laravel.com/) parfaitement opérationnelle sous [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 
-En tant que développeur PHP, vous pouvez transférer l’infrastructure PHP de votre choix dans Azure. Ce didacticiel utilise simplement Laravel comme exemple d’application concrète. Vous apprendrez à effectuer les opérations suivantes : 
+En tant que développeur PHP, vous pouvez transférer l’infrastructure PHP de votre choix dans Azure. Ce didacticiel utilise simplement Laravel comme exemple d’application concrète. Vous apprendrez à effectuer les opérations suivantes : 
 
 * Effectuer un déploiement à l’aide de Git
 * Définir la version PHP
@@ -48,7 +52,7 @@ Vous pourrez appliquer vos acquis à d’autres applications web PHP que vous d�
 > 
 > 
 
-## <a name="create-a-php-(laravel)-app-on-your-dev-machine"></a>Créer une application PHP (Laravel) sur votre ordinateur de développement
+## <a name="create-a-php-laravel-app-on-your-dev-machine"></a>Créer une application PHP (Laravel) sur votre ordinateur de développement
 1. Ouvrez une nouvelle invite de commandes Windows, une fenêtre PowerShell, un interpréteur de commandes Linux ou un terminal OS X. Exécutez les commandes suivantes pour vérifier que les outils requis sont correctement installés sur votre ordinateur. 
    
         php --version
@@ -85,7 +89,7 @@ Vous pourrez appliquer vos acquis à d’autres applications web PHP que vous d�
 
 Vous pouvez utiliser l’interface de ligne de commande Azure pour créer une application web dans Azure App Service et la configurer pour un déploiement Git avec une seule ligne de commande. Allons-y.
 
-1. Passez en mode ASM et connectez-vous à Azure :
+1. Passez en mode ASM et connectez-vous à Azure :
    
         azure config mode asm
         azure login
@@ -114,7 +118,8 @@ Pour que votre application Laravel puisse fonctionner dans Azure, vous devez ten
 * Configurez PHP 5.5.9 ou version ultérieure. Consultez la section relative à la [configuration serveur requise pour Laravel 5.2](https://laravel.com/docs/5.2#server-requirements) pour obtenir la liste complète de la configuration requise du serveur. Le reste de la liste indique des extensions qui sont déjà activées par les installations PHP d’Azure. 
 * Définissez les variables d’environnement requises par votre application. Laravel utilise le fichier `.env` pour faciliter la configuration des variables d’environnement. Mais dans la mesure où il n’est pas censé être validé dans le contrôle de code source (voir la section relative à la [configuration de l’environnement Laravel](https://laravel.com/docs/5.2/configuration#environment-configuration)), vous allez devoir définir à la place les paramètres d’application de votre application web Azure.
 * Veillez à charger en premier le point d’entrée de l’application Laravel, `public/index.php`. Consultez la [vue d’ensemble du cycle de vie de Laravel](https://laravel.com/docs/5.2/lifecycle#lifecycle-overview). En d’autres termes, vous devez définir l’URL racine de l’application web pour pointer vers le répertoire `public` .
-* Activez l’extension du Compositeur dans Azure, puisque vous disposez d’un fichier composer.json. Vous pourrez ainsi laisser au Compositeur le soin d’obtenir les packages dont vous avez besoin lors d’un déploiement avec `git push`. Cette étape n’est à effectuer que pour des raisons pratiques. Si vous n’activez pas l’automatisation du Compositeur, il vous suffit de supprimer `/vendor` du fichier `.gitignore` pour que Git inclue (« n’ignore pas ») tous les éléments du répertoire `vendor` lors de la validation et du déploiement du code.
+* Activez l’extension du Compositeur dans Azure, puisque vous disposez d’un fichier composer.json. Vous pourrez ainsi laisser au Compositeur le soin d’obtenir les packages dont vous avez besoin lors d’un déploiement avec `git push`. Cette étape n’est à effectuer que pour des raisons pratiques. 
+  Si vous n’activez pas l’automatisation du Compositeur, il vous suffit de supprimer `/vendor` du fichier `.gitignore` pour que Git inclue (« n’ignore pas ») tous les éléments du répertoire `vendor` lors de la validation et du déploiement du code.
 
 Nous allons maintenant configurer ces tâches de façon séquentielle.
 
@@ -134,13 +139,11 @@ Nous allons maintenant configurer ces tâches de façon séquentielle.
     Vous avez fini de définir les variables d’environnement !
    
    > [!NOTE]
-   > Attendez, ralentissons un peu le rythme et voyons ce que font respectivement Laravel et Azure ici. Laravel utilise le fichier `.env` dans le répertoire racine pour fournir des variables d’environnement à l’application, où vous trouverez la ligne `APP_DEBUG=true` (et également `APP_KEY=...`). Cette variable est accessible dans `config/app.php` par le biais du code     `'debug' => env('APP_DEBUG', false),`. [env()](https://laravel.com/docs/5.2/helpers#method-env) est une méthode d’assistance Laravel qui utilise le fichier PHP [getenv()](http://php.net/manual/en/function.getenv.php) en arrière-plan.
+   > Attendez, ralentissons un peu le rythme et voyons ce que font respectivement Laravel et Azure ici. Laravel utilise le fichier `.env` dans le répertoire racine pour fournir des variables d’environnement à l’application, où vous trouverez la ligne `APP_DEBUG=true` (et également `APP_KEY=...`). Cette variable est accessible dans `config/app.php` par le biais du code `'debug' => env('APP_DEBUG', false),`. [env()](https://laravel.com/docs/5.2/helpers#method-env) est une méthode d’assistance Laravel qui utilise le fichier PHP [getenv()](http://php.net/manual/en/function.getenv.php) en arrière-plan.
    > 
-   > Cependant, `.env` est ignoré par Git car il est appelé par le fichier `.gitignore` dans le répertoire racine. Pour simplifier, `.env` 
-   > dans votre référentiel Git local n’est pas placé dans Azure avec le reste des fichiers. Bien sûr, vous pouvez simplement supprimer cette ligne de `.gitignore`, mais comme nous l’avons indiqué, il n’est pas recommandé de valider ce fichier dans le contrôle de code source. Pour autant, il vous faut trouver un moyen de spécifier ces variables d’environnement dans Azure. 
+   > Cependant, `.env` est ignoré par Git car il est appelé par le fichier `.gitignore` dans le répertoire racine. Pour simplifier, `.env` dans votre référentiel Git local n’est pas placé dans Azure avec le reste des fichiers. Bien sûr, vous pouvez simplement supprimer cette ligne de `.gitignore`, mais comme nous l’avons indiqué, il n’est pas recommandé de valider ce fichier dans le contrôle de code source. Pour autant, il vous faut trouver un moyen de spécifier ces variables d’environnement dans Azure. 
    > 
-   > La bonne nouvelle est que les paramètres d’application dans Azure App Service prennent en charge [getenv()](http://php.net/manual/en/function.getenv.php) 
-   > dans PHP. Bien que vous puissiez utiliser FTP ou d’autres moyens pour charger manuellement un fichier `.env` dans Azure, vous pouvez simplement spécifier les variables de votre choix en tant que paramètres de l’application Azure sans ajouter de `.env` dans Azure, comme vous venez de faire. En outre, si une variable se trouve à la fois dans un fichier `.env` et dans les paramètres d’application Azure, le paramètre d’application Azure l’emporte.     
+   > La bonne nouvelle est que les paramètres d’application dans Azure App Service prennent en charge [getenv()](http://php.net/manual/en/function.getenv.php) dans PHP. Bien que vous puissiez utiliser FTP ou d’autres moyens pour charger manuellement un fichier `.env` dans Azure, vous pouvez simplement spécifier les variables de votre choix en tant que paramètres de l’application Azure sans ajouter de `.env` dans Azure, comme vous venez de faire. En outre, si une variable se trouve à la fois dans un fichier `.env` et dans les paramètres d’application Azure, le paramètre d’application Azure l’emporte.     
    > 
    > 
 4. Les deux dernières tâches (la configuration du répertoire virtuel et l’activation du Compositeur) impliquent l’utilisation du [portail Azure](https://portal.azure.com). Vous devez donc vous connecter au [portail](https://portal.azure.com) avec votre compte Azure.
@@ -149,8 +152,7 @@ Nous allons maintenant configurer ces tâches de façon séquentielle.
     ![Activer le Compositeur pour votre application PHP (Laravel) dans Azure](./media/app-service-web-php-get-started/configure-composer-tools.png)
    
    > [!TIP]
-   > Si vous cliquez sur **Paramètres** au lieu de l’option **Outils**, vous accéderez au panneau **Paramètres de l’application** 
-   > , qui vous permet de définir les versions PHP, les paramètres de l’application et les répertoires virtuels, comme vous venez de faire. 
+   > Si vous cliquez sur **Paramètres** au lieu de l’option **Outils**, vous accéderez au panneau **Paramètres de l’application**, qui vous permet de définir les versions PHP, les paramètres de l’application et les répertoires virtuels, comme vous venez de faire. 
    > 
    > 
 6. Cliquez sur **Extensions** > **Ajouter** pour ajouter une extension.
@@ -181,7 +183,7 @@ Nous allons maintenant configurer ces tâches de façon séquentielle.
     
      Vous avez fini de définir le répertoire virtuel. 
 
-## <a name="deploy-your-web-app-with-git-(and-setting-environment-variables)"></a>Déployer votre application web avec Git (et définir les variables d’environnement)
+## <a name="deploy-your-web-app-with-git-and-setting-environment-variables"></a>Déployer votre application web avec Git (et définir les variables d’environnement)
 Vous êtes maintenant prêt à déployer votre code. Pour cela, vous devez revenir à votre invite ou à votre terminal de commandes.
 
 1. Validez toutes vos modifications et déployez votre code dans l’application web Azure, comme vous le feriez dans n’importe quel référentiel Git :
@@ -211,7 +213,7 @@ Voici les erreurs que vous pouvez rencontrer dans ce didacticiel :
 
 <a name="clierror"></a>
 
-### <a name="azure-cli-shows-"'site'-is-not-an-azure-command""></a>La ligne de commande Azure affiche « 'site' is not an azure command »
+### <a name="azure-cli-shows-site-is-not-an-azure-command"></a>La ligne de commande Azure affiche « 'site' is not an azure command »
 Lors de l’exécution de `azure site *` dans le terminal de ligne de commande, l’erreur `error:   'site' is not an azure command. See 'azure help'.` s’affiche. 
 
 Cette erreur est généralement liée au passage en mode « ARM » (Azure Resource Manager). Pour résoudre ce problème, revenez en mode « ASM » (Azure Service Management) en exécutant `azure config mode asm`.
@@ -225,14 +227,14 @@ Cela est probablement dû au fait que l’application web ne peut pas trouver le
 
 <a name="whoops"></a>
 
-### <a name="web-app-shows-"whoops,-looks-like-something-went-wrong.""></a>L’application web affiche le message « Whoops, looks like something went wrong. »
+### <a name="web-app-shows-whoops-looks-like-something-went-wrong"></a>L’application web affiche le message « Whoops, looks like something went wrong. »
 Vous avez réussi à déployer votre application web sur Azure, mais lorsque vous accédez à votre application web Azure, vous obtenez le message `Whoops, looks like something went wrong.`
 
 Pour obtenir une erreur plus explicite, activez le débogage de Laravel en définissant la variable d’environnement `APP_DEBUG` sur `true` (voir [Configurer l’application web Azure](#configure)).
 
 <a name="encryptor"></a>
 
-### <a name="web-app-shows-"no-supported-encryptor-found.""></a>L’application web affiche le message « No supported encryptor found. »
+### <a name="web-app-shows-no-supported-encryptor-found"></a>L’application web affiche le message « No supported encryptor found. »
 Vous avez réussi à déployer votre application web sur Azure, mais lorsque vous accédez à votre application web Azure, vous obtenez le message d’erreur suivant :
 
 ![APP_KEY manquant dans votre application PHP (Laravel) dans Azure](./media/app-service-web-php-get-started/laravel-error-APP_KEY.png)
@@ -245,9 +247,12 @@ Découvrez comment ajouter des données à votre application en [créant une bas
 * [Centre de développement PHP](/develop/php/).
 * [Créer une application web à partir d’Azure Marketplace](app-service-web-create-web-app-from-marketplace.md)
 * [Configurer PHP dans Azure App Service Web Apps](web-sites-php-configure.md)
-* [Conversion de WordPress en WordPress multisite dans Azure App Service](web-sites-php-convert-wordpress-multisite.md)
-* [WordPress d’entreprise sur Azure App Service](web-sites-php-enterprise-wordpress.md)
+* [Conversion de WordPress en WordPress multisite dans Azure App Service](web-sites-php-convert-wordpress-multisite.md)
+* [WordPress d’entreprise sur Azure App Service](web-sites-php-enterprise-wordpress.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

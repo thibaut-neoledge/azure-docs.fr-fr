@@ -1,12 +1,12 @@
 ---
-title: Guide technique - Récupération suite à des défaillances locales dans Azure | Microsoft Docs
-description: Article dédié à la compréhension et à la conception d’applications robustes, hautement disponibles et tolérantes aux pannes, ainsi qu’à la planification de la récupération d’urgence axée sur les défaillances locales dans Azure.
-services: ''
+title: "Guide technique - Récupération suite à des défaillances locales dans Azure | Microsoft Docs"
+description: "Article dédié à la compréhension et à la conception d’applications robustes, hautement disponibles et tolérantes aux pannes, ainsi qu’à la planification de la récupération d’urgence axée sur les défaillances locales dans Azure."
+services: 
 documentationcenter: na
 author: adamglick
 manager: saladki
-editor: ''
-
+editor: 
+ms.assetid: 2e50f6c1-fa61-4c7d-ac26-566a142fbfc2
 ms.service: resiliency
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: e3e07066d5fc8fd9ceb45cb4b397e7a1e2869c38
+
 
 ---
-# <a name="azure-resiliency-technical-guidance:-recovery-from-local-failures-in-azure"></a>Guide technique de la résilience Azure - Récupération suite à des défaillances locales dans Azure
+# <a name="azure-resiliency-technical-guidance-recovery-from-local-failures-in-azure"></a>Guide technique de la résilience Azure - Récupération suite à des défaillances locales dans Azure
 Il existe deux menaces principales à la disponibilité des applications :
 
 * La défaillance des appareils, tels que les lecteurs et les serveurs.
@@ -72,7 +76,7 @@ Azure comprend de manière native les niveaux d’une application PaaS (rôle We
 Dans le diagramme précédent, le niveau Internet Information Services (IIS, qui fonctionne comme un niveau d’application Web) et le niveau SQL (qui fonctionne comme un niveau de données) sont affectés à différents groupes à haute disponibilité. Cela garantit que toutes les instances de chaque niveau disposent d’une redondance matérielle, en distribuant les machines virtuelles dans les domaines d’erreur, et que les niveaux dans leur intégralité ne sont pas arrêtés pendant une mise à jour.
 
 ### <a name="load-balancing"></a>Équilibrage de la charge
-Si le trafic est distribué entre les machines virtuelles, vous devez les regrouper dans une application et équilibrer la charge sur un point de terminaison TCP ou UDP spécifique. Pour plus d’informations, consultez [Équilibrage de charge des machines virtuelles](../virtual-machines/virtual-machines-linux-load-balance.md). Si les machines virtuelles sont approvisionnées par une autre source (par exemple, un mécanisme de file d’attente), aucun équilibreur de charge n’est requis. L’équilibreur de charge utilise un contrôle d’intégrité de base pour déterminer si le trafic doit être envoyé au nœud. Il est également possible de créer vos propres sondes pour implémenter des mesures spécifiques de contrôle d’intégrité de l’application. Le cas échéant, elles déterminent si la machine virtuelle doit recevoir le trafic.
+Si le trafic est distribué entre les machines virtuelles, vous devez les regrouper dans une application et équilibrer la charge sur un point de terminaison TCP ou UDP spécifique. Pour plus d’informations, consultez [Équilibrage de charge des machines virtuelles](../virtual-machines/virtual-machines-linux-load-balance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Si les machines virtuelles sont approvisionnées par une autre source (par exemple, un mécanisme de file d’attente), aucun équilibreur de charge n’est requis. L’équilibreur de charge utilise un contrôle d’intégrité de base pour déterminer si le trafic doit être envoyé au nœud. Il est également possible de créer vos propres sondes pour implémenter des mesures spécifiques de contrôle d’intégrité de l’application. Le cas échéant, elles déterminent si la machine virtuelle doit recevoir le trafic.
 
 ## <a name="storage"></a>Storage
 Azure Storage est le service de données durables de ligne de base pour Azure. Il fournit des objets blob, des tables, des files d’attente et du stockage sur disque de machine virtuelle. Il utilise une combinaison de réplication et de gestion des ressources pour assurer la haute disponibilité dans un centre de données unique. Le contrat de niveau de service relatif à la disponibilité d’Azure Storage garantit qu’au moins 99,9 % du temps :
@@ -121,16 +125,16 @@ Cette recommandation n’est pas applicable avec la copie des journaux de transa
 
 Pour que les machines virtuelles Azure Cloud Services déployées via le portail classique se trouvent dans le même groupe à haute disponibilité, vous devez les déployer dans le même service cloud. Les machines virtuelles déployées via Azure Resource Manager (portail actuel) ne présentent pas cette limite. Pour les machines virtuelles déployées sur le portail classique dans Azure Cloud Service, seuls les nœuds du même service cloud peuvent participer au même groupe à haute disponibilité. En outre, les machines virtuelles Cloud Services doivent se trouver dans le même réseau virtuel pour s’assurer qu’elles conservent leur adresse IP même après la réparation du service. Cela vous permet d’éviter les temps d’interruption de mise à jour DNS.
 
-### <a name="azure-only:-high-availability-solutions"></a>Azure uniquement : solutions de haute disponibilité
+### <a name="azure-only-high-availability-solutions"></a>Azure uniquement : solutions de haute disponibilité
 Vous pouvez disposer d’une solution de haute disponibilité pour vos bases de données SQL Server dans Azure à l’aide des groupes de disponibilité AlwaysOn ou de la mise en miroir de bases de données.
 
-Le diagramme suivant illustre l’architecture des groupes de disponibilité AlwaysOn exécutés dans Azure Virtual Machines. Ce diagramme a été extrait de l’article détaillé sur ce sujet, [Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+Le diagramme suivant illustre l’architecture des groupes de disponibilité AlwaysOn exécutés dans Azure Virtual Machines. Ce diagramme a été extrait de l’article détaillé sur ce sujet, [Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ![Groupes de disponibilité AlwaysOn dans Microsoft Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-1.png)
 
-Vous pouvez également approvisionner automatiquement un déploiement de groupe de disponibilité AlwaysOn de bout en bout sur les machines virtuelles Azure, en utilisant le modèle AlwaysOn dans le portail Azure. Pour plus d’informations, consultez [Offre AlwaysOn SQL Server dans la galerie du portail Microsoft Azure](https://blogs.technet.microsoft.com/dataplatforminsider/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery/).
+Vous pouvez également approvisionner automatiquement un déploiement de groupe de disponibilité AlwaysOn de bout en bout sur les machines virtuelles Azure, en utilisant le modèle AlwaysOn dans le portail Azure. Pour plus d’informations, consultez [Offre AlwaysOn SQL Server dans la galerie du portail Microsoft Azure](https://blogs.technet.microsoft.com/dataplatforminsider/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery/).
 
-Le diagramme suivant illustre l’utilisation de la mise en miroir de bases de données sur Azure Virtual Machines. Il a également été extrait de la rubrique détaillée [Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+Le diagramme suivant illustre l’utilisation de la mise en miroir de bases de données sur Azure Virtual Machines. Il a également été extrait de la rubrique détaillée [Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ![Mise en miroir de bases de données dans Microsoft Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-2.png)
 
@@ -144,11 +148,6 @@ Les applications qui reposent sur Azure bénéficient des fonctionnalités de pl
 
 ### <a name="service-bus"></a>Service Bus
 Pour éviter une panne temporaire d’Azure Service Bus, envisagez de créer une file d’attente durable côté client. Cette fonctionnalité utilise temporairement un autre mécanisme stockage local pour stocker les messages qui ne peuvent pas être ajoutés à la file d’attente Service Bus. L’application peut décider comment traiter les messages temporairement stockés après la restauration du service. Pour plus d’informations, consultez [Bonnes pratiques relatives aux améliorations des performances dans l’utilisation de la messagerie répartie Service Bus](../service-bus-messaging/service-bus-performance-improvements.md) et [Service Bus (récupération d’urgence)](resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
-
-### <a name="mobile-services"></a>Mobile Services
-Il existe deux considérations relatives à la disponibilité pour Azure Mobile Services. Tout d’abord, sauvegardez régulièrement la base de données SQL associée à votre service mobile. Ensuite, sauvegardez les scripts de service mobile. Pour plus d’informations, consultez [Récupération de votre service mobile en cas d’incident](../mobile-services/mobile-services-disaster-recovery.md).
-
-Si Mobile Services subit une panne temporaire, il vous faudra éventuellement utiliser temporairement un autre centre de données Azure. Pour plus d’informations, consultez la section [Mobile Services (récupération d’urgence)](resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ### <a name="hdinsight"></a>HDInsight
 Par défaut, les données associées à Azure HDInsight sont stockées dans Stockage Blob Azure. Azure Storage spécifie les propriétés de haute disponibilité et de durabilité pour le stockage d’objets blob. Le traitement à plusieurs nœuds associé à des travaux Hadoop MapReduce est effectué sur un système de fichiers HDFS (Hadoop Distributed File System) temporaire, qui est approvisionné quand HDInsight le requiert. Les résultats d’un travail MapReduce sont également stockés par défaut dans le stockage d’objets blob Azure, afin que les données traitées soient durables et demeurent hautement disponibles une fois le cluster Hadoop déprovisionné. Pour plus d’informations, consultez la section [HDInsight (récupération d’urgence)](resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
@@ -195,6 +194,9 @@ Par défaut, les données associées à Azure HDInsight sont stockées dans Stoc
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article fait partie d’une série intitulée [Guide technique de la résilience Azure](resiliency-technical-guidance.md). L’article suivant de cette série s’intitule [Récupération d’une interruption de service à l’échelle de la région](resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

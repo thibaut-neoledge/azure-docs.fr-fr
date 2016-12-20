@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: edc3a915a59d83718d05ce39a1ce2bcd14333da4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 42d71bf43070e08ae287a7b251c5bb94a6a80548
 
 
 ---
@@ -39,12 +39,12 @@ Ce didacticiel utilise Azure Machine Learning pour générer un modèle Machine 
 ## <a name="prerequisites"></a>Configuration requise
 Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 
-* un entrepôt SQL Data Warehouse préchargé avec les exemples de données AdventureWorksDW. Pour le configurer, consultez [Créer un entrepôt de données Azure SQL Data Warehouse][Créer un entrepôt de données Azure SQL Data Warehouse] et chargez les données d’exemple. Si vous disposez déjà d’un entrepôt de données, mais que vous n’avez pas d’exemples de données, vous pouvez [charger manuellement des exemples de données][charger manuellement des exemples de données].
+* un entrepôt SQL Data Warehouse préchargé avec les exemples de données AdventureWorksDW. Pour le configurer, consultez [Créer un Azure SQL Data Warehouse][Create a SQL Data Warehouse] et chargez les données d’exemple. Si vous disposez déjà d’un entrepôt de données, mais sans disposer d’exemples de données, vous pouvez [charger manuellement des exemples de données][load sample data manually].
 
 ## <a name="1-get-data"></a>1. Obtention des données
 Les données sont indiquées dans la vue dbo.vTargetMail de la base de données AdventureWorksDW. Pour lire ces données :
 
-1. Connectez-vous à [Azure Machine Learning Studio][Azure Machine Learning Studio], puis cliquez sur Mes expériences.
+1. Connectez-vous à [Azure Machine Learning Studio][Azure Machine Learning studio], puis cliquez sur Mes expériences.
 2. Cliquez sur **+NOUVEAU** et sélectionnez **Expérience vide**.
 3. Entrez le nom de votre expérience : Marketing ciblé.
 4. Faites glisser le module **Lecteur** du volet des modules dans la zone de dessin.
@@ -124,7 +124,7 @@ Vous verrez deux colonnes supplémentaires ajoutées à votre groupe de données
 En comparant la colonne BikeBuyer (réelle) avec les étiquettes de marquage (prévision), vous pouvez voir comment le modèle a fonctionné. Au cours des opérations suivantes, vous pouvez utiliser ce modèle pour élaborer des prévisions pour les nouveaux clients et publier ce modèle en tant que service web ou écrire les résultats dans SQL Data Warehouse.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur la création de modèles d’apprentissage automatique prédictifs, reportez-vous à [Présentation de l’apprentissage automatique sur Azure][Présentation de l’apprentissage automatique sur Azure].
+Pour en savoir plus sur la création de modèles Machine Learning prédictifs, reportez-vous à [Introduction à Machine Learning sur Azure][Introduction to Machine Learning on Azure].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
@@ -142,13 +142,13 @@ Pour en savoir plus sur la création de modèles d’apprentissage automatique p
 
 
 <!--Article references-->
-[Azure Machine Learning Studio]:https://studio.azureml.net/
-[Présentation de l’apprentissage automatique sur Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[charger manuellement des exemples de données]: sql-data-warehouse-load-sample-databases.md
-[Créer un Azure SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Azure Machine Learning studio]:https://studio.azureml.net/
+[Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
+[load sample data manually]: sql-data-warehouse-load-sample-databases.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

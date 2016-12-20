@@ -1,26 +1,30 @@
 ---
-title: Utiliser PowerShell pour créer des alertes pour les services Azure | Microsoft Docs
-description: Utilisez PowerShell pour créer des alertes Azure, qui peuvent déclencher des notifications ou Automation lorsque les conditions spécifiées sont remplies.
+title: "Utiliser PowerShell pour créer des alertes pour les services Azure | Microsoft Docs"
+description: "Utilisez PowerShell pour créer des alertes Azure, qui peuvent déclencher des notifications ou Automation lorsque les conditions spécifiées sont remplies."
 author: rboucher
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: d26ab15b-7b7e-42a9-81c8-3ce9ead5d252
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2016
+ms.date: 10/20/2016
 ms.author: robb
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: db8ed8980335e2af9654bfe56b4e4c5807674040
+
 
 ---
 # <a name="use-powershell-to-create-alerts-for-azure-services"></a>Utiliser PowerShell pour créer des alertes pour les services Azure
 > [!div class="op_single_selector"]
 > * [Portail](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
-> * [INTERFACE DE LIGNE DE COMMANDE](../azure-portal/insights-alerts-command-line-interface.md) 
+> * [INTERFACE DE LIGNE DE COMMANDE](insights-alerts-command-line-interface.md)
 > 
 > 
 
@@ -32,21 +36,21 @@ Vous pouvez recevoir une alerte en fonction de métriques de surveillance pour v
 * **Valeurs de métriques** : l’alerte se déclenche lorsque la valeur d’une métrique spécifiée dépasse un seuil que vous affectez dans un des deux sens. C’est-à-dire que le déclenchement se fait à la fois lorsque la condition est remplie et par la suite une fois que la condition n’est plus remplie.    
 * **Événements du journal d’activité** : une alerte peut se déclencher sur *chaque* événement ou uniquement lorsqu’un certain nombre d’événements se produisent.
 
-Vous pouvez configurer une alerte pour effectuer les opérations suivantes lors de son déclenchement :
+Vous pouvez configurer une alerte pour effectuer les opérations suivantes lors de son déclenchement :
 
 * envoyer des notifications par courrier électronique à l’administrateur du service et aux coadministrateurs
 * envoyer un courrier électronique à d’autres adresses que vous spécifiez.
 * appeler un webhook
-* démarrer l’exécution d’un runbook Azure (uniquement à partir du Portail Azure) 
+* démarrer l’exécution d’un runbook Azure (uniquement à partir du Portail Azure)
 
-Vous pouvez configurer et obtenir des informations sur les règles d’alerte avec 
+Vous pouvez configurer et obtenir des informations sur les règles d’alerte avec
 
 * [Portail Azure](insights-alerts-portal.md)
-* [PowerShell](insights-alerts-powershell.md) 
-* [interface de ligne de commande (CLI)](../azure-portal/insights-alerts-command-line-interface.md) 
-* [API REST Azure Insights](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [PowerShell](insights-alerts-powershell.md)
+* [interface de ligne de commande (CLI)](insights-alerts-command-line-interface.md)
+* [API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-Pour obtenir des informations complémentaires, vous pouvez à tout moment taper ```get-help``` , suivi de la commande PowerShell sur laquelle vous souhaitez de l’aide. 
+Pour obtenir des informations complémentaires, vous pouvez à tout moment taper ```get-help``` , suivi de la commande PowerShell sur laquelle vous souhaitez de l’aide.
 
 ## <a name="create-alert-rules-in-powershell"></a>Créer des règles d’alerte dans PowerShell
 1. Connectez-vous à Azure.   
@@ -55,14 +59,14 @@ Pour obtenir des informations complémentaires, vous pouvez à tout moment taper
     Login-AzureRmAccount
    
     ```
-2. Récupérez la liste des abonnements dont vous disposez. Vérifiez que vous travaillez avec le bon abonnement. Dans le cas contraire, choisissez le bon à l’aide de la sortie de `Get-AzureRmSubscription`. 
+2. Récupérez la liste des abonnements dont vous disposez. Vérifiez que vous travaillez avec le bon abonnement. Dans le cas contraire, choisissez le bon à l’aide de la sortie de `Get-AzureRmSubscription`.
    
     ```PowerShell
     Get-AzureRmSubscription
     Get-AzureRmContext
     Set-AzureRmContext -SubscriptionId <subscriptionid>
     ```
-3. Pour répertorier les règles existantes sur un groupe de ressources, utilisez la commande suivante :
+3. Pour répertorier les règles existantes sur un groupe de ressources, utilisez la commande suivante :
    
    ```PowerShell
    Get-AzureRmAlertRule -ResourceGroup <myresourcegroup> -DetailedOutput
@@ -74,7 +78,7 @@ Pour obtenir des informations complémentaires, vous pouvez à tout moment taper
      
      Pour obtenir l’ID de la ressource, vous pouvez utiliser le Portail Azure. À supposer que la ressource soit déjà créée, sélectionnez-la dans le portail. Puis, dans le panneau suivant, sélectionnez *Propriétés* sous la section *Paramètres*. L’ID DE RESSOURCE est un champ du panneau suivant. Une autre méthode consiste à utiliser [l’Explorateur de ressources Azure](https://resources.azure.com/).
      
-     Voici un exemple d’ID de ressource d’une application web 
+     Voici un exemple d’ID de ressource d’une application web
      
      ```
      /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename
@@ -86,7 +90,7 @@ Pour obtenir des informations complémentaires, vous pouvez à tout moment taper
      Get-AzureRmMetricDefinition -ResourceId <resource_id>
      ```
      
-     L’exemple suivant génère une table avec le nom de la métrique et son unité. 
+     L’exemple suivant génère une table avec le nom de la métrique et son unité.
      
      ```PowerShell
      Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
@@ -99,7 +103,7 @@ Pour obtenir des informations complémentaires, vous pouvez à tout moment taper
     Add-AzureRmMetricAlertRule -Name myMetricRuleWithWebhookAndEmail -Location "East US" -ResourceGroup myresourcegroup -TargetResourceId /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename -MetricName "BytesReceived" -Operator GreaterThan -Threshold 2 -WindowSize 00:05:00 -TimeAggregationOperator Total -Description "alert on any website activity"
    
     ```
-6. Pour créer un webhook ou envoyer un courrier électronique lorsqu’une alerte se déclenche, commencez par créer le message et/ou les webhooks. Puis créez la règle immédiatement après avec la balise -Actions, comme l’indique l’exemple suivant. Vous ne pouvez pas associer un webhook ou des messages électroniques à des règles déjà créées à l’aide de PowerShell. 
+6. Pour créer un webhook ou envoyer un courrier électronique lorsqu’une alerte se déclenche, commencez par créer le message et/ou les webhooks. Puis créez la règle immédiatement après avec la balise -Actions, comme l’indique l’exemple suivant. Vous ne pouvez pas associer un webhook ou des messages électroniques à des règles déjà créées à l’aide de PowerShell.
 
     ```PowerShell
     $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
@@ -109,7 +113,7 @@ Pour obtenir des informations complémentaires, vous pouvez à tout moment taper
     ```
 
 
-1. Pour créer une alerte qui se déclenche selon une condition spécifique dans le journal d’activité, utilisez des commandes au format suivant
+1. Pour créer une alerte qui se déclenche selon une condition spécifique dans le journal d’activité, utilisez des commandes au format suivant
    
     ```PowerShell
     $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
@@ -141,8 +145,11 @@ Pour obtenir des informations complémentaires, vous pouvez à tout moment taper
 * Découvrez plus en détails la [configuration des webhooks dans les alertes](insights-webhooks-alerts.md).
 * Découvrez plus en détails les [runbooks Azure Automation](../automation/automation-starting-a-runbook.md).
 * Consultez une [vue d’ensemble de la collecte des journaux de diagnostic](monitoring-overview-of-diagnostic-logs.md) pour collecter des métriques détaillées à fréquence élevée sur votre service.
-* Consultez une [vue d’ensemble de la collecte des métriques](../azure-portal/insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
+* Consultez une [vue d’ensemble de la collecte des métriques](insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

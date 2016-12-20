@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 08/15/2016
+ms.date: 11/22/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0cac7008f41d8dcff3dde151364ae315a204fdbb
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ecf07295a2e56e1aae8fc8fce77ca219db1f371e
 
 
 ---
@@ -24,10 +24,10 @@ ms.openlocfilehash: 0cac7008f41d8dcff3dde151364ae315a204fdbb
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
-> 
-> 
+>
+>
 
-Découvrez les principes de base [d’Azure Batch][azure_batch] et de la bibliothèque [Batch .NET][net_api] dans cet article où nous décrivons l’application C# étape par étape. Nous allons voir comment l’exemple d’application tire parti du service Batch pour traiter une charge de travail parallèle dans le cloud, ainsi que la façon dont cette application interagit avec [Azure Storage](../storage/storage-introduction.md) pour la gestion intermédiaire et la récupération des fichiers. Vous apprendrez des techniques de flux de travail d’applications Batch les plus répandues. Vous acquerrez une connaissance de base des principaux composants de Batch tels que les travaux, les tâches, les pools et les nœuds de calcul.
+Découvrez les principes de base [d’Azure Batch][azure_batch] et la bibliothèque [Batch .NET][net_api] dans cet article où nous décrivons l’application C# étape par étape. Nous allons voir comment l’exemple d’application tire parti du service Batch pour traiter une charge de travail parallèle dans le cloud, ainsi que la façon dont cette application interagit avec [Azure Storage](../storage/storage-introduction.md) pour la gestion intermédiaire et la récupération des fichiers. Vous allez vous familiariser avec les flux de travail d’application Batch et découvrir une vue d’ensemble des principaux composants de Batch, tels que les travaux, les tâches, les pools et les nœuds de calcul.
 
 ![Flux de travail de la solution Batch (de base)][11]<br/>
 
@@ -41,14 +41,14 @@ Cet article suppose que vous avez acquis une connaissance pratique de C# et Visu
 
 > [!IMPORTANT]
 > Le service Batch ne prend actuellement en charge *que* le type de compte de stockage à **usage général**, comme décrit à l’étape 5, [Création d’un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) dans [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
-> 
-> 
+>
+>
 
 ### <a name="visual-studio"></a>Visual Studio
 Vous devez disposer de **Visual Studio 2015** pour générer l’exemple de projet. Des versions gratuites et d’évaluation de Visual Studio sont accessibles à partir de la page [Vue d’ensemble des produits de Visual Studio 2015][visual_studio].
 
-### <a name="dotnettutorial-code-sample"></a>*DotNetTutorial* 
-L’exemple [DotNetTutorial][github_dotnettutorial] est l’un des nombreux exemples de code disponibles dans le référentiel [azure-batch-samples][github_samples] sur GitHub. Vous pouvez télécharger cet exemple en cliquant sur le bouton **Download ZIP** (Télécharger le fichier ZIP) de la page d’accueil du référentiel ou en cliquant sur le lien de téléchargement direct [azure-batch-samples-master.zip][github_samples_zip]. Après avoir extrait le contenu de ce fichier ZIP, vous trouverez la solution dans le dossier suivant :
+### <a name="dotnettutorial-code-sample"></a>*DotNetTutorial*
+L’exemple [DotNetTutorial][github_dotnettutorial] est l’un des nombreux exemples de code Batch disponibles dans le référentiel [azure-batch-samples][github_samples] sur GitHub. Vous pouvez télécharger tous les exemples en cliquant sur le bouton **Cloner ou télécharger > Télécharger ZIP** de la page d’accueil du référentiel ou en cliquant sur le lien de téléchargement direct [azure-batch-samples-master.zip][github_samples_zip]. Après avoir extrait le contenu de ce fichier ZIP, vous trouverez la solution dans le dossier suivant :
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
@@ -61,20 +61,20 @@ L’exemple de code *DotNetTutorial* est une solution Visual Studio 2015 qui se 
 * **DotNetTutorial** est l’application cliente qui interagit avec les services Batch et Storage pour exécuter une charge de travail parallèle sur des nœuds de calcul (machines virtuelles). DotNetTutorial s’exécute sur votre station de travail locale.
 * **TaskApplication** est le programme qui s’exécute sur les nœuds de calcul dans Azure pour mener à bien l’opération proprement dite. Dans l’exemple, `TaskApplication.exe` analyse le texte d’un fichier téléchargé depuis Stockage Azure (le fichier d’entrée). Ensuite, il génère un fichier texte (fichier de sortie) qui contient une liste des trois mots principaux qui s’affichent dans le fichier d’entrée. Après avoir créé le fichier de sortie, TaskApplication télécharge le fichier dans Azure Storage. Il est ainsi mis à la disposition de l’application cliente pour le téléchargement. TaskApplication s’exécute en parallèle sur plusieurs nœuds de calcul dans le service Batch.
 
-Le diagramme ci-après illustre les principales opérations effectuées par l’application cliente *DotNetTutorial*, ainsi que l’application exécutée par les tâches, *TaskApplication*. Ce flux de travail de base est caractéristique de nombreuses solutions de calcul créées avec Batch. Même s’il ne présente pas toutes les fonctionnalités disponibles dans le service Batch, la quasi-totalité des scénarios Batch comporte des processus similaires.
+Le diagramme ci-après illustre les principales opérations effectuées par l’application cliente *DotNetTutorial*, ainsi que l’application exécutée par les tâches, *TaskApplication*. Ce flux de travail de base est caractéristique de nombreuses solutions de calcul créées avec Batch. Même s’il ne présente pas toutes les fonctionnalités disponibles dans le service Batch, la quasi-totalité des scénarios Batch comporte des processus de ce flux de travail.
 
 ![Exemple de flux de travail Batch][8]<br/>
 
 [**Étape 1.**](#step-1-create-storage-containers) Créer des **conteneurs** dans le Stockage Blob Azure.<br/>
 [**Étape 2.**](#step-2-upload-task-application-and-data-files) Charger les fichiers d’application de tâche et les fichiers d’entrée dans les conteneurs.<br/>
 [**Étape 3.**](#step-3-create-batch-pool) Créer un **pool** Batch.<br/>
-  &nbsp;&nbsp;&nbsp;&nbsp;**3a.** Le pool **StartTask** télécharge les fichiers binaires de tâche (TaskApplication) dans les nœuds lorsque ces derniers rejoignent le pool.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;**3a.** Le pool **StartTask** télécharge les fichiers binaires de tâche (TaskApplication) dans les nœuds lorsque ces derniers rejoignent le pool.<br/>
 [**Étape 4.**](#step-4-create-batch-job) Créer un **travail** Batch.<br/>
 [**Étape 5.**](#step-5-add-tasks-to-job) Ajoutez des **tâches** au travail.<br/>
-  &nbsp;&nbsp;&nbsp;&nbsp;**5a.** Les tâches sont planifiées pour s’exécuter sur des nœuds.<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Chaque tâche télécharge ses données d’entrée depuis Stockage Azure, puis commence l’exécution.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;**5a.** Les tâches sont planifiées pour s’exécuter sur des nœuds.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;**5b.** Chaque tâche télécharge ses données d’entrée depuis Stockage Azure, puis commence l’exécution.<br/>
 [**Étape 6.**](#step-6-monitor-tasks) Surveiller les tâches.<br/>
-  &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Lorsque les tâches sont terminées, les résultats générés sont chargés dans Stockage Azure.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;**6a.** Lorsque les tâches sont terminées, les résultats générés sont chargés dans Stockage Azure.<br/>
 [**Étape 7.**](#step-7-download-task-output)  Télécharger la sortie des tâches à partir de Storage.
 
 Comme indiqué précédemment, certaines solutions Batch ne suivent pas exactement cette procédure et peuvent exécuter de nombreuses autres opérations ; toutefois, l’exemple d’application *DotNetTutorial* illustre les processus fréquemment inclus dans une solution Batch.
@@ -84,7 +84,7 @@ Avant de pouvoir exécuter l’exemple, vous devez spécifier les informations d
 
 Ouvrez `Program.cs` dans le projet *DotNetTutorial* . Ajoutez ensuite vos informations d’identification comme indiqué en haut du fichier :
 
-```
+```csharp
 // Update the Batch and Storage account credential strings below with the values
 // unique to your accounts. These are used when constructing connection strings
 // for the Batch and Storage client objects.
@@ -101,8 +101,8 @@ private const string StorageAccountKey  = "";
 
 > [!IMPORTANT]
 > Comme mentionné ci-dessus, vous devez renseigner les informations d’identification pour un compte de stockage **à usage général** dans Stockage Azure. Vos applications Batch utiliseront Blob Storage dans le compte de stockage **à usage général** . Ne renseignez pas les informations d’identification pour un compte de stockage ayant été créé en sélectionnant *Blob Storage* comme type de compte.
-> 
-> 
+>
+>
 
 Les informations d’identification de votre compte Batch et de votre compte de stockage figurent dans le panneau du compte de chaque service dans le [portail Azure][azure_portal] :
 
@@ -113,8 +113,8 @@ Une fois le projet mis à jour avec vos informations d’identification, cliquez
 
 > [!TIP]
 > Si les packages NuGet ne sont pas restaurés automatiquement ou si vous obtenez des erreurs à la suite de l’échec de la restauration des packages, assurez-vous que le [Gestionnaire de packages NuGet][nuget_packagemgr] est installé. Activez ensuite le téléchargement de packages manquants. Pour plus d’informations sur le téléchargement des packages, voir l’article [Enabling Package Restore During Build][nuget_restore] (Activation de la restauration des packages lors de la génération).
-> 
-> 
+>
+>
 
 Dans les sections suivantes, nous examinons en détail l’exemple d’application en nous servant des opérations qu’elle effectue pour traiter une charge de travail dans le service Batch. Nous vous invitons à vous référer à la solution ouverte dans Visual Studio à mesure que vous progressez dans la lecture de cet article, car certaines lignes de code de cet exemple ne sont pas expliquées ici.
 
@@ -185,8 +185,8 @@ Une fois les conteneurs créés, l’application peut charger les fichiers desti
 
 > [!TIP]
 > L’article [Utilisation du stockage blob à partir de .NET](../storage/storage-dotnet-how-to-use-blobs.md) offre un bon aperçu de l’utilisation des conteneurs de stockage Azure et des objets blob. Il doit se trouver au début de votre liste de lecture lorsque vous commencez à travailler avec le traitement Batch.
-> 
-> 
+>
+>
 
 ## <a name="step-2-upload-task-application-and-data-files"></a>Étape 2 : charger les fichiers d’application de tâche et les fichiers de données
 ![Charger les fichiers d’application de tâche et les fichiers (de données) d’entrée dans les conteneurs][2]
@@ -194,7 +194,7 @@ Une fois les conteneurs créés, l’application peut charger les fichiers desti
 
 Dans le cadre de l’opération de chargement des fichiers, *DotNetTutorial* commence par définir les groupes de chemins d’accès aux fichiers **d’application** et **d’entrée** tels qu’ils existent sur la machine locale. Il télécharge ensuite ces fichiers dans les conteneurs créés à l’étape précédente.
 
-```
+```csharp
 // Paths to the executable and its dependencies that will be executed by the tasks
 List<string> applicationFilePaths = new List<string>
 {
@@ -233,7 +233,7 @@ Le fichier `Program.cs` comprend deux méthodes qui sont impliquées dans le pro
 * `UploadFilesToContainerAsync` : cette méthode renvoie une collection d’objets [ResourceFile][net_resourcefile] (décrits ci-après) et appelle en interne la méthode `UploadFileToContainerAsync` pour charger chaque fichier transmis dans le paramètre *filePaths*.
 * `UploadFileToContainerAsync` : cette méthode procède au chargement des fichiers et crée les objets [ResourceFile][net_resourcefile]. Après le chargement du fichier, la méthode obtient une signature d’accès partagé (SAP) pour le fichier et renvoie un objet ResourceFile qui la représente. Les signatures d’accès partagé sont également décrites ci-dessous.
 
-```
+```csharp
 private static async Task<ResourceFile> UploadFileToContainerAsync(
     CloudBlobClient blobClient,
     string containerName,
@@ -283,8 +283,8 @@ Les signatures d’accès partagé sont des chaînes qui, une fois intégrées �
 
 > [!TIP]
 > Pour en savoir plus sur la sécurisation de l’accès aux données présentes dans votre compte Stockage Azure, consultez la série sur les signatures d’accès partagé en deux parties, [Partie 1 : Présentation du modèle de signature d’accès partagé (SAP)](../storage/storage-dotnet-shared-access-signature-part-1.md) et [Partie 2 : Création et utilisation d’une signature d’accès partagé avec Stockage Blob](../storage/storage-dotnet-shared-access-signature-part-2.md).
-> 
-> 
+>
+>
 
 ## <a name="step-3-create-batch-pool"></a>Étape 3 : créer le pool Batch
 ![Créer un pool Batch][3]
@@ -352,24 +352,24 @@ Lorsque vous créez un pool avec [CreatePool][net_pool_create], vous spécifiez 
 
 > [!IMPORTANT]
 > Les ressources de calcul dans Batch vous sont facturées. Pour réduire les coûts, vous pouvez diminuer la valeur du paramètre `targetDedicated` et la définir sur 1 avant d’exécuter l’exemple.
-> 
-> 
+>
+>
 
 Outre ces propriétés de nœuds physiques, vous pouvez spécifier une tâche [StartTask][net_pool_starttask] pour le pool. La tâche StartTask s’exécute sur chacun des nœuds rejoignant le pool, ainsi qu’à chaque redémarrage d’un nœud. StartTask se révèle particulièrement utile pour l’installation d’applications sur les nœuds de calcul avant l’exécution de tâches. Par exemple, si vos tâches traitent des données à l’aide de scripts Python, vous pouvez utiliser une tâche StartTask pour installer Python sur les nœuds de calcul.
 
-Dans cet exemple d’application, la tâche StartTask copie les fichiers qu’elle a téléchargés à partir du stockage (spécifiés avec la propriété [StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles]) depuis le répertoire de travail de StartTask vers le répertoire partagé accessible à *toutes* les tâches qui s’exécutent sur le nœud. Pour l’essentiel, ceci copie `TaskApplication.exe` et ses dépendances dans le répertoire partagé sur chaque nœud lorsque le nœud rejoint le pool, afin que toutes les tâches qui s’exécutent sur le nœud puissent y accéder.
+Dans cet exemple d’application, la tâche StartTask copie les fichiers qu’elle a téléchargés à partir de Storage (spécifiés avec la propriété [StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles]) depuis le répertoire de travail de StartTask vers le répertoire partagé accessible à *toutes* les tâches qui s’exécutent sur le nœud. Pour l’essentiel, ceci copie `TaskApplication.exe` et ses dépendances dans le répertoire partagé sur chaque nœud lorsque le nœud rejoint le pool, afin que toutes les tâches qui s’exécutent sur le nœud puissent y accéder.
 
 > [!TIP]
 > La fonctionnalité **packages d’application** d’Azure Batch offre une autre manière d’intégrer votre application aux nœuds de calcul d’un pool. Pour plus d’informations, consultez [Déploiement d’applications avec des packages d’applications Azure Batch](batch-application-packages.md) .
-> 
-> 
+>
+>
 
 Notez également que l’extrait de code ci-dessus utilise deux variables d’environnement dans la propriété *CommandLine* de StartTask : `%AZ_BATCH_TASK_WORKING_DIR%` et `%AZ_BATCH_NODE_SHARED_DIR%`. Chaque nœud de calcul au sein d’un pool Batch est automatiquement configuré avec plusieurs variables d’environnement propres au Batch. Tout processus qui est exécuté par une tâche a accès à ces variables d’environnement.
 
 > [!TIP]
 > Pour plus d’informations sur les variables d’environnement disponibles sur les nœuds de calcul d’un pool Batch, ainsi que sur les répertoires de travail de tâche, voir les sections [Paramètres d’environnement des tâches](batch-api-basics.md#environment-settings-for-tasks) et [Fichiers et répertoires](batch-api-basics.md#files-and-directories) de l’article [Présentation des fonctionnalités du service Batch pour les développeurs](batch-api-basics.md).
-> 
-> 
+>
+>
 
 ## <a name="step-4-create-batch-job"></a>Étape 4 : créer un travail Batch
 ![Créer un travail Batch][4]<br/>
@@ -445,8 +445,8 @@ private static async Task<List<CloudTask>> AddTasksAsync(
 
 > [!IMPORTANT]
 > Lorsqu’elles accèdent aux variables d’environnement telles que `%AZ_BATCH_NODE_SHARED_DIR%` ou exécutent une application introuvable dans le `PATH` du nœud, les lignes de commande de tâche doivent être précédées de `cmd /c`. L’interpréteur de commande est ainsi exécuté de façon explicite et reçoit une instruction de s’interrompre après avoir exécuté votre commande. Ceci est inutile si les tâches exécutent une application dans le `PATH` du nœud (comme *robocopy.exe* ou *powershell.exe*) et si aucune variable d’environnement n’est utilisée.
-> 
-> 
+>
+>
 
 Dans la boucle `foreach` de l’extrait de code ci-dessus, vous pouvez remarquer que la ligne de commande de la tâche est construite de façon à transmettre trois arguments à *TaskApplication.exe*:
 
@@ -493,12 +493,12 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 ![Surveiller les tâches][6]<br/>
 *L’application cliente (1) surveille l’état d’achèvement et de réussite des tâches, et (2) les tâches chargent les données de résultat dans Stockage Azure*
 
-Lorsque les tâches sont ajoutées à un travail, elles sont automatiquement mises en file d’attente et planifiées pour s’exécuter sur les nœuds de calcul dans le pool associé au travail. Selon les paramètres que vous spécifiez, Batch gère l’ensemble des opérations de mise en file d’attente, de planification, de ré-exécution et d’administration des tâches à votre intention. Il existe plusieurs approches pour l’exécution de la tâche d’analyse. DotNetTutorial en présente un exemple simple signalant uniquement les états d’achèvement et d’échec ou de réussite des tâches.
+Lorsque les tâches sont ajoutées à un travail, elles sont automatiquement mises en file d’attente et planifiées pour s’exécuter sur les nœuds de calcul dans le pool associé au travail. Selon les paramètres que vous spécifiez, Batch gère l’ensemble des opérations de mise en file d’attente, de planification, de ré-exécution et d’administration des tâches à votre intention.
 
-La méthode `MonitorTasks` du fichier `Program.cs` de DotNetTutorial intègre trois concepts Batch .NET qui sont décrits ci-après. Ils sont répertoriés ci-dessous dans leur ordre d’apparition :
+Il existe plusieurs approches pour l’exécution de la tâche d’analyse. DotNetTutorial en présente un exemple simple signalant uniquement les états d’achèvement et d’échec ou de réussite des tâches. La méthode `MonitorTasks` du fichier `Program.cs` de DotNetTutorial intègre trois concepts Batch .NET qui sont décrits ci-après. Ils sont répertoriés ci-dessous dans leur ordre d’apparition :
 
 1. **ODATADetailLevel** : la spécification d’un élément [ODATADetailLevel][net_odatadetaillevel] dans les opérations de liste (telles que l’obtention d’une liste des tâches d’un travail) est primordiale pour garantir les performances de l’application Batch. Ajoutez l’article [Interroger efficacement le service Azure Batch](batch-efficient-list-queries.md) à votre liste de lecture si vous prévoyez d’effectuer une quelconque surveillance d’état dans vos applications Batch.
-2. **TaskStateMonitor** : l’élément [TaskStateMonitor][net_taskstatemonitor] fournit aux applications Batch .NET des utilitaires d’assistance pour la surveillance des états de tâche. Dans `MonitorTasks`, *DotNetTutorial* attend que toutes les tâches atteignent l’état [TaskState.Completed][net_taskstate] dans un délai spécifique, puis met fin au travail.
+2. **TaskStateMonitor** : l’élément [TaskStateMonitor][net_taskstatemonitor] fournit aux applications Batch .NET des utilitaires d’assistance pour la surveillance des états de tâche. Dans `MonitorTasks`, *DotNetTutorial* attend que toutes les tâches atteignent l’état [TaskState.Completed][net_taskstate] dans un délai spécifique. puis met fin au travail.
 3. **TerminateJobAsync** : l’arrêt d’un travail avec [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (ou avec l’élément de blocage JobOperations.TerminateJob) marque ce travail comme terminé. Cette opération est essentielle si votre solution Batch utilise une tâche [JobReleaseTask][net_jobreltask]. Il s’agit d’un type spécial de tâche, qui est décrit dans [Tâches d’achèvement et de préparation des travaux](batch-job-prep-release.md).
 
 La méthode `MonitorTasks` du fichier `Program.cs` de *DotNetTutorial* s’affiche ci-après :
@@ -627,8 +627,8 @@ private static async Task DownloadBlobsFromContainerAsync(
 
 > [!NOTE]
 > L’appel de `DownloadBlobsFromContainerAsync` dans l’application *DotNetTutorial* indique que les fichiers doivent être téléchargés dans votre dossier `%TEMP%`. Vous pouvez modifier cet emplacement de sortie.
-> 
-> 
+>
+>
 
 ## <a name="step-8-delete-containers"></a>Étape 8 : supprimer les conteneurs
 Dans la mesure où les données qui résident dans Azure Storage vous sont facturées, il est toujours judicieux de supprimer tous les objets blob dont vous n’avez plus besoin pour vos travaux Batch. Dans le fichier `Program.cs` de DotNetTutorial, cette opération est effectuée à l’aide de trois appels de la méthode d’assistance `DeleteContainerAsync` :
@@ -686,11 +686,11 @@ if (response != "n" && response != "no")
 
 > [!IMPORTANT]
 > N’oubliez pas que les ressources de calcul vous sont facturées et que la suppression des pools inutilisés vous permet de réduire les coûts. Tenez également compte du fait que la suppression d’un pool permet la suppression de tous les nœuds de calcul de ce pool, et que toutes les données sur les nœuds seront irrécupérables une fois le pool supprimé.
-> 
-> 
+>
+>
 
 ## <a name="run-the-dotnettutorial-sample"></a>Exécuter l’exemple *DotNetTutorial*
-Lorsque vous exécutez l’exemple d’application, la sortie de la console est identique à ce qui suit. Pendant l’exécution, l’étape `Awaiting task completion, timeout in 00:30:00...` fait l’objet d’une pause correspondant au démarrage des nœuds de calcul du pool. Utilisez le [portail Azure][azure_portal] pour surveiller le pool, les nœuds de calcul, le travail et les tâches pendant et après l’exécution. Utilisez le [portail Azure][azure_portal] ou les [explorateurs de stockage Azure][storage_explorers] pour visualiser les ressources de stockage (conteneurs et objets blob) créées par l’application.
+Lorsque vous exécutez l’exemple d’application, la sortie de la console est identique à ce qui suit. Pendant l’exécution, l’étape `Awaiting task completion, timeout in 00:30:00...` fait l’objet d’une pause correspondant au démarrage des nœuds de calcul du pool. Utilisez le [portail Azure][azure_portal] pour surveiller le pool, les nœuds de calcul, le travail et les tâches pendant et après l’exécution. Utilisez le [portail Azure][azure_portal] ou l’un des [explorateurs Stockage Azure][storage_explorers] disponibles pour visualiser les ressources de stockage (conteneurs et objets blob) créées par l’application.
 
 Le temps d’exécution standard de l’application est **d’environ 5 minutes** lorsque l’application fonctionne dans sa configuration par défaut.
 
@@ -730,7 +730,7 @@ Vous pouvez apporter des modifications à *DotNetTutorial* et à *TaskApplicatio
 
 À présent que vous voici familiarisé avec le flux de travail de base d’une solution Batch, il est temps pour vous d’approfondir les fonctionnalités supplémentaires du service Batch.
 
-* Nous recommandons à tous les nouveaux utilisateurs de Batch de lire l’article [Présentation des fonctionnalités du service Batch pour les développeurs](batch-api-basics.md).
+* Consultez l’article [Présentation des fonctionnalités de présentation d’Azure Batch](batch-api-basics.md) , que nous vous recommandons si vous ne connaissez pas le service.
 * Commencez par les autres articles de développement Batch sous **Développement approfondi** dans le [parcours d’apprentissage Batch][batch_learning_path].
 * Consultez une autre implémentation du traitement de la charge de travail « N premiers mots » en utilisant Batch dans l’exemple [TopNWords][github_topnwords].
 
@@ -787,7 +787,7 @@ Vous pouvez apporter des modifications à *DotNetTutorial* et à *TaskApplicatio
 [4]: ./media/batch-dotnet-get-started/batch_workflow_04_sm.png "Créer un travail Batch"
 [5]: ./media/batch-dotnet-get-started/batch_workflow_05_sm.png "Ajouter des tâches au travail"
 [6]: ./media/batch-dotnet-get-started/batch_workflow_06_sm.png "Surveiller les tâches"
-[7]: ./media/batch-dotnet-get-started/batch_workflow_07_sm.png "Télécharger la sortie des tâches à partir du stockage"
+[7]: ./media/batch-dotnet-get-started/batch_workflow_07_sm.png "Télécharger la sortie des tâches à partir de Storage"
 [8]: ./media/batch-dotnet-get-started/batch_workflow_sm.png "Flux de travail de la solution Batch (diagramme complet)"
 [9]: ./media/batch-dotnet-get-started/credentials_batch_sm.png "Informations d’identification de compte Batch dans le portail"
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Informations d’identification de compte de stockage dans le portail"
@@ -795,6 +795,6 @@ Vous pouvez apporter des modifications à *DotNetTutorial* et à *TaskApplicatio
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

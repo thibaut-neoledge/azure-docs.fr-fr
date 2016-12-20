@@ -1,12 +1,12 @@
 ---
-title: Application Android Azure Active Directory v2.0 | Microsoft Docs
-description: Génération d’une application Android qui connecte les utilisateurs à l’aide de leur compte Microsoft personnel et de leurs comptes professionnel ou scolaire et appelle l’API Graph à l’aide de bibliothèques tierces.
+title: "Application Android Azure Active Directory v2.0 | Microsoft Docs"
+description: "Génération d’une application Android qui connecte les utilisateurs à l’aide de leur compte Microsoft personnel et de leurs comptes professionnel ou scolaire et appelle l’API Graph à l’aide de bibliothèques tierces."
 services: active-directory
-documentationcenter: ''
-author: brandwe
+documentationcenter: 
+author: xerners
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 16294c07-f27d-45c9-833f-7dbb12083794
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: brandwe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 143d72953e84f9ffead2e3c4b0c88b350b824572
+
 
 ---
-# <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v2.0-endpoint"></a>Ajouter l’authentification dans une application Android à l’aide d’une bibliothèque tierce avec l’API Graph à l’aide du point de terminaison v2.0
+# <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Ajouter l’authentification dans une application Android à l’aide d’une bibliothèque tierce avec l’API Graph à l’aide du point de terminaison v2.0
 La plateforme d’identité Microsoft utilise des normes ouvertes telles que OAuth2 et OpenID Connect. Les développeurs peuvent utiliser n’importe quelle bibliothèque qu’ils souhaitent intégrer à nos services. Pour aider les développeurs à utiliser notre plateforme avec d’autres bibliothèques, nous avons rédigé quelques procédures pas à pas comme celle-ci pour présenter la configuration des bibliothèques tierces pour se connecter à la plateforme d’identité de Microsoft. La plupart des bibliothèques qui implémentent [la spécification RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749) peuvent se connecter à la plateforme Microsoft Identity.
 
 Avec l’application créée par cette procédure pas à pas, les utilisateurs peuvent se connecter à leur organisation, puis rechercher eux-mêmes dans leur entreprise à l’aide de l’API Graph.
@@ -36,23 +40,23 @@ Le point de terminaison v2.0 ne prend pas en charge l’intégralité des scéna
 > 
 
 ## <a name="download-the-code-from-github"></a>Téléchargez le code à partir de GitHub
-Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2).  Pour suivre la procédure, vous pouvez [télécharger la structure de l’application au format .zip](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2/archive/skeleton.zip) ou la cloner :
+Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2).  Pour suivre la procédure, vous pouvez [télécharger la structure de l’application au format .zip](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2/archive/skeleton.zip) ou la cloner :
 
 ```
 git clone --branch skeleton git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git
 ```
 
-Vous pouvez aussi simplement télécharger l’exemple et commencer immédiatement :
+Vous pouvez aussi simplement télécharger l’exemple et commencer immédiatement :
 
 ```
 git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git
 ```
 
 ## <a name="register-an-app"></a>Inscription d’une application
-Créez une nouvelle application dans le [Portail d’inscription des applications](https://apps.dev.microsoft.com), ou suivez les étapes détaillées dans [Inscription d’une application avec le point de terminaison v2.0](active-directory-v2-app-registration.md).  Veillez à respecter les points suivants :
+Créez une nouvelle application dans le [Portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), ou suivez les étapes détaillées dans [Inscription d’une application avec le point de terminaison v2.0](active-directory-v2-app-registration.md).  Veillez à respecter les points suivants :
 
 * Copiez **l’ID d’application** affecté à votre application, vous en aurez besoin rapidement.
-* ajouter la plateforme **Mobile** pour votre application ;
+* ajouter la plateforme **Mobile** pour votre application ;
 
 > Remarque : Le portail d’inscription des applications fournit une valeur **URI de redirection** . Toutefois, dans cet exemple, vous devez utiliser la valeur par défaut `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 > 
@@ -116,7 +120,7 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 ## <a name="configure-the-endpoints-of-the-sample"></a>Configurer les points de terminaison de l’exemple
 Maintenant que `oidlib-sample` s’exécute correctement, vous allez modifier quelques points de terminaison pour qu’il fonctionne avec Azure Active Directory.
 
-### <a name="configure-your-client-by-editing-the-oidc_clientconf.xml-file"></a>Configurez votre client en modifiant le fichier oidc_clientconf.xml
+### <a name="configure-your-client-by-editing-the-oidcclientconfxml-file"></a>Configurez votre client en modifiant le fichier oidc_clientconf.xml
 1. Dans la mesure où nous utilisons seulement les flux OAuth2 pour obtenir un jeton et appeler l’API Graph, nous allons définir le client pour OAuth2 seulement. Nous verrons OIDC dans un autre exemple.
    
     ```xml
@@ -148,7 +152,7 @@ Plus d’informations sur toutes les étendues disponibles, consultez [Étendues
 
 Si vous souhaitez des explications sur `openid` ou `offline_access` en tant qu’étendues dans OpenID Connect, consultez [Protocoles 2.0 - Flux du Code d’autorisation OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
-### <a name="configure-your-client-endpoints-by-editing-the-oidc_endpoints.xml-file"></a>Configurez vos points de terminaison clients en modifiant le fichier oidc_endpoints.xml
+### <a name="configure-your-client-endpoints-by-editing-the-oidcendpointsxml-file"></a>Configurez vos points de terminaison clients en modifiant le fichier oidc_endpoints.xml
 * Ouvrez le fichier `oidc_endpoints.xml` et effectuez les modifications suivantes :
   
     ```xml
@@ -164,7 +168,7 @@ Si vous souhaitez des explications sur `openid` ou `offline_access` en tant qu�
 Ces points de terminaison ne doivent jamais changer si vous utilisez OAuth2 comme protocole.
 
 > [!NOTE]
-> Les points de terminaison pour `userInfoEndpoint` et `revocationEndpoint` ne sont actuellement pas pris en charge par Azure Active Directory. Si vous laissez la valeur par défaut exemple.com, vous recevrez un rappel qu’ils ne sont pas disponibles dans l’exemple :-)
+> Les points de terminaison pour `userInfoEndpoint` et `revocationEndpoint` ne sont actuellement pas pris en charge par Azure Active Directory. Si vous laissez la valeur par défaut exemple.com, vous recevrez un rappel qu’ils ne sont pas disponibles dans l’exemple :-)
 > 
 > 
 
@@ -185,6 +189,9 @@ Une fois que vous avez été authentifié, sélectionnez le bouton **Request Pro
 ## <a name="get-security-updates-for-our-product"></a>Obtenir des mises à jour de sécurité pour notre produit
 Nous vous encourageons à activer les notifications d’incidents de sécurité en vous rendant sur [Security TechCenter](https://technet.microsoft.com/security/dd252948) et en vous abonnant aux alertes d’avis de sécurité.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: a7f5894e445cad808f38195838376c620a6b5944
-ms.openlocfilehash: 87fab3c99228f127326609a3e614020a982192f0
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: c0911518e954131f1c8de783d71fb17a9eea1945
 
 ---
 #<a name="documentdb-documentation"></a>Documentation DocumentDB
@@ -176,27 +176,38 @@ Azure DocumentDB est un service de base de données NoSQL entièrement géré, 
 
 ---
 
-## <a name="reference"></a>Référence
-
-### <a name="java"></a>Java
-[Référence du Kit de développement logiciel (SDK) Java](http://azure.github.io/azure-documentdb-java)
-
-### <a name="net"></a>.NET
-[Informations de référence sur l’API managée .NET](https://msdn.microsoft.com/library/azure/dn948556)
-
-### <a name="node"></a>Nœud
-[Référence du Kit de développement logiciel (SDK) Node](http://azure.github.io/azure-documentdb-node/DocumentClient)
-
-### <a name="python"></a>Python
-[Référence Python](http://azure.github.io/azure-documentdb-python/api/pydocumentdb)
-
-### <a name="sql"></a>SQL
-[Référence SQL](https://msdn.microsoft.com/library/azure/dn782250)
-
-### <a name="rest"></a>REST
-[Référence d’API REST](/rest/api/documentdb)
-
-[Référence API Resource Provider](/rest/api/documentdbresourceprovider)
+<h2>Référence</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Langues</h3>
+                        <p><a href="/azure/documentdb/documentdb-sdk-dotnet">.NET</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-dotnet-core">.NET Core</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-java">Java</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-node">Node.js</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-java">Python</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/documentdb/">API REST</a></p>
+                        <p><a href="/rest/api/documentdbresourceprovider/">API REST des fournisseurs de ressources</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 ---
 
@@ -210,6 +221,6 @@ Télécharger la documentation DocumentDB </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

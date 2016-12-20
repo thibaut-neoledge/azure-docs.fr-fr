@@ -1,13 +1,13 @@
 ---
-title: Détection des applications cloud non gérées avec Cloud App Discovery | Microsoft Docs
-description: Fournit une vue d'ensemble de la recherche et de la gestion d'applications avec Cloud App Discovery, ainsi que des informations sur ses avantages et son fonctionnement.
+title: "Détection des applications cloud non gérées avec Cloud App Discovery | Microsoft Docs"
+description: Fournit une vue d&quot;ensemble de la recherche et de la gestion d&quot;applications avec Cloud App Discovery, ainsi que des informations sur ses avantages et son fonctionnement.
 services: active-directory
-keywords: détection d'applications cloud, gestion d'applications
-documentationcenter: ''
+keywords: "détection d&quot;applications cloud, gestion d&quot;applications"
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 011cdf5f1e1b78832a8e4f18f4eef0f376860c45
+
 
 ---
 # <a name="finding-unmanaged-cloud-applications-with-cloud-app-discovery"></a>Détection des applications cloud non gérées avec Cloud App Discovery
@@ -23,10 +27,10 @@ Dans les entreprises modernes, les services informatiques n’ont souvent pas co
 
 Cloud App Discovery est une fonctionnalité Premium d’Azure Active Directory (AD) qui vous permet de détecter les applications cloud utilisées par les membres de votre organisation.
 
-**Avec Cloud App Discovery, vous pouvez :**
+**Avec Cloud App Discovery, vous pouvez :**
 
-* détecter les applications cloud utilisées et mesurer l’utilisation par nombre d’utilisateurs, volume de trafic ou nombre de demandes web à l’application ;
-* identifier les utilisateurs d’une application ;
+* détecter les applications cloud utilisées et mesurer l’utilisation par nombre d’utilisateurs, volume de trafic ou nombre de demandes web à l’application ;
+* identifier les utilisateurs d’une application ;
 * exporter des données pour effectuer une analyse hors ligne ;
 * confier le contrôle de ces applications au service informatique et activer l'authentification unique pour la gestion des utilisateurs.
 
@@ -48,6 +52,9 @@ Pour prendre en main Cloud App Discovery, consultez [Prise en main de Cloud App 
 * [Cloud App Discovery - Forum aux Questions](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

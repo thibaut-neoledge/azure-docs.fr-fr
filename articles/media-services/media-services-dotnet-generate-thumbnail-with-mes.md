@@ -1,12 +1,12 @@
 ---
-title: Génération de miniatures à l’aide de Media Encoder Standard avec .NET
-description: Cette rubrique montre comment utiliser .NET pour coder un élément multimédia tout en générant des miniatures à l’aide de Media Encoder Standard.
+title: "Génération de miniatures à l’aide de Media Encoder Standard avec .NET"
+description: "Cette rubrique montre comment utiliser .NET pour coder un élément multimédia tout en générant des miniatures à l’aide de Media Encoder Standard."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: b8dab73a-1d91-4b6d-9741-a92ad39fc3f7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1c28e756548b69d336b7f66ae9fbfa3c9259f787
+
 
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-.net"></a>Génération de miniatures à l’aide de Media Encoder Standard avec .NET
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Génération de miniatures à l’aide de Media Encoder Standard avec .NET
 Cette rubrique montre comment utiliser le Kit de développement logiciel (SDK) Media Services .NET pour coder un élément multimédia et générer des miniatures à l’aide de Media Encoder Standard. La rubrique définit les présélections de miniatures XML et JSON que vous pouvez utiliser pour créer une tâche de codage et de génération de miniatures en même temps. [Ce](https://msdn.microsoft.com/library/mt269962.aspx) document contient des descriptions d’éléments utilisés par ces présélections.
 
 Assurez-vous d’examiner la section [Considérations](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) .
 
 ## <a name="example"></a>Exemple
-Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
+Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
 
 * Création d’une tâche d’encodage.
 * Obtention d’une référence à l’encodeur Media Encoder Standard.
@@ -168,7 +172,7 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
             }
         }
 
-## <a name="<a-id="json"></a>thumbnail-json-preset"></a><a id="json"></a>JSON de miniature prédéfini
+## <a name="a-idjsonathumbnail-json-preset"></a><a id="json"></a>JSON de miniature prédéfini
 Pour plus d’informations sur le schéma, consultez [cette](https://msdn.microsoft.com/library/mt269962.aspx) rubrique.
 
     {
@@ -270,7 +274,7 @@ Pour plus d’informations sur le schéma, consultez [cette](https://msdn.micros
     }
 
 
-## <a name="<a-id="xml"></a>thumbnail-xml-preset"></a><a id="xml"></a>XML de miniature prédéfini
+## <a name="a-idxmlathumbnail-xml-preset"></a><a id="xml"></a>XML de miniature prédéfini
 Pour plus d’informations sur le schéma, consultez [cette](https://msdn.microsoft.com/library/mt269962.aspx) rubrique.
 
     <?xml version="1.0" encoding="utf-16"?>
@@ -346,20 +350,20 @@ Pour plus d’informations sur le schéma, consultez [cette](https://msdn.micros
     </Preset>
 
 ## <a name="considerations"></a>Considérations
-Les considérations suivantes s'appliquent :
+Les considérations suivantes s'appliquent :
 
-* L’utilisation d’horodatages explicites pour Début/Étape/Plage suppose que la source d’entrée a une longueur minimale de 1 minute.
-* Les éléments Jpg/Png/BmpImage possèdent les attributs de chaîne Start, Step et Range, qui peuvent être interprétés comme suit :
+* L’utilisation d’horodatages explicites pour Début/Étape/Plage suppose que la source d’entrée a une longueur minimale de 1 minute.
+* Les éléments Jpg/Png/BmpImage possèdent les attributs de chaîne Start, Step et Range, qui peuvent être interprétés comme suit :
   
-  * Entiers non négatifs : nombre d’images, par exemple "Start": "120"
-  * Présence du suffixe % : durée par rapport à la source, par exemple "Start": "15%"
+  * Entiers non négatifs : nombre d’images, par exemple "Start": "120"
+  * Présence du suffixe % : durée par rapport à la source, par exemple "Start": "15%"
   * Horodatage, s’il est exprimé au format HH:MM:SS. par exemple "Start": "00: 01:00"
     
     Vous pouvez combiner et apparier les notations à votre guise.
     
-    En outre, Start prend également en charge une macro spéciale, {Best}, qui tente de déterminer la première image de contenu « intéressante ». REMARQUE : Step et Range sont ignorés quand Start a la valeur {Best}.
-  * La configuration par défaut est « Start:{Best} ».
-* Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
+    En outre, Start prend également en charge une macro spéciale, {Best}, qui tente de déterminer la première image de contenu « intéressante ». REMARQUE : Step et Range sont ignorés quand Start est défini sur {Best}.
+  * La configuration par défaut est « Start:{Best} ».
+* Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -370,6 +374,9 @@ Les considérations suivantes s'appliquent :
 ## <a name="see-also"></a>Voir aussi
 [Vue d’ensemble de l’encodage de Media Services](media-services-encode-asset.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

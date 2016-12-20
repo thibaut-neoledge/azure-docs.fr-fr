@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 77ca34a56a827e8a69ab9a2b60d14cc7c7a71bfc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 93e02bc36c0502623316d6b896dd802ac8bdc284
 
 
 ---
@@ -126,7 +126,7 @@ Si vous souhaitez en savoir plus sur les données utilisées par la réinitialis
 ### <a name="step-3-reset-your-azure-ad-password-as-a-user"></a>Étape 3 : réinitialisation de votre mot de passe Azure AD en tant qu’utilisateur
 Maintenant que vous avez configuré une stratégie de réinitialisation utilisateur et indiqué les informations de contact de votre utilisateur, celui-ci peut effectuer une réinitialisation de mot de passe libre-service.
 
-#### <a name="to-perform-a-selfservice-password-reset"></a>Pour effectuer une réinitialisation de mot de passe libre-service
+#### <a name="to-perform-a-self-service-password-reset"></a>Pour effectuer une réinitialisation de mot de passe libre-service
 1. Si vous accédez à un site comme [**portal.microsoftonline.com**](http://portal.microsoftonline.com), un écran de connexion semblable à celui ci-dessous s’affiche.  Cliquez sur le lien **Votre compte n’est pas accessible ?** pour tester l’interface utilisateur de réinitialisation du mot de passe.
    
    ![][011]
@@ -365,6 +365,6 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

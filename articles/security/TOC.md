@@ -33,12 +33,10 @@
 ### [Meilleures pratiques et tendances relatives à la sécurité](security-best-practices-and-patterns.md)
 ### [Création de l’architecture d’applications résilientes](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
-# Référence
+# Rubriques connexes
 ## [Centre de gestion de la confidentialité](security-microsoft-trust-center.md)
 ## [Centre de réponse aux problèmes de sécurité Microsoft](azure-security-response-center.md)
 ## [Test de pénétration](azure-security-pen-testing.md)
-
-# Rubriques connexes
 ## [Centre de sécurité](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
 ## [Key Vault](../key-vault/key-vault-whatis.md)
 ## [Log Analytics](../log-analytics/log-analytics-overview.md)
@@ -52,6 +50,7 @@
 ## [Cours sur la sécurité proposés par Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Vidéos traitant de la sécurité sur Channel 9](security-channel-nine.md)
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO1-->
 
 

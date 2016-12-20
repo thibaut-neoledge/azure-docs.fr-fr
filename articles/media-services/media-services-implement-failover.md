@@ -1,12 +1,12 @@
 ---
-title: Implémentation d’un scénario de basculement de diffusion en continu | Microsoft Docs
-description: Cette rubrique montre comment implémenter un scénario de basculement de diffusion en continu.
+title: "Implémentation d’un scénario de basculement de diffusion en continu | Microsoft Docs"
+description: "Cette rubrique montre comment implémenter un scénario de basculement de diffusion en continu."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: fc45d849-eb0d-4739-ae91-0ff648113445
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 95447f7b77297fbcdf5b01408543b0787fc42081
+
 
 ---
 # <a name="implementing-failover-streaming-scenario"></a>Implémentation d’un scénario de basculement de diffusion en continu
@@ -39,7 +43,7 @@ Ensuite, pour gérer le basculement :
 
 Ensuite, pour gérer les éventuelles pannes, vous pouvez créer un CDN par-dessus ces localisateurs d'origine. 
 
-Les considérations suivantes s'appliquent :
+Les considérations suivantes s'appliquent :
 
 * La version actuelle de Media Services SDK ne prend pas en charge la création d'un localisateur avec un ID de localisateur spécifié. Pour effectuer cette tâche, nous utiliserons Media Services REST API.
 * La version actuelle de Media Services SDK ne prend pas en charge la génération automatique des informations IAssetFile permettant d’associer une ressource à des fichiers de ressources. Pour effectuer cette tâche, nous utiliserons l'API REST CreateFileInfos Media Services. 
@@ -51,10 +55,10 @@ Les considérations suivantes s'appliquent :
 > 
 > 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 * Deux comptes Media Services dans un abonnement Azure nouveau ou existant. Consultez [Comment créer un compte Media Services](media-services-portal-create-account.md).
-* Systèmes d'exploitation : Windows 7, Windows 2008 R2 ou Windows 8.
-* .NET Framework 4.5 ou .NET Framework 4.
+* Systèmes d'exploitation : Windows 7, Windows 2008 R2 ou Windows 8.
+* .NET Framework 4.5 ou .NET Framework 4.
 * Visual Studio 2010 SP1 ou version ultérieure (Professional, Premium, Ultimate ou Express).
 
 ## <a name="set-up-your-project"></a>Configuration de votre projet
@@ -63,8 +67,8 @@ Dans cette section, vous aller créer et configurer un projet d'application cons
 1. Utilisez Visual Studio pour créer une solution qui contient le projet d'application console C#. Entrez le nom HandleRedundancyForOnDemandStreaming, puis cliquez sur OK.
 2. Créez le dossier SupportFiles au même niveau que le fichier de projet HandleRedundancyForOnDemandStreaming.csproj. Sous le dossier SupportFiles, créez les dossiers OutputFiles et MP4Files. Copiez un fichier .mp4 dans le dossier MP4Files (dans cet exemple, le fichier BigBuckBunny.mp4 est utilisé). 
 3. Utilisez **Nuget** pour ajouter des références aux DLL associées à Media Services. Dans le menu principal de Visual Studio, sélectionnez OUTILS -> Gestionnaire de package de bibliothèques -> Console du Gestionnaire de package. Dans la fenêtre de la console, tapez Install-Package windowsazure.mediaservices, puis appuyez sur Entrée.
-4. Ajoutez les autres références requises pour ce projet : System.Configuration, System.Runtime.Serialization et System.Web.
-5. Remplacez les instructions using qui ont été ajoutées au fichier Programs.cs par défaut par les suivantes :
+4. Ajoutez les autres références requises pour ce projet : System.Configuration, System.Runtime.Serialization et System.Web.
+5. Remplacez les instructions using qui ont été ajoutées au fichier Programs.cs par défaut par les suivantes :
    
         using System;
         using System.Configuration;
@@ -96,8 +100,8 @@ Dans cette section, vous aller créer et configurer un projet d'application cons
           <add key="MediaServicesStorageAccountKeyTarget" value=" Media-Services-Storage-Account-Key-Target" />
         </appSettings>
 
-## <a name="add-code-that-handles-redundancy-for-on-demand-streaming."></a>Ajoutez le code qui gère la redondance pour la diffusion en continu à la demande.
-1. Ajoutez les champs de niveau classe à la classe Program :
+## <a name="add-code-that-handles-redundancy-for-on-demand-streaming"></a>Ajoutez le code qui gère la redondance pour la diffusion en continu à la demande.
+1. Ajoutez les champs de niveau classe à la classe Program :
    
         // Read values from the App.config file.
         private static readonly string MediaServicesAccountNameSource = ConfigurationManager.AppSettings["MediaServicesAccountNameSource"];
@@ -123,7 +127,7 @@ Dans cette section, vous aller créer et configurer un projet d'application cons
         static private CloudMediaContext _contextTarget = null;
         static private MediaServicesCredentials _cachedCredentialsSource = null;
         static private MediaServicesCredentials _cachedCredentialsTarget = null;
-2. Remplacez la définition de la méthode Main par défaut  par l’un des éléments suivants :
+2. Remplacez la définition de la méthode Main par défaut  par l’un des éléments suivants :
    
         static void Main(string[] args)
         {
@@ -957,6 +961,9 @@ Vous pouvez désormais utiliser un gestionnaire de trafic pour acheminer les dem
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

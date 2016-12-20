@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5fa7882653d6a41376cffb0eaca78c8d05044dc2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b3dadee1ea8d1ff4a0164a90eb617f9d276b6670
 
 
 ---
-# <a name="getting-started-with-an-azure-multifactor-auth-provider"></a>Prise en main du fournisseur Azure Multi-Factor Auth
+# <a name="getting-started-with-an-azure-multi-factor-auth-provider"></a>Prise en main du fournisseur Azure Multi-Factor Auth
 La vérification en deux étapes est disponible par défaut pour les administrateurs généraux disposant d’Azure Active Directory et les utilisateurs Office 365. Toutefois, si vous souhaitez tirer parti des [fonctionnalités avancées](multi-factor-authentication-whats-next.md), vous devez acheter la version complète d’Azure Multi-Factor Authentication (MFA).
 
 > [!NOTE]
@@ -35,7 +35,7 @@ Il sera en revanche nécessaire si vous souhaitez télécharger le Kit de dével
 > 
 > 
 
-## <a name="to-create-a-multifactor-auth-provider"></a>Pour créer un fournisseur Multi-Factor Auth
+## <a name="to-create-a-multi-factor-auth-provider"></a>Pour créer un fournisseur Multi-Factor Auth
 Suivez les étapes ci-dessous pour créer un fournisseur Azure Multi-Factor Auth.
 
 1. Connectez-vous en tant qu’administrateur au [portail Azure Classic](https://manage.windowsazure.com).
@@ -64,6 +64,6 @@ Suivez les étapes ci-dessous pour créer un fournisseur Azure Multi-Factor Auth
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

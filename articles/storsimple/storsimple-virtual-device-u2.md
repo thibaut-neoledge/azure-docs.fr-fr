@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/23/2016
+ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4582e81a0d2e7bf5be401e72885e2ee751087cf5
+ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
+ms.openlocfilehash: 40ae0d242968db83c4d4d04452fbfd93559af31e
 
 
 ---
@@ -33,7 +33,7 @@ L’appareil virtuel StorSimple est disponible en deux modèles, un 8010 Standar
 | **Microsoft Azure** |Standard_A3 (4 cœurs, 7 Go de mémoire) |Standard_DS3 (4 cœurs, 14 Go de mémoire) |
 | **Compatibilité des versions** |Les versions exécutant une version antérieure de la mise à jour préliminaire 2 ou version ultérieure |Les versions exécutant Update 2 ou version ultérieure |
 | **Disponibilité des régions** |Toutes les régions Azure |Régions Azure qui prennent en charge Premium Storage<br></br>Pour obtenir la liste des régions, consultez [Régions prises en charge pour 8020](#supported-regions-for-8020) |
-| **Type de stockage** |Utilise le stockage Azure Standard pour les disques locaux<br></br> Découvrez comment [créer un compte de stockage Standard]() |Utilise le stockage Azure Standard pour les disques locaux<sup>2</sup> <br></br>Découvrez comment [créer un compte de stockage Premium](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
+| **Type de stockage** |Utilise le stockage Azure Standard pour les disques locaux<br></br> Découvrez comment [créer un compte de stockage Standard](../storage/storage-create-storage-account.md) |Utilise le stockage Azure Standard pour les disques locaux<sup>2</sup> <br></br>Découvrez comment [créer un compte de stockage Premium](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **Aide relative à la charge de travail** |Récupération au niveau des éléments des fichiers à partir de sauvegardes |Scénarios de développement et de test dans le cloud, faible latence, charges de travail plus performantes <br></br>Appareil secondaire pour la récupération d’urgence |
 
 <sup>1</sup> *Anciennement, 1100*.
@@ -41,7 +41,7 @@ L’appareil virtuel StorSimple est disponible en deux modèles, un 8010 Standar
 <sup>2</sup> *Le 8010 et la 8020 utilisent tous deux le stockage Azure Standard pour le niveau cloud. La différence existe uniquement au niveau local au sein de l’appareil*.
 
 #### <a name="supported-regions-for-8020"></a>Régions prises en charge pour 8020
-Les régions Premium Storage actuellement prises en charge pour 8020 sont indiquées dans le tableau ci-dessous. Cette liste est mise à jour chaque fois que Premium Storage est disponible dans une nouvelle région. 
+Les régions Premium Storage actuellement prises en charge pour 8020 sont indiquées dans le tableau ci-dessous. Cette liste est mise à jour chaque fois que Premium Storage est disponible dans une nouvelle région.
 
 | S. num. | Actuellement pris en charge dans les régions |
 | --- | --- |
@@ -68,7 +68,7 @@ Cet article décrit le processus de déploiement pas à pas d'un appareil virtue
 * de vous connecter à l’appareil virtuel ;
 * d’utiliser l’appareil virtuel.
 
-Ce didacticiel s’applique à tous les appareils virtuels StorSimple exécutant Update 2 ou une version ultérieure. 
+Ce didacticiel s’applique à tous les appareils virtuels StorSimple exécutant Update 2 ou une version ultérieure.
 
 ## <a name="how-the-virtual-device-differs-from-the-physical-device"></a>Différences entre l’appareil virtuel et l’appareil physique
 L’appareil virtuel StorSimple est une version logicielle de StorSimple qui s’exécute sur un seul nœud dans une machine virtuelle Microsoft Azure. L’appareil virtuel prend en charge les scénarios de récupération d’urgence dans lesquels votre appareil physique n’est pas disponible. Il est approprié pour une utilisation dans les scénarios de récupération au niveau des éléments à partir de sauvegardes, de récupération d’urgence en local, et de développement et de test dans le cloud.
@@ -91,9 +91,9 @@ Avant d’approvisionner l’appareil virtuel, vous devez effectuer les prépara
 
 * Pour l’appareil virtuel, [configurez un réseau virtuel sur Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Si vous utilisez le stockage Premium, vous devez créer un réseau virtuel dans une région Azure qui prend en charge le stockage Premium. Plus d’informations sur les [régions actuellement prises en charge pour 8020](#supported-regions-for-8020).
 * Il est recommandé d’utiliser le serveur DNS par défaut fourni par Azure au lieu de spécifier le nom de votre propre serveur DNS. Si le nom de votre serveur DNS n'est pas valide ou si le serveur DNS n'est pas en mesure de résoudre correctement les adresses IP, la création de l'appareil virtuel échoue.
-* Les options de point à site et de site à site sont facultatives (non obligatoires). Si vous le souhaitez, vous pouvez configurer ces options pour des scénarios plus avancés. 
-* Vous pouvez créer des [Machines virtuelles Azure](../virtual-machines/virtual-machines-linux-about.md) (serveurs hôtes) dans le réseau virtuel qui peut utiliser les volumes exposés par l’appareil virtuel. Ces serveurs doivent répondre aux exigences suivantes :                             
-  
+* Les options de point à site et de site à site sont facultatives (non obligatoires). Si vous le souhaitez, vous pouvez configurer ces options pour des scénarios plus avancés.
+* Vous pouvez créer des [Machines virtuelles Azure](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (serveurs hôtes) dans le réseau virtuel qui peut utiliser les volumes exposés par l’appareil virtuel. Ces serveurs doivent répondre aux exigences suivantes :                             
+
   * Il doit s’agir de machines virtuelles Windows ou Linux sur lesquelles l’initiateur iSCSI est installé.
   * Ils doivent être en cours d’exécution dans le même réseau virtuel que l’appareil virtuel.
   * Ils doivent être en mesure de se connecter à la cible iSCSI de l’appareil virtuel via l’adresse IP interne de ce dernier.
@@ -103,7 +103,7 @@ Avant d’approvisionner l’appareil virtuel, vous devez effectuer les prépara
 Apportez les mises à jour suivantes à votre service Azure StorSimple avant de créer un appareil virtuel :
 
 * Ajoutez des [enregistrements de contrôle d’accès](storsimple-manage-acrs.md) pour les machines virtuelles qui vont être les serveurs hôtes de votre appareil virtuel.
-* Utilisez un [compte de stockage](storsimple-manage-storage-accounts.md#add-a-storage-account) dans la même région que l’appareil virtuel. Des comptes de stockage dans différentes régions peuvent entraîner une dégradation des performances. Vous pouvez utiliser un compte de stockage Standard ou Premium avec l’appareil virtuel. Plus d’informations sur la création d’un [compte de stockage Standard]() ou d’un [compte de stockage Premium](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
+* Utilisez un [compte de stockage](storsimple-manage-storage-accounts.md#add-a-storage-account) dans la même région que l’appareil virtuel. Des comptes de stockage dans différentes régions peuvent entraîner une dégradation des performances. Vous pouvez utiliser un compte de stockage Standard ou Premium avec l’appareil virtuel. Plus d’informations sur la création d’un [compte de stockage Standard]((../storage/storage-create-storage-account.md) ou d’un [compte de stockage Premium](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
 * Utilisez un compte de stockage différent pour la création de l’appareil virtuel de celui utilisé pour vos données. L’utilisation du même compte de stockage peut entraîner une dégradation des performances.
 
 Assurez-vous de disposer des informations suivantes avant de commencer :
@@ -112,9 +112,9 @@ Assurez-vous de disposer des informations suivantes avant de commencer :
 * Une copie de la clé de chiffrement de données de service de votre appareil physique.
 
 ## <a name="create-and-configure-the-virtual-device"></a>Création et configuration de l’appareil virtuel
-Avant d’effectuer ces procédures, assurez-vous que vous avez rempli les [conditions requises pour l’appareil virtuel](#prerequisites-for-the-virtual-device). 
+Avant d’effectuer ces procédures, assurez-vous que vous avez rempli les [conditions requises pour l’appareil virtuel](#prerequisites-for-the-virtual-device).
 
-Après avoir créé un réseau virtuel, configuré un service StorSimple Manager et inscrit votre appareil physique StorSimple auprès du service, vous pouvez suivre les étapes suivantes pour créer et configurer un appareil virtuel StorSimple. 
+Après avoir créé un réseau virtuel, configuré un service StorSimple Manager et inscrit votre appareil physique StorSimple auprès du service, vous pouvez suivre les étapes suivantes pour créer et configurer un appareil virtuel StorSimple.
 
 ### <a name="step-1-create-a-virtual-device"></a>Étape 1 : création d'un appareil virtuel
 Procédez comme suit pour créer l’appareil virtuel StorSimple.
@@ -127,6 +127,7 @@ Si la création de l’appareil virtuel échoue au cours de cette étape, vous n
 Avant de commencer cette procédure, assurez-vous que vous disposez d’une copie de la clé de chiffrement des données de service. Cette clé de chiffrement a été créée lorsque vous avez configuré votre premier appareil StorSimple et que vous avez été invité à l’enregistrer dans un emplacement sécurisé. Si vous n’avez pas de copie de la clé de chiffrement des données de service, vous devez contacter le support technique de Microsoft pour obtenir de l’aide.
 
 Procédez comme suit pour configurer et inscrire l’appareil virtuel StorSimple.
+
 [!INCLUDE [Configure and register a virtual device](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### <a name="step-3-optional-modify-the-device-configuration-settings"></a>Étape 3 : (facultatif) modification des paramètres de configuration de l’appareil
@@ -143,8 +144,8 @@ Le Gestionnaire d’instantanés StorSimple réside sur l’ordinateur hôte Win
 
 > [!NOTE]
 > Pour l’appareil virtuel, l’ordinateur hôte Windows est une machine virtuelle Azure.
-> 
-> 
+>
+>
 
 Lorsque vous configurez un appareil dans le Gestionnaire d’instantanés StorSimple, vous devez fournir l’adresse IP et le mot de passe de l’appareil StorSimple pour authentifier votre appareil de stockage. Pour obtenir la procédure détaillée, consultez la rubrique [Configuration du mot de passe de gestionnaire d'instantanés StorSimple](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password).
 
@@ -166,13 +167,13 @@ Après avoir activé la gestion à distance dans la page de configuration de l�
 
 > [!WARNING]
 > **Pour renforcer la sécurité, nous vous recommandons d’utiliser le protocole HTTPS lors de la connexion aux points de terminaison et de supprimer ces derniers à la fin de la session à distance PowerShell.**
-> 
-> 
+>
+>
 
 Vous devez respecter les procédures de la rubrique [Connexion à distance à votre appareil StorSimple](storsimple-remote-connect.md) afin de configurer la communication à distance pour votre appareil virtuel.
 
 ## <a name="connect-directly-to-the-virtual-device"></a>Se connecter directement à l’appareil virtuel
-Vous pouvez également vous connecter directement à l’appareil virtuel. Si vous souhaitez vous connecter directement à l’appareil virtuel à partir d’un autre ordinateur en dehors du réseau virtuel ou de l’environnement Microsoft Azure, vous devez créer des points de terminaison supplémentaires comme décrit dans la procédure suivante. 
+Vous pouvez également vous connecter directement à l’appareil virtuel. Si vous souhaitez vous connecter directement à l’appareil virtuel à partir d’un autre ordinateur en dehors du réseau virtuel ou de l’environnement Microsoft Azure, vous devez créer des points de terminaison supplémentaires comme décrit dans la procédure suivante.
 
 Procédez comme suit pour créer un point de terminaison public sur l’appareil virtuel :
 
@@ -226,8 +227,8 @@ La récupération d’urgence est un des scénarios clés pour lequel l’appare
 > [!NOTE]
 > * Lorsque vous utilisez un appareil virtuel en tant qu’appareil secondaire pour la récupération d'urgence, n'oubliez pas que le modèle 8 010 dispose de 30 To de stockage Standard et que le modèle 8 020 dispose de 64 To de stockage Premium. La capacité de l’appareil virtuel 8 020, qui est plus importante, peut être plus adaptée à un scénario de récupération d'urgence.
 > * Vous ne pouvez pas effectuer un basculement ou un clonage à partir d’un appareil exécutant Update 2 sur un appareil exécutant un logiciel de la mise à jour préliminaire 1. Vous pouvez toutefois basculer un appareil exécutant Update 2 vers un appareil exécutant Update 1 (1.1 ou 1.2)
-> 
-> 
+>
+>
 
 Pour une procédure pas à pas, consultez la rubrique [Basculement vers un appareil virtuel](storsimple-device-failover-disaster-recovery.md#fail-over-to-a-storsimple-virtual-device).
 
@@ -244,21 +245,20 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
 La création d’un appareil virtuel échoue si vous ne disposez d’aucune connectivité à Internet. Pour déterminer si le problème est lié à la connectivité Internet, procédez comme suit dans le portail Azure Classic :
 
 1. Créez une machine virtuelle Windows Server 2012 dans Azure. Cette machine virtuelle doit utiliser le même compte de stockage, le même réseau virtuel et le même sous-réseau que ceux utilisés par votre appareil virtuel. Si vous disposez déjà d’un hôte Windows Server dans Azure en utilisant le même compte de stockage, le même réseau virtuel et le même sous-réseau, vous pouvez également l’utiliser pour résoudre vos problèmes de connectivité Internet.
-2. Connectez-vous à distance à la machine virtuelle créée à l’étape précédente. 
+2. Connectez-vous à distance à la machine virtuelle créée à l’étape précédente.
 3. Ouvrez une fenêtre de commande à l’intérieur de la machine virtuelle (Win + R, puis tapez `cmd`).
 4. À l’invite, entrez la commande suivante :
-   
+
     `nslookup windows.net`
-5. Si `nslookup` échoue, l’échec de la connectivité Internet empêche l’appareil virtuel de s’inscrire au service StorSimple Manager. 
+5. Si `nslookup` échoue, l’échec de la connectivité Internet empêche l’appareil virtuel de s’inscrire au service StorSimple Manager.
 6. Apportez les modifications requises à votre réseau virtuel pour vous assurer que l’appareil virtuel est en mesure d’accéder aux sites Azure tels que « windows.net ».
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [utiliser le service StorSimple Manager pour gérer un appareil virtuel](storsimple-manager-service-administration.md).
-* Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md). 
+* Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Procédures pas à pas du processus Team Data Science Process | Microsoft Docs
-description: Les procédures pas à pas montrent comment combiner les outils et services dans le cloud et sur site dans un flux de travail ou un pipeline pour créer une application intelligente.
+title: "Procédures pas à pas du processus Team Data Science Process | Microsoft Docs"
+description: "Les procédures pas à pas montrent comment combiner les outils et services dans le cloud et sur site dans un flux de travail ou un pipeline pour créer une application intelligente."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: aa63d5a5-25ee-4c4b-9a4c-7553b98d7f6e
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fde069560d53c5b5010bbb59b52d60a6971d8dac
+
 
 ---
 # <a name="team-data-science-process-walkthroughs"></a>Procédures pas à pas du processus TDSP (Team Data Science Process)
@@ -46,9 +50,12 @@ La procédure pas à pas [Data Science End-to-End Walkthrough using SQL Server R
 ## <a name="use-t-sql-with-sql-server-r-services"></a>Utiliser T-SQL avec les services SQL Server R
 La procédure pas à pas [In-Database Advanced Analytics for SQL Developers](https://msdn.microsoft.com/library/mt683480.aspx) (Analyses avancées des bases de données pour les développeurs SQL) fournit aux programmeurs SQL une expérience pour créer une solution d’analyse avancée avec Transact-SQL à l’aide des services SQL Server R pour faire fonctionner une solution R.
 
-## <a name="what's-next?"></a>Et ensuite ?
+## <a name="whats-next"></a>Et ensuite ?
 Pour une vue d’ensemble des rubriques qui vous guident à travers les tâches qui constituent le processus de science des données dans Azure, consultez [Processus de sciences des données](http://aka.ms/datascienceprocess). 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

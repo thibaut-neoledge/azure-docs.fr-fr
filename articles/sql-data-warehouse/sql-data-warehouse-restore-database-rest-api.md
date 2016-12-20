@@ -1,12 +1,12 @@
 ---
-title: Restauration d’un Azure SQL Data Warehouse (API REST) | Microsoft Docs
-description: Tâches d’API REST permettant de restaurer un Azure SQL Data Warehouse.
+title: "Restauration d’un entrepôt Azure SQL Data Warehouse (API REST) | Microsoft Docs"
+description: "Tâches d’API REST permettant de restaurer un Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: Lakshmi1812
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: fca922c6-b675-49c7-907e-5dcf26d451dd
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eed4442c5bd7a955e8d380bcb84cd62cd07eca05
+
 
 ---
 # <a name="restore-an-azure-sql-data-warehouse-rest-api"></a>Restauration d’un Azure SQL Data Warehouse (API REST)
@@ -34,8 +38,8 @@ Dans cet article, vous allez apprendre à restaurer un Azure SQL Data Warehouse 
 Pour restaurer une base de données :
 
 1. Suivez la procédure d’obtention de la liste des points de restauration de la base de données.
-2. Lancez la restauration en suivant la procédure [Création d’une demande de restauration de base de données][Création d’une demande de restauration de base de données] .
-3. Surveillez l’état de la restauration en suivant la procédure [Statut d’opération de base de données][Statut d’opération de base de données] .
+2. Lancez la restauration en suivant la procédure [Création d’une demande de restauration de base de données][Création d’une demande de restauration de base de données].
+3. Surveillez l’état de la restauration en suivant la procédure [Statut d’opération de base de données][Statut d’opération de base de données].
 
 > [!NOTE]
 > Une fois la restauration terminée, vous pouvez configurer votre base de données restaurée en suivant les instructions de la section [Configurer votre base de données après récupération][Configurer votre base de données après récupération].
@@ -43,27 +47,27 @@ Pour restaurer une base de données :
 > 
 
 ## <a name="restore-a-deleted-database"></a>restauration d’une base de données supprimée.
-Pour restaurer une base de données supprimée :
+Pour restaurer une base de données supprimée :
 
-1. Obtenez la liste de toutes vos bases de données supprimées pouvant être restaurées en suivant la procédure [Liste des bases de données supprimées pouvant être restaurées][Liste des bases de données supprimées pouvant être restaurées] .
-2. Obtenez des informations détaillées sur la base de données que vous voulez restaurer en suivant la procédure [Obtention de base de données supprimée pouvant être restaurée][Obtention de base de données supprimée pouvant être restaurée] .
-3. Lancez la restauration en suivant la procédure [Création d’une demande de restauration de base de données][Création d’une demande de restauration de base de données] .
-4. Surveillez l’état de la restauration en suivant la procédure [Statut d’opération de base de données][Statut d’opération de base de données] .
+1. Obtenez la liste de toutes vos bases de données supprimées pouvant être restaurées en suivant la procédure [Liste des bases de données supprimées pouvant être restaurées][Liste des bases de données supprimées pouvant être restaurées].
+2. Obtenez des informations détaillées sur la base de données que vous voulez restaurer en suivant la procédure [Obtention de base de données supprimée pouvant être restaurée][Obtention de base de données supprimée pouvant être restaurée].
+3. Lancez la restauration en suivant la procédure [Création d’une demande de restauration de base de données][Création d’une demande de restauration de base de données].
+4. Surveillez l’état de la restauration en suivant la procédure [Statut d’opération de base de données][Statut d’opération de base de données].
 
 > [!NOTE]
-> Pour configurer votre base de données une fois la restauration terminée, consultez la page [Configurer votre base de données après récupération][Configurer votre base de données après récupération]. 
+> Pour configurer votre base de données une fois la restauration terminée, consultez la page [Configurer votre base de données après récupération][Configurer votre base de données après récupération].
 > 
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions de Base de données SQL Azure, voir [Vue d’ensemble de la continuité des activités de la base de données SQL Azure][Vue d’ensemble de la continuité des activités de la base de données SQL Azure].
+Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions d’Azure SQL Database, voir [Vue d’ensemble de la continuité des activités de la base de données SQL Azure][Vue d’ensemble de la continuité des activités de la base de données SQL Azure].
 
 <!--Image references-->
 
 <!--Article references-->
-[Vue d’ensemble de la continuité des activités de la base de données SQL Azure]: ./sql-database-business-continuity.md
+[Vue d’ensemble de la continuité des activités de la base de données SQL Azure]: ../sql-database/sql-database-business-continuity.md
 [Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
-[Configurer votre base de données après récupération]: ./sql-database-disaster-recovery.md#configure-your-database-after-recovery
+[Configurer votre base de données après récupération]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 [Installation et configuration d’Azure PowerShell]: ./powershell-install-configure.md
 [Vue d'ensemble]: ./sql-data-warehouse-restore-database-overview.md
 [Portail]: ./sql-data-warehouse-restore-database-portal.md
@@ -83,6 +87,6 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

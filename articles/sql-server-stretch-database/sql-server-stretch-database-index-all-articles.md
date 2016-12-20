@@ -1,12 +1,12 @@
 ---
 title: Toutes les rubriques pour le service SQL Server Stretch Database | Microsoft Docs
-description: Tableau de toutes les rubriques du service Azure nommé SQL Server Stretch Database qui existent sur http://azure.microsoft.com/documentation/articles/, titre et description.
+description: "Tableau de toutes les rubriques du service Azure nommé SQL Server Stretch Database qui existent sur http://azure.microsoft.com/documentation/articles/, titre et description."
 services: sql-server-stretch-database
-documentationcenter: ''
+documentationcenter: 
 author: DouglasL
 manager: jhubbard
 editor: MightyPen
-
+ms.assetid: b1718024-84d6-4f5c-a912-3a99edb3f632
 ms.service: sql-server-stretch-database
 ms.workload: sql-server-stretch-database
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: DouglasL
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 33f23d324a843165d7fe6016ee626e369acfc958
+
 
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Toutes les rubriques pour le service Azure SQL Server Stretch Database
@@ -54,6 +58,9 @@ Cette rubrique répertorie toutes les rubriques qui s’appliquent directement a
 | 14 |[Sauvegarder des bases de données Stretch](sql-server-stretch-database-backup.md) |Découvrez comment sauvegarder des bases de données Stretch. |
 | 15 |[Restaurer des bases de données Stretch](sql-server-stretch-database-restore.md) |Découvrez comment restaurer des bases de données Stretch. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

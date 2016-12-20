@@ -1,19 +1,23 @@
 ---
-title: Intégrations partenaires d’Azure Monitor | Microsoft Docs
-description: Découvrez-en plus sur les partenaires Azure Monitor et comment vous pouvez accéder à la documentation pour les intégrer.
+title: "Intégrations partenaires d’Azure Monitor | Microsoft Docs"
+description: "Découvrez-en plus sur les partenaires Azure Monitor et comment vous pouvez accéder à la documentation pour les intégrer."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 01ee13ac-66fc-4edc-8b0c-32f69b986a26
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 10/31/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8a971b0dc1f216deaa93045857d6220d0fcbf8c1
+
 
 ---
 # <a name="azure-monitor-partner-integrations"></a>Intégrations partenaires d’Azure Monitor
@@ -25,17 +29,19 @@ ms.author: johnkem
 | [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |[![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] |[![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] |
 
 ## <a name="alertlogic-log-manager"></a>AlertLogic Log Manager
-Alert Logic Log Manager collecte les journaux de la plateforme Azure, des applications et des machines virtuelles pour l’analyse de la sécurité et la rétention. Cela comprend les journaux d’audit d’Azure via l’API d’Azure Insights.  Ces informations sont utilisées pour détecter les méfaits et répondre aux exigences de conformité.
+Alert Logic Log Manager collecte les journaux de la plateforme Azure, des applications et des machines virtuelles pour l’analyse de la sécurité et la rétention. Cela comprend les journaux d’audit d’Azure via l’API d’Azure Monitor.  Ces informations sont utilisées pour détecter les méfaits et répondre aux exigences de conformité.
 
 [Consultez la documentation.][alertlogic-doc]
 
 ## <a name="appdynamics"></a>AppDynamics
-AppDynamics Application Performance Management (APM) permet aux propriétaires d’applications de résoudre rapidement les goulots d’étranglement et d’optimiser les performances de leurs applications s’exécutant dans l’environnement Azure. AppDynamics APM est parfaitement intégré à Azure Marketplace et est disponible pour surveiller les services cloud Azure (PaaS) (y compris les rôles web et travail), les machines virtuelles (IaaS), la détection de service à distance (Microsoft Azure Service Bus), la file d’attente Microsoft Azure, les services à distance Microsoft Azure (objets Blob Azure), la file d’attente d’Azure (Microsoft Service Bus), le stockage des données et le stockage d’objets Blob Microsoft Azure. 
+AppDynamics Application Performance Management (APM) permet aux propriétaires d’applications de résoudre rapidement les goulots d’étranglement et d’optimiser les performances de leurs applications s’exécutant dans l’environnement Azure. AppDynamics APM est parfaitement intégré à Azure Marketplace et est disponible pour surveiller les services cloud Azure (PaaS) (y compris les rôles web et travail), les machines virtuelles (IaaS), la détection de service à distance (Microsoft Azure Service Bus), la file d’attente Microsoft Azure, les services à distance Microsoft Azure (objets Blob Azure), la file d’attente d’Azure (Microsoft Service Bus), le stockage des données et le stockage d’objets Blob Microsoft Azure.
 
 [Consultez la documentation.][appdynamics-doc]
 
 ## <a name="atlassian-jira"></a>Atlassian JIRA
-Bientôt disponible !
+Vous pouvez créer des tickets JIRA lors des alertes Azure Monitor.
+
+[Consultez la documentation.][atlassian-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 CloudMonix offre des services d’analyse, d’automatisation et de réparation automatique pour la plateforme Microsoft Azure.
@@ -53,7 +59,8 @@ Datadog est le leader mondial en services d’analyse pour les applications clou
 [Consultez la documentation.][datadog-doc]
 
 ## <a name="dynatrace"></a>Dynatrace
-Dynatrace OneAgent s’intègre aux machines virtuelles Azure et à App Services via les mécanismes d’extension Azure correspondants. De cette façon, vous pouvez collecter des mesures de performances sur les hôtes, réseaux et services.
+Dynatrace OneAgent s’intègre aux machines virtuelles Azure et à App Services via les mécanismes d’extension Azure correspondants.
+De cette façon, vous pouvez collecter des mesures de performances sur les hôtes, réseaux et services.
 Outre l’affichage des mesures, vous pouvez visualiser des environnements de bout en bout, en affichant les transactions du côté client jusqu’à la couche de base de données.
 La corrélation des problèmes basée sur IA et l’analyse des causes premières pleinement intégrée, avec notamment des analyses de niveau méthode pour le code et les bases de données, facilitent grandement les optimisations des performances et la résolution des problèmes.
 
@@ -68,14 +75,12 @@ OpsGenie joue le rôle de répartiteur pour les alertes générées par Azure. O
 [Consultez la documentation.][opsgenie-doc]
 
 ## <a name="pagerduty"></a>PagerDuty
-PagerDuty, la principale solution de gestion des incidents, propose une excellente prise en charge pour les alertes Azure sur les mesures. Aujourd'hui, PagerDuty prend en charge les notifications sur les événements Application Insights, les notifications de mise à l’échelle automatique et les événements de journal d’audit, en plus des notifications sur les mesures au niveau de la plateforme pour les services Azure. Ces améliorations donnent aux utilisateurs une meilleure visibilité sur la plateforme Azure de base tout en leur permettant de tirer pleinement parti des fonctionnalités de gestion des incidents de PagerDuty pour une réponse en temps réel. Notre intégration avancée avec Azure est rendue possible par les webhooks, qui permettent une personnalisation et une configuration rapides et faciles.
+PagerDuty, la principale solution de gestion des incidents, propose une excellente prise en charge pour les alertes Azure sur les mesures. Aujourd'hui, PagerDuty prend en charge les notifications sur les événements Application Azure Monitor, les notifications de mise à l’échelle automatique et les événements de journal d’audit, en plus des notifications sur les mesures au niveau de la plateforme pour les services Azure. Ces améliorations donnent aux utilisateurs une meilleure visibilité sur la plateforme Azure de base tout en leur permettant de tirer pleinement parti des fonctionnalités de gestion des incidents de PagerDuty pour une réponse en temps réel. Notre intégration avancée avec Azure est rendue possible par les webhooks, qui permettent une personnalisation et une configuration rapides et faciles.
 
 [Consultez la documentation.][pagerduty-doc]
 
-## <a name="splunk-addon-for-microsoft-azure"></a>Module complémentaire Splunk pour Microsoft Azure
-Le module complémentaire Splunk pour Microsoft Azure collecte des données de diagnostic, de performances, d’audit et de sécurité importantes pour votre infrastructure et les sites web s’exécutant dans Microsoft Azure. 
-
-Les informations de diagnostic et de performances sont collectées à partir de tables de stockage Azure et d’objets Blob de stockage Azure. Les données d’audit sont collectées à partir de l’API d’événements Azure Insights. Les données de groupe de sécurité réseau sont collectées à partir d’objets Blob du stockage Azure. Plusieurs panneaux prédéfinis sont inclus dans ce module complémentaire. 
+## <a name="splunk-add-on-for-microsoft-cloud-services"></a>Module complémentaire Splunk pour Microsoft Docs
+Le module complémentaire Splunk pour les services cloud de Microsoft est [disponible dans la Splunkbase ici](https://splunkbase.splunk.com/app/3110/).
 
 [Consultez la documentation.][splunk-doc]
 
@@ -97,7 +102,7 @@ Les informations de diagnostic et de performances sont collectées à partir de 
 [newrelic-anchor]: #newrelic "NewRelic"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
-[splunk-anchor]: #splunk-add-on-for-microsoft-azure "Splunk"
+[splunk-anchor]: #splunk-add-on-for-microsoft-cloud-services "Splunk"
 [sumologic-anchor]: #sumologic "Sumo Logic"
 
 <!--Icon references-->
@@ -117,6 +122,7 @@ Les informations de diagnostic et de performances sont collectées à partir de 
 <!--Partner Documentation-->
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "Documentation AlertLogic."
 [appdynamics-doc]: https://docs.appdynamics.com/display/PRO42/Register+for+AppDynamics+for+Windows+Azure "Documentation AppDynamics."
+[atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "Présentation de CloudMonix."
 [cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Présentation de Cloudyn."
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Documentation DataDog."
@@ -124,11 +130,11 @@ Les informations de diagnostic et de performances sont collectées à partir de 
 [newrelic-doc]: https://newrelic.com/azure "Documentation NewRelic."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "Documentation OpsGenie."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "Documentation PagerDuty."
-[splunk-doc]: https://splunkbase.splunk.com/app/3084/#/details "Documentation Splunk."
+[splunk-doc]: http://docs.splunk.com/Documentation/AddOns/released/MSCloudServices/About "Documentation Splunk."
 [sumologic-doc]: https://www.sumologic.com/azure "Documentation SumoLogic."
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

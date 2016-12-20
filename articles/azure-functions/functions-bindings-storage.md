@@ -1,14 +1,14 @@
 ---
-title: Déclencheurs et liaisons Azure Functions pour Azure Storage| Microsoft Docs
-description: Découvrez comment utiliser des déclencheurs et des liaisons Azure Storage dans Azure Functions.
+title: "Déclencheurs et liaisons Azure Functions pour Stockage Azure | Microsoft Docs"
+description: "Découvrez comment utiliser des déclencheurs et des liaisons Azure Storage dans Azure Functions."
 services: functions
 documentationcenter: na
 author: christopheranderson
 manager: erikre
-editor: ''
-tags: ''
-keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur
-
+editor: 
+tags: 
+keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"
+ms.assetid: 263b9c47-88ed-4eb2-9ea0-e26613becc62
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -16,24 +16,28 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/22/2016
 ms.author: chrande
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 62516a7ab50724e095d1512239877390e9cf1951
+
 
 ---
-# Déclencheurs et liaisons Azure Functions pour Azure Storage
-[!INCLUDE [functions-selector-bindings (liaisons de sélecteur de fonctions)](../../includes/functions-selector-bindings.md)]
+# <a name="azure-functions-triggers-and-bindings-for-azure-storage"></a>Déclencheurs et liaisons Azure Functions pour Azure Storage
+[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Cet article explique comment configurer et coder des déclencheurs et des liaisons Azure Storage dans Azure Functions.
+Cet article explique comment configurer et coder des déclencheurs et des liaisons Azure Storage dans Azure Functions. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a id="storagequeuetrigger"></a> Déclencheur de file d’attente Azure Storage
-#### Fichier function.json pour un déclencheur de file d’attente Azure Storage
+## <a name="a-idstoragequeuetriggera-azure-storage-queue-trigger"></a><a id="storagequeuetrigger"></a> Déclencheur de file d’attente Azure Storage
+#### <a name="functionjson-for-storage-queue-trigger"></a>Fichier function.json pour un déclencheur de file d’attente Azure Storage
 Le fichier *function.json* spécifie les propriétés suivantes :
 
-* `name` : nom de variable utilisé dans le code de fonction pour la file d’attente ou le message de file d’attente.
+* `name` : nom de variable utilisé dans le code de fonction pour la file d’attente ou le message de file d’attente. 
 * `queueName` : nom de la file d’attente à interroger. Pour plus d’informations sur les règles de nommage des files d’attente, consultez [Affectation de noms pour les files d’attente et les métadonnées](https://msdn.microsoft.com/library/dd179349.aspx).
 * `connection` : nom d’un paramètre d’application contenant une chaîne de connexion de stockage. Si vous laissez `connection` vide, le déclencheur fonctionnera avec la chaîne de connexion de stockage par défaut pour le conteneur de fonctions, qui est spécifiée par le paramètre d’application AzureWebJobsStorage.
 * `type` : propriété devant être définie sur *queueTrigger*.
-* `direction` : doit être défini sur *in*.
+* `direction` : doit être défini sur *in*. 
 
 Exemple *function.json* pour un déclencheur de file d’attente de stockage :
 
@@ -52,15 +56,15 @@ Exemple *function.json* pour un déclencheur de file d’attente de stockage :
 }
 ```
 
-#### Types pris en charge pour le déclencheur de file d’attente
+#### <a name="queue-trigger-supported-types"></a>Types pris en charge pour le déclencheur de file d’attente
 Le message de file d’attente peut être désérialisé vers l’un des types suivants :
 
 * Objet (de JSON)
 * String
-* Tableau d’octets
-* `CloudQueueMessage` (C#)
+* Tableau d’octets 
+* `CloudQueueMessage` (C#) 
 
-#### Métadonnées de déclencheur de file d’attente
+#### <a name="queue-trigger-metadata"></a>Métadonnées de déclencheur de file d’attente
 Vous pouvez obtenir les métadonnées de file d’attente dans votre fonction en utilisant les noms de variable suivants :
 
 * expirationTime
@@ -95,24 +99,24 @@ public static void Run(string myQueueItem,
 }
 ```
 
-#### Gestion des messages de file d’attente incohérents
+#### <a name="handling-poison-queue-messages"></a>Gestion des messages de file d’attente incohérents
 Les messages dont le contenu provoque l'échec d'une fonction sont appelés *messages incohérents*. Lorsque la fonction échoue, le message en file d’attente n’est pas supprimé, mais finalement récupéré à nouveau, provoquant la répétition du cycle. Le Kit de développement logiciel (SDK) peut interrompre automatiquement le cycle après un nombre limité d’itérations, ou vous pouvez le faire manuellement.
 
 Le Kit de développement logiciel (SDK) appelle une fonction jusqu’à cinq fois pour traiter un message de file d’attente. Si la cinquième tentative échoue, le message est déplacé vers une file d’attente de messages incohérents.
 
-La file d'attente de messages incohérents se nomme *{nom\_file\_d'attente\_d'origine}*-poison. Vous pouvez écrire une fonction pour traiter les messages de la file d’attente de messages incohérents en les consignant dans un journal ou en envoyant une notification signalant qu’une attention manuelle est nécessaire.
+La file d'attente de messages incohérents se nomme *{nom_file_d'attente_d'origine}*-poison. Vous pouvez écrire une fonction pour traiter les messages de la file d’attente de messages incohérents en les consignant dans un journal ou en envoyant une notification signalant qu’une attention manuelle est nécessaire. 
 
 Si vous voulez gérer les messages incohérents manuellement, vous pouvez obtenir le nombre de fois où un message a été récupéré pour traitement en consultant `dequeueCount`.
 
-## <a id="storagequeueoutput"></a> Liaison de sortie de file d’attente Azure Storage
-#### Fichier function.json pour une liaison de sortie de file d’attente de stockage
+## <a name="a-idstoragequeueoutputa-azure-storage-queue-output-binding"></a><a id="storagequeueoutput"></a> Liaison de sortie de file d’attente Azure Storage
+#### <a name="functionjson-for-storage-queue-output-binding"></a>Fichier function.json pour une liaison de sortie de file d’attente de stockage
 Le fichier *function.json* spécifie les propriétés suivantes :
 
-* `name` : nom de variable utilisé dans le code de fonction pour la file d’attente ou le message de file d’attente.
+* `name` : nom de variable utilisé dans le code de fonction pour la file d’attente ou le message de file d’attente. 
 * `queueName` : nom de la file d’attente. Pour plus d’informations sur les règles de nommage des files d’attente, consultez [Affectation de noms pour les files d’attente et les métadonnées](https://msdn.microsoft.com/library/dd179349.aspx).
 * `connection` : nom d’un paramètre d’application contenant une chaîne de connexion de stockage. Si vous laissez `connection` vide, le déclencheur fonctionnera avec la chaîne de connexion de stockage par défaut pour le conteneur de fonctions, qui est spécifiée par le paramètre d’application AzureWebJobsStorage.
 * `type` : doit être défini sur *queue*.
-* `direction` : doit être défini sur *out*.
+* `direction` : doit être défini sur *out*. 
 
 Exemple *function.json* pour une liaison de sortie de file d’attente de stockage qui utilise un déclencheur de file d’attente et écrit un message de file d’attente :
 
@@ -138,17 +142,17 @@ Exemple *function.json* pour une liaison de sortie de file d’attente de stocka
 }
 ``` 
 
-#### Types pris en charge pour la liaison de sortie de file d’attente
+#### <a name="queue-output-binding-supported-types"></a>Types pris en charge pour la liaison de sortie de file d’attente
 La liaison `queue` peut sérialiser les types ci-après vers un message de file d’attente :
 
 * Objet (`out T` en C#, crée un message avec un objet Null si le paramètre présente la valeur Null lorsque la fonction se termine)
 * Chaîne (`out string` en C#, crée le message en file d’attente si la valeur du paramètre n’est pas Null lorsque la fonction se termine)
-* Tableau d’octets (`out byte[]` en C#, fonctionne comme le type string)
-* `out CloudQueueMessage` (C#, fonctionne comme le type string)
+* Tableau d’octets (`out byte[]` en C#, fonctionne comme le type string) 
+* `out CloudQueueMessage` (C#, fonctionne comme le type string) 
 
 En C#, vous pouvez également lier à `ICollector<T>` ou `IAsyncCollector<T>`, où `T` est un des types pris en charge.
 
-#### Exemples de code de liaison de sortie de file d’attente
+#### <a name="queue-output-binding-code-examples"></a>Exemples de code de liaison de sortie de file d’attente
 Cet exemple de code C# écrit un message de file d’attente de sortie spécifique pour chaque message de file d’attente d’entrée.
 
 ```csharp
@@ -158,7 +162,7 @@ public static void Run(string myQueueItem, out string myOutputQueueItem, TraceWr
 }
 ```
 
-Cet exemple de code C# écrit plusieurs messages en utilisant `ICollector<T>` (spécifiez `IAsyncCollector<T>` dans une fonction asynchrone) :
+Cet exemple de code C# écrit plusieurs messages en utilisant `ICollector<T>` (spécifiez `IAsyncCollector<T>` dans une fonction asynchrone) :
 
 ```csharp
 public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWriter log)
@@ -168,11 +172,11 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 }
 ```
 
-## <a id="storageblobtrigger"></a> Déclencheur d’objet blob Azure Storage
-#### Fichier function.json pour un déclencheur d’objets blob de stockage Azure
+## <a name="a-idstorageblobtriggera-azure-storage-blob-trigger"></a><a id="storageblobtrigger"></a> Déclencheur d’objet blob Azure Storage
+#### <a name="functionjson-for-storage-blob-trigger"></a>Fichier function.json pour un déclencheur d’objets blob de stockage Azure
 Le fichier *function.json* spécifie les propriétés suivantes :
 
-* `name` : nom de variable utilisé dans le code de fonction pour l’objet blob.
+* `name` : nom de variable utilisé dans le code de fonction pour l’objet blob. 
 * `path` : chemin qui spécifie le conteneur à surveiller, et éventuellement un modèle de nom d’objet blob.
 * `connection` : nom d’un paramètre d’application contenant une chaîne de connexion de stockage. Si vous laissez `connection` vide, le déclencheur fonctionnera avec la chaîne de connexion de stockage par défaut pour le conteneur de fonctions, qui est spécifiée par le paramètre d’application AzureWebJobsStorage.
 * `type` : doit être défini sur *blobTrigger*.
@@ -195,13 +199,13 @@ Exemple *function.json* pour un déclencheur d’objets blob de stockage qui sur
 }
 ```
 
-#### Types pris en charge pour le déclencheur d’objet blob
-Le blob peut être désérialisé sur n’importe lequel des types suivants dans les fonctions C # ou de Node :
+#### <a name="blob-trigger-supported-types"></a>Types pris en charge pour le déclencheur d’objet blob
+Le blob peut être désérialisé sur n’importe lequel des types suivants dans les fonctions C # ou de Node :
 
 * Objet (de JSON)
 * String
 
-Dans les fonctions C#, vous pouvez également lier les types suivants :
+Dans les fonctions C#, vous pouvez également lier les types suivants :
 
 * `TextReader`
 * `Stream`
@@ -212,9 +216,9 @@ Dans les fonctions C#, vous pouvez également lier les types suivants :
 * `CloudBlobDirectory`
 * `IEnumerable<CloudBlockBlob>`
 * `IEnumerable<CloudPageBlob>`
-* Autres types de désérialisation par [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb)
+* Autres types de désérialisation par [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb) 
 
-#### Exemple de code C# de déclencheur d’objet blob
+#### <a name="blob-trigger-c-code-example"></a>Exemple de code C# de déclencheur d’objet blob
 Cet exemple de code C# enregistre le contenu de chaque objet blob qui est ajouté au conteneur surveillé.
 
 ```csharp
@@ -224,14 +228,14 @@ public static void Run(string myBlob, TraceWriter log)
 }
 ```
 
-#### Modèles de nom de déclencheur d’objet blob
-Vous pouvez spécifier un modèle de nom d’objet blob dans la propriété `path`. Par exemple :
+#### <a name="blob-trigger-name-patterns"></a>Modèles de nom de déclencheur d’objet blob
+Vous pouvez spécifier un modèle de nom d’objet blob dans la propriété `path` . Par exemple :
 
 ```json
 "path": "input/original-{name}",
 ```
 
-Ce chemin d’accès trouverait un objet blob nommé *original-Blob1.txt* dans le conteneur *input*, et la variable `name` du code de fonction présenterait la valeur `Blob1`.
+Ce chemin d’accès trouverait un objet blob appelé *original-Blob1.txt* dans le conteneur *input*, et la variable `name` du code de fonction présenterait la valeur `Blob1`.
 
 Autre exemple :
 
@@ -239,11 +243,11 @@ Autre exemple :
 "path": "input/{blobname}.{blobextension}",
 ```
 
-Ce chemin d’accès trouverait également un objet blob nommé *original-Blob1.txt*, et les variables `blobname` et `blobextension` du code de fonction présenteraient respectivement les valeurs *original-Blob1* et *txt*.
+Ce chemin d’accès trouverait également un objet blob appelé *original-Blob1.txt*, et les variables `blobname` et `blobextension` du code de fonction présenteraient respectivement les valeurs *original-Blob1* et *txt*.
 
-Vous pouvez restreindre les types d’objets blob qui déclenchent la fonction en spécifiant un modèle avec une valeur fixe pour l’extension de fichier. Si vous définissez la propriété `path` sur *samples/{nom}.png*, seuls les objets blob *.png* du conteneur *samples* déclencheront la fonction.
+Vous pouvez restreindre les types d’objets blob qui déclenchent la fonction en spécifiant un modèle avec une valeur fixe pour l’extension de fichier. Si vous définissez la propriété `path` sur *samples/{nom}.png*, seuls les objets blob *.png* du conteneur *samples* déclenchent la fonction.
 
-Si vous devez spécifier un modèle de nom pour les noms d’objet blob qui présentent des accolades, doublez ces dernières. Par exemple, si vous souhaitez rechercher des objets blob, dans le conteneur *images*, qui présentent des noms comme suit :
+Si vous devez spécifier un modèle de nom pour les noms d’objet blob qui présentent des accolades, doublez ces dernières. Par exemple, si vous souhaitez rechercher des objets blob, dans le conteneur *images* , qui présentent des noms comme suit :
 
         {20140101}-soundfile.mp3
 
@@ -251,44 +255,44 @@ Utilisez la valeur ci-après pour la propriété `path` :
 
         images/{{20140101}}-{name}
 
-Dans cet exemple, la variable `name` présenterait la valeur *soundfile.mp3*.
+Dans cet exemple, la variable `name` présenterait la valeur *soundfile.mp3*. 
 
-#### Reçus d’objets blob
-Le runtime Azure Functions vérifie qu’aucune fonction de déclencheur d’objet blob n’est appelée plusieurs fois pour un même objet blob, nouveau ou mis à jour. Pour ce faire, il tient à jour les *reçus d’objets blob* afin de déterminer si la version d’un objet blob donné a été traitée.
+#### <a name="blob-receipts"></a>Reçus d’objets blob
+Le runtime Azure Functions vérifie qu’aucune fonction de déclencheur d’objet blob n’est appelée plusieurs fois pour un même objet blob, nouveau ou mis à jour. Pour ce faire, il tient à jour les *reçus d’objets blob* afin de déterminer si la version d’un objet blob donné a été traitée.
 
-Les reçus d’objets blob sont stockés dans un conteneur appelé *azure-webjobs-hosts* associé au compte de stockage Microsoft Azure indiqué par la chaîne de connexion AzureWebJobsStorage. Un reçu d’objet blob contient les informations suivantes :
+Les reçus d’objets blob sont stockés dans un conteneur appelé *azure-webjobs-hosts* associé au compte de stockage Microsoft Azure indiqué par la chaîne de connexion AzureWebJobsStorage. Un reçu d’objet blob contient les informations suivantes :
 
-* Fonction appelée pour l’objet blob ("*{nom du conteneur de fonctions}*.Functions.*{nom de la fonction}*", par exemple : "functionsf74b96f7.Functions.CopyBlob")
+* Fonction appelée pour l’objet blob ("*{nom du conteneur de fonctions}*.Functions.*{nom de la fonction}*", par exemple : "functionsf74b96f7.Functions.CopyBlob")
 * Nom du conteneur
-* Type d’objet blob (« BlockBlob » ou « PageBlob »)
-* Nom de l’objet blob
-* ETag (identificateur de version de l’objet blob, par exemple : « 0x8D1DC6E70A277EF »)
+* Type d’objet blob (« BlockBlob » ou « PageBlob »)
+* Nom de l’objet blob
+* ETag (identificateur de version de l’objet blob, par exemple : « 0x8D1DC6E70A277EF »)
 
-Si vous souhaitez forcer le retraitement d’un objet blob, vous pouvez supprimer manuellement le reçu de l’objet blob à partir du conteneur *azure-webjobs-hosts*.
+Si vous souhaitez forcer le retraitement d’un objet blob, vous pouvez supprimer manuellement le reçu de l’objet blob à partir du conteneur *azure-webjobs-hosts* .
 
-#### Gestion des objets blob incohérents
-Lorsqu’une fonction de déclencheur d’objet blob échoue, le Kit de développement logiciel (SDK) l’appelle de nouveau, au cas où l’échec aurait été provoqué par une erreur temporaire. Si le problème est occasionné par le contenu de l’objet blob, la fonction échoue chaque fois qu’elle tente de traiter cet objet. Par défaut, le Kit de développement logiciel (SDK) appelle une fonction jusqu’à 5 fois pour un objet blob donné. En cas d’échec après la cinquième tentative, le Kit de développement logiciel (SDK) ajoute un message à la file d’attente nommée *webjobs-blobtrigger-poison*.
+#### <a name="handling-poison-blobs"></a>Gestion des objets blob incohérents
+Lorsqu’une fonction de déclencheur d’objet blob échoue, le Kit de développement logiciel (SDK) l’appelle de nouveau, au cas où l’échec aurait été provoqué par une erreur temporaire. Si le problème est occasionné par le contenu de l’objet blob, la fonction échoue chaque fois qu’elle tente de traiter cet objet. Par défaut, le Kit de développement logiciel (SDK) appelle une fonction jusqu’à 5 fois pour un objet blob donné. En cas d’échec après la cinquième tentative, le Kit de développement logiciel (SDK) ajoute un message à la file d’attente nommée *webjobs-blobtrigger-poison*.
 
-Le message en file d’attente associé aux objets blob incohérents correspond à un objet JSON, qui contient les propriétés suivantes :
+Le message en file d’attente associé aux objets blob incohérents correspond à un objet JSON, qui contient les propriétés suivantes :
 
-* FunctionId (au format *{nom du conteneur de fonctions}*.Functions.*{nom de la fonction}*)
-* BlobType (« BlockBlob » ou « PageBlob »)
+* FunctionId (au format *{nom de l’application de fonctions}*.Functions.*{nom de la fonction}*)
+* BlobType (« BlockBlob » ou « PageBlob »)
 * ContainerName
 * BlobName
-* ETag (identificateur de version de l’objet blob, par exemple : « 0x8D1DC6E70A277EF »)
+* ETag (identificateur de version de l’objet blob, par exemple : « 0x8D1DC6E70A277EF »)
 
-#### Interrogation de blob pour les grands conteneurs
-Si le conteneur d’objets blob que le déclencheur surveille contient plus de 10 000 objets blob, le runtime Functions analyse les fichiers journaux pour effectuer le suivi des objets blob nouveaux ou modifiés. Ce processus ne se déroule pas en temps réel ; il se peut qu’une fonction ne se déclenche que quelques minutes ou plus après la création de l’objet blob. En outre, des [journaux de stockage sont créés sur la base du « meilleur effort »](https://msdn.microsoft.com/library/azure/hh343262.aspx) ; il n’est pas garanti que tous les événements soient capturés. Dans certaines conditions, des journaux peuvent être omis. Si les limitations relatives à la vitesse et à la fiabilité des déclencheurs d’objet blob pour les conteneurs volumineux ne sont pas acceptables pour votre application, il est recommandé de créer un message de file d’attente lorsque vous créez l’objet blob, et d’utiliser un déclencheur de file d’attente plutôt qu’un déclencheur d’objet blob pour traiter cet objet blob.
+#### <a name="blob-polling-for-large-containers"></a>Interrogation de blob pour les grands conteneurs
+Si le conteneur d’objets blob que le déclencheur surveille contient plus de 10 000 objets blob, le runtime Functions analyse les fichiers journaux pour effectuer le suivi des objets blob nouveaux ou modifiés. Ce processus ne se déroule pas en temps réel ; il se peut qu’une fonction ne se déclenche que quelques minutes ou plus après la création de l’objet blob. En outre, des [journaux de stockage sont créés sur la base du « meilleur effort »](https://msdn.microsoft.com/library/azure/hh343262.aspx) ; il n’est pas garanti que tous les événements soient capturés. Dans certaines conditions, des journaux peuvent être omis. Si les limitations relatives à la vitesse et à la fiabilité des déclencheurs d’objet blob pour les conteneurs volumineux ne sont pas acceptables pour votre application, il est recommandé de créer un message de file d’attente lorsque vous créez l’objet blob, et d’utiliser un déclencheur de file d’attente plutôt qu’un déclencheur d’objet blob pour traiter cet objet blob.
 
-## <a id="storageblobbindings"></a> Liaisons d’entrée et de sortie d’objet blob Azure Storage
-#### Fichier function.json pour une liaison d’entrée ou de sortie d’objets blob de stockage
+## <a name="a-idstorageblobbindingsa-azure-storage-blob-input-and-output-bindings"></a><a id="storageblobbindings"></a> Liaisons d’entrée et de sortie d’objet blob Azure Storage
+#### <a name="functionjson-for-a-storage-blob-input-or-output-binding"></a>Fichier function.json pour une liaison d’entrée ou de sortie d’objets blob de stockage
 Le fichier *function.json* spécifie les propriétés suivantes :
 
-* `name` : nom de variable utilisé dans le code de fonction pour l’objet blob.
+* `name` : nom de variable utilisé dans le code de fonction pour l’objet blob. 
 * `path` : chemin qui spécifie le conteneur dans lequel lire ou écrire l’objet blob, et éventuellement un modèle de nom d’objet blob.
 * `connection` : nom d’un paramètre d’application contenant une chaîne de connexion de stockage. Si vous laissez `connection` vide, la liaison fonctionnera avec la chaîne de connexion de stockage par défaut pour le conteneur de fonctions, qui est spécifiée par le paramètre d’application AzureWebJobsStorage.
 * `type` : doit être défini sur *blob*.
-* `direction` : défini sur *in* ou *out*.
+* `direction` : défini sur *in* ou *out*. 
 
 Exemple de *function.json* pour une liaison d’entrée ou de sortie d’objet blob de stockage utilisant un déclencheur de file d’attente pour copier un objet blob :
 
@@ -321,23 +325,23 @@ Exemple de *function.json* pour une liaison d’entrée ou de sortie d’objet b
 }
 ``` 
 
-#### Types pris en charge pour l’entrée et la sortie d’objet BLOB
+#### <a name="blob-input-and-output-supported-types"></a>Types pris en charge pour l’entrée et la sortie d’objet BLOB
 La liaison `blob` peut sérialiser ou désérialiser les types suivants dans les fonctions Node.js ou C# :
 
 * Objet (`out T` en C# pour l’objet blob de sortie : crée un objet blob en tant qu’objet Null si le paramètre présente la valeur Null lorsque la fonction se termine)
 * Chaîne (`out string` en C# pour l’objet blob de sortie : crée un objet blob uniquement si le paramètre de chaîne ne présente pas la valeur Null lorsque la fonction renvoie les résultats)
 
-Dans les fonctions C#, vous pouvez également lier les types suivants :
+Dans les fonctions C#, vous pouvez également lier les types suivants :
 
 * `TextReader` (entrée uniquement)
 * `TextWriter` (sortie uniquement)
 * `Stream`
 * `CloudBlobStream` (sortie uniquement)
 * `ICloudBlob`
-* `CloudBlockBlob`
-* `CloudPageBlob`
+* `CloudBlockBlob` 
+* `CloudPageBlob` 
 
-#### Exemple de code C# de sortie d’objet blob
+#### <a name="blob-output-c-code-example"></a>Exemple de code C# de sortie d’objet blob
 Cet exemple de code C# copie un objet blob dont le nom est reçu dans un message de file d’attente.
 
 ```csharp
@@ -348,20 +352,20 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-## <a id="storagetablesbindings"></a> Liaisons d’entrée et de sortie de tables Azure Storage
-#### Fichier function.json pour les tables de stockage
+## <a name="a-idstoragetablesbindingsa-azure-storage-tables-input-and-output-bindings"></a><a id="storagetablesbindings"></a> Liaisons d’entrée et de sortie de tables Azure Storage
+#### <a name="functionjson-for-storage-tables"></a>Fichier function.json pour les tables de stockage
 Le fichier *function.json* spécifie les propriétés suivantes :
 
-* `name` : nom de variable utilisé dans le code de fonction pour la liaison de table.
+* `name` : nom de variable utilisé dans le code de fonction pour la liaison de table. 
 * `tableName` : nom de la table.
 * `partitionKey` et `rowKey` : propriétés utilisées conjointement pour lire une entité unique dans une fonction C# ou Node, ou pour écrire une entité unique dans une fonction Node.
 * `take` : nombre maximal de lignes à lire pour l’entrée de table dans une fonction Node.
 * `filter` : expression de filtre OData pour l’entrée de table dans une fonction Node.
 * `connection` : nom d’un paramètre d’application contenant une chaîne de connexion de stockage. Si vous laissez `connection` vide, la liaison fonctionnera avec la chaîne de connexion de stockage par défaut pour le conteneur de fonctions, qui est spécifiée par le paramètre d’application AzureWebJobsStorage.
 * `type` : doit être défini sur *table*.
-* `direction` : défini sur *in* ou *out*.
+* `direction` : défini sur *in* ou *out*. 
 
-L’exemple *function.json* suivant utilise un déclencheur de file d’attente pour lire une seule ligne du tableau. Le fichier JSON fournit une valeur de clé de partition codée en dur et spécifie que la clé de ligne provient du message de file d’attente.
+L’exemple *function.json* suivant utilise un déclencheur de file d’attente pour lire une seule ligne du tableau. Le fichier JSON fournit une valeur de clé de partition codée en dur et spécifie que la clé de ligne provient du message de file d’attente.
 
 ```json
 {
@@ -387,25 +391,25 @@ L’exemple *function.json* suivant utilise un déclencheur de file d’attente 
 }
 ```
 
-#### Types pris en charge pour l’entrée et la sortie des tables de stockage
-La liaison `table` peut sérialiser ou désérialiser les objets dans les fonctions Node.js ou C#. Les objets auront des propriétés RowKey et PartitionKey.
+#### <a name="storage-tables-input-and-output-supported-types"></a>Types pris en charge pour l’entrée et la sortie des tables de stockage
+La liaison `table` peut sérialiser ou désérialiser les objets dans les fonctions Node.js ou C#. Les objets auront des propriétés RowKey et PartitionKey. 
 
-Dans les fonctions C#, vous pouvez également lier les types suivants :
+Dans les fonctions C#, vous pouvez également lier les types suivants :
 
 * `T` où `T` implémente `ITableEntity`
 * `IQueryable<T>` (entrée uniquement)
 * `ICollector<T>` (sortie uniquement)
 * `IAsyncCollector<T>` (sortie uniquement)
 
-#### Scénarios de liaison des tables de stockage
-La liaison de tables prend en charge les scénarios suivants :
+#### <a name="storage-tables-binding-scenarios"></a>Scénarios de liaison des tables de stockage
+La liaison de tables prend en charge les scénarios suivants :
 
 * Lecture d’une seule ligne dans une fonction C# ou Node.
   
     Définissez `partitionKey` et `rowKey`. Les propriétés `filter` et `take` ne sont pas utilisées dans ce scénario.
 * Lecture de plusieurs lignes dans une fonction C#.
   
-    Le runtime Functions fournit un objet `IQueryable<T>` lié à la table. Le type `T` doit dériver de `TableEntity` ou implémenter `ITableEntity`. Les propriétés `partitionKey`, `rowKey`, `filter` et `take` ne sont pas utilisées dans ce scénario ; s’il y a lieu, vous pouvez utiliser l’objet `IQueryable` pour effectuer le filtrage éventuellement requis.
+    Le runtime Functions fournit un objet `IQueryable<T>` lié à la table. Le type `T` doit dériver de `TableEntity` ou implémenter `ITableEntity`. Les propriétés `partitionKey`, `rowKey`, `filter` et `take` ne sont pas utilisées dans ce scénario ; s’il y a lieu, vous pouvez utiliser l’objet `IQueryable` pour effectuer le filtrage éventuellement requis. 
 * Lecture de plusieurs lignes dans une fonction Node.
   
     Définissez les propriétés `filter` et `take`. Ne définissez pas `partitionKey` ni `rowKey`.
@@ -413,8 +417,8 @@ La liaison de tables prend en charge les scénarios suivants :
   
     Le runtime Functions fournit un objet `ICollector<T>` ou `IAsyncCollector<T>` lié à la table, où `T` spécifie le schéma des entités à ajouter. En général, le type `T` dérive de `TableEntity` ou implémente `ITableEntity`, mais ce n’est pas obligatoire. Les propriétés `partitionKey`, `rowKey`, `filter` et `take` ne sont pas utilisées dans ce scénario.
 
-#### Exemple de tables de stockage : lire une entité de table unique en C# ou en Node
-L’exemple de code C# ci-après fonctionne avec le fichier *function.json* précédent pour lire une entité de table unique. Le message de file d’attente comporte la valeur de clé de ligne, et l’entité de table est lue dans un type défini dans le fichier *run.csx*. Le type inclut les propriétés `PartitionKey` et `RowKey`, et ne dérive pas de `TableEntity`.
+#### <a name="storage-tables-example-read-a-single-table-entity-in-c-or-node"></a>Exemple de tables de stockage : lire une entité de table unique en C# ou en Node
+L’exemple de code C# ci-après fonctionne avec le fichier *function.json* précédent pour lire une entité de table unique. Le message de file d’attente comporte la valeur de clé de ligne, et l’entité de table est lue dans un type défini dans le fichier *run.csx* . Le type inclut les propriétés `PartitionKey` et `RowKey`, et ne dérive pas de `TableEntity`. 
 
 ```csharp
 public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
@@ -456,7 +460,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-#### Exemple de tables de stockage : lire plusieurs entités de table en C
+#### <a name="storage-tables-example-read-multiple-table-entities-in-c"></a>Exemple de tables de stockage : lire plusieurs entités de table en C
 L’exemple de fichier *function.json* et de code C# ci-après lit les entités relatives à une clé de partition spécifiée dans le message de file d’attente.
 
 ```json
@@ -502,7 +506,7 @@ public class Person : TableEntity
 }
 ``` 
 
-#### Exemple de tables de stockage : créer des entités de table en C
+#### <a name="storage-tables-example-create-table-entities-in-c"></a>Exemple de tables de stockage : créer des entités de table en C
 Les exemples de fichiers *function.json* et *run.csx* ci-après indiquent comment écrire des entités de table en C#.
 
 ```json
@@ -550,8 +554,8 @@ public class Person
 
 ```
 
-#### Exemple de tables de stockage : créer des entités de table en F
-Les exemples de fichiers *function.json* et *run.csx* ci-après montrent comment écrire des entités de table en F#.
+#### <a name="storage-tables-example-create-table-entities-in-f"></a>Exemple de tables de stockage : créer des entités de table en F
+Les exemples de fichiers *function.json* et *run.fsx* ci-après montrent comment écrire des entités de table en F#.
 
 ```json
 {
@@ -590,7 +594,7 @@ let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
               Name = "Name" + i.ToString() })
 ```
 
-#### Exemple de tables de stockage : créer une entité de table en Node
+#### <a name="storage-tables-example-create-a-table-entity-in-node"></a>Exemple de tables de stockage : créer une entité de table en Node
 Les exemples de fichiers *function.json* et *run.csx* ci-après indiquent comment écrire une entité de table en Node.
 
 ```json
@@ -625,7 +629,12 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## Étapes suivantes
-[!INCLUDE [Étapes suivantes](../../includes/functions-bindings-next-steps.md)]
+## <a name="next-steps"></a>Étapes suivantes
+[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

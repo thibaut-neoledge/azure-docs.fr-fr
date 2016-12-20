@@ -1,12 +1,12 @@
 ---
-title: Encodage avancé avec Media Encoder Standard | Microsoft Docs
-description: Cette rubrique explique comment effectuer un encodage avancé en personnalisant les présélections de tâches Media Encoder Standard. Elle montre comment utiliser le SDK .NET de Media Services pour créer une tâche et un travail d’encodage. Elle explique également comment spécifier des présélections personnalisées pour le travail d’encodage.
+title: "Encodage avancé avec Media Encoder Standard | Microsoft Docs"
+description: "Cette rubrique explique comment effectuer un encodage avancé en personnalisant les présélections de tâches Media Encoder Standard. Elle montre comment utiliser le SDK .NET de Media Services pour créer une tâche et un travail d’encodage. Elle explique également comment spécifier des présélections personnalisées pour le travail d’encodage."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ec95392f-d34a-4c22-a6df-5274eaac445b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e85bc8a1e9193474fa3c9ef3f19ead25f314ecac
+
 
 ---
 # <a name="advanced-encoding-with-media-encoder-standard"></a>Encodage avancé avec Media Encoder Standard
 ## <a name="overview"></a>Vue d'ensemble
 Cette rubrique explique comment exécuter des tâches d’encodage avancé avec Media Encoder Standard. La présente rubrique décrit [comment utiliser .NET pour créer une tâche d’encodage et générer un travail qui exécute cette tâche](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet). Elle présente également la procédure à suivre pour attribuer des paramètres personnalisés et prédéfinis à la tâche d’encodage. Pour obtenir une description des éléments utilisés par les présélections, consultez [ce document](https://msdn.microsoft.com/library/mt269962.aspx). 
 
-Il présente les présélections personnalisées qui exécutent les tâches d’encodage suivantes :
+Il présente les présélections personnalisées qui exécutent les tâches d’encodage suivantes :
 
 * [Génération de miniatures](media-services-custom-mes-presets-with-dotnet.md#thumbnails)
 * [Rognage d’une vidéo (extrait)](media-services-custom-mes-presets-with-dotnet.md#trim_video)
@@ -29,8 +33,8 @@ Il présente les présélections personnalisées qui exécutent les tâches d’
 * [Désactiver le désentrelacement automatique](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 * [Présélections audio uniquement](media-services-custom-mes-presets-with-dotnet.md#audio_only)
 
-## <a name="<a-id="encoding_with_dotnet"></a>encoding-with-media-services-.net-sdk"></a><a id="encoding_with_dotnet"></a>Encodage à l’aide du Kit de développement logiciel (SDK) .NET de Media Services
-Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
+## <a name="a-idencodingwithdotnetaencoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Encodage à l’aide du Kit de développement logiciel (SDK) .NET de Media Services
+Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
 
 * Création d’une tâche d’encodage.
 * Obtention d’une référence à l’encodeur Media Encoder Standard.
@@ -230,7 +234,7 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
         }
 
 
-## <a name="<a-id="thumbnails"></a>generate-thumbnails"></a><a id="thumbnails"></a>Génération de miniatures
+## <a name="a-idthumbnailsagenerate-thumbnails"></a><a id="thumbnails"></a>Génération de miniatures
 Cette section montre comment personnaliser une présélection qui génère des miniatures. La présélection définie ci-dessous contient des informations sur la façon dont vous souhaitez encoder votre fichier, ainsi que les informations nécessaires à la génération des miniatures. Vous pouvez utiliser l’une des présélections MES documentées [ici](https://msdn.microsoft.com/library/mt269960.aspx) et ajouter le code qui génère des miniatures.  
 
 > [!NOTE]
@@ -242,7 +246,7 @@ Pour plus d’informations sur le schéma, consultez [cette](https://msdn.micros
 
 Assurez-vous d’examiner la section [Considérations](media-services-custom-mes-presets-with-dotnet.md#considerations) .
 
-### <a name="<a-id="json"></a>json-preset"></a><a id="json"></a>Présélection JSON
+### <a name="a-idjsonajson-preset"></a><a id="json"></a>Présélection JSON
     {
       "Version": 1.0,
       "Codecs": [
@@ -342,7 +346,7 @@ Assurez-vous d’examiner la section [Considérations](media-services-custom-mes
     }
 
 
-### <a name="<a-id="xml"></a>xml-preset"></a><a id="xml"></a>Présélection XML
+### <a name="a-idxmlaxml-preset"></a><a id="xml"></a>Présélection XML
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -416,27 +420,27 @@ Assurez-vous d’examiner la section [Considérations](media-services-custom-mes
     </Preset>
 
 ### <a name="considerations"></a>Considérations
-Les considérations suivantes s'appliquent :
+Les considérations suivantes s'appliquent :
 
-* L’utilisation d’horodatages explicites pour Début/Étape/Plage suppose que la source d’entrée a une longueur minimale de 1 minute.
-* Les éléments Jpg/Png/BmpImage possèdent les attributs de chaîne Start, Step et Range, qui peuvent être interprétés comme suit :
+* L’utilisation d’horodatages explicites pour Début/Étape/Plage suppose que la source d’entrée a une longueur minimale de 1 minute.
+* Les éléments Jpg/Png/BmpImage possèdent les attributs de chaîne Start, Step et Range, qui peuvent être interprétés comme suit :
   
-  * Entiers non négatifs : nombre d’images, par exemple "Start": "120"
-  * Présence du suffixe % : durée par rapport à la source, par exemple "Start": "15%"
+  * Entiers non négatifs : nombre d’images, par exemple "Start": "120"
+  * Présence du suffixe % : durée par rapport à la source, par exemple "Start": "15%"
   * Horodatage, s’il est exprimé au format HH:MM:SS. par exemple "Start": "00: 01:00"
     
     Vous pouvez combiner et apparier les notations à votre guise.
     
-    En outre, Start prend également en charge une macro spéciale, {Best}, qui tente de déterminer la première image de contenu « intéressante ». REMARQUE : Step et Range sont ignorés quand Start a la valeur {Best}.
-  * La configuration par défaut est « Start:{Best} ».
-* Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
+    En outre, Start prend également en charge une macro spéciale, {Best}, qui tente de déterminer la première image de contenu « intéressante ». REMARQUE : Step et Range sont ignorés quand Start est défini sur {Best}.
+  * La configuration par défaut est « Start:{Best} ».
+* Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
 
-## <a name="<a-id="trim_video"></a>trim-a-video-(clipping)"></a><a id="trim_video"></a>Rognage d’une vidéo (extrait)
+## <a name="a-idtrimvideoatrim-a-video-clipping"></a><a id="trim_video"></a>Rognage d’une vidéo (extrait)
 Cette section explique comment modifier les présélections de l’encodeur pour découper ou rogner la vidéo d’entrée, dans laquelle l’entrée est ce que l’on appelle un fichier mezzanine ou un fichier à la demande. L’encodeur peut également servir à découper ou rogner un élément multimédia capturé ou archivé à partir d’un streaming en direct. Pour obtenir des détails à ce sujet, consultez [ce blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
 Pour découper vos vidéos, vous pouvez utiliser l’une des présélections MES documentées [ici](https://msdn.microsoft.com/library/mt269960.aspx) et modifier l’élément **Sources** (comme indiqué ci-dessous). La valeur de StartTime doit correspondre aux horodatages absolus de la vidéo d'entrée. Par exemple, si la première image de la vidéo d'entrée a un horodatage de 12:00:10.000, la valeur de StartTime doit être égale ou supérieure à 12:00:10.000. Dans l'exemple ci-dessous, nous supposons que la vidéo d'entrée a un horodatage de début égal à zéro. Notez que **Sources** doit être placé en haut du schéma. 
 
-### <a name="<a-id="json"></a>json-preset"></a><a id="json"></a>Présélection JSON
+### <a name="a-idjsonajson-preset"></a><a id="json"></a>Présélection JSON
     {
       "Version": 1.0,
       "Sources": [
@@ -673,8 +677,8 @@ Pour découper vos vidéos, vous pouvez utiliser l’une des présélections MES
       </Outputs>
     </Preset>
 
-## <a name="<a-id="overlay"></a>create-an-overlay"></a><a id="overlay"></a>Création d’une superposition
-Media Encoder Standard vous permet de superposer une image sur une vidéo existante. Les formats suivants sont actuellement pris en charge : png, jpg, gif et bmp. La présélection définie ci-dessous illustre un exemple de superposition vidéo de base.
+## <a name="a-idoverlayacreate-an-overlay"></a><a id="overlay"></a>Création d’une superposition
+Media Encoder Standard vous permet de superposer une image sur une vidéo existante. Les formats suivants sont actuellement pris en charge : png, jpg, gif et bmp. La présélection définie ci-dessous illustre un exemple de superposition vidéo de base.
 
 Après avoir défini un fichier de présélection, vous devez également indiquer à Media Services quel fichier de la ressource représente l’image de superposition et quel fichier représente la vidéo source sur laquelle vous souhaitez superposer l’image. Le fichier vidéo doit être le fichier **principal** . 
 
@@ -827,10 +831,10 @@ L’exemple .NET ci-dessus définit deux fonctions : **UploadMediaFilesFromFolde
       </Outputs>
     </Preset>
 
-## <a name="<a-id="silent_audio"></a>insert-a-silent-audio-track-when-input-has-no-audio"></a><a id="silent_audio"></a>Insertion d’une piste audio en mode silencieux lorsque l’entrée ne produit pas de son
+## <a name="a-idsilentaudioainsert-a-silent-audio-track-when-input-has-no-audio"></a><a id="silent_audio"></a>Insertion d’une piste audio en mode silencieux lorsque l’entrée ne produit pas de son
 Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de la vidéo (sans contenu audio), l’élément multimédia de sortie regroupera les fichiers qui contiennent uniquement des données vidéo. Certains lecteurs ne sont peut-être pas capables de gérer ces flux de sortie. Dans ce cas, vous pouvez utiliser ce paramètre pour forcer l’encodeur à ajouter à la sortie une piste audio en mode silencieux.
 
-Pour forcer l’encodeur à produire un élément multimédia contenant une piste audio en mode silencieux lorsque l’entrée ne comporte pas de son, spécifiez la valeur « InsertSilenceIfNoAudio ».
+Pour forcer l’encodeur à produire un élément multimédia contenant une piste audio en mode silencieux lorsque l’entrée ne comporte pas de son, spécifiez la valeur « InsertSilenceIfNoAudio ».
 
 Vous pouvez utiliser l’une des présélections MES documentées [ici](https://msdn.microsoft.com/library/mt269960.aspx)et apporter la modification suivante :
 
@@ -850,7 +854,7 @@ Vous pouvez utiliser l’une des présélections MES documentées [ici](https://
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-## <a name="<a-id="deinterlacing"></a>disable-auto-de-interlacing"></a><a id="deinterlacing"></a>Désactiver le désentrelacement automatique
+## <a name="a-iddeinterlacingadisable-auto-de-interlacing"></a><a id="deinterlacing"></a>Désactiver le désentrelacement automatique
 Si les clients souhaitent que le contenu d’entrelacement soit automatiquement désentrelacé, aucune action n’est nécessaire. Quand le désentrelacement automatique est activé (par défaut), MES détecte automatiquement les images entrelacées et désentrelace uniquement les images marquées comme entrelacées.
 
 Vous pouvez désactiver le désentrelacement automatique. Cette option n’est pas recommandée.
@@ -878,7 +882,7 @@ Vous pouvez désactiver le désentrelacement automatique. Cette option n’est p
     </Sources>
 
 
-## <a name="<a-id="audio_only"></a>audio-only-presets"></a><a id="audio_only"></a>Présélections audio uniquement
+## <a name="a-idaudioonlyaaudio-only-presets"></a><a id="audio_only"></a>Présélections audio uniquement
 Cette section présente deux présélections MES audio uniquement : Audio AAC et Bonne qualité audio AAC.
 
 ### <a name="aac-audio"></a>Audio AAC
@@ -934,6 +938,9 @@ Cette section présente deux présélections MES audio uniquement : Audio AAC et
 ## <a name="see-also"></a>Voir aussi
 [Vue d’ensemble de l’encodage de Media Services](media-services-encode-asset.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

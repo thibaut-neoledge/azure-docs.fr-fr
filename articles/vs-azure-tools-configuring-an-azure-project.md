@@ -1,23 +1,27 @@
 ---
 title: Configurer un projet de service cloud Azure avec Visual Studio | Microsoft Docs
-description: Découvrez comment configurer un projet de service cloud Azure dans Visual Studio selon vos spécifications pour ce projet.
+description: "Découvrez comment configurer un projet de service cloud Azure dans Visual Studio selon vos spécifications pour ce projet."
 services: visual-studio-online
 documentationcenter: na
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 609d6965-05cc-47b1-82dc-c76a92d4f295
 ms.service: multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 08/15/2016
+ms.date: 11/11/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 33d6b242c5562bd0aba4786ff70782c697ca7cd7
+
 
 ---
-# Configurer un projet de service cloud Azure avec Visual Studio
-Vous pouvez configurer un projet de service cloud Azure selon vos spécifications pour ce projet. Vous pouvez définir des propriétés pour le projet pour les catégories suivantes :
+# <a name="configure-an-azure-cloud-service-project-with-visual-studio"></a>Configurer un projet de service cloud Azure avec Visual Studio
+Vous pouvez configurer un projet de service cloud Azure selon vos spécifications pour ce projet. Vous pouvez définir des propriétés pour le projet pour les catégories suivantes :
 
 * **Publier un service cloud sur Azure**
   
@@ -33,24 +37,29 @@ L’illustration suivante montre comment sélectionner une configuration à util
 
 ![Configurer un projet Microsoft Azure](./media/vs-azure-tools-configuring-an-azure-project/IC713462.png)
 
-## Pour configurer un projet de service cloud Azure
+## <a name="to-configure-an-azure-cloud-service-project"></a>Pour configurer un projet de service cloud Azure
 1. Pour configurer un projet de service cloud depuis l’**Explorateur de solutions**, ouvrez le menu contextuel pour le projet de service cloud, puis choisissez **Propriétés**.
    
    Une page avec le nom du projet de service cloud est affichée dans l’éditeur Visual Studio.
-2. Choisissez l’onglet **Développement**.
+2. Choisissez l’onglet **Développement** .
 3. Pour vous assurer que vous ne supprimez pas accidentellement un déploiement existant dans Azure, dans la liste Demandez confirmation de la suppression d’un déploiement existant, choisissez **Vrai**.
-4. Pour sélectionner la configuration de service que vous voulez utiliser quand vous exécutez ou que vous déboguez votre service cloud localement, dans la liste **Configuration du service**, choisissez la configuration de service.
+4. Pour sélectionner la configuration de service que vous voulez utiliser quand vous exécutez ou que vous déboguez votre service cloud localement, dans la liste **Configuration du service** , choisissez la configuration de service.
    
    > [!NOTE]
-   > Si vous voulez créer une configuration de service à utiliser, consultez Procédure : gestion des configurations de service et des profils. Si vous voulez modifier une configuration de service pour un rôle, consultez [Comment configurer les rôles pour un service cloud Azure avec Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
+   > Si vous voulez créer une configuration de service à utiliser, consultez Procédure : gestion des configurations de service et des profils. Si vous voulez modifier une configuration de service pour un rôle, consultez [Comment configurer les rôles pour un service cloud Azure avec Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
    > 
    > 
 5. Pour démarrer l’émulateur de stockage Azure quand vous exécutez ou que vous déboguez localement votre service cloud, dans **Démarrer l’émulateur de stockage Microsoft Azure**, choisissez **Vrai**.
 6. Pour vous assurer que vous ne pouvez pas publier s’il y a des erreurs de validation du package, dans **Considérer les avertissements comme des erreurs**, choisissez **Vrai**.
-7. Pour vous assurer que votre rôle web utilise le même port à chaque démarrage local dans IIS Express, dans **Utiliser les ports du projet web**, choisissez **Vrai**. Pour utiliser un port spécifique pour un projet web donné, ouvrez le menu contextuel du projet web, choisissez l’onglet **Propriétés**, puis l’onglet **Web**, et changez le numéro de port dans le paramètre **Url du projet** de la section **IIS Express**. Par exemple, entrez `http://localhost:14020` comme URL du projet.
+7. Pour vous assurer que votre rôle web utilise le même port à chaque démarrage local dans IIS Express, dans **Utiliser les ports du projet web**, choisissez **Vrai**. Pour utiliser un port spécifique pour un projet web donné, ouvrez le menu contextuel du projet web, choisissez l’onglet **Propriétés**, puis l’onglet **Web** et changez le numéro de port dans le paramètre **Url du projet** de la section **IIS Express**. Par exemple, entrez `http://localhost:14020` comme URL du projet.
 8. Pour enregistrer toutes les modifications que vous avez apportées aux propriétés du projet de service cloud, choisissez le bouton **Enregistrer** dans la barre d’outils.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la façon de configurer des projets de service cloud Azure dans Visual Studio, consultez [Configuration de votre projet Azure à l’aide de plusieurs configurations de service](vs-azure-tools-multiple-services-project-configurations.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

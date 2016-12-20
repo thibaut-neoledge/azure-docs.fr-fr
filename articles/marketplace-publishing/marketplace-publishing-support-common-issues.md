@@ -1,12 +1,12 @@
 ---
-title: Comment résoudre les problèmes courants de publication | Microsoft Docs
-description: Découvrez comment résoudre les problèmes courants de publication et comment obtenir de l’aide
+title: "Comment résoudre les problèmes courants de publication | Microsoft Docs"
+description: "Découvrez comment résoudre les problèmes courants de publication et comment obtenir de l’aide"
 services: marketplace-publishing
 documentationcenter: na
 author: v-jeana
 manager: lakoch
-editor: ''
-
+editor: 
+ms.assetid: f8465448-8328-41f3-8288-48c1c4098134
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2016
 ms.author: v-jeana; hascipio; v-dabosl
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3849aa88b5314d36a98d3caf5f3307e656e1a931
+
 
 ---
-# Comment résoudre les problèmes courants de publication dans Azure Marketplace
+# <a name="how-to-troubleshoot-common-azure-marketplace-publisher-issues"></a>Comment résoudre les problèmes courants de publication dans Azure Marketplace
 Cet article explique comment résoudre ou obtenir de l'aide pour résoudre certains scénarios Marketplace courants.
 
-## Avoirs et remboursements
-Dans certains cas, vous pouvez avoir besoin de demander un avoir ou un remboursement pour le compte d’un client. Le support Microsoft peut s'assurer que les demandes d'avoir et de remboursement de vos clients sont prises en compte et que vous recevez une réponse en temps voulu.
+## <a name="credits-and-refunds"></a>Avoirs et remboursements
+Dans certains cas, vous pouvez avoir besoin de demander un avoir ou un remboursement pour le compte d’un client.  Le support Microsoft peut s'assurer que les demandes d'avoir et de remboursement de vos clients sont prises en compte et que vous recevez une réponse en temps voulu.
 
 Les étapes suivantes vous indiquent comment demander un avoir ou un remboursement pour le compte d'un client.
 
@@ -29,17 +33,17 @@ Les étapes suivantes vous indiquent comment demander un avoir ou un rembourseme
 > 
 > 
 
-  ![1\_RequestRefund][1]
+  ![1_RequestRefund][1]
 
-1. Accédez aux pages de support suivantes : [https://support.microsoft.com/fr-FR/getsupport?tenant=ClassicCommercial&locale=fr-FR&supportregion=fr-FR&pesid=15635&sd=&oaspworkflow=start\_1.0.0.0&wf=0&ccsid=635562546535117884](https://support.microsoft.com/fr-FR/getsupport?tenant=ClassicCommercial&locale=fr-FR&supportregion=fr-FR&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884).
+1. Accédez aux pages de support suivantes : [https://support.microsoft.com/en-us/getsupport?tenant=ClassicCommercial&locale=en-us&supportregion=en-us&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884](https://support.microsoft.com/en-us/getsupport?tenant=ClassicCommercial&locale=en-us&supportregion=en-us&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884).
 2. Dans la zone **Type de problème**, sélectionnez **Gestion des clients**.
 3. Dans la zone **Catégorie**, sélectionnez **Approuver ou demander un remboursement du client**.
 4. Cliquez sur **Envoyer une demande**.
    
-   ![2\_RequestRefund][2]
+   ![2_RequestRefund][2]
 
-1. fournir des informations de contact ;
-2. Dans la zone **Quel est le problème ?**, entrez les informations suivantes :
+1. fournir des informations de contact ;
+2. Dans la zone **Quel est le problème ?** , entrez les informations suivantes :
    
    * L’ID d’abonnement du client concerné
    * Le nom du client
@@ -48,9 +52,9 @@ Les étapes suivantes vous indiquent comment demander un avoir ou un rembourseme
    * La date de facturation de cette période
    * La raison de l’avoir
 
-Vous recevez ensuite dans un délai de 24 heures un accusé de réception par e-mail indiquant que nous avons reçu les informations que vous avez fournies. Dès qu'une décision est prise par rapport à votre demande, vous êtes informé du résultat.
+Vous recevez ensuite dans un délai de 24 heures un accusé de réception par e-mail indiquant que nous avons reçu les informations que vous avez fournies. Dès qu'une décision est prise par rapport à votre demande, vous êtes informé du résultat.
 
-## Validation de l’abonnement d’un client
+## <a name="customer-subscription-validation"></a>Validation de l’abonnement d’un client
 Dans certains cas, vous pouvez avoir besoin de valider les détails de l’abonnement d’un de vos clients. Vous pouvez contacter le support Microsoft pour vous aider. Le support Microsoft peut confirmer que l’ID d’abonnement et l’adresse de facturation appartiennent à un client connu.
 
   ![subscriptionvalidation][3]
@@ -61,13 +65,13 @@ Dans certains cas, vous pouvez avoir besoin de valider les détails de l’abonn
 * Vous devrez fournir l'ID d'abonnement du client et son adresse de facturation.
 * Microsoft vous contactera pour confirmer que l'adresse de facturation et l'ID d'abonnement appartiennent effectivement à ce client.
 
-## Comment mettre à jour mon profil d'éditeur ?
-Si vous voulez mettre à jour votre profil d’éditeur, vous pouvez le faire par le biais du Centre de développement Microsoft :
+## <a name="how-do-i-update-my-publisher-profile"></a>Comment mettre à jour mon profil d'éditeur ?
+Si vous voulez mettre à jour votre profil d’éditeur, vous pouvez le faire par le biais du Centre de développement Microsoft :
 
 **1. Connectez-vous au Centre de développement Windows**.
 
 * Ouvrez une nouvelle session de navigation Chrome Incognito ou Internet Explorer InPrivate pour vous assurer que vous n'êtes pas connecté à un compte personnel.
-* Accédez à [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure).
+* Accédez à [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
 
 ![inprivate][4]
 
@@ -75,7 +79,7 @@ Si vous voulez mettre à jour votre profil d’éditeur, vous pouvez le faire pa
 
 ![signin][5]
 
-**3. Effectuez la vérification « Aidez-nous à protéger votre compte »**.
+**3. Effectuez la vérification « Aidez-nous à protéger votre compte »**.
 
 > [!NOTE]
 > Vous pouvez utiliser votre numéro de téléphone ou votre adresse e-mail pour la vérification.
@@ -88,7 +92,7 @@ Si vous voulez mettre à jour votre profil d’éditeur, vous pouvez le faire pa
 
 ![acctdetails][7]
 
-## Comment ajouter ou supprimer un administrateur de mon compte de publication ?
+## <a name="how-do-i-add-or-delete-an-administrator-from-my-publishing-account"></a>Comment ajouter ou supprimer un administrateur de mon compte de publication ?
 ![manageadmins][8]
 
 1. Accédez au portail de publication.
@@ -97,17 +101,17 @@ Si vous voulez mettre à jour votre profil d’éditeur, vous pouvez le faire pa
 4. Ajoutez l'adresse e-mail du coadministrateur que vous voulez ajouter ou supprimer.
 5. Sélectionnez **Enregistrer**.
 
-## Étapes suivantes : autres demandes de support
-Pour les problèmes suivants, envoyez une demande de support sur le site [https://portal.azure.com](https://portal.azure.com) :
+## <a name="next-steps-other-support-queries"></a>Étapes suivantes : autres demandes de support
+Pour les problèmes suivants, envoyez une demande de support sur le site [https://portal.azure.com](https://portal.azure.com):
 
-* Comment signaler une erreur de facturation ?
+* Comment signaler une erreur de facturation ?
 * J'ai remarqué des incohérences dans mes relevés de facturation ou d'utilisation.
 * J'ai besoin d'aide pour comprendre mes relevés de facturation.
 
-Pour les problèmes suivants, créez une demande de support sur le site [http://go.microsoft.com/fwlink/?LinkId=272975](http://go.microsoft.com/fwlink/?LinkId=272975) :
+Pour les problèmes suivants, créez une demande de support sur le site [http://go.microsoft.com/fwlink/?LinkId=272975](http://go.microsoft.com/fwlink/?LinkId=272975):
 
 * Je rencontre des problèmes pour gérer les services web.
-* Comment modifier le compte Microsoft associé à mon compte vendeur ?
+* Comment modifier le compte Microsoft associé à mon compte vendeur ?
 
 [1]: ./media/marketplace-publishing-support-common-issues/requestrefund1.png
 [2]: ./media/marketplace-publishing-support-common-issues/requestrefund2.png
@@ -118,4 +122,8 @@ Pour les problèmes suivants, créez une demande de support sur le site [http://
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

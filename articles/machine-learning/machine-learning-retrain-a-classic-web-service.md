@@ -1,12 +1,12 @@
 ---
 title: Reformer un service web classique | Microsoft Docs
-description: Apprenez à reformer un modèle par programmation et à mettre à jour le service web de sorte qu’il utilise le modèle reformé dans Azure Machine Learning.
+description: "Apprenez à reformer un modèle par programme et à mettre à jour le service Web pour utiliser le modèle reformé dans Azure Machine Learning."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: raymondlaghaeian
-editor: ''
-
+editor: 
+ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,27 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 139980b62aee440ac5f4160e83c7a5eafb32eec2
+
 
 ---
-# <a name="retrain-a-classic-web-service"></a>Reformer un service web classique
+# <a name="retrain-a-classic-web-service"></a>Reformer un service web Classic
 Le service web prédictif que vous avez déployé est le point de terminaison de notation par défaut. Les points de terminaison par défaut sont toujours synchronisés avec l’expérience originale d’apprentissage et de notation. Par conséquent, le modèle entraîné du point de terminaison par défaut ne peut pas être remplacé. Pour reformer le service web, vous devez ajouter un nouveau point de terminaison au service web. 
 
-> [!NOTE]
-> Cette procédure pas à pas suppose que vous avez créé le service web en procédant de la manière décrite dans [Reformation des modèles Machine Learning par programme](machine-learning-retrain-models-programmatically.md).
+## <a name="prerequisites"></a>Conditions préalables
+Vous devez avoir configuré une expérience de formation et une expérimentation prédictive comme indiqué dans [Reformer des modèles Machine Learning par programme](machine-learning-retrain-models-programmatically.md). 
+
+> [!IMPORTANT]
+> L’expérience prédictive doit être déployée comme un service web Machine Learning classique. 
 > 
 > 
+
+Pour plus d’informations sur le déploiement de services web, consultez [Déployer un service web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## <a name="add-a-new-endpoint"></a>Ajouter un nouveau point de terminaison
-Le service web prédictif que vous avez déployé contient un point de terminaison de notation par défaut qui est synchronisé avec le modèle formé pour les expériences de formation et de notation d’origine. Pour mettre à jour votre service web avec un nouveau modèle formé, vous devez créer un nouveau point de terminaison de notation. 
+Le service web prédictif que vous avez déployé contient un point de terminaison de notation par défaut qui est synchronisé avec le modèle formé pour les expériences de formation et de notation d’origine. Pour mettre à jour votre service web avec un nouveau modèle formé, vous devez créer un point de terminaison de notation. 
 
-Pour créer un nouveau point de terminaison de notation, sur le service web prédictif pouvant être mis à jour avec le modèle entraîné :
+Pour créer un nouveau point de terminaison de notation, sur le service web prédictif pouvant être mis à jour avec le modèle entraîné :
 
 > [!NOTE]
-> Veillez à ajouter le point de terminaison au service web prédictif et non au service web d’apprentissage. Si vous avez correctement déployé à la fois un service web prédictif et un service web de formation, vous devez voir deux services web distincts répertoriés. Le service web prédictif doit se terminer par « [exp. prédictive] ».
+> Veillez à ajouter le point de terminaison au service web prédictif et non au service web d’apprentissage. Si vous avez correctement déployé à la fois un service web prédictif et un service web d’apprentissage, vous devez voir deux services web distincts répertoriés. Le service web prédictif doit se terminer par « [exp. prédictive] ».
 > 
 > 
 
-Pour ajouter un nouveau point de terminaison à un service web, trois options s’offrent à vous :
+Pour ajouter un nouveau point de terminaison à un service web, trois options s’offrent à vous :
 
 1. Par programmation
 2. Utilisation du portail de services web Microsoft Azure
@@ -45,7 +54,7 @@ Vous pouvez ajouter des points de terminaison de notation à l’aide de l’exe
 
 ### <a name="use-the-microsoft-azure-web-services-portal-to-add-an-endpoint"></a>Utiliser le portail de services web Microsoft Azure pour ajouter un point de terminaison
 1. Dans Machine Learning Studio, dans la colonne de navigation de gauche, cliquez sur Services web.
-2. En bas du tableau de bord de services web, cliquez sur **Manage endpoints preview**(Gérer les points de terminaison - version préliminaire).
+2. En bas du tableau de bord de services web, cliquez sur **Gérer les points de terminaison (préversion)**.
 3. Cliquez sur **Add**.
 4. Tapez un nom et une description pour le point de terminaison. Sélectionnez le niveau de journalisation et activez les exemples de données si nécessaire. Pour plus d’informations sur la journalisation, consultez [Activation de la journalisation pour les services web de Machine Learning](machine-learning-web-services-logging.md).
 
@@ -56,19 +65,19 @@ Vous pouvez ajouter des points de terminaison de notation à l’aide de l’exe
 4. Sous Nom, cliquez sur **Modèle de recensement [exp. prédictive]**.
 5. En bas de la page, cliquez sur **Ajouter un point de terminaison**. Pour plus d’informations sur l’ajout de points de terminaison, consultez [Création de points de terminaison](machine-learning-create-endpoint.md). 
 
-## <a name="update-the-added-endpoint’s-trained-model"></a>Mettre à jour le modèle entraîné du point de terminaison ajouté
+## <a name="update-the-added-endpoints-trained-model"></a>Mettre à jour le modèle entraîné du point de terminaison ajouté
 Pour terminer le processus de nouvel entraînement, vous devez mettre à jour le modèle entraîné du nouveau point de terminaison que vous avez ajouté.
 
 * Si vous avez ajouté le nouveau point de terminaison à l’aide du portail Azure Classic, vous pouvez cliquer sur le nom du nouveau point de terminaison dans le portail, puis sur le lien **UpdateResource** pour obtenir l’URL dont vous avez besoin pour mettre à jour le modèle du point de terminaison.
 * Si vous avez ajouté le point de terminaison à l’aide de l’exemple de code, cela inclut l’emplacement de l’URL d’aide identifiée par la valeur *HelpLocationURL* dans la sortie.
 
-Pour récupérer l’URL du chemin d’accès :
+Pour récupérer l’URL du chemin d’accès :
 
 1. Copiez et collez l’URL dans votre navigateur.
 2. Cliquez sur le lien Mettre à jour les ressources.
-3. Copiez l’URL de la publication de la requête PATCH. Par exemple :
+3. Copiez l’URL de la publication de la requête PATCH. Par exemple :
    
-       PATCH URL: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
+     URL DU CORRECTIF : https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 
 Vous pouvez maintenant utiliser le modèle entraîné pour mettre à jour le point de terminaison de notation que vous avez créé précédemment.
 
@@ -114,7 +123,7 @@ L’exemple de code suivant montre comment utiliser les éléments *BaseLocation
 
 L’*apiKey* et l’*endpointUrl* pour l’appel sont figurent sur le tableau de bord du point de terminaison.
 
-La valeur du paramètre *Name* dans *Ressources* doit correspondre au nom de ressource du modèle formé enregistré dans l’expérience prédictive. Pour obtenir le nom de la ressource :
+La valeur du paramètre *Name* dans *Ressources* doit correspondre au nom de ressource du modèle formé enregistré dans l’expérience prédictive. Pour obtenir le nom de la ressource :
 
 1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2. Dans le menu de gauche, cliquez sur **Machine Learning**.
@@ -129,15 +138,17 @@ Si votre jeton SAP expire avant la fin de la mise à jour du point de terminaiso
 Lorsque le code a été exécuté avec succès, le nouveau point de terminaison doit commencer à utiliser le modèle de nouveau entraîné après environ 30 secondes.
 
 ## <a name="summary"></a>Résumé
-À l’aide des API Retraining, vous pouvez mettre à jour le modèle entraîné d’un service web prédictif pour prendre en charge des scénarios tels que :
+À l’aide des API Retraining, vous pouvez mettre à jour le modèle entraîné d’un service web prédictif pour prendre en charge des scénarios tels que :
 
 * Nouvel apprentissage périodique d’un modèle avec de nouvelles données.
 * Distribution d’un modèle auprès des clients dans le but de leur permettre d’effectuer à nouveau l’apprentissage du modèle avec leurs propres données.
 
-Étapes suivantes
-
+## <a name="next-steps"></a>Étapes suivantes
 [Résolution des problèmes de reformation d’un service web Azure Machine Learning classique](machine-learning-troubleshooting-retraining-models.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

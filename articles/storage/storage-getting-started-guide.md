@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 11/17/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 369e45ed8303735976813c1224ce74842f886536
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a8f90f07a4402c0d2fb9ffc3bd35de18e2a39927
 
 
 ---
@@ -47,10 +47,9 @@ Une fois votre compte créé, vous pouvez créer une application Azure Storage s
 3. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Installés** > **Modèles** > **Visual C#** > **Cloud** > **Démarrages rapides** > **Services de données**.
     a. Choisissez l’un des modèles suivants : **Azure Storage : Blobs**, **Azure Storage : Fichiers**, **Azure Storage : Files d’attente** ou **Azure Storage : Tables**.
     b. Vérifiez que la version cible sélectionnée est **.NET Framework 4.5**.
-   
-   * 3.c. Donnez un nom à votre projet et créez la nouvelle solution Visual Studio, comme indiqué :
+    c. Donnez un nom à votre projet et créez la nouvelle solution Visual Studio, comme indiqué :
      
-     ![Exemples de Démarrage rapide pour Azure][Image1]
+    ![Exemples de Démarrage rapide pour Azure][Image1]
 
 Il peut être utile d’examiner le code source avant d'exécuter l'application. Pour ce faire, dans le menu **Affichage** de Visual Studio, sélectionnez **Explorateur de solutions**. Ensuite, double-cliquez sur le fichier Program.cs.
 
@@ -59,7 +58,10 @@ Exécutez ensuite l'exemple d'application :
 1. Dans le menu **Affichage** de Visual Studio, sélectionnez **Explorateur de solutions**. Ouvrez le fichier App.config et supprimez les marques de commentaire de la chaîne de connexion pour l’émulateur de stockage Azure :
    
    `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
-2. Annulez les marques de commentaire de la chaîne de connexion du service Azure Storage et indiquez le nom du compte de stockage et la clé d'accès dans le fichier App.config : `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
+
+2. Annulez les marques de commentaire de la chaîne de connexion du service Azure Storage et indiquez le nom du compte de stockage et la clé d'accès dans le fichier App.config :
+   
+   `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
    
    Pour récupérer votre clé d’accès du compte de stockage, reportez-vous à [Gérer vos clés d’accès de stockage](storage-create-storage-account.md#manage-your-storage-access-keys).
 3. Une fois que vous avez fourni la clé d’accès et le nom du compte de stockage dans le fichier App.config, dans le menu **Fichier**, cliquez sur **Enregistrer tout** pour enregistrer tous les fichiers du projet.
@@ -79,6 +81,7 @@ Pour l’essayer, nous allons créer une application Azure Storage simple à l�
     c. Donnez un nom à votre projet et créez la nouvelle solution Visual Studio, comme indiqué :
    
     ![Exemples de Démarrage rapide pour Azure][Image1]
+
 4. Dans le menu **Affichage** de Visual Studio, sélectionnez **Explorateur de solutions**. Ouvrez le fichier App.config et supprimez la marque de commentaire de la chaîne de connexion pour votre compte de stockage Azure si vous en avez ajouté une. Puis supprimez la marque de commentaire de la chaîne de connexion pour l’émulateur de stockage Azure :
    
    `<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>`
@@ -109,6 +112,6 @@ Pour en savoir plus sur Azure Storage, consultez les ressources suivantes :
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

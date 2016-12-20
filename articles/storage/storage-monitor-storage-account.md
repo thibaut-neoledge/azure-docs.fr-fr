@@ -1,19 +1,23 @@
 ---
-title: Surveillance d’un compte de stockage | Microsoft Docs
-description: Découvrez comment surveiller un compte de stockage dans Azure en utilisant le portail Azure.
+title: "Surveillance d’un compte de stockage | Microsoft Docs"
+description: "Découvrez comment surveiller un compte de stockage dans Azure en utilisant le portail Azure."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
-
+ms.assetid: b83cba7b-4627-4ba7-b5d0-f1039fe30e78
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 12/08/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c0506fd6745c9ab04f10b60936315901ed35edbc
+
 
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Surveiller un compte de stockage dans le portail Azure
@@ -21,7 +25,7 @@ ms.author: robinsh
 Vous pouvez surveiller votre compte de stockage à partir du [portail Azure](https://portal.azure.com). Lorsque vous configurez votre compte de stockage pour la surveillance via le portail, Azure Storage utilise [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx) pour effectuer le suivi des mesures pour votre compte et enregistrer les données de la demande.
 
 > [!NOTE]
-> L’analyse des données de surveillance dans le [portail Azure](https://portal.azure.com)occasionne des frais supplémentaires. Pour plus d'informations, consultez la page <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Storage Analytics et facturation</a>. <br />
+> L’analyse des données de surveillance dans le [portail Azure](https://portal.azure.com) occasionne des frais supplémentaires. Pour plus d'informations, consultez la page <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Storage Analytics et facturation</a>. <br />
 > 
 > Le stockage de fichiers Azure prend actuellement en charge les métriques de Storage Analytics, mais pas encore la journalisation. Vous pouvez activer les métriques pour Azure File Storage par le biais du [portail Azure](https://portal.azure.com).
 > 
@@ -36,9 +40,9 @@ Vous pouvez surveiller votre compte de stockage à partir du [portail Azure](htt
 2. Cliquez sur **Configurer**, puis faites défiler l’écran vers le bas jusqu’aux paramètres de **surveillance** pour les services blob, de Table et de File d’attente.
    
     ![MonitoringOptions](./media/storage-monitor-storage-account/Storage_MonitoringOptions.png)
-3. Dans **monitoring**, définissez le niveau de surveillance et la stratégie de rétention de données pour chaque service :
+3. Dans **monitoring**, définissez le niveau de surveillance et la stratégie de rétention de données pour chaque service :
    
-   * Pour définir le niveau de surveillance, sélectionnez l’une des options suivantes :
+   * Pour définir le niveau de surveillance, sélectionnez l’une des options suivantes :
      
      **Minimal** : collecte des mesures telles que l’entrée/sortie, la disponibilité, la latence et les pourcentages de réussite, qui sont agrégées pour les services BLOB, de Table et de File d’attente.
      
@@ -46,7 +50,7 @@ Vous pouvez surveiller votre compte de stockage à partir du [portail Azure](htt
      
      **Off** : désactive la surveillance. Les données de surveillance existantes sont conservées jusqu'au terme de la période de rétention.
 
-* Pour définir la stratégie de rétention de données, dans **Rétention (en jours)**, tapez le nombre de jours durant lesquels les données sont conservées (de 1 à 365 jours). Si vous ne souhaitez pas définir de stratégie de rétention, entrez 0. Dans ce cas, il vous appartient de supprimer ou non les données de surveillance. Nous vous recommandons de définir une stratégie de rétention en fonction de la durée de conservation que vous souhaitez appliquer aux données d’analyse de votre compte, de sorte que les données d’analyse anciennes et non utilisées puissent être supprimées par le système sans frais.
+* Pour définir la stratégie de rétention de données, dans **Rétention (en jours)**, tapez le nombre de jours durant lesquels les données sont conservées (de 1 à 365 jours). Si vous ne souhaitez pas définir de stratégie de rétention, entrez 0. Dans ce cas, il vous appartient de supprimer ou non les données de surveillance. Nous vous recommandons de définir une stratégie de rétention en fonction de la durée de conservation que vous souhaitez appliquer aux données d’analyse de votre compte, de sorte que les données d’analyse anciennes et non utilisées puissent être supprimées par le système sans frais.
 
 1. Une fois la configuration de la surveillance terminée, cliquez sur **Save**.
 
@@ -62,14 +66,14 @@ Les mesures sont stockées dans le compte de stockage dans quatre tables nommée
 Sur le tableau de bord, vous pouvez choisir jusqu’à six mesures sur les neuf disponibles pour les représenter sur le graphique de mesures. Pour chaque service (Blob, Table et File d’attente), les mesures Availability, Success Percentage et Total Requests sont disponibles. Les mesures disponibles sur le tableau de bord sont les mêmes, quel que soit le type de surveillance (minimale ou détaillée).
 
 1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Stockage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
-2. Pour modifier les mesures représentées sur le graphique, effectuez l’une des actions suivantes :
+2. Pour modifier les mesures représentées sur le graphique, effectuez l’une des actions suivantes :
    
    * Pour ajouter une nouvelle mesure au graphique, cliquez sur la case à cocher en couleur en regard de l’en-tête des mesures dans le tableau sous le graphique.
    * Pour masquer une mesure représentée sur le graphique, désactivez la case à cocher de couleur en regard de son en-tête.
      
        ![Monitoring_nmore](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
 3. Par défaut, le graphique indique les tendances, affichant uniquement la valeur actuelle de chaque mesure (option **Relative** dans la partie supérieure du graphique). Pour afficher un axe Y afin de voir les valeurs absolues, sélectionnez **Absolute**.
-4. Pour modifier la plage horaire des mesures affichées dans le graphique, sélectionnez 6 heures, 24 heures ou 7 jours en haut du graphique.
+4. Pour modifier la plage horaire des mesures affichées dans le graphique, sélectionnez 6 heures, 24 heures ou 7 jours en haut du graphique.
 
 ## <a name="how-to-customize-the-monitor-page"></a>Personnalisation de la page Monitor
 Sur la page **Monitor** , vous pouvez afficher le jeu complet de mesures associé à votre compte de stockage.
@@ -112,7 +116,7 @@ Utilisez les procédures suivantes pour choisir les mesures de stockage à affic
 ## <a name="how-to-customize-the-metrics-chart-on-the-monitor-page"></a>Personnalisation du graphique de mesures de la page Monitor
 1. Sur la page **Monitor** du compte de stockage, dans le tableau des mesures, sélectionnez les mesures (six au maximum) à représenter sur le graphique de mesures. Pour sélectionner une mesure, cliquez sur la case à cocher à sa gauche. Pour supprimer une mesure du graphique, désactivez la case à cocher.
 2. Pour basculer entre un affichage des valeurs relatives (seule la valeur finale est affichée) et un affichage des valeurs absolues (axe Y affiché) dans le graphique, sélectionnez **Relative** ou **Absolue** en haut du graphique.
-3. Pour modifier la plage horaire des mesures affichées dans le graphique, sélectionnez **6 heures**, **24 heures** ou **7 jours** en haut du graphique.
+3. Pour modifier la plage horaire des mesures affichées dans le graphique, sélectionnez **6 heures**, **24 heures** ou **7 jours** en haut du graphique.
 
 ## <a name="how-to-configure-logging"></a>Configuration de la journalisation
 Pour chaque service de stockage accessible à votre compte de stockage (Blob, Table et File d’attente), vous pouvez enregistrer des journaux de diagnostic pour les demandes de lecture, d’écriture et/ou de suppression. De même, vous pouvez définir la stratégie de rétention de données de chaque service.
@@ -121,7 +125,7 @@ Pour chaque service de stockage accessible à votre compte de stockage (Blob, Ta
 2. Cliquez sur **Configurer**, puis utilisez la touche Bas du clavier pour atteindre **journalisation**.
    
     ![Storagelogging](./media/storage-monitor-storage-account/Storage_LoggingOptions.png)
-3. Pour chaque service (Blob, Table et File d’attente), configurez les paramètres suivants :
+3. Pour chaque service (Blob, Table et File d’attente), configurez les paramètres suivants :
    
    * Types de demande à journaliser : demandes de lecture, d’écriture et de suppression.
    * Le nombre de jours durant lesquels les données journalisées sont conservées. Entrez 0 si vous ne souhaitez pas définir de stratégie de rétention. Dans ce cas, il vous appartient de supprimer ou non les journaux.
@@ -129,6 +133,9 @@ Pour chaque service de stockage accessible à votre compte de stockage (Blob, Ta
 
 Les journaux de diagnostic sont enregistrés dans un conteneur d’objets blob nommé $logs dans votre compte de stockage. Pour plus d’informations sur l’accès au conteneur $logs, voir la page [À propos de la journalisation Storage Analytics](http://msdn.microsoft.com/library/azure/hh343262.aspx).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

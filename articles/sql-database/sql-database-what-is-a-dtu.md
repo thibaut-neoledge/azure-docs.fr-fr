@@ -9,6 +9,7 @@ manager: jhubbard
 editor: CarlRabeler
 ms.assetid: 89e3e9ce-2eeb-4949-b40f-6fc3bf520538
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +17,8 @@ ms.workload: NA
 ms.date: 09/06/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 91942517a481a252d631af15e532389256b64108
+ms.sourcegitcommit: 4edae4ef772dc68b1f0efa9e758f26277dd35c44
+ms.openlocfilehash: bbc9bef4039b5c898c44a0e39b78b7b28c225c32
 
 
 ---
@@ -25,14 +26,14 @@ ms.openlocfilehash: 91942517a481a252d631af15e532389256b64108
 Cet article explique les unités de transaction de base de données (DTU) et les unités de transaction de base de données élastique (eDTU) et ce qu’il se passe lorsque vous avez atteint le nombre maximal de DTU et d’eDTU.  
 
 ## <a name="what-are-database-transaction-units-dtus"></a>Définition des unités de transaction de base de données (DTU)
-Une DTU est une unité de mesure des ressources dont la disponibilité est assurée pour une base de données SQL Azure autonome à un niveau de performance spécifique au sein d’un [niveau de service de base de données autonome](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels). Une DTU est une mesure mixte de l’UC, de la mémoire et des E/S de données et des E/S du journal des transactions selon un ratio déterminé par une charge de travail d’évaluation OLTP conforme aux charges de travail OLTP réelles standard. Le fait de doubler les DTU en augmentant le niveau de performance d’une base de données revient à doubler l’ensemble des ressources disponibles pour cette base de données. Par exemple, une base de données Premium P11 comprenant 1 750 DTU fournit une puissance de calcul DTU 350 fois plus importante qu’une base de données de base comprenant 5 DTU. Pour comprendre la méthodologie sous-jacente à la charge de travail d’évaluation OLTP utilisée pour déterminer la fusion DTU, consultez [Vue d’ensemble du test d’évaluation de la base de données SQL](sql-database-benchmark-overview.md).
+Une DTU est une unité de mesure des ressources dont la disponibilité est assurée pour une base de données SQL Azure autonome à un niveau de performance spécifique au sein d’un [niveau de service de base de données autonome](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels). Une DTU est une mesure mixte de l’UC, de la mémoire et des E/S de données et des E/S du journal des transactions selon un ratio déterminé par une charge de travail d’évaluation OLTP conforme aux charges de travail OLTP réelles standard. Le fait de doubler les DTU en augmentant le niveau de performance d’une base de données revient à doubler l’ensemble des ressources disponibles pour cette base de données. Par exemple, une base de données Premium P11 comprenant 1 750 DTU fournit une puissance de calcul DTU 350 fois plus importante qu’une base de données de base comprenant 5 DTU. Pour comprendre la méthodologie sous-jacente à la charge de travail d’évaluation OLTP utilisée pour déterminer la fusion DTU, consultez [Vue d’ensemble du test d’évaluation de la base de données SQL](sql-database-benchmark-overview.md).
 
 ![Introduction à la base de données SQL : DTU de base de données unique par couche et niveau](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 Vous pouvez [modifier les niveaux de service](sql-database-scale-up.md) à tout moment avec un temps d’arrêt minimal de votre application (généralement sous les quatre secondes environ). Pour de nombreuses entreprises et applications, être en mesure de créer des bases de données et d'augmenter ou ralentir les performances d'une base de données unique à la demande est suffisant, surtout si les modèles d'utilisation sont relativement prévisibles. Mais si vous avez des modèles d'utilisation imprévisibles, il peut être difficile de gérer les coûts et votre modèle commercial. Pour ce scénario, vous utilisez un pool élastique avec un certain nombre d’eDTU.
 
 ## <a name="what-are-elastic-database-transaction-units-edtus"></a>Définition des unités de transaction de base de données élastique (DTU)
-Une eDTU est une unité de mesure de l’ensemble des ressources (DTU) pouvant être partagées au sein d’un ensemble de bases de données sur un serveur SQL Azure (appelé [pool élastique](sql-database-elastic-pool.png)). Les pools élastiques offrent une solution simple et économique pour gérer les objectifs de performance de plusieurs bases de données ayant des modèles d’utilisation variables et non prévisibles. Pour plus d’informations,consultez [niveaux de service des pools élastiques](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) .
+Une eDTU est une unité de mesure de l’ensemble des ressources (DTU) pouvant être partagées au sein d’un ensemble de bases de données sur un serveur SQL Azure (appelé [pool élastique](sql-database-elastic-pool.md)). Les pools élastiques offrent une solution simple et économique pour gérer les objectifs de performance de plusieurs bases de données ayant des modèles d’utilisation variables et non prévisibles. Pour plus d’informations,consultez [niveaux de service des pools élastiques](sql-database-service-tiers.md#elastic-database-pool-service-tiers-and-performance-in-edtus) .
 
 ![Introduction à la base de données SQL : eDTU par couche et niveau](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
@@ -57,7 +58,6 @@ Les niveaux de performances sont étalonnés et régis pour fournir les ressourc
 
 
 
-
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Mettre en service une application Web qui utilise une base de données SQL
-description: Utiliser un modèle Azure Resource Manager pour déployer une application Web qui inclut une base de données SQL.
+title: "Mettre en service une application Web qui utilise une base de données SQL"
+description: "Utiliser un modèle Azure Resource Manager pour déployer une application Web qui inclut une base de données SQL."
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: fb9648e1-9bf2-4537-bc4a-ab8d4953168c
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,21 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 461b97b56058620202a5f7f69171ffa0f2cb25cb
+
 
 ---
-# Mettre en service une application Web avec une base de données SQL
+# <a name="provision-a-web-app-with-a-sql-database"></a>Mettre en service une application Web avec une base de données SQL
 Dans cette rubrique, vous allez apprendre à créer un modèle Azure Resource Manager qui déploie une application Web et une base de données SQL. Vous allez apprendre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins.
 
 Pour en savoir plus sur la création de modèles, voir [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
 
-Pour plus d'informations sur le déploiement d'applications, consultez la rubrique [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md).
+Pour plus d'informations sur le déploiement d'applications, consultez la rubrique [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md).
 
 Pour le modèle complet, consultez [Modèle d'application Web avec une base de données SQL](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Ce que vous allez déployer
-Dans ce modèle, vous allez déployer :
+## <a name="what-you-will-deploy"></a>Ce que vous allez déployer
+Dans ce modèle, vous allez déployer :
 
 * une application Web
 * Serveur de base de données SQL
@@ -37,28 +41,28 @@ Dans ce modèle, vous allez déployer :
 * Règles d'alerte
 * App Insights
 
-Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
+Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
 
 [![Déploiement sur Azure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
-## Paramètres à spécifier
+## <a name="parameters-to-specify"></a>Paramètres à spécifier
 [!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
-### administratorLogin
+### <a name="administratorlogin"></a>administratorLogin
 Le nom du compte à utiliser pour l'administrateur du serveur de base de données.
 
     "administratorLogin": {
       "type": "string"
     }
 
-### administratorLoginPassword
+### <a name="administratorloginpassword"></a>administratorLoginPassword
 Le mot de passe à utiliser pour l'administrateur du serveur de base de données.
 
     "administratorLoginPassword": {
       "type": "securestring"
     }
 
-### databaseName
+### <a name="databasename"></a>databaseName
 Le nom de la base de données à créer.
 
     "databaseName": {
@@ -66,7 +70,7 @@ Le nom de la base de données à créer.
       "defaultValue": "sampledb"
     }
 
-### collation
+### <a name="collation"></a>collation
 Le classement de base de données à utiliser pour régir l'utilisation appropriée des caractères.
 
     "collation": {
@@ -74,7 +78,7 @@ Le classement de base de données à utiliser pour régir l'utilisation appropri
       "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
     }
 
-### edition
+### <a name="edition"></a>edition
 Le type de base de données à créer.
 
     "edition": {
@@ -90,7 +94,7 @@ Le type de base de données à créer.
       }
     }
 
-### maxSizeBytes
+### <a name="maxsizebytes"></a>maxSizeBytes
 La taille maximale, en octets, de la base de données.
 
     "maxSizeBytes": {
@@ -98,8 +102,8 @@ La taille maximale, en octets, de la base de données.
       "defaultValue": "1073741824"
     }
 
-### requestedServiceObjectiveName
-Le nom correspondant au niveau de performances pour l'édition.
+### <a name="requestedserviceobjectivename"></a>requestedServiceObjectiveName
+Le nom correspondant au niveau de performances pour l'édition. 
 
     "requestedServiceObjectiveName": {
       "type": "string",
@@ -118,7 +122,7 @@ Le nom correspondant au niveau de performances pour l'édition.
       }
     }
 
-## Variables pour les noms
+## <a name="variables-for-names"></a>Variables pour les noms
 Ce modèle inclut des variables qui construisent les noms utilisés dans le modèle. Les valeurs des variables utilisent la fonction **uniqueString** pour générer un nom à partir de l’ID du groupe de ressources.
 
     "variables": {
@@ -128,9 +132,9 @@ Ce modèle inclut des variables qui construisent les noms utilisés dans le mod�
     },
 
 
-## Ressources à déployer
-### Base de données SQL et serveur SQL Server
-Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est spécifié dans le paramètre **serverName** et l'emplacement est spécifié dans le paramètre **serverLocation**. Lorsque vous créez le serveur, vous devez fournir un nom et un mot de passe de connexion pour l'administrateur du serveur de base de données.
+## <a name="resources-to-deploy"></a>Ressources à déployer
+### <a name="sql-server-and-database"></a>Base de données SQL et serveur SQL Server
+Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est spécifié dans le paramètre **serverName** et l’emplacement est spécifié dans le paramètre **serverLocation**. Lorsque vous créez le serveur, vous devez fournir un nom et un mot de passe de connexion pour l'administrateur du serveur de base de données. 
 
     {
       "name": "[variables('sqlserverName')]",
@@ -181,7 +185,7 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
 
 [!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
-### Application web
+### <a name="web-app"></a>Application web
     {
       "apiVersion": "2015-08-01",
       "name": "[variables('webSiteName')]",
@@ -217,7 +221,7 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
     },
 
 
-### Mise à l'échelle automatique
+### <a name="autoscale"></a>Mise à l'échelle automatique
     {
       "apiVersion": "2014-04-01",
       "name": "[concat(variables('hostingPlanName'), '-', resourceGroup().name)]",
@@ -286,7 +290,7 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
     },
 
 
-### Règles d'alerte pour les codes d'état 403 et 500, utilisation du processeur et longueur de file d'attente HTTP élevées
+### <a name="alert-rules-for-status-codes-403-and-500s-high-cpu-and-http-queue-length"></a>Règles d'alerte pour les codes d'état 403 et 500, utilisation du processeur et longueur de file d'attente HTTP élevées
     {
       "apiVersion": "2014-04-01",
       "name": "[concat('ServerErrors ', variables('webSiteName'))]",
@@ -424,7 +428,7 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
       }
     },
 
-### App Insights
+### <a name="app-insights"></a>App Insights
     {
       "apiVersion": "2014-04-01",
       "name": "[concat('AppInsights', variables('webSiteName'))]",
@@ -442,16 +446,20 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
       }
     }
 
-## Commandes pour l’exécution du déploiement
+## <a name="commands-to-run-deployment"></a>Commandes pour l’exécution du déploiement
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
     New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
-### Interface de ligne de commande Azure
+### <a name="azure-cli"></a>Interface de ligne de commande Azure
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 
 
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

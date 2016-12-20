@@ -1,12 +1,12 @@
 ---
-title: Stream the Azure Activity Log to Event Hubs | Microsoft Docs
-description: Learn how to stream the Azure Activity Log to Event Hubs.
+title: "Diffuser en continu le journal d’activité Azure sur les Event Hubs | Microsoft Docs"
+description: "Apprenez comment diffuser en continu le journal d’activité Azure sur les Event Hubs."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: ec4c2d2c-8907-484f-a910-712403a06829
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,66 +14,73 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c0b974707eadf7d2c3d624c04a4ec94e35c92cbe
+
 
 ---
-# <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream the Azure Activity Log to Event Hubs
-The [**Azure Activity Log**](monitoring-overview-activity-logs.md) can be streamed in near real time to any application using the built-in “Export” option in the portal, or by enabling the Service Bus Rule Id in a Log Profile via the Azure PowerShell Cmdlets or Azure CLI.
+# <a name="stream-the-azure-activity-log-to-event-hubs"></a>Diffuser en continu le journal des activités Azure sur les Event Hubs
+Le [**journal d’activité Azure**](monitoring-overview-activity-logs.md) peut être diffusé en quasi-temps réel sur n’importe quelle application à l’aide de l’option « Export » intégrée au portail, ou en activant l’identifiant de règle Service Bus dans un profil de journal via les applets de commande PowerShell Azure ou l’interface de ligne de commande Azure.
 
-## <a name="what-you-can-do-with-the-activity-log-and-event-hubs"></a>What you can do with the Activity Log and Event Hubs
-Here are just a few ways you might use the streaming capability for the Activity Log:
+## <a name="what-you-can-do-with-the-activity-log-and-event-hubs"></a>Ce que vous pouvez faire avec le journal d’activité et Event Hubs
+Voici quelques façons d’utiliser la fonctionnalité de diffusion en continu pour le journal d’activité :
 
-* **Stream to third-party logging and telemetry systems** – Over time, Event Hubs streaming will become the mechanism to pipe your Activity Log into third-party SIEMs and log analytics solutions.
-* **Build a custom telemetry and logging platform** – If you already have a custom-built telemetry platform or are just thinking about building one, the highly scalable publish-subscribe nature of Event Hubs allows you to flexibly ingest the activity log. [See Dan Rosanova’s guide to using Event Hubs in a global scale telemetry platform here.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
+* **Diffuser en continu sur des systèmes de journalisation et de télémétrie tiers** : au fil du temps, la diffusion en continu sur Event Hubs deviendra le mécanisme de diffusion de votre journal d’activité vers les SIEM et les solutions d’analyse de journaux tiers.
+* **Créer une plateforme de journalisation et de télémétrie personnalisée** : si vous disposez déjà d’une plate-forme de télémétrie personnalisée, ou si vous envisagez d’en créer une, la nature hautement évolutive de publication et d’abonnement d’Event Hubs vous permet d’intégrer avec souplesse le journal d’activité. [Consultez ici le guide de Dan Rosanova sur l’utilisation d’Event Hubs dans une plate-forme de télémétrie à échelle mondiale.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
-## <a name="enable-streaming-of-the-activity-log"></a>Enable streaming of the Activity Log
-You can enable streaming of the Activity Log either programmatically or via the portal. Either way, you pick a Service Bus Namespace and a shared access policy for that namespace, and an Event Hub is created in that namespace when the first new Activity Log event occurs. If you do not have a Service Bus Namespace, you first need to create one. If you have previously streamed Activity Log events to this Service Bus Namespace, the Event Hub that was previously created will be reused. The shared access policy defines the permissions that the streaming mechanism has. Today, streaming to an Event Hubs requires **Manage**, **Read**, and **Send** permissions. You can create or modify Service Bus Namespace shared access policies in the classic portal under the “Configure” tab for your Service Bus Namespace. To update the Activity Log log profile to include streaming, the user making the change must have the ListKey permission on that Service Bus Authorization Rule.
+## <a name="enable-streaming-of-the-activity-log"></a>Activer la diffusion en continu du journal d’activité
+Vous pouvez activer la diffusion en continu du journal d’activité soit par programmation, soit via le portail. Dans les deux cas, vous choisissez un espace de noms Service Bus et une stratégie d’accès partagé pour cet espace de noms, et un Event Hub est créé dans cet espace de noms lorsque le premier nouvel événement de journal d’activité se produit. Si vous n’avez pas d’espace de noms Service Bus, vous devez d’abord en créer un. Si vous avez précédemment diffusé en continu des événements du journal d’activité vers cet espace de noms Service Bus, l’Event Hub créé précédemment sera réutilisé. La stratégie d’accès partagé définit les autorisations dont dispose le mécanisme de diffusion en continu. À l’heure actuelle, la diffusion vers les clients Event Hubs requiert des autorisations de **gestion**, de **lecture** et **d’envoi**. Vous pouvez créer ou modifier les stratégies d’accès partagé de l’espace de noms Service Bus dans le portail Azure Classic sous l’onglet « Configurer » pour votre espace de noms Service Bus. Pour mettre à jour le profil de journal d’activité afin d’inclure la diffusion en continu, l’utilisateur qui apporte la modification doit avoir l’autorisation ListKey sur la règle d’autorisation Service Bus.
 
-### <a name="via-azure-portal"></a>Via Azure portal
-1. Navigate to the **Activity Log** blade using the menu on the left side of the portal.
+### <a name="via-azure-portal"></a>Via le portail Azure
+1. Accédez au panneau **Journal d’activité** à l’aide du menu sur le côté gauche du portail.
    
-    ![Navigate to Activity Log in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Click the **Export** button at the top of the blade.
+    ![Accéder au journal d’activité dans le portail](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
+2. Cliquez sur le bouton **Exporter** en haut du panneau.
    
-    ![Export button in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. In the blade that appears, you can select the regions for which you would like to stream events and the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
+    ![Bouton Exporter dans le portail](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
+3. Dans le panneau qui s’affiche, vous pouvez sélectionner les régions pour lesquelles vous voulez diffuser des événements, et l’espace de nom Service Bus dans lequel vous voulez créer un Event Hub pour la diffusion en continu de ces événements.
    
-    ![Export Activity Log blade](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
-4. Click **Save** to save these settings. The settings are immediately be applied to your subscription.
+    ![Panneau Exporter le journal d’activité](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
+4. Cliquez sur **Enregistrer** pour enregistrer ces paramètres. Les paramètres sont immédiatement appliqués à votre abonnement.
 
-### <a name="via-powershell-cmdlets"></a>Via PowerShell Cmdlets
-If a log profile already exists, you first need to remove that profile.
+### <a name="via-powershell-cmdlets"></a>Via les applets de commande PowerShell
+Si un profil de journal existe déjà, vous devez d’abord le supprimer.
 
-1. Use `Get-AzureRmLogProfile` to identify if a log profile exists
-2. If so, use `Remove-AzureRmLogProfile` to remove it.
-3. Use `Set-AzureRmLogProfile` to create a profile:
+1. Utiliser `Get-AzureRmLogProfile` pour déterminer s’il existe un profil de journal
+2. S’il y en a un, utilisez `Remove-AzureRmLogProfile` pour le supprimer.
+3. Utilisez `Set-AzureRmLogProfile` pour créer un profil :
 
 ```
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
-The Service Bus Rule ID is a string with this format: {service bus resource ID}/authorizationrules/{key name}, for example 
+L’identifiant de règle Service Bus est une chaîne au format : {identifiant de ressource Service Bus}/authorizationrules/{nom de clé}, par exemple 
 
-### <a name="via-azure-cli"></a>Via Azure CLI
-If a log profile already exists, you first need to remove that profile.
+### <a name="via-azure-cli"></a>Via l’interface de ligne de commande Azure
+Si un profil de journal existe déjà, vous devez d’abord le supprimer.
 
-1. Use `azure insights logprofile list` to identify if a log profile exists
-2. If so, use `azure insights logprofile delete` to remove it.
-3. Use `azure insights logprofile add` to create a profile:
+1. Utiliser `azure insights logprofile list` pour déterminer s’il existe un profil de journal
+2. S’il y en a un, utilisez `azure insights logprofile delete` pour le supprimer.
+3. Utilisez `azure insights logprofile add` pour créer un profil :
 
 ```
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 
-The Service Bus Rule ID is a string with this format: `{service bus resource ID}/authorizationrules/{key name}`.
+L’identifiant de règle Service Bus est une chaîne au format : `{service bus resource ID}/authorizationrules/{key name}`.
 
-## <a name="how-do-i-consume-the-log-data-from-event-hubs?"></a>How do I consume the log data from Event Hubs?
-[The schema for the Activity Log is available here](monitoring-overview-activity-logs.md). Each event is in an array of JSON blobs called “records.”
+## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Comment utiliser les données de journal d’Event Hubs ?
+[Le schéma pour le journal d’activité est disponible ici](monitoring-overview-activity-logs.md). Chaque événement est dans un tableau d’objets blob JSON appelé « enregistrements ».
 
-## <a name="next-steps"></a>Next Steps
-* [Archive the Activity Log to a storage account](monitoring-archive-activity-log.md)
-* [Read the overview of the Azure Activity Log](monitoring-overview-activity-logs.md)
-* [Set up an alert based on an Activity Log event](insights-auditlog-to-webhook-email.md)
+## <a name="next-steps"></a>Étapes suivantes
+* [Archiver le journal d’activité dans un compte de stockage](monitoring-archive-activity-log.md)
+* [Lire la présentation du journal d’activité Azure](monitoring-overview-activity-logs.md)
+* [Définir une alerte basée sur un événement de journal d’activité](insights-auditlog-to-webhook-email.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

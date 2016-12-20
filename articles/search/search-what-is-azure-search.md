@@ -1,11 +1,11 @@
 ---
-title: What is Azure Search | Microsoft Docs
-description: Azure Search is a fully-managed hosted cloud search service. Learn more in this feature overview.
+title: "Qu’est-ce que la Recherche Azure ? | Microsoft Docs"
+description: "Azure Search est un service de recherche cloud hébergé intégralement géré. En savoir plus dans la vue d&quot;ensemble de cette fonctionnalité."
 services: search
 manager: jhubbard
 author: ashmaka
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 50bed849-b716-4cc9-bbbc-b5b34e2c6153
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -13,73 +13,80 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: ashmaka
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 29385af9183ef2f8431581aaa5fe38e89404d068
+
 
 ---
-# <a name="what-is-azure-search?"></a>What is Azure Search?
-Azure Search is a cloud search-as-a-service solution that delegates server and infrastructure management to Microsoft, leaving you with a ready-to-use service that you can populate with your data and then use to add search to your web or mobile application. Azure Search allows you to easily add a robust search experience to your applications using a simple [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) or [.NET SDK](search-howto-dotnet-sdk.md) without managing search infrastructure or becoming an expert in search.
+# <a name="what-is-azure-search"></a>Présentation d’Azure Search
+Le service Recherche Azure est une solution cloud de recherche sous forme de service qui délègue la gestion du serveur et de l’infrastructure à Microsoft pour vous laisser un service prêt à l’emploi que vous renseignez avec vos données pour ensuite ajouter une recherche à votre application web ou mobile. Recherche Azure vous permet de facilement ajouter une expérience de recherche fiable aux applications à l’aide d’une simple [API REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) ou du [Kit de développement logiciel (SDK) .NET](search-howto-dotnet-sdk.md), sans avoir à gérer l’infrastructure de recherche ni même devenir un expert de la recherche.
 
-## <a name="give-your-users-a-powerful-search-experience"></a>Give your users a powerful search experience
-**Powerful queries** can be formulated using the [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx), which offers logical operators, phrase search operators, suffix operators, precedence operators. Additionally, the [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) can enable fuzzy search, proximity search, term boosting, and regular expressions. Azure Search also supports custom lexical analyzers to allow your application to handle complex search queries using phonetic matching and regular expressions.
+## <a name="give-your-users-a-powerful-search-experience"></a>Offrez à vos utilisateurs une expérience de recherche puissante
+Des **requêtes puissantes** peuvent être formulées à l’aide de la [syntaxe de requête simple](https://msdn.microsoft.com/library/azure/dn798920.aspx). Celle-ci offre des opérateurs logiques, de recherche d’expression, de suffixe et de précédence. Par ailleurs, la [syntaxe de requête Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) permet des recherches approximatives, des recherches de proximité, la valorisation de termes et des expressions régulières. Azure Search prend également en charge des analyseurs lexicaux personnalisés pour permettre à votre application de traiter des requêtes complexes à l'aide de la correspondance phonétique et des expressions régulières.
 
-**Language support** is [included for 56 different languages](https://msdn.microsoft.com/library/azure/dn879793.aspx). Using both Lucene analyzers and Microsoft analyzers (refined by years of natural language processing in Office and Bing), Azure Search can analyze text in your application's search box to intelligently handle language-specific linguistics including verb tenses, gender, irregular plural nouns (e.g. 'mouse' vs. 'mice'), word de-compounding, word-breaking (for languages with no spaces), and more.
+**La prise en charge linguistique** est [incluse pour 56 langues différentes](https://msdn.microsoft.com/library/azure/dn879793.aspx). À l’aide des analyseurs Lucene et Microsoft (perfectionnés par des années de traitement de langage naturel dans Office et Bing), Azure Search peut analyser le texte dans la zone de recherche de votre application pour gérer intelligemment les caractéristiques linguistiques propres à la langue, notamment les temps des verbes, le masculin et le féminin, les noms au pluriel irrégulier (par exemple, « cheval » et « chevaux »), la décomposition des mots, la césure des mots (pour les langues sans espaces), etc.
 
-**Search suggestions** can be enabled for autocompleted search bars and type-ahead queries. [Actual documents in your index are suggested](https://msdn.microsoft.com/library/azure/dn798936.aspx) as users enter partial search input.
+**Suggestions de recherche** peut être activée pour les barres de recherche de saisie semi-automatique et pour les requêtes prédictives. [Les documents actuellement dans votre index sont suggérés](https://msdn.microsoft.com/library/azure/dn798936.aspx) lorsque les utilisateurs saisissent une entrée de recherche partielle.
 
-**Hit highlighting** [allows](https://msdn.microsoft.com/library/azure/dn798927.aspx) users to see the snippet of text in each result that contains the matches for their query. You can pick and choose which fields return highlighted snippets.
+**Mise en surbrillance des correspondances** [permet](https://msdn.microsoft.com/library/azure/dn798927.aspx) aux utilisateurs de voir l'extrait de texte dans chaque résultat qui contient les correspondances de leur requête. Vous pouvez choisir quels champs renvoient les extraits de texte en surbrillance.
 
-**Faceted navigation** is easily added to your search results page with Azure Search. Using [just a single query parameter](https://msdn.microsoft.com/library/azure/dn798927.aspx), Azure Search will return all the necessary information to construct a faceted search experience in your app's UI to allow your users to drill-down and filter search results  (e.g. filter catalog items by price-range or brand).
+**Navigation à facettes** peut facilement être ajoutée à votre page de résultats avec Azure Search. À l’aide d’un [simple paramètre de requête](https://msdn.microsoft.com/library/azure/dn798927.aspx), la Recherche Azure renvoie toutes les informations nécessaires pour créer une expérience de recherche à facettes dans l’interface utilisateur de votre application, afin de permettre aux utilisateurs d’explorer en détail et de filtrer les résultats de la recherche (par exemple, filtrer des éléments de catalogue par plage de prix ou par marque).
 
-**Geo-spatial** support allows you to intelligently process, filter, and display geographic locations. Azure Search enables your users to explore data based on the proximity of a search result to a specified location or based on a specific geographic region. This video explains how it works: [Channel 9: Azure Search and Geospatial data](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
+**Géospatiale** vous permet de traiter, de filtrer et d’afficher intelligemment les emplacements géographiques. Azure Search permet aux utilisateurs d'explorer les données en fonction de la proximité d'un résultat de recherche selon un emplacement spécifié, ou en fonction d’une région géographique spécifique. Cette vidéo explique comment cela fonctionne : [Channel 9 : Azure Search et les données géospatiales](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
 
-**Filters** can be used to easily incorporate faceted navigation into your application's UI, enhance query formulation, and filter based on user- or developer-specified criteria. Create powerful filters using the [OData syntax](https://msdn.microsoft.com/library/azure/dn798921.aspx).
+**Filtres** permet d’intégrer facilement la navigation à facettes dans l’interface utilisateur de votre application, d’améliorer la formulation des requêtes et de filtrer en fonction de critères spécifiés par les utilisateurs ou les développeurs. Créez des filtres puissants à l’aide de la [syntaxe OData](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
-## <a name="empower-your-developers-with-an-easy-to-use-service"></a>Empower your developers with an easy-to-use service
-**High availability** ensures an extremely reliable search service experience. When scaled properly, [Azure Search offers a 99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+## <a name="empower-your-developers-with-an-easy-to-use-service"></a>Donnez l'avantage à vos développeurs avec un service facile à utiliser
+**Haute disponibilité** garantit une expérience de service de recherche extrêmement fiable. Lorsqu’il est correctement mis à l'échelle, [Azure Search offre un SLA de 99,9 %](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-**Fully managed** as an end-to-end solution, Azure Search requires absolutely no infrastructure management. Your service can be easily tailored to your needs by scaling in two dimensions to handle more document storage, higher query loads, or both.
+**Entièrement géré** comme une solution de bout en bout, Azure Search ne requiert absolument aucune gestion de l'infrastructure. Votre service peut être facilement adapté à vos besoins avec la mise à l'échelle en deux dimensions pour gérer plus de stockage de documents, plus de charge de requêtes, ou les deux.
 
-**Data integration** using [indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx) allows Azure Search to automatically crawl Azure SQL Database, Azure DocumentDB, or [Azure Blob storage](search-howto-indexing-azure-blob-storage.md) to sync your search index's content with your primary data store.
+**L’intégration de données** à l’aide [d’indexeurs](https://msdn.microsoft.com/library/azure/dn946891.aspx) permet à la Recherche Azure d’analyser automatiquement Azure SQL Database, Azure DocumentDB ou le [Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md) pour synchroniser le contenu de votre index de recherche avec votre magasin de données principal.
 
-**Document cracking** is available (currently in preview) [to read and index major file formats](search-howto-indexing-azure-blob-storage.md) including Microsoft Office as well as PDF and HTML documents.
+**Recherche de document** est disponible (actuellement en version préliminaire) [pour lire et indexer la plupart des formats de fichiers](search-howto-indexing-azure-blob-storage.md) , notamment les documents Microsoft Office, PDF et HTML.
 
-**Search traffic analytics** are [easily collected and analyzed](search-traffic-analytics.md) to unlock insights from what users are typing into the search box.
+**Analyses de trafic de recherche** sont [facilement recueillies et analysées](search-traffic-analytics.md) to unlock insights from what users sont typing into the search box.
 
-**Simple scoring** is a key benefit of Azure Search. [Scoring profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx) are used to allow organizations to model relevance as a function of values in the documents themselves. For example, you might want newer products or discounted products to appear higher in the search results. You can also build scoring profiles using tags for personalized scoring based on customer search preferences you've tracked and stored separately.
+**Notation simple** est des principaux avantages d'Azure Search. [Profils de score](https://msdn.microsoft.com/library/azure/dn798928.aspx) permettent aux entreprises de modéliser la pertinence en fonction des valeurs dans les documents eux-mêmes. Par exemple, vous souhaiterez peut-être que les nouveaux produits ou les produits en promotion apparaissent en priorité dans les résultats de la recherche. Vous pouvez également créer des profils de score à l'aide de balises pour obtenir un score personnalisé en fonction de préférences de recherche de client que vous avez suivies et stockées séparément.
 
-**Sorting** is offered for multiple fields via the index schema and then toggled at query-time with a single search parameter.
+**Tri** est proposée pour plusieurs champs via le schéma d'index, et activé ou désactivé au moment de la requête avec un paramètre de recherche unique.
 
-**Paging** and throttling your search results is [straightforward with the finely tuned control](search-pagination-page-layout.md) that Azure Search offers over your search results.  
+**Pagination** et la limitation des résultats de la recherche sont [très simples avec le contrôle finement ajusté](search-pagination-page-layout.md) qu’offre Azure Search sur vos résultats de recherche.  
 
-**Search explorer** allows you to issue queries against all of your indexes right from your account's Azure portal so you can easily test queries and refine scoring profiles.
+**Navigateur Recherche** vous permet d'émettre des requêtes sur tous vos index directement depuis le portail Azure de votre compte afin de pouvoir facilement tester des requêtes et affiner des profils de score.
 
-## <a name="how-it-works"></a>How it works
-### <a name="1.-provision-service"></a>1. Provision service
-You can spin up an Azure Search service using either the [Azure Portal](https://portal.azure.com/) or the [Azure Resource Management API](https://msdn.microsoft.com/library/azure/dn832684.aspx).
+## <a name="how-it-works"></a>Fonctionnement
+### <a name="1-provision-service"></a>1. Configuration du service
+Vous pouvez lancer un service Recherche Azure à l’aide du [portail Azure](https://portal.azure.com/) ou de [l’API de gestion des ressources Azure](https://msdn.microsoft.com/library/azure/dn832684.aspx).
 
-Depending on how you configure the search service, you'll use either the free tier of service that is shared with other Azure Search subscribers, or a [paid tier](https://azure.microsoft.com/pricing/details/search/) that dedicates resources to be used only by your service. When provisioning your service, you also choose the region of the data center that hosts your service.
+Selon la manière dont vous configurez le service Search, vous pouvez utiliser le niveau de service gratuit partagé avec d'autres abonnés Azure Search, ou un [Niveau tarifaire](https://azure.microsoft.com/pricing/details/search/) qui propose des ressources dédiées utilisées uniquement par votre service. Lorsque vous configurez votre service, vous définissez également la région du centre de données qui héberge votre service.
 
-Depending on which tier of service you choose, you can scale your service in two dimensions: 1) Add Replicas to grow your capacity to handle heavy query loads and 2) add Partitions to add storage for more documents. By handling document storage and query throughput separately, you can customize your search service for your specific needs.
+En fonction du niveau de service que vous choisissez, vous pouvez faire évoluer votre service en deux dimensions : 1) ajouter des réplicas pour augmenter votre capacité à gérer les charges de requêtes lourdes et 2) ajouter des partitions pour ajouter le stockage de plus de documents. En gérant le débit de stockage et de requête de document séparément, vous pouvez personnaliser votre service de recherche selon vos besoins spécifiques.
 
-### <a name="2.-create-index"></a>2. Create index
-Before you can upload your content to your Azure Search service, you must first define an Azure Search index. An index is like a database table that holds your data and can accept search queries. You define the index schema to map to the structure of the documents you wish to search, similar to fields in a database.
+### <a name="2-create-index"></a>2. Création d’index
+Avant de pouvoir télécharger votre contenu sur votre service Azure Search, vous devez d'abord définir un index Azure Search. Un index est comparable à une table de base de données qui conserve vos données et peut accepter des requêtes de recherche. Vous définissez le schéma d'index pour mapper vers la structure des documents que vous souhaitez rechercher, similaires aux champs dans une base de données.
 
-The schema of these indexes can either be created in the Azure Portal, or programmatically [using the .NET SDK](search-howto-dotnet-sdk.md) or [REST API](https://msdn.microsoft.com/library/azure/dn798941.aspx). Once the index is defined, you can then upload your data to the Azure Search service where it is subsequently indexed.
+Le schéma de ces index peut être créé dans le portail Azure, ou programmé à l’aide du [Kit de développement logiciel (SDK) .NET](search-howto-dotnet-sdk.md) ou de [l’API REST](https://msdn.microsoft.com/library/azure/dn798941.aspx). Une fois l’index défini, vous pouvez télécharger vos données vers le service Azure Search où elles seront indexées par la suite.
 
-### <a name="3.-index-data"></a>3. Index data
-Once you have defined the fields and attributes of your index, you're ready to upload your content into the index. You can use either a push or pull model to upload data to the index.
+### <a name="3-index-data"></a>3. Données d'index
+Une fois que vous avez défini les champs et les attributs de l'index, vous êtes prêt à télécharger votre contenu dans l'index. Vous pouvez utiliser un modèle d’émission ou de collecte pour télécharger des données vers l'index.
 
-The pull model is provided through indexers that can be configured for on demand or scheduled updates (see [Indexer operations (Azure Search Service REST API)](https://msdn.microsoft.com/library/azure/dn946891.aspx)), allowing you to easily ingest data and data changes from an Azure DocumentDB, Azure SQL Database, Azure Blob Storage, or SQL Server hosted in an Azure VM.
+Le modèle de collecte est fourni par des indexeurs qui peuvent être configurés pour des mises à jour à la demande ou planifiées (consultez la rubrique [Opérations d'indexeur (API REST du service Azure Search)](https://msdn.microsoft.com/library/azure/dn946891.aspx)), ce qui vous permet de recevoir facilement les données et les modifications de données à partir d’Azure DocumentDB, Azure SQL Database, Azure Blob Storage, ou SQL Server, hébergé dans une machine virtuelle Azure.
 
-The push model is provided through the SDK or REST APIs used for sending updated documents to an index. You can push data from virtually any dataset using the JSON format. See [Add, update, or delete Documents](https://msdn.microsoft.com/library/azure/dn798930.aspx) or [How to use the .NET SDK)](search-howto-dotnet-sdk.md) for guidance on loading data.
+Le modèle d’émission est fourni via le Kit de développement logiciel (SDK) ou les API REST permettant d’envoyer les documents mis à jour à un index. Vous pouvez émettre des données à partir de n'importe quel groupe de données à l’aide du format JSON. Pour obtenir des conseils sur le chargement des données, consultez [Ajout, mise à jour ou suppression de documents](https://msdn.microsoft.com/library/azure/dn798930.aspx) ou [Utilisation du Kit de développement logiciel (SDK) .NET](search-howto-dotnet-sdk.md).
 
-### <a name="4.-search"></a>4. Search
-Once you have populated your Azure Search index, you can now [issue search queries](https://msdn.microsoft.com/library/azure/dn798927.aspx) to your service endpoint using simple HTTP requests with REST API or the .NET SDK.
+### <a name="4-search"></a>4. Search
+Une fois que vous avez rempli l'index Azure Search, vous pouvez à présent [émettre des requêtes de recherche](https://msdn.microsoft.com/library/azure/dn798927.aspx) sur le point de terminaison de service à l'aide de simples requêtes HTTP avec l'API REST ou le Kit de développement logiciel .NET.
 
-## <a name="try-it-now-(for-free!)"></a>Try it now (for free!)
-You can try Azure Search today! If you already have an Azure account, you can [provision a service in the Free tier](search-create-service-portal.md).
+## <a name="try-it-now-for-free"></a>Faites un essai dès maintenant (gratuitement !)
+Vous pouvez essayer Azure Search dès aujourd'hui ! Si vous avez déjà un compte Azure, vous pouvez [configurer un service au niveau Gratuit](search-create-service-portal.md).
 
-If you don't have an Azure account you can try a free, 60-minute session with no sign up required. Go to the [Try Azure App Service](http://go.microsoft.com/fwlink/p/?LinkId=618214) and select "Web App." Then select the "ASP.NET + Azure Search" template to get started.
+Si vous n'avez pas un compte Azure, que vous pouvez essayer une session gratuite de 60 minutes sans aucune inscription nécessaire. Accédez à [Essayer Azure App Service](http://go.microsoft.com/fwlink/p/?LinkId=618214) et sélectionnez « Application web ». Puis, sélectionnez le modèle « ASP.NET + Azure Search » pour commencer.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/02/2016
 ms.author: aasthan
 translationtype: Human Translation
-ms.sourcegitcommit: 9f4105d1ab366994add0f75d634917ab9a063733
-ms.openlocfilehash: 15719afed2435bd42e732a7d610e7b516ba07ad8
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 31368661906bc8ca0f8ac1d3329bb053d41a94d7
 
 
 ---
@@ -277,7 +277,7 @@ Félicitations ! Vous avez terminé le didacticiel C++ et disposez à présent 
 ## <a name="a-idgetsolutionaget-the-complete-c-tutorial-solution"></a><a id="GetSolution"></a>Obtenir la solution complète du didacticiel C++
 Pour générer la solution GetStarted qui contient tous les exemples de cet article, vous devez disposer des éléments suivants :
 
-* [Compte DocumentDB][documentdb-create-account].
+* [Un compte DocumentDB][documentdb-create-account].
 * La solution [GetStarted](https://github.com/stalker314314/DocumentDBCpp) disponible sur GitHub.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -293,6 +293,6 @@ Pour générer la solution GetStarted qui contient tous les exemples de cet arti
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

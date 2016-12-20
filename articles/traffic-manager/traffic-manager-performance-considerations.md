@@ -1,59 +1,84 @@
 ---
-title: Considérations sur les performances d’Azure Traffic Manager | Microsoft Docs
-description: Comprendre les performances sur Traffic Manager et comment tester les performances de votre site Web lors de l’utilisation de Traffic Manager
+title: "Considérations sur les performances d’Azure Traffic Manager | Microsoft Docs"
+description: "Comprendre les performances sur Traffic Manager et comment tester les performances de votre site Web lors de l’utilisation de Traffic Manager"
 services: traffic-manager
-documentationcenter: ''
-author: sdwheeler
-manager: carmonm
-editor: joaoma
-
+documentationcenter: 
+author: kumudd
+manager: timlt
+editor: 
+ms.assetid: 3ba5dfa1-2922-43f1-9a23-d06969c4a516
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/10/2016
-ms.author: sewhee
+ms.date: 10/11/2016
+ms.author: kumud
+translationtype: Human Translation
+ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
+ms.openlocfilehash: 680c3dd7bbc5ac86d021e119b31352cbfb3451f7
 
 ---
-# Considérations sur les performances de Traffic Manager
-Cette page explique les considérations relatives aux performances de Traffic Manager. Imaginons la situation suivante : vous avez un site web dans la région des États-Unis et un autre en Asie ; la vérification de l’intégrité des sondes de Traffic Manager échoue sur l’un d’eux ; tous vos utilisateurs sont redirigés vers la région saine ; ce comportement peut apparaître comme un problème de performances, mais il serait normal compte tenu de la distance de la demande de l’utilisateur.
 
-## Remarque importante sur le fonctionnement de Traffic Manager
-* Traffic Manager ne fait pour l’essentiel qu’une seule chose : la résolution DNS. Cela signifie que le seul impact sur les performances que Traffic Manager peut avoir sur votre site Web est la recherche DNS initiale.
-* Point de clarification sur la recherche DNS de Traffic Manager. Traffic Manager renseigne et met régulièrement à jour les serveurs racine Microsoft DNS normaux en fonction de votre stratégie et des résultats de la sonde. Donc, même pendant la recherche DNS initiale, il n’y a aucune implication de Traffic Manager, dans la mesure où la requête DNS est gérée par les serveurs racine Microsoft DNS normaux. Si Traffic Manager s’arrête (autrement dit, si une défaillance survient dans les machines virtuelles exécutant la détection de la stratégie et la mise à jour DNS), il y n’a aucun impact sur votre nom DNS Traffic Manager dans la mesure où les entrées des serveurs DNS Microsoft seront toujours conservées. La seule conséquence sera que la détection et la mise à jour basées sur la stratégie ne se produiront pas (si votre site principal tombe en panne, Traffic Manager ne sera pas en mesure de mettre à jour DNS pour pointer vers votre site de basculement).
-* Le trafic N’est PAS transmis via Traffic Manager. Il n’existe pas de serveurs Traffic Manager agissant comme intermédiaire entre vos clients et votre service hébergé Azure. Une fois terminée la recherche DNS, Traffic Manager est totalement supprimé de la communication entre le client et le serveur.
-* La recherche DNS est très rapide, et est mise en cache. La recherche DNS initiale dépend du client et de ses serveurs DNS configurés : généralement, un client peut effectuer une recherche DNS en 50 ms environ (voir http://www.solvedns.com/dns-comparison/). Une fois effectuée la première recherche, les résultats sont mis en cache pendant la durée de vie (TTL) du DNS, soit pour Traffic Manager une valeur par défaut de 300 secondes.
-* La stratégie Traffic Manager que vous choisissez (performances, basculement, tourniquet) n’a aucune influence sur les performances du DNS. Votre stratégie de performances peut affecter négativement l’expérience de votre utilisateur, si, par exemple, vous dirigez des utilisateurs des États-Unis vers un service hébergé en Asie, mais ce problème de performances n’est pas provoqué par Traffic Manager.
+# <a name="performance-considerations-for-traffic-manager"></a>Considérations sur les performances de Traffic Manager
 
-## Test des performances de Traffic Manager
-Il existe quelques sites web accessibles publiquement que vous pouvez utiliser pour déterminer les performances et le comportement de Traffic Manager. Ces sites sont utiles pour déterminer la latence DNS et les services hébergés vers lesquels vos utilisateurs à travers le monde sont dirigés. N’oubliez pas que la plupart de ces outils ne mettent pas en cache les résultats DNS. Par conséquent, l’exécution des tests à plusieurs reprises affichera la recherche DNS complète, tandis que les clients se connectant à votre point de terminaison Traffic Manager ne verront l’impact sur les performances de la recherche DNS complète qu’une seule fois pendant la durée de vie.
+Cette page explique les considérations relatives aux performances de Traffic Manager. Examinez le scénario suivant :
 
-## Exemples d’outils pour mesurer les performances
-L’un des outils les plus simples est WebSitePulse. Entrez l’URL et vous verrez les statistiques telles que le temps de résolution DNS, le premier octet, le dernier octet et autres statistiques de performances. Vous pouvez choisir entre trois emplacements différents à partir desquels tester votre site. Dans cet exemple, vous allez voir que la première exécution montre que la première recherche DNS dure 0,204 s. La deuxième fois que nous exécutons ce test sur le même point de terminaison Traffic Manager, la recherche DNS prend 0,002 s, puisque les résultats sont déjà mis en cache.
+Vous avez des instances de votre site web dans les régions WestUS et EastAsia. Une des instances ne réussit pas la vérification d’intégrité du sondage Traffic Manager. Le trafic de l’application est dirigé vers la région saine. Ce basculement est attendu, mais les performances peuvent constituer un problème en fonction de la latence du trafic qui transite maintenant vers une région distante.
 
-http://www.websitepulse.com/help/tools.php
+## <a name="how-traffic-manager-works"></a>Fonctionnement de Traffic Manager
 
-![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
+Le seul impact sur les performances que Traffic Manager peut avoir sur votre site web est la recherche DNS initiale. Une requête DNS pour le nom de votre profil Traffic Manager est gérée par le serveur racine Microsoft DNS qui héberge la zone trafficmanager.net. Traffic Manager renseigne et met régulièrement à jour les serveurs racine Microsoft DNS en fonction de la stratégie Traffic Manager et des résultats du sondage. Donc, même pendant la recherche DNS initiale, aucune requête DNS n’est envoyée à Traffic Manager.
 
-Durée DNS avec mise en cache :
+Traffic Manager est constitué de plusieurs composants : des serveurs de noms DNS, un service d’API, la couche de stockage et le service de surveillance des points de terminaison. Si un composant du service Traffic Manager échoue, cela n’a aucune incidence sur le nom DNS associé à votre profil Traffic Manager. Les enregistrements dans les serveurs DNS Microsoft restent inchangés. Toutefois, la surveillance des points de terminaison et la mise à jour DNS n’ont pas lieu. Par conséquent, Traffic Manager n’est pas en mesure de mettre à jour le DNS pour qu’il pointe vers votre site de basculement lorsque votre site principal tombe en panne.
 
-![pulse2](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse2.png)
+La résolution de noms DNS est rapide et les résultats sont mis en cache. La vitesse de la recherche DNS initiale dépend des serveurs DNS que le client utilise pour la résolution de noms. En règle générale, un client peut effectuer une recherche DNS en environ 50 ms. Les résultats de la recherche sont mis en cache pour la durée de vie (TTL) du DNS. La durée de vie par défaut de Traffic Manager est de 300 secondes.
 
-Un autre outil très utile pour obtenir un temps de résolution DNS à partir de plusieurs zones géographiques simultanément est l’outil Check Website de Watchmouse. Entrez l’URL et vous verrez le temps de résolution DNS, l’heure de la connexion et la vitesse à partir de plusieurs emplacements de zones géographiques. Cette solution est également pratique pour tester la stratégie des performances de Traffic Manager et voir vers quel service hébergé vos différents utilisateurs à travers le monde sont dirigés.
+Le trafic N’est PAS transmis via Traffic Manager. Au terme de la recherche DNS, le client a une adresse IP pour une instance de votre site web. Le client se connecte directement à cette adresse et ne passe pas par le biais de Traffic Manager. La stratégie Traffic Manager que vous choisissez n’a aucune influence sur les performances du DNS. Toutefois, une méthode de routage des performances peut affecter négativement l’expérience de l’application. Par exemple, si votre stratégie redirige le trafic d’Amérique du Nord vers une instance hébergée en Asie, la latence du réseau pour ces sessions peut constituer un problème de performances.
 
-http://www.watchmouse.com/en/checkit.php
+## <a name="measuring-traffic-manager-performance"></a>Mesure des performances de Traffic Manager
 
-![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
+Il existe plusieurs sites web que vous pouvez utiliser pour comprendre les performances et le comportement d’un profil Traffic Manager. La plupart de ces sites sont gratuits mais peuvent comporter des limites. Certains sites proposent des fonctionnalités payantes de surveillance et de génération de rapports améliorées.
 
-http://tools.pingdom.com/ : teste un site web et fournit des statistiques de performances pour chaque élément de la page sur un graphique visuel. Si vous basculez vers l’onglet Analyse de la page, vous pouvez voir le pourcentage de temps consacré à la recherche DNS.
+Les outils sur ces sites mesurent les latences DNS et affichent les adresses IP résolues pour les emplacements clients du monde entier. La plupart de ces outils ne mettent pas en cache les résultats DNS. Par conséquent, les outils affichent la recherche DNS complète chaque fois qu’un test est exécuté. Lorsque vous testez votre propre client, vous obtenez uniquement des performances de recherche DNS complètes une seule fois pendant la durée de vie.
 
-http://www.whatsmydns.net/ : le site effectue une recherche DNS à partir de 20 emplacements de zones géographiques différents et affiche les résultats sur une carte. Il s’agit d’une excellente représentation visuelle pour aider à déterminer à quel service hébergé vos clients se connectent.
+## <a name="sample-tools-to-measure-dns-performance"></a>Exemples d’outils pour mesurer les performances DNS
 
-http://www.digwebinterface.com : semblable au site watchmouse, mais celui-ci affiche plus d’informations DNS détaillées, notamment les enregistrements CNAME et A. Veillez à cocher « Coloriser la sortie » et « Statistiques » sous les options et sélectionnez « Tous » sous Noms de serveurs.
+* [SolveDNS](http://www.solvedns.com/dns-comparison/)
 
-## Étapes suivantes
-[À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-routing-methods.md)
+    SolveDNS offre de nombreux outils de performances. L’outil de comparaison de DNS peut vous indiquer la durée nécessaire pour résoudre le nom DNS en effectuant une comparaison avec d’autres fournisseurs de service DNS.
+
+* [WebSitePulse](http://www.websitepulse.com/help/tools.php)
+
+    L’un des outils les plus simples est WebSitePulse. Entrez l’URL pour voir le temps de résolution DNS, le premier octet, le dernier octet et d’autres statistiques de performances. Vous pouvez choisir entre trois emplacements de test différents. Dans cet exemple, vous voyez que la première exécution montre que la recherche DNS dure 0,204 s.
+
+    ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
+
+    Comme les résultats sont mis en cache, la deuxième fois que nous exécutons ce test sur le même point de terminaison Traffic Manager, la recherche DNS prend 0,002 s.
+
+    ![pulse2](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse2.png)
+
+* [CA App Synthetic Monitor](https://asm.ca.com/en/checkit.php)
+
+    Auparavant nommé Watchmouse Check Website, ce site affiche le temps de résolution DNS à partir de plusieurs zones géographiques simultanément. Entrez l’URL pour voir le temps de résolution DNS, l’heure de la connexion et la vitesse à partir de plusieurs emplacements géographiques. Ce test permet de voir quel service hébergé est retourné pour différents emplacements dans le monde entier.
+
+    ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
+
+* [Pingdom](http://tools.pingdom.com/)
+
+    Cet outil fournit des statistiques de performances pour chaque élément d’une page web. L’onglet Analyse de la page affiche le pourcentage de temps consacré à la recherche DNS.
+
+* [Qu’est-ce que Mon DNS ?](http://www.whatsmydns.net/)
+
+    Ce site effectue une recherche DNS à partir de 20 emplacements différents et affiche les résultats sur une carte.
+
+* [Dig Web Interface](http://www.digwebinterface.com)
+
+    Ce site affiche plus d’informations DNS détaillées, notamment les enregistrements CNAME et A. Veillez à cocher « Coloriser la sortie » et « Statistiques » sous les options et sélectionnez « Tous » sous Noms de serveurs.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-routing-methods.md)
 
 [Tester vos paramètres de Traffic Manager](traffic-manager-testing-settings.md)
 
@@ -61,4 +86,9 @@ http://www.digwebinterface.com : semblable au site watchmouse, mais celui-ci aff
 
 [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

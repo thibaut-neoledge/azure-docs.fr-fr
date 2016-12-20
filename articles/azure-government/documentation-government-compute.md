@@ -1,13 +1,13 @@
 ---
-title: Documentation Azure Government | Microsoft Docs
+title: Calcul Azure Government | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
 services: Azure-Government
 cloud: gov
-documentationcenter: ''
+documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: ''
-
+editor: 
+ms.assetid: fb11f60c-5a70-46a9-82a0-abb2a4f4239b
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,14 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 09/29/2016
 ms.author: ryansoc
+translationtype: Human Translation
+ms.sourcegitcommit: a0374d6aeae42641e906a7f8e39bfc58eaacf096
+ms.openlocfilehash: b351229c474e84a9e385d2ed81f2eb73267d9fd1
+
 
 ---
 # <a name="azure-government-compute"></a>Calcul Azure Government
 ## <a name="virtual-machines"></a>Machines virtuelles
-Pour plus d’informations sur ce service et son utilisation, consultez [Tailles de Machines virtuelles Azure](../virtual-machines/virtual-machines-windows-sizes.md).
+Pour plus d’informations sur ce service et son utilisation, consultez [Tailles de Machines virtuelles Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="variations"></a>Variantes
-Les références de machines virtuelles suivantes sont mises à la disposition générale (GA) dans Azure Government :
+Les références de machines virtuelles suivantes sont mises à la disposition générale (GA) dans Azure Government :
 
 | Référence de la machine virtuelle | Gouvernement américain VA | Gouvernement américain IA | Remarques |
 | --- | --- | --- | --- |
@@ -43,6 +47,9 @@ Les informations suivantes identifient les limites d’Azure Government pour les
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des informations supplémentaires et des mises à jour, inscrivez-vous au <a href="https://blogs.msdn.microsoft.com/azuregov/">blog Microsoft Azure Government. </a>
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

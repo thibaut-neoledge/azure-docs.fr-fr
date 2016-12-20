@@ -1,12 +1,12 @@
 ---
-title: Nouveautés du kit de ressources Azure pour IntelliJ | Microsoft Docs
-description: En savoir plus sur les dernières fonctionnalités du kit de ressources Azure pour IntelliJ.
-services: ''
+title: "Nouveautés du kit de ressources Azure pour IntelliJ | Microsoft Docs"
+description: "En savoir plus sur les dernières fonctionnalités du kit de ressources Azure pour IntelliJ."
+services: 
 documentationcenter: java
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 46ed791f-df59-416a-809e-f52345ad973c
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: multiple
@@ -14,6 +14,10 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm;asirveda;martinsawicki
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3ed0ef3d245ff8b5cddc2e26bc8574bf4ae67bec
+
 
 ---
 # <a name="whats-new-in-the-azure-toolkit-for-intellij"></a>Nouveautés du Kit de ressources Azure pour IntelliJ
@@ -21,20 +25,20 @@ ms.author: robmcm;asirveda;martinsawicki
 Cet article contient des informations sur les différentes versions et les dernières mises à jour du kit de ressources Azure pour IntelliJ.
 
 > [!NOTE]
-> Il existe également une boîte à outils Azure pour l’environnement de développement Eclipse. Pour plus d’informations, consultez [Kit de ressources Azure pour Eclipse].
+> Il existe également une boîte à outils Azure pour l’environnement de développement Eclipse. Pour plus d’informations, consultez [Kit de ressources Azure pour Eclipse].
 > 
 > 
 
 ### <a name="august-26-2016"></a>26 août 2016
 La version d’août 2016 du kit de ressources Azure pour IntelliJ inclut les améliorations suivantes :
 
-* **Distributions personnalisées du JDK**. Le kit de ressources Azure pour IntelliJ prend désormais en charge la spécification et le déploiement d’une version arbitraire du JDK dans votre conteneur Azure WebApp :
+* **Distributions personnalisées du JDK**. Le kit de ressources Azure pour IntelliJ prend désormais en charge la spécification et le déploiement d’une version arbitraire du JDK dans votre conteneur Azure WebApp :
   * Outre les JDK fournis par Azure, vous pouvez également choisir parmi une large sélection de versions Zulu OpenJDK mises à disposition sur Azure par Azul Systems.
   * Vous pouvez également spécifier votre propre distribution JDK si vous chargez un fichier ZIP sur votre compte de stockage.
 * **Améliorations apportées à l’affichage de l’Explorateur Azure**:
   * Prise en charge de la gestion des Machines Virtuelles suivant le nouveau modèle Azure Resource Manager : vous pouvez lister, créer et supprimer des machines virtuelles Resource Manager sans quitter l’IDE.
-  * Prise en charge de la gestion d’objets blob des comptes de stockage à l’aide d’Azure Resource Manager, qui complète les fonctionnalités existantes de gestion des comptes de stockage « Classic ».
-* **Microsoft JDBC Driver 6.0 pour SQL Server**. Cette mise à jour inclut le dernier pilote JDBC de Microsoft SQL Server (version 6.0), qui est maintenant inclus en tant que bibliothèque facile à ajouter à vos projets Java, en remplacement de l’ancienne version.
+  * Prise en charge de la gestion d’objets blob des comptes de stockage à l’aide d’Azure Resource Manager, qui complète les fonctionnalités existantes de gestion des comptes de stockage « Classic ».
+* **Microsoft JDBC Driver 6.0 pour SQL Server**. Cette mise à jour inclut le dernier pilote JDBC de Microsoft SQL Server (version 6.0), qui est maintenant inclus en tant que bibliothèque facile à ajouter à vos projets Java, en remplacement de l’ancienne version.
 
 ### <a name="june-29-2016"></a>29 juin 2016
 La version de juin 2016 du kit de ressources Azure pour IntelliJ inclut les améliorations suivantes :
@@ -44,7 +48,7 @@ La version de juin 2016 du kit de ressources Azure pour IntelliJ inclut les amé
 * **Prise en charge du Kit de développement logiciel (SDK) Azure v2.9.1**. La dernière version du Kit de développement logiciel (SDK) Azure est désormais le minimum requis pour le Kit de ressources Azure pour IntelliJ.
 * **Exemples intégrés**. Le kit de ressources Azure pour IntelliJ comporte désormais plusieurs exemples d’applications qui permettent aux développeurs de se lancer.
 * **Intégration d’outils HDInsight**. Les outils HDInsight d’Azure sont désormais fournis avec le kit de ressources Azure pour IntelliJ. Pour plus d’informations, consultez [Plug-in Outils HDInsight pour IntelliJ].
-* **Débogage à distance des applications web Java**. Le kit de ressources Azure pour IntelliJ prend désormais en charge le débogage à distance des applications web sur Azure App Service.
+* **Débogage à distance des applications web Java**. Le kit de ressources Azure pour IntelliJ prend désormais en charge le débogage à distance des applications web sur Azure App Service.
 
 ### <a name="april-12-2016"></a>12 avril 2016
 La version d’avril 2016 du kit de ressources Azure pour IntelliJ inclut les améliorations suivantes :
@@ -56,9 +60,9 @@ La version d’avril 2016 du kit de ressources Azure pour IntelliJ inclut les am
 ## <a name="see-also"></a>Voir aussi
 Pour plus d’informations sur les boîtes à outils Azure pour les environnements de développement Java, consultez les liens suivants :
 
-* [Kit de ressources Azure pour Eclipse]
+* [Kit de ressources Azure pour Eclipse]
   * [Installation du kit de ressources Azure pour Eclipse]
-  * [Créer une application web « Hello World » pour Azure dans Eclipse]
+  * [Créer une application web « Hello World » pour Azure dans Eclipse]
   * [Nouveautés du kit de ressources Azure pour Eclipse]
 * [Kit de ressources Azure pour IntelliJ]
   * [Installation du kit de ressources Azure pour IntelliJ]
@@ -69,9 +73,9 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 <!-- URL List -->
 
-[Kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse.md
+[Kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse.md
 [Kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij.md
-[Créer une application web « Hello World » pour Azure dans Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Créer une application web « Hello World » pour Azure dans Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Créer une application web « Hello World » pour Azure dans IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installation du kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Installation du kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-installation.md
@@ -84,6 +88,6 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

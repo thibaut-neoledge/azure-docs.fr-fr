@@ -1,27 +1,31 @@
 ---
-title: Autoriser l’accès public à une application ACS | Microsoft Docs
-description: Comment autoriser l’accès public à une application Azure Container Service.
+title: "Autoriser l’accès public à une application ACS | Microsoft Docs"
+description: "Comment autoriser l’accès public à une application Azure Container Service."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: Thraka
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
 keywords: Docker, conteneurs, micro-services, Mesos, Azure
-
+ms.assetid: 5dea3c4d-a687-4024-93ea-f7a9a7243ab4
 ms.service: container-service
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
-ms.author: adegeo
+ms.author: timlt
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9491ffb2683063169ab25c38b3db5de06282d654
+
 
 ---
-# Autoriser l’accès public à une application Azure Container Service
+# <a name="enable-public-access-to-an-azure-container-service-application"></a>Autoriser l’accès public à une application Azure Container Service
 Tous les conteneurs DC/OS du [pool d’agent public](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) ACS sont automatiquement exposés à internet. Par défaut, les ports **80**, **443**, **8080** sont ouverts, et tous les conteneurs (publics) à l’écoute sur ces ports sont accessibles. Cet article vous explique comment ouvrir davantage de ports pour vos applications dans Azure Container Service.
 
-## Ouvrir un port (portail)
+## <a name="open-a-port-portal"></a>Ouvrir un port (portail)
 Tout d’abord, il faut ouvrir le port désiré.
 
 1. Connectez-vous au portail.
@@ -53,10 +57,10 @@ Tout d’abord, il faut ouvrir le port désiré.
    | Port principal |Port interne public du conteneur vers lequel le trafic est acheminé. |
    | Pool principal |Les conteneurs de ce pool seront les cibles de cet équilibrage de charge. |
    | Sonde |Sonde utilisée pour déterminer si une cible du **pool principal** est saine. |
-   | Persistance de session |Détermine comment le trafic provenant d’un client doit être géré pendant la durée de la session.<br><br>**Aucun** : les demandes successives provenant d’un même client peuvent être gérées par n’importe quel conteneur.<br>**Adresse IP cliente** : les demandes successives provenant d’une même adresse IP cliente sont gérées par le même conteneur.<br>**Adresse IP cliente et protocole** : les demandes successives provenant d’une même combinaison d’adresse IP client et de protocole sont gérées par le même conteneur. |
-   | Délai d’inactivité |(TCP uniquement) Durée en minutes pendant laquelle maintenir un client TCP/HTTP ouvert sans faire appel à des messages *keep-alive*. |
+   | Persistance de session |Détermine comment le trafic provenant d’un client doit être géré pendant la durée de la session.<br><br>**Aucune** : les demandes successives provenant d’un même client peuvent être gérées par n’importe quel conteneur.<br>**Adresse IP client** : les demandes successives provenant d’une même adresse IP client sont gérées par le même conteneur.<br>**Adresse IP cliente et protocole**: les demandes successives provenant d’une même combinaison d’adresse IP client et de protocole sont gérées par le même conteneur. |
+   | Délai d’inactivité |(TCP uniquement) Durée en minutes pendant laquelle maintenir un client TCP/HTTP ouvert sans faire appel à des messages *keep-alive* . |
 
-## Ajouter une règle de sécurité (portail)
+## <a name="add-a-security-rule-portal"></a>Ajouter une règle de sécurité (portail)
 Ensuite, il faut ajouter une règle de sécurité qui achemine le trafic à partir du port ouvert via le pare-feu.
 
 1. Connectez-vous au portail.
@@ -76,12 +80,17 @@ Ensuite, il faut ajouter une règle de sécurité qui achemine le trafic à part
    | Source |Restreindre la plage d’adresses IP entrante pour qu’elle soit autorisée ou interdite par cette règle. Utilisez **Any** (Aucune) pour ne spécifier aucune restriction. |
    | Service |Sélectionner un ensemble de services prédéfinis concerné par cette règle de sécurité. Sinon, utilisez **Personnalisé** pour créer votre propre ensemble de services. |
    | Protocole |Restreindre le trafic basé sur **TCP** ou **UDP**. Utilisez **Any** (Aucune) pour ne spécifier aucune restriction. |
-   | Plage de ports |Lorsque les **Service** est **Personnalisé**, spécifie la plage de ports affectée par cette règle. Vous pouvez utiliser un port unique, tel que **80**, ou une plage comme **1024-1500**. |
+   | Plage de ports |Lorsque le **Service** est **Personnalisé**, spécifie la plage de ports affectée par cette règle. Vous pouvez utiliser un port unique, tel que **80** ou une plage comme **1024-1500**. |
    | Action |Autoriser ou refuser le trafic qui répond aux critères. |
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la différence entre les [agents DC/OS publics et privés](container-service-dcos-agents.md).
 
 En savoir plus sur la [gestion de vos conteneurs DC/OS](container-service-mesos-marathon-ui.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

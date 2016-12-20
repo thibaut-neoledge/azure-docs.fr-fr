@@ -1,22 +1,22 @@
 ---
 title: "Bien démarrer avec les files d’attente Service Bus | Microsoft Docs"
 description: "Comment écrire une application de console C# pour la messagerie Service Bus"
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: jtaubensee
 manager: timlt
 editor: 
 ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/23/2016
+ms.date: 11/30/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c6405a6353cfcc56c79a6f842c6b150d10db75ee
+ms.sourcegitcommit: 560e73eb7129e665d254c3e93b08f29cfb6b1aa9
+ms.openlocfilehash: d80bedba1909de671ef96ac5372d9ff15a90764e
 
 
 ---
@@ -51,7 +51,8 @@ Si vous disposez déjà d’une file d’attente Service Bus créée précédemm
 Pour envoyer des messages vers la file d’attente, nous allons écrire une application de console C# à l’aide de Visual Studio.
 
 ### <a name="create-a-console-application"></a>Création d’une application console
-1. Ouvrez Visual Studio et créez une nouvelle application de console.
+
+- Ouvrez Visual Studio et créez une nouvelle application de console.
 
 ### <a name="add-the-service-bus-nuget-package"></a>Ajout du package NuGet Service Bus
 1. Cliquez avec le bouton droit sur le projet créé et sélectionnez **Gérer les packages NuGet**.
@@ -62,12 +63,12 @@ Pour envoyer des messages vers la file d’attente, nous allons écrire une appl
 ### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Écrire du code pour envoyer un message vers la file d’attente
 1. Ajoutez l’instruction using suivante au début du fichier Program.cs.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 2. Ajoutez le code suivant à la méthode `Main`, définissez la variable **connectionString** en tant que chaîne de connexion obtenue lors de la création de l’espace de noms, et la variable **queueName** en tant que nom de file d’attente utilisé lors de la création de la file d’attente.
    
-    ```
+    ```csharp
     var connectionString = "<Your connection string>";
     var queueName = "<Your queue name>";
    
@@ -78,7 +79,7 @@ Pour envoyer des messages vers la file d’attente, nous allons écrire une appl
    
     Voici à quoi doit ressembler votre fichier Program.cs.
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -107,12 +108,12 @@ Pour envoyer des messages vers la file d’attente, nous allons écrire une appl
 1. Créez une autre application de console et ajoutez une référence au package NuGet Service Bus, identique à celle de l’application émettrice précédente.
 2. Ajoutez l’instruction `using` suivante au début du fichier Program.cs.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 3. Ajoutez le code ci-après à la méthode `Main` et définissez la variable **connectionString** en tant que chaîne de connexion obtenue lors de la création de l’espace de noms, et la variable **queueName** en tant que nom de file d’attente utilisé lors de la création de la file d’attente.
    
-    ```
+    ```csharp
     var connectionString = "";
     var queueName = "samplequeue";
    
@@ -129,7 +130,7 @@ Pour envoyer des messages vers la file d’attente, nous allons écrire une appl
    
     Voici à quoi doit ressembler votre fichier Program.cs :
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -177,6 +178,6 @@ Consultez les [exemples fournis dans le dépôt GitHub](https://github.com/Azure
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

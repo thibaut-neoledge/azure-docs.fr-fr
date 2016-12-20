@@ -1,12 +1,12 @@
 ---
-title: Procédures de mise à niveau du Kit de développement logiciel (SDK) des applications Windows Universal
-description: Procédures de mise à niveau du Kit de développement logiciel (SDK) des applications Windows Universal pour Azure Mobile Engagement
+title: "Procédures de mise à niveau du Kit de développement logiciel (SDK) des applications Windows Universal"
+description: "Procédures de mise à niveau du Kit de développement logiciel (SDK) des applications Windows Universal pour Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 4c898175-2cd6-43db-b350-bb408332f24d
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-store
@@ -14,50 +14,54 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c7b3441892484cf54e2055e9153858171d738e85
+
 
 ---
-# Procédures de mise à niveau du Kit de développement logiciel (SDK) des applications Windows Universal
+# <a name="windows-universal-apps-sdk-upgrade-procedures"></a>Procédures de mise à niveau du Kit de développement logiciel (SDK) des applications Windows Universal
 Si vous avez déjà intégré une version antérieure d'Engagement dans votre application, vous devez prendre en compte les points suivants lors de la mise à niveau du Kit de développement logiciel.
 
-Vous devrez peut-être suivre quelques procédures si vous avez manqué plusieurs versions du kit SDK. Par exemple, si vous migrez de la version 0.10.1 vers 0.11.0, vous devez tout d'abord suivre la procédure « Migration de 0.9.0 vers 0.10.1 », puis la procédure « Migration de 0.10.1 vers 0.11.0 ».
+Vous devrez peut-être suivre quelques procédures si vous avez manqué plusieurs versions du kit SDK. Par exemple, si vous migrez de la version 0.10.1 vers 0.11.0, vous devez tout d'abord suivre la procédure « Migration de 0.9.0 vers 0.10.1 », puis la procédure « Migration de 0.10.1 vers 0.11.0 ».
 
-## Migration de 3.3.0 vers 3.4.0
-### Journaux des tests
+## <a name="from-330-to-340"></a>Migration de 3.3.0 vers 3.4.0
+### <a name="test-logs"></a>Journaux des tests
 Les journaux de console produits par le Kit de développement logiciel (SDK) peuvent maintenant être activés/désactivés/filtrés. Pour personnaliser ce résultat, mettez à jour la propriété `EngagementAgent.Instance.TestLogEnabled` avec une des valeurs disponibles à partir de l'énumération `EngagementTestLogLevel`, par exemple :
 
             EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init();
 
-### Ressources
+### <a name="resources"></a>Ressources
 La superposition Reach a été améliorée. Elle fait partie des ressources du package NuGet du Kit de développement logiciel (SDK).
 
 Lors de la mise à niveau vers la nouvelle version du Kit de développement logiciel (SDK), vous pouvez choisir de conserver ou non les fichiers existants dans le dossier de superposition de vos ressources :
 
-* Si la superposition précédente vous convient ou que vous intégrez manuellement les éléments `WebView`, vous pouvez choisir de conserver vos fichiers existants car ils resteront opérationnels.
-* Si vous souhaitez effectuer la mise à jour vers la nouvelle superposition, remplacez simplement l'ensemble du dossier `overlay` contenant vos ressources par le nouveau dossier contenant le package du Kit de développement logiciel (applications UWP : après la mise à niveau, vous trouverez le nouveau dossier de superposition sous %USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\\3.4.0\\content\\win81\\Resources).
+* Si la superposition précédente vous convient ou que vous intégrez manuellement les éléments `WebView` , vous pouvez choisir de conserver vos fichiers existants car ils resteront opérationnels. 
+* Si vous souhaitez effectuer la mise à jour vers la nouvelle superposition, remplacez simplement l’ensemble du dossier `overlay` contenant vos ressources par le nouveau dossier contenant le package du Kit de développement logiciel (SDK) (applications UWP : après la mise à niveau, vous trouverez le nouveau dossier de superposition sous %USERPROFILE%\\.nuget\packages\MicrosoftAzure.MobileEngagement\3.4.0\content\win81\Resources).
 
 > [!WARNING]
 > L’utilisation de la nouvelle superposition remplacera toutes les personnalisations apportées à la version précédente.
 > 
 > 
 
-## De 3.2.0 à 3.3.0
-### Ressources
+## <a name="from-320-to-330"></a>De 3.2.0 à 3.3.0
+### <a name="resources"></a>Ressources
 Cette étape concerne uniquement les ressources personnalisées. Si vous avez personnalisé les ressources fournies par le Kit de développement logiciel (HTML, images, superposition), vous devez ensuite les sauvegarder avant de les mettre à niveau et réappliquer votre personnalisation sur les ressources mises à niveau.
 
-## De 3.1.0 à 3.2.0
-### Ressources
+## <a name="from-310-to-320"></a>De 3.1.0 à 3.2.0
+### <a name="resources"></a>Ressources
 Cette étape concerne uniquement les ressources personnalisées. Si vous avez personnalisé les ressources fournies par le Kit de développement logiciel (HTML, images, superposition), vous devez ensuite les sauvegarder avant de les mettre à niveau et réappliquer votre personnalisation sur les ressources mises à niveau.
 
-### l'intégration de vue web
-Certaines améliorations pour la correspondance des facteurs de forme d'appareil ont été introduites dans cette version. Assurez-vous que votre intégration de la vue Web correspond à ce qui suit :
+### <a name="webview-integration"></a>l'intégration de vue web
+Certaines améliorations pour la correspondance des facteurs de forme d'appareil ont été introduites dans cette version. Assurez-vous que votre intégration de la vue Web correspond à ce qui suit :
 
-Dans votre page XAML () :
+Dans votre page XAML () :
 
             <WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
             <WebView x:Name="engagement_announcement_content" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
 
-Et dans votre fichier .cs associé :
+Et dans votre fichier .cs associé :
 
     using Microsoft.Azure.Engagement;
     using System;
@@ -164,12 +168,12 @@ Et dans votre fichier .cs associé :
             }
     }
 
-## Migration de 2.0.0 vers 3.0.0
-### Ressources
+## <a name="from-200-to-300"></a>Migration de 2.0.0 vers 3.0.0
+### <a name="resources"></a>Ressources
 Cette étape concerne uniquement les ressources personnalisées. Si vous avez personnalisé les ressources fournies par le Kit de développement logiciel (HTML, images, superposition), vous devez ensuite les sauvegarder avant de les mettre à niveau et réappliquer votre personnalisation sur les ressources mises à niveau.
 
-## Migration de 1.1.1 vers 2.0.0
-La section qui suit décrit comment migrer une intégration du SDK à partir du service Capptain offert par Capptain SAS dans une application reposant sur Azure Mobile Engagement.
+## <a name="from-111-to-200"></a>Migration de 1.1.1 vers 2.0.0
+La section qui suit décrit comment migrer une intégration du SDK à partir du service Capptain offert par Capptain SAS dans une application reposant sur Azure Mobile Engagement. 
 
 > [!IMPORTANT]
 > Capptain et Engagement Mobile ne sont pas les mêmes services et la procédure décrite ci-dessous explique uniquement comment migrer l'application cliente. La migration du SDK dans l'application ne migre PAS vos données des serveurs Capptain vers les serveurs Engagement Mobile.
@@ -178,15 +182,15 @@ La section qui suit décrit comment migrer une intégration du SDK à partir du 
 
 Si vous migrez à partir d'une version antérieure, consultez le site web de Capptain pour migrer tout d'abord vers 1.1.1, puis appliquez la procédure suivante.
 
-### Package NuGet
-Remplacez **Capptain.WindowsPhone** par le package Nuget **MicrosoftAzure.MobileEngagement**.
+### <a name="nuget-package"></a>Package NuGet
+Remplacez **Capptain.WindowsPhone** par le package NuGet **MicrosoftAzure.MobileEngagement**.
 
-### Application d'Engagement Mobile
+### <a name="applying-mobile-engagement"></a>Application d'Engagement Mobile
 Le SDK utilise le terme `Engagement`. Vous devez mettre à jour votre projet pour qu'il corresponde à cette modification.
 
 Vous devez désinstaller votre package nuget Capptain actuel. Considérez que toutes vos modifications dans le dossier de ressources Capptain seront supprimées. Si vous souhaitez conserver ces fichiers, effectuez-en une copie.
 
-Après cela, installez le nouveau package nuget Microsoft Azure Engagement sur votre projet. Vous le trouverez directement sur le [site web de nuget]. Cette action remplace tous les fichiers de ressources utilisés par Engagement et ajoute la nouvelle DLL Engagement à vos références de projet.
+Après cela, installez le nouveau package nuget Microsoft Azure Engagement sur votre projet. Vous le trouverez directement sur le [site web NuGet]. ou ici. Cette action remplace tous les fichiers de ressources utilisés par Engagement et ajoute la nouvelle DLL Engagement à vos références de projet.
 
 Vous devez nettoyer vos références de projet en supprimant les références à la DLL Capptain. Si vous ne le faites pas, la version de Capptain génère un conflit et une erreur se produit.
 
@@ -196,17 +200,17 @@ Une fois ces étapes terminées, il vous suffit de remplacer les anciennes réf�
 
 1. Tous les espaces de noms Capptain doivent être mis à jour.
    
-    Avant la migration :
+    Avant la migration :
    
         using Capptain.Agent;
         using Capptain.Reach;
    
-    Après la migration :
+    Après la migration :
    
         using Microsoft.Azure.Engagement;
-2. Toutes les classes Capptain qui contiennent « Capptain » doivent contenir « Engagement ».
+2. Toutes les classes Capptain qui contiennent « Capptain » doivent contenir « Engagement ».
    
-    Avant la migration :
+    Avant la migration :
    
         public sealed partial class MainPage : CapptainPage
         {
@@ -217,7 +221,7 @@ Une fois ces étapes terminées, il vous suffit de remplacer les anciennes réf�
           ...
         }
    
-    Après la migration :
+    Après la migration :
    
         public sealed partial class MainPage : EngagementPage
         {
@@ -229,7 +233,7 @@ Une fois ces étapes terminées, il vous suffit de remplacer les anciennes réf�
         }
 3. Pour les fichiers xaml, les attributs et les espaces de noms Capptain changent également.
    
-    Avant la migration :
+    Avant la migration :
    
         <capptain:CapptainPage
         ...
@@ -237,7 +241,7 @@ Une fois ces étapes terminées, il vous suffit de remplacer les anciennes réf�
         ...
         </capptain:CapptainPage>
    
-    Après la migration :
+    Après la migration :
    
         <engagement:EngagementPage
         ...
@@ -251,37 +255,37 @@ Une fois ces étapes terminées, il vous suffit de remplacer les anciennes réf�
    > 
    > 
    
-    Pour la superposition :
+    Pour la superposition :
    
         <capptain:CapptainPageOverlay
           xmlns:capptain="using:Capptain.Overlay"
           ...
         </capptain:CapptainPageOverlay>
    
-    Cela devient :
+    Cela devient :
    
         <EngagementPageOverlay
           engagement="using:Microsoft.Azure.Engagement.Overlay"
           ...
         </engagement:EngagementPageOverlay>
-5. Quant aux autres ressources telles que les images Capptain et les fichiers HTML, notez qu'elles ont également été renommées de façon à utiliser « Engagement ».
+5. Quant aux autres ressources telles que les images Capptain et les fichiers HTML, notez qu'elles ont également été renommées de façon à utiliser « Engagement ».
 
-### Déclaration de projet
-Sur Package.appxmanifest, `File Type Associations` a été mis à jour à partir de :
+### <a name="project-declaration"></a>Déclaration de projet
+Sur Package.appxmanifest, `File Type Associations` a été mis à jour à partir de :
 
-* capptain\_reach\_content vers engagement\_reach\_content
-* capptain\_log\_file vers engagement\_log\_file
+* capptain\_reach\_content to engagement\_reach\_content
+* capptain\_log\_file to engagement\_log\_file
 
-### ID de l'application / clé SDK
+### <a name="application-id-sdk-key"></a>ID de l'application / clé SDK
 Engagement utilise une chaîne de connexion. Il est inutile de spécifier un ID d'application et une clé SDK avec Mobile Engagement. Il suffit de spécifier une chaîne de connexion. Vous pouvez la configurer dans votre fichier EngagementConfiguration.
 
 La configuration d'Engagement peut être définie dans le fichier `Resources\EngagementConfiguration.xml` de votre projet.
 
-Modifiez ce fichier pour spécifier :
+Modifiez ce fichier pour spécifier :
 
-* Votre chaîne de connexion d'application entre les balises `<connectionString>` et `<\connectionString>`.
+* Votre chaîne de connexion d'application entre les balises `<connectionString>` and `<\connectionString>`.
 
-Si vous souhaitez plutôt la spécifier au moment de l'exécution, vous pouvez appeler la méthode suivante avant l'initialisation de l'agent Engagement :
+Si vous souhaitez plutôt la spécifier au moment de l'exécution, vous pouvez appeler la méthode suivante avant l'initialisation de l'agent Engagement :
 
     /* Engagement configuration. */
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -292,10 +296,10 @@ Si vous souhaitez plutôt la spécifier au moment de l'exécution, vous pouvez a
 
 La chaîne de connexion de votre application est affichée sur le portail Azure Classic.
 
-### Changement de noms d'éléments
+### <a name="items-name-change"></a>Changement de noms d'éléments
 Tous les éléments nommés *capptain* ont été renommés *engagement*. De même pour *Capptain* (renommés *Engagement*).
 
-Exemples d'éléments Capptain couramment utilisés :
+Exemples d'éléments Capptain couramment utilisés :
 
 * CapptainConfiguration se nomme maintenant EngagementConfiguration
 * CapptainAgent se nomme maintenant EngagementAgent
@@ -305,4 +309,9 @@ Exemples d'éléments Capptain couramment utilisés :
 
 Notez que ce changement affecte également les méthodes substituées.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

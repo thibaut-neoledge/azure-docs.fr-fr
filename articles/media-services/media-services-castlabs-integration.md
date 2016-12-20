@@ -1,12 +1,12 @@
 ---
-title: Utilisation de castLabs pour fournir des licences Widevine à Azure Media Services | Microsoft Docs
-description: Cet article décrit comment vous pouvez utiliser Azure Media Services (AMS) pour fournir un flux chiffré dynamiquement par AMS avec des DRM PlayReady et Widevine. La licence PlayReady provient du serveur de licences Media Services PlayReady et la licence Widevine est délivrée par le serveur de licences castLabs.
+title: "Utilisation de castLabs pour fournir des licences Widevine à Azure Media Services | Microsoft Docs"
+description: "Cet article décrit comment vous pouvez utiliser Azure Media Services (AMS) pour fournir un flux chiffré dynamiquement par AMS avec des DRM PlayReady et Widevine. La licence PlayReady provient du serveur de licences Media Services PlayReady et la licence Widevine est délivrée par le serveur de licences castLabs."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Mingfeiy
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 2a9a408a-a995-49e1-8d8f-ac5b51e17d40
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: Mingfeiy;willzhan;Juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 30bd93e54da4b8e7fcb58fcdc1f5c1bb5240fa53
+
 
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilisation de castLabs pour fournir des licences Widevine à Azure Media Services
@@ -65,24 +69,24 @@ Le tableau suivant décrit le jeton JWT dans castLabs.
 | jti |Identificateur unique relatif à ce jeton (chaque jeton peut être utilisé une seule fois dans le système castLabs). |
 
 ## <a name="sample-solution-set-up"></a>Exemple de configuration de solution
-L' [exemple de solution](https://github.com/AzureMediaServicesSamples/CastlabsIntegration) se compose de deux projets :
+L' [exemple de solution](https://github.com/AzureMediaServicesSamples/CastlabsIntegration) se compose de deux projets :
 
 * Une application console qui peut être utilisée pour définir des restrictions DRM sur un élément multimédia déjà ingéré, à la fois pour PlayReady et Widevine.
 * Une application web qui délivre les jetons, qui peut être considérée comme une version TRÈS SIMPLIFIÉE d'un STS.
 
-Pour utiliser l'application console :
+Pour utiliser l'application console :
 
 1. Modifiez le fichier app.config pour configurer les informations d'identification AMS, les informations d'identification castLabs, la configuration du STS et la clé partagée.
 2. Téléchargez un élément multimédia dans AMS.
-3. Obtenez l'UUID de l'élément multimédia téléchargé et modifiez la ligne 32 dans le fichier Program.cs :
+3. Obtenez l'UUID de l'élément multimédia téléchargé et modifiez la ligne 32 dans le fichier Program.cs :
    
-        var objIAsset = _context.Assets.Where(x => x.Id == "nb:cid:UUID:dac53a5d-1500-80bd-b864-f1e4b62594cf").FirstOrDefault();
-4. Utilisez un AssetId pour nommer l'élément multimédia dans le système castLabs (ligne 44 dans le fichier Program.cs).
+      var objIAsset = _context.Assets.Where(x => x.Id == "nb:cid:UUID:dac53a5d-1500-80bd-b864-f1e4b62594cf").FirstOrDefault();
+4. Utilisez un AssetId pour nommer l'élément multimédia dans le système castLabs (ligne 44 dans le fichier Program.cs).
    
    Vous devez définir AssetId pour **castLabs**; il doit s'agir d'une chaîne alphanumérique unique.
 5. Exécutez le programme.
 
-Pour utiliser l'application web (STS) :
+Pour utiliser l'application web (STS) :
 
 1. Modifiez le fichier web.config pour configurer l'ID du prestataire castlabs, le STS et la clé partagée.
 2. Déployez-le sur des sites web Azure.
@@ -98,7 +102,7 @@ Pour lire une vidéo chiffrée par chiffrement commun (PlayReady et/ou Widevine)
 5. Dans la liste déroulante **Protection** , sélectionnez PlayReady et/ou Widevine.
 6. Collez le jeton que vous avez obtenu de votre STS dans la zone de texte Jeton. 
    
-   Le serveur de licences castLab n'a pas besoin du préfixe « Bearer= » devant le jeton. Par conséquent, supprimez-le avant d'envoyer le jeton.
+   Le serveur de licences castLab n'a pas besoin du préfixe « Bearer= » devant le jeton. Par conséquent, supprimez-le avant d'envoyer le jeton.
 7. Mettez à jour le lecteur.
 8. La vidéo doit pouvoir être lue.
 
@@ -108,6 +112,9 @@ Pour lire une vidéo chiffrée par chiffrement commun (PlayReady et/ou Widevine)
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

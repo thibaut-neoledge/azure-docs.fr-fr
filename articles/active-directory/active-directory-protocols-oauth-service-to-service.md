@@ -1,12 +1,12 @@
 ---
-title: Authentification de service à service Azure AD à l’aide d’OAuth2.0 | Microsoft Docs
-description: Cet article explique comment utiliser des messages HTTP pour mettre en œuvre l’authentification de service à service à l’aide du flux d’octroi des informations d’identification du client OAuth2.0.
+title: "Authentification de service à service Azure AD à l’aide d’OAuth2.0 | Microsoft Docs"
+description: "Cet article explique comment utiliser des messages HTTP pour mettre en œuvre l’authentification de service à service à l’aide du flux d’octroi des informations d’identification du client OAuth2.0."
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: priyamo
+translationtype: Human Translation
+ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
+ms.openlocfilehash: 9d9ddbddb1039f56c420cb8f10dfa9bb82788b72
+
 
 ---
 # <a name="service-to-service-calls-using-client-credentials"></a>Appels de service à service à l’aide des informations d’identification du client
@@ -30,7 +34,7 @@ Le diagramme suivant explique comment fonctionne le flux d’octroi des informat
 4. Les données de la ressource sécurisée sont renvoyées à l’application web.
 
 ## <a name="register-the-services-in-azure-ad"></a>Inscription des services dans Azure AD
-Inscrivez à la fois le service appelant et le service de destination dans Azure Active Directory (Azure AD). Pour obtenir des instructions détaillées, consultez l’article [Adding, Updating, and Removing an App (Ajouter, mettre à jour et supprimer une application)](active-directory-integrating-applications.md#BKMK_Native)
+Inscrivez à la fois le service appelant et le service de destination dans Azure Active Directory (Azure AD). Pour obtenir des instructions détaillées, consultez [Intégration d’applications dans Azure Active Directory](active-directory-integrating-applications.md).
 
 ## <a name="request-an-access-token"></a>Demander un jeton d’accès
 Pour demander un jeton d’accès, envoyez une requête HTTP POST au point de terminaison Azure AD propre au client.
@@ -85,8 +89,10 @@ L’exemple suivant illustre une réponse affirmative à une demande de jeton d�
 ```
 
 ## <a name="see-also"></a>Voir aussi
-* [OAuth 2.0 dans Azure AD](active-directory-protocols-oauth-code.md)
+* [OAuth 2.0 dans Azure AD](active-directory-protocols-oauth-code.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

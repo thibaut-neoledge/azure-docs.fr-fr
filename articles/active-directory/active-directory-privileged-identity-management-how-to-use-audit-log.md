@@ -1,12 +1,12 @@
 ---
-title: Utilisation du journal d’audit | Microsoft Docs
-description: Découvrez comment utiliser le journal d’audit dans l’extension Azure Privileged Identity Management.
+title: "Utilisation du journal d’audit | Microsoft Docs"
+description: "Découvrez comment utiliser le journal d’audit dans l’extension Azure Privileged Identity Management."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 5d13a6dd-1fcb-4e76-82fb-cb2f4f0e4357
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,23 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/22/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5ac402f1a5f76c02f22a189eec8cada0cc9b4a0f
+
 
 ---
-# Comment utiliser le journal d’audit dans Azure AD Privileged Identity Management
+# <a name="how-to-use-the-audit-log-in-azure-ad-privileged-identity-management"></a>Comment utiliser le journal d’audit dans Azure AD Privileged Identity Management
 Vous pouvez utiliser le journal d’audit Privileged Identity Management (PIM) pour voir toutes les activations et affectations d’utilisateur dans un laps de temps donné. Si vous souhaitez consulter l’historique d’audit complet de l’activité dans votre client, notamment l’activité de l’administrateur, de l’utilisateur final et de la synchronisation, vous pouvez utiliser les [rapports d’accès et d’utilisation d’Azure Active Directory.](active-directory-view-access-usage-reports.md)
 
-## Accéder au journal d’audit
-À partir du [portail Azure](https://portal.azure.com) et du tableau de bord, sélectionnez l’application **Azure AD Privileged Identity Management**. De là, vous pouvez accéder au journal d’audit en cliquant sur **Gérer les rôles privilégiés** > **Historique d’audit** dans le tableau de bord PIM.
+## <a name="navigate-to-the-audit-log"></a>Accéder au journal d’audit
+À partir du [portail Azure](https://portal.azure.com) et du tableau de bord, sélectionnez l’application **Azure AD Privileged Identity Management** . À partir de là, accédez au journal d’audit en cliquant sur **Gérer les rôles privilégiés** > **Historique d’audit** dans le tableau de bord PIM.
 
-## Graphique du journal d’audit
-Le journal d’audit indique le nombre total d’activations, le nombre maximal d’activations par jour et la moyenne d’activations par jour dans un graphique linéaire. Vous pouvez également filtrer les données par rôle s’il existe plusieurs rôles dans l’historique d’audit.
+## <a name="the-audit-log-graph"></a>Graphique du journal d’audit
+Le journal d’audit indique le nombre total d’activations, le nombre maximal d’activations par jour et la moyenne d’activations par jour dans un graphique linéaire.  Vous pouvez également filtrer les données par rôle s’il existe plusieurs rôles dans l’historique d’audit.
 
-Utilisez les boutons **temps**, **action** et **rôle** boutons pour trier le journal.
+Utilisez les boutons **temps**, **action** et **rôle** pour trier le journal.
 
-## Liste du journal d’audit
-Les colonnes dans la liste du journal d’audit sont les suivantes :
+## <a name="the-audit-log-list"></a>Liste du journal d’audit
+Les colonnes dans la liste du journal d’audit sont les suivantes :
 
-* **Demandeur** : personne qui a demandé l’activation de rôle ou la modification. Si la valeur est « Système Azure », consultez le journal d'audit Azure pour plus d'informations.
+* **Demandeur** : personne qui a demandé l’activation de rôle ou la modification.  Si la valeur est « Système Azure », consultez le journal d'audit Azure pour plus d'informations.
 * **Utilisateur** : l’utilisateur qui active un rôle ou y est affecté.
 * **Rôle** : le rôle affecté ou activé par l’utilisateur.
 * **Action** : les mesures prises par le demandeur. Ceci peut inclure l'attribution, la non-attribution, l’activation ou la désactivation.
@@ -38,21 +42,26 @@ Les colonnes dans la liste du journal d’audit sont les suivantes :
 * **Motif** : tout texte éventuellement entré dans le champ de motif pendant l’activation.
 * **Expiration** : concerne uniquement l’activation de rôles.
 
-## Filtrer le journal d’audit
-Vous pouvez filtrer les informations qui s’affichent dans le journal d’audit en cliquant sur le bouton **Filtre**. Le panneau **Mettre à jour les paramètres du graphique** s’affiche.
+## <a name="filter-the-audit-log"></a>Filtrer le journal d’audit
+Vous pouvez filtrer les informations qui s’affichent dans le journal d’audit en cliquant sur le bouton **Filtre** .  Le panneau **Mettre à jour les paramètres du graphique** s’affiche.
 
-Après avoir défini les filtres, cliquez sur **Mettre à jour** pour filtrer les données dans le journal. Si les données ne s’affichent pas immédiatement, actualisez la page.
+Après avoir défini les filtres, cliquez sur **Mettre à jour** pour filtrer les données dans le journal.  Si les données ne s’affichent pas immédiatement, actualisez la page.
 
-### Modifier la plage de dates
+### <a name="change-the-date-range"></a>Modifier la plage de dates
 Utilisez les boutons **Aujourd’hui**, **Semaine passée**, **Mois Dernier** ou **Personnalisé**.
 
-Lorsque vous choisissez le bouton **Personnalisé**, les champs de date **De** et **À** s’affichent pour que vous puissiez spécifier une plage de dates pour le journal. Vous pouvez entrer les dates au format JJ/MM/AAAA ou cliquer sur l’icône de **calendrier** et sélectionner une date dans un calendrier.
+Si vous choisissez le bouton **Personnalisé**, les champs de date **De** et **À** s’affichent pour que vous puissiez spécifier une plage de dates pour le journal.  Vous pouvez entrer les dates au format JJ/MM/AAAA ou cliquer sur l’icône de **calendrier** et sélectionner une date dans un calendrier.
 
-### Modifier les rôles inclus dans le journal
+### <a name="change-the-roles-included-in-the-log"></a>Modifier les rôles inclus dans le journal
 Cochez (ou décochez) la case **Rôle** en regard de chaque rôle à inclure dans le journal (ou à exclure de ce dernier).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

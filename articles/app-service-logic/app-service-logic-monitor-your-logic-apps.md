@@ -3,10 +3,10 @@ title: Analyser vos applications logiques dans Azure App Service | Microsoft Doc
 description: Comment voir ce que vos applications logiques ont fait
 author: jeffhollan
 manager: erikre
-editor: ''
+editor: 
 services: logic-apps
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: cc73caf6ffdc47199369112a5310a3f4dd0cc9bf
+
 
 ---
 # <a name="monitor-your-logic-apps"></a>Analyser vos applications logiques
@@ -134,6 +138,9 @@ Vous pouvez tirer parti de ces données de télémétrie de l’Event Hub ou du 
 * [Création d’un modèle de déploiement d’applications logiques](app-service-logic-create-deploy-template.md)
 * [Fonctionnalités d’intégration d'entreprise](app-service-logic-enterprise-integration-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

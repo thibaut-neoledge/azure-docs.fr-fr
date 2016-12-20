@@ -1,19 +1,23 @@
 ---
-title: Groupes d’ordinateurs dans les recherches de journal Log Analytics | Microsoft Docs
-description: Les groupes d’ordinateurs dans Log Analytics vous permettent d’étendre des recherches de journal à un ensemble spécifique d’ordinateurs.  Cet article décrit les différentes méthodes permettant de créer des groupes d’ordinateurs et la manière de les utiliser dans une recherche de journal.
+title: "Groupes d’ordinateurs dans les recherches de journal Log Analytics | Microsoft Docs"
+description: "Les groupes d’ordinateurs dans Log Analytics vous permettent d’étendre des recherches de journal à un ensemble spécifique d’ordinateurs.  Cet article décrit les différentes méthodes permettant de créer des groupes d’ordinateurs et la manière de les utiliser dans une recherche de journal."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6c0affd0f5ea600f979cfcc87e2435658c8dab14
+
 
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Groupes d’ordinateurs dans les recherches de journal Log Analytics
@@ -50,7 +54,7 @@ Les groupes d’ordinateurs créés avec l’API Recherche de journal sont les m
 Pour plus d’informations sur la création d’un groupe d’ordinateurs à l’aide de l’API Recherche de journal, voir [Groupes d’ordinateur dans l’API REST de recherche de journal Log Analytics](log-analytics-log-search-api.md#computer-groups).
 
 ### <a name="active-directory"></a>Active Directory
-Lorsque vous configurez Log Analytics pour importer les appartenances aux groupes Active Directory, Log Analytics analyse l’appartenance au groupe des ordinateurs joints à un domaine avec l’Agent OMS.  Un groupe d’ordinateurs est créé dans Log Analytics pour chaque groupe de sécurité dans Active Directory, et chaque ordinateur est ajouté aux groupes d’ordinateurs correspondant aux groupes de sécurité auxquels il appartient.  Cet appartenance est mise à jour toutes les 4 heures.  
+Lorsque vous configurez Log Analytics pour importer les appartenances aux groupes Active Directory, Log Analytics analyse l’appartenance au groupe des ordinateurs joints à un domaine avec l’Agent OMS.  Un groupe d’ordinateurs est créé dans Log Analytics pour chaque groupe de sécurité dans Active Directory, et chaque ordinateur est ajouté aux groupes d’ordinateurs correspondant aux groupes de sécurité auxquels il appartient.  Cet appartenance est mise à jour toutes les 4 heures.  
 
 Vous configurez Log Analytics pour importer les groupes de sécurité Active Directory à partir du menu **Groupes d’ordinateurs** dans les **Paramètres** de Log Analytics.  Sélectionnez **Automation** puis **Importer les appartenances à des groupes Active Directory depuis les ordinateurs**.  Aucune configuration supplémentaire n’est requise.
 
@@ -59,7 +63,7 @@ Vous configurez Log Analytics pour importer les groupes de sécurité Active Dir
 Une fois des groupes importés, le menu répertorie le nombre d’ordinateurs détectés avec une appartenance à un groupe et le nombre de groupes importés.  Vous pouvez cliquer sur l’un de ces liens pour retourner les enregistrements **ComputerGroup**avec ces informations.
 
 ### <a name="windows-server-update-service"></a>Windows Server Update Service
-Lorsque vous configurez Log Analytics pour importer les appartenances aux groupes WSUS, Log Analytics analyse les appartenances aux groupes de ciblage de tous les ordinateurs avec l’Agent OMS.  Si vous utilisez un ciblage côté client, l’appartenance à un groupe de tout ordinateur connecté à OMS et faisant partie d’un groupe de ciblage WSUS est importée dans Log Analytics. Si vous utilisez un ciblage côté client, l’Agent OMS doit être installé sur le serveur WSUS afin que les informations d’appartenance au groupe soient importées dans OMS.  Cet appartenance est mise à jour toutes les 4 heures. 
+Lorsque vous configurez Log Analytics pour importer les appartenances aux groupes WSUS, Log Analytics analyse les appartenances aux groupes de ciblage de tous les ordinateurs avec l’Agent OMS.  Si vous utilisez un ciblage côté client, l’appartenance à un groupe de tout ordinateur connecté à OMS et faisant partie d’un groupe de ciblage WSUS est importée dans Log Analytics. Si vous utilisez un ciblage côté client, l’Agent OMS doit être installé sur le serveur WSUS afin que les informations d’appartenance au groupe soient importées dans OMS.  Cet appartenance est mise à jour toutes les 4 heures. 
 
 Vous configurez Log Analytics pour importer les groupes de sécurité Active Directory à partir du menu **Groupes d’ordinateurs** dans les **Paramètres** de Log Analytics.  Sélectionnez **Active Directory** puis **Importer les appartenances à des groupes Active Directory depuis les ordinateurs**.  Aucune configuration supplémentaire n’est requise.
 
@@ -103,6 +107,9 @@ Un enregistrement est créé dans le référentiel OMS pour chaque appartenance 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées dans des sources de données et des solutions.  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

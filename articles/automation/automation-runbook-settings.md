@@ -1,56 +1,67 @@
 ---
-title: Paramètres du Runbook
-description: Décrit les paramètres de configuration d'un Runbook dans Azure Automation et explique comment les modifier à l'aide du portail de gestion Azure et de Windows PowerShell.
+title: "Paramètres du Runbook | Microsoft Docs"
+description: "Décrit les paramètres de configuration d&quot;un Runbook dans Azure Automation et explique comment les modifier à l&quot;aide du portail de gestion Azure et de Windows PowerShell."
 services: automation
-documentationcenter: ''
-author: bwren
+documentationcenter: 
+author: mgoedtel
 manager: stevenka
 editor: tysonn
-
+ms.assetid: a726f20c-a952-48b8-88ee-36d76aa3ac61
 ms.service: automation
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2016
+ms.date: 11/11/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: ac8b5372aa06eac8c9a701f0621dbb675fbb565c
+ms.openlocfilehash: 20ecbc270e61d234e026e6ba2634c7aad63b3355
+
 
 ---
-# Paramètres du Runbook
+# <a name="runbook-settings"></a>Paramètres du Runbook
 Chaque Runbook dans Azure Automation a plusieurs paramètres qui lui permettent d'être identifié et de modifier son comportement de journalisation. Chacun de ces paramètres est décrit ci-dessous, suivi des procédures sur la façon de les modifier.
 
-## Paramètres
-### Nom et description
-Vous ne pouvez pas modifier le nom d'un Runbook une fois qu'il a été créé. La description est facultative et peut comporter jusqu'à 512 caractères.
+## <a name="settings"></a>Paramètres
+### <a name="name-and-description"></a>Nom et description
+Vous ne pouvez pas modifier le nom d'un Runbook une fois qu'il a été créé. La description est facultative et peut comporter jusqu'à 512 caractères.
 
-### Balises
-Les balises permettent d'attribuer des mots et des expressions distincts pour permettre d'identifier un Runbook. Par exemple, lorsque vous envoyez un Runbook à la [Galerie des Runbooks](https://msdn.microsoft.com/library/dn781422.aspx), vous spécifiez certaines balises pour identifier les catégories dans lesquelles le Runbook doit être répertorié. Vous pouvez spécifier plusieurs balises pour un Runbook en les séparant par des virgules.
+### <a name="tags"></a>Balises
+Les balises permettent d'attribuer des mots et des expressions distincts pour permettre d'identifier un Runbook. Par exemple, quand vous envoyez un Runbook à [PowerShell Gallery](https://www.powershellgallery.com/), vous spécifiez certaines balises pour identifier les catégories dans lesquelles le Runbook doit être répertorié. Vous pouvez spécifier plusieurs balises pour un Runbook en les séparant par des virgules.
 
-### Journalisation
-Par défaut, les informations de commentaires et de progression ne sont pas écrites dans l'historique des tâches. Vous pouvez modifier les paramètres d'un Runbook donné pour enregistrer ces informations. Pour en savoir plus sur ces informations, consultez [Sortie et messages de runbook](https://msdn.microsoft.com/library/dn879148.aspx).
+### <a name="logging"></a>Journalisation
+Par défaut, les informations de commentaires et de progression ne sont pas écrites dans l'historique des tâches. Vous pouvez modifier les paramètres d'un Runbook donné pour enregistrer ces informations. Pour en savoir plus sur ces informations, consultez [Sortie et messages de runbook](automation-runbook-output-and-messages.md).
 
-## Modification des paramètres du Runbook
-### Modification des paramètres du Runbook avec le portail de gestion Azure
-Vous pouvez modifier les paramètres d'un Runbook dans le portail de gestion Azure à partir de la page **Configurer** du Runbook.
+## <a name="changing-runbook-settings"></a>Modification des paramètres du Runbook
 
-1. Dans le portail de gestion Azure, sélectionnez **Automation**, puis cliquez sur le nom d'un compte Automation.
-2. Sélectionnez l'onglet **Runbooks**.
-3. Cliquez sur le nom d'un Runbook.
-4. Sélectionnez l'onglet **Configurer**.
+### <a name="changing-runbook-settings-with-the-azure-portal"></a>Modification des paramètres du Runbook avec le portail Azure
+Vous pouvez modifier les paramètres d’un Runbook dans le portail Azure à partir du panneau **Paramètres** du Runbook.
 
-### Modification des paramètres du Runbook avec Windows PowerShell
-Vous pouvez utiliser l'applet de commande [Set-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690275.aspx) pour modifier les paramètres d'un Runbook. Si vous souhaitez spécifier plusieurs balises, vous pouvez fournir au paramètre Balises un tableau ou une chaîne unique avec les valeurs délimitées par des virgules. Vous pouvez obtenir les balises actives avec [Get-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690278.aspx).
+1. Dans le portail Azure, sélectionnez **Automation** , puis cliquez sur le nom d'un compte Automation.
+2. Sélectionnez l'onglet **Runbooks** .
+3. Cliquez sur le nom d’un Runbook pour accéder à son panneau Paramètres. De là, vous pouvez spécifier ou modifier des balises, la description du Runbook, configurer la journalisation et les paramètres de traçage, et accéder aux outils de prise en charge pour vous aider à résoudre les problèmes.     
+
+### <a name="changing-runbook-settings-with-windows-powershell"></a>Modification des paramètres du Runbook avec Windows PowerShell
+Vous pouvez utiliser l’applet de commande [Set-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603786.aspx) pour modifier les paramètres d’un Runbook. Si vous souhaitez spécifier plusieurs balises, vous pouvez fournir au paramètre Balises un tableau ou une chaîne unique avec les valeurs délimitées par des virgules. Vous pouvez obtenir les balises actives avec [Get-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603728.aspx).
 
 Les exemples de commandes suivants montrent comment définir les propriétés d'un Runbook. Cet exemple ajoute trois balises aux balises existantes et spécifie que les informations de commentaires doivent être enregistrées.
 
     $automationAccountName = "MyAutomationAccount"
     $runbookName = "Sample-TestRunbook"
-    $tags = (Get-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName).Tags
+    $tags = (Get-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName $automationAccountName –Name $runbookName).Tags
     $tags += "Tag1,Tag2,Tag3"
-    Set-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName –LogVerbose $true –Tags $tags
+    Set-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName $automationAccountName –Name $runbookName –LogVerbose $true –Tags $tags
 
-## Articles connexes
-* [Sortie et messages de runbook](automation-runbook-output-and-messages.md) 
-* [Création ou importation d'un runbook](https://msdn.microsoft.com/library/dn643637.aspx) 
+## <a name="next-steps"></a>Étapes suivantes
+* Pour découvrir comment créer et récupérer la sortie et les messages d’erreur à partir des Runbooks, consultez [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md) 
+* Pour découvrir comment ajouter un Runbook qui a déjà été développé par la Communauté ou une autre source, ou pour créer votre propre Runbook, consultez [Création ou importation d’un runbook](automation-creating-importing-runbook.md) 
 
-<!---HONumber=AcomDC_0211_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

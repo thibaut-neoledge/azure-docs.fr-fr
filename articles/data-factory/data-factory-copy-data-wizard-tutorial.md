@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
+ms.sourcegitcommit: 3205077236dd44253b3fa36d6eace36fb307871e
+ms.openlocfilehash: 11754bbe534638d8321f509d7d82e025c667176c
 
 
 ---
@@ -60,8 +60,8 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
    2. Sélectionnez votre **abonnement**Azure.
    3. Pour Groupe de ressources, effectuez l’une des opérations suivantes : 
       
-      1. Sélectionnez **Utiliser l’existant** pour sélectionner un groupe de ressources existant.
-      2. Sélectionnez **Créer un nouveau** pour entrer un nom pour un groupe de ressources.
+      - Sélectionnez **Utiliser l’existant** pour sélectionner un groupe de ressources existant.
+      - Sélectionnez **Créer un nouveau** pour entrer un nom pour un groupe de ressources.
          
           Certaines étapes de ce didacticiel supposent que vous utilisez le groupe de ressources nommé **ADFTutorialResourceGroup** . Pour plus d'informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).
    4. Sélectionnez un **emplacement** pour la fabrique de données.
@@ -163,6 +163,6 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

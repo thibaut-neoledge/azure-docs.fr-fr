@@ -1,6 +1,6 @@
 
 ## <a name="start-your-powershell-session"></a>Démarrer votre session PowerShell
-Tout d’abord, la dernière version [d’Azure PowerShell](http://msdn.microsoft.com/library/mt619274.aspx) doit être installée et en cours d’exécution. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../articles/powershell-install-configure.md).
+Tout d’abord, la dernière version [d’Azure PowerShell](http://msdn.microsoft.com/library/mt619274.aspx) doit être installée et en cours d’exécution. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 > [!NOTE]
 > Les exemples de cette rubrique utilisent le [modèle de déploiement Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md), et donc les [applets de commande Azure Resource Manager](http://msdn.microsoft.com/library/azure/mt125356.aspx). 
@@ -17,6 +17,6 @@ Si vous possédez plusieurs abonnements, utilisez l’applet de commande [**Set-
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

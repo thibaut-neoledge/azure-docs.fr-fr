@@ -3,31 +3,35 @@ title: Authentification sortante de Scheduler
 description: Authentification sortante de Scheduler
 services: scheduler
 documentationcenter: .NET
-author: krisragh
-manager: dwrede
-editor: ''
-
+author: derek1ee
+manager: kevinlam1
+editor: 
+ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/15/2016
-ms.author: krisragh
+ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4f2fcfecf0d888997b0b0061dc9ed2a8f862d78b
+
 
 ---
-# Authentification sortante de Scheduler
+# <a name="scheduler-outbound-authentication"></a>Authentification sortante de Scheduler
 Les travaux de Scheduler peuvent avoir besoin de faire appel à des services qui requièrent une authentification. De cette façon, un service appelé peut déterminer si le travail de Scheduler peut accéder à ses ressources. Certains de ces services incluent d'autres services Azure, Salesforce.com, Facebook et des sites Web personnalisés sécurisés.
 
-## Ajout et suppression de l'authentification
-L'ajout de l'authentification à un travail de Scheduler est simple : il suffit d'ajouter un élément enfant JSON `authentication` à l'élément `request` lors de la création ou de la mise à jour d'un travail. Les secrets transmis au service de Scheduler dans une requête PUT, PATCH ou POST, dans le cadre de l'objet `authentication`, ne sont jamais retournés dans les réponses. Dans les réponses, les informations secrètes ont la valeur null ou peuvent disposer d'un jeton public qui représente l'entité authentifiée.
+## <a name="adding-and-removing-authentication"></a>Ajout et suppression de l'authentification
+L'ajout de l'authentification à un travail de Scheduler est simple : il suffit d'ajouter un élément enfant JSON `authentication` à l'élément `request` lors de la création ou de la mise à jour d'un travail. Les secrets transmis au service de Scheduler dans une requête PUT, PATCH ou POST, dans le cadre de l'objet `authentication` , ne sont jamais retournés dans les réponses. Dans les réponses, les informations secrètes ont la valeur null ou peuvent disposer d'un jeton public qui représente l'entité authentifiée.
 
 Pour supprimer l'authentification, exécutez PUT ou PATCH de façon explicite sur le travail, définissant l'objet `authentication` sur null. Vous ne verrez pas de propriétés d'authentification en réponse.
 
 Actuellement, les seuls types d'authentification pris en charge sont le modèle `ClientCertificate` (pour utiliser les certificats client SSL/TLS), le modèle `Basic` (pour l'authentification de base) et le modèle `ActiveDirectoryOAuth` (pour l'authentification Active Directory OAuth).
 
-## Corps de la requête pour l'authentification ClientCertificate
-Lorsque vous ajoutez l'authentification à l'aide du modèle `ClientCertificate`, spécifiez les éléments supplémentaires suivants dans le corps de la requête.
+## <a name="request-body-for-clientcertificate-authentication"></a>Corps de la requête pour l'authentification ClientCertificate
+Lorsque vous ajoutez l'authentification à l'aide du modèle `ClientCertificate` , spécifiez les éléments supplémentaires suivants dans le corps de la requête.  
 
 | Élément | Description |
 |:--- |:--- |
@@ -36,7 +40,7 @@ Lorsque vous ajoutez l'authentification à l'aide du modèle `ClientCertificate`
 | *pfx* |Obligatoire. Contenu codé en base64 du fichier PFX. |
 | *mot de passe* |Obligatoire. Mot de passe pour accéder au fichier PFX. |
 
-## Corps de la réponse pour l'authentification ClientCertificate
+## <a name="response-body-for-clientcertificate-authentication"></a>Corps de la réponse pour l'authentification ClientCertificate
 Lorsqu'une requête est envoyée avec des informations d'authentification, la réponse contient les éléments suivants liés à l'authentification.
 
 | Élément | Description |
@@ -47,7 +51,7 @@ Lorsqu'une requête est envoyée avec des informations d'authentification, la r�
 | *certificateSubjectName* |Le nom unique du sujet du certificat. |
 | *certificateExpiration* |La date d’expiration du certificat. |
 
-## Exemple de requête REST pour l’authentification ClientCertificate
+## <a name="sample-rest-request-for-clientcertificate-authentication"></a>Exemple de requête REST pour l’authentification ClientCertificate
 ```
 PUT https://management.azure.com/subscriptions/1fe0abdf-581e-4dfe-9ec7-e5cb8e7b205e/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
@@ -83,7 +87,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## Exemple de réponse REST pour l’authentification ClientCertificate
+## <a name="sample-rest-response-for-clientcertificate-authentication"></a>Exemple de réponse REST pour l’authentification ClientCertificate
 ```
 HTTP/1.1 200 OK
 Cache-Control: no-cache
@@ -139,26 +143,26 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 }
 ```
 
-## Corps de la requête pour l'authentification de base
-Lorsque vous ajoutez l'authentification à l'aide du modèle `Basic`, spécifiez les éléments supplémentaires suivants dans le corps de la requête.
+## <a name="request-body-for-basic-authentication"></a>Corps de la requête pour l'authentification de base
+Lorsque vous ajoutez l'authentification à l'aide du modèle `Basic` , spécifiez les éléments supplémentaires suivants dans le corps de la requête.
 
 | Élément | Description |
 |:--- |:--- |
 | *authentification (élément parent)* |Objet d'authentification pour l'authentification de base. |
 | *type* |Obligatoire. Type d'authentification. Pour l'authentification de base, la valeur doit être `Basic`. |
-| *nom d'utilisateur* |Obligatoire. Nom d'utilisateur à authentifier. |
+| *nom d’utilisateur* |Obligatoire. Nom d'utilisateur à authentifier. |
 | *mot de passe* |Obligatoire. Mot de passe à authentifier. |
 
-## Corps de la réponse pour l'authentification de base
+## <a name="response-body-for-basic-authentication"></a>Corps de la réponse pour l'authentification de base
 Lorsqu'une requête est envoyée avec des informations d'authentification, la réponse contient les éléments suivants liés à l'authentification.
 
 | Élément | Description |
 |:--- |:--- |
 | *authentification (élément parent)* |Objet d'authentification pour l'authentification de base. |
 | *type* |Type d'authentification. Pour l'authentification de base, la valeur est `Basic`. |
-| *nom d'utilisateur* |Le nom d'utilisateur authentifié. |
+| *nom d’utilisateur* |Le nom d'utilisateur authentifié. |
 
-## Exemple de requête REST pour l’authentification de base
+## <a name="sample-rest-request-for-basic-authentication"></a>Exemple de requête REST pour l’authentification de base
 ```
 PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
@@ -195,7 +199,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## Exemple de réponse REST pour l’authentification de base
+## <a name="sample-rest-response-for-basic-authentication"></a>Exemple de réponse REST pour l’authentification de base
 ```
 HTTP/1.1 200 OK
 Cache-Control: no-cache
@@ -249,33 +253,33 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 }
 ```
 
-## Corps de la requête pour l'authentification ActiveDirectoryOAuth
-Lorsque vous ajoutez l'authentification à l'aide du modèle `ActiveDirectoryOAuth`, spécifiez les éléments supplémentaires suivants dans le corps de la requête.
+## <a name="request-body-for-activedirectoryoauth-authentication"></a>Corps de la requête pour l'authentification ActiveDirectoryOAuth
+Lorsque vous ajoutez l'authentification à l'aide du modèle `ActiveDirectoryOAuth` , spécifiez les éléments supplémentaires suivants dans le corps de la requête.
 
 | Élément | Description |
 |:--- |:--- |
 | *authentification (élément parent)* |Objet d'authentification pour l'authentification ActiveDirectoryOAuth. |
 | *type* |Obligatoire. Type d'authentification. Pour l'authentification ActiveDirectoryOAuth, la valeur doit être `ActiveDirectoryOAuth`. |
-| *locataire* |Obligatoire. L’identificateur de client pour le client Azure AD. |
-| *audience* |Obligatoire. Cette option est définie sur https://management.core.windows.net/. |
+| *client* |Obligatoire. L’identificateur de client pour le client Azure AD. |
+| *public ciblé* |Obligatoire. Ceci est défini sur https://management.core.windows.net/. |
 | *clientId* |Obligatoire. Indiquer l'identifiant client pour l'application Azure AD. |
 | *secret* |Obligatoire. Secret du client qui demande le jeton. |
 
-### Déterminer votre identificateur de client
+### <a name="determining-your-tenant-identifier"></a>Déterminer votre identificateur de client
 Vous pouvez trouver l’identificateur de client pour le client Azure AD en exécutant `Get-AzureAccount` dans Azure PowerShell.
 
-## Corps de la réponse pour l'authentification ActiveDirectoryOAuth
+## <a name="response-body-for-activedirectoryoauth-authentication"></a>Corps de la réponse pour l'authentification ActiveDirectoryOAuth
 Lorsqu'une requête est envoyée avec des informations d'authentification, la réponse contient les éléments suivants liés à l'authentification.
 
 | Élément | Description |
 |:--- |:--- |
 | *authentification (élément parent)* |Objet d'authentification pour l'authentification ActiveDirectoryOAuth. |
 | *type* |Type d'authentification. Pour l’authentification ActiveDirectoryOAuth, la valeur est `ActiveDirectoryOAuth`. |
-| *locataire* |L’identificateur de client pour le client Azure AD. |
-| *audience* |Cette option est définie sur https://management.core.windows.net/. |
+| *client* |L’identificateur de client pour le client Azure AD. |
+| *public ciblé* |Ceci est défini sur https://management.core.windows.net/. |
 | *clientId* |L'identifiant client pour l'application Azure AD. |
 
-## Exemple de requête REST pour l’authentification ActiveDirectoryOAuth
+## <a name="sample-rest-request-for-activedirectoryoauth-authentication"></a>Exemple de requête REST pour l’authentification ActiveDirectoryOAuth
 ```
 PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
@@ -314,7 +318,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## Exemple de réponse REST pour l’authentification ActiveDirectoryOAuth
+## <a name="sample-rest-response-for-activedirectoryoauth-authentication"></a>Exemple de réponse REST pour l’authentification ActiveDirectoryOAuth
 ```
 HTTP/1.1 200 OK
 Cache-Control: no-cache
@@ -371,7 +375,7 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 }
 ```
 
-## Voir aussi
+## <a name="see-also"></a>Voir aussi
  [Présentation d'Azure Scheduler](scheduler-intro.md)
 
  [Concepts, terminologie et hiérarchie d’entités d’Azure Scheduler](scheduler-concepts-terms.md)
@@ -388,4 +392,9 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 
  [Limites, valeurs par défaut et codes d’erreur d’Azure Scheluler](scheduler-limits-defaults-errors.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

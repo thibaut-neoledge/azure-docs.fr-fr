@@ -1,12 +1,12 @@
 ---
-title: Utilisation du plug-in subordonné Azure avec la solution d’intégration continue Hudson | Microsoft Docs
-description: Décrit l’utilisation du plug-in subordonné Azure avec la solution d'intégration continue Hudson
+title: "Utilisation du plug-in subordonné Azure avec la solution d’intégration continue Hudson | Microsoft Docs"
+description: "Décrit l’utilisation du plug-in subordonné Azure avec la solution d&quot;intégration continue Hudson"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: rmcmurray
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: b2083d1c-4de8-4a19-a615-ccc9d9b6e1d9
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
@@ -14,26 +14,30 @@ ms.devlang: java
 ms.topic: article
 ms.date: 09/20/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a18054e89c0a81de74feecc8df7767876e3f9a4f
+
 
 ---
-# Utilisation du plug-in subordonné Azure avec la solution d'intégration continue Hudson
+# <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Utilisation du plug-in subordonné Azure avec la solution d'intégration continue Hudson
 Le plug-in subordonné Azure pour Hudson vous permet d’approvisionner des nœuds subordonnés sur Azure lors de l'exécution de builds distribués.
 
-## Installation du plug-in subordonné Azure
-1. Dans le tableau de bord Hudson, cliquez sur **Manage Hudson** (Gérer Hudson).
+## <a name="install-the-azure-slave-plug-in"></a>Installation du plug-in subordonné Azure
+1. Dans le tableau de bord Hudson, cliquez sur **Manage Hudson**(Gérer Hudson).
 2. Sur la page **Manage Hudson** (Gérer Hudson), cliquez sur **Manage Plugins** (Gérer les plug-ins).
-3. Cliquez sur l'onglet **Available**.
-4. Cliquez sur **Search** (Rechercher) et entrez **Azure** pour limiter la liste aux plug-ins appropriés.
+3. Cliquez sur l'onglet **Available** .
+4. Cliquez sur **Search** (Rechercher) et tapez **Azure** pour limiter la liste aux plug-ins appropriés.
    
-    Si vous choisissez de faire défiler la liste des plug-ins disponibles, vous trouverez le plug-in subordonné Azure sous la section **Cluster Management and Distributed Build** (Gestion du cluster et build distribué) dans l'onglet **Others** (Autres).
-5. Cochez la case **Azure Slave Plugin** (Plug-in esclave Azure).
+    Si vous choisissez de faire défiler la liste des plug-ins disponibles, vous trouverez le plug-in subordonné Azure sous la section **Cluster Management and Distributed Build** (Gestion du cluster et build distribué) dans l’onglet **Others** (Autres).
+5. Cochez la case **Azure Slave Plugin**(Plug-in esclave Azure).
 6. Cliquez sur **Installer**.
 7. Redémarrez Hudson.
 
 Maintenant que le plug-in est installé, les étapes suivantes consistent à le configurer avec votre profil d'abonnement Azure et à créer un modèle qui sera utilisé lors de la création de la machine virtuelle pour le nœud subordonné.
 
-## Configuration du plug-in subordonné Azure avec votre profil d’abonnement
-Un profil d'abonnement, également appelé paramètres de publication, est un fichier XML qui contient des informations d'identification sécurisées, ainsi que des informations supplémentaires, dont vous aurez besoin pour utiliser Azure dans votre environnement de développement. Pour configurer le plug-in subordonné Azure, vous avez besoin des éléments suivants :
+## <a name="configure-the-azure-slave-plug-in-with-your-subscription-profile"></a>Configuration du plug-in subordonné Azure avec votre profil d’abonnement
+Un profil d'abonnement, également appelé paramètres de publication, est un fichier XML qui contient des informations d'identification sécurisées, ainsi que des informations supplémentaires, dont vous aurez besoin pour utiliser Azure dans votre environnement de développement. Pour configurer le plug-in subordonné Azure, vous avez besoin des éléments suivants :
 
 * Votre ID d’abonnement
 * Un certificat de gestion pour votre abonnement
@@ -61,10 +65,10 @@ Vous les trouverez dans votre [profil d’abonnement]. Vous trouverez ci-dessous
 
 Une fois que vous avez votre profil d'abonnement, procédez comme suit pour configurer le plug-in subordonné Azure.
 
-1. Dans le tableau de bord Hudson, cliquez sur **Manage Hudson** (Gérer Hudson).
-2. Cliquez sur **Configure System** (Configurer le système).
-3. Faites défiler la page vers le bas pour trouver la section **Cloud**.
-4. Cliquez sur **Add new cloud > Microsoft Azure** (Ajouter nouveau cloud > Microsoft Azure).
+1. Dans le tableau de bord Hudson, cliquez sur **Manage Hudson**(Gérer Hudson).
+2. Cliquez sur **Configure System**(Configurer le système).
+3. Faites défiler la page vers le bas pour trouver la section **Cloud** .
+4. Cliquez sur **Add new cloud > Microsoft Azure** (Ajouter un nouveau cloud > Microsoft Azure).
    
     ![ajouter un cloud][add new cloud]
    
@@ -74,28 +78,28 @@ Une fois que vous avez votre profil d'abonnement, procédez comme suit pour conf
 5. Copiez l'ID d'abonnement et le certificat de gestion de votre profil d'abonnement et collez-les dans les champs appropriés.
    
     Lors de la copie de l'ID d'abonnement et du certificat de gestion, n'incluez **pas** les guillemets qui entourent les valeurs.
-6. Cliquez sur **Verify configuration** (Vérifier la configuration).
-7. Lorsque la configuration est vérifiée avec succès, cliquez sur **Save** (Enregistrer).
+6. Cliquez sur **Verify configuration**(Vérifier la configuration).
+7. Lorsque la configuration est vérifiée avec succès, cliquez sur **Save**(Enregistrer).
 
-## Configuration d’un modèle de machine virtuelle pour le plug-in subordonné Azure
+## <a name="set-up-a-virtual-machine-template-for-the-azure-slave-plug-in"></a>Configuration d’un modèle de machine virtuelle pour le plug-in subordonné Azure
 Un modèle de machine virtuelle définit les paramètres qui seront utilisés par le plug-in pour créer un nœud subordonné dans Azure. Dans les étapes suivantes, nous allons créer un modèle pour un ordinateur virtuel Ubuntu.
 
-1. Dans le tableau de bord Hudson, cliquez sur **Manage Hudson** (Gérer Hudson).
-2. Cliquez sur **Configure System** (Configurer le système).
-3. Faites défiler la page vers le bas pour trouver la section **Cloud**.
-4. Dans la section **Cloud**, recherchez **Add Azure Virtual Machine Template** (Ajouter modèle d'ordinateur virtuel Azure) et cliquez sur le bouton **Add** (Ajouter).
+1. Dans le tableau de bord Hudson, cliquez sur **Manage Hudson**(Gérer Hudson).
+2. Cliquez sur **Configure System**(Configurer le système).
+3. Faites défiler la page vers le bas pour trouver la section **Cloud** .
+4. Dans la section **Cloud**, recherchez **Add Azure Virtual Machine Template** (Ajouter un modèle de machine virtuelle Azure) et cliquez sur le bouton **Add** (Ajouter).
    
     ![ajouter un modèle d'ordinateur virtuel][add vm template]
 5. Spécifiez un nom de service cloud dans le champ **Name** (Nom). Si le nom spécifié fait référence à un service cloud existant, l'ordinateur virtuel sera déployé dans ce service. Dans le cas contraire, Azure en crée un nouveau.
-6. Dans le champ **Description**, entrez du texte qui décrit le modèle que vous créez. Ces informations sont uniquement à des fins documentaires et ne sont pas utilisées dans la mise en service d'un ordinateur virtuel.
+6. Dans le champ **Description** , entrez du texte qui décrit le modèle que vous créez. Ces informations sont uniquement à des fins documentaires et ne sont pas utilisées dans la mise en service d'un ordinateur virtuel.
 7. Dans le champ **Labels** (Étiquettes), entrez **linux**. Cette étiquette est utilisée pour identifier le modèle que vous créez. Elle est ensuite utilisée pour référencer le modèle lors de la création d'un travail Hudson.
 8. Sélectionnez une région où l'ordinateur virtuel sera créé.
 9. Sélectionnez la taille appropriée pour l'ordinateur virtuel.
 10. Spécifiez un compte de stockage dans lequel l'ordinateur virtuel sera créé. Assurez-vous qu'il se trouve dans la même région que le service Cloud que vous allez utiliser. Si vous souhaitez créer un nouveau stockage, vous pouvez laisser ce champ vide.
 11. La durée de conservation spécifie le nombre de minutes avant la suppression d'un esclave inactif par Hudson. Conservez la valeur par défaut de 60.
-12. Dans **Usage** (Utilisation), sélectionnez la condition appropriée lorsque ce nœud subordonné sera utilisé. Pour l'instant, sélectionnez **Utilize this node as much as possible** (Utiliser ce nœud autant que possible).
+12. Dans **Usage**(Utilisation), sélectionnez la condition appropriée lorsque ce nœud subordonné sera utilisé. Pour l'instant, sélectionnez **Utilize this node as much as possible**(Utiliser ce nœud autant que possible).
     
-     À ce stade, votre formulaire doit ressembler à ce qui suit :
+     À ce stade, votre formulaire doit ressembler à ce qui suit :
     
      ![configuration du modèle][template config]
 13. Dans **Image Family or Id** (Famille d'images ou ID), vous devez spécifier l'image système qui sera installée sur votre ordinateur virtuel. Vous pouvez faire votre choix dans une liste de familles d'images ou spécifier une image personnalisée.
@@ -104,11 +108,11 @@ Un modèle de machine virtuelle définit les paramètres qui seront utilisés pa
     
      ![liste de famille de système d'exploitation][OS family list]
     
-     Si vous avez une image personnalisée que vous souhaitez utiliser à la place, entrez son nom. Les noms des images personnalisées ne figurent pas dans une liste. Vous devez donc vous assurer que le nom est entré correctement.
+     Si vous avez une image personnalisée que vous souhaitez utiliser à la place, entrez son nom. Les noms des images personnalisées ne figurent pas dans une liste. Vous devez donc vous assurer que le nom est entré correctement.    
     
-     Pour ce didacticiel, tapez **U** pour afficher une liste d'images Ubuntu et sélectionnez **Ubuntu Server 14.04 LTS**.
+     Pour ce didacticiel, tapez **U** pour afficher la liste des images Ubuntu et sélectionnez **Ubuntu Server 14.04 LTS**.
 14. Pour la **méthode de lancement**, sélectionnez **SSH**.
-15. Copiez le script ci-dessous et collez-le dans le champ du **script init**.
+15. Copiez le script ci-dessous et collez-le dans le champ du **script init** .
     
          # Install Java
     
@@ -133,21 +137,21 @@ Un modèle de machine virtuelle définit les paramètres qui seront utilisés pa
          sudo apt-get install -y ant
     
      Le **script init** sera exécuté une fois l'ordinateur virtuel créé. Dans cet exemple, le script installe Java, git et ant.
-16. Dans les champs **Username** (Nom d'utilisateur) et **Password** (Mot de passe), saisissez les valeurs de votre choix pour le compte administrateur qui sera créé sur l'ordinateur virtuel.
+16. Dans les champs **Username** (Nom d’utilisateur) et **Password** (Mot de passe), saisissez les valeurs de votre choix pour le compte administrateur qui sera créé sur votre machine virtuelle.
 17. Cliquez sur **Verify Template** (Vérifier le modèle) pour vérifier si les paramètres spécifiés sont valides.
-18. Cliquez sur **Save** (Enregistrer).
+18. Cliquez sur **Save**(Enregistrer).
 
-## Créer un travail Hudson qui s'exécute sur un nœud subordonné sur Azure
+## <a name="create-a-hudson-job-that-runs-on-a-slave-node-on-azure"></a>Créer un travail Hudson qui s'exécute sur un nœud subordonné sur Azure
 Dans cette section, vous allez créer un travail Hudson qui s'exécutera sur un nœud subordonné sur Azure.
 
-1. Dans le tableau de bord Hudson, cliquez sur **New Job** (Nouveau travail).
+1. Dans le tableau de bord Hudson, cliquez sur **New Job**(Nouveau travail).
 2. Entrez un nom pour le travail que vous créez.
-3. Pour le type de travail, sélectionnez **Build a free-style software job** (Générer un travail logiciel libre).
+3. Pour le type de travail, sélectionnez **Build a free-style software job**(Générer un travail logiciel libre).
 4. Cliquez sur **OK**.
-5. Dans la page de configuration du travail, sélectionnez **Restrict where this project can be run** (Limiter où ce projet peut être exécuté).
-6. Sélectionnez **Node and label menu** (Menu nœud et étiquette) et sélectionnez **linux** (nous avons spécifié cette étiquette lors de la création du modèle d'ordinateur virtuel dans la section précédente).
+5. Dans la page de configuration du travail, sélectionnez **Restrict where this project can be run**(Limiter où ce projet peut être exécuté).
+6. Sélectionnez **Node and label menu** (Menu nœud et étiquette) et sélectionnez **linux** (nous avons spécifié cette étiquette lors de la création du modèle de machine virtuelle dans la section précédente).
 7. Dans la section **Build**, cliquez sur **Add build step** (Ajouter une étape de build) et sélectionnez **Execute shell** (Exécuter shell).
-8. Modifiez le script suivant, en remplaçant **{nom de votre compte github}**, **{nom de votre projet}** et **{répertoire de votre projet}** par les valeurs appropriées et collez le script modifié dans la zone de texte qui s’affiche.
+8. Modifiez le script suivant, en remplaçant **{your github account name}**, **{your project name}** et **{your project directory}** par les valeurs appropriées et collez le script modifié dans la zone de texte qui s’affiche.
    
         # Clone from git repo
    
@@ -172,12 +176,12 @@ Dans cette section, vous allez créer un travail Hudson qui s'exécutera sur un 
         #Execute build task
    
         ant
-9. Cliquez sur **Save** (Enregistrer).
+9. Cliquez sur **Save**(Enregistrer).
 10. Dans le tableau de bord Hudson, recherchez le travail que vous venez de créer, puis cliquez sur l'icône **Schedule a build** (Planifier un build).
 
 Hudson crée ensuite un nœud subordonné à l'aide du modèle créé dans la section précédente, puis il exécute le script que vous avez spécifié dans l'étape de build pour ce travail.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure].
 
 <!-- URL List -->
@@ -187,10 +191,15 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 <!-- IMG List -->
 
-[add new cloud]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-addcloud.png
-[configure profile]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-configureprofile.png
-[add vm template]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-addnewvmtemplate.png
-[template config]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-templateconfig1-withdata.png
-[OS family list]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-oslist.png
+[ajouter un cloud]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-addcloud.png
+[configurer le profil]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-configureprofile.png
+[ajouter un modèle d'ordinateur virtuel]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-addnewvmtemplate.png
+[configuration du modèle]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-templateconfig1-withdata.png
+[liste de famille de système d'exploitation]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-oslist.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -12,19 +12,19 @@ Dans cette section, vous allez écrire une application console Windows pour envo
     Visual Studio lance le téléchargement, l’installation et ajoute une référence au [Package NuGet Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 4. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
    
-    ```
+    ```csharp
     using System.Threading;
     using Microsoft.ServiceBus.Messaging;
     ```
 5. Ajoutez les champs suivants à la classe **Program** , en remplaçant les valeurs par le nom du Event Hub que vous avez créé dans la section précédente et par la chaîne de connexion au niveau de l’espace de noms, enregistrée précédemment.
    
-    ```
+    ```csharp
     static string eventHubName = "{Event Hub name}";
     static string connectionString = "{send connection string}";
     ```
 6. Ajoutez la méthode suivante à la classe **Program** :
    
-    ```
+    ```csharp
     static void SendingRandomMessages()
     {
         var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
@@ -51,7 +51,7 @@ Dans cette section, vous allez écrire une application console Windows pour envo
     Cette méthode envoie en continu les événements à votre hub d’événements avec un délai de 200 ms.
 7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
    
-    ```
+    ```csharp
     Console.WriteLine("Press Ctrl-C to stop the sender process");
     Console.WriteLine("Press Enter to start now");
     Console.ReadLine();
@@ -60,6 +60,6 @@ Dans cette section, vous allez écrire une application console Windows pour envo
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

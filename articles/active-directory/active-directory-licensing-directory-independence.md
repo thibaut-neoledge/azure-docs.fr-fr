@@ -1,26 +1,30 @@
 ---
-title: Ajouter et gérer plusieurs annuaires Azure Active Directory | Microsoft Docs
-description: Instructions et meilleures pratiques concernant l’ajout et la gestion de vos annuaires Azure Active Directory, les annuaires étant considérés comme une ressource entièrement indépendante
+title: "Ajouter et gérer plusieurs annuaires Azure Active Directory | Microsoft Docs"
+description: "Instructions et meilleures pratiques concernant l’ajout et la gestion de vos annuaires Azure Active Directory, les annuaires étant considérés comme une ressource entièrement indépendante"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 2b862b75-14df-45f2-a8ab-2a3ff1e2eb08
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2016
+ms.date: 11/09/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
+ms.openlocfilehash: fff714765508285f4c074b3a7287701a538fbf95
+
 
 ---
 # <a name="add-and-manage-multiple-azure-active-directory-directories"></a>Ajouter et gérer plusieurs annuaires Azure Active Directory
-Dans Azure Active Directory (Azure AD), chaque annuaire est une ressource entièrement indépendante : un homologue complet et logiquement indépendant des autres annuaires que vous gérez. Il n’existe aucune relation parent-enfant entre les annuaires. Cette indépendance entre les annuaires vaut pour les ressources, l’administration et la synchronisation.
+Dans Azure Active Directory (Azure AD), chaque annuaire est une ressource entièrement indépendante : un homologue complet et logiquement indépendant des autres annuaires que vous gérez. Il n’existe aucune relation parent-enfant entre les annuaires. Cette indépendance entre les annuaires vaut pour les ressources, l’administration et la synchronisation.
 
 ## <a name="resource-independence"></a>Indépendance des ressources
-Si vous créez ou supprimez une ressource dans un annuaire, cela n’a aucun effet sur les ressources d’un autre annuaire, si l’on excepte le cas des utilisateurs externes, comme décrit ci-dessous. Si vous utilisez un domaine personnalisé (par exemple, « contoso.com ») pour un annuaire, il ne peut être utilisé avec aucun autre annuaire.
+Si vous créez ou supprimez une ressource dans un annuaire, cela n’a aucun effet sur les ressources d’un autre annuaire, si l’on excepte le cas des utilisateurs externes, comme décrit ci-dessous. Si vous utilisez un domaine personnalisé (par exemple, « contoso.com ») pour un annuaire, il ne peut être utilisé avec aucun autre annuaire.
 
 ## <a name="administrative-independence"></a>Indépendance de l’administration
 Si un utilisateur non administrateur de l’annuaire « Contoso » crée l’annuaire de test « Test », alors : 
@@ -35,16 +39,18 @@ Vous pouvez configurer chaque annuaire Azure AD de manière indépendante pour o
 * l’outil de synchronisation d’annuaire (DirSync), pour synchroniser les données avec une seule forêt AD ;
 * le connecteur Azure Active Directory pour Forefront Identity Manager, pour synchroniser les données avec une ou plusieurs forêts locales et/ou des sources de données non Azure AD.
 
-## <a name="add-an-azure-ad-directory"></a>Ajouter un annuaire Azure AD
-Pour ajouter un annuaire Azure AD dans le portail Azure Classic, sélectionnez l’extension Azure Active Directory sur la gauche, puis appuyez sur **Ajouter**.
+## <a name="add-an-azure-ad-directory"></a>Ajouter un annuaire Azure AD
+Pour ajouter un annuaire Azure AD dans le portail Azure Classic, sélectionnez l’extension Azure Active Directory sur la gauche, puis appuyez sur **Ajouter**.
 
 > [!NOTE]
 > Contrairement aux autres ressources Azure, vos annuaires ne sont pas des ressources enfants d’un abonnement Azure. Si vous annulez votre abonnement ou que vous le laissez arriver à expiration, vous pourrez toujours accéder à vos données d’annuaire à l’aide d’Azure PowerShell, de l’API Graph Azure ou d’autres interfaces, telles que le Centre d’administration Office 365. Vous pouvez également associer un autre abonnement à l’annuaire.
-> 
-> 
+>
+>
 
-Pour obtenir une vue d’ensemble des problèmes de licence Azure AD et pour découvrir les meilleures pratiques, voir l’article [Qu’est-ce que la gestion des licences Azure Active Directory ?](active-directory-licensing-what-is.md).
+Pour obtenir une vue d’ensemble des problèmes de licence Azure AD et pour découvrir les meilleures pratiques, voir l’article [Qu’est-ce que la gestion des licences Azure Active Directory ?](active-directory-licensing-what-is.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

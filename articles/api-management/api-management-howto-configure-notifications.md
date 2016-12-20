@@ -1,36 +1,39 @@
 ---
-title: Configuration des notifications et des modèles de messages électroniques dans Gestion des API Azure
-description: Apprenez à configurer des notifications et des modèles de messages électroniques dans Gestion des API Azure.
+title: "Configuration des notifications et des modèles de messages électroniques dans Gestion des API Azure"
+description: "Apprenez à configurer des notifications et des modèles de messages électroniques dans Gestion des API Azure."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ee25f26d-4752-433b-af9c-3817db38aed5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: d99e2d885d56e3752a3b1caf51e52c801acaab52
+ms.openlocfilehash: 8e3c98108672dcd2ae48da7b2a9eeb174cee76e1
+
 
 ---
-# Configuration des notifications et des modèles de messages électroniques dans Gestion des API Azure
+# <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Configuration des notifications et des modèles de messages électroniques dans Gestion des API Azure
 Gestion des API Azure permet de configurer les notifications pour des événements spécifiques et de configurer les modèles de courrier électronique utilisés pour communiquer avec les administrateurs et les développeurs de l’instance Gestion des API. Cette rubrique vous présente comment configurer les notifications pour les événements disponibles. Elle offre également un aperçu de la configuration des modèles de messages électroniques utilisés pour ces événements.
 
 ## <a name="publisher-notifications"> </a>Configuration des notifications de l’éditeur
-Pour configurer les notifications, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
+Pour configurer les notifications, cliquez sur **Portail de publication** dans le portail Azure pour accéder à votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
 
 ![Portail des éditeurs][api-management-management-console]
 
-> Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][Création d'une instance de service Gestion des API] dans le didacticiel [Prise en main de Gestion des API Azure][Prise en main de Gestion des API Azure].
-> 
-> 
+> [!NOTE] 
+> Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d’une instance du service API Management][Création d’une instance du service API Management] dans le didacticiel [Prise en main de Gestion des API Azure][Prise en main de Gestion des API Azure].
 
 Cliquez sur **Notifications** dans le menu **Gestion des API** à gauche pour voir les notifications disponibles.
 
-![Publisher notifications][api-management-publisher-notifications]
+![Notifications de l’éditeur][api-management-publisher-notifications]
 
 La liste suivante répertorie les événements pour lesquels il est possible de configurer des notifications.
 
@@ -48,17 +51,17 @@ Pour spécifier les adresses à notifier, entrez-les dans la zone de texte d'adr
 
 ![Notification recipients][api-management-email-addresses]
 
-Pour spécifier les utilisateurs à notifier, cliquez sur **Ajouter un destinataire**, activez la case à cocher à côté de l'utilisateur à notifier, puis cliquez sur **OK**.
+Pour spécifier les utilisateurs à notifier, cliquez sur **Ajouter un destinataire**, activez la case à cocher à côté de l’utilisateur à notifier, puis cliquez sur **OK**.
 
-> Notez que seuls les administrateurs figurent dans la liste.
-> 
-> 
+> [!NOTE] 
+> Seuls les administrateurs sont affichés dans la liste.
+
 
 Une fois les destinataires de la notification configurés, cliquez sur **Enregistrer** pour appliquer les modifications des destinataires.
 
-> Si vous quittez l’onglet **Notifications de l’éditeur**, le portail de publication vous avertit si des modifications n’ont pas été enregistrées.
-> 
-> 
+> [!NOTE] 
+> Si vous quittez l’onglet **Notifications de l’éditeur** , le portail de publication vous avertit si des modifications n’ont pas été enregistrées.
+
 
 ## <a name="email-templates"> </a>Configuration des modèles de courrier électronique
 L'outil Gestion des API contient des modèles de messages électroniques pour les messages envoyés dans le cadre de l'administration et de l'utilisation du service. Les modèles suivants sont fournis.
@@ -76,11 +79,11 @@ L'outil Gestion des API contient des modèles de messages électroniques pour le
 
 Ces modèles peuvent être modifiés comme vous le souhaitez.
 
-Pour voir et configurer les modèles de messages électroniques de votre instance Gestion des API, cliquez sur **Notifications** dans le menu **Gestion des API** à gauche, puis sélectionnez l'onglet **Modèles de messages électroniques**.
+Pour voir et configurer les modèles de messages électroniques de votre instance Gestion des API, cliquez sur **Notifications** dans le menu **Gestion des API** à gauche, puis sélectionnez l’onglet **Modèles de messages électroniques**.
 
 ![Email templates][api-management-email-templates]
 
-Pour consulter ou modifier un modèle en particulier, sélectionnez-le dans la liste déroulante **Modèles**.
+Pour consulter ou modifier un modèle en particulier, sélectionnez-le dans la liste déroulante **Modèles** .
 
 ![Email templates list][api-management-email-templates-list]
 
@@ -92,11 +95,11 @@ La liste **Paramètres** contient une liste de paramètres qui, lorsqu'ils sont 
 
 Cliquez sur **Aperçu** ou **Envoyer un test** pour voir à quoi ressemble le message ou bien pour envoyer un message test.
 
-> Notez que les paramètres ne sont pas remplacés par les valeurs réelles lors de l'aperçu ou du test.
-> 
-> Pour enregistrer les modifications apportées au modèle de message, cliquez sur **Enregistrer**. Pour annuler les modifications, cliquez sur **Annuler**.
-> 
-> 
+> [!NOTE] 
+> Les paramètres ne sont pas remplacés par les valeurs réelles lors de l’aperçu ou du test.
+
+Pour enregistrer les modifications apportées au modèle de message, cliquez sur **Enregistrer**. Pour annuler les modifications, cliquez sur **Annuler**.
+ 
 
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png
 [api-management-publisher-notifications]: ./media/api-management-howto-configure-notifications/api-management-publisher-notifications.png
@@ -108,13 +111,17 @@ Cliquez sur **Aperçu** ou **Envoyer un test** pour voir à quoi ressemble le me
 [api-management-email-template]: ./media/api-management-howto-configure-notifications/api-management-email-template.png
 
 
-[Configure publisher notifications]: #publisher-notifications
-[Configure email templates]: #email-templates
+[Configuration des notifications de l’éditeur]: #publisher-notifications
+[Configuration des modèles de courrier électronique]: #email-templates
 
-[How to create and use groups]: api-management-howto-create-groups.md
-[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
+[Création et utilisation de groupes]: api-management-howto-create-groups.md
+[Association de groupes à des développeurs]: api-management-howto-create-groups.md#associate-group-developer
 
 [Prise en main de Gestion des API Azure]: api-management-get-started.md
-[Création d'une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
+[Création d’une instance du service API Management]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

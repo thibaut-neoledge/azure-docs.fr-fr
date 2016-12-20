@@ -1,13 +1,13 @@
 ---
-title: Sécurisation de l’Internet des objets de bout en bout | Microsoft Docs
-description: Cet article décrit les fonctionnalités de sécurité intégrées de Microsoft Azure IoT Suite
-services: ''
+title: "Sécurisation de l’Internet des objets de bout en bout | Microsoft Docs"
+description: "Cet article décrit les fonctionnalités de sécurité intégrées de Microsoft Azure IoT Suite"
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: YuriDio
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 10252dfa-8313-4a97-9bd6-a3f1345dd3be
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -15,15 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: cf081967fa7a9f37e124fdbfd9a97a71566238a0
+
 
 ---
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
-## Étapes suivantes
-Pour en savoir plus sur la sécurisation de votre solution IoT, consultez :
+## <a name="next-steps"></a>Étapes suivantes
+Pour en savoir plus sur la sécurisation de votre solution IoT, consultez :
 
-* [Meilleures pratiques relatives à la sécurité IoT][lnk-security-best-practices]
-* [Architecture de la sécurité IoT][lnk-security-architecture]
+* [Meilleures pratiques de sécurité IoT][lnk-security-best-practices]
+* [Architecture de sécurité IoT][lnk-security-architecture]
 * [Sécuriser votre déploiement IoT][lnk-security-deployment]
 
 [lnk-security-best-practices]: iot-security-best-practices.md
@@ -38,4 +42,8 @@ Vous pouvez également explorer certaines des autres fonctionnalités et capacit
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

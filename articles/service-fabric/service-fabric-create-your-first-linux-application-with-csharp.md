@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9486fcb56b05b22120aef5a8373c6558b2d88d6c
+ms.sourcegitcommit: f31c8ab3d2b4fd871c92ac0e7d04bc8d5ab86830
+ms.openlocfilehash: 046cc1286d894e28ed4d560c7c0b815f582e1e77
 
 
 ---
@@ -30,7 +30,7 @@ ms.openlocfilehash: 9486fcb56b05b22120aef5a8373c6558b2d88d6c
 
 Service Fabric fournit des Kits de développement logiciel (SDK) pour générer des services Linux dans .NET Core et Java. Dans ce didacticiel, nous apprenons à créer une application pour Linux et à générer un service à l’aide de C# (.NET Core).
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Composants requis
 Avant de commencer, assurez-vous que vous avez bien [configuré votre environnement de développement Linux](service-fabric-get-started-linux.md). Si vous utilisez Mac OS X, vous pouvez [configurer un environnement Linux à boîtier unique sur une machine virtuelle à l’aide de Vagrant](service-fabric-get-started-mac.md).
 
 ## <a name="create-the-application"></a>Création de l'application
@@ -50,7 +50,7 @@ Une application Service Fabric peut contenir un ou plusieurs services, chacun ay
 ## <a name="build-the-application"></a>Création de l'application
 Les modèles Yeoman Service Fabric incluent un script de build que vous pouvez utiliser pour générer l’application à partir du terminal (après avoir accédé au dossier l’application).
 
-  ```bash
+  ```sh
  cd myapp 
  ./build.sh 
   ```
@@ -60,7 +60,7 @@ Une fois que l’application est générée, vous pouvez la déployer vers le cl
 
 1. Connectez-vous au cluster Service Fabric local.
    
-    ```bash
+    ```sh
     azure servicefabric cluster connect
     ```
 2. Utilisez le script d’installation fourni dans le modèle pour copier le package d’application dans le magasin d’images du cluster, inscrire le type d’application et créer une instance de l’application.
@@ -83,7 +83,18 @@ Les projets d’acteur n’effectuent aucune opération automatiquement. Ils ont
 2. Dans Service Fabric Explorer, recherchez le nœud qui héberge le réplica principal pour le service d’acteur. Dans la capture d’écran ci-dessous, il s’agit du nœud 3.
    
     ![Recherche du réplica principal dans Service Fabric Explorer][sfx-primary]
-3. Cliquez sur le nœud trouvé à l’étape précédente, puis sélectionnez **Désactiver (redémarrer)** à partir du menu Actions. Cette action redémarre l’un des cinq nœuds de votre cluster local et force un basculement sur un réplica secondaire s’exécutant sur un autre nœud. Dans le même temps, prêtez attention à la sortie du client de test et notez que le compteur continue à être incrémenté malgré le basculement.
+3. Cliquez sur le nœud trouvé à l’étape précédente, puis sélectionnez **Désactiver (redémarrer)** à partir du menu Actions. Cette action redémarre un nœud de votre cluster local et force un basculement sur un réplica secondaire s’exécutant sur un autre nœud. Dans le même temps, prêtez attention à la sortie du client de test et notez que le compteur continue à être incrémenté malgré le basculement.
+
+
+
+## <a name="adding-more-services-to-an-existing-application"></a>Ajout d’autres services à une application existante
+
+Pour ajouter un autre service à une application déjà créée à l’aide de `yo`, procédez comme suit : 
+1. Accédez au répertoire à la racine de l’application existante.  Par exemple, `cd ~/YeomanSamples/MyApplication`, si `MyApplication` est l’application créée par Yeoman.
+2. Exécutez `yo azuresfcsharp:AddService`.
+
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation des Acteurs fiables Service Fabric](service-fabric-reliable-actors-introduction.md)
@@ -95,6 +106,6 @@ Les projets d’acteur n’effectuent aucune opération automatiquement. Ils ont
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

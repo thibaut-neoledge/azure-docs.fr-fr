@@ -1,45 +1,45 @@
 ---
 title: Utilisation de Hadoop Pig avec .NET dans HDInsight | Microsoft Docs
-description: Apprenez à utiliser le Kit de développement logiciel (SDK) .NET pour Hadoop afin de soumettre des tâches Pig vers Hadoop sur HDInsight.
+description: "Apprenez à utiliser le Kit de développement logiciel (SDK) .NET pour Hadoop afin de soumettre des tâches Pig vers Hadoop sur HDInsight."
 services: hdinsight
 documentationcenter: .net
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: fa11d49a-328c-47e7-b16d-e7ed2a453195
 ms.service: hdinsight
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2016
+ms.date: 10/17/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 46acf298a489aae34866c90126f3df00fd10c6e3
+
 
 ---
-# Exécution de tâches Pig à l’aide du Kit de développement logiciel (SDK) .NET pour Hadoop dans HDInsight
+# <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Exécution de tâches Pig à l’aide du Kit de développement logiciel (SDK) .NET pour Hadoop dans HDInsight
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
 Ce document fournit un exemple d’utilisation du Kit de développement logiciel (SDK) .NET pour Hadoop afin de soumettre des tâches Pig à un Hadoop sur un cluster HDInsight.
 
 Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèques clientes .NET facilitant l'utilisation des clusters HDInsight à partir de .NET. Pig permet de créer des opérations MapReduce en modélisant une série de transformations de données. Vous apprendrez à utiliser une application de base C# pour soumettre un travail Pig sur un cluster HDInsight.
 
-[!INCLUDE [azure-portal](../../includes/hdinsight-azure-portal.md)]
+## <a name="prerequisites"></a>Composants requis
+Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
-* [Exécution de tâches Pig à l’aide du Kit de développement logiciel (SDK) .NET pour Hadoop dans HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md)
-
-## Composants requis
-Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
-
-* Un cluster Azure HDInsight (Hadoop sur HDInsight) Windows ou Linux.
+* Un cluster Azure HDInsight (Hadoop sur HDInsight) Windows ou Linux.
 * Visual Studio 2012, 2013 ou 2015.
 
-## Création de l'application
-Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèques clientes .NET, ce qui facilite l'utilisation des clusters HDInsight à partir de .NET.
+## <a name="create-the-application"></a>Création de l'application
+Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèques clientes .NET, ce qui facilite l'utilisation des clusters HDInsight à partir de .NET. 
 
-1. Ouvrez Visual Studio 2012 ou 2013
+1. Ouvrez Visual Studio 2012 ou 2013
 2. Dans le menu **Fichier**, sélectionnez **Nouveau**, puis **Projet**.
-3. Pour le nouveau projet, entrez ou sélectionnez les valeurs suivantes :
+3. Pour le nouveau projet, entrez ou sélectionnez les valeurs suivantes :
    
     <table>
     <tr>
@@ -119,10 +119,10 @@ Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèque
 8. Appuyez sur **F5** pour lancer l’application.
 9. Appuyez sur **Entrée** pour quitter l’application.
 
-## Résumé
+## <a name="summary"></a>Résumé
 Comme vous pouvez le voir, le Kit de développement logiciel (SDK) .NET pour Hadoop vous permet de créer des applications .NET qui envoient des tâches Pig à un cluster HDInsight, et de surveiller l’état du travail.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des informations générales sur Pig sur HDInsight.
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
@@ -134,4 +134,8 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

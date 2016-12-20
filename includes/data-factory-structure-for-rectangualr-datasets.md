@@ -12,12 +12,14 @@ Chaque colonne contient les propriétés suivantes :
 
 L’exemple suivant présente la section JSON structure d’une table qui comporte trois colonnes : userid, name et lastlogindate.
 
-    "structure": 
-    [
-        { "name": "userid"},
-        { "name": "name"},
-        { "name": "lastlogindate"}
-    ],
+```json
+"structure": 
+[
+    { "name": "userid"},
+    { "name": "name"},
+    { "name": "lastlogindate"}
+],
+```
 
 Suivez les recommandations suivantes pour savoir quand inclure les informations de « structure » et pour connaître les éléments à inclure dans la section **structure** .
 

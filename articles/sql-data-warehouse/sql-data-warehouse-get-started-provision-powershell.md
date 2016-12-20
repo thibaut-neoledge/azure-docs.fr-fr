@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3d13d4a0dd1d6e0b7361a57e167b06f0b717bfb4
+ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
+ms.openlocfilehash: 2b78101f6abd675487c7879de5440021832af181
 
 
 ---
@@ -25,45 +25,45 @@ ms.openlocfilehash: 3d13d4a0dd1d6e0b7361a57e167b06f0b717bfb4
 > * [Portail Azure](sql-data-warehouse-get-started-provision.md)
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 > * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-> 
-> 
+>
+>
 
 Cet article vous explique comment créer un entrepôt SQL Data Warehouse à l’aide de PowerShell.
 
 ## <a name="prerequisites"></a>Composants requis
 Pour commencer, vous avez besoin des éléments suivants :
 
-* **Compte Azure** : consultez [Évaluation gratuite d’Azure][Évaluation gratuite d’Azure] ou [Crédits Azure MSDN][Crédits Azure MSDN] pour créer un compte.
-* **Serveur SQL Azure** : pour plus de détails, consultez [Créer un serveur logique Azure SQL Database avec le portail Azure][Créer un serveur logique Azure SQL Database avec le portail Azure] ou [Créer un serveur logique Azure SQL Database avec PowerShell][Créer un serveur logique Azure SQL Database avec PowerShell].
-* **Groupe de ressources** : utilisez le même groupe de ressources que votre serveur Azure SQL Server ou consultez [Créer un groupe de ressources][Créer un groupe de ressources].
-* **PowerShell version 1.0.3 ou supérieure** : vous pouvez vérifier la version en exécutant **Get-Module -ListAvailable -Name Azure**.  La version la plus récente peut être installée à partir de [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  Pour plus d’informations sur l’installation de la dernière version, consultez la page [Installation et configuration d’Azure PowerShell][Installation et configuration d’Azure PowerShell].
+* **Compte Azure** : consultez [Évaluation gratuite d’Azure][Azure Free Trial] ou [Crédits Azure MSDN][MSDN Azure Credits] pour créer un compte.
+* **Serveur Azure SQL Server** : consultez [Créer un serveur logique de base de données SQL Azure avec le Portail Azure][Create an Azure SQL Database logical server with the Azure Portal] ou [Créer un serveur logique de base de données SQL Azure avec PowerShell][Create an Azure SQL Database logical server with PowerShell] pour plus d’informations.
+* **Groupe de ressources**: utilisez le même groupe de ressources que votre serveur Azure SQL Server ou consultez [Créer un groupe de ressources](../azure-resource-manager/resource-group-portal.md).
+* **PowerShell version 1.0.3 ou supérieure** : vous pouvez vérifier la version en exécutant **Get-Module -ListAvailable -Name Azure**.  La version la plus récente peut être installée à partir de [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  Pour plus d’informations sur l’installation de la dernière version, consultez la page [Installation et configuration d’Azure PowerShell][How to install and configure Azure PowerShell].
 
 > [!NOTE]
-> La création d’un entrepôt SQL Data Warehouse peut entraîner un nouveau service facturable.  Voir [Tarification de SQL Data Warehouse][Tarification de SQL Data Warehouse] pour plus d’informations sur la tarification.
-> 
-> 
+> La création d’un entrepôt SQL Data Warehouse peut entraîner un nouveau service facturable.  Voir [Tarification de SQL Data Warehouse][SQL Data Warehouse pricing] pour plus d’informations sur la tarification.
+>
+>
 
 ## <a name="create-a-sql-data-warehouse"></a>Créer un entrepôt de données SQL
 1. Ouvrez Windows PowerShell.
 2. Exécutez cette applet de commande pour vous connecter à Azure Resource Manager.
-   
+
     ```Powershell
     Login-AzureRmAccount
     ```
 3. Sélectionnez l’abonnement que vous souhaitez utiliser pour votre session actuelle.
-   
+
     ```Powershell
     Get-AzureRmSubscription    -SubscriptionName "MySubscription" | Select-AzureRmSubscription
     ```
 4. Créez la base de données. Cet exemple crée la base de données « mynewsqldw », avec le niveau d’objectif de service « DW400 » sur le serveur nommé « sqldwserver1 », qui se trouve dans le groupe de ressources nommé « mywesteuroperesgp1 ».
-   
+
    ```Powershell
    New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse" -CollationName "SQL_Latin1_General_CP1_CI_AS" -MaxSizeBytes 10995116277760
    ```
 
 Les paramètres obligatoires sont :
 
-* **RequestedServiceObjectiveName** : quantité de [DWU][DWU] que vous demandez.  Les valeurs prises en charge sont les suivantes : DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 et DW6000.
+* **RequestedServiceObjectiveName** : quantité de [DWU][DWU] que vous demandez.  Les valeurs prises en charge sont les suivantes : DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 et DW6000.
 * **DatabaseName**: nom de l’entrepôt SQL Data Warehouse que vous créez.
 * **ServerName**: nom du serveur que vous utilisez pour la création (doit être V12).
 * **ResourceGroupName**: groupe de ressources que vous utilisez.  Pour trouver des groupes de ressources disponibles dans votre abonnement, utilisez Get-AzureResource.
@@ -74,43 +74,43 @@ Les paramètres facultatifs sont :
 * **CollationName** : le classement par défaut est COLLATE SQL_Latin1_General_CP1_CI_AS.  Le classement ne peut pas être modifié sur une base de données.
 * **MaxSizeBytes**: par défaut, la taille maximale d’une base de données est de 10 Go.
 
-Pour plus d’informations sur les options de paramètre, consultez [New-AzureRmSqlDatabase][New-AzureRmSqlDatabase] et [Créer une base de données (Azure SQL Data Warehouse)][Créer une base de données (Azure SQL Data Warehouse)].
+Pour plus d’informations sur les options de paramètre, consultez [New-AzureRmSqlDatabase][New-AzureRmSqlDatabase] et [Créer une base de données (Azure SQL Data Warehouse)][Create Database (Azure SQL Data Warehouse)].
 
 ## <a name="next-steps"></a>Étapes suivantes
-Une fois votre entrepôt SQL Data Warehouse approvisionné, vous pouvez [charger les exemples de données][charger les exemples de données] ou découvrir comment [développer][développer], [charger][charger] ou [migrer][migrer].
+Une fois votre entrepôt SQL Data Warehouse approvisionné, vous pouvez [charger les données d’exemple][loading sample data] ou découvrir comment [développer][develop], [charger][load] ou [migrer][migrate].
 
-Si vous souhaitez en savoir plus sur la gestion de l’entrepôt SQL Data Warehouse par programme, consultez notre article sur l’utilisation des [applets de commande PowerShell et des API REST][applets de commande PowerShell et des API REST].
+Si vous souhaitez en savoir plus sur la gestion de l’entrepôt SQL Data Warehouse par programme, consultez notre article sur l’utilisation des [applets de commande PowerShell et des API REST][PowerShell cmdlets and REST APIs].
 
 <!--Image references-->
 
 <!--Article references-->
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
-[migrer]: ./sql-data-warehouse-overview-migrate.md
-[développer]: ./sql-data-warehouse-overview-develop.md
-[charger]: ./sql-data-warehouse-load-with-bcp.md
-[chargement d’exemples de données]: ./sql-data-warehouse-load-sample-databases.md
-[applets de commande PowerShell et des API REST]: ./sql-data-warehouse-reference-powershell-cmdlets.md
-[règles de pare-feu]: ../sql-database-configure-firewall-settings.md
+[migrate]: ./sql-data-warehouse-overview-migrate.md
+[develop]: ./sql-data-warehouse-overview-develop.md
+[load]: ./sql-data-warehouse-load-with-bcp.md
+[loading sample data]: ./sql-data-warehouse-load-sample-databases.md
+[PowerShell cmdlets and REST APIs]: ./sql-data-warehouse-reference-powershell-cmdlets.md
+[firewall rules]: ../sql-database-configure-firewall-settings.md
 
-[Installation et configuration d’Azure PowerShell]: ../powershell-install-configure.md
-[création d’une base de données SQL Data Warehouse à partir du portail Azure]: ./sql-data-warehouse-get-started-provision.md
-[Créer un serveur logique de base de données SQL Azure avec le Portail Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
-[Créer un serveur logique de base de données SQL Azure avec PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[Créer un groupe de ressources]: ../resource-group-template-deploy-portal.md#create-resource-group
+[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
+[Create an Azure SQL Database logical server with the Azure Portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
+[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#complete-azure-powershell-script-to-create-a-server-firewall-rule-and-database
+[how to create a resource group]: ../azure-resource-manager/resource-group-template-deploy-portal.md#create-resource-group
 
 <!--MSDN references-->
 [MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
-[Créer une base de données (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt204021.aspx
+[Create Database (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt204021.aspx
 
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
-[Tarification de SQL Data Warehouse]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-[Évaluation gratuite d’Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
-[Crédits Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+[SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

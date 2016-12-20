@@ -1,12 +1,12 @@
 ---
-title: Accéder à des ressources locales à l’aide de connexions hybrides dans Azure App Service
-description: Créer une connexion entre une application web dans Azure App Service et une ressource locale utilisant un port TCP statique
+title: "Accéder à des ressources locales à l’aide de connexions hybrides dans Azure App Service"
+description: "Créer une connexion entre une application web dans Azure App Service et une ressource locale utilisant un port TCP statique"
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: wpickett
 editor: mollybos
-
+ms.assetid: a46ed26b-df8e-4fc3-8e05-2d002a6ee508
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,43 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a27a8eed4ed5814cec3880567f506d0854ddbd62
+
 
 ---
-# Accéder à des ressources locales à l’aide de connexions hybrides dans Azure App Service
-Vous pouvez connecter une application Azure App Service à n’importe quelle ressource locale utilisant un port TCP statique, par exemple, SQL Server, MySQL, les API web HTTP et la plupart des services web personnalisés. Cet article vous explique comment créer une connexion hybride entre une application App Service et une base de données SQL Server locale.
+# <a name="access-on-premises-resources-using-hybrid-connections-in-azure-app-service"></a>Accéder à des ressources locales à l’aide de connexions hybrides dans Azure App Service
+Vous pouvez connecter une application Azure App Service à n’importe quelle ressource locale utilisant un port TCP statique, par exemple, SQL Server, MySQL, les API web HTTP et la plupart des services web personnalisés. Cet article vous explique comment créer une connexion hybride entre une application App Service et une base de données SQL Server locale.
 
 > [!NOTE]
-> La partie Web Apps de la fonctionnalité Connexions hybrides n’est disponible que dans le [portail Azure](https://portal.azure.com). Pour créer une connexion dans BizTalk Services, consultez la page [Connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+> La partie Web Apps de la fonctionnalité Connexions hybrides n’est disponible que dans le [portail Azure](https://portal.azure.com). Pour créer une connexion dans BizTalk Services, consultez la page [Connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274). 
 > 
-> Ce contenu s'applique également aux applications mobiles dans Azure App Service.
+> Ce contenu s'applique également aux applications mobiles dans Azure App Service. 
 > 
 > 
 
-## Composants requis
+## <a name="prerequisites"></a>Composants requis
 * Un abonnement Azure. Pour un abonnement gratuit, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/). 
   
-    Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
-* Pour utiliser une base de données SQL Server ou SQL Server Express locale avec une connexion hybride, TCP/IP doit être activé sur un port statique. L’utilisation d’une instance par défaut sur SQL Server est recommandée, car elle utilise le port statique 1433. Pour plus d’informations sur l’installation et la configuration de SQL Server Express en vue de son utilisation avec des connexions hybrides, consultez la page [Connexion à une instance SQL Server locale à partir d’un site Web Azure au moyen de connexions hybrides](http://go.microsoft.com/fwlink/?LinkID=397979).
-* L'ordinateur sur lequel vous installez l'agent Gestionnaire de connexions hybrides local décrit plus loin dans cet article :
+    Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+* Pour utiliser une base de données SQL Server ou SQL Server Express locale avec une connexion hybride, TCP/IP doit être activé sur un port statique. L’utilisation d’une instance par défaut sur SQL Server est recommandée, car elle utilise le port statique 1433. Pour plus d’informations sur l’installation et la configuration de SQL Server Express en vue de son utilisation avec des connexions hybrides, consultez la page [Connexion à une instance SQL Server locale à partir d’un site Web Azure au moyen de connexions hybrides](http://go.microsoft.com/fwlink/?LinkID=397979).
+* L'ordinateur sur lequel vous installez l'agent Gestionnaire de connexions hybrides local décrit plus loin dans cet article :
   
-  * doit être capable de se connecter à Azure sur le port 5671 ;
-  * doit être capable d'accéder au *nom\_d'hôte*:*numéro\_de\_port* de votre ressource locale. 
+  * doit être capable de se connecter à Azure sur le port 5671 ;
+  * doit être capable d'accéder au *hostname*:*numéro_de_port* de votre ressource locale. 
 
 > [!NOTE]
 > Les étapes décrites dans cet article partent du principe que vous utilisez le navigateur à partir de l'ordinateur qui hébergera l'agent de connexion hybride local.
 > 
 > 
 
-## Créer une application web dans le portail Azure
+## <a name="create-a-web-app-in-the-azure-portal"></a>Créer une application web dans le portail Azure
 > [!NOTE]
-> Si vous avez déjà créé dans le portail Azure une application web ou un backend d’application mobile que vous voulez utiliser pour ce didacticiel, passez directement à la section [Création d’une connexion hybride et d’un service BizTalk](#CreateHC).
+> Si vous avez déjà créé dans le portail Azure une application web ou un backend d’application mobile que vous voulez utiliser pour ce didacticiel, passez directement à la section [Création d’une connexion hybride et d’un service BizTalk](#CreateHC) .
 > 
 > 
 
-1. Dans le coin supérieur gauche du [portail Azure](https://portal.azure.com), cliquez sur **Nouveau** > **Web + mobile** > **Application web**.
+1. Dans le coin supérieur gauche du [portail Azure](https://portal.azure.com), cliquez sur **Nouveau ** > **Web + mobile** > **Application web**.
    
     ![New web app][NewWebsite]
-2. Dans le panneau **Application web**, indiquez une URL et cliquez sur **Créer**.
+2. Dans le panneau **Application web**, indiquez une URL et cliquez sur **Créer**. 
    
     ![Website name][WebsiteCreationBlade]
 3. Après quelques instants, l’application web est créée et son panneau apparaît. Le volet est un tableau de bord vertical qu'il est possible de faire défiler et qui vous permet de gérer votre site.
@@ -66,47 +70,42 @@ Vous allez ensuite créer une connexion hybride et un service BizTalk pour l’a
 
 <a name="CreateHC"></a>
 
-## Création d'une connexion hybride et d'un service BizTalk
-1. Dans le panneau Application web, cliquez sur **Tous les paramètres** > **Mise en réseau** > **Configurer les points de terminaison de connexion hybride**.
+## <a name="create-a-hybrid-connection-and-a-biztalk-service"></a>Création d’une connexion hybride et d’un service BizTalk
+1. Dans le panneau Application web, cliquez sur **Tous les paramètres** > **Mise en réseau** > **Configurer vos points de terminaison de connexion hybride**.
    
-    ![Hybrid connections][CreateHCHCIcon]
+    ![Connexions hybrides][CreateHCHCIcon]
 2. Dans le volet Connexions hybrides, cliquez sur **Ajouter**.
    
     <!-- ![Add a hybrid connnection][CreateHCAddHC]
-    -->
-3. Le volet **Ajouter une connexion hybride** s'ouvre. Comme il s'agit de votre première connexion hybride, l'option **Nouvelle connexion hybride** est présélectionnée, et le volet **Créer une connexion hybride** s'ouvre.
+   -->
+3. Le volet **Ajouter une connexion hybride** s'ouvre.  Comme il s'agit de votre première connexion hybride, l'option **Nouvelle connexion hybride** est présélectionnée, et le volet **Créer une connexion hybride** s'ouvre.
    
     ![Create a hybrid connection][TwinCreateHCBlades]
    
-    Dans le volet **Créer une connexion hybride** :
+    Dans le volet **Créer une connexion hybride**:
    
    * Sous **Nom**, entrez un nom pour la connexion.
    * Sous **Nom d'hôte**, entrez le nom de l'ordinateur local qui héberge votre ressource.
    * Sous **Port**, entrez le numéro du port utilisé par votre ressource locale (1433 pour une instance par défaut SQL Server).
-   * Cliquez sur **Service BizTalk**.
+   * Cliquez sur **Service BizTalk**
 4. Le panneau **Créer un service BizTalk** s’affiche. Entrez un nom pour le service BizTalk, puis cliquez sur **OK**.
    
-    ![Create BizTalk service][CreateHCCreateBTS]
+    ![Créer un service BizTalk][CreateHCCreateBTS]
    
     Le panneau **Créer un service BizTalk** se ferme et vous revenez au panneau **Créer une connexion hybride**.
-5. Dans le volet Créer une connexion hybride, cliquez sur **OK**.
+5. Dans le volet Créer une connexion hybride, cliquez sur **OK**. 
    
     ![Click OK][CreateBTScomplete]
 6. Une fois le processus terminé, la zone des notifications du portail vous informe que la connexion a été créée.
    
     <!--- TODO
    
-    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
-    (full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
-    Create hybrid conn step, you get the following error
-    Failed to create hybrid connection RelecIoudHC. The 
-    resource type could not be found in the namespace 
-    'Microsoft.BizTaIkServices for api version 2014-06-01'.
+    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal (full portal) and created the BizTalk service but it doesn’t seem to let you connnect them - When you finish the Create hybrid conn step, you get the following error Failed to create hybrid connection RelecIoudHC. The resource type could not be found in the namespace ’Microsoft.BizTaIkServices for api version 2014-06-01’.
    
     The error indicates it couldn't find the type, not the instance.
     ![Success notification][CreateHCSuccessNotification]
     -->
-7. Dans le panneau de l’application web, l’icône **Connexions hybrides** indique à présent qu’une connexion hybride a été créée.
+7. Dans le panneau de l’application web, l’icône **Connexions hybrides** indique à présent qu’une connexion hybride a été créée.
    
     ![One hybrid connection created][CreateHCOneConnectionCreated]
 
@@ -114,13 +113,13 @@ Vous allez ensuite créer une connexion hybride et un service BizTalk pour l’a
 
 <a name="InstallHCM"></a>
 
-## Installation du Gestionnaire de connexions hybrides local pour terminer la connexion
-1. Dans le panneau Application web, cliquez sur **Tous les paramètres** > **Mise en réseau** > **Configurer les points de terminaison de connexion hybride**. 
+## <a name="install-the-on-premises-hybrid-connection-manager-to-complete-the-connection"></a>Installation du Gestionnaire de connexions hybrides local pour terminer la connexion
+1. Dans le panneau Application web, cliquez sur **Tous les paramètres** > **Mise en réseau** > **Configurer vos points de terminaison de connexion hybride**. 
    
     ![Hybrid connections icon][HCIcon]
 2. Dans le volet **Connexions hybrides**, la colonne **Statut** correspondant au point de terminaison ajouté récemment indique **Non connecté**. Cliquez sur la connexion pour la configurer.
    
-    ![Not connected][NotConnected]
+    ![Non connecté][NotConnected]
    
     Le volet Connexion hybride s'ouvre.
    
@@ -130,37 +129,37 @@ Vous allez ensuite créer une connexion hybride et un service BizTalk pour l’a
     ![Click Listener Setup][ClickListenerSetup]
 4. Le volet **Propriétés de la connexion hybride** s'ouvre. Sous **Gestionnaire de connexions hybrides local**, cliquez sur **Cliquez ici pour l'installer**.
    
-    ![Click here to install][ClickToInstallHCM]
+    ![Cliquez ici pour l'installer][ClickToInstallHCM]
 5. Dans la boîte de dialogue Exécution de l'application - Avertissement de sécurité, cliquez sur **Exécuter** pour continuer.
    
     ![Choose Run to continue][ApplicationRunWarning]
 6. Dans la boîte de dialogue **Contrôle de compte d'utilisateur**, cliquez sur **Oui**.
    
    ![Choose Yes][UAC]
-7. Le Gestionnaire de connexion hybride est téléchargé et installé pour vous.
+7. Le Gestionnaire de connexion hybride est téléchargé et installé pour vous. 
    
     ![Installation][HCMInstalling]
 8. Une fois l'installation terminée, cliquez sur **Fermer**.
    
     ![Click Close][HCMInstallComplete]
    
-    Dans le volet **Connexions hybrides**, la colonne **Statut** indique à présent **Connecté**.
+    Dans le panneau **Connexions hybrides**, la colonne **Statut** indique à présent **Connecté**. 
    
     ![Connected Status][HCStatusConnected]
 
-Maintenant que l'infrastructure de connexion hybride est terminée, vous pouvez créer une application hybride qui l'utilise.
+Maintenant que l'infrastructure de connexion hybride est terminée, vous pouvez créer une application hybride qui l'utilise. 
 
 > [!NOTE]
 > Les sections suivantes vous montrent comment utiliser une connexion hybride avec un projet de backend d'applications mobiles .NET.
 > 
 > 
 
-## Configuration du projet principal d'application mobile .NET pour la connexion à la base de données SQL Server
-Dans App Service, un projet de backend d’applications mobiles .NET. est simplement une application web ASP.NET comportant un SDK d'applications Mobile supplémentaire installé et initialisé. Pour utiliser votre application web comme backend d'applications mobiles, vous devez [télécharger et initialiser le SDK du backend d’applications mobiles .NET](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#install-sdk).
+## <a name="configure-the-mobile-app-net-backend-project-to-connect-to-the-sql-server-database"></a>Configuration du projet principal d'application mobile .NET pour la connexion à la base de données SQL Server
+Dans App Service, un projet de backend d’applications mobiles .NET. est simplement une application web ASP.NET comportant un SDK d'applications Mobile supplémentaire installé et initialisé. Pour utiliser votre application web comme backend d'applications mobiles, vous devez [télécharger et initialiser le SDK du backend d’applications mobiles .NET](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#install-sdk).  
 
-Pour Mobile Apps, vous devez également définir une chaîne de connexion pour la base de données locale et modifier le serveur principal afin d'utiliser cette connexion.
+Pour Mobile Apps, vous devez également définir une chaîne de connexion pour la base de données locale et modifier le serveur principal afin d'utiliser cette connexion. 
 
-1. Dans l'Explorateur de solutions de Visual Studio, ouvrez le fichier Web.config pour votre backend d'application mobile .NET, recherchez la section **connectionStrings**, ajoutez une nouvelle entrée SqlClient comme suit, pointant vers la base de données SQL Server locale :
+1. Dans l'Explorateur de solutions de Visual Studio, ouvrez le fichier Web.config pour votre backend d'application mobile .NET, recherchez la section **connectionStrings** , ajoutez une nouvelle entrée SqlClient comme suit, pointant vers la base de données SQL Server locale :
    
         <add name="OnPremisesDBConnection"
          connectionString="Data Source=OnPremisesServer,1433;
@@ -178,7 +177,7 @@ Pour Mobile Apps, vous devez également définir une chaîne de connexion pour l
    > 
    > 
 3. Développez le dossier **Modèles** et ouvrez le fichier de modèle de données, se terminant par *Context.cs*.
-4. Modifiez le constructeur d'instance **DbContext** pour transmettre la valeur `OnPremisesDBConnection` au constructeur **DbContext** de base, similaire à l'extrait de code suivant :
+4. Modifiez le constructeur d'instance **DbContext** pour transmettre la valeur `OnPremisesDBConnection` au constructeur **DbContext** de base, similaire à l'extrait de code suivant :
    
         public class hybridService1Context : DbContext
         {
@@ -190,8 +189,8 @@ Pour Mobile Apps, vous devez également définir une chaîne de connexion pour l
    
     Le service utilise désormais la nouvelle connexion à la base de données SQL Server.
 
-## Mise à jour du backend d’application mobile pour utiliser la chaîne de connexion en local
-À présent, vous devez ajouter un paramètre d'application pour cette nouvelle chaîne de connexion afin qu'elle puisse être utilisée à partir d'Azure.
+## <a name="update-the-mobile-app-backend-to-use-the-on-premises-connection-string"></a>Mise à jour du backend d’application mobile pour utiliser la chaîne de connexion en local
+À présent, vous devez ajouter un paramètre d'application pour cette nouvelle chaîne de connexion afin qu'elle puisse être utilisée à partir d'Azure.  
 
 1. Dans le [portail Azure](https://portal.azure.com) dans le code principal d’application web de votre application mobile, cliquez sur **Tous les paramètres**, puis sur **Paramètres de l’application**.
 2. Dans le panneau **Paramètres d'application web**, faites défiler jusqu'à **Chaînes de connexion** et ajoutez une chaîne de connexion **SQL Server** nommée `OnPremisesDBConnection` avec une valeur telle que `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>`.
@@ -205,49 +204,52 @@ Pour Mobile Apps, vous devez également définir une chaîne de connexion pour l
 
 <a name="NextSteps"></a>
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour des informations sur la création d'une application web ASP.NET utilisant une connexion hybride, consultez la page [Connexion à une instance SQL Server locale à partir d'un site web Azure au moyen de connexions hybrides](http://go.microsoft.com/fwlink/?LinkID=397979). 
 
-### Ressources supplémentaires
+### <a name="additional-resources"></a>Ressources supplémentaires
 [Aperçu des connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274)
 
-[Josh Twist présente les connexions hybrides (vidéo Channel 9)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
+[Josh Twist présente les connexions hybrides (vidéo Channel 9)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
 [Site web des connexions hybrides](https://azure.microsoft.com/services/biztalk-services/)
 
-[BizTalk Services : Onglets Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexion hybride](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
+[BizTalk Services : Onglets Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexion hybride](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
 
-[Création d’un cloud hybride réel avec la portabilité transparente des applications (vidéo Channel 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
+[Création d’un cloud hybride réel avec la portabilité transparente des applications (vidéo Channel 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
-[Connexion à une instance SQL Server locale à partir d’Azure Mobile Services au moyen de connexions hybrides (vidéo Channel 9)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
+[Connexion à une instance SQL Server locale à partir d’Azure Mobile Services au moyen de connexions hybrides (vidéo Channel 9)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
 
-## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+## <a name="whats-changed"></a>Changements apportés
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- IMAGES -->
-[New]: ./media/web-sites-hybrid-connection-get-started/B01New.png
-[NewWebsite]: ./media/web-sites-hybrid-connection-get-started/B02NewWebsite.png
-[WebsiteCreationBlade]: ./media/web-sites-hybrid-connection-get-started/B03WebsiteCreationBlade.png
-[WebSiteRunningBlade]: ./media/web-sites-hybrid-connection-get-started/B04WebSiteRunningBlade.png
-[Browse]: ./media/web-sites-hybrid-connection-get-started/B05Browse.png
-[DefaultWebSitePage]: ./media/web-sites-hybrid-connection-get-started/B06DefaultWebSitePage.png
-[CreateHCHCIcon]: ./media/web-sites-hybrid-connection-get-started/C01CreateHCHCIcon.png
-[CreateHCAddHC]: ./media/web-sites-hybrid-connection-get-started/C02CreateHCAddHC.png
-[TwinCreateHCBlades]: ./media/web-sites-hybrid-connection-get-started/C03TwinCreateHCBlades.png
-[CreateHCCreateBTS]: ./media/web-sites-hybrid-connection-get-started/C04CreateHCCreateBTS.png
-[CreateBTScomplete]: ./media/web-sites-hybrid-connection-get-started/C05CreateBTScomplete.png
-[CreateHCSuccessNotification]: ./media/web-sites-hybrid-connection-get-started/C06CreateHCSuccessNotification.png
-[CreateHCOneConnectionCreated]: ./media/web-sites-hybrid-connection-get-started/C07CreateHCOneConnectionCreated.png
-[HCIcon]: ./media/web-sites-hybrid-connection-get-started/D01HCIcon.png
-[NotConnected]: ./media/web-sites-hybrid-connection-get-started/D02NotConnected.png
-[NotConnectedBlade]: ./media/web-sites-hybrid-connection-get-started/D03NotConnectedBlade.png
-[ClickListenerSetup]: ./media/web-sites-hybrid-connection-get-started/D04ClickListenerSetup.png
-[ClickToInstallHCM]: ./media/web-sites-hybrid-connection-get-started/D05ClickToInstallHCM.png
-[ApplicationRunWarning]: ./media/web-sites-hybrid-connection-get-started/D06ApplicationRunWarning.png
-[UAC]: ./media/web-sites-hybrid-connection-get-started/D07UAC.png
-[HCMInstalling]: ./media/web-sites-hybrid-connection-get-started/D08HCMInstalling.png
-[HCMInstallComplete]: ./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png
-[HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
+[Nouveau]:./media/web-sites-hybrid-connection-get-started/B01New.png
+[NewWebsite]:./media/web-sites-hybrid-connection-get-started/B02NewWebsite.png
+[WebsiteCreationBlade]:./media/web-sites-hybrid-connection-get-started/B03WebsiteCreationBlade.png
+[WebSiteRunningBlade]:./media/web-sites-hybrid-connection-get-started/B04WebSiteRunningBlade.png
+[Browse]:./media/web-sites-hybrid-connection-get-started/B05Browse.png
+[DefaultWebSitePage]:./media/web-sites-hybrid-connection-get-started/B06DefaultWebSitePage.png
+[CreateHCHCIcon]:./media/web-sites-hybrid-connection-get-started/C01CreateHCHCIcon.png
+[CreateHCAddHC]:./media/web-sites-hybrid-connection-get-started/C02CreateHCAddHC.png
+[TwinCreateHCBlades]:./media/web-sites-hybrid-connection-get-started/C03TwinCreateHCBlades.png
+[CreateHCCreateBTS]:./media/web-sites-hybrid-connection-get-started/C04CreateHCCreateBTS.png
+[CreateBTScomplete]:./media/web-sites-hybrid-connection-get-started/C05CreateBTScomplete.png
+[CreateHCSuccessNotification]:./media/web-sites-hybrid-connection-get-started/C06CreateHCSuccessNotification.png
+[CreateHCOneConnectionCreated]:./media/web-sites-hybrid-connection-get-started/C07CreateHCOneConnectionCreated.png
+[HCIcon]:./media/web-sites-hybrid-connection-get-started/D01HCIcon.png
+[NotConnected]:./media/web-sites-hybrid-connection-get-started/D02NotConnected.png
+[NotConnectedBlade]:./media/web-sites-hybrid-connection-get-started/D03NotConnectedBlade.png
+[ClickListenerSetup]:./media/web-sites-hybrid-connection-get-started/D04ClickListenerSetup.png
+[ClickToInstallHCM]:./media/web-sites-hybrid-connection-get-started/D05ClickToInstallHCM.png
+[ApplicationRunWarning]:./media/web-sites-hybrid-connection-get-started/D06ApplicationRunWarning.png
+[UAC]:./media/web-sites-hybrid-connection-get-started/D07UAC.png
+[HCMInstalling]:./media/web-sites-hybrid-connection-get-started/D08HCMInstalling.png
+[HCMInstallComplete]:./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png
+[HCStatusConnected]:./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
 
 
-<!---HONumber=AcomDC_0518_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

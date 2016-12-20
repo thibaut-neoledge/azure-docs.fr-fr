@@ -8,7 +8,7 @@ Pour des informations générales sur la planification d’un cluster HPC Pack, 
 
 ## <a name="prerequisites"></a>Composants requis
 * **Abonnement Azure** : vous pouvez utiliser un abonnement dans le service Azure Global ou Azure Chine. Vos limites d’abonnement affecteront le nombre et le type de nœuds de cluster que vous pouvez déployer. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes du service](../articles/azure-subscription-service-limits.md).
-* **Ordinateur client Windows avec Azure PowerShell 0.8.7 ou ultérieur installé et configuré**. Pour connaître les instructions d’installation et la procédure de connexion à vos abonnements Azure, consultez [Installation et configuration d’Azure PowerShell](../articles/powershell-install-configure.md).
+* **Ordinateur client Windows avec Azure PowerShell 0.8.7 ou ultérieur installé et configuré**. Pour connaître les instructions d’installation et la procédure de connexion à vos abonnements Azure, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * **Script de déploiement IaaS de HPC Pack** : téléchargez et décompressez la dernière version du script à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Vérifiez la version du script en exécutant `New-HPCIaaSCluster.ps1 –Version`. Cet article se base sur la version 4.4.1 du script.
 * **Fichier de configuration de script** : vous devez créer un fichier XML qui sera utilisé par le script pour configurer le cluster HPC. Pour plus d’informations et des exemples, consultez les sections suivantes de cet article et le fichier Manual.rtf qui accompagne le script de déploiement.
 
@@ -57,6 +57,6 @@ Le fichier de configuration pour le script de déploiement est un fichier XML. L
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

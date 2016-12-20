@@ -26,6 +26,10 @@
 ### [3 : Poser la bonne question](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
 ### [4 : Prédire une réponse](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
 ### [5 : copier le de travail des autres](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
+
+## [Démarrage rapide de R](machine-learning-r-quickstart.md)
+
+
 # Procédure
 ## Configurer des outils et des utilitaires
 ### [Configurer des environnements](machine-learning-data-science-environment-setup.md)
@@ -124,7 +128,7 @@
 #### [Déployer un service web](machine-learning-publish-a-machine-learning-web-service.md)
 #### [Obtenir des données externes](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Déploiement dans plusieurs régions](machine-learning-how-to-deploy-to-multiple-regions.md)
-#### [Publier sur la Place de marché](machine-learning-publish-web-service-to-azure-marketplace.md)
+#### [Publier sur le Marketplace](machine-learning-publish-web-service-to-azure-marketplace.md)
 #### [Utiliser des paramètres de service web](machine-learning-web-service-parameters.md)
 #### [Activer la journalisation](machine-learning-web-services-logging.md)
 ### Gérer des services web
@@ -166,15 +170,16 @@
 #### [Test de différence des proportions](machine-learning-r-csharp-difference-in-two-proportions.md)
 #### [Normal Distribution Suite](machine-learning-r-csharp-normal-distribution.md)
 #### [Suite de distribution binomiale](machine-learning-r-csharp-binomial-distribution.md)
-#### [FAQ Place de marché](machine-learning-marketplace-faq.md)
+#### [FAQ Marketplace](machine-learning-marketplace-faq.md)
+
 # Référence
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/azure/machine-learning/machine-learning-powershell-module)
 ## [Module PowerShell pour Machine Learning](machine-learning-powershell-module.md)
-## [Référence Algorithme](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-## [Démarrage rapide de R](machine-learning-r-quickstart.md)
-## [Langage de réseaux neuronaux Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
-## [API REST de gestion](/rest/api/machinelearning/index)
+## [Algorithmes et informations de référence sur les modules](https://msdn.microsoft.com/library/azure/dn905974.aspx)
+## [REST](/rest/api/machinelearning)
+
 # Rubriques connexes
+
 ## galerie Cortana Intelligence
 ### [Vue d'ensemble](machine-learning-gallery-how-to-use-contribute-publish.md)
 ### [Secteurs d’activité](machine-learning-gallery-industries.md)
@@ -205,7 +210,10 @@
 ##### [Vue d'ensemble](cortana-analytics-playbook-vehicle-telemetry.md)
 ##### [Playbook](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
 ##### [Paramétrage](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
-# Ressources
+
+# les ressources
+## [Codes d’erreur REST Azure Machine Learning](/machine-learning/machine-learning-web-service-error-codes)
+## [Langage de réseaux neuronaux Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Tarification](https://azure.microsoft.com/pricing/details/machine-learning/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
@@ -214,6 +222,7 @@
 ## [Vidéos](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 ## [Obtenir de l’aide de conversation en direct](machine-learning-live-chat.md)
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Analyse du sentiment à l'aide d'Azure Stream Analytics et Azure Machine Learning | Microsoft Docs
-description: Comment utiliser une fonction définie par l’utilisateur et Machine Learning dans un travail Stream Analytics
-keywords: ''
-documentationcenter: ''
+title: "Analyse des sentiments à l’aide d’Azure Stream Analytics et d’Azure Machine Learning | Microsoft Docs"
+description: "Comment utiliser une fonction définie par l’utilisateur et Machine Learning dans un travail Stream Analytics"
+keywords: 
+documentationcenter: 
 services: stream-analytics
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 10/04/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fd5d7e2bf8d9cf68f1c3e9fe98656a8cfe0d1f15
+
 
 ---
 # <a name="sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Analyse du sentiment à l'aide d'Azure Stream Analytics et Azure Machine Learning
@@ -31,10 +35,10 @@ L’image suivante illustre cette configuration. Pour un scénario plus réalist
 ## <a name="prerequisites"></a>Composants requis
 Voici la configuration requise pour exécuter les tâches présentées dans cet article :
 
-* Un abonnement Azure actif.
-* Un fichier CSV contenant des données. Vous pouvez télécharger le fichier indiqué dans la Figure 1 à partir de [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample Data/sampleinput.csv), ou créer votre propre fichier. Pour cet article, nous partons du principe que vous utilisez celui proposé en téléchargement sur GitHub.
+* Un abonnement Azure actif.
+* Un fichier CSV contenant des données. Vous pouvez télécharger le fichier indiqué dans la Figure 1 à partir de [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample Data/sampleinput.csv), ou créer votre propre fichier. Pour cet article, nous partons du principe que vous utilisez celui proposé en téléchargement sur GitHub.
 
-À un niveau élevé, pour effectuer les tâches décrites dans cet article, vous devez procédez comme suit :
+À un niveau élevé, pour effectuer les tâches décrites dans cet article, vous devez procédez comme suit :
 
 1. Téléchargez un fichier d’entrée CSV vers le stockage d’objets blob Azure.
 2. Ajoutez un modèle d’analyse de sentiments à partir de la galerie Cortana Intelligence à votre espace de travail Azure Machine Learning.
@@ -61,7 +65,7 @@ Pour cette étape, vous pouvez utiliser n’importe quel fichier CSV, comme celu
 3. Connectez-vous pour accéder à l’espace de travail. Sélectionnez le site qui convient le mieux à votre site.
 4. Cliquez sur **Exécuter** en bas de la page.  
 5. Une fois le processus correctement exécuté, cliquez sur **Déployer le service web**.
-6. Le modèle d’analyse de sentiments est prêt à être utilisé. Pour valider, cliquez sur le bouton **Test** et saisissez un texte d’entrée comme « J’aime Microsoft ». Le test doit retourner un résultat similaire à ce qui suit :
+6. Le modèle d’analyse de sentiments est prêt à être utilisé. Pour valider, cliquez sur le bouton **Test** et saisissez un texte d’entrée comme « J’aime Microsoft ». Le test doit retourner un résultat similaire à ce qui suit :
 
 `'Predictive Mini Twitter sentiment analysis Experiment' test returned ["4","0.715057671070099"]...`  
 
@@ -69,7 +73,7 @@ Pour cette étape, vous pouvez utiliser n’importe quel fichier CSV, comme celu
 
 Dans la colonne **Applications**, cliquez sur le lien vers le classeur **Excel 2010 ou version antérieure** afin d’obtenir votre clé API et l’URL dont vous aurez besoin plus tard pour configurer le travail Stream Analytics. (Cette étape est obligatoire uniquement pour utiliser un modèle Machine Learning à partir d’un autre espace de travail de compte Azure. Cet article suppose que c’est le cas pour les besoins de ce scénario.)  
 
-Notez l’URL et la clé d’accès du service web depuis le fichier Excel téléchargé comme indiqué ci-dessous :  
+Notez l’URL et la clé d’accès du service web depuis le fichier Excel téléchargé comme indiqué ci-dessous :  
 
 ![Stream Analytics Machine Learning, aperçu rapide](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
 
@@ -84,7 +88,7 @@ Notez l’URL et la clé d’accès du service web depuis le fichier Excel tél�
 6. Dans l’onglet **Sorties**, cliquez sur **Ajouter une sortie**.  
    
    ![Stream Analytics Machine Learning, ajouter une sortie](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-output-screen.png)  
-7. Cliquez sur **Stockage d’objets blob**, puis entrez les mêmes paramètres, sauf pour le conteneur. La valeur **Entrée** a été configurée pour assurer la lecture à partir du conteneur nommé « test » dans lequel le fichier **CSV** a été téléchargé. Pour **Output**, entrez « testouput ». Les noms de conteneurs doivent être différents. Vérifiez l’existence de ce conteneur.     
+7. Cliquez sur **Stockage d’objets blob**, puis entrez les mêmes paramètres, sauf pour le conteneur. La valeur **Entrée** a été configurée pour assurer la lecture à partir du conteneur nommé « test » dans lequel le fichier **CSV** a été téléchargé. Pour **Output**, entrez « testouput ». Les noms de conteneurs doivent être différents. Vérifiez l’existence de ce conteneur.     
 8. Cliquez sur **Suivant** pour configurer les **paramètres de sérialisation** de sortie. Comme pour la valeur **Entrée**, cliquez sur **CSV**, puis sur le bouton **OK**.
 9. Dans l’onglet **Fonctions**, cliquez sur **Ajouter une fonction Machine Learning**.  
    
@@ -92,11 +96,11 @@ Notez l’URL et la clé d’accès du service web depuis le fichier Excel tél�
 10. Sur la page **Paramètres du Service Web Machine Learning** , recherchez l’espace de travail de Machine Learning, le service web et le point de terminaison par défaut. Pour cet article, appliquez les paramètres manuellement pour vous familiariser avec la configuration du service web d’un espace de travail quelconque dont vous connaissez l’URL et avez la clé API. Entrez le point de terminaison **URL** et **Clé API**. Cliquez sur **OK**.    
     
     ![Stream Analytics Machine Learning, service web Machine Learning](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-web-service.png)    
-11. Dans l’onglet **Requête** , modifiez la requête comme suit :    
+11. Dans l’onglet **Requête** , modifiez la requête comme suit :    
     
     ```
     WITH subquery AS (  
-        SELECT text, sentiment(text) as result from input  
+      SELECT text, sentiment(text) as result from input  
     )  
     
     Select text, result.[Scored Labels]  
@@ -112,7 +116,7 @@ Notez l’URL et la clé d’accès du service web depuis le fichier Excel tél�
    ![Stream Analytics Machine Learning, heure personnalisée](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-custom-time.png)  
 3. Accédez au stockage d’objets blob à l’aide de l’outil que vous avez utilisé pour charger le fichier CSV, par exemple Visual Studio.
 4. Quelques minutes après le début du travail, le conteneur de sortie est créé et un fichier CSV téléchargé dans celui-ci.  
-5. Ouvrez le fichier dans l’éditeur CSV par défaut. Un écran semblable à celui-ci devrait s’afficher :  
+5. Ouvrez le fichier dans l’éditeur CSV par défaut. Un écran semblable à celui-ci devrait s’afficher :  
    
    ![Stream Analytics Machine Learning, vue CSV](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
 
@@ -127,6 +131,9 @@ Vous pouvez également afficher les mesures liées à la fonction Azure Machine 
   
     ![Stream Analytics Machine Learning, affichage du moniteur Machine Learning](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

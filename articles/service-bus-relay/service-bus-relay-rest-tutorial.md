@@ -1,32 +1,36 @@
 ---
-title: Didacticiel Service Bus REST utilisant la messagerie relayée | Microsoft Docs
-description: Créez une simple application hôte Service Bus présentant une interface de type REST.
-services: service-bus
+title: "Didacticiel Service Bus REST utilisant la messagerie relayée | Microsoft Docs"
+description: "Créez une simple application hôte Service Bus présentant une interface de type REST."
+services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 1312b2db-94c4-4a48-b815-c5deb5b77a6a
+ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7ba69a1a5f363fe5034e3fc7946b1584c9d77b50
+
 
 ---
-# <a name="service-bus-relay-rest-tutorial"></a>Didacticiel REST sur Service Bus Relay
+# <a name="service-bus-wcf-relay-rest-tutorial"></a>Didacticiel REST sur Service Bus WCF Relay
 Ce didacticiel explique comment créer une simple application hôte Service Bus qui expose une interface de type REST. REST permet à un client web, par exemple un navigateur web, d’accéder aux API Service Bus via des requêtes HTTP.
 
 Ce didacticiel utilise le modèle de programmation REST Windows Communication Foundation (WCF) pour construire un service REST sur Service Bus. Pour plus d’informations, consultez les rubriques [Modèle de programmation REST WCF](https://msdn.microsoft.com/library/bb412169.aspx) et [Conception et implémentation de services](https://msdn.microsoft.com/library/ms729746.aspx) dans la documentation WCF.
 
-## <a name="step-1:-create-a-service-namespace"></a>Étape 1 : Création d’un espace de noms de service
-La première étape consiste à créer un espace de noms et à obtenir une clé de signature d’accès partagé (SAP). Un espace de noms fournit une limite d’application pour chaque application exposée via Service Bus. Une clé SAP est automatiquement générée par le système lors de la création d’un espace de noms de service. La combinaison de l'espace de noms de service et de la clé SAP fournit à Service Bus des informations d'identification permettant d'authentifier l'accès à une application.
+## <a name="step-1-create-a-service-namespace"></a>Étape 1 : Création d’un espace de noms de service
+La première étape consiste à créer un espace de noms et à obtenir une clé de signature d’accès partagé (SAP). Un espace de noms fournit une limite d’application pour chaque application exposée via Service Bus. Une clé SAP est automatiquement générée par le système lors de la création d’un espace de noms de service. La combinaison de l'espace de noms de service et de la clé SAP fournit à Service Bus des informations d'identification permettant d'authentifier l'accès à une application.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="step-2:-define-a-rest-based-wcf-service-contract-to-use-with-service-bus"></a>Étape 2: Définition d’un contrat de service REST WCF à utiliser avec le Service Bus
+## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-service-bus"></a>Étape 2: Définition d’un contrat de service REST WCF à utiliser avec le Service Bus
 Comme avec d'autres services Service Bus, lorsque vous créez un service de type REST, vous devez définir le contrat. Le contrat spécifie les opérations prises en charge par l'hôte. Une opération de service peut être considérée comme une méthode de service web. Les contrats sont créés en définissant une interface C++, C# ou Visual Basic. Chaque méthode dans l'interface correspond à une opération de service spécifique. L’attribut [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) doit être appliqué à chaque interface et l’attribut [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) doit être appliqué à chaque opération. Si une méthode dans une interface qui contient l’attribut [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) n’a pas l’attribut [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), cette méthode n’est pas exposée. Le code utilisé pour effectuer ces tâches est indiqué dans l'exemple suivant la procédure.
 
 La principale différence entre un contrat Service Bus de base et un contrat de type REST est l’ajout d’une propriété à l’attribut [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) : [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). Cette propriété vous permet de mapper une méthode dans votre interface à une méthode de l'autre côté de l'interface. Dans ce cas, nous utiliserons [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) pour associer une méthode à HTTP GET. Cela permet à Service Bus de récupérer et d’interpréter correctement les commandes envoyées à l'interface.
@@ -53,7 +57,7 @@ La principale différence entre un contrat Service Bus de base et un contrat de 
     [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) est l’espace de noms qui permet l’accès par programme aux fonctionnalités WCF de base. Service Bus utilise la plupart des objets et attributs de WCF pour définir des contrats de service. Vous utiliserez cet espace de noms dans la plupart de vos applications de relais Service Bus. De même, [System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx) permet de définir le canal, qui est l’objet via lequel vous communiquez avec Service Bus et le navigateur web client. Enfin, [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) contient les types qui vous permettent de créer des applications web.
 7. Renommez l’espace de noms `ImageListener` en **Microsoft.ServiceBus.Samples**.
    
-    ```
+     ```
     namespace Microsoft.ServiceBus.Samples
     {
         ...
@@ -86,7 +90,7 @@ La principale différence entre un contrat Service Bus de base et un contrat de 
     ```
     
     Cette opération permet à Service Bus d’acheminer les demandes HTTP GET vers `GetImage`, et de convertir les valeurs `GetImage` renvoyées dans une réponse HTTP GETRESPONSE. Plus loin dans ce didacticiel, vous utiliserez un navigateur web pour accéder à cette méthode et pour afficher l'image dans le navigateur.
-11. Directement après la définition de `IImageContract`, déclarez un canal qui hérite à la fois des interfaces `IImageContract` et `IClientChannel` :
+11. Directement après la définition de `IImageContract`, déclarez un canal qui hérite à la fois des interfaces `IImageContract` et `IClientChannel` :
     
     ```
     public interface IImageChannel : IImageContract, IClientChannel { }
@@ -129,12 +133,12 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="step-3:-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>Étape 3 : Implémentation d’un contrat de service REST WCF à utiliser avec Service Bus
+## <a name="step-3-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>Étape 3 : Implémentation d’un contrat de service REST WCF à utiliser avec Service Bus
 La création d'un service Service Bus de type REST nécessite la création au préalable du contrat défini à l'aide d'une interface. L'étape suivante consiste à implémenter l'interface. Cela implique la création d’une classe nommée **ImageService** qui implémente l’interface **IImageContract** définie par l’utilisateur. Une fois le contrat implémenté, vous configurez ensuite l'interface à l'aide d'un fichier App.config. Le fichier de configuration contient les informations nécessaires à l'application, notamment le nom du service, le nom du contrat et le type de protocole utilisé pour communiquer avec Service Bus. Le code utilisé pour effectuer ces tâches est fourni dans l'exemple suivant la procédure.
 
 Comme pour les étapes précédentes, il y a très peu de différences entre l'implémentation d'un contrat de type REST et un contrat Service Bus de base.
 
-### <a name="to-implement-a-rest-style-service-bus-contract"></a>Implémentation d’un contrat Service Bus de type REST
+### <a name="to-implement-a-rest-style-service-bus-contract"></a>Implémentation d’un contrat Service Bus de type REST 
 1. Créez une classe nommée **ImageService** directement après la définition de l’interface **IImageContract**. La classe **ImageService** implémente l’interface **IImageContract**.
    
     ```
@@ -236,7 +240,7 @@ Comme pour les étapes précédentes, il y a très peu de différences entre l'i
     ```
    
     Cette étape configure un service qui utilise la valeur par défaut **webHttpRelayBinding** définie précédemment. Il utilise également la valeur par défaut **sbTokenProvider**, définie dans l’étape suivante.
-4. Après l’élément `<services>`, créez un élément `<behaviors>` avec le contenu suivant, en remplaçant « SAS_KEY » par la clé avec *signature d’accès partagé* (SAP) obtenue précédemment à partir du [portail Azure][portail Azure].
+4. Après l’élément `<services>`, créez un élément `<behaviors>` avec le contenu suivant, en remplaçant « SAS_KEY » par la clé avec *signature d’accès partagé* (SAP) obtenue à partir du [Portail Azure][Portail Azure].
    
     ```
     <behaviors>
@@ -260,8 +264,8 @@ Comme pour les étapes précédentes, il y a très peu de différences entre l'i
    
     ```
     <appSettings>
-    <!-- Service Bus specific app settings for messaging connections -->
-    <add key="Microsoft.ServiceBus.ConnectionString"
+       <!-- Service Bus specific app settings for messaging connections -->
+       <add key="Microsoft.ServiceBus.ConnectionString"
            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
     </appSettings>
     ```
@@ -423,7 +427,7 @@ L'exemple suivant montre le fichier App.config associé au service.
 </configuration>
 ```
 
-## <a name="step-4:-host-the-rest-based-wcf-service-to-use-service-bus"></a>Étape 4 : Hébergement du service WCF REST pour utiliser Service Bus
+## <a name="step-4-host-the-rest-based-wcf-service-to-use-service-bus"></a>Étape 4 : Hébergement du service WCF REST pour utiliser Service Bus
 Cette étape décrit comment exécuter un service web à l'aide d'une application console sur Service Bus. Une liste complète du code écrit dans cette étape est fournie dans l'exemple suivant la procédure.
 
 ### <a name="to-create-a-base-address-for-the-service"></a>Création d’une adresse de base pour le service
@@ -554,12 +558,13 @@ Après avoir créé la solution, procédez comme suit pour exécuter l'applicati
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez créé une application qui utilise le service de relais Service Bus, consultez les articles suivants pour en savoir plus sur la messagerie par relais.
 
-* [Présentation de l’architecture d’Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
-* [Utilisation du service Service Bus Relay](service-bus-dotnet-how-to-use-relay.md)
+* [Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
+* [Guide pratique pour utiliser le service Service Bus WCF Relay](service-bus-dotnet-how-to-use-relay.md)
 
-[portail Azure]: https://portal.azure.com
+[Portail Azure]: https://portal.azure.com
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

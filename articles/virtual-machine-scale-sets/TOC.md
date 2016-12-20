@@ -2,15 +2,17 @@
 ## [Que sont les groupes de machines virtuelles identiques ?](virtual-machine-scale-sets-overview.md)
 
 # Prise en main
-## [Créer un groupe de machines virtuelles identiques Windows](virtual-machine-scale-sets-windows-create.md)
-## [Créer un groupe de machines virtuelles identiques Linux](virtual-machine-scale-sets-linux-create-cli.md)
+## [Créer un groupe de machines virtuelles identiques dans le portail](virtual-machine-scale-sets-portal-create.md)
 
 # Procédure
 ## Planifier et concevoir
 ### [Remarques relatives à la conception](virtual-machine-scale-sets-design-overview.md)
+
 ## Déployer
 ### [Groupes de machines virtuelles identiques avec le portail](virtual-machine-scale-sets-portal-create.md)
 ### [Groupe de machines virtuelles identiques avec Visual Studio](virtual-machine-scale-sets-vs-create.md)
+### [Groupe de machines virtuelles identiques avec PowerShell](virtual-machine-scale-sets-windows-create.md)
+### [Groupe de machines virtuelles identiques avec l’interface de ligne de commande Azure](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Groupe de machines virtuelles identiques Linux avec mise à l’échelle automatique](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Groupe de machines virtuelles identiques Windows avec mise à l’échelle automatique](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Applications dans les groupes de machines virtuelles identiques](virtual-machine-scale-sets-deploy-app.md)
@@ -38,6 +40,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

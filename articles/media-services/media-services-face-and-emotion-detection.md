@@ -1,19 +1,23 @@
 ---
-title: Détection des visages et des émotions avec Azure Media Analytics | Microsoft Docs
-description: Cette rubrique illustre la détection faciale et d’émotions avec Azure Media Analytics.
+title: "Détection des visages et des émotions avec Azure Media Analytics | Microsoft Docs"
+description: "Cette rubrique illustre la détection faciale et d’émotions avec Azure Media Analytics."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 5ca4692c-23f1-451d-9d82-cbc8bf0fd707
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/15/2016
 ms.author: milanga;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 48a4cdf7d50e765ee42cb44d12d1dafd49c13795
+ms.openlocfilehash: 3147eba8bd31d3d05bd990571a986316d6f5093f
+
 
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Détection des visages et des émotions avec Azure Media Analytics
@@ -44,7 +48,7 @@ L’API de détection et de suivi facial permet une détection d’emplacement e
 
 Les visages détectés et suivis sont retournés avec les coordonnées (point gauche et supérieur, largeur, hauteur) indiquant l’emplacement des visages dans l’image en pixels, mais aussi un numéro d’identification pour chaque visage, indiquant le suivi de cette personne. Les numéros d’identification des visages peuvent être réinitialisés dans des cas où le visage filmé de face sort de l’image ou si un élément vient se superposer ; certaines personnes peuvent ainsi se voir attribuer plusieurs identifiants.
 
-### <a name="<a-id="output_elements"></a>elements-of-the-output-json-file"></a><a id="output_elements"></a>Éléments du fichier de sortie JSON
+### <a name="a-idoutputelementsaelements-of-the-output-json-file"></a><a id="output_elements"></a>Éléments du fichier de sortie JSON
 Pour la détection faciale et l’opération de suivi, le fichier de sortie au format JSON contient les métadonnées des visages détectés.
 
 La détection et le suivi des visages JSON incluent les attributs suivants :
@@ -70,18 +74,11 @@ Face Detector utilise des techniques de fragmentation (où les métadonnées peu
 * Démarrage/Échelle de temps = 2,1 secondes
 * Secondes x (fréquence d’images/échelle de temps) = 63 images
 
-Voici un exemple simple d’extraction du JSON en format « par image » pour la détection faciale et le suivi :
-
-    var faceDetectionResultJsonString = operationResult.ProcessingResult;
-    var faceDetecionTracking = 
-         JsonConvert.DeserializeObject<FaceDetectionResult>(faceDetectionResultJsonString, settings);
-
-
 ## <a name="face-detection-input-and-output-example"></a>Exemple d’entrée et de sortie de détection faciale
 ### <a name="input-video"></a>Vidéo d’entrée
 [Vidéo d’entrée](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-(preset)"></a>Configuration de la tâche (préconfiguration)
+### <a name="task-configuration-preset"></a>Configuration de la tâche (préconfiguration)
 Lors de la création d’une tâche de vidéo **Azure Media Face Detector**, vous devez spécifier une présélection de configuration. La présélection de configuration suivante est uniquement valable pour la détection faciale.
 
     {"version":"1.0"}
@@ -140,7 +137,7 @@ L’exemple suivant de sortie JSON a été tronqué.
 ### <a name="input-video"></a>Vidéo d’entrée
 [Vidéo d’entrée](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-(preset)"></a>Configuration de la tâche (préconfiguration)
+### <a name="task-configuration-preset"></a>Configuration de la tâche (préconfiguration)
 Lors de la création d’une tâche de vidéo **Azure Media Face Detector**, vous devez spécifier une présélection de configuration. La présélection de configuration suivante spécifie la création d’un JSON en fonction de la détection d’émotion.
 
     {
@@ -514,6 +511,9 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 [Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

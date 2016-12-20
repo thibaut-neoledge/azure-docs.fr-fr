@@ -1,12 +1,12 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec Promapp | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Promapp.
+title: "Didacticiel : intégration d’Azure Active Directory à Promapp | Microsoft Docs"
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Promapp."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 418d0601-6e7a-4997-a683-73fa30a2cfb5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,20 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dece2cd1c8645c0a2d19177d433dbfe5d6e3f6cd
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-promapp"></a>Didacticiel : Intégration d’Azure Active Directory à Promapp
+# <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Didacticiel : Intégration d’Azure Active Directory à Promapp
 L’objectif de ce didacticiel est de vous montrer comment intégrer Promapp dans Azure Active Directory (Azure AD).  
 L’intégration de Promapp dans Azure AD vous offre les avantages suivants : 
 
-* Dans Azure AD, vous pouvez contrôler qui a accès à Promapp. 
-* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Promapp (via l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure Active Directory Classic.
+* Dans Azure AD, vous pouvez contrôler qui a accès à Promapp. 
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Promapp (via l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure Active Directory Classic.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Composants requis
-Pour configurer l’intégration d’Azure AD avec Promapp, vous avez besoin des éléments suivants :
+Pour configurer l’intégration d’Azure AD avec Promapp, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD
 * Un abonnement Promapp pour lequel l’authentification unique est activée
@@ -37,7 +41,7 @@ Pour configurer l’intégration d’Azure AD avec Promapp, vous avez besoin des
 > 
 > 
 
-Vous devez en outre suivre les recommandations ci-dessous :
+Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
 * Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/). 
@@ -50,9 +54,9 @@ Le scénario décrit dans ce didacticiel se compose des deux sections principale
 2. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-promapp-from-the-gallery"></a>Ajout de Promapp à partir de la galerie
-Pour configurer l’intégration de Promapp avec Azure AD, vous devez ajouter Promapp à partir de la galerie à votre liste d’applications SaaS gérées.
+Pour configurer l’intégration de Promapp avec Azure AD, vous devez ajouter Promapp à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Promapp à partir de la galerie, procédez comme suit :**
+**Pour ajouter Promapp à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
    
@@ -75,39 +79,39 @@ Pour configurer l’intégration de Promapp avec Azure AD, vous devez ajouter Pr
     ![Applications][500]
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Promapp avec un utilisateur de test appelé « Britta Simon ».
+L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Promapp avec un utilisateur de test appelé « Britta Simon ».
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Promapp équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur Promapp associé doit être établie.  
-Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Promapp.
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Promapp équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur Promapp associé doit être établie.  
+Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Promapp.
 
-Pour configurer et tester l’authentification unique Azure AD avec Promapp, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec Promapp, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Promapp](#creating-a-halogen-software-test-user)** pour avoir un équivalent de Britta Simon dans Promapp lié à la représentation Azure AD associée.
+3. **[Création d’un utilisateur de test Promapp](#creating-a-halogen-software-test-user)** pour avoir un équivalent de Britta Simon dans Promapp lié à la représentation Azure AD associée.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure AD Classic et de configurer l’authentification unique dans votre application Promapp.
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure AD Classic et de configurer l’authentification unique dans votre application Promapp.
 
-**Pour configurer l’authentification unique Azure AD avec Promapp, procédez comme suit :**
+**Pour configurer l’authentification unique Azure AD avec Promapp, procédez comme suit :**
 
-1. Dans la page d’intégration d’applications **Promapp** du portail Azure AD Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1. Dans la page d’intégration d’applications **Promapp** du portail Azure AD Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
     ![Configurer l’authentification unique][6] 
-2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Promapp**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
+2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Promapp**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
    
     ![Authentification unique Azure AD][7] 
-3. Sur la page **Configurer les paramètres d’application** , procédez comme suit :
+3. Sur la page **Configurer les paramètres d’application** , procédez comme suit :
    
     ![Authentification unique Azure AD][8] 
    
-     a. Dans la zone de texte **URL d’authentification**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre site Promapp (p. ex. *https://companyname.promapp.com/instancename*).
+     a. Dans la zone de texte **URL d’authentification**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre site Promapp (p. ex. *https://companyname.promapp.com/instancename*).
 
      b. Cliquez sur **Suivant**.
 
-1. Sur la page **Configurer l’authentification unique sur Promapp** , procédez comme suit :
+1. Sur la page **Configurer l’authentification unique sur Promapp** , procédez comme suit :
    
     ![Authentification unique Azure AD][9] 
    
@@ -121,7 +125,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
 4. Cliquez sur **Configurer**. 
    
     ![Authentification unique Azure AD][13]
-5. Dans la boîte de dialogue **Security** , procédez comme suit :
+5. Dans la boîte de dialogue **Security** , procédez comme suit :
    
     ![Authentification unique Azure AD][14] 
    
@@ -130,7 +134,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
     b. Pour **Mode SSO (authentification unique)**, sélectionnez **Facultatif**, puis cliquez sur **Enregistrer**.
    
     c. Ouvrez le certificat téléchargé dans le Bloc-notes, copiez le contenu du certificat sans la première ligne (*-----BEGIN CERTIFICATE-----*) ni la dernière ligne (*-----END CERTIFICATE-----*), collez-le dans la zone de texte **Certificat x.509 d’authentification unique**, puis cliquez sur **Enregistrer**.
-6. Dans le portail Azure AD Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. 
+6. Dans le portail Azure AD Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. 
    
     ![Authentification unique Azure AD][10]
 7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
@@ -142,7 +146,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ![Créer un utilisateur Azure AD][20]
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
    
@@ -162,7 +166,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    
     b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
    
-    c. Cliquez sur **Suivant**.
+    c. Cliquez sur **Next**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit : 
    
    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-promapp-tutorial/create_aaduser_06.png) 
@@ -174,7 +178,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
    
    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   e. Cliquez sur **Suivant**.
+   e. Cliquez sur **Next**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-promapp-tutorial/create_aaduser_07.png) 
@@ -195,7 +199,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ![Affecter des utilisateurs][200] 
 
-**Pour affecter Britta Simon à Promapp, procédez comme suit :**
+**Pour affecter Britta Simon à Promapp, procédez comme suit :**
 
 1. Pour ouvrir la vue des applications dans le portail Azure Classic, cliquez dans la vue de répertoire sur **Applications** dans le menu du haut.
    
@@ -217,7 +221,7 @@ Lorsque vous cliquez sur la vignette Promapp dans le volet d’accès, vous deve
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 
@@ -255,6 +259,6 @@ Lorsque vous cliquez sur la vignette Promapp dans le volet d’accès, vous deve
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

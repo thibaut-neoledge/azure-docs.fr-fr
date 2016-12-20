@@ -1,12 +1,12 @@
 ---
-title: Configuration requise pour accéder à l’API de création de rapports Azure AD. | Microsoft Docs
-description: En savoir plus sur la configuration requise pour accéder à l’API de création de rapports Azure AD
+title: "Configuration requise pour accéder à l’API de création de rapports Azure AD. | Microsoft Docs"
+description: "En savoir plus sur la configuration requise pour accéder à l’API de création de rapports Azure AD"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2016
 ms.author: dhanyahk;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b0f23cc578fb946247d492b9dee92cf7a9daafa1
+
 
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Configuration requise pour accéder à l’API de création de rapports Azure AD
@@ -21,7 +25,7 @@ Les [API de création de rapports Azure AD](https://msdn.microsoft.com/library/a
 
 L’API de création de rapports utilise [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) pour autoriser l’accès aux API web. 
 
-Pour préparer votre accès à l’API de création de rapports, vous devez :
+Pour préparer votre accès à l’API de création de rapports, vous devez :
 
 1. Créer une application dans votre client Azure AD 
 2. Accorder les autorisations appropriées d’application pour accéder aux données Azure AD
@@ -54,7 +58,7 @@ Pour configurer votre annuaire et lui permettre d’accéder à l’API de créa
    
     ![Inscription de l’application](./media/active-directory-reporting-api-prerequisites/05.png) 
    
-    a. Dans la zone de texte **Nom** , entrez un nom (par exemple : Application API Création de rapports).
+    a. Dans la zone de texte **Nom** , entrez un nom (par exemple : Application API Création de rapports).
    
     b. Sélectionnez **Application Web et/ou API Web**.
    
@@ -91,7 +95,7 @@ Pour configurer votre annuaire et lui permettre d’accéder à l’API de créa
     ![Inscription de l’application](./media/active-directory-reporting-api-prerequisites/10.png)
 
 ## <a name="gather-configuration-settings-from-your-directory"></a>Collecter les paramètres de configuration de votre annuaire
-Cette section vous montre comment obtenir les paramètres suivants à partir de votre annuaire :
+Cette section vous montre comment obtenir les paramètres suivants à partir de votre annuaire :
 
 * Nom de domaine
 * ID client
@@ -111,7 +115,7 @@ Ces valeurs sont nécessaires lors de la configuration des appels à l’API de 
    
     ![Inscription de l’application](./media/active-directory-reporting-api-prerequisites/12.png) 
 
-### <a name="get-the-application's-client-id"></a>Obtenir l’ID client de l’application
+### <a name="get-the-applications-client-id"></a>Obtenir l’ID client de l’application
 1. Dans le volet de navigation gauche du [portail Azure Classic](https://manage.windowsazure.com), cliquez sur **Active Directory**.
    
     ![Inscription de l’application](./media/active-directory-reporting-api-prerequisites/01.png) 
@@ -129,7 +133,7 @@ Ces valeurs sont nécessaires lors de la configuration des appels à l’API de 
    
     ![Inscription de l’application](./media/active-directory-reporting-api-prerequisites/13.png)
 
-### <a name="get-the-application's-client-secret"></a>Obtenir la clé secrète client de l’application
+### <a name="get-the-applications-client-secret"></a>Obtenir la clé secrète client de l’application
 Pour obtenir la clé secrète client de l’application, vous devez créer une nouvelle clé et enregistrer sa valeur lors de l’enregistrement de la nouvelle clé car il est impossible de récupérer cette valeur ultérieurement.
 
 1. Dans le volet de navigation gauche du [portail Azure Classic](https://manage.windowsazure.com), cliquez sur **Active Directory**.
@@ -145,7 +149,7 @@ Pour obtenir la clé secrète client de l’application, vous devez créer une n
 5. Dans le menu situé en haut, cliquez sur **Configurer**.
    
     ![Inscription de l’application](./media/active-directory-reporting-api-prerequisites/08.png)
-6. Dans la section **Clés** , procédez comme suit : 
+6. Dans la section **Clés** , procédez comme suit : 
    
     ![Inscription de l’application](./media/active-directory-reporting-api-prerequisites/14.png)
    
@@ -161,6 +165,9 @@ Pour obtenir la clé secrète client de l’application, vous devez créer une n
 * Vous souhaitez accéder aux données de l’API de création de rapports Azure AD par programme ? Consultez [Prise en main de l’API de création de rapports Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Si vous souhaitez en savoir plus sur la création de rapports Azure Active Directory, consultez le [Guide Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

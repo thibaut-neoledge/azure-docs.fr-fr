@@ -1,42 +1,48 @@
 ---
-title: Analyse de base de données SQL Azure à l’aide de vues de gestion dynamique | Microsoft Docs
-description: Apprenez à détecter et à diagnostiquer des problèmes de performances courants à l’aide de vues de gestion dynamique pour surveiller une base de données SQL Microsoft Azure.
+title: "Analyse de base de données SQL Azure à l’aide de vues de gestion dynamique | Microsoft Docs"
+description: "Apprenez à détecter et à diagnostiquer des problèmes de performances courants à l’aide de vues de gestion dynamique pour surveiller une base de données SQL Microsoft Azure."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: d08f505f-3c62-47d4-bab7-35c9a834b79b
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/20/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ae0054ac9d87562f6babbfaeaf440d653d60963a
+
 
 ---
-# Analyse d’une base de données SQL Azure à l’aide de vues de gestion dynamique
+# <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Analyse d’une base de données SQL Azure à l’aide de vues de gestion dynamique
 La Base de données SQL Microsoft Azure active un sous-ensemble de vues de gestion dynamique permettant de diagnostiquer des problèmes de performances qui peuvent être causés par des requêtes bloquées ou longues, des goulots d’étranglement des ressources, des plans de requête médiocres, et ainsi de suite. Cette rubrique fournit des informations sur la façon de détecter des problèmes de performances courants à l’aide des vues de gestion dynamique.
 
-La base de données SQL prend partiellement en charge trois catégories de vues de gestion dynamique :
+La base de données SQL prend partiellement en charge trois catégories de vues de gestion dynamique :
 
-* vues de gestion dynamique liées à la base de données ;
-* vues de gestion dynamique liées à l’exécution ;
+* vues de gestion dynamique liées à la base de données ;
+* vues de gestion dynamique liées à l’exécution ;
 * vues de gestion dynamique liées à la transaction.
 
-Pour plus d’informations sur les vues de gestion dynamique, voir [Fonctions et vues de gestion dynamique (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) dans la documentation en ligne de SQL Server.
+Pour plus d’informations sur les vues de gestion dynamique, voir [Fonctions et vues de gestion dynamique (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) dans la documentation en ligne de SQL Server.
 
-## Autorisations
-Dans la base de données SQL, l’interrogation d’une vue de gestion dynamique nécessite des autorisations **AFFICHER L'ÉTAT DE LA BASE DE DONNÉES**. L’autorisation **AFFICHER L'ÉTAT DE LA BASE DE DONNÉES** renvoie des informations sur tous les objets de la base de données active. Pour accorder l’autorisation **AFFICHER L'ÉTAT DE LA BASE DE DONNÉES** à un utilisateur de base de données spécifique, exécutez la requête suivante :
+## <a name="permissions"></a>Autorisations
+Dans la base de données SQL, l’interrogation d’une vue de gestion dynamique nécessite des autorisations **AFFICHER L'ÉTAT DE LA BASE DE DONNÉES** . L’autorisation **AFFICHER L'ÉTAT DE LA BASE DE DONNÉES** renvoie des informations sur tous les objets de la base de données active.
+Pour accorder l’autorisation **AFFICHER L'ÉTAT DE LA BASE DE DONNÉES** à un utilisateur de base de données spécifique, exécutez la requête suivante :
 
-```GRANT VIEW DATABASE STATE TO database_user;```
+```GRANT VIEW DATABASE STATE TO database_user; ```
 
-Dans une instance de SQL Server local, des vues de gestion dynamiques renvoient des informations sur l’état du serveur. Dans Base de données SQL, elles renvoient des informations relatives à votre base de données logique actuelle.
+Dans une instance de SQL Server local, des vues de gestion dynamiques renvoient des informations sur l’état du serveur. Dans Base de données SQL, elles renvoient des informations relatives à votre base de données logique actuelle.
 
-## Calcul de la taille de la base de données
-La requête suivante renvoie la taille de votre base de données en mégaoctets :
+## <a name="calculating-database-size"></a>Calcul de la taille de la base de données
+La requête suivante renvoie la taille de votre base de données en mégaoctets :
 
 ```
 -- Calculates the size of the database.
@@ -45,7 +51,7 @@ FROM sys.dm_db_partition_stats;
 GO
 ```
 
-La requête suivante retourne la taille d’objets individuels (en mégaoctets) dans votre base de données :
+La requête suivante retourne la taille d’objets individuels (en mégaoctets) dans votre base de données :
 
 ```
 -- Calculates the size of individual database objects.
@@ -56,8 +62,9 @@ GROUP BY sys.objects.name;
 GO
 ```
 
-## Analyse des connexions
-La vue [sys.dm\_exec\_connections](https://msdn.microsoft.com/library/ms181509.aspx) permet de récupérer des informations sur les connexions établies avec un serveur de base de données SQL Azure spécifique et les détails de chaque connexion. En outre, la vue [sys.dm\_exec\_sessions](https://msdn.microsoft.com/library/ms176013.aspx) permet de récupérer des informations sur toutes les connexions utilisateur et tâches internes actives. La requête suivante récupère des informations sur la connexion en cours :
+## <a name="monitoring-connections"></a>Analyse des connexions
+La vue [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) permet de récupérer des informations sur les connexions établies avec un serveur de base de données SQL Azure spécifique et les détails de chaque connexion. En outre, la vue [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) permet de récupérer des informations sur toutes les connexions utilisateur et tâches internes actives.
+La requête suivante récupère des informations sur la connexion en cours :
 
 ```
 SELECT
@@ -73,14 +80,14 @@ WHERE c.session_id = @@SPID;
 ```
 
 > [!NOTE]
-> Lorsque vous exécutez **sys.dm\_exec\_requests** et **sys.dm\_exec\_sessions views**, si vous disposez d’une autorisation **AFFICHER L’ÉTAT DE LA BASE DE DONNÉES** sur la base de données, vous voyez toutes les sessions en cours d’exécution sur la base de données. Sinon, vous voyez uniquement la session en cours.
+> Lorsque vous exécutez **sys.dm_exec_requests** et **sys.dm_exec_sessions views**, si vous disposez d’une autorisation **AFFICHER L’ÉTAT DE LA BASE DE DONNÉES** sur la base de données, vous voyez toutes les sessions en cours d’exécution sur la base de données. Sinon, vous voyez uniquement la session en cours.
 > 
 > 
 
-## Analyse des performances des requêtes
-Des requêtes lentes ou longues peuvent consommer des ressources système significatives. Cette section montre comment utiliser des vues de gestion dynamique pour détecter quelques problèmes courants liés aux performances de requête. L’article [Résolution des problèmes de performances dans SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) sur Microsoft TechNet constitue une référence plus ancienne, mais toujours utile, pour le dépannage.
+## <a name="monitoring-query-performance"></a>Analyse des performances des requêtes
+Des requêtes lentes ou longues peuvent consommer des ressources système significatives. Cette section montre comment utiliser des vues de gestion dynamique pour détecter quelques problèmes courants liés aux performances de requête. L’article [Résolution des problèmes de performances dans SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) sur Microsoft TechNet constitue une référence plus ancienne, mais toujours utile, pour le dépannage.
 
-### Recherche des N premières requêtes
+### <a name="finding-top-n-queries"></a>Recherche des N premières requêtes
 L’exemple suivant renvoie des informations relatives aux cinq premières requêtes, classées sur la base du temps processeur moyen. Cet exemple agrège les requêtes selon leur hachage de requête et, logiquement, les requêtes équivalentes sont regroupées sur la base de leur consommation cumulée de ressources.
 
 ```
@@ -100,11 +107,11 @@ GROUP BY query_stats.query_hash
 ORDER BY 2 DESC;
 ```
 
-### Surveillance des requêtes bloquées
-Des requêtes lentes ou longues peuvent contribuer à une consommation excessive de ressources et être la conséquence de requêtes bloquées. La cause du blocage peut être une conception médiocre d’application, de mauvais plans de requête, le manque d’index utiles, et ainsi de suite. La vue sys.dm\_tran\_locks permet d’obtenir des informations sur l’activité de verrouillage actuelle dans votre base de données SQL Azure. Pour un exemple de code, voir [sys.dm\_tran\_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) dans la documentation en ligne de SQL Server.
+### <a name="monitoring-blocked-queries"></a>Surveillance des requêtes bloquées
+Des requêtes lentes ou longues peuvent contribuer à une consommation excessive de ressources et être la conséquence de requêtes bloquées. La cause du blocage peut être une conception médiocre d’application, de mauvais plans de requête, le manque d’index utiles, et ainsi de suite. La vue sys.dm_tran_locks permet d’obtenir des informations sur l’activité de verrouillage actuelle dans votre base de données SQL Azure. Pour un exemple de code, voir [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) dans la documentation en ligne de SQL Server.
 
-### Analyse des plans de requête
-Un plan de requête inefficace peut également augmenter la consommation du processeur. L’exemple suivant utilise la vue [sys.dm\_exec\_query\_stats](https://msdn.microsoft.com/library/ms189741.aspx) pour déterminer quelle requête utilise le plus de temps processeur total.
+### <a name="monitoring-query-plans"></a>Analyse des plans de requête
+Un plan de requête inefficace peut également augmenter la consommation du processeur. L’exemple suivant utilise la vue [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) pour déterminer quelle requête utilise le plus de temps processeur total.
 
 ```
 SELECT
@@ -126,7 +133,12 @@ FROM
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## Voir aussi
+## <a name="see-also"></a>Voir aussi
 [Présentation de la base de données SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

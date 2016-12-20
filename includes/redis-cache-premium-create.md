@@ -1,4 +1,4 @@
-Pour créer un cache Premium, connectez-vous au [portail Azure](https://portal.azure.com) et cliquez sur **Nouveau** > **Données + stockage** > **Cache Redis**.
+Pour créer un cache Premium, connectez-vous au [Portail Azure](https://portal.azure.com), puis cliquez sur **Nouveau** > **Données + stockage** > **Cache Redis**.
 
 ![Create cache](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 
@@ -7,8 +7,12 @@ Pour créer un cache Premium, connectez-vous au [portail Azure](https://portal.a
 > 
 > 
 
-Pour configurer les fonctionnalités Premium, sélectionnez d’abord l’un des niveaux tarifaires Premium dans le panneau **Choisir votre niveau tarifaire**.
+Pour configurer les fonctionnalités Premium, sélectionnez d’abord l’un des niveaux tarifaires Premium dans le panneau **Choisir votre niveau tarifaire** .
 
-![Choisir un niveau tarifaire](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
+![Choisir votre niveau tarifaire](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

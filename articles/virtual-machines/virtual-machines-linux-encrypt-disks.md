@@ -1,12 +1,12 @@
 ---
-title: Encrypt disks on a Linux VM | Microsoft Docs
-description: How to encrypt disks on a Linux VM using the Azure CLI and the Resource Manager deployment model
+title: "Chiffrer des disques sur une machine virtuelle Linux | Microsoft Docs"
+description: "Comment chiffrer des disques sur une machine virtuelle Linux à l’aide de l’interface de ligne de commande Azure et du modèle de déploiement Resource Manager"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: iainfoulds
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 2a23b6fa-6941-4998-9804-8efe93b647b3
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -14,79 +14,83 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/11/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 5dd20630580f09049c88ffd9107f7fa8e8e43816
+ms.openlocfilehash: 15b3c7c910f5f55da31a8a7113b4d66714f1c908
+
 
 ---
-# <a name="encrypt-disks-on-a-linux-vm-using-the-azure-cli"></a>Encrypt disks on a Linux VM using the Azure CLI
-For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted at rest. Disks are encrypted using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. This article details how to encrypt virtual disks on a Linux VM using the Azure CLI and the Resource Manager deployment model.
+# <a name="encrypt-disks-on-a-linux-vm-using-the-azure-cli"></a>Chiffrer des disques sur une machine virtuelle Linux à l’aide de l'interface de ligne de commande Azure (CLI)
+Pour renforcer la sécurité et la conformité de la machine virtuelle , les disques virtuels dans Azure peuvent être chiffrés au repos. Les disques sont chiffrés à l’aide de clés de chiffrement sécurisées dans un coffre de clés Azure. Vous contrôlez ces clés de chiffrement et pouvez effectuer un audit de leur utilisation. Cet article explique comment chiffrer des disques virtuels sur une machine virtuelle Linux à l’aide de l’interface de ligne de commande Azure et du modèle de déploiement Resource Manager.
 
-## <a name="quick-commands"></a>Quick commands
-If you need to quickly accomplish the task, the following section details the base commands to encrypt virtual disks on your VM. More detailed information and context for each step can be found the rest of the document, [starting here](#overview-of-disk-encryption).
+## <a name="quick-commands"></a>Commandes rapides
+Si vous avez besoin d’accomplir rapidement cette tâche, la section suivante décrit les commandes de base pour chiffrer des disques virtuels sur votre machine virtuelle. Pour obtenir plus d’informations et davantage de contexte pour chaque étape, lisez la suite de ce document, [à partir de cette section](#overview-of-disk-encryption).
 
-You need the [latest Azure CLI](../xplat-cli-install.md) installed and logged in using the Resource Manager mode as follows:
+La [dernière version de l’interface de ligne de commande Azure (CLI)](../xplat-cli-install.md) doit être installée et connectée à l’aide du mode Resource Manager comme suit :
 
-```
+```azurecli
 azure config mode arm
 ```
 
-In the following examples, replace example parameter names with your own values. Example parameter names include `myResourceGroup`, `myKeyVault`, and `myVM`.
+Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Exemples de noms de paramètre : `myResourceGroup`, `myKeyVault` et `myVM`.
 
-First, enable the Azure Key Vault provider within your Azure subscription and create a resource group. The following example creates a resource group name `myResourceGroup` in the `WestUS` location:
+Tout d’abord, activez le fournisseur Azure Key Vault au sein de votre abonnement Azure puis créez un groupe de ressources. L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `WestUS` :
 
-```bash
+```azurecli
 azure provider register Microsoft.KeyVault
 azure group create myResourceGroup --location WestUS
 ```
 
-Create an Azure Key Vault. The following example creates a Key Vault named `myKeyVault`:
+Créez un coffre de clés Azure. L’exemple qui suit permet de créer un coffre de clés nommé `myKeyVault` :
 
-```bash
+```azurecli
 azure keyvault create --vault-name myKeyVault --resource-group myResourceGroup \
   --location WestUS
 ```
 
-Create a cryptographic key in your Key Vault and enable it for disk encryption. The following example creates a key named `myKey`:
+Créez une clé de chiffrement dans le coffre de clés et activez-la pour le chiffrement du disque. L’exemple qui suit permet de créer une clé nommée `myKey` :
 
-```bash
+```azurecli
 azure keyvault key create --vault-name myKeyVault --key-name myKey \
   --destination software
 azure keyvault set-policy --vault-name myKeyVault --resource-group myResourceGroup \
   --enabled-for-disk-encryption true
 ```
 
-Create an endpoint using Azure Active Directory for handling the authentication and exchanging of cryptographic keys from Key Vault. The `--home-page` and `--identifier-uris` do not need to be actual routable address. For the highest level of security, client secrets should be used instead of passwords. The Azure CLI cannot currently generate client secrets. Client secrets can only be generated in the Azure portal. The following example creates an Azure Active Directory endpoint named `myAADApp` and uses a password of `myPassword`:
+Créez un point de terminaison à l’aide d’Azure Active Directory pour gérer l’authentification et l’échange de clés de chiffrement à partir du coffre de clés. Les valeurs `--home-page` et `--identifier-uris` peuvent ne pas représenter des adresses routables réelles. Pour un niveau de sécurité maximal, vous devez utiliser des clés secrètes de client au lieu de mots de passe. Actuellement, l’interface CLI Azure ne permet pas de générer des clés secrètes de client. Les clés secrètes de client peuvent uniquement être générées dans le portail Azure. L’exemple suivant crée un point de terminaison Azure Active Directory nommé `myAADApp` et utilise un mot de passe `myPassword`. Spécifiez votre propre mot de passe comme suit :
 
-```bash
+```azurecli
 azure ad app create --name myAADApp \
   --home-page http://testencrypt.contoso.com \
   --identifier-uris http://testencrypt.contoso.com \
   --password myPassword
 ```
 
-Note the `applicationId` shown in the output from the preceding command. This application ID is used in the following steps:
+Notez la valeur `applicationId` indiquée dans la sortie de la commande précédente. Cet ID d’application est utilisé dans les étapes suivantes :
 
-```bash
+```azurecli
 azure ad sp create --applicationId myApplicationID
 azure keyvault set-policy --vault-name myKeyVault --spn myApplicationID \
   --perms-to-keys [\"all\"] --perms-to-secrets [\"all\"]
 ```
 
-Add a data disk to an existing VM. The following example adds a data disk to a VM named `myVM`:
+Ajoutez un disque de données à une machine Virtuelle existante. L’exemple suivant ajoute un disque de données à une machine virtuelle nommée `myVM`:
 
-```bash
+```azurecli
 azure vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
   --size-in-gb 5
 ```
 
-Review the details for your Key Vault and the key you created. You need the Key Vault ID, URI, and key URL in the final step. The following example reviews the details for a Key Vault named `myKeyVault` and key named `myKey`:
+Examinez les détails de votre coffre de clés et la clé que vous avez créée. Vous avez besoin de l’ID du coffre de clés, de l’URI et de l’URL de la clé à la dernière étape. L’exemple suivant passe détaille un coffre de clés nommé `myKeyVault` et une clé nommée `myKey` :
 
-```bash
+```azurecli
 azure keyvault show myKeyVault
 azure keyvault key show myKeyVault myKey
 ```
 
-Encrypt your disks as follows, entering your own parameter names throughout:
+Chiffrez vos disques comme suit, en entrant vos propres noms de paramètre :
 
-```bash
+```azurecli
 azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM \
   --aad-client-id myApplicationID --aad-client-secret myApplicationPassword \
   --disk-encryption-key-vault-url myKeyVaultVaultURI \
@@ -96,9 +100,9 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM 
   --volume-type Data
 ```
 
-The Azure CLI doesn't provide verbose errors during the encryption process. For additional troubleshooting information, review `/var/log/azure/Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux/0.x.x.x/extension.log`. As the preceding command has many variables and you may not get much indication as to why the process fails, a complete command example would be as follows:
+L’interface CLI Azure ne fournit pas le détail des erreurs au cours du processus de chiffrement. Pour obtenir plus d’informations de dépannage, consultez `/var/log/azure/Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux/0.x.x.x/extension.log`. Comme la commande précédente comporte plusieurs variables et que vous risquez de ne pas pouvoir identifier avec précision l’origine de l’échec du processus, voici un exemple de commande complet :
 
-```bash
+```azurecli
 azure vm enable-disk-encryption -g myResourceGroup -n MyVM \
   --aad-client-id 147bc426-595d-4bad-b267-58a7cbd8e0b6 \
   --aad-client-secret P@ssw0rd! \
@@ -109,78 +113,78 @@ azure vm enable-disk-encryption -g myResourceGroup -n MyVM \
   --volume-type Data
 ```
 
-Finally, review the encryption status again to confirm that your virtual disks have now been encrypted. The following example checks the status of a VM named `myVM` in the `myResourceGroup` resource group:
+Pour terminer, réexaminez l’état de chiffrement pour confirmer que vos disques virtuels ont bien été chiffrés. L’exemple suivant vérifie l’état d’une machine virtuelle nommée `myVM` dans le groupe de ressources `myResourceGroup` :
 
-```bash
+```azurecli
 azure vm show-disk-encryption-status --resource-group myResourceGroup --name myVM
 ```
 
-## <a name="overview-of-disk-encryption"></a>Overview of disk encryption
-Virtual disks on Linux VMs are encrypted at rest using [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). There is no charge for encrypting virtual disks in Azure. Cryptographic keys are stored in Azure Key Vault using software-protection, or you can import or generate your keys in Hardware Security Modules (HSMs) certified to FIPS 140-2 level 2 standards. You retain control of these cryptographic keys and can audit their use. These cryptographic keys are used to encrypt and decrypt virtual disks attached to your VM. An Azure Active Directory endpoint provides a secure mechanism for issuing these cryptographic keys as VMs are powered on and off.
+## <a name="overview-of-disk-encryption"></a>Présentation du chiffrement de disque
+Les disques virtuels sur des machines virtuelles Linux sont chiffrés au repos à l’aide de la commande [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). Le chiffrement de disques virtuels dans Azure n’entraîne aucun frais. Les clés de chiffrement sont stockées dans le coffre de clés Azure à l’aide d’une protection logicielle, mais vous pouvez importer ou générer vos clés dans des modules de sécurité matériels (HSM) certifiés conformes aux normes FIPS 140-2 de niveau 2. Vous gardez le contrôle de ces clés de chiffrement et pouvez effectuer un audit de leur utilisation. Ces clés de chiffrement servent à chiffrer et à déchiffrer les disques virtuels connectés à votre machine virtuelle. Un point de terminaison Azure Active Directory fournit un mécanisme sécurisé pour l’émission de ces clés de chiffrement lors de la mise sous tension et hors tension des machines virtuelles.
 
-The process for encrypting a VM is as follows:
+Le processus de chiffrement d’une machine virtuelle est le suivant :
 
-1. Create a cryptographic key in an Azure Key Vault.
-2. Configure the cryptographic key to be usable for encrypting disks.
-3. To read the cryptographic key from the Azure Key Vault, create an endpoint using Azure Active Directory with the appropriate permissions.
-4. Issue the command to encrypt your virtual disks, specifying the Azure Active Directory endpoint and appropriate cryptographic key to be used.
-5. The Azure Active Directory endpoint requests the required cryptographic key from Azure Key Vault.
-6. The virtual disks are encrypted using the provided cryptographic key.
+1. Créez une clé de chiffrement dans un coffre de clés Azure.
+2. Configurez la clé de chiffrement afin de la rendre utilisable pour le chiffrement des disques.
+3. Pour lire la clé de chiffrement à partir du coffre de clés Azure, créez un point de terminaison à l’aide d’Azure Active Directory avec les autorisations appropriées.
+4. Exécutez la commande pour chiffrer vos disques virtuels, en spécifiant le point de terminaison Azure Active Directory et la clé de chiffrement appropriée à utiliser.
+5. Le point de terminaison Azure Active Directory demande la clé de chiffrement requise au coffre de clés Azure.
+6. Les disques virtuels sont chiffrés à l’aide de la clé de chiffrement fournie.
 
-## <a name="supporting-services-and-encryption-process"></a>Supporting services and encryption process
-Disk encryption relies on the following additional components:
+## <a name="supporting-services-and-encryption-process"></a>Services pris en charge et processus de chiffrement
+Le chiffrement de disque s’appuie sur les composants supplémentaires suivants :
 
-* **Azure Key Vault** - used to safeguard cryptographic keys and secrets used for the disk encryption/decryption process. 
-  * If one exists, you can use an existing Azure Key Vault. You do not have to dedicate a Key Vault to encrypting disks.
-  * To separate administrative boundaries and key visibility, you can create a dedicated Key Vault.
-* **Azure Active Directory** - handles the secure exchanging of required cryptographic keys and authentication for requested actions. 
-  * You can typically use an existing Azure Active Directory instance for housing your application. 
-  * The application is more of an endpoint for the Key Vault and Virtual Machine services to request and get issued the appropriate cryptographic keys. You are not developing an actual application that integrates with Azure Active Directory.
+* **Coffre de clés Azure** - permet de sauvegarder les clés de chiffrement et les clés secrètes utilisées pour le processus de chiffrement/déchiffrement de disque. 
+  * Le cas échéant, vous pouvez utiliser un coffre de clés Azure existant. Vous n’êtes pas obligé de dédier un coffre de clés au chiffrement des disques.
+  * Pour séparer les limites administratives et la visibilité de la clé, vous pouvez créer un coffre de clés dédié.
+* **Azure Active Directory** - gère l’échange sécurisé des clés de chiffrement requises et l’authentification des actions demandées. 
+  * Vous pouvez généralement utiliser une instance Azure Active Directory existante pour héberger votre application. 
+  * L’application est plus un point de terminaison permettant aux services de coffre de clés et de machine virtuelle de demander et d’obtenir les clés de chiffrement appropriées. Vous ne développez pas de réelle application qui s’intègre à Azure Active Directory.
 
-## <a name="requirements-and-limitations"></a>Requirements and limitations
-Supported scenarios and requirements for disk encryption:
+## <a name="requirements-and-limitations"></a>Spécifications et limitations
+Configuration requise et scénarios pris en charge pour le chiffrement de disque :
 
-* The following Linux server SKUs - Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES), and Red Hat Enterprise Linux.
-* All resources (such as Key Vault, Storage account, and VM) must be in the same Azure region and subscription.
-* Standard A, D, DS, G, and GS series VMs.
+* Les versions serveur Linux suivantes : Ubuntu, CentOS, SUSE, SUSE Linux Enterprise Server (SLES) et Red Hat Enterprise Linux.
+* Toutes les ressources (par exemple, le coffre de clés, le compte de stockage, la machine virtuelle, etc.) doivent appartenir à la même région et au même abonnement Azure.
+* Machines virtuelles standard des séries A, D, DS, G et GS.
 
-Disk encryption is not currently supported in the following scenarios:
+Le chiffrement de disque n’est actuellement pas pris en charge dans les scénarios suivants :
 
-* Basic tier VMs.
-* VMs created using the Classic deployment model.
-* Disabling OS disk encryption on Linux VMs.
-* Updating the cryptographic keys on an already encrypted Linux VM.
+* Machines virtuelles de niveau de base.
+* Machines virtuelles créées à l’aide du modèle de déploiement Classic.
+* Désactivation du chiffrement de disque du système d’exploitation sur les machines virtuelles Linux.
+* Mise à jour des clés de chiffrement sur une machine virtuelle Linux déjà chiffrée.
 
-## <a name="create-the-azure-key-vault-and-keys"></a>Create the Azure Key Vault and keys
-To complete the remainder of this guide, you need the [latest Azure CLI](../xplat-cli-install.md) installed and logged in using the Resource Manager mode as follows:
+## <a name="create-the-azure-key-vault-and-keys"></a>Créer le coffre de clés Azure et les clés
+Pour effectuer les étapes restantes de ce guide, la [dernière version de l’interface de ligne de commande Azure (CLI)](../xplat-cli-install.md) doit être installée et connectée à l’aide du mode Resource Manager comme suit :
 
-```
+```azurecli
 azure config mode arm
 ```
 
-Throughout the command examples, replace all example parameters with your own names, location, and key values. The following examples use a convention of `myResourceGroup`, `myKeyVault`, `myAADApp`, etc.
+Dans les exemples de commandes, remplacez tous les exemples de paramètres par vos propres noms, emplacement et valeurs de clés. Les exemples suivants utilisent une convention de type `myResourceGroup`, `myKeyVault`, `myAADApp`, etc.
 
-The first step is to create an Azure Key Vault to store your cryptographic keys. Azure Key Vault can store keys, secrets, or passwords that allow you to securely implement them in your applications and services. For virtual disk encryption, you use Key Vault to store a cryptographic key that is used to encrypt or decrypt your virtual disks. 
+La première étape consiste à créer un coffre de clés Azure pour y stocker les clés de chiffrement. Un coffre de clés Azure peut stocker des clés, des clés secrètes ou des mots de passe vous permettant de les implémenter en toute sécurité dans vos applications et services. Pour le chiffrement de disque virtuel, vous utilisez le coffre de clés afin de stocker une clé de chiffrement pour chiffrer ou déchiffrer vos disques virtuels. 
 
-Enable the Azure Key Vault provider in your Azure subscription, then create a resource group as follows:
+Activez le fournisseur Azure Key Vault au sein de votre abonnement Azure puis créez un groupe de ressources. L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `WestUS` :
 
-```bash
+```azurecli
 azure provider register Microsoft.KeyVault
 azure group create myResourceGroup --location WestUS
 ```
 
-The Azure Key Vault containing the cryptographic keys and associated compute resources such as storage and the VM itself must reside in the same region. Create an Azure Key Vault as follows:
+Le coffre de clés Azure contenant les clés de chiffrement et les ressources de calcul associées tels que le stockage et la machine virtuelle elle-même doit résider dans la même région. L’exemple qui suit permet de créer un coffre de clés Azure nommé `myKeyVault` :
 
-```bash
+```azurecli
 azure keyvault create --vault-name myKeyVault --resource-group myResourceGroup \
-  --location  <WestUS>
+  --location WestUS
 ```
 
-You can store cryptographic keys using software or Hardware Security Model (HSM) protection. Using an HSM requires a premium Key Vault. There is an additional cost to creating a premium Key Vault rather than standard Key Vault that stores software-protected keys. To create a premium Key Vault, in the preceding step add `--sku Premium` to the command. The following example uses software-protected keys since we created a standard Key Vault. 
+Vous pouvez stocker des clés de chiffrement à l’aide d’une protection logicielle ou HSM (modèle de sécurité matériel). L’utilisation d’une protection HSM nécessite un coffre de clés Premium. Contrairement à l’utilisation d’un coffre de clés standard qui stocke les clés protégées par logiciel, la création d’un coffre de clés Premium entraîne des frais. Pour créer un coffre de clés Premium, ajoutez `--sku Premium` à la commande de l’étape précédente. L’exemple suivant utilise des clés protégées par logiciel puisque nous avons créé un coffre de clés standard. 
 
-For both protection models, the Azure platform needs to be granted access to request the cryptographic keys when the VM boots to decrypt the virtual disks. Create an encryption key within your Key Vault, then enable it for use with virtual disk encryption as follows:
+Pour les deux modèles de protection, la plateforme Azure doit être autorisée à demander les clés de chiffrement lorsque la machine virtuelle démarre pour déchiffrer les disques virtuels. Créez une clé de chiffrement dans votre coffre de clés, puis activez-la afin de l’utiliser pour le chiffrement de disque virtuel. L’exemple suivant crée une clé nommée `myKey` puis l’active pour le chiffrement de disque :
 
-```bash
+```azurecli
 azure keyvault key create --vault-name myKeyVault --key-name myKey \
   --destination software
 azure keyvault set-policy --vault-name myKeyVault --resource-group myResourceGroup \
@@ -188,64 +192,64 @@ azure keyvault set-policy --vault-name myKeyVault --resource-group myResourceGro
 ```
 
 
-## <a name="create-the-azure-active-directory-application"></a>Create the Azure Active Directory application
-When virtual disks are encrypted or decrypted, you use an endpoint to handle the authentication and exchanging of cryptographic keys from Key Vault. This endpoint, an Azure Active Directory application, allows the Azure platform to request the appropriate cryptographic keys on behalf of the VM. A default Azure Active Directory instance is available in your subscription, though many organizations have dedicated Azure Active Directory directories.
+## <a name="create-the-azure-active-directory-application"></a>Création de l’application Azure Active Directory
+Lorsque des disques virtuels sont chiffrés ou déchiffrés, vous utilisez un point de terminaison pour gérer l’authentification et l’échange de clés de chiffrement à partir du coffre de clés. Ce point de terminaison, une application Azure Active Directory, permet à la plateforme Azure de demander les clés de chiffrement appropriées pour le compte de la machine virtuelle. Une instance Azure Active Directory par défaut est disponible dans votre abonnement, bien que de nombreuses organisations utilisent des répertoires Azure Active Directory dédiés.
 
-As you are not creating a full Azure Active Directory application, the `--home-page` and `--identifier-uris` parameters in the following example do not need to be actual routable address. The following example also specifies a password-based secret rather than generating keys from within the Azure portal. As this time, generating keys cannot be done from the Azure CLI. 
+Comme vous ne créez pas une application Azure Active Directory complète, les paramètres `--home-page` et `--identifier-uris` de l’exemple suivant n’ont pas besoin de représenter des adresses routables réelles. L’exemple suivant utilise également un mot de passe au lieu de générer des clés à partir du portail Azure. Pour le moment, la génération de clés ne peut pas être effectuée à partir de l’interface CLI Azure. 
 
-Create your Azure Active Directory application as follows:
+Créez votre application Azure Active Directory. L’exemple suivant crée une application nommée `myAADApp` et utilise un mot de passe `myPassword`. Spécifiez votre propre mot de passe comme suit :
 
-```bash
+```azurecli
 azure ad app create --name myAADApp \
   --home-page http://testencrypt.contoso.com \
   --identifier-uris http://testencrypt.contoso.com \
   --password myPassword
 ```
 
-Make a note of the `applicationId` that is returned in the output from the preceding command. This application ID is used in some of the remaining steps. Next, create a service principal name (SPN) so that the application is accessible within your environment. To successfully encrypt or decrypt virtual disks, permissions on the cryptographic key stored in Key Vault must be set to permit the Azure Active Directory application to read the keys. 
+Notez la valeur `applicationId` retournée dans le résultat de la commande précédente. Cet ID d’application est utilisé dans les étapes restantes. Créez ensuite un nom de principal de service (SPN) afin que l’application soit accessible au sein de votre environnement. Pour chiffrer ou déchiffrer correctement des disques virtuels, des autorisations d’accès à la clé de chiffrement stockée dans le coffre de clés doivent être définies afin que l’application Azure Active Directory puisse lire les clés. 
 
-Create the SPN and set the appropriate permissions as follows:
+Créez le SPN et définissez les autorisations appropriées comme suit :
 
-```bash
+```azurecli
 azure ad sp create --applicationId myApplicationID
 azure keyvault set-policy --vault-name myKeyVault --spn myApplicationID \
   --perms-to-keys [\"all\"] --perms-to-secrets [\"all\"]
 ```
 
 
-## <a name="add-a-virtual-disk-and-review-encryption-status"></a>Add a virtual disk and review encryption status
-To actually encrypt some virtual disks, lets add a disk to an existing VM. Add a 5Gb data disk to an existing VM as follows:
+## <a name="add-a-virtual-disk-and-review-encryption-status"></a>Ajouter un disque virtuel et vérifier l’état de chiffrement
+Pour chiffrer réellement certains disques virtuels, ajoutons un disque à une machine virtuelle existante. Ajoutez un disque de données de 5 Go à une machine virtuelle existante comme suit :
 
-```bash
+```azurecli
 azure vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
   --size-in-gb 5
 ```
 
-The virtual disks are not currently encrypted. Review the current encryption status of your VM as follows:
+Actuellement, les disques virtuels ne sont pas chiffrés. Vérifiez l’état de chiffrement de votre machine virtuelle comme suit :
 
-```bash
+```azurecli
 azure vm show-disk-encryption-status --resource-group myResourceGroup --name myVM
 ```
 
 
-## <a name="encrypt-virtual-disks"></a>Encrypt virtual disks
-To now encrypt the virtual disks, you bring together all the previous components:
+## <a name="encrypt-virtual-disks"></a>Chiffrer des disques virtuels
+Pour chiffrer maintenant les disques virtuels, vous allez réunir tous les composants précédents :
 
-1. Specify the Azure Active Directory application and password.
-2. Specify the Key Vault to store the metadata for your encrypted disks.
-3. Specify the cryptographic keys to use for the actual encryption and decryption.
-4. Specify whether you want to encrypt the OS disk, the data disks, or all.
+1. Spécifiez l’application et le mot de passe Azure Active Directory.
+2. Spécifiez le coffre de clés qui stockera les métadonnées de vos disques chiffrés.
+3. Spécifiez les clés de chiffrement à utiliser pour le chiffrement et le déchiffrement réels.
+4. Indiquez si vous souhaitez chiffrer le disque du système d’exploitation, les disques de données ou l’ensemble.
 
-Lets review the details for your Azure Key Vault and the key you created, as you need the Key Vault ID, URI, and then key URL in the final step:
+Examinons en détail votre coffre de clés Azure et la clé que vous avez créée car vous aurez besoin de l’ID du coffre de clé, de l’URI et de l’URL de la clé à la dernière étape :
 
-```bash
+```azurecli
 azure keyvault show myKeyVault
 azure keyvault key show myKeyVault myKey
 ```
 
-Encrypt your virtual disks using the output from the `azure keyvault show` and `azure keyvault key show` commands as follows:
+Chiffrez vos disques virtuels à l’aide du résultat des commandes `azure keyvault show` et `azure keyvault key show` comme suit :
 
-```bash
+```azurecli
 azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM \
   --aad-client-id myApplicationID --aad-client-secret myApplicationPassword \
   --disk-encryption-key-vault-url myKeyVaultVaultURI \
@@ -255,9 +259,9 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM 
   --volume-type Data
 ```
 
-As the preceding command has many variables, the following example is the complete command for reference:
+La commande précédente comportant plusieurs variables, l’exemple suivant sert de commande de référence :
 
-```bash
+```azurecli
 azure vm enable-disk-encryption -g myResourceGroup -n MyVM \
   --aad-client-id 147bc426-595d-4bad-b267-58a7cbd8e0b6 \
   --aad-client-secret P@ssw0rd! \
@@ -268,28 +272,28 @@ azure vm enable-disk-encryption -g myResourceGroup -n MyVM \
   --volume-type Data
 ```
 
-The Azure CLI doesn't provide verbose errors during the encryption process. For additional troubleshooting information, review `/var/log/azure/Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux/0.x.x.x/extension.log` on the VM you are encrypting.
+L’interface CLI Azure ne fournit pas le détail des erreurs au cours du processus de chiffrement. Pour plus d’informations de dépannage, consultez `/var/log/azure/Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux/0.x.x.x/extension.log` sur la machine virtuelle que vous chiffrez.
 
-Finally, lets review the encryption status again to confirm that your virtual disks have now been encrypted:
+Pour terminer, réexaminez l’état de chiffrement pour confirmer que vos disques virtuels ont bien été chiffrés :
 
-```bash
+```azurecli
 azure vm show-disk-encryption-status --resource-group myResourceGroup --name myVM
 ```
 
 
-## <a name="add-additional-data-disks"></a>Add additional data disks
-Once you have encrypted your data disks, you can later add additional virtual disks to your VM and also encrypt them. When you run the `azure vm enable-disk-encryption` command, increment the sequence version using the `--sequence-version` parameter. This sequence version parameter allows you to perform repeated operations on the same VM.
+## <a name="add-additional-data-disks"></a>Ajouter des disques de données supplémentaires
+Une fois que vous avez chiffré vos disques de données, vous pouvez ajouter ultérieurement d’autres disques virtuels à votre machine virtuelle et également les chiffrer. Lorsque vous exécutez la commande `azure vm enable-disk-encryption`, incrémentez la version de la séquence à l’aide du paramètre `--sequence-version`. Ce paramètre de version de séquence permet d’effectuer des opérations répétées sur la même machine virtuelle.
 
-For example, lets add a second virtual disk to your VM as follows:
+Par exemple, ajoutons un second disque virtuel à votre machine virtuelle comme suit :
 
-```bash
+```azurecli
 azure vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
   --size-in-gb 5
 ```
 
-Rerun the command to encrypt the virtual disks, this time adding the `--sequence-version` parameter, and incrementing the value from our first run as follows:
+Réexécutez la commande pour chiffrer les disques virtuels, cette fois en ajoutant le paramètre `--sequence-version` et en incrémentant la valeur de notre première exécution comme suit :
 
-```bash
+```azurecli
 azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM \
   --aad-client-id myApplicationID --aad-client-secret myApplicationPassword \
   --disk-encryption-key-vault-url myKeyVaultVaultURI \
@@ -301,10 +305,13 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM 
 ```
 
 
-## <a name="next-steps"></a>Next steps
-* For more information about managing Azure Key Vault, including deleting cryptographic keys and vaults, see [Manage Key Vault using CLI](../key-vault/key-vault-manage-with-cli.md).
-* For more information about disk encryption, such as preparing an encrypted custom VM to upload to Azure, see [Azure Disk Encryption](../security/azure-security-disk-encryption.md).
+## <a name="next-steps"></a>Étapes suivantes
+* Pour plus d’informations sur la gestion du coffre de clés Azure, y compris la suppression des clés de chiffrement et des coffres, consultez [Gérer le coffre de clés à l’aide de l’interface de ligne de commande](../key-vault/key-vault-manage-with-cli.md).
+* Pour plus d’informations sur le chiffrement de disque, notamment la préparation d’une machine virtuelle personnalisée chiffrée à télécharger vers Azure, consultez [Chiffrement de disque Azure](../security/azure-security-disk-encryption.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Réplication vers Azure de machines virtuelles Hyper-V hébergées dans des clouds VMM à l’aide du Portail Azure | Microsoft Docs"
-description: "Explique comment déployer Azure Site Recovery pour orchestrer la réplication, le basculement et la récupération des machines virtuelles Hyper-V dans des clouds Azure à l’aide du Portail Azure."
+description: "Explique comment déployer Site Recovery pour orchestrer la réplication, le basculement et la récupération des machines virtuelles Hyper-V dans les clouds VMM dans Azure."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,22 +12,21 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/31/2016
+ms.date: 11/23/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2a1a835855499da50d746e87cd27ad4141241f48
+ms.sourcegitcommit: f5e9d1a7f26ed3cac5767034661739169968a44e
+ms.openlocfilehash: ba0c710a0c28e9d52021ec966905a007b06f125e
 
 
 ---
-# <a name="replicate-hyperv-virtual-machines-in-vmm-clouds-to-azure-using-the-azure-portal"></a>Réplication vers Azure de machines virtuelles Hyper-V hébergées dans des clouds VMM à l’aide du Portail Azure
-> [!div class="op_single_selector"]
+# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-the-azure-portal"></a>Réplication vers Azure de machines virtuelles Hyper-V hébergées dans des clouds VMM à l’aide du Portail Azure
 > * [portail Azure](site-recovery-vmm-to-azure.md)
 > * [Portail Azure Classic](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [PowerShell Classic](site-recovery-deploy-with-powershell.md)
-> 
-> 
+>
+>
 
 Bienvenue dans le service Azure Site Recovery.
 
@@ -35,10 +34,10 @@ Site Recovery est un service Azure qui participe à votre stratégie de continui
 
 Cet article explique comment répliquer des machines virtuelles Hyper-V locales gérées sur les clouds System Center VMM dans Azure Site Recovery, sur le Portail Azure.
 
-Après avoir lu cet article, n’hésitez pas à poster un commentaire en bas de la section des commentaires de Disqus. Publiez vos questions techniques sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Après avoir lu cet article, n’hésitez pas à poster un commentaire dans la partie inférieure de la page. Publiez vos questions techniques sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="quick-reference"></a>Référence rapide
-Pour un déploiement complet, nous vous recommandons vivement de suivre toutes les étapes de l’article. Si vous manquez de temps, voici un bref résumé proposant des liens vers davantage d’informations.
+Pour un déploiement complet, nous vous recommandons vivement de suivre toutes les étapes de l’article. Si vous ne disposez pas de suffisamment de temps, voici un résumé rapide.
 
 | **Zone** | **Détails** |
 | --- | --- |
@@ -47,26 +46,21 @@ Pour un déploiement complet, nous vous recommandons vivement de suivre toutes l
 | **Limitations en local** |Les proxies basés sur HTTPS ne sont pas pris en charge. |
 | **Fournisseur/agent** |Les machines virtuelles répliquées ont besoin du fournisseur Azure Site Recovery.<br/><br/> Les hôtes Hyper-V ont besoin de l’agent Azure Recovery Services.<br/><br/> Vous installez ces éléments pendant le déploiement. |
 |  **Conditions requises pour Azure** |Compte Azure<br/><br/> Coffre Recovery Services<br/><br/> Compte de stockage LRS ou GRS dans la région du coffre<br/><br/> Compte de stockage standard<br/><br/> Réseau virtuel Azure dans la région du coffre. [Informations complètes](#azure-prerequisites). |
-|  **Limitations relatives à Azure** |Si vous utilisez GRS, vous avez besoin d’un autre compte LRS pour la journalisation.<br/><br/> Les comptes de stockage créés dans le Portail Azure ne peuvent pas passer d’un groupe de ressources à l’autre.<br/><br/> Premium Storage n’est pas pris en charge. |
-|  **Réplication de machines virtuelles** |Les machines virtuelles doivent respecter les conditions préalables pour Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/> |
+|  **Limitations relatives à Azure** |Si vous utilisez GRS, vous avez besoin d’un autre compte LRS pour la journalisation.<br/><br/> Les comptes de stockage créés dans le portail Azure ne peuvent pas passer d’un groupe de ressources à l’autre, que ce soit dans le même abonnement ou dans des abonnements différents. <br/><br/> Premium Storage n’est pas pris en charge.<br/><br/> Les réseaux Azure utilisés pour Site Recovery ne peuvent pas passer d’un groupe de ressources à l’autre, que ce soit dans le même abonnement ou dans des abonnements différents. |
+|  **Réplication de machines virtuelles** |[Les machines virtuelles doivent respecter les conditions préalables d’Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/> |
 |  **Limitations relatives à la réplication** |Vous ne pouvez pas répliquer de machines virtuelles exécutant Linux avec une adresse IP statique.<br/><br/> Vous ne pouvez pas exclure de disques spécifiques de la réplication. |
 | **Étapes du déploiement** |1) Préparez Azure (abonnement, stockage, réseau) -> 2) Préparez les éléments locaux (VMM et le mappage réseau) -> 3) Créez un coffre Recovery Services -> 4) Configurez les hôtes VMM et Hyper-V -> 5) Configurez les paramètres de réplication -> 6) Activez la réplication -> 7) Testez la réplication et le basculement. |
 
 ## <a name="site-recovery-in-the-azure-portal"></a>Site Recovery dans le portail Azure
-Azure propose deux [modèles de déploiement](../resource-manager-deployment-model
 
-> ) pour la création et l’utilisation de ressources : Azure Resource Manager et Azure Classic. Azure offre également deux portails : le Portail Azure Classic et le Portail Azure. Cet article explique comment effectuer le déploiement dans le Portail Azure. 
-> 
-> 
+Azure dispose de deux [modèles de déploiement](../resource-manager-deployment-model.md) différents pour créer et utiliser des ressources : le déploiement Azure Resource Manager et le déploiement classique. Azure offre également deux portails : le Portail Azure Classic et le Portail Azure. Cet article explique comment effectuer le déploiement dans le Portail Azure.
 
-Sur le Portail Azure, Site Recovery fournit de nouvelles fonctionnalités :
 
-* Les services Azure Backup et Azure Site Recovery sont combinés en un seul et même coffre Recovery Services, afin de vous permettre de configurer et de gérer les fonctions de récupération d’urgence et de continuité d’activité (BCDR) à partir d’un emplacement unique. Un tableau de bord unifié permet de surveiller et de gérer des opérations sur vos sites locaux et le cloud public Azure.
-* Les utilisateurs dotés d’abonnements Azure configurés avec le programme du fournisseur de solutions cloud (CSP) peuvent désormais gérer les opérations Site Recovery dans le Portail Azure.
-* À partir du Portail Azure, vous pouvez répliquer des machines dans des comptes de stockage Azure Resource Manager. Lors du basculement, Site Recovery crée des machines virtuelles Resource Manager dans Azure.
-* Il continue de prendre en charge la réplication sur les comptes de stockage classiques. Lors du basculement, Site Recovery crée des machines virtuelles en utilisant le modèle classique.
+Cet article explique comment effectuer un déploiement dans le portail Azure, qui offre une expérience de déploiement rationalisée. Le portail classique peut être utilisé pour gérer les coffres existants. Il est impossible de créer des coffres à l’aide du portail classique.
+
 
 ## <a name="site-recovery-in-your-business"></a>Site Recovery dans votre entreprise
+
 Les organisations ont besoin d’une stratégie BCDR qui détermine la façon dont les applications et les données demeurent opérationnelles et disponibles pendant les temps d’arrêt prévus et imprévus, et qui précise comment rétablir au plus vite des conditions de travail normales. Voici ce que Site Recovery peut faire :
 
 * Protection hors site pour les applications professionnelles s’exécutant sur des machines virtuelles Hyper-V
@@ -93,19 +87,19 @@ Voici ce dont vous avez besoin dans Azure :
 | **Stockage Azure** |Vous avez besoin d’un compte de stockage Azure standard pour stocker les données répliquées. Vous pouvez utiliser un compte de stockage LRS ou GRS. Nous vous recommandons d’utiliser un compte GRS, afin que les données soient résilientes si une panne se produit au niveau régional, ou si la région principale ne peut pas être récupérée. [En savoir plus](../storage/storage-redundancy.md). Ce compte doit se trouver dans la même région que le coffre Recovery Services.<br/><br/>Premium Storage n’est pas pris en charge.<br/><br/> Les données répliquées sont stockées dans Azure Storage et les machines virtuelles Azure sont créées au moment du basculement. <br/><br/> [Découvrez plus d’informations](../storage/storage-introduction.md) sur Azure Storage. |
 | **Réseau Azure** |Vous avez besoin d’un réseau virtuel Azure auquel les machines virtuelles Azure se connectent lors du basculement. Ce réseau doit se trouver dans la même région que le coffre Recovery Services. |
 
-## <a name="onpremises-prerequisites"></a>Conditions préalables locales
+## <a name="on-premises-prerequisites"></a>Conditions préalables locales
 Voici les éléments dont vous aurez besoin en local :
 
 | **Configuration requise** | **Détails** |
 | --- | --- |
 | **VMM** |Un ou plusieurs serveurs VMM s’exécutant sous System Center 2012 R2. Chaque serveur VMM doit être associé à un ou plusieurs clouds configurés. Un cloud doit contenir :<br/><br/> un ou plusieurs groupes hôtes VMM ;<br/><br/> un ou plusieurs serveurs hôtes Hyper-V ou clusters dans chaque groupe hôte.<br/><br/>[En savoir plus](http://social.technet.microsoft.com/wiki/contents/articles/2729.how-to-create-a-cloud-in-vmm-2012.aspx) sur la configuration des clouds VMM. |
 | **Hyper-V** |Les serveurs hôtes Hyper-V doivent exécuter au moins **Windows Server 2012 R2** avec le rôle Hyper-V ou **Microsoft Hyper-V Server 2012 R2** et les dernières mises à jour doivent être installées.<br/><br/> Un serveur Hyper-V doit contenir au moins une machine virtuelle.<br/><br/> Un serveur hôte ou un cluster Hyper-V comportant des machines virtuelles que vous souhaitez répliquer doit être géré dans un cloud VMM.<br/><br/>Les serveurs Hyper-V doivent être connectés à Internet, directement ou via un proxy.<br/><br/>Les correctifs mentionnés dans l’article [2961977](https://support.microsoft.com/kb/2961977) doivent être installés sur les serveurs Hyper-V.<br/><br/>Les serveurs hôte Hyper-V doivent pouvoir accéder à Internet pour gérer la réplication de données vers Azure. |
-| **Fournisseur et agent** |Lors du déploiement d’Azure Site Recovery, vous installez le fournisseur Azure Site Recovery sur le serveur VMM et l’agent Recovery Services sur les hôtes Hyper-V. Le fournisseur et l’agent doivent se connecter à Azure via Internet, directement ou via un proxy. Les proxies basés sur HTTPS ne sont pas pris en charge. Le serveur proxy sur le serveur VMM et les hôtes Hyper-V doit autoriser l’accès à : <br/><br/> ``*.hypervrecoverymanager.windowsazure.com`` <br/><br/> ``*.accesscontrol.windows.net``<br/><br/> ``*.backup.windowsazure.com``<br/><br/> ``*.blob.core.windows.net``<br/><br/> ``*.store.core.windows.net``<br/><br/> Si le serveur VMM inclut des règles de pare-feu basées sur l’adresse IP, vérifiez qu’elles autorisent la communication vers Azure. Vous devez autoriser [les plages d’adresses IP de centres de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) et le port HTTPS (443).<br/><br/> Autorisez les plages d’adresses IP relatives à la région de votre abonnement Azure et à la région des États-Unis de l’Ouest.<br/><br/> Par ailleurs : le serveur proxy sur le serveur VMM doit avoir accès à ``https://www.msftncsi.com/ncsi.txt`` |
+| **Fournisseur et agent** |Lors du déploiement d’Azure Site Recovery, vous installez le fournisseur Azure Site Recovery sur le serveur VMM et l’agent Recovery Services sur les hôtes Hyper-V. Le fournisseur et l’agent doivent se connecter à Azure via Internet, directement ou via un proxy. Les proxies basés sur HTTPS ne sont pas pris en charge. Le serveur proxy sur le serveur VMM et les hôtes Hyper-V doit autoriser l’accès à : <br/><br/> ``*.accesscontrol.windows.net``<br/><br/> ``*.backup.windowsazure.com``<br/><br/> ``*.hypervrecoverymanager.windowsazure.com``<br/><br/> ``*.store.core.windows.net``<br/><br/> ``*.blob.core.windows.net``<br/><br/> ``https://www.msftncsi.com/ncsi.txt``<br/><br/> ``time.windows.com``<br/><br/> ``time.nist.gov``<br/><br/> Si le serveur VMM inclut des règles de pare-feu basées sur l’adresse IP, vérifiez qu’elles autorisent la communication vers Azure.<br/><br/> Autorisez [les plages d’adresses IP de centres de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) et le port HTTPS (443).<br/><br/> Autorisez les plages d’adresses IP relatives à la région de votre abonnement Azure et à la région des États-Unis de l’Ouest.<br/><br/> |
 
 ## <a name="protected-machine-prerequisites"></a>Configuration requise pour les machines protégées
 | **Configuration requise** | **Détails** |
 | --- | --- |
-| **Machines virtuelles protégées** |Avant de basculer vers une machine virtuelle, vous devez vous assurer que le nom attribué à la machine virtuelle Azure est conforme à la [configuration requise pour Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements). Le cas échéant, vous pouvez modifier le nom une fois la réplication activée pour la machine virtuelle. <br/><br/> Sur les machines protégées, la capacité d’un disque ne doit pas dépasser 1 023 Go. Une machine virtuelle peut comporter jusqu’à 16 disques (jusqu’à 16 To).<br/><br/> Les clusters invités dont le disque est partagé ne sont pas pris en charge.<br/><br/> L’amorçage UEFI (Unified Extensible Firmware Interface) / EFI (Extensible Firmware Interface) n’est pas pris en charge.<br/><br/> Si la machine virtuelle source propose l’association de cartes réseau, elle est convertie en une carte réseau unique après le basculement vers Azure.<br/><br/>La protection des machines virtuelles exécutant Linux avec une adresse IP statique n’est pas prise en charge. |
+| **Machines virtuelles protégées** |Avant de basculer vers une machine virtuelle, vous devez vous assurer que le nom attribué à la machine virtuelle Azure est conforme à la [configuration requise pour Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements). Le cas échéant, vous pouvez modifier le nom une fois la réplication activée pour la machine virtuelle. <br/><br/>  Sur les machines protégées, la capacité d’un disque ne doit pas dépasser 1023 Go. Une machine virtuelle peut comporter jusqu’à 64 disques (jusqu’à 64 To).<br/><br/> Les clusters invités dont le disque est partagé ne sont pas pris en charge.<br/><br/> L’amorçage UEFI (Unified Extensible Firmware Interface) / EFI (Extensible Firmware Interface) n’est pas pris en charge.<br/><br/> Si la machine virtuelle source propose l’association de cartes réseau, elle est convertie en une carte réseau unique après le basculement vers Azure.<br/><br/>La protection des machines virtuelles Hyper-V exécutant Linux avec une adresse IP statique n’est pas prise en charge. |
 
 ## <a name="prepare-for-deployment"></a>Préparation du déploiement
 Pour préparer un déploiement, vous devez :
@@ -121,21 +115,13 @@ Vous devez avoir un réseau Azure, auquel les machines virtuelles Azure créées
 * Ce réseau doit se trouver dans la même région que le coffre Recovery Services.
 * Selon le modèle de ressource que vous souhaitez utiliser pour les machines virtuelles Azure ayant fait l’objet d’un basculement, vous devez configurer le réseau Azure en [mode Azure Resource Manager](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) ou en [mode Classic](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 * Nous vous recommandons de configurer un réseau avant de commencer. Sinon, vous devrez le faire lors du déploiement de Site Recovery.
-
-> [!NOTE]
-> La [migration des réseaux](../resource-group-move-resources.md) entre les groupes de ressources d’un même abonnement ou de plusieurs abonnements n’est pas prise en charge pour les réseaux utilisés pour le déploiement de Site Recovery.
-> 
-> 
+Notez que les réseaux Azure utilisés par Site Recovery ne peuvent pas être [déplacés](../resource-group-move-resources.md), que ce soit dans le même abonnement ou dans des abonnements différents.
 
 ### <a name="set-up-an-azure-storage-account"></a>Configurer un compte de stockage Azure
 * Vous avez besoin d’un compte de stockage Azure standard pour stocker les données répliquées sur Azure. Ce compte doit se trouver dans la même région que le coffre Recovery Services.
 * Selon le modèle de ressource que vous souhaitez utiliser pour les machines virtuelles Azure ayant fait l’objet d’un basculement, vous allez configurer un compte en [mode Azure Resource Manager](../storage/storage-create-storage-account.md) ou en [mode Classic](../storage/storage-create-storage-account-classic-portal.md).
 * Nous vous recommandons de configurer un compte avant de commencer. Sinon, vous devrez le faire lors du déploiement de Site Recovery.
-
-> [!NOTE]
-> [La migration de comptes de stockage](../resource-group-move-resources.md) entre les groupes de ressources d’un même abonnement ou de plusieurs abonnements n’est pas prise en charge pour les comptes de stockage utilisés pour le déploiement de Site Recovery.
-> 
-> 
+- Notez que les comptes de stockage utilisés par Site Recovery ne peuvent pas être [déplacés](../resource-group-move-resources.md), que ce soit dans le même abonnement ou dans des abonnements différents.
 
 ### <a name="prepare-the-vmm-server"></a>Préparez le serveur VMM
 * Assurez-vous que le serveur VMM respecte la [configuration requise](#on-premises-prerequisites).
@@ -147,28 +133,29 @@ Vous devez configurer le mappage réseau lors du déploiement de Site Recovery. 
 * Les machines qui basculent sur le même réseau peuvent se connecter entre elles, même si elles ne sont pas basculées de la même façon ou dans le cadre du même plan de récupération.
 * Si une passerelle réseau est configurée sur le réseau Azure cible, les machines virtuelles Azure peuvent se connecter à des machines virtuelles locales.
 * Pour configurer le mappage réseau, voici les éléments dont vous avez besoin :
-  
+
   * Assurez-vous que l’ensemble des machines virtuelles du serveur hôte Hyper-V source sont connectées à un réseau de machines virtuelles VMM. Ce réseau doit être lié à un réseau logique lui-même associé au cloud.
   * Un réseau Azure, comme décrit [ci-dessus](#set-up-an-azure-network)
 * [Découvrez plus d’informations](site-recovery-network-mapping.md) sur le fonctionnement du mappage réseau.
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Cliquez sur **Nouveau** > **Gestion** > **Recovery Services**. Vous pouvez également sélectionner **Parcourir** > **Coffres **Recovery Services > **Ajouter**.
-   
+2. Cliquez sur **Nouveau** > **Gestion** > **Recovery Services**. Vous pouvez également sélectionner **Parcourir** > **Coffres **Recovery Services >**Ajouter**.
+
     ![Nouveau coffre](./media/site-recovery-vmm-to-azure/new-vault3.png)
 3. Dans **Nom**, indiquez un nom convivial permettant d’identifier le coffre. Si vous avez plusieurs abonnements, sélectionnez-en un.
 4. [Créez un groupe de ressources](../resource-group-template-deploy-portal.md)ou sélectionnez-en un. Spécifiez une région Azure. Les machines seront répliquées dans cette région. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique de la page [Détails des prix d'Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/)
 5. Si vous souhaitez accéder rapidement au coffre à partir du tableau de bord, cliquez sur **Épingler au tableau de bord** > **Créer un archivage**.
-   
+
     ![Nouveau coffre](./media/site-recovery-vmm-to-azure/new-vault-settings.png)
 
 Le nouveau coffre s’affiche dans la zone **Tableau de bord** > **Toutes les ressources**, et dans le panneau principal **Coffres Recovery Services**.
 
-## <a name="getting-started"></a>Prise en main
+## <a name="get-started"></a>Prise en main
+
 Site Recovery propose une expérience de prise en main, qui vous permet d’effectuer le déploiement aussi rapidement que possible. Ainsi, la fonction Prise en main vérifie la configuration requise et vous guide à travers les étapes de déploiement de Site Recovery, dans l’ordre adéquat.
 
-Grâce à cette fonction, vous pouvez sélectionner le type de machine que vous souhaitez répliquer, voire l’endroit auquel vous souhaitez effectuer la réplication. Vous pouvez configurer des serveurs locaux, des comptes Azure Storage et des réseaux. Il est également possible de créer des stratégies de réplication et d’effectuer la planification de la capacité. Une fois l’infrastructure en place, vous activez la réplication des machines virtuelles. Vous pouvez exécuter le basculement de machines spécifiques, ou créer des plans de récupération pour effectuer le basculement de plusieurs machines.
+Vous pouvez sélectionner le type de machine que vous souhaitez répliquer, voire l’endroit auquel vous souhaitez effectuer la réplication. Vous pouvez configurer des serveurs locaux, des comptes Azure Storage et des réseaux. Il est également possible de créer des stratégies de réplication et d’effectuer la planification de la capacité. Une fois l’infrastructure en place, vous activez la réplication des machines virtuelles. Vous pouvez exécuter le basculement de machines spécifiques, ou créer des plans de récupération pour effectuer le basculement de plusieurs machines.
 
 Lancez la fonction Prise en main en sélectionnant le mode de déploiement de Site Recovery. Le flux de la fonction Prise en main change légèrement selon vos exigences en matière de réplication.
 
@@ -177,25 +164,25 @@ Sélectionnez les éléments à répliquer et l’emplacement de la réplication
 
 1. Dans le panneau **Coffres Recovery Services**, choisissez votre coffre et cliquez sur **Paramètres**.
 2. Dans **Prise en main**, cliquez sur **Site Recovery** > **Étape 1 : Préparer l’infrastructure** > **Objectif de protection**.
-   
+
     ![Sélectionner des objectifs](./media/site-recovery-vmm-to-azure/choose-goals.png)
 3. Dans la zone **Protection goal (Objectif de la protection)**, sélectionnez **To Azure (Vers Azure)**, puis **Yes, with Hyper-V (Oui, avec Hyper-V)**. Sélectionnez **Oui** pour confirmer votre utilisation de VMM pour gérer les hôtes Hyper-V et le site de récupération. Cliquez ensuite sur **OK**.
-   
+
     ![Sélectionner des objectifs](./media/site-recovery-vmm-to-azure/choose-goals2.png)
 
 ## <a name="step-2-set-up-the-source-environment"></a>Étape 2 : configurer l’environnement source
 Installez le fournisseur Azure Site Recovery sur le serveur VMM et enregistrez ce dernier dans le coffre. Installez l’agent Azure Recovery Services sur les hôtes Hyper-V.
 
 1. Cliquez sur **Étape 2 : Préparer l’infrastructure** > **Source**.
-   
+
     ![Configurer la source](./media/site-recovery-vmm-to-azure/set-source1.png)
 2. Dans **Préparer la source**, cliquez sur **+ VMM** pour ajouter un serveur VMM.
-   
+
     ![Configurer la source](./media/site-recovery-vmm-to-azure/set-source2.png)
 3. Dans le panneau **Ajouter un serveur**, vérifiez que **Serveur System Center VMM** s’affiche dans le champ **Type de serveur** et que le serveur VMM répond à la [configuration requise et aux exigences concernant les URL](#on-premises-prerequisites).
 4. Téléchargez le fichier d’installation du fournisseur Azure Site Recovery.
 5. Téléchargez la clé d’inscription. Vous en aurez besoin lorsque vous exécuterez le programme d’installation. Une fois générée, la clé reste valide pendant 5 jours.
-   
+
     ![Configurer la source](./media/site-recovery-vmm-to-azure/set-source3.png)
 6. Installez le fournisseur Azure Site Recovery sur le serveur VMM.
 
@@ -203,41 +190,41 @@ Installez le fournisseur Azure Site Recovery sur le serveur VMM et enregistrez c
 1. Exécutez le fichier de configuration du fournisseur.
 2. Dans **Microsoft Update**, vous pouvez choisir des mises à jour, pour que celles du fournisseur soient installées conformément à votre stratégie Microsoft Update.
 3. Dans le champ **Installation**, acceptez ou modifiez l’emplacement d’installation du fournisseur par défaut et cliquez sur **Installer**.
-   
+
     ![Emplacement d’installation](./media/site-recovery-vmm-to-azure/provider2.png)
 4. Une fois l’installation terminée, cliquez sur **Inscrire** pour inscrire le serveur VMM dans le coffre.
 5. Dans la page **Paramètres du coffre**, cliquez sur **Parcourir** pour sélectionner le fichier de clé du coffre. Spécifiez l’abonnement Azure Site Recovery et le nom du coffre.
-   
+
     ![Enregistrement du serveur](./media/site-recovery-vmm-to-azure/provider10.PNG)
 6. Dans **Connexion Internet**, indiquez le mode de connexion à Site Recovery du fournisseur exécuté sur le serveur VMM, via Internet.
-   
+
    * Si vous voulez que le fournisseur se connecte directement, sélectionnez **Se connecter directement à Azure Site Recovery sans serveur proxy**.
    * Si votre proxy nécessite une authentification ou si vous voulez utiliser un proxy personnalisé, sélectionnez **Se connecter directement à Azure Site Recovery avec un serveur proxy**.
    * Si vous utilisez un proxy personnalisé, spécifiez l’adresse, le port et les informations d’identification.
    * Si vous utilisez un proxy, vous devez avoir déjà autorisé les URL indiquées dans la section relative à la [configuration requise](#on-premises-prerequisites).
    * Si vous utilisez un proxy personnalisé, un compte RunAs VMM (DRAProxyAccount) est créé automatiquement avec les informations d’identification du proxy spécifiées. Configurez le serveur proxy pour que ce compte puisse s'authentifier correctement. Vous pouvez modifier les paramètres du compte RunAs VMM dans la console VMM. Dans **Paramètres**, développez **Sécurité** > **Comptes d’identification**, puis modifiez le mot de passe de DRAProxyAccount. Vous devez redémarrer le service VMM pour que ce paramètre prenne effet.
-     
+
      ![Internet](./media/site-recovery-vmm-to-azure/provider13.PNG)
 7. Vous pouvez accepter ou modifier l’emplacement d’un certificat SSL généré automatiquement pour le chiffrement de données. Ce certificat est utilisé si vous activez le chiffrement de données pour un cloud protégé par Azure dans le portail Azure Site Recovery. Conservez ce certificat en sécurité. Lorsque vous exécuterez un basculement vers Azure, vous en aurez besoin pour le déchiffrement (si le chiffrement des données est activé).
 8. Dans **Server name**, entrez un nom convivial pour identifier le serveur VMM dans le coffre. Dans une configuration de cluster, spécifiez le nom de rôle de cluster VMM.
 9. Si vous souhaitez synchroniser les métadonnées de l’ensemble des clouds sur le serveur VMM avec le coffre, activez l’option **Synchroniser les métadonnées du cloud**. Cette action se produit une seule fois sur chaque serveur. Si vous ne souhaitez pas synchroniser tous les clouds, vous pouvez désactiver ce paramètre et synchroniser individuellement chaque cloud via les propriétés du cloud de la console VMM. Cliquez sur **Register** pour terminer le processus.
-   
+
     ![Enregistrement du serveur](./media/site-recovery-vmm-to-azure/provider16.PNG)
 10. L’inscription débute. Une fois l’inscription terminée, le serveur s’affiche sur le panneau **Paramètres** > **Serveurs** du coffre.
 
-#### <a name="commandline-installation-for-the-azure-site-recovery-provider"></a>Installation du fournisseur Azure Site Recovery via la ligne de commande
+#### <a name="command-line-installation-for-the-azure-site-recovery-provider"></a>Installation du fournisseur Azure Site Recovery via la ligne de commande
 Le fournisseur Azure Site Recovery peut être installé à partir de la ligne de commande. Vous pouvez utiliser cette méthode pour installer le fournisseur sur un module Server Core pour Windows Server 2012 R2.
 
 1. Téléchargez le fichier d’installation du fournisseur et la clé d’inscription dans un dossier, par exemple, C:\ASR.
 2. À partir d’une invite de commandes avec élévation de privilèges, exécutez les commandes suivantes pour extraire le programme d’installation du fournisseur :
-   
+
             C:\Windows\System32> CD C:\ASR
             C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
 3. Exécutez cette commande pour installer les composants :
-   
+
             C:\ASR> setupdr.exe /i
 4. Ensuite, exécutez les commandes suivantes pour inscrire le serveur dans le coffre :
-   
+
         CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
         C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>       
 
@@ -251,16 +238,16 @@ Où :
 * **/proxyUsername**: paramètre facultatif qui spécifie le nom d’utilisateur proxy (si le proxy nécessite une authentification).
 * **/proxyPassword**: paramètre facultatif qui spécifie le mot de passe à utiliser pour l’authentification auprès du serveur proxy (si le proxy nécessite une authentification).
 
-### <a name="install-the-azure-recovery-services-agent-on-hyperv-hosts"></a>Installation de l’agent Azure Recovery Services sur des hôtes Hyper-V
+### <a name="install-the-azure-recovery-services-agent-on-hyper-v-hosts"></a>Installation de l’agent Azure Recovery Services sur des hôtes Hyper-V
 1. Une fois le fournisseur configuré, vous devez télécharger le fichier d’installation de l’agent Azure Recovery Services. Exécutez le programme d’installation sur chaque serveur Hyper-V dans le cloud VMM.
-   
+
     ![Sites Hyper-V](./media/site-recovery-vmm-to-azure/hyperv-agent1.png)
 2. Sous **Vérification de la configuration requise**, cliquez sur **Suivant**. Tous les éléments manquants de la configuration requise sont automatiquement installés.
-   
+
     ![Prerequisites Recovery Services Agent](./media/site-recovery-vmm-to-azure/hyperv-agent2.png)
 3. Sous **Paramètres d’installation**, acceptez ou modifiez l’emplacement d’installation et l’emplacement du cache. Vous pouvez configurer le cache sur un lecteur qui dispose d’au moins 5 Go de stockage disponible. Toutefois, nous vous recommandons d’utiliser un lecteur de cache présentant au moins 600 Go d’espace disponible. Cliquez ensuite sur **Installer**.
 4. Une fois l’installation terminée, cliquez sur **Fermer** pour finaliser le processus.
-   
+
     ![Inscrire l’Agent MARS](./media/site-recovery-vmm-to-azure/hyperv-agent3.png)
 
 #### <a name="command-line-installation-for-azure-site-recovery-services-agent"></a>Installation de l’agent Azure Site Recovery Services via la ligne de commande
@@ -268,36 +255,38 @@ Vous pouvez installer cet agent à partir de la ligne de commande, en saisissant
 
      marsagentinstaller.exe /q /nu
 
-#### <a name="set-up-internet-proxy-access-to-site-recovery-from-hyperv-hosts"></a>Configuration de l’accès proxy à Site Recovery via Internet à partir d’hôtes Hyper-V
+#### <a name="set-up-internet-proxy-access-to-site-recovery-from-hyper-v-hosts"></a>Configuration de l’accès proxy à Site Recovery via Internet à partir d’hôtes Hyper-V
 L’agent Recovery Services exécuté sur les hôtes Hyper-V requiert un accès à Azure, via Internet, pour la réplication des machines virtuelles. Si vous accédez à Internet via un proxy, configurez-le comme suit :
 
 1. Ouvrez le composant logiciel enfichable MMC de Microsoft Azure Backup sur l’hôte Hyper-V. Par défaut, un raccourci vers Microsoft Azure Backup est créé sur le Bureau. Vous pouvez également le trouver ici : C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
 2. Dans le composant logiciel enfichable, cliquez sur **Modifier les propriétés**.
 3. Dans l’onglet **Configuration du proxy** , spécifiez les informations du serveur proxy.
-   
+
     ![Inscrire l’Agent MARS](./media/site-recovery-vmm-to-azure/mars-proxy.png)
 4. Vérifiez que l’agent peut atteindre les URL décrites dans la section [Configuration requise](#on-premises-prerequisites).
 
 ## <a name="step-3-set-up-the-target-environment"></a>Étape 3 : configurer l’environnement cible
 Spécifiez le compte Azure Storage à utiliser pour la réplication, ainsi que le réseau Azure auquel les machines virtuelles Azure se connecteront après le basculement.
 
-1. Cliquez sur **Préparer l’infrastructure** > **Cible** et sélectionnez l’abonnement Azure à utiliser.
-2. Spécifiez le modèle de déploiement que vous souhaitez utiliser pour les machines virtuelles après le basculement.
-3. Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comptes Azure Storage compatibles.
-   
-   ![Storage](./media/site-recovery-vmm-to-azure/compatible-storage.png)
+1. Cliquez sur **Préparer l’infrastructure** > **Cible**, puis sélectionnez l’abonnement et le groupe de ressources dans lesquels vous voulez créer les machines virtuelles basculées. Choisissez le modèle de déploiement que vous souhaitez utiliser dans Azure (classique ou gestion des ressources) pour les machines virtuelles basculées.
+
+    ![Storage](./media/site-recovery-vmm-to-azure/enablerep3.png)
+
+2. Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comptes Azure Storage compatibles.
+    ![Stockage](./media/site-recovery-vmm-to-azure/compatible-storage.png)
+
 4. Si vous n’avez pas créé de compte de stockage et que vous souhaitez le faire à l’aide de Resource Manager, cliquez sur **+Compte de stockage** pour effectuer l’opération en ligne.  Dans le panneau **Créer un compte de stockage** , saisissez le nom, le type, l’abonnement associé et l’emplacement du compte de stockage. Ce compte doit se trouver au même emplacement que le coffre Recovery Services.
-   
+
    ![Storage](./media/site-recovery-vmm-to-azure/gs-createstorage.png)
-   
+
    Notez les points suivants :
-   
+
    * Si vous souhaitez créer un compte de stockage en mode Classic, vous pouvez le faire dans le Portail Azure. [En savoir plus](../storage/storage-create-storage-account-classic-portal.md)
    * Si vous utilisez un compte de stockage Premium pour les données répliquées, configurez un compte de stockage standard supplémentaire, afin de stocker les journaux de réplication qui capturent les modifications apportées en continu aux données locales.
 5. Si vous n’avez pas créé de réseau Azure et que vous souhaitez le faire avec Azure Resource Manager, cliquez sur **+Réseau** afin d’effectuer l’opération en ligne. Dans le panneau **Créer un réseau virtuel** , spécifiez le nom, la plage d’adresses, les informations sur le sous-réseau associé, l’abonnement et l’emplacement du réseau virtuel. Ce réseau doit se trouver au même emplacement que le coffre Recovery Services.
-   
+
    ![Réseau](./media/site-recovery-vmm-to-azure/gs-createnetwork.png)
-   
+
    Si vous souhaitez créer un réseau en suivant le modèle classique, utilisez le Portail Azure. [En savoir plus](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 ### <a name="configure-network-mapping"></a>configurer le mappage réseau
@@ -307,13 +296,13 @@ Spécifiez le compte Azure Storage à utiliser pour la réplication, ainsi que l
 Configurez le mappage comme suit :
 
 1. Dans **Paramètres** > **Infrastructure Site Recovery** > **Mappages réseau** > **Mappage réseau**, cliquez sur l’icône **+Mappage réseau**.
-   
+
     ![Mappage réseau](./media/site-recovery-vmm-to-azure/network-mapping1.png)
 2. Dans la zone **Ajouter un mappage réseau**, sélectionnez le serveur VMM source et choisissez **Azure** comme cible.
 3. Vérifiez l’abonnement et le modèle de déploiement après le basculement.
 4. Dans **Réseau source**, choisissez le réseau de machines virtuelles local source à mapper à partir de la liste associée au serveur VMM.
 5. Dans **Réseau cible**, choisissez le réseau Azure dans lequel les machines virtuelles réplica Azure se trouveront, une fois créées. Cliquez ensuite sur **OK**.
-   
+
     ![Mappage réseau](./media/site-recovery-vmm-to-azure/network-mapping2.png)
 
 Voici le processus exécuté lorsque le mappage réseau démarre :
@@ -325,7 +314,7 @@ Voici le processus exécuté lorsque le mappage réseau démarre :
 
 ## <a name="step-4-set-up-replication-settings"></a>Étape 4 : configurer les paramètres de réplication
 1. Pour créer une stratégie de réplication, cliquez sur **Préparer l’infrastructure** > **Paramètres de réplication** > **+Créer et associer**.
-   
+
     ![Réseau](./media/site-recovery-vmm-to-azure/gs-replication.png)
 2. Dans **Créer et associer une stratégie**, indiquez le nom de la stratégie.
 3. Dans **Fréquence de copie**, spécifiez la fréquence selon laquelle répliquer les données delta après la réplication initiale (toutes les 30 secondes ou toutes les 5 ou 15 minutes).
@@ -333,10 +322,10 @@ Voici le processus exécuté lorsque le mappage réseau démarre :
 5. Dans **Fréquence des captures instantanées cohérentes de l’application**, spécifiez la fréquence de création des points de récupération contenant des instantanés cohérents au niveau des applications (entre 1 et 12 heures). Hyper-V utilise deux types d’instantanés : un instantané standard qui fournit un instantané incrémentiel de la machine virtuelle complète et un instantané cohérent avec l'application qui prend un instantané des données d'application d'une machine virtuelle. Les instantanés cohérents avec l'application utilisent le service VSS (Volume Shadow Copy Service) pour s'assurer que les applications sont dans un état cohérent lors de la prise des instantanés. Notez que si vous activez les instantanés cohérents avec l'application, cela affectera les performances des applications exécutées sur les machines virtuelles sources. Assurez-vous que la valeur définie est inférieure au nombre de points de récupération supplémentaires que vous configurez.
 6. Dans **Heure de début de la réplication initiale**, indiquez à quel moment démarrer la réplication initiale. La réplication se produit via votre bande passante Internet. Il est donc préférable de prévoir son exécution en dehors des heures de bureau.
 7. Dans **Chiffrer les données stockées sur Azure**, indiquez si les données au repos doivent être chiffrées dans Azure Storage. Cliquez ensuite sur **OK**.
-   
+
     ![Stratégie de réplication](./media/site-recovery-vmm-to-azure/gs-replication2.png)
-8. Lorsque vous créez une stratégie, elle est automatiquement associée au cloud VMM. Cliquez sur **OK**. Vous pouvez associer des clouds VMM supplémentaires (ainsi que les machines virtuelles qu’ils contiennent) à cette stratégie de réplication en cliquant sur **Paramètres** > **Réplication** > nom de la stratégie > **Associate VMM Cloud** (Associer un cloud VMM).
-   
+8. Lorsque vous créez une stratégie, elle est automatiquement associée au cloud VMM. Cliquez sur **OK**. Vous pouvez associer des clouds VMM supplémentaires (ainsi que les machines virtuelles qu’ils contiennent) à cette stratégie de réplication en cliquant sur **Paramètres** > **Réplication**> nom de la stratégie >**Associate VMM Cloud** (Associer un cloud VMM).
+
     ![Stratégie de réplication](./media/site-recovery-vmm-to-azure/policy-associate.png)
 
 ## <a name="step-5-capacity-planning"></a>Étape 5 : planifier la capacité
@@ -349,7 +338,7 @@ Site Recovery propose une fonctionnalité, Capacity Planner, qui vous permet d�
 
 1. Cliquez sur **Télécharger** pour télécharger l’outil, puis exécutez-le. [Lisez l’article](site-recovery-capacity-planner.md) relatif à cet outil.
 2. Quand vous avez terminé, sélectionnez **Oui** sous **Have you run the Capacity Planner?** (Avez-vous exécuté Capacity Planner ?)
-   
+
    ![Planification de la capacité](./media/site-recovery-vmm-to-azure/gs-capacity-planning.png)
 
 ### <a name="network-bandwidth-considerations"></a>Remarques relatives à la bande passante réseau
@@ -362,7 +351,7 @@ Vous pouvez utiliser l’outil Capacity Planner pour calculer la bande passante 
 1. Ouvrez le composant logiciel enfichable MMC de Microsoft Azure Backup sur le serveur hôte Hyper-V. Par défaut, un raccourci vers Microsoft Azure Backup est créé sur le Bureau. Vous pouvez également le trouver ici : C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
 2. Dans le composant logiciel enfichable, cliquez sur **Modifier les propriétés**.
 3. Dans l’onglet **Limitation**, sélectionnez **Activer la limitation de la bande passante sur Internet pour les opérations de sauvegarde** et définissez les limites relatives aux heures de travail et aux heures non travaillées. Les plages valides vont de 512 Kbits/s à 102 Mbits/s par seconde.
-   
+
     ![Limiter la bande passante](./media/site-recovery-vmm-to-azure/throttle2.png)
 
 Vous pouvez également utiliser l’applet de commande [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) pour définir la limitation. Voici un exemple :
@@ -377,7 +366,7 @@ Vous pouvez également utiliser l’applet de commande [Set-OBMachineSetting](ht
 La valeur de registre **UploadThreadsPerVM** détermine le nombre de threads utilisés pour le transfert des données (réplication initiale ou delta) sur un disque. Une valeur plus élevée permet d’augmenter la bande passante réseau utilisée pour la réplication. La valeur de registre **DownloadThreadsPerVM** indique le nombre de threads utilisés pour le transfert de données lors de la restauration automatique.
 
 1. Dans le registre, accédez à **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**.
-   
+
    * Modifiez la valeur de **UploadThreadsPerVM** (ou créez la clé si elle n’existe pas) afin de contrôler les threads utilisés pour la réplication de disque.
    * Modifiez la valeur de **UploadThreadsPerVM** (ou créez la clé si elle n’existe pas) afin de contrôler les threads utilisés pour le trafic de restauration automatique provenant d’Azure.
 2. La valeur par défaut est 4. Dans un réseau « surutilisé », ces clés de Registre doivent être modifiées par rapport aux valeurs par défaut. La valeur maximale est de 32. Surveillez le trafic pour optimiser la valeur.
@@ -386,24 +375,24 @@ La valeur de registre **UploadThreadsPerVM** détermine le nombre de threads uti
 À présent, activez la réplication comme suit :
 
 1. Cliquez sur **Étape 2 : Répliquer l’application** > **Source**. Après avoir activé la réplication pour la première fois, cliquez sur l’option **+Répliquer** dans le coffre pour activer la réplication des autres machines.
-   
+
     ![Activer la réplication](./media/site-recovery-vmm-to-azure/enable-replication1.png)
 2. Dans le panneau **Source**, sélectionnez le serveur VMM et le cloud hébergeant les hôtes Hyper-V. Cliquez ensuite sur **OK**.
-   
+
     ![Activer la réplication](./media/site-recovery-vmm-to-azure/enable-replication-source.png)
 3. Dans **Cible**, sélectionnez l’abonnement, le modèle de déploiement suite au basculement et le compte de stockage utilisé pour les données répliquées.
-   
+
     ![Activer la réplication](./media/site-recovery-vmm-to-azure/enable-replication-target.png)
 4. Sélectionnez le compte de stockage que vous souhaitez utiliser. Si vous souhaitez utiliser un compte de stockage différent de ceux dont vous disposez, vous pouvez en [créer un](#set-up-an-azure-storage-account). Pour créer un compte de stockage en mode Resource Manager, cliquez sur **Créer**. Si vous souhaitez créer un compte de stockage en mode Classic, vous pouvez le faire [dans le Portail Azure](../storage/storage-create-storage-account-classic-portal.md). Cliquez ensuite sur **OK**.
 5. Sélectionnez le sous-réseau et le réseau Azure auxquels les machines virtuelles Azure se connectent lorsqu’elles sont créées après le basculement. Sélectionnez **Effectuez maintenant la configuration pour les machines sélectionnées** pour appliquer le paramètre réseau à l’ensemble des machines que vous sélectionnez à des fins de protection. Sélectionnez **Configurer ultérieurement** pour sélectionner le réseau Azure pour chaque machine. Si vous souhaitez utiliser un réseau différent de ceux dont vous disposez, [créez-le](#set-up-an-azure-network). Pour créer un réseau en mode Resource Manager, cliquez sur **Créer**. Si vous souhaitez créer un réseau en suivant le modèle classique, utilisez le [Portail Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Sélectionnez un sous-réseau, le cas échéant. Cliquez ensuite sur **OK**.
 6. Dans **Machines virtuelles** > **Sélectionner les machines virtuelles**, cliquez sur chaque machine à répliquer. Vous pouvez uniquement sélectionner les machines pour lesquelles la réplication peut être activée. Cliquez ensuite sur **OK**.
-   
+
     ![Activer la réplication](./media/site-recovery-vmm-to-azure/enable-replication5.png)
 7. Dans **Propriétés** > **Configurer les propriétés**, choisissez le système d’exploitation des machines virtuelles sélectionnées, ainsi que le disque du système d’exploitation. Cliquez ensuite sur **OK**. Vous pouvez opter pour une définition ultérieure des propriétés.
-   
+
     ![Activer la réplication](./media/site-recovery-vmm-to-azure/enable-replication6.png)
-8. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication**, sélectionnez la stratégie de réplication que vous souhaitez appliquer aux machines virtuelles protégées. Cliquez ensuite sur **OK**. Vous pouvez modifier la stratégie de réplication dans **Paramètres** > **Stratégies de réplication** > nom de la stratégie > **Modifier les paramètres**. Les modifications appliquées sont utilisées pour les nouvelles machines et celles dont la réplication est en cours.
-   
+8. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication**, sélectionnez la stratégie de réplication que vous souhaitez appliquer aux machines virtuelles protégées. Cliquez ensuite sur **OK**. Vous pouvez modifier la stratégie de réplication dans **Paramètres** > **Stratégies de réplication**> nom de la stratégie >**Modifier les paramètres**. Les modifications appliquées sont utilisées pour les nouvelles machines et celles dont la réplication est en cours.
+
    ![Activer la réplication](./media/site-recovery-vmm-to-azure/enable-replication7.png)
 
 Vous pouvez suivre la progression du travail **Activer la protection** dans **Paramètres** > **Travaux** > **Travaux Site Recovery**. Une fois le travail **Finaliser la protection** exécuté, la machine est prête pour le basculement.
@@ -412,21 +401,21 @@ Vous pouvez suivre la progression du travail **Activer la protection** dans **Pa
 Nous vous recommandons de vérifier les propriétés de la machine source. N’oubliez pas que le nom de la machine virtuelle Azure doit respecter la [configuration requise pour les machines virtuelles Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
 1. Cliquez sur **Paramètres** > **Éléments protégés** > **Éléments répliqués** et sélectionnez la machine dont vous souhaitez afficher les détails.
-   
+
     ![Activer la réplication](./media/site-recovery-vmm-to-azure/vm-essentials.png)
 2. Dans **Propriétés**, vous pouvez afficher les informations sur la réplication et le basculement de la machine virtuelle.
-   
+
     ![Activer la réplication](./media/site-recovery-vmm-to-azure/test-failover2.png)
 3. Dans **Calcul et réseau** > **Propriétés de calcul**, vous pouvez spécifier la taille de la cible et le nom de la machine virtuelle Azure. Au besoin, modifiez ce nom en fonction de la [configuration Azure requise](site-recovery-best-practices.md#azure-virtual-machine-requirements) . Vous pouvez également afficher et modifier les informations concernant le réseau cible, le sous-réseau et l’adresse IP qui sont affectés à la machine virtuelle Azure. Notez les points suivants :
-   
+
    * Vous pouvez définir l’adresse IP cible. Si vous ne fournissez pas d’adresse IP, la machine ayant basculé utilisera le service DHCP. Si vous définissez une adresse qui n’est pas disponible au moment du basculement, ce dernier échoue. Vous pouvez utiliser la même adresse IP cible pour le test de basculement si cette adresse est disponible sur le réseau de test de basculement.
    * Le nombre de cartes réseau est déterminé par la taille spécifiée pour la machine virtuelle cible, comme suit :
-     
+
      * Si le nombre de cartes réseau sur la machine source est inférieur ou égal au nombre de cartes autorisé pour la taille de la machine cible, la cible présente le même nombre de cartes que la source.
      * Si le nombre de cartes de la machine virtuelle source dépasse la taille cible autorisée, la taille cible maximale est utilisée.
      * Par exemple, si une machine source présente deux cartes réseau et que la taille de la machine cible en accepte quatre, la machine cible présentera deux cartes. Si la machine source inclut deux cartes, mais que la taille cible prise en charge accepte une seule carte, la machine cible présentera une seule carte.     
      * Si la machine virtuelle possède plusieurs cartes réseau, elles se connectent toutes au même réseau.
-     
+
      ![Activer la réplication](./media/site-recovery-vmm-to-azure/test-failover4.png)
 4. Les disques de données et du système d’exploitation de la machine virtuelle qui seront répliqués s’affichent dans **Disques** .
 
@@ -436,9 +425,9 @@ Pour tester le déploiement, vous pouvez exécuter un test de basculement pour u
 ### <a name="prepare-for-failover"></a>Préparer un basculement
 * Pour exécuter un test de basculement, nous vous recommandons de créer un réseau Azure isolé de votre réseau de production Azure. Il s’agit du comportement par défaut lorsque vous créez un réseau dans Azure. [En savoir plus](site-recovery-failover.md#run-a-test-failover) .
 * Pour obtenir les meilleures performances possibles lorsque vous effectuez un basculement vers Azure, assurez-vous que vous avez installé l’agent Azure sur l’ordinateur protégé. Cet agent permet de démarrer le système plus rapidement et facilite le dépannage. Installez l’agent [Linux](https://github.com/Azure/WALinuxAgent) ou [Windows](http://go.microsoft.com/fwlink/?LinkID=394789).
-* Pour tester entièrement votre déploiement, vous avez besoin d’une infrastructure pour permettre à la machine répliquée de fonctionner comme prévu. Si vous souhaitez tester Active Directory et DNS, vous pouvez créer une machine virtuelle jouant le rôle de contrôleur de domaine avec DNS, puis la répliquer sur Azure, via Azure Site Recovery. Pour en savoir plus, lisez [Considérations en matière de test de basculement pour Active Directory](site-recovery-active-directory.md#considerations-for-test-failover).
+* Pour tester entièrement votre déploiement, vous avez besoin d’une infrastructure pour permettre à la machine répliquée de fonctionner comme prévu. Si vous souhaitez tester Active Directory et DNS, vous pouvez créer une machine virtuelle jouant le rôle de contrôleur de domaine avec DNS, puis la répliquer sur Azure, via Azure Site Recovery. Pour en savoir plus, lisez [Considérations en matière de test de basculement pour Active Directory](site-recovery-active-directory.md#test-failover-considerations).
 * Si vous souhaitez exécuter un basculement non planifié au lieu d’un test de basculement, notez les éléments suivants :
-  
+
   * Il est préférable d’arrêter les machines principales avant d’exécuter un basculement non planifié lorsque c’est possible. Vous êtes ainsi sûr que les machines source et les réplicas ne fonctionnent pas en même temps.
   * Lorsque vous effectuez un basculement non planifié, la réplication des données depuis les machines principales s’arrête et les différences dans les données ne sont pas transférées après qu’un basculement non planifié a commencé. En outre, si vous exécutez un basculement non planifié sur un plan de récupération, il sera exécuté jusqu’à la fin, même si une erreur se produit.
 
@@ -478,26 +467,26 @@ Si vous souhaitez accéder à une machine virtuelle Azure exécutant Linux aprè
 3. Dans **Test de basculement**, sélectionnez le réseau Azure auquel les machines virtuelles Azure se connectent après le basculement.
 4. Cliquez sur **OK** pour commencer le basculement. Vous pouvez suivre la progression du basculement en cliquant sur la machine virtuelle pour ouvrir ses propriétés, ou en sélectionnant la tâche **Test de basculement** dans **Paramètres** > **Travaux Site Recovery**.
 5. Lorsque le basculement atteint la phase **Terminer le test** , procédez comme suit :
-   
+
    1. Examinez la machine virtuelle de réplication dans le portail Microsoft Azure. Vérifiez que la machine virtuelle démarre correctement.
    2. Si vous êtes autorisé à accéder aux machines virtuelles à partir de votre réseau local, vous pouvez initier une connexion Bureau à distance à la machine virtuelle.
    3. Cliquez sur **Terminer le test** pour finir l’opération.
    4. Cliquez sur **Notes** pour consigner et enregistrer les éventuelles observations associées au test de basculement.
    5. Cliquez sur **Le test de basculement est terminé**. Nettoyez l’environnement de test pour mettre automatiquement hors tension et supprimer la machine virtuelle de test.
    6. À cette étape, les éléments ou machines virtuelles créés automatiquement par Site Recovery lors du test de basculement sont supprimés. Toutefois, les éléments supplémentaires que vous avez créés pour le test de basculement ne sont pas supprimés.
-      
+
       > [!NOTE]
       > Si un test de basculement s’étend sur plus de deux semaines, le système le force à se terminer.
-      > 
-      > 
-6. Une fois le basculement terminé, vous devez également voir la machine Azure de réplication apparaître dans le Portail Azure > **Machines virtuelles**. Vous devrez vous assurer que la machine virtuelle présente la taille appropriée, qu’elle est bien connectée au réseau approprié et qu’elle s’exécute.
+      >
+      >
+6. Une fois le basculement terminé, vous devez également voir la machine Azure de réplication apparaître dans le Portail Azure >**Machines virtuelles**. Vous devrez vous assurer que la machine virtuelle présente la taille appropriée, qu’elle est bien connectée au réseau approprié et qu’elle s’exécute.
 7. Si vous avez [préparé les connexions après le basculement](#prepare-to-connect-to-Azure-VMs-after-failover), vous devez être à même de vous connecter à la machine virtuelle Azure.
 
 ## <a name="monitor-your-deployment"></a>Surveiller votre déploiement
 Voici comment vous pouvez surveiller l’intégrité, l’état et les paramètres de configuration de votre déploiement Site Recovery :
 
 1. Cliquez sur le nom du coffre pour accéder au tableau de bord **Essentials** . Ce tableau affiche l’état de la réplication, les tâches, les plans de récupération, l’intégrité du serveur et les événements Site Recovery.  Vous pouvez personnaliser **Essentials** de manière afficher les vignettes et les dispositions qui sont les plus utiles, y compris l’état des autres coffres Site Recovery et Backup.
-   
+
     ![Essentials](./media/site-recovery-vmm-to-azure/essentials.png)
 2. Dans la mosaïque **Intégrité**, vous pouvez surveiller les problèmes affectant les serveurs du site (VMM ou serveurs de configuration), ainsi que les événements signalés par Site Recovery au cours des dernières 24 heures.
 3. Vous pouvez gérer et surveiller la réplication dans les mosaïques **Éléments répliqués**, **Plans de récupération** et **Travaux Site Recovery**. Vous pouvez accéder au détail des travaux dans **Paramètres** > **Travaux** > **Travaux Site Recovery**.
@@ -507,7 +496,6 @@ Une fois votre déploiement configuré et effectué, pour en savoir plus sur les
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

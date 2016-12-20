@@ -9,54 +9,60 @@ Vous pouvez appeler la procédure stockée de votre choix. L’exemple suivant m
 
 Dans cet exemple, le type est défini sur SqlServerTable. Affectez-lui la valeur AzureSqlTable pour l’utiliser avec une base de données SQL Azure. 
 
-    {
-      "name": "SqlOutput",
-      "properties": {
-        "type": "SqlServerTable",
-        "linkedServiceName": "SqlLinkedService",
-        "typeProperties": {
-          "tableName": "Marketing"
-        },
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        }
-      }
+```json
+{
+  "name": "SqlOutput",
+  "properties": {
+    "type": "SqlServerTable",
+    "linkedServiceName": "SqlLinkedService",
+    "typeProperties": {
+      "tableName": "Marketing"
+    },
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
     }
+  }
+}
+```
 
 Définissez la section SqlSink dans l’activité de copie JSON comme suit. Pour appeler une procédure stockée lors de l’insertion des données, les deux propriétés SqlWriterStoredProcedureName et SqlWriterTableType sont requises.
 
-    "sink":
-    {
-        "type": "SqlSink",
-        "SqlWriterTableType": "MarketingType",
-        "SqlWriterStoredProcedureName": "spOverwriteMarketing", 
-        "storedProcedureParameters":
+```json
+"sink":
+{
+    "type": "SqlSink",
+    "SqlWriterTableType": "MarketingType",
+    "SqlWriterStoredProcedureName": "spOverwriteMarketing", 
+    "storedProcedureParameters":
+            {
+                "stringData": 
                 {
-                    "stringData": 
-                    {
-                        "value": "str1"     
-                    }
+                    "value": "str1"     
                 }
-    }
+            }
+}
+```
 
 Dans votre base de données, définissez la procédure stockée portant le même nom que SqlWriterStoredProcedureName. Elle gère les données d'entrée à partir de la source que vous avez spécifiée et les insère dans la table de sortie. Notez que le nom du paramètre de la procédure stockée doit être le même que le tableName défini dans le fichier de Table JSON.
 
-    CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
-    AS
-    BEGIN
-        DELETE FROM [dbo].[Marketing] where ProfileID = @stringData
-        INSERT [dbo].[Marketing](ProfileID, State)
-        SELECT * FROM @Marketing
-    END
-
+```sql
+CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
+AS
+BEGIN
+    DELETE FROM [dbo].[Marketing] where ProfileID = @stringData
+    INSERT [dbo].[Marketing](ProfileID, State)
+    SELECT * FROM @Marketing
+END
+```
 Dans votre base de données, définissez le type de table portant le même nom que SqlWriterTableType. Notez que le schéma du type de table doit être identique au schéma retourné par vos données d'entrée.
 
-    CREATE TYPE [dbo].[MarketingType] AS TABLE(
-        [ProfileID] [varchar](256) NOT NULL,
-        [State] [varchar](256) NOT NULL
-    )
-
+```sql
+CREATE TYPE [dbo].[MarketingType] AS TABLE(
+    [ProfileID] [varchar](256) NOT NULL,
+    [State] [varchar](256) NOT NULL
+)
+```
 La fonction de procédure stockée tire parti des [paramètres Table-Valued](https://msdn.microsoft.com/library/bb675163.aspx).
 
 

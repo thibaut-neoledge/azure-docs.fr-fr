@@ -1,12 +1,12 @@
 ---
-title: Exemple de webhook d’alerte dans Log Analytics
-description: Une des actions que vous pouvez exécuter en réponse à une alerte Log Analytics est un *webhook*, qui vous permet d’appeler un processus externe par le biais d’une requête HTTP unique. Cet article décrit un exemple de création d’une action de webhook dans une alerte Log Analytics à l’aide de Slack.
+title: "Exemple de webhook d’alerte dans Log Analytics"
+description: "Une des actions que vous pouvez exécuter en réponse à une alerte Log Analytics est un *webhook*, qui vous permet d’appeler un processus externe par le biais d’une requête HTTP unique. Cet article décrit un exemple de création d’une action de webhook dans une alerte Log Analytics à l’aide de Slack."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 13c39f0f-fd3c-472d-8324-ddf7538be45e
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 001f8abfc5862aeb1914f6e93b68cadeed42eba0
+
 
 ---
 # <a name="webhooks-in-log-analytics-alerts"></a>Webhooks dans les alertes Log Analytics
@@ -108,6 +112,9 @@ Cela n’est qu’un exemple d’une action que vous pouvez créer en réponse �
 * Poursuivez la découverte des [alertes dans Log Analytics](log-analytics-alerts.md) , notamment d’autres actions.
 * [Créez des runbooks dans Azure Automation](../automation/automation-webhooks.md) qui peuvent être appelés à partir d’un webhook.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

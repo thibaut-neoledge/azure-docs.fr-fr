@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 71d5dc02cea9375d9c07ddd6d4a56d446390d5f1
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 693dcfd3c20ce373f093108b4d5f8b63aa30f8df
 
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Documentation sur les groupes de machines virtuelles identiques
@@ -47,7 +47,7 @@ Virtual Machine Scale Sets est une ressource de calcul Azure qui vous permet de 
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-create">
+        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -57,25 +57,7 @@ Virtual Machine Scale Sets est une ressource de calcul Azure qui vous permet de 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Prise en main de Windows VM Scale Sets</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-create-cli">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Prise en main de Linux VM Scale Sets</h3>
+                        <h3>Démarrer avec Virtual Machine Scale Sets</h3>
                     </div>
                 </div>
             </div>
@@ -125,7 +107,7 @@ Virtual Machine Scale Sets est une ressource de calcul Azure qui vous permet de 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Informations de référence sur l’API REST des groupes de machines virtuelles identiques</p>
+                        <p>API REST Groupes de machines virtuelles identiques</p>
                     </div>
                 </div>
             </div>
@@ -145,6 +127,6 @@ Télécharger la documentation sur les groupes de machines virtuelles identiques
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

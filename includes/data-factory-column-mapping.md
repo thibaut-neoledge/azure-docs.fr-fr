@@ -18,134 +18,140 @@ Voici une liste de conditions d’erreur qui entraîneront la levée d’une exc
 > 
 > 
 
-### <a name="sample-1-column-mapping-from-azure-sql-to-azure-blob"></a>Exemple 1 : mappage de colonnes depuis SQL Azure vers un objet blob Azure
+### <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>Exemple 1 : mappage de colonnes depuis SQL Azure vers un objet blob Azure
 Dans cet exemple, la table d’entrée possède une structure et pointe vers une table SQL comprise dans une base de données SQL Azure.
 
-    {
-        "name": "AzureSQLInput",
-        "properties": {
-            "structure": 
-             [
-               { "name": "userid"},
-               { "name": "name"},
-               { "name": "group"}
-             ],
-            "type": "AzureSqlTable",
-            "linkedServiceName": "AzureSqlLinkedService",
-            "typeProperties": {
-                "tableName": "MyTable"
-            },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "external": true,
-            "policy": {
-                "externalData": {
-                    "retryInterval": "00:01:00",
-                    "retryTimeout": "00:10:00",
-                    "maximumRetry": 3
-                }
+```json
+{
+    "name": "AzureSQLInput",
+    "properties": {
+        "structure": 
+         [
+           { "name": "userid"},
+           { "name": "name"},
+           { "name": "group"}
+         ],
+        "type": "AzureSqlTable",
+        "linkedServiceName": "AzureSqlLinkedService",
+        "typeProperties": {
+            "tableName": "MyTable"
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
             }
         }
     }
+}
+```
 
 Dans cet exemple, la table de sortie possède une structure et pointe vers un objet blob compris dans un stockage d’objets blob Azure.
 
+```json
+{
+    "name": "AzureBlobOutput",
+    "properties":
     {
-        "name": "AzureBlobOutput",
-        "properties":
-        {
-             "structure": 
-              [
-                    { "name": "myuserid"},
-                    { "name": "myname" },
-                    { "name": "mygroup"}
-              ],
-            "type": "AzureBlob",
-            "linkedServiceName": "StorageLinkedService",
-            "typeProperties": {
-                "folderPath": "mycontainer/myfolder",
-                "fileName":"myfile.csv",
-                "format":
-                {
-                    "type": "TextFormat",
-                    "columnDelimiter": ","
-                }
-            },
-            "availability":
+         "structure": 
+          [
+                { "name": "myuserid"},
+                { "name": "myname" },
+                { "name": "mygroup"}
+          ],
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+            "folderPath": "mycontainer/myfolder",
+            "fileName":"myfile.csv",
+            "format":
             {
-                "frequency": "Hour",
-                "interval": 1
+                "type": "TextFormat",
+                "columnDelimiter": ","
             }
+        },
+        "availability":
+        {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
+}
+```
 
 Le code JSON de cette activité est fourni ci-dessous. Colonnes de la source mappées sur les colonnes du récepteur (**columnMappings**) en utilisant la propriété **Translator**.
 
-    {
-        "name": "CopyActivity",
-        "description": "description", 
-        "type": "Copy",
-        "inputs":  [ { "name": "AzureSQLInput"  } ],
-        "outputs":  [ { "name": "AzureBlobOutput" } ],
-        "typeProperties":    {
-            "source":
-            {
-                "type": "SqlSource"
-            },
-            "sink":
-            {
-                "type": "BlobSink"
-            },
-            "translator": 
-            {
-                "type": "TabularTranslator",
-                "ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
-            }
+```json
+{
+    "name": "CopyActivity",
+    "description": "description", 
+    "type": "Copy",
+    "inputs":  [ { "name": "AzureSQLInput"  } ],
+    "outputs":  [ { "name": "AzureBlobOutput" } ],
+    "typeProperties":    {
+        "source":
+        {
+            "type": "SqlSource"
         },
-       "scheduler": {
-              "frequency": "Hour",
-              "interval": 1
-            }
-    }
-
+        "sink":
+        {
+            "type": "BlobSink"
+        },
+        "translator": 
+        {
+            "type": "TabularTranslator",
+            "ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
+        }
+    },
+   "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        }
+}
+```
 **Flux du mappage de colonnes :**
 
 ![Flux du mappage de colonnes](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
 
-### <a name="sample-2-column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Exemple 2 : mappage de colonnes à l’aide d’une requête SQL depuis SQL Azure vers un objet blob Azure
+### <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Exemple 2 : mappage de colonnes à l’aide d’une requête SQL depuis SQL Azure vers un objet blob Azure
 Dans cet exemple, une requête SQL est utilisée pour extraire des données de SQL Azure au lieu de simplement spécifier le nom de la table et le nom des colonnes dans la section « structure ». 
 
+```json
+{
+    "name": "CopyActivity",
+    "description": "description", 
+    "type": "CopyActivity",
+    "inputs":  [ { "name": " AzureSQLInput"  } ],
+    "outputs":  [ { "name": " AzureBlobOutput" } ],
+    "typeProperties":
     {
-        "name": "CopyActivity",
-        "description": "description", 
-        "type": "CopyActivity",
-        "inputs":  [ { "name": " AzureSQLInput"  } ],
-        "outputs":  [ { "name": " AzureBlobOutput" } ],
-        "typeProperties":
+        "source":
         {
-            "source":
-            {
-                "type": "SqlSource",
-                "SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
-            },
-            "sink":
-            {
-                "type": "BlobSink"
-            },
-            "Translator": 
-            {
-                "type": "TabularTranslator",
-                "ColumnMappings": "UserId: MyUserId, Group: MyGroup,Name: MyName"
-            }
+            "type": "SqlSource",
+            "SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
         },
-        "scheduler": {
-              "frequency": "Hour",
-              "interval": 1
-            }
-    }
-
+        "sink":
+        {
+            "type": "BlobSink"
+        },
+        "Translator": 
+        {
+            "type": "TabularTranslator",
+            "ColumnMappings": "UserId: MyUserId, Group: MyGroup,Name: MyName"
+        }
+    },
+    "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        }
+}
+```
 Dans ce cas, les résultats de la requête sont d’abord mappés vers les colonnes spécifiées dans la « structure » de la source. Ensuite, les colonnes de la « structure » de la source sont mappées vers les colonnes de la « structure » du récepteur avec les règles spécifiées dans columnMappings.  Supposons que la requête retourne cinq colonnes, c’est-à-dire deux colonnes de plus que celles spécifiées dans la « structure » de la source.
 
 **Flux du mappage de colonnes**

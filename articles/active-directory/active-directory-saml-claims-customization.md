@@ -1,12 +1,12 @@
 ---
-title: Personnalisation des revendications émises dans le jeton SAML pour les applications pré-intégrées dans Azure Active Directory | Microsoft Docs
-description: En savoir plus sur la personnalisation des revendications émises dans le jeton SAML pour les applications pré-intégrées dans Azure Active Directory
+title: "Personnalisation des revendications émises dans le jeton SAML pour les applications pré-intégrées dans Azure Active Directory | Microsoft Docs"
+description: "En savoir plus sur la personnalisation des revendications émises dans le jeton SAML pour les applications pré-intégrées dans Azure Active Directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser-msft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6aa7d045e2472fdf80817b364e76368ef6b053bf
+
 
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps-in-azure-active-directory"></a>Personnalisation des revendications émises dans le jeton SAML pour les applications pré-intégrées dans Azure Active Directory
-Aujourd’hui, Azure Active Directory prend en charge des milliers d’applications pré-intégrées dans la galerie d’applications Azure AD, notamment plus de 150 applications qui gèrent l’authentification unique à l’aide du protocole SAML 2.0. Lorsqu’un utilisateur s’authentifie auprès d’une application via Azure AD à l’aide de SAML, Azure AD envoie un jeton à l’application (via une redirection HTTP 302) que l’application valide et utilise pour connecter l’utilisateur au lieu de demander un nom d’utilisateur et un mot de passe. Ces jetons SAML contiennent des informations sur l’utilisateur appelées « revendications ».
+Aujourd’hui, Azure Active Directory prend en charge des milliers d’applications pré-intégrées dans la galerie d’applications Azure AD, notamment plus de 150 applications qui gèrent l’authentification unique à l’aide du protocole SAML 2.0. Lorsqu’un utilisateur s’authentifie auprès d’une application via Azure AD à l’aide de SAML, Azure AD envoie un jeton à l’application (via une redirection HTTP 302) que l’application valide et utilise pour connecter l’utilisateur au lieu de demander un nom d’utilisateur et un mot de passe. Ces jetons SAML contiennent des informations sur l’utilisateur appelées « revendications ».
 
-En jargon d’identité, une « revendication » concerne ce qu’un fournisseur d’identité déclare sur un utilisateur dans le jeton qu’il émet sur cet utilisateur. Dans un [jeton SAML](http://en.wikipedia.org/wiki/SAML_2.0), ces données sont généralement contenues dans l’instruction d’attribut SAML et l’ID unique de l’utilisateur unique est généralement représenté dans l’objet SAML.
+En jargon d’identité, une « revendication » concerne ce qu’un fournisseur d’identité déclare sur un utilisateur dans le jeton qu’il émet sur cet utilisateur. Dans un [jeton SAML](http://en.wikipedia.org/wiki/SAML_2.0), ces données sont généralement contenues dans l’instruction d’attribut SAML et l’ID unique de l’utilisateur unique est généralement représenté dans l’objet SAML.
 
 Par défaut, Azure AD émet un jeton SAML à votre application qui contient une revendication NameIdentifier, avec une valeur du nom de l’utilisateur dans Azure AD (cette valeur identifie l’utilisateur de façon unique). Le jeton SAML contient également des revendications supplémentaires contenant l’adresse de messagerie de l’utilisateur, son prénom et son nom.
 
@@ -27,12 +31,12 @@ Pour afficher ou modifier les revendications émises dans le jeton SAML vers l�
 
 ![][1]
 
-Il existe deux raisons possibles pour lesquelles vous devrez peut-être modifier les revendications émises dans le jeton SAML : •L’application a été écrite pour exiger un ensemble différent d’URI de revendication ou de valeurs de revendication •Votre application a été déployée d’une manière qui nécessite que la revendication NameIdentifier soit différente du nom d’utilisateur (c’est-à-dire le nom d’utilisateur principal) stocké dans Azure Active Directory. 
+Il existe deux raisons possibles pour lesquelles vous devrez peut-être modifier les revendications émises dans le jeton SAML : •L’application a été écrite pour exiger un ensemble différent d’URI de revendication ou de valeurs de revendication •Votre application a été déployée d’une manière qui nécessite que la revendication NameIdentifier soit différente du nom d’utilisateur (c’est-à-dire le nom d’utilisateur principal) stocké dans Azure Active Directory. 
 
 Vous pouvez modifier les valeurs de revendication par défaut en sélectionnant l’icône en forme de crayon qui apparaît à droite chaque fois que vous déplacez la souris sur l’une des lignes du tableau d’attributs de jeton SAML. Vous pouvez également supprimer les revendications (autres que NameIdentifier) à l’aide de l’icône **X** et ajouter de nouvelles revendications à l’aide du bouton **Ajouter un attribut utilisateur**.
 
 ## <a name="editing-the-nameidentifier-claim"></a>Modification de la revendication NameIdentifier
-Pour résoudre le problème dans lequel l’application a été déployée à l’aide d’un nom d’utilisateur différent, cliquez sur l’icône en forme de crayon en regard de la revendication NameIdentifier. La boîte de dialogue qui s’affiche comporte plusieurs options :
+Pour résoudre le problème dans lequel l’application a été déployée à l’aide d’un nom d’utilisateur différent, cliquez sur l’icône en forme de crayon en regard de la revendication NameIdentifier. La boîte de dialogue qui s’affiche comporte plusieurs options :
 
 ![][2]
 
@@ -66,6 +70,6 @@ Si pour un utilisateur donné, il n’y a pas de valeur stockée pour un attribu
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

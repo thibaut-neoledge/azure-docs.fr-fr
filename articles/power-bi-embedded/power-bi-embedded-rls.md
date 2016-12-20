@@ -1,13 +1,13 @@
 ---
-title: Sécurité au niveau des lignes avec Power BI Embedded
-description: Détails sur la sécurité au niveau des lignes avec Power BI Embedded
+title: "Sécurité au niveau des lignes avec Power BI Embedded"
+description: "Détails sur la sécurité au niveau des lignes avec Power BI Embedded"
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 7936ade5-2c75-435b-8314-ea7ca815867a
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a98185bf44af2271f5ded04c05d3134321db536a
+
 
 ---
 # <a name="row-level-security-with-power-bi-embedded"></a>Sécurité au niveau des lignes avec Power BI Embedded
@@ -52,7 +56,7 @@ Voici quelques points à noter concernant ce schéma :
 
 Selon ce schéma, si nous appliquons un filtre à la colonne **District Manager** dans la table District, et si ce filtre correspond à l’utilisateur qui consulte le rapport, ce filtre est également appliqué aux tables **Store** et **Sales** de façon à afficher uniquement les données de ce directeur régional.
 
-Voici comment procéder :
+Voici comment procéder :
 
 1. Dans l’onglet de modélisation, cliquez sur **Gérer les rôles**.  
    ![](media\\power-bi-embedded-rls\\pbi-embedded-rls-modeling-tab-5.png)
@@ -102,6 +106,9 @@ Avec tous ces éléments, lorsqu’un utilisateur se connecte à notre applicati
 ## <a name="see-also"></a>Voir aussi
 [Sécurité au niveau des lignes (RLS) avec Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Dépendances de tâches dans Azure Batch | Microsoft Docs
-description: Créez des tâches qui dépendent de l’exécution d’autres tâches pour le traitement de charges de travail de type MapReduce ou Big Data dans Azure Batch.
+title: "Dépendances de tâches dans Azure Batch | Microsoft Docs"
+description: "Créez des tâches qui dépendent de l’exécution d’autres tâches pour le traitement de charges de travail de type MapReduce ou Big Data dans Azure Batch."
 services: batch
 documentationcenter: .net
 author: mmacy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c16850788a4c22c964037f28bf955e570551142d
+
 
 ---
 # <a name="task-dependencies-in-azure-batch"></a>Dépendances de tâches dans Azure Batch
@@ -76,7 +80,7 @@ Vous pouvez utiliser trois scénarios de dépendance de tâches de base dans Azu
 > 
 > 
 
-### <a name="onetoone"></a>Un-à-un
+### <a name="one-to-one"></a>Un-à-un
 Pour créer une tâche dépendant de l’exécution d’une autre tâche, vous devez spécifier un ID de tâche unique à la méthode statique [TaskDependencies][net_taskdependencies].[OnId][net_onid] lorsque vous renseignez la propriété [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 ```csharp
@@ -90,7 +94,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 },
 ```
 
-### <a name="onetomany"></a>Un-à-plusieurs
+### <a name="one-to-many"></a>Un-à-plusieurs
 Pour créer une tâche dépendant de l’exécution de plusieurs tâches, vous devez spécifier un ensemble d’ID de tâche à la méthode statique [TaskDependencies][net_taskdependencies].[OnIds][net_onids] lorsque vous renseignez la propriété [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 ```csharp
@@ -165,6 +169,6 @@ Pour découvrir les différentes méthodes de préparation des nœuds à l’ex�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

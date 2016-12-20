@@ -1,12 +1,12 @@
 ---
-title: 'Mesures Azure Monitor : mesures prises en charge par type de ressource | Microsoft Docs'
+title: "Mesures Azure Monitor : mesures prises en charge par type de ressource | Microsoft Docs"
 description: Liste des mesures disponibles pour chaque type de ressource avec Azure Monitor.
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 63d4ac65-1688-40d1-85c8-7cd408285b0f
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fd07342dad07e70a09f372c9c6c116376630e6f8
+
 
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mesures prises en charge avec Azure Monitor
@@ -24,7 +28,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 > 
 > 
 
-## <a name="microsoft.batch/batchaccounts"></a>Microsoft.Batch/batchAccounts
+## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 | Mesure | Nom d’affichage de la mesure | Unité | Type d’agrégation | Description |
 | --- | --- | --- | --- | --- |
 | CoreCount |Nombre de cœurs |Nombre |Total |Nombre total de cœurs dans le compte Batch |
@@ -49,7 +53,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 | PoolDeleteStartEvent |Événements de démarrage de suppression de pool |Nombre |Total |Nombre total de suppressions de pool ayant démarré |
 | PoolDeleteCompleteEvent |Événements de suppression de pool terminés |Nombre |Total |Nombre total de suppressions de pool terminées |
 
-## <a name="microsoft.cache/redis"></a>Microsoft.Cache/redis
+## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
 | Mesure | Nom d’affichage de la mesure | Unité | Type d’agrégation | Description |
 | --- | --- | --- | --- | --- |
 | connectedclients |Clients connectés |Nombre |Maximale | |
@@ -218,13 +222,13 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 | cacheRead9 |Cache de lecture (Shard 9) |Octets par seconde |Maximale | |
 | percentProcessorTime9 |UC (Shard 9) |Pourcentage |Maximale | |
 
-## <a name="microsoft.cognitiveservices/accounts"></a>Microsoft.CognitiveServices/accounts
+## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 | Mesure | Nom d’affichage de la mesure | Unité | Type d’agrégation | Description |
 | --- | --- | --- | --- | --- |
 | NumberOfCalls |Nombre total d’appels d’API |Nombre |Total |Nombre total d’appels d’API. |
 | NumberOfFailedCalls |Nombre total d’appels d’API ayant échoué |Nombre |Total |Nombre total d’appels d’API ayant échoué. |
 
-## <a name="microsoft.compute/virtualmachines"></a>Microsoft.Compute/virtualMachines
+## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 | Mesure | Nom d’affichage de la mesure | Unité | Type d’agrégation | Description |
 | --- | --- | --- | --- | --- |
 | Pourcentage UC |Pourcentage UC |Pourcentage |Moyenne |Le pourcentage d’unités de calcul affectées actuellement utilisées par des machines virtuelles |
@@ -235,7 +239,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 | Opérations de lecture disque/s |Opérations de lecture disque/s |Nombre par seconde |Moyenne |E/S de lecture disque par seconde |
 | Opérations d’écriture disque/s |Opérations d’écriture disque/s |Nombre par seconde |Moyenne |E/S d’écriture disque par seconde |
 
-## <a name="microsoft.compute/virtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
+## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 | Mesure | Nom d’affichage de la mesure | Unité | Type d’agrégation | Description |
 | --- | --- | --- | --- | --- |
 | Pourcentage UC |Pourcentage UC |Pourcentage |Moyenne |Le pourcentage d’unités de calcul affectées actuellement utilisées par des machines virtuelles |
@@ -246,7 +250,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 | Opérations de lecture disque/s |Opérations de lecture disque/s |Nombre par seconde |Moyenne |E/S de lecture disque par seconde |
 | Opérations d’écriture disque/s |Opérations d’écriture disque/s |Nombre par seconde |Moyenne |E/S d’écriture disque par seconde |
 
-## <a name="microsoft.compute/virtualmachinescalesets/virtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
+## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 | Mesure | Nom d’affichage de la mesure | Unité | Type d’agrégation | Description |
 | --- | --- | --- | --- | --- |
 | Pourcentage UC |Pourcentage UC |Pourcentage |Moyenne |Le pourcentage d’unités de calcul affectées actuellement utilisées par des machines virtuelles |
@@ -257,7 +261,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 | Opérations de lecture disque/s |Opérations de lecture disque/s |Nombre par seconde |Moyenne |E/S de lecture disque par seconde |
 | Opérations d’écriture disque/s |Opérations d’écriture disque/s |Nombre par seconde |Moyenne |E/S d’écriture disque par seconde |
 
-## <a name="microsoft.devices/iothubs"></a>Microsoft.Devices/IotHubs
+## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 | Mesure | Nom d’affichage de la mesure | Unité | Type d’agrégation | Description |
 | --- | --- | --- | --- | --- |
 | d2c.telemetry.ingress.allProtocol |Tentatives d’envoi de message de télémétrie |Nombre |Total |Nombre de tentatives d’envoi de messages de télémétrie appareil vers cloud vers votre hub IoT |
@@ -268,7 +272,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 | devices.totalDevices |Nombre total d’appareils |Nombre |Total |Nombre d’appareils enregistrés sur votre hub IoT |
 | devices.connectedDevices.allProtocol |Appareils connectés |Nombre |Total |Nombre d’appareils connectés à votre hub IoT |
 
-## <a name="microsoft.eventhub/namespaces"></a>Microsoft.EventHub/namespaces
+## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 | Mesure | Nom d’affichage de la mesure | Unité | Type d’agrégation | Description |
 | --- | --- | --- | --- | --- |
 | INREQS |Demandes entrantes |Nombre |Total |Débit de messages entrants Event Hub pour un espace de noms |
@@ -285,7 +289,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 | EHAMSGS |Archiver les messages |Nombre |Total |Messages archivés Event Hub dans un espace de noms |
 | EHAMBS |Débit message archive |Octets par seconde |Total |Débit de messages archivés Event Hub dans un espace de noms |
 
-## <a name="microsoft.logic/workflows"></a>Microsoft.Logic/workflows
+## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 | Mesure | Nom d’affichage de la mesure | Unité | Type d’agrégation | Description |
 | --- | --- | --- | --- | --- |
 | RunsStarted |Exécutions démarrées |Nombre |Total |Nombre d’exécutions de flux de travail démarrées. |
@@ -319,25 +323,25 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 | BillableTriggerExecutions |Exécutions de déclencheurs facturables |Nombre |Total |Nombre d’exécutions de déclencheurs de flux de travail facturées. |
 | TotalBillableExecutions |Nombre total d’exécutions facturables |Nombre |Total |Nombre d’exécutions de flux de travail facturées. |
 
-## <a name="microsoft.network/applicationgateways"></a>Microsoft.Network/applicationGateways
+## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 | Mesure | Nom d’affichage de la mesure | Unité | Type d’agrégation | Description |
 | --- | --- | --- | --- | --- |
 | Débit |Débit |Octets par seconde |Moyenne | |
 
-## <a name="microsoft.search/searchservices"></a>Microsoft.Search/searchServices
+## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 | Mesure | Nom d’affichage de la mesure | Unité | Type d’agrégation | Description |
 | --- | --- | --- | --- | --- |
 | SearchLatency |Latence de recherche |Secondes |Moyenne |Latence moyenne de recherche du service de recherche |
 | SearchQueriesPerSecond (Recherches par seconde) |Requêtes de recherche par seconde |Nombre par seconde |Moyenne |Requêtes de recherche par seconde pour le service de recherche |
 | ThrottledSearchQueriesPercentage |Pourcentage de requêtes de recherche limitées |Pourcentage |Moyenne |Pourcentage de requêtes de recherche limitées par le service de recherche |
 
-## <a name="microsoft.servicebus/namespaces"></a>Microsoft.ServiceBus/namespaces
+## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 | Mesure | Nom d’affichage de la mesure | Unité | Type d’agrégation | Description |
 | --- | --- | --- | --- | --- |
 | CPUXNS |Utilisation du processeur par espace de noms |Pourcentage |Maximale |Mesure d’utilisation du processeur de l’espace de noms Service Bus Premium |
 | WSXNS |Utilisation de la taille mémoire par espace de noms |Pourcentage |Maximale |Mesure d’utilisation de la mémoire de l’espace de noms Service Bus Premium |
 
-## <a name="microsoft.sql/servers/databases"></a>Microsoft.Sql/servers/databases
+## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 | Mesure | Nom d’affichage de la mesure | Unité | Type d’agrégation | Description |
 | --- | --- | --- | --- | --- |
 | cpu_percent |Pourcentage UC |Pourcentage |Moyenne |Pourcentage UC |
@@ -360,7 +364,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 | dwu_consumption_percent |Pourcentage DWU |Pourcentage |Moyenne |Pourcentage DWU |
 | dwu_used |DWU utilisé |Nombre |Moyenne |DWU utilisé |
 
-## <a name="microsoft.sql/servers/elasticpools"></a>Microsoft.Sql/servers/elasticPools
+## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 | Mesure | Nom d’affichage de la mesure | Unité | Type d’agrégation | Description |
 | --- | --- | --- | --- | --- |
 | cpu_percent |Pourcentage UC |Pourcentage |Moyenne |Pourcentage UC |
@@ -375,7 +379,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 | eDTU_used |eDTU utilisé |Nombre |Moyenne |eDTU utilisé |
 | storage_used |Stockage utilisé |Octets |Moyenne |Stockage utilisé |
 
-## <a name="microsoft.streamanalytics/streamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
+## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 | Mesure | Nom d’affichage de la mesure | Unité | Type d’agrégation | Description |
 | --- | --- | --- | --- | --- |
 | ResourceUtilization |Utilisation de % d’unités de diffusion |Pourcentage |Maximale |Utilisation de % d’unités de diffusion |
@@ -390,7 +394,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 | AMLCalloutFailedRequests |Requêtes de fonction ayant échoué |Nombre |Total |Requêtes de fonction ayant échoué |
 | AMLCalloutInputEvents |Événements de fonction |Nombre |Total |Événements de fonction |
 
-## <a name="microsoft.web/serverfarms"></a>Microsoft.Web/serverfarms
+## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 | Mesure | Nom d’affichage de la mesure | Unité | Type d’agrégation | Description |
 | --- | --- | --- | --- | --- |
 | Pourcentage UC |Pourcentage UC |Pourcentage |Moyenne |Pourcentage UC |
@@ -400,7 +404,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 | Octets reçus |Données entrantes |Octets |Total |Données entrantes |
 | Octets envoyés |Données sortantes |Octets |Total |Données sortantes |
 
-## <a name="microsoft.web/sites"></a>Microsoft.Web/sites
+## <a name="microsoftwebsites"></a>Microsoft.Web/sites
 | Mesure | Nom d’affichage de la mesure | Unité | Type d’agrégation | Description |
 | --- | --- | --- | --- | --- |
 | CpuTime |Temps processeur |Secondes |Total |Temps processeur |
@@ -419,7 +423,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 | AverageMemoryWorkingSet |Plage de travail moyenne de la mémoire |Octets |Moyenne |Plage de travail moyenne de la mémoire |
 | AverageResponseTime |Temps de réponse moyen |Secondes |Moyenne |Temps de réponse moyen |
 
-## <a name="microsoft.web/sites/slots"></a>Microsoft.Web/sites/slots
+## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 | Mesure | Nom d’affichage de la mesure | Unité | Type d’agrégation | Description |
 | --- | --- | --- | --- | --- |
 | CpuTime |Temps processeur |Secondes |Total |Temps processeur |
@@ -440,9 +444,12 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur les mesures dans Azure Monitor](monitoring-overview.md#monitoring-sources)
-* [Créer des alertes sur les mesures](../azure-portal/insights-receive-alert-notifications.md)
+* [Créer des alertes sur les mesures](insights-receive-alert-notifications.md)
 * [Exporter des mesures vers le stockage, un hub d’événements ou Log Analytics](monitoring-overview-of-diagnostic-logs.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

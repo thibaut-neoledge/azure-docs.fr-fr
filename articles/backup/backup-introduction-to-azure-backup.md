@@ -1,11 +1,11 @@
 ---
-title: "Qu’est-ce qu’Azure Backup ? | Microsoft Docs"
+title: "Qu’est-ce qu’Azure Backup ? | Microsoft Docs"
 description: "Grâce à Azure Backup et à Recovery Services, vous pouvez sauvegarder et restaurer des données et des applications à partir de serveurs Windows, d’ordinateurs clients Windows, de serveurs System Center DPM ou de machines virtuelles Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
 manager: cfreeman
-editor: tysonn
+editor: 
 keywords: "sauvegarde et restauration ; services de restauration ; solutions de sauvegarde"
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
 ms.service: backup
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2016
+ms.date: 12/7/2016
 ms.author: jimpark; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: cf3930f209e84ee9b14b56566ca19d31382946aa
-ms.openlocfilehash: cefb405b4f30ca5fe20f6acfaee5ebba2690990b
+ms.sourcegitcommit: 9de8032bc69b054d5d13857159ff994f505497a6
+ms.openlocfilehash: 08e7d4402ad52835d193b2083e3c9b2776e0332e
 
 
 ---
@@ -33,10 +33,11 @@ Les solutions de sauvegarde traditionnelles ont évolué et considèrent désorm
 
 **Mise à l’échelle illimitée** : Azure Backup utilise la puissance et l’échelle illimitée du cloud Azure pour garantir la haute disponibilité, sans supplément de maintenance ou de surveillance. Vous pouvez configurer des alertes pour fournir des informations sur les événements, mais vous n’avez pas à vous soucier de la haute disponibilité de vos données dans le cloud.
 
-**Diverses options de stockage** : la réplication du stockage est l’un des facteurs de haute disponibilité. La sauvegarde Azure propose deux types de réplication : le [stockage localement redondant](../storage/storage-redundancy.md#locally-redundant-storage) et le [stockage géorépliqué](../storage/storage-redundancy.md#geo-redundant-storage). Choisissez l’option de stockage de sauvegarde en fonction de vos besoins :
+**Diverses options de stockage** : la réplication du stockage est l’un des facteurs de haute disponibilité. La solution Sauvegarde Azure propose deux types de réplications : le [stockage localement redondant](../storage/storage-redundancy.md#locally-redundant-storage) et le [stockage géoredondant](../storage/storage-redundancy.md#geo-redundant-storage). Choisissez l’option de stockage de sauvegarde en fonction de vos besoins :
 
-* Le stockage localement redondant (LRS) réplique vos données trois fois (il crée trois copies de vos données) dans un centre de données associé au sein de la même région. Le stockage LRS est une option économique qui convient parfaitement aux clients désireux de maîtriser leur budget, car il protège les données contre les défaillances matérielles locales.
-* Le stockage par géoréplication (GRS) réplique vos données vers une région secondaire à des centaines de kilomètres de l’emplacement primaire des données sources. Le stockage GRS est plus onéreux que le stockage LRS, mais il fournit un niveau supérieur de durabilité des données, même en cas de panne régionale.
+* Le stockage localement redondant (LRS) réplique vos données trois fois (il crée trois copies de vos données) dans un centre de données associé au sein de la même région. Le stockage LRS est une option à faible coût qui protège vos données contre les défaillances matérielles locales.
+
+* Le stockage géoredondant (GRS) réplique vos données vers une région secondaire, distante de plusieurs centaines de kilomètres de l’emplacement principal des données sources. Le stockage GRS est plus onéreux que le stockage LRS, mais il offre une durabilité des données supérieure, même en cas de panne au niveau régional.
 
 **Transfert de données illimité** : Azure Backup ne limite pas la quantité de données entrantes ou sortantes transférées. Par ailleurs, les données transférées ne sont pas facturées par Azure Backup. Toutefois, si vous utilisez le service Azure Import/Export pour importer de grandes quantités de données, les données entrantes ont un coût. Pour plus d’informations sur ce coût, consultez [Flux de travail de la sauvegarde hors connexion dans Azure Backup](backup-azure-backup-import-export.md). Les données sortantes sont les données transférées depuis un coffre de sauvegarde pendant une opération de restauration.
 
@@ -52,8 +53,8 @@ Si vous ne savez pas quel composant Azure Backup utiliser pour vos besoins, cons
 | Composant | Avantages | limites | Qu’est-ce qui est protégé ? | Où sont stockées les sauvegardes ? |
 | --- | --- | --- | --- | --- |
 | Agent Azure Backup (MARS) |<li>Sauvegarde des fichiers et des dossiers sur un système d’exploitation Windows physique ou virtuel (les machines virtuelles peuvent être locales ou dans Azure)<li>Aucun serveur de sauvegarde distinct n’est requis. |<li>Sauvegarde 3 fois par jour <li>Ne tient pas compte des applications ; restauration au niveau du fichier, du dossier et du volume seulement, <li>  Linux non pris en charge. |<li>Fichiers, <li>Dossiers |Archivage de sauvegarde Azure |
-| System Center DPM |<li>Instantanés tenant compte des applications (VSS)<li>Flexibilité totale concernant le moment d’exécution de la sauvegarde<li>Granularité de récupération (tout)<li>Peut utiliser le coffre Azure Backup<li>Prise en charge de Linux (s’il est hébergé sur Hyper-V) <li>Protection des machines virtuelles VMware avec DPM 2012 R2 |Ne prend pas en charge la sauvegarde de la charge de travail Oracle |<li>Fichiers, <li>Dossiers,<li> Volumes, <li>Machines virtuelles,<li> Applications,<li> Charges de travail |<li>Coffre Azure Backup,<li> Disque connecté localement,<li>  Bande (locale uniquement) |
-| Azure Backup Server |<li>Instantanés tenant compte des applications (VSS)<li>Flexibilité totale concernant le moment d’exécution de la sauvegarde<li>Granularité de récupération (tout)<li>Peut utiliser le coffre Azure Backup<li>Prise en charge de Linux (s’il est hébergé sur Hyper-V)<li>Ne nécessite pas de licence System Center |<li>Absence de prise en charge hétérogène (sauvegarde de machine virtuelle VMware, sauvegarde de la charge de travail Oracle)<li>Requiert toujours un abonnement Azure en direct<li>Aucune prise en charge de la sauvegarde sur bande |<li>Fichiers, <li>Dossiers,<li> Volumes, <li>Machines virtuelles,<li> Applications,<li> Charges de travail |<li>Coffre Azure Backup,<li> Disque connecté localement |
+| System Center DPM |<li>Instantanés tenant compte des applications (VSS)<li>Flexibilité totale concernant le moment d’exécution de la sauvegarde<li>Granularité de récupération (tout)<li>Peut utiliser le coffre Azure Backup<li>Prise en charge de Linux sur machines virtuelles Hyper-V et VMware <li>Protection des machines virtuelles VMware avec DPM 2012 R2 |Impossible de sauvegarder des charges de travail Oracle.|<li>Fichiers, <li>Dossiers,<li> Volumes, <li>Machines virtuelles,<li> Applications,<li> Charges de travail |<li>Coffre Azure Backup,<li> Disque connecté localement,<li>  Bande (locale uniquement) |
+| Azure Backup Server |<li>Instantanés tenant compte des applications (VSS)<li>Flexibilité totale concernant le moment d’exécution de la sauvegarde<li>Granularité de récupération (tout)<li>Peut utiliser le coffre Azure Backup<li>Prise en charge de Linux (s’il est hébergé sur Hyper-V)<li>Protection des machines virtuelles VMware avec DPM 2012 R2<li>Ne nécessite pas de licence System Center |<li>Impossible de sauvegarder des charges de travail Oracle.<li>Requiert toujours un abonnement Azure en direct<li>Aucune prise en charge de la sauvegarde sur bande |<li>Fichiers, <li>Dossiers,<li> Volumes, <li>Machines virtuelles,<li> Applications,<li> Charges de travail |<li>Coffre Azure Backup,<li> Disque connecté localement |
 | Sauvegarde des machines virtuelles IaaS Azure |<li>Sauvegardes natives pour Windows/Linux<li>Aucune installation spécifique d’agent n’est requise<li>Sauvegarde au niveau structure sans nécessiter d’infrastructure de sauvegarde |<li>Sauvegarde des machines virtuelles une fois par jour <li>Restauration des machines virtuelles uniquement au niveau du disque<li>Impossible d’effectuer une sauvegarde en local |<li>Machines virtuelles, <li>Tous les disques (à l’aide de PowerShell) |<p>Archivage de sauvegarde Azure</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>Quels sont les scénarios de déploiement de chaque composant ?
@@ -95,7 +96,7 @@ Le tableau suivant montre les composants Azure Backup prenant en charge Linux.
 Azure Backup protège les machines virtuelles Premium Storage. Stockage Premium Azure est un stockage SSD conçu pour supporter des charges de travail nécessitant de nombreuses E/S. Stockage Premium est intéressant pour les charges de travail des machines virtuelles. Pour plus d’informations sur Stockage Premium, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Sauvegarder des machines virtuelles Premium Storage
-Lors de la sauvegarde de machines virtuelles Premium Storage, le service Backup crée un emplacement temporaire intermédiaire dans le compte Premium Storage. L'emplacement intermédiaire, nommé « AzureBackup- », est égal à la taille totale des données des disques Premium attachés à la machine virtuelle.
+Lors de la sauvegarde de machines virtuelles Premium Storage, le service Backup crée un emplacement temporaire intermédiaire dans le compte Premium Storage. L'emplacement intermédiaire, nommé « AzureBackup- », est égal à la taille totale des données des disques Premium attachés à la machine virtuelle. Vérifiez si l’espace libre est suffisant pour un stockage temporaire intermédiaire sur le compte de stockage. Pour plus d’informations, consultez l’article [Limites du stockage Premium](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets).
 
 > [!NOTE]
 > Évitez de modifier l'emplacement intermédiaire.
@@ -175,15 +176,27 @@ Si vous sauvegardez vos données sur un System Center DPM ou sur un serveur de s
 L’agent Azure Backup assure une limitation du réseau qui permet de contrôler l’utilisation de la bande passante réseau pendant le transfert de données. Cette limitation peut s’avérer utile si vous avez besoin de sauvegarder des données pendant les heures de travail, mais ne souhaitez pas que le processus de sauvegarde interfère avec le reste du trafic internet. La limitation du transfert de données s’applique aux activités de sauvegarde et de restauration.
 
 ### <a name="backup-and-retention"></a>Sauvegarde et rétention
+
+La solution Sauvegarde Azure présente une limite de 9 999 points de récupération, également appelés copies ou instantanés de sauvegarde, par *instance protégée*. Une instance protégée est un ordinateur, un serveur (physique ou virtuel) ou une charge de travail configurés pour sauvegarder des données dans Azure. Pour plus d’informations, consultez la section [Qu’est-ce qu’une instance protégée ?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Une instance est protégée une fois qu’une copie de sauvegarde des données a été enregistrée. La copie de sauvegarde des données constitue la protection. Si les données sources sont perdues ou endommagées, la copie de sauvegarde peut les restaurer. Le tableau ci-après indique la fréquence de sauvegarde maximale pour chaque composant. Votre configuration de votre stratégie de sauvegarde détermine la rapidité avec laquelle vous consommez les points de récupération. Par exemple, si vous créez un point de récupération chaque jour, vous pouvez conserver les points de récupération pendant 27 ans avant d’en manquer. Si vous optez pour un point de récupération par mois, vous pouvez conserver les points de récupération pendant 833 ans avant d’en manquer. Le service de sauvegarde ne définit pas de délai d’expiration pour un point de récupération.
+
 |  | Agent Azure Backup | System Center DPM | Azure Backup Server | Sauvegarde des machines virtuelles IaaS Azure |
 | --- | --- | --- | --- | --- |
 | Fréquence de sauvegarde<br/> (vers le coffre de sauvegarde) |Trois sauvegardes par jour |Deux sauvegardes par jour |Deux sauvegardes par jour |Une sauvegarde par jour |
 | Fréquence de sauvegarde<br/> (vers le disque) |Non applicable |<li>Toutes les 15 minutes pour SQL Server <li>Toutes les heures pour les autres charges de travail |<li>Toutes les 15 minutes pour SQL Server <li>Toutes les heures pour les autres charges de travail</p> |Non applicable |
 | Options de rétention |Quotidienne, hebdomadaire, mensuelle, annuelle |Quotidienne, hebdomadaire, mensuelle, annuelle |Quotidienne, hebdomadaire, mensuelle, annuelle |Quotidienne, hebdomadaire, mensuelle, annuelle |
-| Période de rétention |Jusqu’à 99 ans |Jusqu’à 99 ans |Jusqu’à 99 ans |Jusqu’à 99 ans |
-| Points de récupération dans le coffre Azure Backup |Illimité |Illimité |Illimité |Illimité |
+| Nombre maximal de points de récupération par instance protégée |9 999|9 999|9 999|9 999|
+| Période de rétention maximale |Dépend de la fréquence de sauvegarde |Dépend de la fréquence de sauvegarde |Dépend de la fréquence de sauvegarde |Dépend de la fréquence de sauvegarde |
 | Points de récupération sur le disque local |Non applicable |<li>64 pour les serveurs de fichiers,<li>448 pour les serveurs d’applications |<li>64 pour les serveurs de fichiers,<li>448 pour les serveurs d’applications |Non applicable |
 | Points de récupération sur bande |Non applicable |Illimité |Non applicable |Non applicable |
+
+## <a name="what-is-a-protected-instance"></a>Qu’est-ce qu’une instance protégée ?
+Une instance protégée est une référence générique à un ordinateur Windows, à un serveur (physique ou virtuel) ou à une base de données SQL qui ont été configurés pour sauvegarder des données dans Azure. Une instance est protégée une fois que vous configurez une stratégie de sauvegarde pour l’ordinateur, le serveur ou la base de données et que vous créez une copie de sauvegarde des données. Les copies ultérieures des données de sauvegarde pour cette instance protégée (qui sont appelées points de récupération), augmentent la quantité de stockage consommée. Vous pouvez créer jusqu’à 9 999 points de récupération pour une instance protégée. Si vous supprimez un point de récupération du stockage, ce point n’entre pas dans le total des 9 999 points de récupération.
+Parmi les exemples d’instances protégées, citons les machines virtuelles, les serveurs d’applications, les bases de données et les ordinateurs personnels exécutant le système d’exploitation Windows. Par exemple :
+
+* Machine virtuelle exécutant la structure d’hyperviseur Hyper-V ou Azure IaaS. Les systèmes d’exploitation invités de cette machine virtuelle peuvent être Windows Server ou Linux.
+* Serveur d’applications : le serveur d’applications peut être une machine physique ou virtuelle exécutant Windows Server et des charges de travail impliquant des données à sauvegarder. Les charges de travail courantes sont Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server, Microsoft Dynamics et le rôle Serveur de fichiers sur Windows Server. Pour sauvegarder ces charges de travail, vous avez besoin de System Center Data Protection Manager (DPM) ou du serveur de sauvegarde Azure.
+* Un ordinateur personnel ou un portable exécutant le système d’exploitation Windows.
+
 
 ## <a name="what-is-the-vault-credential-file"></a>Qu’est-ce que le fichier d’informations d’identification de coffre ?
 Le fichier d’informations d’identification de coffre est un certificat qui est généré par le portail pour chaque coffre de sauvegarde. Le portail télécharge ensuite la clé publique pour le Service de contrôle d’accès (ACS). La clé privée vous est fournie lors du téléchargement des informations d’identification. Utilisez-la pour enregistrer les ordinateurs que vous protégez. La clé privée vous permet d’authentifier les serveurs ou les ordinateurs pour envoyer des données de sauvegarde vers un coffre de sauvegarde particulier.
@@ -215,12 +228,12 @@ Pour plus d’informations sur la protection des autres charges de travail, cons
 * [Sauvegarder les charges de travail des applications](backup-azure-microsoft-azure-backup.md)
 * [Sauvegarde des machines virtuelles IaaS Azure](backup-azure-vms-prepare.md)
 
-[vert]: ./media/backup-introduction-to-azure-backup/green.png
-[jaune]: ./media/backup-introduction-to-azure-backup/yellow.png
-[rouge]: ./media/backup-introduction-to-azure-backup/red.png
+[green]: ./media/backup-introduction-to-azure-backup/green.png
+[yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
+[red]: ./media/backup-introduction-to-azure-backup/red.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

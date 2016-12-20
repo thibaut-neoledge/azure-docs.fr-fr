@@ -1,19 +1,23 @@
 ---
-title: Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory | Microsoft Docs
-description: Découvrez comment utiliser les mappages d’expressions pour transformer des valeurs d’attributs dans un format acceptable lors de l’approvisionnement automatique des objets d’application SaaS dans Azure Active Directory.
+title: "Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory | Microsoft Docs"
+description: "Découvrez comment utiliser les mappages d’expressions pour transformer des valeurs d’attributs dans un format acceptable lors de l’approvisionnement automatique des objets d’application SaaS dans Azure Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: markusvi
+ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d49236c634be8260cb0fb24a0ee08cd71353f6ba
+
 
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
@@ -22,14 +26,14 @@ Quand vous configurez l’approvisionnement pour une application SaaS, l’un de
 ## <a name="syntax-overview"></a>Vue d’ensemble de la syntaxe
 La syntaxe des expressions pour les mappages d’attributs rappelle celle des fonctions Visual Basic pour Applications (VBA).
 
-* L’expression entière doit être définie en termes de fonctions, qui sont constituées d’un nom suivi d’arguments entre parenthèses : <br>
+* L’expression entière doit être définie en termes de fonctions, qui sont constituées d’un nom suivi d’arguments entre parenthèses : <br>
   *NomDeFonction(<<argument 1>>,<<argument N>>)*
-* Vous pouvez imbriquer des fonctions dans d’autres. Par exemple : <br> *FonctionUne(FonctionDeux(<<argument1>>))*
-* Vous pouvez passer trois différents types d’arguments dans des fonctions :
+* Vous pouvez imbriquer des fonctions dans d’autres. Par exemple : <br> *FonctionUne(FonctionDeux(<<argument1>>))*
+* Vous pouvez passer trois différents types d’arguments dans des fonctions :
   
-  1. Des attributs, qui doivent être placés entre crochets. Par exemple : [nom_attribut]
-  2. Des constantes de chaîne, qui doivent être placées entre des guillemets doubles. Par exemple : "États-Unis"
-  3. D’autres fonctions. Par exemple : fonction_une (<<argument1>>, fonction_deux(<<argument2>>))
+  1. Des attributs, qui doivent être placés entre crochets. Par exemple : [nom_attribut]
+  2. Des constantes de chaîne, qui doivent être placées entre des guillemets doubles. Par exemple : "États-Unis"
+  3. D’autres fonctions. Par exemple : fonction_une (<<argument1>>, fonction_deux(<<argument2>>))
 * Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\). Par exemple : « Nom de la société : \"Contoso\" »
 
 ## <a name="list-of-functions"></a>Liste des fonctions
@@ -101,14 +105,14 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 | Nom | Requis / Répétition | Type | Remarques |
 | --- | --- | --- | --- |
-| **source** |Requis |Chaîne de type Boolean |Les valeurs **sources** attendues sont « True » ou « False ». |
+| **source** |Requis |Chaîne de type Boolean |Les valeurs **sources** attendues sont « True » ou « False ». |
 
 - - -
 ### <a name="replace"></a>Replace
 **Fonction :**<br>  ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Description :**<br>
- Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les paramètres fournis :
+ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les paramètres fournis :
 
 * Quand **oldValue** et **replacementValue** sont fournis :
   
@@ -116,7 +120,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 * Quand **oldValue** et **template** sont fournis :
   
   * Remplace toutes les occurrences d’**oldValue** dans le **template** par la valeur **source**.
-* Quand **oldValueRegexPattern**, **oldValueRegexGroupName** et **replacementValue** sont fournis :
+* Quand **oldValueRegexPattern**, **oldValueRegexGroupName** et **replacementValue** sont fournis :
   
   * Remplace toutes les valeurs correspondant à oldValueRegexPattern dans la chaîne source par replacementValue.
 * Quand **oldValueRegexPattern**, **oldValueRegexGroupName** et **replacementPropertyName** sont fournis :
@@ -166,7 +170,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 ## <a name="examples"></a>Exemples
 ### <a name="strip-known-domain-name"></a>Supprimer un nom de domaine connu
 Vous devez supprimer un nom de domaine connu de l’adresse de messagerie d’un utilisateur pour obtenir un nom d’utilisateur. <br>
- Par exemple, si le domaine est « contoso.com », vous pouvez utiliser l’expression suivante :
+ Par exemple, si le domaine est « contoso.com », vous pouvez utiliser l’expression suivante :
 
 **Expression :** <br>
 `Replace([mail], "@contoso.com", , ,"", ,)`
@@ -182,7 +186,7 @@ Si vous utilisez un Sandbox Salesforce, vous devrez peut-être ajouter un suffix
 **Expression :** <br>
 `Append([userPrincipalName], ".test"))`
 
-**Exemple d’entrée/sortie :** <br>
+**Exemple d’entrée/sortie :** <br>
 
 * **ENTRÉE** : (userPrincipalName) : "John.Doe@contoso.com"
 * **SORTIE** :  "John.Doe@contoso.com.test"
@@ -193,10 +197,10 @@ Vous devez générer un alias d’utilisateur en prenant les trois premières le
 **Expression :** <br>
 `Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
 
-**Exemple d’entrée/sortie :** <br>
+**Exemple d’entrée/sortie :** <br>
 
-* **ENTRÉE** (givenName): « John »
-* **ENTRÉE** (surname) : « Doe »
+* **ENTRÉE** (givenName): « John »
+* **ENTRÉE** (surname) : « Doe »
 * **SORTIE** : « JohDoe »
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Sortir une date sous la forme d’une chaîne dans un certain format
@@ -207,33 +211,36 @@ Vous souhaitez envoyer des dates à une application SaaS dans un format donné. 
 
 `FormatDateTime([extensionAttribute1], "yyyyMMddHHmmss.fZ", "yyyy-MM-dd")`
 
-**Exemple d’entrée/sortie :**
+**Exemple d’entrée/sortie :**
 
-* **ENTRÉE** (extensionAttribute1) : « 20150123105347.1Z »
+* **ENTRÉE** (extensionAttribute1) : « 20150123105347.1Z »
 * **SORTIE** : « 2015-01-23 »
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Remplacer une valeur en fonction d’un ensemble d’options prédéfini
 Vous devez définir le fuseau horaire de l’utilisateur en fonction du code d’état stocké dans Azure AD. <br>
- Si le code d’état ne correspond à aucune des options prédéfinies, utilisez la valeur par défaut « Australia/Sydney ».
+ Si le code d’état ne correspond à aucune des options prédéfinies, utilisez la valeur par défaut « Australia/Sydney ».
 
 **Expression :** <br>
 
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
 
-**Exemple d’entrée/sortie :**
+**Exemple d’entrée/sortie :**
 
-* **ENTRÉE** (state) : « QLD »
-* **SORTIE**: « Australia/Brisbane »
+* **ENTRÉE** (state) : « QLD »
+* **SORTIE**: « Australia/Brisbane »
 
 ## <a name="related-articles"></a>Articles connexes
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-* [Automatiser l’approvisionnement/annuler l’approvisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md)
+* [Automatiser l’approvisionnement/annuler l’approvisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md)
 * [Personnalisation des mappages d’attributs pour l’approvisionnement des utilisateurs](active-directory-saas-customizing-attribute-mappings.md)
 * [Filtres d’étendue pour l’approvisionnement des utilisateurs](active-directory-saas-scoping-filters.md)
 * [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](active-directory-scim-provisioning.md)
 * [Notifications d’approvisionnement de comptes](active-directory-saas-account-provisioning-notifications.md)
-* [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
+* [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

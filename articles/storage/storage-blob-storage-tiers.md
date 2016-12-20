@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 31af2d1ade0c24a8d76e98d95fda287320552eea
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 998e95611bca6778de601239bcf9c81246dead83
 
 
 ---
@@ -248,7 +248,7 @@ Pour estimer les frais de transaction pour les comptes de stockage d’objets bl
 
 Pour estimer les frais de transaction pour les comptes de stockage à usage général, vous devez regrouper toutes les transactions, quelle que soit l’opération/l’API associée.
 
-##### <a name="data-access-and-georeplication-data-transfer-costs"></a>Coûts d’accès aux données et de transfert de données de géoréplication
+##### <a name="data-access-and-geo-replication-data-transfer-costs"></a>Coûts d’accès aux données et de transfert de données de géoréplication
 La quantité de données lues et écrites dans un compte de stockage n’est pas fournie par Storage Analytics mais peut être estimée en consultant la table de métriques de transaction.
 La somme des entrées *'TotalIngress'* d’une API dans la table de métriques de transaction indique la quantité totale de données entrantes en octets pour cette API.
 De même, la somme des entrées *'TotalEgress'* indique la quantité totale des données sortantes en octets.
@@ -345,6 +345,6 @@ Pour plus d’informations, voir [Prise en main du stockage d’objets blob Azur
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

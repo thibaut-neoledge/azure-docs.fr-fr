@@ -1,65 +1,72 @@
 ---
-title: Use Interactive Hive in HDInsight? | Microsoft Docs
-description: Learn how to use Interactive Hive (Hive on LLAP) in HDInsight.
-keywords: ''
+title: "Utilisation de Hive interactif dans HDInsight | Microsoft Docs"
+description: "Découvrez comment utiliser Hive interactif (Hive sur LLAP) dans HDInsight."
+keywords: 
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 0957643c-4936-48a3-84a3-5dc83db4ab1a
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 10/27/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6971e123b388eab689e02a5c67809509c2ad29c6
+
 
 ---
-# <a name="use-interactive-hive-in-hdinsight-(preview)"></a>Use Interactive Hive in HDInsight (Preview)
-Interactive Hive (A.K.A. [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) is a new HDInsight [cluster type](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).  Interactive Hive allows in memory caching that makes Hive queries much more interactive and faster. This new feature makes HDInsight one of the world’s most performant, flexible, and open Big Data solution on the cloud with in-memory caches (using Hive and Spark) and advanced analytics through deep integration with R Services. 
+# <a name="use-interactive-hive-in-hdinsight-preview"></a>Utilisation de Hive interactif dans HDInsight (version préliminaire)
+Hive interactif (également appelé [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) est un nouveau [type de cluster](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) HDInsight.  Hive interactif permet la mise en mémoire cache ce qui rend les requêtes Hive beaucoup plus interactives et rapides. Cette nouvelle fonctionnalité fait de HDInsight l’une des solutions de Big Data dans le cloud les plus performantes, flexibles et ouvertes, avec des caches in-memory (utilisant Hive et Spark), ainsi que des services d’analyse avancée via une intégration étroite avec R Services. 
 
-The Interactive Hive cluster is different from the Hadoop cluster. It only contains the Hive service. 
+Le cluster Hive interactif est différent du cluster Hadoop. Il contient uniquement le service Hive. 
 
 > [!NOTE]
-> MapReduce, Pig, Sqoop, Oozie, and other services will be removed from this cluster type noon.
-> The Hive service in the Interactive Hive cluster is only accessible via the Ambari Hive view, Beeline, and Hive ODBC. It can’t be accessed via Hive console, Templeton, Azure CLI, and Azure PowerShell. 
+> MapReduce, Pig, Sqoop, Oozie et d’autres services seront prochainement supprimés de ce type de cluster.
+> Le service Hive du cluster Hive interactif est uniquement accessible via la vue Ambari Hive, Beeline et ODBC Hive. Il n’est pas accessible via la console Hive, Templeton, l’interface de ligne de commande Azure et Azure PowerShell. 
 > 
 > 
 
-## <a name="create-an-interactive-hive-cluster"></a>Create an Interactive Hive cluster
-Interactive Hive cluster is only supported on Linux-based clusters. For information about creating HDInsight clusters, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+## <a name="create-an-interactive-hive-cluster"></a>Création d’un cluster Hive interactif
+Le cluster Hive interactif est uniquement pris en charge sur les clusters basés sur Linux. Pour des informations sur la création de clusters HDInsight, consultez [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="execute-hive-from-interactive-hive"></a>Execute Hive from Interactive Hive
-There are different options how you can execute Hive queries:
+## <a name="execute-hive-from-interactive-hive"></a>Exécution de Hive à partir de Hive interactif
+Il existe différentes options vous permettant d’exécuter des requêtes Hive :
 
-* Run Hive using the Ambari Hive view
+* Exécution de Hive à l’aide de la vue Ambari Hive
   
-    For the information about using the Hive View, see [Use the Hive View with Hadoop in HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
-* Run Hive using Beeline
+    Pour des informations sur l’utilisation de la vue Hive, consultez [Utiliser la vue Hive avec Hadoop dans HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
+* Exécution de Hive à l’aide de Beeline
   
-    For the information on using Beeline on HDInsight, see [Use Hive with Hadoop in HDInsight with Beeline](hdinsight-hadoop-use-hive-beeline.md).
+    Pour des informations sur l’utilisation de Beeline sur HDInsight, consultez [Utiliser Hive avec Hadoop dans HDInsight avec Beeline](hdinsight-hadoop-use-hive-beeline.md).
   
-    You use Beeline from either the headnode or an empty edge node.  Using Beeline from an empty edge node is recommended.  For information on creating an HDInsight cluster with an empty edgenode, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
-* Run Hive using Hive ODBC
+    Vous utilisez Beeline à partir du nœud principal ou d’un nœud de périmètre vide.  L’utilisation de Beeline à partir d’un nœud de périmètre vide est recommandée.  Pour des informations sur la création d’un cluster HDInsight avec un nœud de périmètre vide, consultez [Utiliser des nœuds de périmètre vides dans HDInsight](hdinsight-apps-use-edge-node.md).
+* Exécution de Hive à l’aide d’ODBC Hive
   
-    For the information on using Hive ODBC, see [Connect Excel to Hadoop with the Microsoft Hive ODBC driver](hdinsight-connect-excel-hive-odbc-driver.md).
+    Pour des informations sur l’utilisation de Hive ODBC, consultez la page [Connexion d’Excel à Hadoop avec le pilote ODBC Hive de Microsoft](hdinsight-connect-excel-hive-odbc-driver.md).
 
-**To find the JDBC connection string:**
+**Pour rechercher la chaîne de connexion JDBC :**
 
-1. Sign on to Ambari using the following URL: https://<ClusterName>.AzureHDInsight.net.
-2. Click **Hive** from the left menu.
-3. Click the highlighted icon to copy the URL:
+1. Connectez-vous à Ambari à l’aide de l’URL suivante : https://<ClusterName>.AzureHDInsight.net.
+2. Cliquez sur **Hive** dans le menu de gauche.
+3. Cliquez sur l’icône en surbrillance pour copier l’URL :
    
-   ![HDInsight Hadoop Interactive Hive LLAP JDBC](./media/hdinsight-hadoop-use-interactive-hive/hdinsight-hadoop-use-interactive-hive-jdbc.png)
+   ![HDInsight Hadoop Hive interactif LLAP JDBC](./media/hdinsight-hadoop-use-interactive-hive/hdinsight-hadoop-use-interactive-hive-jdbc.png)
 
-## <a name="see-also"></a>See also
-* [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md): Learn how to create Interactive Hive clusters in HDInsight.
-* [Use Hive with Hadoop in HDInsight with Beeline](hdinsight-hadoop-use-hive-beeline.md): Learn how to use Beeline to submit Hive queries.
-* [Connect Excel to Hadoop with the Microsoft Hive ODBC driver](hdinsight-connect-excel-hive-odbc-driver.md): learn how to connect Excel to Hive.
+## <a name="see-also"></a>Voir aussi
+* [Créer des clusters Hadoop dans HDInsight basés sur Linux](hdinsight-hadoop-provision-linux-clusters.md) : apprenez à créer des clusters Hive interactif dans HDInsight.
+* [Utilisation de Hive avec Hadoop dans HDInsight avec Beeline](hdinsight-hadoop-use-hive-beeline.md) : apprenez à utiliser Beeline pour envoyer des requêtes Hive.
+* [Connexion d’Excel à Hadoop avec le pilote ODBC Microsoft Hive](hdinsight-connect-excel-hive-odbc-driver.md) : apprenez à connecter Excel à Hive.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

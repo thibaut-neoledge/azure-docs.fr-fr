@@ -1,12 +1,12 @@
 ---
-title: Comment vérifier la progression des tâches à l’aide des API REST | Microsoft Docs
-description: Apprenez à suivre la progression des tâches.
+title: "Comment vérifier la progression des tâches à l’aide des API REST | Microsoft Docs"
+description: "Apprenez à suivre la progression des tâches."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a1a1f956-c035-448a-af9c-5ac15fcce9dd
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 04c80dddd1d42f923233eae49d3c1501cdfa5051
+
 
 ---
-# <a name="how-to:-check-job-progress"></a>Procédure : vérification de la progression des tâches
+# <a name="how-to-check-job-progress"></a>Procédure : vérification de la progression des tâches
 > [!div class="op_single_selector"]
 > * [Portail](media-services-portal-check-job-progress.md)
 > * [.NET](media-services-check-job-progress.md)
@@ -26,7 +30,7 @@ ms.author: juliako
 
 Lorsque vous exécutez des travaux, vous avez généralement besoin de faire appel à une méthode de suivi de la progression du travail. Vous trouverez l’état de la tâche en utilisant la propriété d’état de la tâche. Pour plus d'informations sur la propriété State, consultez [Propriétés de l'entité Job](https://msdn.microsoft.com/library/azure/5100ddd7-92ff-4c37-84d2-4f84fee250a7#job_entity_properties).
 
-Demande :
+Demande :
 
     GET https://media.windows.net/api/Jobs()?$filter=Id%20eq%20'nb%3Ajid%3AUUID%3Af3c43f94-327f-2347-90bb-3bf79f8559f1'&$top=1 HTTP/1.1
     DataServiceVersion: 1.0;NetFx
@@ -39,7 +43,7 @@ Demande :
 
 
 
-Réponse :
+Réponse :
 
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -62,6 +66,9 @@ Réponse :
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

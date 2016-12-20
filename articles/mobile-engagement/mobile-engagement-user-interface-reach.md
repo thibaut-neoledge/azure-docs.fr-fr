@@ -1,12 +1,12 @@
 ---
-title: Interface utilisateur d'Azure Mobile Engagement - Reach
-description: Découvrez comment atteindre les utilisateurs de votre application avec des notifications Push grâce à Azure Mobile Engagement
+title: Interface utilisateur d&quot;Azure Mobile Engagement - Reach
+description: "Découvrez comment atteindre les utilisateurs de votre application avec des notifications Push grâce à Azure Mobile Engagement"
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: d96e2590-08dd-4481-a352-2c18f26a1643
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,71 +14,75 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 37c12d1f3c0bbd50b05e7f89d163a3e27a66f71e
+
 
 ---
-# Comment atteindre les utilisateurs de votre application avec des notifications Push
-Cet article décrit l’onglet **REACH** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et à gérer vos applications mobiles. Notez que pour utiliser le portail, vous devez tout d’abord créer un compte **Azure Mobile Engagement**. Pour plus d'informations, consultez [Create an Azure Mobile Engagement account](mobile-engagement-create.md).
+# <a name="how-to-reach-out-to-the-users-of-your-application-with-push-notifications"></a>Comment atteindre les utilisateurs de votre application avec des notifications Push
+Cet article décrit l’onglet **REACH** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et à gérer vos applications mobiles. Notez que pour utiliser le portail, vous devez tout d’abord créer un compte **Azure Mobile Engagement** . Pour plus d'informations, consultez [Create an Azure Mobile Engagement account](mobile-engagement-create.md).
 
 La section Reach de l'interface utilisateur est l'outil de gestion des campagnes Push qui vous permet de créer, modifier, activer, terminer ou surveiller et obtenir des statistiques relatives aux campagnes de notifications Push et des fonctionnalités. Vous pouvez accéder à celles-ci via l'API Reach (ainsi que certains éléments de l'API Push de bas niveau). Que vous utilisiez ces API ou l'interface utilisateur, il vous faudra intégrer Azure Mobile Engagement et Reach à votre application pour chaque plateforme à l'aide du Kit de développement logiciel (SDK) avant de pouvoir utiliser les campagnes Reach.
 
 > [!NOTE]
-> De nombreuses sections de l’interface utilisateur du portail **Mobile Engagement** contiennent un bouton **AFFICHER L'AIDE**. Appuyez sur ce bouton pour obtenir des informations contextuelles supplémentaires sur une section.
+> De nombreuses sections de l’interface utilisateur du portail **Mobile Engagement** contiennent un bouton **AFFICHER L’AIDE**. Appuyez sur ce bouton pour obtenir des informations contextuelles supplémentaires sur une section.
 > 
 > 
 
-## Quatre types de notifications Push
-1. Annonces : elles vous permettent d'envoyer aux utilisateurs des messages publicitaires qui les redirigent vers un autre emplacement dans votre application ou les envoient vers une page Web ou un Store en dehors de votre application.
-2. Sondages : ces notifications vous permettent de regrouper des informations sur les utilisateurs finaux en leur posant des questions.
-3. Push de données : ces notifications vous permettent d'envoyer un fichier de données binaire ou base 64. Les informations contenues dans un Push de données sont envoyées à votre application pour modifier l'expérience actuelle des utilisateurs de votre application. Votre application doit être en mesure de traiter les données dans un Push de données.
+## <a name="four-types-of-push-notifications"></a>Quatre types de notifications Push
+1. Annonces : elles vous permettent d'envoyer aux utilisateurs des messages publicitaires qui les redirigent vers un autre emplacement dans votre application ou les envoient vers une page Web ou un Store en dehors de votre application. 
+2. Sondages : ces notifications vous permettent de regrouper des informations sur les utilisateurs finaux en leur posant des questions.
+3. Push de données : ces notifications vous permettent d'envoyer un fichier de données binaire ou base 64. Les informations contenues dans un Push de données sont envoyées à votre application pour modifier l'expérience actuelle des utilisateurs de votre application. Votre application doit être en mesure de traiter les données dans un Push de données.
 
-## Informations relatives à la campagne
+## <a name="campaign-details"></a>Informations relatives à la campagne
 Vous pouvez modifier, cloner, supprimer ou activer les campagnes qui n'ont pas encore été activées en plaçant le curseur sur leurs noms ou en cliquant pour les ouvrir. Vous pouvez cloner les campagnes qui ont déjà été activées en plaçant le curseur sur leurs noms ou en cliquant pour les ouvrir. Toutefois, vous ne pouvez pas modifier une campagne une fois celle-ci activée.
 
 ![Reach1][18]
 
-## Commentaire Reach
-Cliquez sur **Statistiques** pour afficher les détails d'une campagne Reach. L'affichage **Simple** fournit une représentation visuelle sous la forme d'un graphique à barres en colonnes sur ce qui s'est passé après l'activation d'une campagne. L'affichage **Avancé** fournit des détails plus précis sur la campagne Push. Ces détails ne sont pas disponibles si vous envoyez une campagne de test, c'est-à-dire une notification Push envoyée à un appareil de test. Voici comment interpréter ces détails :
+## <a name="reach-feedback"></a>Commentaire Reach
+Cliquez sur **Statistiques** pour afficher les détails d'une campagne Reach. L'affichage **Simple** fournit une représentation visuelle sous la forme d'un graphique à barres en colonnes sur ce qui s'est passé après l'activation d'une campagne. L'affichage **Avancé** fournit des détails plus précis sur la campagne Push. Ces détails ne sont pas disponibles si vous envoyez une campagne de test, c'est-à-dire une notification Push envoyée à un appareil de test. Voici comment interpréter ces détails :
 
-1. **Push** : indique le nombre de messages envoyés aux appareils. Ce nombre dépend du public cible spécifié lors de la création de la campagne Push. Si vous ne spécifiez aucun public cible, cette notification Push sera envoyée à tous les appareils inscrits. Comme tous les autres services Push, nous n'envoyons pas les notifications directement aux appareils. Nous les envoyons aux services de notification Push (PNS - APNS/GCM/WNS) spécifiques à la plateforme respective afin qu'ils transfèrent les notifications aux appareils.
-2. **Remis** : indique le nombre de messages remis avec succès par le PNS à l'appareil et reconnus comme reçus par le Kit de développement logiciel (SDK) Mobile Engagement.
+1. **Push** : indique le nombre de messages envoyés aux appareils. Ce nombre dépend du public cible spécifié lors de la création de la campagne Push. Si vous ne spécifiez aucun public cible, cette notification Push sera envoyée à tous les appareils inscrits. Comme tous les autres services Push, nous n'envoyons pas les notifications directement aux appareils. Nous les envoyons aux services de notification Push (PNS - APNS/GCM/WNS) spécifiques à la plateforme respective afin qu'ils transfèrent les notifications aux appareils. 
+2. **Remis** : indique le nombre de messages remis avec succès par le PNS à l'appareil et reconnus comme reçus par le Kit de développement logiciel (SDK) Mobile Engagement. 
    
-   *Raisons pour lesquelles le nombre de messages remis est inférieur au nombre de notifications Push :*
+   *Raisons pour lesquelles le nombre de messages remis est inférieur au nombre de notifications Push :*
    
    1. Si l'utilisateur a désinstallé l'application de l'appareil mais que le service PNS ne le sait pas au moment où nous envoyons la notification Push au service PNS, alors le message est supprimé.
-   2. Si l'appareil dispose de l'application mais que les appareils eux-mêmes étaient hors ligne pendant de longues périodes, alors la remise du message à l'appareil par le service PNS échoue.
-   3. Si le message est remis à l'appareil mais que le Kit de développement logiciel (SDK) Mobile Engagement dans l'application ne reconnaît pas le contenu du message, alors le message est supprimé. Cela peut se produire si la personnalisation de la notification dans l'application génère une exception que nous relevons dans le Kit de développement logiciel (SDK) et que nous supprimons le message. Cela peut également se produire si l'application sur l'appareil utilise une version du Kit de développement logiciel (SDK) Engagement Mobile qui n'est pas en mesure de comprendre la version la plus récente du message Push envoyé à partir de la plateforme. Cela ne s'applique que lorsque l'application a été mise à niveau après la distribution de la notification par la plateforme de services. L'onglet **Avancé** indique le nombre de messages supprimés.
-   4. Sur les appareils iOS, la remise des messages peut parfois échouer si la batterie de l’appareil est faible ou que l’application consomme trop d’énergie pendant le traitement des notifications distantes. Il s’agit d’une limitation des appareils iOS.
-3. **Affichés** : indique le nombre de messages qui sont affichés correctement à l’utilisateur de l’application sur l’appareil sous la forme d’une notification système Push/hors application dans le centre de notification ou une notification dans l’application au sein de l’application mobile. L’onglet **Avancé** indique le nombre de notifications système et le nombre de notifications dans l’application.
+   2. Si l'appareil dispose de l'application mais que les appareils eux-mêmes étaient hors ligne pendant de longues périodes, alors la remise du message à l'appareil par le service PNS échoue. 
+   3. Si le message est remis à l'appareil mais que le Kit de développement logiciel (SDK) Mobile Engagement dans l'application ne reconnaît pas le contenu du message, alors le message est supprimé. Cela peut se produire si la personnalisation de la notification dans l'application génère une exception que nous relevons dans le Kit de développement logiciel (SDK) et que nous supprimons le message. Cela peut également se produire si l'application sur l'appareil utilise une version du Kit de développement logiciel (SDK) Engagement Mobile qui n'est pas en mesure de comprendre la version la plus récente du message Push envoyé à partir de la plateforme. Cela ne s'applique que lorsque l'application a été mise à niveau après la distribution de la notification par la plateforme de services. L’onglet **Avancé** indique le nombre de messages supprimés. 
+   4. Sur les appareils iOS, la remise des messages peut parfois échouer si la batterie de l’appareil est faible ou que l’application consomme trop d’énergie pendant le traitement des notifications distantes. Il s’agit d’une limitation des appareils iOS.   
+3. **Affichés** : indique le nombre de messages qui sont affichés correctement à l’utilisateur de l’application sur l’appareil sous la forme d’une notification système Push/hors application dans le centre de notification ou une notification dans l’application au sein de l’application mobile.  L’onglet **Avancé** indique le nombre de notifications système et le nombre de notifications dans l’application. 
    
    *Raisons pour lesquelles le nombre d’éléments affichés est inférieur au nombre d’éléments remis (en attente d’être affichés)*
    
-   1. Si la campagne de notification avait une date de fin, alors il est possible que la notification ait été remise, mais au moment de l’ouvrir et de l’afficher sur l’application de l’utilisateur, elle avait déjà expiré et donc ne s’est jamais affichée.
-   2. Si la notification est une notification dans l’application, elle est alors uniquement affichée lorsque l’utilisateur de l’application ouvre celle-ci. Dans le cas où l’utilisateur n’aurait pas ouvert l’application, le kit de développement logiciel (SDK) signale que la notification a été remise mais pas encore affichée puisque l’application n’a pas été ouverte.
-   3. S’il s’agit d’une notification dans l’application et qu’elle est configurée pour s’afficher sur un écran spécifique ou lors d’une activité spécifique, alors elle sera également signalée comme remise mais ne sera véritablement remise qu’après l’ouverture par l’utilisateur de l’application sur un écran spécifique.
-4. **Interactions utilisateur** : indique le nombre de messages avec lesquels l’utilisateur de l’application a eu une interaction et inclut les messages qui font l’objet d’une action ou qui sont abandonnés.
+   1. Si la campagne de notification avait une date de fin, alors il est possible que la notification ait été remise, mais au moment de l’ouvrir et de l’afficher sur l’application de l’utilisateur, elle avait déjà expiré et donc ne s’est jamais affichée.   
+   2. Si la notification est une notification dans l’application, elle est alors uniquement affichée lorsque l’utilisateur de l’application ouvre celle-ci. Dans le cas où l’utilisateur n’aurait pas ouvert l’application, le kit de développement logiciel (SDK) signale que la notification a été remise mais pas encore affichée puisque l’application n’a pas été ouverte. 
+   3. S’il s’agit d’une notification dans l’application et qu’elle est configurée pour s’afficher sur un écran spécifique ou lors d’une activité spécifique, alors elle sera également signalée comme remise mais ne sera véritablement remise qu’après l’ouverture par l’utilisateur de l’application sur un écran spécifique. 
+4. **Interactions utilisateur** : indique le nombre de messages avec lesquels l’utilisateur de l’application a eu une interaction et inclut les messages qui font l’objet d’une action ou qui sont abandonnés. 
    
-   * *L'utilisateur de l'application peut agir sur une notification de l'une des manières suivantes :*
+   * *L'utilisateur de l'application peut agir sur une notification de l'une des manières suivantes :*
      
      1. Si la notification est une notification système/hors application ou une notification dans l'application envoyée comme notification uniquement, alors l'utilisateur de l'application clique sur la notification.
      2. Si la notification est une notification dans l'application avec un texte ou un affichage web ou des sondages, alors l'utilisateur de l'application clique sur le bouton Action dans la notification.
      3. Si la notification est une notification dans l'application avec un affichage web, alors l'utilisateur de l'application clique sur une URL dans l'affichage web [Android uniquement]
-   * *L'utilisateur de l'application peut quitter une notification de l'une des manières suivantes :*
+   * *L'utilisateur de l'application peut quitter une notification de l'une des manières suivantes :*
      
-     1. En cliquant sur le bouton Fermer directement dans la notification.
-     2. En balayant ou en supprimant la notification.
-     3. Les notifications dans l'application avec du texte/contenu web et les sondages sont généralement affichées à l'utilisateur de l'application dans un processus en deux étapes. L'utilisateur reçoit tout d'abord une notification et lorsqu'il clique dessus, le contenu du texte/web/sondage s'affiche. L'utilisateur de l'application peut quitter une notification dans n'importe laquelle de ces étapes et les détails dans la vue Avancée indiquent cela.
-5. **Actionnés** : indique le nombre de messages qui ont explicitement fait l’objet d’une action par l’utilisateur de l’application. Il s'agit du nombre le plus intéressant car il indique le nombre d'utilisateurs de l'application intéressés par le message transmis dans la notification.
+     1. En cliquant sur le bouton Fermer directement dans la notification. 
+     2. En balayant ou en supprimant la notification. 
+     3. Les notifications dans l'application avec du texte/contenu web et les sondages sont généralement affichées à l'utilisateur de l'application dans un processus en deux étapes. L'utilisateur reçoit tout d'abord une notification et lorsqu'il clique dessus, le contenu du texte/web/sondage s'affiche. L'utilisateur de l'application peut quitter une notification dans n'importe laquelle de ces étapes et les détails dans la vue Avancée indiquent cela. 
+5. **Actionnés** : indique le nombre de messages qui ont explicitement fait l’objet d’une action par l’utilisateur de l’application. Il s'agit du nombre le plus intéressant car il indique le nombre d'utilisateurs de l'application intéressés par le message transmis dans la notification. 
 
 > [!NOTE]
-> Sur les plateformes iOS et Windows, si l'utilisateur dispose de l'application ouverte et que la campagne était du type « À tout moment », il est possible que les notifications hors application et dans l'application s'affichent en même temps. Cela peut entraîner un nombre plus élevé pour le paramètre Affichés que pour le paramètre Remis. Si l'utilisateur interagit avec la notification ou qu'il exécute une action dessus, alors même le nombre Interactions utilisateur/Actionnés peut être supérieur au nombre Remis.
+> Sur les plateformes iOS et Windows, si l'utilisateur dispose de l'application ouverte et que la campagne était du type « À tout moment », il est possible que les notifications hors application et dans l'application s'affichent en même temps. Cela peut entraîner un nombre plus élevé pour le paramètre Affichés que pour le paramètre Remis. Si l'utilisateur interagit avec la notification ou qu'il exécute une action dessus, alors même le nombre Interactions utilisateur/Actionnés peut être supérieur au nombre Remis. 
 > 
 > 
 
 ![Reach2][19]
 
-## Voir aussi
-* [Concepts][Link 6]
-* [Guide de résolution des problèmes - Service][Link 24]
+## <a name="see-also"></a>Voir aussi
+* [Concepts][Lien 6]
+* [Guide de résolution des problèmes - Service][Lien 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -141,35 +145,39 @@ Cliquez sur **Statistiques** pour afficher les détails d'une campagne Reach. L'
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: mobile-engagement-user-interface-reach-campaign.md
-[Link 28]: mobile-engagement-user-interface-reach-criterion.md
-[Link 29]: mobile-engagement-user-interface-reach-content.md
+[Lien 1]: mobile-engagement-user-interface.md
+[Lien 2]: mobile-engagement-troubleshooting-guide.md
+[Lien 3]: mobile-engagement-how-tos.md
+[Lien 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Lien 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Lien 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Lien 7]: https://account.windowsazure.com/PreviewFeatures
+[Lien 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Lien 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Lien 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Lien 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Lien 12]: mobile-engagement-user-interface-navigation.md
+[Lien 13]: mobile-engagement-user-interface-home.md
+[Lien 14]: mobile-engagement-user-interface-my-account.md
+[Lien 15]: mobile-engagement-user-interface-analytics.md
+[Lien 16]: mobile-engagement-user-interface-monitor.md
+[Lien 17]: mobile-engagement-user-interface-reach.md
+[Lien 18]: mobile-engagement-user-interface-segments.md
+[Lien 19]: mobile-engagement-user-interface-dashboard.md
+[Lien 20]: mobile-engagement-user-interface-settings.md
+[Lien 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Lien 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Lien 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Lien 24]: mobile-engagement-troubleshooting-guide-service.md
+[Lien 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Lien 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Lien 27]: mobile-engagement-user-interface-reach-campaign.md
+[Lien 28]: mobile-engagement-user-interface-reach-criterion.md
+[Lien 29]: mobile-engagement-user-interface-reach-content.md
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

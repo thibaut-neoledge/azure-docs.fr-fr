@@ -113,7 +113,7 @@
 ### [Utilisation de partenaires pour fournir des licences Widevine à Azure Media Services](media-services-licenses-partner-integration.md)
 ### [Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine](media-services-protect-with-drm.md)
 ### [Utiliser Azure Media Services pour le streaming de votre contenu HLS protégé avec Apple FairPlay](media-services-protect-hls-with-fairplay.md)
-### [CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Windows Azure et Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
+### [CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Windows Azure et Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
 
 ### Distribution d’éléments multimédia
 #### Configurer des stratégies de distribution d’éléments multimédia
@@ -129,7 +129,7 @@
 
 ## [Analyser](media-services-analytics-overview.md)
 ### [Analyser les supports à l’aide du portail](media-services-portal-analyze.md)
-### [Traiter avec Indexer 2](media-services-process-content-with-indexer2.md)
+### [Traiter avec Indexer 2](media-services-process-content-with-indexer2.md)
 ### [Traiter avec Indexer](media-services-index-content.md)
 ### [Traiter avec Hyperlapse](media-services-hyperlapse-content.md)
 ### [Traiter avec Face Detector](media-services-face-and-emotion-detection.md)
@@ -174,7 +174,7 @@
 ### [Insérer des publicités côté client](media-services-inserting-ads-on-client-side.md)
 
 ## Integrate
-### [Stratégie de mise en cache CDN dans l'extension Media Services](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
+### [Stratégie de mise en cache CDN dans l'extension Media Services](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### [Licence du kit de portage du client de Smooth Streaming Microsoft†"](media-services-sspk.md)
 ### [Gérer les éléments multimédias de plusieurs comptes de stockage](meda-services-managing-multiple-storage-accounts.md)
 ### [Utilisation d’Axinom pour fournir des licences Widevine à Azure Media Services](media-services-axinom-integration.md)
@@ -195,16 +195,18 @@
 ### [Logique de nouvelle tentative](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Référence
-## [Notes de publication](media-services-release-notes.md)
-## [.NET](media-services-dotnet-how-to-use.md)
-## [REST](media-services-rest-how-to-use.md)
+## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
+## [PowerShell (gestion des services)](/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
+## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
+## [REST](/rest/api/media)
 
 # les ressources
+## [Notes de publication](media-services-release-notes.md)
 ## [Tarification](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Communauté Azure Media Services](media-services-community.md)
 ## [Vidéos](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

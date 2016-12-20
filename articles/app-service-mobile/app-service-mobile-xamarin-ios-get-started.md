@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cf8f9a06c4d720dade11ea67fc1befe07a56cf85
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5dc9822072417b41856a7d4015c54b8573e56587
 
 
 ---
@@ -76,13 +76,13 @@ Suivez les étapes suivantes pour configurer le projet de serveur de sorte qu’
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Ajout de la synchronisation hors connexion à votre application](app-service-mobile-xamarin-ios-get-started-offline-data.md)
-* [Ajout de l'authentification à votre application ](app-service-mobile-xamarin-ios-get-started-users.md)
+* [Ajouter l’authentification à votre application ](app-service-mobile-xamarin-ios-get-started-users.md)
 * [Ajouter des notifications Push à votre application](app-service-mobile-xamarin-ios-get-started-push.md)
 * [Utilisation du client géré pour Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Anchors. -->
-[Prise en main des backends d'applications mobiles]:#getting-started
-[Création d'un backend Mobile App]:#create-new-service
+[Getting started with mobile app backends]:#getting-started
+[Create a new mobile app backend]:#create-new-service
 [Next Steps]:#next-steps
 
 <!-- Images. -->
@@ -96,6 +96,6 @@ Suivez les étapes suivantes pour configurer le projet de serveur de sorte qu’
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

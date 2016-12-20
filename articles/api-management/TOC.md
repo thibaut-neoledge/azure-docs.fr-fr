@@ -39,13 +39,16 @@
 ### [Gérer les comptes d’utilisateurs](api-management-howto-create-or-invite-developers.md)
 ### [Gérer à l’aide d’Automation](automation-manage-api-management.md)
 ### [Configurer à l’aide de Git](api-management-configuration-repository-git.md)
-#Référence
+
+# Référence
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell (Classic)](https://msdn.microsoft.com/library/azure/mt613507)
 ## [REST](/rest/api/apimanagement/)
+## [REST (original)](/rest/api/apimanagement/ApiManagementREST/API-Management-REST)
+
+
+# les ressources
 ## [Stratégies](https://msdn.microsoft.com/library/azure/dn894081)
 ## [Modèles](https://msdn.microsoft.com/library/azure/mt697540)
-#Ressources
 ## [Tarification](https://azure.microsoft.com/pricing/details/api-management/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
@@ -63,6 +66,6 @@
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

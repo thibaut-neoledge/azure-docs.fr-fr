@@ -1,9 +1,9 @@
 ---
-title: "Analyse d’une application web Java avec Application Insights | Microsoft Docs"
-description: "Surveillance des performances et de l’utilisation de votre site web Java avec Application Insights  "
+title: "Analyse d’une application web Java avec Azure Application Insights | Microsoft Docs"
+description: "Analyse des performances des applications pour les applications web Java à l’aide d’Application Insights. "
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: harelbr
 manager: douge
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
@@ -11,16 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 12/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cc0167ef78eb3ca84e959599473af5935e5da0d0
+ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
+ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 
 
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Prise en main d'Application Insights dans un projet web Java
-*Application Insights est à l'état de version préliminaire.*
+
 
 [Application Insights](https://azure.microsoft.com/services/application-insights/) est un service d’analyse extensible pour développeurs web qui vous permet de comprendre les performances et l’utilisation de votre application en direct. Utilisez-le pour [détecter et diagnostiquer les problèmes de performances et les exceptions](app-insights-detect-triage-diagnose.md), ainsi que pour [écrire du code][api] afin de suivre ce que font les utilisateurs avec votre application.
 
@@ -31,7 +31,7 @@ Application Insights prend en charge les applications Java exécutées sur Linux
 Ce dont vous avez besoin :
 
 * Oracle JRE 1.6 ou version ultérieure ou Zoulou JRE 1.6 ou version ultérieure
-* Un abonnement à [Microsoft Azure](https://azure.microsoft.com/). (Vous pouvez commencer par l’ [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).)
+* Un abonnement à [Microsoft Azure](https://azure.microsoft.com/).
 
 *Si vous disposez d’une application web déjà active, vous pouvez suivre la procédure alternative destinée à [ajouter le Kit de développement logiciel (SDK) au moment de l’exécution dans le serveur web](app-insights-java-live.md). Cette alternative évite la régénération du code, mais ne vous permet pas d’écrire du code pour effectuer le suivi de l’activité des utilisateurs.*
 
@@ -182,7 +182,7 @@ Pour obtenir des résultats plus précis, le filtre doit être mappé avant tous
     </filter-mapping>
 
 #### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>Si vous utilisez Spring Web MVC 3.1 ou une version ultérieure
-Modifiez ces éléments pour inclure le package Application Insights :
+Modifiez ces éléments dans *-servlet.xml pour inclure le package Application Insights :
 
     <context:component-scan base-package=" com.springapp.mvc, com.microsoft.applicationinsights.web.spring"/>
 
@@ -244,11 +244,15 @@ Publiez maintenant votre application sur le serveur, laissez le temps aux usager
   
   * dc.services.VisualStudio.com:443
   * f5.services.visualstudio.com:443
+
+* Si le trafic sortant doit être acheminé via un pare-feu, définissez les propriétés système `http.proxyHost` et `http.proxyPort`. 
+
 * Sur les serveurs Windows, installez :
   
   * [Redistribuable Microsoft Visual C++](http://www.microsoft.com/download/details.aspx?id=40784)
     
     (Cette opération active les compteurs de performances.)
+
 
 ## <a name="exceptions-and-request-failures"></a>Exceptions et échecs de requêtes
 Les exceptions non gérées sont collectées automatiquement :
@@ -257,7 +261,7 @@ Les exceptions non gérées sont collectées automatiquement :
 
 Pour collecter les données concernant d’autres exceptions, vous disposez de deux options :
 
-* [Insérez des appels à TrackException dans votre code][apiexceptions]. 
+* [Insérez des appels à trackException() dans votre code][apiexceptions]. 
 * [Installez l’agent Java sur votre serveur](app-insights-java-agent.md). Vous spécifiez les méthodes que vous souhaitez surveiller.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Surveiller les appels de méthode et les dépendances externes
@@ -332,7 +336,7 @@ Maintenant que vous avez installé le Kit de développement logiciel (SDK), vous
 * [Recherchez les événements et les journaux][diagnostic] pour diagnostiquer les problèmes.
 
 ## <a name="availability-web-tests"></a>Tests web de disponibilité
-Application Insights peut tester votre site web à intervalles réguliers pour vérifier qu’il fonctionne et répond correctement. [Pour configurer][disponibilité], cliquez sur les tests web.
+Application Insights peut tester votre site web à intervalles réguliers pour vérifier qu’il fonctionne et répond correctement. [Pour configurer][availability], cliquez sur Tests web.
 
 ![Cliquez sur Tests web, puis sur Ajouter un test web](./media/app-insights-java-get-started/31-config-web-test.png)
 
@@ -367,6 +371,6 @@ Vous obtenez des graphiques du temps de réponse, ainsi que des notifications pa
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

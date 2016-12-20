@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/27/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 14de66f6035d8cd0579351d64b85bd7e1c8f2ab2
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: be48f1f0b9c3c749c13fd89f63d41fbaff6a62ee
 
 
 ---
@@ -51,7 +51,7 @@ Vous pouvez configurer CORS dans le portail Azure ou à l’aide des outils [Azu
    Lorsque vous cliquez sur **Enregistrer**, l’application API accepte les appels JavaScript depuis les URL spécifiées.
 
 #### <a name="configure-cors-by-using-azure-resource-manager-tools"></a>Configurer CORS à l’aide des outils Azure Resource Manager
-Vous pouvez également configurer CORS pour une application API à l’aide des [modèles Azure Resource Manager](../resource-group-authoring-templates.md) dans les outils de ligne de commande, par exemple [Azure PowerShell](../powershell-install-configure.md) et l’[interface de ligne de commande Azure](../xplat-cli-install.md). 
+Vous pouvez également configurer CORS pour une application API à l’aide des [modèles Azure Resource Manager](../resource-group-authoring-templates.md) dans les outils de ligne de commande, par exemple [Azure PowerShell](/powershell/azureps-cmdlets-docs) et l’[interface de ligne de commande Azure](../xplat-cli-install.md). 
 
 Pour obtenir un exemple de modèle Azure Resource Manager qui définit la propriété CORS, ouvrez le [fichier azuredeploy.json dans le référentiel correspondant à l’exemple d’application de ce didacticiel](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Recherchez la section du modèle qui ressemble à l’exemple suivant :
 
@@ -61,7 +61,7 @@ Pour obtenir un exemple de modèle Azure Resource Manager qui définit la propri
             ]
         }
 
-## <a name="a-idtutorialstarta-continuing-the-net-gettingstarted-tutorial"></a><a id="tutorialstart"></a> Suite du didacticiel dédié à la prise en main de .NET
+## <a name="a-idtutorialstarta-continuing-the-net-getting-started-tutorial"></a><a id="tutorialstart"></a> Suite du didacticiel dédié à la prise en main de .NET
 Si vous suivez la série dédiée à la mise en route de Node.js ou Java pour les applications API, vous avez terminé la série de mise en route. Passez à la section [Étapes suivantes](#next-steps) pour trouver des suggestions afin d’en savoir plus sur les applications API.
 
 Le reste de cet article, qui s’inscrit dans le prolongement de la série dédiée à la prise en main de .NET, suppose que vous avez correctement exécuté [le premier didacticiel](app-service-api-dotnet-get-started.md).
@@ -252,6 +252,6 @@ Dans cet article, vous avez vu deux façons d’activer la prise en charge de CO
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

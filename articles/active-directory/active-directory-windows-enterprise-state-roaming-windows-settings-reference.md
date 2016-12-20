@@ -1,13 +1,13 @@
 ---
-title: Référence des paramètres d’itinérance Windows 10 | Microsoft Docs
-description: Liste complète de tous les paramètres destinés à l’itinérance ou à la sauvegarde dans Windows 10.
+title: "Référence des paramètres d’itinérance Windows 10 | Microsoft Docs"
+description: "Liste complète de tous les paramètres destinés à l’itinérance ou à la sauvegarde dans Windows 10."
 services: active-directory
-keywords: Enterprise State Roaming, Cloud windows
-documentationcenter: ''
+keywords: "Enterprise State Roaming, Cloud windows"
+documentationcenter: 
 author: femila
 manager: swadhwa
 editor: curtand
-
+ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,33 +15,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e38fd24edb0cb6cee0552a3cbdb282aae870d737
+
 
 ---
-# <a name="windows-10-roaming-settings-reference"></a>Référence des paramètres d’itinérance Windows 10
-Voici une liste complète de tous les paramètres destinés à l’itinérance ou à la sauvegarde dans Windows 10. 
+# <a name="windows-10-roaming-settings-reference"></a>Référence des paramètres d’itinérance Windows 10
+Voici une liste complète de tous les paramètres destinés à l’itinérance ou à la sauvegarde dans Windows 10. 
 
 ## <a name="devices-and-endpoints"></a>Appareils et points de terminaison
-Consultez le tableau suivant pour obtenir un récapitulatif des périphériques et des types de comptes pris en charge par la structure de synchronisation, de sauvegarde et de restauration framework dans Windows 10.
+Consultez le tableau suivant pour obtenir un récapitulatif des périphériques et des types de comptes pris en charge par la structure de synchronisation, de sauvegarde et de restauration framework dans Windows 10.
 
 | Type de compte et fonctionnement | Bureau | Mobile |
 | --- | --- | --- |
-| Azure Active Directory : synchronisation |Oui |Non |
-| Azure Active Directory : sauvegarde/restauration |Non |Non |
-| Compte Microsoft : synchronisation |Oui |Oui |
-| Compte Microsoft : sauvegarde/restauration |Non |Oui |
+| Azure Active Directory : synchronisation |Oui |Non |
+| Azure Active Directory : sauvegarde/restauration |Non |Non |
+| Compte Microsoft : synchronisation |Oui |Oui |
+| Compte Microsoft : sauvegarde/restauration |Non |Oui |
 
-## <a name="what-is-backup?"></a>Qu’est-ce qu’une sauvegarde ?
+## <a name="what-is-backup"></a>Qu’est-ce qu’une sauvegarde ?
 En règle générale, les paramètres Windows se synchronisent par défaut, cependant, certains paramètres sont simplement sauvegardés, notamment la liste des applications installées sur un périphérique. La sauvegarde est destinée uniquement aux appareils mobiles et n’est pas disponible pour les utilisateurs d’Enterprise State Roaming. La sauvegarde utilise un compte Microsoft et stocke les paramètres et données d’application dans OneDrive. Si, sur le périphérique , un utilisateur désactive la synchronisation avec l’application Settings, les données de l’application normalement synchronisées se transforment en simple sauvegarde. Les données de sauvegarde sont uniquement accessibles via l’opération de restauration lors de la première utilisation d’un nouvel appareil. Les sauvegardes peuvent être désactivées via les paramètres du périphérique et peuvent être gérées et supprimées via le compte OneDrive de l’utilisateur.
 
 ## <a name="windows-settings-overview"></a>Vue d’ensemble des paramètres Windows
-Les groupes de paramètres suivants sont disponibles pour les utilisateurs finaux et servent à activer/désactiver la synchronisation des paramètres sur les appareils Windows 10.
+Les groupes de paramètres suivants sont disponibles pour les utilisateurs finaux et servent à activer/désactiver la synchronisation des paramètres sur les appareils Windows 10.
 
-* Thème : Arrière-plan du Bureau, Vignette de l’utilisateur, Position de la barre des tâches, etc. 
-* Paramètres Internet Explorer : Historique de navigation, URL saisies, Favoris, etc. 
-* Mots de passe : [Stockage sécurisé des informations d’identification Windows](https://technet.microsoft.com/library/jj554668.aspx), et notamment des profils Wi-Fi 
-* Préférences linguistiques : Dictionnaire, Paramètres de langue système 
-* Options d’ergonomie : Narrateur, Loupe, Clavier visuel 
-* Autres paramètres Windows : consultez les détails de Paramètres Windows
+* Thème : Arrière-plan du Bureau, Vignette de l’utilisateur, Position de la barre des tâches, etc. 
+* Paramètres Internet Explorer : Historique de navigation, URL saisies, Favoris, etc. 
+* Mots de passe : [Stockage sécurisé des informations d’identification Windows](https://technet.microsoft.com/library/jj554668.aspx), et notamment des profils Wi-Fi 
+* Préférences linguistiques : Dictionnaire, Paramètres de langue système 
+* Options d’ergonomie : Narrateur, Loupe, Clavier visuel 
+* Autres paramètres Windows : consultez les détails de Paramètres Windows
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
 
@@ -72,7 +76,7 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 | **Cortana**: recherche des informations sur les vols et bien plus encore |X |sync |Interne |
 | **Informations d’identification**: stockage sécurisé des informations d’identification |sync |sync |password |
 | **Date, heure et région**: horaire automatique (synchronisation Internet) |sync |sync |language |
-| **Date, heure et région**: 24 heures |sync |X |language |
+| **Date, heure et région**: 24 heures |sync |X |language |
 | **Date, heure et région**: date et heure |sync |X |language |
 | **Date, heure et région**: fuseau horaire | |X |language |
 | **Date, heure et région**: heure d’été |sync |X |language |
@@ -105,7 +109,7 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 | **Clavier**: activer un oui rémanent (désactivé par défaut) |sync |X |options d’ergonomie |
 | **Clavier**: activer les clés de filtre (désactivé par défaut) |sync |X |options d’ergonomie |
 | **Clavier**: activer les touches bascules (désactivé par défaut) |sync |X |options d’ergonomie |
-| **Internet Explorer**: langue du domaine : chinois (CHS) QWERTY – activer l’apprentissage automatique |sync |X |language |
+| **Internet Explorer**: langue du domaine : chinois (CHS) QWERTY – activer l’apprentissage automatique |sync |X |language |
 | **Langue**: QWERTY CHS - activer le classement de candidats dynamique |sync |X |language |
 | **Langue**: QWERTY CHS - jeu de caractères chinois simplifié |sync |X |language |
 | **Langue**: QWERTY CHS - jeu de caractères chinois traditionnel |sync |X |language |
@@ -118,7 +122,7 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 | **Langue**: QWERTY CHS - touche bascule C/E, Ctrl |sync |X |language |
 | **Langue**: WUBI CHS - mode de saisie de caractère unique |sync |X |language |
 | **Langue**: WUBI CHS - afficher le codage de candidats restant |sync |X |language |
-| **Langue**: WUBI CHS - émission d’un bip sonore lorsque le codage des 4 coins est non valide |sync |X |language |
+| **Langue**: WUBI CHS - émission d’un bip sonore lorsque le codage des 4 coins est non valide |sync |X |language |
 | **Langue**: Bopomofo CHS - inclure CJK Ext-A |sync |X |language |
 | **Langue**: IME japonais - frappe prédictive et mots personnalisés |sync |sync |language |
 | **Langue**: coréen (KOR) IME |X |X |language |
@@ -161,11 +165,14 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 | **Wi-Fi**: profils Wi-Fi (WPA uniquement) |sync |sync |Mot de passe |
 
 ## <a name="related-topics"></a>Rubriques connexes
-* [Présentation d’Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
-* [Activer Enterprise State Roaming dans Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
+* [Présentation d’Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
+* [Activer Enterprise State Roaming dans Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
 * [FAQ sur l’itinérance des paramètres et des données](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Paramètres de stratégie de groupe et de MDM pour la synchronisation des paramètres](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Débogage d’une application web Java sur Azure dans Eclipse | Microsoft Docs
-description: Ce didacticiel vous explique comment utiliser le Kit de ressources Azure pour Eclipse pour déboguer une application web Java s’exécutant sur Azure.
+title: "Débogage d’une application web Java sur Azure dans Eclipse | Microsoft Docs"
+description: "Ce didacticiel vous explique comment utiliser le Kit de ressources Azure pour Eclipse pour déboguer une application web Java s’exécutant sur Azure."
 services: app-service\web
 documentationcenter: java
 author: selvasingh
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 321d2d19-9ce0-4165-8555-b6b15e671393
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,39 +14,43 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 09/20/2016
 ms.author: asirveda;robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 08e833420420522e5b903afba0bcc8bd624d3b8f
+
 
 ---
-# Débogage d’une application web Java sur Azure dans Eclipse
+# <a name="debug-a-java-web-app-on-azure-in-eclipse"></a>Débogage d’une application web Java sur Azure dans Eclipse
 Ce didacticiel explique comment déboguer une application web Java s’exécutant sur Azure à l’aide du [Kit de ressources Azure pour Eclipse]. Par souci de simplicité, vous utiliserez un exemple Java Server Page (JSP) de base pour ce didacticiel, mais la procédure est identique pour un servlet Java lors du débogage sur Azure.
 
 À la fin de ce didacticiel, votre application doit ressembler à l’illustration suivante quand vous la déboguez dans Eclipse :
 
 ![][01]
 
-## Composants requis
-* JDK (Java Development Kit) version 1.8 ou ultérieure.
-* IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Indigo ou ultérieur, Vous pouvez le télécharger à partir de <http://www.eclipse.org/downloads/>.
+## <a name="prerequisites"></a>Composants requis
+* JDK (Java Development Kit) version 1.8 ou ultérieure.
+* IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Indigo ou ultérieur, Vous pouvez le télécharger à l’adresse suivante : <http://www.eclipse.org/downloads/>.
 * Une distribution d’un serveur web ou d’un serveur d’applications basé sur Java, comme Apache Tomcat ou Jetty.
-* Un abonnement à Azure, pouvant être souscrit à l’adresse <https://azure.microsoft.com/free/> ou <http://azure.microsoft.com/pricing/purchase-options/>.
-* Kit de ressources Azure pour Eclipse. Pour plus d’informations, consultez [Installation du kit de ressources Azure pour Eclipse].
-* Un projet web dynamique créé et déployé sur Azure App Service ; par exemple, consultez [Créer une application web « Hello World » pour Azure dans Eclipse].
+* Un abonnement Azure, qui peut être obtenu à l’adresse <https://azure.microsoft.com/fr-fr/free/> ou <http://azure.microsoft.com/pricing/purchase-options/>.
+* Kit de ressources Azure pour Eclipse. Pour plus d’informations, consultez [Installation du kit de ressources Azure pour Eclipse].
+* Un projet web dynamique créé et déployé sur Azure App Service ; par exemple, consultez [Créer une application web « Hello World » pour Azure dans Eclipse].
 
-## Pour déboguer une application web Java sur Azure
-Pour effectuer les étapes de cette section, vous pouvez utiliser un projet web dynamique existant que vous avez déjà déployé comme application web Java sur Azure, vous téléchargez un [exemple de projet web dynamique] et suivez les étapes indiquées dans [Créer une application web « Hello World » pour Azure dans Eclipse] pour le déployer sur Azure.
+## <a name="to-debug-a-java-web-app-on-azure"></a>Pour déboguer une application web Java sur Azure
+Pour effectuer les étapes de cette section, vous pouvez utiliser un projet web dynamique existant que vous avez déjà déployé comme application web Java sur Azure, vous téléchargez un [exemple de projet web dynamique] et suivez les étapes indiquées dans [Créer une application web « Hello World » pour Azure dans Eclipse] pour le déployer sur Azure. 
 
 1. Ouvrez Eclipse.
-2. Configurez les délais d’expiration pour le débogage à distance :
+2. Configurez les délais d’expiration pour le débogage à distance :
    
    1. Cliquez sur le menu **Windows** dans Eclipse, puis cliquez sur **Preferences** (Préférences).
    2. Développez le nœud **Java**, puis sélectionnez **Debug** (Déboguer).
-   3. Configurez les paramètres **Debugger timeout (ms)** (Délai d’expiration du débogueur (ms)) et **Launch timeout (ms)** (Délai d’expiration du lancement (ms)) `120000`.
+   3. Configurez les paramètres **Debugger timeout (ms)** (Délai d’expiration du débogueur (ms)) et **Launch timeout (ms)** (Délai d’expiration du lancement (ms)) sur `120000`.
       
        ![][02]
    4. Cliquez sur **OK** pour fermer la boîte de dialogue **Preferences** (Préférences).
-3. Dans la vue de l’Explorateur de projets d’Eclipse, cliquez avec le bouton droit sur le projet web dynamique que vous avez déployé dans Azure. Quand le menu contextuel apparaît, sélectionnez **Debug As** (Déboguer comme), puis cliquez sur **Azure Web App** (Application web Azure).
+3. Dans la vue de l’Explorateur de projets d’Eclipse, cliquez avec le bouton droit de la souris sur le projet web dynamique que vous avez déployé dans Azure. Quand le menu contextuel apparaît, sélectionnez **Debug As** (Déboguer comme), puis cliquez sur **Azure Web App** (Application web Azure).
    
     ![][03]
-4. Si c’est la première fois que vous déboguez votre projet web dynamique, la boîte de dialogue **Debug Configurations** (Déboguer les configurations) s’ouvre ; vous pouvez accepter les valeurs par défaut qui sont spécifiées par le kit de ressources dans l’onglet **Connect** (Connexion). Dans l’onglet **Source**, cliquez sur **Add** (Ajouter), puis sur **Java project** (Projet Java), sélectionnez **Dynamic Web Project** (Projet web dynamique), puis cliquez sur **OK**. Une fois ces étapes terminées, cliquez sur **Debug** (Déboguer).
+4. Si c’est la première fois que vous déboguez votre projet web dynamique, la boîte de dialogue **Debug Configurations** (Déboguer les configurations) s’ouvre ; vous pouvez accepter les valeurs par défaut qui sont spécifiées par le kit de ressources dans l’onglet **Connect** (Connexion). Dans l’onglet **Source**, cliquez sur **Add** (Ajouter), puis sur **Java project** (Projet Java), sélectionnez **Dynamic Web Project** (Projet web dynamique), puis cliquez sur **OK**. Une fois ces étapes terminées, cliquez sur **Debug**(Déboguer).
    
     ![][04]
 5. À l’invite **Enable remote debugging in the remote Web App now?** (Activer le débogage à distance sur l’application web à distance maintenant ?), cliquez sur **OK**.
@@ -57,14 +61,14 @@ Pour effectuer les étapes de cette section, vous pouvez utiliser un projet web 
 8. Une invite de commande Windows ou un shell Unix s’ouvre et prépare la connexion nécessaire pour le débogage. Vous devez attendre que la connexion à votre application web Java à distance soit établie avant de continuer. Si vous utilisez Windows, cela ressemble à l’illustration suivante.
    
     ![][06]
-9. Insérez un point d’arrêt dans votre page JSP, puis ouvrez l’URL de votre application web Java dans un navigateur :
+9. Insérez un point d’arrêt dans votre page JSP, puis ouvrez l’URL de votre application web Java dans un navigateur :
    
    1. Ouvrez **Azure Explorer** dans Eclipse.
    2. Accédez à **Web Apps** et à l’application web Java à déboguer.
    3. Cliquez avec le bouton droit sur l’application web, puis cliquez sur **Ouvrir dans un navigateur**.
    4. Eclipse passe en mode débogage.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure].
 
 Pour plus d’informations sur la création d’Azure Web Apps, consultez la [Vue d’ensemble de Web Apps].
@@ -76,7 +80,6 @@ Pour plus d’informations sur la création d’Azure Web Apps, consultez la [Vu
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Kit de ressources Azure pour Eclipse]: ../azure-toolkit-for-eclipse.md
 [Installation du kit de ressources Azure pour Eclipse]: ../azure-toolkit-for-eclipse-installation.md
-[Créer une application web « Hello World » pour Azure dans Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
 [Créer une application web « Hello World » pour Azure dans Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
 [exemple de projet web dynamique]: http://go.microsoft.com/fwlink/?LinkId=817337
 
@@ -92,4 +95,8 @@ Pour plus d’informations sur la création d’Azure Web Apps, consultez la [Vu
 [05]: ./media/app-service-web-debug-java-web-app-in-eclipse/05-ready-for-remote-debugging.png
 [06]: ./media/app-service-web-debug-java-web-app-in-eclipse/06-windows-command-prompt-connection-successful-to-remote.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Kit de développement logiciel (SDK) Operations Management Suite (OMS) | Microsoft Docs
-description: Cet article répertorie la documentation et d’autres ressources disponibles pour l’accès aux services OMS en dehors des portails OMS et Azure.  Celles-ci incluent l’API REST pour l’accès à partir de différentes interfaces de programmation et les moteurs de script tels que PowerShell.
+title: "Kit de développement logiciel (SDK) Operations Management Suite (OMS) | Microsoft Docs"
+description: "Cet article répertorie la documentation et d’autres ressources disponibles pour l’accès aux services OMS en dehors des portails OMS et Azure.  Celles-ci incluent l’API REST pour l’accès à partir de différentes interfaces de programmation et les moteurs de script tels que PowerShell."
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: aac9c627-4060-4aa9-a2ea-85248e25d5ce
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: article
@@ -14,20 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b040697591dc94952239bf7897869d8a0ea4818c
+
 
 ---
-# <a name="operations-management-suite-(oms)-sdk"></a>Kit de développement logiciel (SDK) Operations Management Suite (OMS)
+# <a name="operations-management-suite-oms-sdk"></a>Kit de développement logiciel (SDK) Operations Management Suite (OMS)
 [Operations Management Suite (OMS)](operations-management-suite-overview.md) est une solution de gestion informatique basée sur le cloud de Microsoft qui permet de gérer et de protéger votre infrastructure locale et dans le cloud.  Cet article répertorie la documentation et d’autres ressources disponibles pour l’accès aux services OMS en dehors des portails OMS et Azure.  Celles-ci incluent l’API REST pour l’accès à partir de différentes interfaces de programmation et les moteurs de script tels que PowerShell. 
 
 ## <a name="automation"></a>Automatisation
 * [Documentation Azure Automation](http://azure.microsoft.com/documentation/services/automation)
-* [Applets de commande PowerShell Automation](http://msdn.microsoft.com/library/dn690262.aspx)
+* [Applets de commande PowerShell Automation](http://msdn.microsoft.com/library/dn690262.aspx)
 * [API REST Automation](http://msdn.microsoft.com/library/mt662285.aspx)
 * [Runbooks de la communauté](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure)
 
 ## <a name="backup"></a>Sauvegarde
 * [Documentation Sauvegarde Azure](http://azure.microsoft.com/documentation/services/backup)
-* [Applets de commande PowerShell Sauvegarde](https://msdn.microsoft.com/library/mt619253.aspx)
+* [Applets de commande PowerShell Sauvegarde](https://msdn.microsoft.com/library/mt619253.aspx)
 * [API REST Sauvegarde](https://msdn.microsoft.com/library/azure/mt772375.aspx)
 * [Déployer et gérer une sauvegarde vers Azure pour un serveur/client Windows à l’aide de PowerShell](../backup/backup-client-automation.md)
 
@@ -49,6 +53,9 @@ ms.author: bwren
 * En savoir plus sur les différentes options d’[intégration avec les services OMS](operations-management-suite-integration.md).
 * Créer une solution personnalisée dans OMS (bientôt disponible).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

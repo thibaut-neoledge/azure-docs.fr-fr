@@ -16,7 +16,7 @@
 ### [Créer des rôles web et de travail PHP](../cloud-services-php-create-web-role.md)
 ### [Créer et déployer une application Node.js](cloud-services-nodejs-develop-deploy-app.md)
 ### [Créer une application web Node.js avec Express](cloud-services-nodejs-develop-deploy-express-app.md)
-### U-SQL et Visual Studio
+### Storage et Visual Studio
 #### [Stockage Blob et services connectés](../storage/vs-storage-cloud-services-getting-started-blobs.md)
 #### [Stockage File d’attente et services connectés](../storage/vs-storage-cloud-services-getting-started-queues.md)
 #### [Stockage Table et services connectés](../storage/vs-storage-cloud-services-getting-started-tables.md)
@@ -64,6 +64,13 @@
 #### [Portail classique](cloud-services-how-to-scale.md)
 ### [Gérer les ressources Azure avec Python](cloud-services-python-how-to-use-service-management.md)
 
+### [Correctifs du SE invité](cloud-services-guestos-msrc-releases.md)
+### Suppression du SE invité
+#### [Stratégie de suppression](cloud-services-guestos-retirement-policy.md)
+#### [Informations relatives à la suppression de la famille 1](cloud-services-guestos-family1-retirement.md)
+### [Actualités concernant les versions de SE invité](cloud-services-guestos-update-matrix.md)
+### [Aide-mémoire XPath de configuration d’un rôle Services cloud](cloud-services-role-config-xpath.md)
+
 ## Gérer des certificats
 ### [Services cloud et certificats de gestion](cloud-services-certs-create.md)
 ### Configuration du chiffrement SSL 
@@ -95,20 +102,14 @@
 ### [Problèmes de déploiement courants](cloud-services-troubleshoot-deployment-problems.md)
 ### [Problèmes de démarrage des rôles](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [Conseils sur la récupération d’urgence](cloud-services-disaster-recovery-guidance.md)
-### [Forum aux questions sur Cloud Services](cloud-services-faq.md)
+### [Forum aux questions sur Services Cloud](cloud-services-faq.md)
 
 # Référence
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
 ## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
-## [Correctifs du SE invité](cloud-services-guestos-msrc-releases.md)
-## Suppression du SE invité
-### [Stratégie de suppression](cloud-services-guestos-retirement-policy.md)
-### [Informations relatives à la suppression de la famille 1](cloud-services-guestos-family1-retirement.md)
-## [Actualités concernant les versions de SE invité](cloud-services-guestos-update-matrix.md)
-## [Aide-mémoire XPath de configuration d’un rôle Services cloud](cloud-services-role-config-xpath.md)
 
-# Ressources
+# les ressources
 ## [Tarification](https://azure.microsoft.com/pricing/details/cloud-services/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
@@ -116,6 +117,6 @@
 ## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

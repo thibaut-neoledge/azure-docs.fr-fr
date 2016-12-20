@@ -1,12 +1,12 @@
 ---
-title: 'Azure Insights: Use autoscale actions to send email and webhook alert notifications. | Microsoft Docs'
-description: 'See how to use autoscale actions to call web URLs or send email notifications in Azure Insights. '
+title: "Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique. | Microsoft Docs"
+description: "Découvrez comment utiliser des actions de mise à l’échelle automatique pour appeler des URL web ou envoyer des notifications par courrier électronique dans Azure Monitor. "
 author: kamathashwin
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: eb9a4c98-0894-488c-8ee8-5df0065d094f
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,27 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2016
 ms.author: ashwink
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d5fb08bbeb5564566808cd8ff6d2e83dec89de6c
+
 
 ---
-# <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-insights"></a>Use autoscale actions to send email and webhook alert notifications in Azure Insights
-This article shows you how set up triggers so that you can call specific web URLs or send emails based on autoscale actions in Azure.  
+# <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Moonitor
+Cet article explique comment paramétrer des déclencheurs pour vous permettre d’appeler des URL web spécifiques ou d’envoyer des courriers électroniques en fonction d’actions de mise à l’échelle automatique dans Azure.  
 
 ## <a name="webhooks"></a>Webhooks
-Webhooks allow you to route the Azure alert notifications to other systems for post-processing or custom notifications. For example, routing the alert to services that can handle an incoming web request to send SMS, log bugs, notify a team using chat or messaging services, etc. The webhook URI must be a valid HTTP or HTTPS endpoint.
+Les webhooks vous permettent d’acheminer les notifications d’alerte Azure vers d’autres systèmes afin qu’elles soient post-traitées ou personnalisées. À titre d’exemple, citons l’acheminement de l’alerte vers des services qui peuvent gérer une demande web entrante pour envoyer des SMS, consigner des bogues, informer une équipe par le biais de services de conversation ou de messagerie, etc. L’URI du webhook doit être un point de terminaison HTTP ou HTTPS valide.
 
 ## <a name="email"></a>Email
-Email can be sent to any valid email address. Administrators and co-administrators of the subscription where the rule is running will also be notified.
+Un courrier électronique peut être envoyé à n’importe quelle adresse électronique valide. Les administrateurs et les coadministrateurs de l’abonnement dans lequel la règle est exécutée seront également avertis.
 
-## <a name="cloud-services-and-web-apps"></a>Cloud Services and Web Apps
-You can opt-in from the Azure portal for Cloud Services and Server Farms (Web Apps).
+## <a name="cloud-services-and-web-apps"></a>Services cloud et applications web
+Vous pouvez l’activer depuis le portail Azure pour les services cloud et les batteries de serveurs (applications web).
 
-* Choose the **scale by** metric.
+* Choisissez la métrique **scale by (mise à l’échelle par)** .
 
-![scale by](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
+![scale by (mise à l’échelle par)](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
 
-## <a name="virtual-machine-scale-sets"></a>Virtual Machine scale sets
-For newer Virtual Machines created with Resource Manager (Virtual Machine scale sets), you can configure this using REST API, Resource Manager templates, PowerShell, and CLI. A portal interface is not yet available.
-When using the REST API or Resource Manager template, include the notifications element with the following options.
+## <a name="virtual-machine-scale-sets"></a>Jeux de mise à l’échelle de machine virtuelle
+Pour des machines virtuelles plus récentes créées avec Resource Manager (groupes identiques de machines virtuelles), vous pouvez effectuer cette configuration à l’aide de l’API REST, de modèles Resource Manager, de PowerShell et de l’interface de ligne de commande (CLI). Aucune interface de portail n’est disponible pour l’instant.
+Lorsque vous utilisez l’API REST ou le modèle Resource Manager, incluez l’élément de notifications avec les options suivantes.
 
 ```
 "notifications": [
@@ -60,24 +64,24 @@ When using the REST API or Resource Manager template, include the notifications 
       }
     ]
 ```
-| Field | Mandatory? | Description |
+| Champ | Obligatoire ? | Description |
 | --- | --- | --- |
-| operation |yes |value must be "Scale" |
-| sendToSubscriptionAdministrator |yes |value must be "true" or "false" |
-| sendToSubscriptionCoAdministrators |yes |value must be "true" or "false" |
-| customEmails |yes |value can be null [] or string array of emails |
-| webhooks |yes |value can be null or valid Uri |
-| serviceUri |yes |a valid https Uri |
-| properties |yes |value must be empty {} or can contain key-value pairs |
+| operation |yes |la valeur doit être « Scale » |
+| sendToSubscriptionAdministrator |yes |la valeur doit être « true » ou « false » |
+| sendToSubscriptionCoAdministrators |yes |la valeur doit être « true » ou « false » |
+| customEmails |yes |la valeur peut être null ou un tableau de chaînes d’e-mails |
+| Webhooks |yes |la valeur peut être null ou un Uri valide |
+| serviceUri |yes |un URI https valide |
+| properties |yes |la valeur doit être vide ( {} ) ou peut contenir des paires clé-valeur |
 
-## <a name="authentication-in-webhooks"></a>Authentication in webhooks
-There are two authentication URI forms:
+## <a name="authentication-in-webhooks"></a>Authentification dans des webhooks
+Il existe deux formes d’URI d’authentification :
 
-1. Token-base authentication, where you save the webhook URI with a token ID as a query parameter. For example, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
-2. Basic authentication, where you use a user ID and password. For example, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
+1. L’authentification par jeton qui permet d’enregistrer l’URI du webhook avec un ID de jeton comme paramètre de requête. Par exemple, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+2. L’authentification de base qui nécessite l’utilisation d’un ID utilisateur et d’un mot de passe. Par exemple, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
 
-## <a name="autoscale-notification-webhook-payload-schema"></a>Autoscale notification webhook payload schema
-When the autoscale notification is generated, the following metadata is included in the webhook payload:
+## <a name="autoscale-notification-webhook-payload-schema"></a>Schéma de la charge utile du webhook de notification de mise à l’échelle automatique
+Lorsque la notification de mise à l’échelle automatique est générée, les métadonnées suivantes sont incluses dans la charge utile du webhook :
 
 ```
 {
@@ -106,25 +110,28 @@ When the autoscale notification is generated, the following metadata is included
 ```
 
 
-| Field | Mandatory? | Description |
+| Champ | Obligatoire ? | Description |
 | --- | --- | --- |
-| status |yes |The status that indicates that an autoscale action was generated |
-| operation |yes |For an increase of instances, it will be "Scale Out" and for a decrease in instances, it will be "Scale In" |
-| context |yes |The autoscale action context |
-| timestamp |yes |Time stamp when the autoscale action was triggered |
-| id |Yes |Resource Manager ID of the autoscale setting |
-| name |Yes |The name of the autoscale setting |
-| details |Yes |Explanation of the action that the autoscale service took and the change in the instance count |
-| subscriptionId |Yes |Subscription ID of the target resource that is being scaled |
-| resourceGroupName |Yes |Resource Group name of the target resource that is being scaled |
-| resourceName |Yes |Name of the target resource that is being scaled |
-| resourceType |Yes |The three supported values: "microsoft.classiccompute/domainnames/slots/roles" - Cloud Service roles, "microsoft.compute/virtualmachinescalesets" - Virtual Machine Scale Sets,  and "Microsoft.Web/serverfarms" - Web App |
-| resourceId |Yes |Resource Manager ID of the target resource that is being scaled |
-| portalLink |Yes |Azure portal link to the summary page of the target resource |
-| oldCapacity |Yes |The current (old) instance count when Autoscale took a scale action |
-| newCapacity |Yes |The new instance count that Autoscale scaled the resource to |
-| Properties |No |Optional. Set of <Key, Value> pairs (for example,  Dictionary <String, String>). The properties field is optional. In a custom user interface  or Logic app based workflow, you can enter keys and values that can be passed using the payload. An alternate way to pass custom properties back to the outgoing webhook call is to use the webhook URI itself (as query parameters) |
+| status |yes |L’état qui indique qu’une action de mise à l’échelle automatique a été générée. |
+| operation |yes |Pour une augmentation des instances, l’option est « augmenter la taille des instances » ; pour une diminution des instances, l’option est « Diminuer la taille des instances » |
+| context |yes |Le contexte de l’action de mise à l’échelle automatique |
+| timestamp |yes |Horodatage du déclenchement de l’action de mise à l’échelle automatique. |
+| id |yes |ID Resource Manager du paramètre de mise à l’échelle automatique |
+| name |yes |Le nom du paramètre de mise à l’échelle automatique |
+| détails |yes |Explication de l’action exécutée par le service de mise à l’échelle automatique et de la modification du nombre d’instances |
+| subscriptionId |yes |ID d’abonnement de la ressource cible mise à l’échelle |
+| nom_groupe_ressources |yes |Nom de groupe de ressources de la ressource cible mise à l’échelle |
+| resourceName |yes |Nom de la ressource cible mise à l’échelle |
+| resourceType |Oui |Trois valeurs sont prises en charge : « microsoft.classiccompute/domainnames/slots/roles » - Rôles de service cloud, « microsoft.compute/virtualmachinescalesets » - Jeux de mise à l’échelle de machine virtuelle et « Microsoft.Web/serverfarms » - Application Web |
+| resourceId |yes |ID Resource Manager de la ressource cible mise à l’échelle |
+| portalLink |yes |Lien du portail Azure vers la page de résumé de la ressource cible |
+| oldCapacity |yes |Nombre d’instances (anciennes) actuel lors de l’exécution d’une action de mise à l’échelle par la mise à l’échelle automatique |
+| newCapacity |yes |Le nouveau nombre d’instances auquel la mise à l’échelle automatique a mis la ressource à l’échelle |
+| properties |Non |facultatif. Jeu de paires < clé, valeur > (par exemple, Dictionary < String, String >). Le champ properties est facultatif. Dans un flux de travail basé sur une application logique ou une interface utilisateur personnalisée, vous pouvez entrer des clés et des valeurs transmissibles par le biais de la charge utile. Une autre manière de transmettre des propriétés personnalisées au webhook sortant consiste à utiliser l’URI du webhook (sous la forme de paramètres de requête). |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

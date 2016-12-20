@@ -1,12 +1,12 @@
 ---
-title: Configure MPIO on StorSimple Linux host| Microsoft Docs
-description: Configure MPIO on StorSimple connected to a Linux host running CentOS 6.6
+title: "Configuration de MPIO sur l’hôte Linux StorSimple| Microsoft Docs"
+description: "Configuration de MPIO sur StorSimple connecté à un hôte Linux exécutant CentOS 6.6"
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
 editor: tysonn
-
+ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,193 +14,197 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 64f6f245b86d9194a52e40ed226de9960a36f3f9
+ms.openlocfilehash: 96e0c65dd57505b816843ac6290ea19ca02c88f9
+
 
 ---
-# <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configure MPIO on a StorSimple host running CentOS
-This article explains the steps required to configure Multipathing IO (MPIO) on your Centos 6.6 host server. The host server is connected to your Microsoft Azure StorSimple device for high availability via iSCSI initiators. It describes in detail the automatic discovery of multipath devices and the specific setup only for StorSimple volumes.
+# <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configuration de MPIO sur un hôte StorSimple exécutant CentOS
+Cet article explique les étapes requises pour configurer la MPIO (gestion multivoie d’E/S) sur votre serveur hôte CentOS 6.6. Le serveur hôte est connecté à votre appareil Microsoft Azure StorSimple pour la haute disponibilité via les initiateurs iSCSI. Il décrit en détail la détection automatique des appareils multivoies et l’installation spécifique uniquement pour les volumes StorSimple.
 
-This procedure is applicable to all the models of StorSimple 8000 series devices.
+Cette procédure s’applique à tous les modèles d’appareils StorSimple série 8000.
 
 > [!NOTE]
-> This procedure cannot be used for a StorSimple virtual device. For more information, see how to configure host servers for your virtual device.
+> Cette procédure ne peut pas être utilisée pour un appareil virtuel StorSimple. Pour plus d’informations, consultez Configuration des serveurs hôtes de votre appareil virtuel.
 > 
 > 
 
-## <a name="about-multipathing"></a>About multipathing
-The multipathing feature allows you to configure multiple I/O paths between a host server and a storage device. These I/O paths are physical SAN connections that can include separate cables, switches, network interfaces, and controllers. Multipathing aggregates the I/O paths, to configure a new device that is associated with all of the aggregated paths.
+## <a name="about-multipathing"></a>À propos de la gestion multivoie
+La fonctionnalité de gestion multivoie vous permet de configurer plusieurs chemins d’accès d’E/S entre un serveur hôte et un appareil de stockage. Ces chemins d’accès d’E/S sont des connexions SAN physiques pouvant inclure des câbles distincts, des commutateurs, des interfaces réseau et des contrôleurs. La gestion multivoie agrège les chemins d’accès d’E/S pour configurer un nouvel appareil qui est associé à tous les chemins d’accès agrégés.
 
-The purpose of multipathing is two-fold:
+L’objectif de la gestion multivoie est double :
 
-* **High availability**: It provides an alternate path if any element of the I/O path (such as a cable, switch, network interface, or controller) fails.
-* **Load balancing**: Depending on the configuration of your storage device, it can improve the performance by detecting loads on the I/O paths and dynamically rebalancing those loads.
+* **Haute disponibilité** : elle fournit un chemin alternatif en cas d’échec de tout élément du chemin d’accès d’E/S (p. ex., câble, commutateur, interface réseau ou contrôleur).
+* **Équilibrage de charge**: selon la configuration de votre appareil de stockage, elle peut améliorer les performances en détectant des charges sur les chemins d’accès d’E/S et en les rééquilibrant dynamiquement.
 
-### <a name="about-multipathing-components"></a>About multipathing components
-Multipathing in Linux consists of kernel components and user-space components as tabulated below.
+### <a name="about-multipathing-components"></a>À propos des composants de la gestion multivoie
+Sous Linux, la gestion multivoie comprend des composants du noyau et des composants de l’espace utilisateur comme présenté ci-dessous.
 
-* **Kernel**: The main component is the *device-mapper* that reroutes I/O and supports failover for paths and path groups.
+* **Noyau**: le composant principal est le *mappeur d’appareils* qui redirige les E/S et prend en charge le basculement pour les chemins d’accès et les groupes de chemin d’accès.
 
-1. **User-space**: These are *multipath-tools* that manage multipathed devices by instructing the device-mapper multipath module what to do. The tools consist of:
+1. **Espace utilisateur**: il s’agit des *outils de la gestion multivoie* permettant de gérer les appareils à chemins d’accès multiples en indiquant la marche à suivre au module multivoie du mappeur d’appareils. Les outils comprennent les éléments suivants :
    
-   * **Multipath**: lists and configures multipathed devices.
-   * **Multipathd**: daemon that executes multipath and monitors the paths.
-   * **Devmap-name**: provides a meaningful device-name to udev for devmaps.
-   * **Kpartx**: maps linear devmaps to device partitions to make multipath maps partitionable.
-   * **Multipath.conf**: configuration file for multipath daemon that is used to overwrite the built-in configuration table.
+   * **Multipath**: répertorie et configure les appareils à chemins d’accès multiples.
+   * **Multipathd**: démon qui exécute la gestion multivoie et surveille les chemins d’accès.
+   * **Devmap-name**: fournit un nom d’appareil explicite vers udev pour devmaps.
+   * **Kpartx**: mappe les éléments devmaps linéaires aux partitions d’appareils pour effectuer des mappages multivoies configurables en partition.
+   * **Multipath.conf**: fichier de configuration pour démon multivoie, utilisé pour remplacer la table de configuration intégrée.
 
-### <a name="about-the-multipath.conf-configuration-file"></a>About the multipath.conf configuration file
-The configuration file `/etc/multipath.conf` makes many of the multipathing features user-configurable. The `multipath` command and the kernel daemon `multipathd` use information found in this file. The file is consulted only during the configuration of the multipath devices. Make sure that all changes are made before you run the `multipath` command. If you modify the file afterwards, you will need to stop and start multipathd again for the changes to take effect.
+### <a name="about-the-multipathconf-configuration-file"></a>À propos du fichier de configuration multipath.conf
+Le fichier de configuration `/etc/multipath.conf` rend un grand nombre de fonctionnalités de gestion multivoie configurables par l’utilisateur. La commande `multipath` et le démon de noyau `multipathd` utilisent les informations figurant dans ce fichier. Le fichier est consulté uniquement lors de la configuration des appareils multivoies. Assurez-vous d’avoir effectué toutes les modifications avant d’exécuter la commande `multipath` . Si vous modifiez le fichier par la suite, vous devrez arrêter, puis redémarrer multipathd pour que les modifications prennent effet.
 
-The multipath.conf has five sections:
+Le fichier multipath.conf comporte cinq sections :
 
-* **System level defaults** *(defaults)*: You can override system level defaults.
+* **Valeurs par défaut au niveau système** *(defaults)*: vous pouvez remplacer les valeurs par défaut au niveau système.
 
-1. **Blacklisted devices** *(blacklist)*: You can specify the list of devices that should not be controlled by device-mapper.
-2. **Blacklist exceptions** *(blacklist_exceptions)*: You can identify specific devices to be treated as multipath devices even if listed in the blacklist.
-3. **Storage controller specific settings** *(devices)*: You can specify configuration settings that will be applied to devices that have Vendor and Product information.
-4. **Device specific settings** *(multipaths)*: You can use this section to fine-tune the configuration settings for individual LUNs.
+1. **Appareils sur liste noire** *(blacklist)*: vous pouvez spécifier la liste des appareils qui ne doivent pas être contrôlés par le mappeur d’appareils.
+2. **Exceptions de la liste noire** *(blacklist_exceptions)* : vous pouvez identifier des appareils spécifiques à traiter en tant qu’appareils multivoies même s’ils sont répertoriés dans la liste noire.
+3. **Paramètres spécifiques au contrôleur de stockage** *(devices)*: vous pouvez spécifier des paramètres de configuration qui seront appliqués aux appareils contenant des informations de produit et de fournisseur.
+4. **Paramètres spécifiques aux appareils** *(multipaths)*: vous pouvez utiliser cette section pour ajuster les paramètres de configuration des numéros d’unité logique individuels.
 
-## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>Configure multipathing on StorSimple connected to Linux host
-A StorSimple device connected to a Linux host can be configured for high availability and load balancing. For example, if the Linux host has two interfaces connected to the SAN and the device has two interfaces connected to the SAN such that these interfaces are on the same subnet, then there will be 4 paths available. However, if each DATA interface on the device and host interface are on a different IP subnet (and not routable), then only 2 paths will be available. You can configure multipathing to automatically discover all the available paths, choose a load-balancing algorithm for those paths, apply specific configuration settings for StorSimple-only volumes, and then enable and verify multipathing.
+## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>Configuration de la gestion multivoie sur StorSimple connecté à l’hôte Linux
+Un appareil StorSimple connecté à un hôte Linux peut être configuré pour la haute disponibilité et l’équilibrage de charge. Par exemple, si l’hôte Linux possède deux interfaces connectées au réseau SAN et que l’appareil possède deux interfaces connectées au réseau SAN de telle sorte qu’elles sont sur le même sous-réseau, 4 chemins d’accès sont disponibles. Cependant, si les interfaces DATA sur l’appareil et l’interface de l’hôte sont sur un autre sous-réseau IP (non routable), alors seuls 2 chemins d’accès sont disponibles. Vous pouvez configurer la gestion multivoie pour détecter automatiquement tous les chemins d’accès disponibles, choisir un algorithme d’équilibrage de charge pour ces chemins d’accès, appliquer des paramètres de configuration spécifiques pour les volumes StorSimple uniquement, puis activer et vérifier la gestion multivoie.
 
-The following procedure describes how to configure multipathing when a StorSimple device with two network interfaces is connected to a host with two network interfaces.
+La procédure suivante décrit comment configurer la gestion multivoie lorsqu’un appareil StorSimple possédant deux interfaces réseau est connecté à un hôte avec deux interfaces réseau.
 
-## <a name="prerequisites"></a>Prerequisites
-This section details the configuration prerequisites for CentOS server and your StorSimple device.
+## <a name="prerequisites"></a>Composants requis
+Cette section détaille la configuration requise pour le serveur CentOS et votre appareil StorSimple.
 
-### <a name="on-centos-host"></a>On CentOS host
-1. Make sure that your CentOS host has 2 network interfaces enabled. Type:
+### <a name="on-centos-host"></a>Sur l’hôte CentOS
+1. Assurez-vous que votre hôte CentOS possède 2 interfaces réseau activées. Entrez :
    
     `ifconfig`
    
-    The following example shows the output when two network interfaces (`eth0` and `eth1`) are present on the host.
+    L’exemple suivant montre la sortie lorsque deux interfaces réseau (`eth0` et `eth1`) sont présentes sur l’hôte.
    
         [root@centosSS ~]# ifconfig
         eth0  Link encap:Ethernet  HWaddr 00:15:5D:A2:33:41  
-        inet addr:10.126.162.65  Bcast:10.126.163.255  Mask:255.255.252.0
-        inet6 addr: 2001:4898:4010:3012:215:5dff:fea2:3341/64 Scope:Global
-        inet6 addr: fe80::215:5dff:fea2:3341/64 Scope:Link
-        UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-        RX packets:36536 errors:0 dropped:0 overruns:0 frame:0
-        TX packets:6312 errors:0 dropped:0 overruns:0 carrier:0
-        collisions:0 txqueuelen:1000
-        RX bytes:13994127 (13.3 MiB)  TX bytes:645654 (630.5 KiB)
+          inet addr:10.126.162.65  Bcast:10.126.163.255  Mask:255.255.252.0
+          inet6 addr: 2001:4898:4010:3012:215:5dff:fea2:3341/64 Scope:Global
+          inet6 addr: fe80::215:5dff:fea2:3341/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:36536 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6312 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:13994127 (13.3 MiB)  TX bytes:645654 (630.5 KiB)
    
         eth1  Link encap:Ethernet  HWaddr 00:15:5D:A2:33:42  
-        inet addr:10.126.162.66  Bcast:10.126.163.255  Mask:255.255.252.0
-        inet6 addr: 2001:4898:4010:3012:215:5dff:fea2:3342/64 Scope:Global
-        inet6 addr: fe80::215:5dff:fea2:3342/64 Scope:Link
-        UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-        RX packets:25962 errors:0 dropped:0 overruns:0 frame:0
-        TX packets:11 errors:0 dropped:0 overruns:0 carrier:0
-        collisions:0 txqueuelen:1000
-        RX bytes:2597350 (2.4 MiB)  TX bytes:754 (754.0 b)
+          inet addr:10.126.162.66  Bcast:10.126.163.255  Mask:255.255.252.0
+          inet6 addr: 2001:4898:4010:3012:215:5dff:fea2:3342/64 Scope:Global
+          inet6 addr: fe80::215:5dff:fea2:3342/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:25962 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:11 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:2597350 (2.4 MiB)  TX bytes:754 (754.0 b)
    
         loLink encap:Local Loopback  
-        inet addr:127.0.0.1  Mask:255.0.0.0
-        inet6 addr: ::1/128 Scope:Host
-        UP LOOPBACK RUNNING  MTU:65536  Metric:1
-        RX packets:12 errors:0 dropped:0 overruns:0 frame:0
-        TX packets:12 errors:0 dropped:0 overruns:0 carrier:0
-        collisions:0 txqueuelen:0
-        RX bytes:720 (720.0 b)  TX bytes:720 (720.0 b)
-2. Install *iSCSI-initiator-utils* on your CentOS server. Perform the following steps to install *iSCSI-initiator-utils*.
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:12 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:12 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:720 (720.0 b)  TX bytes:720 (720.0 b)
+2. Installez *iSCSI-initiator-utils* sur votre serveur CentOS. Effectuez les opérations suivantes pour installer *iSCSI-initiator-utils*.
    
-   1. Log on as `root` into your CentOS host.
-   2. Install the *iSCSI-initiator-utils*. Type:
+   1. Connectez-vous en tant que `root` à votre hôte CentOS.
+   2. Installez *iSCSI-initiator-utils*. Entrez :
       
        `yum install iscsi-initiator-utils`
-   3. After the *iSCSI-Initiator-utils* is successfully installed, start the iSCSI service. Type:
+   3. Après avoir correctement installé *iSCSI-Initiator-utils* , démarrez le service iSCSI. Entrez :
       
        `service iscsid start`
       
-       On occasions, `iscsid` may not actually start and the `--force` option may be needed
-   4. To ensure that your iSCSI initiator is enabled during boot time, use the `chkconfig` command to enable the service.
+       Parfois, `iscsid` peut ne pas démarrer et l’option `--force` peut être nécessaire.
+   4. Pour vous assurer que votre initiateur iSCSI est activé à l’heure de démarrage, utilisez la commande `chkconfig` pour activer le service.
       
        `chkconfig iscsi on`
-   5. To verify that that it was properly setup, run the command:
+   5. Pour vérifier que l’installation s’est correctement effectuée, exécutez la commande :
       
        `chkconfig --list | grep iscsi`
       
-       A sample output is shown below.
+       Voici un exemple de sortie obtenue.
       
            iscsi   0:off   1:off   2:on3:on4:on5:on6:off
            iscsid  0:off   1:off   2:on3:on4:on5:on6:off
       
-       From the above example, you can see that your iSCSI environment will run on boot time on run levels 2, 3, 4, and 5.
-3. Install *device-mapper-multipath*. Type:
+       Dans l’exemple ci-dessus, vous pouvez voir que votre environnement iSCSI s’exécutera à l’heure de démarrage sur les niveaux d’exécution 2, 3, 4 et 5.
+3. Installez *device-mapper-multipath*. Entrez :
    
     `yum install device-mapper-multipath`
    
-    The installation will start. Type **Y** to continue when prompted for confirmation.
+    L’installation démarre. Tapez **Y** pour continuer lorsque vous êtes invité à confirmer l’opération.
 
-### <a name="on-storsimple-device"></a>On StorSimple device
-Your StorSimple device should have:
+### <a name="on-storsimple-device"></a>Sur l’appareil StorSimple
+Votre appareil StorSimple doit disposer des éléments suivants :
 
-* A minimum of two interfaces enabled for iSCSI. To verify that two interfaces are iSCSI-enabled on your StorSimple device, perform the following steps in the Azure classic portal for your StorSimple device:
+* Deux interfaces activées pour iSCSI minimum. Pour vérifier que deux interfaces sont compatibles iSCSI sur votre appareil StorSimple, effectuez les opérations suivantes dans le portail Azure Classic de votre appareil StorSimple :
   
-  1. Log into the classic portal for your StorSimple device.
-  2. Select your StorSimple Manager service, click **Devices** and choose the specific StorSimple device. Click **Configure** and verify the network interface settings. A screenshot with two iSCSI-enabled network interfaces is shown below. Here DATA 2 and DATA 3, both 10 GbE interfaces are enabled for iSCSI.
+  1. Connectez-vous au portail Classic de votre appareil StorSimple.
+  2. Sélectionnez votre service StorSimple Manager, cliquez sur **Appareils** et choisissez l’appareil StorSimple concerné. Cliquez sur **Configurer** et vérifiez les paramètres d’interface réseau. Une capture d’écran avec deux interfaces réseau compatibles iSCSI est affichée ci-dessous. Ici, pour DATA 2 et DATA 3, les deux interfaces 10 Gigabit Ethernet sont activées pour iSCSI.
      
-      ![MPIO StorsSimple DATA 2 config](./media/storsimple-configure-mpio-on-linux/IC761347.png)
+      ![Configuration de MPIO StorSimple DATA 2](./media/storsimple-configure-mpio-on-linux/IC761347.png)
      
-      ![MPIO StorSimple DATA 3 Config](./media/storsimple-configure-mpio-on-linux/IC761348.png)
+      ![Configuration de MPIO StorSimple DATA 3](./media/storsimple-configure-mpio-on-linux/IC761348.png)
      
-      In the **Configure** page
+      Sur la page **Configurer**
      
-     1. Ensure that both network interfaces are iSCSI-enabled. The **iSCSI enabled** field should be set to **Yes**.
-     2. Ensure that the network interfaces have the same speed, both should be 1 GbE or 10 GbE.
-     3. Note the IPv4 addresses of the iSCSI-enabled interfaces and save for later use on the host.
-* The iSCSI interfaces on your StorSimple device should be reachable from the CentOS server.
+     1. Assurez-vous que les deux interfaces réseau sont compatibles iSCSI. Le champ **Compatible iSCSI** doit être défini sur **Oui**.
+     2. Vérifiez que les interfaces réseau ont la même vitesse, les deux devant être définies sur 1 Gigabit Ethernet ou 10 Gigabit Ethernet.
+     3. Notez les adresses IPv4 des interfaces compatibles iSCSI et conservez-les pour une utilisation ultérieure sur l’hôte.
+* Les interfaces iSCSI sur votre appareil StorSimple doivent être accessibles à partir du serveur CentOS.
   
-    To verify this, you need to provide the IP addresses of your StorSimple iSCSI-enabled network interfaces on your host server. The commands used and the corresponding output with DATA2 (10.126.162.25) and DATA3 (10.126.162.26) is shown below:
+    Pour vérifier ceci, vous devez fournir les adresses IP de vos interfaces réseau compatibles iSCSI StorSimple sur votre serveur hôte. Les commandes utilisées et la sortie correspondante avec DATA2 (10.126.162.25) et DATA3 (10.126.162.26) sont présentées ci-dessous :
   
         [root@centosSS ~]# iscsiadm -m discovery -t sendtargets -p 10.126.162.25:3260
         10.126.162.25:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g44mt-target
         10.126.162.26:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g44mt-target
 
-### <a name="hardware-configuration"></a>Hardware configuration
-We recommend that you connect the two iSCSI network interfaces on separate paths for redundancy. The figure below shows the recommended hardware configuration for high availability and load-balancing multipathing for your CentOS server and StorSimple device.
+### <a name="hardware-configuration"></a>Configuration matérielle
+Nous vous recommandons de connecter les deux interfaces réseau iSCSI sur des chemins d’accès distincts pour la redondance. La figure ci-dessous illustre la configuration matérielle recommandée pour la gestion multivoie haute disponibilité et équilibrage de charge pour votre serveur CentOS et votre appareil StorSimple.
 
-![MPIO hardware config for StorSimple to Linux host](./media/storsimple-configure-mpio-on-linux/MPIOHardwareConfigurationStorSimpleToLinuxHost2M.png)
+![Configuration matérielle de MPIO pour StorSimple sur l’hôte Linux](./media/storsimple-configure-mpio-on-linux/MPIOHardwareConfigurationStorSimpleToLinuxHost2M.png)
 
-As shown in the preceding figure:
+Comme indiqué dans la figure précédente :
 
-* Your StorSimple device is in an active-passive configuration with two controllers.
-* Two SAN switches are connected to your device controllers.
-* Two iSCSI initiators are enabled on your StorSimple device.
-* Two network interfaces are enabled on your CentOS host.
+* Votre appareil StorSimple est une configuration active/passive avec deux contrôleurs.
+* Deux commutateurs SAN sont connectés à vos contrôleurs d’appareils.
+* Deux initiateurs iSCSI sont activés sur votre appareil StorSimple.
+* Deux interfaces réseau sont activées sur votre hôte CentOS.
 
-The above configuration will yield 4 separate paths between your device and the host if the host and data interfaces are routable.
+La configuration ci-dessus produira 4 chemins d’accès distincts entre votre appareil et l’hôte si les interfaces de l’hôte et des données sont routables.
 
 > [!IMPORTANT]
-> * We recommend that you do not mix 1 GbE and 10 GbE network interfaces for multipathing. When using two network interfaces, both the interfaces should be the identical type.
-> * On your StorSimple device, DATA0, DATA1, DATA4 and DATA5 are 1 GbE interfaces whereas DATA2 and DATA3 are 10 GbE network interfaces.|
+> * Nous vous recommandons de ne pas mélanger les interfaces réseau 1 Gigabit Ethernet et 10 Gigabit Ethernet pour la gestion multivoie. Lorsque vous utilisez deux interfaces réseau, elles doivent être du même type.
+> * Sur votre appareil StorSimple, DATA0, DATA1, DATA4 et DATA5 sont des interfaces 1 Gigabit Ethernet, alors que DATA2 et DATA3 sont des interfaces réseau 10 Gigabit Ethernet.|
 > 
 > 
 
-## <a name="configuration-steps"></a>Configuration steps
-The configuration steps for multipathing involve configuring the available paths for automatic discovery, specifying the load-balancing algorithm to use, enabling multipathing and finally verifying the configuration. Each of these steps is discussed in detail in the following sections.
+## <a name="configuration-steps"></a>Configuration
+Les étapes de configuration pour la gestion multivoie impliquent la configuration des chemins d’accès disponibles pour la détection automatique, la spécification de l’algorithme d’équilibrage de charge à utiliser, l’activation de la gestion multivoie et enfin la vérification de la configuration. Chacune de ces étapes est abordée en détail dans les sections suivantes.
 
-### <a name="step-1:-configure-multipathing-for-automatic-discovery"></a>Step 1: Configure multipathing for automatic discovery
-The multipath-supported devices can be automatically discovered and configured.
+### <a name="step-1-configure-multipathing-for-automatic-discovery"></a>Étape 1 : Configurer la gestion multivoie pour la détection automatique
+Les appareils pris en charge par la gestion multivoie peuvent être automatiquement détectés et configurés.
 
-1. Initialize `/etc/multipath.conf` file. Type:
+1. Initialisez le fichier `/etc/multipath.conf` . Entrez :
    
      `Copy mpathconf --enable`
    
-    The above command will create a `sample/etc/multipath.conf` file.
-2. Start multipath service. Type:
+    La commande ci-dessus crée un fichier `sample/etc/multipath.conf` .
+2. Démarrez le service de gestion multivoie. Entrez :
    
     ``Copy service multipathd start``
    
-    You will see the following output:
+    La sortie suivante s’affiche :
    
     `Starting multipathd daemon:`
-3. Enable automatic discovery of multipaths. Type:
+3. Activez la détection automatique des chemins d’accès multiples. Entrez :
    
     `mpathconf --find_multipaths y`
    
-    This will modify the defaults section of your `multipath.conf` as shown below:
+    Cela modifiera la section defaults de votre `multipath.conf` comme indiqué ci-dessous :
    
         defaults {
         find_multipaths yes
@@ -208,13 +212,13 @@ The multipath-supported devices can be automatically discovered and configured.
         path_grouping_policy multibus
         }
 
-### <a name="step-2:-configure-multipathing-for-storsimple-volumes"></a>Step 2: Configure multipathing for StorSimple volumes
-By default, all devices are black listed in the multipath.conf file and will be bypassed. You will need to create blacklist exceptions to allow multipathing for volumes from StorSimple devices.
+### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Étape 2 : Configurer la gestion multivoie pour les volumes StorSimple
+Par défaut, tous les appareils sont sur liste noire dans le fichier multipath.conf et seront contournés. Vous devrez créer des exceptions de la liste noire pour autoriser la gestion multivoie pour les volumes à partir des appareils StorSimple.
 
-1. Edit the `/etc/mulitpath.conf` file. Type:
+1. Modifiez le fichier `/etc/mulitpath.conf` . Entrez :
    
     `vi /etc/multipath.conf`
-2. Locate the blacklist_exceptions section in the multipath.conf file. Your StorSimple device needs to be listed as a blacklist exception in this section. You can uncomment relevant lines in this file to modify it as shown below (use only the specific model of the device you are using):
+2. Recherchez la section blacklist_exceptions dans le fichier multipath.conf. Votre appareil StorSimple doit être répertorié comme une exception de la liste noire dans cette section. Vous pouvez supprimer les marques de commentaire des lignes appropriées dans ce fichier pour le modifier comme indiqué ci-dessous (utilisez uniquement le modèle spécifique de l’appareil que vous utilisez) :
    
         blacklist_exceptions {
             device {
@@ -227,13 +231,13 @@ By default, all devices are black listed in the multipath.conf file and will be 
             }
            }
 
-### <a name="step-3:-configure-round-robin-multipathing"></a>Step 3: Configure round-robin multipathing
-This load-balancing algorithm uses all the available multipaths to the active controller in a balanced, round-robin fashion.
+### <a name="step-3-configure-round-robin-multipathing"></a>Étape 3 : Configurer la gestion multivoie de tourniquet (round robin)
+Cet algorithme d’équilibrage de charge utilise tous les chemins d’accès multiples disponibles pour le contrôleur actif de manière équilibrée, en tourniquet (round robin).
 
-1. Edit the `/etc/multipath.conf` file. Type:
+1. Modifiez le fichier `/etc/multipath.conf` . Entrez :
    
     `vi /etc/multipath.conf`
-2. Under the `defaults` section, set the `path_grouping_policy` to `multibus`. The `path_grouping_policy` specifies the default path grouping policy to apply to unspecified multipaths. The defaults section will look as shown below.
+2. Sous la section `defaults`, définissez `path_grouping_policy` sur `multibus`. `path_grouping_policy` spécifie la stratégie de regroupement de chemins d’accès par défaut à appliquer aux chemins d’accès multiples non spécifiés. La section defaults ressemblera à ce qui est présenté ci-dessous.
    
         defaults {
                 user_friendly_names yes
@@ -241,132 +245,142 @@ This load-balancing algorithm uses all the available multipaths to the active co
         }
 
 > [!NOTE]
-> The most common values of `path_grouping_policy` include:
+> Les valeurs les plus courantes de `path_grouping_policy` incluent :
 > 
-> * failover = 1 path per priority group
-> * multibus = all valid paths in 1 priority group
+> * basculement = 1 chemin d’accès par groupe de priorité
+> * multibus = tous les chemins d’accès valides dans 1 groupe de priorité
 > 
 > 
 
-### <a name="step-4:-enable-multipathing"></a>Step 4: Enable multipathing
-1. Restart the `multipathd` daemon. Type:
+### <a name="step-4-enable-multipathing"></a>Étape 4 : Activer la gestion multivoie
+1. Redémarrez le démon `multipathd` . Entrez :
    
     `service multipathd restart`
-2. The output will be as shown below:
+2. La sortie sera comme indiqué ci-dessous :
    
         [root@centosSS ~]# service multipathd start
         Starting multipathd daemon:  [OK]
 
-### <a name="step-5:-verify-multipathing"></a>Step 5: Verify multipathing
-1. First make sure that iSCSI connection is established with the StorSimple device as follows:
+### <a name="step-5-verify-multipathing"></a>Étape 5 : Vérifier la gestion multivoie
+1. Tout d’abord, assurez-vous que la connexion iSCSI est établie avec l’appareil StorSimple comme suit :
    
-   1. Discover your StorSimple device. Type:
+   a. Détectez votre appareil StorSimple. Entrez :
       
-       `iscsiadm -m discovery -t sendtargets -p  <IP address of network interface on the device>:<iSCSI port on StorSimple device>`
-      
-       The output when IP address for DATA0 is 10.126.162.25 and port 3260 is opened on the StorSimple device for outbound iSCSI traffic is as shown below:
-      
-           10.126.162.25:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target
-           10.126.162.26:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target
+    ```
+    iscsiadm -m discovery -t sendtargets -p  <IP address of network interface on the device>:<iSCSI port on StorSimple device>
+    ```
+    
+    La sortie lorsque l’adresse IP pour DATA0 est 10.126.162.25 et que le port 3260 est ouvert sur l’appareil StorSimple pour le trafic iSCSI sortant est comme indiqué ci-dessous :
+    
+    ```
+    10.126.162.25:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target
+    10.126.162.26:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target
+    ```
 
-        Copy the IQN of your StorSimple device, `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`, from the preceding output.
+    Copiez le nom qualifié de votre appareil StorSimple, `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`, à partir de la sortie précédente.
 
+   b. Connectez-vous à l’appareil à l’aide du nom qualifié cible. L’appareil StorSimple est la cible iSCSI ici. Entrez :
 
+    ```
+    iscsiadm -m node --login -T <IQN of iSCSI target>
+    ```
 
-    1. Connect to the device using target IQN. The StorSimple device is the iSCSI target here. Type:
+    L’exemple suivant illustre la sortie avec un nom qualifié cible de `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`. La sortie indique que vous vous êtes correctement connecté aux deux interfaces réseau compatibles iSCSI sur votre appareil.
 
-        `iscsiadm -m node --login -T <IQN of iSCSI target>`
+    ```
+    Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
+    Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
+    Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] (multiple)
+    Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] (multiple)
+    Login to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] successful.
+    Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] successful.
+    Login to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
+    Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
+    ```
 
-        The following example shows output with a target IQN of `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`. The output indicates that you have successfully connected to the two iSCSI-enabled network interfaces on your device.
-
-            Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
-            Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
-            Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] (multiple)
-            Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] (multiple)
-            Login to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] successful.
-            Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] successful.
-            Login to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
-                Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
-
-
-        If you see only one host interface and two paths here, then you need to enable both the interfaces on host for iSCSI. You can follow the [detailed instructions in Linux documentation](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
-
-
-    1. A volume is exposed to the CentOS server from the StorSimple device. For more information, see [Step 6: Create a volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) via the Azure classic portal on your StorSimple device.
-
-    1. Verify the available paths. Type:
-
-        `multipath –l`
-
-        The following example shows the output for two network interfaces on a StorSimple device connected to a single host network interface with two available paths.
-
-            mpathb (36486fd20cc081f8dcd3fccb992d45a68) dm-3 MSFT,STORSIMPLE 8100
-            size=100G features='0' hwhandler='0' wp=rw
-            `-+- policy='round-robin 0' prio=0 status=active
-              |- 7:0:0:1 sdc 8:32 active undef running
-              `- 6:0:0:1 sdd 8:48 active undef running
-
-        The following example shows the output for two network interfaces on a StorSimple device connected to two host network interfaces with four available paths.
-
-            mpathb (36486fd27a23feba1b096226f11420f6b) dm-2 MSFT,STORSIMPLE 8100
-            size=100G features='0' hwhandler='0' wp=rw
-            `-+- policy='round-robin 0' prio=0 status=active
-              |- 17:0:0:0 sdb 8:16 active undef running
-              |- 15:0:0:0 sdd 8:48 active undef running
-              |- 14:0:0:0 sdc 8:32 active undef running
-              `- 16:0:0:0 sde 8:64 active undef running
-
-        After the paths are configured, refer to the specific instructions on your host operating system (Centos 6.6) to mount and format this volume.
+    Si vous ne voyez qu’une seule interface hôte et deux chemins d’accès ici, vous devez activer les deux interfaces sur l’hôte pour iSCSI. Vous pouvez suivre les [instructions détaillées dans la documentation Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
 
-## <a name="troubleshoot-multipathing"></a>Troubleshoot multipathing
-This section provides some helpful tips if you run into any issues during multipathing configuration.
+   c. Un volume est exposé au serveur CentOS à partir de l’appareil StorSimple. Pour plus d’informations, consultez [Étape 6 : Créer un volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) via le portail Azure Classic sur votre appareil StorSimple.
 
-Q. I do not see the changes in `multipath.conf` file taking effect.
+   d. Vérifiez les chemins d’accès disponibles. Entrez :
 
-A. If you have made any changes to the `multipath.conf` file, you will need to restart the multipathing service. Type the following command:
+   ```
+   multipath –l
+   ```
+
+   L’exemple suivant montre la sortie de deux interfaces réseau sur un appareil StorSimple connecté à une interface réseau de l’hôte unique avec deux chemins d’accès disponibles.
+
+   ```
+    mpathb (36486fd20cc081f8dcd3fccb992d45a68) dm-3 MSFT,STORSIMPLE 8100
+    size=100G features='0' hwhandler='0' wp=rw
+    `-+- policy='round-robin 0' prio=0 status=active
+        |- 7:0:0:1 sdc 8:32 active undef running
+        `- 6:0:0:1 sdd 8:48 active undef running
+   ```
+
+   L’exemple suivant montre la sortie de deux interfaces réseau sur un appareil StorSimple connecté à deux interfaces réseau de l’hôte avec quatre chemins d’accès disponibles.
+
+   ```
+    mpathb (36486fd27a23feba1b096226f11420f6b) dm-2 MSFT,STORSIMPLE 8100
+    size=100G features='0' hwhandler='0' wp=rw
+    `-+- policy='round-robin 0' prio=0 status=active
+        |- 17:0:0:0 sdb 8:16 active undef running
+        |- 15:0:0:0 sdd 8:48 active undef running
+        |- 14:0:0:0 sdc 8:32 active undef running
+        `- 16:0:0:0 sde 8:64 active undef running
+   ```
+
+   Après avoir configuré les chemins d’accès, reportez-vous aux instructions spécifiques de votre système d’exploitation hôte (CentOS 6.6) pour monter et formater ce volume.
+
+## <a name="troubleshoot-multipathing"></a>Résolution des problèmes de la gestion multivoie
+Cette section fournit des conseils utiles si vous rencontrez des problèmes lors de la configuration de la gestion multivoie.
+
+Q : Je ne vois pas les modifications apportées au fichier `multipath.conf` s’appliquer.
+
+A. Si vous avez apporté des modifications au fichier `multipath.conf` , vous devez redémarrer le service de gestion multivoie. Tapez la commande suivante :
 
     service multipathd restart
 
-Q. I have enabled two network interfaces on the StorSimple device and two network interfaces on the host. When I list the available paths, I see only two paths. I expected to see four available paths.
+Q : J’ai activé deux interfaces réseau sur l’appareil StorSimple et deux interfaces réseau sur l’hôte. Lorsque je répertorie les chemins d’accès disponibles, je ne vois que deux chemins d’accès. Je m’attendais à voir quatre chemins d’accès disponibles.
 
-A. Make sure that the two paths are on the same subnet and routable. If the network interfaces are on different vLANs and not routable, you will see only two paths. One way to verify this is to make sure that you can reach both the host interfaces from a network interface on the StorSimple device. You will need to [contact Microsoft Support](storsimple-contact-microsoft-support.md) as this verification can only be done via a support session.
+A. Vérifiez que les deux chemins d’accès sont sur le même sous-réseau et routables. Si les interfaces réseau se trouvent sur des réseaux locaux virtuels différents et non routables, vous ne verrez que deux chemins d’accès. L’un des moyens de vérifier cela consiste à vous assurer que vous pouvez atteindre les deux interfaces hôte à partir d’une interface réseau sur l’appareil StorSimple. Vous devrez [contacter le support technique Microsoft](storsimple-contact-microsoft-support.md) car cette vérification ne peut être effectuée qu’au moyen d’une session de support.
 
-Q. When I list available paths, I do not see any output.
+Q : Lorsque je répertorie les chemins d’accès disponibles, je ne vois aucune sortie.
 
-A. Typically, not seeing any multipathed paths suggests a problem with the multipathing daemon, and it’s most likely that any problem here lies in the `multipath.conf` file.
+A. En règle générale, le non-affichage de chemins d’accès multiples suggère un problème avec le démon de gestion multivoie et il est très probable que le problème éventuel réside dans le fichier `multipath.conf` .
 
-It would also be worth checking that you can actually see some disks after connecting to the target, as no response from the multipath listings could also mean you don’t have any disks.
+Il convient également de vérifier que vous pouvez voir certains disques après la connexion à la cible, car l’absence de réponse des listes multivoies peut signifier que vous n’avez aucun disque.
 
-* Use the following command to rescan the SCSI bus:
+* Pour relancer l’analyse du bus SCSI, utilisez la commande suivante :
   
-    `$ rescan-scsi-bus.sh `(part of sg3_utils package)
-* Type the following commands:
+    `$ rescan-scsi-bus.sh `(partie du package sg3_utils)
+* Tapez les commandes suivantes :
   
     `$ dmesg | grep sd*`
-* Or
+* Ou
   
     `$ fdisk –l`
   
-    These will return details of recently added disks.
-* To determine whether it is a StorSimple disk, use the following commands:
+    Celles-ci renverront les détails des disques récemment ajoutés.
+* Pour déterminer s’il s’agit d’un disque StorSimple, utilisez les commandes suivantes :
   
     `cat /sys/block/<DISK>/device/model`
   
-    This will return a string, which will determine if it’s a StorSimple disk.
+    Cela renvoie une chaîne qui déterminera s’il s’agit d’un disque StorSimple.
 
-A less likely but possible cause could also be stale iscsid pid. Use the following command to log off from the iSCSI sessions:
+Cause moins probable mais possible, la présence d’un PID iSCSI obsolète. Utilisez la commande suivante pour vous déconnecter des sessions iSCSI :
 
     iscsiadm -m node --logout -p <Target_IP>
 
-Repeat this command for all the connected network interfaces on the iSCSI target, which is your StorSimple device. Once you have logged off from all the iSCSI sessions, use the iSCSI target IQN to reestablish the iSCSI session. Type the following command:
+Répétez cette commande pour toutes les interfaces réseau connectées sur la cible iSCSI, qui est votre appareil StorSimple. Une fois que vous vous êtes déconnecté de toutes les sessions iSCSI, utilisez le nom qualifié cible iSCSI pour rétablir la session iSCSI. Tapez la commande suivante :
 
     iscsiadm -m node --login -T <TARGET_IQN>
 
 
-Q. I am not sure if my device is whitelisted.
+Q : Je ne sais pas si mon appareil figure dans la liste approuvée.
 
-A. To verify whether your device is whitelisted, use the following troubleshooting interactive command:
+A. Pour vérifier que votre appareil figure dans la liste approuvée, utilisez la commande interactive de résolution des problèmes suivante :
 
     multipathd –k
     multipathd> show devices
@@ -405,36 +419,39 @@ A. To verify whether your device is whitelisted, use the following troubleshooti
     dm-3 devnode blacklisted, unmonitored
 
 
-For more information, go to [use troubleshooting interactive command for multipathing](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
+Pour plus d’informations, accédez à [Utilisation de la commande interactive de résolution des problèmes pour la gestion multivoie](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
 
-## <a name="list-of-useful-commands"></a>List of useful commands
-| Type | Command | Description |
+## <a name="list-of-useful-commands"></a>Liste des commandes utiles
+| Tapez  | Commande | Description |
 | --- | --- | --- |
-| **iSCSI** |`service iscsid start` |Start iSCSI service |
-| &nbsp; |`service iscsid stop` |Stop iSCSI service |
-| &nbsp; |`service iscsid restart` |Restart iSCSI service |
-| &nbsp; |`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>` |Discover available targets on the specified address |
-| &nbsp; |`iscsiadm -m node --login -T <TARGET_IQN>` |Log in to the iSCSI target |
-| &nbsp; |`iscsiadm -m node --logout -p <Target_IP>` |Log out from the iSCSI target |
-| &nbsp; |`cat /etc/iscsi/initiatorname.iscsi` |Print iSCSI initiator name |
-| &nbsp; |`iscsiadm –m session –s <sessionid> -P 3` |Check the state of the iSCSI session and volume discovered on the host |
-| &nbsp; |`iscsi –m session` |Shows all the iSCSI sessions established between the host and the StorSimple device |
+| **iSCSI** |`service iscsid start` |Démarrer le service iSCSI |
+| &nbsp; |`service iscsid stop` |Arrêter le service iSCSI |
+| &nbsp; |`service iscsid restart` |Redémarrer le service iSCSI |
+| &nbsp; |`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>` |Détecter les cibles disponibles à l'adresse spécifiée |
+| &nbsp; |`iscsiadm -m node --login -T <TARGET_IQN>` |Se connecter à la cible iSCSI |
+| &nbsp; |`iscsiadm -m node --logout -p <Target_IP>` |Se déconnecter de la cible iSCSI |
+| &nbsp; |`cat /etc/iscsi/initiatorname.iscsi` |Imprimer le nom de l'initiateur iSCSI |
+| &nbsp; |`iscsiadm –m session –s <sessionid> -P 3` |Vérifier l'état de la session iSCSI et le volume détecté sur l’hôte |
+| &nbsp; |`iscsi –m session` |Affiche toutes les sessions iSCSI établies entre l'hôte et l'appareil StorSimple |
 |  | | |
-| **Multipathing** |`service multipathd start` |Start multipath daemon |
-| &nbsp; |`service multipathd stop` |Stop multipath daemon |
-| &nbsp; |`service multipathd restart` |Restart multipath daemon |
-| &nbsp; |`chkconfig multipathd on` </br> OR </br> `mpathconf –with_chkconfig y` |Enable multipath daemon to start at boot time |
-| &nbsp; |`multipathd –k` |Start the interactive console for troubleshooting |
-| &nbsp; |`multipath –l` |List multipath connections and devices |
-| &nbsp; |`mpathconf --enable` |Create a sample mulitpath.conf file in `/etc/mulitpath.conf` |
+| **Gestion multivoie** |`service multipathd start` |Démarrer le démon multivoie |
+| &nbsp; |`service multipathd stop` |Arrêter le démon multivoie |
+| &nbsp; |`service multipathd restart` |Redémarrer le démon multivoie |
+| &nbsp; |`chkconfig multipathd on` </br> Ou </br> `mpathconf –with_chkconfig y` |Activer le lancement du démon multivoie au démarrage |
+| &nbsp; |`multipathd –k` |Démarrer la console interactive pour le dépannage |
+| &nbsp; |`multipath –l` |Lister les connexions et les périphériques multivoie |
+| &nbsp; |`mpathconf --enable` |Créer un exemple de fichier mulitpath.conf dans `/etc/mulitpath.conf` |
 |  | | |
 
-## <a name="next-steps"></a>Next steps
-As you are configuring MPIO on Linux host, you may also need to refer to the following CentoS 6.6 documents:
+## <a name="next-steps"></a>Étapes suivantes
+Étant donné que vous configurez MPIO sur un hôte Linux, vous pouvez avoir besoin de consulter les documents CentOS 6.6 suivants :
 
-* [Setting up MPIO on CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
-* [Linux Training Guide](http://linux-training.be/files/books/LinuxAdm.pdf)
+* [Configuration de MPIO sur CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
+* [Guide de formation Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
