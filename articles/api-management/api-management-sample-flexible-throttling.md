@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: darrmi
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -32,23 +32,27 @@ Les nouvelles stratégies [rate-limit-by-key](https://msdn.microsoft.com/library
 ## <a name="ip-address-throttling"></a>Limitation par adresse IP
 Les stratégies suivantes limitent l’adresse IP d’un client à 10 appels par minute, avec un total d’un million d’appels et 10 000 Ko de bande passante par mois. 
 
-    <rate-limit-by-key  calls="10"
-              renewal-period="60"
-              counter-key="@(context.Request.IpAddress)" />
+```xml
+<rate-limit-by-key  calls="10"
+          renewal-period="60"
+          counter-key="@(context.Request.IpAddress)" />
 
-    <quota-by-key calls="1000000"
-              bandwidth="10000"
-              renewal-period="2629800"
-              counter-key="@(context.Request.IpAddress)" />
+<quota-by-key calls="1000000"
+          bandwidth="10000"
+          renewal-period="2629800"
+          counter-key="@(context.Request.IpAddress)" />
+```
 
 Si tous les clients sur Internet utilisent une adresse IP unique, cela peut être un moyen efficace de limiter l'utilisation par utilisateur. Toutefois, il est probable que plusieurs utilisateurs partagent une même adresse IP publique parce qu’ils accèdent à Internet via un périphérique NAT. En dépit de cela, le `IpAddress` peut être la meilleure option pour les API qui autorisent l’accès non authentifié.
 
 ## <a name="user-identity-throttling"></a>Limitation par identité d'utilisateur
 Si un utilisateur final est authentifié, une clé de limitation de la clé peut être générée en fonction d’informations qui identifient cet utilisateur de façon unique.
 
-    <rate-limit-by-key calls="10"
-        renewal-period="60"
-        counter-key="@(context.Request.Headers.GetValueOrDefault("Authorization","").AsJwt()?.Subject)" />
+```xml
+<rate-limit-by-key calls="10"
+    renewal-period="60"
+    counter-key="@(context.Request.Headers.GetValueOrDefault("Authorization","").AsJwt()?.Subject)" />
+```
 
 Dans cet exemple, nous extrayons l'en-tête d'autorisation, pour la convertir en objet `JWT` et utiliser le sujet du jeton pour identifier l'utilisateur et l'utiliser comme la clé de limitation du débit. Si l'identité de l'utilisateur est stockée dans le `JWT` comme une des autres revendications, la valeur peut être utilisée à la place.
 
@@ -58,9 +62,11 @@ Bien que les nouvelles stratégies de limitation offrent davantage de contrôle 
 ## <a name="client-driven-throttling"></a>Limitation par client
 Lorsque la clé de limitation est définie en utilisant une [expression de stratégie](https://msdn.microsoft.com/library/azure/dn910913.aspx), le fournisseur d'API est celui qui choisit comment définir la limitation. Toutefois, un développeur peut souhaiter contrôler la limitation de débit de leurs propres clients. Cela peut être possible si le fournisseur de l'API introduit un en-tête personnalisé afin de permettre à l'application client du développeur de communiquer la clé à l'API.
 
-    <rate-limit-by-key calls="100"
-              renewal-period="60"
-              counter-key="@(request.Headers.GetValueOrDefault("Rate-Key",""))"/>
+```xml
+<rate-limit-by-key calls="100"
+          renewal-period="60"
+          counter-key="@(request.Headers.GetValueOrDefault("Rate-Key",""))"/>
+```
 
 Cela permet à l'application client du développeur de laisser le choix de la création de la clé de limitation de la fréquence. Avec un peu d'ingéniosité, un développeur client peut créer ses propres niveaux de fréquence en allouant des jeux de clés aux utilisateurs et grâce à la rotation de l'utilisation de la clé.
 

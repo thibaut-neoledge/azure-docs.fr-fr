@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: darrmi
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -31,28 +31,30 @@ L’interaction externe la plus simple est peut-être le style « fire and forg
 ### <a name="alerting-with-slack"></a>Alerte avec Slack
 L’exemple suivant montre comment envoyer un message à une salle de conversation Slack si le code d’état de la réponse HTTP est supérieur ou égal à 500. Une erreur incluse dans la plage 500 indique un problème avec notre API principale que le client de notre API ne peut pas résoudre lui-même. Elle nécessite généralement une intervention de notre part.  
 
-    <choose>
-        <when condition="@(context.Response.StatusCode >= 500)">
-          <send-one-way-request mode="new">
-            <set-url>https://hooks.slack.com/services/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</set-url>
-            <set-method>POST</set-method>
-            <set-body>@{
-                    return new JObject(
-                            new JProperty("username","APIM Alert"),
-                            new JProperty("icon_emoji", ":ghost:"),
-                            new JProperty("text", String.Format("{0} {1}\nHost: {2}\n{3} {4}\n User: {5}",
-                                                    context.Request.Method,
-                                                    context.Request.Url.Path + context.Request.Url.QueryString,
-                                                    context.Request.Url.Host,
-                                                    context.Response.StatusCode,
-                                                    context.Response.StatusReason,
-                                                    context.User.Email
-                                                    ))
-                            ).ToString();
-                }</set-body>
-          </send-one-way-request>
-        </when>
-    </choose>
+```xml
+<choose>
+    <when condition="@(context.Response.StatusCode >= 500)">
+      <send-one-way-request mode="new">
+        <set-url>https://hooks.slack.com/services/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</set-url>
+        <set-method>POST</set-method>
+        <set-body>@{
+                return new JObject(
+                        new JProperty("username","APIM Alert"),
+                        new JProperty("icon_emoji", ":ghost:"),
+                        new JProperty("text", String.Format("{0} {1}\nHost: {2}\n{3} {4}\n User: {5}",
+                                                context.Request.Method,
+                                                context.Request.Url.Path + context.Request.Url.QueryString,
+                                                context.Request.Url.Host,
+                                                context.Response.StatusCode,
+                                                context.Response.StatusReason,
+                                                context.User.Email
+                                                ))
+                        ).ToString();
+            }</set-body>
+      </send-one-way-request>
+    </when>
+</choose>
+```
 
 Slack inclut la notion de Webhook entrant. Quand vous configurez un Webhook entrant, Slack génère une URL spéciale qui vous permet de faire une requête POST simple et de transmettre un message dans le canal Slack. Le corps JSON que nous créons se base sur un format défini par Slack.
 
@@ -73,22 +75,26 @@ Par le passé, il n’existait aucun moyen normalisé de vérifier un jeton de r
 ### <a name="extracting-the-token"></a>Extraction du jeton
 La première étape consiste à extraire le jeton de l’en-tête d’autorisation. La valeur d’en-tête doit être mise en forme à l’aide du modèle d’autorisation `Bearer` , d’un seul espace, puis du jeton d’autorisation conformément à la norme [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Malheureusement, il existe des cas où le modèle d’autorisation est omis. Pour en tenir compte lors de l’analyse, nous fractionnons la valeur d’en-tête sur un espace et sélectionnons la dernière chaîne dans le tableau de chaînes retourné. Une solution de contournement est ainsi trouvée pour les en-têtes d’autorisation mal formés.
 
-    <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
+```xml
+<set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
+```
 
 ### <a name="making-the-validation-request"></a>Requête de validation
 Une fois que nous avons le jeton d’autorisation, nous pouvons faire la requête pour valider le jeton. La norme RFC 7662 appelle ce processus « introspection » et vous oblige à appliquer une commande `POST` de formulaire HTML à la ressource d’introspection. Le formulaire HTML doit contenir au moins une paire clé/valeur avec la clé `token`. Cette requête adressée au serveur d’autorisation doit également être authentifiée pour veiller à ce qu’aucun client malveillant ne puisse obtenir des jetons valides.
 
-    <send-request mode="new" response-variable-name="tokenstate" timeout="20" ignore-error="true">
-      <set-url>https://microsoft-apiappec990ad4c76641c6aea22f566efc5a4e.azurewebsites.net/introspection</set-url>
-      <set-method>POST</set-method>
-      <set-header name="Authorization" exists-action="override">
-        <value>basic dXNlcm5hbWU6cGFzc3dvcmQ=</value>
-      </set-header>
-      <set-header name="Content-Type" exists-action="override">
-        <value>application/x-www-form-urlencoded</value>
-      </set-header>
-      <set-body>@($"token={(string)context.Variables["token"]}")</set-body>
-    </send-request>
+```xml
+<send-request mode="new" response-variable-name="tokenstate" timeout="20" ignore-error="true">
+  <set-url>https://microsoft-apiappec990ad4c76641c6aea22f566efc5a4e.azurewebsites.net/introspection</set-url>
+  <set-method>POST</set-method>
+  <set-header name="Authorization" exists-action="override">
+    <value>basic dXNlcm5hbWU6cGFzc3dvcmQ=</value>
+  </set-header>
+  <set-header name="Content-Type" exists-action="override">
+    <value>application/x-www-form-urlencoded</value>
+  </set-header>
+  <set-body>@($"token={(string)context.Variables["token"]}")</set-body>
+</send-request>
+```
 
 ### <a name="checking-the-response"></a>Vérification de la réponse
 L’attribut `response-variable-name` est utilisé pour accéder à la réponse retournée. Le nom défini dans cette propriété peut être utilisé comme clé dans le dictionnaire `context.Variables` pour accéder à l’objet `IResponse`.
@@ -98,53 +104,57 @@ L’attribut `response-variable-name` est utilisé pour accéder à la réponse 
 ### <a name="reporting-failure"></a>Signalement d’un échec
 Nous utilisons une stratégie `<choose>` pour détecter si le jeton n’est pas valide et le cas échéant, retourner une réponse 401.
 
-    <choose>
-      <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
-        <return-response response-variable-name="existing response variable">
-          <set-status code="401" reason="Unauthorized" />
-          <set-header name="WWW-Authenticate" exists-action="override">
-            <value>Bearer error="invalid_token"</value>
-          </set-header>
-        </return-response>
-      </when>
-    </choose>
+```xml
+<choose>
+  <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
+    <return-response response-variable-name="existing response variable">
+      <set-status code="401" reason="Unauthorized" />
+      <set-header name="WWW-Authenticate" exists-action="override">
+        <value>Bearer error="invalid_token"</value>
+      </set-header>
+    </return-response>
+  </when>
+</choose>
+```
 
 Conformément à la norme [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) qui décrit comment les jetons `bearer` doivent être utilisés, nous retournons également un en-tête `WWW-Authenticate` avec la réponse 401. L’élément WWW-Authenticate a pour but d’informer un client sur la manière de créer une requête dûment autorisée. En raison de la grande variété d’approches possibles avec l’infrastructure OAuth2, il est difficile de communiquer toutes les informations nécessaires. Heureusement, tous les efforts sont déployés pour aider les [clients à découvrir comment autoriser correctement les requêtes adressées à un serveur de ressources](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
 
 ### <a name="final-solution"></a>Solution finale
 En rassemblant tous les éléments, nous obtenons la stratégie suivante :
 
-    <inbound>
-      <!-- Extract Token from Authorization header parameter -->
-      <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
+```xml
+<inbound>
+  <!-- Extract Token from Authorization header parameter -->
+  <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
 
-      <!-- Send request to Token Server to validate token (see RFC 7662) -->
-      <send-request mode="new" response-variable-name="tokenstate" timeout="20" ignore-error="true">
-        <set-url>https://microsoft-apiappec990ad4c76641c6aea22f566efc5a4e.azurewebsites.net/introspection</set-url>
-        <set-method>POST</set-method>
-        <set-header name="Authorization" exists-action="override">
-          <value>basic dXNlcm5hbWU6cGFzc3dvcmQ=</value>
-        </set-header>
-        <set-header name="Content-Type" exists-action="override">
-          <value>application/x-www-form-urlencoded</value>
-        </set-header>
-        <set-body>@($"token={(string)context.Variables["token"]}")</set-body>
-      </send-request>
+  <!-- Send request to Token Server to validate token (see RFC 7662) -->
+  <send-request mode="new" response-variable-name="tokenstate" timeout="20" ignore-error="true">
+    <set-url>https://microsoft-apiappec990ad4c76641c6aea22f566efc5a4e.azurewebsites.net/introspection</set-url>
+    <set-method>POST</set-method>
+    <set-header name="Authorization" exists-action="override">
+      <value>basic dXNlcm5hbWU6cGFzc3dvcmQ=</value>
+    </set-header>
+    <set-header name="Content-Type" exists-action="override">
+      <value>application/x-www-form-urlencoded</value>
+    </set-header>
+    <set-body>@($"token={(string)context.Variables["token"]}")</set-body>
+  </send-request>
 
-      <choose>
-              <!-- Check active property in response -->
-              <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
-                  <!-- Return 401 Unauthorized with http-problem payload -->
-                  <return-response response-variable-name="existing response variable">
-                      <set-status code="401" reason="Unauthorized" />
-                      <set-header name="WWW-Authenticate" exists-action="override">
-                          <value>Bearer error="invalid_token"</value>
-                      </set-header>
-                  </return-response>
-              </when>
-          </choose>
-      <base />
-    </inbound>
+  <choose>
+          <!-- Check active property in response -->
+          <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
+              <!-- Return 401 Unauthorized with http-problem payload -->
+              <return-response response-variable-name="existing response variable">
+                  <set-status code="401" reason="Unauthorized" />
+                  <set-header name="WWW-Authenticate" exists-action="override">
+                      <value>Bearer error="invalid_token"</value>
+                  </set-header>
+              </return-response>
+          </when>
+      </choose>
+  <base />
+</inbound>
+```
 
 Il ne s’agit que d’un des nombreux exemples d’utilisation de la stratégie `send-request` pour intégrer des services externes utiles dans le processus des requêtes et réponses transitant par le service de gestion des API.
 
@@ -166,10 +176,64 @@ Une fois l’opération `dashboard` créée, nous pouvons configurer une straté
 
 La première étape consiste à extraire les paramètres de requête à partir de la requête entrante, de sorte à pouvoir les transférer vers notre serveur principal. Dans cet exemple, notre tableau de bord affiche des informations selon une période ; il comporte donc un paramètre `fromDate` et `toDate`. Nous pouvons utiliser la stratégie `set-variable` pour extraire les informations de l’URL de la requête.
 
-    <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
-    <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
+```xml
+<set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
+<set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
+```
 
 Une fois que nous avons ces informations, nous pouvons faire des requêtes auprès de tous les systèmes principaux. Chaque requête construit une nouvelle URL avec les informations de paramètre, puis appelle son serveur respectif et enregistre la réponse dans une variable de contexte.
+
+```xml
+<send-request mode="new" response-variable-name="revenuedata" timeout="20" ignore-error="true">
+  <set-url>@($"https://accounting.acme.com/salesdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+  <set-method>GET</set-method>
+</send-request>
+
+<send-request mode="new" response-variable-name="materialdata" timeout="20" ignore-error="true">
+  <set-url>@($"https://inventory.acme.com/materiallevels?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+  <set-method>GET</set-method>
+</send-request>
+
+<send-request mode="new" response-variable-name="throughputdata" timeout="20" ignore-error="true">
+<set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+  <set-method>GET</set-method>
+</send-request>
+
+<send-request mode="new" response-variable-name="accidentdata" timeout="20" ignore-error="true">
+<set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+  <set-method>GET</set-method>
+</send-request>
+```
+
+Ces requêtes s’exécutent en séquence, ce qui n’est pas idéal. Dans une prochaine version, nous introduirons une nouvelle stratégie nommée `wait` qui permettra à toutes ces requêtes de s’exécuter en parallèle.
+
+### <a name="responding"></a>Réponse
+Pour construire la réponse composite, nous pouvons utiliser la stratégie [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) . L’élément `set-body` peut utiliser une expression pour construire un nouveau `JObject` avec toutes les représentations de composant incorporées en tant que propriétés.
+
+```xml
+<return-response response-variable-name="existing response variable">
+  <set-status code="200" reason="OK" />
+  <set-header name="Content-Type" exists-action="override">
+    <value>application/json</value>
+  </set-header>
+  <set-body>
+    @(new JObject(new JProperty("revenuedata",((IResponse)context.Variables["revenuedata"]).Body.As<JObject>()),
+                  new JProperty("materialdata",((IResponse)context.Variables["materialdata"]).Body.As<JObject>()),
+                  new JProperty("throughputdata",((IResponse)context.Variables["throughputdata"]).Body.As<JObject>()),
+                  new JProperty("accidentdata",((IResponse)context.Variables["accidentdata"]).Body.As<JObject>())
+                  ).ToString())
+  </set-body>
+</return-response>
+```
+
+La stratégie complète se présente comme suit :
+
+```xml
+<policies>
+    <inbound>
+
+  <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
+  <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
 
     <send-request mode="new" response-variable-name="revenuedata" timeout="20" ignore-error="true">
       <set-url>@($"https://accounting.acme.com/salesdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
@@ -191,11 +255,6 @@ Une fois que nous avons ces informations, nous pouvons faire des requêtes aupr�
       <set-method>GET</set-method>
     </send-request>
 
-Ces requêtes s’exécutent en séquence, ce qui n’est pas idéal. Dans une prochaine version, nous introduirons une nouvelle stratégie nommée `wait` qui permettra à toutes ces requêtes de s’exécuter en parallèle.
-
-### <a name="responding"></a>Réponse
-Pour construire la réponse composite, nous pouvons utiliser la stratégie [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) . L’élément `set-body` peut utiliser une expression pour construire un nouveau `JObject` avec toutes les représentations de composant incorporées en tant que propriétés.
-
     <return-response response-variable-name="existing response variable">
       <set-status code="200" reason="OK" />
       <set-header name="Content-Type" exists-action="override">
@@ -209,56 +268,15 @@ Pour construire la réponse composite, nous pouvons utiliser la stratégie [retu
                       ).ToString())
       </set-body>
     </return-response>
-
-La stratégie complète se présente comme suit :
-
-    <policies>
-        <inbound>
-
-      <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
-      <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
-
-        <send-request mode="new" response-variable-name="revenuedata" timeout="20" ignore-error="true">
-          <set-url>@($"https://accounting.acme.com/salesdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
-          <set-method>GET</set-method>
-        </send-request>
-
-        <send-request mode="new" response-variable-name="materialdata" timeout="20" ignore-error="true">
-          <set-url>@($"https://inventory.acme.com/materiallevels?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
-          <set-method>GET</set-method>
-        </send-request>
-
-        <send-request mode="new" response-variable-name="throughputdata" timeout="20" ignore-error="true">
-        <set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
-          <set-method>GET</set-method>
-        </send-request>
-
-        <send-request mode="new" response-variable-name="accidentdata" timeout="20" ignore-error="true">
-        <set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
-          <set-method>GET</set-method>
-        </send-request>
-
-        <return-response response-variable-name="existing response variable">
-          <set-status code="200" reason="OK" />
-          <set-header name="Content-Type" exists-action="override">
-            <value>application/json</value>
-          </set-header>
-          <set-body>
-            @(new JObject(new JProperty("revenuedata",((IResponse)context.Variables["revenuedata"]).Body.As<JObject>()),
-                          new JProperty("materialdata",((IResponse)context.Variables["materialdata"]).Body.As<JObject>()),
-                          new JProperty("throughputdata",((IResponse)context.Variables["throughputdata"]).Body.As<JObject>()),
-                          new JProperty("accidentdata",((IResponse)context.Variables["accidentdata"]).Body.As<JObject>())
-                          ).ToString())
-          </set-body>
-        </return-response>
-        </inbound>
-        <backend>
-            <base />
-        </backend>
-        <outbound>
-            <base />
-        </outbound>
-    </policies>
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+    </outbound>
+</policies>
+```
 
 Pendant la configuration de l’opération d’espace réservé, nous pouvons configurer la ressource de tableau de bord de sorte à la mettre en cache pendant au moins une heure, car nous sommes conscients que la nature des données signifie que même si elle est en retard d’une heure, elle sera quand même suffisamment efficace pour transmettre des informations utiles aux utilisateurs.
 
