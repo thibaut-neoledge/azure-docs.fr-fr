@@ -1,13 +1,13 @@
 ---
-title: Création de NSG en mode ARM à l’aide d’un modèle | Microsoft Docs
-description: Apprenez à créer et déployer des NSG dans ARM en utilisant un modèle
+title: "Guide pratique pour créer des groupes de sécurité réseau en mode ARM à l’aide d’un modèle | Microsoft Docs"
+description: "Apprenez à créer et déployer des NSG dans ARM en utilisant un modèle"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: f3e7385d-717c-44ff-be20-f9aa450aa99b
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 60343b409c734bcc9bb50d6216ff2295aede783b
+ms.openlocfilehash: 100fcf956425a9eed7bdbb495f8249f5d78fb9b1
+
 
 ---
-# Création de NSG à l’aide d’un modèle
+# <a name="how-to-create-nsgs-using-a-template"></a>Création de NSG à l’aide d’un modèle
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -28,83 +32,86 @@ Cet article traite du modèle de déploiement de Resource Manager. Vous pouvez �
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-## Ressources NSG dans un fichier de modèle
+## <a name="nsg-resources-in-a-template-file"></a>Ressources NSG dans un fichier de modèle
 Vous pouvez afficher et télécharger les [exemples de modèles](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/NSGs.json).
 
-La section ci-dessous illustre la définition du NSG FrontEnd, selon le scénario ci-dessus.
+La section suivante illustre la définition du groupe de sécurité réseau frontal sur la base du scénario.
 
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('frontEndNSGName')]",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "displayName": "NSG - Front End"
-      },
+```json
+"apiVersion": "2015-06-15",
+"type": "Microsoft.Network/networkSecurityGroups",
+"name": "[parameters('frontEndNSGName')]",
+"location": "[resourceGroup().location]",
+"tags": {
+  "displayName": "NSG - Front End"
+},
+"properties": {
+  "securityRules": [
+    {
+      "name": "rdp-rule",
       "properties": {
-        "securityRules": [
-          {
-            "name": "rdp-rule",
-            "properties": {
-              "description": "Allow RDP",
-              "protocol": "Tcp",
-              "sourcePortRange": "*",
-              "destinationPortRange": "3389",
-              "sourceAddressPrefix": "Internet",
-              "destinationAddressPrefix": "*",
-              "access": "Allow",
-              "priority": 100,
-              "direction": "Inbound"
-            }
-          },
-          {
-            "name": "web-rule",
-            "properties": {
-              "description": "Allow WEB",
-              "protocol": "Tcp",
-              "sourcePortRange": "*",
-              "destinationPortRange": "80",
-              "sourceAddressPrefix": "Internet",
-              "destinationAddressPrefix": "*",
-              "access": "Allow",
-              "priority": 101,
-              "direction": "Inbound"
-            }
-          }
-        ]
+        "description": "Allow RDP",
+        "protocol": "Tcp",
+        "sourcePortRange": "*",
+        "destinationPortRange": "3389",
+        "sourceAddressPrefix": "Internet",
+        "destinationAddressPrefix": "*",
+        "access": "Allow",
+        "priority": 100,
+        "direction": "Inbound"
       }
+    },
+    {
+      "name": "web-rule",
+      "properties": {
+        "description": "Allow WEB",
+        "protocol": "Tcp",
+        "sourcePortRange": "*",
+        "destinationPortRange": "80",
+        "sourceAddressPrefix": "Internet",
+        "destinationAddressPrefix": "*",
+        "access": "Allow",
+        "priority": 101,
+        "direction": "Inbound"
+      }
+    }
+  ]
+}
+```
+Pour associer le groupe de sécurité réseau au sous-réseau frontal, vous devez modifier la définition de sous-réseau dans le modèle et utiliser l’ID de référence du groupe de sécurité réseau.
 
-Pour associer le NSG au sous-réseau FontEnd, vous devez modifier la définition de sous-réseau dans le modèle, et utiliser l’id de référence du NSG.
+```json
+"subnets": [
+  {
+    "name": "[parameters('frontEndSubnetName')]",
+    "properties": {
+      "addressPrefix": "[parameters('frontEndSubnetPrefix')]",
+      "networkSecurityGroup": {
+      "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('frontEndNSGName'))]"
+      }
+    }
+  }, 
+```
 
-        "subnets": [
-          {
-            "name": "[parameters('frontEndSubnetName')]",
-            "properties": {
-              "addressPrefix": "[parameters('frontEndSubnetPrefix')]",
-              "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('frontEndNSGName'))]"
-              }
-            }
-          }, ...
+Notez que la même opération est effectuée pour le groupe de sécurité réseau frontal et le sous-réseau principal (back-end) dans le modèle.
 
-Notez que la même opération est fait pour NSG et le sous-réseau Backend dans le modèle.
-
-## Déployer le modèle ARM en cliquant pour déployer
+## <a name="deploy-the-arm-template-by-using-click-to-deploy"></a>Déployer le modèle ARM en cliquant pour déployer
 L’exemple de modèle disponible dans le référentiel public utilise un fichier de paramètres contenant les valeurs par défaut utilisées pour générer le scénario décrit ci-dessus. Pour déployer ce modèle en un clic, suivez [ce lien](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), cliquez sur **Déployer dans Azure**, remplacez les valeurs de paramètre par défaut si nécessaire, puis suivez les instructions dans le portail.
 
-## Déployer le modèle ARM à l'aide de PowerShell
+## <a name="deploy-the-arm-template-by-using-powershell"></a>Déployer le modèle ARM à l'aide de PowerShell
 Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les étapes ci-dessous.
 
-[!INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
+1. Si vous n’avez jamais utilisé Azure PowerShell, suivez les instructions fournies dans [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour l’installer et le configurer.
+2. Pour créer un groupe de ressources à l'aide du modèle, exécutez l'applet de commande **`New-AzureRmResourceGroup`** .
 
-1. Si vous n’avez jamais utilisé Azure PowerShell, voir [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) et suivre les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
-2. Pour créer un groupe de ressources à l'aide du modèle, exécutez l'applet de commande **`New-AzureRmResourceGroup`**.
-   
-        New-AzureRmResourceGroup -Name TestRG -Location uswest `
-            -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
-            -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
-   
-    Sortie attendue :
-   
+    ```powershell
+    New-AzureRmResourceGroup -Name TestRG -Location uswest `
+    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
+    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
+    ```
+
+    Sortie attendue :
+
         ResourceGroupName : TestRG
         Location          : westus
         ProvisioningState : Succeeded
@@ -137,24 +144,29 @@ Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les 
                             testvnetstorageprm  Microsoft.Storage/storageAccounts        westus  
                             testvnetstoragestd  Microsoft.Storage/storageAccounts        westus  
    
-        ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
+        ResourceId        : /subscriptions/[Subscription Id]/resourceGroups/TestRG
 
-## Déployer le modèle ARM à l'aide de l'interface de ligne de commande Azure
+## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>Déployer le modèle ARM à l'aide de l'interface de ligne de commande Azure
 Pour déployer le modèle ARM à l’aide de l’interface de ligne de commande Azure, procédez comme suit.
 
 1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
 2. Exécutez la commande **`azure config mode`** pour passer en mode Resource Manager, comme illustré ci-dessous.
-   
-        azure config mode arm
-   
-    Voici le résultat attendu pour la commande ci-dessus :
-   
+
+    ```azurecli
+    azure config mode arm
+    ```
+
+    Le résultat attendu pour la commande est le suivant :
+
         info:    New mode is arm
-3. Exécutez l'applet de commande **`azure group deployment create`** pour déployer le nouveau réseau virtuel à l'aide du modèle et des fichiers de paramètres que vous avez téléchargés et modifiés plus haut. La liste affichée après le résultat présente les différents paramètres utilisés.
-   
-        azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
-   
-    Sortie attendue :
+
+3. Exécutez l’applet de commande **`azure group deployment create`** pour déployer le nouveau réseau virtuel à l’aide du modèle et des fichiers de paramètres que vous avez téléchargés et modifiés plus haut. La liste affichée après le résultat présente les différents paramètres utilisés.
+
+    ```azurecli
+    azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
+    ```
+
+    Sortie attendue :
    
         info:    Executing command group create
         info:    Getting resource group TestRG
@@ -176,4 +188,9 @@ Pour déployer le modèle ARM à l’aide de l’interface de ligne de commande 
    * **-f (ou --template-file)**. Chemin d'accès à votre fichier de modèle ARM.
    * **-e (ou --parameters-file)**. Chemin d'accès à votre fichier de paramètres ARM.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

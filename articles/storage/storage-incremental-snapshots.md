@@ -1,19 +1,23 @@
 ---
-title: Utilisation d’instantanés incrémentiels pour la sauvegarde et la récupération de machines virtuelles Azure | Microsoft Docs
-description: Créer une solution personnalisée pour la sauvegarde et la récupération de vos disques de machine virtuelle Azure à l’aide d’instantanés incrémentiels.
+title: "Utilisation d’instantanés incrémentiels pour la sauvegarde et la récupération de machines virtuelles Azure | Microsoft Docs"
+description: "Créer une solution personnalisée pour la sauvegarde et la récupération de vos disques de machine virtuelle Azure à l’aide d’instantanés incrémentiels."
 services: storage
 documentationcenter: na
 author: aungoo-msft
 manager: tadb
 editor: tysonn
-
+ms.assetid: 3524b987-bd65-4e35-83e7-fbc2136643e5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 11/17/2016
 ms.author: aungoo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9ade78c954ca6443354b198c7141b6fb5c88afdb
+
 
 ---
 # <a name="back-up-azure-virtual-machine-disks-with-incremental-snapshots"></a>Sauvegarde des disques de machine virtuelle Azure avec des instantanés incrémentiels
@@ -22,7 +26,7 @@ Azure Storage offre la possibilité de prendre des instantanés d’objets blob.
 
 Les disques de machine virtuelle Azure sont stockés en tant qu’objets blob de pages dans Azure Storage. Étant donné que cet article aborde la stratégie de sauvegarde des disques de machine virtuelle, nous faisons référence aux instantanés dans le contexte des objets blob de pages. Pour plus d’informations sur les instantanés, reportez-vous à [Création d’un instantané d’objet blob](https://msdn.microsoft.com/library/azure/hh488361.aspx).
 
-## <a name="what-is-a-snapshot?"></a>Qu’est-ce qu’un instantané ?
+## <a name="what-is-a-snapshot"></a>Qu’est-ce qu’un instantané ?
 Un instantané d’objet blob est une version en lecture seule d’un objet blob capturé à un instant donné. Un instantané peut être lu, copié ou supprimé, mais pas modifié. Les instantanés sont une façon de sauvegarder un objet blob à un instant T. Jusqu’à la version REST 2015-04-05, vous aviez la possibilité de copier des instantanés complets. À partir de la version REST 2015-07-08, vous pouvez également copier des instantanés incrémentiels.
 
 ## <a name="full-snapshot-copy"></a>Copie d’un instantané complet
@@ -116,6 +120,9 @@ Apprenez-en plus sur la création d’instantanés d’un objet blob et la plani
 * [Création d’un instantané d’objet blob](https://msdn.microsoft.com/library/azure/hh488361.aspx)
 * [Planification de votre infrastructure de sauvegarde de machines virtuelles](../backup/backup-azure-vms-introduction.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

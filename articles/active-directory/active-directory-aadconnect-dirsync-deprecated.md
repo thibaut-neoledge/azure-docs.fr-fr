@@ -1,12 +1,12 @@
 ---
-title: Mettre à niveau depuis DirSync et Azure AD Sync | Microsoft Docs
-description: Décrit comment effectuer la mise à niveau depuis DirSync et Azure AD Sync vers Azure AD Connect.
+title: "Mettre à niveau depuis DirSync et Azure AD Sync | Microsoft Docs"
+description: "Décrit comment effectuer la mise à niveau depuis DirSync et Azure AD Sync vers Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: bd68fb88-110b-4d76-978a-233e15590803
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d1339b36275b30438d92c9bbe94734644cc9aefe
+
 
 ---
-# <a name="upgrade-windows-azure-active-directory-sync-(“dirsync”)-and-azure-active-directory-sync-(“azure-ad-sync”)"></a>Mettre à niveau Microsoft Azure Active Directory Sync (« DirSync ») et Azure Active Directory Sync (« Azure AD Sync »)
+# <a name="upgrade-windows-azure-active-directory-sync-dirsync-and-azure-active-directory-sync-azure-ad-sync"></a>Mettre à niveau Microsoft Azure Active Directory Sync (« DirSync ») et Azure Active Directory Sync (« Azure AD Sync »)
 Azure AD Connect est la meilleure façon de connecter votre répertoire local avec Azure AD et Office 365. C’est l’occasion idéale d’effectuer la mise à niveau vers Azure AD Connect à partir de Microsoft Azure Active Directory Sync (DirSync) ou Azure AD Sync, car ces outils sont désormais déconseillés et ne seront plus pris en charge à partir du 13 avril 2017.
 
 Les deux outils de synchronisation des identités qui sont déconseillés étaient proposés pour les clients de forêt unique (DirSync) et pour les clients à forêts multiples et expérimentés (Azure AD Sync). Ces outils plus anciens ont été remplacés par une solution unique qui est disponible pour tous les scénarios : Azure AD Connect. Cette solution offre de nouvelles fonctionnalités, des améliorations de fonctionnalités et la prise en charge de nouveaux scénarios. Pour pouvoir continuer à synchroniser vos données d’identités locales vers Azure AD et Office 365, nous vous recommandons vivement d’effectuer la mise à niveau vers Azure AD Connect.
 
 La dernière version de DirSync a été publiée en juillet 2014 et la dernière version d’Azure AD Sync a été publiée en mai 2015.
 
-## <a name="what-is-azure-ad-connect"></a>Qu’est-ce qu’Azure AD Connect ?
+## <a name="what-is-azure-ad-connect"></a>Qu’est-ce qu’Azure AD Connect ?
 Azure AD Connect est le successeur de DirSync et d’Azure AD Sync. Il combine tous les scénarios pris en charge par les deux autres. Pour en savoir plus, consultez [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
 ## <a name="deprecation-schedule"></a>Planification de la désapprobation
@@ -33,13 +37,13 @@ Azure AD Connect est le successeur de DirSync et d’Azure AD Sync. Il combine t
 | 13 avril 2017 |Fin de la prise en charge. Les clients ne seront plus en mesure d’ouvrir un cas de support sans tout d’abord effectuer la mise à niveau vers Azure AD Connect. |
 
 ## <a name="how-to-transition-to-azure-ad-connect"></a>Comment passer à Azure AD Connect
-Si vous exécutez DirSync, vous disposez de deux méthodes de mise à niveau : mise à niveau sur place et déploiement parallèle. Une mise à niveau sur place est recommandée pour la plupart des clients et si vous avez un système d’exploitation récent avec moins de 50 000 objets. Dans d’autres cas, il est recommandé d’effectuer un déploiement parallèle dans lequel votre configuration DirSync est déplacée vers un nouveau serveur exécutant Azure AD Connect.
+Si vous exécutez DirSync, vous disposez de deux méthodes de mise à niveau : mise à niveau sur place et déploiement parallèle. Une mise à niveau sur place est recommandée pour la plupart des clients et si vous avez un système d’exploitation récent avec moins de 50 000 objets. Dans d’autres cas, il est recommandé d’effectuer un déploiement parallèle dans lequel votre configuration DirSync est déplacée vers un nouveau serveur exécutant Azure AD Connect.
 
 Si vous utilisez Azure AD Sync, une mise à niveau sur place est recommandée. Si vous le souhaitez, il est possible d’installer un nouveau serveur Azure AD Connect en parallèle et d’effectuer une migration « swing » du serveur Azure AD Sync vers Azure AD Connect.
 
 | Solution | Scénario |
 | --- | --- |
-| [Mise à niveau à partir de DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>Si vous disposez d’un serveur DirSync existant déjà en cours d’exécution.</li> |
+| [Mise à niveau à partir de DirSync](connect/active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>Si vous disposez d’un serveur DirSync existant déjà en cours d’exécution.</li> |
 | [Mise à niveau à partir d’Azure AD Sync](active-directory-aadconnect-upgrade-previous-version.md) |<li>Si vous effectuez la mise à niveau à partir d’Azure AD Sync.</li> |
 
 Si vous souhaitez savoir comment effectuer une mise à niveau sur place depuis DirSync vers Azure AD Connect, regardez cette vidéo de Channel 9 :
@@ -64,6 +68,9 @@ Le connecteur Azure AD pour FIM/MIM n’a **pas** été annoncé comme déconsei
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

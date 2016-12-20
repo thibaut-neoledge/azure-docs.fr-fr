@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a63d15e7b7954fa63d04facc7d440092e24459da
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
 
 
 ---
@@ -44,7 +44,7 @@ Dans *Azure App Service*, le code de backend de la fonctionnalité *Applications
 * (Pour .NET) Tirez parti des fonctionnalités d’ASP.NET, y compris MVC.
 * (Pour Node.js) Tirer parti de toute bibliothèque JavaScript pure de l’écosystème du nœud, y compris des bibliothèques communes MVC.
 
-## <a name="access-onpremises-data-using-vnet"></a>Accédez aux données locales à l'aide de VNet
+## <a name="access-on-premises-data-using-vnet"></a>Accédez aux données locales à l'aide de VNet
 Aujourd'hui, avec Mobile Services, vous pouvez déjà utiliser des connexions hybrides pour accéder à des ressources locales. Toutefois, dans certaines situations, une solution VPN est préférée. Avec *Azure App Service* , vous pouvez utiliser Azure VNet pour votre code de backend d'application mobile.
 
 ## <a name="use-your-favorite-backend-language"></a>Utilisez votre langage de backend favori
@@ -67,6 +67,6 @@ Vous pouvez commencer à tirer parti d’ *App Service* pour votre application M
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

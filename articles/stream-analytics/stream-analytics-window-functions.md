@@ -1,13 +1,13 @@
 ---
-title: Introduction aux fonctions de fenêtrage de Stream Analytics | Microsoft Docs
-description: Découvrez les trois fonctions de fenêtrage de Stream Analytics (bascule, récurrente, glissante).
-keywords: fenêtre bascule, fenêtre glissante, fenêtre récurrente
-documentationcenter: ''
+title: "Introduction aux fonctions de fenêtrage de Stream Analytics | Microsoft Docs"
+description: "Découvrez les trois fonctions de fenêtrage de Stream Analytics (bascule, récurrente, glissante)."
+keywords: "fenêtre bascule, fenêtre glissante, fenêtre récurrente"
+documentationcenter: 
 services: stream-analytics
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 0d8d8717-5d23-43f0-b475-af078ab4627d
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 09/26/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 561a3b3f9c90274cfff95ab27c6cd745582f15e0
+
 
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>Introduction aux fonctions de fenêtrage de Stream Analytics
@@ -47,6 +51,9 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

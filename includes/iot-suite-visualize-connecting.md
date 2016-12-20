@@ -1,15 +1,15 @@
-## Affichage de la télémétrie des appareils dans le tableau de bord
+## <a name="view-device-telemetry-in-the-dashboard"></a>Affichage de la télémétrie des appareils dans le tableau de bord
 Le tableau de bord de la solution de surveillance à distance permet d'afficher la télémétrie que vos appareils envoient au IoT Hub.
 
-1. Dans votre navigateur, retournez au tableau de bord de la solution de surveillance à distance, cliquez sur **Périphériques** dans le panneau de gauche pour accéder à la **Liste de périphériques**.
-2. Dans la **Liste de périphériques**, vous devez voir que l'état de votre périphérique est maintenant **En cours d'exécution**.
+1. Dans votre navigateur, revenez au tableau de bord de la solution de surveillance à distance, cliquez sur **Périphériques** dans le panneau de gauche pour accéder à la **Liste de périphériques**.
+2. Dans la **Liste de périphériques**, vous devez voir que l’état de votre périphérique est maintenant **En cours d’exécution**.
    
     ![][18]
-3. Cliquez sur **Tableau de bord** pour revenir au tableau de bord, sélectionnez votre périphérique dans la liste déroulante **Périphérique à afficher** pour afficher sa télémétrie. La télémétrie de l’exemple d’application est configurée pour envoyer 50 unités correspondant à la température interne, 55 unités correspondant à la température externe et 50 à l’humidité. Notez que le tableau de bord affiche uniquement les données de température et d’humidité par défaut.
+3. Cliquez sur **Tableau de bord** pour revenir au tableau de bord, sélectionnez votre périphérique dans la liste déroulante **Périphérique à afficher** pour afficher sa télémétrie. La télémétrie de l’exemple d’application est configurée pour envoyer 50 unités correspondant à la température interne, 55 unités correspondant à la température externe et 50 à l’humidité. Notez que le tableau de bord affiche uniquement les données de température et d’humidité par défaut.
    
     ![][img-telemetry]
 
-## Envoyer une commande à votre périphérique
+## <a name="send-a-command-to-your-device"></a>Envoyer une commande à votre périphérique
 Le tableau de bord de la solution de surveillance à distance vous permet d’envoyer des commandes à vos appareils via IoT Hub. Par exemple, dans la solution de surveillance à distance, vous pouvez envoyer une commande pour définir la température interne d'un périphérique.
 
 1. Dans le tableau de bord de la solution de surveillance à distance, cliquez sur **Périphériques** dans le panneau de gauche pour accéder à la **Liste de périphériques**.
@@ -27,8 +27,8 @@ Le tableau de bord de la solution de surveillance à distance vous permet d’en
    > 
 5. Dans le tableau de bord, vérifiez que le périphérique envoie désormais 75 comme nouvelle valeur de température.
 
-## Étapes suivantes
-L'article [Personnalisation des solutions préconfigurées][lnk-customize] décrit quelques méthodes pour étendre cet exemple. Les extensions incluent l'utilisation de capteurs réels et l'implémentation de commandes supplémentaires.
+## <a name="next-steps"></a>Étapes suivantes
+L’article [Personnalisation des solutions préconfigurées][lnk-customize] décrit quelques méthodes pour étendre cet exemple. Les extensions incluent l'utilisation de capteurs réels et l'implémentation de commandes supplémentaires.
 
 Vous pouvez en savoir plus sur les [autorisations sur le site azureiotsuite.com][lnk-permissions].
 
@@ -39,4 +39,7 @@ Vous pouvez en savoir plus sur les [autorisations sur le site azureiotsuite.com]
 [lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0727_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

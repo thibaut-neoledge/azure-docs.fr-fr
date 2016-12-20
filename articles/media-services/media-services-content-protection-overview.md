@@ -1,12 +1,12 @@
 ---
-title: Vue d’ensemble de la protection du contenu | Microsoft Docs
-description: Cet article donne une vue d’ensemble de la protection du contenu avec Media Services.
+title: "Vue d’ensemble de la protection du contenu | Microsoft Docs"
+description: "Cet article donne une vue d’ensemble de la protection du contenu avec Media Services."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 81bc00e1-dcda-4d69-b9ab-8768b793422b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 576d3a1c242c74715e7a6dc33ec0a4adebcc9959
+
 
 ---
 # <a name="protecting-content-overview"></a>Vue d’ensemble de la protection du contenu
@@ -33,7 +37,7 @@ Cette rubrique explique les [concepts et la terminologie](media-services-content
 ## <a name="dynamic-encryption"></a>Chiffrement dynamique
 Microsoft Azure Media Services vous permet de transmettre du contenu chiffré de manière dynamique avec le chiffrement de clé en clair AES ou DRM : Microsoft PlayReady, Google Widevine et Apple FairPlay.
 
-Actuellement, vous pouvez chiffrer les formats de diffusion en continu suivants : HLS, MPEG DASH et Smooth Streaming. Vous ne pouvez pas chiffrer le format de diffusion en continu HDS ni les téléchargements progressifs.
+Actuellement, vous pouvez chiffrer les formats de diffusion en continu suivants : HLS, MPEG DASH et Smooth Streaming. Vous ne pouvez pas chiffrer le format de diffusion en continu HDS ni les téléchargements progressifs.
 
 Si vous souhaitez que Media Services chiffre un élément multimédia, vous devez associer une clé de chiffrement (CommonEncryption ou EnvelopeEncryption) à votre élément multimédia et configurer des stratégies d’autorisation pour la clé.
 
@@ -42,7 +46,7 @@ Vous devez également configurer la stratégie de remise de l’élément multim
 Lorsqu’un flux est demandé par un lecteur, Media Services utilise la clé spécifiée pour chiffrer dynamiquement votre contenu à l’aide du chiffrement de clé en clair AES ou DRM. Pour déchiffrer le flux de données, le lecteur demande la clé au service de remise de clé. Pour déterminer si l’utilisateur est autorisé à obtenir la clé, le service évalue les stratégies d’autorisation que vous avez spécifiées pour la clé.
 
 > [!NOTE]
-> Pour tirer parti du chiffrement dynamique, vous devez d’abord obtenir au moins une unité de diffusion en continu à la demande pour le point de terminaison de diffusion en continu à partir duquel vous envisagez de distribuer votre contenu chiffré. Pour plus d'informations, consultez [Mise à l'échelle de Media Services](media-services-portal-manage-streaming-endpoints.md).
+> Pour tirer parti du chiffrement dynamique, vous devez d’abord obtenir au moins une unité de diffusion en continu à la demande pour le point de terminaison de diffusion en continu à partir duquel vous envisagez de distribuer votre contenu chiffré. Pour plus d’informations, voir [Mise à l’échelle de Media Services](media-services-portal-manage-streaming-endpoints.md).
 > 
 > 
 
@@ -51,7 +55,7 @@ Utilisez le chiffrement du stockage pour chiffrer votre contenu localement à l�
 
 Pour fournir un élément multimédia avec chiffrement de stockage, vous devez configurer la stratégie de remise de l'élément multimédia afin que Media Services sache comment vous souhaitez remettre votre contenu. Pour que votre élément multimédia puisse être diffusé en continu, le serveur de diffusion supprime le chiffrement de stockage et diffuse votre contenu à l'aide de la stratégie de remise spécifiée (par exemple AES, chiffrement commun ou aucun chiffrement).
 
-## <a name="common-encryption-(cenc)"></a>Chiffrement commun (CENC)
+## <a name="common-encryption-cenc"></a>Chiffrement commun (CENC)
 Le chiffrement commun est utilisé pour chiffrer votre contenu avec PlayReady ou/et Widewine.
 
 ## <a name="using-cbcs-aapl-encryption"></a>Utilisation du chiffrement cbcs-aapl
@@ -64,14 +68,14 @@ Utilisez cette option si vous souhaitez protéger votre contenu avec la clé en 
 Media Services fournit un service de remise de licences DRM (PlayReady, Widevine, FairPlay) et de clés en clair AES aux clients autorisés. Vous pouvez utiliser [le portail Azure Classic](media-services-portal-protect-content.md), l’API REST ou le kit de développement logiciel (SDK) Media Services pour .NET pour configurer des stratégies d’authentification et d’autorisation pour vos licences et vos clés.
 
 ## <a name="token-restriction"></a>Restriction à jeton
-La stratégie d’autorisation des clés de contenu peut comporter une ou plusieurs restrictions d’autorisation : ouverte ou restriction à jeton. La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service de jeton sécurisé (STS). Media Services prend en charge les jetons aux formats SWT (Simple Web Tokens) et JWT (JSON Web Token). Media Services ne fournit pas de services de jeton sécurisé. Vous pouvez créer un STS personnalisé ou utiliser l’ACS Microsoft Azure pour émettre des jetons. Le STS doit être configuré pour créer un jeton signé avec la clé spécifiée et émettre les revendications spécifiées dans la configuration de restriction de jeton. Le service de remise de clé Media Services retourne la clé (ou licence) demandée au client si le jeton est valide et que les revendications du jeton correspondent à celles configurées pour la clé (ou licence).
+La stratégie d’autorisation des clés de contenu peut comporter une ou plusieurs restrictions d’autorisation : ouverte ou restriction à jeton. La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service de jeton sécurisé (STS). Media Services prend en charge les jetons aux formats SWT (Simple Web Tokens) et JWT (JSON Web Token). Media Services ne fournit pas de services de jeton sécurisé. Vous pouvez créer un STS personnalisé ou utiliser l’ACS Microsoft Azure pour émettre des jetons. Le STS doit être configuré pour créer un jeton signé avec la clé spécifiée et émettre les revendications spécifiées dans la configuration de restriction de jeton. Le service de remise de clé Media Services retourne la clé (ou licence) demandée au client si le jeton est valide et que les revendications du jeton correspondent à celles configurées pour la clé (ou licence).
 
 Lorsque vous configurez la stratégie de restriction par jeton, vous devez définir les paramètres principaux de clé de vérification, émetteur et public. La clé de vérification principale contient la clé utilisée pour signer le jeton, l’émetteur est le service de jeton sécurisé qui émet le jeton. Le public (parfois appelé l’étendue) décrit l’objectif du jeton ou la ressource à laquelle le jeton autorise l’accès. Le service de remise de clé Media Services valide le fait que les valeurs du jeton correspondent aux valeurs du modèle.
 
 ## <a name="streaming-urls"></a>URL de diffusion
 Si votre ressource a été chiffrée avec plusieurs DRM, vous devez utiliser une balise de chiffrement dans l’URL de diffusion en continu : (format=’m3u8-aapl’, encryption=’xxx’).
 
-Les considérations suivantes s'appliquent :
+Les considérations suivantes s'appliquent :
 
 * Seul zéro ou un type de chiffrement peut être spécifié.
 * Le type de chiffrement ne doit pas être spécifié dans l’url si un seul chiffrement a été appliqué à la ressource.
@@ -115,6 +119,6 @@ Les rubriques suivantes montrent comment protéger le contenu stocké et diffuse
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

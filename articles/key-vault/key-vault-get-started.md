@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e30f98d541d0e6a79fab0e9b12619a2072e9ec70
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
 
 
 ---
@@ -41,7 +41,7 @@ Pour plus d’informations générales sur Azure Key Vault, consultez la page [P
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un abonnement à Microsoft Azure. Si vous n’en possédez pas, vous pouvez vous inscrire pour créer dès aujourd’hui un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell, **version 1.1.0 minimale**. Pour installer Azure PowerShell et l’associer à votre abonnement Azure, consultez l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Si vous avez déjà installé Azure PowerShell et que vous ne connaissez pas la version que vous utilisez, à partir de la console Azure PowerShell, entrez `(Get-Module azure -ListAvailable).Version`. Si vous utilisez Azure PowerShell version 0.9.1 à 0.9.8, vous pouvez toujours utiliser ce didacticiel en y apportant quelques changements mineurs. Par exemple, vous devez utiliser la commande `Switch-AzureMode AzureResourceManager` ; certaines commandes Azure Key Vault ont également changé. Pour obtenir la liste des applets de commande Azure Key Vault pour les versions 0.9.1 à 0.9.8, consultez la page [Applets de commande Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx). 
+* Azure PowerShell, **version 1.1.0 minimale**. Pour installer Azure PowerShell et l’associer à votre abonnement Azure, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs). Si vous avez déjà installé Azure PowerShell et que vous ne connaissez pas la version que vous utilisez, à partir de la console Azure PowerShell, entrez `(Get-Module azure -ListAvailable).Version`. Si vous utilisez Azure PowerShell version 0.9.1 à 0.9.8, vous pouvez toujours utiliser ce didacticiel en y apportant quelques changements mineurs. Par exemple, vous devez utiliser la commande `Switch-AzureMode AzureResourceManager` ; certaines commandes Azure Key Vault ont également changé. Pour obtenir la liste des applets de commande Azure Key Vault pour les versions 0.9.1 à 0.9.8, consultez la page [Applets de commande Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx). 
 * Une application configurée pour utiliser la clé ou le mot de passe que vous créez dans ce didacticiel. Un exemple d’application est disponible dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/en-us/download/details.aspx?id=45343). Pour obtenir des instructions, consultez le fichier Lisez-moi fourni.
 
 Ce didacticiel s’adresse aux utilisateurs novices d’Azure PowerShell, mais il repose sur l’hypothèse que vous connaissez les concepts fondamentaux (modules, applets de commande et sessions). Pour plus d’informations, consultez la section [Prise en main de Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
@@ -56,7 +56,7 @@ Par exemple, pour obtenir de l’aide pour l’applet de commande **Login-AzureR
 
 Vous pouvez également consulter les didacticiels suivants afin de vous familiariser avec Azure Resource Manager dans Azure PowerShell :
 
-* [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md)
+* [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md)
 
 ## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Se connecter à vos abonnements
@@ -76,7 +76,7 @@ Ensuite, pour indiquer l’abonnement, tapez ce qui suit :
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Pour plus d’informations sur la configuration d’Azure PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+Pour plus d’informations sur la configuration d’Azure PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="a-idresourceacreate-a-new-resource-group"></a><a id="resource"></a>Création d’un groupe de ressources
 Lorsque vous utilisez Azure Resource Manager, toutes les ressources associées sont créées au sein d’un groupe de ressources. Nous allons créer un groupe de ressources nommé **ContosoResourceGroup** pour ce didacticiel :
@@ -237,6 +237,6 @@ Pour les références de programmation, consultez le [guide du développeur de c
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,5 +1,5 @@
-## En passant par le portail Azure
-1. Sélectionnez la machine virtuelle que vous souhaitez redéployer, puis cliquez sur le bouton « Redéployer » dans le panneau « Paramètres ». Faites défiler vers le bas pour voir la section **Support et dépannage** section qui contient le bouton « Redéployer », comme dans l’exemple suivant :
+## <a name="using-azure-portal"></a>En passant par le portail Azure
+1. Sélectionnez la machine virtuelle que vous souhaitez redéployer, puis cliquez sur le bouton « Redéployer » dans le panneau « Paramètres ». Faites défiler vers le bas pour voir la section **Support et dépannage** section qui contient le bouton « Redéployer », comme dans l’exemple suivant :
    
     ![Panneau Machines virtuelles Azure](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)
 2. Cliquez sur le bouton « Redéployer » pour confirmer l’opération :
@@ -15,4 +15,8 @@
    
     ![Exécution de la machine virtuelle](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

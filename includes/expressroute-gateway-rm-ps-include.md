@@ -1,20 +1,20 @@
 Les étapes de cette tâche utilisent un réseau virtuel basé sur les valeurs ci-dessous. Les noms et paramètres supplémentaires sont également présentés dans cette liste. Nous n’utilisons pas cette liste directement dans la procédure, mais nous ajoutons des variables en fonction des valeurs dans cette liste. Vous pouvez copier la liste et l’utiliser en tant que référence, en remplaçant les valeurs par les vôtres.
 
-Liste de référence de configuration :
+Liste de référence de configuration :
 
-* Nom du réseau virtuel : « TestVNet »
-* Espace d’adressage du réseau virtuel : 192.168.0.0/16
-* Groupe de ressources : « TestRG »
-* Nom du sous-réseau 1 : « FrontEnd » 
-* Espace d’adressage du sous-réseau 1 : « 192.168.0.0/16 »
-* Nom de sous-réseau de passerelle : « GatewaySubnet » Vous devez toujours nommer un sous-réseau de passerelle *GatewaySubnet*.
-* Espace d'adressage du sous-réseau de passerelle : « 192.168.200.0/26 »
-* Région : « Est des États-Unis »
-* Nom de la passerelle : « GW »
-* Nom d’adresse IP de la passerelle : « GWIP »
-* Nom de configuration IP de la passerelle : « gwipconf »
+* Nom du réseau virtuel : « TestVNet »
+* Espace d’adressage du réseau virtuel : 192.168.0.0/16
+* Groupe de ressources : « TestRG »
+* Nom du sous-réseau 1 : « FrontEnd » 
+* Espace d’adressage du sous-réseau 1 : « 192.168.0.0/16 »
+* Nom de sous-réseau de passerelle : « GatewaySubnet » Vous devez toujours nommer un sous-réseau de passerelle *GatewaySubnet*.
+* Espace d'adressage du sous-réseau de passerelle : « 192.168.200.0/26 »
+* Région : « Est des États-Unis »
+* Nom de la passerelle : « GW »
+* Nom d’adresse IP de la passerelle : « GWIP »
+* Nom de configuration IP de la passerelle : « gwipconf »
 * Type : « ExpressRoute » Ce type est requis pour une configuration ExpressRoute.
-* Nom d’adresse IP publique de passerelle = « gwpip »
+* Nom d’adresse IP publique de passerelle = « gwpip »
 
 ## <a name="add-a-gateway"></a>Ajout d’une passerelle
 1. Connectez-vous à votre abonnement Azure. 
@@ -33,7 +33,7 @@ Liste de référence de configuration :
 3. Stockez l’objet de réseau virtuel en tant que variable.
    
         $vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
-4. Ajoutez un sous-réseau de passerelle à votre réseau virtuel. Le sous-réseau de passerelle doit être nommé « GatewaySubnet ». Vous devez créer une passerelle définie sur /27 ou plus (/26, /25, etc.).
+4. Ajoutez un sous-réseau de passerelle à votre réseau virtuel. Le sous-réseau de passerelle doit être nommé « GatewaySubnet ». Vous devez créer une passerelle définie sur /27 ou plus (/26, /25, etc.).
    
         Add-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
 5. Définissez la configuration.
@@ -42,9 +42,9 @@ Liste de référence de configuration :
 6. Stockez le sous-réseau de passerelle en tant que variable.
    
         $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-7. Demandez une adresse IP publique L’adresse IP est demandée avant de créer la passerelle. Vous ne pouvez pas spécifier l’adresse IP que vous souhaitez utiliser, car elle est allouée de façon dynamique. Vous utiliserez cette adresse IP dans la section de configuration suivante. La méthode AllocationMethod doit être dynamique.
+7. Demandez une adresse IP publique L’adresse IP est demandée avant de créer la passerelle. Vous ne pouvez pas spécifier l’adresse IP que vous souhaitez utiliser, car elle est allouée de façon dynamique. Vous utiliserez cette adresse IP dans la section de configuration suivante. La méthode AllocationMethod doit être dynamique.
    
-        $pip = New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
+        $pip = New-AzureRmPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 8. Créez la configuration de votre passerelle. La configuration de la passerelle définit le sous-réseau et l’adresse IP publique à utiliser. Dans cette étape, vous spécifiez la configuration qui sera utilisée lors de la création de la passerelle. Cette étape ne crée pas réellement l’objet de passerelle. Utilisez l’exemple ci-dessous pour créer la configuration de votre passerelle. 
    
         $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
@@ -74,6 +74,6 @@ Utilisez la commande suivante pour supprimer une passerelle.
     Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG  
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -117,20 +117,23 @@
 
 # Référence
 ## [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
+
+
+
+# Rubriques connexes
 ## Contenu du Kit de développement logiciel (SDK)
 ### [Kit de développement logiciel Android](mobile-engagement-android-sdk-content.md)
 ### [Kit de développement logiciel (SDK) iOS](mobile-engagement-ios-sdk-content.md)
 ### [Kit de développement logiciel (SDK) des applications universelles Windows](mobile-engagement-windows-store-sdk-content.md)
 ### [Kit de développement logiciel (SDK) Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-content.md)
+
+# les ressources
 ## Notes de publication
 ### [Kit de développement logiciel Android](mobile-engagement-android-release-notes.md)
 ### [Kit de développement logiciel (SDK) iOS](mobile-engagement-ios-release-notes.md)
 ### [Kit de développement logiciel (SDK) web](mobile-engagement-web-release-notes.md)
 ### [Kit de développement logiciel (SDK) des applications universelles Windows](mobile-engagement-windows-store-release-notes.md)
 ### [Kit de développement logiciel (SDK) Windows Phone Silverlight](mobile-engagement-windows-phone-release-notes.md)
-
-
-# les ressources
 ## [Tarification](https://azure.microsoft.com/pricing/details/mobile-engagement/)
 ## [Exemples d’applications de démonstration](mobile-engagement-demo-apps.md)
 ## [Exemple d’API .NETExemple d’API .NET](mobile-engagement-dotnet-sdk-service-api.md)
@@ -146,6 +149,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

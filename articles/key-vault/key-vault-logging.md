@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/31/2016
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 51833ae656f4c5275b0bd922d21288901cd1f4b3
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
 
 
 ---
@@ -48,7 +48,7 @@ Pour plus d’informations générales sur Azure Key Vault, consultez la page [P
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un coffre de clés existant que vous utilisez déjà.  
-* Azure PowerShell, **version 1.0.1 minimum**. Pour installer Azure PowerShell et l’associer à votre abonnement Azure, consultez l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Si vous avez déjà installé Azure PowerShell et que vous ne connaissez pas la version que vous utilisez, à partir de la console Azure PowerShell, entrez `(Get-Module azure -ListAvailable).Version`.  
+* Azure PowerShell, **version 1.0.1 minimum**. Pour installer Azure PowerShell et l’associer à votre abonnement Azure, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs). Si vous avez déjà installé Azure PowerShell et que vous ne connaissez pas la version que vous utilisez, à partir de la console Azure PowerShell, entrez `(Get-Module azure -ListAvailable).Version`.  
 * Espace de stockage suffisant sur Azure pour vos journaux de coffre de clés.
 
 ## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Se connecter à vos abonnements
@@ -66,7 +66,7 @@ Ensuite, pour spécifier l’abonnement associé au coffre de clés que vous all
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Pour plus d’informations sur la configuration d’Azure PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+Pour plus d’informations sur la configuration d’Azure PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="a-idstorageacreate-a-new-storage-account-for-your-logs"></a><a id="storage"></a>Création d’un nouveau compte de stockage pour vos journaux
 Bien que vous puissiez utiliser un compte de stockage existant pour vos journaux, nous allons en créer un nouveau qui sera dédié à vos journaux de coffre de clés. Pour plus de commodité, en prévision du moment où vous devrez le spécifier par la suite, nous allons enregistrer les détails dans une variable nommée **sa**.
@@ -266,6 +266,6 @@ Pour accéder à un didacticiel sur la rotation des clés et les journaux d’au
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

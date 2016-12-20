@@ -1,13 +1,13 @@
 ---
-title: Déplacement d’une machine virtuelle Linux | Microsoft Docs
-description: Déplacez une machine virtuelle Linux vers un autre abonnement ou groupe de ressources Azure dans le modèle de déploiement Resource Manager.
+title: "Déplacement d’une machine virtuelle Linux | Microsoft Docs"
+description: "Déplacez une machine virtuelle Linux vers un autre abonnement ou groupe de ressources Azure dans le modèle de déploiement Resource Manager."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: d635f0a5-4458-4b95-a5f8-eed4f41eb4d4
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -15,22 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3e22b8173e7b0a470c5c45ed6027a717b90aca23
+
 
 ---
-# Déplacer une machine virtuelle Linux vers un autre abonnement ou groupe de ressources
+# <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Déplacer une machine virtuelle Linux vers un autre abonnement ou groupe de ressources
 Cet article vous guide tout au long du déplacement d’une machine virtuelle Linux entre des groupes de ressources ou des abonnements. Le déplacement d’une machine virtuelle entre abonnements peut être pratique si vous avez créé une machine virtuelle dans un abonnement personnel, et que vous souhaitez à présent la déplacer vers l’abonnement de votre entreprise.
 
 > [!NOTE]
-> De nouveaux ID de ressource sont créés dans le cadre du déplacement. Une fois que la machine virtuelle a été déplacée, vous devez mettre à jour vos outils et vos scripts pour utiliser les nouveaux ID de ressource.
+> De nouveaux ID de ressource sont créés dans le cadre du déplacement. Une fois que la machine virtuelle a été déplacée, vous devez mettre à jour vos outils et vos scripts pour utiliser les nouveaux ID de ressource. 
 > 
 > 
 
-## Utiliser l’interface CLI Azure pour déplacer une machine virtuelle
-Pour déplacer avec succès une machine virtuelle, vous devez déplacer la machine virtuelle et toutes les ressources qui l’accompagnent. Utilisez la commande **azure group show** pour répertorier toutes les ressources d’un groupe de ressources et leur ID. Cela permet de diriger la sortie de cette commande dans un fichier. Vous pouvez ainsi copier et coller les ID dans des commandes ultérieures.
+## <a name="use-the-azure-cli-to-move-a-vm"></a>Utiliser l’interface CLI Azure pour déplacer une machine virtuelle
+Pour déplacer avec succès une machine virtuelle, vous devez déplacer la machine virtuelle et toutes les ressources qui l’accompagnent. Utilisez la commande **azure group show** pour répertorier toutes les ressources d’un groupe de ressources et leurs ID. Cela permet de diriger la sortie de cette commande dans un fichier. Vous pouvez ainsi copier et coller les ID dans des commandes ultérieures.
 
     azure group show <resourceGroupName>
 
-Pour déplacer une machine virtuelle et ses ressources vers un autre groupe de ressources, exécutez la commande CLI **azure resource move**. L’exemple suivant montre comment déplacer une machine virtuelle et les ressources courantes nécessaires. Nous utilisons le paramètre **-i** et transmettons une liste séparée par des virgules (sans espaces) d’ID de ressources à déplacer.
+Pour déplacer une machine virtuelle et ses ressources vers un autre groupe de ressources, exécutez la commande CLI **azure resource move** . L’exemple suivant montre comment déplacer une machine virtuelle et les ressources courantes nécessaires. Nous utilisons le paramètre **-i** et transmettons une liste séparée par des virgules (sans espaces) d’ID de ressources à déplacer.
 
     vm=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Compute/virtualMachines/<vmName>
     nic=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/networkInterfaces/<nicName>
@@ -50,7 +54,12 @@ Vous devez confirmer que vous souhaitez déplacer la ressource spécifiée. Tape
 
 [!INCLUDE [virtual-machines-common-move-vm](../../includes/virtual-machines-common-move-vm.md)]
 
-## Étapes suivantes
-Vous pouvez déplacer de nombreux types de ressources différents entre les groupes de ressources et les abonnements. Pour plus d’informations, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un abonnement](../resource-group-move-resources.md).
+## <a name="next-steps"></a>Étapes suivantes
+Vous pouvez déplacer de nombreux types de ressources différents entre les groupes de ressources et les abonnements. Pour plus d’informations, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un abonnement](../resource-group-move-resources.md).    
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

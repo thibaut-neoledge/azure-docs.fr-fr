@@ -1,12 +1,12 @@
 ---
-title: Modèles Visual Studio pour Azure Batch | Microsoft Docs
-description: Découvrez comment ces modèles de projet Visual Studio peuvent vous aider à implémenter et à exécuter vos charges de travail nécessitant beaucoup de ressources sur Azure Batch
+title: "Modèles Visual Studio pour Azure Batch | Microsoft Docs"
+description: "Découvrez comment ces modèles de projet Visual Studio peuvent vous aider à implémenter et à exécuter vos charges de travail nécessitant beaucoup de ressources sur Azure Batch"
 services: batch
 documentationcenter: .net
 author: fayora
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
@@ -14,17 +14,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/07/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3907de9630fec99b1d28c750bfbfdf6f646bf194
+
 
 ---
-# Modèles de projet Visual Studio pour Azure Batch
+# <a name="visual-studio-project-templates-for-azure-batch"></a>Modèles de projet Visual Studio pour Azure Batch
 Les **modèles Visual Studio du gestionnaire de travaux** et du **processeur de tâches** pour Batch fournissent le code vous permettant d’implémenter et d’exécuter sans effort vos charges de travail nécessitant beaucoup de ressources sur Batch. Ce document décrit ces modèles et fournit des conseils pour leur utilisation.
 
 > [!IMPORTANT]
-> Cet article traite uniquement les informations relatives à ces deux modèles et suppose que vous maîtrisez le service Batch ainsi que les concepts clés qui y sont liés : pools, nœuds de calcul, travaux et tâches, tâches du gestionnaire de travaux, variables d’environnement et autres informations pertinentes. Pour plus d’informations, consultez [Notions de base d’Azure Batch](batch-technical-overview.md), [Présentation des fonctionnalités du service Batch pour les développeurs](batch-api-basics.md), et [Prise en main de la bibliothèque Azure Batch pour .NET](batch-dotnet-get-started.md).
+> Cet article traite uniquement les informations relatives à ces deux modèles et suppose que vous maîtrisez le service Batch ainsi que les concepts clés qui y sont liés : pools, nœuds de calcul, travaux et tâches, tâches du gestionnaire de travaux, variables d’environnement et autres informations pertinentes. Pour plus d’informations, consultez [Notions de base d’Azure Batch](batch-technical-overview.md), [Présentation des fonctionnalités du service Batch pour les développeurs](batch-api-basics.md) et [Prise en main de la bibliothèque Azure Batch pour .NET](batch-dotnet-get-started.md).
 > 
 > 
 
-## Vue d’ensemble globale
+## <a name="high-level-overview"></a>Vue d’ensemble globale
 Les modèles du gestionnaire de travaux et du processeur de tâches peuvent être utilisés pour créer deux composants utiles :
 
 * Une tâche du gestionnaire de travaux qui permet de fractionner un travail afin de le découper en plusieurs tâches pouvant être exécutées indépendamment, en parallèle.
@@ -45,28 +49,28 @@ Comme indiqué dans le diagramme ci-dessous, un travail de calcul qui utilise ce
 
 ![Diagramme montrant comment le code client interagit avec le service Batch][diagram01]
 
-## Composants requis
+## <a name="prerequisites"></a>Composants requis
 Voici les composants requis pour utiliser les modèles Batch :
 
 * Un ordinateur disposant de Visual Studio 2015 ou d’une version plus récente.
 * Les modèles Batch, qui sont disponibles dans la [galerie Visual Studio][vs_gallery] en tant qu’extensions Visual Studio. Il existe deux façons de se procurer les modèles :
   
-  * Les installer à l’aide de la boîte de dialogue **Extensions et mises à jour** dans Visual Studio (pour plus d’informations, consultez [Recherche et utilisation des extensions Visual Studio][vs_find_use_ext]). Dans la boîte de dialogue **Extensions et mises à jour**, recherchez et téléchargez les deux extensions suivantes :
+  * Les installer à l’aide de la boîte de dialogue **Extensions et mises à jour** dans Visual Studio (pour plus d’informations, consultez [Recherche et utilisation des extensions Visual Studio][vs_find_use_ext]). Dans la boîte de dialogue **Extensions et mises à jour** , recherchez et téléchargez les deux extensions suivantes :
     
     * Le gestionnaire de travaux Azure Batch avec l’outil de fractionnement du travail
     * Le processeur de tâches Azure Batch
-  * Les télécharger à partir de la galerie en ligne pour Visual Studio : [Modèles de projet Microsoft Azure Batch][vs_gallery_templates]
+  * Les télécharger à partir de la galerie en ligne pour Visual Studio : [Modèles de projet Microsoft Azure Batch][vs_gallery_templates]
 * Si vous prévoyez d’utiliser la fonctionnalité [Packages d’applications](batch-application-packages.md) pour déployer le gestionnaire de travaux et le processeur de tâches sur les nœuds de calcul Batch, vous devez lier un compte de stockage à votre compte Batch.
 
-## Préparation
+## <a name="preparation"></a>Préparation
 Nous vous recommandons de créer une solution pouvant contenir à la fois votre gestionnaire de travaux et votre processeur de tâches, afin de faciliter le partage du code entre leurs programmes. Pour créer cette solution, procédez comme suit :
 
-1. Ouvrez Visual Studio 2015 et sélectionnez **Fichier** > **Nouveau** > **Projet**.
+1. Ouvrez Visual Studio 2015 et sélectionnez **Fichier** > **Nouveau** > **Projet**.
 2. Sous **Modèles**, développez **Autres Types de projets**, cliquez sur **Solutions Visual Studio**, puis sélectionnez **Nouvelle Solution**.
-3. Entrez un nom décrivant votre application et l’objectif de cette solution (par exemple, « ProgrammesTâchesBatchLitware »).
-4. Cliquez sur **OK** pour créer la solution.
+3. Entrez un nom décrivant votre application et l’objectif de cette solution (par exemple, « ProgrammesTâchesBatchLitware »).
+4. Cliquez sur **OK**pour créer la solution.
 
-## Modèle du gestionnaire de travaux
+## <a name="job-manager-template"></a>Modèle du gestionnaire de travaux
 Le modèle du gestionnaire de travaux vous permet d’implémenter une tâche du gestionnaire de travaux pouvant effectuer les actions suivantes :
 
 * Fractionner un travail en plusieurs tâches.
@@ -77,17 +81,17 @@ Le modèle du gestionnaire de travaux vous permet d’implémenter une tâche du
 > 
 > 
 
-### Créer un gestionnaire de travaux à l’aide du modèle
+### <a name="create-a-job-manager-using-the-template"></a>Créer un gestionnaire de travaux à l’aide du modèle
 Pour ajouter un gestionnaire de travaux à la solution que vous avez créée précédemment, procédez comme suit :
 
 1. Ouvrez votre solution existante dans Visual Studio 2015.
-2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur la solution, puis sur **Ajouter** > **Nouveau projet**.
+2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur la solution et cliquez sur **Ajouter** > **Nouveau projet**.
 3. Sous **Visual C#**, cliquez sur **Cloud**, puis sur **Azure Batch Job Manager with Job Splitter** (Gestionnaire de travaux Azure Batch avec outil de fractionnement du travail).
 4. Entrez un nom décrivant votre application et identifiant ce projet en tant que le gestionnaire de travaux (par exemple, « GestionnaireTravauxLitware »).
-5. Cliquez sur **OK** pour créer le projet.
+5. Cliquez sur **OK**pour créer le projet.
 6. Pour finir, générez le projet pour forcer Visual Studio à charger tous les packages NuGet référencés et vérifier que le projet est valide avant de commencer à le modifier.
 
-### Les fichiers du modèle du gestionnaire de travaux et leur objectif
+### <a name="job-manager-template-files-and-their-purpose"></a>Les fichiers du modèle du gestionnaire de travaux et leur objectif
 Lorsque vous créez un projet à l’aide du modèle du gestionnaire de travaux, il génère trois groupes de fichiers de code :
 
 * Le fichier de programme principal (Program.cs). Il contient le point d’entrée du programme et la gestion des exceptions de niveau supérieur. Vous n’avez normalement pas besoin de modifier cette configuration.
@@ -104,23 +108,23 @@ Le reste de cette section décrit les différents fichiers et leur structure de 
 
 **Fichiers Framework**
 
-* `Configuration.cs` : Encapsule le chargement des données de configuration du travail, telles que les détails du compte Batch, les informations d’identification du compte de stockage lié, les informations relatives aux travaux et aux tâches, et les paramètres du travail. Il donne également accès aux variables d’environnement définies par Batch (voir les paramètres d’environnement des tâches, dans la documentation Batch) via la classe Configuration.EnvironmentVariable.
-* `IConfiguration.cs` : Résume l’implémentation de la classe de configuration, afin que vous puissiez soumettre votre outil de fractionnement du travail à un test unitaire, à l’aide d’un objet de configuration fictif ou simulé.
-* `JobManager.cs` : Orchestre les composants du programme de gestionnaire de travaux. Il est responsable de l’initialisation et de l’appel de l’outil de fractionnement du travail, et de la distribution des tâches retournées par l’outil de fractionnement du travail à l’émetteur de la tâche.
-* `JobManagerException.cs` : Représente une erreur nécessitant l’arrêt du gestionnaire de travaux. L’exception JobManagerException est utilisée pour encapsuler des erreurs « attendues » lorsque des informations de diagnostic spécifiques peuvent être fournies dans le cadre de l’arrêt.
-* `TaskSubmitter.cs` : Cette classe est chargée d’ajouter au travail Batch les tâches retournées par l’outil de fractionnement du travail. La classe JobManager agrège la séquence de tâches en lots pour les ajouter au travail de manière efficace et opportune, puis appelle TaskSubmitter.SubmitTasks sur un thread d’arrière-plan pour chaque lot.
+* `Configuration.cs`: Encapsule le chargement des données de configuration du travail, telles que les détails du compte Batch, les informations d’identification du compte de stockage lié, les informations relatives aux travaux et aux tâches, et les paramètres du travail. Il donne également accès aux variables d’environnement définies par Batch (voir les paramètres d’environnement des tâches, dans la documentation Batch) via la classe Configuration.EnvironmentVariable.
+* `IConfiguration.cs`: Résume l’implémentation de la classe de configuration, afin que vous puissiez soumettre votre outil de fractionnement du travail à un test unitaire, à l’aide d’un objet de configuration fictif ou simulé.
+* `JobManager.cs`: Orchestre les composants du programme de gestionnaire de travaux. Il est responsable de l’initialisation et de l’appel de l’outil de fractionnement du travail, et de la distribution des tâches retournées par l’outil de fractionnement du travail à l’émetteur de la tâche.
+* `JobManagerException.cs`: Représente une erreur nécessitant l’arrêt du gestionnaire de travaux. L’exception JobManagerException est utilisée pour encapsuler des erreurs « attendues » lorsque des informations de diagnostic spécifiques peuvent être fournies dans le cadre de l’arrêt.
+* `TaskSubmitter.cs`: Cette classe est chargée d’ajouter au travail Batch les tâches retournées par l’outil de fractionnement du travail. La classe JobManager agrège la séquence de tâches en lots pour les ajouter au travail de manière efficace et opportune, puis appelle TaskSubmitter.SubmitTasks sur un thread d’arrière-plan pour chaque lot.
 
 **Outil de fractionnement du travail**
 
-`JobSplitter.cs` : Cette classe contient la logique spécifique à l’application pour fractionner le travail en tâches. L’infrastructure appelle la méthode JobSplitter.Split pour obtenir une séquence de tâches, qu’elle ajoute au travail à mesure que la méthode les retourne. C’est la classe où vous injecterez la logique de votre travail. Implémentez la méthode Split pour retourner une séquence d’instances CloudTask représentant les tâches dans lesquelles vous souhaitez partitionner le travail.
+`JobSplitter.cs`: Cette classe contient la logique spécifique à l’application pour fractionner le travail en tâches. L’infrastructure appelle la méthode JobSplitter.Split pour obtenir une séquence de tâches, qu’elle ajoute au travail à mesure que la méthode les retourne. C’est la classe où vous injecterez la logique de votre travail. Implémentez la méthode Split pour retourner une séquence d’instances CloudTask représentant les tâches dans lesquelles vous souhaitez partitionner le travail.
 
 **Fichiers de projet de ligne de commande .NET standard**
 
-* `App.config` : Fichier de configuration d’application .NET standard.
+* `App.config`: Fichier de configuration d’application .NET standard.
 * `Packages.config`: Fichier de dépendance de package NuGet standard.
-* `Program.cs` : Contient le point d’entrée du programme et la gestion des exceptions de niveau supérieur.
+* `Program.cs`: Contient le point d’entrée du programme et la gestion des exceptions de niveau supérieur.
 
-### Implémenter l’outil de fractionnement du travail
+### <a name="implementing-the-job-splitter"></a>Implémenter l’outil de fractionnement du travail
 Lorsque vous ouvrez le projet de modèle du gestionnaire de travaux, il ouvre le fichier JobSplitter.cs par défaut. Vous pouvez implémenter la logique de fractionnement pour les tâches de votre charge de travail à l’aide de la méthode Split() présentée ci-dessous :
 
 ```csharp
@@ -156,9 +160,9 @@ public IEnumerable<CloudTask> Split()
 
 Votre implémentation Split() a accès :
 
-* Aux paramètres du travail, via le champ `_parameters`.
-* À l’objet CloudJob représentant le travail, via le champ `_job`.
-* À l’objet CloudTask représentant la tâche du gestionnaire de travaux, via le champ `_jobManagerTask`.
+* Aux paramètres du travail, via le champ `_parameters` .
+* À l’objet CloudJob représentant le travail, via le champ `_job` .
+* À l’objet CloudTask représentant la tâche du gestionnaire de travaux, via le champ `_jobManagerTask` .
 
 Il n’est pas nécessaire que votre implémentation `Split()` ajoute directement des tâches au travail. Au lieu de cela, votre code doit retourner une séquence d’objets CloudTask, qui seront automatiquement ajoutés au travail par les classes de l’infrastructure appelant l’outil de fractionnement du travail. Il est courant d’utiliser la fonctionnalité de l’itérateur C# (`yield return`) pour implémenter des outils de fractionnement du travail, car elle permet de lancer les tâches dès que possible plutôt que d’attendre qu’elles soient toutes calculées.
 
@@ -166,20 +170,20 @@ Il n’est pas nécessaire que votre implémentation `Split()` ajoute directemen
 
 Si votre outil de fractionnement du travail rencontre une erreur, il doit soit :
 
-* Terminer la séquence à l’aide de l’instruction C# `yield break`, auquel cas le gestionnaire de travaux sera considéré comme ayant réussi ; ou
+* Terminer la séquence à l’aide de l’instruction C# `yield break` , auquel cas le gestionnaire de travaux sera considéré comme ayant réussi ; ou
 * Lever une exception, auquel cas le gestionnaire de travaux sera traité comme s’il avait échoué et pourra être relancé, selon la façon dont le client l’a configuré.
 
 Dans les deux cas, toutes les tâches déjà retournées par l’outil de fractionnement du travail et ajoutées au travail Batch seront autorisées à être exécutées. Si vous souhaitez éviter cette situation, vous pouvez :
 
 * Arrêter le travail avant qu’il ne soit retourné par l’outil de fractionnement du travail
-* Formuler toute la collection de tâches avant de la retourner (autrement dit, retourner `ICollection<CloudTask>` ou `IList<CloudTask>` au lieu d’implémenter votre outil de fractionnement du travail à l’aide d’un itérateur C#)
+* Foumuler toute la collection de tâches avant de la retourner (autrement dit, retourner `ICollection<CloudTask>` ou `IList<CloudTask>` instead of implementing your job splitter using a C# iteratou)
 * Utiliser les dépendances entre tâches pour rendre toutes les tâches dépendantes de la réussite du gestionnaire de travaux
 
 **Nouvelles tentatives du gestionnaire de travaux**
 
 Si le gestionnaire de travaux échoue, il peut être relancé par le service Batch en fonction des paramètres de nouvelles tentatives du client. En général, il n’y a aucun risque, car lorsque l’infrastructure ajoute des tâches au travail, elle ignore toutes les tâches qui existent déjà. Toutefois, si le calcul des tâches est coûteux, vous pouvez choisir de ne pas encourir les frais de recalcul des tâches qui ont déjà été ajoutées au projet. À l’inverse, s’il n’est pas garanti que la réexécution génère les mêmes ID de tâches, le comportement « ignorer les doublons » n’intervient pas. Dans ce cas, vous devez concevoir votre outil de fractionnement du travail de manière à ce qu’il détecte le travail déjà effectué et ne le répète pas, par exemple en effectuant CloudJob.ListTasks avant de commencer à générer des tâches.
 
-### Codes de sortie et exceptions dans le modèle du gestionnaire de travaux
+### <a name="exit-codes-and-exceptions-in-the-job-manager-template"></a>Codes de sortie et exceptions dans le modèle du gestionnaire de travaux
 Les codes de sortie et les exceptions fournissent un mécanisme permettant de déterminer le résultat de l’exécution d’un programme, et peuvent aider à identifier les problèmes rencontrés lors de l’exécution du programme. Le modèle du gestionnaire de travaux implémente les codes de sortie et les exceptions décrites dans cette section.
 
 Une tâche du gestionnaire de travaux implémentée avec le modèle du gestionnaire de travaux peut retourner trois codes de sortie possibles :
@@ -194,12 +198,12 @@ En cas d’échec de la tâche du gestionnaire de travaux, il est possible que c
 
 Toutes les informations retournées par des exceptions sont écrites dans des fichiers stdout.txt et stderr.txt. Pour plus d’informations, consultez la rubrique [Gestion des erreurs](batch-api-basics.md#error-handling).
 
-### Considérations du client
-Cette section présente certaines exigences d’implémentation du client lors de l’appel d’un gestionnaire de travaux basé sur ce modèle. Pour plus d’informations, consultez la section expliquant [comment transmettre des paramètres et des paramètres d’environnement à partir du code client](#pass-environment-settings).
+### <a name="client-considerations"></a>Considérations du client
+Cette section présente certaines exigences d’implémentation du client lors de l’appel d’un gestionnaire de travaux basé sur ce modèle. Pour plus d’informations, consultez la section expliquant [comment transmettre des paramètres et des paramètres d’environnement à partir du code client](#pass-environment-settings) .
 
 **Informations d’identification obligatoires**
 
-Pour ajouter des tâches au travail Azure Batch, la tâche du gestionnaire de travaux requiert la clé et l’URL de votre compte Azure Batch. Vous devez les transmettre en tant que variables d’environnement appelées YOUR\_BATCH\_URL et YOUR\_BATCH\_KEY. Vous pouvez les définir dans les paramètres d’environnement de tâche du gestionnaire de travaux. Par exemple, dans un client C# :
+Pour ajouter des tâches au travail Azure Batch, la tâche du gestionnaire de travaux requiert la clé et l’URL de votre compte Azure Batch. Vous devez les transmettre en tant que variables d’environnement appelées YOUR_BATCH_URL et YOUR_BATCH_KEY. Vous pouvez les définir dans les paramètres d’environnement de tâche du gestionnaire de travaux. Par exemple, dans un client C# :
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
@@ -223,11 +227,11 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 
 Le client doit définir l’indicateur *killJobOnCompletion* du gestionnaire de travaux sur **false**.
 
-Généralement, le client peut définir *runExclusive* sur **false** en toute sécurité.
+Généralement, le client peut définir *runExclusive* sur **false**en toute sécurité.
 
 Le client doit utiliser la collection *resourceFiles* ou *applicationPackageReferences* pour que l’exécutable du gestionnaire de travaux (et ses fichiers DLL requis) soit déployé sur le nœud de calcul.
 
-Par défaut, le gestionnaire de travaux ne sera pas relancé en cas d’échec. Selon la logique de votre gestionnaire de travaux, il est possible que le client souhaite autoriser les nouvelles tentatives via *constraints*/*maxTaskRetryCount*.
+Par défaut, le gestionnaire de travaux ne sera pas relancé en cas d’échec. En fonction de la logique de votre gestionnaire de travaux, il est possible que le client souhaite autoriser les nouvelles tentatives par le biais de *constraints*/*maxTaskRetryCount*.
 
 **Paramètres du travail**
 
@@ -235,7 +239,7 @@ Si l’outil de fractionnement du travail émet des tâches avec des dépendance
 
 Dans le modèle de fractionnement du travail, il est rare que les clients souhaitent ajouter à des travaux davantage de tâches que celles que crée l’outil de fractionnement du travail. Le client doit donc définir normalement la propriété *onAllTasksComplete* du travail sur **terminatejob**.
 
-## Modèle du processeur de tâches
+## <a name="task-processor-template"></a>Modèle du processeur de tâches
 Le modèle du processeur de tâches vous permet d’implémenter une tâche du processeur de tâches pouvant effectuer les actions suivantes :
 
 * Définir les informations requises par chaque tâche Batch à exécuter.
@@ -246,17 +250,17 @@ Bien qu’un processeur de tâches ne soit pas nécessaire pour exécuter des t�
 
 Les actions effectuées par le processeur de tâches peuvent être simples ou complexes, nombreuses ou peu nombreuses, en fonction des besoins de votre charge de travail. En outre, en mettant en œuvre toutes les actions de tâches dans un processeur de tâches, vous pouvez facilement mettre à jour ou ajouter des actions en fonction des modifications apportées aux besoins des applications ou des charges de travail. Toutefois, dans certains cas, le processeur de tâches n’est pas forcément la solution optimale pour votre implémentation puisqu’il peut engendrer une complexité inutile, par exemple si vous exécutez des travaux pouvant être démarrés rapidement à l’aide d’une simple ligne de commande.
 
-### Créer un processeur de tâches à l’aide du modèle
+### <a name="create-a-task-processor-using-the-template"></a>Créer un processeur de tâches à l’aide du modèle
 Pour ajouter un processeur de tâches à la solution que vous avez créée précédemment, procédez comme suit :
 
 1. Ouvrez votre solution existante dans Visual Studio 2015.
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur la solution, cliquez sur **Ajouter**, puis sur **Nouveau projet**.
 3. Sous **Visual C#**, cliquez sur **Cloud**, puis sur **Azure Batch Task Processor** (Processeur de tâches Azure Batch).
 4. Entrez un nom décrivant votre application et identifiant ce projet en tant que le processeur de tâches (par exemple, « ProcesseurLitwareTask »).
-5. Cliquez sur **OK** pour créer le projet.
+5. Cliquez sur **OK**pour créer le projet.
 6. Pour finir, générez le projet pour forcer Visual Studio à charger tous les packages NuGet référencés et vérifier que le projet est valide avant de commencer à le modifier.
 
-### Les fichiers du modèle du processeur de tâches et leur objectif
+### <a name="task-processor-template-files-and-their-purpose"></a>Les fichiers du modèle du processeur de tâches et leur objectif
 Lorsque vous créez un projet à l’aide du modèle du processeur de tâches, il génère trois groupes de fichiers de code :
 
 * Le fichier de programme principal (Program.cs). Il contient le point d’entrée du programme et la gestion des exceptions de niveau supérieur. Vous n’avez normalement pas besoin de modifier cette configuration.
@@ -273,9 +277,9 @@ Le reste de cette section décrit les différents fichiers et leur structure de 
 
 **Fichiers Framework**
 
-* `Configuration.cs` : Encapsule le chargement des données de configuration du travail, telles que les détails du compte Batch, les informations d’identification du compte de stockage lié, les informations relatives aux travaux et aux tâches, et les paramètres du travail. Il donne également accès aux variables d’environnement définies par Batch (voir les paramètres d’environnement des tâches, dans la documentation Batch) via la classe Configuration.EnvironmentVariable.
-* `IConfiguration.cs` : Résume l’implémentation de la classe de configuration, afin que vous puissiez soumettre votre outil de fractionnement du travail à un test unitaire, à l’aide d’un objet de configuration fictif ou simulé.
-* `TaskProcessorException.cs` : Représente une erreur nécessitant l’arrêt du gestionnaire de travaux. TaskProcessorException est utilisé pour encapsuler des erreurs « attendues » lorsque des informations de diagnostic spécifiques peuvent être fournies dans le cadre de l’arrêt.
+* `Configuration.cs`: Encapsule le chargement des données de configuration du travail, telles que les détails du compte Batch, les informations d’identification du compte de stockage lié, les informations relatives aux travaux et aux tâches, et les paramètres du travail. Il donne également accès aux variables d’environnement définies par Batch (voir les paramètres d’environnement des tâches, dans la documentation Batch) via la classe Configuration.EnvironmentVariable.
+* `IConfiguration.cs`: Résume l’implémentation de la classe de configuration, afin que vous puissiez soumettre votre outil de fractionnement du travail à un test unitaire, à l’aide d’un objet de configuration fictif ou simulé.
+* `TaskProcessorException.cs`: Représente une erreur nécessitant l’arrêt du gestionnaire de travaux. TaskProcessorException est utilisé pour encapsuler des erreurs « attendues » lorsque des informations de diagnostic spécifiques peuvent être fournies dans le cadre de l’arrêt.
 
 **Processeur de tâches**
 
@@ -290,11 +294,11 @@ Le reste de cette section décrit les différents fichiers et leur structure de 
 
 **Fichiers de projet de ligne de commande .NET standard**
 
-* `App.config` : Fichier de configuration d’application .NET standard.
+* `App.config`: Fichier de configuration d’application .NET standard.
 * `Packages.config`: Fichier de dépendance de package NuGet standard.
-* `Program.cs` : Contient le point d’entrée du programme et la gestion des exceptions de niveau supérieur.
+* `Program.cs`: Contient le point d’entrée du programme et la gestion des exceptions de niveau supérieur.
 
-## Implémenter le processeur de tâches
+## <a name="implementing-the-task-processor"></a>Implémenter le processeur de tâches
 Lorsque vous ouvrez le projet de modèle du processeur de tâches, il ouvre le fichier TaskProcessor.cs par défaut. Vous pouvez implémenter la logique d’exécution pour les tâches de votre charge de travail à l’aide de la méthode Run() présentée ci-dessous :
 
 ```csharp
@@ -351,13 +355,13 @@ Votre implémentation Run() a accès :
 
 * Aux paramètres de la tâche, via le champ `_parameters`.
 * Aux ID du travail et de la tâche, via les champs `_jobId` et `_taskId`.
-* À la configuration de la tâche, via le champ `_configuration`.
+* À la configuration de la tâche, via le champ `_configuration` .
 
 **Échec de la tâche**
 
 En cas d’échec, vous pouvez quitter la méthode Run() en levant une exception, mais le contrôle du code de sortie de la tâche est alors confié au gestionnaire d’exceptions de niveau supérieur. Si vous avez besoin de contrôler le code de sortie afin de pouvoir distinguer les différents types d’échec, par exemple à des fins de diagnostic ou parce que certains modes d’échec doivent arrêter le travail et d’autres non, vous devez quitter la méthode Run() en retournant un code de sortie différent de zéro. Ce code devient le code de sortie de la tâche.
 
-### Codes de sortie et exceptions dans le modèle du processeur de tâches
+### <a name="exit-codes-and-exceptions-in-the-task-processor-template"></a>Codes de sortie et exceptions dans le modèle du processeur de tâches
 Les codes de sortie et les exceptions fournissent un mécanisme permettant de déterminer le résultat de l’exécution d’un programme, et peuvent aider à identifier les problèmes rencontrés lors de l’exécution du programme. Le modèle du processeur de tâches implémente les codes de sortie et les exceptions décrites dans cette section.
 
 Une tâche du processeur de tâches implémentée avec le modèle du processeur de tâches peut retourner trois codes de sortie possibles :
@@ -375,10 +379,10 @@ Une tâche du processeur de tâches implémentée avec le modèle du processeur 
 
 Toutes les informations retournées par des exceptions sont écrites dans des fichiers stdout.txt et stderr.txt. Pour plus d’informations, consultez la rubrique Gestion des erreurs de la documentation Batch.
 
-### Considérations du client
+### <a name="client-considerations"></a>Considérations du client
 **Informations d’identification de stockage**
 
-Si votre processeur de tâches utilise le stockage blob Azure pour conserver les sorties, par exemple à l’aide de la bibliothèque d’assistance de conventions de fichier, il a besoin d’accéder *soit* aux informations d’identification du compte de stockage cloud *ou* à une URL de conteneur d’objets blob incluant une signature d’accès partagé (SAP). Le modèle inclut une prise en charge pour fournir des informations d’identification via des variables d’environnement commun. Votre client peut transmettre les informations d’identification de stockage comme suit :
+Si votre processeur de tâches utilise le stockage blob Azure pour conserver les sorties, par exemple à l’aide de la bibliothèque d’assistance de conventions de fichier, il a besoin d’accéder *soit* aux informations d’identification du compte de stockage cloud, *soit* à une URL de conteneur d’objets blob incluant une signature d’accès partagé (SAP). Le modèle inclut une prise en charge pour fournir des informations d’identification via des variables d’environnement commun. Votre client peut transmettre les informations d’identification de stockage comme suit :
 
 ```csharp
 job.CommonEnvironmentSettings = new [] {
@@ -387,7 +391,7 @@ job.CommonEnvironmentSettings = new [] {
 };
 ```
 
-Le compte de stockage est ensuite disponible dans la classe TaskProcessor via la propriété `_configuration.StorageAccount`.
+Le compte de stockage est ensuite disponible dans la classe TaskProcessor via la propriété `_configuration.StorageAccount` .
 
 Si vous préférez utiliser une URL de conteneur avec SAP, vous pouvez également la transmettre via un paramètre d’environnement commun de travail, mais le modèle de processeur de tâches n’inclut pas la prise en charge intégrée de cette solution pour l’instant.
 
@@ -395,19 +399,19 @@ Si vous préférez utiliser une URL de conteneur avec SAP, vous pouvez égalemen
 
 Il est recommandé que le client ou la tâche du gestionnaire de travaux crée tous les conteneurs requis par les tâches avant de les ajouter au travail. Cette étape est obligatoire si vous utilisez une URL de conteneur avec SAP, puisque ce type d’URL n’inclut pas l’autorisation de créer le conteneur. Elle est recommandée même si vous transmettez des informations d’identification de compte de stockage, car elle enregistre toutes les tâches devant appeler CloudBlobContainer.CreateIfNotExistsAsync sur le conteneur.
 
-## Transmettre des paramètres et des variables d’environnement
-### Transmettre des paramètres d’environnement
+## <a name="pass-parameters-and-environment-variables"></a>Transmettre des paramètres et des variables d’environnement
+### <a name="pass-environment-settings"></a>Transmettre des paramètres d’environnement
 Un client peut transmettre des informations à la tâche du gestionnaire de travaux sous la forme de paramètres d’environnement. Ces informations peuvent ensuite être utilisées par la tâche du gestionnaire de travaux lors de la génération des tâches du processeur de tâches qui seront exécutées dans le cadre de travail de calcul. Les informations que vous pouvez transmettre en tant que paramètres d’environnement sont les suivantes :
 
 * Clés d’accès et nom du compte de stockage
 * URL du compte Batch
 * Clé du compte Batch
 
-Le service Batch dispose d’un mécanisme simple pour transmettre des paramètres d’environnement à un gestionnaire de travaux, à l’aide de la propriété `EnvironmentSettings` [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask].
+Le service Batch dispose d’un mécanisme simple pour transmettre des paramètres d’environnement à un gestionnaire de travaux, à l’aide de la propriété `EnvironmentSettings` dans [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask].
 
 Par exemple, pour obtenir l’instance `BatchClient` pour un compte Batch, vous pouvez transmettre les variables d’environnement à partir de l’URL du code client ainsi que les informations d’identification de la clé partagée du compte Batch. De même, pour accéder au compte de stockage lié au compte Batch, vous pouvez transmettre le nom et la clé du compte de stockage en tant que variables d’environnement.
 
-### Transmettre des paramètres au modèle du gestionnaire de travaux
+### <a name="pass-parameters-to-the-job-manager-template"></a>Transmettre des paramètres au modèle du gestionnaire de travaux
 Dans de nombreux cas, il est utile de transmettre à la tâche du gestionnaire de travaux les paramètres de chaque travail, soit pour contrôler le processus de fractionnement du travail ou pour configurer les tâches du travail. Vous pouvez le faire en téléchargeant un fichier JSON nommé parameters.json en tant fichier de ressources pour la tâche du gestionnaire de travaux. Les paramètres sont ensuite accessibles dans le champ `JobSplitter._parameters` du modèle du gestionnaire de travaux.
 
 > [!NOTE]
@@ -415,7 +419,7 @@ Dans de nombreux cas, il est utile de transmettre à la tâche du gestionnaire d
 > 
 > 
 
-### Transmettre des paramètres au modèle du processeur de tâches
+### <a name="pass-parameters-to-the-task-processor-template"></a>Transmettre des paramètres au modèle du processeur de tâches
 Vous pouvez également transmettre des paramètres à des tâches individuelles implémentées à l’aide du modèle du processeur de tâches. Tout comme le modèle du gestionnaire de travaux, celui du processeur de tâches recherche un fichier de ressources nommé
 
 parameters.json et, s’il le trouve, le charge en tant que dictionnaire de paramètres. Il existe deux options pour transmettre des paramètres aux tâches du processeur de tâches :
@@ -428,14 +432,14 @@ parameters.json et, s’il le trouve, le charge en tant que dictionnaire de para
 > 
 > 
 
-## Étapes suivantes
-### Conserver la sortie d’un travail et d’une tâche dans le stockage Azure
-Les [conventions de fichiers Azure Batch][nuget_package] sont également utiles au développement de solutions Batch. Utilisez cette bibliothèque de classes .NET (actuellement en version préliminaire) dans vos applications .NET Batch pour stocker et récupérer facilement les sorties des tâches vers et depuis le stockage Azure. L’article [Persist Azure Batch job and task output](batch-task-output.md) (Conserver une sortie de tâche et de travail Azure Batch) fait une description complète de la bibliothèque et de son utilisation.
+## <a name="next-steps"></a>Étapes suivantes
+### <a name="persist-job-and-task-output-to-azure-storage"></a>Conserver la sortie d’un travail et d’une tâche dans le stockage Azure
+Les [conventions de fichiers Azure Batch][nuget_package] sont également utiles au développement de solutions Batch. Utilisez cette bibliothèque de classes .NET (actuellement en version préliminaire) dans vos applications .NET Batch pour stocker et récupérer facilement les sorties des tâches vers et depuis le stockage Azure. [Persist Azure Batch job and task output](batch-task-output.md) (Conserver une sortie de tâche et de travail Azure Batch) fait une description complète de la bibliothèque et de son utilisation.
 
-### Forum Azure Batch
+### <a name="batch-forum"></a>Forum Azure Batch
 Le [Forum Azure Batch][forum] sur MSDN est l’endroit idéal pour discuter de Batch et poser des questions sur le service. Consultez le forum pour obtenir des publications « permanentes » utiles et publiez les questions que vous vous posez pendant la création de vos solutions Batch.
 
-[forum]: https://social.msdn.microsoft.com/forums/azure/fr-FR/home?forum=azurebatch
+[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
@@ -448,4 +452,8 @@ Le [Forum Azure Batch][forum] sur MSDN est l’endroit idéal pour discuter de B
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

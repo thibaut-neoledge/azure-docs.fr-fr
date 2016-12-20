@@ -15,15 +15,15 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1cd92121b150461698674b8acd4369d09c9b9920
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 683ad119250704bdebfb9b54bd3a4ee24bf3d418
 
 
 ---
-# <a name="upgrading-the-phonefactor-agent-to-azure-multifactor-authentication-server"></a>Mise à niveau de l'agent PhoneFactor vers le serveur Azure Multi-Factor Authentication
+# <a name="upgrading-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Mise à niveau de l'agent PhoneFactor vers le serveur Azure Multi-Factor Authentication
 La mise à niveau à partir de l’agent PhoneFactor v5.x ou version antérieure vers le serveur  Azure Multi-Factor Authentication requiert l’agent PhoneFactor et les composants associés pour être désinstallé avant que le serveur Multi-Factor Authentication et ses composants associés puissent être installés.
 
-## <a name="to-upgrade-the-phonefactor-agent-to-azure-multifactor-authentication-server"></a>Mise à niveau de l'agent PhoneFactor vers le serveur Azure Multi-Factor Authentication
+## <a name="to-upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Mise à niveau de l'agent PhoneFactor vers le serveur Azure Multi-Factor Authentication
 <ol>
 <li>Tout d'abord, sauvegardez le fichier de données PhoneFactor. L'emplacement d'installation par défaut est C:\Program Files\PhoneFactor\Data\Phonefactor.pfdata.
 
@@ -70,6 +70,6 @@ La mise à niveau à partir de l’agent PhoneFactor v5.x ou version antérieur
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

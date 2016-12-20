@@ -1,12 +1,12 @@
 ---
-title: Utiliser Azure Media Video Thumbnails pour créer une synthèse d’une vidéo | Microsoft Docs
-description: La synthèse d’une vidéo peut vous aider à créer des synthèses de longues vidéos en sélectionnant automatiquement des extraits intéressants à partir de la vidéo source. Elle est utile quand vous voulez offrir une présentation rapide de ce qui se trouve dans une vidéo longue.
+title: "Utiliser Azure Media Video Thumbnails pour créer une synthèse d’une vidéo | Microsoft Docs"
+description: "La synthèse d’une vidéo peut vous aider à créer des synthèses de longues vidéos en sélectionnant automatiquement des extraits intéressants à partir de la vidéo source. Elle est utile quand vous voulez offrir une présentation rapide de ce qui se trouve dans une vidéo longue."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a245529f-3150-4afc-93ec-e40d8a6b761d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,11 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: milanga;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0c6f4a020430f464a97b0716dea2a40719c0b064
+
 
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Utiliser Azure Media Video Thumbnails pour créer une synthèse d’une vidéo
 ## <a name="overview"></a>Vue d'ensemble
-Le processeur multimédia **Azure Media Video Thumbnails** vous permet de créer une synthèse d’une vidéo pour les clients souhaitant juste voir un aperçu d’une vidéo longue. Par exemple, les clients peuvent vouloir visionner une courte « synthèse d’une vidéo » quand ils passent le pointeur sur une miniature. En ajustant les paramètres d’ **Azure Media Video Thumbnails** via une configuration prédéfinie, vous pouvez faire appel à la puissance de la technologie de détection et de concaténation d’images pour générer de façon algorithmique un sous-clip descriptif.  
+Le processeur multimédia **Azure Media Video Thumbnails** vous permet de créer une synthèse d’une vidéo pour les clients souhaitant juste voir un aperçu d’une vidéo longue. Par exemple, les clients peuvent vouloir visionner une courte « synthèse d’une vidéo » quand ils passent le pointeur sur une miniature. En ajustant les paramètres d’ **Azure Media Video Thumbnails** via une configuration prédéfinie, vous pouvez faire appel à la puissance de la technologie de détection et de concaténation d’images pour générer de façon algorithmique un sous-clip descriptif.  
 
 Le processeur multimédia **Azure Media Video Thumbnail** est actuellement en version préliminaire.
 
@@ -33,7 +37,7 @@ Voici quelques exemples de ce que le processeur Azure Media Video Thumbnails peu
 ### <a name="video-thumbnail-result"></a>Résultat de la vidéo miniature
 [Résultat de la vidéo miniature](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
-## <a name="task-configuration-(preset)"></a>Configuration de la tâche (préconfiguration)
+## <a name="task-configuration-preset"></a>Configuration de la tâche (préconfiguration)
 Lors de la création d’une tâche de vidéo miniature avec **Azure Media Video Thumbnails**, vous devez spécifier une configuration prédéfinie. L’exemple de miniature ci-dessus a été créé avec la configuration JSON de base suivante :
 
     {"version":"1.0"}
@@ -42,8 +46,8 @@ Actuellement, vous pouvez modifier les paramètres suivants :
 
 | Paramètre | Description |
 | --- | --- |
-| outputAudio |Spécifie si la vidéo obtenue contient, ou non, des données audio. <br/>Les valeurs autorisées sont : True ou False. La valeur par défaut est True. |
-| fadeInFadeOut |Spécifie si des transitions en fondu sont, ou non, utilisées entre les différentes miniatures du film.  <br/>Les valeurs autorisées sont : True ou False.  La valeur par défaut est True. |
+| outputAudio |Spécifie si la vidéo obtenue contient, ou non, des données audio. <br/>Les valeurs autorisées sont : True ou False. La valeur par défaut est True. |
+| fadeInFadeOut |Spécifie si des transitions en fondu sont, ou non, utilisées entre les différentes miniatures du film.  <br/>Les valeurs autorisées sont : True ou False.  La valeur par défaut est True. |
 | maxMotionThumbnailDurationInSecs |Entier qui spécifie la durée que doit avoir la vidéo obtenue.  La valeur par défaut dépend de la durée de la vidéo d’origine. |
 
 Le tableau suivant décrit la durée par défaut, quand **maxMotionThumbnailInSecs** n’est pas utilisé.
@@ -70,7 +74,7 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 1. Créer un élément multimédia et charger un fichier multimédia dans l’élément multimédia.
 2. Créer un travail avec une tâche de vidéo miniature basée sur un fichier de configuration qui contient la présélection JSON suivante. 
    
-        {               
+        {                
             "version": "1.0",
             "options": {
                 "outputAudio": "true",
@@ -80,7 +84,7 @@ Le programme suivant montre comment effectuer les tâches suivantes :
         }
 3. Télécharge les fichiers de sortie. 
 
-### <a name=".net-code"></a>Code .NET
+### <a name="net-code"></a>Code .NET
     using System;
     using System.Configuration;
     using System.IO;
@@ -259,6 +263,9 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 [Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

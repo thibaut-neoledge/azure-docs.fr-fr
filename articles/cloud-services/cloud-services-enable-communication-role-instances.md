@@ -1,12 +1,12 @@
 ---
-title: Communication pour les rôles dans Cloud Services | Microsoft Docs
-description: Dans Cloud Services, des points de terminaison (http, https, tcp, udp) peuvent être associés aux instances de rôle pour faciliter la communication avec l’extérieur ou entre instances de rôle.
+title: "Communication pour les rôles dans les services cloud | Microsoft Docs"
+description: "Dans Cloud Services, des points de terminaison (http, https, tcp, udp) peuvent être associés aux instances de rôle pour faciliter la communication avec l’extérieur ou entre instances de rôle."
 services: cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: Thraka
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 7008a083-acbe-4fb8-ae60-b837ef971ca1
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,17 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fe034613c537ce0940f7220e4695727bdc2277c2
+
 
 ---
-# Activer la communication pour les instances de rôle dans Azure
+# <a name="enable-communication-for-role-instances-in-azure"></a>Activer la communication pour les instances de rôle dans Azure
 Les rôles de service cloud communiquent via des connexions internes et externes. Les connexions externes sont appelées **points de terminaison d’entrée** tandis que les connexions internes sont appelées **points de terminaison internes**. Cette rubrique explique comment modifier la [définition de service](cloud-services-model-and-package.md#csdef) pour créer des points de terminaison.
 
-## Point de terminaison d’entrée
-Le point de terminaison d’entrée est utilisé lorsque vous souhaitez exposer un port à l’extérieur. Vous spécifiez le type de protocole et le port du point de terminaison qui s’applique ensuite aux ports internes et externes du point de terminaison. Si vous le souhaitez, vous pouvez spécifier un autre port interne pour le point de terminaison avec l’attribut [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint).
+## <a name="input-endpoint"></a>Point de terminaison d’entrée
+Le point de terminaison d’entrée est utilisé lorsque vous souhaitez exposer un port à l’extérieur. Vous spécifiez le type de protocole et le port du point de terminaison qui s’applique ensuite aux ports internes et externes du point de terminaison. Si vous le souhaitez, vous pouvez spécifier un autre port interne pour le point de terminaison avec l’attribut [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) .
 
-Le point de terminaison d’entrée peut utiliser les protocoles suivants : **http, https, tcp, udp**.
+Le point de terminaison d’entrée peut utiliser les protocoles suivants : **http, https, tcp, udp**.
 
-Pour créer un point de terminaison d’entrée, ajoutez l’élément enfant **InputEndpoint** à l’élément **Endpoints** d’un rôle Web ou de travail.
+Pour créer un point de terminaison d’entrée, ajoutez l’élément enfant **InputEndpoint** à l’élément **Endpoints** d’un rôle web ou de travail.
 
 ```xml
 <Endpoints>
@@ -32,12 +36,12 @@ Pour créer un point de terminaison d’entrée, ajoutez l’élément enfant **
 </Endpoints> 
 ```
 
-## Point de terminaison d’entrée d’instance
+## <a name="instance-input-endpoint"></a>Point de terminaison d’entrée d’instance
 Les points de terminaison d’entrée d’instance sont similaires aux points de terminaison d’entrées. Cependant, ils vous permettent de mapper des ports publics spécifiques pour chaque instance de rôle individuelle en utilisant le réacheminement de port sur l’équilibreur de charge. Vous pouvez spécifier un seul port public ou une plage de ports.
 
 Le point de terminaison d’entrée d’instance peut utiliser uniquement le protocole **tcp** ou **udp**.
 
-Pour créer un point de terminaison d’entrée d’instance, ajoutez l’élément enfant **InstanceInputEndpoint** à l’élément **Endpoints** d’un rôle Web ou de travail.
+Pour créer un point de terminaison d’entrée d’instance, ajoutez l’élément enfant **InstanceInputEndpoint** à l’élément **Endpoints** d’un rôle web ou de travail.
 
 ```xml
 <Endpoints>
@@ -49,12 +53,12 @@ Pour créer un point de terminaison d’entrée d’instance, ajoutez l’élém
 </Endpoints>
 ```
 
-## Point de terminaison interne
+## <a name="internal-endpoint"></a>Point de terminaison interne
 Les points de terminaison internes sont disponibles pour la communication d’instance à instance. Le port est facultatif et, en cas d’omission, un port dynamique est affecté au point de terminaison. Une plage de ports peut être utilisée. Le nombre de points de terminaison internes est limité à cinq par rôle.
 
-Le point de terminaison interne peut utiliser les protocoles suivants : **http, tcp, udp, any**.
+Le point de terminaison interne peut utiliser les protocoles suivants : **http, tcp, udp, any**.
 
-Pour créer un point de terminaison d’entrée interne, ajoutez l’élément enfant **InternalEndpoint** à l’élément **Endpoints** d’un rôle Web ou de travail.
+Pour créer un point de terminaison d’entrée interne, ajoutez l’élément enfant **InternalEndpoint** à l’élément **Endpoints** d’un rôle web ou de travail.
 
 ```xml
 <Endpoints>
@@ -73,8 +77,8 @@ Vous pouvez également utiliser une plage de ports.
 ```
 
 
-## Rôles de travail et Rôles web
-Les points de terminaison présentent une légère différence lorsque vous travaillez avec des rôles de travail et des rôles Web. Avec le rôle Web, au moins un point de terminaison d’entrée doit utiliser le protocole **HTTP**.
+## <a name="worker-roles-vs-web-roles"></a>Rôles de travail et Rôles web
+Les points de terminaison présentent une légère différence lorsque vous travaillez avec des rôles de travail et des rôles Web. Avec le rôle Web, au moins un point de terminaison d’entrée doit utiliser le protocole **HTTP** .
 
 ```xml
 <Endpoints>
@@ -83,7 +87,7 @@ Les points de terminaison présentent une légère différence lorsque vous trav
 </Endpoints>
 ```
 
-## Utilisation du Kit de développement logiciel (SDK) .NET pour accéder à un point de terminaison
+## <a name="using-the-net-sdk-to-access-an-endpoint"></a>Utilisation du Kit de développement logiciel (SDK) .NET pour accéder à un point de terminaison
 La bibliothèque managée Azure fournit des méthodes permettant aux instances de rôle de communiquer au moment de l’exécution. À partir du code s’exécutant dans une instance de rôle, vous pouvez récupérer des informations sur l’existence d’autres instances de rôle et leurs points de terminaison, ainsi que des informations sur l’instance de rôle actuelle.
 
 > [!NOTE]
@@ -93,7 +97,7 @@ La bibliothèque managée Azure fournit des méthodes permettant aux instances d
 
 Vous pouvez utiliser la propriété [Instances](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) pour récupérer les instances d’un rôle. Utilisez d’abord la propriété [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) pour renvoyer une référence à l’instance de rôle actuelle, puis la propriété [Role](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) pour retourner une référence au rôle lui-même.
 
-Lorsque vous vous connectez à une instance de rôle par programme via le Kit de développement logiciel (SDK) .NET, il est relativement facile d’accéder aux informations de point de terminaison. Par exemple, une fois que vous êtes connecté à un environnement de rôle spécifique, vous pouvez obtenir le port d’un point de terminaison spécifique avec ce code :
+Lorsque vous vous connectez à une instance de rôle par programme via le Kit de développement logiciel (SDK) .NET, il est relativement facile d’accéder aux informations de point de terminaison. Par exemple, une fois que vous êtes connecté à un environnement de rôle spécifique, vous pouvez obtenir le port d’un point de terminaison spécifique avec ce code :
 
 ```csharp
 int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].IPEndpoint.Port;
@@ -124,7 +128,7 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 Voici un exemple de rôle de travail avec lequel le point de terminaison est exposé via la définition de service et commence à écouter les connexions.
 
 > [!WARNING]
-> Ce code ne fonctionne que pour un service déployé. Lorsqu’ils sont exécutés dans l’émulateur de calcul Azure, les éléments de configuration de service qui créent des points de terminaison de port directs (éléments **InstanceInputEndpoint**) sont ignorés.
+> Ce code ne fonctionne que pour un service déployé. Lorsqu’ils sont exécutés dans l’émulateur de calcul Azure, les éléments de configuration de service qui créent des points de terminaison de port directs (éléments**InstanceInputEndpoint** ) sont ignorés.
 > 
 > 
 
@@ -212,12 +216,12 @@ namespace WorkerRole1
 }
 ```
 
-## Règles de trafic réseau pour contrôler la communication entre les rôles
-Après avoir défini les points de terminaison internes, vous pouvez ajouter des règles de trafic réseau (basées sur les points de terminaison que vous avez créés) pour contrôler la façon dont les instances de rôle peuvent communiquer entre elles. Le diagramme suivant montre quelques scénarios courants relatifs au contrôle de la communication entre les rôles :
+## <a name="network-traffic-rules-to-control-role-communication"></a>Règles de trafic réseau pour contrôler la communication entre les rôles
+Après avoir défini les points de terminaison internes, vous pouvez ajouter des règles de trafic réseau (basées sur les points de terminaison que vous avez créés) pour contrôler la façon dont les instances de rôle peuvent communiquer entre elles. Le diagramme suivant montre quelques scénarios courants relatifs au contrôle de la communication entre les rôles :
 
-![Scénarios de règles de trafic réseau](./media/cloud-services-enable-communication-role-instances/scenarios.png "Scénarios de règles de trafic réseau")
+![Scénarios de règles de trafic réseau](./media/cloud-services-enable-communication-role-instances/scenarios.png "Network Traffic Rules Scenarios")
 
-L’exemple de code suivant montre des définitions de rôles pour les rôles illustrés dans le diagramme précédent. Chaque définition de rôle inclut au moins un point de terminaison interne défini :
+L’exemple de code suivant montre des définitions de rôles pour les rôles illustrés dans le diagramme précédent. Chaque définition de rôle inclut au moins un point de terminaison interne défini :
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -255,7 +259,7 @@ L’exemple de code suivant montre des définitions de rôles pour les rôles il
 
 Par défaut, une fois un point de terminaison interne défini, la communication peut s’effectuer à partir de n’importe quel rôle vers le point de terminaison interne d’un rôle sans restriction. Pour restreindre la communication, vous devez ajouter un élément **NetworkTrafficRules** à l’élément **ServiceDefinition** dans le fichier de définition de service.
 
-### Scénario 1
+### <a name="scenario-1"></a>Scénario 1
 Autoriser uniquement le trafic réseau de **WebRole1** à **WorkerRole1**.
 
 ```xml
@@ -274,7 +278,7 @@ Autoriser uniquement le trafic réseau de **WebRole1** à **WorkerRole1**.
 </ServiceDefinition>
 ```
 
-### Scénario 2
+### <a name="scenario-2"></a>Scénario 2
 Autoriser uniquement le trafic réseau de **WebRole1** à **WorkerRole1** et **WorkerRole2**.
 
 ```xml
@@ -293,7 +297,7 @@ Autoriser uniquement le trafic réseau de **WebRole1** à **WorkerRole1** et **W
 </ServiceDefinition>
 ```
 
-### Scénario 3
+### <a name="scenario-3"></a>Scénario 3
 Autoriser uniquement le trafic réseau de **WebRole1** à **WorkerRole1** et de **WorkerRole1** à **WorkerRole2**.
 
 ```xml
@@ -322,7 +326,7 @@ Autoriser uniquement le trafic réseau de **WebRole1** à **WorkerRole1** et de 
 </ServiceDefinition>
 ```
 
-### Scénario 4
+### <a name="scenario-4"></a>Scénario 4
 Autoriser uniquement le trafic réseau de **WebRole1** à **WorkerRole1**, de **WebRole1** à **WorkerRole2** et de **WorkerRole1** à **WorkerRole2**.
 
 ```xml
@@ -365,7 +369,12 @@ Autoriser uniquement le trafic réseau de **WebRole1** à **WorkerRole1**, de **
 
 Vous trouverez une référence de schéma XML pour les éléments ci-dessus [ici](https://msdn.microsoft.com/library/azure/gg557551.aspx).
 
-## Étapes suivantes
-En savoir plus sur le [modèle](cloud-services-model-and-package.md) de service cloud.
+## <a name="next-steps"></a>Étapes suivantes
+En savoir plus sur le [modèle](cloud-services-model-and-package.md)de service cloud.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

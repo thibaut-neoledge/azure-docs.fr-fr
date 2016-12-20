@@ -1,6 +1,10 @@
-|  | **Déploiement classique** | **Déploiement Resource Manager** |
-| --- | --- | --- |
-| **Portail Classic** |Non pris en charge |Non pris en charge |
-| **Portail Azure** |Non pris en charge |Non pris en charge |
-| **PowerShell** |[Article](../articles/vpn-gateway/vpn-gateway-about-forced-tunneling.md) |[Article](../articles/vpn-gateway/vpn-gateway-forced-tunneling-rm.md) |
+| **Modèle/méthode de déploiement** | **Portail Azure** | **Portail Classic** | **PowerShell** |
+| --- | --- | --- | --- |
+| **Classique** |Non pris en charge |Non pris en charge |[Article](../articles/vpn-gateway/vpn-gateway-about-forced-tunneling.md) |
+| **Gestionnaire de ressources** |Non pris en charge |Non pris en charge |[Article](../articles/vpn-gateway/vpn-gateway-forced-tunneling-rm.md) |
+
+
+
+<!--HONumber=Nov16_HO3-->
+
 

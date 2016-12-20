@@ -1,12 +1,12 @@
 ---
-title: Configurable Token Lifetimes in Azure Active Directory  | Microsoft Docs
-description: This feature is used by admins and developers to specify the lifetimes of tokens issued by Azure AD.
+title: "Durées de vie des jetons configurables dans Azure Active Directory | Microsoft Docs"
+description: "Les administrateurs et les développeurs utilisent cette fonctionnalité pour spécifier les durées de vie des jetons émis par Azure AD."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,189 +14,193 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/06/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f61d23fec6badb8dd53379d183b177e4c19e5711
+
 
 ---
-# <a name="configurable-token-lifetimes-in-azure-active-directory-(public-preview)"></a>Configurable Token Lifetimes in Azure Active Directory (Public Preview)
+# <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Durées de vie des jetons configurables dans Azure Active Directory (version préliminaire publique)
 > [!NOTE]
-> This capability is currently in public preview.  You should be prepared to revert or remove any changes.  We are opening up this feature for everyone to try during the public preview, however, certain aspects may require an [Azure AD Premium subscription](active-directory-get-started-premium.md) once generally available.
+> Pour le moment, cette fonctionnalité est disponible dans la version préliminaire publique.  Vous devez être préparé à rétablir ou à supprimer les modifications.  Nous étendons cette fonctionnalité pour que tout le monde puisse l’essayer dans la version préliminaire publique, mais certains aspects peuvent nécessiter un [abonnement Azure AD Premium](active-directory-get-started-premium.md) une fois mis à la disposition générale.
 > 
 > 
 
 ## <a name="introduction"></a>Introduction
-This feature is used by admins and developers to specify the lifetimes of tokens issued by Azure AD. Token lifetimes can be configured for all apps in a tenant, for a multi-tenant application, or for a specific Service Principal in a tenant.
+Les administrateurs et les développeurs utilisent cette fonctionnalité pour spécifier les durées de vie des jetons émis par Azure AD. Les durées de vie des jetons peuvent être configurées pour toutes les applications d’un client, pour une application mutualisée ou pour un principal du service spécifique d’un client.
 
-In Azure AD, a policy object represents a set of rules enforced on individual applications or all applications in a tenant.  Each type of policy has a unique structure with a set of properties that are then applied to objects to which they are assigned.
+Dans Azure AD, un objet de stratégie représente un ensemble de règles appliquées sur des applications individuelles ou sur toutes les applications d’un client.  Chaque type de stratégie comporte une structure unique avec un ensemble de propriétés qui sont ensuite appliquées aux objets auxquels elles sont affectées.
 
-A policy can be designated as the default for a tenant. This policy then takes effect on any application that resides within that tenant as long as it is not overridden by a policy with a higher priority. Policies can also be assigned to specific applications. The order of priority varies by policy type.
+Une stratégie peut être désignée par défaut pour un client. Cette stratégie est alors appliquée sur les applications qui résident dans ce client tant qu’elle n’est pas remplacée par une stratégie pourvue d’une priorité plus élevée. Les stratégies peuvent être également affectées à des applications spécifiques. L’ordre de priorité varie par type de stratégie.
 
-Token lifetime policies can be configured for refresh tokens, access tokens, session tokens, and ID tokens.
+Les stratégies de durée de vie des jetons peuvent être configurées pour les jetons d’actualisation, les jetons d’accès, les jetons de session et les jetons d’ID.
 
-### <a name="access-tokens"></a>Access tokens
-An access token is used by a client to access a protected resource. An access token can only be used for a specific combination of user, client, and resource. Access tokens cannot be revoked and are valid until their expiry. A malicious actor that has obtained an access token can use it for extent of its lifetime.  Adjusting access token lifetime is a trade-off between improving system performance and increasing the amount of time that the client retains access after the user’s account is disabled.  Improved system performance is achieved by reducing the number of times a client needs to acquire a fresh access token. 
+### <a name="access-tokens"></a>Jetons d’accès
+Un jeton d’accès est utilisé par un client pour accéder à une ressource protégée. Il ne peut être utilisé que pour une combinaison spécifique d’utilisateur, de client et de ressource. Les jetons d’accès ne peuvent pas être révoqués et sont valides jusqu’à leur expiration. Un acteur malveillant qui a obtenu un jeton d’accès peut l’utiliser pour prolonger sa durée de vie.  L’ajustement de la durée de vie des jetons d’accès représente un compromis entre l’amélioration des performances du système et l’augmentation de la durée pendant laquelle le client conserve un accès une fois son compte désactivé.  Les performances du système sont améliorées en réduisant le nombre de fois où un client doit acquérir un nouveau jeton d’accès. 
 
-### <a name="refresh-tokens"></a>Refresh tokens
-When a client acquires an access token to access a protected resource, it receives both a refresh token and an access token. The refresh token is used to obtain new access/refresh token pairs when the current access token expires. Refresh tokens are bound to combinations of user and client. They can be revoked and their validity is checked every time they are used.
+### <a name="refresh-tokens"></a>Jetons d’actualisation
+Lorsqu’un client acquiert un jeton d’accès pour accéder à une ressource protégée, il reçoit un jeton d’actualisation et un jeton d’accès. Le jeton d’actualisation permet d’obtenir de nouvelles paires de jetons d’accès/actualisation à l’expiration du jeton d’accès actuel. Les jetons d’actualisation sont liés à des combinaisons d’utilisateur et de client. Ils peuvent être révoqués, et leur validité est vérifiée à chaque fois qu’ils sont utilisés.
 
-It is important to make a distinction between confidential and public clients. Confidential clients are applications that are able to securely store a client password, allowing them to prove that requests are coming from the client application and not a malicious actor. As these flows are more secure, the default lifetimes of refresh tokens issued to these flows are higher and cannot be changed using policy.
+Il est important de distinguer les clients confidentiels des clients publics. Les clients confidentiels sont des applications qui peuvent stocker un mot de passe client en toute sécurité, ce qui leur permet de prouver que les demandes proviennent de l’application cliente et non d’un acteur malveillant. Comme ces flux sont plus sécurisés, les durées de vie par défaut des jetons d’actualisation émis pour ces flux sont supérieures et ne peuvent pas être modifiées à l’aide de la stratégie.
 
-Due to limitations of the environment that the applications run in, public clients are unable to securely store a client password. Policies can be set on resources to prevent refresh tokens from public clients older than a specified period from obtaining a new access/refresh token pair (Refresh Token Max Inactive Time).  Additionally, policies can be used to set a period of time beyond which the refresh tokens are no longer accepted (Refresh Token Max Age).  Adjusting refresh token lifetime allows you to control when and how often the user is required to reenter credentials instead of being silently re-authenticated when using a public client application.
+En raison des limitations de l’environnement dans lequel les applications s’exécutent, les clients publics ne peuvent pas stocker un mot de passe client en toute sécurité. Des stratégies peuvent être définies sur des ressources pour empêcher les jetons d’actualisation des clients publics antérieurs à une période spécifiée d’obtenir une nouvelle paire de jetons d’accès/actualisation (délai d’inactivité max de jeton d’actualisation).  En outre, les stratégies peuvent être utilisées pour définir une période au-delà de laquelle les jetons d’actualisation ne sont plus acceptés (âge maximal de jeton d’actualisation).  L’ajustement de la durée de vie des jetons d’actualisation vous permet de contrôler le moment et la fréquence auxquels l’utilisateur doit entrer de nouveau les informations d’identification au lieu d’être authentifié de nouveau en mode silencieux lorsqu’il utilise une application cliente publique.
 
-### <a name="id-tokens"></a>ID tokens
-ID tokens are passed to web sites and native clients and contain profile information about a user. An ID token is bound to a specific combination of user and client. ID tokens are considered valid until expiry.  Normally, a web application matches a user’s session lifetime in the application to the lifetime of the ID token issued for the user.  Adjusting ID token lifetime allows you to control how often the web application will expire the application session and require the user to be re-authenticated with Azure AD (either silently or interactively).
+### <a name="id-tokens"></a>Jetons d’ID
+Les jetons d’ID sont transmis aux sites web et aux clients natifs, et contiennent les informations de profil d’un utilisateur. Un jeton d’ID est lié à une combinaison spécifique d’utilisateur et de client. Les jetons d’ID sont considérés comme valides jusqu’à leur expiration.  En règle générale, une application web fait correspondre la durée de vie de session d’un utilisateur de l’application à la durée de vie du jeton d’ID émis pour l’utilisateur.  L’ajustement de la durée de vie du jeton d’ID vous permet de contrôler la fréquence à laquelle l’application web arrête la session de l’application et demande à l’utilisateur de s’authentifier à nouveau auprès d’Azure AD (en mode silencieux ou interactif).
 
-### <a name="single-sign-on-session-token"></a>Single sign-on session token
-When a user authenticates with Azure AD, a single sign-on session is established with the user’s browser and Azure AD.  The Single Sign-On Session Token, in the form of a cookie, represents this session. It is important to note that the SSO session token is not bound to a specific resource/client application. SSO session tokens can be revoked and their validity is checked every time they are used.
+### <a name="single-sign-on-session-token"></a>Jeton de session d’authentification unique
+Lorsqu’un utilisateur s’authentifie auprès d’Azure AD et coche la case Maintenir la connexion, une session d’authentification unique est établie avec le navigateur de l’utilisateur et Azure AD.  Le jeton de session d’authentification unique représente cette session sous la forme d’un cookie. Il est important de noter que le jeton de session d’authentification unique n’est pas lié à une application cliente/ressource spécifique. Les jetons de session d’authentification unique peuvent être révoqués, et leur validité est vérifiée à chaque fois qu’ils sont utilisés.
 
-There are two kinds of SSO session tokens. Persistent session tokens are stored as persistent cookies by the browser and non-persistent session tokens are stored as session cookies (these are destroyed when the browser is closed).
+Il existe deux types de jeton de session d’authentification unique. Les jetons de session persistants sont stockés en tant que cookies persistants par le navigateur tandis que les jetons de session non persistants sont stockés en tant que cookies de session (ils sont détruits à la fermeture du navigateur).
 
-Non-persistent session tokens have a lifetime of 24 hours whereas persistent tokens have a lifetime of 180 days. Any time the SSO session token is used within its validity period, the validity period is extended another 24 hours or 180 days. If the SSO session token is not used within its validity period, it is considered expired and will no longer be accepted. 
+Les jetons de session non persistants ont une durée de vie de 24 heures alors qu’elle est de 180 jours pour les jetons persistants. À chaque fois que le jeton de session d’authentification unique est utilisé au cours de sa période de validité, celle-ci est prolongée à nouveau de 24 heures ou de 180 jours. Si le jeton de session d’authentification unique n’est pas utilisé au cours de sa période de validité, il est considéré comme arrivé à expiration et n’est plus accepté. 
 
-Policies can be used to set a period of time after the first session token was issued beyond which the session tokens are no longer accepted (Session Token Max Age).  Adjusting session token lifetime allows you to control when and how often the user is required to re-enter credentials instead of being silently authenticated when using a web application.
+Des stratégies peuvent être utilisées pour définir une période après l’émission du premier jeton de session au-delà de laquelle les jetons de session ne sont plus acceptés (âge maximal de jeton de session).  L’ajustement de la durée de vie des jetons de session vous permet de contrôler le moment et la fréquence auxquels l’utilisateur doit entrer de nouveau les informations d’identification au lieu d’être authentifié en mode silencieux lorsqu’il utilise une application web.
 
-### <a name="token-lifetime-policy-properties"></a>Token lifetime policy properties
-A token lifetime policy is a type of policy object that contains token lifetime rules.  The properties of the policy are used to control specified token lifetimes.  If no policy is set, the system enforces the default lifetime value.
+### <a name="token-lifetime-policy-properties"></a>Propriétés des stratégies de durée de vie des jetons
+Une stratégie de durée de vie des jetons est un type d’objet de stratégie qui contient des règles de durée de vie des jetons.  Les propriétés de la stratégie permettent de contrôler les durées de vie des jetons spécifiés.  Si aucune stratégie n’est définie, le système applique la valeur de durée de vie par défaut.
 
-### <a name="configurable-token-lifetime-properties"></a>Configurable token lifetime properties
-| Property | Policy property string | Affects | Default | Minimum | Maximum |
+### <a name="configurable-token-lifetime-properties"></a>Propriétés des durées de vie des jetons configurables
+| Propriété | Chaîne de propriété de stratégie | Éléments affectés | Default | Minimale | Maximale |
 | --- | --- | --- | --- | --- | --- |
-| Access Token Lifetime |AccessTokenLifetime |Access tokens, ID tokens, SAML2 tokens |1 hour |10 minutes |1 day |
-| Refresh Token Max Inactive Time |MaxInactiveTime |Refresh tokens |14 days |10 minutes |90 days |
-| Single-Factor Refresh Token Max Age |MaxAgeSingleFactor |Refresh tokens (for any users) |90 days |10 minutes |Until-revoked* |
-| Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Refresh tokens (for any users) |90 days |10 minutes |Until-revoked* |
-| Single-Factor Session Token Max Age |MaxAgeSessionSingleFactor** |Session tokens(persistent and non-persistent) |Until-revoked |10 minutes |Until-revoked* |
-| Multi-Factor Session Token Max Age |MaxAgeSessionMultiFactor*** |Session tokens (persistent and non-persistent) |Until-revoked |10 minutes |Until-revoked* |
+| Durée de vie de jeton d’accès |AccessTokenLifetime |Jetons d’accès, jetons d’ID, jetons SAML2 |1 heure |10 minutes |1 jour |
+| Délai d’inactivité maximale de jeton d’actualisation |MaxInactiveTime |Jetons d’actualisation |14 jours |10 minutes |90 jours |
+| Âge maximal de jeton d’actualisation à facteur unique |MaxAgeSingleFactor |Jetons d’actualisation (pour tous les utilisateurs) |90 jours |10 minutes |Jusqu’à révocation* |
+| Âge maximal de jeton d’actualisation multifacteur |MaxAgeMultiFactor |Jetons d’actualisation (pour tous les utilisateurs) |90 jours |10 minutes |Jusqu’à révocation* |
+| Âge maximal de jeton de session à facteur unique |MaxAgeSessionSingleFactor** |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |Jusqu’à révocation* |
+| Âge maximal de jeton de session multifacteur |MaxAgeSessionMultiFactor*** |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |Jusqu’à révocation* |
 
-* *365 days is the maximum explicit length that can be set for these attributes.
-* **If MaxAgeSessionSingleFactor is not set then this value takes the MaxAgeSingleFactor value. If neither parameter is set, the property takes on the default value (Until-revoked).
-* ***If MaxAgeSessionMultiFactor is not set then this value takes the MaxAgeMultiFactor value. If neither parameter is set, the property takes on the default value (Until-revoked).
+* *Une durée explicite maximale de 365 jours peut être définie pour ces attributs.
+* **Si la chaîne MaxAgeSessionSingleFactor n’est pas définie, cette valeur prend la valeur MaxAgeSingleFactor. Si aucun de ces paramètres n’est défini, la propriété prend la valeur par défaut (Jusqu’à révocation).
+* ***Si la chaîne MaxAgeSessionMultiFactor n’est pas définie, cette valeur prend la valeur MaxAgeMultiFactor. Si aucun de ces paramètres n’est défini, la propriété prend la valeur par défaut (Jusqu’à révocation).
 
 ### <a name="exceptions"></a>Exceptions
-| Property | Affects | Default |
+| Propriété | Éléments affectés | Default |
 | --- | --- | --- |
-| Refresh Token Max Inactive Time (federated users with insufficient revocation information) |Refresh tokens (Issued for federated users with insufficient revocation information) |12 hours |
-| Refresh Token Max Inactive Time (Confidential Clients) |Refresh tokens (Issued for Confidential Clients) |90 days |
-| Refresh token Max Age (Issued for Confidential Clients) |Refresh tokens (Issued for Confidential Clients) |Until-revoked |
+| Délai d’inactivité maximale de jeton d’actualisation (utilisateurs fédérés disposant d’informations de révocation insuffisantes) |Jetons d’actualisation (émis pour les utilisateurs fédérés disposant d’informations de révocation insuffisantes) |12 heures |
+| Délai d’inactivité maximale de jeton d’actualisation (clients confidentiels) |Jetons d’actualisation (émis pour les clients confidentiels) |90 jours |
+| Âge maximal de jeton d’actualisation (émis pour les clients confidentiels) |Jetons d’actualisation (émis pour les clients confidentiels) |Jusqu’à révocation |
 
-### <a name="priority-and-evaluation-of-policies"></a>Priority and evaluation of policies
-Token Lifetime policies can be created and assigned to specific applications, tenants and service principals. This means that it is possible for multiple policies to apply to a specific application. The Token Lifetime policy that takes effect follows these rules:
+### <a name="priority-and-evaluation-of-policies"></a>Priorité et évaluation des stratégies
+Les stratégies de durée de vie des jetons peuvent être créées et affectées à des applications, clients et principaux du service spécifiques. Il est donc possible d’appliquer plusieurs stratégies à une application spécifique. La stratégie de durée de vie du jeton appliquée suit les règles ci-dessous :
 
-* If a policy is explicitly assigned to the service principal, it will be enforced. 
-* If no policy is explicitly assigned to the service principal, a policy explicitly assigned to the parent tenant of the service principal will be enforced. 
-* If no policy is explicitly assigned to the service principal or the tenant, the policy assigned to the application will be enforced. 
-* If no policy has been assigned to the service principal, the tenant, or the application object, the default values will be enforced (see table above).
+* Si une stratégie est explicitement affectée au principal du service, elle est appliquée. 
+* Si aucune stratégie n’est explicitement affectée au principal du service, une stratégie explicitement affectée au client parent du principal du service est appliquée. 
+* Si aucune stratégie n’est explicitement affectée au principal du service ou au client, la stratégie affectée à l’application est appliquée. 
+* Si aucune stratégie n’a été affectée au principal du service, au client ou à l’objet d’application, les valeurs par défaut sont appliquées (voir le tableau ci-dessus).
 
-For more information on the relationship between application objects and service principal objects in Azure AD, see [Application and service principal objects in Azure Active Directory](active-directory-application-objects.md).
+Pour plus d’informations sur la relation existant entre les objets de principal du service et d’application dans Azure AD, voir [Objets application et principal du service dans Azure Active Directory](active-directory-application-objects.md).
 
-A token’s validity is evaluated at the time it is used. The policy with the highest priority on the application that is being accessed takes effect.
+La validité d’un jeton est évaluée lors de son utilisation. C’est la stratégie pourvue de la priorité la plus élevée sur l’application ouverte qui est appliquée.
 
 > [!NOTE]
-> Example
+> Exemple
 > 
-> A user wants to access 2 web applications, A and B. 
+> Un utilisateur souhaite accéder aux 2 applications web 2, A et B. 
 > 
-> * Both applications are in the same parent tenant. 
-> * Token lifetime policy 1 with a Session Token Max Age of 8 hours is set as the parent tenant’s default.
-> * Web application A is a regular use web application and isn’t linked to any policies. 
-> * Web application B is used for highly sensitive processes and its service principal is linked to token lifetime policy 2 with a Session Token Max Age of 30 minutes.
+> * Les deux applications résident dans le même client parent. 
+> * La stratégie 1 de durée de vie des jetons pourvue d’une propriété Âge maximal de jeton de session de 8 heures est définie comme valeur par défaut du client parent.
+> * L’application web A est une application web d’utilisation régulière, qui n’est liée à aucune stratégie. 
+> * L’application web B est utilisée pour les processus très sensibles, et son principal du service est lié à la stratégie 2 de durée de vie des jetons pourvue d’une propriété Âge maximal de jeton de session de 30 minutes.
 > 
-> At 12:00PM the user opens up a new browser session and tries to access web application A. the user is redirected to Azure AD and is asked to sign-in. This drops a cookie with a session token in the browser. The user is redirected back to web application A with an ID token that allows them to access the application.
+> À 12 h 00, l’utilisateur ouvre une nouvelle session de navigateur et tente d’accéder à l’application web A. Il est redirigé vers Azure AD et doit se connecter. Cette action dépose un cookie avec un jeton de session dans le navigateur. L’utilisateur est redirigé vers l’application A avec un jeton d’ID qui lui permet d’accéder à l’application.
 > 
-> At 12:15PM, the user then tries to access web application B. The browser redirects to Azure AD which detects the session cookie. Web application B’s service principal is linked to a policy 1, but is also part of the parent tenant with default policy 2. Policy 2 takes effect since policies linked to service principals have a higher priority than tenant default policies. The session token was originally issued within the last 30 minutes so it is considered valid. The user is redirected back to web application B with an ID token granting them access.
+> À 12 h 15, l’utilisateur essaie alors d’accéder à l’application web B. Le navigateur le redirige vers Azure AD qui détecte le cookie de session. Le principal du service de l’application web B est lié à la stratégie 2, mais fait également partie du client parent avec la stratégie par défaut 1. La stratégie 2 est appliquée puisque les stratégies liées aux principaux du service ont une priorité supérieure à celle des stratégies par défaut du client. Comme le jeton de session a été initialement émis au cours des 30 dernières minutes, il est considéré comme valide. L’utilisateur est redirigé vers l’application web B avec un jeton d’ID qui lui octroie un accès.
 > 
-> At 1:00PM the user tries navigating to web application A. The user is redirected to Azure AD. Web application A is not linked to any policies, but since it is in a tenant with default policy 1, this policy takes effect. The session cookie is detected that was originally issued within the last 8 hours and the user is silently redirected back to web application A with a new ID token without needing to authenticate.
+> À 13 h 00 l’utilisateur tente d’accéder à l’application web A. Il est redirigé vers Azure AD. L’application web A n’est liée à aucune stratégie, mais comme elle réside dans un client avec la stratégie 1 par défaut, cette stratégie est appliquée. Le cookie de session qui a été initialement émis au cours des 8 dernières heures est détecté, et l’utilisateur est redirigé en mode silencieux vers application web A avec un nouveau jeton d’ID sans devoir s’authentifier.
 > 
-> The user immediately tries to access web application B. The user is redirected to Azure AD. As before, policy 2 takes effect. As the token was issued longer than 30 minutes ago, the user is then prompted to re-enter their credentials, and a brand new session and ID token are issued. The user can then access web application B.
+> L’utilisateur essaie immédiatement d’accéder à l’application web B. Il est redirigé vers Azure AD. Comme auparavant, la stratégie 2 est appliquée. Comme le jeton a été émis il y a plus de 30 minutes, l’utilisateur est invité à entrer de nouveau ses informations d’identification, et une nouvelle session ainsi qu’un nouveau jeton d’ID sont émis. L’utilisateur peut ensuite accéder à l’application web B.
 > 
 > 
 
-## <a name="configurable-policy-properties:-in-depth"></a>Configurable policy properties: In-Depth
-### <a name="access-token-lifetime"></a>Access token lifetime
-**String:** AccessTokenLifetime
+## <a name="configurable-policy-properties-in-depth"></a>Propriétés de stratégie configurables : présentation détaillée
+### <a name="access-token-lifetime"></a>Durée de vie de jeton d’accès
+**Chaîne :** AccessTokenLifetime
 
-**Affects:** Access tokens, ID tokens
+**Éléments affectés :** jetons d’accès, jetons d’ID
 
-**Summary:** This policy controls how long access and ID tokens for this resource are considered valid. Reducing the access token lifetime mitigates the risk of an access or ID token being used by a malicious actor for an extended period of time (as they cannot be revoked) but also adversely impacts performance as the tokens will have to be replaced more often.
+**Résumé :** cette stratégie détermine la durée pendant laquelle les jetons d’accès et d’ID sont considérés comme valides. La réduction de la durée de vie des jetons d’accès atténue le risque qu’un jeton d’accès ou d’ID soient utilisés pendant une période prolongée par un acteur malveillant (car ils ne peuvent pas être révoqués), mais nuit également aux performances, car les jetons devront être remplacés plus souvent.
 
-### <a name="refresh-token-max-inactive-time"></a>Refresh token max inactive time
-**String:** MaxInactiveTime
+### <a name="refresh-token-max-inactive-time"></a>Délai d’inactivité maximale de jeton d’actualisation
+**Chaîne :** MaxInactiveTime
 
-**Affects:** Refresh tokens
+**Éléments affectés :** jetons d’actualisation
 
-**Summary:** This policy controls how old a refresh token can be before a client can no longer use it to retrieve a new access/refresh token pair when attempting to access this resource. Since a new Refresh token is usually returned a refresh token is used, the client must not have reached out to any resource using the current refresh token for the specified period of time before this policy would prevent access. 
+**Résumé :** cette stratégie détermine l’âge qu’un jeton d’actualisation peut avoir avant qu’un client ne puisse plus l’utiliser pour récupérer une nouvelle paire de jetons d’actualisation/d’accès lors de la tentative d’accès à cette ressource. Comme un nouveau jeton d’actualisation est généralement retourné lorsqu’un jeton d’actualisation est utilisé, le client ne doit pas avoir accédé à une ressource à l’aide du jeton d’actualisation en cours pour la période spécifiée avant que cette stratégie n’en empêche l’accès. 
 
-This policy will force users who have not been active on their client to re-authenticate to retrieve a new refresh token. 
+Cette stratégie force les utilisateurs qui n’ont pas été actifs sur leur client à s’authentifier de nouveau pour récupérer un nouveau jeton d’actualisation. 
 
-It is important to note that the Refresh Token Max Inactive Time must be set to a lower value than the Single-Factor Token Max Age and the Multi-Factor Refresh Token Max Age.
+Il est important de noter que la propriété Délai d’inactivité maximale de jeton d’actualisation doit être définie sur une valeur inférieure à celles des propriétés Âge maximal de jeton d’actualisation à facteur unique et Âge maximal de jeton d’actualisation multifacteur.
 
-### <a name="single-factor-refresh-token-max-age"></a>Single-factor refresh token max age
-**String:** MaxAgeSingleFactor
+### <a name="single-factor-refresh-token-max-age"></a>Âge maximal de jeton d’actualisation à facteur unique
+**Chaîne :** MaxAgeSingleFactor
 
-**Affects:** Refresh tokens
+**Éléments affectés :** jetons d’actualisation
 
-**Summary:** This policy controls how long a user can continue to use refresh tokens to get new access/refresh token pairs after the last time they authenticated successfully with only a single factor. Once a user authenticates and receives a new refresh token, they will be able to use the refresh token flow (as long as the current refresh token is not revoked and it is not left unused for longer than the inactive time) for the specified period of time. At that point, users will be forced to re-authenticate to receive a new refresh token. 
+**Résumé :** cette stratégie détermine la durée pendant laquelle un utilisateur peut continuer à utiliser des jetons d’actualisation pour obtenir de nouvelles paires de jetons d’accès/actualisation après sa dernière authentification réussie avec un seul facteur. Une fois qu’un utilisateur est authentifié et a reçu un nouveau jeton d’actualisation, il est en mesure d’utiliser le flux de jetons d’actualisation (tant que le jeton d’actualisation en cours n’est pas révoqué et qu’il ne reste pas inutilisé pendant une durée supérieure à celle du délai d’inactivité) pour la période spécifiée. À ce stade, les utilisateurs sont contraints de s’authentifier de nouveau pour recevoir un nouveau jeton d’actualisation. 
 
-Reducing the max age will force users to authenticate more often. Since single-factor authentication is considered less secure than a multi-factor authentication, it is recommended that this policy is set to an equal or lesser value than the Multi-Factor Refresh Token Max Age Policy.
+En réduisant l’âge maximal, vous obligez les utilisateurs à s’authentifier plus souvent. Comme l’authentification à facteur unique est considérée comme moins sécurisée qu’une authentification multifacteur, il est recommandé de définir cette stratégie sur une valeur inférieure ou égale à celle de la stratégie Âge maximal de jeton d’actualisation multifacteur.
 
-### <a name="multi-factor-refresh-token-max-age"></a>Multi-factor refresh token max age
-**String:** MaxAgeMultiFactor
+### <a name="multi-factor-refresh-token-max-age"></a>Âge maximal de jeton d’actualisation multifacteur
+**Chaîne :** MaxAgeMultiFactor
 
-**Affects:** Refresh tokens
+**Éléments affectés :** jetons d’actualisation
 
-**Summary:** This policy controls how long a user can continue to use refresh tokens to get new access/refresh token pairs after the last time they authenticated successfully with multiple factors. Once a user authenticates and receives a new refresh token, they will be able to use the refresh token flow (as long as the current refresh token is not revoked and it is not left unused for longer than the inactive time) for the specified period of time. At that point, users will be forced to re-authenticate to receive a new refresh token. 
+**Résumé :** cette stratégie détermine la durée pendant laquelle un utilisateur peut continuer à utiliser des jetons d’actualisation pour obtenir de nouvelles paires de jetons d’accès/actualisation après sa dernière authentification réussie avec plusieurs facteurs. Une fois qu’un utilisateur est authentifié et a reçu un nouveau jeton d’actualisation, il est en mesure d’utiliser le flux de jetons d’actualisation (tant que le jeton d’actualisation en cours n’est pas révoqué et qu’il ne reste pas inutilisé pendant une durée supérieure à celle du délai d’inactivité) pour la période spécifiée. À ce stade, les utilisateurs sont contraints de s’authentifier de nouveau pour recevoir un nouveau jeton d’actualisation. 
 
-Reducing the max age will force users to authenticate more often. Since single-factor authentication is considered less secure than a multi-factor authentication, it is recommended that this policy is set to an equal or greater value than the Single-Factor Refresh Token Max Age Policy.
+En réduisant l’âge maximal, vous obligez les utilisateurs à s’authentifier plus souvent. Étant donné que l’authentification à facteur unique est considérée comme moins sécurisée qu’une authentification multifacteur, il est recommandé de définir cette stratégie sur une valeur supérieure ou égale à celle de la stratégie Âge maximal de jeton d’actualisation à facteur unique.
 
-### <a name="single-factor-session-token-max-age"></a>Single-factor session token max age
-**String:** MaxAgeSessionSingleFactor
+### <a name="single-factor-session-token-max-age"></a>Âge maximal de jeton de session à facteur unique
+**Chaîne :** MaxAgeSessionSingleFactor
 
-**Affects:** Session tokens (persistent and non-persistent)
+**Éléments affectés :** jetons de session (persistants et non persistants)
 
-**Summary:** This policy controls how long a user can continue to use session tokens to get new ID and session tokens after the last time they authenticated successfully with only a single factor. Once a user authenticates and receives a new session token, they will be able to use the session token flow (as long as the current session token is not revoked or expired) for the specified period of time. At that point, users will be forced to re-authenticate to receive a new session token. 
+**Résumé :** cette stratégie détermine la durée pendant laquelle un utilisateur peut continuer à utiliser des jetons de session pour obtenir de nouveaux jetons d’ID et de session après sa dernière authentification réussie avec un seul facteur. Une fois qu’un utilisateur s’est authentifié et a reçu un nouveau jeton de session, il peut utiliser le flux de jetons de session (tant que le jeton de session en cours n’a pas été révoqué ou n’est pas arrivé à expiration) pendant la période spécifiée. À ce stade, les utilisateurs sont contraints de s’authentifier de nouveau pour recevoir un nouveau jeton de session. 
 
-Reducing the max age will force users to authenticate more often. Since single-factor authentication is considered less secure than a multi-factor authentication, it is recommended that this policy is set to an equal or lesser value than the Multi-Factor Session Token Max Age Policy.
+En réduisant l’âge maximal, vous obligez les utilisateurs à s’authentifier plus souvent. Comme l’authentification à facteur unique est considérée comme moins sécurisée qu’une authentification multifacteur, il est recommandé de définir cette stratégie sur une valeur inférieure ou égale à celle de la stratégie Âge maximal de jeton de session multifacteur.
 
-### <a name="multi-factor-session-token-max-age"></a>Multi-factor session token max age
-**String:** MaxAgeSessionMultiFactor
+### <a name="multi-factor-session-token-max-age"></a>Âge maximal de jeton de session multifacteur
+**Chaîne :** MaxAgeSessionMultiFactor
 
-**Affects:** Session tokens (persistent and non-persistent)
+**Éléments affectés :** jetons de session (persistants et non persistants)
 
-**Summary:** This policy controls how long a user can continue to use session tokens to get new ID and session tokens after the last time they authenticated successfully with multiple factors. Once a user authenticates and receives a new session token, they will be able to use the session token flow (as long as the current session token is not revoked or expired) for the specified period of time. At that point, users will be forced to re-authenticate to receive a new session token. 
+**Résumé :** cette stratégie détermine la durée pendant laquelle un utilisateur peut continuer à utiliser des jetons de session pour obtenir de nouveaux jetons d’ID et de session après sa dernière authentification réussie avec plusieurs facteurs. Une fois qu’un utilisateur s’est authentifié et a reçu un nouveau jeton de session, il peut utiliser le flux de jetons de session (tant que le jeton de session en cours n’a pas été révoqué ou n’est pas arrivé à expiration) pendant la période spécifiée. À ce stade, les utilisateurs sont contraints de s’authentifier de nouveau pour recevoir un nouveau jeton de session. 
 
-Reducing the max age will force users to authenticate more often. Since single-factor authentication is considered less secure than a multi-factor authentication, it is recommended that this policy is set to an equal or greater value than the Single-Factor Session Token Max Age Policy.
+En réduisant l’âge maximal, vous obligez les utilisateurs à s’authentifier plus souvent. Étant donné que l’authentification à facteur unique est considérée comme moins sécurisée qu’une authentification multifacteur, il est recommandé de définir cette stratégie sur une valeur supérieure ou égale à celle de la stratégie Âge maximal de jeton de session à facteur unique.
 
-## <a name="sample-token-lifetime-policies"></a>Sample token lifetime policies
-Being able to create and manage token lifetimes for apps, service principals, and your overall tenant exposes all kinds of new scenarios possible in Azure AD.  We're going to walk through a few common policy scenarios that will help you impose new rules for:
+## <a name="sample-token-lifetime-policies"></a>Exemples de stratégie de durée de vie des jetons
+La possibilité de créer et de gérer les durées de vie des jetons pour les applications, les principaux du service et votre client global expose toutes sortes de nouveaux scénarios possibles dans Azure AD.  Nous allons vous guider dans quelques scénarios courants de stratégie qui vous aideront à imposer de nouvelles règles pour les éléments suivants :
 
-* Token Lifetimes
-* Token Max Inactive Times
-* Token Max Age
+* Durées de vie de jeton
+* Délais d’inactivité maximale des jetons
+* Âge maximal des jetons
 
-We'll walk through a few scenarios including:
+Nous allons explorer quelques scénarios :
 
-* Managing a Tenant's Default Policy
-* Creating a Policy for Web Sign-in
-* Creating a Policy for Native Apps calling a Web API
-* Managing an Advanced Policy 
+* Gestion de la stratégie par défaut d’un client
+* Création d’une stratégie de connexion web
+* Création d’une stratégie pour les applications natives appelant une API web
+* Gestion d’une stratégie avancée 
 
-### <a name="prerequisites"></a>Prerequisites
-In the sample scenarios we'll be creating, updating, linking, and deleting policies on apps, service principals, and your overall tenant.  If you are new to Azure AD, checkout [this article](active-directory-howto-tenant.md) to help you get started before proceeding with these samples.  
+### <a name="prerequisites"></a>Composants requis
+Dans les exemples de scénarios, nous allons créer, mettre à jour, lier et supprimer des stratégies sur les applications, les principaux du service et votre client global.  Si vous débutez avec Azure AD, découvrez [cet article](active-directory-howto-tenant.md) pour vous aider à vous familiariser avant de passer à ces exemples.  
 
-1. To begin, download the latest [Azure AD PowerShell Cmdlet Preview](https://www.powershellgallery.com/packages/AzureADPreview). 
-2. Once you have the Azure AD PowerShell Cmdlets, run Connect command to sign into your Azure AD admin account. You'll need to do this whenever you start a new session.
+1. Pour commencer, téléchargez la dernière [version d’évaluation des applets de commande Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview). 
+2. Une fois que vous disposez des applets de commande Azure AD PowerShell, exécutez la commande Connect pour vous connecter à votre compte d’administrateur Azure AD. Vous devez procéder ainsi à chaque fois que vous démarrez une nouvelle session.
    
-       Connect-AzureAD -Confirm
-3. Run the following command to see all policies that have been created in your tenant.  This command should be used after most operations in the following scenarios.  It will also help you get the **Object ID** of your policies. 
+     Connect-AzureAD -Confirm
+3. Exécutez la commande ci-dessous pour afficher toutes les stratégies qui ont été créées dans votre client.  Cette commande doit être utilisée après la plupart des opérations dans les scénarios suivants.  Elle vous aide également à obtenir **l’ID d’objet** de vos stratégies. 
    
-       Get-AzureADPolicy
+     Get-AzureADPolicy
 
-### <a name="sample:-managing-a-tenant's-default-policy"></a>Sample: Managing a tenant's default policy
-In this sample, we will create a policy that allows your users to sign in less frequently across your entire tenant. 
+### <a name="sample-managing-a-tenants-default-policy"></a>Exemple : gestion de la stratégie par défaut d’un client
+Dans cet exemple, nous allons créer une stratégie qui permet aux utilisateurs de se connecter moins fréquemment dans votre client tout entier. 
 
-To do this, we create a token lifetime policy for Single-Factor Refresh Tokens that is applied across your tenant. This policy will be applied to every application in your tenant, and each service principal that doesn’t already have a policy set to it. 
+Pour ce faire, nous allons créer une stratégie de durée de vie des jetons pour les jetons d’actualisation à facteur unique, qui sera appliquée à votre client. Cette stratégie est appliquée à toutes les applications de votre client et à chaque principal du service pour lequel aucune stratégie n’est déjà définie. 
 
-1. **Create a Token Lifetime Policy.** 
+1. **Créez une stratégie de durée de vie des jetons.** 
 
-Set the Single-Factor Refresh Token to "until-revoked" meaning it won't expire until access is revoked.  The policy definition below is what we will be creating:
+Définissez le jeton d’actualisation à facteur unique sur Jusqu’à révocation (il n’arrivera pas à expiration tant que l’accès ne sera pas révoqué).  La définition de stratégie ci-dessous correspond à ce que nous allons créer :
 
         @("{
           `"TokenLifetimePolicy`":
@@ -206,247 +210,250 @@ Set the Single-Factor Refresh Token to "until-revoked" meaning it won't expire u
               }
         }")
 
-Then run the following command to create this policy. 
+Exécutez ensuite la commande ci-dessous pour créer cette stratégie. 
 
     New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1, `"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName TenantDefaultPolicyScenario -IsTenantDefault $true -Type TokenLifetimePolicy
 
-To see your new policy and get its ObjectID, run the following command.
+Pour afficher votre nouvelle stratégie et obtenir son ID d’objet, exécutez la commande ci-après.
 
     Get-AzureADPolicy
-&nbsp;&nbsp;2.  **Update the Policy**
+&nbsp;&nbsp;2.    **Mettez à jour la stratégie.**
 
-You've decided that the first policy is not quite as strict as your service requires, and have decided you want your Single-Factor Refresh Tokens to expire in 2 days. Run the following command. 
+Vous pensez que la première stratégie n’est pas aussi stricte qu’il le faut pour votre service, et souhaitez que vos jetons d’actualisation à facteur unique arrivent à expiration dans 2 jours. Exécutez la commande ci-dessous. 
 
     Set-AzureADPolicy -ObjectId <ObjectID FROM GET COMMAND> -DisplayName TenantDefaultPolicyUpdatedScenario -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"2.00:00:00`"}}")
 
-&nbsp;&nbsp;3. **You're done!** 
+&nbsp;&nbsp;3. **Vous avez terminé !** 
 
-### <a name="sample:-creating-a-policy-for-web-sign-in"></a>Sample: Creating a policy for web sign-in
-In this sample, we will create a policy that will require your users to authenticate more frequently into your Web App. This policy will set the lifetime of the Access/Id Tokens and the Max Age of a Multi-Factor Session Token to the service principal of your web app.
+### <a name="sample-creating-a-policy-for-web-sign-in"></a>Exemple : création d’une stratégie de connexion web
+Dans cet exemple, nous allons créer une stratégie qui nécessitera que vos utilisateurs s’authentifient plus fréquemment dans votre application web. Cette stratégie définit la durée de vie des jetons d’accès/ID et l’âge maximal d’un jeton de session multifacteur pour le principal du service de votre application web.
 
-1. **Create a Token Lifetime Policy.**
+1. **Créez une stratégie de durée de vie des jetons.**
 
-This policy for Web Sign-in will set the Access/Id Token lifetime and the Max Single-Factor Session Token Age to 2 hours.
+Cette stratégie de connexion web définit la durée de vie des jetons d’accès/ID et l’âge maximal de jeton de session à facteur unique sur 2 heures.
 
     New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"AccessTokenLifetime`":`"02:00:00`",`"MaxAgeSessionSingleFactor`":`"02:00:00`"}}") -DisplayName WebPolicyScenario -IsTenantDefault $false -Type TokenLifetimePolicy
 
-To see your new policy and get its ObjectID, run the following command.
+Pour afficher votre nouvelle stratégie et obtenir son ID d’objet, exécutez la commande ci-après.
 
     Get-AzureADPolicy
-&nbsp;&nbsp;2.  **Assign the policy to your service principal.**
+&nbsp;&nbsp;2.    **Affectez la stratégie au principal du service.**
 
-We're going to link this new policy with a service principal.  You'll also need a way to access the **ObjectId** of your service principal. You can query the [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) or go to our [Graph Explorer Tool](https://graphexplorer.cloudapp.net/) and sign into your Azure AD account to see all your tenant's service principals. 
+Nous allons lier cette nouvelle stratégie à un principal du service.  Vous devrez également accéder à **l’ID d’objet** du principal du service. Vous pouvez interroger [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) ou accéder à notre [outil Afficheur Graph](https://graphexplorer.cloudapp.net/) et vous connecter à votre compte Azure AD pour voir tous les principaux du service de votre client. 
 
-Once you have the **ObjectId**, Run the following command.
+Une fois que vous disposez de **l’ID d’objet**, exécutez la commande ci-dessous.
 
     Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
-&nbsp;&nbsp;3.  **You're Done!** 
+&nbsp;&nbsp;3.    **Vous avez terminé.** 
 
  
 
-### <a name="sample:-creating-a-policy-for-native-apps-calling-a-web-api"></a>Sample: Creating a policy for native apps calling a Web API
+### <a name="sample-creating-a-policy-for-native-apps-calling-a-web-api"></a>Exemple : création d’une stratégie pour les applications natives appelant une API web
 > [!NOTE]
-> Linking policies to applications is currently disabled.  We are working on enabling this shortly.  This page will be updated as soon as the feature is available.
+> La liaison des stratégies aux applications est désactivée pour le moment.  Nous nous efforçons de l’activer sous peu.  Cette page sera mise à jour dès que la fonctionnalité sera disponible.
 > 
 > 
 
-In this sample, we will create a policy that requires users to authenticate less and will lengthen the amount of time they can be inactive without having to authenticate again. The policy will be applied to the Web API, that way when the Native App requests it as a resource this policy will be applied.
+Dans cet exemple, nous allons créer une stratégie qui nécessitera que les utilisateurs s’authentifient moins souvent et prolonger la période pendant laquelle ils peuvent être inactifs sans devoir s’authentifier de nouveau. La stratégie sera appliquée à l’API web. De cette façon, lorsque l’application native la demandera en tant que ressource, cette stratégie sera appliquée.
 
-1. **Create a Token Lifetime Policy.** 
+1. **Créez une stratégie de durée de vie des jetons.** 
 
-This command will create a strict policy for a Web API. 
+Cette commande crée une stratégie stricte pour une API web. 
 
     New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"30.00:00:00`",`"MaxAgeMultiFactor`":`"until-revoked`",`"MaxAgeSingleFactor`":`"180.00:00:00`"}}") -DisplayName WebApiDefaultPolicyScenario -IsTenantDefault $false -Type TokenLifetimePolicy
 
-To see your new policy and get its ObjectID, run the following command.
+Pour afficher votre nouvelle stratégie et obtenir son ID d’objet, exécutez la commande ci-après.
 
     Get-AzureADPolicy
 
-&nbsp;&nbsp;2.  **Assign the policy to your Web API**.
+&nbsp;&nbsp;2.    **Affectez la stratégie à votre API web.**
 
-We're going to link this new policy with an application.  You'll also need a way to access the **ObjectId** of your application. The best way to find your app's **ObjectId** is to use the [Azure Portal](https://portal.azure.com/). 
+Nous allons lier cette nouvelle stratégie à une application.  Vous devrez également accéder à **l’ID d’objet** de votre application. La meilleure façon de trouver **l’ID d’objet** de votre application consiste à utiliser le [portail Azure](https://portal.azure.com/). 
 
-Once you have the **ObjectId**, Run the following command.
+Une fois que vous disposez de **l’ID d’objet**, exécutez la commande ci-dessous.
 
     Add-AzureADApplicationPolicy -ObjectId <ObjectID of the App> -RefObjectId <ObjectId of the Policy>
 
-&nbsp;&nbsp;3.  **You're Done!** 
+&nbsp;&nbsp;3.    **Vous avez terminé.** 
 
-### <a name="sample:-managing-an-advanced-policy"></a>Sample: Managing an advanced policy
-In this sample, we will create a few policies to demonstrate how the priority system works, and how you can manage multiple policies applied to several objects. This will give some insight into the priority of policies explained above, and will also help you manage more complicated scenarios. 
+### <a name="sample-managing-an-advanced-policy"></a>Exemple : gestion d’une stratégie avancée
+Dans cet exemple, nous allons créer quelques stratégies pour montrer le fonctionnement du système de priorité et la façon dont vous pouvez gérer plusieurs stratégies appliquées à plusieurs objets. Cela vous donne une idée de la priorité des stratégies expliquée ci-dessus et vous permet de gérer des scénarios plus complexes. 
 
-1. **Create a Token Lifetime Policy**
+1. **Créez une stratégie de durée de vie des jetons.**
 
-So far pretty simple. We've created a tenant default policy that sets the Single-Factor Refresh Token lifetime to 30 days. 
+Pour l’instant, c’est plutôt simple. Nous avons créé une stratégie par défaut de client qui définit la durée de vie des jetons d’actualisation à facteur unique sur 30 jours. 
 
     New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"30.00:00:00`"}}") -DisplayName ComplexPolicyScenario -IsTenantDefault $true -Type TokenLifetimePolicy
-To see your new policy and get it's ObjectID, run the following command.
+Pour afficher votre nouvelle stratégie et obtenir son ID d’objet, exécutez la commande ci-après.
 
     Get-AzureADPolicy
 
-&nbsp;&nbsp;2.  **Assign the Policy to a Service Principal**
+&nbsp;&nbsp;2.    **Affectez la stratégie à un principal du service.**
 
-Now we have a policy on the entire tenant.  Let's say we want to preserve this 30 day policy for a specific service principal, but change the tenant default policy to be the upper limit of "until-revoked". 
+À présent, nous disposons d’une stratégie sur tout le client.  Supposons que nous souhaitions conserver cette stratégie de 30 jours pour un principal du service spécifique, mais que nous changions la stratégie par défaut de client pour qu’elle soit la limite supérieure du paramètre « Jusqu’à révocation ». 
 
-First, We're going to link this new policy with our service principal.  You'll also need a way to access the **ObjectId** of your service principal. You can query the [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) or go to our [Graph Explorer Tool](https://graphexplorer.cloudapp.net/) and sign into your Azure AD account to see all your tenant's service principals. 
+Nous allons commencer par lier cette nouvelle stratégie à notre principal du service.  Vous devrez également accéder à **l’ID d’objet** du principal du service. Vous pouvez interroger [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) ou accéder à notre [outil Afficheur Graph](https://graphexplorer.cloudapp.net/) et vous connecter à votre compte Azure AD pour voir tous les principaux du service de votre client. 
 
-Once you have the **ObjectId**, Run the following command.
+Une fois que vous disposez de **l’ID d’objet**, exécutez la commande ci-dessous.
 
     Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
 
-&nbsp;&nbsp;3.  **Set the IsTenantDefault flag to false using the following command**. 
+&nbsp;&nbsp;3.    **Définissez l’indicateur IsTenantDefault sur false à l’aide de la commande ci-dessous**. 
 
     Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName ComplexPolicyScenario -IsTenantDefault $false
-&nbsp;&nbsp;4.  **Create a new Tenant Default Policy**
+&nbsp;&nbsp;4.    **Créez une stratégie par défaut de client.**
 
     New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName ComplexPolicyScenarioTwo -IsTenantDefault $true -Type TokenLifetimePolicy
 
-&nbsp;&nbsp;5.   **You're Done!** 
+&nbsp;&nbsp;5.     **Vous avez terminé.** 
 
-You now have the original policy linked to your service principal and the new policy set as your tenant default policy.  It's important to remember that policies applied to service principals have priority over tenant default policies. 
+À présent, la stratégie d’origine est liée à votre principal du service, et la nouvelle stratégie est définie comme stratégie par défaut de votre client.  Il est important de se rappeler que les stratégies appliquées aux principaux de service ont priorité sur les stratégies par défaut de client. 
 
-## <a name="cmdlet-reference"></a>Cmdlet Reference
-### <a name="manage-policies"></a>Manage policies
-The following cmdlets can be used to manage policies.</br></br>
+## <a name="cmdlet-reference"></a>Informations de référence sur les applets de commande
+### <a name="manage-policies"></a>Gérer les stratégies
+Les applets de commande suivantes permettent de gérer les stratégies.</br></br>
 
 #### <a name="new-azureadpolicy"></a>New-AzureADPolicy
-Creates a new policy.
+Permet de créer une stratégie.
 
     New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsTenantDefault <boolean> -Type <Policy Type> 
 
-| Parameters | Description | Example |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -Definition |The array of stringified JSON that contains all the rules of the policy. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
-| -DisplayName |String of the policy name |-DisplayName MyTokenPolicy |
-| -IsTenantDefault |If true sets the policy as tenant's default policy, if false does nothing |-IsTenantDefault $true |
-| -Type |The type of policy, for token lifetimes always use "TokenLifetimePolicy" |-Type TokenLifetimePolicy |
-| -AlternativeIdentifier [Optional] |Sets an alternative id to the policy. |-AlternativeIdentifier myAltId |
+| -Definition |Tableau de champs de chaîne JSON qui contient toutes les règles de la stratégie. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
+| -DisplayName |Chaîne du nom de la stratégie |-DisplayName MyTokenPolicy |
+| -IsTenantDefault |Si la valeur true définit la stratégie comme stratégie par défaut du client, la valeur false n’a aucun effet. |-IsTenantDefault $true |
+| -Type |Type de stratégie. Pour les durées de vie des jetons, utilisez toujours « TokenLifetimePolicy ». |-Type TokenLifetimePolicy |
+| -AlternativeIdentifier [Optional] |Définit un autre ID pour la stratégie. |-AlternativeIdentifier myAltId |
 
 </br></br>
 
 #### <a name="get-azureadpolicy"></a>Get-AzureADPolicy
-Gets all AzureAD Policies or specified policy 
+Permet d’obtenir toutes les stratégies d’Azure AD ou une stratégie spécifiée. 
 
     Get-AzureADPolicy 
 
-| Parameters | Description | Example |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -ObjectId [Optional] |The object Id of the Policy you would like to get. |-ObjectId &lt;ObjectID of Policy&gt; |
+| -ObjectId [Optional] |ID d’objet de la stratégie que vous souhaitez obtenir. |-ObjectId &lt;ObjectID of Policy&gt; |
 
 </br></br>
 
 #### <a name="get-azureadpolicyappliedobject"></a>Get-AzureADPolicyAppliedObject
-Gets all apps and service principals linked to a policy
+Permet d’obtenir toutes les applications et tous les principaux de service liés à une stratégie.
 
     Get-AzureADPolicyAppliedObject -ObjectId <object id of policy> 
 
-| Parameters | Description | Example |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Policy you would like to get. |-ObjectId &lt;ObjectID of Policy&gt; |
+| -ObjectId |ID d’objet de la stratégie que vous souhaitez obtenir. |-ObjectId &lt;ObjectID of Policy&gt; |
 
 </br></br>
 
 #### <a name="set-azureadpolicy"></a>Set-AzureADPolicy
-Updates an existing policy
+Met à jour une stratégie existante.
 
     Set-AzureADPolicy -ObjectId <object id of policy> -DisplayName <string> 
 
-| Parameters | Description | Example |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Policy you would like to get. |-ObjectId &lt;ObjectID of Policy&gt; |
-| -DisplayName |String of the policy name |-DisplayName MyTokenPolicy |
-| -Definition [Optional] |The array of stringified JSON that contains all the rules of the policy. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
-| -IsTenantDefault [Optional] |If true sets the policy as tenant's default policy, if false does nothing |-IsTenantDefault $true |
-| -Type [Optional] |The type of policy, for token lifetimes always use "TokenLifetimePolicy" |-Type TokenLifetimePolicy |
-| -AlternativeIdentifier [Optional] |Sets an alternative id to the policy. |-AlternativeIdentifier myAltId |
+| -ObjectId |ID d’objet de la stratégie que vous souhaitez obtenir. |-ObjectId &lt;ObjectID of Policy&gt; |
+| -DisplayName |Chaîne du nom de la stratégie |-DisplayName MyTokenPolicy |
+| -Definition [Optional] |Tableau de champs de chaîne JSON qui contient toutes les règles de la stratégie. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
+| -IsTenantDefault [Optional] |Si la valeur true définit la stratégie comme stratégie par défaut du client, la valeur false n’a aucun effet. |-IsTenantDefault $true |
+| -Type [Optional] |Type de stratégie. Pour les durées de vie des jetons, utilisez toujours « TokenLifetimePolicy ». |-Type TokenLifetimePolicy |
+| -AlternativeIdentifier [Optional] |Définit un autre ID pour la stratégie. |-AlternativeIdentifier myAltId |
 
 </br></br>
 
 #### <a name="remove-azureadpolicy"></a>Remove-AzureADPolicy
-Deletes the specified policy
+Supprime la stratégie spécifiée.
 
      Remove-AzureADPolicy -ObjectId <object id of policy>
 
-| Parameters | Description | Example |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Policy you would like to get. |-ObjectId &lt;ObjectID of Policy&gt; |
+| -ObjectId |ID d’objet de la stratégie que vous souhaitez obtenir. |-ObjectId &lt;ObjectID of Policy&gt; |
 
 </br></br>
 
-### <a name="application-policies"></a>Application policies
-The following cmdlets can be used for application policies.</br></br>
+### <a name="application-policies"></a>Stratégies d’application
+Les applets de commande suivantes peuvent être utilisées pour les stratégies d’application.</br></br>
 
 #### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
-Links the specified policy to an application
+Lie la stratégie spécifiée à une application.
 
     Add-AzureADApplicationPolicy -ObjectId <object id of application> -RefObjectId <object id of policy>
 
-| Parameters | Description | Example |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
-| -RefObjectId |The object Id of the Policy. |-RefObjectId &lt;ObjectID of Policy&gt; |
+| -ObjectId |ID d’objet de l’application. |-ObjectId &lt;ObjectID of Application&gt; |
+| -RefObjectId |ID d’objet de la stratégie. |-RefObjectId &lt;ObjectID of Policy&gt; |
 
 </br></br>
 
 #### <a name="get-azureadapplicationpolicy"></a>Get-AzureADApplicationPolicy
-Gets the policy assigned to an application
+Permet d’obtenir la stratégie affectée à une application.
 
     Get-AzureADApplicationPolicy -ObjectId <object id of application>
 
-| Parameters | Description | Example |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
+| -ObjectId |ID d’objet de l’application. |-ObjectId &lt;ObjectID of Application&gt; |
 
 </br></br>
 
 #### <a name="remove-azureadapplicationpolicy"></a>Remove-AzureADApplicationPolicy
-Removes a policy from an application
+Supprime une stratégie d’une application.
 
     Remove-AzureADApplicationPolicy -ObjectId <object id of application> -PolicyId <object id of policy>
 
-| Parameters | Description | Example |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
-| -PolicyId |The ObjectId of Policy. |-PolicyId &lt;ObjectID of Policy&gt; |
+| -ObjectId |ID d’objet de l’application. |-ObjectId &lt;ObjectID of Application&gt; |
+| -PolicyId |ID d’objet de stratégie. |-PolicyId &lt;ObjectID of Policy&gt; |
 
 </br></br>
 
-### <a name="service-principal-policies"></a>Service principal policies
-The following cmdlets can be used for service principal policies.</br></br>
+### <a name="service-principal-policies"></a>Stratégies de principal du service
+Les applets de commande suivantes peuvent être utilisées pour les stratégies de principal du service.</br></br>
 
 #### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
-Links the specified policy to a service principal
+Lie la stratégie spécifiée à un principal du service.
 
     Add-AzureADServicePrincipalPolicy -ObjectId <object id of service principal> -RefObjectId <object id of policy>
 
-| Parameters | Description | Example |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
-| -RefObjectId |The object Id of the Policy. |-RefObjectId &lt;ObjectID of Policy&gt; |
+| -ObjectId |ID d’objet de l’application. |-ObjectId &lt;ObjectID of Application&gt; |
+| -RefObjectId |ID d’objet de la stratégie. |-RefObjectId &lt;ObjectID of Policy&gt; |
 
 </br></br>
 
 #### <a name="get-azureadserviceprincipalpolicy"></a>Get-AzureADServicePrincipalPolicy
-Gets any policy linked to the specified service principal
+Permet d’obtenir une stratégie liée au principal du service spécifié.
 
     Get-AzureADServicePrincipalPolicy -ObjectId <object id of service principal>
 
-| Parameters | Description | Example |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
+| -ObjectId |ID d’objet de l’application. |-ObjectId &lt;ObjectID of Application&gt; |
 
 </br></br>
 
 #### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
-Removes the policy from specified service principal
+Supprime la stratégie du principal du service spécifié.
 
     Remove-AzureADServicePrincipalPolicy -ObjectId <object id of service principal>  -PolicyId <object id of policy>
 
-| Parameters | Description | Example |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
-| -PolicyId |The ObjectId of Policy. |-PolicyId &lt;ObjectID of Policy&gt; |
+| -ObjectId |ID d’objet de l’application. |-ObjectId &lt;ObjectID of Application&gt; |
+| -PolicyId |ID d’objet de stratégie. |-PolicyId &lt;ObjectID of Policy&gt; |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

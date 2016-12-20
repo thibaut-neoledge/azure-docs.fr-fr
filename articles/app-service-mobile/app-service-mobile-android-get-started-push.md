@@ -1,71 +1,82 @@
 ---
-title: Ajouter des notifications Push à votre application Android à l’aide d’Azure Mobile Apps
-description: Découvrez comment utiliser Azure Mobile Apps pour envoyer des notifications Push à votre application Android.
+title: "Ajouter des notifications Push à votre application Android à l’aide d’Azure Mobile Apps"
+description: "Découvrez comment utiliser Azure Mobile Apps pour envoyer des notifications Push à votre application Android."
 services: app-service\mobile
 documentationcenter: android
 manager: erikre
-editor: ''
-author: RickSaling
-
+editor: 
+author: ysxu
+ms.assetid: 9058ed6d-e871-4179-86af-0092d0ca09d3
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 07/21/2016
-ms.author: ricksal
+ms.date: 10/12/2016
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ac50b4986d6abd6f3a4af660560f4252b8c99fdb
+
 
 ---
-# Ajouter des notifications Push à votre application Android
+# <a name="add-push-notifications-to-your-android-app"></a>Ajouter des notifications Push à votre application Android
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-## Vue d'ensemble
-Dans ce didacticiel, vous ajoutez des notifications Push au projet [Démarrage rapide Android] afin qu’une notification Push soit envoyée chaque fois qu’un enregistrement est inséré. Ce didacticiel est basé sur le didacticiel [Démarrage rapide Android], que vous devez effectuer en premier. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter le package d’extension de notification Push à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+## <a name="overview"></a>Vue d'ensemble
+Dans ce didacticiel, vous ajoutez des notifications Push au projet [Démarrage rapide Android] afin qu'une notification Push soit envoyée chaque fois qu'un enregistrement est inséré.
 
-## Composants requis
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
+Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devrez ajouter le package d’extension de notification Push. Consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) pour plus d’informations.
 
-* [Compte Google](http://go.microsoft.com/fwlink/p/?LinkId=268302) avec une adresse électronique vérifiée.
-* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) : inutile pour un projet de serveur principal Node.js.
-* Suivez le [didacticiel de démarrage rapide](app-service-mobile-android-get-started.md).
+## <a name="prerequisites"></a>Composants requis
+Vous avez besoin des éléments suivants :
 
-## <a name="create-hub"></a>Créer un hub de notification
-[!INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
+* Un IDE en fonction du serveur principal de votre projet :
+  
+  * [Android Studio](https://developer.android.com/sdk/index.html) Si cette application a un serveur principal Node.js.
+  * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) ou version ultérieure si cette application est un service principal .net.
+* Android 2.3 ou version ultérieure, Révision du référentiel Google 27 ou version ultérieure et Services Google Play 9.0.2 ou version ultérieure pour Firebase Cloud Messaging.
+* Terminer le [Démarrage rapide Android].
 
-## Activation de Google Cloud Messaging
-[!INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
+## <a name="create-a-project-that-supports-firebase-cloud-messaging"></a>Créer un projet qui prend en charge Firebase Cloud Messaging
+[!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-## Configurer le backend d’application mobile pour l’envoi de demandes de notifications Push
-[!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
+## <a name="configure-a-notification-hub"></a>Configuration d’un hub de notification
+[!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-## <a id="update-service"></a>Mettre à jour le projet de serveur pour l’envoi de notifications Push
+## <a name="configure-azure-to-send-push-notifications"></a>Configurer Azure pour l’envoi de notifications Push
+[!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
+
+## <a name="enable-push-notifications-for-the-server-project"></a>Activation des notifications push pour le projet de serveur
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
-## Ajout de notifications Push à votre application
-Vous devez vous assurer que votre projet d’application Android est prêt à gérer les notifications Push.
+## <a name="add-push-notifications-to-your-app"></a>Ajout de notifications Push à votre application
+Dans cette section, vous mettez à jour votre application Android client pour gérer les notifications push.
 
-### Vérification de la version du Kit de développement logiciel (SDK) Android
+### <a name="verify-android-sdk-version"></a>Vérification de la version du Kit de développement logiciel (SDK) Android
 [!INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
 L'étape suivante consiste à installer les services Google Play. Google Cloud Messaging a des spécifications requises d'API minimales pour le développement et les tests, auxquelles la propriété **minSdkVersion** du manifeste doit se conformer.
 
-Si vous envisagez de procéder à un test avec un appareil ancien, consultez la rubrique [Configuration du Kit de développement logiciel (SDK) des services Google Play] pour déterminer comment définir cette valeur.
+Si vous procédez à un test avec un appareil ancien, consultez la rubrique [Configuration du Kit de développement logiciel (SDK) des services Google Play] pour déterminer comment définir cette valeur.
 
-### Ajout de services Google Play au projet
-[!INCLUDE [Ajout de services Google Play](../../includes/app-service-mobile-add-google-play-services.md)]
+### <a name="add-google-play-services-to-the-project"></a>Ajout de services Google Play au projet
+[!INCLUDE [Add Play Services](../../includes/app-service-mobile-add-google-play-services.md)]
 
-### Ajout de code
+### <a name="add-code"></a>Ajout de code
 [!INCLUDE [app-service-mobile-android-getting-started-with-push](../../includes/app-service-mobile-android-getting-started-with-push.md)]
 
-## Test de l'application avec le service mobile publié
-Vous pouvez tester l'application en connectant directement un téléphone Android via un câble USB, ou en utilisant un appareil virtuel dans l'émulateur.
+## <a name="test-the-app-against-the-published-mobile-service"></a>Test de l'application avec le service mobile publié
+Vous pouvez tester l’application en connectant directement un téléphone Android via un câble USB, ou en utilisant un appareil virtuel dans l’émulateur.
 
-## <a id="more"></a>En savoir plus
-* Les balises vous permettent de vous permettent de cibler des clients segmentés avec des notifications push. La rubrique [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) vous montre comment ajouter des balises à l’installation d’un appareil.
-
+## <a name="more"></a>En savoir plus
 <!-- URLs -->
 [Démarrage rapide Android]: app-service-mobile-android-get-started.md
 
-[Configuration du Kit de développement logiciel (SDK) des services Google Play]: https://developers.google.com/android/guides/setup
+[Configuration du Kit de développement logiciel (SDK) des services Google Play]:https://developers.google.com/android/guides/setup
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,6 +1,6 @@
 
 
-Une machine virtuelle *personnalisée* correspond à une machine virtuelle que vous avez créée à l’aide de l’option **À partir de la galerie**, car elle propose davantage de possibilités de configuration que l’option **Création rapide**. Les choix sont les suivants :
+Une machine virtuelle *personnalisée* est une machine virtuelle que vous avez créée à l’aide de l’option **À partir de la galerie**, car elle propose davantage de possibilités de configuration que l’option **Création rapide**. Les choix sont les suivants :
 
 * Connecter la machine virtuelle à un réseau virtuel
 * Installer l’agent de machine virtuelle et les extensions de machine virtuelle Azure, telles que l’extension anti-programme malveillant
@@ -13,5 +13,9 @@ Une machine virtuelle *personnalisée* correspond à une machine virtuelle que v
 > 
 > 
 
-## Création de la machine virtuelle
-<!---HONumber=AcomDC_0330_2016-->
+## <a name="to-create-the-virtual-machine"></a>Création de la machine virtuelle
+
+
+<!--HONumber=Nov16_HO3-->
+
+

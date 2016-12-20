@@ -1,12 +1,12 @@
 ---
-title: Haute disponibilité des applications Azure | Microsoft Docs
-description: Présentation technique et informations détaillées sur la conception et le développement d’applications pour la haute disponibilité sur Microsoft Azure.
-services: ''
+title: "Haute disponibilité des applications Azure | Microsoft Docs"
+description: "Présentation technique et informations détaillées sur la conception et le développement d’applications pour la haute disponibilité sur Microsoft Azure."
+services: 
 documentationcenter: na
 author: adamglick
 manager: saladki
-editor: ''
-
+editor: 
+ms.assetid: 8be4f323-ca00-4025-9356-c9bbc998eef3
 ms.service: resiliency
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f7289c969184b518a6ff836cbb9ed7e20841206b
+
 
 ---
 # <a name="high-availability-for-applications-built-on-microsoft-azure"></a>Haute disponibilité pour les applications développées sur Microsoft Azure
@@ -36,7 +40,7 @@ Les domaines de mise à niveau, qui présentent une fonctionnalité similaire à
 ### <a name="features-in-other-services"></a>Fonctionnalités dans d’autres services
 En plus des fonctionnalités de plateforme qui prennent en charge une haute disponibilité de calcul, Azure intègre des fonctionnalités de haute disponibilité dans ses autres services. Par exemple, Azure Storage conserve trois réplicas de l’ensemble des données d’objets blob, de tables et de files d’attente. La solution prend également en charge l’option de géoréplication pour stocker des sauvegardes d’objets blob et de tables dans une région secondaire. Le réseau de distribution de contenu Azure permet la mise en cache d’objets blob dans le monde entier, à des fins de redondance et d’extensibilité. Azure SQL Database gère également plusieurs réplicas.
 
-En plus de la série d’articles [Guide technique de la résilience Azure](https://aka.ms/bctechguide), consultez le document [Best Practices for Designing Large-Scale Services on Microsoft Azure](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/). Ces références approfondissent la thématique sur les fonctionnalités de disponibilité de la plateforme Azure.
+En plus de la série d’articles [Guide technique de la résilience Azure](https://aka.ms/bctechguide), consultez le document [Best Practices for Designing Large-Scale Services on Windows Azure](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/). Ces références approfondissent la thématique sur les fonctionnalités de disponibilité de la plateforme Azure.
 
 Bien qu’Azure offre de nombreuses fonctionnalités qui prennent en charge la haute disponibilité, il est important de comprendre leurs limitations :
 
@@ -134,6 +138,9 @@ Il est important de noter que l’extensibilité du service cloud affecte direct
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article fait partie d’une série d’articles axés sur la [récupération d’urgence et la haute disponibilité des applications développées sur Microsoft Azure](resiliency-disaster-recovery-high-availability-azure-applications.md). Le prochain article de cette série est [Récupération d’urgence des applications développées sur Microsoft Azure](resiliency-disaster-recovery-azure-applications.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

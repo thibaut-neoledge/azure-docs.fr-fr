@@ -5,4 +5,8 @@
 
 <sup>1</sup>Pour accroître ces limites, contactez le support technique.
 
-<!---HONumber=Nov15_HO1-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

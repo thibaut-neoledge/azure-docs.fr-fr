@@ -1,12 +1,12 @@
 ---
-title: SQL Data Warehouse data management partners | Microsoft Docs
-description: Lists of third-party data management partners with solutions that support SQL Data Warehouse.
+title: "Partenaires de SQL Data Warehouse en matière de gestion de données | Microsoft Docs"
+description: "Répertorie les partenaires de gestion des données tiers proposant des solutions qui prennent en charge SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: c3d96b41-f049-49e8-af32-408f4a893477
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,23 +14,27 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2b29a041a005a6d6aa60c45dc39f151647e35646
+
 
 ---
-# <a name="sql-data-warehouse-data-management-partners"></a>SQL Data Warehouse data management partners
-To create your end-to-end data warehouse solution, choose from a wide variety of industry-leading tools. This article highlights Microsoft partner companies with data management tools and solutions supporting Azure SQL Data Warehouse.
+# <a name="sql-data-warehouse-data-management-partners"></a>Partenaires de SQL Data Warehouse en matière de gestion de données
+Pour créer votre solution d’entrepôt de données de bout en bout, vous pouvez choisir parmi un large éventail d’outils performants. Cet article met en évidence les sociétés partenaires de Microsoft qui proposent des outils et solutions de gestion de données prenant en charge Azure SQL Data Warehouse.
 
-## <a name="our-data-management-partners"></a>Our data management partners
-| Partner | Description | Links | Videos |
+## <a name="our-data-management-partners"></a>Nos partenaires de gestion des données
+| Partenaire | Description | Liens | Vidéos |
 | --- | --- | --- | --- |
-| ![Coffing Data Warehousing][1] |**Coffing Data Warehousing**<br>Coffing Data Warehousing provides Nexus Chameleon, a tool with 10 years of design dedicated to querying systems. Nexus is available as a query tool for SQL Data Warehouse. Use Nexus to query in-house and cloud computers and join data across different platforms. Point-Click-Report! |[Marketplace][coffing_marketplace]<br>[Website][coffing_website]<br>[Press Release][coffing_press]<br>[Twitter][coffing_twitter]<br>[YouTube][coffing_youtube] |[![coffing video](./media/sql-data-warehouse-partner-data-management/coffing_video.jpg)](https://www.youtube.com/watch?v=N5GSxBEySFc) |
-| ![Inbrein][2] |**MicroERD**<br>Inbrein MicroERD provides the tools that you need to create a precise data model, reduce data redundancy, improve productivity, and observe standards. By using its UI, which was developed based on extensive user experiences, a modeler can work on DB models easily and conveniently. You can continuously enjoy new and improved functions of MicroERD through prompt functional improvements and updates. |[Website][inbrein_website]<br>[Datasheet][inbrein_datasheet]<br>[Twitter][inbrein_twitter]<br>[YouTube][inbrein_youtube] |[![inbrein video](./media/sql-data-warehouse-partner-data-management/inbrein_video.jpg)](https://www.youtube.com/watch?v=IGHSAk4bxdE) |
-| ![Infolibrarian][3] |**Infolibrarian**<br>InfoLibrarian catalogs, stores, and manages metadata to help you solve key pain points of data management. In addition, we provide metadata management, data governance, and asset management software solutions for managing and publishing metadata from a diverse set of tools and technologies. |[Marketplace][infolibrarian_marketplace]<br>[Website][infolibrarian_website]<br>[Twitter][infolibrarian_twitter] |[![infolibrarian video](./media/sql-data-warehouse-partner-data-management/infolibrarian_video.png)](http://www.infolibcorp.com/metadata-management-videos/vdbplayer.swf?volume=100&url=video/infolibrarian-azure-provisioning.mp4) |
-| ![Redpoint Global][4] |**RedPoint Interaction**<br>RedPoint Interaction empowers you to engage with customers in a continuous dialog across every communication channel and touch point. Easily manage the complete lifecycle of omnichannel marketing from a single point of operational control |[Marketplace][redpoint_it_marketplace]<br>[Website][redpoint_it_website]<br>[Press Release][redpoint_press]<br>[Datasheet][redpoint_it_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] |[![redpoint dm video](./media/sql-data-warehouse-partner-data-management/redpoint_it_video.jpg)](https://vimeo.com/103715582) |
-| ![Redpoint Global][4] |**RedPoint Data Management**<br>RedPoint Data Management enable marketers to apply all their data to drive cross-channel customer engagement while performing structured and unstructured data management. By taking advantage of Azure SQL Data Warehouse and RedPoint you can maximize the value of your structured and unstructured data to deliver the hyper-personalized, contextual interactions needed to engage today’s omni-channel customer. Drag-and-drop interface makes designing and executing data management processes easy. |[Marketplace][redpoint_dm_marketplace]<br>[Website][redpoint_dm_website]<br>[Press Release][redpoint_press]<br>[Datasheet][redpoint_dm_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] |[![redpoint dm video](./media/sql-data-warehouse-partner-data-management/redpoint_dm_video.jpg)](https://vimeo.com/103715581) |
-| ![SQL Sentry][5] |**SQL Sentry**<br>SQL Sentry Performance Advisor delivers real-time and historical views of the most pertinent Azure SQL Data Warehouse performance metrics, allowing customers to see performance trends, and easily access more detailed information for in-depth analysis and troubleshooting. Performance Advisor allows viewing of performance data for any point in time or date range. |[Marketplace][sql_sentry_marketplace]<br>[Website][sql_sentry_website]<br>[Press Release][sql_sentry_press]<br>[Twitter][sql_sentry_twitter]<br>[YouTube][sql_sentry_youtube] | |
+| ![Coffing Data Warehousing][1] |**Coffing Data Warehousing**<br>Coffing Data Warehousing propose Nexus Chameleon, un outil résultant de 10 années de conception dédié à l’interrogation de systèmes. Nexus est disponible en tant qu’outil de requête pour SQL Data Warehouse. Utilisez Nexus pour interroger des ordinateurs en entreprise et cloud et pour associer les données de différentes plateformes. Il vous suffit de pointer et cliquer pour générer un rapport ! |[Marketplace][coffing_marketplace]<br>[Site web][coffing_website]<br>[Communiqué de presse][coffing_press]<br>[Twitter][coffing_twitter]<br>[YouTube][coffing_youtube] |[![Vidéo coffing](./media/sql-data-warehouse-partner-data-management/coffing_video.jpg)](https://www.youtube.com/watch?v=N5GSxBEySFc) |
+| ![Inbrein][2] |**MicroERD**<br>Inbrein MicroERD vous offre les outils dont vous avez besoin pour créer un modèle de données précis, réduire la redondance des données, améliorer la productivité et respecter les normes. Grâce à son interface utilisateur, dont le développement repose sur des expériences utilisateur intensives, un modélisateur peut travailler sur des modèles de base de données en toute facilité. En outre, vous pouvez bénéficier en permanence d’ajouts ou d’optimisations de fonctions MicroERD par le biais de mises à jour et d’améliorations fonctionnelles rapides. |[Site web][inbrein_website]<br>[Feuille de données][inbrein_datasheet]<br>[Twitter][inbrein_twitter]<br>[YouTube][inbrein_youtube] |[![Vidéo inbrein](./media/sql-data-warehouse-partner-data-management/inbrein_video.jpg)](https://www.youtube.com/watch?v=IGHSAk4bxdE) |
+| ![Infolibrarian][3] |**Infolibrarian**<br>InfoLibrarian catalogue, stocke et gère les métadonnées pour vous aider à résoudre les principaux points faibles de la gestion des données. En outre, nous fournissons des solutions logicielles de gestion des métadonnées, de gouvernance des données et de gestion des actifs logiciels, à des fins de gestion et de publication de métadonnées à partir d’un vaste éventail d’outils et de technologies. |[Marketplace][infolibrarian_marketplace]<br>[Site web][infolibrarian_website]<br>[Twitter][infolibrarian_twitter] |[![Vidéo infolibrarian](./media/sql-data-warehouse-partner-data-management/infolibrarian_video.png)](http://www.infolibcorp.com/metadata-management-videos/vdbplayer.swf?volume=100&url=video/infolibrarian-azure-provisioning.mp4) |
+| ![Redpoint Global][4] |**RedPoint Interaction**<br>RedPoint Interaction vous permet d’engager un dialogue en continu avec vos clients par le biais de chaque canal de communication et point de contact. Gérez facilement le cycle de vie complet du marketing multicanaux à partir d’un seul point de contrôle opérationnel |[Marketplace][redpoint_it_marketplace]<br>[Site web][redpoint_it_website]<br>[Communiqué de presse][redpoint_press]<br>[Feuille de données][redpoint_it_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] |[![Vidéo redpoint dm](./media/sql-data-warehouse-partner-data-management/redpoint_it_video.jpg)](https://vimeo.com/103715582) |
+| ![Redpoint Global][4] |**Gestion des données RedPoint**<br>RedPoint Data Management permet aux mercaticiens d’exploiter toutes leurs données pour mobiliser des clients sur tous les canaux tout en assurant une gestion des données structurées et non structurées. Azure SQL Data Warehouse et RedPoint vous permettent d’optimiser la valeur de vos données structurées et non structurées afin de fournir les interactions hyper-personnalisées et contextuelles requises pour mobiliser les clients omnicanaux d’aujourd’hui. L’interface de type glisser-déplacer facilite la conception et l’exécution des processus de gestion des données. |[Marketplace][redpoint_dm_marketplace]<br>[Site web][redpoint_dm_website]<br>[Communiqué de presse][redpoint_press]<br>[Feuille de données][redpoint_dm_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] |[![Vidéo redpoint dm](./media/sql-data-warehouse-partner-data-management/redpoint_dm_video.jpg)](https://vimeo.com/103715581) |
+| ![SQL Sentry][5] |**SQL Sentry**<br>SQL Sentry Performance Advisor offre des vues en temps réel et historiques des métriques de performances Azure SQL Data Warehouse les plus pertinentes, ce qui permet aux clients de visualiser les tendances des performances et d’accéder aisément à des informations plus détaillées à des fins d’analyse approfondie et de résolution des problèmes. Performance Advisor autorise la visualisation de données de performances portant sur un point dans le temps ou une période quelconques. |[Marketplace][sql_sentry_marketplace]<br>[Site web][sql_sentry_website]<br>[Communiqué de presse][sql_sentry_press]<br>[Twitter][sql_sentry_twitter]<br>[YouTube][sql_sentry_youtube] | |
 
-## <a name="next-steps"></a>Next Steps
-To learn more about some of our other partners, see [Business Intelligence partners][bi_partners] and [Data Integration partners][di_partners].
+## <a name="next-steps"></a>Étapes suivantes
+Pour en savoir plus sur certains de nos autres partenaires, consultez [Partenaires décisionnels][bi_partners] et [Partenaires d’intégration des données][di_partners].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-partner-data-management/coffing_data_warehousing_logo.png
@@ -96,6 +100,6 @@ To learn more about some of our other partners, see [Business Intelligence partn
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

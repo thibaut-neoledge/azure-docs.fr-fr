@@ -1,12 +1,12 @@
 ---
-title: Télécharger des éléments multimédias
-description: Découvrez comment télécharger des éléments multimédias sur votre ordinateur. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET.
+title: "Télécharger des éléments multimédias"
+description: "Découvrez comment télécharger des éléments multimédias sur votre ordinateur. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 8908a1dd-3ffb-4f18-955d-4c8e2d82fc5d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 25b74bdcdbc5ec5a134bb2f800cd687de6ebc1e7
+
 
 ---
-# <a name="how-to:-deliver-an-asset-by-download"></a>Fourniture d’un élément multimédia par téléchargement
+# <a name="how-to-deliver-an-asset-by-download"></a>Fourniture d’un élément multimédia par téléchargement
 Cette rubrique présente les options disponibles pour fournir des éléments multimédias chargés sur Media Services. De nombreux scénarios d'application permettent de fournir du contenu Media Services. Il est possible de télécharger des éléments multimédias ou d'y accéder en utilisant un localisateur. Vous pouvez envoyer du contenu multimédia vers une autre application ou un autre fournisseur de contenu. Pour améliorer les performances et l’évolutivité, vous pouvez également fournir du contenu en utilisant un réseau de distribution de contenu (CDN).
 
 Cet exemple montre comment télécharger des éléments multimédias depuis Media Services sur un ordinateur local. Le code lance une requête sur les tâches associées au compte Media Services par ID de tâche et accède à l'ensemble **OutputMediaAssets** du compte (qui regroupe un ou plusieurs éléments multimédias en sortie, suite à l'exécution d'une tâche). Cet exemple indique comment télécharger des éléments multimédias en sortie depuis une tâche, mais il est possible d’appliquer la même approche pour télécharger d’autres éléments.
@@ -81,6 +85,9 @@ Cet exemple montre comment télécharger des éléments multimédias depuis Medi
 ## <a name="see-also"></a>Voir aussi
 [de diffusion de contenu en continu](media-services-deliver-streaming-content.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

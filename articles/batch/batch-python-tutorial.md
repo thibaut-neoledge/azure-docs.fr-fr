@@ -12,11 +12,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 09/27/2016
+ms.date: 11/30/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c0a778c8dc8786f0c084686b3f8722ff15eed78c
+ms.sourcegitcommit: 64f70aab802ed377de1686fcdb7e641c30299b9c
+ms.openlocfilehash: 6630899081a76d7a8bc54f53a33c76dda9f1b0fa
 
 
 ---
@@ -24,10 +24,10 @@ ms.openlocfilehash: c0a778c8dc8786f0c084686b3f8722ff15eed78c
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
-> 
-> 
+>
+>
 
-Découvrez les principes de base des clients [Azure Batch][azure_batch] et [Batch Python][py_azure_sdk] dans cet article où nous décrivons une application Batch écrite en langage Python. Nous allons voir comment deux exemples de scripts tirent parti du service Batch pour traiter une charge de travail parallèle sur des machines virtuelles Linux dans le cloud, ainsi que la façon dont ceux-ci interagissent avec [Stockage Azure](../storage/storage-introduction.md) pour la gestion intermédiaire et la récupération des fichiers. Vous allez vous familiariser avec les flux de travail d’application Batch et découvrir une vue d’ensemble des principaux composants de Batch, tels que les travaux, les tâches, les pools et les nœuds de calcul.
+Découvrez les principes de base des clients [Azure Batch][azure_batch] et [Batch Python][py_azure_sdk] dans cet article où nous décrivons une simple application Batch écrite en langage Python. Nous allons voir comment deux exemples de scripts tirent parti du service Batch pour traiter une charge de travail parallèle sur des machines virtuelles Linux dans le cloud, ainsi que la façon dont ceux-ci interagissent avec [Stockage Azure](../storage/storage-introduction.md) pour la gestion intermédiaire et la récupération des fichiers. Vous allez vous familiariser avec les flux de travail d’application Batch et découvrir une vue d’ensemble des principaux composants de Batch, tels que les travaux, les tâches, les pools et les nœuds de calcul.
 
 ![Flux de travail de la solution Batch (de base)][11]<br/>
 
@@ -52,25 +52,25 @@ Pour exécuter l’exemple de script *python_tutorial_client.py* sur votre stati
 Vous devez installer les dépendances pour la bibliothèque de [chiffrement][crypto], qui sont requises par les packages Python `azure-batch` et `azure-storage`. Effectuez l’opération appropriée pour votre plateforme ci-dessous ou reportez-vous aux détails de [l’installation du chiffrement][crypto_install] pour plus d’informations :
 
 * Ubuntu
-  
+
     `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
 * CentOS
-  
+
     `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
 * SLES/OpenSUSE
-  
+
     `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
 * Windows
-  
+
     `pip install cryptography`
 
 > [!NOTE]
 > Si vous effectuez l’installation pour Python 3.3 + sur Linux, utilisez les équivalents python3 pour les dépendances Python. Par exemple, sur Ubuntu : `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
-> 
-> 
+>
+>
 
 ### <a name="azure-packages"></a>Packages Azure
-Ensuite, installez les packages Python **Azure Batch** et **Stockage Azure**. Vous pouvez le faire avec **pip** et le fichier *requirements.txt* disponibles ici :
+Ensuite, installez les packages Python **Azure Batch** et **Stockage Azure**. Vous pouvez installer les deux packages à l’aide de **pip** et de *requirements.txt*, ici :
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
 
@@ -84,9 +84,9 @@ Vous pouvez également installer les packages Python [azure-batch][pypi_batch] e
 `pip install azure-storage`
 
 > [!TIP]
-> Vous devrez peut-être faire précéder vos commandes de `sudo` si vous utilisez un compte non privilégié. Par exemple, `sudo pip install -r requirements.txt`. Pour plus d’informations sur l’installation des packages Python, voir [Installing Packages][pypi_install] (Installation des packages) sur readthedocs.io.
-> 
-> 
+> Vous devrez peut-être faire précéder vos commandes de `sudo` si vous utilisez un compte non privilégié. Par exemple : `sudo pip install -r requirements.txt`. Pour plus d’informations sur l’installation des packages Python, voir [Installing Packages][pypi_install] (Installation des packages) sur python.org.
+>
+>
 
 ## <a name="batch-python-tutorial-code-sample"></a>Exemple de code de didacticiel Python Batch
 L’exemple de code du didacticiel Python Batch se compose de deux scripts Python et de quelques fichiers de données.
@@ -102,13 +102,13 @@ Le schéma suivant illustre les opérations principales effectuées par les scri
 [**Étape 1.**](#step-1-create-storage-containers) Créer des **conteneurs** dans le Stockage Blob Azure.<br/>
 [**Étape 2.**](#step-2-upload-task-script-and-data-files) Charger le script de tâche et les fichiers d’entrée dans les conteneurs.<br/>
 [**Étape 3.**](#step-3-create-batch-pool) Créer un **pool** Batch.<br/>
-  &nbsp;&nbsp;&nbsp;&nbsp;**3a.** Le pool **StartTask** télécharge le script de tâche (python_tutorial_task.py) dans les nœuds lorsque ces derniers rejoignent le pool.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;**3a.** Le pool **StartTask** télécharge le script de tâche (python_tutorial_task.py) dans les nœuds lorsque ces derniers rejoignent le pool.<br/>
 [**Étape 4.**](#step-4-create-batch-job) Créer un **travail** Batch.<br/>
 [**Étape 5.**](#step-5-add-tasks-to-job) Ajoutez des **tâches** au travail.<br/>
-  &nbsp;&nbsp;&nbsp;&nbsp;**5a.** Les tâches sont planifiées pour s’exécuter sur des nœuds.<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Chaque tâche télécharge ses données d’entrée depuis Stockage Azure, puis commence l’exécution.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;**5a.** Les tâches sont planifiées pour s’exécuter sur des nœuds.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;**5b.** Chaque tâche télécharge ses données d’entrée depuis Stockage Azure, puis commence l’exécution.<br/>
 [**Étape 6.**](#step-6-monitor-tasks) Surveiller les tâches.<br/>
-  &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Lorsque les tâches sont terminées, les résultats générés sont chargés dans Stockage Azure.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;**6a.** Lorsque les tâches sont terminées, les résultats générés sont chargés dans Stockage Azure.<br/>
 [**Étape 7.**](#step-7-download-task-output)  Télécharger la sortie des tâches à partir de Storage.
 
 Comme indiqué précédemment, certaines solutions Batch ne suivent pas exactement cette procédure et peuvent exécuter de nombreuses autres opérations ; toutefois, cet exemple illustre les processus fréquemment inclus dans une solution Batch.
@@ -177,8 +177,8 @@ Une fois les conteneurs créés, l’application peut charger les fichiers desti
 
 > [!TIP]
 > L’article [Utilisation du Stockage Blob Azure à partir de Python](../storage/storage-python-how-to-use-blob-storage.md) offre un bon aperçu de l’utilisation des conteneurs de stockage Azure et des objets blob. Il doit se trouver au début de votre liste de lecture lorsque vous commencez à travailler avec le traitement Batch.
-> 
-> 
+>
+>
 
 ## <a name="step-2-upload-task-script-and-data-files"></a>Étape 2 : charger les scripts de tâche et les fichiers de données
 ![Charger les fichiers d’application de tâche et les fichiers (de données) d’entrée dans les conteneurs][2]
@@ -266,8 +266,8 @@ Les signatures d’accès partagé sont des chaînes qui offrent un accès sécu
 
 > [!TIP]
 > Pour plus d’informations sur la sécurisation de l’accès aux données dans votre compte de stockage, consultez la série en deux parties sur les signatures d’accès partagé, [Partie 1 : présentation du modèle SAP](../storage/storage-dotnet-shared-access-signature-part-1.md) et [Partie 2 : création et utilisation d’une signature d’accès partagé avec le service BLOB](../storage/storage-dotnet-shared-access-signature-part-2.md).
-> 
-> 
+>
+>
 
 ## <a name="step-3-create-batch-pool"></a>Étape 3 : créer le pool Batch
 ![Créer un pool Batch][3]
@@ -288,7 +288,7 @@ Après le chargement des tâches de script et des fichiers de données dans le c
      base_url=_BATCH_ACCOUNT_URL)
 ```
 
-Ensuite, un pool de nœuds de calcul est créé dans le compte Batch avec un appel à `create_pool`.
+Ensuite, un pool de nœuds de calcul est créé dans le compte Batch avec un appel de `create_pool`.
 
 ```python
 def create_pool(batch_service_client, pool_id,
@@ -361,8 +361,8 @@ Lorsque vous créez un pool, vous définissez un [PoolAddParameter][py_pooladdpa
 
 * **ID** du pool (*id* - obligatoire)<p/> Comme pour la plupart des entités dans Batch, votre nouveau pool doit avoir un ID unique au sein de votre compte Batch. Votre code fait référence à ce pool en utilisant son ID ; c’est ainsi que vous pouvez identifier le pool dans le [portail][azure_portal] Azure.
 * **Nombre de nœuds de calcul** (*target_dedicated* - obligatoire)<p/>Cette propriété spécifie le nombre de machines virtuelles à déployer dans le pool. Il est important de noter que tous les comptes Batch ont un **quota** par défaut qui limite le nombre de **cœurs** (et par conséquent, celui des nœuds de calcul) dans un compte Batch. Pour en savoir plus sur les quotas par défaut et obtenir des instructions sur comment [augmenter un quota](batch-quota-limit.md#increase-a-quota) (par exemple, le nombre maximal de cœurs dans votre compte Batch), consultez l’article [Quotas et limites pour le service Azure Batch](batch-quota-limit.md). Si vous vous demandez pourquoi votre pool n’atteint pas plus de X nœuds, ce quota de cœurs peut en être la raison.
-* **Système d’exploitation** pour les nœuds (*virtual_machine_configuration* **ou** *cloud_service_configuration* - obligatoire)<p/>Dans *python_tutorial_client.py*, nous créons un pool de nœuds Linux à l’aide de [VirtualMachineConfiguration][py_vm_config]. La fonction `select_latest_verified_vm_image_with_node_agent_sku` dans `common.helpers` simplifie l’utilisation des images du [Marketplace de machines virtuelles Azure][vm_marketplace]. Pour plus d’informations sur l’utilisation des images du Marketplace, voir [Configurer des nœuds de calcul Linux dans des pools Azure Batch](batch-linux-nodes.md) .
-* **Taille des nœuds de calcul** (*vm_size* - obligatoire)<p/>Étant donné que nous spécifions des nœuds Linux pour notre [VirtualMachineConfiguration][py_vm_config], nous spécifions une taille de machine virtuelle (`STANDARD_A1` dans cet exemple) parmi les [tailles des machines virtuelles dans Azure](../virtual-machines/virtual-machines-linux-sizes.md). Pour plus d’informations, voir [Configurer des nœuds de calcul Linux dans des pools Azure Batch](batch-linux-nodes.md) .
+* **Système d’exploitation** pour les nœuds (*virtual_machine_configuration***ou***cloud_service_configuration* - obligatoire)<p/>Dans *python_tutorial_client.py*, nous créons un pool de nœuds Linux à l’aide de [VirtualMachineConfiguration][py_vm_config]. La fonction `select_latest_verified_vm_image_with_node_agent_sku` dans `common.helpers` simplifie l’utilisation des images du [Marketplace de machines virtuelles Azure][vm_marketplace]. Pour plus d’informations sur l’utilisation des images du Marketplace, voir [Configurer des nœuds de calcul Linux dans des pools Azure Batch](batch-linux-nodes.md) .
+* **Taille des nœuds de calcul** (*vm_size* - obligatoire)<p/>Étant donné que nous spécifions des nœuds Linux pour notre [VirtualMachineConfiguration][py_vm_config], nous spécifions une taille de machine virtuelle (`STANDARD_A1` dans cet exemple) parmi les [tailles des machines virtuelles dans Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Pour plus d’informations, voir [Configurer des nœuds de calcul Linux dans des pools Azure Batch](batch-linux-nodes.md) .
 * **Tâche de démarrage** (*start_task* : non obligatoire)<p/>Outre les propriétés du nœud physique citées plus haut, vous pouvez également spécifier une [StartTask][py_starttask] pour le pool (celle-ci n’est cependant pas obligatoire). La tâche StartTask s’exécute sur chacun des nœuds rejoignant le pool, ainsi qu’à chaque redémarrage d’un nœud. StarTask est particulièrement utile pour préparer les nœuds de calcul à l’exécution des tâches, telles que l’installation des applications que vos tâches exécuteront.<p/>Dans cet exemple d’application, la tâche StartTask copie les fichiers qu’elle a téléchargés à partir de Storage (spécifiés avec la propriété **resource_files** de StartTask) depuis le *répertoire de travail* de StartTask vers le répertoire *partagé* accessible à toutes les tâches qui s’exécutent sur le nœud. Pour l’essentiel, ceci copie `python_tutorial_task.py` sur le répertoire partagé sur chaque nœud lorsque le nœud rejoint le pool, afin que toutes les tâches qui s’exécutent sur le nœud puissent y accéder.
 
 Vous remarquerez peut-être l’appel à la fonction d’assistance `wrap_commands_in_shell` . Cette fonction prend une collection de commandes distinctes et crée une ligne de commande unique adaptée à la propriété de ligne de commande d’une tâche.
@@ -371,8 +371,8 @@ Notez également que l’extrait de code ci-dessus utilise deux variables d’en
 
 > [!TIP]
 > Pour plus d’informations sur les variables d’environnement disponibles sur les nœuds de calcul d’un pool Batch, ainsi que sur les répertoires de travail de tâche, voir les sections **Paramètres d’environnement des tâches** et **Fichiers et répertoires** de l’article [Vue d’ensemble des fonctionnalités d’Azure Batch](batch-api-basics.md).
-> 
-> 
+>
+>
 
 ## <a name="step-4-create-batch-job"></a>Étape 4 : créer un travail Batch
 ![Créer un travail Batch][4]<br/>
@@ -460,8 +460,8 @@ def add_tasks(batch_service_client, job_id, input_files,
 
 > [!IMPORTANT]
 > Lorsqu’elles accèdent aux variables d’environnement telles que `$AZ_BATCH_NODE_SHARED_DIR` ou exécutent une application introuvable dans le `PATH` du nœud, les lignes de commande de tâche doivent appeler l’interpréteur de commandes explicitement, comme avec `/bin/sh -c MyTaskApplication $MY_ENV_VAR`. Cette exigence n’est pas nécessaire si vos tâches exécutent une application dans le `PATH` du nœud et ne référencent aucune variable d’environnement.
-> 
-> 
+>
+>
 
 Dans la boucle `for` de l’extrait de code ci-dessus, vous pouvez remarquer que la ligne de commande de la tâche est faite avec cinq arguments de ligne de commande, qui sont transmis à *python_tutorial_task.py* :
 
@@ -563,8 +563,8 @@ def download_blobs_from_container(block_blob_client,
 
 > [!NOTE]
 > L’appel de `download_blobs_from_container` dans *python_tutorial_client.py* spécifie que les fichiers doivent être téléchargés dans le répertoire de base de l’utilisateur. Vous pouvez modifier cet emplacement de sortie.
-> 
-> 
+>
+>
 
 ## <a name="step-8-delete-containers"></a>Étape 8 : supprimer les conteneurs
 Dans la mesure où les données qui résident dans Azure Storage vous sont facturées, il est toujours judicieux de supprimer tous les objets blob dont vous n’avez plus besoin pour vos travaux Batch. Dans *python_tutorial_client.py*, cela se fait par le biais de trois appels vers [BlockBlobService.delete_container][py_delete_container] :
@@ -593,16 +593,16 @@ if query_yes_no('Delete pool?') == 'yes':
 
 > [!IMPORTANT]
 > N’oubliez pas que les ressources de calcul vous sont facturées et que la suppression des pools inutilisés vous permet de réduire les coûts. Tenez également compte du fait que la suppression d’un pool permet la suppression de tous les nœuds de calcul de ce pool, et que toutes les données sur les nœuds seront irrécupérables une fois le pool supprimé.
-> 
-> 
+>
+>
 
 ## <a name="run-the-sample-script"></a>Exécuter l’exemple de script
-Lorsque vous exécutez le script *python_tutorial_client.py* du didacticiel [exemple de code][github_article_samples], la sortie de la console est identique à ce qui suit. Vous verrez une pause à `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` ; cela signifie que les nœuds de calcul du pool sont en cours de création et de démarrage et que les commandes de la tâche de démarrage du pool sont exécutées. Utilisez le [portail Azure][azure_portal] pour surveiller le pool, les nœuds de calcul, le travail et les tâches pendant et après l’exécution. Utilisez le [portail Azure][azure_portal] ou les [l’explorateur de stockage Microsoft Azure][storage_explorer] pour visualiser les ressources de stockage (conteneurs et objets blob) créées par l’application.
+Lorsque vous exécutez le script *python_tutorial_client.py* du didacticiel [exemple de code][github_article_samples], la sortie de la console est identique à ce qui suit. Vous verrez une pause à `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` ; cela signifie que les nœuds de calcul du pool sont en cours de création et de démarrage et que les commandes de la tâche de démarrage du pool sont exécutées. Utilisez le [portail Azure][azure_portal] pour surveiller le pool, les nœuds de calcul, le travail et les tâches pendant et après l’exécution. Utilisez le [portail Azure][azure_portal] ou l’un des [explorateurs de stockage Microsoft Azure][storage_explorer] disponibles pour visualiser les ressources de stockage (conteneurs et objets blob) créées par l’application.
 
 > [!TIP]
 > Exécutez le script *python_tutorial_client.py* à partir du répertoire `azure-batch-samples/Python/Batch/article_samples`. Comme ce script utilise un chemin d’accès relatif pour l’importation du module `common.helpers`, il se peut que le message d’erreur `ImportError: No module named 'common'` s’affiche si vous ne l’exécutez pas à partir de ce répertoire.
-> 
-> 
+>
+>
 
 Le temps d’exécution standard de l’exemple est **d’environ 5-7 minutes** avec la configuration par défaut.
 
@@ -641,7 +641,7 @@ N’hésitez pas à apporter des modifications à *python_tutorial_client.py* et
 
 * Consultez l’article [Présentation des fonctionnalités de présentation d’Azure Batch](batch-api-basics.md) , que nous vous recommandons si vous ne connaissez pas le service.
 * Commencez par les autres articles de développement Batch sous **Développement approfondi** dans le [parcours d’apprentissage Batch][batch_learning_path].
-* Consultez une autre implémentation du traitement de la charge de travail « N premiers mots » avec Batch dans l’exemple [TopNWords][github_topnwords].
+* Consultez une autre implémentation du traitement de la charge de travail « N premiers mots » à l’aide de Batch dans l’exemple [TopNWords][github_topnwords].
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
@@ -689,8 +689,7 @@ N’hésitez pas à apporter des modifications à *python_tutorial_client.py* et
 [py_vm_config]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.VirtualMachineConfiguration
 [pypi_batch]: https://pypi.python.org/pypi/azure-batch
 [pypi_storage]: https://pypi.python.org/pypi/azure-storage
-
-[pypi_install]: http://python-packaging-user-guide.readthedocs.io/en/latest/installing/
+[pypi_install]: https://packaging.python.org/installing/
 [storage_explorer]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
@@ -701,7 +700,7 @@ N’hésitez pas à apporter des modifications à *python_tutorial_client.py* et
 [4]: ./media/batch-python-tutorial/batch_workflow_04_sm.png "Créer un travail Batch"
 [5]: ./media/batch-python-tutorial/batch_workflow_05_sm.png "Ajouter des tâches au travail"
 [6]: ./media/batch-python-tutorial/batch_workflow_06_sm.png "Surveiller les tâches"
-[7]: ./media/batch-python-tutorial/batch_workflow_07_sm.png "Télécharger la sortie des tâches à partir du stockage"
+[7]: ./media/batch-python-tutorial/batch_workflow_07_sm.png "Télécharger la sortie des tâches à partir de Storage"
 [8]: ./media/batch-python-tutorial/batch_workflow_sm.png "Flux de travail de la solution Batch (diagramme complet)"
 [9]: ./media/batch-python-tutorial/credentials_batch_sm.png "Informations d’identification de compte Batch dans le portail"
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Informations d’identification de compte de stockage dans le portail"
@@ -709,6 +708,6 @@ N’hésitez pas à apporter des modifications à *python_tutorial_client.py* et
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

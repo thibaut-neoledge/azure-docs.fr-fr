@@ -1,12 +1,12 @@
 ---
-title: Testing your solution template offer for the Marketplace | Microsoft Docs
-description: Understand how to test your solution template offer for the Azure Marketplace.
+title: "Test de votre offre de modèle de solution pour Marketplace | Microsoft Docs"
+description: "Découvrez comment tester votre offre de modèle de solution pour Azure Marketplace."
 services: marketplace-publishing
-documentationcenter: ''
+documentationcenter: 
 author: HannibalSII
 manager: hascipio
-editor: ''
-
+editor: 
+ms.assetid: ef8f9b5e-b98c-49f3-913f-cdf772c14c12
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
@@ -14,34 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2015
 ms.author: hascipio; v-divte
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: da1fc4713fd1d832c7ba91226f72cbef63b241bc
+
 
 ---
-# <a name="test-your-solution-template-offer-in-staging"></a>Test your solution template offer in staging
-Staging means deploying your offer in a private "sandbox" where you can test and verify its functionality before pushing it to production. The offer appears in staging just as it would to a customer who has deployed it. Your offer must be certified to be pushed to staging.
+# <a name="test-your-solution-template-offer-in-staging"></a>Test de votre offre de modèle de solution en mode intermédiaire
+Dans le cadre du déploiement dans un environnement intermédiaire, vous déployez votre offre dans un « bac à sable » (sandbox) privé dans lequel vous pouvez tester et vérifier ses fonctionnalités avant le lancement de sa production. L'offre apparaît avec le statut Intermédiaire, comme pour un client l'ayant déployée. Votre offre doit être certifiée pour passer en mode intermédiaire.
 
-After the offer is staged, you can view and test the offer in the [Azure Portal](https://portal.azure.com/).
+Une fois que votre offre a le statut Intermédiaire, vous pouvez l’afficher et la tester dans le [portail Azure](https://portal.azure.com/).
 
-Follow the steps below to push your offer to staging and test it in the [Azure Portal](https://portal.azure.com/):
+Suivez les étapes ci-dessous pour faire passer votre offre en mode Intermédiaire et la tester dans le [portail Azure](https://portal.azure.com/):
 
-1. Go to the [Publishing Portal](https://publish.windowsazure.com) > **Solution Templates** tab > your offer > **Publish** > **Push to Staging**.
-2. Provide the list of Azure subscriptions that you will use to preview and test your offer.
-3. Sign in to the Azure preview portal by using the subscription ID that you used in the previous step.
-4. Carry out at least one round of testing in the Azure preview portal on the points mentioned below:
-   * Make sure that marketing content shows up correctly in the Azure Marketplace.
-   * End-to-end deployment of the topology.
-   * Perform performance testing and stress testing.
-   * Ensure that your topology adheres to the best practices.
+1. Accédez au [portail de publication](https://publish.windowsazure.com) > **Modèles de solution** > votre offre > **Publier** > **Push to Staging (Déployer dans un environnement intermédiaire)**.
+2. Fournissez la liste des abonnements Azure que vous utiliserez pour l'aperçu et le test de votre offre.
+3. Connectez-vous au portail Azure en version préliminaire à l'aide de l'ID d'abonnement utilisé dans l'étape précédente.
+4. Effectuez au moins une série de tests des points mentionnés ci-dessous dans le portail Azure en version préliminaire.
+   * Assurez-vous que le contenu marketing s'affiche correctement sur Azure Marketplace.
+   * Réalisez un déploiement de bout en bout de la topologie.
+   * Réalisez des tests de performances et de contrainte.
+   * Assurez-vous que votre topologie respecte les meilleures pratiques.
 
-## <a name="next-steps"></a>Next steps
-If you are satisfied with the results, then you can proceed to the final offer publishing phase, **Step 4**:  [Deploying your offer to the Marketplace](marketplace-publishing-push-to-production.md). Otherwise, make changes in your offer and request certification again.
+## <a name="next-steps"></a>Étapes suivantes
+Si vous êtes satisfait des résultats, vous pouvez passer à la phase finale de publication de l’offre, **Étape 4** : [Déploiement de votre offre dans Marketplace](marketplace-publishing-push-to-production.md). Sinon, apportez les modifications nécessaires à votre offre et effectuez de nouveau une demande de certification.
 
 > [!NOTE]
-> For marketing content changes, certification is not required.
+> En cas de modifications de contenus marketing, la certification n'est pas nécessaire.
 > 
 > 
 
-See [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md) for a guide to all publisher tasks.
+Consultez [Prise en main : Publier une offre dans Azure Marketplace](marketplace-publishing-getting-started.md) pour obtenir un guide sur toutes les tâches du serveur de publication.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

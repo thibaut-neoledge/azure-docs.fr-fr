@@ -1,12 +1,12 @@
 ---
-title: Familiarisation avec les rôles, les autorisations et la sécurité dans Azure Monitor | Microsoft Docs
-description: Découvrez comment utiliser les rôles intégrés et les autorisations d’Azure Monitor pour restreindre l’accès à l’analyse des ressources.
+title: "Familiarisation avec les rôles, les autorisations et la sécurité dans Azure Monitor | Microsoft Docs"
+description: "Découvrez comment utiliser les rôles intégrés et les autorisations d’Azure Monitor pour restreindre l’accès à l’analyse des ressources."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 2686e53b-72f0-4312-bcd3-3dc1b4a9b912
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 26e12a27693fe94ae88b70328ed5dd0d9d5b4c10
+
 
 ---
-# <a name="get-started-with-roles,-permissions,-and-security-with-azure-monitor"></a>Familiarisation avec les rôles, les autorisations et la sécurité dans Azure Monitor
+# <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Familiarisation avec les rôles, les autorisations et la sécurité dans Azure Monitor
 De nombreuses équipes ont besoin de réglementer strictement l’accès aux données et aux paramètres d’analyse. Par exemple, si des membres de votre équipe travaillent exclusivement sur l’analyse (ingénieurs du support technique, ingénieurs devops) ou si vous utilisez un fournisseur de services gérés, vous souhaiterez leur accorder l’accès à l’analyse des données tout en limitant leur capacité à créer, modifier ou supprimer des ressources. Cet article montre comment appliquer un rôle RBAC d’analyse intégré à un utilisateur dans Azure ou créer vos propres rôles personnalisés pour un utilisateur qui a rapidement besoin d’autorisations limitées pour l’analyse. Il évoque ensuite les considérations de sécurité pour vos ressources liées à Azure Monitor et comment vous pouvez restreindre l’accès aux données contenues.
 
 ## <a name="built-in-monitoring-roles"></a>Rôles de surveillance intégrés
-Les rôles intégrés d’Azure Monitor sont conçus pour vous aider à limiter l’accès aux ressources dans un abonnement tout en permettant au responsable de l’infrastructure d’analyse d’obtenir et de configurer les données nécessaires. Azure Monitor propose deux rôles prêts à l’emploi : un lecteur d’analyse et un contributeur d’analyse.
+Les rôles intégrés d’Azure Monitor sont conçus pour vous aider à limiter l’accès aux ressources dans un abonnement tout en permettant au responsable de l’infrastructure d’analyse d’obtenir et de configurer les données nécessaires. Azure Monitor propose deux rôles prêts à l’emploi : un lecteur d’analyse et un contributeur d’analyse.
 
 ### <a name="monitoring-reader"></a>Lecteur d’analyse
-Les personnes affectées au rôle de lecteur d’analyse peuvent afficher toutes les données d’analyse dans un abonnement, mais ne peuvent pas modifier de ressource ou modifier les paramètres relatifs à l’analyse des ressources. Ce rôle est approprié pour les utilisateurs dans une organisation, tels que les ingénieurs de support ou d’opération, qui doivent être en mesure de faire ce qui suit :
+Les personnes affectées au rôle de lecteur d’analyse peuvent afficher toutes les données d’analyse dans un abonnement, mais ne peuvent pas modifier de ressource ou modifier les paramètres relatifs à l’analyse des ressources. Ce rôle est approprié pour les utilisateurs dans une organisation, tels que les ingénieurs de support ou d’opération, qui doivent être en mesure de faire ce qui suit :
 
 * Afficher des tableaux de bord d’analyse dans le portail et créer leurs propres tableaux de bord privés d’analyse.
 * Requête de mesures avec l’[API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), les [applets de commande PowerShell](insights-powershell-samples.md) ou le [CLI multiplateforme](insights-cli-samples.md).
@@ -46,7 +50,7 @@ Les personnes affectées au rôle de lecteur d’analyse peuvent afficher toutes
 > 
 
 ### <a name="monitoring-contributor"></a>Contributeur d’analyse
-Les personnes affectées au rôle de contributeur d’analyse peuvent afficher toutes les données d’analyse dans un abonnement, et créer ou modifier des paramètres d’analyse, mais ne peuvent pas modifier d’autres ressources. Ce rôle est un surensemble du rôle lecteur d’analyse et est approprié pour les membres de l’équipe d’analyse d’une organisation ou les fournisseurs de services gérés qui, outre les autorisations ci-dessus, doivent également être en mesure de faire ce qui suit :
+Les personnes affectées au rôle de contributeur d’analyse peuvent afficher toutes les données d’analyse dans un abonnement, et créer ou modifier des paramètres d’analyse, mais ne peuvent pas modifier d’autres ressources. Ce rôle est un surensemble du rôle lecteur d’analyse et est approprié pour les membres de l’équipe d’analyse d’une organisation ou les fournisseurs de services gérés qui, outre les autorisations ci-dessus, doivent également être en mesure de faire ce qui suit :
 
 * Publier des tableaux de bord d’analyse en tant que tableau de bord partagé.
 * Définissez les [Paramètres de diagnostic](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) pour une ressource.*
@@ -57,6 +61,7 @@ Les personnes affectées au rôle de contributeur d’analyse peuvent afficher t
 * Activer ou désactiver les packs d’analyse décisionnelle de Log Analytics (OMS).
 * Créer ou supprimer des recherches enregistrées de Log Analytics (OMS).
 * Créer ou supprimer la configuration du stockage Log Analytics (OMS).
+
 * L’utilisateur doit aussi séparément obtenir l’autorisation ListKeys sur la ressource cible (compte de stockage ou espace de noms de hub d’événements) pour définir un profil de journalisation ou un paramètre de diagnostic.
 
 > [!NOTE]
@@ -80,11 +85,11 @@ Si les rôles intégrés ci-dessus ne répondent pas aux besoins exacts de votre
 | Microsoft.Insights/Metrics/Read |Lire des mesures pour une ressource. |
 
 > [!NOTE]
-> Accéder aux alertes, aux paramètres de diagnostic et aux mesures pour une ressource nécessite que l’utilisateur ait accès en lecture au type de ressource et à la portée de la ressource. La création (« écriture ») d’un profil de journalisation ou de paramètre de diagnostic qui archive sur un compte de stockage ou diffuse vers des hubs d’événements exige que l’utilisateur dispose également de l’autorisation ListKeys sur la ressource cible.
+> Accéder aux alertes, aux paramètres de diagnostic et aux mesures pour une ressource nécessite que l’utilisateur ait accès en lecture au type de ressource et à la portée de la ressource. La création (« écriture ») d’un profil de journalisation ou de paramètre de diagnostic qui archive sur un compte de stockage ou diffuse vers des hubs d’événements exige que l’utilisateur dispose également de l’autorisation ListKeys sur la ressource cible.
 > 
 > 
 
-Par exemple, en utilisant le tableau ci-dessus, vous pouvez créer un rôle RBAC personnalisé pour un « lecteur de journal d’activité », comme suit :
+Par exemple, en utilisant le tableau ci-dessus, vous pouvez créer un rôle RBAC personnalisé pour un « lecteur de journal d’activité », comme suit :
 
 ```powershell
 $role = Get-AzureRmRoleDefinition "Reader"
@@ -105,7 +110,7 @@ Les données d’analyse (les fichiers journaux en particulier) peuvent contenir
 2. Les journaux de diagnostic, qui sont des journaux émis par une ressource.
 3. Les mesures, qui sont émises par les ressources.
 
-Ces trois types de données peuvent être stockés dans un compte de stockage ou diffusés vers un hub d’événements, qui sont tous deux des ressources Azure à usage général. Comme ce sont des ressources à usage général, leur création, leur suppression et leur accès sont des opérations privilégiées généralement réservées à un administrateur. Nous vous conseillons d’utiliser les pratiques suivantes pour les ressources liées à l’analyse afin d’éviter une mauvaise utilisation :
+Ces trois types de données peuvent être stockés dans un compte de stockage ou diffusés vers un hub d’événements, qui sont tous deux des ressources Azure à usage général. Comme ce sont des ressources à usage général, leur création, leur suppression et leur accès sont des opérations privilégiées généralement réservées à un administrateur. Nous vous conseillons d’utiliser les pratiques suivantes pour les ressources liées à l’analyse afin d’éviter une mauvaise utilisation :
 
 * Utilisez un compte de stockage unique, dédié pour l’analyse des données. Si vous devez séparer les données d’analyse sur plusieurs comptes de stockage, ne partagez jamais l’utilisation d’un compte de stockage entre les données d’analyse et les données hors analyse, car cela peut donner par inadvertance l’accès à ces dernières à ceux qui doivent uniquement accéder aux données d’analyse (par ex. un SIEM tiers).
 * Utilisez un espace de noms de hub d’événements ou Service Bus unique pour tous les paramètres de diagnostic pour la même raison que ci-dessus.
@@ -113,7 +118,7 @@ Ces trois types de données peuvent être stockés dans un compte de stockage ou
 * N’accordez jamais l’autorisation ListKeys aux comptes de stockage ou hubs d’événements dont la portée comprend l’abonnement lorsqu’un utilisateur doit uniquement accéder aux données d’analyse. Au lieu de cela, accordez ces autorisations à l’utilisateur sur une ressource ou un groupe de ressources (si vous avez un groupe de ressources d’analyse).
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>Limiter l’accès aux comptes de stockage liés à l’analyse
-Lorsqu’un utilisateur ou une application doit accéder à l’analyse des données dans un compte de stockage, vous devez [Générer un SAP de compte](https://msdn.microsoft.com/library/azure/mt584140.aspx) sur le compte de stockage qui contient les données d’analyse avec un accès en lecture au niveau de service pour le stockage d’objets Blob. Dans PowerShell, cela pourrait ressembler à :
+Lorsqu’un utilisateur ou une application doit accéder à l’analyse des données dans un compte de stockage, vous devez [Générer un SAP de compte](https://msdn.microsoft.com/library/azure/mt584140.aspx) sur le compte de stockage qui contient les données d’analyse avec un accès en lecture au niveau de service pour le stockage d’objets Blob. Dans PowerShell, cela pourrait ressembler à :
 
 ```powershell
 $context = New-AzureStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
@@ -122,7 +127,7 @@ $token = New-AzureStorageAccountSASToken -ResourceType Service -Service Blob -Pe
 
 Vous pouvez ensuite donner le jeton à l’entité qui doit lire à partir de ce compte de stockage, et elle pourra alors répertorier et lire à partir de tous les objets Blob dans ce compte de stockage.
 
-Si vous avez besoin de contrôler cette autorisation avec RBAC, vous pouvez également accorder à cette entité l’autorisation Microsoft.Storage/storageAccounts/listkeys/action sur ce compte de stockage particulier. Cela est nécessaire pour les utilisateurs qui doivent être en mesure de définir un paramètre de diagnostic ou un profil de journalisation pour l’archivage sur un compte de stockage. Par exemple, vous pouvez créer le rôle RBAC personnalisé suivant pour un utilisateur ou une application qui a uniquement besoin de lire à partir d’un compte de stockage :
+Si vous avez besoin de contrôler cette autorisation avec RBAC, vous pouvez également accorder à cette entité l’autorisation Microsoft.Storage/storageAccounts/listkeys/action sur ce compte de stockage particulier. Cela est nécessaire pour les utilisateurs qui doivent être en mesure de définir un paramètre de diagnostic ou un profil de journalisation pour l’archivage sur un compte de stockage. Par exemple, vous pouvez créer le rôle RBAC personnalisé suivant pour un utilisateur ou une application qui a uniquement besoin de lire à partir d’un compte de stockage :
 
 ```powershell
 $role = Get-AzureRmRoleDefinition "Reader"
@@ -143,10 +148,10 @@ New-AzureRmRoleDefinition -Role $role
 > 
 
 ### <a name="limiting-access-to-monitoring-related-event-hubs"></a>Limiter l’accès aux hubs d’événements liés à l’analyse
-Un modèle similaire peut être suivi avec les hubs d’événements, mais vous devez d’abord créer une règle d’autorisation d’écoute dédiée. Si vous souhaitez accorder l’accès à une application qui doit seulement écouter les hubs d’événements liés à l’analyse, procédez comme suit :
+Un modèle similaire peut être suivi avec les hubs d’événements, mais vous devez d’abord créer une règle d’autorisation d’écoute dédiée. Si vous souhaitez accorder l’accès à une application qui doit seulement écouter les hubs d’événements liés à l’analyse, procédez comme suit :
 
-1. Créez une stratégie d’accès partagé sur les concentrateurs d’événements qui ont été créés pour la diffusion des données d’analyse avec uniquement les demandes d’écoute. Vous pouvez le faire dans le portail. Par exemple, vous pouvez l’appeler « monitoringReadOnly ». Si possible, donnez cette clé directement au consommateur et ignorez l’étape suivante.
-2. Si le consommateur doit être en mesure d’obtenir la clé ad hoc, accordez à l’utilisateur l’action ListKeys pour ce hub d’événements. Cela est également nécessaire pour les utilisateurs qui doivent être en mesure de définir un paramètre de diagnostic ou un profil de journalisation pour diffuser vers les hubs d’événements. Par exemple, vous pouvez créer une règle RBAC :
+1. Créez une stratégie d’accès partagé sur les concentrateurs d’événements qui ont été créés pour la diffusion des données d’analyse avec uniquement les demandes d’écoute. Vous pouvez le faire dans le portail. Par exemple, vous pouvez l’appeler « monitoringReadOnly ». Si possible, donnez cette clé directement au consommateur et ignorez l’étape suivante.
+2. Si le consommateur doit être en mesure d’obtenir la clé ad hoc, accordez à l’utilisateur l’action ListKeys pour ce hub d’événements. Cela est également nécessaire pour les utilisateurs qui doivent être en mesure de définir un paramètre de diagnostic ou un profil de journalisation pour diffuser vers les hubs d’événements. Par exemple, vous pouvez créer une règle RBAC :
    
    ```powershell
    $role = Get-AzureRmRoleDefinition "Reader"
@@ -165,6 +170,9 @@ Un modèle similaire peut être suivi avec les hubs d’événements, mais vous 
 * [En savoir plus sur RBAC et les autorisations dans Resource Manager](../active-directory/role-based-access-control-what-is.md)
 * [Lire la vue d’ensemble de l’analyse dans Azure](monitoring-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

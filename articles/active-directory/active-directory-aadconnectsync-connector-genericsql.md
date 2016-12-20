@@ -1,12 +1,12 @@
 ---
-title: Connecteur SQL générique | Microsoft Docs
-description: Cet article explique comment configurer le connecteur SQL générique de Microsoft.
+title: "Connecteur SQL générique | Microsoft Docs"
+description: "Cet article explique comment configurer le connecteur SQL générique de Microsoft."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: AndKjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 14d2eaaa6463437d5b66840f05810588fce4b7da
+
 
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Référence technique du connecteur SQL générique
-Cet article décrit le connecteur SQL générique. Cet article s’applique aux produits suivants :
+Cet article décrit le connecteur SQL générique. Cet article s’applique aux produits suivants :
 
-* Microsoft Identity Manager 2016 (MIM2016)
-* Forefront Identity Manager 2010 R2 (FIM2010R2)
-  * Nécessité d’utiliser le correctif logiciel 4.1.3671.0 ou une version ultérieure [KB3092178](https://support.microsoft.com/kb/3092178).
+* Microsoft Identity Manager 2016 (MIM2016)
+* Forefront Identity Manager 2010 R2 (FIM2010R2)
+  * Nécessité d’utiliser le correctif logiciel 4.1.3671.0 ou une version ultérieure [KB3092178](https://support.microsoft.com/kb/3092178).
 
 Pour MIM2016 et FIM2010R2, le connecteur est disponible en téléchargement dans le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
 
@@ -34,19 +38,19 @@ Globalement, la version actuelle du connecteur prend en charge les fonctionnalit
 
 | Fonctionnalité | Support |
 | --- | --- |
-| Source de données connectée |Le connecteur prend en charge tous les pilotes ODBC 64 bits. Il a été testé avec les éléments suivants :  <li>Microsoft SQL Server & SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 & 11g</li><li>MySQL 5.x</li> |
+| Source de données connectée |Le connecteur prend en charge tous les pilotes ODBC 64 bits. Il a été testé avec les éléments suivants :  <li>Microsoft SQL Server & SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 & 11g</li><li>MySQL 5.x</li> |
 | Scénarios |<li>Gestion du cycle de vie des objets</li><li>Gestion des mots de passe</li> |
-| Opérations |<li>Importation complète et importation différentielle, importation, exportation</li><li>Pour l’exportation : ajouter, supprimer, mettre à jour et remplacer</li><li>Définition du mot de passe, modification du mot de passe</li> |
+| Opérations |<li>Importation complète et importation différentielle, importation, exportation</li><li>Pour l’exportation : ajouter, supprimer, mettre à jour et remplacer</li><li>Définition du mot de passe, modification du mot de passe</li> |
 | Schéma |<li>Découverte dynamique des objets et des attributs</li> |
 
 ### <a name="prerequisites"></a>Composants requis
 Avant d’utiliser le connecteur, vérifiez que vous disposez des éléments suivants sur le serveur de synchronisation :
 
-* Microsoft .NET 4.5.2 Framework ou version ultérieure
-* Pilotes clients ODBC 64 bits
+* Microsoft .NET 4.5.2 Framework ou version ultérieure
+* Pilotes clients ODBC 64 bits
 
 ### <a name="permissions-in-connected-data-source"></a>Autorisations dans la source de données connectée
-Pour créer ou exécuter les tâches prises en charge dans le connecteur SQL générique, vous devez disposer de :
+Pour créer ou exécuter les tâches prises en charge dans le connecteur SQL générique, vous devez disposer de :
 
 * db_datareader
 * db_datawriter
@@ -64,7 +68,7 @@ Le connecteur utilise un fichier DSN ODBC pour la connectivité. Créez le fichi
 
 ![CreateConnector](./media/active-directory-aadconnectsync-connector-genericsql/connectivity.png)
 
-L’écran Connectivité est le premier qui s’affiche lorsque vous créez un nouveau connecteur SQL générique. Dans un premier temps, fournissez les informations suivantes :
+L’écran Connectivité est le premier qui s’affiche lorsque vous créez un nouveau connecteur SQL générique. Dans un premier temps, fournissez les informations suivantes :
 
 * Chemin d’accès de fichier DSN
 * Authentification
@@ -83,7 +87,7 @@ La base de données doit prendre en charge une de ces méthodes d’authentifica
 
 **Type d’exportation : remplacement d’objet**: lors de l’exportation, lorsque seuls certains attributs ont été modifiés, l’ensemble de l’objet avec tous les attributs est exporté et remplace l’objet existant.
 
-### <a name="schema-1-(detect-object-types)"></a>Schéma 1 (Détecter les types d’objets)
+### <a name="schema-1-detect-object-types"></a>Schéma 1 (Détecter les types d’objets)
 Sur cette page, vous allez configurer la manière dont le connecteur va rechercher les différents types d’objets dans la base de données.
 
 Chaque type d’objet est présenté sous la forme d’une partition et configuré de manière plus approfondie sur **Configurer des partitions et des hiérarchies**.
@@ -98,17 +102,17 @@ Chaque type d’objet est présenté sous la forme d’une partition et configur
   ![schema1c](./media/active-directory-aadconnectsync-connector-genericsql/schema1c.png)
 * **Requête SQL** : cette option permet de fournir une requête SQL qui renvoie une seule colonne avec les types d’objets, par exemple, `SELECT [Column Name] FROM TABLENAME`. La colonne retournée doit être de type chaîne (varchar).
 
-### <a name="schema-2-(detect-attribute-types)"></a>Schéma 2 (Détecter les types d’attribut)
+### <a name="schema-2-detect-attribute-types"></a>Schéma 2 (Détecter les types d’attribut)
 Sur cette page, vous allez configurer la façon dont les noms et les types d’attribut vont être détectés. Les options de configuration sont répertoriées pour chaque type d’objet détecté dans la page précédente.
 
 ![schema2a](./media/active-directory-aadconnectsync-connector-genericsql/schema2a.png)
 
-**Méthode de détection de type d’attribut**: le connecteur prend en charge ces méthodes de détection de type attribut avec chaque type d’objet détecté dans l’écran schéma 1.
+**Méthode de détection de type d’attribut**: le connecteur prend en charge ces méthodes de détection de type attribut avec chaque type d’objet détecté dans l’écran schéma 1.
 
 * **Table/Vue/Procédure stockée**: indiquez le nom de table/vue/procédure stockée qui doit être utilisé pour trouver les noms d’attribut. Si vous utilisez une procédure stockée, fournissez également des paramètres pour celle-ci au format **[nom]:[Direction]:[Valeur]**. Placez chacun des paramètres sur une ligne distincte (utilisez Ctrl + Entrée pour créer une ligne). Pour détecter les noms d’attribut dans un attribut à valeurs multiples, fournissez une liste séparée par des virgules des tables ou des vues. Les scénarios à valeurs multiples ne sont pas pris en charge si les tables parent et enfant ont les mêmes noms de colonnes.
 * **Requête SQL** : cette option permet de fournir une requête SQL qui renvoie une seule colonne avec les noms d’attributs, par exemple, `SELECT [Column Name] FROM TABLENAME`. La colonne retournée doit être de type chaîne (varchar).
 
-### <a name="schema-3-(define-anchor-and-dn)"></a>Schéma 3 (Définir le point d’ancrage et le nom unique)
+### <a name="schema-3-define-anchor-and-dn"></a>Schéma 3 (Définir le point d’ancrage et le nom unique)
 Cette page vous permet de configurer le point d’ancrage et l’attribut de nom unique pour chaque type d’objet détecté. Vous pouvez sélectionner plusieurs attributs pour faire un point d’ancrage unique.
 
 ![schema3a](./media/active-directory-aadconnectsync-connector-genericsql/schema3a.png)
@@ -118,8 +122,8 @@ Cette page vous permet de configurer le point d’ancrage et l’attribut de nom
 * Si l’option **Le nom unique est le point d’ancrage** est sélectionnée dans la page Connectivité, cette page a besoin uniquement de l’attribut de nom de domaine. Cet attribut peut également être utilisé en tant qu’attribut d’ancrage.
   ![schema3b](./media/active-directory-aadconnectsync-connector-genericsql/schema3b.png)
 
-### <a name="schema-4-(define-attribute-type,-reference,-and-direction)"></a>Schéma 4 (définir le type d’attribut, la référence et la direction)
-Cette page permet de configurer le type d’attribut, par exemple un entier, une valeur binaire ou une valeur booléenne, ainsi que la direction pour chaque attribut. Tous les attributs de la page **schéma 2** sont répertoriés, et notamment des attributs à valeurs multiples.
+### <a name="schema-4-define-attribute-type-reference-and-direction"></a>Schéma 4 (définir le type d’attribut, la référence et la direction)
+Cette page permet de configurer le type d’attribut, par exemple un entier, une valeur binaire ou une valeur booléenne, ainsi que la direction pour chaque attribut. Tous les attributs de la page **schéma 2** sont répertoriés, et notamment des attributs à valeurs multiples.
 
 ![schema4a](./media/active-directory-aadconnectsync-connector-genericsql/schema4a.png)
 
@@ -127,13 +131,13 @@ Cette page permet de configurer le type d’attribut, par exemple un entier, une
 * **Direction**: vous pouvez définir la direction d’attribut sur Import, Export ou ImportExport. ImportExport est la valeur par défaut.
   ![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
 
-Remarques :
+Remarques :
 
 * Si un type d’attribut n’est pas détectable par le connecteur, il utilise le type de données chaîne.
 * **Tables imbriquées** peuvent être considérées comme des tables de base de données à une colonne. Oracle stocke les lignes d’une table imbriquée sans aucun ordre particulier. Toutefois, lorsque vous récupérez la table imbriquée dans une variable PL/SQL, les lignes sont associées à des indices consécutifs en commençant à 1. Cela vous donne un accès de type tableau à des lignes individuelles.
 * **VARRYS** ne sont pas pris en charge dans le connecteur.
 
-### <a name="schema-5-(define-partition-for-reference-attributes)"></a>Schéma 5 (Définir la partition pour les attributs de référence)
+### <a name="schema-5-define-partition-for-reference-attributes"></a>Schéma 5 (Définir la partition pour les attributs de référence)
 Sur cette page, pour tous les attributs de référence, vous configurez la partition (le type d’objet) à laquelle un attribut fait référence.
 
 ![schema5](./media/active-directory-aadconnectsync-connector-genericsql/schema5.png)
@@ -145,15 +149,15 @@ La page Paramètres globaux sert à configurer l’importation différentielle, 
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
 
-Le connecteur SQL générique prend en charge les méthodes suivantes pour l’importation différentielle :
+Le connecteur SQL générique prend en charge les méthodes suivantes pour l’importation différentielle :
 
 * **Déclencheur**: consultez [Génération de vues différentielles à l’aide de déclencheurs](https://technet.microsoft.com/library/cc708665.aspx).
 * **Filigrane**: il s’agit d’une approche numérique qui peut être utilisée avec n’importe quelle base de données. La requête en filigrane est prérenseignée en fonction du fournisseur de base de données. Une colonne de filigrane doit être présente sur chaque tableau/vue affichée. Cette colonne doit assurer les insertions et les mises à jour des tables, de même que les tables dépendantes (à valeurs multiples ou enfants). Les horloges entre le service de synchronisation et le serveur de base de données doivent être synchronisées. Dans le cas contraire, certaines entrées de l’importation différentielle peuvent être omises.  
-  Limite :
+  Limite :
   * La stratégie de filigrane ne prend pas en charge les objets supprimés.
 * **Instantané**: (fonctionne uniquement avec Microsoft SQL Server) [Génération de vues différentielles à l’aide d’instantanés](https://technet.microsoft.com/library/cc720640.aspx)
 * **Suivi des modifications**: (fonctionne uniquement avec Microsoft SQL Server) [About Suivi des modifications](https://msdn.microsoft.com/library/bb933875.aspx)  
-  Limites :
+   Limites :
   * Le point d’ancrage et l’attribut de nom unique doivent faire partie de la clé primaire de l’objet sélectionné dans la table.
   * La requête SQL n’est pas prise en charge pendant l’importation et l’exportation avec suivi des modifications.
 
@@ -167,7 +171,7 @@ Pendant l’exportation, chaque attribut data/heure doit être fourni au connect
 
 **Configuration de mot de passe**: le connecteur fournit des fonctionnalités de synchronisation de mot de passe et prend en charge la définition et la modification du mot de passe.
 
-Le connecteur propose deux méthodes pour prendre en charge la synchronisation de mot de passe :
+Le connecteur propose deux méthodes pour prendre en charge la synchronisation de mot de passe :
 
 * **Procédure stockée** : cette méthode requiert deux procédures stockées pour prendre en charge la définition et la modification d’un mot de passe. Saisissez tous les paramètres pour ajouter et modifier le fonctionnement des mots de passe dans **Set Password SP** (SP de définition de mot de passe) et **Change Password SP** (SP de modification de mot de passe), conformément à l’exemple ci-dessous.
   ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters3.png)
@@ -195,7 +199,7 @@ Cette page est en lecture seule, car le point d’ancrage a déjà été défini
 Ces étapes sont configurées sur les profils exécutés sur le connecteur. Ces configurations font un réel travail d’importation et d’exportation de données.
 
 ### <a name="full-and-delta-import"></a>Importation complète et différentielle
-Le connecteur SQL générique prend en charge les importations complètes et différentielles par le biais des méthodes qui suivent :
+Le connecteur SQL générique prend en charge les importations complètes et différentielles par le biais des méthodes qui suivent :
 
 * Table
 * Affichage
@@ -207,8 +211,8 @@ Le connecteur SQL générique prend en charge les importations complètes et dif
 **Table/Vue**  
 Pour importer les attributs à valeurs multiples d’un objet, vous devez fournir le nom de table/vue séparé par des virgules dans la **Nom des tables/vues à valeurs multiples** et les conditions de rattachement respectives dans la **condition de jointure** avec la table parente.
 
-Exemple : vous voulez importer l’objet Employé et tous ses attributs à plusieurs valeurs. Il existe deux tables nommées respectivement Employé (table principale) et Service (valeur multiple).
-Effectuez les actions suivantes :
+Exemple : vous voulez importer l’objet Employé et tous ses attributs à plusieurs valeurs. Il existe deux tables nommées respectivement Employé (table principale) et Service (valeur multiple).
+Effectuez les actions suivantes :
 
 * Saisissez **Employé** dans **Table/Vue/Nom unique**.
 * Saisissez le service dans **Nom de table/vue à valeurs multiples**.
@@ -219,8 +223,8 @@ Effectuez les actions suivantes :
 ![runstep3](./media/active-directory-aadconnectsync-connector-genericsql/runstep3.png)
 
 * Si vous avez beaucoup de données, il est conseillé de mettre en œuvre la pagination avec vos procédures stockées.
-* Pour que votre procédure stockée prenne en charge la pagination, vous devez fournir un index de début et un index de fin. Voir : [Pagination efficace dans de grandes quantités de données](https://msdn.microsoft.com/library/bb445504.aspx).
-* @StartIndex et @EndIndex sont remplacés au moment de l’exécution par la valeur de taille configurée sur la page **Étape de configuration**. Par exemple, si le connecteur récupère la première page et que la taille de page est définie sur 500, @StartIndex serait 1 et @EndIndex 500. Ces valeurs augmentent lorsque le connecteur récupère les pages suivantes, ce qui a pour effet de modifier les valeurs @StartIndex & @EndIndex.
+* Pour que votre procédure stockée prenne en charge la pagination, vous devez fournir un index de début et un index de fin. Voir : [Pagination efficace dans de grandes quantités de données](https://msdn.microsoft.com/library/bb445504.aspx).
+* @StartIndex et @EndIndex sont remplacés au moment de l’exécution par la valeur de taille configurée sur la page **Étape de configuration**. Par exemple, si le connecteur récupère la première page et que la taille de page est définie sur 500, @StartIndex serait 1 et @EndIndex 500. Ces valeurs augmentent lorsque le connecteur récupère les pages suivantes, ce qui a pour effet de modifier les valeurs @StartIndex et @EndIndex.
 * Pour exécuter la procédure stockée paramétrable, fournissez les paramètres au format `[Name]:[Direction]:[Value]` . Saisissez chaque paramètre sur une ligne différente (Utilisez Ctrl + Entrée pour passer à la ligne).
 * Le connecteur SQL générique prend également en charge l’opération d’importation à partir des serveurs liés dans Microsoft SQL Server. Si les informations doivent être extraites d’une table sur un serveur lié, la table doit être fournie au format : `[ServerName].[Database].[Schema].[TableName]`
 * Le connecteur SQL générique prend en charge uniquement les objets dont la structure est similaire (les alias et le type de données) entre les informations d’étapes d’exécution et la détection de schéma. Si l’objet sélectionné dans le schéma et les informations fournies à l’étape d’exécution sont différents, le connecteur SQL est incapable de prendre en charge ce type de scénario.
@@ -247,7 +251,7 @@ L’importation d’écart requiert une configuration plus importante que l’im
 ### <a name="export"></a>Exportation
 ![runstep7](./media/active-directory-aadconnectsync-connector-genericsql/runstep7.png)
 
-Le connecteur SQL générique prend en charge l’exportation en utilisant quatre méthodes prises en charge telles que :
+Le connecteur SQL générique prend en charge l’exportation en utilisant quatre méthodes prises en charge telles que :
 
 * Table
 * Affichage
@@ -281,6 +285,9 @@ Si vous choisissez l’option Requête SQL, l’exportation nécessite 3 procéd
 ## <a name="troubleshooting"></a>Résolution de problèmes
 * Pour plus d’informations sur la façon d’activer la journalisation pour résoudre les problèmes du connecteur, consultez [Comment activer le suivi ETW pour les connecteurs](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

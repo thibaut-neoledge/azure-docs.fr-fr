@@ -1,12 +1,12 @@
 ---
-title: Surveiller la progression des travaux à l’aide de .NET
-description: Apprenez à utiliser le code du gestionnaire d'événements pour suivre la progression des tâches et envoyer des mises à jour de l'état. L’exemple de code est écrit en C# et utilise le Kit de développement logiciel (SDK) Media Services pour .NET.
+title: "Surveiller la progression des travaux à l’aide de .NET"
+description: "Apprenez à utiliser le code du gestionnaire d&quot;événements pour suivre la progression des tâches et envoyer des mises à jour de l&quot;état. L’exemple de code est écrit en C# et utilise le Kit de développement logiciel (SDK) Media Services pour .NET."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ee720ed6-8ce5-4434-b6d6-4df71fca224e
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1420c9dbaba1767526fa86a27aacb4fa3b2e2fe0
+
 
 ---
-# Surveiller la progression des travaux à l’aide de .NET
+# <a name="monitor-job-progress-using-net"></a>Surveiller la progression des travaux à l’aide de .NET
 > [!div class="op_single_selector"]
 > * [Portail](media-services-portal-check-job-progress.md)
 > * [.NET](media-services-check-job-progress.md)
@@ -26,7 +30,7 @@ ms.author: juliako
 
 Lorsque vous exécutez des travaux, vous avez généralement besoin de faire appel à une méthode de suivi de la progression du travail. Vous pouvez vérifier la progression en définissant un gestionnaire d’événements StateChanged (comme le décrit cette rubrique) ou en utilisant Azure Queue Storage pour contrôler les notifications de travaux Media Services (comme le décrit [cette](media-services-dotnet-check-job-progress-with-queues.md) rubrique).
 
-## Définir le gestionnaire d’événements StateChanged pour surveiller la progression des tâches
+## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>Définir le gestionnaire d’événements StateChanged pour surveiller la progression des tâches
 L'exemple de code suivant définit un gestionnaire d'événements StateChanged. Ce dernier suit la progression du travail et fournit l'état mis à jour, selon l'état. Le code définit également la méthode LogJobStop. Cette méthode d'assistance journalise les détails de l'erreur.
 
     private static void StateChanged(object sender, JobStateChangedEventArgs e)
@@ -106,12 +110,17 @@ L'exemple de code suivant définit un gestionnaire d'événements StateChanged. 
 
 
 
-## Étape suivante
+## <a name="next-step"></a>Étape suivante
 Consultez les parcours d’apprentissage de Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Fournir des commentaires
+## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

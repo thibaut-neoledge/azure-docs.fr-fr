@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/30/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d173847a9d96e5524eae5283fb63857f02e39f10
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 98c8352152b6cd1817d32c6418597c566d94d44f
 
 
 ---
-# <a name="add-company-branding-to-your-signin-and-access-panel-pages"></a>Ajout d’une marque de société aux pages de connexion et du volet d’accès
+# <a name="add-company-branding-to-your-sign-in-and-access-panel-pages"></a>Ajout d’une marque de société aux pages de connexion et du volet d’accès
 Pour éviter toute confusion, de nombreuses entreprises veulent que tous les sites Web et services qu’elles gèrent aient un aspect similaire. Azure Active Directory offre cette possibilité en vous permettant de personnaliser l’apparence des pages Web suivantes pour qu’elles affichent le logo de votre société et sa palette de couleurs personnalisée :
 
 * **Page de connexion** : il s’agit de la page qui s’affiche lorsque vous vous connectez à Office 365 ou à d’autres applications Web qui utilisent Azure AD comme fournisseur d’identité. Vous interagissez avec cette page lors de la découverte d’accueil de domaine ou pour entrer vos informations d’identification. La découverte de domaine d’accueil permet au système de rediriger les utilisateurs fédérés vers leurs STS local (par exemple, AD FS).
@@ -34,7 +34,7 @@ Cette rubrique explique comment personnaliser la page de connexion et la page de
 > 
 > 
 
-## <a name="customizing-the-signin-page"></a>Personnalisation de la page de connexion
+## <a name="customizing-the-sign-in-page"></a>Personnalisation de la page de connexion
 En règle générale, vous utilisez la page de connexion pour accéder à l’aide d’un navigateur à vos applications et services cloud auxquels votre organisation est abonnée.
 
 Lorsque vous apportez des modifications à votre page de connexion, un délai pouvant atteindre une heure peut être nécessaire pour qu’elles apparaissent.
@@ -224,6 +224,6 @@ Certains éléments personnalisables d’Azure AD peuvent être utilisés de pl
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
 title: Gestion des clusters Hadoop dans HDInsight avec PowerShell | Microsoft Docs
-description: Découvrez comment effectuer des tâches d'administration pour les clusters Hadoop dans HDInsight au moyen d'Azure PowerShell.
+description: "Découvrez comment effectuer des tâches d&quot;administration pour les clusters Hadoop dans HDInsight au moyen d&quot;Azure PowerShell."
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 tags: azure-portal
 author: mumian
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: bfdfa754-18e5-4ef9-b0d6-2dbdcebc0283
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,45 +15,49 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0890076fb1f80489ec9ec75dddb8cbd4cfaa44f3
+
 
 ---
-# Gestion des clusters Hadoop dans HDInsight au moyen d’Azure PowerShell
-[!INCLUDE [sélecteur](../../includes/hdinsight-portal-management-selector.md)]
+# <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gestion des clusters Hadoop dans HDInsight au moyen d’Azure PowerShell
+[!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Cet article vous explique comment gérer les clusters Hadoop dans Azure HDInsight en utilisant la console locale Azure PowerShell par le biais de Windows PowerShell. Pour la liste des cmdlets PowerShell pour HDInsight, consultez la rubrique [Référence des cmdlets HDInsight][hdinsight-powershell-reference].
+Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Cet article vous explique comment gérer les clusters Hadoop dans Azure HDInsight en utilisant la console locale Azure PowerShell par le biais de Windows PowerShell. Pour obtenir la liste des applets de commande PowerShell pour HDInsight, consultez la rubrique [Référence des applets de commande HDInsight][hdinsight-powershell-reference].
 
 **Configuration requise**
 
-Avant de commencer cet article, vous devez disposer des éléments suivants :
+Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-## Installation d'Azure PowerShell
+## <a name="install-azure-powershell"></a>Installation d'Azure PowerShell
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 Si vous avez installé Azure PowerShell version 0.9x, vous devez le désinstaller avant d’installer une version plus récente.
 
-Pour connaître la version de PowerShell installée :
+Pour connaître la version de PowerShell installée :
 
     Get-Module *azure*
 
-Pour désinstaller l’ancienne version, exécutez Programmes et fonctionnalités dans le Panneau de configuration.
+Pour désinstaller l’ancienne version, exécutez Programmes et fonctionnalités dans le Panneau de configuration. 
 
-## Créer des clusters
-Consultez [Créer des clusters basés sur Linux dans HDInsight à l’aide d’Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
+## <a name="create-clusters"></a>Créer des clusters
+Consultez la page [Créer des clusters basés sur Linux dans HDInsight à l’aide d’Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 
-## Énumérer les clusters
+## <a name="list-clusters"></a>Énumérer les clusters
 Utilisez la commande suivante pour afficher la liste de tous les clusters de l’abonnement actif :
 
     Get-AzureRmHDInsightCluster
 
-## Afficher le cluster
+## <a name="show-cluster"></a>Afficher le cluster
 Utilisez la commande suivante pour afficher les détails d’un cluster spécifique dans l’abonnement actif :
 
     Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
-## Suppression des clusters
-Utilisez la commande suivante pour supprimer un cluster :
+## <a name="delete-clusters"></a>Suppression des clusters
+Utilisez la commande suivante pour supprimer un cluster :
 
     Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
@@ -61,15 +65,15 @@ Vous pouvez également supprimer un cluster en supprimant le groupe de ressource
 
     Remove-AzureRmResourceGroup -Name <Resource Group Name>
 
-## Mise à l’échelle des clusters
-La fonctionnalité de mise à l’échelle d’un cluster vous permet de modifier le nombre de nœuds de travail utilisés par un cluster exécuté dans Azure HDInsight sans avoir à recréer ce cluster.
+## <a name="scale-clusters"></a>Mise à l’échelle des clusters
+La fonctionnalité de mise à l’échelle d’un cluster vous permet de modifier le nombre de nœuds de travail utilisés par un cluster exécuté dans Azure HDInsight sans avoir à recréer ce cluster.
 
 > [!NOTE]
-> Seuls les clusters ayant la version 3.1.3 de HDInsight ou une version ultérieure sont pris en charge. Si vous n’êtes pas sûr de la version de votre cluster, vous pouvez consulter la page Propriétés. Voir [Énumération et affichage des clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+> Seuls les clusters ayant la version 3.1.3 de HDInsight ou une version ultérieure sont pris en charge. Si vous n’êtes pas sûr de la version de votre cluster, vous pouvez consulter la page Propriétés.  Voir [Énumération et affichage des clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 > 
 > 
 
-Impact de la modification du nombre de nœuds de données pour chaque type de cluster pris en charge par HDInsight :
+Impact de la modification du nombre de nœuds de données pour chaque type de cluster pris en charge par HDInsight :
 
 * Hadoop
   
@@ -87,31 +91,31 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
   
     Vous pouvez ajouter ou supprimer des nœuds de données en continu dans votre cluster Storm lorsque celui-ci s'exécute. Mais une fois l’opération de mise à l’échelle terminée avec succès, vous devrez rééquilibrer la topologie.
   
-    Cela peut se faire de deux façons à l’aide de :
+    Cela peut se faire de deux façons à l’aide de :
   
   * l'interface utilisateur Web de Storm
   * l’outil d’interface de ligne de commande (CLI)
     
-    Pour plus d’informations, consultez la documentation [Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    Pour plus d’informations, consultez la documentation [Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) .
     
-    L’interface utilisateur web de Storm est disponible dans le cluster HDInsight :
+    L’interface utilisateur web de Storm est disponible dans le cluster HDInsight :
     
     ![HDInsight storm mise à l’échelle rééquilibrage](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
     
-    Voici un exemple relatif à l'utilisation de la commande de l'interface en ligne de commande pour rééquilibrer la topologie Storm :
+    Voici un exemple relatif à l'utilisation de la commande de l'interface en ligne de commande pour rééquilibrer la topologie Storm :
     
-    ## Reconfigure the topology "mytopology" to use 5 worker processes,
-    ## the spout "blue-spout" to use 3 executors, and
-    ## the bolt "yellow-bolt" to use 10 executors
+    ## <a name="reconfigure-the-topology-mytopology-to-use-5-worker-processes"></a>Reconfigurez la topologie « mytopology » pour utiliser 5 processus de travail,
+    ## <a name="the-spout-blue-spout-to-use-3-executors-and"></a>le spout « blue-spout » pour utiliser 3 exécuteurs et
+    ## <a name="the-bolt-yellow-bolt-to-use-10-executors"></a>le bolt « yellow-bolt » pour utiliser 10 exécuteurs
       $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
-Pour modifier la taille du cluster Hadoop à l’aide d’Azure PowerShell, exécutez la commande suivante depuis un ordinateur client :
+Pour modifier la taille du cluster Hadoop à l’aide d’Azure PowerShell, exécutez la commande suivante depuis un ordinateur client :
 
     Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
 
 
-## Octroyer/Révoquer l’accès
-Les clusters HDInsight disposent des services web HTTP suivants (tous ces services ont des points de terminaison RESTful) :
+## <a name="grantrevoke-access"></a>Octroyer/Révoquer l’accès
+Les clusters HDInsight disposent des services web HTTP suivants (tous ces services ont des points de terminaison RESTful) :
 
 * ODBC
 * JDBC
@@ -119,11 +123,11 @@ Les clusters HDInsight disposent des services web HTTP suivants (tous ces servic
 * Oozie
 * Templeton
 
-Par défaut, l'accès à ces services est octroyé. Vous avez la possibilité de supprimer/octroyer l'accès. Pour révoquer :
+Par défaut, l'accès à ces services est octroyé. Vous avez la possibilité de supprimer/octroyer l'accès. Pour révoquer :
 
     Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
 
-Pour octroyer :
+Pour octroyer :
 
     $clusterName = "<HDInsight Cluster Name>"
 
@@ -143,12 +147,12 @@ Pour octroyer :
 > 
 > 
 
-Vous pouvez également le faire via le portail Azure. Consultez la rubrique [Administration de HDInsight à l’aide du portail Azure][hdinsight-admin-portal].
+Vous pouvez également le faire via le portail Azure. Consultez [Administration de HDInsight à l’aide du portail Azure][hdinsight-admin-portal].
 
-## Mettre à jour les informations d’identification de l’utilisateur HTTP
-Il s’agit de la même procédure que [l’octroi et la révocation de l’accès HTTP](#grant/revoke-access). Si l’accès HTTP a été octroyé au cluster, vous devez tout d’abord le révoquer. Octroyez ensuite l’accès avec les informations d’identification de l’utilisateur HTTP.
+## <a name="update-http-user-credentials"></a>Mettre à jour les informations d’identification de l’utilisateur HTTP
+Il s’agit de la même procédure que [l’octroi et la révocation de l’accès HTTP](#grant/revoke-access). Si l’accès HTTP a été octroyé au cluster, vous devez tout d’abord le révoquer.  Octroyez ensuite l’accès avec les informations d’identification de l’utilisateur HTTP.
 
-## Trouvez le compte de stockage par défaut
+## <a name="find-the-default-storage-account"></a>Trouvez le compte de stockage par défaut
 Le script Powershell suivant montre comment obtenir le nom de compte de stockage par défaut et la clé de compte de stockage par défaut pour un cluster.
 
     $clusterName = "<HDInsight Cluster Name>"
@@ -160,8 +164,8 @@ Le script Powershell suivant montre comment obtenir le nom de compte de stockage
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
     $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
 
-## Trouvez le groupe de ressources
-En mode Resource Manager, chaque cluster HDInsight appartient à un groupe de ressources Azure. Pour rechercher le groupe de ressources :
+## <a name="find-the-resource-group"></a>Trouvez le groupe de ressources
+En mode Resource Manager, chaque cluster HDInsight appartient à un groupe de ressources Azure.  Pour rechercher le groupe de ressources :
 
     $clusterName = "<HDInsight Cluster Name>"
 
@@ -169,12 +173,12 @@ En mode Resource Manager, chaque cluster HDInsight appartient à un groupe de re
     $resourceGroupName = $cluster.ResourceGroup
 
 
-## Soumettre les travaux
+## <a name="submit-jobs"></a>Soumettre les travaux
 **Pour envoyer des tâches MapReduce**
 
 Consultez [Exécution des exemples Hadoop MapReduce dans HDInsight basé sur Windows](hdinsight-run-samples.md)
 
-**Pour envoyer des tâches Hive**
+**Pour envoyer des tâches Hive** 
 
 Consultez [Exécution de requêtes Hive avec PowerShell](hdinsight-hadoop-use-hive-powershell.md).
 
@@ -190,10 +194,10 @@ Consultez l'article [Utilisation de Sqoop avec HDInsight](hdinsight-use-sqoop.md
 
 Consultez [Utilisation d’Oozie avec Hadoop pour définir et exécuter un workflow dans HDInsight](hdinsight-use-oozie.md).
 
-## Téléchargement de données vers le stockage d'objets blob Azure
-Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-upload-data].
+## <a name="upload-data-to-azure-blob-storage"></a>Téléchargement de données vers le stockage d'objets blob Azure
+Consultez la page [Téléchargement de données vers HDInsight][hdinsight-upload-data].
 
-## Voir aussi
+## <a name="see-also"></a>Voir aussi
 * [Documentation de référence des applets de commande HDInsight][hdinsight-powershell-reference]
 * [Administration de HDInsight à l’aide du portail Azure][hdinsight-admin-portal]
 * [Administration de HDInsight à l’aide de l’interface de ligne de commande][hdinsight-admin-cli]
@@ -225,4 +229,8 @@ Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-up
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

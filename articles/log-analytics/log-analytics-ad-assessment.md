@@ -1,12 +1,12 @@
 ---
-title: Optimiser votre environnement avec la solution d’évaluation Active Directory dans Log Analytics | Microsoft Docs
-description: La solution d’évaluation Active Directory permet d’évaluer les risques et l’intégrité de vos environnements de serveurs à intervalles réguliers.
+title: "Optimiser votre environnement avec la solution d’évaluation Active Directory dans Log Analytics | Microsoft Docs"
+description: "La solution d’évaluation Active Directory permet d’évaluer les risques et l’intégrité de vos environnements de serveurs à intervalles réguliers."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 58eee787b54122380b48f1c7a96dbe2e79e4bcef
+
 
 ---
 # <a name="optimize-your-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Optimiser votre environnement avec la solution d’évaluation Active Directory dans Log Analytics
@@ -56,13 +60,13 @@ Le tableau suivant présente les méthodes de collecte de données pour les agen
 Une valeur de pondération déterminant l'importance relative de la recommandation est attribuée à chaque recommandation. Seules les dix recommandations les plus importantes sont affichées.
 
 ### <a name="how-weights-are-calculated"></a>Calcul des pondérations
-Les pondérations sont des agrégations de valeurs basées sur trois facteurs clés :
+Les pondérations sont des agrégations de valeurs basées sur trois facteurs clés :
 
 * La *probabilité* qu'une anomalie identifiée cause des problèmes. Une plus grande probabilité attribue un score global supérieur à la recommandation.
 * L' *impact* de l'anomalie sur votre organisation si elle devait causer des problèmes. Un plus grand impact attribue un score global supérieur à la recommandation.
 * L' *effort* requis pour implémenter la recommandation. Un plus grand effort attribue un score global inférieur à la recommandation.
 
-La pondération de chaque recommandation est exprimée en pourcentage du score total disponible pour chaque domaine. Par exemple, si une recommandation dans le domaine de la sécurité et de la conformité a un score de 5 %, l'implémentation de cette recommandation augmentera votre score global de sécurité et conformité de 5 %.
+La pondération de chaque recommandation est exprimée en pourcentage du score total disponible pour chaque domaine. Par exemple, si une recommandation dans le domaine de la sécurité et de la conformité a un score de 5 %, l'implémentation de cette recommandation augmentera votre score global de sécurité et conformité de 5 %.
 
 ### <a name="focus-areas"></a>Domaines
 **Sécurité et conformité** : ce domaine présente les recommandations relatives aux menaces de sécurité potentielles et violations de stratégies d’entreprise, ainsi qu’aux exigences techniques, juridiques et réglementaires.
@@ -73,7 +77,7 @@ La pondération de chaque recommandation est exprimée en pourcentage du score t
 
 **Mise à niveau, migration et déploiement** : ce domaine présente des recommandations pour vous aider à mettre à niveau, migrer et déployer Active Directory dans votre infrastructure existante.
 
-### <a name="should-you-aim-to-score-100%-in-every-focus-area?"></a>Faut-il viser un score de 100 % dans chaque domaine ?
+### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Faut-il viser un score de 100 % dans chaque domaine ?
 Pas nécessairement. Les recommandations sont basées sur les connaissances et l'expérience que les ingénieurs de Microsoft ont acquises au contact de milliers de visiteurs. Toutefois, chaque infrastructure de serveur étant différente, certaines recommandations peuvent être plus ou moins adaptées à votre système. Par exemple, il se peut que certaines recommandations de sécurité soient moins appropriées si vos ordinateurs virtuels ne sont pas connectés à Internet. Certaines recommandations de disponibilité peuvent être moins pertinentes pour les services qui fournissent des rapports et des données ad hoc de faible priorité. Les problèmes importants pour une entreprise bien établie peuvent l'être moins pour une start-up. Nous vous conseillons donc d'identifier tout d'abord vos domaines prioritaires, puis d'observer l'évolution de vos résultats au fil du temps.
 
 Chaque recommandation inclut une justification de son importance. Servez-vous de cette explication pour évaluer si la mise en œuvre de la recommandation est importante pour vous, en fonction de la nature de vos services informatiques et des besoins de votre organisation.
@@ -100,10 +104,10 @@ Si vous souhaitez ignorer, des recommandations, vous pouvez créer un fichier te
    Type=ADAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
    
-   Voici une capture d’écran montrant la requête de recherche de journal : ![Échecs de recommandations](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
+   Voici une capture d’écran montrant la requête de recherche de journal : ![Échecs de recommandations](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
 2. Choisissez les recommandations que vous souhaitez ignorer. Vous utiliserez les valeurs RecommendationId dans la procédure suivante.
 
-### <a name="to-create-and-use-an-ignorerecommendations.txt-text-file"></a>Pour créer et utiliser un fichier texte IgnoreRecommendations.txt
+### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Pour créer et utiliser un fichier texte IgnoreRecommendations.txt
 1. Créez un fichier nommé IgnoreRecommendations.txt.
 2. Collez ou saisissez chaque valeur RecommendationId de chaque recommandation que Log Analytics doit ignorer sur une ligne distincte, puis enregistrez et fermez le fichier.
 3. Placez le fichier dans le dossier suivant sur chaque ordinateur sur lequel OMS doit ignorer les recommandations.
@@ -121,52 +125,55 @@ Une fois les prochaines évaluations planifiées exécutées, par défaut tous l
 2. Si vous décidez ultérieurement d’afficher les recommandations ignorées, supprimez tous les fichiers IgnoreRecommendations.txt, ou supprimez les valeurs RecommendationID de ces fichiers.
 
 ## <a name="ad-assessment-solutions-faq"></a>FAQ sur les solutions d'évaluation AD
-*Quelle est la fréquence d'exécution des évaluations ?*
+*Quelle est la fréquence d'exécution des évaluations ?*
 
-* L'évaluation s'exécute tous les 7 jours.
+* L'évaluation s'exécute tous les 7 jours.
 
-*Est-il possible de configurer la fréquence d'exécution de l'évaluation ?*
+*Est-il possible de configurer la fréquence d'exécution de l'évaluation ?*
 
 * Pas pour l'instant.
 
-*Si un autre serveur est découvert après l'ajout d'une solution d'évaluation, ce serveur sera-t-il évalué ?*
+*Si un autre serveur est découvert après l'ajout d'une solution d'évaluation, ce serveur sera-t-il évalué ?*
 
-* Oui, une fois découverts, les nouveaux serveurs sont évalués tous les 7 jours.
+* Oui, une fois découverts, les nouveaux serveurs sont évalués tous les 7 jours.
 
-*Si un serveur est désactivé, est-il retiré du processus d'évaluation ?*
+*Si un serveur est désactivé, est-il retiré du processus d'évaluation ?*
 
-* Si un serveur n'envoie pas de données pendant 3 semaines, il est supprimé.
+* Si un serveur n'envoie pas de données pendant 3 semaines, il est supprimé.
 
-*Quel est le nom du processus qui effectue la collecte de données ?*
+*Quel est le nom du processus qui effectue la collecte de données ?*
 
 * AdvisorAssessment.exe
 
-*Combien de temps la collecte de données prend-elle ?*
+*Combien de temps la collecte de données prend-elle ?*
 
-* La collecte de données sur le serveur prend environ 1 heure. Cela peut prendre plus de temps sur les serveurs dotés d'un grand nombre de serveurs Active Directory.
+* La collecte de données sur le serveur prend environ 1 heure. Cela peut prendre plus de temps sur les serveurs dotés d'un grand nombre de serveurs Active Directory.
 
-*Quels types de données sont collectés ?*
+*Quels types de données sont collectés ?*
 
-* Les types de données suivants sont collectés :
+* Les types de données suivants sont collectés :
   * WMI
   * Registre
   * Compteurs de performances
 
-*Est-il possible de configurer les périodes de collecte de données ?*
+*Est-il possible de configurer les périodes de collecte de données ?*
 
 * Pas pour l'instant.
 
-*Pourquoi afficher uniquement les 10 premières recommandations ?*
+*Pourquoi afficher uniquement les 10 premières recommandations ?*
 
 * Au lieu d'exploiter une liste de tâches trop importante, nous vous recommandons de vous concentrer sur les recommandations prioritaires. Une fois que vous les aurez suivies, de nouvelles recommandations apparaîtront. Si vous préférez afficher la liste détaillée de toutes les recommandations, utilisez Recherche de journal.
 
-*Est-il possible d'ignorer une recommandation ?*
+*Est-il possible d'ignorer une recommandation ?*
 
 * Oui, consultez la section [Ignorer les recommandations](#ignore-recommendations) ci-dessus.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez [Recherches de journal dans Log Analytics](log-analytics-log-searches.md) pour afficher les données d’évaluation AD détaillées ainsi que les recommandations.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

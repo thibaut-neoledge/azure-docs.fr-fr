@@ -1,22 +1,26 @@
 ---
 title: Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs | Microsoft Docs
-description: Guide du protocole pour les expressions et description d’AMQP 1.0 dans Azure Service Bus et Event Hubs
-services: service-bus,event-hubs
+description: "Guide du protocole pour les expressions et description d’AMQP 1.0 dans Azure Service Bus et Event Hubs"
+services: service-bus-messaging,event-hubs
 documentationcenter: .net
 author: clemensv
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2016
 ms.author: clemensv;jotaub;hillaryc;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 946384b5986ee56f16f5b3fe3be07d09f9837076
+
 
 ---
-# <a name="amqp-1.0-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs
+# <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs
 Advanced Message Queueing Protocol 1.0 est un protocole de transfert et de tramage normalisé permettant de transférer de manière asynchrone, sécurisée et fiable des messages entre deux parties. Il est le principal protocole de messagerie Azure Service Bus et Azure Event Hubs. Les deux services prennent également en charge le protocole HTTPS. Le protocole SBMP propriétaire qui est également pris en charge est progressivement supprimé en faveur du protocole AMQP.
 
 AMQP 1.0 est le résultat d’une vaste collaboration au sein du secteur entre des fournisseurs de middleware, tels que Microsoft et Red Hat et de nombreux utilisateurs de middleware de messagerie, tels que JP Morgan Chase représentant le secteur des services financiers. OASIS est le forum de normalisation technique destiné au protocole AMQP et aux spécifications d’extension ayant été approuvé officiellement comme norme internationale nommée ISO/IEC 19494.
@@ -32,7 +36,7 @@ Dans la discussion suivante, nous supposerons que la gestion des connexions, des
 
 Lorsque nous aborderons les fonctionnalités avancées d’Azure Service Bus, telles que la recherche de messages ou la gestion des sessions, celles-ci seront expliquées en termes AMQP, mais également sous la forme d’une pseudo-implémentation en couche au-dessus de cette abstraction d’API supposée.
 
-## <a name="what-is-amqp?"></a>Qu’est-ce que le protocole AMQP ?
+## <a name="what-is-amqp"></a>Qu’est-ce que le protocole AMQP ?
 AMQP est un protocole de tramage et de transfert. Le tramage signifie qu’il fournit la structure des flux de données binaires qui circulent dans les deux directions d’une connexion réseau. La structure délimite les blocs de données distincts (trames) à échanger entre les parties connectées. Les fonctionnalités de transfert s’assurent que les deux parties qui communiquent peuvent établir une compréhension partagée pour savoir quand les trames doivent être transférées et à quel moment les transferts doivent être considérés comme terminés.
 
 Contrairement aux précédents projets de version expirés élaborés par le groupe de travail AMQP, qui sont encore en cours d’utilisation par quelques courtiers de messages, le protocole AMQP 1.0 normalisé et finalisé du groupe de travail ne recommande pas la présence d’un courtier de messages ou d’une topologie spécifique pour les entités situées dans un courtier de messages.
@@ -141,25 +145,25 @@ Les flèches indiquent le sens du flux performatif.
 | --> attach(<br/>name={nom du lien},<br/>handle={gestion numérique},<br/>role=**sender**,<br/>source={id du lien client},<br/>target={nom de l’entité}<br/>) |Aucune action |
 | Aucune action |<-- attach(<br/>name={nom du lien},<br/>handle={gestion numérique},<br/>role=**receiver**,<br/>source={id du lien client},<br/>target={nom de l’entité}<br/>) |
 
-#### <a name="create-message-sender-(error)"></a>Création de l’expéditeur du message (erreur)
+#### <a name="create-message-sender-error"></a>Création de l’expéditeur du message (erreur)
 | Client | SERVICE BUS |
 | --- | --- |
 | --> attach(<br/>name={nom du lien},<br/>handle={gestion numérique},<br/>role=**sender**,<br/>source={id du lien client},<br/>target={nom de l’entité}<br/>) |Aucune action |
 | Aucune action |<-- attach(<br/>name={nom du lien},<br/>handle={gestion numérique},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={gestion numérique},<br/>closed=**true**,<br/>error={infos sur l’erreur}<br/>) |
 
-#### <a name="close-message-receiver/sender"></a>Fermeture de l’expéditeur/du destinataire du message
+#### <a name="close-message-receiversender"></a>Fermeture de l’expéditeur/du destinataire du message
 | Client | SERVICE BUS |
 | --- | --- |
 | --> detach(<br/>handle={gestion numérique},<br/>closed=**true**<br/>) |Aucune action |
 | Aucune action |<-- detach(<br/>handle={gestion numérique},<br/>closed=**true**<br/>) |
 
-#### <a name="send-(success)"></a>Envoi (réussite)
+#### <a name="send-success"></a>Envoi (réussite)
 | Client | SERVICE BUS |
 | --- | --- |
 | --> transfer(<br/>delivery-id={gestion numérique},<br/>delivery-tag={gestion binaire},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Aucune action |
 | Aucune action |<-- disposition(<br/>role=receiver,<br/>first={id d’envoi},<br/>last={id d’envoi},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
 
-#### <a name="send-(error)"></a>Envoi (erreur)
+#### <a name="send-error"></a>Envoi (erreur)
 | Client | SERVICE BUS |
 | --- | --- |
 | --> transfer(<br/>delivery-id={gestion numérique},<br/>delivery-tag={gestion binaire},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Aucune action |
@@ -303,11 +307,12 @@ Pour plus d’informations sur AMQP, consultez les liens suivants :
 [3]: ./media/service-bus-amqp/amqp3.png
 [4]: ./media/service-bus-amqp/amqp4.png
 
-[Vue d’ensemble du protocole AMQP de Service Bus]: service-bus-amqp-overview.md
+[Vue d’ensemble d’AMQP de Service Bus]: service-bus-amqp-overview.md
 [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
-[AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+[AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

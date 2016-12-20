@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
-ms.openlocfilehash: 9200174563523f40e425d4f6570e97f732d84129
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 47a057a5ff7fc893a2f82d762db499ec10a8db8e
 
 ---
 
@@ -44,7 +44,7 @@ L’exemple de modèle disponible dans le référentiel public utilise un fichie
 
 Pour déployer le modèle téléchargé à l’aide de PowerShell, suivez les étapes ci-dessous.
 
-1. Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
+1. Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 2. Pour créer un groupe de ressources à l'aide du modèle, exécutez l'applet de commande **New-AzureRmResourceGroupDeployment** .
 
     ```powershell
@@ -64,7 +64,7 @@ Pour déployer le modèle à l’aide de l’interface de ligne de commande Azur
     azure config mode arm
     ```
 
-    Voici le résultat attendu pour la commande ci-dessus :
+    Voici le résultat attendu pour la commande ci-dessus :
 
         info:    New mode is arm
 
@@ -85,6 +85,6 @@ Pour déployer le modèle à l’aide de l’interface de ligne de commande Azur
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

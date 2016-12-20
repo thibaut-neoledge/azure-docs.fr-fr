@@ -8,6 +8,10 @@
 ### [Prise en main d’IoT Hub (.NET)](iot-hub-csharp-csharp-getstarted.md)
 ### [Prise en main d’IoT Hub (Java)](iot-hub-java-java-getstarted.md)
 ### [Prise en main d’IoT Hub (Node)](iot-hub-node-node-getstarted.md)
+## Prise en main du kit de développement logiciel (SDK) d’appareils IoT
+### [Présentation du kit de développement logiciel (SDK) Azure IoT device pour C](iot-hub-device-sdk-c-intro.md)
+### [Kit de développement logiciel (SDK) Azure IoT device pour C : en savoir plus sur IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
+### [Kit de développement logiciel (SDK) Azure IoT device pour C : en savoir plus sur serializer](iot-hub-device-sdk-c-serializer.md)
 ## Prise en main de Raspberry Pi
 ### [Prise en main de Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-get-started.md)
 ### Leçon 1 : Configuration de votre appareil
@@ -32,6 +36,7 @@
 ## [Prise en main du kit de développement logiciel (SDK) Gateway (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Prise en main du kit de développement logiciel (SDK) Gateway (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
+
 # Procédure
 ## [Didacticiel sur le traitement des messages appareil-à-cloud (.NET)](iot-hub-csharp-csharp-process-d2c.md)
 ## [Didacticiel sur le traitement des messages appareil-à-cloud (Java)](iot-hub-java-java-process-d2c.md)
@@ -51,7 +56,7 @@
 ## [Utiliser des travaux d’appareils pour la mise à jour du microprogramme de .NET/Node](iot-hub-csharp-node-firmware-update.md)
 ## [Planifier et diffuser des travaux pour Node.js](iot-hub-node-node-schedule-jobs.md)
 ## [Planifier et diffuser des travaux pour .NET/Node](iot-hub-csharp-node-schedule-jobs.md)
-## Planifier votre déploiement
+## Planification
 ### [Comparaison entre IoT Hub et Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Mettre à l’échelle votre solution](iot-hub-scaling.md)
 ### [Haute disponibilité et récupération d’urgence](iot-hub-ha-dr.md)
@@ -74,9 +79,10 @@
 ### [Kits de développement logiciel (SDK) de services et d’appareils](iot-hub-devguide-sdks.md)
 ### [Support MQTT](iot-hub-mqtt-support.md)
 ### [Glossaire](iot-hub-devguide-glossary.md)
-## Gérer le service
+## Gérer
 ### [Créer un IoT Hub à l’aide du portail](iot-hub-create-through-portal.md)
-### [Créer un IoT Hub à l’aide de l’interface de ligne de commande](iot-hub-create-using-cli.md)
+### [Créer un IoT Hub à l’aide de l’interface de la version préliminaire d’Azure CLI 2.0](iot-hub-create-using-cli.md)
+### [Créer un IoT Hub à l’aide de l’interface de ligne de commande](iot-hub-create-using-cli-nodejs.md)
 ### [Créer un IoT Hub à l’aide de REST](iot-hub-rm-rest.md)
 ### [Créer un IoT Hub à l'aide de Powershell](iot-hub-rm-template-powershell.md)
 ### [Créer un IoT Hub à l’aide d’un modèle](iot-hub-rm-template.md)
@@ -96,17 +102,16 @@
 ### [Sécuriser votre déploiement IoT](iot-hub-security-deployment.md)
 
 # Référence
-## [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure)
-## [Java](https://docs.microsoft.com/java/api)
-## [API .NET](https://docs.microsoft.com/dotnet/api)
+## [Version préliminaire d’Azure CLI 2.0](/cli/azure/iot)
+## [.NET (service)](/dotnet/api/microsoft.azure.devices)
+## [.NET (appareils)](/dotnet/api/microsoft.azure.devices.client)
+## [Java (service)](/java/api/com.microsoft.azure.iot.service.auth)
+## [Java (appareils)](/java/api/com.microsoft.azure.iothub)
 ## [Kits de développement logiciel (SDK) Azure IoT](http://azure.github.io/azure-iot-sdks/)
-## [API du kit de développement logiciel (SDK) Gateway](http://azure.github.io/azure-iot-gateway-sdk)
-## [API REST des fournisseurs de ressources](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [API REST des identités des appareils](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [API REST de messagerie des appareils](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
-## [Présentation du kit de développement logiciel (SDK) Azure IoT device pour C](iot-hub-device-sdk-c-intro.md)
-## [Kit de développement logiciel (SDK) Azure IoT device pour C : en savoir plus sur IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
-## [Kit de développement logiciel (SDK) Azure IoT device pour C : en savoir plus sur serializer](iot-hub-device-sdk-c-serializer.md)
+## [Kit de développement logiciel (SDK) Gateway](http://azure.github.io/azure-iot-gateway-sdk)
+## [REST (fournisseur de ressources)](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
+## [REST (identités des appareils)](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
+## [REST (messagerie des appareils) API REST](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
 
 # Rubriques connexes
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -125,6 +130,6 @@
 ## [Catalogue d’appareils certifiés Azure pour l’IoT](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

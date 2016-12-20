@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/22/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 73510d618f414ebedd7cd1df979397e0b00570b8
+ms.sourcegitcommit: aac0354a8fbfb73bab3e7b5da7d9aefa69c9eb16
+ms.openlocfilehash: 5251ab851dd2934050747cd3ad7b2c4f0b9e98bb
 
 
 ---
@@ -192,7 +192,7 @@ Lorsque vous cliquez sur la base de données pour donner suite à cette recomman
 Pour activer l’audit, sélectionnez **ACTIVÉ** sous **Audit**.
 
 ### <a name="monitor-applications"></a>Surveillance des applications
-Si votre charge de travail Azure comprend des applications situées sur des [machines virtuelles (créées via Azure Resource Manager)](../resource-manager-deployment-model.md) comportant des ports web exposés (ports TCP 80 et 443), Azure Security Center peut les surveiller pour identifier les problèmes de sécurité potentiels et recommander des étapes de résolution. Lorsque vous cliquez sur la mosaïque **Applications**, le panneau **Applications** s’ouvre et affiche des recommandations dans la section **Étapes de prévention**. Il montre également la répartition des applications par hôte/IP virtuelle, comme illustré dans la capture d’écran suivante.
+Si votre charge de travail Azure comprend des applications situées sur des [machines virtuelles (créées via Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) comportant des ports web exposés (ports TCP 80 et 443), Azure Security Center peut les surveiller pour identifier les problèmes de sécurité potentiels et recommander des étapes de résolution. Lorsque vous cliquez sur la mosaïque **Applications**, le panneau **Applications** s’ouvre et affiche des recommandations dans la section **Recommandations relatives aux applications**. Il montre également la répartition des applications par hôte/IP virtuelle, comme illustré dans la capture d’écran suivante.
 
 ![État de sécurité des applications](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
 
@@ -216,6 +216,6 @@ Dans cet article, vous avez vu comment utiliser les fonctionnalités de surveill
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

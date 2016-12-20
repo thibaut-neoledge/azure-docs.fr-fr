@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8cb91a8cdc6d16070034c79515731be7b820d389
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e3d6caee50a57648f4f775029a2e381cee0f1e72
 
 
 ---
@@ -49,7 +49,7 @@ Une fois les cas d'utilisation et les segments définis, vous recevez des consei
 
 En fonction de l’intégration et une fois que les applications sont publiées, vous pouvez, en tant que spécialiste marketing, surveiller vos analyses en temps réel, segmenter vos audiences, puis commencer à envoyer des notifications Push intelligentes et ciblées pour communiquer avec les utilisateurs finaux dans ou en dehors de l’application.
 
-### <a name="usecases-to-get-started"></a>Cas d'utilisation pour la prise en main
+### <a name="use-cases-to-get-started"></a>Cas d'utilisation pour la prise en main
 1. Stratégie de bienvenue : créez plusieurs campagnes de notification push basées sur le comportement de l'utilisateur final au lancement de l'application pour relancer la communication à J+2/5/10/15 après la première session et augmenter la fidélisation lors de la première exécution.
 2. Faites la promotion d’un nouveau contenu (fonctionnalité, article/vidéo ou produit) en fonction du comportement de l’utilisateur final pour envoyer les informations uniquement aux utilisateurs finaux les plus susceptibles de s’engager.
 3. Évaluez l’application : ciblez moins d’1 % de votre base d’utilisateurs susceptibles d’accorder 5 étoiles à l’application dans la boutique d’applications.
@@ -66,13 +66,13 @@ Pour être le plus contextuel possible quand vous communiquez avec votre audienc
 > 
 > 
 
-### <a name="usecases-and-best-practices"></a>Cas d’utilisation et meilleures pratiques
+### <a name="use-cases-and-best-practices"></a>Cas d’utilisation et meilleures pratiques
 Dans les sections qui suivent, nous allons maintenant brièvement examiner certains cas d’utilisation clés rapportés par nos clients pour vous aider à faire vos premiers pas.
 
 #### <a name="media"></a>Médias
 Collectez des informations sur le type de contenu consommé par l’utilisateur final, puis segmentez l’audience en fonction de ce comportement pour cibler des types de contenu spécifique seulement sur l’audience susceptible de le consommer. De cette façon, vous évitez d'envoyer des courriers indésirables à toute une base d'utilisateurs et vous assurez une meilleure fidélisation.
 
-#### <a name="mcommerce"></a>M-commerce
+#### <a name="m-commerce"></a>M-commerce
 Collectez des informations sur les catégories de produit les plus visitées dans l'application et ciblez l'audience à laquelle vous pouvez proposer une réduction ou un nouveau produit que l'utilisateur final sera plus susceptible d'acheter dans cette catégorie. Cherchez à augmenter votre chiffre d'affaires. Là encore, l'objectif n'est pas d'envoyer du courrier indésirable !
 
 #### <a name="gaming"></a>Jeux
@@ -134,6 +134,6 @@ Tous ces types de données peuvent être agrémentés de paramètres (*extra-inf
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

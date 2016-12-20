@@ -1,13 +1,13 @@
 ---
-title: Utilisation de l’extension Docker VM pour Linux sur Azure
-description: Décrit Docker et les extensions Microsoft Azure Virtual Machines, et illustre la création par programme de machines virtuelles sur Microsoft Azure qui sont des hôtes Docker à partir de la ligne de commande en utilisant l’interface de ligne de commande Microsoft Azure.
+title: "Utilisation de l’extension Docker VM pour Linux sur Azure"
+description: "Décrit Docker et les extensions Microsoft Azure Virtual Machines, et illustre la création par programme de machines virtuelles sur Microsoft Azure qui sont des hôtes Docker à partir de la ligne de commande en utilisant l’interface de ligne de commande Microsoft Azure."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: squillace
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: eaff75e3-d929-4931-a4a1-8c377a8e7302
 ms.service: virtual-machines-linux
 ms.devlang: multiple
 ms.topic: article
@@ -15,74 +15,80 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 205812cdd4aa7cd5858075c642188a37de456ba7
+
 
 ---
-# Utilisation de l’extension Docker VM à partir de l’interface de ligne de commande Microsoft Azure
+# <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>Utilisation de l’extension Docker VM à partir de l’interface de ligne de commande Microsoft Azure
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-Cette rubrique décrit la création d’une machine virtuelle avec l’extension Docker VM, en mode Azure Service Management (ASM) à partir de l’interface de ligne de commande Azure sur toute plateforme. [Docker](https://www.docker.com/) fait partie des méthodes de virtualisation les plus prisées. Cet outil utilise des [conteneurs Linux](http://en.wikipedia.org/wiki/LXC) plutôt que des machines virtuelles pour isoler les données et le traitement sur des ressources partagées. Vous pouvez utiliser l’extension Docker VM et [l’agent Linux Azure](virtual-machines-linux-agent-user-guide.md) afin de créer une machine virtuelle Docker hébergeant un nombre indéfini de conteneurs pour vos applications sur Azure. Pour une discussion sur les conteneurs et leurs avantages, consultez le [Tableau blanc Docker de haut niveau](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+Pour plus d’informations sur l’utilisation de l’extension Docker VM avec le modèle Resource Manager, suivez [ce lien](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## Utilisation de l'extension Docker VM avec Azure
+Cette rubrique décrit la création d’une machine virtuelle avec l’extension Docker VM, en mode Azure Service Management (ASM) à partir de l’interface de ligne de commande Azure sur toute plateforme. [Docker](https://www.docker.com/) fait partie des méthodes de virtualisation les plus prisées. Cet outil utilise des [conteneurs Linux](http://en.wikipedia.org/wiki/LXC) plutôt que des machines virtuelles pour isoler les données et le traitement sur des ressources partagées. Vous pouvez utiliser l’extension Docker VM et [l’agent Linux Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) afin de créer une machine virtuelle Docker hébergeant un nombre indéfini de conteneurs pour vos applications sur Azure. Pour une discussion sur les conteneurs et leurs avantages, consultez le [Tableau blanc Docker de haut niveau](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+
+## <a name="how-to-use-the-docker-vm-extension-with-azure"></a>Utilisation de l'extension Docker VM avec Azure
 Pour utiliser l’extension Docker VM avec Azure, vous devez installer une version de [l’interface de ligne de commande Azure](https://github.com/Azure/azure-sdk-tools-xplat) supérieure à 0.8.6 (lors de la rédaction de ce document, la version la plus récente était 0.10.0). Vous pouvez installer cette interface sur Mac, Linux et Windows.
 
-Le processus d'utilisation de Docker sur Azure est relativement simple :
+Le processus d'utilisation de Docker sur Azure est relativement simple :
 
-* Installez l’interface de ligne de commande et ses dépendances sur l’ordinateur à partir duquel vous souhaitez contrôler Microsoft Azure (sur Windows, il s’agira d’une distribution Linux qui s’exécute comme une machine virtuelle).
-* Utiliser les commandes Docker de l’interface de ligne de commande Azure pour créer un hôte VM Docker dans Microsoft Azure
+* Installez l’interface de ligne de commande et ses dépendances sur l’ordinateur à partir duquel vous souhaitez contrôler Microsoft Azure (sur Windows, il s’agira d’une distribution Linux qui s’exécute comme une machine virtuelle).
+* Utiliser les commandes Docker de l’interface de ligne de commande Azure pour créer un hôte VM Docker dans Microsoft Azure
 * Utilisez les commandes Docker locales pour gérer vos conteneurs dans votre machine virtuelle Docker sous Azure.
 
-### Installer l’interface de ligne de commande Microsoft Azure
-Pour installer et configurer l’interface de ligne de commande Microsoft Azure, consultez la page [Installation de l’interface de ligne de commande Azure](../xplat-cli-install.md). Pour confirmer l’installation, tapez `azure` à l’invite de commandes. Après quelques secondes, l’illustration ASCII azure-cli doit normalement apparaître. Elle répertorie les commandes de base mises à votre disposition. Si l’installation s’est déroulée correctement, vous pouvez taper `azure help vm` et voir que l’une des commandes répertoriées est « docker ».
+### <a name="install-the-azure-command-line-interface-azure-cli"></a>Installer l’interface de ligne de commande Microsoft Azure
+Pour installer et configurer l’interface de ligne de commande Azure, consultez [Installation de l’interface de ligne de commande Azure](../xplat-cli-install.md). Pour confirmer l’installation, tapez `azure` à l’invite de commandes. Après quelques secondes, l’illustration ASCII azure-cli doit normalement apparaître. Elle répertorie les commandes de base mises à votre disposition. Si l’installation s’est déroulée correctement, vous pouvez taper `azure help vm` et voir que l’une des commandes répertoriées est « docker ».
 
 > [!NOTE]
 > Docker présente des outils pour Windows, [Docker Machine](https://docs.docker.com/installation/windows/), qui vous permet également d’automatiser la création d’un client Docker, à mettre à profit pour utiliser des machines virtuelles Azure en tant qu’hôtes Docker.
 > 
 > 
 
-### Connecter l’interface de ligne de commande Microsoft Azure à votre compte Microsoft Azure
-Avant de pouvoir utiliser l’interface de ligne de commande Microsoft Azure, vous devez associer vos informations d’identification Microsoft Azure à l’interface sur votre plateforme. La section [Connexion à votre abonnement Azure](../xplat-cli-connect.md) explique comment télécharger ou importer votre fichier **.publishsettings** ou associer votre interface de ligne de commande Azure à un ID d’organisation.
+### <a name="connect-the-azure-cli-to-to-your-azure-account"></a>Connecter l’interface de ligne de commande Microsoft Azure à votre compte Microsoft Azure
+Avant de pouvoir utiliser l’interface de ligne de commande Microsoft Azure, vous devez associer vos informations d’identification Microsoft Azure à l’interface sur votre plateforme. La section [Connexion à votre abonnement Azure](../xplat-cli-connect.md) explique comment télécharger ou importer votre fichier **.publishsettings** ou associer votre interface de ligne de commande Azure à un ID d’organisation.
 
 > [!NOTE]
 > Le comportement diffère quelque peu selon que vous utilisez l’une ou l’autre méthode d’authentification. Veuillez donc lire attentivement le document ci-dessus pour bien comprendre les différentes fonctionnalités.
 > 
 > 
 
-### Installation de Docker et utilisation de l’extension Docker VM pour Azure
+### <a name="install-docker-and-use-the-docker-vm-extension-for-azure"></a>Installation de Docker et utilisation de l’extension Docker VM pour Azure
 Suivez les [instructions d'installation de Docker](https://docs.docker.com/installation/#installation) pour installer Docker sur votre ordinateur.
 
-Pour utiliser Docker avec une machine virtuelle Azure, l'[Agent de machine virtuelle Azure](virtual-machines-linux-agent-user-guide.md) doit être installé dans l'image Linux utilisée pour la machine virtuelle. Actuellement, seuls deux types d'image le permettent :
+Pour utiliser Docker avec une machine virtuelle Azure, [l’Agent de machine virtuelle Linux Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) doit être installé dans l’image Linux utilisée pour la machine virtuelle. Actuellement, seuls deux types d'image le permettent :
 
-* une image Ubuntu de la galerie d'images Azure ou
-* une image Linux personnalisée que vous avez créée avec l'Agent de machine virtuelle Linux Azure installé et configuré. Consultez la rubrique [Agent de machine virtuelle Linux Azure](virtual-machines-linux-agent-user-guide.md) pour en savoir plus sur la création d'une machine virtuelle Linux personnalisée avec l'Agent de machine virtuelle Azure.
+* une image Ubuntu de la galerie d'images Azure ou
+* une image Linux personnalisée que vous avez créée avec l'Agent de machine virtuelle Linux Azure installé et configuré. Consultez [Agent de machine virtuelle Linux Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour en savoir plus sur la création d’une machine virtuelle Linux personnalisée avec l’Agent de machine virtuelle Azure.
 
-### Utilisation de la galerie d’images Azure
-Dans une session Bash ou Terminal, utilisez la commande d’interface de ligne de commande Microsoft Azure suivante pour localiser l’image Ubuntu la plus récente dans la galerie de machines virtuelles ; tapez :
+### <a name="using-the-azure-image-gallery"></a>Utilisation de la galerie d’images Azure
+Dans une session Bash ou Terminal, utilisez la commande d’interface de ligne de commande Microsoft Azure suivante pour localiser l’image Ubuntu la plus récente dans la galerie de machines virtuelles ; tapez :
 
 `azure vm image list | grep Ubuntu-14_04`
 
-Puis sélectionnez un des noms d’images (par ex. `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160516-fr-FR-30GB`) ; utilisez la commande suivante pour créer une machine virtuelle en utilisant cette image.
+Puis sélectionnez un des noms d’images (par ex. `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160516-en-us-30GB`) ; utilisez la commande suivante pour créer une machine virtuelle en utilisant cette image.
 
 ```
-azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160516-fr-FR-30GB" <username> <password>
+azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160516-en-us-30GB" <username> <password>
 ```
 
-où :
+où :
 
-* *&lt;vm-cloudservice name&gt;* est le nom de la machine virtuelle qui deviendra l’ordinateur hôte du conteneur Docker dans Microsoft Azure
-* *&lt;username&gt;* est le nom d’utilisateur racine par défaut de la machine virtuelle
-* *&lt;password&gt;* est le mot de passe du compte *nom\_utilisateur* remplissant les conditions de complexité Microsoft Azure
+* *&lt;vm-cloudservice name&gt;* est le nom de la machine virtuelle qui deviendra l’ordinateur hôte du conteneur Docker dans Azure
+* *&lt;nom_utilisateur&gt;* is the nom_utilisateur of the default root user of the VM
+* *&lt;password&gt;* est le mot de passe du compte *username* remplissant les conditions de complexité Azure
 
 > [!NOTE]
-> Un mot de passe doit comporter au moins 8 caractères, dont une lettre minuscule et une lettre majuscule, un chiffre et un caractère spécial parmi les suivants : `!@#$%^&+=`. Le point à la fin de la phrase précédente n'est PAS un caractère spécial.
+> Un mot de passe doit comporter au moins 8 caractères, dont une lettre minuscule et une lettre majuscule, un chiffre et un caractère spécial parmi les suivants : `!@#$%^&+=`. Le point à la fin de la phrase précédente n'est PAS un caractère spécial.
 > 
 > 
 
-Si la commande a été exécutée correctement, vous devriez normalement obtenir un résultat comparable à ce qui est illustré ci-dessous, suivant les arguments et options spécifiques que vous avez utilisés :
+Si la commande a été exécutée correctement, vous devriez normalement obtenir un résultat comparable à ce qui est illustré ci-dessous, suivant les arguments et options spécifiques que vous avez utilisés :
 
 ![](./media/virtual-machines-linux-classic-cli-use-docker/dockercreateresults.png)
 
 > [!NOTE]
-> La création d’une machine virtuelle peut prendre quelques minutes. Cependant, une fois l’approvisionnement terminé (valeur de l’état `ReadyRole`), le démon Docker (service Docker) démarre et vous pouvez vous connecter à l’hôte du conteneur Docker.
+> La création d’une machine virtuelle peut prendre quelques minutes. Cependant, une fois l’approvisionnement terminé (valeur de l’état `ReadyRole`), le démon Docker (service Docker) démarre et vous pouvez vous connecter à l’hôte du conteneur Docker.
 > 
 > 
 
@@ -90,9 +96,9 @@ Pour tester la machine virtuelle Docker que vous avez créée dans Azure, tapez
 
 `docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:2376 info`
 
-où *&lt;vm-name-you-used&gt;* est le nom de la machine virtuelle utilisée dans votre appel vers `azure vm docker create`. Ce que vous devez voir est similaire à ce qui suit ; cela indique que votre machine virtuelle hôte Docker est en service et attend vos commandes.
+où *&lt;vm-name-you-used&gt;* est le nom de la machine virtuelle utilisée dans votre appel à `azure vm docker create`. Ce que vous devez voir est similaire à ce qui suit ; cela indique que votre machine virtuelle hôte Docker est en service et attend vos commandes. 
 
-Vous pouvez maintenant essayer de vous connecter à l’aide de votre client docker pour obtenir des informations (dans certaines configurations du client Docker, par exemple sur Mac, vous devrez peut-être utiliser `sudo`) :
+Vous pouvez maintenant essayer de vous connecter à l’aide de votre client docker pour obtenir des informations (dans certaines configurations du client Docker, par exemple sur Mac, vous devrez peut-être utiliser `sudo`) :
 
     sudo docker --tls -H tcp://testsshasm.cloudapp.net:2376 info
     Password:
@@ -124,7 +130,7 @@ Vous pouvez maintenant essayer de vous connecter à l’aide de votre client doc
     Name: testsshasm
     WARNING: No swap limit support
 
-Pour vous assurer que tout fonctionne, vous pouvez examiner la machine virtuelle pour l’extension Docker :
+Pour vous assurer que tout fonctionne, vous pouvez examiner la machine virtuelle pour l’extension Docker :
 
     azure vm extension get testsshasm
     info: Executing command vm extension get
@@ -134,47 +140,51 @@ Pour vous assurer que tout fonctionne, vous pouvez examiner la machine virtuelle
     data: Microsoft.Azure.E... DockerExtension DockerExtension 1.* Enable
     info: vm extension get command OK
 
-### Authentification de la machine virtuelle hôte Docker
+### <a name="docker-host-vm-authentication"></a>Authentification de la machine virtuelle hôte Docker
 Outre la création de la machine virtuelle Docker, la commande `azure vm docker create` crée automatiquement les certificats nécessaires pour autoriser votre ordinateur client Docker à se connecter à l’hôte de conteneur Azure à l’aide du protocole HTTPS. Les certificats sont stockés sur les ordinateurs clients et hôtes, suivant le cas. Lors des tentatives suivantes, les certificats existants sont réutilisés et partagés avec le nouvel hôte.
 
-Par défaut, les certificats sont placés dans `~/.docker`, et Docker est configuré pour s’exécuter sur le port **2376**. Si vous souhaitez utiliser un autre port ou répertoire, vous pouvez utiliser l’une des options de ligne de commande `azure vm docker create` suivantes afin de configurer votre machine virtuelle hôte de conteneur Docker, de telle sorte qu’elle utilise un port ou des certificats différents pour la connexion des clients :
+Par défaut, les certificats sont placés dans `~/.docker`, et Docker est configuré pour s’exécuter sur le port **2376**. Si vous souhaitez utiliser un autre port ou répertoire, vous pouvez utiliser l’une des options de ligne de commande `azure vm docker create` suivantes afin de configurer votre machine virtuelle hôte de conteneur Docker, de telle sorte qu’elle utilise un port ou des certificats différents pour la connexion des clients :
 
 ```
 -dp, --docker-port [port]              Port to use for docker [2376]
 -dc, --docker-cert-dir [dir]           Directory containing docker certs [.docker/]
 ```
 
-Le démon Docker sur l’hôte est configuré pour écouter et authentifier les connexions client sur le port spécifié à l’aide des certificats générés par la commande `azure vm docker create`. L’ordinateur client doit posséder ces certificats pour avoir accès à l’hôte Docker.
+Le démon Docker sur l’hôte est configuré pour écouter et authentifier les connexions client sur le port spécifié à l’aide des certificats générés par la commande `azure vm docker create` . L’ordinateur client doit posséder ces certificats pour avoir accès à l’hôte Docker.
 
 > [!NOTE]
 > Un hôte en réseau qui s’exécute sans ces certificats est à la merci de toute personne capable de se connecter à l’ordinateur. Avant de modifier la configuration par défaut, vous devez bien comprendre les risques auxquels sont exposés vos ordinateurs et applications.
 > 
 > 
 
-## Étapes suivantes
-* Vous êtes prêt à consulter le [Guide d'utilisation Docker] et à utiliser votre machine virtuelle Docker. Pour créer une machine virtuelle Docker dans le nouveau portail, consultez la page [Utilisation de l'extension Docker VM avec le portail].
-* L’extension de machine virtuelle Azure Docker prend également en charge Docker Compose, qui utilise un fichier YAML déclaratif pour utiliser une application modélisée par un développeur dans tout environnement et générer un déploiement cohérent. Voir [Prise en main de Docker et Compose pour définir et exécuter une application à conteneurs multiples sur une machine virtuelle Azure].
+## <a name="next-steps"></a>Étapes suivantes
+* Vous êtes prêt à consulter le [Guide d'utilisation Docker] et à utiliser votre machine virtuelle Docker. Pour créer une machine virtuelle Docker dans le nouveau portail, consultez la page [Utilisation de l'extension Docker VM avec le portail].
+* L’extension de machine virtuelle Azure Docker prend également en charge Docker Compose, qui utilise un fichier YAML déclaratif pour utiliser une application modélisée par un développeur dans tout environnement et générer un déploiement cohérent. Voir [Prise en main de Docker et Compose pour définir et exécuter une application à conteneurs multiples sur une machine virtuelle Azure].  
 
 <!--Anchors-->
-[Subheading 1]: #subheading-1
-[Subheading 2]: #subheading-2
-[Subheading 3]: #subheading-3
-[Next steps]: #next-steps
+[Sous-titre 1]: #subheading-1
+[Sous-titre 2]: #subheading-2
+[Sous-titre 3]: #subheading-3
+[Étapes suivantes]: #next-steps
 
-[How to use the Docker VM Extension with Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
-[Virtual Machine Extensions for Linux and Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
-[Container and Container Management Resources for Azure]: #Container-and-Container-Management-Resources-for-Azure
+[Utilisation de l'extension Docker VM avec Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
+[Extensions de machine virtuelle pour Linux et Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
+[Conteneurs et ressources de gestion de conteneurs pour Azure]: #Container-and-Container-Management-Resources-for-Azure
 
 
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-hero-tutorial.md
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
-[Utilisation de l'extension Docker VM avec le portail]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
+[Lien 1 vers une autre rubrique de documentation azure.microsoft.com]: virtual-machines-windows-hero-tutorial.md
+[Lien 2 vers une autre rubrique de documentation azure.microsoft.com]: ../web-sites-custom-domain-name.md
+[Lien 3 vers une autre rubrique de documentation azure.microsoft.com]: ../storage-whatis-account.md
+[Utilisation de l'extension Docker VM avec le portail]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 
-[Guide d'utilisation Docker]: https://docs.docker.com/userguide/
+[Guide d'utilisation Docker]: https://docs.docker.com/userguide/
 
-[Prise en main de Docker et Compose pour définir et exécuter une application à conteneurs multiples sur une machine virtuelle Azure]: virtual-machines-linux-docker-compose-quickstart.md
+[Prise en main de Docker et Compose pour définir et exécuter une application à conteneurs multiples sur une machine virtuelle Azure]:virtual-machines-linux-docker-compose-quickstart.md
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

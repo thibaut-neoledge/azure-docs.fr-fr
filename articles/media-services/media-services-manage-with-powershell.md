@@ -1,22 +1,26 @@
 ---
-title: Gérer des comptes Azure Media Services avec PowerShell
-description: Apprenez à gérer des comptes Azure Media Services avec les applets de commande PowerShell.
+title: "Gérer des comptes Azure Media Services avec PowerShell"
+description: "Apprenez à gérer des comptes Azure Media Services avec les applets de commande PowerShell."
 author: Juliako
 manager: erikre
-editor: ''
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 17a10c25-d94f-421c-b6bc-ae0958e2ac96
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2016
+ms.date: 10/03/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 87f6d18ddc97921b62cbf111738044f24a0a940b
+
 
 ---
-# Gérer des comptes Azure Media Services avec PowerShell
+# <a name="manage-azure-media-services-accounts-with-powershell"></a>Gérer des comptes Azure Media Services avec PowerShell
 > [!div class="op_single_selector"]
 > * [Portail](media-services-portal-create-account.md)
 > * [PowerShell](media-services-manage-with-powershell.md)
@@ -27,48 +31,48 @@ ms.author: juliako
 > 
 > 
 
-## Vue d'ensemble
-Cet article répertorie les applets de commande Azure PowerShell pour Azure Media Services (AMS) dans le framework Azure Resource Manager. Les applets de commande existent dans l'espace de noms **Microsoft.Azure.Commands.Media**.
+## <a name="overview"></a>Vue d'ensemble
+Cet article répertorie les applets de commande Azure PowerShell pour Azure Media Services (AMS) dans le framework Azure Resource Manager. Les applets de commande existent dans l'espace de noms **Microsoft.Azure.Commands.Media** .
 
-## Versions
-**ApiVersion** : "2015-10-01"
+## <a name="versions"></a>Versions
+**ApiVersion** :   "2015-10-01"
 
-## New-AzureRmMediaService
+## <a name="new-azurermmediaservice"></a>New-AzureRmMediaService
 Créez un service multimédia.
 
-### Syntaxe
-Jeu de paramètres : StorageAccountIdParamSet
+### <a name="syntax"></a>Syntaxe
+Jeu de paramètres : StorageAccountIdParamSet
 
     New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccountId] <string> [-Tags <hashtable>]  [<CommonParameters>]
 
-Jeu de paramètres : StorageAccountsParamSet
+Jeu de paramètres : StorageAccountsParamSet
 
     New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccounts] <PSStorageAccount[]> [-Tags <hashtable>]  [<CommonParameters>]
 
-### Paramètres
+### <a name="parameters"></a>parameters
 **-ResourceGroupName &lt;String&gt;**
 
 Spécifie le nom du groupe de ressources auquel appartient ce service multimédia.
 
 | Alias | (aucun) |
 | --- | --- |
-| Requis ? |true |
-| Position ? |0 |
+| Requis ? |true |
+| Position ? |0 |
 | Valeur par défaut |(aucun) |
-| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
-| Accepter les caractères génériques ? |false |
+| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
+| Accepter les caractères génériques ? |false |
 
 **-AccountName &lt;String&gt;**
 
 Spécifie le nom du service multimédia.
 
-| Alias | Name |
+| Alias | Nom |
 | --- | --- |
-| Requis ? |true |
-| Position ? |1 |
+| Requis ? |true |
+| Position ? |1 |
 | Valeur par défaut |(aucun) |
-| Accepter l'entrée de pipeline ? |false |
-| Accepter les caractères génériques ? |false |
+| Accepter l'entrée de pipeline ? |false |
+| Accepter les caractères génériques ? |false |
 
 **-Location &lt;String&gt;**
 
@@ -76,11 +80,11 @@ Spécifie l’emplacement de la ressource du service multimédia.
 
 | Alias | (aucun) |
 | --- | --- |
-| Requis ? |true |
-| Position ? |2 |
+| Requis ? |true |
+| Position ? |2 |
 | Valeur par défaut |(aucun) |
-| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
-| Accepter les caractères génériques ? |false |
+| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
+| Accepter les caractères génériques ? |false |
 
 **-StorageAccountId &lt;String&gt;**
 
@@ -91,14 +95,14 @@ Spécifie un compte de stockage principal associé au service multimédia.
 
 | Alias | (aucun) |
 | --- | --- |
-| Requis ? |true |
-| Position ? |3 |
+| Requis ? |true |
+| Position ? |3 |
 | Valeur par défaut |(aucun) |
-| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
+| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
 | Nom du jeu de paramètres |StorageAccountIdParamSet |
-| Accepter les caractères génériques ? |false |
+| Accepter les caractères génériques ? |false |
 
-**-StorageAccounts &lt;PSStorageAccount[]&gt;**
+**-StorageAccounts &lt;PSStorageAccount\[\]&gt;**
 
 Spécifie les comptes de stockage associés au service multimédia.
 
@@ -108,69 +112,69 @@ Spécifie les comptes de stockage associés au service multimédia.
 
 | Alias | (aucun) |
 | --- | --- |
-| Requis ? |true |
-| Position ? |3 |
+| Requis ? |true |
+| Position ? |3 |
 | Valeur par défaut |(aucun) |
-| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
+| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
 | Nom du jeu de paramètres |StorageAccountsParamSet |
-| Accepter les caractères génériques ? |false |
+| Accepter les caractères génériques ? |false |
 
 **-Tags &lt;Hashtable&gt;**
 
 Spécifie une table de hachage des balises qui sont associées au service multimédia.
 
-* Exemple : @{"tag1"="value1";"tag2"=:value2"}
+* Exemple : @{"tag1"="value1";"tag2"=:value2"}
 
 | Alias | (aucun) |
 | --- | --- |
-| Requis ? |false |
-| Position ? |named |
+| Requis ? |false |
+| Position ? |named |
 | Valeur par défaut |(aucun) |
-| Accepter l'entrée de pipeline ? |false |
-| Accepter les caractères génériques ? |false |
+| Accepter l'entrée de pipeline ? |false |
+| Accepter les caractères génériques ? |false |
 
 **&lt;CommandParameters&gt;**
 
-Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
+Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
 
-### Entrées
+### <a name="inputs"></a>Entrées
 Le type d’entrée est le type des objets que vous pouvez envoyer à l’applet de commande.
 
-### Sorties
+### <a name="outputs"></a>Sorties
 Le type de sortie est le type des objets émis par l'applet de commande.
 
-## Set-AzureRmMediaService
+## <a name="set-azurermmediaservice"></a>Set-AzureRmMediaService
 Met à jour un service multimédia.
 
-### Syntaxe
+### <a name="syntax"></a>Syntaxe
     Set-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Tags <hashtable>] [-StorageAccounts <PSStorageAccount[]>]  [<CommonParameters>]
 
-### Paramètres
+### <a name="parameters"></a>parameters
 **-ResourceGroupName &lt;String&gt;**
 
 Spécifie le nom du groupe de ressources auquel appartient ce service multimédia.
 
 | Alias | (aucun) |
 | --- | --- |
-| Requis ? |true |
-| Position ? |0 |
+| Requis ? |true |
+| Position ? |0 |
 | Valeur par défaut |(aucun) |
-| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
-| Accepter les caractères génériques ? |false |
+| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
+| Accepter les caractères génériques ? |false |
 
 **-AccountName &lt;String&gt;**
 
 Spécifie le nom du service multimédia.
 
-| Alias | Name |
+| Alias | Nom |
 | --- | --- |
-| Requis ? |True |
-| Position ? |1 |
-| Valeur par défaut |Aucun |
-| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
-| Accepter les caractères génériques ? |False |
+| Requis ? |true |
+| Position ? |1 |
+| Valeur par défaut |(aucun) |
+| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
+| Accepter les caractères génériques ? |False |
 
-**-StorageAccounts &lt;PSStorageAccount[]&gt;**
+**-StorageAccounts &lt;PSStorageAccount\[\]&gt;**
 
 Spécifie les comptes de stockage associés au service multimédia.
 
@@ -180,12 +184,12 @@ Spécifie les comptes de stockage associés au service multimédia.
 
 | Alias | (aucun) |
 | --- | --- |
-| Requis ? |false |
-| Position ? |Nommé |
+| Requis ? |false |
+| Position ? |named |
 | Valeur par défaut |(aucun) |
-| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
+| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
 | Nom du jeu de paramètres |StorageAccountsParamSet |
-| Accepter les caractères génériques ? |false |
+| Accepter les caractères génériques ? |false |
 
 **-Tags &lt;Hashtable&gt;**
 
@@ -195,40 +199,40 @@ Spécifie une table de hachage des balises qui sont associées à ce service mul
 
 | Alias | (aucun) |
 | --- | --- |
-| Requis ? |False |
-| Position ? |Nommé |
-| Valeur par défaut |Aucun |
-| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
-| Accepter les caractères génériques ? |false |
+| Requis ? |false |
+| Position ? |named |
+| Valeur par défaut |(aucun) |
+| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
+| Accepter les caractères génériques ? |false |
 
 **&lt;CommandParameters&gt;**
 
-Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
+Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
 
-### Entrées
+### <a name="inputs"></a>Entrées
 Le type d’entrée est le type des objets que vous pouvez envoyer à l’applet de commande.
 
-### Sorties
+### <a name="outputs"></a>outputs
 Le type de sortie est le type des objets émis par l'applet de commande.
 
-## Remove-AzureRmMediaService
+## <a name="remove-azurermmediaservice"></a>Remove-AzureRmMediaService
 Supprime un service multimédia.
 
-### Syntaxe
+### <a name="syntax"></a>Syntaxe
     Remove-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
 
-### Paramètres
+### <a name="parameters"></a>parameters
 **-ResourceGroupName &lt;String&gt;**
 
 Spécifie le nom du groupe de ressources auquel appartient ce service multimédia.
 
 | Alias | (aucun) |
 | --- | --- |
-| Requis ? |true |
-| Position ? |0 |
+| Requis ? |true |
+| Position ? |0 |
 | Valeur par défaut |(aucun) |
-| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
-| Accepter les caractères génériques ? |false |
+| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
+| Accepter les caractères génériques ? |false |
 
 **-AccountName &lt;String&gt;**
 
@@ -236,27 +240,27 @@ Spécifie le nom du service multimédia.
 
 | Alias | (aucun) |
 | --- | --- |
-| Requis ? |true |
-| Position ? |2 |
-| Valeur par défaut |Aucun |
-| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
-| Accepter les caractères génériques ? |False |
+| Requis ? |true |
+| Position ? |2 |
+| Valeur par défaut |(aucun) |
+| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
+| Accepter les caractères génériques ? |False |
 
 **&lt;CommandParameters&gt;**
 
-Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
+Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
 
-### Entrées
+### <a name="inputs"></a>Entrées
 Le type d’entrée est le type des objets que vous pouvez envoyer à l’applet de commande.
 
-### Sorties
+### <a name="outputs"></a>outputs
 Le type de sortie est le type des objets émis par l'applet de commande.
 
-## Get-AzureRmMediaService
+## <a name="get-azurermmediaservice"></a>Get-AzureRmMediaService
 Obtient tous les services multimédia d'un groupe de ressources ou un service multimédia avec un nom donné.
 
-### Syntaxe
-Jeu de paramètres : ResourceGroupParameterSet
+### <a name="syntax"></a>Syntaxe
+Jeu de paramètres : ResourceGroupParameterSet
 
     Get-AzureRmMediaService [-ResourceGroupName] <string>  [<CommonParameters>]    
 
@@ -264,20 +268,20 @@ Jeu de paramètres : AccountNameParameterSet
 
     Get-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
 
-### Paramètres
+### <a name="parameters"></a>parameters
 **-ResourceGroupName &lt;String&gt;**
 
 Spécifie le nom du groupe de ressources auquel appartient ce service multimédia.
 
 | Alias | (aucun) |
 | --- | --- |
-| Requis ? |true |
-| Position ? |0 |
+| Requis ? |true |
+| Position ? |0 |
 | Valeur par défaut |(aucun) |
-| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
+| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
 | Nom du jeu de paramètres |ResourceGroupParameterSet, AccountNameParameterSet |
 
-Accepter les caractères génériques ? false
+Accepter les caractères génériques ?   false
 
 **-AccountName &lt;String&gt;**
 
@@ -285,41 +289,41 @@ Spécifie le nom du service multimédia.
 
 | Alias | (aucun) |
 | --- | --- |
-| Requis ? |true |
-| Position ? |1 |
+| Requis ? |true |
+| Position ? |1 |
 | Valeur par défaut |(aucun) |
-| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
+| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
 | Nom du jeu de paramètres |AccountNameParameterSet |
-| Accepter les caractères génériques ? |false |
+| Accepter les caractères génériques ? |false |
 
 **&lt;CommandParameters&gt;**
 
-Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
+Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
 
-### Entrées
+### <a name="inputs"></a>Entrées
 Le type d’entrée est le type des objets que vous pouvez envoyer à l’applet de commande.
 
-### Sorties
+### <a name="outputs"></a>outputs
 Le type de sortie est le type des objets émis par l'applet de commande.
 
-## Get-AzureRmMediaServiceKeys
+## <a name="get-azurermmediaservicekeys"></a>Get-AzureRmMediaServiceKeys
 Obtient les clés d’un service multimédia.
 
-### Syntaxe
+### <a name="syntax"></a>Syntaxe
     Get-AzureRmMediaServiceKeys [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
 
-### Paramètres
+### <a name="parameters"></a>parameters
 **-ResourceGroupName &lt;String&gt;**
 
 Spécifie le nom du groupe de ressources auquel appartient ce service multimédia.
 
 | Alias | (aucun) |
 | --- | --- |
-| Requis ? |true |
-| Position ? |0 |
+| Requis ? |true |
+| Position ? |0 |
 | Valeur par défaut |(aucun) |
-| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
-| Accepter les caractères génériques ? |false |
+| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
+| Accepter les caractères génériques ? |false |
 
 **-AccountName &lt;String&gt;**
 
@@ -327,40 +331,40 @@ Spécifie le nom du service multimédia.
 
 | Alias | (aucun) |
 | --- | --- |
-| Requis ? |true |
-| Position ? |1 |
+| Requis ? |true |
+| Position ? |1 |
 | Valeur par défaut |(aucun) |
-| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
-| Accepter les caractères génériques ? |false |
+| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
+| Accepter les caractères génériques ? |false |
 
 **&lt;CommandParameters&gt;**
 
-Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
+Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
 
-### Entrées
+### <a name="inputs"></a>Entrées
 Le type d’entrée est le type des objets que vous pouvez envoyer à l’applet de commande.
 
-### Sorties
+### <a name="outputs"></a>outputs
 Le type de sortie est le type des objets émis par l'applet de commande.
 
-## Set-AzureRmMediaServiceKey
+## <a name="set-azurermmediaservicekey"></a>Set-AzureRmMediaServiceKey
 Régénère une clé primaire ou secondaire d’un service multimédia.
 
-### Syntaxe
+### <a name="syntax"></a>Syntaxe
     Set-AzureRmMediaServiceKey [-ResourceGroupName] <string> [-AccountName] <string> [-KeyType] <KeyType> {Primary | Secondary}  [<CommonParameters>]
 
-### Paramètres
+### <a name="parameters"></a>parameters
 **-ResourceGroupName &lt;String&gt;**
 
 Spécifie le nom du groupe de ressources auquel appartient ce service multimédia.
 
 | Alias | (aucun) |
 | --- | --- |
-| Requis ? |true |
-| Position ? |0 |
+| Requis ? |true |
+| Position ? |0 |
 | Valeur par défaut |(aucun) |
-| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
-| Accepter les caractères génériques ? |false |
+| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
+| Accepter les caractères génériques ? |false |
 
 **-AccountName &lt;String&gt;**
 
@@ -368,11 +372,11 @@ Spécifie le nom du service multimédia.
 
 | Alias | (aucun) |
 | --- | --- |
-| Requis ? |true |
-| Position ? |1 |
+| Requis ? |true |
+| Position ? |1 |
 | Valeur par défaut |(aucun) |
-| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
-| Accepter les caractères génériques ? |false |
+| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
+| Accepter les caractères génériques ? |false |
 
 **-KeyType &lt;KeyType&gt;**
 
@@ -382,40 +386,40 @@ Spécifie le type de clé du service multimédia.
 
 | Alias | (aucun) |
 | --- | --- |
-| Requis ? |true |
-| Position ? |2 |
+| Requis ? |true |
+| Position ? |2 |
 | Valeur par défaut |(aucun) |
-| Accepter l'entrée de pipeline ? |false |
-| Accepter les caractères génériques ? |false |
+| Accepter l'entrée de pipeline ? |false |
+| Accepter les caractères génériques ? |false |
 
 **&lt;CommandParameters&gt;**
 
-Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
+Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
 
-### Entrées
+### <a name="inputs"></a>Entrées
 Le type d’entrée est le type des objets que vous pouvez envoyer à l’applet de commande.
 
-### Sorties
+### <a name="outputs"></a>outputs
 Le type de sortie est le type des objets émis par l'applet de commande.
 
-## Sync-AzureRmMediaServiceStorageKeys
+## <a name="sync-azurermmediaservicestoragekeys"></a>Sync-AzureRmMediaServiceStorageKeys
 Synchronise les clés de compte de stockage pour un compte de stockage associé au service multimédia.
 
-### Syntaxe
-    Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaServiceAccountName] <string>    [-StorageAccountName] <string>  [<CommonParameters>]
+### <a name="syntax"></a>Syntaxe
+    Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaServiceAccountName] <string>    [-StorageAccountId] <string>  [<CommonParameters>]
 
-### Paramètres
+### <a name="parameters"></a>parameters
 **-ResourceGroupName &lt;String&gt;**
 
 Spécifie le nom du groupe de ressources auquel appartient ce service multimédia.
 
 | Alias | (aucun) |
 | --- | --- |
-| Requis ? |true |
-| Position ? |0 |
+| Requis ? |true |
+| Position ? |0 |
 | Valeur par défaut |(aucun) |
-| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
-| Accepter les caractères génériques ? |false |
+| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
+| Accepter les caractères génériques ? |false |
 
 **-AccountName &lt;String&gt;**
 
@@ -423,11 +427,11 @@ Spécifie le nom du service multimédia.
 
 | Alias | (aucun) |
 | --- | --- |
-| Requis ? |true |
-| Position ? |1 |
+| Requis ? |true |
+| Position ? |1 |
 | Valeur par défaut |(aucun) |
-| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
-| Accepter les caractères génériques ? |false |
+| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
+| Accepter les caractères génériques ? |false |
 
 **-StorageAccountId &lt;String&gt;**
 
@@ -435,28 +439,33 @@ Spécifie le compte de stockage associé au service multimédia.
 
 | Alias | ID |
 | --- | --- |
-| Requis ? |true |
-| Position ? |2 |
+| Requis ? |true |
+| Position ? |2 |
 | Valeur par défaut |(aucun) |
-| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
-| Accepter les caractères génériques ? |false |
+| Accepter l'entrée de pipeline ? |True(ByPropertyName) |
+| Accepter les caractères génériques ? |false |
 
 **&lt;CommandParameters&gt;**
 
-Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
+Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
 
-### Entrées
+### <a name="inputs"></a>Entrées
 Le type d’entrée est le type des objets que vous pouvez envoyer à l’applet de commande.
 
-### Sorties
+### <a name="outputs"></a>outputs
 Le type de sortie est le type des objets émis par l'applet de commande.
 
-## Étape suivante
+## <a name="next-step"></a>Étape suivante
 Consultez les chemins d’apprentissage de Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Fournir des commentaires
+## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

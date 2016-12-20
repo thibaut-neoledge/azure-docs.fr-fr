@@ -1,12 +1,12 @@
 ---
-title: Azure Storage Service Encryption pour les données au repos | Microsoft Docs
-description: La fonctionnalité Azure Storage Service Encryption permet de chiffrer votre stockage d’objets blob Azure côté service lors du stockage des données et de le déchiffrer lorsque vous récupérez les données.
+title: "Azure Storage Service Encryption pour les données au repos | Microsoft Docs"
+description: "La fonctionnalité Azure Storage Service Encryption permet de chiffrer votre stockage d’objets blob Azure côté service lors du stockage des données et de le déchiffrer lorsque vous récupérez les données."
 services: storage
 documentationcenter: .net
 author: robinsh
 manager: carmonm
 editor: tysonn
-
+ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: bdb016af2c21b06c6abf5af607e703e5f898f8f4
+
 
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage Service Encryption pour les données au repos
@@ -56,8 +60,8 @@ SSE présente les limites suivantes :
 * Les données des tables, files d’attente et données ne sont pas chiffrées.
 
 ## <a name="getting-started"></a>Mise en route
-### <a name="step-1:-[create-a-new-storage-account](storage-create-storage-account.md)."></a>Étape 1 : [Créer un compte de stockage](storage-create-storage-account.md).
-### <a name="step-2:-enable-encryption."></a>Étape 2 : Activer le chiffrement.
+### <a name="step-1-create-a-new-storage-accountstorage-create-storage-accountmd"></a>Étape 1 : [Créer un compte de stockage](storage-create-storage-account.md).
+### <a name="step-2-enable-encryption"></a>Étape 2 : Activer le chiffrement.
 Vous pouvez activer le chiffrement à l’aide du [portail Azure](https://portal.azure.com).
 
 > [!NOTE]
@@ -65,7 +69,7 @@ Vous pouvez activer le chiffrement à l’aide du [portail Azure](https://portal
 > 
 > 
 
-### <a name="step-3:-copy-data-to-storage-account"></a>Étape 3 : Copier les données dans le compte de stockage
+### <a name="step-3-copy-data-to-storage-account"></a>Étape 3 : Copier les données dans le compte de stockage
 Si vous activez SSE sur un compte de stockage, puis écrivez des objets blob dans ce compte de stockage, alors les objets blob seront chiffrés. Tous les objets blob qui se trouvent déjà dans ce compte de stockage ne seront pas chiffrés jusqu’à ce qu’ils soient réécrits. Vous pouvez copier les données à partir d’un compte de stockage vers un autre avec SSE activé, ou encore activer SSE et copier les objets blob à partir d’un conteneur vers un autre pour vous assurer que les données précédentes sont chiffrées. Vous pouvez utiliser l’un des outils suivants pour effectuer cette opération.
 
 #### <a name="using-azcopy"></a>Utilisation d’AzCopy
@@ -83,7 +87,7 @@ Vous pouvez utiliser les explorateurs de stockage pour créer des comptes de sto
 
 Pour en savoir plus, consultez [Explorateurs du stockage Azure](storage-explorers.md).
 
-### <a name="step-4:-query-the-status-of-the-encrypted-data"></a>Étape 4 : Interroger l’état des données chiffrées
+### <a name="step-4-query-the-status-of-the-encrypted-data"></a>Étape 4 : Interroger l’état des données chiffrées
 Une version mise à jour des bibliothèques clientes de stockage a été déployée afin que vous puissiez interroger l’état d’un objet pour déterminer s’il est chiffré ou non. Des exemples seront ajoutés à ce document à l’avenir.
 
 En attendant, vous pouvez appeler l’opération [Obtenir les propriétés de compte](https://msdn.microsoft.com/library/azure/mt163553.aspx) afin de vérifier que le chiffrement est activé pour votre compte de stockage ou d’afficher les propriétés du compte de stockage dans le portail Azure.
@@ -122,11 +126,11 @@ R : Oui. SSE est pris en charge par le stockage Standard et Premium Storage.
 
 **Q : Si je crée un compte de stockage et que j’active SSE, puis que je crée une machine virtuelle à l’aide de ce compte de stockage, cela signifie-t-il que ma machine virtuelle est chiffrée ?**
 
-R. : Oui. Les disques créés qui utilisent le nouveau compte de stockage sont chiffrés, à condition qu’ils aient été créés après l’activation de SSE. Si la machine virtuelle a été créée à l’aide d’Azure Marketplace, l’image de base du disque dur virtuel reste non chiffrée. Toutefois, les écritures effectuées une fois que la machine virtuelle est opérationnelle sont chiffrées.
+R. : Oui. Les disques créés qui utilisent le nouveau compte de stockage sont chiffrés, à condition qu’ils aient été créés après l’activation de SSE. Si la machine virtuelle a été créée à l’aide d’Azure Marketplace, l’image de base du disque dur virtuel reste non chiffrée. Toutefois, les écritures effectuées une fois que la machine virtuelle est opérationnelle sont chiffrées.
 
 **Q : Puis-je créer des comptes de stockage dans lesquels SSE est activé à l’aide d’Azure PowerShell et de l’interface de ligne de commande Azure ?**
 
-R. : Oui.
+R. : Oui.
 
 **Q : Quel est le coût d’Azure Storage si SSE est activé ?**
 
@@ -175,6 +179,9 @@ R : Contactez [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com
 ## <a name="next-steps"></a>Étapes suivantes
 Azure Storage propose un ensemble complet de fonctionnalités de sécurité qui, réunies, permettent aux développeurs de créer des applications sécurisées. Pour plus d’informations, consultez notre [guide de sécurité sur Storage](storage-security-guide.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

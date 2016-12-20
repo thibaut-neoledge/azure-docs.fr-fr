@@ -1,13 +1,13 @@
 ---
-title: Introduction to App Service on Linux | Microsoft Docs
-description: Learn about App Service on Linux.
+title: "Présentation d’App Service sur Linux | Microsoft Docs"
+description: "Découvrez App Service sur Linux."
 keywords: azure app service, linux, oss
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: naziml
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,58 +15,70 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
+translationtype: Human Translation
+ms.sourcegitcommit: 44980a015f74110442f8684479ab0c911f605e8d
+ms.openlocfilehash: e2f1024f428647c05fb0faced70e779acbd86489
+
 
 ---
-# <a name="introduction-to-app-service-on-linux"></a>Introduction to App Service on Linux
-App Service on Linux is currently in Public Preview and supports running web apps natively on Linux. 
+# <a name="introduction-to-app-service-on-linux"></a>Présentation d’App Service sur Linux
+Actuellement disponible en version préliminaire publique, App Service sur Linux prend en charge l’exécution d’applications web en mode natif sur Linux.
 
-## <a name="overview"></a>Overview
-Customers can use App Service on Linux to host web apps natively on Linux for supported application stacks. The following features section lists the currently supported application stacks.
+## <a name="overview"></a>Vue d'ensemble
+Les clients peuvent utiliser App Service sur Linux pour héberger des applications web en mode natif sur Linux pour les piles d’applications prises en charge. La section suivante répertorie les piles d’applications qui sont actuellement prises en charge. 
 
-## <a name="features"></a>Features
-App Service on Linux currently supports the following application stacks
+## <a name="features"></a>Caractéristiques
+App Service sur Linux prend actuellement en charge les piles d’applications suivantes :
 
 * Node.js
 * PHP
+* .Net Core
 
-Customers can deploy their applications using
+Les clients peuvent déployer leurs applications à l’aide de :
 
-* FTP.
-* Local Git.
-* GitHub or BitBucket.
+* FTP
+* Git local
+* GitHub ou Bitbucket
 
-For application scaling
+Pour la mise à l’échelle des applications :
 
-* Customers can scale their web app up and down by changing the tier in their App Service Plan. 
-* Customers can scale out their applications out and run their app across multiple instances within the confines of their SKU.
+* Les clients peuvent mettre à l’échelle leurs applications web en modifiant le niveau de leur plan App Service.
+* Les clients peuvent augmenter la taille des instances de leurs applications et exécuter leur application sur plusieurs instances dans les limites de leur référence (SKU).
 
-For Kudu some of the basic functionality will work
+Pour Kudu, certaines fonctionnalités de base fonctionnent avec les éléments suivants :
 
-* Environment.
-* Deployments.
-* Basic console.
+* Environnements
+* Déploiements
+* Consoles de base
 
-## <a name="limitations"></a>Limitations
-The Azure management portal will only show currently supported features for App Service on Linux and hide the rest. As our team enabling more features we will keep reflecting this on the management portal. Some features like VNET integration and AAD / third-party authentication or Kudu site extensions do not currently work. But as we get these working we will update our documentation and blog about changes.
+## <a name="limitations"></a>Limites
+Le portail Azure affiche uniquement les fonctionnalités actuellement compatibles avec App Service sur Linux et masque les autres. Lorsque de nouvelles fonctionnalités seront disponibles, le portail sera mis à jour.
 
-This public preview is currently only available in the following regions
+Certaines fonctionnalités, telles que l’intégration de réseau virtuel, l’authentification Azure Active Directory/tierce ou les extensions de site Kudu ne sont pour l’instant pas compatibles. Dès qu’elles seront disponibles, nous mettrons à jour notre documentation et nous annoncerons les modifications sur notre blog.
 
-* West US.
-* West Europe.
-* Southeast Asia.
+Cette version préliminaire publique est actuellement disponible uniquement dans les régions suivantes :
 
-Web app on Linux is only supported in Dedicated App Service Plans and does not have a Free or Shared tier. Also, app service plans for regular and Linux web apps are mutually exclusive, so you cannot create a Linux web app in a non-Linux app service plan.
+* Ouest des États-Unis
+* Europe de l'Ouest 
+* Asie du Sud-Est
 
-Web app on Linux must be created in a resource group that does not contain non-Linux web apps in the same region.
+Web Apps sur Linux est uniquement pris en charge dans les plans App Service dédiés et ne dispose pas d’un niveau Gratuit ou Partagé. En outre, les plans App Service pour les applications web standards et Linux s’excluent mutuellement : vous ne pouvez pas créer une application web Linux dans un plan App Service non Linux.
 
-Due to the lack of overlapped recycling of the web apps, customers should expect a small downtime in the event of a web app got restarted. 
+Sous Linux, les applications web doivent être créées dans un groupe de ressources qui ne contient pas d’applications web non Linux dans la même région.
 
-## <a name="next-steps"></a>Next Steps
-Follow the following links to get started with App Service on Linux. Please post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+En raison du manque de recyclage avec chevauchement des applications web, les clients sont susceptibles de rencontrer un bref temps d’arrêt en cas de redémarrage d’une application web.
 
-* [Creating Web Apps in App Service on Linux](app-service-linux-how-to-create-a-web-app.md)
-* [Using PM2 Configuration for Node.js in Web Apps on Linux](app-service-linux-using-nodejs-pm2.md)
+## <a name="next-steps"></a>Étapes suivantes
+Consultez les liens ci-dessous pour vous familiariser avec App Service sur Linux. Vous pouvez poser des questions et signaler vos préoccupations sur [notre forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-<!--HONumber=Oct16_HO2-->
+* [Création d’applications Web dans App Service sur Linux](app-service-linux-how-to-create-a-web-app.md)
+* [Utilisation d’une image Docker personnalisée pour App Service sur Linux](app-service-linux-using-custom-docker-image.md)
+* [Utilisation de la configuration PM2 pour Node.js dans les applications Web sur Linux](app-service-linux-using-nodejs-pm2.md)
+* [Utilisation de .NET Core dans Azure App Service Web Apps sur Linux](app-service-linux-intro.md)
+
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

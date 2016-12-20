@@ -1,22 +1,26 @@
 ---
-title: Utiliser l'interface utilisateur Tez avec HDInsight basé sur Windows | Microsoft Docs
-description: Apprenez à utiliser l'interface utilisateur Tez pour déboguer les travaux Tez dans HDInsight sous Windows.
+title: "Utiliser l&quot;interface utilisateur Tez avec HDInsight basé sur Windows | Microsoft Docs"
+description: "Apprenez à utiliser l&quot;interface utilisateur Tez pour déboguer les travaux Tez dans HDInsight sous Windows."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: a55bccb9-7c32-4ff2-b654-213a2354bd5c
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/19/2016
+ms.date: 10/04/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c5ea8696c8f04b7bd391c6ed060b343e0ab22e0b
+
 
 ---
-# Utiliser l’interface utilisateur Tez pour déboguer les travaux Tez dans HDInsight sous Windows
+# <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Utiliser l’interface utilisateur Tez pour déboguer les travaux Tez dans HDInsight sous Windows
 L’interface utilisateur Tez est une page web qui peut servir à comprendre et à déboguer les travaux utilisant Tez comme moteur d’exécution pour les clusters HDInsight basés sur Windows. L’interface utilisateur Tez vous permet de visualiser le travail sous forme de graphique d’éléments connectés, d’explorer chacun d’entre eux, ainsi que d’extraire des statistiques et des informations de journalisation.
 
 > [!NOTE]
@@ -24,8 +28,8 @@ L’interface utilisateur Tez est une page web qui peut servir à comprendre et 
 > 
 > 
 
-## Composants requis
-* Un cluster HDInsight Windows Pour plus d’informations sur la création d’un cluster, consultez [Prise en main de HDInsight sur Windows](hdinsight-hadoop-tutorial-get-started-windows.md).
+## <a name="prerequisites"></a>Conditions préalables
+* Un cluster HDInsight Windows Pour plus d’informations sur la création d’un cluster, consultez [Prise en main de HDInsight sur Windows](hdinsight-hadoop-tutorial-get-started-windows.md).
   
   > [!IMPORTANT]
   > L’interface utilisateur Tez est disponible uniquement pour les clusters HDInsight sur Windows créés après le 8 février 2016.
@@ -33,25 +37,25 @@ L’interface utilisateur Tez est une page web qui peut servir à comprendre et 
   > 
 * Un client Bureau à distance basé sur Windows.
 
-## Présentation de Tez
-Tez est une infrastructure extensible pour le traitement des données dans Hadoop plus rapide que le traitement MapReduce traditionnel. Pour les clusters HDInsight basés sur Windows, il s’agit d’un moteur facultatif que vous pouvez activer pour Hive dans le cadre de votre requête Hive à l’aide de la commande suivante :
+## <a name="understanding-tez"></a>Présentation de Tez
+Tez est une infrastructure extensible pour le traitement des données dans Hadoop plus rapide que le traitement MapReduce traditionnel. Pour les clusters HDInsight basés sur Windows, il s’agit d’un moteur facultatif que vous pouvez activer pour Hive dans le cadre de votre requête Hive à l’aide de la commande suivante :
 
     set hive.execution.engine=tez;
 
-Lorsque Tez reçoit un travail à effectuer, il crée un graphe orienté acyclique (Directed Acyclic Graph - DAG) qui décrit l’ordre d’exécution des actions requises. Les actions individuelles sont appelées des vertex et exécutent une partie du travail global. L’exécution réelle du travail décrit par un vertex est appelée une tâche, et peut être répartie sur plusieurs nœuds du cluster.
+Lorsque Tez reçoit un travail à effectuer, il crée un graphe orienté acyclique (Directed Acyclic Graph - DAG) qui décrit l’ordre d’exécution des actions requises. Les actions individuelles sont appelées des vertex et exécutent une partie du travail global. L’exécution réelle du travail décrit par un vertex est appelée une tâche, et peut être répartie sur plusieurs nœuds du cluster.
 
-### Présentation de l’interface utilisateur Tez
-L’interface utilisateur Tez est une page web qui fournit des informations sur les processus en cours d’exécution, ou qui ont été exécutés à l’aide de Tez. Elle vous permet d'afficher le DAG généré par Tez, de connaître la répartition entre les clusters, et d'accéder aux compteurs tels que la mémoire utilisée par les tâches et les vertex, ainsi qu'aux informations d'erreur. Elle peut fournir des informations utiles dans les scénarios suivants :
+### <a name="understanding-the-tez-ui"></a>Présentation de l’interface utilisateur Tez
+L’interface utilisateur Tez est une page web qui fournit des informations sur les processus en cours d’exécution, ou qui ont été exécutés à l’aide de Tez. Elle vous permet d'afficher le DAG généré par Tez, de connaître la répartition entre les clusters, et d'accéder aux compteurs tels que la mémoire utilisée par les tâches et les vertex, ainsi qu'aux informations d'erreur. Elle peut fournir des informations utiles dans les scénarios suivants :
 
 * Surveiller les processus à long terme, voir l'avancement des tâches de mappage et de réduction.
 * Analyser les données historiques des processus ayant réussi ou échoué, afin de savoir comment le traitement peut être amélioré ou pourquoi il a échoué.
 
-## Générer un DAG
+## <a name="generate-a-dag"></a>Générer un DAG
 L'interface utilisateur Tez contient des données uniquement si une tâche qui utilise le moteur Tez est en cours d'exécution ou a déjà été exécutée. Les requêtes Hive simples peuvent généralement être résolues sans utiliser Tez. Toutefois, Tez est généralement nécessaire pour les requêtes plus complexes destinées à filtrer, regrouper, classer, joindre, etc.
 
 Utilisez les étapes suivantes pour exécuter une requête Hive à l'aide de Tez.
 
-1. Dans un navigateur web, accédez à https://CLUSTERNAME.azurehdinsight.net, où **CLUSTERNAME** est le nom de votre cluster HDInsight.
+1. Dans un navigateur web, accédez à l’adresse https://CLUSTERNAME.azurehdinsight.net, où **CLUSTERNAME** est le nom de votre cluster HDInsight.
 2. Dans le menu situé en haut de la page, sélectionnez **Éditeur Hive**. Cela affiche une page avec l'exemple de requête suivant.
    
         Select * from hivesampletable
@@ -60,13 +64,13 @@ Utilisez les étapes suivantes pour exécuter une requête Hive à l'aide de Tez
    
         set hive.execution.engine=tez;
         select market, state, country from hivesampletable where deviceplatform='Android' group by market, country, state;
-3. Cliquez sur le bouton **Envoyer**. La section **Session de travail** en bas de la page affiche l'état de la requête. Une fois que l'état passe à **Terminé**, sélectionnez le lien **Afficher les détails** pour afficher les résultats. La **sortie de la tâche** doit ressembler à ce qui suit :
+3. Cliquez sur le bouton **Envoyer** . La section **Session de travail** en bas de la page affiche l'état de la requête. Une fois que l'état passe à **Terminé**, sélectionnez le lien **Afficher les détails** pour afficher les résultats. La **sortie de la tâche** doit ressembler à ce qui suit :
    
         en-GB   Hessen      Germany
         en-GB   Kingston    Jamaica
         en-GB   Nairobi Area    Kenya
 
-## Utiliser l'interface utilisateur Tez
+## <a name="use-the-tez-ui"></a>Utiliser l'interface utilisateur Tez
 > [!NOTE]
 > L'interface utilisateur Tez est seulement disponible à partir du bureau des nœuds principaux du cluster, donc vous devez utiliser le Bureau à distance pour vous connecter aux nœuds principaux.
 > 
@@ -112,9 +116,9 @@ Utilisez les étapes suivantes pour exécuter une requête Hive à l'aide de Tez
 8. Sélectionnez **Vue graphique**. Cette action permet d’afficher une représentation graphique du DAG. Dans cette vue, vous pouvez placer la souris sur chaque vertex pour afficher les informations le concernant.
    
     ![Vue graphique](./media/hdinsight-debug-tez-ui/dagdiagram.png)
-9. Cliquez sur un vertex pour charger ses **Détails**. Cliquez sur le vertex **Map 1** pour afficher les détails de cet élément. Sélectionnez **Confirmer** pour confirmer la navigation.
+9. Cliquez sur un vertex pour charger ses **Détails du vertex**. Cliquez sur le vertex **Map 1** pour afficher les détails de cet élément. Sélectionnez **Confirmer** pour confirmer la navigation.
    
-    ![Détails du vertex](./media/hdinsight-debug-tez-ui/vertexdetails.png)
+    ![Détails](./media/hdinsight-debug-tez-ui/vertexdetails.png)
 10. Notez qu’en haut de la page, vous disposez maintenant de liens relatifs aux vertex et aux tâches.
     
     > [!NOTE]
@@ -128,16 +132,21 @@ Utilisez les étapes suivantes pour exécuter une requête Hive à l'aide de Tez
     * **Sources et récepteurs** permet d’afficher les sources et les récepteurs de données pour ce vertex.
       
       > [!NOTE]
-      > Comme avec le menu précédent, vous pouvez parcourir les colonnes Tâches, Tentatives de tâche et Sources et récepteurs\_\_ afin d’afficher des liens vers d’autres informations pour chaque élément.
+      > Comme avec le menu précédent, vous pouvez parcourir les colonnes Tâches, Tentatives de tâche et Sources et récepteurs__ afin d’afficher des liens vers d’autres informations pour chaque élément.
       > 
       > 
-11. Sélectionnez **Tâches**, puis sélectionnez l’élément nommé **00_000000_\_. Cette action permet d’afficher les __détails de la tâche**. À partir de cet écran, vous pouvez consulter les **compteurs de tâche** et les *_tentatives de tâche\*\_.
+11. Sélectionnez **Tâches**, puis sélectionnez l’élément nommé **00_000000**. Cette action permet d’afficher les **détails de la tâche**. À partir de cet écran, vous pouvez consulter les **compteurs de tâche** et les **tentatives de tâche**.
     
     ![Détails de la tâche](./media/hdinsight-debug-tez-ui/taskdetails.png)
 
-## Étapes suivantes
-Maintenant que vous avez appris à utiliser la vue Tez, obtenez plus d’informations sur l’[Utilisation de Hive dans HDInsight](hdinsight-use-hive.md).
+## <a name="next-steps"></a>Étapes suivantes
+Maintenant que vous avez appris à utiliser la vue Tez, obtenez plus d’informations sur l’ [Utilisation de Hive dans HDInsight](hdinsight-use-hive.md).
 
-Pour plus d’informations techniques sur Tez, consultez la [page Tez sur Hortonworks](http://hortonworks.com/hadoop/tez/) (en anglais).
+Pour plus d’informations techniques sur Tez, consultez la [page Tez sur Hortonworks](http://hortonworks.com/hadoop/tez/)(en anglais).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

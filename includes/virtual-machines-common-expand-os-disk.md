@@ -1,16 +1,16 @@
-## Vue d'ensemble
-Lorsque vous créez une machine virtuelle (VM) dans un groupe de ressources en déployant une image à partir d’[Azure Marketplace](https://azure.microsoft.com/marketplace/), le lecteur du système d’exploitation par défaut est de 127 Go. Même s’il est possible d’ajouter des disques de données à la machine virtuelle (le nombre dépend de la référence (SKU) choisie) et de plus, il est recommandé d’installer les applications et les charges de travail intensives du processeur sur ces disques supplémentaires, il peut arriver que les clients doivent développer le lecteur du système d’exploitation pour prendre en charge certains scénarios, tels que les suivants :
+## <a name="overview"></a>Vue d'ensemble
+Lorsque vous créez une machine virtuelle (VM) dans un groupe de ressources en déployant une image à partir d’ [Azure Marketplace](https://azure.microsoft.com/marketplace/), le lecteur du système d’exploitation par défaut est de 127 Go. Même s’il est possible d’ajouter des disques de données à la machine virtuelle (le nombre dépend de la référence (SKU) choisie) et de plus, il est recommandé d’installer les applications et les charges de travail intensives du processeur sur ces disques supplémentaires, il peut arriver que les clients doivent développer le lecteur du système d’exploitation pour prendre en charge certains scénarios, tels que les suivants :
 
 1. Prendre en charge les applications héritées qui installent des composants sur le lecteur du système d’exploitation.
 2. Migrer un ordinateur physique ou une machine virtuelle depuis un emplacement local avec un lecteur de système d’exploitation plus volumineux.
 
 > [!IMPORTANT]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : Resource Manager et classique. Cet article traite de l’utilisation du modèle Resource Manager. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : Resource Manager et classique. Cet article traite de l’utilisation du modèle Resource Manager. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 > 
 > 
 
-## Redimensionner le lecteur du système d’exploitation
-Dans cet article, nous allons exécuter la tâche consistant à redimensionner le lecteur du système d’exploitation à l’aide de modules Resource Manager d’[Azure Powershell](../articles/powershell-install-configure.md). Ouvrez votre Powershell ISE ou une fenêtre Powershell en mode administrateur et suivez les étapes ci-dessous :
+## <a name="resize-the-os-drive"></a>Redimensionner le lecteur du système d’exploitation
+Dans cet article, nous allons exécuter la tâche consistant à redimensionner le lecteur du système d’exploitation à l’aide de modules Resource Manager d’ [Azure Powershell](/powershell/azureps-cmdlets-docs). Ouvrez votre Powershell ISE ou une fenêtre Powershell en mode administrateur et suivez les étapes ci-dessous :
 
 1. Connectez-vous à votre compte Microsoft Azure en mode de gestion des ressources et sélectionnez votre abonnement comme suit :
    
@@ -53,7 +53,7 @@ Dans cet article, nous allons exécuter la tâche consistant à redimensionner l
 
 Vous avez terminé. Connectez-vous via RDP à la machine virtuelle, ouvrez Gestion de l’ordinateur (ou Gestion des disques) et développez le lecteur à l’aide de l’espace qui vient d’être alloué.
 
-## Résumé
+## <a name="summary"></a>Résumé
 Dans cet article, nous avons utilisé les modules Azure Resource Manager de PowerShell pour développer le lecteur du système d’exploitation d’une machine virtuelle IaaS. Le script complet est indiqué ci-dessous, à titre de référence :
 
 ```Powershell
@@ -68,8 +68,8 @@ Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## Étapes suivantes
-Bien que dans cet article, nous avons choisi de nous concentrer principalement sur l’expansion du disque du système d’exploitation de la machine virtuelle, le script développé peut également servir à développer les disques de données associés à la machine virtuelle en modifiant une seule ligne de code. Par exemple, pour développer le premier disque de données associé à la machine virtuelle, remplacez l’objet ```OSDisk``` de ```StorageProfile``` par le tableau ```DataDisks``` et utilisez un index numérique pour obtenir une référence au premier disque de données associé, comme indiqué ci-dessous :
+## <a name="next-steps"></a>Étapes suivantes
+Bien que dans cet article, nous avons choisi de nous concentrer principalement sur l’expansion du disque du système d’exploitation de la machine virtuelle, le script développé peut également servir à développer les disques de données associés à la machine virtuelle en modifiant une seule ligne de code. Par exemple, pour développer le premier disque de données associé à la machine virtuelle, remplacez l’objet ```OSDisk``` de ```StorageProfile``` par le tableau ```DataDisks``` et utilisez un index numérique pour obtenir une référence au premier disque de données associé, comme indiqué ci-dessous :
 
 ```Powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
@@ -80,6 +80,10 @@ De même, vous pouvez référencer d’autres disques de données associés à l
 ($vm.StorageProfile.DataDisks | Where {$_.Name -eq 'my-second-data-disk'})[0].DiskSizeGB = 1023
 ```
 
-Si vous souhaitez savoir comment associer des disques à une machine virtuelle Azure Resource Manager, consultez cet [article](../articles/virtual-machines/virtual-machines-windows-attach-disk-portal.md).
+Si vous souhaitez savoir comment associer des disques à une machine virtuelle Azure Resource Manager, consultez cet [article](../articles/virtual-machines/virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Dec16_HO1-->
+
+

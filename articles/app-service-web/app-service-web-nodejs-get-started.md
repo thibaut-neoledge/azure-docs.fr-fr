@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
+ms.sourcegitcommit: 2050bda9c1a4390232d32370863e8d6a62ed5c2b
+ms.openlocfilehash: 66f1a0987960c9251922f1d22ed647d10bb0d10e
 
 
 ---
@@ -32,7 +32,7 @@ Ce didacticiel explique comment créer une application [Node.js] simple et la d�
 <a name="prereq"></a>
 
 ## <a name="prerequisites"></a>Composants requis
-* [Node.JS]
+* [Node.js]
 * [Bower]
 * [Yeoman]
 * [Git]
@@ -49,13 +49,13 @@ Ce didacticiel explique comment créer une application [Node.js] simple et la d�
    
     Choisissez les options suivantes lorsque vous y êtes invité :  
    
-    `? Would you like to create a new directory for your project?` **Yes**  
-    `? Enter directory name` **{appname}**  
-    `? Select a version to install:` **MVC**  
-    `? Select a view engine to use:` **Jade**  
-    `? Select a css preprocessor to use (Sass Requires Ruby):` **None**  
-    `? Select a database to use:` **None**  
-    `? Select a build tool to use:` **Grunt**
+    `? Would you like to create a new directory for your project?`**Yes**  
+    `? Enter directory name`**{appname}**  
+    `? Select a version to install:`**MVC**  
+    `? Select a view engine to use:`**Jade**  
+    `? Select a css preprocessor to use (Sass Requires Ruby):`**None**  
+    `? Select a database to use:`**None**  
+    `? Select a build tool to use:`**Grunt**
 3. Exécutez la commande `CD` dans le répertoire racine de votre nouvelle application et démarrez-la pour vérifier qu’elle s’exécute correctement dans votre environnement de développement :
    
         npm start
@@ -91,6 +91,7 @@ Ce didacticiel explique comment créer une application [Node.js] simple et la d�
 8. Enregistrez vos modifications, puis utiliser git pour déployer votre application dans Azure :
    
         git add .
+        git add -f config
         git commit -m "{your commit message}"
         git push azure master
    
@@ -186,7 +187,7 @@ Pour lire les journaux iisnode, suivez les étapes ci-après.
    
     ![Examen d’un fichier journal iisnode.][iislog-kudu-console-read]
 
-## <a name="debug-your-app-with-nodeinspector"></a>Débogage de votre application avec Node-Inspector
+## <a name="debug-your-app-with-node-inspector"></a>Débogage de votre application avec Node-Inspector
 Si vous utilisez Node-Inspector pour déboguer vos applications Node.js, vous pouvez l’utiliser pour votre application App Service active. Node-Inspector est préinstallé avec l’installation d’iisnode pour App Service. Si vous utilisez Git pour le déploiement, le fichier Web.config généré automatiquement à partir de Kudu contient déjà toute la configuration dont vous avez besoin pour activer Node-Inspector.
 
 Pour activer Node-Inspector, procédez comme suit :
@@ -222,7 +223,7 @@ Pour activer Node-Inspector, procédez comme suit :
 
 [Interface de ligne de commande Azure]: ../xplat-cli-install.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
-[Activez vos avantages d’abonnement Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
+[activer les avantages de votre abonnement Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Bower]: http://bower.io/
 [Créer une application de conversation instantanée Node.js avec Socket.IO dans Azure App Service]: ./web-sites-nodejs-chat-app-socketio.md
 [Deploy a Sails.js web app to Azure App Service (Déployer une application web Sails.js dans Azure App Service)]: ./app-service-web-nodejs-sails.md
@@ -232,10 +233,10 @@ Pour activer Node-Inspector, procédez comme suit :
 [Utilisation de io.js avec Azure App Service Web Apps]: ./web-sites-nodejs-iojs.md
 [iisnode]: https://github.com/tjanczuk/iisnode/wiki
 [MEANJS]: http://meanjs.org/
-[Node.JS]: http://nodejs.org
+[Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
-[obtenir un essai gratuit]: http://go.microsoft.com/fwlink/?LinkId=623901
-[application web]: ./app-service-web-overview.md
+[demander un essai gratuit]: http://go.microsoft.com/fwlink/?LinkId=623901
+[web app]: ./app-service-web-overview.md
 [Yeoman]: http://yeoman.io/
 
 <!-- IMG List -->
@@ -247,6 +248,6 @@ Pour activer Node-Inspector, procédez comme suit :
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8f2c2253132d2c0ca8eefd975af2ac23f196afd0
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 26c9420c9b8ba1aff6b016c01b8ed51853c91506
 
 
 ---
@@ -38,7 +38,7 @@ Microsoft fournit des API aux fournisseurs de solutions Cloud afin de gérer les
 ## <a name="microsoft-azure-resource-management"></a>Gestion des ressources Microsoft Azure
 Le contrat signé avec votre client détermine le mode de gestion de l’abonnement. Le fournisseur de solutions Cloud peut gérer directement la création et la maintenance des ressources ou bien le client peut garder le contrôle de l’abonnement Microsoft Azure et créer les ressources Azure requises. Si vos clients gèrent la création des ressources dans leur abonnement Microsoft Azure, ils doivent utiliser l’un des deux modèles disponibles : « Connect-Through » ou « Direct-To ». Ces modèles sont décrits en détail dans les sections suivantes.  
 
-### <a name="connectthrough-model"></a>Modèle « Connect-through »
+### <a name="connect-through-model"></a>Modèle « Connect-through »
 ![alt text](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
 Dans le modèle « Connect-through », le fournisseur de solutions Cloud crée une connexion directe entre votre centre de données et l’abonnement Azure de votre client. La connexion directe est établie à l’aide d’ExpressRoute et connecte votre réseau à Azure. Votre client se connecte ensuite à votre réseau. Ce scénario nécessite que le client traverse le réseau du fournisseur de solutions Cloud pour accéder aux services Azure. 
@@ -49,7 +49,7 @@ Les fournisseurs de solutions Cloud qui gèrent des services Azure doivent dispo
 
 ![alt text](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
-### <a name="connectto-model"></a>Modèle « Connect-to »
+### <a name="connect-to-model"></a>Modèle « Connect-to »
 ![alt text](./media/expressroute-for-cloud-solution-providers/connect-to.png)
 
 Dans le modèle « Connect-to », le fournisseur de services crée une connexion directe entre le centre de données de ses clients et l’abonnement Azure approvisionné par le fournisseur de solutions Cloud à l’aide d’ExpressRoute sur le réseau des clients.
@@ -82,10 +82,10 @@ ExpressRoute prend en charge la connexion de plusieurs réseaux virtuels à un m
 ## <a name="configuring-expressroute"></a>Configuration d’ExpressRoute
 ExpressRoute peut être configuré pour prendre en charge trois types de trafic ([domaines de routage](#ExpressRoute-routing-domains)) sur un même circuit ExpressRoute. Ce trafic se répartit entre homologation Microsoft, homologation publique Azure et homologation privée. Vous pouvez choisir d’envoyer un ou tous les types de trafic vers un circuit ExpressRoute ou utiliser plusieurs circuits ExpressRoute selon la taille du circuit ExpressRoute et l’isolement requis par votre client. La posture de sécurité de votre client peut ne pas autoriser le trafic public et privé à traverser le même circuit.
 
-### <a name="connectthrough-model"></a>Modèle « Connect-through »
+### <a name="connect-through-model"></a>Modèle « Connect-through »
 Dans une configuration « Connect-through », vous êtes responsable de tous les fondements de la mise en réseau pour connecter les ressources de centre de données de vos clients aux abonnements hébergés dans Azure. Chacun de vos clients souhaitant utiliser les fonctionnalités Azure doit disposer de sa propre connexion ExpressRoute, qui est gérée par vous. Vous devez utiliser les mêmes méthodes que celles que le client utiliserait pour fournir le circuit ExpressRoute. Suivez les mêmes étapes répertoriées dans l’article [Flux de travail ExpressRoute](expressroute-workflows.md) d’approvisionnement du circuit et états du circuit. Vous devez ensuite configurer les itinéraires du protocole BGP (Border Gateway Protocol) pour contrôler le trafic entre le réseau local et le réseau virtuel Azure.
 
-### <a name="connectto-model"></a>Modèle « Connect-to »
+### <a name="connect-to-model"></a>Modèle « Connect-to »
 Dans une configuration « Connect-to », votre client dispose déjà d’une connexion vers Azure ou va établir une connexion avec le fournisseur de services Internet en assurant la liaison entre ExpressRoute depuis le centre de données de votre client directement vers Azure, au lieu de votre centre de données. Pour commencer le processus d’approvisionnement, votre client doit suivre les étapes présentées dans le modèle « Connect-to », ci-dessus. Une fois le circuit établi, votre client va devoir configurer les routeurs locaux pour pouvoir accéder à votre réseau et aux réseaux virtuels Azure.
 
 Vous pouvez l’aider en configurant la connexion et les itinéraires afin que les ressources de votre ou vos centres de données puissent communiquer avec les ressources client dans votre centre de données ou avec les ressources hébergées dans Azure.
@@ -116,7 +116,7 @@ La table de routage par défaut inclut les itinéraires suivants :
 
 ![alt text](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
-### <a name="userdefined-routing-udr"></a>Itinéraire défini par l’utilisateur (UDR)
+### <a name="user-defined-routing-udr"></a>Itinéraire défini par l’utilisateur (UDR)
 Les itinéraires définis par l’utilisateur permettent de contrôler le trafic sortant du sous-réseau attribué à d’autres sous-réseaux dans le réseau virtuel ou sur l’une des autres passerelles prédéfinies (ExpressRoute, Internet ou VPN). La table de routage système par défaut peut être remplacée par une table de routage définie par l’utilisateur qui remplace alors la table de routage par défaut par des itinéraires personnalisés. Avec le routage défini par l’utilisateur, les clients peuvent créer des itinéraires vers des appareils tels que des pare-feu ou des dispositifs de détection des intrusions, ou bloquer l’accès à des sous-réseaux depuis le sous-réseau qui héberge l’itinéraire défini par l’utilisateur. Pour avoir une vue d’ensemble des itinéraires définis par l’utilisateur, cliquez [ici](../virtual-network/virtual-networks-udr-overview.md). 
 
 ## <a name="security"></a>Sécurité
@@ -141,6 +141,6 @@ Vous trouverez des informations supplémentaires en cliquant sur les liens suiva
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

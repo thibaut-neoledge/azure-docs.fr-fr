@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 900967975694a688b6d5054cb351746819b65f16
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8ac37244d1e691a2f075116f3d78b89923cfb845
 
 
 ---
@@ -78,7 +78,7 @@ Lorsque vous créez un archivage de Recovery Services pour la première fois, vo
 
 Maintenant que vous avez créé un archivage, vous devez préparer votre infrastructure de sauvegarde des fichiers et des dossiers en téléchargeant l’agent Microsoft Azure Recovery Services agent et les informations d’identification de l’archivage.
 
-## <a name="step-3-download-files"></a>Étape 3 : télécharger les fichiers
+## <a name="step-3---download-files"></a>Étape 3 : télécharger les fichiers
 1. Dans le tableau de bord de l’archivage de Recovery Services, cliquez sur **Paramètres** .
    
     ![Ouvrir le panneau Backup Goal (Objectif de la sauvegarde)](./media/backup-try-azure-backup-in-10-mins/settings-button.png)
@@ -88,7 +88,7 @@ Maintenant que vous avez créé un archivage, vous devez préparer votre infrast
 3. Dans le panneau Sauvegarde, cliquez sur **Objectif de la sauvegarde** .
    
     ![Ouvrir le panneau Backup Goal (Objectif de la sauvegarde)](./media/backup-try-azure-backup-in-10-mins/backup-goal.png)
-4. Sélectionnez **Local** dans le menu « Où s'exécute votre charge de travail ? ».
+4. Sélectionnez **Local** dans le menu « Où s’exécute votre charge de travail ? ».
 5. Sélectionnez **Fichiers et dossiers** dans le menu « What do you want to backup? » (Que voulez-vous sauvegarder ?), puis cliquez sur **OK**.
 
 ### <a name="download-the-recovery-services-agent"></a>Télécharger l’agent Azure Recovery Services
@@ -102,7 +102,7 @@ Maintenant que vous avez créé un archivage, vous devez préparer votre infrast
    
     ![Download Agent for Windows Server or Windows Client](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-download.png)
 
-## <a name="step-4-install-and-register-the-agent"></a>Étape 4 : installer et inscrire l’agent
+## <a name="step-4--install-and-register-the-agent"></a>Étape 4 : installer et inscrire l’agent
 > [!NOTE]
 > La sauvegarde via le portail Azure sera disponible prochainement. Pour l’instant, vous devez utiliser l’agent Microsoft Azure Recovery Services en local pour sauvegarder vos fichiers et dossiers.
 > 
@@ -184,6 +184,6 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

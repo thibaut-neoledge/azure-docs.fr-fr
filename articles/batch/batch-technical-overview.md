@@ -3,7 +3,7 @@ title: Concepts de base du service Azure Batch | Microsoft Docs
 description: "Découvrez l’utilisation d’Azure Batch pour les charges de travail HPC et parallèles à grande échelle"
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 93e37d44-7585-495e-8491-312ed584ab79
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2559aae752f319805c2c9f87a2e2a81d9b37e4b2
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: 2d83a9a42a17ddade81f891fca4463099a42f5e4
 
 
 ---
@@ -61,7 +61,7 @@ Lorsque vous développez des solutions Batch, vous devrez utiliser les comptes s
 
 * **Compte et abonnement Azure** : si vous ne possédez pas encore d’abonnement Azure, vous pouvez activer les [avantages de votre abonnement MSDN][msdn_benefits] ou vous inscrire pour obtenir un [compte Azure gratuit][free_account]. Lorsque vous créez un compte, un abonnement par défaut est automatiquement créé.
 * **Compte Batch** : lorsque vos applications interagissent avec le service Batch, le nom du compte, l’URL du compte et une clé d’accès sont utilisés comme informations d’identification. Toutes vos ressources Batch, telles que les pools, les nœuds de calcul, les travaux et les tâches, sont associées à un compte Batch. Vous pouvez [créer un compte Azure Batch](batch-account-create-portal.md) à l’aide du portail Azure.
-* **Compte de stockage** : Batch inclut la prise en charge intégrée de l’utilisation des fichiers dans [Stockage Azure][azure_storage]. Presque tous les scénarios du service Batch font appel à Azure Storage pour la préparation des programmes exécutés par vos tâches et les données qu’ils traitent ainsi que pour le stockage des données de sortie générées par vos tâches. Pour créer un compte de stockage, consultez l’article [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
+* **Compte de stockage** : Batch inclut la prise en charge intégrée de l’utilisation des fichiers dans [Azure Storage][azure_storage]. Presque tous les scénarios du service Batch font appel à Azure Storage pour la préparation des programmes exécutés par vos tâches et les données qu’ils traitent ainsi que pour le stockage des données de sortie générées par vos tâches. Pour créer un compte de stockage, consultez l’article [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
 
 ### <a name="batch-development-apis"></a>API de développement Batch
 Vos applications et services peuvent émettre des appels d’API REST directs, utiliser une ou plusieurs des bibliothèques clientes suivantes, ou une combinaison des deux, pour gérer les ressources de calcul et exécuter des charges de travail parallèles à grande échelle à l’aide du service Batch.
@@ -77,7 +77,7 @@ Vos applications et services peuvent émettre des appels d’API REST directs, u
 ### <a name="batch-resource-management"></a>Gestion des ressources Batch
 Outre les API clientes, vous pouvez utiliser les éléments suivants pour gérer les ressources au sein de votre compte Batch.
 
-* [Applets de commande PowerShell pour Batch][batch_ps] : les applets de commande Azure Batch contenues dans le module [Azure PowerShell](../powershell-install-configure.md) vous permettent de gérer les ressources du service Batch avec PowerShell.
+* [Applets de commande PowerShell pour Batch][batch_ps] : les applets de commande Azure Batch contenues dans le module [Azure PowerShell](/powershell/azureps-cmdlets-docs) vous permettent de gérer les ressources du service Batch avec PowerShell.
 * [CLI Azure](../xplat-cli-install.md): l’interface de ligne de commande Azure est un ensemble d’outils multiplateforme qui fournit des commandes d’environnement permettant d’interagir avec de nombreux services Azure, y compris le service Batch.
 * Bibliothèque cliente [.NET Batch Management](batch-management-dotnet.md) : également disponible via [NuGet][api_net_mgmt_nuget], la bibliothèque cliente .NET Batch Management permet de gérer les comptes Batch, les quotas et les packages d’application par programme. Consultez les références pour la bibliothèque de gestion sur [MSDN][api_net_mgmt].
 
@@ -86,7 +86,7 @@ Même si ces outils ne sont pas indispensables pour créer des solutions à l’
 
 * [Portail Azure][portal] : vous pouvez créer, surveiller et supprimer des pools, des travaux et des tâches dans les panneaux Batch du portail Azure. Vous pouvez consulter les informations d’état de ces éléments et d’autres ressources pendant que vous exécutez vos travaux, et même télécharger des fichiers des nœuds de calcul de vos pools (télécharger un élément `stderr.txt` d’une tâche mise en échec pendant la résolution des problèmes, par exemple). Vous pouvez également télécharger des fichiers du Bureau à distance (RDP), à utiliser pour vous connecter aux nœuds de calcul.
 * [Azure Batch Explorer][batch_explorer] : Batch Explorer fournit une fonctionnalité de gestion des ressources Batch similaire à celle du portail Azure, mais dans une application cliente Windows Presentation Foundation (WPF) autonome. Il s’agit de l’un des exemples d’applications Batch .NET disponibles sur [GitHub][github_samples]. Vous pouvez le générer avec Visual Studio 2015 ou une version ultérieure et l’utiliser pour accéder aux ressources et de votre compte Batch et les gérer pendant que vous développez et déboguez vos solutions Batch. Consultez les détails sur les travaux, les pools et les tâches, téléchargez des fichiers des nœuds de calcul et connectez-vous à distance aux nœuds à l’aide des fichiers du Bureau à distance (RDP) téléchargeables avec Batch Explorer.
-* [Explorateur de Stockage Microsoft Azure][storage_explorer] : bien qu’il ne s’agisse pas à proprement parler d’un outil Azure Batch, l’Explorateur de stockage est l’un de vos meilleurs alliés pendant le développement et le débogage de vos solutions Batch.
+* [Microsoft Azure Storage Explorer][storage_explorer] : bien qu’il ne s’agisse pas à proprement parler d’un outil Azure Batch, l’Explorateur de stockage est l’un de vos meilleurs alliés pendant le développement et le débogage de vos solutions Batch.
 
 ## <a name="scenario-scale-out-a-parallel-workload"></a>Scénario : Montée en charge d’une charge de travail parallèle
 Une solution courante qui utilise les API Batch pour interagir avec le service Batch suppose une montée en charge de travaux intrinsèquement parallèles (par exemple, le rendu d’images pour les scènes 3D) sur un pool de nœuds de calcul. Ce pool de nœuds de calcul peut être, par exemple, une « ferme de rendu » qui fournit des dizaines, des centaines voire des milliers de cœurs à votre travail de rendu.
@@ -146,6 +146,6 @@ Maintenant que vous disposez d’une vue d’ensemble du service Batch, le momen
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

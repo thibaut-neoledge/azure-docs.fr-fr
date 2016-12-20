@@ -1,12 +1,12 @@
 ---
-title: Procédure pas à pas Azure Event Hubs Archive | Microsoft Docs
-description: Exemple qui utilise le Kit de développement logiciel (SDK) Azure Python pour illustrer l’utilisation de la fonctionnalité Event Hubs Archive.
+title: "Procédure pas à pas Azure Event Hubs Archive | Microsoft Docs"
+description: "Exemple qui utilise le Kit de développement logiciel (SDK) Azure Python pour illustrer l’utilisation de la fonctionnalité Event Hubs Archive."
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: djrosanova
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: bdff820c-5b38-4054-a06a-d1de207f01f6
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2016
 ms.author: darosa;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c836558426b44633993f9f52de39d0a843039614
+
 
 ---
-# Procédure pas à pas Event Hubs Archive : Python
+# <a name="event-hubs-archive-walkthrough-python"></a>Procédure pas à pas Event Hubs Archive : Python
 Event Hubs Archive est une nouvelle fonctionnalité d’Event Hubs, qui vous permet de fournir automatiquement les données de flux de votre Event Hub à un compte de stockage blob Azure de votre choix. Cela facilite le traitement par lots des données de flux en temps réel. Cet article décrit comment utiliser Event Hubs Archive avec Python. Pour plus d’informations sur Event Hubs Archive, consultez [l’article sur la vue d’ensemble](event-hubs-archive-overview.md).
 
 Cet exemple utilise le Kit de développement logiciel (SDK) Azure Python pour illustrer l’utilisation de la fonctionnalité Archive. Le sender.py envoie la télémétrie de l’environnement simulé à Event Hubs au format JSON. Event Hub est configuré pour utiliser la fonctionnalité Archive afin d’écrire ces données dans le stockage blob en lots. Le archivereader.py lit ensuite ces objets blob et crée un fichier append par appareil et écrit les données dans des fichiers .csv.
@@ -36,23 +40,23 @@ Composants requis
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## Création d'un compte Azure Storage
-1. Connectez-vous au [portail Azure][portail Azure].
+## <a name="create-an-azure-storage-account"></a>Création d'un compte de Stockage Azure
+1. Connectez-vous au [Portail Azure][Portail Azure].
 2. Dans le panneau de navigation gauche du portail, cliquez sur Nouveau, puis sur Données + stockage et sur Compte de stockage.
 3. Renseignez les champs dans le panneau de compte de stockage, puis cliquez sur **Créer**.
    
    ![][1]
-4. Après l’affichage du message**Déploiements réussis**, cliquez sur le nouveau compte de stockage et dans le panneau **Bases** panneau, cliquez sur **Objets blob**. Lorsque le panneau **Service Blob** s’ouvre, cliquez sur **+ Conteneur** en haut. Nommez **l’archive** de conteneur, puis fermez le panneau **Service Blob**.
+4. Après l’affichage du message**Déploiements réussis**, cliquez sur le nouveau compte de stockage et, dans le panneau **Bases**, cliquez sur **Objets blob**. Quand le panneau **Service Blob** s’ouvre, cliquez sur **+ Conteneur** en haut. Nommez l’**archive** de conteneur, puis fermez le panneau **Service Blob**.
 5. Cliquez sur **Clés d’accès** dans le panneau de gauche et copiez le nom du compte de stockage et la valeur de **key1**. Enregistrez ces valeurs dans le Bloc-notes ou un autre emplacement temporaire.
 
 [!INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
-## Créer un script Python pour envoyer des événements à votre Event Hub
+## <a name="create-a-python-script-to-send-events-to-your-event-hub"></a>Créer un script Python pour envoyer des événements à votre Event Hub
 1. Ouvrez votre éditeur Python favori, tel que [Visual Studio Code][Visual Studio Code].
 2. Créez un script appelé **sender.py**. Ce script envoie 200 événements à votre Event Hub. Ce sont de simples lectures environnementales envoyées au format JSON.
 3. Collez le code suivant dans sender.py :
    
-   ```
+   ```python
    import uuid
    import datetime
    import random
@@ -73,12 +77,12 @@ Composants requis
    ```
 4. Mettez à jour le code précédent pour utiliser votre nom d’espace de noms et les valeurs de clé que vous avez obtenues lors de la création de l’espace de noms Event Hubs.
 
-## Créer un script Python pour lire vos fichiers d’archive
+## <a name="create-a-python-script-to-read-your-archive-files"></a>Créer un script Python pour lire vos fichiers d’archive
 1. Remplissez les champs du panneau et cliquez sur **Créer**.
 2. Créez un script appelé **archivereader.py**. Ce script lit les fichiers d’archive et crée un fichier par appareil pour écrire les données uniquement pour cet appareil.
 3. Collez le code suivant dans archivereader.py :
    
-   ```
+   ```python
    import os
    import string
    import json
@@ -122,7 +126,7 @@ Composants requis
    ```
 4. Veillez à coller les valeurs appropriées pour votre nom de compte de stockage et la clé dans l’appel à `startProcessing`.
 
-## Exécuter les scripts
+## <a name="run-the-scripts"></a>Exécuter les scripts
 1. Ouvrez une invite de commandes comprenant Python dans son chemin d’accès, puis exécutez ces commandes pour installer les packages de configuration requise Python :
    
    ```
@@ -131,7 +135,7 @@ Composants requis
    pip install avro
    ```
    
-   Si vous disposez d’une version antérieure de azure-storage ou azure, vous devrez peut-être utiliser l’option **--upgrade**.
+   Si vous disposez d’une version antérieure de azure-storage ou azure, vous devrez peut-être utiliser l’option **--upgrade** .
    
    Vous devrez peut-être également exécuter les éléments suivants (cela n’est pas nécessaire sur la plupart des systèmes) :
    
@@ -153,21 +157,25 @@ Composants requis
 
 Ce processeur d’archive utilise le répertoire local pour télécharger tous les objets blob à partir du compte de stockage/conteneur. Il traite tous ceux qui ne sont pas vides et écrit les résultats sous la forme de fichiers .csv dans le répertoire local.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-* [Overview of Event Hubs Archive][Overview of Event Hubs Archive] \(Vue d’ensemble d’Event Hubs Archive)
-* Un [exemple d'application complet qui utilise des hubs d’événements][exemple d'application complet qui utilise des hubs d’événements].
-* L’exemple de [montée en puissance du traitement des événements avec Event Hubs][montée en puissance du traitement des événements avec Event Hubs].
-* [Vue d’ensemble des concentrateurs d’événements][Vue d’ensemble des concentrateurs d’événements]
+* [Overview of Event Hubs Archive][Overview of Event Hubs Archive]
+* Un [exemple d'application complet qui utilise des Event Hubs][exemple d'application complet qui utilise des Event Hubs].
+* Exemple de [montée en puissance du traitement des événements avec Event Hubs][montée en puissance du traitement des événements avec Event Hubs].
+* [Vue d’ensemble d’Azure Event Hubs][Vue d’ensemble d’Azure Event Hubs]
 
-[portail Azure]: https://portal.azure.com/
+[Portail Azure]: https://portal.azure.com/
 [Overview of Event Hubs Archive]: event-hubs-archive-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
-[About Azure storage accounts]: https://azure.microsoft.com/documentation/articles/storage-create-storage-account/
+[À propos des comptes de stockage Azure]: https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/
 [Visual Studio Code]: https://code.visualstudio.com/
-[Vue d’ensemble des concentrateurs d’événements]: event-hubs-overview.md
-[exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Vue d’ensemble d’Azure Event Hubs]: event-hubs-overview.md
+[exemple d'application complet qui utilise des Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [montée en puissance du traitement des événements avec Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

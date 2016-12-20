@@ -1,12 +1,12 @@
 ---
-title: Comment utiliser l'API Engagement sur Android
-description: Dernier SDK Android - Comment utiliser l'API Engagement sur Android
+title: Comment utiliser l&quot;API Engagement sur Android
+description: Dernier SDK Android - Comment utiliser l&quot;API Engagement sur Android
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 09b62659-82ae-4a55-8784-fca0b6b22eaf
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,53 +14,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2016
 ms.author: piyushjo;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d353cd2fe47c54a0282cc5bb1b22b4a56e0cd82c
+
 
 ---
-# Comment utiliser l'API Engagement sur Android
+# <a name="how-to-use-the-engagement-api-on-android"></a>Comment utiliser l'API Engagement sur Android
 Ce document vient compléter le document [Options de génération de rapports avancés pour le Kit de développement logiciel (SDK) Azure Mobile Engagement pour Android](mobile-engagement-android-advanced-reporting.md). Il fournit des informations détaillées sur l'utilisation de l'API Engagement pour signaler les statistiques de votre application.
 
 N'oubliez pas que si vous voulez qu'Engagement ne crée des rapports que sur les sessions, les activités, les blocages et les informations techniques de votre application, le plus simple est de faire hériter vos sous-classes `Activity` de la classe correspondante `EngagementActivity`.
 
-Si vous souhaitez aller plus loin, par exemple si vous avez besoin de signaler des événements, des erreurs et des travaux spécifiques à l'application, ou si vous devez signaler les activités de votre application d'une manière différente de celle implémentée dans les classes `EngagementActivity`, vous devez utiliser l'API Engagement.
+Si vous souhaitez aller plus loin, par exemple si vous avez besoin de signaler des événements, des erreurs et des travaux spécifiques à l'application, ou si vous devez signaler les activités de votre application d'une manière différente de celle implémentée dans les classes `EngagementActivity`, vous devez utiliser l'API Engagement.
 
-L'API Engagement est fournie par la classe `EngagementAgent`. Une instance de cette classe peut être récupérée en appelant la méthode statique `EngagementAgent.getInstance(Context)` (notez que l'objet `EngagementAgent` retourné est un singleton).
+L'API Engagement est fournie par la classe `EngagementAgent` . Une instance de cette classe peut être récupérée en appelant la méthode statique `EngagementAgent.getInstance(Context)` (notez que l'objet `EngagementAgent` retourné est un singleton).
 
-## Concepts liés à Engagement
-Les sections qui suivent affinent les [concepts Mobile Engagement](mobile-engagement-concepts.md) courants pour la plateforme Android.
+## <a name="engagement-concepts"></a>Concepts liés à Engagement
+Les sections qui suivent affinent les [concepts Mobile Engagement](mobile-engagement-concepts.md)courants pour la plateforme Android.
 
-### `Session` et `Activity`
-Si l'utilisateur reste inactif plus de quelques secondes entre deux *activités*, sa séquence d'*activités* est fractionnée en deux *sessions* distinctes. Ces quelques secondes constituent le « délai d'expiration de session ».
+### <a name="session-and-activity"></a>`Session` et `Activity`
+Si l’utilisateur reste inactif plus de quelques secondes entre deux *activités*, sa séquence *d’activités* est fractionnée en deux *sessions* distinctes. Ces quelques secondes constituent le « délai d'expiration de session ».
 
-Une *activité* est généralement associée à un écran de l'application, c'est-à-dire que l'*activité* démarre lorsque l'écran s'affiche et s'arrête lorsque l'écran est fermé. C'est le cas lorsque le Kit de développement logiciel (SDK) Engagement est intégré à l'aide des classes `EngagementActivity`.
+Une *activité* est généralement associée à un écran de l’application, c’est-à-dire que *l’activité* démarre quand l’écran s’affiche et s’arrête quand l’écran est fermé. C’est le cas quand le SDK Engagement est intégré à l’aide des classes `EngagementActivity`.
 
-Mais les *activités* peuvent également être contrôlées manuellement à l'aide de l'API Engagement. Cela permet de fractionner un écran donné en plusieurs sous-parties pour obtenir plus d'informations sur l'utilisation de cet écran (par exemple la fréquence et la durée d'utilisation des boîtes de dialogue dans cet écran).
+Mais les *activités* peuvent également être contrôlées manuellement à l'aide de l'API Engagement. Cela permet de fractionner un écran donné en plusieurs sous-parties pour obtenir plus d'informations sur l'utilisation de cet écran (par exemple la fréquence et la durée d'utilisation des boîtes de dialogue dans cet écran).
 
-## Rapports d'activités
+## <a name="reporting-activities"></a>Rapports d'activités
 > [!IMPORTANT]
 > Vous n'êtes pas obligé de signaler les activités décrites dans cette section si vous utilisez la classe `EngagementActivity` et ses variantes, comme expliqué dans le document Comment intégrer Engagement à Android.
 > 
 > 
 
-### L'utilisateur démarre une nouvelle activité
+### <a name="user-starts-a-new-activity"></a>L'utilisateur démarre une nouvelle activité
             EngagementAgent.getInstance(this).startActivity(this, "MyUserActivity", null);
             // Passing the current activity is required for Reach to display in-app notifications, passing null will postpone such announcements and polls.
 
 Vous devez appeler `startActivity()` chaque fois que l'activité utilisateur change. Le premier appel à cette fonction démarre une nouvelle session utilisateur.
 
-Le meilleur moment pour appeler cette fonction est à chaque rappel de l'activité `onResume`.
+Le meilleur moment pour appeler cette fonction est à chaque rappel de l'activité `onResume` .
 
-### L'utilisateur met fin à l'activité en cours
+### <a name="user-ends-his-current-activity"></a>L'utilisateur met fin à l'activité en cours
             EngagementAgent.getInstance(this).endActivity();
 
-Vous devez appeler `endActivity()` au moins une fois quand l'utilisateur termine sa dernière activité. Cela indique au SDK Engagement que l'utilisateur est inactif et que la session utilisateur doit être fermée à la fin du délai d'expiration de session (si vous appelez `startActivity()` avant l'expiration de la session, la session est simplement reprise).
+Vous devez appeler `endActivity()` au moins une fois quand l'utilisateur termine sa dernière activité. Cela indique au SDK Engagement que l'utilisateur est inactif et que la session utilisateur doit être fermée à la fin du délai d'expiration de session (si vous appelez `startActivity()` avant l'expiration de la session, la session est simplement reprise).
 
-Le meilleur moment pour appeler cette fonction est à chaque rappel de l'activité `onPause`.
+Le meilleur moment pour appeler cette fonction est à chaque rappel de l'activité `onPause` .
 
-## Rapports d'événements
-### Événements de session
+## <a name="reporting-events"></a>Rapports d'événements
+### <a name="session-events"></a>Événements de session
 Les événements de session servent généralement à signaler les actions effectuées par un utilisateur lors de sa session.
 
-**Exemple sans données supplémentaires :**
+**Exemple sans données supplémentaires :**
 
             public MyActivity extends EngagementActivity {
                [...]
@@ -71,7 +75,7 @@ Les événements de session servent généralement à signaler les actions effec
                [...]
             }
 
-**Exemple avec des données supplémentaires :**
+**Exemple avec des données supplémentaires :**
 
             public MyActivity extends EngagementActivity {
               [...]
@@ -84,12 +88,12 @@ Les événements de session servent généralement à signaler les actions effec
               [...]
             }
 
-### Événements autonomes
+### <a name="standalone-events"></a>Événements autonomes
 Contrairement aux événements de session, les événements autonomes peuvent se produire en dehors du contexte d'une session.
 
-**Exemple :**
+**Exemple :**
 
-Supposons que vous voulez signaler les événements qui se produisent quand un récepteur de diffusion est déclenché :
+Supposons que vous voulez signaler les événements qui se produisent quand un récepteur de diffusion est déclenché :
 
             /** Triggered by Intent.ACTION_BATTERY_LOW */
             public BatteryLowReceiver extends BroadcastReceiver {
@@ -101,11 +105,11 @@ Supposons que vous voulez signaler les événements qui se produisent quand un r
               [...]
             }
 
-## Rapports d'erreurs
-### Erreurs de session
+## <a name="reporting-errors"></a>Rapports d'erreurs
+### <a name="session-errors"></a>Erreurs de session
 Les erreurs de session servent généralement à signaler les erreurs affectant l'utilisateur lors de sa session.
 
-**Exemple :**
+**Exemple :**
 
             /** The user has entered invalid data in a form */
             public MyActivity extends EngagementActivity {
@@ -119,10 +123,10 @@ Les erreurs de session servent généralement à signaler les erreurs affectant 
               [...]
             }
 
-### Erreurs autonomes
+### <a name="standalone-errors"></a>Erreurs autonomes
 Contrairement aux erreurs de session, les erreurs autonomes peuvent se produire en dehors du contexte d'une session.
 
-**Exemple :**
+**Exemple :**
 
 L'exemple suivant montre comment signaler une erreur chaque fois que la mémoire est insuffisante sur le téléphone pendant l'exécution de votre application.
 
@@ -134,8 +138,8 @@ L'exemple suivant montre comment signaler une erreur chaque fois que la mémoire
               }
             }
 
-## Rapports de travaux
-### Exemple
+## <a name="reporting-jobs"></a>Rapports de travaux
+### <a name="example"></a>Exemple
 Supposons que vous voulez créer un rapport de la durée de votre processus de connexion :
 
             [...]
@@ -154,12 +158,12 @@ Supposons que vous voulez créer un rapport de la durée de votre processus de c
             }
             [...]
 
-### Signaler les erreurs lors d'un travail
+### <a name="report-errors-during-a-job"></a>Signaler les erreurs lors d'un travail
 Les erreurs peuvent être associées à un travail en cours d'exécution plutôt qu'à la session utilisateur en cours.
 
-**Exemple :**
+**Exemple :**
 
-Supposons que vous voulez signaler une erreur pendant votre connexion :
+Supposons que vous voulez signaler une erreur pendant votre connexion :
 
 [...] public void signIn(Context context, ...) {
 
@@ -188,14 +192,14 @@ Supposons que vous voulez signaler une erreur pendant votre connexion :
             }
             [...]
 
-### Rapports d'événements pendant une tâche
+### <a name="reporting-events-during-a-job"></a>Rapports d'événements pendant une tâche
 Les événements peuvent être associés à un travail en cours d'exécution au lieu de se rapporter à la session utilisateur en cours.
 
-**Exemple :**
+**Exemple :**
 
 Supposons que nous disposons d'un réseau social et que nous utilisons une tâche pour signaler la durée totale pendant laquelle l'utilisateur est connecté au serveur. L'utilisateur peut rester connecté en arrière-plan même quand il utilise une autre application ou que le téléphone est en veille, dans ce cas, il n'y a pas de session.
 
-L'utilisateur peut recevoir des messages de ses amis : il s'agit d'un événement de tâche.
+L'utilisateur peut recevoir des messages de ses amis : il s'agit d'un événement de tâche.
 
             [...]
             public void signin(Context context, ...) {
@@ -214,7 +218,7 @@ L'utilisateur peut recevoir des messages de ses amis : il s'agit d'un événemen
             }
             [...]
 
-## Paramètres supplémentaires
+## <a name="extra-parameters"></a>Paramètres supplémentaires
 Des données arbitraires peuvent être associées à des événements, des erreurs, des activités et des tâches.
 
 Ces données peuvent être structurées, elles utilisent la classe Bundle d'Android (en fait, elles font office de paramètres extras dans les Intents Android). Notez qu'une classe Bundle peut contenir des tableaux ou d'autres instances de classe Bundle.
@@ -227,55 +231,59 @@ Ces données peuvent être structurées, elles utilisent la classe Bundle d'Andr
 > 
 > 
 
-### Exemple
+### <a name="example"></a>Exemple
             Bundle extras = new Bundle();
             extras.putString("video_id", 123);
             extras.putString("ref_click", "http://foobar.com/blog");
             EngagementAgent.getInstance(context).sendEvent("video_clicked", extras);
 
-### Limites
-#### de clés symétriques
-Chaque clé dans `Bundle` doit correspondre à l'expression régulière suivante :
+### <a name="limits"></a>Limites
+#### <a name="keys"></a>de clés symétriques
+Chaque clé dans `Bundle` doit correspondre à l'expression régulière suivante :
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
 Cela signifie que les clés doivent commencer par au moins une lettre, suivie de lettres, de chiffres ou de traits de soulignement (\_).
 
-#### Taille
+#### <a name="size"></a>Taille
 Les paramètres extras sont limités à **1024** caractères par appel (une fois encodés au format JSON par le service Engagement).
 
-Dans l'exemple précédent, le JSON envoyé au serveur fait 58 caractères :
+Dans l'exemple précédent, le JSON envoyé au serveur fait 58 caractères :
 
             {"ref_click":"http:\/\/foobar.com\/blog","video_id":"123"}
 
-## Rapports d'informations sur l'application
-Vous pouvez signaler manuellement les informations de suivi (ou toutes autres informations spécifiques aux applications) à l'aide de la fonction `sendAppInfo()`.
+## <a name="reporting-application-information"></a>Rapports d'informations sur l'application
+Vous pouvez signaler manuellement les informations de suivi (ou toutes autres informations spécifiques aux applications) à l'aide de la fonction `sendAppInfo()` .
 
-Notez que ces informations peuvent être envoyées de façon incrémentielle : seule la dernière valeur d'une clé donnée sera conservée pour un périphérique donné.
+Notez que ces informations peuvent être envoyées de façon incrémentielle : seule la dernière valeur d'une clé donnée sera conservée pour un périphérique donné.
 
 À l'instar des paramètres extras des événements, la classe Bundle est utilisée pour récupérer les informations de l'application. Notez que les tableaux ou les sous-groupes seront considérés comme des chaînes plates (à l'aide de la sérialisation JSON).
 
-### Exemple
-Voici un exemple de code pour envoyer des informations sur la date de naissance et le sexe de l'utilisateur :
+### <a name="example"></a>Exemple
+Voici un exemple de code pour envoyer des informations sur la date de naissance et le sexe de l'utilisateur :
 
             Bundle appInfo = new Bundle();
             appInfo.putString("status", "premium");
             appInfo.putString("expiration", "2016-12-07"); // December 7th 2016
             EngagementAgent.getInstance(context).sendAppInfo(appInfo);
 
-### Limites
-#### de clés symétriques
-Chaque clé dans `Bundle` doit correspondre à l'expression régulière suivante :
+### <a name="limits"></a>Limites
+#### <a name="keys"></a>de clés symétriques
+Chaque clé dans `Bundle` doit correspondre à l'expression régulière suivante :
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
 Cela signifie que les clés doivent commencer par au moins une lettre, suivie de lettres, de chiffres ou de traits de soulignement (\_).
 
-#### Taille
+#### <a name="size"></a>Taille
 Les informations de l'application sont limitées à **1024** caractères par appel (une fois encodées au format JSON par le service Engagement).
 
-Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
+Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
 
             {"expiration":"2016-12-07","status":"premium"}
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

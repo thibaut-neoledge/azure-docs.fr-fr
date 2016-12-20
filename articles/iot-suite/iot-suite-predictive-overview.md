@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2d44af03b8e16a2bd936fc805ed4f0c4e6c5fbfc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 32da7abc3263e1d76f3f08ccae7ce159ead58bee
 
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-overview"></a>Présentation de la solution préconfigurée de maintenance prédictive
-La solution préconfigurée de *maintenance prédictive* est l’une des [solutions préconfigurées][lnk_preconfigured_solutions] incluses dans [Microsoft Azure IoT Suite][lnk_iot_suite]. Cette solution intègre une collecte télémétrique en temps réel des données de l’appareil grâce à un modèle prédictif créé avec [Azure Machine Learning][lnk_machine_learning].
+La solution préconfigurée de *maintenance prédictive* est une des [solutions préconfigurées][lnk_preconfigured_solutions] incluses dans [Microsoft Azure IoT Suite][lnk_iot_suite]. Cette solution intègre la collecte de données télémétriques en temps réel avec un modèle prédictif créé avec [Azure Machine Learning][lnk_machine_learning].
 
 Avec Azure IoT Suite, les entreprises peuvent rapidement et facilement accéder aux ressources, les surveiller et analyser les données en temps réel. La solution préconfigurée de gestion prédictive prend les données et utilise des tableaux de bord complets ainsi que des visualisations pour fournir aux entreprises de nouvelles informations pertinentes leur permettant d’accroître leur efficacité et leurs flux de revenus.
 
@@ -41,14 +41,14 @@ En prédisant le moment où une maintenance est requise, Fabrikam peut optimiser
 Pour comprendre comment les fonctionnalités [d’Azure IoT Suite][lnk_iot_suite] permettent aux clients d’exploiter tout le potentiel de la maintenance prédictive, reportez-vous à cette [infographie][lnk_infographic].
 
 ## <a name="how-the-predictive-maintenance-solution-is-built"></a>Comment la solution de gestion prédictive est générée
-La solution s’appuie sur un modèle Microsoft Azure Machine Learning existant pour afficher ces fonctionnalités en s’appuyant sur les données télémétriques de l’appareil recueillies via les services IoT Suite. Microsoft a créé un [modèle de régression][lnk_regression_model] d’un moteur d’avion, pour lequel ont été publiés un modèle complet, des données<sup>\[1\]</sup> et des instructions d’utilisation détaillées.
+La solution s’appuie sur un modèle Microsoft Azure Machine Learning existant pour afficher ces fonctionnalités en s’appuyant sur les données télémétriques de l’appareil recueillies via les services IoT Suite. Microsoft a créé un [modèle de régression][lnk_regression_model] d’un moteur d’avion, pour lequel ont été publiés un modèle complet, des <sup>\[données[1]\]</sup> et des instructions d’utilisation détaillées.
 
 La solution préconfigurée de maintenance prédictive Azure IoT utilise le modèle de régression créé à partir de ce modèle ; il est déployé dans votre abonnement Azure et présenté via une API générée automatiquement. La solution inclut un sous-ensemble des données de tests représentant 4 (sur un total 100) moteurs et 4 (sur un total 21) flux de données de capteurs, pour fournir un résultat exact du modèle formé.
 
 *\[1\] A. Saxena and K. Goebel (2008). « Turbofan Engine Degradation Simulation Data Set », NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur la gestion de scénarios de gestion prédictive avec Azure IoT, consultez [Saisir la valeur de l’Internet des objets][lnk_capture_value].
+Pour en savoir plus sur la gestion de scénarios de gestion prédictive avec Azure IoT, consultez [Saisir la valeur de l'Internet des objets][lnk_capture_value].
 
 [Examinez pas à pas][lnk-predictive-walkthrough] la solution préconfigurée de maintenance prédictive.
 
@@ -63,13 +63,13 @@ Pour en savoir plus sur la gestion de scénarios de gestion prédictive avec Azu
 Vous pouvez également explorer certaines des autres fonctionnalités et capacités des solutions préconfigurées IoT Suite :
 
 * [Forum Aux Questions (FAQ) relatives à IoT Suite][lnk-faq]
-* [Sécurité IoT depuis le début][lnk-security-groundup]
+* [Sécurisation de l’Internet des objets de bout en bout][lnk-security-groundup]
 
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

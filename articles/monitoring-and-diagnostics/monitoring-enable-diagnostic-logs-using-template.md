@@ -1,12 +1,12 @@
 ---
-title: Activer automatiquement les paramètres de diagnostic à l’aide d’un modèle Resource Manager | Microsoft Docs
-description: Découvrez comment utiliser un modèle Resource Manager pour créer des paramètres de diagnostic qui activeront la diffusion en continu de vos journaux de diagnostic vers Event Hubs ou leur stockage dans un compte de stockage.
+title: "Activer automatiquement les paramètres de diagnostic à l’aide d’un modèle Resource Manager | Microsoft Docs"
+description: "Découvrez comment utiliser un modèle Resource Manager pour créer des paramètres de diagnostic qui activeront la diffusion en continu de vos journaux de diagnostic vers Event Hubs ou leur stockage dans un compte de stockage."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: a8a88a8c-4a48-4df6-8f7e-d90634d39c57
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 30b023429cfdc671ac68175f94ffb48379c58dda
+
 
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Activer automatiquement les paramètres de diagnostic lors de la création de ressources à l’aide d’un modèle Resource Manager
@@ -26,7 +30,7 @@ La méthode d’activation des journaux de diagnostic à l’aide d’un modèle
 
 Dans cet article, nous expliquons comment configurer les diagnostics à l’aide de deux méthodes.
 
-Procédure de base :
+Procédure de base :
 
 1. Créez un modèle sous la forme d’un fichier JSON qui décrit comment créer la ressource et activer les diagnostics.
 2. [Déployez le modèle à l’aide de n’importe quelle méthode de déploiement](../resource-group-template-deploy.md).
@@ -185,12 +189,15 @@ Pour activer les diagnostics pour une ressource de calcul, par exemple un cluste
 > 
 > 
 
-L’intégralité du processus, y compris des exemples, est décrite [dans ce document](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
+L’intégralité du processus, y compris des exemples, est décrite [dans ce document](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur les journaux de diagnostic Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Stream Azure Diagnostic Logs to Event Hubs (Diffuser en continu les journaux de diagnostic Azure vers Event Hubs)](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

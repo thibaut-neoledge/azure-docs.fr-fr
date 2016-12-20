@@ -1,12 +1,12 @@
 ---
-title: 'Étape 1 : création d’un espace de travail Machine Learning | Microsoft Docs'
-description: 'Étape 1 de la procédure pas à pas de développement d’une solution prédictive : apprenez à configurer un nouvel espace de travail Azure Machine Learning Studio.'
+title: "Étape 1 : création d’un espace de travail Machine Learning | Microsoft Docs"
+description: "Étape 1 de la procédure pas à pas de développement d’une solution prédictive : apprenez à configurer un nouvel espace de travail Azure Machine Learning Studio."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: b3c97e3d-16ba-4e42-9657-2562854a1e04
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4a2d71016eee5dfee1085be0380d79ba4a4f8d8f
+
 
 ---
-# Étape 1 de la procédure pas à pas : création d’un espace de travail Machine Learning
+# <a name="walkthrough-step-1-create-a-machine-learning-workspace"></a>Étape 1 de la procédure pas à pas : création d’un espace de travail Machine Learning
 Voici la première étape de la procédure pas à pas [Développement d'une solution d'analyse prédictive dans Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
 
 1. **Créer un espace de travail Machine Learning**
@@ -29,24 +33,29 @@ Voici la première étape de la procédure pas à pas [Développement d'une solu
 - - -
 <!-- This needs to be updated to refer to the new way of creating workspaces in the Ibiza portal -->
 
-Pour utiliser Machine Learning Studio, vous devez disposer d’un espace de travail Microsoft Azure Machine Learning. Cet espace de travail contient les outils dont vous avez besoin pour créer, gérer et publier des expériences.
+Pour utiliser Machine Learning Studio, vous devez disposer d’un espace de travail Microsoft Azure Machine Learning. Cet espace de travail contient les outils dont vous avez besoin pour créer, gérer et publier des expériences.  
 
-## Pour créer un espace de travail
+## <a name="to-create-a-workspace"></a>Pour créer un espace de travail
 1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
-2. Dans le volet des services Azure, cliquez sur **MACHINE LEARNING**. ![Create workspace][1]
+2. Dans le volet des services Azure, cliquez sur **MACHINE LEARNING**.  
+   ![Create workspace][1]
 3. Cliquez sur **CRÉER UN ESPACE DE TRAVAIL ML**.
 4. Sur la page **CRÉATION RAPIDE**, entrez vos informations d’espace de travail et cliquez sur **CRÉER UN ESPACE DE TRAVAIL ML**.
 
 Une fois votre espace de travail Machine Learning créé, vous voyez son nom apparaître sur la page **Machine Learning** dans le portail Azure Classic. Pour plus d'informations sur la création de votre espace de travail, consultez [Créer un espace de travail Azure Machine Learning](machine-learning-create-workspace.md).
 
 > [!TIP]
-> Vous pouvez partager les expériences sur lesquelles vous travaillez en invitant d’autres personnes dans votre espace de travail. Pour cela, dans Machine Learning Studio, ouvrez la page **PARAMÈTRES**. Vous avez simplement besoin du compte Microsoft ou du compte professionnel de chaque utilisateur.
+> Vous pouvez partager les expériences sur lesquelles vous travaillez en invitant d’autres personnes dans votre espace de travail. Pour cela, dans Machine Learning Studio, ouvrez la page **PARAMÈTRES** . Vous avez simplement besoin du compte Microsoft ou du compte professionnel de chaque utilisateur.
 > 
 > 
 
 - - -
-**Suivant : [Téléchargement de données existantes](machine-learning-walkthrough-2-upload-data.md)**
+**Suivant : [Téléchargement de données existantes](machine-learning-walkthrough-2-upload-data.md)**
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

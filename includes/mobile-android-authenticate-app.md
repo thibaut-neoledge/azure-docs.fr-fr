@@ -1,5 +1,5 @@
 
-1. Dans l’**Explorateur de projets** dans Android Studio, ouvrez le fichier ToDoActivity.java, puis ajoutez les instructions import suivantes.
+1. Dans l’ **Explorateur de projets** dans Android Studio, ouvrez le fichier ToDoActivity.java, puis ajoutez les instructions import suivantes.
    
         import java.util.concurrent.ExecutionException;
         import java.util.concurrent.atomic.AtomicBoolean;
@@ -10,7 +10,7 @@
    
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
-2. Ajoutez la méthode suivante à la classe **ToDoActivity** :
+2. Ajoutez la méthode suivante à la classe **ToDoActivity** : 
    
         private void authenticate() {
             // Login using the Google provider.
@@ -34,14 +34,14 @@
 
     Cela crée une méthode pour gérer le processus d'authentification. L'utilisateur est authentifié à l'aide d'un nom d'utilisateur Google. Une boîte de dialogue affiche l'identifiant de l'utilisateur authentifié. Vous ne pouvez pas poursuivre sans authentification positive.
 
-    > [AZURE.NOTE]Si vous utilisez un autre fournisseur d'identité que Google, remplacez la valeur passée à la méthode **login** ci-dessus par l'une des valeurs suivantes : _MicrosoftAccount_, _Facebook_, _Twitter_ ou _windowsazureactivedirectory_.
+    > [AZURE.NOTE] Si vous utilisez un autre fournisseur d’identité que Google, remplacez la valeur passée à la méthode **login** ci-dessus par l’une des valeurs suivantes : _MicrosoftAccount_, _Facebook_, _Twitter_ ou _windowsazureactivedirectory_.
 
-1. Dans la méthode **onCreate**, ajoutez la ligne de code suivante après le code qui permet d'instancier l'objet `MobileServiceClient`.
+1. Dans la méthode **onCreate**, ajoutez la ligne de code suivante après le code qui permet d’instancier l’objet `MobileServiceClient`.
    
         authenticate();
    
     Cet appel lance le processus d'authentification.
-2. Déplacez le code restant après `authenticate();` dans la méthode **onCreate** vers une nouvelle méthode **createTable** qui ressemble à ceci :
+2. Déplacez le code restant après `authenticate();` dans la méthode **onCreate** vers une nouvelle méthode **createTable** qui ressemble à ceci :
    
         private void createTable() {
    
@@ -58,8 +58,12 @@
             // Load the items from Azure.
             refreshItemsFromTable();
         }
-3. À partir du menu **Exécuter**, cliquez sur **Exécuter l’application** pour démarrer l’application et vous connecter avec le fournisseur d’identité choisi.
+3. Dans le menu **Exécuter**, cliquez sur **Exécuter l’application** pour démarrer l’application et vous connecter avec le fournisseur d’identité choisi. 
    
-       Quand vous êtes connecté, l’application doit s’exécuter sans erreur et vous devez pouvoir interroger le service frontal et mettre à jour les données.
+       When you are successfully logged-in, the app should run without errors, and you should be able to query the backend service and make updates to data.
 
-<!---HONumber=AcomDC_1210_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

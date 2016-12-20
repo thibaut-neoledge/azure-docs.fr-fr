@@ -2,12 +2,12 @@
 title: Authentification et autorisation avec Power BI Embedded
 description: Authentification et autorisation avec Power BI Embedded
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 1c1369ea-7dfd-4b6e-978b-8f78908fd6f6
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,19 +15,23 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2b860b5815a0dd35138c685eb90490a8e2c53d5e
+
 
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-embedded"></a>Authentification et autorisation avec Power BI Embedded
 Le service Power BI Embedded utilise des **clés** et des **jetons d’application** pour l’authentification et l’autorisation. Il n’utilise pas l’authentification explicite des utilisateurs finaux. Dans ce modèle, votre application gère l’authentification et l’autorisation de vos utilisateurs finaux. Quand cela est nécessaire, votre application crée et envoie les jetons d’application à notre service pour lui indiquer d’afficher le rendu du rapport demandé. Avec cette conception, votre application peut gérer l’authentification et l’autorisation des utilisateurs sans passer par Azure Active Directory. Cette option est toutefois possible.
 
 ## <a name="two-ways-to-authenticate"></a>Deux méthodes d’authentification
-**Clé** : vous pouvez utiliser des clés pour tous les appels d’API REST Power BI Embedded. Les clés se trouvent sur le **portail Azure** en cliquant sur **Tous les paramètres**, puis sur **Clés d’accès**. Traitez toujours votre clé comme s’il s’agissait d’un mot de passe. Ces clés ont des autorisations pour appeler toutes les API REST sur une collection d’espaces de travail donnée.
+**Clé** : vous pouvez utiliser des clés pour tous les appels d’API REST Power BI Embedded. Les clés se trouvent sur le **portail Azure** en cliquant sur **Tous les paramètres**, puis sur **Clés d’accès**. Traitez toujours votre clé comme s’il s’agissait d’un mot de passe. Ces clés ont des autorisations pour appeler toutes les API REST sur une collection d’espaces de travail donnée.
 
 Pour utiliser une clé sur un appel REST, ajoutez l’en-tête d’autorisation suivant :            
 
     Authorization: AppKey {your key}
 
-**Jeton d’application** : les jetons d’application sont utilisés pour toutes les demandes d’incorporation. Ils sont conçus pour être exécutés côté client, afin qu’ils soient limités à un rapport unique. Il est également recommandé de définir un délai d’expiration.
+**Jeton d’application** : les jetons d’application sont utilisés pour toutes les demandes d’incorporation. Ils sont conçus pour être exécutés côté client, afin qu’ils soient limités à un rapport unique. Il est également recommandé de définir un délai d’expiration.
 
 Les jetons d’application sont un JWT (JSON Web Token) signé par l’une de vos clés.
 
@@ -55,7 +59,7 @@ Lorsqu’il est décodé, il doit ressembler à ceci :
 
 ![](media\\power-bi-embedded-app-token-flow\\power-bi-embedded-app-token-flow-sample-decoded.png)
 
-## <a name="here's-how-the-flow-works"></a>Voici comment fonctionne le flux :
+## <a name="heres-how-the-flow-works"></a>Voici comment fonctionne le flux :
 1. Copiez les clés API dans votre application. Vous pouvez obtenir les clés à partir du **portail Azure**.
    
     ![](media\\powerbi-embedded-get-started-sample\\azure-portal.png)
@@ -84,6 +88,9 @@ Après que **Power BI Embedded** envoie un rapport à l’utilisateur, ce dernie
 * [Scénarios Microsoft Power BI Embedded courants](power-bi-embedded-scenarios.md)
 * [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

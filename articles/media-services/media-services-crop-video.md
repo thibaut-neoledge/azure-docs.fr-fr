@@ -1,12 +1,12 @@
 ---
-title: Comment rogner une vidéo | Microsoft Docs
-description: Cet article explique comment rogner des vidéos avec Media Encoder Standard.
+title: "Comment rogner une vidéo | Microsoft Docs"
+description: "Cet article explique comment rogner des vidéos avec Media Encoder Standard."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: anilmur
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7628f674-2005-4531-8b61-d7a4f53e46ba
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: anilmur;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 770eaaba800ed9847a34d38813ebbda82014a697
+
 
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Rogner des vidéos avec l’encodeur multimédia standard
@@ -139,6 +143,9 @@ Consultez les parcours d’apprentissage Azure Media Services pour en savoir plu
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

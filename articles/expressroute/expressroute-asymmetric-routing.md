@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: osamazia
+ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cebf1a1712b6ba7f1f6125369703694ba19d0244
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 10166e6b8b9144f0a5dde4f2fc10b492120e85d7
 
 
 ---
@@ -64,7 +64,7 @@ Assurez-vous que vos adresses IP publiques sont publiées sur les connexions WAN
 
 Si vous souhaitez utiliser ExpressRoute pour l’authentification, assurez-vous que vous publiez les adresses IP publiques ADFS via ExpressRoute sans NAT. De cette façon, le trafic provenant de Microsoft et se dirigeant vers le serveur ADFS local transite via ExpressRoute. Le trafic entrant transitant entre le client et Microsoft utilise ExpressRoute car il s’agit de l’itinéraire privilégié sur Internet.
 
-### <a name="sourcebased-nat"></a>NAT basé sur la source
+### <a name="source-based-nat"></a>NAT basé sur la source
 Les problèmes de routage asymétrique peuvent également être résolus à l’aide d’une NAT basée sur la source (SNAT). Par exemple, vous n’avez pas publié l’adresse IP publique d’un serveur SMTP (Simple Mail Transfer Protocol) local via ExpressRoute, car vous prévoyez d’utiliser Internet pour ce type de communication. Une requête en provenance de Microsoft qui accède au serveur SMTP local transite via Internet. Vous définissez l’adresse SNAT de la requête entrante sous une adresse IP interne. Le trafic sortant du serveur SMTP passe par le pare-feu périphérique (utilisé pour la NAT) à la place d’ExpressRoute. Le trafic sortant revient en transitant par Internet.
 
 ![Configuration réseau avec NAT basée sur la source](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
@@ -75,6 +75,6 @@ La détermination d’itinéraire constitue le meilleur moyen de vous assurer qu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -21,8 +21,8 @@
 ### [Sécurité au niveau des lignes avec Power BI Embedded](power-bi-embedded-rls.md)
 
 # Référence
-## [PowerShell](/powershell/resourcemanager/)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded)
+## [.NET](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [Téléchargement du Kit de développement logiciel (SDK) .NET](https://www.nuget.org/profiles/powerbi)
 ## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
 ## [REST](/rest/api/powerbiembedded/)
@@ -34,6 +34,6 @@
 ## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/powerbi)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

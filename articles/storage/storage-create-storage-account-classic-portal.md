@@ -4,7 +4,7 @@ description: "Créez un compte de stockage, gérez vos clés d’accès au compt
 services: storage
 documentationcenter: 
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 5e4f4360-3f81-4d63-a0b1-e7771b67af11
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 90e9fcf933173b5609eff70fa1ce4bfa027fee3d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 879e199f0c712a46b89a686d6a3dd8dd877821e4
 
 
 ---
@@ -99,7 +99,7 @@ L’URL permettant d’accéder à un objet dans un compte de stockage est const
 
 Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec votre compte de stockage. Pour plus d’informations, consultez la page [Configurer un nom de domaine personnalisé pour un point de terminaison Blob Storage](storage-custom-domain-name.md) .
 
-### <a name="service-colocation-with-an-affinity-group"></a>Colocalisation de service avec un groupe d’affinités
+### <a name="service-co-location-with-an-affinity-group"></a>Colocalisation de service avec un groupe d’affinités
 Un *groupe d'affinités* est un regroupement géographique de vos services et machines virtuelles Azure avec votre compte de stockage Azure. Un groupe d'affinités peut améliorer les performances d'un service en situant les charges de travail d'un ordinateur dans le même centre de données ou près des utilisateurs cibles. De même, vous n'êtes pas facturé pour les acheminements lorsque les données d'un compte de stockage sont utilisées par un service faisant partie du même groupe d'affinités.
 
 > [!NOTE]
@@ -175,6 +175,6 @@ Pour supprimer un compte de stockage obsolète, utilisez **Supprimer** sur le ta
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

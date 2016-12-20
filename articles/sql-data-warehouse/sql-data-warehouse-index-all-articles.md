@@ -1,19 +1,23 @@
 ---
-title: Toutes les rubriques pour le service SQL Data Warehouse | Microsoft Docs
-description: Tableau de toutes les rubriques du service Azure nommé SQL Data Warehouse, qui existent sur http://azure.microsoft.com/documentation/articles/, titre et description.
+title: "Toutes les rubriques pour le service SQL Data Warehouse | Microsoft Docs"
+description: "Tableau de toutes les rubriques du service Azure nommé SQL Data Warehouse, qui existent sur http://azure.microsoft.com/documentation/articles/, titre et description."
 services: sql-data-warehouse
-documentationcenter: ''
+documentationcenter: 
 author: barbkess
 manager: jhubbard
-editor: MightyPen
-
+editor: 
+ms.assetid: a26a6dec-9c08-4415-8f58-4ee1dd41f718
 ms.service: sql-data-warehouse
 ms.workload: sql-data-warehouse
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 10/31/2016
 ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ab5b0c283d1bd3fd1b734082d5ccffa4125f6de4
+
 
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Toutes les rubriques pour le service SQL Data Warehouse
@@ -22,9 +26,9 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 ## <a name="new"></a>Nouveau
 | &nbsp; | Intitulé | Description |
 | ---:|:--- |:--- |
-| 1 |[Sauvegardes SQL Data Warehouse](sql-data-warehouse-backup.md) |Découvrez les sauvegardes de base de données intégrées de SQL Data Warehouse, qui vous permettent de restaurer un entrepôt de données SQL Azure à un point de restauration ou dans une autre région géographique. |
+| 1 |[Sauvegardes SQL Data Warehouse](sql-data-warehouse-backups.md) |Découvrez les sauvegardes de base de données intégrées de SQL Data Warehouse, qui vous permettent de restaurer un entrepôt de données SQL Azure à un point de restauration ou dans une autre région géographique. |
 
-## <a name="updated-articles,-sql-data-warehouse"></a>Articles mis à jour, SQL Data Warehouse
+## <a name="updated-articles-sql-data-warehouse"></a>Articles mis à jour, SQL Data Warehouse
 Cette section répertorie les articles qui ont été mis à jour récemment et dont la mise à jour a été volumineuse ou importante. Pour chaque article mis à jour, un extrait de code approximatif du texte markdown ajouté s’affiche. Les articles ont été mis à jour dans la plage de dates allant du **22-08-2016** au **05-10-2016**.
 
 | &nbsp; | Article | Texte mis à jour, extrait de code | Mis à jour quand |
@@ -56,15 +60,15 @@ Cette section répertorie les articles qui ont été mis à jour récemment et d
 | 18 |[Optimisation des transactions pour SQL Data Warehouse](sql-data-warehouse-develop-best-practices-transactions.md) |Meilleures pratiques sur l’écriture de mises à jour efficaces de transactions dans Azure SQL Data Warehouse |
 | 19 |[Gestion de la concurrence et des charges de travail dans SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md) |Décrit la gestion de la concurrence et des charges de travail dans Azure SQL Data Warehouse pour le développement de solutions. |
 | 20 |[Instruction Create Table As Select (CTAS) dans SQL Data Warehouse](sql-data-warehouse-develop-ctas.md) |Conseils de codage à l’aide de l’instruction Create Table As Select (CTAS) dans Azure SQL Data Warehouse pour le développement de solutions. |
-| 21 |[Code SQL dynamique dans SQL Data Warehouse](sql-data-warehouse-develop-dynamic-sql.md) |Conseils relatifs à l’utilisation de code SQL dynamique dans Azure SQL Data Warehouse pour le développement de solutions. |
-| 22 |[Options de regroupement dans SQL Data Warehouse](sql-data-warehouse-develop-group-by-options.md) |Conseils relatifs à l’implémentation d’options de regroupement dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
-| 23 |[Utiliser des libellés pour instrumenter des requêtes dans SQL Data Warehouse](sql-data-warehouse-develop-label.md) |Conseils relatifs à l’utilisation de libellés pour instrumenter des requêtes dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
-| 24 |[Boucles dans SQL Data Warehouse](sql-data-warehouse-develop-loops.md) |Conseils relatifs à l’utilisation de boucles Transact-SQL et au remplacement de curseurs dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
-| 25 |[Procédures stockées dans SQL Data Warehouse](sql-data-warehouse-develop-stored-procedures.md) |Conseils relatifs à l’implémentation de procédures stockées dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
-| 26 |[Transactions dans SQL Data Warehouse](sql-data-warehouse-develop-transactions.md) |Conseils relatifs à l’implémentation de transactions dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
-| 27 |[Schémas définis par l’utilisateur dans SQL Data Warehouse](sql-data-warehouse-develop-user-defined-schemas.md) |Conseils relatifs à l’utilisation de schémas Transact-SQL dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
-| 28 |[Affecter des variables dans SQL Data Warehouse](sql-data-warehouse-develop-variable-assignment.md) |Conseils relatifs à l’affectation de variables Transact-SQL dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
-| 29 |[Vues proposées par SQL Data Warehouse](sql-data-warehouse-develop-views.md) |Conseils relatifs à l’utilisation de vues Transact-SQL dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
+| 21 |[Code SQL dynamique dans SQL Data Warehouse](sql-data-warehouse-develop-dynamic-sql.md) |Conseils relatifs à l’utilisation de code SQL dynamique dans Azure SQL Data Warehouse pour le développement de solutions. |
+| 22 |[Options de regroupement dans SQL Data Warehouse](sql-data-warehouse-develop-group-by-options.md) |Conseils relatifs à l’implémentation d’options de regroupement dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
+| 23 |[Utiliser des libellés pour instrumenter des requêtes dans SQL Data Warehouse](sql-data-warehouse-develop-label.md) |Conseils relatifs à l’utilisation de libellés pour instrumenter des requêtes dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
+| 24 |[Boucles dans SQL Data Warehouse](sql-data-warehouse-develop-loops.md) |Conseils relatifs à l’utilisation de boucles Transact-SQL et au remplacement de curseurs dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
+| 25 |[Procédures stockées dans SQL Data Warehouse](sql-data-warehouse-develop-stored-procedures.md) |Conseils relatifs à l’implémentation de procédures stockées dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
+| 26 |[Transactions dans SQL Data Warehouse](sql-data-warehouse-develop-transactions.md) |Conseils relatifs à l’implémentation de transactions dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
+| 27 |[Schémas définis par l’utilisateur dans SQL Data Warehouse](sql-data-warehouse-develop-user-defined-schemas.md) |Conseils relatifs à l’utilisation de schémas Transact-SQL dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
+| 28 |[Affecter des variables dans SQL Data Warehouse](sql-data-warehouse-develop-variable-assignment.md) |Conseils relatifs à l’affectation de variables Transact-SQL dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
+| 29 |[Vues proposées par SQL Data Warehouse](sql-data-warehouse-develop-views.md) |Conseils relatifs à l’utilisation de vues Transact-SQL dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
 | 30 |[Choix de conception et techniques de codage pour SQL Data Warehouse](sql-data-warehouse-overview-develop.md) |Concepts de développement, choix de conception, recommandations et des techniques de codage pour SQL Data Warehouse. |
 
 ## <a name="manage"></a>Gérer
@@ -92,16 +96,16 @@ Cette section répertorie les articles qui ont été mis à jour récemment et d
 | 46 |[Vue d’ensemble des tables dans SQL Data Warehouse](sql-data-warehouse-tables-overview.md) |Prise en main des tables Azure SQL Data Warehouse. |
 | 47 |[Partitionnement de tables dans SQL Data Warehouse](sql-data-warehouse-tables-partition.md) |Prise en main du partitionnement de tables dans Azure SQL Data Warehouse. |
 | 48 |[Gestion des statistiques sur les tables dans SQL Data Warehouse](sql-data-warehouse-tables-statistics.md) |Prise en main des statistiques sur les tables dans Azure SQL Data Warehouse. |
-| 49 |[Tables temporaires dans SQL Data Warehouse](sql-data-warehouse-tables-temporary.md) |Prise en main des tables temporaires dans Azure SQL Data Warehouse. |
+| 49 |[Tables temporaires dans SQL Data Warehouse](sql-data-warehouse-tables-temporary.md) |Prise en main des tables temporaires dans Azure SQL Data Warehouse. |
 
 ## <a name="integrate"></a>Integrate
 | &nbsp; | Intitulé | Description |
 | ---:|:--- |:--- |
-| 50 |[Utiliser Azure Data Factory avec SQL Data Warehouse](sql-data-warehouse-integrate-azure-data-factory.md) |Conseils sur l’utilisation de Microsoft Azure Data Factory avec Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
-| 51 |[Utilisation de Microsoft Azure Machine Learning avec SQL Data Warehouse](sql-data-warehouse-integrate-azure-machine-learning.md) |Didacticiel sur l’utilisation de Microsoft Azure Machine Learning avec Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
-| 52 |[Utiliser Azure Stream Analytics avec SQL Data Warehouse](sql-data-warehouse-integrate-azure-stream-analytics.md) |Conseils sur l’utilisation d’Azure Stream Analytics avec Azure SQL Data Warehouse pour le développement de solutions. |
-| 53 |[Utiliser Power BI avec SQL Data Warehouse](sql-data-warehouse-integrate-power-bi.md) |Conseils relatifs à l’utilisation de Power BI avec Azure SQL Data Warehouse pour le développement de solutions. |
-| 54 |[Tirer parti d’autres services avec SQL Data Warehouse](sql-data-warehouse-overview-integrate.md) |Outils et partenaires proposant des solutions s’intégrant avec SQL Data Warehouse. |
+| 50 |[Utiliser Azure Data Factory avec SQL Data Warehouse](sql-data-warehouse-integrate-azure-data-factory.md) |Conseils sur l’utilisation de Microsoft Azure Data Factory avec Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
+| 51 |[Utilisation de Microsoft Azure Machine Learning avec SQL Data Warehouse](sql-data-warehouse-integrate-azure-machine-learning.md) |Didacticiel sur l’utilisation de Microsoft Azure Machine Learning avec Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
+| 52 |[Utiliser Azure Stream Analytics avec SQL Data Warehouse](sql-data-warehouse-integrate-azure-stream-analytics.md) |Conseils sur l’utilisation d’Azure Stream Analytics avec Azure SQL Data Warehouse pour le développement de solutions. |
+| 53 |[Utiliser Power BI avec SQL Data Warehouse](sql-data-warehouse-integrate-power-bi.md) |Conseils relatifs à l’utilisation de Power BI avec Azure SQL Data Warehouse pour le développement de solutions. |
+| 54 |[Tirer parti d’autres services avec SQL Data Warehouse](sql-data-warehouse-overview-integrate.md) |Outils et partenaires proposant des solutions s’intégrant avec SQL Data Warehouse. |
 
 ## <a name="load"></a>charger
 | &nbsp; | Intitulé | Description |
@@ -120,11 +124,11 @@ Cette section répertorie les articles qui ont été mis à jour récemment et d
 ## <a name="migrate"></a>Migrer
 | &nbsp; | Intitulé | Description |
 | ---:|:--- |:--- |
-| 65 |[Migration de votre code SQL vers SQL Data Warehouse](sql-data-warehouse-migrate-code.md) |Conseils relatifs à la migration de votre code SQL vers Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
-| 66 |[Migration de vos données](sql-data-warehouse-migrate-data.md) |Conseils relatifs à la migration de vos données vers Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
+| 65 |[Migration de votre code SQL vers SQL Data Warehouse](sql-data-warehouse-migrate-code.md) |Conseils relatifs à la migration de votre code SQL vers Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
+| 66 |[Migration de vos données](sql-data-warehouse-migrate-data.md) |Conseils relatifs à la migration de vos données vers Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
 | 67 |[Utilitaire de migration de l’entrepôt de données (version préliminaire)](sql-data-warehouse-migrate-migration-utility.md) |Migrer vers SQL Data Warehouse. |
-| 68 |[Migration de votre schéma vers SQL Data Warehouse](sql-data-warehouse-migrate-schema.md) |Conseils relatifs à la migration de votre schéma vers Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
-| 69 |[Migration de votre solution vers SQL Data Warehouse](sql-data-warehouse-overview-migrate.md) |Recommandations relatives à la migration de votre solution vers la plateforme Microsoft Azure SQL Data Warehouse |
+| 68 |[Migration de votre schéma vers SQL Data Warehouse](sql-data-warehouse-migrate-schema.md) |Conseils relatifs à la migration de votre schéma vers Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
+| 69 |[Migration de votre solution vers SQL Data Warehouse](sql-data-warehouse-overview-migrate.md) |Recommandations relatives à la migration de votre solution vers la plateforme Microsoft Azure SQL Data Warehouse |
 
 ## <a name="partners"></a>Partenaires
 | &nbsp; | Intitulé | Description |
@@ -136,11 +140,11 @@ Cette section répertorie les articles qui ont été mis à jour récemment et d
 ## <a name="reference"></a>Référence
 | &nbsp; | Intitulé | Description |
 | ---:|:--- |:--- |
-| 73 |[Rubriques de référence pour SQL Data Warehouse](sql-data-warehouse-overview-reference.md) |Liens vers du contenu de référence pour SQL Data Warehouse. |
-| 74 |[Applets de commande PowerShell et API REST pour SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md) |Recherchez les principaux applets de commande PowerShell pour Azure SQL Data Warehouse, y compris comment suspendre et reprendre une base de données. |
-| 75 |[Éléments de langage](sql-data-warehouse-reference-tsql-language-elements.md) |Liste de liens vers du contenu de référence pour les éléments de langage Transact-SQL utilisés pour SQL Data Warehouse. |
-| 76 |[Rubriques Transact-SQL](sql-data-warehouse-reference-tsql-statements.md) |Liens vers du contenu de référence pour les rubriques Transact-SQL utilisées par SQL Data Warehouse. |
-| 77 |[Vues système](sql-data-warehouse-reference-tsql-system-views.md) |Des liens vers le contenu des vues système pour SQL Data Warehouse |
+| 73 |[Rubriques de référence pour SQL Data Warehouse](sql-data-warehouse-overview-reference.md) |Liens vers du contenu de référence pour SQL Data Warehouse. |
+| 74 |[Applets de commande PowerShell et API REST pour SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md) |Recherchez les principaux applets de commande PowerShell pour Azure SQL Data Warehouse, y compris comment suspendre et reprendre une base de données. |
+| 75 |[Éléments de langage](sql-data-warehouse-reference-tsql-language-elements.md) |Liste de liens vers du contenu de référence pour les éléments de langage Transact-SQL utilisés pour SQL Data Warehouse. |
+| 76 |[Rubriques Transact-SQL](sql-data-warehouse-reference-tsql-statements.md) |Liens vers du contenu de référence pour les rubriques Transact-SQL utilisées par SQL Data Warehouse. |
+| 77 |[Vues système](sql-data-warehouse-reference-tsql-system-views.md) |Des liens vers le contenu des vues système pour SQL Data Warehouse |
 
 ## <a name="security"></a>Sécurité
 | &nbsp; | Intitulé | Description |
@@ -149,7 +153,7 @@ Cette section répertorie les articles qui ont été mis à jour récemment et d
 | 79 |[Audit dans Azure SQL Data Warehouse](sql-data-warehouse-auditing-overview.md) |Prise en main de l’audit dans Azure SQL Data Warehouse |
 | 80 |[Mise en route avec le chiffrement transparent des données (TDE) dans SQL Data Warehouse](sql-data-warehouse-encryption-tde.md) |Chiffrement transparent des données (TDE) dans SQL Data Warehouse |
 | 81 |[Prise en main du chiffrement transparent des données (TDE)](sql-data-warehouse-encryption-tde-tsql.md) |Chiffrement transparent des données (TDE) dans SQL Data Warehouse (T-SQL) |
-| 82 |[Sécuriser une base de données dans SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md) |Conseils relatifs à la sécurisation d’une base de données dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
+| 82 |[Sécuriser une base de données dans SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md) |Conseils relatifs à la sécurisation d’une base de données dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions. |
 
 ## <a name="miscellaneous"></a>Divers
 | &nbsp; | Intitulé | Description |
@@ -160,6 +164,9 @@ Cette section répertorie les articles qui ont été mis à jour récemment et d
 | 86 |[Limites de la capacité de SQL Data Warehouse](sql-data-warehouse-service-capacity-limits.md) |Valeurs maximales pour les connexions, les bases de données, les tables et les requêtes pour SQL Data Warehouse. |
 | 87 |[Résolution des problèmes d’Azure SQL Data Warehouse](sql-data-warehouse-troubleshoot.md) |Résolution des problèmes d’Azure SQL Data Warehouse. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

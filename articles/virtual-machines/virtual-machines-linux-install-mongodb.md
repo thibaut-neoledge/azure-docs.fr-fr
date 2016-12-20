@@ -1,12 +1,12 @@
 ---
-title: Install MongoDB on a Linux VM | Microsoft Docs
-description: Learn how to install and configure MongoDB on a Linux virtual machine in Azure using the Resource Manager deployment model.
+title: Installation de MongoDB sur une machine virtuelle Linux | Microsoft Docs
+description: "Découvrez comment installer et configurer MongoDB sur une machine virtuelle Linux dans Azure à l’aide du modèle de déploiement de Resource Manager."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: iainfoulds
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 3f55b546-86df-4442-9ef4-8a25fae7b96e
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -14,44 +14,48 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/29/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: bec9f1fb0797b0c073dde9e65ab6bbffe8e3b5c2
+
 
 ---
-# <a name="install-and-configure-mongodb-on-a-linux-vm-in-azure"></a>Install and Configure MongoDB on a Linux VM in Azure
-[MongoDB](http://www.mongodb.org) is a popular open-source, high-performance NoSQL database. This article shows you how to install and configure MongoDB on a Linux VM in Azure using the Resource Manager deployment model. Examples are shown that detail how to:
+# <a name="install-and-configure-mongodb-on-a-linux-vm-in-azure"></a>Installation et configuration de MongoDB sur une machine virtuelle Linux dans Azure
+[MongoDB](http://www.mongodb.org) est une base de données NoSQL open-source qui offre des performances élevées. Cet article vous montre comment installer et configurer MongoDB sur une machine virtuelle Linux dans Azure à l’aide du modèle de déploiement de Resource Manager. Présentations d’exemples détaillant comment :
 
-* [Manually install and configure a basic MongoDB instance](#manually-install-and-configure-mongodb-on-a-vm)
-* [Create a basic MongoDB instance using a Resource Manager template](#create-basic-mongodb-instance-on-centos-using-a-template)
-* [Create a complex MongoDB sharded cluster with replica sets using a Resource Manager template](#create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template)
+* [Installer et configurer une instance MongoDB de base manuellement](#manually-install-and-configure-mongodb-on-a-vm)
+* [Création d'une instance MongoDB de base à l'aide d'un modèle Resource Manager](#create-basic-mongodb-instance-on-centos-using-a-template)
+* [Créer un cluster partitionné MongoDB complexe avec jeux de réplicas à l’aide d’un modèle Resource Manager](#create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template)
 
-## <a name="prerequisites"></a>Prerequisites
-This article requires the following:
+## <a name="prerequisites"></a>Composants requis
+Cet article requiert les éléments suivants :
 
-* an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)).
-* the [Azure CLI](../xplat-cli-install.md) logged in with `azure login`
-* the Azure CLI *must be* in Azure Resource Manager mode using `azure config mode arm`
+* un compte Azure ([obtenir un essai gratuit](https://azure.microsoft.com/pricing/free-trial/)).
+* [l’interface de ligne de commande Azure (CLI)](../xplat-cli-install.md) connectée à `azure login`
+* l’interface de ligne de commande (CLI) Azure *doit être en* mode Azure Resource Manager avec `azure config mode arm`
 
-## <a name="manually-install-and-configure-mongodb-on-a-vm"></a>Manually install and configure MongoDB on a VM
-MongoDB [provide installation instructions](https://docs.mongodb.com/manual/administration/install-on-linux/) for Linux distros including Red Hat / CentOS, SUSE, Ubuntu, and Debian. The following example creates a `CoreOS` VM using an SSH key stored at `.ssh/azure_id_rsa.pub`. Answer the prompts for storage account name, DNS name, and admin credentials:
+## <a name="manually-install-and-configure-mongodb-on-a-vm"></a>Installer et configurer MongoDB manuellement sur une machine virtuelle
+MongoDB [propose des instructions d’installation](https://docs.mongodb.com/manual/administration/install-on-linux/) pour les distributions Linux, notamment Red Hat / CentOS, SUSE, Ubuntu et Debian. L’exemple suivant crée une machine virtuelle `CoreOS` à l’aide d’une clé SSH stockée sur `.ssh/azure_id_rsa.pub`. Répondez aux invites pour le nom de compte de stockage, le nom DNS et les informations d’identification d’administrateur :
 
-```bash
+```azurecli
 azure vm quick-create --ssh-publickey-file .ssh/azure_id_rsa.pub --image-urn CentOS
 ```
 
-Log on to the VM using the public IP address displayed at the end of the preceding VM creation step:
+Connectez-vous à la machine virtuelle à l’aide de l’adresse IP publique affichée à la fin de l’étape de création de machine virtuelle précédente :
 
 ```bash
 ssh ops@40.78.23.145
 ```
 
-To add the installation sources for MongoDB, create a `yum` repository file as follows:
+Pour ajouter les sources d’installation pour MongoDB, créez un fichier de référentiel `yum` comme suit :
 
 ```bash
 sudo touch /etc/yum.repos.d/mongodb-org-3.2.repo
 ```
 
-Open the MongoDB repo file for editing. Add the following lines:
+Ouvrez le fichier de référentiel MongoDB à modifier. Ajoutez les lignes suivantes :
 
-```bash
+```sh
 [mongodb-org-3.2]
 name=MongoDB Repository
 baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.2/x86_64/
@@ -60,34 +64,34 @@ enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-3.2.asc
 ```
 
-Install MongoDB using `yum` as follows:
+Installez MongoDB à l’aide de `yum` comme suit :
 
 ```bash
 sudo yum install -y mongodb-org
 ```
 
-By default, SELinux is enforced on CentOS images that prevents you from accessing MongoDB. Install policy management tools and configure SELinux to allow MongoDB to operate on its default TCP port 27017 as follows. 
+Par défaut, SELinux est appliqué sur les images CentOS, ce qui vous empêche d’accéder à MongoDB. Installez les outils de gestion de stratégie et configurez SELinux afin d’autoriser MongoDB fonctionner sur le port TCP 27017 par défaut, comme suit. 
 
 ```bash
 sudo yum install -y policycoreutils-python
 sudo semanage port -a -t mongod_port_t -p tcp 27017
 ```
 
-Start the MongoDB service as follows:
+Démarrez le service MongoDB comme suit :
 
 ```bash
 sudo service mongod start
 ```
 
-Verify the MongoDB installation by connecting using the local `mongo` client:
+Vérifiez l’installation de MongoDB en vous connectant à l’aide du client `mongo` local :
 
 ```bash
 mongo
 ```
 
-Now test the MongoDB instance by adding some data and then searching:
+Testez maintenant l’instance MongoDB en ajoutant des données, puis en recherchant :
 
-```
+```sh
 > db
 test
 > db.foo.insert( { a : 1 } )  
@@ -96,51 +100,51 @@ test
 > exit
 ```
 
-If desired, configure MongoDB to start automatically during a system reboot:
+Si vous le souhaitez, configurez MongoDB pour démarrer automatiquement lors du redémarrage du système :
 
 ```bash
 sudo chkconfig mongod on
 ```
 
 
-## <a name="create-basic-mongodb-instance-on-centos-using-a-template"></a>Create basic MongoDB instance on CentOS using a template
-You can create a basic MongoDB instance on a single CentOS VM using the following Azure quickstart template from Github. This template uses the Custom Script extension for Linux to add a `yum` repository to your newly created CentOS VM and then install MongoDB.
+## <a name="create-basic-mongodb-instance-on-centos-using-a-template"></a>Créeation d’une instance MongoDB de base sur CentOS à l’aide d’un modèle
+Vous pouvez créer une instance MongoDB de base sur une machine virtuelle CentOS unique en utilisant le modèle de démarrage rapide Azure suivant à partir de Github. Ce modèle utilise l’extension de script personnalisé pour Linux pour ajouter un référentiel `yum` à votre nouvelle machine virtuelle CentOS, puis installer MongoDB.
 
-* [Basic MongoDB instance on CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
+* [Instance MongoDB de base sur CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) -https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
-The following example creates a resource group with the name `myResourceGroup` in the `WestUS` region. Enter your own values as follows:
+L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` dans la région `WestUS`. Saisissez vos propres valeurs, comme suit :
 
-```bash
+```azurecli
 azure group create --name myResourceGroup --location WestUS \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
 > [!NOTE]
-> The Azure CLI returns you to a prompt within a few seconds of creating the deployment, but the installation and configuration takes a few minutes to complete. Check the status of the deployment with `azure group deployment show myResourceGroup`, entering the name of your resource group accordingly. Wait until the `ProvisioningState` shows 'Succeeded' before trying to SSH to the VM.
+> L’interface de ligne de commande Azure vous renvoie à une invite quelques secondes après la création du déploiement, mais l’installation et la configuration prennent quelques minutes. Vérifiez l’état du déploiement avec `azure group deployment show myResourceGroup`, en saisissant le nom de votre groupe de ressources. Attendez que `ProvisioningState` indique « Terminé » avant d’essayer d’utiliser SSH pour la machine virtuelle.
 > 
 > 
 
-Once the deployment is complete, SSH to the VM. Obtain the IP address of your VM using the `azure vm show` command as in the following example:
+Une fois le déploiement terminé, connectez-vous par SSH à la machine virtuelle. Obtenez l’adresse IP de votre machine virtuelle à l’aide de la commande `azure vm show` comme dans l’exemple suivant :
 
-```bash
+```azurecli
 azure vm show --resource-group myResourceGroup --name myVM
 ```
 
-Near the end of the output, the `Public IP address` is displayed. SSH to your VM with the IP address of your VM:
+Vers la fin de la sortie, `Public IP address` s’affiche. Connectez-vous par SSH à votre machine virtuelle avec l’adresse IP de votre machine virtuelle :
 
 ```bash
 ssh ops@138.91.149.74
 ```
 
-Verify the MongoDB installation by connecting using the local `mongo` client as follows:
+Vérifiez l’installation de MongoDB en vous connectant à l’aide du client `mongo` local, comme suit :
 
 ```bash
 mongo
 ```
 
-Now test the instance by adding some data and searching as follows:
+Testez maintenant l’instance en ajoutant des données, puis en recherchant comme suit :
 
-```
+```sh
 > db
 test
 > db.foo.insert( { a : 1 } )  
@@ -150,35 +154,38 @@ test
 ```
 
 
-## <a name="create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template"></a>Create a complex MongoDB Sharded Cluster on CentOS using a template
-You can create a complex MongoDB sharded cluster using the following Azure quickstart template from Github. This template follows the [MongoDB sharded cluster best practices](https://docs.mongodb.com/manual/core/sharded-cluster-components/) to provide redundancy and high availability. The template creates two shards, with three nodes in each replica set. One config server replica set with three nodes is also created, plus two `mongos` router servers to provide consistency to applications from across the shards.
+## <a name="create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template"></a>Création d’un cluster partitionné MongoDB complexe sur CentOS à l’aide d’un modèle
+Vous pouvez créer une instance MongoDB complexe sur un cluster partitionné en utilisant le modèle de démarrage rapide Azure suivant à partir de Github. Ce modèle suit les [meilleures pratiques pour les clusters partitionnés MongoDB](https://docs.mongodb.com/manual/core/sharded-cluster-components/) pour fournir la redondance et la haute disponibilité. Le modèle crée deux partitions, avec trois nœuds dans chaque jeu de réplicas. Un jeu de réplicas de serveur de configuration avec trois nœuds est également créé, ainsi que deux serveurs de routeur `mongos` pour assurer la cohérence des applications au sein des partitions.
 
-* [MongoDB Sharding Cluster on CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
+* [Cluster de partitionnement MongoDB sur CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) -https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 
 > [!WARNING]
-> Deploying this complex MongoDB sharded cluster requires more than 20 cores, which is typically the default core count per region for a subscription. Open an Azure support request to increase your core count.
+> Le déploiement de ce cluster partitionné MongoDB complexe requiert plus de 20 cœurs, ce qui est généralement le nombre de cœurs par défaut par région pour un abonnement. Ouvrez une demande de support Azure pour augmenter votre nombre de cœurs.
 > 
 > 
 
-The following example creates a resource group with the name `myResourceGroup` in the `WestUS` region. Enter your own values as follows:
+L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` dans la région `WestUS`. Saisissez vos propres valeurs, comme suit :
 
-```bash
+```azurecli
 azure group create --name myResourceGroup --location WestUS \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 ```
 
 > [!NOTE]
-> The Azure CLI returns you to a prompt within a few seconds of creating the deployment, but the installation and configuration can take over an hour to complete. Check the status of the deployment with `azure group deployment show myResourceGroup`, adjusting the name of your resource group accordingly. Wait until the `ProvisioningState` shows 'Succeeded' before connecting to the VMs.
+> L’interface de ligne de commande Azure vous renvoie à une invite quelques secondes après la création du déploiement, mais l’installation et la configuration peuvent prendre plus d’une heure. Vérifiez l’état du déploiement avec `azure group deployment show myResourceGroup`, en ajustant le nom de votre groupe de ressources. Attendez que `ProvisioningState` indique « Terminé » avant de vous connecteur aux machines virtuelles.
 > 
 > 
 
-## <a name="next-steps"></a>Next steps
-In these examples, you connect to the MongoDB instance locally from the VM. If you want to connect to the MongoDB instance from another VM or network, ensure the appropriate [Network Security Group rules are created](virtual-machines-linux-nsg-quickstart.md).
+## <a name="next-steps"></a>Étapes suivantes
+Dans ces exemples, vous vous connectez à l’instance MongoDB localement à partir de la machine virtuelle. Si vous souhaitez vous connecter à l’instance MongoDB à partir d’une autre machine virtuelle ou d’un autre réseau, vérifiez que les bonnes [règles de groupe de sécurité réseau sont créées](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-For more information about creating using templates, see the [Azure Resource Manager overview](../resource-group-overview.md).
+Pour en savoir plus sur la création avec des modèles, voir [Présentation d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
-The Azure Resource Manager templates use the Custom Script Extension to download and execute scripts on your VMs. For more information, see [Using the Azure Custom Script Extension with Linux Virtual Machines](virtual-machines-linux-extensions-customscript.md).
+Les modèles Azure Resource Manager utilisent l’extension de script personnalisé pour télécharger et exécuter des scripts sur vos machines virtuelles. Pour plus d’informations, consultez [Utilisation de l’extension de script personnalisé Azure avec des machines virtuelles Linux](virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

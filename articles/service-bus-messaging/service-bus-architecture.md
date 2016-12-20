@@ -1,27 +1,27 @@
 ---
 title: Architecture Service Bus | Microsoft Docs
 description: "Décrit l’architecture de traitement et de relais de message d’Azure Service Bus."
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: baf94c2d-0e58-4d5d-a588-767f996ccf7f
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 11/30/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3c69783341eaed67ac29ab63d2127a4038bc0f6d
+ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
+ms.openlocfilehash: 6a2e59f9366e411d322b8560f03b115638619966
 
 
 ---
 # <a name="service-bus-architecture"></a>Architecture de Service Bus
-Cet article décrit l’architecture de traitement et de relais de message d’Azure Service Bus.
+Cet article décrit l’architecture de traitement de message d’Azure Service Bus.
 
 ## <a name="service-bus-scale-units"></a>Unités d'échelle de Service Bus
 Service Bus est organisé par *unités d'échelle*. Une unité d'échelle est une unité de déploiement et contient tous les composants requis pour exécuter le service. Chaque région déploie une ou plusieurs unités d'échelle Service Bus.
@@ -49,7 +49,7 @@ Lorsque la connexion au relais est établie, les clients peuvent échanger des m
 ![Traitement des requêtes WCF Relay entrantes](./media/service-bus-architecture/IC690645.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous avez lu une présentation de l’architecture Service Bus, consultez les liens suivants :
+Maintenant que vous avez une vue d'ensemble de l’architecture Service Bus, consultez les liens suivants pour plus d'informations :
 
 * [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
 * [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
@@ -58,6 +58,6 @@ Maintenant que vous avez lu une présentation de l’architecture Service Bus, c
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

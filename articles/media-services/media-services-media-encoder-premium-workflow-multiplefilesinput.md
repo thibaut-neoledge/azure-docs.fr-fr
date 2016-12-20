@@ -1,12 +1,12 @@
 ---
-title: Utilisation de plusieurs fichiers d’entrée et propriétés du composant avec Premium Encoder | Microsoft Docs
-description: Cette rubrique explique comment utiliser setRuntimeProperties pour plusieurs fichiers d’entrée et transmettre des données personnalisées au processeur multimédia de flux de travail Media Encoder Premium.
+title: "Utilisation de plusieurs fichiers d’entrée et propriétés du composant avec Premium Encoder | Microsoft Docs"
+description: "Cette rubrique explique comment utiliser setRuntimeProperties pour plusieurs fichiers d’entrée et transmettre des données personnalisées au processeur multimédia de flux de travail Media Encoder Premium."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: xpouyat
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7fb35bdd-9891-4401-a65b-ef3cc8190e8a
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,11 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: xpouyat;anilmur;juliako
+translationtype: Human Translation
+ms.sourcegitcommit: f8b0917b6eb0295641360c4e0a80e81100809f6e
+ms.openlocfilehash: 1d7f5aeb5fcdb6b80289bbd77c12957148d03732
+
 
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Utilisation de plusieurs fichiers d’entrée et propriétés du composant avec Premium Encoder
 ## <a name="overview"></a>Vue d'ensemble
-Il existe des scénarios dans lesquels vous devrez peut-être personnaliser les propriétés du composant, spécifier le contenu du fichier XML de liste de séquences ou envoyer plusieurs fichiers d’entrée lorsque vous soumettez une tâche avec le processeur multimédia **Media Encoder Premium Workflow** . Voici quelques exemples :
+Il existe des scénarios dans lesquels vous devrez peut-être personnaliser les propriétés du composant, spécifier le contenu du fichier XML de liste de séquences ou envoyer plusieurs fichiers d’entrée lorsque vous soumettez une tâche avec le processeur multimédia **Media Encoder Premium Workflow** . Voici quelques exemples :
 
 * Superposition de texte sur la vidéo et définition de la valeur du texte (par exemple, la date actuelle) au moment de l’exécution pour chaque vidéo d’entrée.
 * Personnalisation du fichier XML de liste de séquences (pour spécifier un ou plusieurs fichiers source, avec ou sans découpage, etc.).
@@ -58,7 +62,7 @@ Supposons que vous ayez conçu un flux de travail qui superpose du texte sur vos
 
 **setRuntimeProperties** est utilisé pour remplacer une propriété dans les composants du flux de travail.
 
-Exemple :
+Exemple :
 
     <?xml version="1.0" encoding="utf-8"?>
       <transcodeRequest>
@@ -74,7 +78,7 @@ Exemple :
 ### <a name="property-with-an-xml-value"></a>Propriété avec une valeur XML
 Pour définir une propriété qui attend une valeur XML, encapsulez à l’aide de `<![CDATA[ and ]]>`.
 
-Exemple :
+Exemple :
 
     <?xml version="1.0" encoding="utf-8"?>
       <transcodeRequest>
@@ -105,8 +109,8 @@ Exemple :
 
 > [!NOTE]
 > Assurez-vous de ne pas mettre de retour chariot juste après `<![CDATA[`.
-> 
-> 
+>
+>
 
 ### <a name="propertypath-value"></a>Valeur propertyPath
 Dans les exemples précédents, la valeur propertyPath était « /Media File Input/filename », « /inactiveTimeout » ou « clipListXml ».
@@ -246,7 +250,7 @@ Prenons un exemple dans lequel vous voulez superposer une image de logo sur la v
 * Créez un élément multimédia contenant deux fichiers : MyInputVideo.mp4 en tant que fichier principal et MyLogo.png.
 * Envoyez une tâche au processeur multimédia Media Encoder Premium Workflow avec les ressources d’entrée ci-dessus et spécifiez la chaîne de configuration suivante.
 
-Configuration :
+Configuration :
 
     <?xml version="1.0" encoding="utf-8"?>
       <transcodeRequest>
@@ -262,8 +266,8 @@ Dans l’exemple ci-dessus, le nom du fichier vidéo est envoyé au composant Me
 
 > [!NOTE]
 > Le nom du fichier vidéo est envoyé à la propriété primarySourceFile. L’objectif est d’utiliser cette propriété dans le flux de travail pour générer le nom de fichier de sortie correct à l’aide d’Expressions, par exemple.
-> 
-> 
+>
+>
 
 ### <a name="step-by-step-workflow-creation-that-overlays-a-logo-on-top-of-the-video"></a>Création étape par étape du flux de travail pour superposer un logo sur la vidéo
 Voici les étapes pour créer un flux de travail prenant deux fichiers en entrée : une vidéo et une image. Ce flux de travail superpose l’image sur la vidéo.
@@ -354,8 +358,8 @@ Ce didacticiel vous montre comment gérer des éléments multimédias avec AMSE.
 
 > [!NOTE]
 > Veillez à définir un fichier principal dans l’élément multimédia (le fichier vidéo principal).
-> 
-> 
+>
+>
 
 ![Fichiers d’élément multimédia dans AMSE](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture18_assetinamse.png)
 
@@ -399,7 +403,7 @@ Vous pouvez télécharger l’exemple de flux de travail sur [GitHub](https://gi
 ## <a name="see-also"></a>Voir aussi
 * [Présentation de l’encodage Premium dans Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [Utilisation de l’encodage Premium dans Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
-* [Encodage de contenu à la demande avec Azure Media Services](media-services-encode-asset.md#media_encoder_premium_workflow)
+* [Encodage de contenu à la demande avec Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)
 * [Codecs et formats de Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md)
 * [Exemples de fichiers de workflow](https://github.com/AzureMediaServicesSamples/Encoding-Presets/tree/master/VoD/MediaEncoderPremiumWorkfows)
 * [Outil Azure Media Services Explorer](http://aka.ms/amse)
@@ -410,6 +414,8 @@ Vous pouvez télécharger l’exemple de flux de travail sur [GitHub](https://gi
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

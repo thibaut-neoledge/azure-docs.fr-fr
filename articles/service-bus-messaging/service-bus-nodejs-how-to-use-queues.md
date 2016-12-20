@@ -1,38 +1,42 @@
 ---
-title: Utilisation des files d’attente Service Bus dans Node.js | Microsoft Docs
-description: Découvrez comment utiliser les files d’attente Service Bus dans Azure à partir d’une application Node.js.
-services: service-bus
+title: "Utilisation des files d’attente Service Bus dans Node.js | Microsoft Docs"
+description: "Découvrez comment utiliser les files d’attente Service Bus dans Azure à partir d’une application Node.js."
+services: service-bus-messaging
 documentationcenter: nodejs
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
+ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
+ms.openlocfilehash: d36d806d14fbaa813ea9e8e6ec132fda998bb22c
+
 
 ---
-# <a name="how-to-use-service-bus-queues"></a>Utilisation des files d’attente Service Bus
+# <a name="how-to-use-service-bus-queues"></a>Utilisation des files d’attente Service Bus
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Cet article décrit l’utilisation des files d’attente Service Bus dans Node.js. Les exemples sont écrits en JavaScript et utilisent le module Azure Node.js. Les scénarios couverts dans ce guide sont les suivants : **création de files d’attente**, **envoi et réception de messages** et **suppression de files d’attente**. Pour plus d’informations sur les files d’attente, consultez la section [Étapes suivantes](#next-steps).
+Cet article décrit l’utilisation des files d’attente Service Bus dans Node.js. Les exemples sont écrits en JavaScript et utilisent le module Azure Node.js. Les scénarios couverts dans ce guide sont les suivants : **création de files d’attente**, **envoi et réception de messages** et **suppression de files d’attente**. Pour plus d’informations sur les files d’attente, consultez la section [Étapes suivantes](#next-steps).
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## <a name="create-a-node.js-application"></a>Création d’une application Node.js
+## <a name="create-a-nodejs-application"></a>Création d’une application Node.js
 Créez une application Node.js vide. Pour obtenir des instructions sur la création d’une application Node.js, voir les pages [Création et déploiement d’une application Node.js sur un site web Azure][Création et déploiement d’une application Node.js sur un site web Azure] ou [Service cloud Node.js][Service cloud Node.js] avec Windows PowerShell.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuration de votre application pour l’utilisation de Service Bus
 Pour utiliser Azure Service Bus, téléchargez et utilisez le package Azure Node.js. Ce dernier inclut des bibliothèques permettant de communiquer avec les services REST de Service Bus.
 
-### <a name="use-node-package-manager-(npm)-to-obtain-the-package"></a>Utilisation de Node Package Manager (NPM) pour obtenir le package
+### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Utilisation de Node Package Manager (NPM) pour obtenir le package
 1. Utilisez la fenêtre de commande **Windows PowerShell for Node.js** pour accéder au dossier **c:\\node\\sbqueues\\WebRole1** dans lequel vous avez créé votre exemple d’application.
-2. Tapez **npm install azure** dans la fenêtre de commande, ce qui génère un résultat similaire à ce qui suit :
-   
+2. Tapez **npm install azure** dans la fenêtre de commande, ce qui génère un résultat similaire à ce qui suit :
+
     ```
     azure@0.7.5 node_modules\azure
         ├── dateformat@1.0.2-1.2.3
@@ -49,7 +53,7 @@ Pour utiliser Azure Service Bus, téléchargez et utilisez le package Azure Node
 3. Vous pouvez exécuter manuellement la commande **ls** pour vérifier que le dossier **node\_modules** a été créé. Dans ce dossier, recherchez le package **azure**, qui contient les bibliothèques nécessaires pour accéder aux files d’attente Service Bus.
 
 ### <a name="import-the-module"></a>Importation du module
-À l’aide d’un éditeur de texte, comme le Bloc-notes, ajoutez la commande suivante au début du fichier **server.js** de l’application :
+À l’aide d’un éditeur de texte, comme le Bloc-notes, ajoutez la commande suivante au début du fichier **server.js** de l’application :
 
 ```
 var azure = require('azure');
@@ -60,16 +64,16 @@ Le module Azure lit les variables d’environnement AZURE\_SERVICEBUS\_NAMESPACE
 
 Pour consulter un exemple de paramétrage de variables d’environnement dans un fichier de configuration pour un service cloud Azure, voir la page [Service cloud Node.js avec stockage][Service cloud Node.js avec stockage].
 
-Pour un exemple de configuration des variables d’environnement dans le [portail Azure Classic][portail Azure Classic] pour un site web Azure, consultez [Application web Node.js avec Storage][].
+Pour un exemple de configuration des variables d’environnement dans le [Portail Azure Classic][Portail Azure Classic] pour un site web Azure, consultez [Application web Node.js avec Storage][Application web Node.js avec stockage].
 
 ## <a name="create-a-queue"></a>Création d’une file d’attente
-L’objet **ServiceBusService** permet d’utiliser des files d’attente Service Bus. Le code suivant crée un objet **ServiceBusService**. Ajoutez-le vers le début du fichier **server.js**, après l’instruction relative à l’importation du module Azure :
+L’objet **ServiceBusService** permet d’utiliser des files d’attente Service Bus. Le code suivant crée un objet **ServiceBusService**. Ajoutez-le vers le début du fichier **server.js**, après l’instruction relative à l’importation du module Azure :
 
 ```
 var serviceBusService = azure.createServiceBusService();
 ```
 
-En appelant **createQueueIfNotExists** sur l’objet **ServiceBusService**, la file d’attente spécifiée est renvoyée (si elle existe) ou une file d’attente comportant le nom spécifié est créée. Le code suivant utilise **createQueueIfNotExists** pour créer la file d’attente nommée `myqueue` ou s’y connecter :
+En appelant **createQueueIfNotExists** sur l’objet **ServiceBusService**, la file d’attente spécifiée est renvoyée (si elle existe) ou une file d’attente comportant le nom spécifié est créée. Le code suivant utilise **createQueueIfNotExists** pour créer la file d’attente nommée `myqueue` ou s’y connecter :
 
 ```
 serviceBusService.createQueueIfNotExists('myqueue', function(error){
@@ -79,7 +83,7 @@ serviceBusService.createQueueIfNotExists('myqueue', function(error){
 });
 ```
 
-**createServiceBusService** prend également en charge des options supplémentaires, qui vous permettent de remplacer les paramètres de file d’attente par défaut comme la durée de vie du message ou la taille maximale de la file d’attente. L’exemple suivant définit la taille maximale de la file d’attente sur 5 Go et la durée de vie de message sur 1 minute :
+**createServiceBusService** prend également en charge des options supplémentaires, qui vous permettent de remplacer les paramètres de file d’attente par défaut comme la durée de vie du message ou la taille maximale de la file d’attente. L’exemple suivant définit la taille maximale de la file d’attente sur 5 Go et la durée de vie de message sur 1 minute :
 
 ```
 var queueOptions = {
@@ -101,7 +105,7 @@ Des opérations facultatives de filtrage peuvent être appliquées aux opératio
 function handle (requestOptions, next)
 ```
 
-Après le prétraitement des options de la requête, la méthode doit appeler `next` en passant un rappel avec la signature suivante :
+Après le prétraitement des options de la requête, la méthode doit appeler `next` en passant un rappel avec la signature suivante :
 
 ```
 function (returnObject, finalCallback, next)
@@ -109,7 +113,7 @@ function (returnObject, finalCallback, next)
 
 Dans ce rappel, et après le traitement de **returnObject** (la réponse à la requête du serveur), le rappel doit appeler `next`, s’il existe, pour continuer à traiter d’autres filtres, ou appeler `finalCallback` pour terminer l’appel du service.
 
-Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet **ServiceBusService** qui utilise le filtre **ExponentialRetryPolicyFilter** :
+Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet **ServiceBusService** qui utilise le filtre **ExponentialRetryPolicyFilter** :
 
 ```
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -119,7 +123,7 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 ## <a name="send-messages-to-a-queue"></a>Envoi de messages à une file d'attente
 Pour envoyer un message à une file d’attente Service Bus, votre application appelle la méthode **sendQueueMessage** sur l’objet **ServiceBusService**. Les messages envoyés aux files d’attente Service Bus (et reçus de celles-ci) sont les objets **BrokeredMessage**. Ils possèdent un ensemble de propriétés standard (telles que **Label** et **TimeToLive**), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu’un corps de données d’application arbitraires. Une application peut définir le corps du message en passant une chaîne comme message. Toutes les propriétés standard requises sont remplies avec les valeurs par défaut.
 
-L’exemple suivant indique comment envoyer un message test à la file d’attente nommée `myqueue` au moyen de la méthode **sendQueueMessage** :
+L’exemple suivant indique comment envoyer un message test à la file d’attente nommée `myqueue` au moyen de la méthode **sendQueueMessage** :
 
 ```
 var message = {
@@ -134,7 +138,7 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-Les files d’attente Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et d’1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go. Pour plus d’informations sur les quotas, consultez [Quotas Service Bus][Quotas Service Bus].
+Les files d’attente Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et d’1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go. Pour plus d’informations sur les quotas, consultez [Quotas Service Bus][Quotas Service Bus].
 
 ## <a name="receive-messages-from-a-queue"></a>Réception des messages d'une file d'attente
 La méthode **receiveQueueMessage** de l’objet **ServiceBusService** permet de recevoir les messages d’une file d’attente. Par défaut, les messages sont supprimés de la file d’attente au fur et à mesure de leur lecture. Cependant, vous pouvez lire et verrouiller le message sans le supprimer de la file d’attente en définissant le paramètre facultatif **isPeekLock** sur **true**.
@@ -143,7 +147,7 @@ Le comportement par défaut de lecture et de suppression du message dans le cadr
 
 Si le paramètre **isPeekLock** est défini sur **true**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas tolérer les messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès lors que l’application a terminé le traitement du message (ou qu’elle l’a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode **deleteMessage** et en fournissant le message à supprimer sous la forme d’un paramètre. La méthode **deleteMessage** marque le message comme étant consommé et le supprime de la file d’attente.
 
-L’exemple suivant montre comment recevoir et traiter des messages à l’aide de la méthode **receiveQueueMessage**. L’exemple reçoit et supprime un message, reçoit un message en utilisant **isPeekLock** défini sur **true**, puis supprime le message à l’aide de la méthode **deleteMessage** :
+L’exemple suivant montre comment recevoir et traiter des messages à l’aide de la méthode **receiveQueueMessage**. L’exemple reçoit et supprime un message, reçoit un message en utilisant **isPeekLock** défini sur **true**, puis supprime le message à l’aide de la méthode **deleteMessage** :
 
 ```
 serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
@@ -173,23 +177,22 @@ Si l’application subit un incident après le traitement du message, mais avant
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les files d’attente, consultez les ressources suivantes :
 
-* [Files d’attente, rubriques et abonnements][]
-* Référentiel du [Kit de développement logiciel (SDK) Azure pour Node][] sur GitHub
-* [Centre de développement Node.js](/develop/nodejs/)
+* Consultez [Files d’attente, rubriques et abonnements.][Files d’attente, rubriques et abonnements.]
+* Référentiel [SDK Azure pour Node][SDK Azure pour Node] sur GitHub
+* [Centre pour développeurs Node.js](/develop/nodejs/)
 
 [SDK Azure pour Node]: https://github.com/Azure/azure-sdk-for-node
-[Portail Azure Classic]: http://manage.windowsazure.com
+[Portail Azure Classic]: http://manage.windowsazure.com
 
 [Service cloud Node.js]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Files d’attente, rubriques et abonnements.]: service-bus-queues-topics-subscriptions.md
 [Création et déploiement d’une application Node.js sur un site web Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Service cloud Node.js avec stockage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[Service cloud Node.js avec stockage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
 [Application web Node.js avec stockage]: ../storage/storage-nodejs-how-to-use-table-storage.md
 [Quotas Service Bus]: service-bus-quotas.md
 
 
 
-
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

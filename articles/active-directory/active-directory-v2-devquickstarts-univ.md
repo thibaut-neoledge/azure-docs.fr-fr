@@ -1,12 +1,12 @@
 ---
-title: Azure AD v2.0 Windows Universal App | Microsoft Docs
-description: How to build an Windows Universal app that signs users in with both personal Microsoft Account and work or school accounts.
+title: "Application universelle Windows Azure AD v2.0 | Microsoft Docs"
+description: "Génération d’une application universelle Windows qui connecte les utilisateurs à l’aide de leur compte Microsoft personnel et de leurs comptes professionnel ou scolaire."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dstrockis
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: d2c92b65-3c1d-46d1-81c8-88f32f6b2c4b
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
@@ -14,20 +14,27 @@ ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.date: 02/20/2016
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 349633ed039f3af2ee04d10e944eba404bb30950
+
 
 ---
-# <a name="add-signin-to-a-windows-universal-app-using-the-v20-endpoint"></a>Add sign-in to a Windows Universal app using the v2.0 endpoint
-  The quick-start tutorial for Windows Universal apps isn't quite ready... Check back soon & look for updates from @AzureAD on Twitter.
+# <a name="add-sign-in-to-a-windows-universal-app-using-the-v20-endpoint"></a>Ajouter une connexion à une application universelle Windows à l’aide du point de terminaison v2.0
+  Le didacticiel de démarrage rapide pour les applications universelles Windows n’est pas tout à fait prêt... Revenez plus tard et recherchez les mises à jour à partir de @AzureAD sur Twitter.
 
 > [!NOTE]
-> Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+> Les scénarios et les fonctionnalités Azure Active Directory ne sont pas tous pris en charge par le point de terminaison v2.0.  Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limitations de v2.0](active-directory-v2-limitations.md).
 > 
 > 
 
     ## Get security updates for our products
 
-We encourage you to get notifications of when security incidents occur by visiting [this page](https://technet.microsoft.com/security/dd252948) and subscribing to Security Advisory Alerts.
+Nous vous encourageons à activer les notifications d’incidents de sécurité en vous rendant sur [cette page](https://technet.microsoft.com/security/dd252948) et en vous abonnant aux alertes d’avis de sécurité.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

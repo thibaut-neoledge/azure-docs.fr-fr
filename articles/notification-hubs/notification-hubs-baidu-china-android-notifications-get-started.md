@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9e6af9016318f9e31a143c6cf1329a7ab2c8acd6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ec2a69ff5a7f1f3a954eae70f1cd776242b0b7f4
 
 
 ---
@@ -31,7 +31,7 @@ Ce didacticiel requiert les éléments suivants :
 
 * Kit de développement logiciel (SDK) Android (nous supposons que vous utiliserez Eclipse) que vous pouvez télécharger depuis le <a href="http://go.microsoft.com/fwlink/?LinkId=389797">site Android</a>
 * [Kit de développement logiciel (SDK) Mobile Services pour Android]
-* [Kit de développement logiciel (SDK) Android pour transmissions Push Baidu]
+* [Kit de développement logiciel (SDK) Android pour transmissions push Baidu]
 
 > [!NOTE]
 > Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
@@ -443,12 +443,12 @@ Pour envoyer une notification de test, vous pouvez utiliser l’onglet de débog
 
 <!-- URLs. -->
 [Kit de développement logiciel (SDK) Mobile Services pour Android]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Kit de développement logiciel (SDK) Android pour transmissions Push Baidu]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
+[Kit de développement logiciel (SDK) Android pour transmissions push Baidu]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
 [Portail Azure Classic]: https://manage.windowsazure.com/
 [portail Baidu]: http://www.baidu.com/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

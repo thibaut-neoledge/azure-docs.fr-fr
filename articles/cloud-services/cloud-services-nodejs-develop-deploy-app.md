@@ -15,17 +15,12 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: e7d3c82e235d691c4ab329be3b168dcccc19774f
-ms.openlocfilehash: 2809b7f5367a333a7aac99db890d0aee3bc6667a
+ms.sourcegitcommit: d2d3f414d0e9fcc392d21327ef630f96c832c99c
+ms.openlocfilehash: d8108368a157ed05c4fe0defbcef8372e205f6f8
 
 
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Création et déploiement d'une application Node.js dans Azure Cloud Services
-> [!div class="op_single_selector"]
-> * [Node.JS](cloud-services-nodejs-develop-deploy-app.md)
-> * [.NET](cloud-services-dotnet-get-started.md)
->
->
 
 Ce didacticiel explique comment créer une application Node.js simple s’exécutant dans Azure Cloud Services. Les services Cloud Services sont des composantes des applications cloud extensibles dans Azure. Ils permettent de séparer, de gérer et d'étendre de façon indépendante le composant frontal et le composant principal de votre application.  Cloud Services héberge de façon fiable chaque rôle sur une machine virtuelle dédiée.
 
@@ -33,8 +28,6 @@ Pour plus d'informations sur les services cloud et pour connaître les différen
 
 > [!TIP]
 > Vous voulez créer un simple site Web ? Si votre scénario ne comporte qu’un simple composant frontal web, envisagez d’[utiliser une application web légère]. Vous pouvez facilement mettre à niveau vers un service cloud en fonction du développement de votre application et de vos besoins.
->
->
 
 Dans ce didacticiel, vous allez créer une application Web simple, hébergée dans un rôle Web. Vous utiliserez l’émulateur de calcul pour tester votre application localement, puis déploierez cette dernière à l’aide d’outils en ligne de commande PowerShell.
 
@@ -45,8 +38,6 @@ Il s’agit d’une application « hello world » simple :
 ## <a name="prerequisites"></a>Composants requis
 > [!NOTE]
 > Ce didacticiel utilise Azure PowerShell, qui nécessite Windows.
->
->
 
 * Installez et configurez [Azure PowerShell].
 * Téléchargez et installez le [Kit de développement logiciel (SDK) Azure pour .NET 2.7]. Dans le programme d'installation, sélectionnez :
@@ -80,8 +71,6 @@ Effectuez les tâches suivantes pour créer un projet Azure Cloud Services, avec
 
    > [!NOTE]
    > Si vous ne spécifiez pas de nom de rôle, un nom par défaut est utilisé. Vous pouvez indiquer un nom comme premier paramètre de la cmdlet : `Add-AzureNodeWebRole MyRole`
-   >
-   >
 
 L’application Node.js est définie dans le fichier **server.js**, situé dans le répertoire du rôle web (**WebRole1** par défaut). Voici le code :
 
@@ -94,8 +83,10 @@ L’application Node.js est définie dans le fichier **server.js**, situé dans 
 
 Ce code est essentiellement identique à l’exemple « Hello World » sur le site web [nodejs.org] , sauf qu’il utilise le numéro de port attribué par l’environnement de cloud.
 
-## <a name="deploy-the-application-to-azure"></a>Déploiement de l’application dans Azure
-    [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
+## <a name="deploy-the-application-to-azure"></a>Déploiement de l'application dans Azure
+
+> [!NOTE]
+> Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou [vous inscrire pour un compte gratuit](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### <a name="download-the-azure-publishing-settings"></a>Télécharger les paramètres de publication Azure
 Pour déployer votre application sur Azure, vous devez télécharger les paramètres de publication de votre abonnement Azure.
@@ -111,12 +102,13 @@ Pour déployer votre application sur Azure, vous devez télécharger les paramè
 
        Import-AzurePublishSettingsFile [path to file]
 
-    > [AZURE.NOTE] Après l’importation des paramètres de publication, pensez à supprimer le fichier .publishSettings téléchargé, car il contient des informations qui pourraient permettre à d’autres personnes d’accéder à votre compte.
+    > [!NOTE]
+    > Après l’importation des paramètres de publication, pensez à supprimer le fichier .publishSettings téléchargé, car il contient des informations qui pourraient permettre à d’autres personnes d’accéder à votre compte.
 
 ### <a name="publish-the-application"></a>Publication de l'application
 Pour publier, exécutez les commande suivantes :
 
-      $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))   
+      $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))
     Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 
 * **-ServiceName** indique le nom du déploiement. Ce nom doit être unique, sans quoi le processus de publication échouera. La commande **Get-Date** s'attache à une chaîne de date et d'heure qui doit rendre le nom unique.
@@ -129,8 +121,6 @@ Une fois la publication effectuée, vous devez obtenir une réponse semblable à
 
 > [!NOTE]
 > Il peut s’écouler plusieurs minutes avant que l’application soit déployée et disponible lors de la première publication.
->
->
 
 Une fois le déploiement terminé, une fenêtre de navigateur s'ouvre et accède au service cloud.
 
@@ -167,8 +157,6 @@ Après avoir déployé votre application, vous pouvez la désactiver afin de vou
 
    > [!NOTE]
    > La suppression du service ne supprime pas le compte de stockage qui a été créé lors de la publication initiale du service. Le stockage utilisé continuera à vous être facturé. Si aucun autre élément n’utilise le stockage, il peut être préférable de le supprimer.
-   >
-   >
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez le [Centre pour développeurs Node.js].
@@ -177,25 +165,25 @@ Pour plus d’informations, consultez le [Centre pour développeurs Node.js].
 
 [Comparaison des sites Web Azure, des services cloud et des machines virtuelles]: ../app-service-web/choose-web-site-cloud-service-vm.md
 [utiliser une application web légère]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Azure PowerShell]: ../powershell-install-configure.md
+[Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Kit de développement logiciel (SDK) Azure pour .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
-[Connectez PowerShell]: ../powershell-install-configure.md#step-3-connect
+[Connectez PowerShell]: /powershell/azureps-cmdlets-docs#step-3-connect
 [nodejs.org]: http://nodejs.org/
 [Présentation de la création d'un service hébergé pour Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Centre pour développeurs Node.js]: https://azure.microsoft.com/develop/nodejs/
 
 <!-- IMG List -->
 
-[Le résultat de la nouvelle commande helloworld New-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
-[Résultat de la commande Add-AzureNodeWebRole]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
-[Navigateur Web avec la page Web Hello World]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
-[Résultat de la commande Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-[Fenêtre de navigateur affichant la page Hello World ; l’URL indique que la page est hébergée sur Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
-[État de la commande Stop-AzureService.]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
-[État de la commande Remove-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+[The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
+[The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
+[A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
+[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
+[A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
+[The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
+[The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

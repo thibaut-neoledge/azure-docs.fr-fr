@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f85c3a0d3bb9fb61802ba3ce070ead2e650a29cc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d638e79517053fa758d9695c297ef09f4d9a806d
 
 
 ---
@@ -34,7 +34,7 @@ Avant de commencer cette procédure, vous devez déjà avoir [créé un index de
 
 Notez que tous les exemples de code figurant dans cet article sont écrits en C#. L’intégralité du code source est disponible [sur GitHub](http://aka.ms/search-dotnet-howto).
 
-## <a name="i-identify-your-azure-search-services-query-apikey"></a>I. Identifier la clé API de requête de votre service Azure Search
+## <a name="i-identify-your-azure-search-services-query-api-key"></a>I. Identifier la clé API de requête de votre service Azure Search
 Maintenant que vous avez créé un index Azure Search, vous êtes presque prêt à générer des requêtes à l’aide du Kit de développement logiciel (SDK) .NET. Tout d’abord, vous devez obtenir l’une des clés API de requête qui a été générée pour le service de recherche que vous avez configuré. À chaque demande, le Kit de développement logiciel (SDK) .NET envoie la clé API à votre service. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
 1. Pour accéder aux clés API de votre service, vous devez vous connecter au [portail Azure](https://portal.azure.com/)
@@ -170,6 +170,6 @@ L’exemple de code ci-dessus utilise la console pour générer les résultats d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

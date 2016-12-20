@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 68f3736069a153e6de9a7ba5f11708a4eb648dbf
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8a3f389250920dcdb49a5f88812d2e3b88bfd6c6
 
 
 ---
-# <a name="deploy-your-onpremises-storsimple-device-update-1"></a>Déployer votre appareil StorSimple local (Update 1)
+# <a name="deploy-your-on-premises-storsimple-device-update-1"></a>Déployer votre appareil StorSimple local (Update 1)
 > [!div class="op_single_selector"]
 > * [Update 2](storsimple-deployment-walkthrough-u2.md)
 > * [Update 1](storsimple-deployment-walkthrough-u1.md)
@@ -131,7 +131,7 @@ Avant de commencer, assurez-vous que :
 
 * Les ports du pare-feu de votre centre de données sont ouverts pour autoriser le trafic iSCSI et du cloud, comme décrit dans la section [Configuration réseau requise pour un appareil StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
-## <a name="stepbystep-deployment"></a>DÉPLOIEMENT ÉTAPE PAR ÉTAPE
+## <a name="step-by-step-deployment"></a>DÉPLOIEMENT ÉTAPE PAR ÉTAPE
 Utilisez la procédure détaillée ci-dessous pour déployer votre appareil StorSimple dans le centre de données.
 
 ## <a name="step-1-create-a-new-service"></a>Étape 1 : Création d’un nouveau service
@@ -270,6 +270,6 @@ Pour obtenir les instructions d'installation et de configuration de MPIO pour un
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

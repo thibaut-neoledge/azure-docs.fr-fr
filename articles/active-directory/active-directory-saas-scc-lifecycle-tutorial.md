@@ -1,11 +1,11 @@
 ---
-title: 'Didacticiel : Intégration d’Azure AD à SCC LifeCycle | Microsoft Docs'
-description: Découvrez comment utiliser SCC LifeCycle avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore.
+title: "Didacticiel : Intégration d’Azure Active Directory à SCC LifeCycle | Microsoft Docs"
+description: "Découvrez comment utiliser SCC LifeCycle avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 9748bf38-ffc3-4d51-a1ae-207ce57104fa
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,18 +13,22 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 47c9be0aef918eee322245164458cfffa95b8551
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-scc-lifecycle"></a>Didacticiel : Intégration d’Azure AD à SCC LifeCycle
+# <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Didacticiel : Intégration d’Azure AD à SCC LifeCycle
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et SCC LifeCycle.  
-Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 * Un abonnement Azure valide
 * Un abonnement SCC LifeCycle pour lequel l’authentification unique est activée
 
 À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à SCC LifeCycle pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise SCC LifeCycle (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
+Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
 1. Activation de l’intégration d’applications pour SCC LifeCycle
 2. Configuration de l'authentification unique
@@ -36,7 +40,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 ## <a name="enabling-the-application-integration-for-scc-lifecycle"></a>Activation de l’intégration d’applications pour SCC LifeCycle
 Cette section décrit comment activer l’intégration d’applications pour SCC LifeCycle.
 
-### <a name="to-enable-the-application-integration-for-scc-lifecycle,-perform-the-following-steps:"></a>Pour activer l’intégration d’applications pour SCC LifeCycle, procédez comme suit :
+### <a name="to-enable-the-application-integration-for-scc-lifecycle-perform-the-following-steps"></a>Pour activer l’intégration d’applications pour SCC LifeCycle, procédez comme suit :
 1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-scc-lifecycle-tutorial/IC700993.png "Active Directory")
@@ -61,7 +65,7 @@ Cette section décrit comment activer l’intégration d’applications pour SCC
 
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur SCC LifeCycle avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Pour configurer l’authentification unique, procédez comme suit :
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
 1. Dans la page d’intégration d’application **SCC LifeCycle** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
    ![Configurer l’authentification unique](./media/active-directory-saas-scc-lifecycle-tutorial/IC794122.png "Configure Single Sign-On")
@@ -80,7 +84,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
    > L’authentification unique doit être activée par l’équipe de support de SCC LifeCycle.
    > 
    > 
-6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
    
    ![Configurer l’authentification unique](./media/active-directory-saas-scc-lifecycle-tutorial/IC794125.png "Configure Single Sign-On")
    
@@ -99,8 +103,8 @@ Lorsqu’un utilisateur tente de se connecter à SCC LifeCycle, un compte SCC Li
 ## <a name="assigning-users"></a>Affectation d’utilisateurs
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-### <a name="to-assign-users-to-scc-lifecycle,-perform-the-following-steps:"></a>Pour affecter des utilisateurs à SCC LifeCycle, procédez comme suit :
-1. Dans le portail Azure Classic, créez un compte de test.
+### <a name="to-assign-users-to-scc-lifecycle-perform-the-following-steps"></a>Pour affecter des utilisateurs à SCC LifeCycle, procédez comme suit :
+1. Dans le portail Azure Classic, créez un compte de test.
 2. Dans la page d’intégration d’applications **SCC LifeCycle**, cliquez sur **Affecter les utilisateurs**.
    
    ![Affecter des utilisateurs](./media/active-directory-saas-scc-lifecycle-tutorial/IC794126.png "Assign Users")
@@ -110,6 +114,9 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

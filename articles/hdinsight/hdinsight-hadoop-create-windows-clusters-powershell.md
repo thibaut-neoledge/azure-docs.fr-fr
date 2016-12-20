@@ -1,13 +1,13 @@
 ---
-title: Création de clusters Hadoop basés sur Windows dans HDInsight à l'aide d'Azure PowerShell | Microsoft Docs
-description: Apprenez à créer des clusters pour Azure HDInsight à l'aide d'Azure PowerShell.
+title: "Création de clusters Hadoop basés sur Windows dans HDInsight à l&quot;aide d&quot;Azure PowerShell | Microsoft Docs"
+description: "Apprenez à créer des clusters pour Azure HDInsight à l&quot;aide d&quot;Azure PowerShell."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: a365e67d-55bc-476e-a126-68f0962ec5aa
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,33 +15,40 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/10/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
+ms.openlocfilehash: 823ba08cfc805000871e0c2a6375306f435b7910
+
 
 ---
-# Création de clusters Hadoop basés sur Windows dans HDInsight à l'aide d'Azure PowerShell
-[!INCLUDE [sélecteur](../../includes/hdinsight-selector-create-clusters.md)]
+# <a name="create-windows-based-hadoop-clusters-in-hdinsight-using-azure-powershell"></a>Création de clusters Hadoop basés sur Windows dans HDInsight à l'aide d'Azure PowerShell
+[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 Apprenez à créer des clusters HDInsight à l'aide d'Azure PowerShell. Azure PowerShell est un module fournissant des applets de commande pour gérer Azure avec Windows PowerShell. Pour accéder à d'autres outils et fonctions de création de clusters, cliquez sur l'onglet de sélection situé en haut de cette page, ou consultez la section relative aux [méthodes de création de clusters](hdinsight-provision-clusters.md#cluster-creation-methods).
 
-## Configuration requise :
+## <a name="prerequisites"></a>Configuration requise :
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Avant de commencer à suivre les instructions de cet article, vous devez disposer des éléments suivants :
+Avant de commencer à suivre les instructions de cet article, vous devez disposer des éléments suivants :
 
-* Abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Azure PowerShell.
-  
+
     [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-## Créer des clusters
+### <a name="access-control-requirements"></a>Exigences de contrôle d’accès
+[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+
+## <a name="create-clusters"></a>Créer des clusters
 Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Cette section fournit des instructions sur la création d'un cluster HDInsight à l'aide d'Azure PowerShell. Pour plus d’informations sur la configuration d’un poste de travail pour exécuter des cmdlets HDInsight Windows Powershell, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Pour plus d’informations sur l’utilisation d’Azure PowerShell avec HDInsight, consultez [Administration de HDInsight avec PowerShell](hdinsight-administer-use-powershell.md). Pour la liste des applets de commande Windows PowerShell pour HDInsight, consultez la rubrique [Référence des applets de commande HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
-Les procédures suivantes sont nécessaires pour créer un cluster HDInsight en utilisant Azure PowerShell :
+Les procédures suivantes sont nécessaires pour créer un cluster HDInsight en utilisant Azure PowerShell :
 
     ####################################
     # Set these variables
     ####################################
     #region - used for creating Azure service names
-    $nameToken = "<Enter an Alias>" 
+    $nameToken = "<Enter an Alias>"
     #endregion
 
     #region - cluster user accounts
@@ -97,7 +104,7 @@ Les procédures suivantes sont nécessaires pour créer un cluster HDInsight en 
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $defaultStorageAccountKey
     New-AzureStorageContainer `
-        -Name $hdinsightClusterName -Context $defaultStorageContext 
+        -Name $hdinsightClusterName -Context $defaultStorageContext
 
     ###########################################
     # Create the cluster
@@ -117,27 +124,27 @@ Les procédures suivantes sont nécessaires pour créer un cluster HDInsight en 
         -HttpCredential $httpCredential `
         -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
         -DefaultStorageAccountKey $defaultStorageAccountKey `
-        -DefaultStorageContainer $hdinsightClusterName 
+        -DefaultStorageContainer $hdinsightClusterName
 
     ####################################
     # Verify the cluster
     ####################################
-    Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName 
+    Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName
 
-## Création de clusters à l'aide d'un modèle ARM
-Vous pouvez utiliser Azure PowerShell pour déployer un modèle ARM qui crée un cluster HDInsight. Consultez [Appel de modèles à l’aide d’Azure PowerShell](hdinsight-hadoop-create-windows-clusters-arm-templates.md#call-templates-using-powershell).
+## <a name="create-clusters-using-arm-template"></a>Création de clusters à l'aide d'un modèle ARM
+Vous pouvez utiliser Azure PowerShell pour déployer un modèle ARM qui crée un cluster HDInsight.  Consultez [Appel de modèles à l’aide d’Azure PowerShell](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-powershell).
 
-## Personnalisation des clusters
+## <a name="customize-clusters"></a>Personnalisation des clusters
 * Consultez [Personnalisation de clusters HDInsight à l’aide de Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
 * Consultez [Personnalisation de clusters HDInsight basés sur Windows à l’aide d’une action de script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).
 
-## Étapes suivantes
-Cet article vous a présenté différentes méthodes pour créer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
+## <a name="next-steps"></a>Étapes suivantes
+Cet article vous a présenté différentes méthodes pour créer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
 * [Prise en main d’Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) : apprenez à utiliser votre cluster HDInsight
 * [Envoi de tâches Hadoop par programme](hdinsight-submit-hadoop-jobs-programmatically.md) : découvrez comment envoyer des tâches par programme à HDInsight
 * [Gestion des clusters Hadoop dans HDInsight à l’aide de PowerShell](hdinsight-administer-use-powershell.md) : découvrez comment utiliser HDInsight avec Azure PowerShell
-* [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][hdinsight-sdk-documentation] : découvrez le Kit de développement logiciel (SDK) HDInsight
+* [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][hdinsight-sdk-documentation] - Découvrez le kit de développement logiciel HDInsight
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
@@ -146,4 +153,8 @@ Cet article vous a présenté différentes méthodes pour créer un cluster HDIn
 [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

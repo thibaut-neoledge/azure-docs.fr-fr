@@ -1,12 +1,12 @@
 ---
-title: Définition d’une adresse IP privée interne statique
+title: "Définition d’une adresse IP privée interne statique"
 description: Fonctionnement et gestion des adresses IP internes statiques (adresses IP dynamiques)
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 93444c6f-af1b-41f8-a035-77f5c0302bf0
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,18 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 117c65ebcc566aa1898dc8655ee608cb42673d79
+
 
 ---
-# Comment définir une adresse IP privée interne statique à l’aide de PowerShell (Classic)
-Dans la plupart des cas, il n’est pas nécessaire de spécifier une adresse IP interne statique pour votre machine virtuelle. Les machines virtuelles dans un réseau virtuel recevront automatiquement une adresse IP interne à partir d'une plage que vous spécifiez. Toutefois, dans certains cas, il peut être bon de spécifier une adresse IP statique pour une machine virtuelle en particulier. Par exemple, si votre machine virtuelle doit exécuter DNS ou fait office de contrôleur de domaine. Une adresse IP interne statique reste associée à la machine virtuelle même lorsque cette dernière se trouve en état d'arrêt/annulation de l’approvisionnement.
+# <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>Comment définir une adresse IP privée interne statique à l’aide de PowerShell (Classic)
+Dans la plupart des cas, il n’est pas nécessaire de spécifier une adresse IP interne statique pour votre machine virtuelle. Les machines virtuelles dans un réseau virtuel recevront automatiquement une adresse IP interne à partir d'une plage que vous spécifiez. Toutefois, dans certains cas, il peut être bon de spécifier une adresse IP statique pour une machine virtuelle en particulier. Par exemple, si votre machine virtuelle doit exécuter DNS ou fait office de contrôleur de domaine. Une adresse IP interne statique reste associée à la machine virtuelle même lorsque cette dernière se trouve en état d'arrêt/annulation de l’approvisionnement. 
 
 > [!IMPORTANT]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le [modèle de déploiement Resource Manager](virtual-networks-static-private-ip-arm-ps.md).
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le [modèle de déploiement Resource Manager](virtual-networks-static-private-ip-arm-ps.md).
 > 
 > 
 
-## Vérification de la disponibilité d'une adresse IP particulière
-Pour vérifier si l'adresse IP *10.0.0.7* est disponible dans un réseau virtuel nommé *TestVnet*, exécutez la commande PowerShell suivante et vérifiez la valeur de *IsAvailable* :
+## <a name="how-to-verify-if-a-specific-ip-address-is-available"></a>Vérification de la disponibilité d'une adresse IP particulière
+Pour vérifier si l’adresse IP *10.0.0.7* est disponible dans un réseau virtuel nommé *TestVNet*, exécutez la commande PowerShell suivante et vérifiez la valeur pour *IsAvailable* :
 
     Test-AzureStaticVNetIP –VNetName TestVNet –IPAddress 10.0.0.7 
 
@@ -36,12 +40,12 @@ Pour vérifier si l'adresse IP *10.0.0.7* est disponible dans un réseau virtuel
     OperationStatus      : Succeeded
 
 > [!NOTE]
-> Si vous souhaitez tester la commande ci-dessus dans un environnement sécurisé, suivez les instructions de l’article [Créer un réseau virtuel](virtual-networks-create-vnet-classic-portal.md) pour créer un réseau virtuel nommé *TestVnet* et assurez-vous qu'il utilise l’espace d’adressage *10.0.0.0/8*.
+> Si vous voulez tester la commande ci-dessus dans un environnement sécurisé, suivez les instructions de l’article [Créer un réseau virtuel](virtual-networks-create-vnet-classic-portal.md) pour créer un réseau virtuel nommé *TestVnet* et vérifiez qu’il utilise l’espace d’adressage *10.0.0.0/8*.
 > 
 > 
 
-## Spécification d’une adresse IP interne statique lors de la création d'une machine virtuelle
-Le script PowerShell ci-dessous crée un service cloud nommé *TestService*, extrait une image à partir d'Azure, puis crée une machine virtuelle nommée *TestVM* dans le nouveau service cloud à l'aide de l'image récupérée, définit la machine virtuelle dans un sous-réseau nommé *Subnet-1* et définit *10.0.0.7* comme adresse IP interne statique pour la machine virtuelle :
+## <a name="how-to-specify-a-static-internal-ip-when-creating-a-vm"></a>Spécification d’une adresse IP interne statique lors de la création d'une machine virtuelle
+Le script PowerShell ci-dessous crée un service cloud nommé *TestService*, récupère une image auprès d’Azure, crée une machine virtuelle nommée *TestVM* dans le nouveau service cloud à partir de l’image récupérée, définit la machine virtuelle dans un sous-réseau nommé *Subnet-1*, puis définit *10.0.0.7* comme adresse IP interne statique pour la machine virtuelle :
 
     New-AzureService -ServiceName TestService -Location "Central US"
     $image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
@@ -51,8 +55,8 @@ Le script PowerShell ci-dessous crée un service cloud nommé *TestService*, ext
     | Set-AzureStaticVNetIP -IPAddress 10.0.0.7 `
     | New-AzureVM -ServiceName "TestService" –VNetName TestVnet
 
-## Récupération des informations d’adresse IP interne statique pour une machine virtuelle
-Pour visualiser les informations d’adresse interne statique concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande PowerShell ci-après et examinez les valeurs des éléments *IpAddress* :
+## <a name="how-to-retrieve-static-internal-ip-information-for-a-vm"></a>Récupération des informations d’adresse IP interne statique pour une machine virtuelle
+Pour visualiser les informations d’adresse interne statique concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande PowerShell ci-après et examinez les valeurs des éléments *IpAddress*:
 
     Get-AzureVM -Name TestVM -ServiceName TestService
 
@@ -83,25 +87,30 @@ Pour visualiser les informations d’adresse interne statique concernant la mach
     OperationId                 : 34c1560a62f0901ab75cde4fed8e8bd1
     OperationStatus             : OK
 
-## Suppression d’une adresse IP interne statique d'une machine virtuelle
-Pour supprimer l’adresse IP interne statique ajoutée à la machine virtuelle par le biais du script ci-dessus, exécutez la commande PowerShell suivante :
+## <a name="how-to-remove-a-static-internal-ip-from-a-vm"></a>Suppression d’une adresse IP interne statique d'une machine virtuelle
+Pour supprimer l’adresse IP interne statique ajoutée à la machine virtuelle par le biais du script ci-dessus, exécutez la commande PowerShell suivante :
 
     Get-AzureVM -ServiceName TestService -Name TestVM `
     | Remove-AzureStaticVNetIP `
     | Update-AzureVM
 
-## Ajout d’une adresse IP interne statique à une machine virtuelle existante
-Pour ajouter une adresse IP interne statique à la machine virtuelle créée à l’aide du script ci-dessus, exécutez la commande suivante :
+## <a name="how-to-add-a-static-internal-ip-to-an-existing-vm"></a>Ajout d’une adresse IP interne statique à une machine virtuelle existante
+Pour ajouter une adresse IP interne statique à la machine virtuelle créée à l’aide du script ci-dessus, exécutez la commande suivante :
 
     Get-AzureVM -ServiceName TestService000 -Name TestVM `
     | Set-AzureStaticVNetIP -IPAddress 10.10.0.7 `
     | Update-AzureVM
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Adresse IP réservée](virtual-networks-reserved-public-ip.md)
 
-[Adresses IP publiques de niveau d’instance (ILPIP)](virtual-networks-instance-level-public-ip.md)
+[Adresses IP publiques de niveau d’instance (ILPIP)](virtual-networks-instance-level-public-ip.md)
 
-[API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+[API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

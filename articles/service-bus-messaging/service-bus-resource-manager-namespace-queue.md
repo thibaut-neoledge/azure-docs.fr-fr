@@ -1,25 +1,29 @@
 ---
-title: Créer un espace de noms Service Bus avec une file d’attente à l’aide d’un modèle Azure Resource Manager | Microsoft Docs
-description: Créer un espace de noms Service Bus et une file d’attente à l’aide d’un modèle Azure Resource Manager
-services: service-bus
+title: "Créer un espace de noms Service Bus avec une file d’attente à l’aide d’un modèle Azure Resource Manager | Microsoft Docs"
+description: "Créer un espace de noms Service Bus et une file d’attente à l’aide d’un modèle Azure Resource Manager"
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: a6bfb5fd-7b98-4588-8aa1-9d5f91b599b6
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 10/14/2016
 ms.author: sethm;shvija
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 71e11a2279350236e0f65ac0b310034fb464d71a
+
 
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Créer un espace de noms Service Bus et une file d’attente à l’aide d’un modèle Azure Resource Manager
 Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms Service Bus et une file d’attente. Vous allez apprendre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins.
 
-Pour en savoir plus sur la création de modèles, consultez la rubrique [Création de modèles Azure Resource Manager][Création de modèles Azure Resource Manager].
+Pour en savoir plus sur la création de modèles, consultez [Création de modèles Azure Resource Manager][Création de modèles Azure Resource Manager].
 
 Pour le modèle complet, consultez le [modèle d'espace de noms et de file d’attente Service Bus][modèle d'espace de noms et de file d’attente Service Bus] sur GitHub.
 
@@ -29,18 +33,18 @@ Pour le modèle complet, consultez le [modèle d'espace de noms et de file d’a
 > * [Créer un espace de noms Service Bus avec file d'attente et règle d’autorisation](service-bus-resource-manager-namespace-auth-rule.md)
 > * [Créer un espace de noms Service Bus par rubrique et abonnement](service-bus-resource-manager-namespace-topic.md)
 > * [Création d'un espace de noms Service Bus](service-bus-resource-manager-namespace.md)
-> * [Créer un espace de noms Event Hubs avec un Event Hub et un groupe de consommateurs](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
+> * [Créer un modèle d’espace de noms Service Bus avec rubrique, abonnement et règle](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Pour connaître les derniers modèles, recherchez Service Bus dans la galerie de [modèles de démarrage rapide Azure][modèles de démarrage rapide Azure] .
+> Pour rechercher les derniers modèles, recherchez « Service Bus » dans la galerie de [modèles de démarrage rapide Azure][modèles de démarrage rapide Azure].
 > 
 > 
 
-## <a name="what-will-you-deploy?"></a>Qu'allez-vous déployer ?
+## <a name="what-will-you-deploy"></a>Qu'allez-vous déployer ?
 Avec ce modèle, vous allez déployer un espace de noms Service Bus avec une file d’attente.
 
 Les [files d’attente Service Bus](service-bus-queues-topics-subscriptions.md#queues) permettent de remettre des messages selon le principe du premier entré, premier sorti (FIFO) à un ou plusieurs destinataires concurrents.
 
-Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
+Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
 
 [![Déploiement sur Azure](./media/service-bus-resource-manager-namespace-queue/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
 
@@ -137,6 +141,6 @@ Maintenant que vous avez créé et déployé des ressources à l’aide d’Azur
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

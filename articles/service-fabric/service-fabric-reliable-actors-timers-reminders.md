@@ -1,33 +1,42 @@
 ---
 title: Minuteries et rappels pour Reliable Actors | Microsoft Docs
-description: Présentation des minuteries et rappels pour Service Fabric Reliable Actors.
+description: "Présentation des minuteries et rappels pour Service Fabric Reliable Actors."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
 editor: amanbha
-
+ms.assetid: 00c48716-569e-4a64-bd6c-25234c85ff4f
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/06/2016
+ms.date: 10/19/2016
 ms.author: vturecek
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 56b2e13c3bf053175e357a627d45a91d9a9a4ba9
+
 
 ---
-# Minuteries et rappels d’acteur
+# <a name="actor-timers-and-reminders"></a>Minuteries et rappels d’acteur
 Les acteurs peuvent planifier un travail régulier par eux-mêmes en inscrivant des minuteries ou des rappels. Cet article montre comment utiliser des minuteries et des rappels, puis explique les différences entre les deux.
 
-## Minuteries des acteurs
+## <a name="actor-timers"></a>Minuteries des acteurs
 Les minuteries des acteurs fournissent un wrapper simple autour de minuteries .NET pour veiller à ce que les méthodes de rappel respectent les garanties d’un accès concurrentiel en alternance fournies par le runtime Actors.
 
-Les acteurs peuvent utiliser les méthodes `RegisterTimer` et `UnregisterTimer` sur leur classe de base pour inscrire et désinscrire leurs minuteries. L'exemple ci-dessous montre l'utilisation des API de minuterie. Les API sont très similaires à la minuterie .NET. Dans cet exemple, quand la minuterie arrive à son terme, le runtime Actors appelle la méthode `MoveObject`. Le respect par la méthode de l’accès concurrentiel en alternance est garanti. Aucune autre méthode d’acteur ou aucun autre rappel de minuterie n’est donc en cours d’exécution avant la fin de ce rappel.
+Les acteurs peuvent utiliser les méthodes `RegisterTimer` et `UnregisterTimer` sur leur classe de base pour inscrire et désinscrire leurs minuteries. L'exemple ci-dessous montre l'utilisation des API de minuterie. Les API sont très similaires à la minuterie .NET. Dans cet exemple, quand la minuterie arrive à son terme, le runtime Actors appelle la méthode `MoveObject` . Le respect par la méthode de l’accès concurrentiel en alternance est garanti. Aucune autre méthode d’acteur ou aucun autre rappel de minuterie n’est donc en cours d’exécution avant la fin de ce rappel.
 
 ```csharp
 class VisualObjectActor : Actor, IVisualObject
 {
     private IActorTimer _updateTimer;
+
+    public VisualObjectActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
 
     protected override Task OnActivateAsync()
     {
@@ -62,11 +71,11 @@ class VisualObjectActor : Actor, IVisualObject
 
 La période suivante de la minuterie démarre après la fin du rappel. Cela implique que la minuterie s’arrête pendant l’exécution du rappel, puis démarre quand le rappel se termine.
 
-Le runtime Actors enregistre les modifications apportées au Gestionnaire d’état de l’acteur à la fin du rappel. Si une erreur se produit lors de l'enregistrement de l'état, cet objet acteur sera désactivé et une nouvelle instance sera activée.
+Le runtime Actors enregistre les modifications apportées au Gestionnaire d’état de l’acteur à la fin du rappel. Si une erreur se produit lors de l'enregistrement de l'état, cet objet acteur sera désactivé et une nouvelle instance sera activée. 
 
 Toutes les minuteries sont arrêtées quand l’acteur est désactivé dans le cadre du nettoyage de la mémoire. Aucun rappel de minuterie n’est appelé après cela. En outre, le runtime Actors ne conserve aucune information concernant les minuteries qui étaient exécutées avant la désactivation. C'est à l'acteur d'inscrire toutes les minuteries dont il a besoin lors d'une réactivation ultérieure. Pour plus d’informations, consultez la section sur le [nettoyage de la mémoire d’acteur](service-fabric-reliable-actors-lifecycle.md).
 
-## Rappels d’acteur
+## <a name="actor-reminders"></a>Rappels d’acteur
 Les rappels sont un mécanisme permettant de déclencher des rappels persistants sur un acteur à certaines heures. Leur fonctionnalité est semblable à celle des minuteries. Toutefois, contrairement aux minuteries, les rappels sont déclenchés en toutes circonstances jusqu’à ce que l’acteur les désinscrive ou qu’il soit supprimé explicitement. Plus précisément, les rappels sont déclenchés lors des désactivations d'acteur et des basculements car le runtime Actors conserve des informations sur les rappels de l'acteur.
 
 Pour inscrire un rappel, un acteur appelle la méthode `RegisterReminderAsync` fournie dans la classe de base, comme illustré dans l’exemple suivant :
@@ -87,11 +96,16 @@ protected override async Task OnActivateAsync()
 
 Dans cet exemple, `"Pay cell phone bill"` est le nom du rappel. Il s’agit d’une chaîne que l’acteur utilise pour identifier de façon unique un rappel. `BitConverter.GetBytes(amountInDollars)` est le contexte associé au rappel. Il sera renvoyé à l'acteur en tant qu'argument vers le rappel, soit `IRemindable.ReceiveReminderAsync`.
 
-Les acteurs qui utilisent des rappels doivent implémenter l’interface `IRemindable`, comme illustré dans l’exemple ci-dessous.
+Les acteurs qui utilisent des rappels doivent implémenter l’interface `IRemindable` , comme illustré dans l’exemple ci-dessous.
 
 ```csharp
 public class ToDoListActor : Actor, IToDoListActor, IRemindable
 {
+    public ToDoListActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public Task ReceiveReminderAsync(string reminderName, byte[] context, TimeSpan dueTime, TimeSpan period)
     {
         if (reminderName.Equals("Pay cell phone bill"))
@@ -106,22 +120,27 @@ public class ToDoListActor : Actor, IToDoListActor, IRemindable
 
 Quand un rappel est déclenché, le runtime Reliable Actors appelle la méthode `ReceiveReminderAsync` sur l’acteur. Un acteur peut inscrire plusieurs rappels, et la méthode `ReceiveReminderAsync` est appelée chaque fois qu’un de ces rappels est déclenché. L'acteur peut ensuite utiliser le nom du rappel qui est envoyé à la méthode `ReceiveReminderAsync` pour identifier le rappel qui a été déclenché.
 
-Le runtime Actors enregistre l’état de l’acteur à la fin de l’appel `ReceiveReminderAsync`. Si une erreur se produit lors de l'enregistrement de l'état, cet objet acteur sera désactivé et une nouvelle instance sera activée.
+Le runtime Actors enregistre l’état de l’acteur à la fin de l’appel `ReceiveReminderAsync` . Si une erreur se produit lors de l'enregistrement de l'état, cet objet acteur sera désactivé et une nouvelle instance sera activée. 
 
-Pour désinscrire un rappel, un acteur appelle la méthode `UnregisterReminder`, comme illustré dans l’exemple ci-dessous.
+Pour désinscrire un rappel, un acteur appelle la méthode `UnregisterReminderAsync`, comme l’illustre l’exemple ci-dessous.
 
 ```csharp
 IActorReminder reminder = GetReminder("Pay cell phone bill");
-Task reminderUnregistration = UnregisterReminder(reminder);
+Task reminderUnregistration = UnregisterReminderAsync(reminder);
 ```
 
-Comme indiqué ci-dessus, la méthode `UnregisterReminder` accepte une interface `IActorReminder`. La classe de base de l'acteur prend en charge une méthode `GetReminder` qui peut être utilisée pour récupérer l'interface `IActorReminder` en passant le nom du rappel. C'est pratique car l'acteur n'a pas besoin de conserver l'interface `IActorReminder` renvoyée par l'appel de la méthode `RegisterReminder`.
+Comme indiqué ci-dessus, la méthode `UnregisterReminderAsync` accepte une interface `IActorReminder`. La classe de base de l'acteur prend en charge une méthode `GetReminder` qui peut être utilisée pour récupérer l'interface `IActorReminder` en passant le nom du rappel. C'est pratique car l'acteur n'a pas besoin de conserver l'interface `IActorReminder` renvoyée par l'appel de la méthode `RegisterReminder`.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Événements d’acteurs](service-fabric-reliable-actors-events.md)
 * [Réentrance des acteurs](service-fabric-reliable-actors-reentrancy.md)
 * [Diagnostics et surveillance des performances d’acteur](service-fabric-reliable-actors-diagnostics.md)
 * [Documentation de référence de l’API d’acteur](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Exemple de code](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

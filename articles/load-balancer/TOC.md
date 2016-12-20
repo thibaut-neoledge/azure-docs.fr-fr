@@ -44,10 +44,13 @@
 ## [Configuration de DHCPv6 pour les machines virtuelles Linux](load-balancer-ipv6-for-linux.md)
 
 # Référence
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Interface de ligne de commande Azure](/cli/azure/network/lb)
-## [Java](/java/api)
-## [.NET](/dotnet/api)
+## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)
+## [Azure CLI 2.0 (version préliminaire)](/cli/azure/network/lb)
+## [.NET](/dotnet/api/microsoft.azure.management.network.models)
+## [Java](/java/api/com.microsoft.azure.management.network)
+## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations)
 ## [REST](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 # Rubriques connexes
@@ -64,6 +67,6 @@
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=load-balancer)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

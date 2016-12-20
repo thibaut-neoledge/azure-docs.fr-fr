@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 08/15/2016
+ms.date: 11/23/2016
 ms.author: piotrci
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6dcadbfb99d4d111ab9ddde9d74db65b5542a8f5
 
 
 ---
@@ -37,7 +37,7 @@ Azure RemoteApp offre désormais cette possibilité dans le cadre d’une fonct
 1. Une collection peut être paramétrée dans deux modes différents :
    
    * le « mode collection » d’origine, grâce auquel tous les utilisateurs d’une collection peuvent visualiser l’ensemble des applications publiées. Il s’agit du mode par défaut ;
-   * le nouveau « mode application », dans lequel les utilisateurs voient uniquement les applications qui leur ont été explicitement affectées.
+   * le nouveau « mode application », dans lequel les utilisateurs voient uniquement les applications qui leur ont été explicitement affectées
 2. Pour le moment, le mode application ne peut être activé qu’à l’aide des applets de commande PowerShell pour Azure RemoteApp.
    
    * En mode application, l’affectation des utilisateurs dans la collection ne peut pas être gérée via le portail Azure. Elle ne peut être gérée qu’au moyen des applets de commande PowerShell.
@@ -49,7 +49,7 @@ Azure RemoteApp offre désormais cette possibilité dans le cadre d’une fonct
 ## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>Comment obtenir les applets de commande PowerShell pour Azure RemoteApp
 Pour tester la nouvelle fonctionnalité en version préliminaire, vous devez utiliser les applets de commande Azure PowerShell. Vous ne pouvez pas pour le moment utiliser le portail de gestion Azure pour activer le nouveau mode de publication d’applications.
 
-Assurez-vous tout d’abord que vous disposez bien du [module Azure PowerShell](../powershell-install-configure.md) .
+Assurez-vous tout d’abord que vous disposez bien du [module Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 
 Lancez ensuite la console PowerShell en mode administrateur, puis exécutez l’applet de commande suivante :
 
@@ -106,6 +106,6 @@ Si vous n’avez pas encore participé à l’évaluation, utilisez cette [enqu�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

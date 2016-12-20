@@ -1,12 +1,12 @@
 ---
-title: Services de cloud computing et sécurité réseau Microsoft | Microsoft Docs
-description: Découvrez quelques-unes des fonctionnalités clés disponibles dans Azure pour créer des environnements réseau sécurisés
+title: "Services de cloud computing et sécurité réseau Microsoft | Microsoft Docs"
+description: "Découvrez quelques-unes des fonctionnalités clés disponibles dans Azure pour créer des environnements réseau sécurisés"
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-
+editor: 
+ms.assetid: d169387a-1243-4867-a602-01d6f2d8a2a1
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,18 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jonor;sivae
+translationtype: Human Translation
+ms.sourcegitcommit: f5bdbd801107650f87993b395338adfb1b26d17e
+ms.openlocfilehash: 634f0c28c833612fdd1a6cd656c364eb3f5e43e5
+
 
 ---
-# Services de cloud computing et sécurité réseau Microsoft
+# <a name="microsoft-cloud-services-and-network-security"></a>Services de cloud computing et sécurité réseau Microsoft
 Les services de cloud computing Microsoft offrent une grande évolutivité des services et de l’infrastructure, des capacités de niveau entreprise et de nombreuses options pour la connectivité hybride. Les clients peuvent choisir d’accéder à ces services avec Internet ou grâce à Azure ExpressRoute, qui fournit une connectivité réseau privée. La plateforme Microsoft Azure permet aux clients d’étendre leur infrastructure dans le cloud et de générer des architectures à plusieurs niveaux en toute transparence. Par ailleurs, des tiers peuvent activer des fonctionnalités améliorées en offrant des services de sécurité et des appliances virtuelles. Ce livre blanc fournit une vue d’ensemble des problèmes de sécurité et d’architecture dont les clients doivent tenir compte lorsqu’ils utilisent des services de cloud computing Microsoft auxquels ils accèdent avec ExpressRoute. Il décrit également la création de services plus sécurisés dans les réseaux virtuels Azure.
 
-## Démarrage rapide
-Le schéma logique suivant peut vous orienter vers un exemple spécifique des différentes techniques de sécurité disponibles avec la plateforme Azure. Pour une consultation rapide, recherchez l'exemple le plus adapté à votre cas. Pour des explications plus complètes, lisez entièrement le document. ![Organigramme des options de sécurité][0]
+## <a name="fast-start"></a>Démarrage rapide
+Le schéma logique suivant peut vous orienter vers un exemple spécifique des différentes techniques de sécurité disponibles avec la plateforme Azure. Pour une consultation rapide, recherchez l'exemple le plus adapté à votre cas. Pour des explications plus complètes, lisez entièrement le document.
+![Organigramme des options de sécurité][0]
 
-[Exemple 1 : Créer un réseau de périmètre (également appelé DMZ, zone démilitarisée et sous-réseau filtré) pour protéger les applications avec des groupes de sécurité réseau (NSG).](#example-1-build-a-simple-dmz-with-nsgs)</br> [Exemple 2 : Créer un réseau de périmètre pour protéger les applications avec un pare-feu et des groupes de sécurité réseau.](#example-2-build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs)</br> [Exemple 3 : Créer un réseau de périmètre pour protéger les réseaux avec un pare-feu, un routage défini par l'utilisateur (UDR) et un groupe de sécurité réseau.](#example-3-build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg)</br> [Exemple 4 : Ajouter une connexion hybride avec un réseau privé virtuel (VPN) d’appliance virtuelle de site à site.](#example-4-adding-a-hybrid-connection-with-a-site-to-site-virtual-appliance-vpn)</br> [Exemple 5 : Ajouter une connexion hybride avec un réseau VPN de passerelle Azure de site à site.](#example-5-adding-a-hybrid-connection-with-a-site-to-site-azure-gateway-vpn)</br> [Exemple 6 : Ajouter une connexion hybride avec ExpressRoute](#example-6-adding-a-hybrid-connection-with-expressroute)</br> Des exemples d'ajout de connexions entre réseaux virtuels, de haute disponibilité et de chaînage de service seront ajoutés à ce document dans les prochains mois.
+[Exemple 1 : Créer un réseau de périmètre (également appelé DMZ, zone démilitarisée et sous-réseau filtré) pour protéger les applications avec des groupes de sécurité réseau (NSG).](#example-1-build-a-perimeter-network-to-help-protect-applications-with-nsgs)</br>
+[Exemple 2 : Créer un réseau de périmètre pour protéger les applications avec un pare-feu et des groupes de sécurité réseau.](#example-2-build-a-perimeter-network-to-help-protect-applications-with-a-firewall-and-nsgs)</br>
+[Exemple 3 : Créer un réseau de périmètre pour protéger les réseaux avec un pare-feu, un routage défini par l’utilisateur (UDR) et un groupe de sécurité réseau.](#example-3-build-a-dmz-to-protect-networks-with-a-firewall-and-udr-and-nsg)</br>
+[Exemple 4 : Ajouter une connexion hybride avec un réseau privé virtuel (VPN) d’appliance virtuelle de site à site.](#example-4-add-a-hybrid-connection-with-a-site-to-site-virtual-appliance-virtual-private-network)</br>
+[Exemple 5 : Ajouter une connexion hybride avec un réseau VPN de passerelle Azure de site à site.](#example-5-add-a-hybrid-connection-with-a-site-to-site-azure-gateway-vpn)</br>
+[Exemple 6 : Ajouter une connexion hybride avec ExpressRoute.](#example-6-add-a-hybrid-connection-with-expressroute)</br>
+ Des exemples d'ajout de connexions entre réseaux virtuels, de haute disponibilité et de chaînage de service seront ajoutés à ce document dans les prochains mois.
 
-## Conformité et protection des infrastructures Microsoft
-Microsoft joue un rôle de premier plan dans le soutien des initiatives de conformité requises par les clients d’entreprise. Voici quelques-unes des certifications de conformité pour Azure : ![Badges de conformité Azure][1]
+## <a name="microsoft-compliance-and-infrastructure-protection"></a>Conformité et protection des infrastructures Microsoft
+Microsoft joue un rôle de premier plan dans le soutien des initiatives de conformité requises par les clients d’entreprise. Voici quelques-unes des certifications de conformité pour Azure : ![badges de conformité Azure][1]
 
 Pour plus d'informations, consultez les informations de conformité du [Centre de gestion de la confidentialité Microsoft](https://azure.microsoft.com/support/trust-center/compliance/).
 
@@ -35,7 +46,7 @@ Microsoft a adopté une approche complète de protection de l’infrastructure c
 
 Cette approche fournit une base plus solide permettant aux clients de déployer leurs services dans le cloud de Microsoft. L’étape suivante explique aux clients comment concevoir et créer une architecture de sécurité afin de protéger ces services.
 
-## Architectures de sécurité traditionnelles et réseaux de périmètre
+## <a name="traditional-security-architectures-and-perimeter-networks"></a>Architectures de sécurité traditionnelles et réseaux de périmètre
 Bien que Microsoft investisse fortement dans la protection de l’infrastructure cloud, les clients doivent également protéger leurs services cloud et leurs groupes de ressources. Une approche multicouche de la sécurité constitue la meilleure défense. Une zone de sécurité de type réseau de périmètre protège les ressources réseau internes d’un réseau non approuvé. Un réseau de périmètre concerne la périphérie ou les parties du réseau qui se trouvent entre Internet et l'infrastructure informatique protégée de l’entreprise.
 
 Dans les réseaux d’entreprise classiques, l’infrastructure centrale est puissamment fortifiée sur les périmètres, avec plusieurs couches d’appareils de sécurité. La limite de chaque couche se compose d’appareils et de points d’application de stratégies. Les appareils peuvent inclure les éléments suivants : des pare-feu, la prévention DDoS (Distributed Denial of Service), des systèmes IDS (détection d’intrusion) / IPS (protection contre les intrusions) et des périphériques VPN. L’application de stratégies peut prendre la forme de stratégies de pare-feu, de listes de contrôle d’accès (ACL) ou de routage spécifique. La première ligne de défense du réseau, acceptant directement le trafic entrant à partir d’Internet, est une combinaison de ces mécanismes visant à bloquer les attaques et le trafic dangereux, tout en autorisant la transmission des demandes légitimes plus loin dans le réseau. Ce trafic conduit directement aux ressources dans le réseau de périmètre. Cette ressource peut ensuite « communiquer » avec les ressources plus loin dans le réseau, en transitant par la limite suivante en vue d’une validation préalable. La couche la plus à l’extérieur est appelée réseau de périmètre, car cette partie du réseau est exposée à Internet, généralement avec une certaine forme de protection des deux côtés. La figure suivante montre un exemple de réseau de périmètre à sous-réseau unique dans un réseau d’entreprise, avec deux limites de sécurité.
@@ -49,8 +60,8 @@ Tandis que les clients déplacent leurs charges de travail vers des clouds publi
 * Comment créer un réseau de périmètre dans Azure ?
 * Quelles sont les fonctionnalités Azure disponibles pour créer le réseau de périmètre ?
 * Comment les charges de travail principales peuvent-elles être protégées ?
-* Comment les communications Internet sont-elles contrôlées pour les charges de travail dans Azure ?
-* Comment les réseaux locaux peuvent-ils être protégés des déploiements dans Azure ?
+* Comment les communications Internet sont-elles contrôlées pour les charges de travail dans Azure ?
+* Comment les réseaux locaux peuvent-ils être protégés des déploiements dans Azure ?
 * Dans quels cas les fonctionnalités de sécurité Azure natives doivent-elles être utilisées par rapport aux appliances ou services tiers ?
 
 Le diagramme suivant montre les différentes couches de sécurité fournies aux clients par Azure. Ces couches sont natives à la fois sur la plateforme Azure elle-même et dans les fonctionnalités définies par le client :
@@ -61,17 +72,17 @@ Issue d’Internet, la protection DDoS Azure protège contre les attaques à gra
 
 La section suivante fournit une vue d’ensemble des réseaux virtuels Azure. Ces réseaux virtuels sont créés par les clients et leurs charges de travail déployées y sont connectées. Les réseaux virtuels constituent la base de toutes les fonctionnalités de sécurité réseau requises pour établir un réseau de périmètre afin de protéger les déploiements des clients dans Azure.
 
-## Vue d’ensemble des réseaux virtuels Azure
+## <a name="overview-of-azure-virtual-networks"></a>Vue d’ensemble des réseaux virtuels Azure
 Avant que le trafic Internet puisse atteindre les réseaux virtuels Azure, il existe deux couches de sécurité inhérentes à la plateforme Azure :
 
 1. **Protection DDoS**: la protection DDoS est une couche du réseau physique Azure qui protège la plateforme Azure elle-même contre les attaques Internet à grande échelle. Ces attaques utilisent plusieurs nœuds « robot » pour tenter de surcharger un service Internet. Azure est doté d’un maillage de protection DDoS robuste sur toutes les connexions Internet entrantes. Cette couche de protection DDoS ne comporte aucun attribut configurable par l’utilisateur et n’est pas accessible au client. Elle protège Azure en tant que plateforme contre les attaques à grande échelle, mais ne protège pas directement les applications client individuelles. Des couches de résilience supplémentaires peuvent être configurées par le client contre une attaque localisée. Par exemple : si le client A a été attaqué avec une attaque DDoS à grande échelle sur un point de terminaison public, Azure bloque les connexions à ce service. Le client A a pu basculer vers un autre réseau virtuel ou point de terminaison de service non impliqué dans l’attaque afin de restaurer le service. Il convient de noter que, bien que le client A puisse être affecté sur ce point de terminaison, aucun autre service en dehors de ce point de terminaison ne serait affecté. En outre, les autres clients et services ne verraient aucun impact de cette attaque.
-2. **Points de terminaison** : les points de terminaison permettent aux services cloud ou aux groupes de ressources d’exposer des adresses IP Internet publiques et des ports. Le point de terminaison utilise la traduction d'adresses réseau (NAT) pour acheminer le trafic vers l'adresse et le port internes sur le réseau virtuel Azure. Il s’agit du principal chemin d’accès pour que le trafic externe passe dans le réseau virtuel. Les points de terminaison de service sont configurables par les utilisateurs pour déterminer quel trafic est transféré et comment et où il est traduit sur le réseau virtuel.
+2. **Points de terminaison**: les points de terminaison permettent aux services cloud ou aux groupes de ressources d’exposer des adresses IP Internet publiques et des ports. Le point de terminaison utilise la traduction d'adresses réseau (NAT) pour acheminer le trafic vers l'adresse et le port internes sur le réseau virtuel Azure. Il s’agit du principal chemin d’accès pour que le trafic externe passe dans le réseau virtuel. Les points de terminaison de service sont configurables par les utilisateurs pour déterminer quel trafic est transféré et comment et où il est traduit sur le réseau virtuel.
 
-Une fois que le trafic a atteint le réseau virtuel, de nombreuses fonctionnalités entrent en jeu. Les réseaux virtuels Azure constituent la base à laquelle les clients joignent leurs charges de travail et à laquelle s’applique la sécurité de base au niveau du réseau. Il s’agit d’un réseau privé (une superposition du réseau virtuel) dans Azure pour les clients dotés des caractéristiques et fonctionnalités suivantes :
+Une fois que le trafic a atteint le réseau virtuel, de nombreuses fonctionnalités entrent en jeu. Les réseaux virtuels Azure constituent la base à laquelle les clients joignent leurs charges de travail et à laquelle s’applique la sécurité de base au niveau du réseau. Il s’agit d’un réseau privé (une superposition du réseau virtuel) dans Azure pour les clients dotés des caractéristiques et fonctionnalités suivantes :
 
-* **Isolement de trafic** : un réseau virtuel est une limite d’isolement du trafic sur la plateforme Azure. Les machines virtuelles dans un réseau virtuel ne peuvent pas communiquer directement avec les machines virtuelles dans un autre réseau virtuel, même si les deux réseaux virtuels sont créés par le même client. Il s’agit d’une propriété critique qui garantit que les machines virtuelles et les communications du client restent privées dans un réseau virtuel.
-* **Topologie multiniveau** : les réseaux virtuels permettent aux clients de définir une topologie multiniveau en allouant des sous-réseaux et en spécifiant des espaces d’adressage distincts pour différents éléments ou « niveaux » de leurs charges de travail. Ces regroupements et topologies logiques permettent aux clients de définir différentes stratégies d’accès selon les types de charges de travail et également de contrôler les flux de trafic entre les niveaux.
-* **Connexions entre différents locaux** : les clients peuvent établir des connexions entre locaux entre un réseau virtuel et plusieurs sites locaux ou d’autres réseaux virtuels dans Azure. Pour ce faire, les clients peuvent utiliser des passerelles VPN Azure ou des appliances virtuelles réseau tierces. Azure prend en charge les VPN de site à site (S2S) à l’aide des protocoles IPsec/IKE standards et de la connectivité privée ExpressRoute.
+* **Isolement de trafic**: un réseau virtuel est une limite d’isolement du trafic sur la plateforme Azure. Les machines virtuelles dans un réseau virtuel ne peuvent pas communiquer directement avec les machines virtuelles dans un autre réseau virtuel, même si les deux réseaux virtuels sont créés par le même client. Il s’agit d’une propriété critique qui garantit que les machines virtuelles et les communications du client restent privées dans un réseau virtuel.
+* **Topologie multiniveau**: les réseaux virtuels permettent aux clients de définir une topologie multiniveau en allouant des sous-réseaux et en spécifiant des espaces d’adressage distincts pour différents éléments ou « niveaux » de leurs charges de travail. Ces regroupements et topologies logiques permettent aux clients de définir différentes stratégies d’accès selon les types de charges de travail et également de contrôler les flux de trafic entre les niveaux.
+* **Connexions entre différents locaux**: les clients peuvent établir des connexions entre locaux entre un réseau virtuel et plusieurs sites locaux ou d’autres réseaux virtuels dans Azure. Pour ce faire, les clients peuvent utiliser des passerelles VPN Azure ou des appliances virtuelles réseau tierces. Azure prend en charge les VPN de site à site (S2S) à l’aide des protocoles IPsec/IKE standards et de la connectivité privée ExpressRoute.
 * **Groupe de sécurité réseau** : permet aux clients de créer des règles (listes de contrôle d’accès) avec le niveau de granularité souhaité : interfaces réseau, machines virtuelles individuelles ou sous-réseaux virtuels. Les clients peuvent contrôler l’accès en autorisant ou en refusant la communication entre les charges de travail au sein d’un réseau virtuel, à partir des systèmes sur les réseaux du client au moyen des connexions entre différents locaux ou de la communication Internet directe.
 * **Routage défini par l’utilisateur** et **transfert IP** : permettent de définir les chemins d’accès de communication entre les différents niveaux d’un réseau virtuel. Les clients peuvent déployer un pare-feu, les services IDS/IPS et d’autres appliances virtuelles et acheminer le trafic réseau à travers ces appliances de sécurité pour l’application de stratégies de limites de sécurité, l’audit et l’inspection.
 * **Appliances virtuelles réseau** dans Azure Marketplace : les appliances de sécurité telles que les pare-feu, les équilibreurs de charge, les systèmes de détection/prévention des intrusions sont disponibles dans Azure Marketplace et la galerie d’images de machines virtuelles. Pour finaliser un environnement réseau sécurisé multiniveau, les clients peuvent déployer ces appliances dans leurs réseaux virtuels et, en particulier, sur leurs limites de sécurité (y compris les sous-réseaux du réseau de périmètre).
@@ -80,10 +91,10 @@ Avec ces fonctionnalités et capacités, voici un exemple de conception d’arch
 
 ![Un réseau de périmètre dans un réseau virtuel Azure][5]
 
-## Caractéristiques et conditions requises d’un réseau de périmètre
+## <a name="perimeter-network-characteristics-and-requirements"></a>Caractéristiques et conditions requises d’un réseau de périmètre
 Le réseau de périmètre est conçu pour être la partie frontale du réseau, créant une interface directe avec les communications d’Internet. Les paquets entrants doivent traverser les appliances de sécurité, notamment le pare-feu et les systèmes de détection et de prévention d’intrusion, avant d’atteindre les serveurs principaux. Les paquets Internet des charges de travail peuvent également traverser les appliances de sécurité dans le réseau de périmètre pour l’application des stratégies, l’inspection et les fins d’audit, avant de quitter le réseau. En outre, le réseau de périmètre peut héberger les passerelles VPN entre différents locaux entre les réseaux virtuels client et les réseaux locaux.
 
-### Caractéristiques d’un réseau de périmètre
+### <a name="perimeter-network-characteristics"></a>Caractéristiques d’un réseau de périmètre
 En référence à la figure précédente, voici certaines caractéristiques d'un bon réseau de périmètre :
 
 * Accès sur Internet :
@@ -100,7 +111,7 @@ En référence à la figure précédente, voici certaines caractéristiques d'un
   * Les charges de travail ne doivent pas stocker d’informations professionnelles stratégiques.
   * L’accès et les mises à jour des configurations et déploiements de réseau de périmètre sont limités aux seuls administrateurs autorisés.
 
-### Conditions requises pour le réseau de périmètre
+### <a name="perimeter-network-requirements"></a>Conditions requises pour le réseau de périmètre
 Afin d’activer ces caractéristiques, suivez ces instructions sur les conditions requises du réseau virtuel pour implémenter un réseau de périmètre réussi :
 
 * **Architecture de sous-réseau :** spécifiez le réseau virtuel, tel qu’un sous-réseau entier dédié en tant que réseau de périmètre, séparé par d’autres sous-réseaux dans le même réseau virtuel. Cela garantit que le trafic entre le réseau de périmètre et d’autres niveaux de sous-réseaux internes ou privés circule à travers un pare-feu ou une appliance virtuelle IDS/IPS sur les limites de sous-réseau avec les routages définis par l’utilisateur.
@@ -119,18 +130,18 @@ Afin d’activer ces caractéristiques, suivez ces instructions sur les conditio
 
 > [!TIP]
 > Maintenez les deux groupes suivants séparés : les personnes autorisées à accéder au matériel de sécurité du réseau de périmètre et les personnes autorisées en tant qu’administrateurs de développement d’applications, de déploiement ou d’opérations. Conserver une distinction entre ces groupes permet une répartition des tâches et empêche qu’une seule personne contourne les contrôles de sécurité des applications et de sécurité réseau.
-> 
-> 
+>
+>
 
-### Questions à envisager lors de la création des limites du réseau
+### <a name="questions-to-be-asked-when-building-network-boundaries"></a>Questions à envisager lors de la création des limites du réseau
 Dans cette section, sauf mention contraire, le terme « réseaux » fait référence à des réseaux virtuels privés Azure créés par un administrateur d’abonnement. Le terme ne fait pas référence aux réseaux physiques sous-jacents dans Azure.
 
 En outre, les réseaux virtuels Azure sont souvent utilisés pour étendre les réseaux locaux traditionnels. Il est possible d’incorporer des solutions de mise en réseau hybrides de site à site ou ExpressRoute avec les architectures de réseau de périmètre. Il s'agit d'un aspect important de la création de limites de sécurité réseau.
 
 Les trois questions suivantes sont essentielles lorsque vous créez un réseau avec un réseau de périmètre et plusieurs limites de sécurité.
 
-#### 1) Combien de limites sont nécessaires ?
-En premier lieu, il faut décider le nombre de limites de sécurité nécessaires dans un scénario donné :
+#### <a name="1-how-many-boundaries-are-needed"></a>1) Combien de limites sont nécessaires ?
+En premier lieu, il faut décider le nombre de limites de sécurité nécessaires dans un scénario donné :
 
 * Une seule limite : une sur le réseau de périmètre frontal entre le réseau virtuel et Internet.
 * Deux limites : une du côté Internet du réseau de périmètre, l’autre entre le sous-réseau du réseau de périmètre et les sous-réseaux principaux dans les réseaux virtuels Azure.
@@ -141,14 +152,14 @@ Le nombre et le type des limites nécessaires varient en fonction de la toléran
 
 > [!TIP]
 > Utilisez le plus petit nombre de limites afin de répondre aux exigences de sécurité pour une situation donnée. Plus le nombre de limites est élevé, plus les opérations et le dépannage peuvent être complexes, de même que les frais généraux impliqués dans la gestion de plusieurs stratégies de limites au fil du temps. Toutefois, des limites insuffisantes augmentent les risques. Il est essentiel de trouver le juste équilibre.
-> 
-> 
+>
+>
 
 ![Réseau hybride avec trois limites de sécurité][6]
 
 La figure précédente montre une vue d'ensemble d'un réseau à trois limites de sécurité. Ces limites se trouvent entre le réseau de périmètre et Internet, entre les sous-réseaux privés Azure frontaux et principaux et entre le sous-réseau Azure principal et le réseau d'entreprise local.
 
-#### 2) Où se trouvent les limites ?
+#### <a name="2-where-are-the-boundaries-located"></a>2) Où se trouvent les limites ?
 Une fois que le nombre de limites est décidé, la question de l’emplacement de leur implémentation constitue le point de décision suivant. Il existe généralement trois possibilités :
 
 * À l'aide d'un service Internet intermédiaire (par exemple, un pare-feu d'applications web cloud, non abordé dans ce document)
@@ -163,7 +174,7 @@ Dans la figure précédente, les limites Internet-réseau de périmètre et fron
 
 Par exemple, l’utilisation d’un matériel de sécurité physique existant sur le réseau local présente l'avantage de ne pas nécessiter de nouveau matériel. Une reconfiguration suffit. L’inconvénient, cependant, est que tout le trafic doit revenir d’Azure vers le réseau local pour être vu par le matériel de sécurité. Ainsi, le trafic Azure à Azure pourrait subir une latence importante et affecter les performances des applications et l’expérience utilisateur s’il a été forcé vers le réseau local pour l’application de stratégies de sécurité.
 
-#### 3) Comment les limites sont-elles implémentées ?
+#### <a name="3-how-are-the-boundaries-implemented"></a>3) Comment les limites sont-elles implémentées ?
 Chaque limite de sécurité aura probablement des exigences de fonctionnalités différentes (par exemple, des règles IDS et de pare-feu du côté Internet du réseau de périmètre, mais des listes de contrôle d’accès uniquement entre le réseau de périmètre et le sous-réseau principal). Le choix des appareils à utiliser dépend du scénario et des exigences de sécurité. Dans la section suivante, les exemples 1, 2 et 3 abordent certaines des options qui peuvent être utilisées. L’examen des fonctionnalités réseau natives Azure et des appareils disponibles dans Azure à partir de l’écosystème de partenaires montre les nombreuses options disponibles pour résoudre la quasi-totalité des scénarios.
 
 Autre point de décision d’implémentation important : comment connecter le réseau local avec Azure ? Faut-il utiliser la passerelle virtuelle Azure ou une appliance virtuelle réseau ? Ces options sont évoquées plus en détail dans la section suivante (exemples 4, 5 et 6).
@@ -172,16 +183,16 @@ En outre, le trafic entre les réseaux virtuels dans Azure peut être nécessair
 
 Une fois que vous avez répondu aux questions précédentes, la section [Démarrage rapide](#fast-start) peut faciliter l’identification des exemples les plus appropriés pour un scénario donné.
 
-## Exemples : Création de limites de sécurité avec les réseaux virtuels Azure
-### Exemple 1 : Créer un réseau de périmètre pour protéger les applications avec des groupes de sécurité réseau
+## <a name="examples-building-security-boundaries-with-azure-virtual-networks"></a>Exemples : Création de limites de sécurité avec les réseaux virtuels Azure
+### <a name="example-1-build-a-perimeter-network-to-help-protect-applications-with-nsgs"></a>Exemple 1 : Créer un réseau de périmètre pour protéger les applications avec des groupes de sécurité réseau
 [Revenir à Démarrage rapide](#fast-start) | [Instructions de génération détaillées pour cet exemple][Example1]
 
 ![Réseau de périmètre entrant avec groupe de sécurité réseau][7]
 
-#### Description de l’environnement
+#### <a name="environment-description"></a>Description de l’environnement
 Dans cet exemple, il existe un abonnement qui contient les éléments suivants :
 
-* deux services cloud : « FrontEnd001 », « BackEnd001 »,
+* deux services cloud : « FrontEnd001 », « BackEnd001 »,
 * Un réseau virtuel « CorpNetwork » avec deux sous-réseaux : « FrontEnd » et « BackEnd »,
 * un groupe de sécurité réseau est appliqué aux deux sous-réseaux,
 * un serveur Windows Server représentant un serveur web d’application (« IIS01 »),
@@ -190,15 +201,15 @@ Dans cet exemple, il existe un abonnement qui contient les éléments suivants :
 
 Pour accéder aux scripts et à un modèle Azure Resource Manager, consultez les [instructions de génération détaillées][Example1].
 
-#### Description du groupe de sécurité réseau
+#### <a name="nsg-description"></a>Description du groupe de sécurité réseau
 Dans cet exemple, un groupe NSG est créé, puis chargé avec six règles.
 
 > [!TIP]
 > En règle générale, vous devez d’abord créer les règles d’« autorisation » spécifiques, suivies des règles de « refus » plus générales. La priorité donnée indique quelles sont les règles évaluées en premier. Une fois qu’il a été déterminé que le trafic répond à une règle spécifique, aucune autre règle n’est évaluée. Les règles du groupe de sécurité réseau peuvent s’appliquer dans le sens entrant ou sortant (du point de vue du sous-réseau).
-> 
-> 
+>
+>
 
-Les règles qui suivent sont générées de façon déclarative pour le trafic entrant :
+Les règles qui suivent sont générées de façon déclarative pour le trafic entrant :
 
 1. Le trafic DNS interne (port 53) est autorisé.
 2. Le trafic RDP (port 3389) à partir d’Internet vers n’importe quelle machine virtuelle est autorisé.
@@ -211,21 +222,23 @@ Avec ces règles associées à chaque sous-réseau, si une requête HTTP est ent
 
 Il existe une règle par défaut qui autorise le trafic sortant vers Internet. Pour cet exemple, nous allons autoriser le trafic sortant sans modifier les règles de trafic sortant. Pour verrouiller le trafic dans les deux sens, le routage défini par l’utilisateur est requis (voir l’exemple 3).
 
-#### Conclusion
-Il s’agit d’un moyen relativement simple et direct d’isoler le sous-réseau principal du trafic entrant. Pour plus d'informations, consultez les [instructions de génération détaillées][Example1]. Vous trouverez les instructions suivantes :
+#### <a name="conclusion"></a>Conclusion
+Il s’agit d’un moyen relativement simple et direct d’isoler le sous-réseau principal du trafic entrant. Pour plus d’informations, consultez les [instructions de génération détaillées][Example1]. Vous trouverez les instructions suivantes :
 
 * Comment créer ce réseau de périmètre avec des scripts PowerShell.
 * Comment créer ce réseau de périmètre avec un modèle Azure Resource Manager.
 * Des descriptions détaillées de chaque commande NSG.
 * Des scénarios de flux de trafic détaillés, montrant comment le trafic est autorisé ou refusé dans chaque couche.
 
-### Exemple 2: Créer un réseau de périmètre pour protéger les applications avec un pare-feu et des groupes de sécurité réseau [Revenir à Démarrage rapide](#fast-start) | [Instructions de génération détaillées pour cet exemple][Example2]
+### <a name="example-2-build-a-perimeter-network-to-help-protect-applications-with-a-firewall-and-nsgs"></a>Exemple 2 : Créer un réseau de périmètre pour protéger les applications avec un pare-feu et des groupes de sécurité réseau
+[Revenir à Démarrage rapide](#fast-start) | [Instructions de génération détaillées pour cet exemple][Example2]
+
 ![Réseau de périmètre entrant avec appliance virtuelle réseau et groupe de sécurité réseau][8]
 
-#### Description de l’environnement
+#### <a name="environment-description"></a>Description de l’environnement
 Dans cet exemple, il existe un abonnement qui contient les éléments suivants :
 
-* deux services cloud : « FrontEnd001 », « BackEnd001 »,
+* deux services cloud : « FrontEnd001 », « BackEnd001 »,
 * Un réseau virtuel « CorpNetwork » avec deux sous-réseaux : « FrontEnd » et « BackEnd »,
 * un groupe de sécurité réseau est appliqué aux deux sous-réseaux,
 * une appliance virtuelle réseau, dans ce cas un pare-feu, connectée au sous-réseau principal
@@ -235,15 +248,15 @@ Dans cet exemple, il existe un abonnement qui contient les éléments suivants :
 
 Pour accéder aux scripts et à un modèle Azure Resource Manager, consultez les [instructions de génération détaillées][Example2].
 
-#### Description du groupe de sécurité réseau
+#### <a name="nsg-description"></a>Description du groupe de sécurité réseau
 Dans cet exemple, un groupe NSG est créé, puis chargé avec six règles.
 
 > [!TIP]
 > En règle générale, vous devez d’abord créer les règles d’« autorisation » spécifiques, suivies des règles de « refus » plus générales. La priorité donnée indique quelles sont les règles évaluées en premier. Une fois qu’il a été déterminé que le trafic répond à une règle spécifique, aucune autre règle n’est évaluée. Les règles du groupe de sécurité réseau peuvent s’appliquer dans le sens entrant ou sortant (du point de vue du sous-réseau).
-> 
-> 
+>
+>
 
-Les règles qui suivent sont générées de façon déclarative pour le trafic entrant :
+Les règles qui suivent sont générées de façon déclarative pour le trafic entrant :
 
 1. Le trafic DNS interne (port 53) est autorisé.
 2. Le trafic RDP (port 3389) à partir d’Internet vers n’importe quelle machine virtuelle est autorisé.
@@ -256,28 +269,28 @@ Avec ces règles associées à chaque sous-réseau, si une requête HTTP est ent
 
 Il existe une règle par défaut qui autorise le trafic sortant vers Internet. Pour cet exemple, nous allons autoriser le trafic sortant sans modifier les règles de trafic sortant. Pour verrouiller le trafic dans les deux sens, le routage défini par l’utilisateur est requis (voir l’exemple 3).
 
-#### Description de la règle de pare-feu
+#### <a name="firewall-rule-description"></a>Description de la règle de pare-feu
 Sur le pare-feu, vous devez créer des règles de transfert. Étant donné que cet exemple achemine uniquement le trafic Internet entrant vers le pare-feu, puis vers le serveur web, seule une règle de traduction d’adresses réseau (NAT) de transfert est requise.
 
 La règle de transfert accepte n'importe quelle adresse source entrante qui atteint le pare-feu, en essayant d'atteindre HTTP (port 80 ou 443 pour HTTPS). Elle est envoyée hors de l'interface locale du pare-feu et redirigée vers le serveur web avec l'adresse IP 10.0.1.5.
 
-#### Conclusion
-Il s’agit d’un moyen relativement simple de protéger votre application avec un pare-feu et d’isoler le sous-réseau principal du trafic entrant. Pour plus d'informations, consultez les [instructions de génération détaillées][Example2]. Vous trouverez les instructions suivantes :
+#### <a name="conclusion"></a>Conclusion
+Il s’agit d’un moyen relativement simple de protéger votre application avec un pare-feu et d’isoler le sous-réseau principal du trafic entrant. Pour plus d’informations, consultez les [instructions de génération détaillées][Example2]. Vous trouverez les instructions suivantes :
 
 * Comment créer ce réseau de périmètre avec des scripts PowerShell.
 * Comment créer cet exemple avec un modèle Azure Resource Manager.
 * Descriptions détaillées de chaque commande NSG et règle de pare-feu.
 * Des scénarios de flux de trafic détaillés, montrant comment le trafic est autorisé ou refusé dans chaque couche.
 
-### Exemple 3 : Créer un réseau de périmètre pour protéger les réseaux avec un pare-feu, un routage défini par l'utilisateur et un groupe de sécurité réseau
+### <a name="example-3-build-a-perimeter-network-to-help-protect-networks-with-a-firewall-and-udr-and-nsg"></a>Exemple 3 : Créer un réseau de périmètre pour protéger les réseaux avec un pare-feu, un routage défini par l’utilisateur et un groupe de sécurité réseau
 [Revenir à Démarrage rapide](#fast-start) | [Instructions de génération détaillées pour cet exemple][Example3]
 
 ![Réseau de périmètre bidirectionnel avec appliance virtuelle réseau, groupe de sécurité réseau et routage défini par l’utilisateur][9]
 
-#### Description de l’environnement
+#### <a name="environment-description"></a>Description de l’environnement
 Dans cet exemple, il existe un abonnement qui contient les éléments suivants :
 
-* Trois services cloud : « SecSvc001 », « FrontEnd001 » et « BackEnd001 »
+* Trois services cloud : « SecSvc001 », « FrontEnd001 » et « BackEnd001 »
 * Un réseau virtuel « CorpNetwork », avec trois sous-réseaux : « SecNet », « FrontEnd » et « BackEnd »
 * Une appliance virtuelle du réseau, dans ce cas un pare-feu, connecté au sous-réseau SecNet
 * un serveur Windows Server représentant un serveur web d’application (« IIS01 »),
@@ -286,10 +299,10 @@ Dans cet exemple, il existe un abonnement qui contient les éléments suivants :
 
 Pour accéder aux scripts et à un modèle Azure Resource Manager, consultez les [instructions de génération détaillées][Example3].
 
-#### Description du routage défini par l’utilisateur
-Par défaut, les itinéraires système suivants sont définis en tant que :
+#### <a name="udr-description"></a>Description du routage défini par l’utilisateur
+Par défaut, les itinéraires système suivants sont définis en tant que :
 
-        Effective routes : 
+        Effective routes :
          Address Prefix    Next hop type    Next hop IP address Status   Source     
          --------------    -------------    ------------------- ------   ------     
          {10.0.0.0/16}     VNETLocal                            Active   Default    
@@ -309,35 +322,35 @@ Dans cet exemple, deux tables de routage sont créées, une pour chacun des sous
 
 > [!TIP]
 > L’absence d’entrée de sous-réseau local dans l’itinéraire défini par l’utilisateur interrompt les communications du sous-réseau local.
-> 
+>
 > * Dans notre exemple, 10.0.1.0/24 pointant vers VNETLocal est essentiel, car dans d’autres circonstances, un paquet quittant le serveur web (10.0.1.4) et destiné à un autre serveur local (par exemple) 10.0.1.25 échouera, car il sera envoyé vers le NVA, qui l’enverra vers le sous-réseau, puis le sous-réseau le renverra vers le NVA, etc.
 > * Les probabilités de boucle de routage sont généralement plus élevées sur des appliances multi-NIC directement connectées à chaque sous-réseau avec lequel elles communiquent, ce qui est souvent le cas des appliances traditionnelles locales.
-> 
-> 
+>
+>
 
 Une fois les tables de routage créées, elles sont liées à leurs sous-réseaux. La table de routage du sous-réseau frontal, une fois créée et liée au sous-réseau, doit ressembler à ce qui suit :
 
-        Effective routes : 
+        Effective routes :
          Address Prefix    Next hop type    Next hop IP address Status   Source     
          --------------    -------------    ------------------- ------   ------     
-         {10.0.1.0/24}     VNETLocal                            Active 
+         {10.0.1.0/24}     VNETLocal                            Active
          {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
 > [!NOTE]
 > UDR peut désormais être appliqué à ce sous-réseau de passerelle sur lequel le circuit ExpressRoute est connecté.
-> 
+>
 > Des exemples d'activation de votre réseau de périmètre avec ExpressRoute ou la mise en réseau de site à site sont présentés dans les exemples 3 et 4.
-> 
-> 
+>
+>
 
-#### Description du transfert IP
+#### <a name="ip-forwarding-description"></a>Description du transfert IP
 Le transfert IP est une fonctionnalité associée au routage défini par l’utilisateur. Il s’agit d’un paramètre d’appliance virtuelle qui permet de recevoir du trafic qui n’est pas spécialement adressé à l’appliance, puis de transférer ce trafic vers sa destination finale.
 
 Par exemple, si le trafic à partir d’AppVM01 fait une demande au serveur DNS01, l’UDR l’achemine vers le pare-feu. Lorsque le transfert IP est activé, le trafic de la destination de DNS01 (10.0.2.4) est accepté par l’appliance (10.0.0.4), puis transféré vers sa destination finale (10.0.2.4). Si le transfert IP n’est pas activé sur le pare-feu, le trafic ne sera pas accepté par l’équipement, même si le tronçon suivant de la table d’itinéraires est le pare-feu. Pour utiliser une appliance virtuelle, il est essentiel de ne pas oublier d’activer le transfert IP en conjonction avec le routage défini par l’utilisateur.
 
-#### Description du groupe de sécurité réseau
-Dans cet exemple, un groupe NSG est créé, puis chargé avec une seule règle. Ce groupe est ensuite lié uniquement aux sous-réseaux frontaux et principaux (et pas au SecNet). La règle suivante est générée de manière déclarative :
+#### <a name="nsg-description"></a>Description du groupe de sécurité réseau
+Dans cet exemple, un groupe NSG est créé, puis chargé avec une seule règle. Ce groupe est ensuite lié uniquement aux sous-réseaux frontaux et principaux (et pas au SecNet). La règle suivante est générée de manière déclarative :
 
 * Tout trafic (tous les ports) en provenance d’Internet vers l’ensemble du réseau virtuel (tous les sous-réseaux) est refusé.
 
@@ -349,17 +362,17 @@ Bien que dans cet exemple, on utilise des NSG, son principal objectif est celui 
 
 Point intéressant concernant le groupe de sécurité réseau dans cet exemple : il contient une seule règle qui consiste à refuser le trafic Internet de l’ensemble du réseau virtuel, y compris le sous-réseau de sécurité. Toutefois, étant donné que le NSG est associé uniquement aux sous-réseaux frontaux et principaux, la règle n’est pas exécutée sur le trafic entrant du sous-réseau de sécurité. Par conséquent, le trafic circule vers le sous-réseau de sécurité.
 
-#### Règles de pare-feu
-Sur le pare-feu, vous devez créer des règles de transfert. Étant donné que le pare-feu bloque ou transfère le trafic entrant, sortant ou intra-réseau virtuel, de nombreuses règles de pare-feu sont requises. Tout trafic entrant atteindra l’adresse IP publique de service de sécurité (sur différents ports), pour être traité par le pare-feu. L’une des meilleures pratiques consiste à faire un schéma des flux logiques avant de configurer les règles de sous-réseau et de pare-feu afin d’éviter la reprise du travail par la suite. La figure qui suit est une vue logique des règles de pare-feu de cet exemple :
+#### <a name="firewall-rules"></a>Règles de pare-feu
+Sur le pare-feu, vous devez créer des règles de transfert. Étant donné que le pare-feu bloque ou transfère le trafic entrant, sortant ou intra-réseau virtuel, de nombreuses règles de pare-feu sont requises. Tout trafic entrant atteindra l’adresse IP publique de service de sécurité (sur différents ports), pour être traité par le pare-feu. L’une des meilleures pratiques consiste à faire un schéma des flux logiques avant de configurer les règles de sous-réseau et de pare-feu afin d’éviter la reprise du travail par la suite. La figure qui suit est une vue logique des règles de pare-feu de cet exemple :
 
 ![Affichage logique des règles de pare-feu][10]
 
 > [!NOTE]
 > Selon l’appliance virtuelle réseau utilisée, les ports de gestion peuvent varier. Dans cet exemple, il est fait référence à un pare-feu Barracuda NextGen Firewall utilisant les ports 22, 801 et 807. Consultez la documentation du fournisseur d’appliance pour rechercher les ports exacts utilisés pour la gestion de l’appareil utilisé.
-> 
-> 
+>
+>
 
-#### Description des règles de pare-feu
+#### <a name="firewall-rules-description"></a>Description des règles de pare-feu
 Dans le diagramme logique précédent, le sous-réseau de sécurité n'apparaît pas. En effet, le pare-feu est la seule ressource de ce sous-réseau, et ce diagramme présente les règles de pare-feu et la façon dont elles autorisent ou refusent les flux et non l’itinéraire réel. En outre, les ports externes sélectionnés pour le trafic RDP appartiennent à la plage supérieure de ports (8014 – 8026) et ont été sélectionnés pour s’aligner à peu près sur les deux derniers octets de l’adresse IP locale, pour faciliter la lecture (par exemple, l’adresse du serveur local 10.0.1.4 est associée à un port externe 8014). Cependant, tous les ports supérieurs non conflictuels peuvent être utilisés.
 
 Pour cet exemple, nous avons besoin de sept types de règles :
@@ -379,33 +392,33 @@ Pour cet exemple, nous avons besoin de sept types de règles :
 
 > [!TIP]
 > Sur la deuxième règle de trafic d'application, pour simplifier cet exemple, n'importe quel port est autorisé. Dans un scénario réel, le port et les plages d'adresses les plus spécifiques doivent être utilisés afin de réduire la surface d'attaque de cette règle.
-> 
-> 
+>
+>
 
 Une fois toutes les règles précédentes créées, il est important de revoir la priorité de chaque règle pour s’assurer que le trafic sera autorisé ou rejeté de façon pertinente. Pour cet exemple, les règles sont classées par ordre de priorité.
 
-#### Conclusion
-Il s'agit d'une façon plus complexe mais plus complète de protéger et d'isoler le réseau par rapport aux exemples précédents. (L’exemple 2 protège uniquement l'application et l’exemple 1 isole simplement les sous-réseaux). Cette conception permet de surveiller le trafic dans les deux sens ; elle protège non seulement le serveur d’applications entrantes mais applique également la stratégie de sécurité réseau à tous les serveurs sur ce réseau. En outre, selon l’appliance utilisée, une connaissance et un audit complets du trafic sont possibles. Pour plus d’informations, consultez les [instructions de génération détaillées][Example3]. Vous trouverez les instructions suivantes :
+#### <a name="conclusion"></a>Conclusion
+Il s'agit d'une façon plus complexe mais plus complète de protéger et d'isoler le réseau par rapport aux exemples précédents. (L’exemple 2 protège uniquement l’application et l’exemple 1 isole simplement les sous-réseaux). Cette conception permet de surveiller le trafic dans les deux sens ; elle protège non seulement le serveur d’applications entrantes mais applique également la stratégie de sécurité réseau à tous les serveurs sur ce réseau. En outre, selon l’appliance utilisée, une connaissance et un audit complets du trafic sont possibles. Pour plus d’informations, consultez les [instructions de génération détaillées][Example3]. Vous trouverez les instructions suivantes :
 
 * Comment créer cet exemple de réseau de périmètre avec des scripts PowerShell.
 * Comment créer cet exemple avec un modèle Azure Resource Manager.
 * Des descriptions détaillées de chaque UDR, commande NSG et règle de pare-feu.
 * Des scénarios de flux de trafic détaillés, montrant comment le trafic est autorisé ou refusé dans chaque couche.
 
-### Exemple 4 : Ajouter une connexion hybride avec un réseau privé virtuel (VPN) d’appliance virtuelle de site à site
+### <a name="example-4-add-a-hybrid-connection-with-a-site-to-site-virtual-appliance-virtual-private-network"></a>Exemple 4 : Ajouter une connexion hybride avec un réseau privé virtuel (VPN) d’appliance virtuelle de site à site
 [Revenir à Démarrage rapide](#fast-start) | Instructions de génération détaillées bientôt disponibles
 
 ![Réseau de périmètre avec réseau hybride connecté à une NVA][11]
 
-#### Description de l’environnement
+#### <a name="environment-description"></a>Description de l’environnement
 La mise en réseau hybride à l’aide d’une appliance virtuelle réseau (NVA) peut être ajoutée à l’un des types de réseaux de périmètre décrits dans les exemples 1, 2 ou 3.
 
 Comme l’indique la figure précédente, une connexion VPN sur Internet (de site à site) permet de connecter un réseau local à un réseau virtuel Azure au moyen d’une appliance virtuelle réseau.
 
 > [!NOTE]
 > Si vous utilisez ExpressRoute avec l'option d'homologation publique Azure activée, un itinéraire statique doit être créé. Il doit acheminer vers l'adresse IP du VPN de l’appliance virtuelle réseau hors de votre Internet d’entreprise et non avec le WAN ExpressRoute. La traduction d’adresses réseau requise avec l'option d'homologation publique d’Azure ExpressRoute peut arrêter la session VPN.
-> 
-> 
+>
+>
 
 Une fois la connexion VPN en place, la NVA devient le « hub » central pour tous les réseaux et sous-réseaux. Les règles de transfert de pare-feu déterminent quels flux de trafic sont autorisés, se voient appliquer la traduction d’adresses réseau, sont redirigés ou sont refusés (même pour les flux de trafic entre le réseau local et Azure).
 
@@ -421,27 +434,27 @@ Logiquement pour la NVA, le réseau ressemble à quatre « zones de sécurité �
 
 ![Réseau logique du point de vue de la NVA][13]
 
-#### Conclusion
+#### <a name="conclusion"></a>Conclusion
 L’ajout d’une connexion réseau hybride VPN de site à site à un réseau virtuel Azure peut étendre le réseau local dans Azure de manière sécurisée. À l’aide d’une connexion VPN, votre trafic est chiffré et acheminé par Internet. La NVA, dans cet exemple, fournit un emplacement central pour appliquer et gérer la stratégie de sécurité. Pour plus d'informations, consultez les instructions de génération détaillées (bientôt disponibles). Vous trouverez les instructions suivantes :
 
 * Comment créer cet exemple de réseau de périmètre avec des scripts PowerShell.
 * Comment créer cet exemple avec un modèle Azure Resource Manager.
 * Des scénarios de flux de trafic détaillés, montrant comment le trafic circule dans cette conception.
 
-### Exemple 5 : Ajouter une connexion hybride avec un réseau VPN de passerelle Azure de site à site
+### <a name="example-5-add-a-hybrid-connection-with-a-site-to-site-azure-gateway-vpn"></a>Exemple 5 : Ajouter une connexion hybride avec un réseau VPN de passerelle Azure de site à site
 [Revenir à Démarrage rapide](#fast-start) | Instructions de génération détaillées bientôt disponibles
 
 ![Réseau de périmètre avec réseau hybride connecté à une passerelle][14]
 
-#### Description de l’environnement
+#### <a name="environment-description"></a>Description de l’environnement
 La mise en réseau hybride à l’aide d’une passerelle VPN Azure peut être ajoutée à l’un des types de réseaux de périmètre décrits dans les exemples 1 ou 2.
 
 Comme l’indique la figure précédente, une connexion VPN sur Internet (de site à site) permet de connecter un réseau local à un réseau virtuel Azure au moyen d’une passerelle VPN Azure.
 
 > [!NOTE]
 > Si vous utilisez ExpressRoute avec l'option d'homologation publique Azure activée, un itinéraire statique doit être créé. Il doit acheminer vers l'adresse IP du VPN de l’appliance virtuelle réseau hors de votre Internet d’entreprise et non avec le WAN ExpressRoute. La traduction d’adresses réseau requise avec l'option d'homologation publique d’Azure ExpressRoute peut arrêter la session VPN.
-> 
-> 
+>
+>
 
 La figure suivante montre les deux périphéries de réseau dans cette option. Sur la première périphérie, les appliances virtuelles réseau et les groupes de sécurité réseau contrôlent les flux de trafic pour les réseaux intra-Azure et entre Azure et Internet. La deuxième périphérie est la passerelle VPN Azure, périphérie de réseau totalement distincte et isolée entre le réseau local et Azure.
 
@@ -451,35 +464,35 @@ L’utilisation de l’environnement créé dans l’exemple 1 et l’ajout d’
 
 ![Réseau de périmètre avec passerelle connectée à l’aide d’une connexion ExpressRoute][15]
 
-#### Conclusion
+#### <a name="conclusion"></a>Conclusion
 L’ajout d’une connexion réseau hybride VPN de site à site à un réseau virtuel Azure peut étendre le réseau local dans Azure de manière sécurisée. À l’aide de la passerelle VPN Azure native, votre trafic est chiffré IPSec et acheminé par Internet. En outre, la passerelle VPN Azure peut fournir une option à moindre coût (aucun coût de licence supplémentaire à l’instar des appliances virtuelles réseau tierces). Cette solution est plus économique dans l’exemple 1 où aucune appliance virtuelle réseau n’est utilisée. Pour plus d'informations, consultez les instructions de génération détaillées (bientôt disponibles). Vous trouverez les instructions suivantes :
 
 * Comment créer cet exemple de réseau de périmètre avec des scripts PowerShell.
 * Comment créer cet exemple avec un modèle Azure Resource Manager.
 * Des scénarios de flux de trafic détaillés, montrant comment le trafic circule dans cette conception.
 
-### Exemple 6 : Ajouter une connexion hybride avec ExpressRoute
+### <a name="example-6-add-a-hybrid-connection-with-expressroute"></a>Exemple 6 : Ajouter une connexion hybride avec ExpressRoute
 [Revenir à Démarrage rapide](#fast-start) | Instructions de génération détaillées bientôt disponibles
 
 ![Réseau de périmètre avec réseau hybride connecté à une passerelle][16]
 
-#### Description de l’environnement
+#### <a name="environment-description"></a>Description de l’environnement
 La mise en réseau hybride à l’aide d’une connexion d’homologation privée ExpressRoute peut être ajoutée à l’un des types de réseaux de périmètre décrits dans les exemples 1 ou 2.
 
 Comme l’indique la figure précédente, l’homologation privée ExpressRoute fournit une connexion directe entre votre réseau local et le réseau virtuel Azure. Le trafic passe uniquement dans le réseau du prestataire de services et le réseau Microsoft Azure, sans jamais atteindre Internet.
 
 > [!NOTE]
 > Il existe certaines limites à l’utilisation du routage défini par utilisateur avec ExpressRoute en raison de la complexité du routage dynamique utilisé dans la passerelle virtuelle Azure. Les voici :
-> 
+>
 > * Le routage UDR ne doit pas être appliqué au sous-réseau de passerelle auquel la passerelle virtuelle Azure liée à ExpressRoute est connectée.
 > * La passerelle virtuelle Azure liée à ExpressRoute ne doit pas être l’appareil de tronçon suivant des sous-réseaux UDR associés.
-> 
+>
 > <br />
-> 
+>
 > [!TIP]
 > L’utilisation d’ExpressRoute tient le trafic du réseau d’entreprise éloigné d’Internet pour une meilleure sécurité et une amélioration significative des performances. Il prend également en charge les accords de niveau de service de votre fournisseur ExpressRoute. La passerelle Azure peut transférer jusqu’à 2 Gbits/s avec ExpressRoute, tandis qu’avec les VPN de site à site, le débit maximal de la passerelle Azure est de 200 Mbits/s.
-> 
-> 
+>
+>
 
 Comme nous voyons sur le diagramme suivant, avec cette option, l’environnement dispose maintenant de deux périphéries de réseau. La NVA et le NSG contrôlent les flux de trafic pour les réseaux intra-Azure et entre Azure et Internet, tandis que la passerelle est une périphérie de réseau totalement distincte et isolée entre le réseau local et Azure.
 
@@ -489,15 +502,15 @@ L’utilisation de l’environnement créé dans l’exemple 1 et l’ajout d’
 
 ![Réseau de périmètre avec passerelle connectée à l’aide d’une connexion ExpressRoute][17]
 
-#### Conclusion
+#### <a name="conclusion"></a>Conclusion
 L’ajout d’une connexion réseau d’homologation privée ExpressRoute peut étendre le réseau local dans Azure d’une manière sécurisée, avec moins de latence et de meilleures performances. En outre, l’utilisation de la passerelle Azure native, comme dans cet exemple, fournit une option à moindre coût (aucune licence supplémentaire à l’instar des appliances virtuelles réseau tierces). Pour plus d'informations, consultez les instructions de génération détaillées (bientôt disponibles). Vous trouverez les instructions suivantes :
 
 * Comment créer cet exemple de réseau de périmètre avec des scripts PowerShell.
 * Comment créer cet exemple avec un modèle Azure Resource Manager.
 * Des scénarios de flux de trafic détaillés, montrant comment le trafic circule dans cette conception.
 
-## Références
-### Sites web et documentation utiles
+## <a name="references"></a>Références
+### <a name="helpful-websites-and-documentation"></a>Sites web et documentation utiles
 * Accès à Azure avec Azure Resource Manager :
 * Accéder à Azure avec PowerShell : [https://azure.microsoft.com/documentation/articles/powershell-install-configure/](powershell-install-configure.md)
 * Documentation relative à la mise en réseau virtuelle : [https://azure.microsoft.com/documentation/services/virtual-network/](https://azure.microsoft.com/documentation/services/virtual-network/)
@@ -515,13 +528,13 @@ L’ajout d’une connexion réseau d’homologation privée ExpressRoute peut �
 [4]: ./media/best-practices-network-security/azuresecurityarchitecture.png "Architecture de sécurité Azure"
 [5]: ./media/best-practices-network-security/dmzazure.png "Une zone DMZ dans un réseau virtuel Azure"
 [6]: ./media/best-practices-network-security/dmzhybrid.png "Réseau hybride avec trois limites de sécurité"
-[7]: ./media/best-practices-network-security/example1design.png "Zone DMZ entrante avec NSG"
+[7]: ./media/best-practices-network-security/example1design.png "Réseau de périmètre entrant avec groupe de sécurité réseau"
 [8]: ./media/best-practices-network-security/example2design.png "Zone DMZ entrante avec NVA et NSG"
-[9]: ./media/best-practices-network-security/example3design.png "Zone DMZ bidirectionnelle avec NVA, NSG et UDR"
+[9]: ./media/best-practices-network-security/example3design.png "DMZ bidirectionnel avec NVA, NSG et UDR"
 [10]: ./media/best-practices-network-security/example3firewalllogical.png "Affichage logique des règles de pare-feu"
 [11]: ./media/best-practices-network-security/example4designoptions.png "Zone DMZ avec réseau hybride connecté à une NVA"
 [12]: ./media/best-practices-network-security/example4designs2s.png "Zone DMZ avec NVA connectée à l’aide d’un VPN de site à site"
-[13]: ./media/best-practices-network-security/example4networklogical.png "Réseau logique du point de vue NVA"
+[13]: ./media/best-practices-network-security/example4networklogical.png "Réseau logique du point de vue de la NVA"
 [14]: ./media/best-practices-network-security/example5designoptions.png "Zone DMZ avec réseau hybride de site à site connecté à une passerelle Azure"
 [15]: ./media/best-practices-network-security/example5designs2s.png "Zone DMZ avec passerelle Azure utilisant un VPN de site à site"
 [16]: ./media/best-practices-network-security/example6designoptions.png "Zone DMZ avec réseau hybride ExpressRoute connecté à une passerelle Azure"
@@ -537,4 +550,8 @@ L’ajout d’une connexion réseau d’homologation privée ExpressRoute peut �
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

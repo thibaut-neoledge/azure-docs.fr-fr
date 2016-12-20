@@ -14,175 +14,189 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 12/06/2016
 ms.author: rachelap@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: a0a46708645be91f89b0a6ae9059468bc84aeb11
-ms.openlocfilehash: c6905452951910d3c62bc5152741a8ead26196ef
+ms.sourcegitcommit: f46a67f2591ef98eeda03f5c3bc556d5b8bcc096
+ms.openlocfilehash: 4e0dd8b922107b232a120c25d1f656c5d667748b
 
 
 ---
-# <a name="create-an-azure-function-which-binds-to-an-azure-service"></a>Créer une fonction Azure liée à un service Azure
-[!INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
+# <a name="create-an-azure-function-connected-to-an-azure-service"></a>Créer une fonction Azure connectée à un service Azure
 
-Dans cette vidéo, vous apprenez à créer une fonction Azure qui écoute les messages dans une file d'attente Azure et copie les messages dans un objet blob Azure.
+Cette rubrique vous explique comment créer une fonction Azure qui écoute les messages dans une file d'attente de stockage Azure et copie les messages dans les lignes d’une table de stockage Azure. Une fonction de minuteur déclencheur est utilisée pour charger des messages dans la file d’attente. Une deuxième fonction lit la file d’attente et écrit les messages dans la table. La file d’attente et la table sont créées pour vous par les fonctions Azure basées sur les définitions de liaison. 
+
+Pour rendre les choses plus intéressantes, une fonction est écrite en JavaScript et l’autre est écrite en script C#. Cela montre qu’une Function App peut avoir des fonctions dans différentes langues.
 
 ## <a name="watch-the-video"></a>Regarder la vidéo
 >[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
 >
 >
 
-## <a name="create-an-input-queue-trigger-function"></a>Création d’une fonction de déclenchement d’une file d’attente d’entrée
-L’objectif de cette fonction consiste à écrire un message dans une file d’attente toutes les 10 secondes. Pour ce faire, vous devez créer les files d’attente de fonctions et de messages et ajouter le code pour écrire des messages dans les files d’attente nouvellement créées.
+## <a name="create-a-function-that-writes-to-the-queue"></a>Créer une fonction qui écrit dans la file d’attente
 
-1. Accédez au portail Azure et recherchez votre application de fonction Azure.
-2. Cliquez sur **Nouvelle fonction** > **TimerTrigger - Nœud**. Nommez la fonction **FunctionsBindingsDemo1**
-3. Entrez une valeur « 0/10 * * * * * » pour la planification. Cette valeur a la forme d’une expression cron. Elle planifie une exécution du minuteur toutes les 10 secondes.
-4. Cliquez sur le bouton **Créer** pour créer la fonction.
-   
-    ![Ajout d’un déclencheur des fonctions de minuteur](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
-5. Vérifiez le bon fonctionnement de la fonction en affichant l’activité dans le journal. Il se peut que vous deviez cliquer sur le lien **journaux** dans le coin supérieur droit pour afficher le volet de journal.
-   
-   ![Vérifiez le bon fonctionnement de la fonction en affichant le journal.](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
+Avant de vous connecter à une file d’attente de stockage, vous devez créer une fonction qui charge la file d’attente de messages. Cette fonction JavaScript utilise un minuteur déclencheur qui écrit un message dans la file d’attente toutes les 10 secondes. Si vous ne disposez pas d’un compte Azure, vivez l’expérience [Try Azure Functions](https://functions.azure.com/try) (Essayer Azure Functions) ou [créez un compte Azure gratuit](https://azure.microsoft.com/free/).
 
-### <a name="add-a-message-queue"></a>Ajout d'un message à une file d'attente
-1. Accédez à l’onglet **Intégrer**.
-2. Choisissez **Nouvelle sortie** > **File d’attente de stockage Azure** > **Sélectionner**.
-3. Entrez **myQueueItem** dans la zone de texte **Nom du paramètre de message**.
-4. Sélectionnez un compte de stockage, ou cliquez sur **nouveau** pour en créer un si vous n’en avez pas.
-5. Entrez **functions-bindings** dans la zone de texte **Nom de la file d’attente**.
-6. Cliquez sur **Enregistrer**.  
-   
-   ![Ajout d’un déclencheur des fonctions de minuteur](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
+1. Accédez au portail Azure et recherchez votre application de fonction.
 
-### <a name="write-to-the-message-queue"></a>Écriture dans la file d’attente
-1. Retournez à l’onglet **Développer** et ajoutez le code suivant à la fonction après le code existant :
+2. Cliquez sur **Nouvelle fonction** > **TimerTrigger-JavaScript**. 
+
+3. Nommez la fonction **FunctionsBindingsDemo1**, entrez une valeur d’expression CRON `0/10 * * * * *` pour **Schedule** (Planification), puis cliquez sur **Create** (Créer).
+   
+    ![Ajouter une fonction de minuteur déclencheur](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
+
+    Vous venez de créer une fonction de minuteur déclencheur qui s’exécute toutes les 10 secondes.
+
+5. Sur l’onglet **Développement** , cliquez sur **Journaux** et consultez l’activité dans le journal. Les entrées de journal que vous consultez ont été écrites toutes les 10 secondes.
+   
+    ![Afficher le journal pour vérifier le bon fonctionnement de la fonction](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
+
+## <a name="add-a-message-queue-output-binding"></a>Ajouter une liaison de sortie de file d’attente de messages
+
+1. Dans l’onglet **Intégration**, choisissez **Nouvelle sortie** > **Stockage File d’attente Azure** > **Sélectionner**.
+
+    ![Ajouter une fonction de minuteur déclencheur](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
+
+2. Entrez `myQueueItem` pour **Nom du paramètre de message** et `functions-bindings` pour **Nom de la file d’attente**, sélectionnez une **connexion du compte de stockage** existante ou cliquez sur **nouveau** pour créer une connexion du compte de stockage, puis cliquez sur **Enregistrer**.  
+
+    ![Créer la liaison de sortie vers la file d’attente de stockage](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab2.png)
+
+1. Dans l’onglet **Développement**, ajoutez le code suivant à la fonction :
    
     ```javascript
    
     function myQueueItem() 
-      {
+    {
         return {
-        msg: "some message goes here",
-        time: "time goes here"
-      }
+            msg: "some message goes here",
+            time: "time goes here"
+        }
     }
    
     ```
-2. Modifiez le code de fonction existant pour appeler le code ajouté à l’étape 1. Insérez le code suivant autour de la ligne 9 de la fonction, après l’instruction *if*.
+2. Repérez l’instruction *if* près de la ligne 9 de la fonction, et insérez le code suivant après cette instruction.
    
     ```javascript
    
     var toBeQed = myQueueItem();
     toBeQed.time = timeStamp;
-    context.bindings.myQueue = toBeQed;
+    context.bindings.myQueueItem = toBeQed;
    
-    ```
+    ```  
    
-    Ce code crée un élément **myQueueItem** et définit sa propriété **time** sur l’horodatage actuel. Il ajoute ensuite le nouvel élément de file d’attente à la liaison myQueue du contexte.
+    Ce code crée un élément **myQueueItem** et définit sa propriété **time** sur l’horodatage actuel. Il ajoute ensuite le nouvel élément de file d’attente à la liaison **myQueueItem** du contexte.
+
 3. Cliquez sur **Enregistrer et exécuter**.
-4. Vérifiez que le code fonctionne en affichant la file d’attente dans Visual Studio.
-   
-   * Ouvrez Visual Studio et accédez à **Vue** > **Cloud** **Explorer**.
-   * Recherchez le compte de stockage et la file d’attente **functions-bindings** que vous avez utilisés lors de la création de la file d’attente myQueue. Vous devriez voir des lignes de données de journal. Vous devrez peut-être vous connecter à Azure par le biais de Visual Studio.  
 
-## <a name="create-an-output-queue-trigger-function"></a>Création d’une fonction de déclenchement d’une file d’attente de sortie
-1. Cliquez sur **Nouvelle fonction** > **TimerTrigger - C#**. Nommez la fonction **FunctionsBindingsDemo2**. Notez que vous pouvez combiner des langages dans la même application de fonction (nœud et C# dans le cas présent).
-2. Entrez **functions-bindings** dans la zone de texte **Nom de la file d’attente**.
-3. Sélectionnez un compte de stockage à utiliser ou créez-en un nouveau.
-4. Cliquez sur **Créer**
-5. Vérifiez le bon fonctionnement de la nouvelle fonction en affichant à la fois le journal de la fonction et Visual Studio pour les mises à jour. Le journal de la fonction indique que la fonction est en cours d’exécution et que des éléments sont enlevés de la file d’attente. Étant donné que la fonction est liée à la file d’attente de sortie **functions-bindings** comme déclencheur d’entrée, l’actualisation de la file d’attente **functions-bindings** dans Visual Studio doit indiquer que les éléments ont disparu. Ils ont été enlevés de la file d’attente.   
-   
-   ![Ajout d’une file d’attente de sortie des fonctions de minuterie](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png)   
+## <a name="view-storage-updates-by-using-storage-explorer"></a>Afficher les mises à jour du stockage à l’aide de l’Explorateur de stockage
+Vous pouvez vérifier le bon fonctionnement de votre fonction en consultant les messages dans la file d’attente que vous avez créée.  Vous pouvez vous connecter à votre file d’attente de stockage à l’aide de Cloud Explorer dans Visual Studio. Toutefois, le portail facilite votre connexion au compte de stockage à l’aide de l’Explorateur de stockage Microsoft Azure.
 
-### <a name="modify-the-queue-item-type-from-json-to-object"></a>Modification du type d’élément de file d’attente de JSON à l’objet
-1. Remplacez le code dans **FunctionsBindingsDemo2** par le code suivant :    
+1. Dans l’onglet **Intégration**, cliquez sur la liaison de sortie de file d’attente > **Documentation**, puis affichez la chaîne de connexion de votre compte de stockage et copiez la valeur. Cette valeur vous permet de vous connecter à votre compte de stockage.
+
+    ![Télécharger l’Explorateur de stockage Azure](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab3.png)
+
+
+2. Si ce n’est déjà fait, téléchargez et installez [l’Explorateur de stockage Microsoft Azure](http://storageexplorer.com). 
+ 
+3. Dans l’Explorateur de stockage, cliquez sur l’icône de connexion au stockage Azure, collez la chaîne de connexion dans le champ et fermez l’Assistant.
+
+    ![Explorateur de stockage - Ajout d’une connexion](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-storage-explorer.png)
+
+4. Sous **Local and attached** (Locale et connectée), développez **Comptes de stockage** > votre compte de stockage > **Files d’attente** > **functions-bindings** et vérifiez que les messages sont écrits dans la file d’attente.
+
+    ![Afficher des messages dans la file d’attente](./media/functions-create-an-azure-connected-function/functionsbindings-azure-storage-explorer.png)
+
+    Si la file d’attente n’existe pas ou est vide, il y a probablement un problème au niveau de la liaison ou du code de la fonction.
+
+## <a name="create-a-function-that-reads-from-the-queue"></a>Créer une fonction qui lit à partir de la file d’attente
+
+Maintenant que les messages s’ajoutent dans la file d’attente, vous pouvez créer une autre fonction qui lit à partir de la file d’attente et écrit définitivement les messages dans une table de stockage Azure.
+
+1. Cliquez sur **Nouvelle fonction** > **QueueTrigger-CSharp**. 
+ 
+2. Nommez la fonction `FunctionsBindingsDemo2`, entrez **functions-bindings** dans le champ **Nom de la file d’attente**, sélectionnez un compte de stockage existant ou créez-en un, puis cliquez sur **Créer**.
+
+    ![Ajouter une fonction de minuteur de file d’attente de sortie](./media/functions-create-an-azure-connected-function/function-demo2-new-function.png) 
+
+3. (Facultatif) Vous pouvez vérifier le bon fonctionnement de la fonction en consultant la nouvelle file d’attente dans l’Explorateur de stockage comme auparavant. Vous pouvez également utiliser Cloud Explorer dans Visual Studio.  
+
+4. (Facultatif) Actualisez la file d’attente **functions-bindings** et notez que les éléments ont été supprimés de la file d’attente. Cette suppression a lieu car la fonction est liée à la file d’attente **functions-bindings** comme un déclencheur d’entrée et la fonction lit la file d’attente. 
+ 
+## <a name="add-a-table-output-binding"></a>Ajouter une liaison de sortie de table
+
+1. Dans FunctionsBindingsDemo2, cliquez sur **Intégrer** > **Nouvelle sortie** > **Table de stockage Azure** > **Sélectionner**.
+
+    ![Ajouter une liaison à une table de stockage Azure](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
+
+2. Entrez `TableItem` pour **Nom de la table** et `functionbindings` pour **Nom du paramètre de table**, choisissez une **Connexion du compte de stockage** ou créez-en une, puis cliquez sur **Enregistrer**.
+
+    ![Configurer la liaison de table de stockage](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
+   
+3. Dans l’onglet **Développement** , remplacez le code existant de la fonction par le code suivant :
    
     ```cs
-   
+    
     using System;
-   
-    public static void Run(QItem myQueueItem, ICollector<TableItem> myTable, TraceWriter log)
-    {
-      TableItem myItem = new TableItem
-      {
-        PartitionKey = "key",
-        RowKey = Guid.NewGuid().ToString(),
-        Time = DateTime.Now.ToString("hh.mm.ss.ffffff"),
-        Msg = myQueueItem.Msg,
-        OriginalTime = myQueueItem.Time    
-      };
-      log.Verbose($"C# Queue trigger function processed: {myQueueItem.Msg} | {myQueueItem.Time}");
-    }
-   
-    public class TableItem
-    {
-      public string PartitionKey {get; set;}
-      public string RowKey {get; set;}
-      public string Time {get; set;}
-      public string Msg {get; set;}
-      public string OriginalTime {get; set;}
-    }
-   
-    public class QItem
-    {
-      public string Msg { get; set;}
-      public string Time { get; set;}
-    }
-   
-    ```
-   
-    Ce code ajoute deux classes, **TableItem** et **QItem**, que vous utilisez pour lire et écrire des files d’attente. En outre, la fonction **Run** a été modifiée pour accepter les paramètres **QItem** et **TraceWriter** au lieu d’une **chaîne** et d’un **TraceWriter**. 
-2. Cliquez sur le bouton **Enregistrer** .
-3. Vérifiez le code fonctionne en vérifiant le journal. Notez que les fonctions Azure sérialisent et désérialisent automatiquement l’objet pour vous, ce qui facilite l’accès à la file d’attente d’une manière orientée objet pour faire circuler les données. 
-
-## <a name="store-messages-in-an-azure-table"></a>Stockage de messages dans une table Azure
-Maintenant que vous avez des files d’attente fonctionnant ensemble, il est temps d’ajouter une table Azure pour un stockage permanent des données de file d’attente.
-
-1. Accédez à l’onglet **Intégrer**.
-2. Créez une table de stockage Azure pour la sortie et nommez-la **myTable**.
-3. Répondez par **functionsbindings** à la question « Dans quelle table les données doivent-elles être écrites ? ».
-4. Modifier le paramétrage de **PartitionKey** de **{id de projet}** à **{partition}**.
-5. Choisissez un compte de stockage ou créez-en un nouveau.
-6. Cliquez sur **Enregistrer**.
-7. Accédez à l’onglet **Développer**.
-8. Créez une classe **TableItem** pour représenter une table Azure et modifiez la fonction Run afin d’accepter l’objet TableItem nouvellement créé. Notez que vous devez utiliser les propriétés **PartitionKey** et **RowKey** pour que l’opération réussisse.
-   
-    ```cs
-   
+    
     public static void Run(QItem myQueueItem, ICollector<TableItem> myTable, TraceWriter log)
     {    
-      TableItem myItem = new TableItem
-      {
-        PartitionKey = "key",
-        RowKey = Guid.NewGuid().ToString(),
-        Time = DateTime.Now.ToString("hh.mm.ss.ffffff"),
-        Msg = myQueueItem.Msg,
-        OriginalTime = myQueueItem.Time    
-      };
-   
-      log.Verbose($"C# Queue trigger function processed: {myQueueItem.RowKey} | {myQueueItem.Msg} | {myQueueItem.Time}");
+        TableItem myItem = new TableItem
+        {
+            PartitionKey = "key",
+            RowKey = Guid.NewGuid().ToString(),
+            Time = DateTime.Now.ToString("hh.mm.ss.ffffff"),
+            Msg = myQueueItem.Msg,
+            OriginalTime = myQueueItem.Time    
+        };
+        
+        // Add the item to the table binding collection.
+        myTable.Add(myItem);
+    
+        log.Verbose($"C# Queue trigger function processed: {myItem.RowKey} | {myItem.Msg} | {myItem.Time}");
     }
-   
+    
     public class TableItem
     {
-      public string PartitionKey {get; set;}
-      public string RowKey {get; set;}
-      public string Time {get; set;}
-      public string Msg {get; set;}
-      public string OriginalTime {get; set;}
+        public string PartitionKey {get; set;}
+        public string RowKey {get; set;}
+        public string Time {get; set;}
+        public string Msg {get; set;}
+        public string OriginalTime {get; set;}
+    }
+    
+    public class QItem
+    {
+        public string Msg { get; set;}
+        public string Time { get; set;}
     }
     ```
-9. Cliquez sur **Enregistrer**.
-10. Vérifiez que le code fonctionne en consultant les journaux de la fonction et dans Visual Studio. Pour vérifier dans Visual Studio, utilisez le **Cloud Explorer** pour accéder à la table Azure **functionbindings** et vérifiez qu’il contient des lignes.
+    La classe **TableItem** représente une ligne dans la table de stockage, et vous ajoutez l’élément à la collection `myTable` d’objets **TableItem**. Vous devez définir les propriétés **PartitionKey** et **RowKey** pour permettre les insertions dans la table.
 
-[!INCLUDE [Getting Started Note](../../includes/functions-bindings-next-steps.md)]
+4. Cliquez sur **Save**.  Enfin, vous pouvez vérifier le bon fonctionnement de la fonction en consultant la table dans l’Explorateur de stockage ou Visual Studio Cloud Explorer.
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+5. (Facultatif) Dans votre compte de stockage au sein de l’Explorateur de stockage, développez **Tables** > **functionsbindings** et vérifiez que les lignes sont ajoutées à la table. Vous pouvez procéder de la même manière dans Visual Studio Cloud Explorer.
+
+    ![Afficher les lignes dans la table](./media/functions-create-an-azure-connected-function/functionsbindings-azure-storage-explorer2.png)
+
+    Si la table n’existe pas ou est vide, il y a probablement un problème au niveau de la liaison ou du code de la fonction. 
+ 
+[!INCLUDE [More binding information](../../includes/functions-bindings-next-steps.md)]
+
+## <a name="next-steps"></a>Étapes suivantes
+Pour plus d’informations sur Azure Functions, consultez ces rubriques.
+
+* [Référence du développeur Azure Functions](functions-reference.md)  
+   Référence du programmeur pour le codage de fonctions et la définition de déclencheurs et de liaisons.
+* [Test d’Azure Functions](functions-test-a-function.md)  
+   décrit plusieurs outils et techniques permettant de tester vos fonctions.
+* [Comment mettre à l’échelle Azure Functions](functions-scale.md)  
+  Présente les plans de service disponibles pour Azure Functions, dont le plan d’hébergement de consommation, et explique comment choisir le plan adapté à vos besoins. 
+
+[!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

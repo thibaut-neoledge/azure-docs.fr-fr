@@ -1,13 +1,13 @@
 ---
-title: Créer un réseau virtuel au moyen du portail Azure | Microsoft Docs
-description: Découvrez comment créer un réseau virtuel au moyen du portail Azure.
+title: "Création d’un réseau virtuel au moyen du portail Azure | Microsoft Docs"
+description: "Découvrez comment créer un réseau virtuel au moyen du portail Azure."
 services: virtual-network
-documentationcenter: ''
+documentationcenter: 
 author: jimdial
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 69894a0b-8050-451e-8a25-c513e1bd271e
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 22866181f9ef1d0eb38cdf6d8d1b0a20d2c3b61d
+
 
 ---
-# Créer un réseau virtuel (classique) à l'aide du portail Azure
+# <a name="create-a-virtual-network-classic-by-using-the-azure-portal"></a>Créer un réseau virtuel (classique) à l'aide du portail Azure
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
@@ -34,4 +38,9 @@ Vous découvrirez comment créer un réseau virtuel à partir du portail Azure �
 
 [!INCLUDE [virtual-networks-create-vnet-classic-netcfg-portal-include](../../includes/virtual-networks-create-vnet-classic-netcfg-portal-include.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

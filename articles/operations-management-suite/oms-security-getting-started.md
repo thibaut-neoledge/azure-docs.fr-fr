@@ -8,15 +8,16 @@ manager: swadhwa
 editor: 
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 12/01/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fe043cd4438612ada9a31ae895aae75b913b0a37
+ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
+ms.openlocfilehash: 888b9786de8302ccd2e11f271aa417bcbcc2620b
 
 
 ---
@@ -148,7 +149,7 @@ L’objectif principal de cette option consiste à permettre au département inf
 
 ![Informations sur les menaces](./media/oms-security-getting-started/oms-getting-started-fig12.png)
 
-Cette option peut également être utilisée pendant un examen dans le cadre d’une réponse à un incident, afin d’évaluer une attaque et d’obtenir des informations supplémentaires à son propos.
+Cette option peut également être utilisée pendant un [examen dans le cadre d’une réponse à un incident](https://blogs.msdn.microsoft.com/azuresecurity/2016/11/30/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/), afin d’évaluer une attaque et d’obtenir des informations supplémentaires à son propos.
 
 > [!NOTE]
 > Pour en savoir plus sur l’utilisation d’OMS pour la réponse aux incidents, voir la vidéo indiquant [comment tirer parti de Microsoft Azure Security Center et de Microsoft Operations Management Suite pour la réponse aux incidents](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
@@ -186,6 +187,6 @@ Ce document vous a présenté la solution de sécurité et d’audit d’OMS. Po
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

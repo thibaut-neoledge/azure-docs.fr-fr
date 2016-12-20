@@ -1,13 +1,13 @@
 ---
 title: Instructions pour les abonnements et les comptes | Microsoft Docs
-description: Découvrez les principales instructions de conception et d’implémentation pour les abonnements et les comptes sur Azure.
-documentationcenter: ''
+description: "Découvrez les principales instructions de conception et d’implémentation pour les abonnements et les comptes sur Azure."
+documentationcenter: 
 services: virtual-machines-windows
 author: iainfoulds
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 761fa847-78b0-4078-a33a-d95d198d1029
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,26 +15,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b410436de11550aab2160421abfb27107f7874b0
+
 
 ---
-# Instructions pour les abonnements et les comptes
+# <a name="subscription-and-accounts-guidelines"></a>Instructions pour les abonnements et les comptes
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Cet article se concentre sur la compréhension de l’approche de la gestion des abonnements et des comptes lorsque votre environnement et votre base d’utilisateurs augmentent.
 
-## Instructions d’implémentation pour les abonnements et les comptes
-Décisions :
+## <a name="implementation-guidelines-for-subscriptions-and-accounts"></a>Instructions d’implémentation pour les abonnements et les comptes
+Décisions :
 
-* Quel est l’ensemble d’abonnements et de comptes dont vous avez besoin pour héberger votre charge de travail ou votre infrastructure informatique ?
-* Comment détailler la hiérarchie pour l’adapter à votre organisation ?
+* Quel est l’ensemble d’abonnements et de comptes dont vous avez besoin pour héberger votre charge de travail ou votre infrastructure informatique ?
+* Comment détailler la hiérarchie pour l’adapter à votre organisation ?
 
-Tâches :
+Tâches :
 
 * Définissez la hiérarchie logique de votre organisation que vous souhaitez gérer à partir d’un niveau d’abonnement.
 * Pour faire correspondre cette hiérarchie logique, définissez les comptes nécessaires et les abonnements sous chaque compte.
 * Créez l’ensemble d’abonnements et de comptes à l’aide de votre convention d’affectation de noms.
 
-## Abonnements et comptes
+## <a name="subscriptions-and-accounts"></a>Abonnements et comptes
 Pour utiliser Azure, vous avez besoin d’un ou de plusieurs abonnements Azure. Des ressources telles que des machines virtuelles ou des réseaux virtuels existent dans le contexte de ces abonnements.
 
 * Les clients d’entreprises disposent généralement d’une inscription d’entreprise, qui est la ressource principale dans la hiérarchie et est associée à un ou plusieurs comptes.
@@ -59,7 +63,12 @@ L’organisation peut ressembler à l’exemple suivant :
 
 Nous fournissons une facturation détaillée au moyen d’un fichier téléchargeable, pour un compte unique ou pour tous les comptes liés à un accord d’entreprise.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,6 +1,6 @@
 ---
 title: "Prise en main d’Azure Data Lake Analytics à l’aide d’Azure PowerShell | Microsoft Docs"
-description: "Découvrez comment utiliser Azure PowerShell pour créer un compte Data Lake Store, créer un travail Analytique Data Lake avec U-SQL et le soumettre. "
+description: "Découvrez comment utiliser Azure PowerShell pour créer un compte Data Lake Analytics, créer un travail Data Lake Analytics avec U-SQL et envoyer le travail. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 09/21/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 59efa050944059c737654a3f039a058c50865ea6
+ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
+ms.openlocfilehash: a1244ee080d333338b1f0d9e49d1776822f535ed
 
 
 ---
@@ -31,7 +31,7 @@ Dans ce didacticiel, vous allez développer un travail qui lit un fichier TSV (v
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+* **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="create-data-lake-analytics-account"></a>Créer un compte Analytique Data Lake
 Vous devez disposer d’un compte Analytique Data Lake avant de pouvoir exécuter un travail quelconque. Pour créer un compte Analytique Data Lake, vous devez spécifier les éléments suivants :
@@ -209,6 +209,6 @@ Une fois le travail terminé, vous pouvez utiliser les applets de commande suiva
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

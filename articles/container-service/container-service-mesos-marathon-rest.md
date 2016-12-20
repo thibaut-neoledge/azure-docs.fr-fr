@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: timlt
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7b9358183d884dfeda3d200ef5ae8beb60d3957e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e8f1ad596d2b64380876a501ebcf127afdda9ccf
 
 
 ---
@@ -47,7 +47,7 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## <a name="deploy-a-dockerformatted-container"></a>Déployer un conteneur au format Docker
+## <a name="deploy-a-docker-formatted-container"></a>Déployer un conteneur au format Docker
 Vous déployez les conteneurs au format Docker via Marathon à l’aide d’un fichier JSON décrivant le déploiement souhaité. L’exemple suivant permet de déployer le conteneur Nginx en liant le port 80 de l’agent DC/OS au port 80 du conteneur. Notez également que la propriété « acceptedResourceRoles » est définie sur « slave_public ». Cette action déploie le conteneur sur un agent dans le jeu public de mise à l’échelle de l’agent.
 
 ```json
@@ -174,6 +174,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

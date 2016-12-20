@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 20f38ef90d9f3793c0bb0814e6fd5d67aa550209
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
 
 
 ---
@@ -66,7 +66,7 @@ Si vous n’êtes pas encore abonné à un service cloud Microsoft, cliquez sur 
 * [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 * [Microsoft Intune](https://account.manage.microsoft.com/Signup/MainSignUp.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&ali=1)
 
-### <a name="manage-an-azureprovisioned-default-directory"></a>Gestion d’un annuaire par défaut fourni par Azure
+### <a name="manage-an-azure-provisioned-default-directory"></a>Gestion d’un annuaire par défaut fourni par Azure
 Aujourd’hui, un annuaire est créé automatiquement quand vous vous inscrivez à Azure et que votre abonnement est associé à cet annuaire. Mais, si vous vous êtes inscrit à Azure avant octobre 2013, un annuaire n’a pas été créé automatiquement. Dans ce cas, Azure peut avoir « remblayé » votre compte en configurant un annuaire par défaut pour ce dernier. Dans ce cas, votre abonnement a été associé à cet annuaire par défaut.
 
 Ce processus a été instauré en octobre 2013 dans le cadre d’une amélioration globale du modèle de sécurité pour Azure. Il permet d’offrir des fonctionnalités d’identité professionnelle à tous les clients Azure, et garantit que toutes les ressources Azure sont accessibles uniquement aux utilisateurs figurant dans l’annuaire. Vous ne pouvez pas utiliser Azure sans annuaire. Pour cela, tout utilisateur s’étant inscrit avant le 7 juillet 2013 mais ne disposant pas d’annuaire devait en créer un. Si vous aviez déjà créé un annuaire, votre abonnement était associé à celui-ci.
@@ -150,6 +150,6 @@ Les conditions à remplir sont les suivantes :
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

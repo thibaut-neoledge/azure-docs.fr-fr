@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/13/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9c59def4fd3fbc9d94d922bc2e7a7c077a465b21
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 90c1099f7970fc490ca01f2d815679f967c46187
 
 
 ---
@@ -32,7 +32,7 @@ Vous allez :
 
 ## <a name="prerequisites"></a>Conditions préalables
 * Obtenir un client FTP/FTPS, tel que [FileZilla](https://filezilla-project.org/).
-* Obtenir un compte Microsoft Azure. Si vous n’avez pas de compte, vous pouvez [demander un essai gratuit](/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+* Obtenir un compte Microsoft Azure. Si vous n’avez pas de compte, vous pouvez [demander un essai gratuit](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
 > Vous pouvez [essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751) sans compte Azure. Créez une application de base et expérimentez-la pendant une heure, sans carte de paiement et sans engagement.
@@ -112,7 +112,7 @@ Chaque fois que vous avez besoin d’effectuer une mise à jour, il vous suffit 
 
 Déboguez votre application web Azure directement dans [IntelliJ](app-service-web-debug-java-web-app-in-intellij.md) ou [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md).
 
-Ou faites-en plus avec votre première application web. Par exemple :
+Ou faites-en plus avec votre première application web. Par exemple :
 
 * Essayez [d’autres méthodes de déploiement de votre code dans Azure](web-sites-deploy.md). 
 * Donnez une nouvelle dimension à votre application Azure. Authentifiez vos utilisateurs. Faites évoluer sa capacité en fonction de la demande. Configurez des alertes de performance. Tout cela en seulement quelques clics. Consultez l’article [Ajouter des fonctionnalités à votre première application web](app-service-web-get-started-2.md).
@@ -120,6 +120,6 @@ Ou faites-en plus avec votre première application web. Par exemple :
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -3,7 +3,7 @@ title: "FAQ sur Azure RemoteApp | Microsoft Azure"
 description: "Découvrez les réponses aux questions les plus fréquemment posées sur Azure RemoteApp."
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: swadhwa
 editor: 
 ms.assetid: bad66603-91f9-437f-8a70-236405d2a27f
@@ -12,11 +12,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f3a2927164a01dd4b76e264cd1b7152f170f79cb
+ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
+ms.openlocfilehash: 31df73e3fc4142ba8c3634ac9d2b6fea4cc1b2d9
 
 
 ---
@@ -45,7 +45,7 @@ Si vous ne trouvez pas les informations dont vous avez besoin, ou que vous avez 
 * **Combien coûte RemoteApp ?** Consultez les [tarifs détaillés d'Azure RemoteApp ](https://azure.microsoft.com/pricing/details/remoteapp/).
 * **Un type de collection coûte-t-il plus qu’un autre ?**  Oui, il le peut, selon les besoins de votre collection. Une collection hybride nécessite une connexion d’Azure RemoteApp à votre réseau local. Si vous utilisez un itinéraire réseau virtuel/Express, il est sans coût supplémentaire. Toutefois, si vous utilisez un nouveau réseau virtuel Azure et une passerelle ou ExpressRoute, vous êtes facturé pour la [passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway) ou [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/). Ce coût (détaillé dans les liens) s’ajoute à votre coût mensuel Azure RemoteApp.
 
-## <a name="collections-whats-supported-which-should-you-use-and-others"></a>Collections : ce qui est pris en charge, laquelle utiliser, etc.
+## <a name="collections---whats-supported-which-should-you-use-and-others"></a>Collections : ce qui est pris en charge, laquelle utiliser, etc.
 * **Les applications métier personnalisées sont-elles prises en charge ?**  Oui. Pour utiliser une application personnalisée dans Azure RemoteApp, créez une [image de modèle personnalisée](remoteapp-create-custom-image.md), puis téléchargez-la dans la collection RemoteApp.
 * **Mon application métier personnalisée fonctionnera-t-elle dans Azure RemoteApp ?**  La meilleure façon de le savoir consiste à la tester. Découvrez le [Centre de compatibilité des services Bureau à distance](http://www.rdcompatibility.com/compatibility/default.aspx).
 * **Quelle méthode de déploiement (cloud ou hybride) convient le mieux à mon organisation ?**  Les collections hybride offrent une expérience plus riche si vous voulez une intégration complète avec authentification unique (SSO) et connectivité au réseau local sécurisée. Le collections cloud offrent un moyen souple et simple d'isoler votre déploiement à l'aide de plusieurs méthodes d'authentification. En savoir plus sur les [options de déploiement](remoteapp-whatis.md).
@@ -69,7 +69,7 @@ Si vous ne trouvez pas les informations dont vous avez besoin, ou que vous avez 
 
 * **Pourquoi ne puis-je pas donner l'accès à mon compte Azure Active Directory ?**  Les utilisateurs Azure Active Directory doivent provenir de l’annuaire associé à votre abonnement. Vous pouvez afficher ou modifier cet annuaire sous l'onglet Paramètres du portail. Consultez [Modifier le locataire Azure Active Directory utilisé par RemoteApp](remoteapp-changetenant.md) pour plus d'informations.)
 
-## <a name="clients-what-device-can-i-use-to-access-azure-remoteapp"></a>Clients : quel appareil utiliser pour accéder à Azure RemoteApp ?
+## <a name="clients---what-device-can-i-use-to-access-azure-remoteapp"></a>Clients : quel appareil utiliser pour accéder à Azure RemoteApp ?
 Pour des informations sur le client, notamment une procédure d’installation des différents clients, consultez [Accès à vos applications dans Azure RemoteApp](remoteapp-clients.md).
 
 * **Quels appareils et systèmes d'exploitation sont pris en charge par les applications clientes ?**
@@ -126,6 +126,6 @@ Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

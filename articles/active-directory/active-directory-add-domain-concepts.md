@@ -1,12 +1,12 @@
 ---
-title: Vue d’ensemble conceptuelle des noms de domaine personnalisés dans Azure Active Directory | Microsoft Docs
-description: Explique l’infrastructure conceptuelle pour l’utilisation des noms de domaine personnalisés dans Azure Active Directory, notamment la fédération pour l’authentification unique
+title: "Vue d’ensemble conceptuelle des noms de domaine personnalisés dans Azure Active Directory | Microsoft Docs"
+description: "Explique l’infrastructure conceptuelle pour l’utilisation des noms de domaine personnalisés dans Azure Active Directory, notamment la fédération pour l’authentification unique"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeffsta
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: fd0c5def-0da2-43af-81bc-76f4cfe86afd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: curtand;jeffsta
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 12d41a77655c4892a9dc20979ef98b1bd39f94c5
+
 
 ---
 # <a name="conceptual-overview-of-custom-domain-names-in-azure-active-directory"></a>Vue d’ensemble conceptuelle des noms de domaine personnalisés dans Azure Active Directory
@@ -58,6 +62,9 @@ Les tâches de gestion de domaine peuvent être effectuées à partir du portail
 * [Utilisation de PowerShell pour gérer les noms de domaine dans Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 * [Utilisation d’API Graph Azure AD pour gérer les noms de domaine dans Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

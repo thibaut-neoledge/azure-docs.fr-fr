@@ -1,12 +1,12 @@
 ---
-title: Réplication Hyper-V avec Azure Site Recovery | Microsoft Docs
-description: Cet article permet de comprendre les concepts techniques qui vous permettent d’installer, de configurer et de gérer Azure Site Recovery.
+title: "Réplication Hyper-V avec Azure Site Recovery | Microsoft Docs"
+description: "Cet article permet de comprendre les concepts techniques qui vous permettent d’installer, de configurer et de gérer Azure Site Recovery."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: Rajani-Janaki-Ram
 manager: mkjain
-editor: ''
-
+editor: 
+ms.assetid: 97916915-1379-47df-8369-12ddf022c4da
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/12/2016
 ms.author: rajanaki
+translationtype: Human Translation
+ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
+ms.openlocfilehash: b49771ff1e29aeb6ec582c21061085504705991b
+
 
 ---
 # <a name="hyper-v-replication-with-azure-site-recovery"></a>Réplication Hyper-V avec Azure Site Recovery
@@ -43,7 +47,7 @@ Un [instantané des machines virtuelles Hyper-V](https://technet.microsoft.com/l
 
 Une fois la réplication initiale terminée, la tâche **Finaliser la protection sur la machine virtuelle** configure les paramètres de post-réplication et réseau. Pendant l’exécution de la réplication initiale :
 
-* Toutes les modifications apportées aux disques font l’objet d’un suivi. 
+* Toutes les modifications apportées aux disques font l’objet d’un suivi.
 * Le stockage sur disque supplémentaire est utilisé pour les fichiers journaux de réplication Hyper-V (HRL) et de capture instantanée.
 
 À la fin de la réplication initiale, l’instantané des machines virtuelles Hyper-V est supprimé. Cette suppression entraîne la fusion des modifications apportées aux données à la fin de la réplication initiale sur le disque parent.
@@ -55,7 +59,7 @@ Le dispositif de suivi de réplication des réplicas Hyper-V, qui fait partie du
 
 Chaque disque configuré pour la réplication est associé à un fichier HRL. Ce journal est envoyé au compte de stockage du client à la fin de la réplication initiale. Lorsqu’un journal est en transit vers Azure, les modifications apportées au fichier principal font l’objet d’un suivi dans un autre fichier journal du même répertoire.
 
-Lors de la réplication initiale ou différentielle, vous pouvez surveiller l’intégrité de l’opération dans la vue Machine virtuelle, comme indiqué dans la section [Surveillance de l’intégrité de la réplication de la machine virtuelle](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machine).  
+Lors de la réplication initiale ou différentielle, vous pouvez surveiller l’intégrité de l’opération dans la vue Machine virtuelle, comme indiqué dans la section [Surveillance de l’intégrité de la réplication de la machine virtuelle](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machines).  
 
 ### <a name="resynchronization"></a>Resynchronisation
 Une machine virtuelle est marquée pour une resynchronisation lorsque la réplication différentielle échoue et que la réplication initiale complète est coûteuse en termes de bande passante réseau ou de temps. Par exemple, lorsque la taille du fichier HRL représente jusqu’à 50 % de la taille totale du disque, la machine virtuelle est marquée pour une resynchronisation. Cette opération réduit la quantité de données envoyées sur le réseau par le calcul de sommes de contrôle des disques de machine virtuelle source et cible et l’envoi du différentiel uniquement.
@@ -74,16 +78,18 @@ Il existe une logique de nouvelle tentative intégrée pour les erreurs de répl
 | Catégorie | Scénarios |
 | --- | --- |
 | Erreur non récupérable |Aucune nouvelle tentative n’est effectuée. L’état de réplication de la machine virtuelle est affiché comme **Critique**et une intervention de l’administrateur est requise. Voici quelques exemples :  <ul><li>Chaîne du disque dur virtuel interrompue</li><li>État non valide pour la machine virtuelle de réplication</li><li>Erreur d’authentification réseau</li><li>Erreur d’autorisation</li><li>Machine virtuelle introuvable, dans le cas d’un serveur autonome Hyper-V</li></ul> |
-| Erreur récupérable |De nouvelles tentatives se produisent à chaque intervalle de réplication à l’aide d’une interruption exponentielle, qui augmente l’intervalle de nouvelle tentative dès le début de la première tentative (1, 2, 4, 8 ou 10 minutes). Si une erreur persiste, effectuez une nouvelle tentative toutes les 30 minutes. Voici quelques exemples :  <ul><li>Erreur réseau</li><li>Espace disque insuffisant</li><li>Mémoire insuffisante</li></ul> |
+| Erreur récupérable |De nouvelles tentatives se produisent à chaque intervalle de réplication à l’aide d’une interruption exponentielle, qui augmente l’intervalle de nouvelle tentative dès le début de la première tentative (1, 2, 4, 8 ou 10 minutes). Si une erreur persiste, effectuez une nouvelle tentative toutes les 30 minutes. Voici quelques exemples :  <ul><li>Erreur réseau</li><li>Espace disque insuffisant</li><li>Mémoire insuffisante</li></ul> |
 
 ## <a name="hyper-v-virtual-machine-protection-and-recovery-life-cycle"></a>Cycle de vie de protection et de récupération de la machine virtuelle Hyper-V
 ![Cycle de vie de protection et de récupération de la machine virtuelle Hyper-V](media/site-recovery-understanding-site-to-azure-protection/image05.png)
 
 ## <a name="other-references"></a>Autres références
 * [Surveiller et résoudre les problèmes de protection pour les sites VMware, VMM, Hyper-V et physiques](site-recovery-monitoring-and-troubleshooting.md)
-* [Contacter le support Microsoft](site-recovery-monitoring-and-troubleshooting.md#reaching-out-for-microsoft-support)
-* [Erreurs liées à Azure Site Recovery et résolution](site-recovery-monitoring-and-troubleshooting.md#common-asr-errors-and-their-resolutions)
+* [Contacter le support Microsoft](site-recovery-monitoring-and-troubleshooting.md#reach-out-for-microsoft-support)
+* [Erreurs liées à Azure Site Recovery et résolution](site-recovery-monitoring-and-troubleshooting.md#common-azure-site-recovery-errors-and-their-resolutions)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

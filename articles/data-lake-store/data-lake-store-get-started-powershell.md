@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/04/2016
+ms.date: 12/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0c70eff85416b6b41eb455edc430a66b588dec41
+ms.sourcegitcommit: a86fd04a7ec0cffabe42d30132b97777c752bbde
+ms.openlocfilehash: e37b698436c067faa20b0e589078927d5955934a
 
 
 ---
@@ -29,8 +29,9 @@ ms.openlocfilehash: 0c70eff85416b6b41eb455edc430a66b588dec41
 > * [API REST](data-lake-store-get-started-rest-api.md)
 > * [Interface de ligne de commande Azure](data-lake-store-get-started-cli.md)
 > * [Node.JS](data-lake-store-manage-use-nodejs.md)
-> 
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
+>
 
 Apprenez à utiliser Azure PowerShell pour créer un compte Azure Data Lake Store et effectuer des opérations de base comme créer des dossiers, télécharger des fichiers de données, supprimer votre compte, etc. Pour plus d’informations sur Data Lake Store, consultez [Vue d’ensemble de Data Lake Store](data-lake-store-overview.md).
 
@@ -38,59 +39,59 @@ Apprenez à utiliser Azure PowerShell pour créer un compte Azure Data Lake Stor
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1.0 ou version ultérieure**. Consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+* **Azure PowerShell 1.0 ou version ultérieure**. Consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="authentication"></a>Authentification
 Pour l’authentification auprès de Data Lake Store, cet article utilise une approche plus simple où vous êtes invité à entrer les informations d’identification de votre compte Azure. Le niveau d’accès au compte et au système de fichiers Data Lake Store est alors régi par le niveau d’accès de l’utilisateur connecté. Cependant, il existe d’autres approches pour l’authentification sur Data Lake Store, à savoir **l’authentification de l’utilisateur final** ou **l’authentification de service à service**. Pour plus d’informations sur l’authentification et la procédure associée, consultez [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md)(Authentification auprès de Data Lake Store à l’aide d’Azure Active Directory).
 
 ## <a name="create-an-azure-data-lake-store-account"></a>Créer un compte Azure Data Lake Store
 1. Sur votre Bureau, ouvrez une nouvelle fenêtre Windows PowerShell et entrez l’extrait de code suivant pour vous connecter à votre compte Azure, définir l’abonnement et inscrire le fournisseur Data Lake Store. Lorsque vous êtes invité à vous connecter, vérifiez que vous vous connectez en tant qu’administrateur/propriétaire de l’abonnement :
-   
+
         # Log in to your Azure account
         Login-AzureRmAccount
-   
+
         # List all the subscriptions associated to your account
         Get-AzureRmSubscription
-   
+
         # Select a subscription
         Set-AzureRmContext -SubscriptionId <subscription ID>
-   
+
         # Register for Azure Data Lake Store
         Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 2. Un compte Azure Data Lake Store est associé à un groupe de ressources Azure. Commencez par créer un groupe de ressources Azure.
-   
+
         $resourceGroupName = "<your new resource group name>"
         New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
-   
-    ![Créer un groupe de ressources Azure](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Create an Azure Resource Group")
+
+    ![Créer un groupe de ressources Azure](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Créer un groupe de ressources Azure")
 3. Créer un compte Azure Data Lake Store. Le nom que vous spécifiez doit contenir uniquement des lettres minuscules et des chiffres.
-   
+
         $dataLakeStoreName = "<your new Data Lake Store name>"
         New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName -Location "East US 2"
-   
-    ![Créer un compte Azure Data Lake Store](./media/data-lake-store-get-started-powershell/ADL.PS.CreateADLAcc.png "Create an Azure Data Lake Store account")
+
+    ![Créer un compte Azure Data Lake Store](./media/data-lake-store-get-started-powershell/ADL.PS.CreateADLAcc.png "Créer un compte Azure Data Lake Store")
 4. Vérifiez que le compte a bien été créé.
-   
+
         Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
-   
+
     Le résultat doit être **True**.
 
 ## <a name="create-directory-structures-in-your-azure-data-lake-store"></a>Créer des structures de répertoires dans votre Azure Data Lake Store
 Vous pouvez créer des répertoires sous votre compte Azure Data Lake Store pour gérer et stocker des données.
 
 1. Spécifiez un répertoire racine.
-   
+
         $myrootdir = "/"
 2. Créez un répertoire appelé **mynewdirectory** sous la racine spécifiée.
-   
+
         New-AzureRmDataLakeStoreItem -Folder -AccountName $dataLakeStoreName -Path $myrootdir/mynewdirectory
 3. Vérifiez que le répertoire a bien été créé.
-   
+
         Get-AzureRmDataLakeStoreChildItem -AccountName $dataLakeStoreName -Path $myrootdir
-   
+
     Un résultat similaire à ce qui suit s'affiche :
-   
-    ![Vérifier un répertoire](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Verify Directory")
+
+    ![Vérifier le répertoire](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Vérifier le répertoire")
 
 ## <a name="upload-data-to-your-azure-data-lake-store"></a>Télécharger des données sur votre Azure Data Lake Store
 Vous pouvez télécharger vos données sur Data Lake Store directement à la racine ou dans un répertoire que vous avez créé dans le compte. Les extraits de code ci-dessous montrent comment télécharger des exemples de données dans le répertoire (**mynewdirectory**) que vous avez créé dans la section précédente.
@@ -124,6 +125,78 @@ Utilisez la commande suivante pour supprimer votre compte Data Lake Store.
 
 Quand vous y êtes invité, entrez **Y** pour supprimer le compte.
 
+## <a name="performance-guidance-while-using-powershell"></a>Guide des performances lors de l’utilisation de PowerShell
+
+Voici les principaux paramètres que vous pouvez définir pour obtenir des performances optimales lors de l’utilisation de PowerShell avec Data Lake Store :
+
+| Propriété            | Default | Description |
+|---------------------|---------|-------------|
+| PerFileThreadCount  | 10      | Ce paramètre vous permet de choisir le nombre de threads parallèles pour charger ou télécharger chaque fichier. Ce nombre représente le nombre maximal de threads pouvant être alloués par fichier, mais il se peut que vous obteniez moins de threads en fonction du scénario (par exemple, si vous chargez un fichier de 1 Ko, vous obtenez un seul thread même si vous demandez 20 threads).  |
+| ConcurrentFileCount | 10      | Ce paramètre est spécifique au chargement ou au téléchargement des dossiers. Il détermine le nombre de fichiers simultanés pouvant être chargés ou téléchargés. Ce nombre représente le nombre maximal de fichiers simultanés pouvant être chargés ou téléchargés en même temps, mais il se peut que vous en obteniez moins en fonction du scénario (par exemple, si vous chargez deux fichiers, vous obtenez deux chargements de fichiers simultanés même si vous en demandez 15). |
+
+**Exemple**
+
+Cette commande télécharge les fichiers à partir d’Azure Data Lake Store sur le disque local de l’utilisateur à l’aide de 20 threads par fichier et 100 fichiers simultanés.
+
+    Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Store account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
+
+### <a name="how-do-i-determine-the-value-to-set-for-these-parameters"></a>Comment déterminer la valeur à définir pour ces paramètres ?
+
+Voici quelques conseils à suivre.
+
+* **Étape 1 : Déterminer le nombre total de threads** - Vous devez commencer par calculer le nombre total de threads à utiliser. En règle générale, vous devez utiliser 6 threads pour chaque noyau physique.
+
+        Total thread count = total physical cores * 6
+
+    **Exemple**
+
+    Supposons que vous exécutez les commandes PowerShell à partir d’une machine virtuelle D14 avec 16 noyaux
+
+        Total thread count = 16 cores * 6 = 96 threads
+
+
+* **Étape 2 : Calculer PerFileThreadCount** - Nous calculons PerFileThreadCount en fonction de la taille des fichiers. Pour les fichiers inférieurs à 2,5 Go, il est inutile de modifier ce paramètre, car la valeur par défaut, 10, est suffisante. Pour les fichiers supérieurs à 2,5 Go, vous devez utiliser 10 threads comme base pour les premiers 2,5 Go et ajouter 1 thread pour chaque augmentation de 256 Mo de la taille du fichier. Si vous copiez un dossier contenant différentes tailles de fichiers, envisagez de regrouper ces fichiers par tailles similaires. Les différentes tailles de fichiers ne permettent pas d’obtenir des performances optimales. S’il n’est pas possible de regrouper les tailles de fichiers similaires, vous devez définir PerFileThreadCount en fonction de la plus grande taille de fichier.
+
+        PerFileThreadCount = 10 threads for the first 2.5GB + 1 thread for each additional 256MB increase in file size
+
+    **Exemple**
+
+    Supposons que vous avez 100 fichiers de 1 à 10 Go. Pour l’équation, nous utilisons la taille de fichier la plus grande, 10 Go, qui se lit comme suit.
+
+        PerFileThreadCount = 10 + ((10GB - 2.5GB) / 256MB) = 40 threads
+
+* **Étape 3 : Calculer ConcurrentFilecount** - Utilisez le nombre total de threads et PerFileThreadCount pour calculer ConcurrentFileCount sur la base de l’équation suivante.
+
+        Total thread count = PerFileThreadCount * ConcurrentFileCount
+
+    **Exemple**
+
+    Basé sur les exemples de valeurs utilisés
+
+        96 = 40 * ConcurrentFileCount
+
+    Ainsi, **ConcurrentFileCount** vaut **2.4**, que nous pouvons arrondir à **2**.
+
+### <a name="further-tuning"></a>Paramétrage supplémentaire
+
+Il se peut qu’un paramétrage supplémentaire soit requis en raison des différentes tailles de fichiers à utiliser. Le calcul ci-dessus fonctionne bien si l’ensemble ou la plupart des fichiers sont parmi les plus grands et sont plus proches de la plage de 10 Go. Par contre, s’il y a beaucoup de tailles de fichiers différentes et que la plupart des fichiers sont parmi les plus petits, vous pouvez réduire PerFileThreadCount. En réduisant PerFileThreadCount, nous pouvons augmenter ConcurrentFileCount. Par conséquent, si nous partons du principe que la plupart des fichiers sont plus petits (dans la plage de 5 Go), nous pouvons refaire nos calculs :
+
+    PerFileThreadCount = 10 + ((5GB - 2.5GB) / 256MB) = 20
+
+Ainsi, **ConcurrentFileCount** est maintenant égal à 96/20, soit 4,8, arrondi à **4**.
+
+Vous pouvez continuer à ajuster ces paramètres en augmentant et en diminuant le nombre **PerFileThreadCount** en fonction de la répartition des tailles de fichiers.
+
+### <a name="limitation"></a>Limitation
+
+* **Le nombre de fichiers est inférieur à ConcurrentFileCount** : si le nombre de fichiers chargés est inférieur à la valeur **ConcurrentFileCount** calculée, vous devez réduire la valeur **ConcurrentFileCount** pour qu’elle soit égale au nombre de fichiers. Vous pouvez utiliser les threads restants pour augmenter **PerFileThreadCount**.
+
+* **Trop de threads** : si vous augmentez trop le nombre de threads sans augmenter la taille du cluster, vous courez le risque d’une diminution des performances. Il peut y avoir des problèmes de conflit lors du changement de contexte sur le processeur.
+
+* **Accès concurrentiels insuffisants** : si les accès concurrentiels sont insuffisants, le cluster risque d’être trop petit. Vous pouvez augmenter le nombre de nœuds dans votre cluster pour autoriser plus d’accès simultanés.
+
+* **Erreurs de limitation** : il se peut que vous rencontriez des erreurs de limitation si le nombre d’accès concurrentiels est trop élevé. En cas d’erreurs de limitation, vous devez réduire le nombre d’accès simultanés ou nous contacter.
+
 ## <a name="next-steps"></a>Étapes suivantes
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 * [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
@@ -132,6 +205,6 @@ Quand vous y êtes invité, entrez **Y** pour supprimer le compte.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

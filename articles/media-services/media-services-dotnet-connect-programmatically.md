@@ -1,12 +1,12 @@
 ---
-title: Connexion à un compte Media Services à l’aide de .NET
-description: Cette rubrique montre comment se connecter à Media Services avec .NET.
+title: "Connexion à un compte Media Services à l’aide de .NET"
+description: "Cette rubrique montre comment se connecter à Media Services avec .NET."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a8412a29-59dc-44a0-ace0-be79a97dab63
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 72e94aeae9e210b25b8f22dd02feb0b98a5ddfeb
+
 
 ---
-# <a name="connecting-to-media-services-account-using-media-services-sdk-for-.net"></a>Connexion à un compte Media Services à l’aide du Kit de développement logiciel (SDK) Media Services pour .NET
+# <a name="connecting-to-media-services-account-using-media-services-sdk-for-net"></a>Connexion à un compte Media Services à l’aide du Kit de développement logiciel (SDK) Media Services pour .NET
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-connect-programmatically.md)
 > * [.NET](media-services-dotnet-connect-programmatically.md)
@@ -45,7 +49,7 @@ Pour commencer à programmer sur Media Services, vous devez créer une instance 
 
 CloudMediaContext a cinq surcharges de constructeur. Il est recommandé d'utiliser des constructeurs qui acceptent **MediaServicesCredentials** en tant que paramètre. Pour plus d'informations, consultez la rubrique **Réutilisation des jetons Access Control Service** qui suit. 
 
-L’exemple suivant utilise le constructeur public CloudMediaContext(informations d’identification MediaServicesCredentials) :
+L’exemple suivant utilise le constructeur public CloudMediaContext(informations d’identification MediaServicesCredentials) :
 
     // _cachedCredentials and _context are class member variables. 
     _cachedCredentials = new MediaServicesCredentials(
@@ -62,7 +66,7 @@ Cette section montre comment réutiliser les jetons du Service de contrôle d’
 
 Lorsque vous développez avec le Kit de développement logiciel (SDK) Media Services, vous pouvez choisir de ne pas traiter les jetons, étant donné que le code du Kit de développement (SDK) les gère pour vous. Toutefois, laisser le Kit de développement logiciel (SDK) gérer entièrement les jetons ACS entraîne des demandes de jetons inutiles. Les demandes de jetons prennent du temps et consomment les ressources client et serveur. En outre, le serveur ACS limite les demandes si le taux est trop élevé. La limite est de 30 demandes par seconde. Pour plus d’informations, consultez [Limitations du Service ACS](https://msdn.microsoft.com/library/gg185909.aspx).
 
-À compter de la version 3.0.0.0 du Kit de développement logiciel (SDK) Media Services, vous pouvez réutiliser les jetons ACS. Les constructeurs **CloudMediaContext** qui acceptent **MediaServicesCredentials** comme paramètre autorisent le partage des jetons ACS entre plusieurs contextes. La classe MediaServicesCredentials encapsule les informations d’identification de Media Services. Si un jeton ACS est disponible et que son heure d’expiration est connue, vous pouvez créer une instance de MediaServicesCredentials avec le jeton et le transmettre au constructeur de CloudMediaContext. Notez que le Kit de développement logiciel (SDK) Media Services actualise automatiquement les jetons chaque fois qu’ils arrivent à expiration. Il existe deux façons de réutiliser les jetons ACS, comme le montrent les exemples ci-dessous.
+À compter de la version 3.0.0.0 du Kit de développement logiciel (SDK) Media Services, vous pouvez réutiliser les jetons ACS. Les constructeurs **CloudMediaContext** qui acceptent **MediaServicesCredentials** comme paramètre autorisent le partage des jetons ACS entre plusieurs contextes. La classe MediaServicesCredentials encapsule les informations d’identification de Media Services. Si un jeton ACS est disponible et que son heure d’expiration est connue, vous pouvez créer une instance de MediaServicesCredentials avec le jeton et le transmettre au constructeur de CloudMediaContext. Notez que le Kit de développement logiciel (SDK) Media Services actualise automatiquement les jetons chaque fois qu’ils arrivent à expiration. Il existe deux façons de réutiliser les jetons ACS, comme le montrent les exemples ci-dessous.
 
 * Vous pouvez mettre en cache l'objet **MediaServicesCredentials** en mémoire (par exemple, dans une variable de classe statique). Puis, passez l’objet mis en cache au constructeur CloudMediaContext. L’objet MediaServicesCredentials contient un jeton ACS qui peut être réutilisé s’il est toujours valide. Si le jeton n’est pas valide, il est actualisé par le Kit de développement logiciel (SDK) Media Services en utilisant les informations d’identification fournies au constructeur MediaServicesCredentials.
   
@@ -142,11 +146,11 @@ Lorsque vous développez avec le Kit de développement logiciel (SDK) Media Serv
         }
 
 ## <a name="connecting-to-a-media-services-account-located-in-the-north-china-region"></a>Connexion à un compte Media Services situé dans le nord de la Chine
-Si votre compte se trouve dans le nord de la Chine, utilisez le constructeur suivant :
+Si votre compte se trouve dans le nord de la Chine, utilisez le constructeur suivant :
 
     public CloudMediaContext(Uri apiServer, string accountName, string accountKey, string scope, string acsBaseAddress)
 
-Par exemple :
+Par exemple :
 
     _context = new CloudMediaContext(
         new Uri("https://wamsbjbclus001rest-hs.chinacloudapp.cn/API/"),
@@ -169,7 +173,7 @@ Le fichier App.config suivant contient les valeurs de connexion requises. Les va
     </configuration>
 
 
-Pour récupérer les valeurs de connexion de configuration, vous pouvez utiliser la classe **ConfigurationManager** , puis affectez les valeurs aux champs de votre code :
+Pour récupérer les valeurs de connexion de configuration, vous pouvez utiliser la classe **ConfigurationManager** , puis affectez les valeurs aux champs de votre code :
 
     private static readonly string _accountName = ConfigurationManager.AppSettings["MediaServicesAccountName"];
     private static readonly string _accountKey = ConfigurationManager.AppSettings["MediaServicesAccountKey"];
@@ -182,6 +186,9 @@ Pour récupérer les valeurs de connexion de configuration, vous pouvez utiliser
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

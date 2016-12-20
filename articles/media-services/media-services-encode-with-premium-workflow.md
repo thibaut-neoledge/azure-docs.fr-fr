@@ -1,12 +1,12 @@
 ---
-title: Encodage avancé avec Media Encoder Premium Workflow | Microsoft Docs
-description: Découvrez comment encoder avec Media Encoder Premium Workflow. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET.
+title: "Encodage avancé avec Media Encoder Premium Workflow | Microsoft Docs"
+description: "Découvrez comment encoder avec Media Encoder Premium Workflow. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0f4c87ac-810a-4d42-8df8-923dff2016c6
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4e86a871222def32f7779f07eab5668d366ecec4
+
 
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Encodage avancé avec Media Encoder Premium Workflow
@@ -25,7 +29,7 @@ ms.author: juliako
 Pour les questions relatives à Encoder Premium, envoyez un e-mail à mepd sur Microsoft.com.
 
 ## <a name="overview"></a>Vue d'ensemble
-Microsoft Azure Media Services lance le processeur multimédia **Media Encoder Premium Workflow** . Ce processeur offre des fonctionnalités d’encodage avancées pour vos flux de travail à la demande premium. 
+Microsoft Azure Media Services lance le processeur multimédia **Media Encoder Premium Workflow** . Ce processeur offre des fonctionnalités d’encodage avancées pour vos flux de travail à la demande premium. 
 
 Vous trouverez dans les rubriques suivantes des détails concernant **Media Encoder Premium Workflow**: 
 
@@ -45,11 +49,11 @@ Les fichiers de flux de travail doivent être téléchargés vers votre compte M
 
 L’exemple suivant montre comment encoder avec **Media Encoder Premium Workflow**. 
 
-Les étapes à exécuter sont les suivantes : 
+Les étapes à exécuter sont les suivantes : 
 
 1. Créez une ressource et téléchargez un fichier de flux de travail. 
 2. Créez une ressource et téléchargez un fichier multimédia source.
-3. Procurez-vous le processeur multimédia « Media Encoder Premium Workflow ».
+3. Procurez-vous le processeur multimédia « Media Encoder Premium Workflow ».
 4. Créez un travail et une tâche. 
    
     Dans la plupart des cas, la chaîne de configuration de la tâche est vide (comme dans l'exemple suivant). Il existe certains scénarios avancés (qui nécessitent de définir dynamiquement les propriétés d'exécution) auquel cas, vous fournissez une chaîne XML à la tâche d'encodage. La création d'une superposition, l'assemblage parallèle ou séquentiel multimédia, le sous-titrage sont des exemples de ces scénarios.
@@ -59,12 +63,13 @@ Les étapes à exécuter sont les suivantes :
    
     b. En second lieu, la ressource vidéo.
    
-    **Remarque**: la ressource de flux de travail doit être ajoutée à la tâche avant la ressource multimédia. La chaîne de configuration de cette tâche doit être vide. 
+    **Remarque**: la ressource de flux de travail doit être ajoutée à la tâche avant la ressource multimédia. 
+   La chaîne de configuration de cette tâche doit être vide. 
 6. Soumettez le travail d’encodage.
 
 L’exemple ci-dessous est complet. Pour plus d’informations sur la configuration dans le cadre du développement .NET Media Services, consultez [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md).
 
-    using System; 
+     using System; 
     using System.Linq;
     using System.Configuration;
     using System.IO;
@@ -272,6 +277,9 @@ Pour les questions relatives à Encoder Premium, envoyez un e-mail à mepd sur M
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

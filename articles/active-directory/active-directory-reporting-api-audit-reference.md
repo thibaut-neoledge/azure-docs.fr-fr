@@ -1,51 +1,55 @@
 ---
-title: Référence d’API d’audit Azure Active Directory | Microsoft Docs
-description: Prise en main de l’API d’audit Azure Active Directory
+title: "Référence d’API d’audit Azure Active Directory | Microsoft Docs"
+description: "Prise en main de l’API d’audit Azure Active Directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
+ms.date: 11/16/2016
 ms.author: dhanyahk;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: b1de516d907826d3e6ede0783649f6101b381852
+ms.openlocfilehash: 261cce0b8424f73df4c7ca86784a14e95a8336f1
+
 
 ---
-# <a name="azure-active-directory-audit-api-reference"></a>Référence d’API d’audit Azure Active Directory
+# <a name="azure-active-directory-audit-api-reference"></a>Référence d’API d’audit Azure Active Directory
 Cette rubrique fait partie d’un ensemble de rubriques relatives à l’API de création de rapports Azure Active Directory.  
 La création de rapports Azure AD fournit une API qui vous permet d’accéder aux données d’audit à l’aide de code ou d’outils associés.
 Cette rubrique a pour but de vous fournir des informations de référence sur **l’API d’audit**.
 
-Consultez l'article :
+Consultez l'article :
 
 * [Journaux d’audit](active-directory-reporting-azure-portal.md#audit-logs) pour plus d’informations conceptuelles
 * [Prise en main de l’API de création de rapports Azure Active Directory](active-directory-reporting-api-getting-started.md) pour plus d’informations sur l’API de création de rapports.
 
 Si vous avez des questions, des problèmes ou des commentaires, veuillez contacter [Aide à la création de rapports AAD](mailto:aadreportinghelp@microsoft.com).
 
-## <a name="who-can-access-the-data?"></a>Qui peut accéder aux données ?
+## <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 * Utilisateurs ayant le rôle d’administrateur de sécurité ou de lecteur de la sécurité
 * Administrateurs généraux
 * Toute application qui a l’autorisation d’accéder à l’API (l’autorisation de l’application peut être configurée uniquement en fonction de l’autorisation Administrateur général)
 
 ## <a name="prerequisites"></a>Composants requis
-Pour accéder à ce rapport via l’API de création de rapports, vous devez disposer des éléments suivants :
+Pour accéder à ce rapport via l’API de création de rapports, vous devez disposer des éléments suivants :
 
 * Une [édition Azure Active Directory gratuite ou une édition récente](active-directory-editions.md)
 * Avoir respecté la [configuration requise pour accéder à l’API de création de rapports Azure AD](active-directory-reporting-api-prerequisites.md). 
 
 ## <a name="accessing-the-api"></a>Accès à l’API
-Vous pouvez soit accéder à cette API via [l’Afficheur Graph](https://graphexplorer2.cloudapp.net) , soit par programme à l’aide, par exemple, de PowerShell. Pour que PowerShell puisse interpréter correctement la syntaxe de filtre OData utilisée dans les appels REST Graph AAD, vous devez utiliser le caractère accent grave (`) pour « échapper » au caractère $. Le caractère accent grave sert de [caractère d’échappement de PowerShell](https://technet.microsoft.com/library/hh847755.aspx), ce qui permet à PowerShell d’effectuer une interprétation littérale du caractère $ et de ne pas le confondre avec un nom de variable PowerShell (par exemple : $filter).
+Vous pouvez soit accéder à cette API via [l’Afficheur Graph](https://graphexplorer2.cloudapp.net) , soit par programme à l’aide, par exemple, de PowerShell. Pour que PowerShell puisse interpréter correctement la syntaxe de filtre OData utilisée dans les appels REST Graph AAD, vous devez utiliser le caractère accent grave (`) pour « échapper » au caractère $. Le caractère accent grave sert de [caractère d’échappement de PowerShell](https://technet.microsoft.com/library/hh847755.aspx), ce qui permet à PowerShell d’effectuer une interprétation littérale du caractère $ et de ne pas le confondre avec un nom de variable PowerShell (par exemple : $filter).
 
 Cette rubrique porte sur l’Afficheur Graph. Pour obtenir un exemple PowerShell, consultez ce [script PowerShell](active-directory-reporting-api-audit-samples.md#powershell-script).
 
 ## <a name="api-endpoint"></a>Point de terminaison d’API
-Vous pouvez accéder à cette API à l’aide de l’URI suivant :  
+Vous pouvez accéder à cette API à l’aide de l’URI suivant :  
 
     https://graph.windows.net/contoso.com/activities/audit?api-version=beta
 
@@ -62,7 +66,7 @@ Pour obtenir le lot d’enregistrements suivant, cliquez sur le lien Suivant. Ob
 
 ## <a name="supported-filters"></a>Filtres pris en charge
 Vous pouvez réduire le nombre d’enregistrements qui sont retournés par un appel d’API à l’aide d’un filtre.  
-Pour les données liées à l’API de connexion, les filtres suivants sont pris en charge :
+Pour les données liées à l’API de connexion, les filtres suivants sont pris en charge :
 
 * **$top=\<<nombre d’enregistrements à retourner>\>** : pour limiter le nombre d’enregistrements retournés. Il s’agit d’une opération coûteuse. N’utilisez pas ce filtre si vous souhaitez retourner des milliers d’objets.     
 * **$filter=\<<votre instruction de filtre>\>** : pour spécifier, en fonction des champs de filtre pris en charge, les types d’enregistrements qui vous intéressent
@@ -86,7 +90,7 @@ Pour indiquer le type d’enregistrements qui vous intéressent, vous pouvez cr�
 
 **Exemple**:
 
-    $filter=tdomain + 'activities/audit?api-version=beta&`$filter=eventTime gt ' + $7daysago    
+    $filter=tdomain + 'activities/audit?api-version=beta&`$filter=activityDate gt ' + $7daysago    
 
 **Remarques**:
 
@@ -98,7 +102,7 @@ datetime doit être au format UTC
 
 **Exemple**:
 
-    $filter=activityType eq 'User'  
+    $filter=activityType eq 'User'    
 
 **Remarques**:
 
@@ -110,26 +114,26 @@ respecte la casse
 
 **Exemple**:
 
-    $filter=activity eq 'Add application' or contains(activity, 'Application') or startsWith(activity, 'Add')   
+    $filter=activity eq 'Add application' or contains(activity, 'Application') or startsWith(activity, 'Add')    
 
 **Remarques**:
 
 respecte la casse
 
 - - -
-### <a name="actor/name"></a>actor/name
+### <a name="actorname"></a>actor/name
 **Opérateurs pris en charge**: eq, contains, startsWith
 
 **Exemple**:
 
-    $filter=actor/name eq 'test' or contains(actor/name, 'test') or startswith(actor/name, 'test')  
+    $filter=actor/name eq 'test' or contains(actor/name, 'test') or startswith(actor/name, 'test')    
 
 **Remarques**:
 
 ne respecte pas la casse
 
 - - -
-### <a name="actor/objectid"></a>actor/objectid
+### <a name="actorobjectid"></a>actor/objectid
 **Opérateurs pris en charge**: eq
 
 **Exemple**:
@@ -137,24 +141,24 @@ ne respecte pas la casse
     $filter=actor/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba'    
 
 - - -
-### <a name="target/name"></a>target/name
+### <a name="targetname"></a>target/name
 **Opérateurs pris en charge**: eq, contains, startsWith
 
 **Exemple**:
 
-    $filter=targets/any(t: t/name eq 'some name')   
+    $filter=targets/any(t: t/name eq 'some name')    
 
 **Remarques**:
 
 ne respecte pas la casse
 
 - - -
-### <a name="target/upn"></a>target/upn
+### <a name="targetupn"></a>target/upn
 **Opérateurs pris en charge**: eq, startsWith
 
 **Exemple**:
 
-    $filter=targets/any(t: startswith(t/Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity/userPrincipalName,'abc')) 
+    $filter=targets/any(t: startswith(t/Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity/userPrincipalName,'abc'))    
 
 **Remarques**:
 
@@ -162,7 +166,7 @@ ne respecte pas la casse
 * Vous devez ajouter l’espace de noms complet lors de l’interrogation de Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity
 
 - - -
-### <a name="target/objectid"></a>target/objectid
+### <a name="targetobjectid"></a>target/objectid
 **Opérateurs pris en charge**: eq
 
 **Exemple**:
@@ -170,12 +174,12 @@ ne respecte pas la casse
     $filter=targets/any(t: t/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba')    
 
 - - -
-### <a name="actor/upn"></a>actor/upn
+### <a name="actorupn"></a>actor/upn
 **Opérateurs pris en charge**: eq, startsWith
 
 **Exemple**:
 
-    $filter=startswith(actor/Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity/userPrincipalName,'abc')  
+    $filter=startswith(actor/Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity/userPrincipalName,'abc')    
 
 **Remarques**:
 
@@ -184,9 +188,12 @@ ne respecte pas la casse
 
 - - -
 ## <a name="next-steps"></a>Étapes suivantes
-* Voulez-vous voir des exemples d’activités système filtrées ? Consultez les [exemples d’API d’audit Azure Active Directory](active-directory-reporting-api-audit-samples.md).
+* Voulez-vous voir des exemples d’activités système filtrées ? Consultez les [exemples d’API d’audit Azure Active Directory](active-directory-reporting-api-audit-samples.md).
 * Vous souhaitez en savoir plus sur l’API de création de rapports Azure AD ? Consultez [Prise en main de l’API de création de rapports Azure Active Directory](active-directory-reporting-api-getting-started.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 4a2f8753e38d3d7f88b9af9bc588b544f33c0ae4
-ms.openlocfilehash: ab71026ce41ba387092f1de719818c0236173e59
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 2ea3999e6292de1f515f8d2fdd6cc0b79d306d16
 
 ---
 # <a name="azure-billing-documentation"></a>Documentation de la facturation Azure
@@ -78,7 +78,7 @@ Les clients et partenaires doivent se révéler en mesure de prédire et gérer 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Informations de référence sur l’API REST de facturation</p>
+                        <p>API REST</p>
                     </div>
                 </div>
             </div>
@@ -98,6 +98,6 @@ Télécharger la documentation de la facturation </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

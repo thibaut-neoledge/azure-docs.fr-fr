@@ -2,12 +2,12 @@
 title: Configuration de Key Vault pour des machines virtuelles dans Azure Resource Manager | Microsoft Docs
 description: Comment configurer Key Vault pour une utilisation avec une machine virtuelle Azure Resource Manager.
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: singhkays
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: bccdd5ab-5ccf-4760-9039-92c6eafb15bd
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,25 +15,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2016
 ms.author: singhkay
+translationtype: Human Translation
+ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
+ms.openlocfilehash: bc60d5659c80ad1245d7a34b4cd81c0ae73a5ba9
+
 
 ---
-# Configuration de Key Vault pour des machines virtuelles dans Azure Resource Manager
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+# <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Configuration de Key Vault pour des machines virtuelles dans Azure Resource Manager
 
-modèle de déploiement classique
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
 Dans la pile Azure Resource Manager, les secrets/certificats sont modélisés en tant que ressources fournies par le fournisseur de ressources de Key Vault. Pour en savoir plus sur Azure Key Vault, consultez [Qu’est-ce qu’Azure Key Vault ?](../key-vault/key-vault-whatis.md)
 
 Pour que Key Vault puisse être utilisé avec des machines virtuelles Azure Resource Manager, la propriété *EnabledForDeployment* doit être définie sur true dans Key Vault. Vous pouvez le faire dans différents clients. »
 
-## Utilisation de l’interface de ligne de commande pour configurer Key Vault
+## <a name="use-cli-to-set-up-key-vault"></a>Utilisation de l’interface de ligne de commande pour configurer Key Vault
 Pour créer un coffre de clés à l’aide de l’interface de ligne de commande (CLI), consultez la rubrique [Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI)](../key-vault/key-vault-manage-with-cli.md#create-a-key-vault).
 
 Pour l’interface de ligne de commande, vous devez créer d’abord le coffre de clés avant d’affecter la stratégie de déploiement. Pour ce faire, vous pouvez utiliser la commande suivante :
 
     azure keyvault set-policy ContosoKeyVault –enabled-for-deployment true
 
-## Utilisation de modèles pour configurer Key Vault
+## <a name="use-templates-to-set-up-key-vault"></a>Utilisation de modèles pour configurer Key Vault
 Quand vous utilisez un modèle, vous devez définir la propriété `enabledForDeployment` sur `true` pour la ressource Key Vault.
 
     {
@@ -50,4 +53,9 @@ Quand vous utilisez un modèle, vous devez définir la propriété `enabledForDe
 
 Pour les autres options que vous pouvez configurer lorsque vous créez un coffre de clés à l’aide de modèles, consultez la rubrique [Création d’un coffre de clés](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,32 +1,36 @@
 ---
-title: Présentation des rapports Azure Marketplace basés sur l’utilisation et du rapport Informations du vendeur| Microsoft Docs
-description: En tant que vendeur sur Azure Marketplace, vous devez connaître le rapport élaboré à partir de l’utilisation, également appelé rapport Informations du vendeur
+title: "Présentation des rapports Azure Marketplace basés sur l’utilisation et du rapport Informations du vendeur| Microsoft Docs"
+description: "En tant que vendeur sur Azure Marketplace, vous devez connaître le rapport élaboré à partir de l’utilisation, également appelé rapport Informations du vendeur"
 services: Azure Marketplace
 documentationcenter: na
 author: v-jeana
 manager: lakoch
-editor: ''
-
+editor: 
+ms.assetid: f1ffde66-98f0-4c3e-ad94-fee1f97cae03
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/05/2016
-ms.author: v-jeana; hascipio
+ms.date: 10/03/2016
+ms.author: v-jeana; hascipio; v-dabosl
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 51452ce98a02f3bcea9914b741c611b00f862cc6
+
 
 ---
 # <a name="understand-your-seller-insights-report"></a>Présentation des rapports Informations du vendeur
-**En quoi consistent les informations du vendeur ?**
+**En quoi consistent les informations du vendeur ?**
 
 Tous les éditeurs de services de développement facturés à l’utilisation et de machines virtuelles reçoivent des rapports mensuels de la part de Microsoft si leurs offres génèrent de l’utilisation.
 
-**Que vais-je recevoir ?**
+**Que vais-je recevoir ?**
 
-* **E-mail de bienvenue :** en tant que nouvel éditeur, vous recevez un e-mail de bienvenue pour vous indiquer que vous allez commencer à recevoir les rapports mensuels contenant les informations du vendeur.
+* **E-mail de bienvenue :** en tant que nouvel éditeur, vous recevez un e-mail de bienvenue pour vous indiquer que vous allez commencer à recevoir les rapports mensuels contenant les informations du vendeur.
 * **Rapports de ventes mensuels :** si vos offres génèrent de l’utilisation, vous recevez un deuxième e-mail contenant vos rapports et des instructions sur la façon d’accéder à votre mot de passe :
   
-  * Si vous proposez une référence de machine virtuelle ou de services de développement facturés à l’utilisation qui génèrent de l’utilisation, votre rapport mensuel contient les détails relatifs aux commandes, à l’utilisation, aux marchés et des informations sur les clients pour vos offres non-BYOL (apporter votre propre licence).
+  * Si vous proposez une référence de machine virtuelle ou de services de développement facturés à l’utilisation qui génère de l’utilisation, votre rapport mensuel contient les détails relatifs aux commandes, à l’utilisation, aux marchés et des informations sur les clients pour vos offres.
   * Les rapports sont verrouillés par un mot de passe que seuls vous et Microsoft connaissez et ce, afin de protéger les données de vos clients.
   * Microsoft n’envoie pas de rapport si aucune de vos offres ne génère d’utilisation au cours du mois.
 
@@ -92,7 +96,7 @@ Rechercher l’ID d’éditeur dans l’URL :
 ![publisherid][9]
 
 ## <a name="next-steps"></a>Étapes suivantes
-Si vous avez des questions sur les rapports et les informations, contactez notre équipe de support :
+Si vous avez des questions sur les rapports et les informations, contactez notre équipe de support :
 
 1. Accédez aux pages de support à l’adresse https://publish.windowsazure.com/.
 2. Dans la zone **Type de problème**, sélectionnez **Rapports et analyses**.
@@ -113,6 +117,6 @@ Si vous avez des questions sur les rapports et les informations, contactez notre
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

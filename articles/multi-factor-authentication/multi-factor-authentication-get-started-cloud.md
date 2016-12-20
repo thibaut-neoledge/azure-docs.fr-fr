@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/17/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d7d909184eb129e46ffc350505101e68c1426c46
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
 
 
 ---
-# <a name="getting-started-with-azure-multifactor-authentication-in-the-cloud"></a>Prise en main avec Azure Multi-Factor Authentication dans le cloud
+# <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>Prise en main avec Azure Multi-Factor Authentication dans le cloud
 Cet article vous explique comment utiliser Azure Multi-Factor Authentication dans le cloud.
 
 > [!NOTE]
@@ -41,12 +41,12 @@ Les conditions préalables suivantes sont requises pour pouvoir activer Azure Mu
 > 
 > 
 
-## <a name="turn-on-twostep-verification-for-users"></a>Activer la vérification en deux étapes pour les utilisateurs
+## <a name="turn-on-two-step-verification-for-users"></a>Activer la vérification en deux étapes pour les utilisateurs
 Pour demander la vérification en deux étapes pour un utilisateur, modifiez l’état de désactivé à activé.  Pour plus d’informations sur les états des utilisateurs, consultez [User States in Azure Multi-Factor Authentication (États des utilisateurs dans Azure Multi-Factor Authentication)](multi-factor-authentication-get-started-user-states.md)
 
 Utilisez la procédure suivante pour activer l’authentification multifacteur pour vos utilisateurs.
 
-### <a name="to-turn-on-multifactor-authentication"></a>Pour activer l’authentification multifacteur
+### <a name="to-turn-on-multi-factor-authentication"></a>Pour activer l’authentification multifacteur
 1. Connectez-vous en tant qu’administrateur au [portail Azure Classic](https://manage.windowsazure.com).
 2. Cliquez à gauche sur **Active Directory**.
 3. Sous Répertoire, sélectionnez le répertoire de l’utilisateur que vous souhaitez activer.
@@ -66,8 +66,8 @@ Utilisez la procédure suivante pour activer l’authentification multifacteur p
 
 Après avoir activé les utilisateurs, vous devez les en avertir par e-mail. La prochaine fois qu’ils tentent de se connecter, il leur sera demandé d’inscrire leur compte pour la vérification en deux étapes. Une fois qu’ils commencent à utiliser la vérification en deux étapes, ils devront également configurer des mots de passe d’application afin d’éviter d’être déconnectés des applications sans navigateur.
 
-## <a name="use-powershell-to-automate-turning-on-twostep-verification"></a>Utiliser PowerShell pour automatiser l’activation de la vérification en deux étapes
-Pour modifier [l’état](multi-factor-authentication-whats-next.md) à l’aide [d’Azure AD PowerShell](../powershell-install-configure.md), vous pouvez utiliser les éléments suivants.  Vous pouvez modifier `$st.State` pour définir l’un des états suivants :
+## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>Utiliser PowerShell pour automatiser l’activation de la vérification en deux étapes
+Pour modifier [l’état](multi-factor-authentication-whats-next.md) à l’aide [d’Azure AD PowerShell](/powershell/azureps-cmdlets-docs), vous pouvez utiliser les éléments suivants.  Vous pouvez modifier `$st.State` pour définir l’un des états suivants :
 
 * activé
 * Appliquée
@@ -107,6 +107,6 @@ Maintenant que vous avez configuré Azure Multi-Factor Authentication dans le cl
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

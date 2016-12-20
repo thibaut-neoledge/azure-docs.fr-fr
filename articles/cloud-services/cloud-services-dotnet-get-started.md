@@ -15,17 +15,12 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 79a3ba8f0daee5c20f7a05e20e473cfbea384acc
-ms.openlocfilehash: cf9176b65297f98bd23ffdce0142da8c0706e987
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 02474f8ab77763be1b40da95f5d7cd935ba7f121
 
 
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Prise en main des services cloud Azure et d'ASP.NET
-
-> [!div class="op_single_selector"]
-> * [.NET](cloud-services-dotnet-get-started.md)
-> * [Node.JS](cloud-services-nodejs-develop-deploy-app.md)
-> * [Python](cloud-services-python-ptvs.md)
 
 ## <a name="overview"></a>Vue d'ensemble
 Ce didacticiel explique comment créer une application .NET multiniveau avec un composant frontal ASP.NET MVC et comment la déployer sur un [service cloud Azure](cloud-services-choose-me.md). L’application utilise la [Base de données SQL Azure](http://msdn.microsoft.com/library/azure/ee336279), le [service Blob Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) et le [service de File d'attente Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Vous pouvez [télécharger le projet Visual Studio](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) dans la galerie de code MSDN.
@@ -53,7 +48,7 @@ Ce didacticiel indique comment exécuter le composant frontal et le composant pr
 ## <a name="prerequisites"></a>Composants requis
 Pour utiliser ce didacticiel, vous devez maîtriser les [concepts de base des services cloud Azure](cloud-services-choose-me.md) et la terminologie afférente, par exemple les *rôles web* et *rôles de travail*.  Vous devez également savoir utiliser les projets [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) ou [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) dans Visual Studio. L’exemple d’application utilise MVC, mais une grande part du didacticiel concerne également Web Forms.
 
-Vous pouvez exécuter l'application localement sans abonnement Azure, mais il vous en faut un pour déployer l'application dans le cloud. Si vous n’avez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) ou [demander une évaluation gratuite](/pricing/free-trial/?WT.mc_id=A55E3C668).
+Vous pouvez exécuter l'application localement sans abonnement Azure, mais il vous en faut un pour déployer l'application dans le cloud. Si vous n’avez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) ou [demander une évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
 Les instructions du didacticiel sont valables pour les produits suivants :
 
@@ -777,6 +772,6 @@ Pour plus d’informations, consultez les ressources suivantes :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

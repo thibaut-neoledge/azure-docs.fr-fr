@@ -1,29 +1,34 @@
 ---
-title: Vérification de la connexion à une passerelle | Microsoft Docs
-description: Cet article vous montre comment vérifier une connexion à une passerelle dans le modèle de déploiement Resource Manager.
+title: "Vérifier la connexion à une passerelle | Microsoft Docs"
+description: "Cet article vous montre comment vérifier une connexion à une passerelle dans le modèle de déploiement Resource Manager."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 7e3d1043-caa9-4472-96d3-832f4e2c91ee
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/03/2016
+ms.date: 10/14/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 420b193d558d00f574d24c87ab9db6e9e757a952
+
 
 ---
-# Vérification de la connexion à une passerelle
+# <a name="verify-a-gateway-connection"></a>Vérification de la connexion à une passerelle
 Vous pouvez vérifier votre connexion à la passerelle de différentes manières. Cet article vous montre comment vérifier l’état d’une connexion de passerelle Resource Manager à l’aide du portail Azure et à l’aide de PowerShell.
 
-## Avant de commencer
-Si vous prévoyez d’utiliser PowerShell, vous devrez installer la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Pour plus d'informations, consultez la page [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
+## <a name="verify-using-powershell"></a>Vérifier à l’aide de PowerShell
+Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Pour plus d'informations, consultez la page [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-1. Ouvrez la console PowerShell et connectez-vous à votre compte.
+### <a name="step-1-log-in-to-your-azure-account"></a>Étape 1 : Se connecter au compte Azure
+1. Ouvrez la console PowerShell avec des privilèges élevés et connectez-vous à votre compte.
    
         Login-AzureRmAccount
 2. Vérifiez les abonnements associés au compte.
@@ -33,10 +38,18 @@ Si vous prévoyez d’utiliser PowerShell, vous devrez installer la dernière ve
    
         Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
-## Vérification de votre connexion
-[!INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
+### <a name="step-2-verify-your-connection"></a>Étape 2 : Vérifier votre connexion
+[!INCLUDE [verify connection powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## Étapes suivantes
-* Vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md) pour connaître les différentes étapes.
+## <a name="verify-using-the-azure-portal"></a>Vérifier à l’aide du portail Azure
+[!INCLUDE [verify connection portal](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+## <a name="next-steps"></a>Étapes suivantes
+* Vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour connaître les différentes étapes.
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: csharp
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0ffe433d9899610d5ff83c66b6cdaaecd16e9c57
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 82b042fa17af4bc93989a4f12982530f44755280
 
 
 ---
@@ -65,7 +66,7 @@ Pour créer une base de données SQL avec C#, chargez les bibliothèques de gest
 > 
 > 
 
-## <a name="create-a-sql-database-server-firewall-rule-and-sql-database-c-example"></a>Créer un serveur SQL Database, une règle de pare-feu et une base de données SQL : exemple de code C#
+## <a name="create-a-sql-database-server-firewall-rule-and-sql-database---c-example"></a>Créer un serveur SQL Database, une règle de pare-feu et une base de données SQL : exemple de code C#
 L’exemple suivant crée un groupe de ressources, un serveur, les règles de pare-feu et une base de données SQL. Consultez la section [Créer un principal du service pour accéder aux ressources](#create-a-service-principal-to-access-resources) pour obtenir les variables `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`.
 
 Remplacez le contenu du fichier **Program.cs** par les éléments suivants et mettez à jour l’élément `{variables}` en indiquant les valeurs de votre application (sans inclure `{}`).
@@ -292,6 +293,6 @@ Maintenant que vous avez essayé la base de données SQL et configuré une base 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

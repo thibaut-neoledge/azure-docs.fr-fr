@@ -1,22 +1,26 @@
 ---
-title: Utilisation des rubriques Service Bus (Ruby | Microsoft Docs
-description: Découvrez comment utiliser les rubriques et abonnements Service Bus dans Azure. Les exemples de code sont écrits pour les applications Ruby.
-services: service-bus
+title: Utilisation des rubriques Service Bus (Ruby) | Microsoft Docs
+description: "Découvrez comment utiliser les rubriques et abonnements Service Bus dans Azure. Les exemples de code sont écrits pour les applications Ruby."
+services: service-bus-messaging
 documentationcenter: ruby
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 3ef2295e-7c5f-4c54-a13b-a69c8045d4b6
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a033aee05db1a837e0891256db26d63fe80e05a2
+
 
 ---
-# <a name="how-to-use-service-bus-topics/subscriptions"></a>Utilisation des rubriques/abonnements Service Bus
+# <a name="how-to-use-service-bus-topicssubscriptions"></a>Utilisation des rubriques/abonnements Service Bus
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 Cet article décrit l’utilisation des rubriques et des abonnements Service Bus depuis les applications Ruby. Les scénarios couverts incluent la **création de rubriques et d’abonnements, la création de filtres d’abonnement, l’envoi de messages** à une rubrique, **la réception de messages en provenance d’un abonnement** et enfin **la suppression de rubriques et d’abonnements**. Pour plus d’informations sur les rubriques et les abonnements, consultez la section [Étapes suivantes](#next-steps).
@@ -35,7 +39,7 @@ Les rubriques et les abonnements Service Bus vous permettent de mettre votre inf
 ## <a name="create-a-namespace"></a>Créer un espace de noms
 Pour utiliser les files d’attente Service Bus dans Azure, vous devez d’abord créer un espace de noms. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application. Vous devez créer l’espace de noms via l’interface de ligne de commande car le [portail Azure][portail Azure] ne crée pas l’espace de noms avec une connexion ACS.
 
-Pour créer un espace de noms :
+Pour créer un espace de noms :
 
 1. Ouvrez une fenêtre de console Azure PowerShell.
 2. Tapez la commande suivante pour créer un espace de noms. Fournissez votre propre valeur d'espace de noms et spécifiez la même région que votre application.
@@ -59,17 +63,17 @@ L'applet de commande PowerShell que vous avez exécutée pour créer l'espace de
 > 
 
 ## <a name="create-a-ruby-application"></a>Création d'une application Ruby
-Pour obtenir des instructions, consultez le guide [Création d’une application Ruby sur Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
+Pour obtenir des instructions, consultez le guide [Création d’une application Ruby sur Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuration de votre application pour l'utilisation de Service Bus
 Pour utiliser Service Bus, téléchargez et utilisez le package Azure Ruby, qui inclut un ensemble de bibliothèques permettant de communiquer avec les services de stockage REST.
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>Utilisation de RubyGems pour obtenir le package
 1. Ouvrez une interface de ligne de commande, telle que **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix).
-2. Tapez « gem install azure » dans la fenêtre de commande pour installer gem et les dépendances.
+2. Tapez « gem install azure » dans la fenêtre de commande pour installer gem et les dépendances.
 
 ### <a name="import-the-package"></a>Importation du package
-À l'aide de votre éditeur de texte, ajoutez la commande suivante au début du fichier Ruby où vous comptez utiliser le stockage :
+À l'aide de votre éditeur de texte, ajoutez la commande suivante au début du fichier Ruby où vous comptez utiliser le stockage :
 
 ```
 require "azure"
@@ -97,7 +101,7 @@ rescue
 end
 ```
 
-Vous pouvez également transmettre un objet **Azure::ServiceBus::Topic** avec des options complémentaires, ce qui vous permet de remplacer les paramètres de rubrique par défaut comme la durée de vie de message ou la taille de file maximale. L'exemple suivant montre comment définir la taille maximale de la file d'attente sur 5 Go et la durée de vie de message sur une minute :
+Vous pouvez également transmettre un objet **Azure::ServiceBus::Topic** avec des options complémentaires, ce qui vous permet de remplacer les paramètres de rubrique par défaut comme la durée de vie de message ou la taille de file maximale. L'exemple suivant montre comment définir la taille maximale de la file d'attente sur 5 Go et la durée de vie de message sur une minute :
 
 ```
 topic = Azure::ServiceBus::Topic.new("test-topic")
@@ -112,7 +116,7 @@ Les abonnements de rubrique sont également créés à l’aide de l’objet **A
 
 Les abonnements sont persistants et continuent à exister jusqu’à leur suppression ou celle de la rubrique à laquelle ils sont associés. Si votre application contient une logique pour la création d’un abonnement, elle doit d’abord vérifier si l’abonnement existe déjà en utilisant la méthode getSubscription.
 
-### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Création d’un abonnement avec le filtre par défaut (MatchAll)
+### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Création d’un abonnement avec le filtre par défaut (MatchAll)
 Le filtre **MatchAll** est le filtre utilisé par défaut si aucun filtre n’est spécifié lors de la création d’un abonnement. Lorsque le filtre **MatchAll** est utilisé, tous les messages publiés dans la rubrique sont placés dans la file d’attente virtuelle de l’abonnement. Dans l’exemple suivant, l’abonnement « all-messages » qui est créé utilise le filtre par défaut **MatchAll**.
 
 ```
@@ -171,7 +175,7 @@ L’exemple suivant montre comment envoyer cinq messages de test à la rubrique 
 end
 ```
 
-Les rubriques Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et de 1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une rubrique n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de rubrique est définie au moment de la création. La limite maximale est de 5 Go.
+Les rubriques Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et de 1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une rubrique n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de rubrique est définie au moment de la création. La limite maximale est de 5 Go.
 
 ## <a name="receive-messages-from-a-subscription"></a>Réception des messages d’un abonnement
 La méthode **receive\_subscription\_message()** de l’objet **Azure::ServiceBusService** permet de recevoir les messages d’un abonnement. Par défaut, les messages sont lus et verrouillés sans être supprimés de l’abonnement. Il est possible de lire et de supprimer le message de l’abonnement en définissant l’option **peek\_lock** sur **false**.
@@ -198,7 +202,7 @@ De même, il faut savoir qu’un message verrouillé dans un abonnement est asso
 Si l’application subit un incident après le traitement du message, mais avant l’émission de la méthode **delete\_subscription\_message()**, le message est à nouveau remis à l’application lorsqu’elle redémarre. Dans ce type de traitement, souvent appelé **Au moins une fois**, chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Cette logique est souvent obtenue grâce à la propriété **message\_id** du message, qui reste constante pendant les tentatives de remise.
 
 ## <a name="delete-topics-and-subscriptions"></a>Suppression de rubriques et d'abonnements
-Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du [portail Azure][portail Azure] ou par programme. L’exemple suivant montre comme supprimer la rubrique intitulée « test-topic ».
+Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du [portail Azure][portail Azure] ou par programmation. L’exemple suivant montre comme supprimer la rubrique intitulée « test-topic ».
 
 ```
 azure_service_bus_service.delete_topic("test-topic")
@@ -221,6 +225,6 @@ Maintenant que vous avez appris les principes de base des rubriques Service Bus,
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

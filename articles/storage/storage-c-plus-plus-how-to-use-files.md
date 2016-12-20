@@ -1,12 +1,12 @@
 ---
-title: How to use File Storage from C++ | Microsoft Docs
-description: Store file data in the cloud with Azure File storage.
+title: "Utilisation du stockage de fichiers à partir de C++ | Microsoft Docs"
+description: "Stockez des données de fichier dans le cloud avec le stockage de fichiers Azure."
 services: storage
 documentationcenter: .net
 author: seguler
 manager: jahogg
 editor: tysonn
-
+ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,82 +14,86 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: seguler
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a2f3fcef1bf4ce4e3c330b3b2a0905cbe1acd11d
+
 
 ---
-# <a name="how-to-use-file-storage-from-c++"></a>How to use File Storage from C++
+# <a name="how-to-use-file-storage-from-c"></a>Utilisation du stockage de fichiers à partir de C++
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
 
 [!INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
 
-## <a name="about-this-tutorial"></a>About this tutorial
-In this tutorial, you’ll learn how to perform basic operations on the Microsoft Azure File storage service. Through samples written in C++, you’ll learn how to create shares and directories, upload, list, and delete files. If you are new to Microsoft Azure’s File Storage service, going through the concepts in the sections that follow will be very helpful in understanding the samples.
+## <a name="about-this-tutorial"></a>À propos de ce didacticiel
+Ce didacticiel explique comment effectuer des opérations de base sur le service de stockage de fichiers Microsoft Azure. Au moyen d’exemples écrits en C++, vous allez apprendre à créer des partages et des répertoires, ainsi qu’à télécharger, répertorier et supprimer des fichiers. Si vous ne connaissez pas le service de stockage de fichiers Microsoft Azure, l’étude des concepts abordés dans les sections suivantes vous sera très utile pour comprendre les exemples.
 
 [!INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## <a name="create-a-c++-application"></a>Create a C++ application
-To build the samples, you will need to install the Azure Storage Client Library 2.4.0 for C++. You should also have created an Azure storage account.
+## <a name="create-a-c-application"></a>Création d’une application C++
+Pour générer les exemples, vous devez installer la bibliothèque cliente de stockage Azure 2.4.0 pour C++. Vous devez également avoir préalablement créé un compte de stockage Azure.
 
-To install the Azure Storage Client 2.4.0 for C++, you can use one of the following methods:
+Pour installer le client de stockage Azure 2.4.0 pour C++, vous pouvez utiliser l’une des méthodes suivantes :
 
-* **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.
-* **Windows:** In Visual Studio, click **Tools &gt; NuGet Package Manager &gt; Package Manager Console**. Type the following command into the [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.
+* **Linux :** suivez les instructions disponibles sur la page [Bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .
+* **Windows :** dans Visual Studio, cliquez sur **Outils &gt; Gestionnaire de package NuGet &gt; Console du gestionnaire de package**. Entrez la commande suivante dans la [console du gestionnaire du package NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) et appuyez sur **ENTRÉE**.
   
   Install-Package wastorage
 
-## <a name="set-up-your-application-to-use-file-storage"></a>Set up your application to use File storage
-Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access files:
+## <a name="set-up-your-application-to-use-file-storage"></a>Configuration de votre application pour l’utilisation du stockage de fichiers
+Ajoutez l’instruction include suivante au début du fichier C++ dans lequel vous voulez utiliser des API de stockage Azure pour accéder aux fichiers :
 
     #include "was/storage_account.h"
     #include "was/file.h"
 
-## <a name="set-up-an-azure-storage-connection-string"></a>Set up an Azure storage connection string
-To use File storage, you need to connect to your Azure storage account. The first step would be to configure a connection string which we’ll use to connect to your storage account. Let’s define a static variable to do that.
+## <a name="set-up-an-azure-storage-connection-string"></a>Configuration d’une chaîne de connexion au stockage Azure
+Pour pouvoir utiliser le stockage de fichiers, vous devez vous connecter à votre compte de stockage Azure. La première étape consiste à configurer une chaîne de connexion, que nous allons utiliser pour nous connecter à votre compte de stockage. Pour cela, nous allons définir une variable statique.
 
     // Define the connection-string with your values.
     const utility::string_t 
     storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 
-## <a name="connecting-to-an-azure-storage-account"></a>Connecting to an Azure storage account
-You can use the **cloud_storage_account** class to represent your Storage Account information. To retrieve your storage account information from the storage connection string, you can use the **parse** method.
+## <a name="connecting-to-an-azure-storage-account"></a>Connexion à un compte de stockage Azure
+Vous pouvez utiliser la classe **cloud_storage_account** pour représenter les informations de votre compte de stockage. Pour extraire les informations de votre compte de stockage de la chaîne de connexion de stockage, vous pouvez utiliser la méthode **parse** .
 
-    // Retrieve storage account from connection string. 
+    // Retrieve storage account from connection string.    
     azure::storage::cloud_storage_account storage_account = 
       azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-## <a name="how-to:-create-a-share"></a>How to: Create a Share
-All files and directories in File storage reside in a container called a **Share**. Your storage account can have as many shares as your account capacity allows. To obtain access to a share and its contents, you need to use a File storage client.
+## <a name="how-to-create-a-share"></a>Création d’un partage
+Tous les fichiers et répertoires d’un stockage de fichiers se trouvent dans un conteneur appelé **partage**. Votre compte de stockage peut avoir autant de partages que le permet la capacité de votre compte. Pour pouvoir accéder à un partage et à son contenu, vous devez utiliser un client de stockage de fichiers.
 
     // Create the file storage client.
     azure::storage::cloud_file_client file_client = 
       storage_account.create_cloud_file_client();
 
-Using the File storage client, you can then obtain a reference to a share.
+À l’aide de ce dernier, vous pouvez ensuite obtenir une référence à un partage.
 
     // Get a reference to the file share
     azure::storage::cloud_file_share share = 
       file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 
-To create the share, use the **create_if_not_exists** method of the **cloud_file_share** object.
+Pour créer le partage, utilisez la méthode **create_if_not_exists** de l’objet **cloud_file_share**.
 
-    if (share.create_if_not_exists()) { 
-        std::wcout << U("New share created") << std::endl;  
+    if (share.create_if_not_exists()) {    
+        std::wcout << U("New share created") << std::endl;    
     }
 
-At this point, **share** holds a reference to a share named **my-sample-share**.
+À ce stade, le **partage** contient une référence à un partage nommé **my-sample-share**.
 
-## <a name="how-to:-upload-a-file"></a>How to: Upload a file
-At the very least, an Azure File Storage Share contains a root directory where files can reside. In this section, you'll learn how to upload a file from local storage onto the root directory of a share.
+## <a name="how-to-upload-a-file"></a>Chargement d’un fichier
+Un partage de fichiers de stockage Azure contient au minimum un répertoire racine dans lequel les fichiers peuvent résider. Cette section décrit comment télécharger un fichier du stockage local vers le répertoire racine d’un partage.
 
-The first step in uploading a file is to obtain a reference to the directory where it should reside. You do this by calling the **get_root_directory_reference** method of the share object.
+La première étape du téléchargement d’un fichier consiste à obtenir une référence au répertoire dans lequel ce fichier doit résider. Pour cela, vous devez appeler la méthode **get_root_directory_reference** de l’objet de partage.
 
     //Get a reference to the root directory for the share.
     azure::storage::cloud_file_directory root_dir = share.get_root_directory_reference();
 
-Now that you have a reference to the root directory of the share, you can upload a file onto it. This example uploads from a file, from text, and from a stream.
+Maintenant que vous avez une référence au répertoire racine du partage, vous pouvez télécharger un fichier vers ce répertoire. Cet exemple télécharge à partir d’un fichier, d’un texte et d’un flux.
 
     // Upload a file from a stream.
     concurrency::streams::istream input_stream = 
@@ -107,10 +111,10 @@ Now that you have a reference to the root directory of the share, you can upload
     // Upload a file from a file.
     azure::storage::cloud_file file4 = 
       root_dir.get_file_reference(_XPLATSTR("my-sample-file-3"));
-    file4.upload_from_file(_XPLATSTR("DataFile.txt"));  
+    file4.upload_from_file(_XPLATSTR("DataFile.txt"));    
 
-## <a name="how-to:-create-a-directory"></a>How to: Create a Directory
-You can also organize storage by putting files inside subdirectories instead of having all of them in the root directory. The Azure file storage service allows you to create as much directories as your account will allow. The code below will create a directory named **my-sample-directory** under the root directory as well as a subdirectory named **my-sample-subdirectory**.
+## <a name="how-to-create-a-directory"></a>Création d’un répertoire
+Vous pouvez également organiser le stockage en plaçant des fichiers dans des sous-répertoires, plutôt que de tous les mettre dans le répertoire racine. Le service de stockage de fichiers Azure permet de créer autant de répertoires que le permet votre compte. Le code ci-dessous crée un répertoire nommé **my-sample-directory** sous le répertoire racine, ainsi qu’un sous-répertoire nommé **my-sample-subdirectory**.
 
     // Retrieve a reference to a directory
     azure::storage::cloud_file_directory directory = share.get_directory_reference(_XPLATSTR("my-sample-directory"));
@@ -123,10 +127,10 @@ You can also organize storage by putting files inside subdirectories instead of 
       directory.get_subdirectory_reference(_XPLATSTR("my-sample-subdirectory"));
     subdirectory.create_if_not_exists();
 
-## <a name="how-to:-list-files-and-directories-in-a-share"></a>How to: List files and directories in a share
-Obtaining a list of files and directories within a share is easily done by calling **list_files_and_directories** on a **cloud_file_directory** reference. To access the rich set of properties and methods for a returned **list_file_and_directory_item**, you must call the **list_file_and_directory_item.as_file** method to get a **cloud_file** object, or the **list_file_and_directory_item.as_directory** method to get a **cloud_file_directory** object.
+## <a name="how-to-list-files-and-directories-in-a-share"></a>Obtention d’une liste des fichiers et répertoires d’un partage
+Il est facile d’obtenir la liste de fichiers et de répertoires d’un partage en appelant **list_files_and_directories** sur une référence **cloud_file_directory**. Pour accéder à l’ensemble complet des propriétés et méthodes d’un **list_file_and_directory_item** renvoyé, vous devez appeler la méthode **list_file_and_directory_item.as_file** afin d’obtenir un objet **cloud_file** ou la méthode **list_file_and_directory_item.as_directory** afin d’obtenir un objet **cloud_file_directory**.
 
-The following code demonstrates how to retrieve and output the URI of each item in the root directory of the share.
+Le code suivant illustre la récupération et la génération de l’URI de chaque élément du répertoire racine du partage.
 
     //Get a reference to the root directory for the share.
     azure::storage::cloud_file_directory root_dir = 
@@ -144,14 +148,14 @@ The following code demonstrates how to retrieve and output the URI of each item 
         else if (it->is_file())
         {
             ucout << "File: " << it->as_file().uri().primary_uri().to_string() << std::endl;
-        }       
+        }        
     }
 
 
-## <a name="how-to:-download-a-file"></a>How to: Download a file
-To download files, first retrieve a file reference and then call the **download_to_stream** method to transfer the file contents to a stream object which you can then persist to a local file. Alternatively, you can use the **download_to_file** method to download the contents of a file to a local file. You can use the **download_text** method to download the contents of a file as a text string.
+## <a name="how-to-download-a-file"></a>Téléchargement d’un fichier
+Pour télécharger des fichiers, commencez par récupérer une référence de fichier, puis appelez la méthode **download_to_stream** pour transférer le contenu du fichier vers un objet de flux que vous pouvez enregistrer sous forme de fichier local. Vous pouvez également utiliser la méthode **download_to_file** pour télécharger le contenu d’un fichier dans un fichier local. Vous pouvez utiliser la méthode **download_text** pour télécharger le contenu d’un fichier en tant que chaîne de texte.
 
-The following example uses the **download_to_stream** and **download_text** methods to demonstrate downloading the files which were created in previous sections.
+L’exemple suivant utilise les méthodes **download_to_stream** et **download_text** afin d’illustrer le téléchargement des fichiers qui ont été créés dans les sections précédentes.
 
     // Download as text
     azure::storage::cloud_file text_file = 
@@ -171,10 +175,10 @@ The following example uses the **download_to_stream** and **download_text** meth
     outfile.write((char *)&data[0], buffer.size());
     outfile.close();
 
-## <a name="how-to:-delete-a-file"></a>How to: Delete a file
-Another common file storage operation is file deletion. The following code deletes a file named my-sample-file-3 stored under the root directory.
+## <a name="how-to-delete-a-file"></a>Suppression d’un fichier
+La suppression de fichier est également une opération de stockage de fichier courante. Le code suivant supprime un fichier nommé my-sample-file-3 stocké dans le répertoire racine.
 
-    // Get a reference to the root directory for the share. 
+    // Get a reference to the root directory for the share.    
     azure::storage::cloud_file_share share = 
       file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 
@@ -186,8 +190,8 @@ Another common file storage operation is file deletion. The following code delet
 
     file.delete_file_if_exists();
 
-## <a name="how-to:-delete-a-directory"></a>How to: Delete a directory
-Deleting a directory is a simple task, although it should be noted that you cannot delete a directory that still contains files or other directories.
+## <a name="how-to-delete-a-directory"></a>Suppression d’un répertoire
+La suppression d’un répertoire est une tâche simple, mais il convient de noter que vous ne pouvez pas supprimer de répertoire contenant des fichiers ou d’autres répertoires.
 
     // Get a reference to the share.
     azure::storage::cloud_file_share share = 
@@ -206,8 +210,8 @@ Deleting a directory is a simple task, although it should be noted that you cann
 
     directory.delete_directory_if_exists();
 
-## <a name="how-to:-delete-a-share"></a>How to: Delete a Share
-Deleting a share is done by calling the **delete_if_exists** method on a cloud_file_share object. Here's sample code that does that.
+## <a name="how-to-delete-a-share"></a>Suppression d’un partage
+La suppression d’un partage s’effectue en appelant la méthode **delete_if_exists** sur un objet cloud_file_share. Voici un exemple de code permettant d’effectuer cette opération.
 
     // Get a reference to the share.
     azure::storage::cloud_file_share share = 
@@ -216,12 +220,12 @@ Deleting a share is done by calling the **delete_if_exists** method on a cloud_f
     // delete the share if exists
     share.delete_share_if_exists();
 
-## <a name="set-the-maximum-size-for-a-file-share"></a>Set the maximum size for a file share
-You can set the quota (or maximum size) for a file share, in gigabytes. You can also check to see how much data is currently stored on the share.
+## <a name="set-the-maximum-size-for-a-file-share"></a>Définition de la taille maximale d’un partage de fichiers
+Vous pouvez définir le quota (ou la taille maximale) pour un partage de fichiers, en gigaoctets. Vous pouvez également vérifier la quantité de données actuellement stockée sur le partage.
 
-By setting the quota for a share, you can limit the total size of the files stored on the share. If the total size of files on the share exceeds the quota set on the share, then clients will be unable to increase the size of existing files or create new files, unless those files are empty.
+En définissant le quota pour un partage, vous pouvez limiter la taille totale des fichiers stockés sur ce partage. Si la taille totale des fichiers sur le partage dépasse le quota défini sur celui-ci, les clients ne peuvent pas augmenter la taille des fichiers existants ou créer des fichiers, sauf si ces fichiers sont vides.
 
-The example below shows how to check the current usage for a share and how to set the quota for the share.
+L’exemple ci-dessous illustre comment vérifier l’utilisation actuelle pour un partage et comment définir le quota pour le partage.
 
     // Parse the connection string for the storage account.
     azure::storage::cloud_storage_account storage_account = 
@@ -245,10 +249,10 @@ The example below shows how to check the current usage for a share and how to se
 
     }
 
-## <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>Generate a shared access signature for a file or file share
-You can generate a shared access signature (SAS) for a file share or for an individual file. You can also create a shared access policy on a file share to manage shared access signatures. Creating a shared access policy is recommended, as it provides a means of revoking the SAS if it should be compromised.
+## <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>Génération d’une signature d’accès partagé pour un fichier ou partage de fichiers
+Vous pouvez générer une signature d’accès partagé (SAP) pour un partage de fichiers ou un fichier individuel. Vous pouvez également créer une stratégie d’accès partagé sur un partage de fichiers pour gérer les signatures d’accès partagé. Créer une stratégie d’accès partagé est recommandé, car cette opération permet de révoquer la SAP si elle doit être compromise.
 
-The following example creates a shared access policy on a share, and then uses that policy to provide the constraints for a SAS on a file in the share.
+L’exemple suivant crée une stratégie d’accès partagé sur un partage, puis utilise cette stratégie pour fournir les contraintes pour une SAP sur un fichier du partage.
 
     // Parse the connection string for the storage account.
     azure::storage::cloud_storage_account storage_account = 
@@ -271,13 +275,13 @@ The following example creates a shared access policy on a share, and then uses t
 
         //set permissions to expire in 90 minutes
         sharedPolicy.set_expiry(utility::datetime::utc_now() + 
-          utility::datetime::from_minutes(90));
+           utility::datetime::from_minutes(90));
 
         //give read and write permissions
         sharedPolicy.set_permissions(azure::storage::file_shared_access_policy::permissions::write | azure::storage::file_shared_access_policy::permissions::read);
 
         //set permissions for the share
-        azure::storage::file_share_permissions permissions; 
+        azure::storage::file_share_permissions permissions;    
 
         //retrieve the current list of shared access policies
         azure::storage::shared_access_policies<azure::storage::file_shared_access_policy> policies;
@@ -291,35 +295,38 @@ The following example creates a shared access policy on a share, and then uses t
 
         //Retrieve the root directory and file references
         azure::storage::cloud_file_directory root_dir = 
-          share.get_root_directory_reference();
+            share.get_root_directory_reference();
         azure::storage::cloud_file file = 
           root_dir.get_file_reference(_XPLATSTR("my-sample-file-1"));
 
         // Generate a SAS for a file in the share 
-        //  and associate this access policy with it.       
+        //  and associate this access policy with it.        
         utility::string_t sas_token = file.get_shared_access_signature(sharedPolicy);
 
-        // Create a new CloudFile object from the SAS, and write some text to the file.     
+        // Create a new CloudFile object from the SAS, and write some text to the file.        
         azure::storage::cloud_file file_with_sas(azure::storage::storage_credentials(sas_token).transform_uri(file.uri().primary_uri()));
         utility::string_t text = _XPLATSTR("My sample content");        
         file_with_sas.upload_text(text);        
 
         //Download and print URL with SAS.
-        utility::string_t downloaded_text = file_with_sas.download_text();      
-        ucout << downloaded_text << std::endl;      
+        utility::string_t downloaded_text = file_with_sas.download_text();        
+        ucout << downloaded_text << std::endl;        
         ucout << azure::storage::storage_credentials(sas_token).transform_uri(file.uri().primary_uri()).to_string() << std::endl;
 
     }
 
-For more information about creating and using shared access signatures, see [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+Pour plus d’informations sur la création et l’utilisation de signatures d’accès partagé, consultez [Utilisation des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md).
 
-## <a name="next-steps"></a>Next Steps
-To learn more about Azure Storage, explore these resources:
+## <a name="next-steps"></a>Étapes suivantes
+Pour en savoir plus sur Azure Storage, explorez les ressources suivantes :
 
-* [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
-* [Azure Storage Explorer](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
-* [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
+* [Bibliothèque cliente de stockage pour C++](https://github.com/Azure/azure-storage-cpp)
+* [Azure Storage Explorer](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Documentation d'Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 9/17/15-->
+<!--author=SharS last changed: 11/18/16-->
 
 #### <a name="to-install-regular-updates-via-windows-powershell-for-storsimple"></a>Pour installer des mises à jour périodiques via Windows PowerShell pour StorSimple
 1. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**. Saisissez le mot de passe. Le mot de passe par défaut est *Password1*. 

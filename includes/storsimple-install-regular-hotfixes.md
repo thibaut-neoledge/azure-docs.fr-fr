@@ -9,7 +9,7 @@
     Start-HcsHotfix
     ```
    
-    > !IMPORTANT]
+    > [!IMPORTANT]
     >
     > Cette commande s’applique uniquement aux correctifs logiciels périodiques. Vous exécutez cette commande sur un seul contrôleur, mais les deux contrôleurs sont mis à jour.
     > Il est possible qu’un basculement de contrôleur se produise pendant la mise à jour. Celui-ci n’a aucune incidence sur la disponibilité ou le fonctionnement du système.
@@ -19,6 +19,6 @@
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

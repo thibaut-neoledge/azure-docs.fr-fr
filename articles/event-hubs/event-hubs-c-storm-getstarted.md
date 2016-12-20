@@ -1,12 +1,12 @@
 ---
-title: Prise en main d’Event Hubs avec C et Apache Storm | Microsoft Docs
-description: Suivez ce didacticiel pour commencer à utiliser Azure Event Hubs, à envoyer des événements en C et à en recevoir dans un cluster Apache Storm.
+title: "Prise en main d’Event Hubs avec C et Apache Storm | Microsoft Docs"
+description: "Suivez ce didacticiel pour commencer à utiliser Azure Event Hubs, à envoyer des événements en C et à en recevoir dans un cluster Apache Storm."
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 3b15825e-c53c-471b-870c-686bff46885a
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: c
@@ -14,6 +14,10 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/16/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 1b4573db5c4e03aba8b98408765e7c2debfb9a30
+
 
 ---
 # <a name="get-started-with-event-hubs"></a>Prise en main des hubs d’événements
@@ -28,7 +32,7 @@ Dans ce didacticiel, vous allez apprendre comment procéder à la réception des
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Un environnement de développement en C. Pour ce didacticiel, nous partirons du principe que la pile GCC se trouve sur une [machine virtuelle Linux Azure](../virtual-machines/virtual-machines-linux-quick-create-cli.md) dotée du système d’exploitation Ubuntu 14.04. Vous trouverez des instructions pour d’autres environnements en consultant les liens externes.
+* Un environnement de développement en C. Pour ce didacticiel, nous partirons du principe que la pile GCC se trouve sur une [machine virtuelle Linux Azure](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) dotée du système d’exploitation Ubuntu 14.04. Vous trouverez des instructions pour d’autres environnements en consultant les liens externes.
 * Un environnement de développement Java configuré pour exécuter [Maven](http://maven.apache.org/). Pour ce didacticiel, nous partons du principe que la solution utilisée est [Eclipse](https://www.eclipse.org/).
 * Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -54,7 +58,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 ## <a name="next-steps"></a>Étapes suivantes
 Les ressources suivantes sont disponibles pour les applications de développement intégrant des hubs d’événements et Storm.
 
-* [Analyse des données de capteur avec Storm et HDInsight][Analyse des données de capteur avec Storm et HDInsight] est un didacticiel présentant un scénario complet qui tire parti des concentrateurs d’événements, de Storm et de HBase pour la réception des données de capteur dans un cluster Hadoop.
+* [Analyse des données de capteur avec Storm et HDInsight][Analyse des données de capteur avec Storm et HDInsight] est un didacticiel présentant un scénario complet qui tire parti d’Event Hubs, de Storm et de HBase pour l’ingestion des données de capteur dans un cluster Hadoop.
 * [Développement d’applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight][Développement d’applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight] décrit la marche à suivre pour écrire des pipelines Storm en C#.
 
 <!-- Images. -->
@@ -63,15 +67,15 @@ Les ressources suivantes sont disponibles pour les applications de développemen
 <!-- Links -->
 [Portail Azure Classic]: https://manage.windowsazure.com/
 [hôte du processeur d’événements]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Vue d’ensemble des hubs d’événements]: event-hubs-overview.md
+[Vue d'ensemble des hubs d'événements]: event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org
-[Présentation de Storm HDInsight]: ../hdinsight/hdinsight-storm-overview.md/
+[Présentation de Storm HDInsight]: ../hdinsight/hdinsight-storm-overview.md
 [Analyse des données de capteur avec Storm et HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 [Développement d’applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

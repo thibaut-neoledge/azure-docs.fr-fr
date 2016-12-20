@@ -1,7 +1,7 @@
 # Vue d'ensemble
 ## [Azure et IoT](iot-suite-what-is-azure-iot.md)
-## [Qu’est-ce qu’IoT Suite ?](iot-suite-overview.md)
-## [Que sont les solutions préconfigurées ?](iot-suite-what-are-preconfigured-solutions.md)
+## [Qu’est-ce qu’IoT Suite ?](iot-suite-overview.md)
+## [Que sont les solutions préconfigurées ?](iot-suite-what-are-preconfigured-solutions.md)
 
 
 # Prise en main

@@ -1,12 +1,12 @@
 ---
-title: Procédures de mise à niveau du Kit de développement Windows Phone Silverlight
-description: Procédures de mise à niveau du SDK Windows Phone Silverlight pour Azure Mobile Engagement
+title: "Procédures de mise à niveau du Kit de développement Windows Phone Silverlight"
+description: "Procédures de mise à niveau du SDK Windows Phone Silverlight pour Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 87130026-9759-4659-9184-788a3627a165
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
@@ -14,22 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 06b2a8b5e12d33c3ade469491b2694dd4a342cf1
+
 
 ---
-# Procédures de mise à niveau du Kit de développement Windows Phone Silverlight
+# <a name="windows-phone-silverlight-sdk-upgrade-procedures"></a>Procédures de mise à niveau du Kit de développement Windows Phone Silverlight
 Si vous avez déjà intégré une ancienne version de notre SDK à votre application, tenez compte des points suivants avant de procéder à la mise à niveau du SDK.
 
-Vous devrez peut-être suivre quelques procédures si vous avez manqué plusieurs versions du kit SDK. Par exemple, si vous migrez de la version 0.10.1 vers 0.11.0, vous devez tout d'abord suivre la procédure « Migration de 0.9.0 vers 0.10.1 », puis la procédure « Migration de 0.10.1 vers 0.11.0 ».
+Vous devrez peut-être suivre quelques procédures si vous avez manqué plusieurs versions du kit SDK. Par exemple, si vous migrez de la version 0.10.1 vers 0.11.0, vous devez tout d'abord suivre la procédure « Migration de 0.9.0 vers 0.10.1 », puis la procédure « Migration de 0.10.1 vers 0.11.0 ».
 
-## Migration de 2.0.0 vers 3.3.0
-### Journaux des tests
+## <a name="from-200-to-330"></a>Migration de 2.0.0 vers 3.3.0
+### <a name="test-logs"></a>Journaux des tests
 Les journaux de console produits par le Kit de développement logiciel (SDK) peuvent maintenant être activés/désactivés/filtrés. Pour personnaliser ce résultat, mettez à jour la propriété `EngagementAgent.Instance.TestLogEnabled` avec une des valeurs disponibles à partir de l'énumération `EngagementTestLogLevel`, par exemple :
 
             EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init();
 
-## Migration de 1.1.1 vers 2.0.0
-La section qui suit décrit comment migrer une intégration du SDK à partir du service Capptain offert par Capptain SAS dans une application reposant sur Azure Mobile Engagement.
+## <a name="from-111-to-200"></a>Migration de 1.1.1 vers 2.0.0
+La section qui suit décrit comment migrer une intégration du SDK à partir du service Capptain offert par Capptain SAS dans une application reposant sur Azure Mobile Engagement. 
 
 > [!IMPORTANT]
 > Capptain et Engagement Mobile ne sont pas les mêmes services et la procédure décrite ci-dessous explique uniquement comment migrer l'application cliente. La migration du SDK dans l'application ne migre PAS vos données des serveurs Capptain vers les serveurs Engagement Mobile.
@@ -38,10 +42,10 @@ La section qui suit décrit comment migrer une intégration du SDK à partir du 
 
 Si vous migrez à partir d'une version antérieure, consultez le site web de Capptain pour migrer tout d'abord vers 1.1.1, puis appliquez la procédure suivante.
 
-### Package NuGet
-Remplacez **Capptain.WindowsPhone** par le package Nuget **MicrosoftAzure.MobileEngagement**.
+### <a name="nuget-package"></a>Package NuGet
+Remplacez **Capptain.WindowsPhone** par le package NuGet **MicrosoftAzure.MobileEngagement**.
 
-### Application d'Engagement Mobile
+### <a name="applying-mobile-engagement"></a>Application d'Engagement Mobile
 Le SDK utilise le terme `Engagement`. Vous devez mettre à jour votre projet pour qu'il corresponde à cette modification.
 
 Vous devez désinstaller votre package nuget Capptain actuel. Considérez que toutes vos modifications dans le dossier de ressources Capptain seront supprimées. Si vous souhaitez conserver ces fichiers, effectuez-en une copie.
@@ -56,17 +60,17 @@ Une fois ces étapes terminées, il vous suffit de remplacer les anciennes réf�
 
 1. Tous les espaces de noms Capptain doivent être mis à jour.
    
-    Avant la migration :
+    Avant la migration :
    
         using Capptain.Agent;
         using Capptain.Reach;
    
-    Après la migration :
+    Après la migration :
    
         using Microsoft.Azure.Engagement;
-2. Toutes les classes Capptain qui contiennent « Capptain » doivent contenir « Engagement ».
+2. Toutes les classes Capptain qui contiennent « Capptain » doivent contenir « Engagement ».
    
-    Avant la migration :
+    Avant la migration :
    
         public sealed partial class MainPage : CapptainPage
         {
@@ -77,7 +81,7 @@ Une fois ces étapes terminées, il vous suffit de remplacer les anciennes réf�
           ...
         }
    
-    Après la migration :
+    Après la migration :
    
         public sealed partial class MainPage : EngagementPage
         {
@@ -89,7 +93,7 @@ Une fois ces étapes terminées, il vous suffit de remplacer les anciennes réf�
         }
 3. Pour les fichiers xaml, les attributs et les espaces de noms Capptain changent également.
    
-    Avant la migration :
+    Avant la migration :
    
         <capptain:CapptainPage
         ...
@@ -97,25 +101,25 @@ Une fois ces étapes terminées, il vous suffit de remplacer les anciennes réf�
         ...
         </capptain:CapptainPage>
    
-    Après la migration :
+    Après la migration :
    
         <engagement:EngagementPage
         ...
         xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
         ...
         </engagement:EngagementPage>
-4. Notez que les autres ressources, comme les images Capptain, ont aussi été renommées afin d'utiliser « Engagement ».
+4. Notez que les autres ressources, comme les images Capptain, ont aussi été renommées afin d'utiliser « Engagement ».
 
-### ID de l'application / clé SDK
+### <a name="application-id-sdk-key"></a>ID de l'application / clé SDK
 Engagement utilise une chaîne de connexion. Il est inutile de spécifier un ID d'application et une clé SDK avec Mobile Engagement. Il suffit de spécifier une chaîne de connexion. Vous pouvez la configurer dans votre fichier EngagementConfiguration.
 
 La configuration d'Engagement peut être définie dans le fichier `Resources\EngagementConfiguration.xml` de votre projet.
 
-Modifiez ce fichier pour spécifier :
+Modifiez ce fichier pour spécifier :
 
-* Votre chaîne de connexion d'application entre les balises `<connectionString>` et `<\connectionString>`.
+* Votre chaîne de connexion d'application entre les balises `<connectionString>` and `<\connectionString>`.
 
-Si vous souhaitez plutôt la spécifier au moment de l'exécution, vous pouvez appeler la méthode suivante avant l'initialisation de l'agent Engagement :
+Si vous souhaitez plutôt la spécifier au moment de l'exécution, vous pouvez appeler la méthode suivante avant l'initialisation de l'agent Engagement :
 
         /* Engagement configuration. */
         EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -126,10 +130,10 @@ Si vous souhaitez plutôt la spécifier au moment de l'exécution, vous pouvez a
 
 La chaîne de connexion de votre application est affichée sur le portail Azure Classic.
 
-### Changement de noms d'éléments
+### <a name="items-name-change"></a>Changement de noms d'éléments
 Tous les éléments nommés *capptain* ont été renommés *engagement*. De même pour *Capptain* (renommés *Engagement*).
 
-Exemples d'éléments Capptain couramment utilisés :
+Exemples d'éléments Capptain couramment utilisés :
 
 * CapptainConfiguration se nomme maintenant EngagementConfiguration
 * CapptainAgent se nomme maintenant EngagementAgent
@@ -139,4 +143,9 @@ Exemples d'éléments Capptain couramment utilisés :
 
 Notez que ce changement affecte également les méthodes substituées.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

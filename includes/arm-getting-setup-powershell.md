@@ -50,10 +50,10 @@ Vous pouvez configurer l'abonnement Azure actuel en exécutant ces commandes à 
     $subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
     Select-AzureRmSubscription -SubscriptionName $subscr -Current
 
-Pour plus d’informations sur les comptes et les abonnements Azure, consultez la [procédure de connexion à votre abonnement](../articles/powershell-install-configure.md#step-3-connect).
+Pour plus d’informations sur les comptes et les abonnements Azure, consultez la [procédure de connexion à votre abonnement](/powershell/azureps-cmdlets-docs#step-3-connect).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

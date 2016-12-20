@@ -1,11 +1,12 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 5cf17ad514127f97319130c4f3f78cdfa1eed052
+ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
+ms.openlocfilehash: c57faa7c307420bb92bec2f661e6739a7cfca7ee
 
 ---
-#<a name="stream-analytics-documentation"></a>Documentation Stream Analytics
+
+# <a name="stream-analytics-documentation"></a>Documentation Stream Analytics
 
 Azure Stream Analytics est un moteur de traitement des événements en temps réel entièrement géré qui permet d’obtenir des informations détaillées à partir des données.  Stream Analytics facilite la configuration de calculs d’analyse en temps réel sur les données de diffusion à partir d’appareils, de capteurs, de sites web, de médias sociaux, d’applications, de systèmes d’infrastructure et bien plus encore.
 
@@ -122,66 +123,43 @@ Azure Stream Analytics est un moteur de traitement des événements en temps r
 
 ---
 
-## <a name="reference"></a>Référence
-
+<h2>Référence</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Référence Azure PowerShell</p>
+                    <div class="Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Référence API managée .NET</p>
+                    <div class="Languages</h3>
+                        <p><a href="/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn834998">Langage de requête</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/dn834998">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardText">
-                        <h3>Langage de requête</h3>
-                        <p>Référence sur le langage de requête Stream Analytics</p>
+                    <div class="REST</h3>
+                        <p><a href="/rest/api/streamanalytics">Référence sur les API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    <li>
-        <a href="/rest/api/streamanalytics">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Informations de référence sur l’API REST de Stream Analytics</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-</ul>   
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/stream-analytics.pdf">
@@ -193,6 +171,6 @@ Télécharger la documentation Stream Analytics </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

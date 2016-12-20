@@ -1,12 +1,12 @@
 ---
-title: Connexion hybride avec une application à 2 niveaux | Microsoft Docs
-description: Découvrez comment déployer des appliances virtuelles et un UDR pour créer un environnement d’application multiniveau dans Azure
+title: "Connexion hybride avec une application à 2 niveaux | Microsoft Docs"
+description: "Découvrez comment déployer des appliances virtuelles et un UDR pour créer un environnement d’application multiniveau dans Azure"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fb8d59469eadad51dcf269ec8ff2829b2f8ef922
+
 
 ---
 # <a name="virtual-appliance-scenario"></a>Scénario d’appliance virtuelle
@@ -45,7 +49,7 @@ Vous pouvez déployer l’environnement décrit ci-dessus dans Azure à l’aide
 
 ![Connectivité IPv6](./media/virtual-network-scenario-udr-gw-nva/figure01.png)
 
-Dans cet exemple, il existe un abonnement qui contient les éléments suivants :
+Dans cet exemple, il existe un abonnement qui contient les éléments suivants :
 
 * 2 groupes de ressources, non représentés sur le diagramme. 
   * **ONPREMRG**. Contient toutes les ressources nécessaires pour simuler un réseau local.
@@ -65,7 +69,7 @@ Dans cet exemple, il existe un abonnement qui contient les éléments suivants :
   * **AZF2**. Pare-feu interne utilisé pour contrôler le trafic entre **azsn2** et **azsn3**. C’est également une appliance virtuelle à 3 cartes réseau.
   * **AZF3**. Pare-feu de gestion accessible aux administrateurs à partir du centre de données local, et connecté à un sous-réseau servant à gérer toutes les appliances de pare-feu. Vous pouvez trouver des modèles d’appliance virtuelle à 2 cartes réseau dans Marketplace ou en demander un à votre fournisseur d’appliances.
 
-## <a name="user-defined-routing-(udr)"></a>Itinéraire défini par l’utilisateur (UDR)
+## <a name="user-defined-routing-udr"></a>Itinéraire défini par l’utilisateur (UDR)
 Chaque sous-réseau dans Azure peut être lié à une table d’UDR utilisée pour définir le mode d’acheminement du trafic dans ce sous-réseau. Si aucun UDR n’est défini, Azure utilise les itinéraires par défaut pour autoriser le trafic d’un sous-réseau à un autre. Pour mieux comprendre les itinéraires définis par l’utilisateur, consultez [Présentation des itinéraires définis par l’utilisateur et du transfert IP](virtual-networks-udr-overview.md#ip-forwarding).
 
 Pour assurer la communication transite par l’appliance de pare-feu appropriée, conformément à la dernière exigence ci-dessus, vous devez créer la table suivante contenant les UDR de **azurevnet**.
@@ -104,7 +108,7 @@ Vous devez également créer des tables d’itinéraires pour les sous-réseaux 
 ## <a name="ip-forwarding"></a>transfert IP
 L’UDR et le transfert IP sont des fonctionnalités que vous pouvez combiner pour permettre à des appliances virtuelles de contrôler le trafic dans un réseau virtuel Azure.  Une appliance virtuelle n’est rien de plus qu’une machine virtuelle qui exécute une application permettant de gérer le trafic réseau d’une certaine façon, comme un pare-feu ou un périphérique NAT.
 
-La machine virtuelle d’appliance virtuelle doit être capable de recevoir le trafic entrant qui ne lui est pas adressé. Pour permettre à une machine virtuelle de recevoir le trafic adressé à d’autres destinations, vous devez activer le transfert IP pour la machine virtuelle. Il s’agit d’un paramètre Azure, pas d’un paramètre du système d’exploitation invité. Votre appliance virtuelle doit toujours exécuter un type d’application pour gérer le trafic entrant et l’acheminer correctement.
+La machine virtuelle d’appliance virtuelle doit être capable de recevoir le trafic entrant qui ne lui est pas adressé. Pour permettre à une machine virtuelle de recevoir le trafic adressé à d’autres destinations, vous devez activer le transfert IP pour la machine virtuelle. Il s’agit d’un paramètre Azure, pas d’un paramètre du système d’exploitation invité. Votre appliance virtuelle doit toujours exécuter un type d’application pour gérer le trafic entrant et l’acheminer correctement.
 
 Pour plus d’informations sur le transfert IP, consultez la [Présentation des itinéraires définis par l’utilisateur et du transfert IP](virtual-networks-udr-overview.md#ip-forwarding).
 
@@ -129,21 +133,21 @@ Comme décrit ci-dessus, le transfert IP ne garantit que l’envoi des paquets �
 ### <a name="opfw"></a>OPFW
 OPFW représente un appareil local contenant les règles suivantes :
 
-* **Itinéraire** : tout le trafic vers 10.0.0.0/16 (**azurevnet**) doit être envoyé via le tunnel **ONPREMAZURE**.
-* **Stratégie** : autoriser tout le trafic bidirectionnel entre **port2** et **ONPREMAZURE**.
+* **Itinéraire** : tout le trafic vers 10.0.0.0/16 (**azurevnet**) doit être envoyé via le tunnel **ONPREMAZURE**.
+* **Stratégie** : autoriser tout le trafic bidirectionnel entre **port2** et **ONPREMAZURE**.
 
 ### <a name="azf1"></a>AZF1
 AZF1 représente une appliance virtuelle Azure contenant les règles suivantes :
 
-* **Stratégie** : autoriser tout le trafic bidirectionnel entre **port1** et **port2**.
+* **Stratégie** : autoriser tout le trafic bidirectionnel entre **port1** et **port2**.
 
 ### <a name="azf2"></a>AZF2
 AZF2 représente une appliance virtuelle Azure contenant les règles suivantes :
 
-* **Itinéraire** : tout le trafic vers 10.0.0.0/16 (**onpremvnet**) doit être envoyé à l’adresse IP de la passerelle Azure (par exemple, 10.0.0.1) via **port1**.
-* **Stratégie** : autoriser tout le trafic bidirectionnel entre **port1** et **port2**.
+* **Itinéraire** : tout le trafic vers 10.0.0.0/16 (**onpremvnet**) doit être envoyé à l’adresse IP de la passerelle Azure (par exemple, 10.0.0.1) via **port1**.
+* **Stratégie** : autoriser tout le trafic bidirectionnel entre **port1** et **port2**.
 
-## <a name="network-security-groups-(nsgs)"></a>Groupes de sécurité réseau (NSG)
+## <a name="network-security-groups-nsgs"></a>Groupes de sécurité réseau (NSG)
 Dans ce scénario, les groupes de sécurité réseau ne sont pas utilisés. Toutefois, vous pouvez appliquer des groupes de sécurité réseau à chaque sous-réseau pour limiter les trafics entrant et sortant. Par exemple, vous pouvez appliquer les règles de groupe de sécurité réseau suivantes au sous-réseau FW externe.
 
 **Entrant**
@@ -164,6 +168,9 @@ Pour déployer ce scénario, suivez la procédure générale suivante.
 4. Approvisionnez le tunnel reliant **onpremvnet** à **azurevnet**.
 5. Une fois toutes les ressources approvisionnées, ouvrez une session sur **onpremvm2** et envoyez la commande ping 10.0.3.101 pour tester la connectivité entre **onpremsn2** et **azsn3**.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

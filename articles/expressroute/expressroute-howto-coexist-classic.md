@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f03701746cb36838c7db7055f5dd98f77e1adfbd
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: aae9215ea67ff254bb3b67c5b113ad55eb3b1ca2
 
 
 ---
-# <a name="configure-expressroute-and-sitetosite-coexisting-connections-for-the-classic-deployment-model"></a>Configurer la coexistence de connexions de site à site et ExpressRoute pour le modèle de déploiement classique
+# <a name="configure-expressroute-and-site-to-site-coexisting-connections-for-the-classic-deployment-model"></a>Configurer la coexistence de connexions de site à site et ExpressRoute pour le modèle de déploiement classique
 > [!div class="op_single_selector"]
 > * [PowerShell - Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell - Classique](expressroute-howto-coexist-classic.md)
@@ -49,12 +49,12 @@ La possibilité de configurer des connexions VPN de site à site et ExpressRoute
 * La **passerelle ExpressRoute doit être configurée en premier.** Vous devez commencer par créer la passerelle ExpressRoute avant d’ajouter la passerelle VPN de site à site.
 
 ## <a name="configuration-designs"></a>Modèles de configuration
-### <a name="configure-a-sitetosite-vpn-as-a-failover-path-for-expressroute"></a>Configurer un réseau VPN de site à site comme un chemin d’accès de basculement pour ExpressRoute
+### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Configurer un réseau VPN de site à site comme un chemin d’accès de basculement pour ExpressRoute
 Vous pouvez configurer une connexion VPN de site à site en tant que sauvegarde pour ExpressRoute. Cela s’applique uniquement aux réseaux virtuels liés au chemin d’homologation privé Azure. Il n’existe aucune solution de basculement basée sur des réseaux VPN pour les services accessibles via les homologations Azure public et Microsoft. Le circuit ExpressRoute est toujours le lien principal. Les données circulent via le chemin d’accès du réseau VPN de site à site uniquement si le circuit ExpressRoute échoue. 
 
 ![Coexister](media/expressroute-howto-coexist-classic/scenario1.jpg)
 
-### <a name="configure-a-sitetosite-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>Configurer un réseau VPN de site à site pour se connecter à des sites non connectés via ExpressRoute
+### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>Configurer un réseau VPN de site à site pour se connecter à des sites non connectés via ExpressRoute
 Vous pouvez configurer votre réseau là où certains sites se connectent directement à Azure via des réseaux VPN de site à site ou via ExpressRoute. 
 
 ![Coexister](media/expressroute-howto-coexist-classic/scenario2.jpg)
@@ -79,7 +79,7 @@ Vous pouvez choisir entre deux procédures différentes pour configurer vos conn
 ## <a name="a-namenewato-create-a-new-virtual-network-and-coexisting-connections"></a><a name="new"></a>Créer un réseau virtuel et des connexions qui coexistent
 Cette procédure vous guide dans la création d’un réseau virtuel et dans l’établissement de nouvelles connexions de site à site et ExpressRoute appelées à coexister.
 
-1. Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) . Les applets de commande que vous utiliserez pour cette configuration peuvent être légèrement différentes de celles que vous connaissez. Utilisez les applets de commande spécifiées dans ces instructions. 
+1. Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) . Les applets de commande que vous utiliserez pour cette configuration peuvent être légèrement différentes de celles que vous connaissez. Utilisez les applets de commande spécifiées dans ces instructions. 
 2. Créez un schéma pour votre réseau virtuel. Pour plus d’informations sur le schéma de configuration, consultez la page [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
    
     Lorsque vous créez votre schéma, veillez à utiliser les valeurs suivantes :
@@ -192,7 +192,7 @@ Si le sous-réseau de passerelle est défini sur/27 ou plus et si le réseau vir
 > 
 > 
 
-1. Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) . Les applets de commande que vous utiliserez pour cette configuration peuvent être légèrement différentes de celles que vous connaissez. Utilisez les applets de commande spécifiées dans ces instructions. 
+1. Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) . Les applets de commande que vous utiliserez pour cette configuration peuvent être légèrement différentes de celles que vous connaissez. Utilisez les applets de commande spécifiées dans ces instructions. 
 2. Supprimez la passerelle VPN ExpressRoute ou de site à site existante. Utilisez l’applet de commande suivante en remplaçant les valeurs par les vôtres.
    
         Remove-AzureVNetGateway –VnetName MyAzureVNET
@@ -226,6 +226,6 @@ Pour plus d’informations sur ExpressRoute, consultez la [FAQ sur ExpressRoute]
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

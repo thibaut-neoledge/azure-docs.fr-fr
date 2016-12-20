@@ -53,7 +53,7 @@
 ### [Guide de résolution des problèmes](security-center-troubleshooting-guide.md)
 
 # Référence
-## [API REST](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
+## [REST](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
 
 # Rubriques connexes
 ## [Sécurité Azure](/azure/security/)
@@ -66,6 +66,6 @@
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

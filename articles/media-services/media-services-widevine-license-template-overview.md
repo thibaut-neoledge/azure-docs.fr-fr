@@ -1,12 +1,12 @@
 ---
-title: Vue d’ensemble du modèle de licence Widevine | Microsoft Docs
-description: Cette rubrique donne un aperçu d’un modèle de licence Widevine utilisé pour configurer des licences Widevine.
+title: "Vue d’ensemble du modèle de licence Widevine | Microsoft Docs"
+description: "Cette rubrique donne un aperçu d’un modèle de licence Widevine utilisé pour configurer des licences Widevine."
 author: juliako
 manager: erikre
-editor: ''
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 0e6f1f05-7ed6-4ed6-82a0-0cc2182b075a
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a90e56bb2b7db0bb964684f9cac04096a6577adc
+
 
 ---
 # <a name="widevine-license-template-overview"></a>Vue d’ensemble du modèle de licence Widevine
@@ -22,7 +26,7 @@ Azure Media Services vous permet désormais de configurer et de demander des lic
 
 La demande de licence Widevine se présente sous forme de message JSON.  
 
-Notez que vous pouvez choisir de créer un message vide sans valeur, simplement « {} », et un modèle de licence sera créé avec les paramètres par défaut.  
+Notez que vous pouvez choisir de créer un message vide sans valeur, simplement « {} », et un modèle de licence sera créé avec les paramètres par défaut.  
 
     {  
        “payload”:“<license challenge>”,
@@ -76,7 +80,7 @@ Chaque valeur content_key_specs doit être spécifiée pour toutes les pistes, q
 | --- | --- | --- |
 | content_key_specs. track_type |string |Un nom de type de piste. Si la valeur content_key_specs est spécifiée dans la demande de licence, assurez-vous de spécifier tous les types de pistes de façon explicite. Dans le cas contraire, vous serez confronté à un échec de lecture des 10 dernières secondes. |
 | content_key_specs  <br/> security_level |uint32 |Définit la configuration requise de robustesse du client pour la lecture. <br/>  1 - Chiffrement whitebox logiciel requis. <br/>  2 - Chiffrement logiciel et décodeur masqué requis. <br/>  3 - Le matériel de clé et les opérations de chiffrement doivent être effectués dans un environnement d'exécution approuvé soutenu par le matériel. <br/>  4 - Le chiffrement et le décodage du contenu doivent être effectués dans un environnement d'exécution approuvé soutenu par le matériel.  <br/>  5 - Le chiffrement, le décodage et le traitement du support (compressé et décompressé) doivent être gérés dans un environnement d'exécution approuvé soutenu par le matériel. |
-| content_key_specs <br/> required_output_protection.hdc |string - une des options : HDCP_NONE, HDCP_V1, HDCP_V2 |Indique si HDCP est requis |
+| content_key_specs <br/> required_output_protection.hdc |string - une des options : HDCP_NONE, HDCP_V1, HDCP_V2 |Indique si HDCP est requis |
 | content_key_specs <br/>key |Chaîne  <br/>encodée Base64 |Clé de contenu à utiliser pour cette piste. Si spécifié, track_type ou key_id est requis.  Cette option permet au fournisseur de contenu d'injecter la clé de contenu de cette piste, au lieu de laisser le serveur de licences Widevine générer ou rechercher une clé. |
 | content_key_specs.key_id |Chaîne binaire encodée Base64, 16 octets |Identificateur unique pour la clé. |
 
@@ -102,10 +106,10 @@ Chaque valeur content_key_specs doit être spécifiée pour toutes les pistes, q
 | provider_client_token |Chaîne encodée Base64 |Jeton client à renvoyer dans la réponse de la licence.  Si la demande de licence contient un jeton client, cette valeur est ignorée. Le jeton client persistera au-delà des sessions de la licence. |
 | override_provider_client_token |booléen. true ou false |Si la valeur est false et si la demande de licence contient un jeton client, utilisez le jeton de la demande même si un jeton client a été spécifié dans cette structure.  Si la valeur est true, utilisez toujours le jeton spécifié dans cette structure. |
 
-## <a name="configure-your-widevine-licenses-using-.net-types"></a>Configuration de vos licences Widevine à l'aide des types .NET
+## <a name="configure-your-widevine-licenses-using-net-types"></a>Configuration de vos licences Widevine à l'aide des types .NET
 Media Services propose des API .NET qui vous permettent de configurer vos licences Widevine. 
 
-### <a name="classes-as-defined-in-the-media-services-.net-sdk"></a>Les classes sont définies dans le Kit de développement logiciel (SDK) .NET de Media Services
+### <a name="classes-as-defined-in-the-media-services-net-sdk"></a>Les classes sont définies dans le Kit de développement logiciel (SDK) .NET de Media Services
 Les définitions de ces types sont les suivantes.
 
     public class WidevineMessage
@@ -194,6 +198,9 @@ L’exemple suivant montre comment utiliser les API .NET pour configurer une lic
 ## <a name="see-also"></a>Voir aussi
 [Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine](media-services-protect-with-drm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

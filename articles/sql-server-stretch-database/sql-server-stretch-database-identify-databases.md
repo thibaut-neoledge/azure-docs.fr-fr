@@ -1,12 +1,12 @@
 ---
-title: Identify databases and tables for Stretch Database by running Stretch Database Advisor | Microsoft Docs
-description: Learn how to identify databases and tables that are candidates for Stretch Database.
+title: "Identifier des bases de données et des tables pour Stretch Database en exécutant Stretch Database Advisor | Microsoft Docs"
+description: "Découvrez comment identifier les bases de données et les tables candidates pour Stretch Database."
 services: sql-server-stretch-database
-documentationcenter: ''
+documentationcenter: 
 author: douglaslMS
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 9253c5a2-f135-4782-95ec-8ff39454c2c0
 ms.service: sql-server-stretch-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -14,46 +14,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2016
 ms.author: douglasl
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1c59343393ca49e11765fdae0fd0fa7620ec08af
+
 
 ---
-# <a name="identify-databases-and-tables-for-stretch-database-by-running-stretch-database-advisor"></a>Identify databases and tables for Stretch Database by running Stretch Database Advisor
-To identify databases and tables that are candidates for Stretch Database, download SQL Server 2016 Upgrade Advisor, and run the Stretch Database Advisor. Stretch Database Advisor also identifies blocking issues.
+# <a name="identify-databases-and-tables-for-stretch-database-by-running-stretch-database-advisor"></a>Identifier des bases de données et des tables pour Stretch Database en exécutant Stretch Database Advisor
+Pour identifier les bases de données candidates pour Stretch Database Advisor, téléchargez SQL Server 2016 Upgrade Advisor et exécutez Stretch Database Advisor. Stretch Database Advisor identifie également les problèmes de blocage.
 
-## <a name="download-and-install-upgrade-advisor"></a>Download and install Upgrade Advisor
-Download and install Upgrade Advisor from [here](http://go.microsoft.com/fwlink/?LinkID=613421). This tool is not included on the SQL Server installation media.
+## <a name="download-and-install-upgrade-advisor"></a>Télécharger et installer le Conseiller de mise à niveau
+Téléchargez et installez le Conseiller de mise à niveau [ici](http://go.microsoft.com/fwlink/?LinkID=613421). Cet outil n’est pas inclus sur le support d’installation de SQL Server.
 
-## <a name="run-the-stretch-database-advisor"></a>Run the Stretch Database Advisor
-1. Run Upgrade Advisor.
-2. Select **Scenarios**, and then select **RUN STRETCH DATABASE ADVISOR**.
-3. On the **Run Stretch Database Advisor** blade, click **SELECT DATABASES TO ANALYZE**.
-4. On the **Select databases** blade, enter or select the server name and the authentication info. Click **Connect**.
-5. A list of databases on the selected server appears. Select the databases that you want to analyze. Click **Select**.
-6. On the **Run Stretch Database Advisor** blade, click **Run**.  The analysis runs.
+## <a name="run-the-stretch-database-advisor"></a>Exécuter Stretch Database Advisor
+1. Exécutez le Conseiller de mise à niveau
+2. Sélectionnez **Scenarios** (Scénarios), puis **RUN STRETCH DATABASE ADVISOR** (Exécuter Stretch Database Advisor).
+3. Dans le panneau **Run Stretch Database Advisor** (Exécuter Stretch Database Advisor), cliquez sur **SELECT DATABASES TO ANALYZE** (Sélectionner les bases de données à analyser).
+4. Dans le panneau **Sélectionner des bases de données** , entrez ou sélectionnez le nom du serveur et les informations d’authentification. Cliquez sur **Connecter**.
+5. Une liste des bases de données sur le serveur sélectionné s’affiche. Sélectionnez les bases de données que vous souhaitez analyser. Cliquez sur **Sélectionner**.
+6. Dans le panneau **Run Stretch Database Advisor** (Exécuter Stretch Database Advisor), cliquez sur **Run** (Exécuter).  L’analyse s’exécute.
 
-## <a name="review-the-results"></a>Review the results
-1. When the analysis is finished, on the **Analyzed databases** blade, select one of the databases that you analyzed to display the **Analysis results** blade.
+## <a name="review-the-results"></a>Passer en revue les résultats.
+1. Une fois l’analyse terminée, dans le panneau **Analyzed databases** (Bases de données analysées), sélectionnez l’une des bases de données analysées pour afficher le panneau **Analysis results** (Résultats de l’analyse).
    
-   The **Analysis results** blade lists recommended tables in the selected database that match the default recommendation criteria.
-2. In the list of tables on the **Analysis results** blade, select one of the recommended tables to display the **Table results** blade.
+   Le panneau **Analysis results** (Résultats de l’analyse) répertorie les tables recommandées de la base de données qui correspondent aux critères de recommandation par défaut.
+2. Dans la liste des tables du panneau **Analysis results** (Résultats de l’analyse), sélectionnez l’une des tables recommandées pour afficher le panneau **Table results** (Résultats de la table).
    
-   If there are blocking issues, the **Table results** blade lists the blocking issues for the selected table. For information about blocking issues detected by Stretch Database Advisor, see [Limitations for Stretch Database](sql-server-stretch-database-limitations.md).
-3. In the list of blocking issues on the **Table results** blade, select one of the issues to display more info about the selected issue and proposes mitigation steps. Implement the suggested mitigation steps if you want to configure the selected table for Stretch Database.
+   En cas de problèmes de blocage, ceux-ci sont répertoriés dans le panneau **Table results** (Résultats de la table) de la table sélectionnée. Pour plus d’informations sur les problèmes de blocage détectés par Stretch Database Advisor, consultez [Limites de Stretch Database](sql-server-stretch-database-limitations.md).
+3. Dans la liste des problèmes de blocage dans le panneau **Table results** (Résultats de la table), sélectionnez l’un des problèmes pour afficher plus d’informations sur celui-ci et les mesures d’atténuation proposées. Implémentez la solution suggérée si vous souhaitez configurer la table sélectionnée pour Stretch Database.
 
-## <a name="next-step"></a>Next step
-Enable Stretch Database.
+## <a name="next-step"></a>Étape suivante
+Activer Stretch Database
 
-* To enable Stretch Database on a **database**, see [Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md).
-* To enable Stretch Database on another **table**, when Stretch is already enabled on the database, see [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md).
+* Pour activer Stretch Database sur une **base de données**, consultez [Activer Stretch Database pour une base de données](sql-server-stretch-database-enable-database.md).
+* Pour activer Stretch Database sur une autre **table**lorsque Stretch est déjà activé sur la base de données, consultez [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md).
 
-## <a name="see-also"></a>See also
-[Limitations for Stretch Database](sql-server-stretch-database-limitations.md)
+## <a name="see-also"></a>Voir aussi
+[Limites de Stretch Database](sql-server-stretch-database-limitations.md)
 
-[Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md)
+[Activer Stretch Database pour une base de données](sql-server-stretch-database-enable-database.md)
 
-[Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md)
+[Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md)
 
-[All topics for Azure SQL Server Stretch Database service](sql-server-stretch-database-index-all-articles.md)
+[Toutes les rubriques pour le service Azure SQL Server Stretch Database](sql-server-stretch-database-index-all-articles.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

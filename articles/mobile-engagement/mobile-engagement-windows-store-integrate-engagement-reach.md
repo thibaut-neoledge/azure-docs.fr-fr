@@ -1,12 +1,12 @@
 ---
-title: Intégration du Kit de développement logiciel du module Couverture des applications Windows Universal
-description: Intégration du module Couverture d’Azure Mobile Engagement avec des applications Windows Universal
+title: "Intégration du Kit de développement logiciel du module Couverture des applications Windows Universal"
+description: "Intégration du module Couverture d’Azure Mobile Engagement avec des applications Windows Universal"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: a31ca1d6-856f-4aec-898a-07969ae5f7ec
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-store
@@ -14,30 +14,34 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8fc1faac88cab0e3d3755fdf16fe3d7188169961
+
 
 ---
-# Intégration du Kit de développement logiciel du module Couverture des applications Windows Universal
-Vous devez suivre la procédure d'intégration décrite dans la rubrique [Intégration du Kit de développement logiciel Windows Universal Engagement](mobile-engagement-windows-store-integrate-engagement.md) avant de suivre ce guide.
+# <a name="windows-universal-apps-reach-sdk-integration"></a>Intégration du Kit de développement logiciel du module Couverture des applications Windows Universal
+Vous devez suivre la procédure d'intégration décrite dans la rubrique [Intégration du Kit de développement logiciel Windows Universal Engagement](mobile-engagement-windows-store-integrate-engagement.md) avant de suivre ce guide.
 
-## Intégration du Kit de développement logiciel (SDK) du module Couverture d’Engagement à votre projet Windows Universal
-Vous n'avez rien à ajouter. Les références et les ressources de `EngagementReach` se trouvent déjà dans votre projet.
+## <a name="embed-the-engagement-reach-sdk-into-your-windows-universal-project"></a>Intégration du Kit de développement logiciel (SDK) du module Couverture d’Engagement à votre projet Windows Universal
+Vous n'avez rien à ajouter. `EngagementReach` se trouvent déjà dans votre projet.
 
 > [!TIP]
 > Vous pouvez personnaliser les images situées dans le dossier `Resources` de votre projet, en particulier l'icône de marque (par défaut, il s'agit de l'icône d'Engagement). Sur les applications Universal, vous pouvez également déplacer le dossier `Resources` sur votre projet partagé pour partager son contenu entre les applications, mais vous devrez conserver le fichier `Resources\EngagementConfiguration.xml` à son emplacement par défaut, car il est dépendant de la plate-forme.
 > 
 > 
 
-## Activer le service de notification Windows
-### Windows 8.x et Windows Phone 8.1 uniquement
+## <a name="enable-the-windows-notification-service"></a>Activer le service de notification Windows
+### <a name="windows-8x-and-windows-phone-81-only"></a>Windows 8.x et Windows Phone 8.1 uniquement
 Pour utiliser le **service de notification Windows** (WNS) dans votre fichier `Package.appxmanifest` sur `Application UI`, cliquez sur `All Image Assets` dans la zone de gauche. À droite de la zone dans `Notifications`, modifiez `toast capable` en remplaçant `(not set)` par `(Yes)`.
 
-### Toutes les plateformes
-Vous devez synchroniser votre application avec votre compte Microsoft et la plateforme Engagement. Pour ce faire, vous devez créer un compte ou vous connecter au [Centre de développement Windows](https://dev.windows.com). Ensuite, créez une application et recherchez le SID et la clé secrète. Sur le serveur frontal Engagement, accédez au paramètre de votre application dans `native push`, puis collez vos informations d'identification. Ensuite, cliquez avec le bouton droit sur votre projet, puis sélectionnez `store` et `Associate App with the Store...`. Vous devez simplement sélectionner l'application créée avant de la synchroniser.
+### <a name="all-platforms"></a>Toutes les plateformes
+Vous devez synchroniser votre application avec votre compte Microsoft et la plateforme Engagement. Pour ce faire, vous devez créer un compte ou vous connecter au [Centre de développement Windows](https://dev.windows.com). Ensuite, créez une application et recherchez le SID et la clé secrète. Sur le serveur frontal Engagement, accédez au paramètre de votre application dans `native push` , puis collez vos informations d'identification. Ensuite, cliquez avec le bouton droit sur votre projet, puis sélectionnez `store` et `Associate App with the Store...`. Vous devez simplement sélectionner l'application créée avant de la synchroniser.
 
-## Initialiser le SDK du module Couverture d'Engagement
-Modifiez le fichier `App.xaml.cs` :
+## <a name="initialize-the-engagement-reach-sdk"></a>Initialiser le SDK du module Couverture d'Engagement
+Modifiez le fichier `App.xaml.cs` :
 
-* Insérez `EngagementReach.Instance.Init` juste après `EngagementAgent.Instance.Init` dans votre méthode `InitEngagement` :
+* Insérez `EngagementReach.Instance.Init` juste après `EngagementAgent.Instance.Init` dans votre méthode `InitEngagement` :
   
       private void InitEngagement(IActivatedEventArgs e)
       {
@@ -52,25 +56,25 @@ Modifiez le fichier `App.xaml.cs` :
 > 
 > 
 
-## Intégration
+## <a name="integration"></a>Intégration
 Engagement fournit deux méthodes pour ajouter des bannières Reach et des vues interstitielles pour les annonces et les sondages dans votre application : l'intégration de superposition et l'intégration manuelle de vues web. Vous ne devriez pas combiner ces deux approches sur la même page.
 
 Le choix entre ces deux intégrations peut se résumer ainsi :
 
 * Vous pouvez choisir l'intégration de superposition si vos pages héritent déjà de l'Agent `EngagementPage` ; il suffit de remplacer `EngagementPage` par `EngagementPageOverlay` et `xmlns:engagement="using:Microsoft.Azure.Engagement"` par `xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"` dans vos pages.
-* Vous pouvez choisir l'intégration manuelle de vues web si vous souhaitez placer avec précision l'interface utilisateur Reach dans vos pages, ou si vous ne voulez pas ajouter un autre niveau d'héritage à vos pages.
+* Vous pouvez choisir l'intégration manuelle de vues web si vous souhaitez placer avec précision l'interface utilisateur Reach dans vos pages, ou si vous ne voulez pas ajouter un autre niveau d'héritage à vos pages. 
 
-### Intégration de superposition
+### <a name="overlay-integration"></a>Intégration de superposition
 La superposition d'Engagement ajoute dynamiquement les éléments de l'interface utilisateur pour afficher des campagnes Reach dans votre page. Si la superposition ne convient pas à votre disposition, vous devriez opter pour l'intégration manuelle des vues web.
 
 Dans votre fichier .xaml, remplacez la référence `EngagementPage` par `EngagementPageOverlay`
 
-* Ajoutez une déclaration d'espace de noms :
+* Ajoutez une déclaration d'espace de noms :
   
       xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
-* Remplacez `engagement:EngagementPage` par `engagement:EngagementPageOverlay` :
+* Remplacez `engagement:EngagementPage` par `engagement:EngagementPageOverlay` :
 
-**Avec EngagementPage :**
+**Avec EngagementPage :**
 
         <engagement:EngagementPage 
             xmlns:engagement="using:Microsoft.Azure.Engagement">
@@ -78,7 +82,7 @@ Dans votre fichier .xaml, remplacez la référence `EngagementPage` par `Engagem
             <!-- Your layout -->
         </engagement:EngagementPage>
 
-**Avec EngagementPageOverlay :**
+**Avec EngagementPageOverlay :**
 
         <engagement:EngagementPageOverlay 
             xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
@@ -90,9 +94,9 @@ Puis, dans le fichier .cs, ajoutez à votre page le mot-clé `EngagementPageOver
 
             using Microsoft.Azure.Engagement.Overlay;
 
-* Remplacez `EngagementPage` par `EngagementPageOverlay` :
+* Remplacez `EngagementPage` par `EngagementPageOverlay` :
 
-**Avec EngagementPage :**
+**Avec EngagementPage :**
 
             using Microsoft.Azure.Engagement;
 
@@ -104,7 +108,7 @@ Puis, dans le fichier .cs, ajoutez à votre page le mot-clé `EngagementPageOver
               }
             }
 
-**Avec EngagementPageOverlay :**
+**Avec EngagementPageOverlay :**
 
             using Microsoft.Azure.Engagement.Overlay;
 
@@ -121,7 +125,7 @@ La superposition Engagement ajoute un élément `Grid` en haut de votre page, co
 
 Vous pouvez personnaliser les éléments de superposition directement dans le fichier `EngagementPageOverlay.cs`.
 
-### Intégration manuelle de vues web
+### <a name="web-views-manual-integration"></a>Intégration manuelle de vues web
 Reach recherchera dans vos pages les deux éléments `WebView` permettant d'afficher la bannière et la vue interstitielle. Il vous suffit donc d'ajouter ces deux éléments `WebView` à vos pages, comme dans cet exemple :
 
     <Grid x:Name="engagementGrid">
@@ -136,12 +140,12 @@ Reach recherchera dans vos pages les deux éléments `WebView` permettant d'affi
 Dans cet exemple, les éléments `WebView` sont étirés pour s'ajuster à leur conteneur, qui les redimensionne automatiquement en cas de rotation de l'écran ou de changement de taille de fenêtre.
 
 > [!WARNING]
-> Il est important de conserver les mêmes noms `engagement_notification_content` et `engagement_announcement_content` pour les éléments `WebView`. Reach les identifie par leur nom.
+> Il est important de conserver les mêmes noms `engagement_notification_content` et `engagement_announcement_content` pour les éléments `WebView`. Reach les identifie par leur nom. 
 > 
 > 
 
-## Gérer les Push de données (facultatif)
-Si vous voulez que votre application puisse recevoir les Push de données du module Couverture, vous devez implémenter deux événements de la classe EngagementReach :
+## <a name="handle-datapush-optional"></a>Gérer les Push de données (facultatif)
+Si vous voulez que votre application puisse recevoir les Push de données du module Couverture, vous devez implémenter deux événements de la classe EngagementReach :
 
 Dans le constructeur App() du fichier App.xaml.cs, ajoutez :
 
@@ -165,13 +169,13 @@ Vous pouvez voir que le rappel de chaque méthode renvoie un booléen. Engagemen
 > 
 > 
 
-## Personnaliser l'interface utilisateur (facultatif)
-### Première étape
+## <a name="customize-ui-optional"></a>Personnaliser l'interface utilisateur (facultatif)
+### <a name="first-step"></a>Première étape
 Il vous est possible de personnaliser l'interface utilisateur du module Couverture.
 
-Pour cela, vous devez créer une sous-classe de la classe `EngagementReachHandler`.
+Pour cela, vous devez créer une sous-classe de la classe `EngagementReachHandler` .
 
-**Exemple de code :**
+**Exemple de code :**
 
             using Microsoft.Azure.Engagement;
 
@@ -185,7 +189,7 @@ Pour cela, vous devez créer une sous-classe de la classe `EngagementReachHandle
 
 Ensuite, définissez le contenu du champ `EngagementReach.Instance.Handler` à l'aide de votre objet personnalisé dans la classe `App.xaml.cs` de la méthode `App()`.
 
-**Exemple de code :**
+**Exemple de code :**
 
             protected override void OnLaunched(LaunchActivatedEventArgs args)
             {
@@ -195,20 +199,21 @@ Ensuite, définissez le contenu du champ `EngagementReach.Instance.Handler` à l
             }
 
 > [!NOTE]
-> Par défaut, Engagement utilise sa propre implémentation de `EngagementReachHandler`. Il n'est pas nécessaire de créer votre propre implémentation. Toutefois, si vous le faites, vous n'aurez pas à remplacer chaque méthode. Le comportement par défaut consiste à sélectionner l'objet de base Engagement.
+> Par défaut, Engagement utilise sa propre implémentation de `EngagementReachHandler`.
+> Il n'est pas nécessaire de créer votre propre implémentation. Toutefois, si vous le faites, vous n'aurez pas à remplacer chaque méthode. Le comportement par défaut consiste à sélectionner l'objet de base Engagement.
 > 
 > 
 
-### Vue web
+### <a name="web-view"></a>Vue web
 Par défaut, le module Couverture utilise les ressources intégrées du DLL pour afficher les notifications et les pages.
 
 Pour une personnalisation maximale, nous utilisons uniquement les vues web. Si vous voulez personnaliser les dispositions, remplacez directement les fichiers de ressources `EngagementAnnouncement.html` et `EngagementNotification.html`. Engagement a besoin de tous les codes de `<body></body>` pour être correctement exécuté. Toutefois, vous pouvez ajouter des balises en dehors de `engagement_webview_area`.
 
 Vous pouvez décider d'utiliser vos propres ressources.
 
-Vous pouvez remplacer les méthodes `EngagementReachHandler` de votre sous-classe pour indiquer à Engagement d'utiliser vos dispositions. Veillez, toutefois, à intégrer le mécanisme Engagement :
+Vous pouvez remplacer les méthodes `EngagementReachHandler` de votre sous-classe pour indiquer à Engagement d'utiliser vos dispositions. Veillez, toutefois, à intégrer le mécanisme Engagement :
 
-**Exemple de code :**
+**Exemple de code :**
 
             // In your subclass of EngagementReachHandler
 
@@ -230,25 +235,25 @@ Vous pouvez remplacer les méthodes `EngagementReachHandler` de votre sous-class
             }
 
 
-Par défaut, AnnouncementHTML est `ms-appx-web:///Resources/EngagementAnnouncement.html`. Il correspond au fichier HTML qui conçoit le contenu du message Push (annonce texte, annonce web et annonce de sondage). AnnouncementName est `engagement_announcement_content`. Il s'agit du nom de la conception de vue web de la page XAML.
+Par défaut, AnnouncementHTML est `ms-appx-web:///Resources/EngagementAnnouncement.html`. Il correspond au fichier HTML qui conçoit le contenu du message Push (annonce texte, annonce web et annonce de sondage). AnnouncementName est `engagement_announcement_content`. Il s'agit du nom de la conception de vue web de la page XAML.
 
-NotificationHTML est `ms-appx-web:///Resources/EngagementNotification.html`. Il s'agit du fichier HTML qui conçoit la notification d'un message Push. NotificationName est `engagement_notification_content`. Il s'agit du nom de la conception de vue web de la page XAML.
+NotificationHTML est `ms-appx-web:///Resources/EngagementNotification.html`. Il s'agit du fichier HTML qui conçoit la notification d'un message Push. NotificationName est `engagement_notification_content`. Il s'agit du nom de la conception de vue web de la page XAML.
 
-### Personnalisation
-Vous pouvez personnaliser comme bon vous semble les vues web des notifications et des annonces, du moment que vous conservez l'objet Engagement. Veillez à décrire l'objet webview trois fois. La première fois dans le fichier .xaml, la deuxième fois dans la méthode « setwebview() » du fichier .cs, et la troisième fois dans le fichier .html.
+### <a name="customization"></a>Personnalisation
+Vous pouvez personnaliser comme bon vous semble les vues web des notifications et des annonces, du moment que vous conservez l'objet Engagement. Veillez à décrire l'objet webview trois fois. La première fois dans le fichier .xaml, la deuxième fois dans la méthode « setwebview() » du fichier .cs, et la troisième fois dans le fichier .html.
 
-* Dans le fichier .xaml, vous décrivez le composant webview de disposition graphique.
-* Dans le fichier .cs, vous pouvez définir "setwebview()" où vous pourrez définir la dimension des deux vues web (notification, annonce). C'est très efficace quand l'application est redimensionnée.
+* Dans le fichier .xaml, vous décrivez le composant webview de disposition graphique.
+* Dans le fichier .cs, vous pouvez définir "setwebview()" où vous pourrez définir la dimension des deux vues web (notification, annonce). C'est très efficace quand l'application est redimensionnée.
 * Dans le fichier .html Engagement, nous décrivons le contenu de la vue web, sa conception et la position des éléments les uns par rapport aux autres.
 
-### Lancer un message
+### <a name="launch-message"></a>Lancer un message
 Quand un utilisateur clique sur une notification système (un toast), Engagement lance l'application, charge le contenu des messages Push et affiche la page de la campagne correspondante.
 
 Il y a un délai entre le lancement de l'application et l'affichage de la page (qui dépend de la vitesse de votre réseau).
 
 Pour indiquer à l'utilisateur qu'un chargement est en cours, vous devez fournir une indication visuelle, telle qu'une barre ou un indicateur de progression. Engagement ne peut pas gérer cela lui-même. Toutefois, il fournit plusieurs gestionnaires à cet effet.
 
-Pour implémenter le rappel, dans le fichier App.xaml.cs, dans "Public App(){}", ajoutez ce qui suit :
+Pour implémenter le rappel, dans le fichier App.xaml.cs, dans "Public App(){}", ajoutez ce qui suit :
 
             /* The application has launched and the content is loading.
              * You should display an indicator here.
@@ -267,19 +272,19 @@ Pour implémenter le rappel, dans le fichier App.xaml.cs, dans "Public App(){}",
              */
             EngagementReach.Instance.RetrieveLaunchMessageFailed += () => { [...] };
 
-Vous pouvez définir le rappel dans la méthode « Public App(){} » du fichier `App.xaml.cs`, de préférence avant l'appel `EngagementReach.Instance.Init()`.
+Vous pouvez définir le rappel dans la méthode « Public App(){} » du fichier `App.xaml.cs`, de préférence avant l'appel `EngagementReach.Instance.Init()`.
 
 > [!TIP]
 > Chaque gestionnaire est appelé par le thread d'interface utilisateur. Vous n'avez pas de souci à vous faire quand vous utilisez un MessageBox ou autre objet d'interface utilisateur.
 > 
 > 
 
-## <a id="push-channel-sharing"></a> Partage de canal Push
+## <a name="a-idpush-channel-sharinga-push-channel-sharing"></a><a id="push-channel-sharing"></a> Partage de canal Push
 Si vous utilisez des notifications Push à d'autres fins dans votre application, alors vous devez utiliser la fonctionnalité de partage de canal Push du Kit de développement logiciel (SDK) Engagement. Cela évite les notifications Push manquées.
 
 * Vous pouvez fournir votre propre canal Push à l'initialisation d'Engagement Reach. Le Kit de développement logiciel (SDK) l'utilisera au lieu d'en demander un nouveau.
 
-Mettez à jour l'initialisation d'Engagement Reach avec votre canal Push dans la méthode `InitEngagement` à partir du fichier `App.xaml.cs` :
+Mettez à jour l'initialisation d'Engagement Reach avec votre canal Push dans la méthode `InitEngagement` à partir du fichier `App.xaml.cs` :
 
     /* Your own push channel logic... */
     var pushChannel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
@@ -290,7 +295,7 @@ Mettez à jour l'initialisation d'Engagement Reach avec votre canal Push dans la
 
 * Si vous souhaitez simplement utiliser le canal Push après l'initialisation Reach, vous pouvez également définir un rappel sur Engagement Reach pour récupérer le canal Push une fois celui-ci créé par le Kit de développement logiciel (SDK).
 
-Définissez le rappel en tout lieu **après** l'initialisation Reach :
+Définissez le rappel en tout lieu **après** l'initialisation Reach :
 
     /* Set action on the SDK push channel. */
     EngagementReach.Instance.SetActionOnPushChannel((PushNotificationChannel channel) => 
@@ -302,12 +307,12 @@ Définissez le rappel en tout lieu **après** l'initialisation Reach :
       });
     }
 
-## Astuce concernant les schémas personnalisés
+## <a name="custom-scheme-tip"></a>Astuce concernant les schémas personnalisés
 Il est possible d'utiliser des schémas personnalisés. Vous pouvez envoyer un autre type d'URI depuis le serveur frontal Engagement, destiné à être utilisé dans l'application Engagement. Les schémas par défaut comme `http, ftp, ...` sont gérés par Windows. Une fenêtre vous informera si aucune application par défaut n'est installée sur l'appareil. Vous pouvez également créer un schéma personnalisé pour votre application.
 
 Le moyen le plus simple de définir un schéma personnalisé dans votre application est d'ouvrir `Package.appxmanifest` et d'accéder au panneau `Declarations`. Sélectionnez `Protocol` dans la case de défilement Déclarations disponibles, puis ajoutez-le. Remplacez le contenu du champ `Name` par le nom du nouveau protocole.
 
-Pour utiliser ce protocole, modifiez `App.xaml.cs` à l'aide de la méthode `OnActivated`, et n'oubliez pas d'initialiser Engagement ici également :
+Pour utiliser ce protocole, modifiez `App.xaml.cs` à l'aide de la méthode `OnActivated`, et n'oubliez pas d'initialiser Engagement ici également :
 
             /// <summary>
             /// Enter point when app his called by another way than user click
@@ -334,4 +339,8 @@ Pour utiliser ce protocole, modifiez `App.xaml.cs` à l'aide de la méthode `OnA
               #endregion
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

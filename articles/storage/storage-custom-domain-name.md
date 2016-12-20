@@ -1,12 +1,12 @@
 ---
 title: Configurer un nom de domaine pour un point de terminaison Blob Storage | Microsoft Docs
-description: Découvrez comment mapper un domaine d’utilisateur personnalisé au point de terminaison Blob Storage pour un compte Azure Storage dans le Portail Azure Classic.
+description: "Découvrez comment mapper un domaine d’utilisateur personnalisé au point de terminaison Blob Storage pour un compte Azure Storage dans le Portail Azure Classic."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: aaafd8c5-eacb-49dc-8c8b-3f7011ad5e92
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9e81c98e0da32e0ac432a1a4bae0fb771e35cff7
+
 
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Configurer un nom de domaine personnalisé pour un point de terminaison Blob Storage
@@ -42,7 +46,7 @@ Cette procédure permet d’enregistrer un domaine personnalisé si vous n’êt
 
 Si votre domaine personnalisé prend en charge une application qui ne peut supporter une interruption de service, utilisez la procédure décrite à la rubrique <a href="#register-a-custom-domain-for-your-storage-account-using-the-intermediary-asverify-subdomain">Enregistrement d’un domaine personnalisé pour votre compte de stockage à l’aide du sous-domaine intermédiaire asverify</a>.
 
-Pour configurer un nom de domaine personnalisé, vous devez créer un enregistrement CNAME auprès de votre bureau d’enregistrement de domaine. L’enregistrement CNAME spécifie un alias pour un nom de domaine ; dans ce cas, il mappe l’adresse de votre domaine personnalisé au point de terminaison Blob Storage de votre compte de stockage.
+Pour configurer un nom de domaine personnalisé, vous devez créer un enregistrement CNAME auprès de votre bureau d’enregistrement de domaine. L’enregistrement CNAME spécifie un alias pour un nom de domaine ; dans ce cas, il mappe l’adresse de votre domaine personnalisé au point de terminaison Blob Storage de votre compte de stockage.
 
 Chaque bureau d'enregistrement possède sa propre méthode de spécification des enregistrements CNAME, même si le fonctionnement général reste souvent similaire. Notez que de nombreuses formules de base pour l'enregistrement de domaine n'offrent pas la configuration DNS. Avant de pouvoir créer l'enregistrement CNAME, vous devrez peut-être mettre à niveau votre formule d'enregistrement de domaine.
 
@@ -71,17 +75,17 @@ Le sous-domaine asverify est un sous-domaine spécial reconnu par Azure. En ajou
 6. Recherchez la section relative à la gestion des enregistrements CNAME. Pour cela, accédez à une page de paramètres avancés et recherchez les mots **CNAME**, **Alias** ou **Sous-domaines**.
 7. Créez un enregistrement CNAME et indiquez un alias de sous-domaine qui inclut le sous-domaine asverify. Par exemple, le sous-domaine que vous spécifiez sera au format **asverify.www** ou **asverify.photos**. Indiquez ensuite un nom d’hôte, à savoir votre point de terminaison de service BLOB, au format **asverify.mystorageaccount.blob.core.windows.net** (où **mystorageaccount** correspond au nom de votre compte de stockage). Le nom d'hôte à utiliser est indiqué dans le texte de la boîte de dialogue **Manage Custom Domain** .
 8. Après avoir créé un enregistrement CNAME, retournez dans la boîte de dialogue **Gérer un domaine personnalisé** et entrez le nom de votre domaine personnalisé dans le champ **Nom du domaine personnalisé**. Par exemple, si votre domaine est **contoso.com** et votre sous-domaine **www**, entrez **www.contoso.com** ; si votre sous-domaine est **photos**, entrez **photos.contoso.com**. Notez que le sous-domaine est obligatoire.
-9. Cochez la case **Avancé : utilisez le sous-domaine Microsoft Azure ’asverify’ pour préenregistrer votre domaine personnalisé**.
+9. Cochez la case **Avancé : utilisez le sous-domaine Microsoft Azure ’asverify’ pour préenregistrer votre domaine personnalisé**.
 10. Cliquez sur le bouton **Register** pour pré-enregistrer votre domaine personnalisé.
     
     Si le pré-enregistrement est réussi, le message **Your custom domain is active**apparaît.
-11. À ce stade, votre domaine personnalisé a été vérifié par Azure, mais le trafic en direction de votre domaine n'est pas encore dirigé vers votre compte de stockage. Pour terminer le processus, retournez sur le site web du bureau d’enregistrement de votre DNS et créez un autre enregistrement CNAME qui mappe votre sous-domaine à votre point de terminaison de service BLOB. Par exemple, spécifiez le sous-domaine sous la forme **www** ou **photos** et le nom d’hôte sous la forme **mystorageaccount.blob.core.windows.net** (où **mystorageaccount** correspond au nom de votre compte de stockage). Cette étape marque la fin de l'enregistrement de votre domaine personnalisé.
+11. À ce stade, votre domaine personnalisé a été vérifié par Azure, mais le trafic en direction de votre domaine n'est pas encore dirigé vers votre compte de stockage. Pour terminer le processus, retournez sur le site web du bureau d’enregistrement de votre DNS et créez un autre enregistrement CNAME qui mappe votre sous-domaine à votre point de terminaison de service BLOB. Par exemple, spécifiez le sous-domaine sous la forme **www** ou **photos** et le nom d’hôte sous la forme **mystorageaccount.blob.core.windows.net** (où **mystorageaccount** correspond au nom de votre compte de stockage). Cette étape marque la fin de l'enregistrement de votre domaine personnalisé.
 12. Pour finir, vous pouvez supprimer l'enregistrement CNAME que vous avez créé à l'aide du sous-domaine **asverify**, car il n'a plus d'utilité.
 
 Les utilisateurs peuvent désormais afficher les données d’objet blob sur votre domaine personnalisé, à condition de disposer des autorisations nécessaires.
 
 ## <a name="verify-that-the-custom-domain-references-your-blob-service-endpoint"></a>vérifier que le domaine personnalisé pointe vers le point de terminaison du service BLOB.
-Pour vérifier que votre domaine personnalisé est correctement mappé à votre point de terminaison de service BLOB, créez un objet blob dans un conteneur public au sein de votre compte de stockage. Dans un navigateur Web, utilisez un URI pour accéder à l’objet blob :
+Pour vérifier que votre domaine personnalisé est correctement mappé à votre point de terminaison de service BLOB, créez un objet blob dans un conteneur public au sein de votre compte de stockage. Dans un navigateur Web, utilisez un URI pour accéder à l’objet blob :
 
 * http://<*subdomain.customdomain*>/<*mycontainer*>/<*myblob*>
 
@@ -101,6 +105,9 @@ Pour annuler l’inscription d’un domaine personnalisé, procédez comme suit 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Comment mapper un domaine personnalisé à un point de terminaison de réseau de distribution de contenu (CDN)](../cdn/cdn-map-content-to-custom-domain.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
