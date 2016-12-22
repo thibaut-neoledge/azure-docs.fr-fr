@@ -11,20 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/07/2016
+ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: b70c8baab03703bc00b75c2c611f69e3b71d6cd7
-ms.openlocfilehash: d3478ef704c0029f69cca141bd3fa0b3ac54de15
+ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
+ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
 
 
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Analyse de la disponibilité et de la réactivité d'un site Web
-Après avoir déployé votre application web ou votre site web sur un serveur, vous pouvez configurer des tests web pour surveiller sa disponibilité et sa réactivité. [Visual Studio Application Insights](app-insights-overview.md) envoie des requêtes web à votre application à intervalles réguliers à partir de différents points du monde, et vous alerte si votre application réagit lentement ou pas du tout.
+Après avoir déployé votre application web ou votre site web sur un serveur, vous pouvez configurer des tests web pour surveiller sa disponibilité et sa réactivité. [Azure Application Insights](app-insights-overview.md) envoie des requêtes web à votre application à intervalles réguliers à partir de différents points du monde, et vous alerte si votre application réagit lentement ou pas du tout.
 
 ![Exemple de test web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
-Vous pouvez configurer des tests web pour n'importe quel point de terminaison HTTP ou HTTPS accessible à partir du réseau Internet public.
+Vous pouvez configurer des tests web pour n'importe quel point de terminaison HTTP ou HTTPS accessible à partir du réseau Internet public. Vous n’avez rien à ajouter au site web que vous testez. Il ne faut pas nécessairement qu’il s’agisse de votre site : vous pouvez tester un service API REST dont vous dépendez.
 
 Il existe deux types de tests web :
 
@@ -34,7 +34,7 @@ Il existe deux types de tests web :
 Vous pouvez créer jusqu’à 10 tests web par ressource d’application.
 
 ## <a name="a-namecreatea1-create-a-resource-for-your-test-reports"></a><a name="create"></a>1. Créer une ressource pour vos rapports de test
-Ignorez cette étape si vous avez déjà [configuré une ressource Application Insights] [start] pour cette application et que vous souhaitez afficher les rapports de disponibilité au même endroit.
+Ignorez cette étape si vous avez déjà [configuré une ressource Application Insights][start] pour cette application et que vous souhaitez visualiser les rapports de disponibilité au même emplacement.
 
 Inscrivez-vous à [Microsoft Azure](http://azure.com), accédez au [portail Azure](https://portal.azure.com), et créez une ressource Application Insights.
 
@@ -58,7 +58,7 @@ Dans votre ressource Application Insights, recherchez la vignette de disponibili
 
     **Réponse HTTP**: le code d’état retourné est comptabilisé comme un succès. 200 est le code qui indique qu’une page web normale a été retournée.
 
-    **Correspondance de contenu**: une chaîne telle que « Bienvenue ! » Nous vérifions qu’elle est présente dans chaque réponse. Il doit s'agir d'une chaîne standard sans caractère générique. N'oubliez pas que si votre contenu change, vous devrez peut-être l'actualiser.
+    **Correspondance de contenu**: une chaîne telle que « Bienvenue ! Nous vérifions qu’une correspondance exacte respectant la casse est présente dans chaque réponse. Il doit s'agir d'une chaîne standard sans caractère générique. N'oubliez pas que si votre contenu change, vous devrez peut-être l'actualiser.
 * Des **alertes** vous sont envoyées par défaut, en cas de défaillance dans trois emplacements en cinq minutes. Une défaillance dans un emplacement est susceptible d’être un problème réseau et non un problème relatif à votre site. Cependant, vous pouvez modifier le seuil de manière à ce qu’il soit plus ou moins sensible. Vous pouvez également modifier les destinataires des courriers électroniques.
 
     Vous pouvez configurer un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) qui est appelé lorsqu’une alerte est déclenchée. (Mais notez qu’à l’heure actuelle, les paramètres de requête ne sont pas transmis en tant que propriétés.)
@@ -102,8 +102,20 @@ Vous pouvez aussi télécharger le fichier de résultats et l’examiner dans Vi
 
 *Le résultat semble correct, mais une erreur est signalée ?*  Vérifiez toutes les images, les scripts, les feuilles de style et tout autre fichier chargé par la page. Si l’un d’eux échoue, le test signale une erreur, même si la page html principale se charge correctement.
 
-## <a name="multistep-web-tests"></a>Tests web à plusieurs étapes
+### <a name="open-the-server-request-and-exceptions"></a>Ouvrir la demande et les exceptions du serveur
+
+À partir des propriétés détaillées d’un test particulier, vous pouvez ouvrir le rapport côté serveur de la demande et tous les autres événements tels que les exceptions.
+
+![Webtest run result](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
+
+Si vous ne voyez pas d’éléments associés, cela peut signifier que [l’échantillonnage](app-insights-sampling.md) est en cours de fonctionnement.
+
+## <a name="multi-step-web-tests"></a>Tests web à plusieurs étapes
 Vous pouvez analyser un scénario qui implique une séquence d'URL. Par exemple, si vous analysez un site Web commercial, vous pouvez vérifier que l’ajout d’articles au panier d’achat fonctionne correctement.
+
+> [!NOTE] 
+> Les tests web à plusieurs étapes ont un coût. [Mécanisme de tarification](http://azure.microsoft.com/pricing/details/application-insights/).
+> 
 
 Pour créer un test à plusieurs étapes, vous enregistrez le scénario à l'aide de Visual Studio et téléchargez ensuite l'enregistrement dans Application Insights. Application Insights relit le scénario à intervalles réguliers et vérifie les réponses.
 
@@ -153,7 +165,7 @@ N’oubliez pas que toutes les ressources d’une page doivent se charger correc
 
 Notez que le test web doit être entièrement contenu dans le fichier .webtest : vous ne pouvez pas utiliser de fonctions codées dans le test.
 
-### <a name="plugging-time-and-random-numbers-into-your-multistep-test"></a>Ajout de plug-ins de temps et de nombres aléatoires à votre test à plusieurs étapes
+### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Ajout de plug-ins de temps et de nombres aléatoires à votre test à plusieurs étapes
 Supposons que vous testiez un outil qui obtient des données temporelles, telles que des actions à partir d’un flux externe. Lorsque vous enregistrez votre test web, vous devez utiliser des heures spécifiques, mais vous les définissez en tant que paramètres de test, à savoir StartTime et EndTime.
 
 ![Un test web avec des paramètres.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
@@ -176,7 +188,7 @@ Les plug-ins de test web vous permettent de paramétrer les heures.
 
 Maintenant, téléchargez votre test sur le portail. Il utilise les valeurs dynamiques à chaque exécution du test.
 
-## <a name="dealing-with-signin"></a>Gestion de la connexion
+## <a name="dealing-with-sign-in"></a>Gestion de la connexion
 Si vos utilisateurs se connectent à votre application, vous disposez de différentes options pour simuler la connexion et tester les pages suivant la connexion. L’approche que vous utilisez dépend du type de sécurité fourni par l’application.
 
 Dans tous les cas, vous devez créer un compte dans votre application uniquement à des fins de test. Si possible, limitez les autorisations de ce compte de test afin que les tests web n’affectent aucunement les utilisateurs réels.
@@ -267,7 +279,7 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 >
 
 ## <a name="a-namenextanext-steps"></a><a name="next"></a>Étapes suivantes
-[Recherche dans les journaux de diagnostic][diagnostic]
+[Recherche des journaux de diagnostic][diagnostic]
 
 [Résolution des problèmes][qna]
 
@@ -282,6 +294,6 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

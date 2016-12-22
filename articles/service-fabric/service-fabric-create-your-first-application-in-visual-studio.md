@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/26/2016
+ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: e8b2379c750047bf2a4c7342815b5c3aab3883c6
-ms.openlocfilehash: a101ad134e15a0da5e6d3fd5cbf4ca051da34e86
+ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
+ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
 
 
 ---
@@ -41,7 +41,7 @@ La vidéo suivante vous guide à travers les étapes de ce didacticiel :
 > 
 
 ## <a name="create-the-application"></a>Création de l'application
-Une application Service Fabric peut contenir un ou plusieurs services, chacun ayant un rôle précis pour la fourniture de la fonctionnalité d’application. Avec l’Assistant Nouveau projet, vous avez la possibilité de créer un projet d’application avec votre premier projet de service. Vous pouvez ajouter davantage de services plus tard.
+Une application Service Fabric peut contenir un ou plusieurs services, chacun ayant un rôle précis pour la fourniture de la fonctionnalité d’application. Créez un projet d’application, en même temps que votre premier projet de service, à l’aide de l’Assistant Nouveau projet. Vous pourrez également ajouter d’autres services par la suite si vous le souhaitez.
 
 1. Lancez Visual Studio en tant qu'administrateur.
 2. Cliquez sur **Fichier > Nouveau projet > Cloud > Application Service Fabric**.
@@ -91,7 +91,7 @@ Maintenant que vous disposez d’une application, essayez de l’exécuter.
    
     ![Détails de l’Observateur d’événements de diagnostic][6]
    
-    Le cluster local contient cinq nœuds hébergés sur un seul ordinateur. Il simule un cluster à cinq nœuds dans lequel les nœuds sont hébergés sur des machines distinctes. Examinons un des nœuds du cluster local pour simuler la perte d’un ordinateur tout en testant le débogueur Visual Studio.
+    Le cluster local contient cinq nœuds hébergés sur un seul ordinateur. Il simule un cluster à cinq nœuds dans lequel les nœuds sont hébergés sur des machines distinctes. Pour simuler la perte d’une machine tout en testant le débogueur Visual Studio, examinons l’un des nœuds du cluster local.
    
    > [!NOTE]
    > Les événements de diagnostic d’application émis par le modèle de projet utilisent la classe `ServiceEventSource` incluse. Pour plus d’informations, consultez l’article [Surveiller et diagnostiquer les services localement](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
@@ -100,13 +100,13 @@ Maintenant que vous disposez d’une application, essayez de l’exécuter.
 4. Recherchez dans votre projet de service la classe qui dérive de StatefulService (par exemple, MyStatefulService) et définissez un point d’arrêt sur la première ligne de la méthode `RunAsync` .
    
     ![Point d’arrêt dans la méthode RunAsync de service avec état][7]
-5. Cliquez avec le bouton droit sur l’application de barre d’état système du gestionnaire du cluster local et choisissez **Gérer le cluster Local** pour lancer Service Fabric Explorer.
+5. Pour lancer Service Fabric Explorer, cliquez avec le bouton droit sur l’application du gestionnaire du cluster local dans la zone de notification, puis choisissez **Gérer le cluster local**.
    
     ![Lancer l’Explorateur de Fabric Service à partir du Gestionnaire de cluster Local.][systray-launch-sfx]
    
     Service Fabric Explorer offre une représentation visuelle de cluster, notamment l’ensemble des applications et le jeu de nœuds physiques qui le composent. Pour en savoir plus sur Service Fabric Explorer, voir [Visualisation de votre cluster](service-fabric-visualizing-your-cluster.md).
 6. Dans le volet de gauche, développez **Cluster > Nœuds** et recherchez le nœud sur lequel votre code s’exécute.
-7. Cliquez sur **Actions > Désactiver (Redémarrer)** pour simuler le redémarrage de l’ordinateur. (Notez que vous pouvez également procéder à la désactivation depuis le menu contextuel de la vue Liste de nœuds du volet gauche.)
+7. Cliquez sur **Actions > Désactiver (Redémarrer)** pour simuler le redémarrage de l’ordinateur. Une autre possibilité consiste à désactiver le nœud dans la vue Liste de nœuds du volet gauche.
    
     ![Arrêter un nœud Service Fabric Explorer][sfx-stop-node]
    
@@ -116,14 +116,14 @@ Maintenant que vous disposez d’une application, essayez de l’exécuter.
     ![Observateur d’événements de diagnostic après basculement][diagnostic-events-viewer-detail-post-failover]
 
 ## <a name="switch-cluster-mode"></a>Changer de mode de cluster
-Par défaut, le cluster de développement local est configuré pour s’exécuter en tant que cluster à 5 nœuds, ce qui s’avère utile pour déboguer les services déployés sur plusieurs nœuds. Cependant, le déploiement d’une application sur le cluster de développement à 5 nœuds peut prendre un certain temps. Si vous souhaitez itérer des modifications de code rapidement, sans exécuter votre application sur 5 nœuds, vous pouvez basculer le cluster de développement sur le mode 1 nœud. Pour exécuter votre code sur un cluster à un nœud, cliquez avec le bouton droit sur le gestionnaire de cluster local dans la barre d’état système, puis sélectionnez **Switch Cluster Mode -> 1 Node** (Changer de mode de cluster -> 1 nœud).  
+Par défaut, le cluster de développement local est configuré pour s’exécuter en tant que cluster à cinq nœuds, ce qui se révèle utile pour déboguer les services déployés sur plusieurs nœuds. Toutefois, le déploiement d’une application sur le cluster de développement à cinq nœuds peut prendre un certain temps. Si vous souhaitez itérer des modifications de code rapidement, sans exécuter votre application sur cinq nœuds, basculez le cluster de développement en mode un nœud. Pour exécuter votre code sur un cluster à un nœud, cliquez avec le bouton droit sur le gestionnaire de cluster local dans la barre d’état système, puis sélectionnez **Switch Cluster Mode -> 1 Node** (Changer de mode de cluster -> 1 nœud).  
 
 ![Changer de mode de cluster][switch-cluster-mode]
 
-Lorsque vous changez de mode de cluster, le cluster de développement redémarre et toutes les applications approvisionnées ou en cours d’exécution sur le cluster sont supprimées.
+Lorsque vous changez de mode de cluster, le cluster de développement se réinitialise, et toutes les applications approvisionnées ou en cours d’exécution sur le cluster sont supprimées.
 
 ## <a name="cleaning-up"></a>Nettoyage
-  Avant de conclure, il est important de se rappeler que le cluster local est très réel. L’arrêt du débogueur supprime votre instance d’application et annule l’inscription du type d’application. Toutefois, le cluster continue de s’exécuter en arrière-plan. Vous disposez de plusieurs options pour gérer le cluster :
+Avant de conclure, il est important de se rappeler que le cluster local est réel. L’arrêt du débogueur supprime votre instance d’application et annule l’inscription du type d’application. Toutefois, le cluster continue de s’exécuter en arrière-plan. Vous disposez de plusieurs options pour gérer le cluster :
 
 1. Pour arrêter le cluster tout en conservant les données et les traces de l’application, cliquez sur **Arrêter le cluster local** dans l’application de zone de notification.
 2. Pour supprimer complètement le cluster, cliquez sur **Supprimer le cluster local** dans l’application de zone de notification. Cette option se traduira par un autre déploiement lent la prochaine fois que vous appuierez sur F5 dans Visual Studio. Supprimez le cluster uniquement si vous n’envisagez pas d’utiliser le cluster local pendant un certain temps ou si vous avez besoin de libérer des ressources.
@@ -131,8 +131,9 @@ Lorsque vous changez de mode de cluster, le cluster de développement redémarre
 ## <a name="next-steps"></a>Étapes suivantes
 * Apprenez à créer un [cluster dans Azure](service-fabric-cluster-creation-via-portal.md) ou un [cluster autonome sur Windows](service-fabric-cluster-creation-for-windows-server.md).
 * Essayez de créer un service en utilisant les modèles de programmation [Reliable Services](service-fabric-reliable-services-quick-start.md) ou [Reliable Actors](service-fabric-reliable-actors-get-started.md).
-* Découvrez comment exposer vos services sur Internet avec un [service web frontal](service-fabric-add-a-web-frontend.md).
+* Découvrez comment exposer vos services sur Internet avec un [serveur frontal de services web](service-fabric-add-a-web-frontend.md).
 * Suivez des [travaux pratiques](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) afin de créer un service sans état, de configurer des rapports de surveillance et d’intégrité, et d’effectuer une mise à niveau de l’application.
+* En savoir plus sur les [options de prise en charge de Service Fabric](service-fabric-support.md)
 
 <!-- Image References -->
 
@@ -151,6 +152,6 @@ Lorsque vous changez de mode de cluster, le cluster de développement redémarre
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 
