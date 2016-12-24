@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Découvrez comment utiliser Azure StorSimple, une solution de stockage intégrée qui gère les tâches de stockage entre les appareils locaux et le stockage cloud Azure."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 42f5ac0bae68b967378b5e1a090f3b17e4efad20
+ms.sourcegitcommit: 24d70182b209126a71c6a9846136d4d31ab3b7ce
+ms.openlocfilehash: 4eb0e15f1030b4b1e987edc4fc2fa64e302b5851
 
 ---
 #<a name="storsimple-documentation"></a>Documentation StorSimple
 
-StorSimple et Microsoft Azure offrent une solution unique et intégrée d’archivage du stockage principal et de récupération d’urgence à l’aide d’Azure en tant qu’extension du stockage local. Découvrez comment déployer votre solution StorSimple.
+Découvrez comment utiliser Azure StorSimple, une solution de stockage intégrée qui gère les tâches de stockage entre les appareils locaux et le stockage cloud Azure. Les didacticiels et autres documents vous montrent comment configurer la gestion du stockage, les sauvegardes indépendamment de l’emplacement et la récupération d’urgence.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -147,6 +148,6 @@ Télécharger la documentation StorSimple </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

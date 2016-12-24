@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Apprenez à utiliser App Service pour créer des applications web et mobiles pour n’importe quelle plate-forme ou n’importe quel appareil à l’aide de didacticiels, de vidéos, de références d’API et d’autres documents."
 translationtype: Human Translation
-ms.sourcegitcommit: ccb587af34367786ab67c7c614fdae9c0c7ed7a2
-ms.openlocfilehash: 4e95b452ef973fa459daa8e687e5ff759f330019
+ms.sourcegitcommit: e4df0029db106923e3d28f16b3dfe239cae5b032
+ms.openlocfilehash: 42f4121a53432dedf214c45897aa846e0c901a41
 
 ---
 #<a name="app-service-documentation"></a>Documentation App Service
 
-App Service est une offre PaaS (platform-as-a-service) de Microsoft Azure. Créez des applications web et mobiles adaptées à l’ensemble des plateformes et des appareils. Intégrez vos applications avec des solutions SaaS, connectez-vous à des applications locales et automatisez vos processus d’entreprise.
+Apprenez à utiliser App Service pour développer et héberger des applications web et mobiles pour n’importe quelle plate-forme ou n’importe quel appareil à l’aide de didacticiels, de vidéos, de références d’API et d’autres documents. Découvrez comment intégrer vos applications avec des solutions SaaS, vous connecter à des applications locales et automatiser vos processus d’entreprise.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -130,6 +131,6 @@ Télécharger la documentation App Service </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

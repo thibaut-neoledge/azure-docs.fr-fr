@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Découvrez comment configurer la récupération d’urgence cloud et la continuité d’activité pour les serveurs physiques et les machines virtuelles en déployant et en gérant la réplication."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: e13f18042677dd1cea5913d7f6658f0c5d3e1d98
+ms.sourcegitcommit: 13d77644673b86be22bf7be40f77d6ebfb1f8baa
+ms.openlocfilehash: d815422edd036711525d8c2f1eea0348295416d5
 
 ---
 # <a name="site-recovery-documentation"></a>Documentation Site Recovery
 
-Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité d’activité et de récupération d’urgence de votre entreprise en coordonnant la réplication de machines virtuelles et de serveurs physiques locaux. Vous pouvez répliquer des machines virtuelles et des serveurs à partir de votre centre de données local principal vers Azure ou vers un centre de données secondaire. Lorsqu’une interruption se produit dans votre site principal, vous basculez vers le site secondaire pour préserver l’accessibilité et la disponibilité des charges de travail.
+Découvrez comment utiliser Site Recovery pour la stratégie de continuité d’activité et de récupération d’urgence pour les clouds privés. Des didacticiels et d’autres documents vous montrent comment planifier, déployer et gérer l’orchestration de la réplication des machines virtuelles et des serveurs physiques locaux vers le cloud ou un centre de données secondaire.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -89,6 +90,6 @@ Télécharger la documentation Site Recovery </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

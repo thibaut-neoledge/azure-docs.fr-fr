@@ -1,7 +1,7 @@
 # Vue d'ensemble
 ## [Azure et IoT](iot-suite-what-is-azure-iot.md)
-## [Qu’est-ce qu’IoT Suite ?](iot-suite-overview.md)
-## [Que sont les solutions préconfigurées ?](iot-suite-what-are-preconfigured-solutions.md)
+## [Qu’est-ce qu’IoT Suite ?](iot-suite-overview.md)
+## [Que sont les solutions préconfigurées ?](iot-suite-what-are-preconfigured-solutions.md)
 
 
 # Prise en main
@@ -19,6 +19,7 @@
 ## [Connecter une application logique à la solution de surveillance à distance](iot-suite-logic-apps-tutorial.md)
 ## [Personnaliser une solution préconfigurée](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Utiliser la télémétrie dynamique avec la solution de surveillance à distance](iot-suite-dynamic-telemetry.md)
+## [Create a custom rule in the remote monitoring solution](iot-suite-custom-rule.md) (Créer une règle personnalisée dans la solution de surveillance à distance)
 ## [Informations sur l’appareil dans la solution de surveillance à distance](iot-suite-remote-monitoring-device-info.md)
 
 # Référence
@@ -42,6 +43,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

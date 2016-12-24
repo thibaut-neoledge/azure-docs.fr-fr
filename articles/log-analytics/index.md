@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Découvrez comment utiliser Log Analytics pour collecter et analyser les données générées par les ressources dans vos environnements cloud et locaux, quel que soit leur emplacement physique."
 translationtype: Human Translation
-ms.sourcegitcommit: c086dc37b8665017de0dbbad9c7ac82931932a72
-ms.openlocfilehash: bd819da72cbfdd58323321eb41ab28441e043c84
+ms.sourcegitcommit: edbf9890b63219e7d87256be3600a1d41c87e295
+ms.openlocfilehash: 31726ed708006d504eea1e948561c108d39622f2
 
 ---
 
 # <a name="log-analytics-documentation"></a>Documentation Log Analytics
 
-Log Analytics est un service d’Operations Management Suite (OMS) qui vous permet de collecter et d’analyser les données générées par les ressources de votre cloud et de vos environnements locaux. Il vous fournit des informations en temps réel à l’aide d’une recherche intégrée et de tableaux de bord personnalisés permettant d’analyser facilement des millions d’enregistrements dans l’ensemble de vos charges de travail et serveurs, quel que soit leur emplacement physique.
+Découvrez comment utiliser Log Analytics dans Operations Management Suite pour collecter et analyser les données générées par les ressources de vos environnements cloud et locaux. Des didacticiels et d’autres documents vous montrent comment obtenir des informations en temps réel sur les charges de travail et les serveurs, quel que soit leur emplacement physique.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -95,6 +96,6 @@ Télécharger la documentation Log Analytics </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

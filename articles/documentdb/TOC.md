@@ -55,12 +55,15 @@
 ### [Suivre les modifications avec Change Feed](documentdb-change-feed.md)
 ### [Tests de performances](documentdb-performance-testing.md)
 ### [Conseils sur les performances](documentdb-performance-tips.md)
-### DocumentDB pour les développeurs MongoDB
-#### [Prise en charge des protocoles pour MongoDB](documentdb-protocol-mongodb.md)
-#### [Créer un compte](documentdb-create-mongodb-account.md)
-#### [Se connecter à votre compte](documentdb-connect-mongodb-account.md)
-#### [Utiliser MongoChef](documentdb-mongodb-mongochef.md)
-#### [Exemples de prise en charge des protocoles](documentdb-mongodb-samples.md)
+
+## Utilisation de la prise en charge de DocumentDB pour MongoDB
+### [Prise en charge des protocoles pour MongoDB](documentdb-protocol-mongodb.md)
+### [Créer un compte](documentdb-create-mongodb-account.md)
+### [Se connecter à votre compte](documentdb-connect-mongodb-account.md)
+### [Migration de vos données](documentdb-mongodb-migrate.md)
+### [Utiliser Robomongo](documentdb-mongodb-robomongo.md)
+### [Utiliser MongoChef](documentdb-mongodb-mongochef.md)
+### [Exemples de prise en charge des protocoles](documentdb-mongodb-samples.md)
 
 ## Utiliser le portail 
 ### [Création d'un compte de base de données](documentdb-create-account.md)
@@ -117,6 +120,6 @@
 ## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

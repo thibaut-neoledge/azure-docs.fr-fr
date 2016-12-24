@@ -10,11 +10,11 @@
 
 # Prise en main
 ## [Démarrer avec Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Démarrer avec la version préliminaire de Hive interactif](hdinsight-hadoop-use-interactive-hive.md)
 ## [Démarrer avec R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Démarrer avec Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Démarrer avec HBase et NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Démarrer avec Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
+## [Démarrer avec la version préliminaire de Hive interactif](hdinsight-hadoop-use-interactive-hive.md)
 ## [Démarrer avec la version préliminaire de Kafka](hdinsight-apache-kafka-get-started.md)
 ## [Bac à sable (sandbox) Hadoop](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake Tools avec bac à sable (sandbox) Hortonworks](hdinsight-hadoop-emulator-visual-studio.md)
@@ -136,7 +136,7 @@
 #### [Installer des applications HDInsight](hdinsight-apps-install-applications.md)
 #### [Installer des applications personnalisées](hdinsight-apps-install-custom-applications.md)
 #### [Utiliser REST pour installer des applications](https://msdn.microsoft.com/library/mt706515.aspx)
-#### [Publier des applications HDInsight dans la Place de marché Azure](hdinsight-apps-publish-applications.md)
+#### [Publier des applications HDInsight dans le Marketplace Azure](hdinsight-apps-publish-applications.md)
 ## Sécuriser
 ### [Utiliser le tunneling SSH](hdinsight-linux-ambari-ssh-tunnel.md)
 ### [Utiliser SSH à partir de Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -181,12 +181,12 @@
 #### [Performances des requêtes Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Référence
-## [Applets de commande PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.2.0/azurerm.hdinsight)
-## [Kit de développement logiciel (SDK) .NET pour Hadoop](https://msdn.microsoft.com/library/mt271028.aspx)
-## [Kit de développement logiciel (SDK) .NET pour HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/)
-## [Bibliothèque .NET pour Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
-## [Référence d’API REST](/rest/api/hdinsight/)
-## [API REST Spark pour les travaux à distance](/rest/api/hdinsightspark/)
+## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
+## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
+## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+## [REST](/rest/api/hdinsight/)
+## [REST (Spark)](/rest/api/hdinsightspark/)
 
 # Rubriques connexes
 ## Clusters Windows
@@ -224,6 +224,6 @@
 ## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

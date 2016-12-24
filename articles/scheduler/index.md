@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Apprenez à utiliser Scheduler pour planifier et appeler des tâches, notamment des actions d’application récurrentes et des travaux de maintenance courants. Didacticiels, références d’API et autres."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 7ab6ecc4f1193245e9778d8a92bb2a5591edfff5
+ms.sourcegitcommit: ac4d47ff2e86906252ab93407eb6a4112d102523
+ms.openlocfilehash: 0afe27b9b7ec834ab8a2b944a164d31b7708eafe
 
 ---
 # <a name="scheduler-documentation"></a>Documentation Scheduler
 
-Azure Scheduler vous permet de façon déclarative de décrire des actions à exécuter dans le cloud.  Ensuite, il planifie et exécute ces actions automatiquement.  Scheduler conserve un historique consultable des résultats de l’exécution des travaux.
+Découvrez comment utiliser Scheduler pour planifier et appeler automatiquement des tâches récurrentes dans le cloud. Des didacticiels, références d’API et autres documents vous montrent comment planifier et surveiller diverses tâches, telles que des actions d’application récurrentes et des travaux de maintenance courants.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Azure Scheduler vous permet de façon déclarative de décrire des actions à ex
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=scheduler">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=scheduler">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -68,52 +69,33 @@ Azure Scheduler vous permet de façon déclarative de décrire des actions à ex
 
 ---
 
-## <a name="reference"></a>Référence
-
+<h2>Référence</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/en-us/library/mt490138(v=azure.200).aspx">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Applets de commande PowerShell d’Azure Scheduler</p>
+                        <h3>Ligne de commande</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Informations de référence sur l’API managée de Scheduler</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/scheduler/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API REST Scheduler</p>
+                        <p><a href="/rest/api/scheduler">Référence sur les API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/scheduler.pdf">
@@ -124,6 +106,7 @@ Télécharger la documentation Scheduler </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

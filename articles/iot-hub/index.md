@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Apprenez à utiliser IoT Hub pour connecter, surveiller et contrôler des milliards de ressources IoT (Internet of Things, Internet des objets). Didacticiels, références d’API, vidéos et autres documents."
 translationtype: Human Translation
-ms.sourcegitcommit: 62cc285a4dc0b85f364a6306e3fc4b0727c439db
-ms.openlocfilehash: 4a165d2f3e4447d2490296a76934cba98b9dcd79
+ms.sourcegitcommit: 771a82342a40b62cbb4b31316f08e474a797ff34
+ms.openlocfilehash: 9dd5f81cacf774eff651597e1a4920466e5c6fa3
 
 ---
 #<a name="iot-hub-documentation"></a>Documentation IoT Hub
 
-Azure IoT Hub est un service entièrement géré qui permet des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils IoT et un serveur principal de solution.  Il fournit également une surveillance complète de la connectivité des appareils et comprend des bibliothèques d’appareils pour les langages et plateformes les plus utilisés. 
+Apprenez à utiliser IoT Hub pour connecter, surveiller et contrôler des milliards de ressources IoT (Internet of Things, Internet des objets). Les didacticiels, références d’API, vidéos et autres documents vous aident à déployer une communication fiable et bidirectionnelle entre des appareils IoT et une solution back-end. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -161,6 +162,6 @@ Télécharger la documentation IoT Hub </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

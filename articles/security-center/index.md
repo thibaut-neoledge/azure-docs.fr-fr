@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Découvrez comment configurer la gestion de la surveillance et de la stratégie de sécurité pour les ressources Azure. Didacticiels, référence d’API REST et autres documents."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 8091c1c7cbf6617725bf7620fe0c2232e4e47cec
+ms.sourcegitcommit: 4488a052681c0c146bf6efaf44f8ecebc400fecc
+ms.openlocfilehash: 92eb080a7234cb25a5560127edadfafeafc0253a
 
 ---
 # <a name="security-center-documentation"></a>Documentation Security Center
 
-Le Centre de sécurité vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements Azure, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
+Découvrez comment utiliser le Security Center pour visualiser et contrôler la sécurité de vos ressources Azure.  Les didacticiels, la référence d’API REST et les autres documents vous montrent comment configurer la gestion de la surveillance et de la stratégie de sécurité pour l’utiliser au sein d’un vaste écosystème de solutions de sécurité.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -93,6 +94,7 @@ Télécharger la documentation Security Center </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

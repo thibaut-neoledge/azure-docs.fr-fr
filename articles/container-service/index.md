@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Apprenez à utiliser Container Service pour déployer et gérer des conteneurs d’applications à l’aide de DC/OS, de Docker Swarm ou de Kubernetes. Didacticiels, références d’API et autres."
 translationtype: Human Translation
-ms.sourcegitcommit: 445c13f0ff0106aa1d919be81ca373377464b32a
-ms.openlocfilehash: 5e027ac1a0a9ec4d11c76bbce1e0c944742ffaf9
+ms.sourcegitcommit: aaed834dd697bece735fa9297f0228b75346ffc7
+ms.openlocfilehash: 219dfe4950339d7a68d0a5f06135acb4b247b1fd
 
 ---
 
 # <a name="azure-container-service-documentation"></a>Documentation Azure Container Service
 
-Azure Container Service simplifie la création, la configuration et la gestion d’un cluster de machines virtuelles préconfigurées pour exécuter des applications en conteneur. Container Service utilise une configuration optimisée d’outils de planification et d’orchestration open source courants. Cet environnement vous permet d’exploiter vos compétences existantes ou de faire appel à une large communauté d’experts toujours plus nombreux pour déployer et gérer des applications en conteneur sur Microsoft Azure.
+Découvrez comment utiliser Container Service pour déployer et gérer des conteneurs d’applications entièrement portables. Des didacticiels, des références d’API et d’autres documents vous montrent comment mettre à l’échelle et orchestrer des conteneurs à l’aide de DC/OS, de Docker Swarm ou de Kubernetes.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -100,6 +101,7 @@ Télécharger la documentation Azure Container Service </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 
