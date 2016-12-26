@@ -1,25 +1,29 @@
 ---
 title: Sauvegardes de SQL Data Warehouse | Microsoft Docs
-description: Découvrez les sauvegardes de base de données intégrées de SQL Data Warehouse, qui vous permettent de restaurer un entrepôt de données SQL Azure à un point de restauration ou dans une autre région géographique.
+description: "Découvrez les sauvegardes de base de données intégrées de SQL Data Warehouse, qui vous permettent de restaurer un entrepôt de données SQL Azure à un point de restauration ou dans une autre région géographique."
 services: sql-data-warehouse
-documentationcenter: ''
+documentationcenter: 
 author: lakshmi1812
-manager: barbkess
-editor: monicar
-
+manager: jhubbard
+editor: 
+ms.assetid: b5aff094-05b2-4578-acf3-ec456656febd
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/06/2016
+ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 71f2798871c946b1edce467e1f491e0d62b342c6
+ms.openlocfilehash: fb61dd8b33581740557be6e5902bbe573f11999c
+
 
 ---
 # <a name="sql-data-warehouse-backups"></a>Sauvegardes de SQL Data Warehouse
 SQL Data Warehouse propose des sauvegardes locales et géographiques dans le cadre de ses fonctionnalités de sauvegarde d’entrepôt de données . Celles-ci incluent des captures instantanées Stockage Blob Azure et le stockage géoredondant. Utilisez des sauvegardes d’entrepôt de données pour restaurer votre entrepôt de données à un point de restauration dans la région primaire, ou pour restaurer dans une autre région géographique. Cet article explique les spécificités des sauvegardes dans SQL Data Warehouse.
 
-## <a name="what-is-a-data-warehouse-backup?"></a>Qu’est-ce qu’une sauvegarde d’entrepôt de données ?
+## <a name="what-is-a-data-warehouse-backup"></a>Qu’est-ce qu’une sauvegarde d’entrepôt de données ?
 Une sauvegarde d’entrepôt de données est constituée de données que vous pouvez utiliser pour restaurer un entrepôt de données à un moment donné.  Comme SQL Data Warehouse est un système distribué, une sauvegarde d’entrepôt de données est constituée de nombreux fichiers qui sont stockés dans des objets blob Azure. 
 
 Les sauvegardes de base de données sont une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elles protègent vos données des corruptions et des suppressions accidentelles. Pour plus d’informations, consultez [Vue d’ensemble de la continuité de l’activité](../sql-database/sql-database-business-continuity.md).
@@ -42,7 +46,7 @@ Pour en savoir plus sur :
 ## <a name="geo-redundant-backups"></a>Sauvegardes géoredondantes
 Toutes les 24 heures, SQL Data Warehouse stocke l’entrepôt de données complet dans le stockage Standard. L’entrepôt de données complet est créé de façon à correspondre au moment de la dernière capture instantanée. Le stockage standard appartient à un compte de stockage géoredondant avec un accès en lecture (RA-GRS). La fonctionnalité RA-GRS du service Stockage Microsoft Azure réplique les fichiers de sauvegarde sur un [centre de données associé](../best-practices-availability-paired-regions.md). Cette géoréplication vous garantit de pouvoir restaurer un entrepôt de base de données dans le cas où vous ne pouvez pas accéder aux captures instantanées de votre région primaire. 
 
-Cette fonctionnalité est activée par défaut. Si vous ne voulez pas utiliser des sauvegardes géoredondantes, vous pouvez les refuser. 
+Cette fonctionnalité est activée par défaut. Si vous ne souhaitez pas utiliser des sauvegardes géo-redondantes, vous pouvez vous [désabonner] (https://docs.microsoft.com/powershell/resourcemanager/Azurerm.sql/v2.1.0/Set-AzureRmSqlDatabaseGeoBackupPolicy?redirectedfrom=msdn). 
 
 > [!NOTE]
 > Dans le stockage Azure, le terme *réplication* fait référence à la copie de fichier d’un emplacement à un autre. La *réplication de base de données* de SQL fait référence à la gestion de la synchronisation de plusieurs bases de données secondaires avec une base de données primaire. 
@@ -67,14 +71,14 @@ order by run_id desc;
 
 Si vous avez besoin de conserver une capture instantanée pendant plus de sept jours, vous pouvez restaurer un point de restauration sur un nouvel entrepôt de données. Une fois la restauration terminée, SQL Data Warehouse démarre la création de captures instantanées sur le nouvel entrepôt de données. Si vous n’apportez pas de modifications au nouvel entrepôt de données, les captures instantanées restent vides et par conséquent, le coût de la capture instantanée est minimal. Vous pouvez aussi suspendre la base de données pour éviter que SQL Data Warehouse crée des captures instantanées.
 
-### <a name="what-happens-to-my-backup-retention-while-my-data-warehouse-is-paused?"></a>Que se passe-t-il pour la rétention de mes sauvegardes pendant la mise en suspens de mon entrepôt de données ?
+### <a name="what-happens-to-my-backup-retention-while-my-data-warehouse-is-paused"></a>Que se passe-t-il pour la rétention de mes sauvegardes pendant la mise en suspens de mon entrepôt de données ?
 SQL Data Warehouse ne crée pas de captures instantanées et ne fait pas expirer les captures instantanées pendant la mise en suspens d’un entrepôt de données. L’ancienneté de la capture instantanée ne change pas pendant que l’entrepôt de données est mis en suspens. La rétention des captures instantanées est basée sur le nombre de jours pendant lesquels l’entrepôt de données est en ligne et non pas sur les jours du calendrier.
 
 Par exemple, si une capture instantanée démarre le 1er octobre à 16h00 et que l’entrepôt de données est mis en suspens le 3 octobre à 16h00, l’ancienneté de la capture instantanée est de deux jours. Quand l’entrepôt de données revient en ligne, la capture instantanée a une ancienneté de deux jours. Si l’entrepôt de données est mis en ligne le 5 octobre à 16h00, l’instantané a une ancienneté de deux jours et est conservé pendant encore cinq jours.
 
 Quand l’entrepôt de données revient en ligne, SQL Data Warehouse reprend de nouvelles captures instantanées et fait expirer les captures instantanées quand elles ont plus de sept jours de données.
 
-### <a name="how-long-is-the-retention-period-for-a-dropped-data-warehouse?"></a>Quelle est la durée de la période de rétention pour un entrepôt de données supprimé ?
+### <a name="how-long-is-the-retention-period-for-a-dropped-data-warehouse"></a>Quelle est la durée de la période de rétention pour un entrepôt de données supprimé ?
 Quand un entrepôt de données est supprimé, l’entrepôt de données et les captures instantanées sont enregistrés pour une durée de sept jours, puis ils sont supprimés. Vous pouvez restaurer l’entrepôt de données à un des points de restauration enregistrés.
 
 > [!IMPORTANT]
@@ -112,6 +116,6 @@ La principale utilisation des sauvegardes SQL Data Warehouse est de restaurer l�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

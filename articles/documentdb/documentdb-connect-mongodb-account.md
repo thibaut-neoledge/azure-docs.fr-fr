@@ -1,35 +1,63 @@
 ---
-title: Connexion d’un compte DocumentDB prenant en charge le protocole MongoDB | Microsoft Docs
-description: Découvrez comment vous connecter à un compte DocumentDB prenant en charge le protocole MongoDB (actuellement disponible en version préliminaire). Connectez-vous à l’aide de votre chaîne de connexion MongoDB.
-keywords: chaîne de connexion mongodb
+title: "Chaîne de connexion MongoDB pour le compte DocumentDB | Microsoft Docs"
+description: "Découvrez comment connecter votre application MongoDB à un compte Azure DocumentDB à l’aide d’une chaîne de connexion MongoDB."
+keywords: "chaîne de connexion mongodb"
 services: documentdb
 author: AndrewHoh
 manager: jhubbard
-editor: ''
-documentationcenter: ''
-
+editor: 
+documentationcenter: 
+ms.assetid: e36f7375-9329-403b-afd1-4ab49894f75e
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 11/22/2016
 ms.author: anhoh
+translationtype: Human Translation
+ms.sourcegitcommit: 0e947e0eaa6755f499860d5ce6d8bf354bc7eca4
+ms.openlocfilehash: 35a281cf40cc5bb0a23c17990438ba696b22bc54
+
 
 ---
-# <a name="how-to-connect-to-a-documentdb-account-with-protocol-support-for-mongodb"></a>Connexion d’un compte DocumentDB prenant en charge le protocole MongoDB
-Découvrez comment vous connecter à un compte Azure DocumentDB prenant en charge le protocole MongoDB à l’aide du format d’URI de chaîne de connexion MongoDB standard.  
 
-## <a name="get-the-account's-connection-string-information"></a>Obtenir les informations de chaîne de connexion du compte
-1. Dans une nouvelle fenêtre, connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans la barre de **Navigation de gauche** du panneau Compte, cliquez sur **Chaîne de connexion**. Pour accéder au **Panneau Compte**, dans la barre de lancement, cliquez sur **Plus de services**, cliquez sur **DocumentDB (NoSQL)**, puis sélectionnez le compte DocumentDB prenant en charge le protocole MongoDB.
-   
-    ![Capture d’écran du panneau Tous les paramètres](./media/documentdb-connect-mongodb-account/SettingsBlade.png)
-3. Le panneau **Informations de chaîne de connexion** s’ouvre ; il contient toutes les informations nécessaires pour vous connecter au compte à l’aide d’un pilote MongoDB, y compris une chaîne de connexion préalablement construite.
-   
+# <a name="connect-a-mongodb-app-to-an-documentdb-account-using-a-mongodb-connection-string"></a>Connecter une application MongoDB à un compte DocumentDB à l’aide d’une chaîne de connexion MongoDB
+Découvrez comment connecter votre application MongoDB à un compte Azure DocumentDB à l’aide d’une chaîne de connexion MongoDB. En connectant votre application MongoDB à une base de données Azure DocumentDB, vous pouvez utiliser une base de données DocumentDB comme magasin de données pour votre application MongoDB. 
+
+Ce didacticiel fournit deux façons de récupérer les informations de la chaîne de connexion :
+
+- [La méthode Démarrage rapide](#QuickStartConnection), à utiliser avec les pilotes .NET, Node.js, MongoDB Shell, Java et Python.
+- [La méthode de chaîne de connexion personnalisée](#GetCustomConnection), à utiliser avec d’autres pilotes.
+
+## <a name="prerequisites"></a>Composants requis
+
+- Un compte Azure. Si vous ne possédez pas de compte Azure, vous pouvez créer un [compte Azure gratuit](https://azure.microsoft.com/free/) dès maintenant. 
+- Un compte DocumentDB. Pour obtenir des instructions, consultez [Créer un compte DocumentDB à utiliser avec les applications MongoDB](documentdb-create-mongodb-account.md).
+
+## <a name="a-idquickstartconnectionaget-the-mongodb-connection-string-using-the-quick-start"></a><a id="QuickStartConnection"></a>Obtenir la chaîne de connexion MongoDB à l’aide de Démarrage rapide
+1. Dans un navigateur Internet, connectez-vous au [portail Azure](https://portal.azure.com).
+2. Dans le panneau **NoSQL (DocumentDB)**, sélectionnez le compte DocumentDB avec le protocole de prise en charge pour MongoDB. 
+3. Dans la barre de **navigation de gauche** du panneau Compte, cliquez sur **Démarrage rapide**. 
+4. Choisissez votre plateforme (*Pilote .NET*, *Pilote Node.js*, *Pilote MongoDB*, *Pilote Java*, *Pilote Python*). Si votre pilote ou outil n'est pas répertorié, ne vous inquiétez pas, nous développons en permanence d'autres extraits de code de connexion. Veuillez laisser ci-dessous vos suggestions d'amélioration et consultez la rubrique [Obtenir les informations de chaîne de connexion du compte](#GetCustomConnection) pour apprendre à concevoir votre propre connexion.
+5. Copiez et collez l’extrait de code dans votre application MongoDB, et vous voilà prêt à démarrer.
+
+    ![Capture d'écran du panneau Démarrage rapide](./media/documentdb-connect-mongodb-account/QuickStartBlade.png)
+
+## <a name="a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize"></a><a id="GetCustomConnection"></a> Obtenir la chaîne de connexion MongoDB à personnaliser
+1. Dans un navigateur Internet, connectez-vous au [portail Azure](https://portal.azure.com).
+2. Dans le panneau **NoSQL (DocumentDB)**, sélectionnez le compte DocumentDB avec le protocole de prise en charge pour MongoDB. 
+3. Dans la barre de **navigation de gauche** du panneau Compte, cliquez sur **Chaîne de connexion**. 
+4. Le panneau **Informations de chaîne de connexion** s’ouvre ; il contient toutes les informations nécessaires pour vous connecter au compte à l’aide d’un pilote MongoDB, y compris une chaîne de connexion préalablement construite.
+
     ![Capture d’écran du panneau Chaîne de connexion](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
 
 ## <a name="connection-string-requirements"></a>Exigences relatives à la chaîne de connexion
+> [!Important]
+> DocumentDB obéit à des normes et des exigences strictes en matière de sécurité. Les comptes DocumentDB requièrent une authentification et une communication sécurisée via **SSL**.
+>
+>
+
 Il est important de noter que DocumentDB prend en charge le format d’URI de chaîne de connexion MongoDB standard, sous réserve que quelques exigences spécifiques soient satisfaites : les comptes DocumentDB requièrent une authentification et une communication sécurisée via SSL.  Le format de chaîne de connexion est donc :
 
     mongodb://username:password@host:port/[database]?ssl=true
@@ -50,32 +78,14 @@ Les valeurs de cette chaîne sont disponibles dans le panneau Chaîne de connexi
 
 Par exemple, observez le compte décrit dans les informations de chaîne de connexion ci-dessus.  Exemple de chaîne de connexion valide :
 
-    mongodb://contoso123:<password@contoso123.documents.azure.com:10250/mydatabase?ssl=true
-
-## <a name="connecting-with-the-c#-driver-for-mongodb"></a>Connexion avec le pilote C# pour MongoDB
-Comme nous l’avons déjà mentionné, tous les comptes DocumentDB requièrent une authentification et une communication sécurisée via SSL. Le format URI de chaîne de connexion MongoDB prend en charge un paramètre de chaîne de connexion de type ssl = true ; l’utilisation du pilote C# MongoDB suppose en revanche d’utiliser l’objet MongoClientSettings lors de la création d’un MongoClient.  Au vu des informations de compte ci-dessus, l’extrait de code suivant vous montre comment vous connecter au compte et utiliser la base de données « Tâches ».
-
-            MongoClientSettings settings = new MongoClientSettings();
-            settings.Server = new MongoServerAddress("contoso123.documents.azure.com", 10250);
-            settings.UseSsl = true;
-            settings.SslSettings = new SslSettings();
-            settings.SslSettings.EnabledSslProtocols = SslProtocols.Tls12;
-
-            MongoIdentity identity = new MongoInternalIdentity("Tasks", "contoso123");
-            MongoIdentityEvidence evidence = new PasswordEvidence("<password>");
-
-            settings.Credentials = new List<MongoCredential>()
-            {
-                new MongoCredential("SCRAM-SHA-1", identity, evidence)
-            };
-            MongoClient client = new MongoClient(settings);
-            var database = client.GetDatabase("Tasks",);
-
+    mongodb://contoso123:<password@anhohmongo.documents.azure.com:10250/mydatabase?ssl=true
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Apprenez à [utiliser MongoChef](documentdb-mongodb-mongochef.md) avec un compte DocumentDB prenant en charge le protocole MongoDB.
 * Découvrez des [exemples](documentdb-mongodb-samples.md)de prise en charge du protocole MongoDB dans DocumentDB.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO4-->
 
 

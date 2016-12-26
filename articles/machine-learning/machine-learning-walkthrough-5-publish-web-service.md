@@ -1,12 +1,12 @@
 ---
-title: 'Étape 5 : Déploiement du service web Machine Learning | Microsoft Docs'
-description: 'Étape 5 de la procédure pas à pas de développement d’une solution prédictive : Déploiement d’une expérience prédictive en tant que service web dans Machine Learning Studio.'
+title: "Étape 5 : Déploiement du service web Machine Learning | Microsoft Docs"
+description: "Étape 5 de la procédure pas à pas de développement d’une solution prédictive : Déploiement d’une expérience prédictive en tant que service web dans Machine Learning Studio."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: c7e5bf29aacbcb11bfa1db01738d234ae64b46b2
+ms.openlocfilehash: 141586d880e6a8f069ec26b3279d9787c5e046b4
+
 
 ---
-# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Étape 5 du didacticiel pas à pas : Déploiement du service web Azure Machine Learning
+# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Étape 5 du didacticiel pas à pas : Déploiement du service web Azure Machine Learning
 Voici la cinquième étape de la procédure pas à pas [Développement d’une solution d’analyse prédictive avec Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Créer un espace de travail Machine Learning](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -29,9 +33,9 @@ Voici la cinquième étape de la procédure pas à pas [Développement d’une s
 - - -
 Pour que d’autres personnes puissent utiliser le modèle de prévision que nous avons développé dans cette procédure pas à pas, nous le déployons en tant que service web sur Azure.
 
-Jusqu’à présent, nous avons réalisé l’expérience avec la formation de notre modèle. Mais le service déployé n’effectue plus l’apprentissage ; il produit des prédictions en évaluant l’entrée de l’utilisateur en fonction de notre modèle. Nous allons donc effectuer quelques préparatifs pour convertir cette expérience de ***i*** en expérience ***prédictive***. 
+Jusqu’à présent, nous avons réalisé l’expérience avec la formation de notre modèle. Mais le service déployé n’effectue plus l’apprentissage ; il produit des prédictions en évaluant l’entrée de l’utilisateur en fonction de notre modèle. Nous allons donc effectuer quelques préparatifs pour convertir cette expérience de ***i*** en expérience ***prédictive***. 
 
-Ce processus comprend deux étapes :  
+Ce processus comprend deux étapes :  
 
 1. Convertir l’*expérience de formation* que nous avons créée en *expérience prédictive*.
 2. Déployer l’expérience prédictive sous la forme d’un service web.
@@ -40,7 +44,7 @@ Mais tout d’abord, nous devons réduire un peu cette expérience. Nous disposo
 
 Supposons que nous ayons décidé que le modèle Arbre de décision optimisé est le plus adapté. La première chose à faire est de supprimer le module [Machine à vecteurs de support à deux classes][two-class-support-vector-machine], ainsi que les modules qui ont été utilisés pour sa formation. Vous pouvez d'abord copier l'expérience en cliquant sur **Enregistrer sous** dans la partie inférieure de la zone de dessin.
 
-Nous devons supprimer les modules suivants :  
+Nous devons supprimer les modules suivants :  
 
 * [Machine à vecteurs de support à deux classes][two-class-support-vector-machine]
 * Modules associés [Former le modèle][train-model] et [Noter le modèle][score-model]
@@ -52,7 +56,7 @@ Sélectionnez le module et appuyez sur la touche Suppr, ou cliquez avec le bouto
 À présent, nous sommes prêts à déployer ce modèle en utilisant l’[arbre de décision optimisé à deux classes][two-class-boosted-decision-tree].
 
 ## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Convertir l'expérience de formation en expérience prédictive
-La conversion en expérience prédictive se déroule en trois étapes :
+La conversion en expérience prédictive se déroule en trois étapes :
 
 1. Enregistrer le modèle que nous avons formé, puis remplacer nos modules de formation
 2. Réduire l’expérience en supprimant les modules uniquement nécessaires à l’apprentissage
@@ -60,45 +64,45 @@ La conversion en expérience prédictive se déroule en trois étapes :
 
 Heureusement, vous pouvez accomplir ces trois étapes en cliquant sur **Configurer le service web** dans la partie inférieure de la zone de dessin de l’expérience (sélectionnez l’option **Service web prédictif**).
 
-Lorsque vous cliquez sur **Configurer le service web**, plusieurs choses se produisent :
+Lorsque vous cliquez sur **Configurer le service web**, plusieurs choses se produisent :
 
 * Le modèle formé est enregistré en tant que module **Modèle formé** unique dans la palette de module située à gauche de la zone de dessin de l’expérience (vous pouvez le trouver sous **Modèles formés**).
-* Les modules qui ont été utilisés pour l’apprentissage sont supprimés. Plus précisément :
+* Les modules qui ont été utilisés pour l’apprentissage sont supprimés. Plus précisément :
   * [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree]
   * [Former le modèle][train-model]
   * [Données fractionnées][split]
-  * Le deuxième module [Exécuter le script R][execute-r-script] qui a été utilisé pour les données de test
+  * Le deuxième module [Exécuter le script R][execute-r-script] qui a été utilisé pour les données de test
 * Le modèle formé enregistré est rajouté à l’expérience.
 * Les modules **Entrée du service web** et **Sortie du service web** sont ajoutés.
 
 > [!NOTE]
-> L’expérience a été enregistrée en deux parties, sous des onglets qui ont été ajoutés en haut de la zone de dessin de l’expérience : l’expérience de formation d’origine se trouve sous l’onglet **Expérience de formation**, tandis que l’expérience de prévision qui vient d’être créée se trouve sous **Expérience prédictive**.
+> L’expérience a été enregistrée en deux parties, sous des onglets qui ont été ajoutés en haut de la zone de dessin de l’expérience : l’expérience de formation d’origine se trouve sous l’onglet **Expérience de formation**, tandis que l’expérience de prévision qui vient d’être créée se trouve sous **Expérience prédictive**.
 > 
 > 
 
 Nous devons effectuer une étape supplémentaire avec cette expérience.
-Nous avons ajouté deux modules [Exécuter le script R][execute-r-script] pour fournir une fonction de pondération aux données pour l’apprentissage et le test. Nous n’avons pas besoin de le faire dans le modèle final.
+Nous avons ajouté deux modules [Exécuter le script R][execute-r-script] pour fournir une fonction de pondération aux données pour l’apprentissage et le test. Nous n’avons pas besoin de le faire dans le modèle final.
 
-Machine Learning Studio a supprimé un module [Exécuter le script R][execute-r-script] lors de la suppression du module [Fractionner][split]. Nous pouvons à présent supprimer l’autre et connecter [Éditeur de métadonnées][metadata-editor] directement à [Noter le modèle][score-model].    
+Machine Learning Studio a supprimé un module [Exécuter le script R][execute-r-script] lors de la suppression du module [Fractionner][split]. Nous pouvons à présent supprimer l’autre et connecter [Éditeur de métadonnées][metadata-editor] directement à [Noter le modèle][score-model].    
 
-Notre expérience doit alors ressembler à cela :  
+Notre expérience doit alors ressembler à cela :  
 
 ![Scoring the trained model][4]  
 
 > [!NOTE]
-> Vous vous demandez peut-être pourquoi nous avons laissé le jeu de données Données de carte de crédit allemande UCI dans l’expérience prédictive. Ce service va utiliser les données de l’utilisateur et non le jeu de données d’origine : pourquoi laisser ce dernier dans le modèle ?
+> Vous vous demandez peut-être pourquoi nous avons laissé le jeu de données Données de carte de crédit allemande UCI dans l’expérience prédictive. Ce service va utiliser les données de l’utilisateur et non le jeu de données d’origine : pourquoi laisser ce dernier dans le modèle ?
 > 
 > Il est vrai que ce service n'a pas besoin des données de la carte de crédit d'origine. Mais il a besoin du schéma pour ces données, incluant des informations telles que le nombre de colonnes et lesquelles sont numériques. Ces informations sur le schéma sont indispensables pour interpréter les données de l’utilisateur. Nous laissons ces composants connectés de façon à ce que le module de notation comporte le schéma du jeu de données lorsque le service est en cours d’exécution. Les données ne sont pas utilisées, uniquement le schéma.  
 > 
 > 
 
-Exécutez une dernière fois l’expérience (cliquez sur **Exécuter**). Si vous voulez vérifier que le modèle fonctionne toujours, cliquez sur la sortie du module [Noter le modèle][score-model], puis sélectionnez **Afficher les résultats**. Vous constatez que les données d’origine sont affichées, ainsi que la valeur du risque sur le crédit (« Étiquettes notées ») et la probabilité de la notation (« Probabilités notées »). 
+Exécutez une dernière fois l’expérience (cliquez sur **Exécuter**). Si vous voulez vérifier que le modèle fonctionne toujours, cliquez sur la sortie du module [Noter le modèle][score-model], puis sélectionnez **Afficher les résultats**. Vous constatez que les données d’origine sont affichées, ainsi que la valeur du risque sur le crédit (« Étiquettes notées ») et la probabilité de la notation (« Probabilités notées »). 
 
 ## <a name="deploy-the-web-service"></a>Déployer le service web
 Vous pouvez déployer l’expérience en tant que service web classique ou nouveau service web basé sur Azure Resource Manager.
 
 ### <a name="deploy-as-a-classic-web-service"></a>Déployer comme un service web classique
-Pour déployer un service web classique dérivé de notre expérience, cliquez sur **Déployer le service web** sous la zone de dessin, puis sélectionnez **Déployer le service web [Classic]**. Machine Learning Studio déploie l’expérience en tant que service web et vous amène au tableau de bord associé à ce service web. Dans le tableau de bord, vous pouvez revenir à l’expérience (**Afficher l’instantané** ou **Afficher les dernières**) et exécuter un test simple du service web (voir **Test du service web** ci-dessous). En outre, il contient des informations sur la création d’applications pouvant accéder au service web (l’étape suivante de cette procédure pas à pas aborde ce point plus en détail).
+Pour déployer un service web classique dérivé de notre expérience, cliquez sur **Déployer le service web** sous la zone de dessin, puis sélectionnez **Déployer le service web [Classic]**. Machine Learning Studio déploie l’expérience en tant que service web et vous amène au tableau de bord associé à ce service web. Dans le tableau de bord, vous pouvez revenir à l’expérience (**Afficher l’instantané** ou **Afficher les dernières**) et exécuter un test simple du service web (voir **Test du service web** ci-dessous). En outre, il contient des informations sur la création d’applications pouvant accéder au service web (l’étape suivante de cette procédure pas à pas aborde ce point plus en détail).
 
 ![Tableau de bord du service web][6]
 
@@ -167,24 +171,22 @@ Après avoir déployé votre service web classique, vous pouvez le gérer à par
 1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2. Dans le volet des services Microsoft Azure, cliquez sur **MACHINE LEARNING**.
 3. Cliquez sur votre espace de travail.
-4. Cliquez sur l’onglet **Services web**.
+4. Cliquez sur l’onglet **Services web**.
 5. Cliquez sur le service web que nous avons créé.
-6. Cliquez sur le point de terminaison « par défaut ».
+6. Cliquez sur le point de terminaison « par défaut ».
 
 À partir de là, vous pouvez effectuer des opérations telles que surveiller le fonctionnement du service web et effectuer des ajustements de performances en modifiant le nombre d’appels simultanés que le service peut gérer.
-Vous pouvez même publier votre service web dans Azure Marketplace.
 
-Pour plus d'informations, consultez la page suivante :
+Pour plus d'informations, consultez la page suivante :
 
 * [Création de points de terminaison](machine-learning-create-endpoint.md)
 * [Mise à l’échelle du service web](machine-learning-scaling-webservice.md)
-* [Publier un service web Azure Machine Learning sur Azure Marketplace](machine-learning-publish-web-service-to-azure-marketplace.md)
 
 **Gérer un service web dans le portail des services web Azure Machine Learning**
 
 Une fois votre service web déployé, qu’il soit classique ou nouveau, vous pouvez le gérer à partir du [portail des services web Azure Machine Learning](https://servics.azureml.net).
 
-Pour surveiller les performances de votre service web :
+Pour surveiller les performances de votre service web :
 
 1. Connectez-vous au [portail des services web Azure Machine Learning](https://servics.azureml.net).
 2. Cliquez sur **Services web**.
@@ -192,7 +194,7 @@ Pour surveiller les performances de votre service web :
 4. Cliquez sur **Tableau de bord**.
 
 - - -
-**Étape suivante : [Accéder au service web](machine-learning-walkthrough-6-access-web-service.md)**
+**Étape suivante : [Accéder au service web](machine-learning-walkthrough-6-access-web-service.md)**
 
 [1]: ./media/machine-learning-walkthrough-5-publish-web-service/publish1.png
 [2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
@@ -215,6 +217,7 @@ Pour surveiller les performances de votre service web :
 [project-columns]: https://msdn.microsoft.com/en-us/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

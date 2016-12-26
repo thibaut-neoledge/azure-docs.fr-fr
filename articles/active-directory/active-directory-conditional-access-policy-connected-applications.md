@@ -1,142 +1,152 @@
 ---
-title: Comment définir la stratégie d’accès conditionnel en fonction de l’appareil Azure Active Directory pour contrôler l’accès aux applications connectées Azure Active Directory
-description: Explique comment les administrateurs informatiques peuvent définir des stratégies d’accès conditionnel en fonction de l’appareil pour les applications connectées à Azure AD.
+title: "Définition de la stratégie d’accès conditionnel en fonction de l’appareil pour les applications connectées à Azure Active Directory | Microsoft Docs"
+description: "Définissez des stratégies d’accès conditionnel en fonction de l’appareil pour les applications connectées à Azure AD."
 services: active-directory
-documentationcenter: ''
-author: markusvi
+documentationcenter: 
+author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 11/23/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 1e7e764bdb1e883c28c137292de6a3ef8873e473
+ms.openlocfilehash: e4b8622fc6d06be480a2de057070155b12746133
+
 
 ---
-# Comment définir la stratégie d’accès conditionnel en fonction de l’appareil Azure Active Directory pour contrôler l’accès aux applications connectées Azure Active Directory
-L’accès conditionnel en fonction de l’appareil à Azure Active Directory vous permet de protéger les ressources organisationnelles des risques suivants :
+# <a name="set-device-based-conditional-access-policy-for-azure-active-directory-connected-applications"></a>Définir la stratégie d’accès conditionnel en fonction de l’appareil pour les applications connectées à Azure Active Directory
+L’accès conditionnel en fonction de l’appareil à Azure Active Directory (Azure AD) vous permet de protéger les ressources de l’organisation des risques suivants :
 
-* Accès à partir d’appareils inconnus/non gérés.
-* Appareils non conformes aux stratégies de sécurité définies par votre organisation.
+* Tentatives d’accès à partir d’appareils inconnus ou non gérés.
+* Appareils non conformes aux stratégies de sécurité de votre organisation.
 
 Pour une vue d’ensemble de l’accès conditionnel, consultez [Accès conditionnel Azure Active Directory](active-directory-conditional-access.md).
 
-Vous pouvez définir les stratégies d’accès conditionnel en fonction de l’appareil pour protéger les éléments suivants :
+Vous pouvez définir les stratégies d’accès conditionnel en fonction de l’appareil pour protéger les applications suivantes :
 
-* Office 365 SharePoint Online pour protéger les documents et les sites organisationnels.
-* Office 365 Exchange Online pour protéger la messagerie organisationnelle.
-* Applications SaaS connectées à Azure AD pour l’authentification.
-* Applications locales publiées via le proxy d’application Azure AD.
+* Office 365 SharePoint Online pour protéger les documents et les sites de votre organisation
+* Office 365 Exchange Online pour protéger la messagerie de votre organisation
+* Applications Software as a service (SaaS) connectées à Azure AD pour l’authentification
+* Applications locales publiées via les services de proxy d’application Azure AD
 
-Dans le portail de gestion Azure, vous pouvez définir cette stratégie en accédant à l’application spécifique dans le répertoire.
+Pour définir une stratégie d’accès conditionnel en fonction de l’appareil, dans le portail Azure, accédez à l’application spécifique dans le répertoire.
 
-  ![Applications](./media/active-directory-conditional-access-policy-connected-applications/01.png "Applications")
+  ![Liste des applications dans le répertoire du portail Azure](./media/active-directory-conditional-access-policy-connected-applications/01.png "Applications")
 
-Après avoir sélectionné l’application, cliquez sur l’onglet **Configurer** pour définir la stratégie d’accès conditionnel.
+Sélectionnez l’application, puis cliquez sur l’onglet **Configurer** pour définir la stratégie d’accès conditionnel.  
 
-  ![Règles d’accès basées sur les appareils](./media/active-directory-conditional-access-policy-connected-applications/02.png "Règles d’accès basées sur les appareils")
+  ![Configuration de l'application](./media/active-directory-conditional-access-policy-connected-applications/02.png "Device based access rules")
 
-Pour activer une stratégie d’accès conditionnel en fonction de l’appareil, dans la section **Règles d’accès basé sur l’appareil**, pour **Activer les règles d’accès**, sélectionnez **Activé**.
+Pour définir une stratégie d’accès conditionnel en fonction de l’appareil, dans la section **Règles d’accès basé sur l’appareil**, dans **Activer les règles d’accès**, sélectionnez **Activé**.
 
-Cette stratégie est constituée de trois composants :
+Une stratégie d’accès conditionnel en fonction de l’appareil comporte trois composants :
 
-1. **S’applique à** - utilisateurs auxquels cette stratégie s’applique lors de l’accès à l’application.
-2. **Règles d’appareil** - conditions requises auxquelles les appareils doivent répondre avant d’accéder à l’application.
-3. **Mise en œuvre de l’application** - applications clientes (natives et de navigateur) pour lesquelles la stratégie doit être évaluée.
-   
-   ![Règles d’accès basées sur les appareils](./media/active-directory-conditional-access-policy-connected-applications/03.png "Règles d’accès basées sur les appareils")
+* **S’applique à**. L’étendue d’utilisateurs auxquels la stratégie s’applique.
+* **Règles d’appareil**. Les conditions qu’un appareil doit respecter avant de pouvoir accéder à l’application.
+* **Mise en œuvre de l’application**. Les applications clientes (natives ou de navigateur) auxquelles la stratégie s’applique.
+  
+  ![Les trois composants d’une stratégie d’accès en fonction de l’appareil](./media/active-directory-conditional-access-policy-connected-applications/03.png "Device based access rules")
 
-## Définir les utilisateurs auxquels la stratégie s’applique
-Dans la section **S’applique à**, vous pouvez sélectionner les utilisateurs auxquels s’applique cette stratégie.
+## <a name="select-the-users-the-policy-applies-to"></a>Sélectionner les utilisateurs auxquels la stratégie s’applique
+Dans la section **S’applique à** , vous pouvez sélectionner les utilisateurs auxquels s’applique cette stratégie.
 
-Vous disposez de deux options :
+Vous avez deux options lorsque vous créez une étendue de stratégie d’accès pour les utilisateurs :
 
-* **Tous les utilisateurs** - tout le monde peut accéder à l’application
-* **Groupes** - pour limiter l’accès aux groupes et aux utilisateurs membres d’un groupe.
+* **Tous les utilisateurs**. Appliquez la stratégie à tous les utilisateurs qui accèdent à l’application.
+* **Groupes**. Limitez la stratégie aux utilisateurs qui sont membres d’un groupe spécifique.
 
-![S’applique à](./media/active-directory-conditional-access-policy-connected-applications/11.png "S’applique à")
+![Appliquer la stratégie à tous les utilisateurs ou à un groupe](./media/active-directory-conditional-access-policy-connected-applications/11.png "Apply to")
 
-En sélectionnant **Sauf**, vous pouvez exclure des utilisateurs de cette stratégie lors de l’accès à l’application. Cela est utile lorsque vous avez besoin d’activer des utilisateurs spécifiques devant accéder temporairement à l’application. Sélectionnez cette option, si par exemple certains de vos utilisateurs possèdent des appareils qui ne sont pas prêts pour l’accès conditionnel (pas encore inscrits, récemment déclarés conformes, etc..).
+ Pour exclure un utilisateur d’une stratégie, cochez la case **Sauf**. Cela est utile lorsque vous avez besoin d’accorder des autorisations à un utilisateur spécifique devant accéder temporairement à l’application. Sélectionnez cette option, si par exemple certains de vos utilisateurs possèdent des appareils qui ne sont pas prêts pour l’accès conditionnel. Les appareils peuvent ne pas être encore inscrits ou sur le point de ne plus être conformes.
 
-## Sélectionner les conditions que les appareils doivent satisfaire
-Avec **Règles d’appareil**, vous définissez les conditions pour que les appareils puissent accéder à l’application.
+## <a name="select-the-conditions-that-devices-must-meet"></a>Sélectionner les conditions que les appareils doivent respecter
+Utilisez **Règles d’appareil** pour définir les conditions qu’un appareil doit respecter pour accéder à l’application.
 
-Pour l’accès conditionnel en fonction de l’appareil, les appareils suivants sont pris en charge :
+Vous pouvez définir l’accès conditionnel en fonction de l’appareil pour les types d’appareil suivants :
 
-* Mise à jour anniversaire Windows 10, Windows 7 et Windows 8.1.
-* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 et Windows Server 2008 R2.
+* Mise à jour anniversaire Windows 10, Windows 8.1 et Windows 7
+* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 et Windows Server 2008 R2
 * Appareils iOS (iPad, iPhone).
 * Appareils Android
 
 La prise en charge pour Mac sera bientôt disponible.
 
-  ![Appareils](./media/active-directory-conditional-access-policy-connected-applications/04.png "Applications")
+  ![Appliquer la stratégie aux appareils](./media/active-directory-conditional-access-policy-connected-applications/04.png "Applications")
 
 > [!NOTE]
-> Pour plus d’informations sur les différences entre la jonction de domaine et la jonction Azure AD, consultez [Utilisation d’appareils Windows 10 sur votre lieu de travail](active-directory-azureadjoin-windows10-devices.md).
+> Pour plus d’informations sur les différences entre les appareils joints à un domaine et les appareils joints à Azure AD, consultez [Utilisation d’appareils Windows 10 sur votre lieu de travail](active-directory-azureadjoin-windows10-devices.md).
 > 
 > 
 
 Vous disposez de deux options pour les règles d’appareil :
 
-* **Tous les appareils doivent être conformes** - cela nécessite que toutes les plateformes d’appareil aient accès à l’application pour être conformes. Pour les plates-formes qui ne prennent pas en charge l’accès conditionnel en fonction de l’appareil, l’accès est interdit aux appareils.
-* **Seuls les appareils sélectionnés doivent être conformes** - cela nécessite que seules les plateformes d’appareil soient conformes. Les plates-formes non sélectionnées ou les autres plateformes accédant à l’application sont autorisées.
+* **Tous les appareils doivent être conformes**. Toutes les plateformes d’appareil qui accèdent à l’application doivent être conformes. Pour les appareils s’exécutant sur des plateformes qui ne prennent pas en charge l’accès conditionnel en fonction de l’appareil, l’accès est interdit.
+* **Seuls les appareils sélectionnés doivent être conformes**. Seules les plateformes d’appareils spécifiques doivent être conformes. Les autres plateformes, ou d’autres plateformes qui peuvent accéder à l’application, ont accès.
   
-  ![Applications](./media/active-directory-conditional-access-policy-connected-applications/05.png "Applications")
+  ![Définir l’étendue des règles d’appareil](./media/active-directory-conditional-access-policy-connected-applications/05.png "Applications")
 
-Les appareils joints à Azure AD sont compatibles s’ils sont désignés comme **compatible** dans le répertoire par Microsoft Intune ou un système MDM tiers qui s’intègre à Azure AD.
+Les appareils joints à Azure AD sont conformes s’ils sont marqués comme étant **conformes** dans le répertoire par Intune ou un système de gestion des appareils mobiles tiers qui s’intègre à Azure AD.
 
-Les appareils joints à un domaine sont compatibles de deux manières :
+Un appareil joint à un domaine est conforme si :
 
-* S’ils sont inscrits auprès d’Azure AD, le fait qu’ils soient joints à un domaine les rend alors fiables aux yeux de nombreuses organisations.
-* S’ils sont marqués comme conformes dans Azure AD par System Center Configuration Manager 2016.
+* Il est inscrit auprès d’Azure AD. De nombreuses organisations traitent les appareils joints à un domaine comme des appareils approuvés.
+* Il est marqué comme étant **conforme** dans Azure AD par System Center Configuration Manager.
   
-  ![Règles d’appareil](./media/active-directory-conditional-access-policy-connected-applications/06.png "Règles d’appareil")
+  ![Appareils joints à un domaine qui sont conformes](./media/active-directory-conditional-access-policy-connected-applications/06.png "Device Rules")
 
-Les appareils personnels Windows sont compatibles s’ils sont désignés comme **compatible** dans le répertoire par Microsoft Intune ou un système MDM tiers qui s’intègre à Azure AD.
+Les appareils personnels Windows sont conformes s’ils sont marqués comme étant **conformes** dans le répertoire par Intune ou un système de gestion des appareils mobiles tiers qui s’intègre à Azure AD.
 
-Les appareils non Windows sont compatibles s’ils sont désignés comme **compatible** dans le répertoire par Microsoft Intune.
+Les appareils non Windows sont conformes s’ils sont marqués comme étant **conformes** dans le répertoire par Intune.
 
 > [!NOTE]
-> Pour plus d’informations sur la configuration d’Azure AD pour la compatibilité des appareils par le système de gestion, consultez [Accès conditionnel Azure Active Directory](active-directory-conditional-access.md).
+> Pour plus d’informations sur la configuration d’Azure AD pour la compatibilité des appareils dans différents systèmes de gestion, consultez [Accès conditionnel Azure Active Directory](active-directory-conditional-access.md).
 > 
 > 
 
-Lorsque vous sélectionnez des plateformes d’appareil spécifiques, vous pouvez sélectionner une ou plusieurs options, y compris Android, iOS, Windows Mobile (téléphones et tablettes Windows 8.1) et Windows (tous les autres appareils Windows, y compris les appareils Windows 10). Avec cette option, l’évaluation de stratégie a lieu uniquement sur les plateformes sélectionnées. En cas de tentatives d’accès à partir d’un appareil qui ne fait pas partie de la sélection, aucune stratégie d’appareil n’est évaluée et l’appareil est autorisé si l’utilisateur l’est.
+Vous pouvez sélectionner une ou plusieurs plateformes d’appareils pour une stratégie d’accès en fonction de l’appareil. Cela inclut Android, iOS, Windows Mobile (téléphones et tablettes Windows 8.1) et Windows (tous les autres appareils Windows, y compris tous les appareils Windows 10).
+L’évaluation de stratégie a lieu uniquement sur les plateformes sélectionnées. Si un appareil qui tente d’accéder à l’application n’exécute pas une des plateformes sélectionnées, l’appareil peut accéder à l’application si l’utilisateur a accès. Aucune stratégie d’appareil n’est évaluée.
 
-![Règles d’appareil](./media/active-directory-conditional-access-policy-connected-applications/07.png "Règles d’appareil")
+![Sélectionner les plates-formes pour les règles d’appareil](./media/active-directory-conditional-access-policy-connected-applications/07.png "Device Rules")
 
-## Sélectionner quel type d’application client est évalué sous quelle stratégie
-Dans la section **Mise en œuvre de l’application**, vous définissez le type d’application pour lequel la stratégie doit être évaluée.
+## <a name="set-policy-evaluation-for-a-type-of-application"></a>Définir l’évaluation de stratégie pour un type d’application
+Dans la section **Mise en œuvre de l’application**, définissez le type d’application que la stratégie évaluera pour l’accès utilisateur ou appareil.
 
-Vous disposez de deux options pour les applications :
+Vous avez deux options pour le type d’application à inclure :
 
-* Pour les applications de navigateur ou natives.
-* Pour les applications natives uniquement.
+* Applications de navigateur ou natives
+* Applications natives uniquement
 
-![Applications](./media/active-directory-conditional-access-policy-connected-applications/08.png "Applications")
+![Choisir des applications de navigateur ou natives](./media/active-directory-conditional-access-policy-connected-applications/08.png "Applications")
 
-En sélectionnant **Pour les applications de navigateur ou natives**, vous appliquez la stratégie d’accès aux applications via :
+Pour appliquer la stratégie d’accès des applications, sélectionnez **Pour les applications de navigateur ou natives**. Ensuite, vous pouvez inclure :
 
-* Les navigateurs (par exemple, Edge dans Windows 10, Safari dans iOS, etc.).
-* Les applications utilisant la bibliothèque d’authentification Active Directory (ADAL) sur n’importe quelle plate-forme ou l’API de gestionnaire de compte web (WAM) sous Windows 10.
+* Des navigateurs (par exemple, Microsoft Edge dans Windows 10 ou Safari dans iOS).
+* Les applications utilisant la bibliothèque d’authentification Active Directory (ADAL) sur n’importe quelle plate-forme ou utilisant l’API de gestionnaire de compte web (WAM) sous Windows 10.
 
 > [!NOTE]
-> Pour plus d’informations sur la prise en charge du navigateur et autres considérations pour l’utilisateur final accédant à des applications protégées par l’accès conditionnel en fonction de l’appareil, consultez [Accès conditionnel Azure Active Directory](active-directory-conditional-access.md).
+> Pour plus d’informations sur la prise en charge du navigateur et autres considérations pour l’utilisateur accédant à une application protégée par l’autorité de certification en fonction de l’appareil, consultez [Accès conditionnel Azure Active Directory](active-directory-conditional-access.md).
 > 
 > 
 
-## Protection de l’accès à la messagerie depuis les applications Exchange Active Sync
-Dans les applications Office 365 Exchange Online, vous disposez d’une section supplémentaire appelée **Exchange Activesync**. Cette section vous permet de bloquer l’accès à la messagerie pour les applications de messagerie Exchange Active Sync.
+## <a name="help-protect-email-access-from-exchange-activesync-based-applications"></a>Protéger l’accès à la messagerie depuis les applications basées sur Exchange ActiveSync
+Dans les applications Office 365 Exchange Online, vous pouvez utiliser Exchange ActiveSync pour bloquer l’accès à la messagerie aux applications de messagerie basées sur Exchange ActiveSync.
 
-![Applications](./media/active-directory-conditional-access-policy-connected-applications/09.png "Applications")
+![Options de conformité Exchange ActiveSync](./media/active-directory-conditional-access-policy-connected-applications/09.png "Applications")
 
-![Applications](./media/active-directory-conditional-access-policy-connected-applications/10.png "Applications")
+![Exiger un appareil conforme pour accéder à la messagerie](./media/active-directory-conditional-access-policy-connected-applications/10.png "Applications")
 
-## Rubriques supplémentaires
+## <a name="next-steps"></a>Étapes suivantes
 * [Accès conditionnel Azure Active Directory](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

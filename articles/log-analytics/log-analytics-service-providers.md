@@ -1,19 +1,23 @@
 ---
-title: Fonctionnalités de Log Analytics pour les fournisseurs de services | Microsoft Docs
-description: Log Analytics permet aux fournisseurs de services gérés (MSP), grandes entreprises, éditeurs de logiciels indépendants (ISV) et fournisseurs de service d’hébergement de gérer et de surveiller les serveurs situés dans l’infrastructure locale ou cloud d’un client.
+title: "Fonctionnalités de Log Analytics pour les fournisseurs de services | Microsoft Docs"
+description: "Log Analytics permet aux fournisseurs de services gérés (MSP), grandes entreprises, éditeurs de logiciels indépendants (ISV) et fournisseurs de service d’hébergement de gérer et de surveiller les serveurs situés dans l’infrastructure locale ou cloud d’un client."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: richrundmsft
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 11/22/2016
 ms.author: richrund
+translationtype: Human Translation
+ms.sourcegitcommit: d5e4a19ddb2b60a6796ba48c864d443164de86c1
+ms.openlocfilehash: 8a67d9a9d345682e9e6c8f5c7779204a038f5f6a
+
 
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Fonctionnalités de Log Analytics pour les fournisseurs de services
@@ -47,7 +51,7 @@ En tant que *client* d’un fournisseur de solutions cloud, vous pouvez :
 * Afficher et utiliser la page de gestion des utilisateurs sous Paramètres dans le portail OMS
 
 > [!NOTE]
-> Les solutions Sauvegarde et Site Recovery pour Log Analytics ne peuvent pas se connecter à un coffre Recovery Services et ne peuvent pas être configurées dans le cadre d’un abonnement CSP.
+> Les solutions Sauvegarde et Site Recovery incluses pour Log Analytics ne peuvent pas se connecter à un coffre Recovery Services et ne peuvent pas être configurées dans le cadre d’un abonnement CSP. 
 > 
 > 
 
@@ -61,13 +65,15 @@ Nous vous recommandons de créer un espace de travail Log Analytics pour chaque 
 
 En créant un espace de travail par client, vous pouvez séparer les données des clients et faire le suivi de l’utilisation de chaque client.
 
-Pour savoir quand et pourquoi créer plusieurs espaces de travail, consultez Gérer l’accès à Log Analytics (log-analytics-manage-access.md#determine-the-number-of-workspaces-you-need).
+Vous trouverez plus d’informations sur quand et pourquoi créer plusieurs espaces de travail dans [Gestion de l’accès à Log Analytics](log-analytics-manage-access.md#determine-the-number-of-workspaces-you-need).
 
 Vous pouvez automatiser les opérations de création et de configuration d’espaces de travail pour des clients à l’aide de [PowerShell](log-analytics-powershell-workspace-configuration.md), de [modèles Resource Manager](log-analytics-template-workspace-configuration.md) ou de l’[API REST](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/).
 
 Les modèles Resource Manager vous permettent d’utiliser une configuration maître pour créer et configurer des espaces de travail. Chaque fois qu’un espace de travail est créé pour un client, vous avez la certitude qu’il est automatiquement configuré selon vos exigences. Quand vous mettez à jour vos exigences, le modèle est mis à jour et réappliqué aux espaces de travail existants. Grâce à ce processus, même les espaces de travail existants répondent à vos nouvelles normes.    
 
 Si vous gérez plusieurs espaces de travail Log Analytics, nous vous recommandons d’intégrer chacun d’entre eux à votre système de création de tickets/console Opérateur existant à l’aide de la fonctionnalité [Alertes](log-analytics-alerts.md). L’avantage de l’intégration des espaces de travail à des systèmes existants, c’est que l’équipe du support peut continuer à suivre les mêmes processus. Log Analytics vérifie régulièrement chaque espace de travail selon les critères d’alerte que vous spécifiez et génère une alerte quand une action est nécessaire.
+
+Pour obtenir des vues personnalisées des données, utilisez la fonctionnalité [tableau de bord](../azure-portal/azure-portal-dashboards.md) dans le portail Azure.  
 
 Pour les rapports exécutifs qui résument les données de plusieurs espaces de travail, vous pouvez utiliser l’intégration entre Log Analytics et [PowerBI](log-analytics-powerbi.md). Si vous souhaitez intégrer un autre système de création de rapports, utilisez l’API Recherche (par le biais de PowerShell ou de [REST](log-analytics-log-search-api.md)) pour exécuter des requêtes et exporter les résultats de la recherche.
 
@@ -77,6 +83,9 @@ Pour les rapports exécutifs qui résument les données de plusieurs espaces de 
 * Utiliser [Alertes](log-analytics-alerts.md) pour intégrer les espaces de travail aux systèmes existants
 * Générer des rapports de synthèse à l’aide de [PowerBI](log-analytics-powerbi.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

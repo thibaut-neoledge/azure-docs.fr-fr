@@ -1,12 +1,12 @@
 ---
-title: Data Factory Azure Copy Wizard | Microsoft Docs
-description: Learn about how to use the Data Factory Azure Copy Wizard to copy data from supported data sources to sinks.
+title: Assistant Azure Data Factory Copy | Microsoft Docs
+description: "Découvrez comment utiliser l’Assistant Azure Data Factory Copy pour copier des données à partir de sources de données prises en charge dans des récepteurs."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 0974eb40-db98-4149-a50d-48db46817076
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,78 +14,79 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 619fec5dc02b026ae2cbb5eba18609fd020a551b
+ms.openlocfilehash: d51d9416ef56e119bc765e536a09206fb36c55fe
+
 
 ---
-# <a name="azure-data-factory---copy-wizard"></a>Azure Data Factory - Copy Wizard
-The Azure Data Factory Copy Wizard is to ease the process of ingesting data, which is usually a first step in an end-to-end data integration scenario. When going through the Azure Data Factory Copy Wizard, you do not need to understand any JSON definitions for linked services, datasets, and pipelines. However, after you complete all the steps in the wizard, the wizard automatically creates a pipeline to copy data from the selected data source to the selected destination. In addition, the Copy Wizard helps you to validate the data being ingested at the time of authoring, which saves much of your time, especially when you are ingesting data for the first time from the data source. To start the Copy Wizard, click the **Copy data** tile on the home page of your data factory.
+# <a name="azure-data-factory-copy-wizard"></a>Assistant Azure Data Factory Copy
+L’Assistant Azure Data Factory Copy facilite le processus de réception des données, qui est généralement la première étape dans un scénario d’intégration des données de bout en bout. Lorsque vous passez par l’Assistant Azure Data Factory Copy, vous n’avez pas besoin de comprendre les définitions JSON pour les services liés, les jeux de données et les pipelines. L’Assistant crée automatiquement un pipeline pour copier les données de la source de données sélectionnée vers la destination sélectionnée. En outre, l’Assistant de copie vous permet de valider les données en cours de réception au moment de la création. Cela vous permet de gagner du temps, surtout lorsque vous réceptionnez des données pour la première fois à partir de la source de données. Pour lancer l’Assistant Data Factory Copy, cliquez sur la mosaïque **Copier les données** sur la page d’accueil de votre fabrique de données.
 
-![Copy Wizard](./media/data-factory-copy-wizard/copy-data-wizard.png)
+![Assistant de copie](./media/data-factory-copy-wizard/copy-data-wizard.png)
 
-## <a name="an-intuitive-wizard-for-copying-data"></a>An intuitive wizard for copying data
-This wizard allows you to easily move data from a wide variety of sources to destinations in minutes. After going through the wizard, a pipeline with a copy activity is automatically created for you along with dependent Data Factory entities (linked services and datasets). No additional steps are required to create the pipeline.   
+## <a name="designed-for-big-data"></a>Conception adaptée au Big Data
+Cet Assistant vous permet de déplacer facilement et en quelques minutes des données provenant de nombreuses sources différentes vers des destinations. Une fois que vous avez utilisé l’Assistant, un pipeline avec une activité de copie est automatiquement créée, ainsi que des entités Data Factory dépendantes (services et jeux de données liés). Aucune étape supplémentaire n’est nécessaire pour créer le pipeline.   
 
-![Select data source](./media/data-factory-copy-wizard/select-data-source-page.png)
+![Sélectionnez la source de données](./media/data-factory-copy-wizard/select-data-source-page.png)
 
 > [!NOTE]
-> See [Copy Wizard tutorial](data-factory-copy-data-wizard-tutorial.md) article for step-by-step instructions to create a sample pipeline to copy data from an Azure blob to an Azure SQL Database table. 
-> 
-> 
+> Consultez le [didacticiel sur l’Assistant de copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir des instructions détaillées sur la création d’un exemple de pipeline afin de copier des données d’un objet blob Azure vers une table Azure SQL Database.
+>
+>
 
-The wizard is designed with big data in mind from the start. It is simple and efficient to author Data Factory pipelines that move hundreds of folders, files, or tables using the Copy Data wizard. The wizard supports the following three features: Automatic data preview, schema capture and mapping, and filtering data. 
+La conception de l’Assistant est particulièrement adaptée au Big Data, avec la prise en charge de divers types d’objet et de données. Vous pouvez créer des pipelines Data Factory capables de déplacer des centaines de dossiers, fichiers ou tables. L’Assistant prend en charge l’aperçu des données automatique, la capture et le mappage de schéma, ainsi que le filtrage des données.
 
-## <a name="automatic-data-preview"></a>Automatic data preview
-The copy wizard allows you to review part of the data from the selected data source for you to validate whether the data it is the right data you want to copy. In addition, if the source data is in a text file, the copy wizard parses the text file to learn row and column delimiters, and schema automatically. 
+## <a name="automatic-data-preview"></a>Aperçu des données automatique
+Vous pouvez afficher un aperçu d’une partie des données à partir de la source de données sélectionnée afin de vérifier si les données correspondent à ce que vous voulez copier. En outre, si les données sources sont contenues dans un fichier texte, l’Assistant de copie analyse ce fichier pour découvrir automatiquement les délimiteurs de colonnes et de lignes ainsi que le schéma.
 
-![File format settings](./media/data-factory-copy-wizard/file-format-settings.png)
+![Paramètres de format de fichier](./media/data-factory-copy-wizard/file-format-settings.png)
 
-## <a name="schema-capture-and-mapping"></a>Schema capture and mapping
-The schema of input data may not match the schema of output data in some cases. In this scenario, you need to map columns from the source schema to columns from the destination schema. 
+## <a name="schema-capture-and-mapping"></a>Mappage et capture de schéma
+Le schéma des données d’entrée peut ne pas correspondre au schéma des données de sortie dans certains cas. Le cas échéant, vous devez mapper les colonnes du schéma source aux colonnes du schéma de destination.
 
-The copy wizard automatically maps columns in the source schema to columns in the destination schema. You can override the mappings by using the drop-down lists (or) specify whether a column needs to be skipped while copying the data.   
+Utilisez une liste déroulante pour sélectionner une colonne du schéma source à mapper à une colonne du schéma de destination. L’Assistant de copie essaie de comprendre votre modèle de mappage des colonnes. Le même modèle est appliqué aux autres colonnes, ce qui vous évite de sélectionner les colonnes individuellement pour effectuer le mappage du schéma. Si vous le souhaitez, vous pouvez remplacer ces mappages en utilisant les listes déroulantes pour mapper les colonnes une par une. Le modèle devient plus précis à mesure que vous mappez des colonnes. L’Assistant de copie met continuellement à jour le modèle pour finalement obtenir le modèle adapté au mappage de colonnes que vous voulez.     
 
-![Schema mapping](./media/data-factory-copy-wizard/schema-mapping.png)
+![Mappage de schéma](./media/data-factory-copy-wizard/schema-mapping.png)
 
-## <a name="filtering-data"></a>Filtering data
-The wizard allows you to filter source data to select only the data that needs to be copied to the destination/sink data store. Filtering reduces the volume of the data to be copied to the sink data store and therefore enhances the throughput of the copy operation. It provides a flexible way to filter data in a relational database by using SQL query language (or) files in an Azure blob folder by using [Data Factory functions and variables](data-factory-functions-variables.md).   
+## <a name="filtering-data"></a>Filtrage des données
+Vous pouvez filtrer les données sources pour sélectionner uniquement celles qui doivent être copiées vers le magasin de données de récepteur. Le filtrage réduit le volume des données à copier vers le magasin de données de récepteur et améliore de ce fait le débit de la copie. Il fournit un moyen souple de filtrer les données dans une base de données relationnelle à l’aide du langage de requête SQL ou les fichiers d’un dossier d’objets blob Azure à l’aide de [variables et fonctions Data Factory](data-factory-functions-variables.md).   
 
-### <a name="filtering-of-data-in-a-database"></a>Filtering of data in a database
-In the example, the SQL query uses the `Text.Format` function and `WindowStart` variable. 
+### <a name="filtering-of-data-in-a-database"></a>Filtrage des données dans une base de données
+La capture d’écran suivante illustre une requête SQL à l’aide de la fonction `Text.Format` et de la variable `WindowStart`.
 
-![Validate expressions](./media/data-factory-copy-wizard/validate-expressions.png)
+![Valider des expressions](./media/data-factory-copy-wizard/validate-expressions.png)
 
-### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtering of data in an Azure blob folder
-You can use variables in the folder path to copy data from a folder that is determined at runtime based on [system variables](data-factory-functions-variables.md#data-factory-system-variables). The supported variables are: **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}**, and **{custom}**. Example: inputfolder/{year}/{month}/{day}.
+### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtrage des données dans un dossier d’objets blob Azure
+Vous pouvez utiliser des variables dans le chemin du dossier pour copier des données à partir d’un dossier qui est déterminé au moment de l’exécution par les [variables système](data-factory-functions-variables.md#data-factory-system-variables). Les variables prises en charge sont les suivantes : **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}** et **{custom}**. Exemple : inputfolder/{year}/{month}/{day}.
 
-Suppose that you have input folders in the following format:
+Supposons que vos dossiers d’entrée présentent le format suivant :
 
     2016/03/01/01
     2016/03/01/02
     2016/03/01/03
     ...
 
-Click the **Browse** button for **File or folder**, browse to one of these folders (for example, 2016->03->01->02), and click **Choose**. You should see `2016/03/01/02` in the text box. Now, replace **2016** with **{year}**, **03** with **{month}**, **01** with **{day}**, and **02** with **{hour}**, and press Tab. You should see drop-down lists to select the format for these four variables:
+Cliquez sur le bouton **Parcourir** à côté de **Fichier ou dossier**, accédez à l’un de ces dossiers (par exemple, 2016->03->01->02), puis cliquez sur **Choisir**. Vous devez voir `2016/03/01/02` dans la zone de texte. À présent, remplacez **2016** par **{year}**, **03** par **{month}**, **01** par **{day}** et **02** par **{hour}**, puis appuyez sur la touche de **tabulation**. Vous devez maintenant voir des listes déroulantes pour sélectionner le format de ces quatre variables :
 
-![Using system variables](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
+![Utilisation de variables système](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-As shown in the following screenshot, you can also use a **custom** variable and any [supported format strings](https://msdn.microsoft.com/library/8kb3ddd4.aspx). To select a folder with that structure, use the **Browse** button first. Then replace a value with **{custom}**, and press Tab to see the text box where you can type the format string.     
+Comme la capture d’écran suivante le montre, vous pouvez également configurer une variable **custom** pour utiliser l’une des [chaînes de format prises en charge](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Pour sélectionner un dossier avec cette structure, utilisez d’abord le bouton **Parcourir** . Remplacez alors une valeur par **{custom}**, puis appuyez sur la touche de **tabulation** pour afficher la zone de texte dans laquelle vous pouvez taper la chaîne de format.     
 
-![Using custom variable](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
+![Utilisation de la variable custom](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 
-## <a name="support-for-diverse-data-and-object-types"></a>Support for diverse data and object types
-By using the Copy Wizard, you can efficiently move hundreds of folders, files, or tables.
+## <a name="scheduling-options"></a>Options de planification
+Vous pouvez effectuer l’opération de copie une seule fois ou la répéter selon une planification établie (horaire, quotidienne et ainsi de suite.). Ces deux options peuvent être définies pour l’ensemble des connecteurs entre différents environnements utilisés pour la copie locale, dans le cloud ou sur un Bureau local.
 
-![Select tables from which to copy data](./media/data-factory-copy-wizard/select-tables-to-copy-data.png)
+Une opération de copie unique ne permet le déplacement des données à d’une source vers une destination qu’une seule fois. Elle s’applique aux données de toute taille et de n’importe quel format pris en charge. La copie planifiée vous permet de copier des données selon une périodicité définie. Vous pouvez utiliser les paramètres avancés (nouvelle tentative, délai d’attente, alertes, etc.) pour configurer la copie planifiée.
 
-## <a name="scheduling-options"></a>Scheduling options
-You can run the copy operation once or on a schedule (hourly, daily, and so on). Both of these options can be used for the breadth of the connectors across on-premises, cloud, and local desktop copy.
+![Propriétés de planification](./media/data-factory-copy-wizard/scheduling-properties.png)
 
-A one-time copy operation enables data movement from a source to a destination only once. It applies to data of any size and any supported format. The scheduled copy allows you to copy data on a prescribed recurrence. You can use rich settings (like retry, timeout, and alerts) to configure the scheduled copy.
+## <a name="next-steps"></a>Étapes suivantes
+Pour découvrir une procédure pas à pas rapide sur l’utilisation de l’Assistant Data Factory Copy afin de créer un pipeline avec une activité de copie, consultez le [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md).
 
-![Scheduling properties](./media/data-factory-copy-wizard/scheduling-properties.png)
 
-## <a name="next-steps"></a>Next steps
-For a quick walkthrough of using the Data Factory Copy Wizard to create a pipeline with Copy Activity, see [Tutorial: Create a pipeline using the Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 
