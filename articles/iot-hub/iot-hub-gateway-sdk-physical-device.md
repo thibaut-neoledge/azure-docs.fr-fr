@@ -1,36 +1,40 @@
 ---
-title: Utiliser un appareil réel avec le Kit de développement logiciel (SDK) de passerelle | Microsoft Docs
-description: Procédure pas à pas pour le Kit de développement logiciel (SDK) de passerelle Azure IoT Hub utilisant un appareil Texas Instruments SensorTag pour envoyer des données à IoT Hub par le biais d’une passerelle exécutée sur un module Intel Edison Compute
+title: "Utilisation d’un appareil physique avec le Kit de développement logiciel (SDK) de passerelle IoT | Microsoft Docs"
+description: "Procédure pas à pas du Kit de développement logiciel (SDK) de passerelle Azure IoT utilisant un appareil SensorTag de Texas Instruments pour envoyer des données à un IoT Hub via une passerelle s’exécutant sur un Raspberry Pi 3"
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: chipalost
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 212dacbf-e5e9-48b2-9c8a-1c14d9e7b913
 ms.service: iot-hub
 ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2016
+ms.date: 11/14/2016
 ms.author: andbuc
+translationtype: Human Translation
+ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
+ms.openlocfilehash: 9c8ab5b54644c3fa7999e7250825fba5d8532082
+
 
 ---
-# <a name="iot-gateway-sdk-beta-send-devicetocloud-messages-with-a-real-device-using-linux"></a>Kit de développement logiciel (SDK) de passerelle IoT (version bêta) : envoyer des messages appareil vers cloud avec un appareil réel à l’aide de Linux
-Cette procédure pas à pas sur l’[exemple à faible consommation d’énergie Bluetooth][lnk-ble-samplecode] vous montre comment utiliser le [Kit de développement logiciel (SDK) de passerelle IoT Microsoft Azure][lnk-sdk] pour transférer des données de télémétrie appareil-à-cloud vers IoT Hub à partir d’un appareil physique et comment acheminer des commandes à partir d’IoT Hub vers un appareil physique.
+# <a name="azure-iot-gateway-sdk--send-device-to-cloud-messages-with-a-physical-device-using-linux"></a>Kit de développement logiciel (SDK) de passerelle Azure IoT (version bêta) - envoyer des messages appareil-à-cloud avec un appareil réel utilisant Linux
+Cette procédure pas à pas sur l’[exemple de Bluetooth à faible consommation d’énergie][lnk-ble-samplecode] montre comment utiliser le [Kit de développement logiciel (SDK) de passerelle Azure IoT][lnk-sdk] pour transférer des données de télémétrie d’appareil-à-cloud vers un IoT Hub à partir d’un appareil physique, et comment acheminer des commandes d’un IoT Hub vers un appareil physique.
 
-Cette procédure pas à pas inclut les étapes suivantes :
+Cette procédure pas à pas inclut les étapes suivantes :
 
 * **Architecture**: informations architecturales importantes concernant l'exemple à faible consommation d’énergie Bluetooth.
 * **Créer et exécuter**: les étapes requises pour créer et exécuter l’exemple.
 
 ## <a name="architecture"></a>Architecture
-La procédure pas à pas vous montre comment créer et exécuter une passerelle IoT sur un module de calcul Intel Edison exécutant Linux. La passerelle est construite à l’aide du Kit de développement logiciel (SDK) de passerelle IoT. L’exemple utilise un appareil Texas Instruments SensorTag Bluetooth Low Energy (BLE) pour collecter des données de température.
+La procédure pas à pas montre comment générer et exécuter une passerelle IoT sur un Raspberry Pi  3 exécutant Raspbian Linux. La passerelle est construite à l’aide du Kit de développement logiciel (SDK) de passerelle IoT. L’exemple utilise un appareil Texas Instruments SensorTag Bluetooth Low Energy (BLE) pour collecter des données de température.
 
 Lorsque vous exécutez la passerelle, celle-ci :
 
 * Se connecte à un appareil SensorTag à l’aide du protocole Bluetooth Low Energy (BLE).
-* Se connecte à IoT Hub à l’aide du protocole AMQP.
+* Se connecte à IoT Hub à l’aide du protocole HTTP.
 * Transfère les données de télémétrie à partir de l’appareil SensorTag vers IoT Hub.
 * Achemine les commandes vers l’appareil SensorTag à partir d’IoT Hub.
 
@@ -38,7 +42,7 @@ La passerelle contient les modules suivants :
 
 * Un *module BLE* qui interagit avec un appareil BLE pour recevoir les données de température à partir de l’appareil et envoyer des commandes à l’appareil.
 * Un *module cloud-à-appareil BLE* qui traduit les messages JSON provenant du cloud en instructions BLE pour le *module BLE*.
-* Un *module enregistreur* qui consigne tous les messages de passerelle.
+* Un *module enregistreur* qui journalise tous les messages de la passerelle dans un fichier local.
 * Un *module de mappage d’identité* qui effectue la traduction entre les adresses MAC de l’appareil BLE et les identités des appareils Azure IoT Hub.
 * Un *module IoT Hub* qui transfère les données de télémétrie sur un hub IoT et reçoit les commandes de l’appareil à partir d’un hub IoT.
 * Un *module d’imprimante BLE* qui interprète les données de télémétrie fournies par l’appareil BLE et imprime des données mises en forme sur la console pour permettre la résolution des problèmes et le débogage.
@@ -54,7 +58,7 @@ Les étapes qu’un élément de télémétrie suit lors de son transfert entre 
 2. Le module BLE reçoit l’exemple et le publie dans le répartiteur avec l’adresse MAC de l’appareil.
 3. Le module de mappage d’identité récupère ce message et utilise une table interne pour convertir l’adresse MAC de l’appareil en une identité d’appareil IoT Hub (un ID d’appareil et une clé d’appareil). Il publie ensuite un nouveau message contenant les exemples de données de température, l’adresse MAC de l’appareil, l’ID de l’appareil et la clé de l’appareil.
 4. Le module IoT Hub reçoit ce nouveau message (généré par le module de mappage d’identité) et le publie dans IoT Hub.
-5. Le module enregistreur consigne tous les messages reçus du répartiteur dans un fichier sur le disque.
+5. Le module enregistreur journalise tous les messages reçus du répartiteur dans un fichier local.
 
 Le diagramme de blocs suivant illustre le pipeline du flux des données de commandes de l’appareil :
 
@@ -63,51 +67,102 @@ Le diagramme de blocs suivant illustre le pipeline du flux des données de comma
 1. Le module IoT Hub interroge régulièrement IoT Hub pour savoir s’il existe de nouveaux messages de commande.
 2. Lorsque le module IoT Hub reçoit un nouveau message de commande, il le publie sur le répartiteur.
 3. Le module de mappage d’identité récupère le message de commande et utilise une table interne pour convertir l’ID d’appareil IoT Hub en adresse MAC d’appareil. Il publie ensuite un nouveau message contenant l’adresse MAC de l’appareil cible dans le mappage des propriétés du message.
-4. Le module cloud-à-appareil BLE récupère ce message et le traduit en instruction BLE correcte pour le module BLE. Il publie ensuite un nouveau message.
+4. Le module cloud-à-appareil BLE récupère ce message et le traduit dans l’instruction BLE appropriée pour le module BLE. Il publie ensuite un nouveau message.
 5. Le module BLE récupère ce message et exécute l’instruction d’E/S en communiquant avec l’appareil BLE.
 6. Le module enregistreur consigne tous les messages reçus du répartiteur dans un fichier sur le disque.
 
 ## <a name="prepare-your-hardware"></a>Préparation du matériel
-Ce didacticiel suppose que vous utilisez un appareil [Texas Instruments SensorTag](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html) connecté à une carte Intel Edison.
+Ce didacticiel suppose que vous utilisez un appareil [SensorTag de Texas Instruments](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html) connecté à un Raspberry Pi 3 exécutant Raspbian.
 
-### <a name="set-up-the-edison-board"></a>Configuration de la carte Edison
-Avant de commencer, vous devez vous assurer que vous pouvez connecter votre appareil Edison à votre réseau sans fil. Pour configurer votre appareil Edison, vous devez le connecter à un ordinateur hôte. Intel fournit des guides de démarrage pour les systèmes d’exploitation suivants :
+### <a name="install-raspbian"></a>Installer Raspbian
+Vous pouvez utiliser l’une des options suivantes pour installer Raspbian sur votre appareil Raspberry Pi 3. 
 
-* [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] (Guide de démarrage de la carte Intel Edison Development sur Windows 64 bits).
-* [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] (Guide de démarrage de la carte Intel Edison Development sur Windows 64 bits).
-* [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx] (Guide de démarrage de la carte Intel Edison Development sur Mac OS X).
-* [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] (Guide de démarrage de la carte Intel® Edison sur Linux).
+* Utilisez [NOOBS][lnk-noobs], une interface utilisateur graphique, pour installer la dernière version de Raspbian. 
+* [Téléchargez][lnk-raspbian] Manuellement et écrivez la dernière image du système d’exploitation Raspbian sur une carte SD. 
 
-Pour configurer votre appareil Edison et vous familiariser avec celui-ci, vous devez effectuer toutes les étapes de ces articles « de démarrage », à l’exception de la dernière étape, « Choose IDE » (Sélection d’IDE), qui ne s’applique pas à ce didacticiel. À la fin du processus de configuration Edison, vous avez :
+### <a name="install-bluez-537"></a>Installer BlueZ 5.37
+Les modules BLE communiquent avec le matériel Bluetooth via la pile BlueZ. Pour que les modules fonctionnent correctement, vous avez besoin de la version 5.37 de BlueZ. En suivant ces instructions, vous êtes assuré que la version installée de BlueZ est correcte.
 
-* Mis à jour votre appareil Edison vers le dernier microprogramme disponible.
-* Créé une connexion en série à partir de l’hôte vers l’appareil Edison.
-* Exécutez le script **configure_edison** pour définir un mot de passe et activer la connexion Wi-Fi sur votre appareil Edison.
-
-### <a name="enable-connectivity-to-the-sensortag-device-from-your-edison-board"></a>Activation de la connectivité à l’appareil SensorTag à partir de votre carte Edison
-Avant d’exécuter l’exemple, vous devez vérifier que votre carte Edison peut se connecter à l’appareil SensorTag.
-
-Vous devez d’abord vérifier que votre carte Edison peut se connecter à l’appareil SensorTag.
-
-1. Débloquez Bluetooth sur l’appareil Edison et vérifiez que le numéro de version est **5.37**.
+1. Arrêtez le démon Bluetooth actuel :
    
     ```
-    rfkill unblock bluetooth
+    sudo systemctl stop bluetooth
+    ```
+2. Installez les dépendances BlueZ. 
+   
+    ```
+    sudo apt-get update
+    sudo apt-get install bluetooth bluez-tools build-essential autoconf glib2.0 libglib2.0-dev libdbus-1-dev libudev-dev libical-dev libreadline-dev
+    ```
+3. Téléchargez le code source de BlueZ à partir de bluez.org. 
+   
+    ```
+    wget http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz
+    ```
+4. Décompressez le code source.
+   
+    ```
+    tar -xvf bluez-5.37.tar.xz
+    ```
+5. Déplacer les répertoires vers le dossier nouvellement créé.
+   
+    ```
+    cd bluez-5.37
+    ```
+6. Configurez le code BlueZ à générer.
+   
+    ```
+    ./configure --disable-udev --disable-systemd --enable-experimental
+    ```
+7. Générez BlueZ.
+   
+    ```
+    make
+    ```
+8. Installez BlueZ une fois la génération terminée.
+   
+    ```
+    sudo make install
+    ```
+9. Modifiez la configuration du service systemd pour Bluetooth afin qu’il pointe vers le nouveau démon Bluetooth dans le fichier `/lib/systemd/system/bluetooth.service`. Remplacez la ligne « ExecStart » par le texte suivant : 
+    
+    ```
+    ExecStart=/usr/local/libexec/bluetooth/bluetoothd -E
+    ```
+
+### <a name="enable-connectivity-to-the-sensortag-device-from-your-raspberry-pi-3-device"></a>Activer la connectivité à l’appareil SensorTag à partir de votre appareil Raspberry Pi 3
+Avant d’exécuter l’exemple, vous devez vérifier que votre Raspberry Pi 3 peut se connecter à l’appareil SensorTag.
+
+
+1. Vérifiez que l’utilitaire `rfkill` est installé.
+   
+    ```
+    sudo apt-get install rfkill
+    ```
+2. Débloquez Bluetooth sur l’appareil Raspberry Pi 3, et vérifiez que le numéro de version est **5.37**.
+   
+    ```
+    sudo rfkill unblock bluetooth
     bluetoothctl --version
     ```
-2. Exécutez la commande **bluetoothctl** . Vous êtes maintenant dans un shell Bluetooth interactif. 
-3. Entrez la commande **power on** pour mettre le contrôleur bluetooth sous tension. La sortie doit ressembler à celle-ci :
+3. Démarrez le service Bluetooth et exécutez la commande **bluetoothctl** pour entrer un interpréteur de commandes Bluetooth interactif. 
    
     ```
-    [NEW] Controller 98:4F:EE:04:1F:DF edison [default]
+    sudo systemctl start bluetooth
+    bluetoothctl
     ```
-4. Toujours dans le shell interactif bluetooth, entrez la commande **scan on** pour rechercher des appareils bluetooth. La sortie doit ressembler à celle-ci :
+4. Entrez la commande **power on** pour mettre le contrôleur bluetooth sous tension. La sortie doit ressembler à celle-ci :
+   
+    ```
+    [NEW] Controller 98:4F:EE:04:1F:DF C3 raspberrypi [default]
+    ```
+5. Toujours dans le shell interactif bluetooth, entrez la commande **scan on** pour rechercher des appareils bluetooth. La sortie doit ressembler à celle-ci :
    
     ```
     Discovery started
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: yes
     ```
-5. Appuyez sur le petit bouton de l’appareil SensorTag pour le rendre détectable (le voyant vert doit clignoter). L’appareil Edison doit détecter l’appareil SensorTag :
+6. Appuyez sur le petit bouton de l’appareil SensorTag pour le rendre détectable (le voyant vert doit clignoter). Le Raspberry Pi 3 doit détecter l’appareil SensorTag :
    
     ```
     [NEW] Device A0:E6:F8:B5:F6:00 CC2650 SensorTag
@@ -116,13 +171,13 @@ Vous devez d’abord vérifier que votre carte Edison peut se connecter à l’a
     ```
    
     Dans cet exemple, vous pouvez voir que l’adresse MAC de l’appareil SensorTag est **A0:E6:F8:B5:F6:00**.
-6. Désactivez l’analyse en entrant la commande **scan off** .
+7. Désactivez l’analyse en entrant la commande **scan off** .
    
     ```
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: no
     Discovery stopped
     ```
-7. Connectez-vous à votre appareil SensorTag à l’aide de son adresse MAC en entrant **connect<MAC address>**. Notez que l’exemple de sortie ci-dessous est abrégé :
+8. Connectez-vous à votre appareil SensorTag à l’aide de son adresse MAC en entrant **connect \<adresse MAC>**. Notez que l’exemple de sortie ci-dessous est abrégé :
    
     ```
     Attempting to connect to A0:E6:F8:B5:F6:00
@@ -141,8 +196,8 @@ Vous devez d’abord vérifier que votre carte Edison peut se connecter à l’a
     [CHG] Device A0:E6:F8:B5:F6:00 Modalias: bluetooth:v000Dp0000d0110
     ```
    
-    Remarque : vous pouvez de nouveau répertorier les caractéristiques GATT de l’appareil à l’aide de la commande **list-attributes** .
-8. Vous pouvez maintenant vous déconnecter de l’appareil à l’aide de la commande **disconnect**, puis utilisez la commande **quit** pour quitter le shell Bluetooth :
+    > Notez que vous pouvez nouveau répertorier de nouveau les caractéristiques GATT de l’appareil à l’aide de la commande **list-attributes**.
+9. Vous pouvez maintenant vous déconnecter de l’appareil à l’aide de la commande **disconnect**, puis utilisez la commande **quit** pour quitter le shell Bluetooth :
    
     ```
     Attempting to disconnect from A0:E6:F8:B5:F6:00
@@ -150,62 +205,64 @@ Vous devez d’abord vérifier que votre carte Edison peut se connecter à l’a
     [CHG] Device A0:E6:F8:B5:F6:00 Connected: no
     ```
 
-Vous êtes maintenant prêt à exécuter l’exemple de passerelle BLE sur votre appareil Edison.
+Vous êtes maintenant prêt à exécuter l’exemple de passerelle BLE sur votre appareil Raspberry Pi 3.
 
 ## <a name="run-the-ble-gateway-sample"></a>Exécution de l’exemple de passerelle BLE
-Pour exécuter l’exemple BLE sur votre appareil Edison, vous devez effectuer trois tâches :
+Pour exécuter l’exemple BLE, vous devez effectuer trois tâches :
 
 * Configurer deux exemples d’appareils dans votre IoT Hub.
-* Générer le Kit de développement logiciel (SDK) de passerelle sur votre appareil Edison.
-* Configurer et exécuter l’exemple BLE sur votre appareil Edison.
+* Générer le Kit de développement logiciel (SDK) de passerelle IoT sur votre appareil Raspberry Pi 3.
+* Configurer et exécuter l’exemple de BLE sur votre appareil Raspberry Pi 3.
 
-Lors de la rédaction du présent article, le Kit de développement logiciel (SDK) de passerelle prenait uniquement en charge les passerelles utilisant des modules BLE sur Linux.
+Lors de la rédaction du présent article, le Kit de développement logiciel (SDK) de passerelle IoT prenait uniquement en charge les passerelles utilisant des modules BLE sur Linux.
 
 ### <a name="configure-two-sample-devices-in-your-iot-hub"></a>Configuration de deux exemples d’appareils dans votre IoT Hub
-* [Créez un IoT Hub][lnk-create-hub] dans votre abonnement Azure (vous aurez besoin du nom de votre hub pour effectuer cette procédure pas à pas). Si vous n’avez pas encore d’abonnement Azure, vous pouvez obtenir un [compte gratuit][lnk-free-trial].
-* Ajoutez un appareil nommé **SensorTag_01** à votre IoT Hub et notez son ID et sa clé d’appareil. Vous pouvez utiliser les outils [Explorateur d’appareils ou iothub-explorer][lnk-explorer-tools] pour ajouter cet appareil à l’IoT Hub que vous avez créé à l’étape précédente et récupérer sa clé. Vous allez mapper cet appareil à l’appareil SensorTag lors de la configuration de la passerelle.
+* [Créez un IoT Hub][lnk-create-hub] dans votre abonnement Azure (pour effectuer cette procédure pas à pas, vous aurez besoin du nom de votre hub). Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.
+* Ajoutez un appareil nommé **SensorTag_01** à votre IoT Hub et notez son ID et sa clé d’appareil. Vous pouvez vous servir des outils de l’[Explorateur d’appareils ou iothub-explorer][lnk-explorer-tools] pour ajouter cet appareil à l’IoT Hub que vous avez créé à l’étape précédente, et récupérer sa clé. Vous allez mapper cet appareil à l’appareil SensorTag lors de la configuration de la passerelle.
 
-### <a name="build-the-gateway-sdk-on-your-edison-device"></a>Génération du Kit de développement logiciel (SDK) de passerelle sur votre appareil Edison
-La version de **git** sur l’appareil Edison ne prend pas en charge les modules secondaires. Vous disposez de deux options pour télécharger la source complète du Kit de développement logiciel (SDK) de passerelle sur l’appareil Edison :
+### <a name="build-the-azure-iot-gateway-sdk-on-your-raspberry-pi-3"></a>Générer le Kit de développement logiciel (SDK) de passerelle Azure IoT sur votre Raspberry Pi 3
 
-* Option 1 : Clonez le référentiel [Kit de développement logiciel (SDK) de passerelle IoT Microsoft Azure][lnk-sdk] sur votre appareil Edison, puis clonez manuellement le référentiel pour chaque sous-module.
-* Option 2 : Clonez le référentiel [Kit de développement logiciel (SDK) de passerelle IoT Microsoft Azure][lnk-sdk] sur un ordinateur de bureau où **git** prend en charge les modules secondaires, puis copiez le référentiel complet avec les modules secondaires sur votre appareil Edison.
+Installez les dépendances pour le Kit de développement logiciel (SDK) de passerelle Azure IoT.
 
-Si vous choisissez l’option 2, utilisez les commandes **git** suivantes pour cloner le Kit de développement logiciel (SDK) de passerelle et tous ses modules secondaires :
+``` 
+sudo apt-get install cmake uuid-dev curl libcurl4-openssl-dev libssl-dev
+```
+Utilisez les commandes suivantes pour cloner le Kit de développement logiciel (SDK) de passerelle IoT et tous ses sous-modules dans votre répertoire de base :
 
 ```
+cd ~
 git clone --recursive https://github.com/Azure/azure-iot-gateway-sdk.git 
+cd azure-iot-gateway-sdk
 git submodule update --init --recursive
 ```
 
-Vous devez ensuite compresser l’intégralité du référentiel local dans un fichier d’archive unique avant de le copier sur l’appareil Edison. Vous pouvez utiliser un utilitaire tel que **pscp** qui est fourni avec **Putty** pour copier le fichier d’archive sur l’appareil Edison. Par exemple :
+Si vous disposez d’une copie complète du référentiel du Kit de développement logiciel (SDK) de passerelle IoT sur votre Raspberry Pi 3, vous pouvez générer la passerelle en utilisant la commande suivante à partir du dossier contenant le Kit de développement logiciel (SDK) :
 
 ```
-pscp .\gatewaysdk.zip root@192.168.0.45:/home/root
+./tools/build.sh --skip-unittests --skip-e2e-tests
 ```
 
-Lorsque vous avez une copie complète du référentiel du Kit de développement logiciel (SDK) de passerelle sur votre appareil Edison, vous pouvez le générer à l’aide de la commande suivante à partir du dossier qui contient le Kit de développement logiciel (SDK) :
+### <a name="configure-and-run-the-ble-sample-on-your-raspberry-pi-3"></a>Configurer et exécuter l’exemple de BLE sur votre appareil Raspberry Pi 3
+Pour démarrer et exécuter l’exemple, vous devez configurer chaque module qui fait partie de la passerelle. Cette configuration est fournie dans un fichier JSON et vous devez configurer les cinq modules participants. Le référentiel contient un exemple de fichier JSON nommé **gateway_sample.json** que vous pouvez utiliser comme point de départ pour créer votre propre fichier de configuration. Ce fichier se trouve dans le dossier **samples/ble_gateway_hl/src**, dans la copie locale du référentiel du Kit de développement logiciel (SDK) de passerelle IoT.
 
-```
-./tools/build.sh
-```
-
-### <a name="configure-and-run-the-ble-sample-on-your-edison-device"></a>Configuration et exécution de l’exemple BLE sur votre appareil Edison
-Pour démarrer et exécuter l’exemple, vous devez configurer chaque module qui fait partie de la passerelle. Cette configuration est fournie dans un fichier JSON et vous devez configurer les cinq modules participants. Le référentiel contient un exemple de fichier JSON nommé **gateway_sample.json** que vous pouvez utiliser comme point de départ pour créer votre propre fichier de configuration. Ce fichier se trouve dans le dossier **samples/ble_gateway_hl/src** dans la copie locale du référentiel du Kit de développement logiciel (SDK) de passerelle.
-
-Les sections suivantes décrivent comment modifier ce fichier de configuration pour l’exemple BLE et supposent que le référentiel du Kit de développement logiciel (SDK) de passerelle se trouve dans le dossier **/home/root/azure-iot-gateway-sdk/** sur votre appareil Edison. Si le référentiel se trouve ailleurs, vous devez ajuster les chemins d’accès en conséquence :
+Les sections suivantes décrivent comment modifier ce fichier de configuration pour l’exemple BLE, et supposent que le référentiel du Kit de développement logiciel (SDK) de passerelle IoT se trouve dans le dossier **/home/pi/azure-iot-gateway-sdk/** sur votre Raspberry Pi 3. Si le référentiel se trouve ailleurs, vous devez ajuster les chemins d’accès en conséquence :
 
 #### <a name="logger-configuration"></a>Configuration de l’enregistreur
-En supposant que le référentiel de la passerelle se trouve dans le dossier **/home/root/azure-iot-gateway-sdk/**, configurez le module enregistreur comme suit :
+En supposant que le référentiel de la passerelle se trouve dans le dossier **/home/pi/azure-iot-gateway-sdk/**, configurez le module enregistreur comme suit :
 
 ```json
 {
-    "module name": "logger",
-    "module path": "/home/root/azure-iot-gateway-sdk/build/modules/logger/liblogger_hl.so",
-    "args":
-    {
-        "filename":"/home/root/gw_logger.log"
+  "name": "Logger",
+  "loader": {
+    "name" : "native",
+    "entrypoint" : {
+      "module.path" : "build/modules/logger/liblogger.so"
     }
+  },
+  "args":
+  {
+    "filename": "<</path/to/log-file.log>>"
+  }
 }
 ```
 
@@ -214,8 +271,13 @@ L’exemple de configuration de l’appareil BLE suppose qu’il s’agit d’un
 
 ```json
 {
-  "module name": "SensorTag",
-  "module path": "/home/root/azure-iot-gateway-sdk/build/modules/ble/libble_hl.so",
+  "name": "SensorTag",
+  "loader": {
+    "name" : "native",
+    "entrypoint" : {
+      "module.path": "build/modules/ble/libble.so"
+    }
+  },
   "args": {
     "controller_index": 0,
     "device_mac_address": "<<AA:BB:CC:DD:EE:FF>>",
@@ -269,26 +331,36 @@ Ajoutez le nom de votre IoT Hub. La valeur de suffixe est généralement **azure
 
 ```json
 {
-  "module name": "IoTHub",
-  "module path": "/home/root/azure-iot-gateway-sdk/build/modules/iothub/libiothub_hl.so",
+  "name": "IoTHub",
+  "loader": {
+    "name" : "native",
+    "entrypoint" : {
+      "module.path": "build/modules/iothub/libiothub.so"
+    }
+  },
   "args": {
     "IoTHubName": "<<Azure IoT Hub Name>>",
     "IoTHubSuffix": "<<Azure IoT Hub Suffix>>",
-    "Transport": "HTTP"
+    "Transport" : "amqp"
   }
 }
 ```
 
 #### <a name="identity-mapping-module-configuration"></a>Configuration du mappage d’identité
-Ajoutez l’adresse MAC de votre appareil SensorTag, ainsi que l’ID et la clé de l’appareil **SensorTag_01** que vous avez ajoutés à votre IoT Hub :
+Ajoutez l’adresse MAC de votre appareil SensorTag, ainsi que l’ID et la clé de l’appareil **SensorTag_01** que vous avez ajoutés à votre IoT Hub :
 
 ```json
 {
-  "module name": "mapping",
-  "module path": "/home/root/azure-iot-gateway-sdk/build/modules/identitymap/libidentity_map_hl.so",
+  "name": "mapping",
+  "loader": {
+    "name" : "native",
+    "entrypoint" : {
+      "module.path": "build/modules/identitymap/libidentity_map.so"
+    }
+  },
   "args": [
     {
-      "macAddress": "<<AA:BB:CC:DD:EE:FF>>",
+      "macAddress": "AA:BB:CC:DD:EE:FF",
       "deviceId": "<<Azure IoT Hub Device ID>>",
       "deviceKey": "<<Azure IoT Hub Device Key>>"
     }
@@ -299,20 +371,40 @@ Ajoutez l’adresse MAC de votre appareil SensorTag, ainsi que l’ID et la clé
 #### <a name="ble-printer-module-configuration"></a>Configuration du module d’imprimante BLE
 ```json
 {
-    "module name": "BLE Printer",
-    "module path": "/home/root/azure-iot-gateway-sdk/build/samples/ble_gateway_hl/ble_printer/libble_printer.so",
-    "args": null
+  "name": "BLE Printer",
+  "loader": {
+    "name" : "native",
+    "entrypoint" : {
+      "module.path": "build/samples/ble_gateway/ble_printer/libble_printer.so"
+    }
+  },
+  "args": null
 }
 ```
 
-#### <a name="routing-configuration"></a>Configuration de routage
+#### <a name="blec2d-module-configuration"></a>Configuration du module BLEC2D
+```json
+{
+  "name": "BLEC2D",
+  "loader": {
+    "name" : "native",
+    "entrypoint" : {
+      "module.path": "build/modules/ble/libble_c2d.so"
+    }
+  },
+  "args": null
+}
+```
+
+#### <a name="routing-configuration"></a>Configuration du routage
 La configuration suivante permet de s’assurer que :
 
-* Le module **Logger** reçoit et consigne tous les messages.
+* Le module **Enregistreur** reçoit et journalise tous les messages.
 * Le module **SensorTag** envoie les messages aux modules **mapping** et **BLE Printer**.
 * Le module **mapping** envoie les messages à envoyer à votre IoT Hub au module **IoTHub**.
 * Le module **IoTHub** renvoie les messages au module **mapping**.
-* Le module **mapping** renvoie les messages au module **SensorTag**.
+* Le module **mapping** envoie les messages au module **BLEC2D**.
+* Le module **BLEC2D** renvoie les messages au module **SensorTag**.
 
 ```json
 "links" : [
@@ -321,24 +413,26 @@ La configuration suivante permet de s’assurer que :
     {"source" : "SensorTag", "sink" : "BLE Printer" },
     {"source" : "mapping", "sink" : "IoTHub" },
     {"source" : "IoTHub", "sink" : "mapping" },
-    {"source" : "mapping", "sink" : "SensorTag" }
-  ]
+    {"source" : "mapping", "sink" : "BLEC2D" },
+    {"source" : "BLEC2D", "sink" : "SensorTag"}
+ ]
 ```
 
-Pour exécuter l’exemple, vous exécutez le fichier binaire **ble_gateway_hl** en transférant le chemin d’accès au fichier de configuration JSON. Si vous avez utilisé le fichier **gateway_sample.json**, la commande à exécuter ressemble à ceci :
+Pour exécuter l’exemple, transmettez le chemin d’accès du fichier de configuration JSON au fichier binaire **ble_gateway**. Si vous avez utilisé le fichier **gateway_sample.json**, la commande figure ci-dessous. Exécutez-la à partir du répertoire azure-iot-gateway-sdk directory.
 
 ```
-./build/samples/ble_gateway_hl/ble_gateway_hl ./samples/ble_gateway_hl/src/gateway_sample.json
+./build/samples/ble_gateway/ble_gateway ./samples/ble_gateway/src/gateway_sample.json
 ```
 
 Vous devrez peut-être appuyer sur le petit bouton situé sur l’appareil SensorTag pour le rendre détectable avant d’exécuter l’exemple.
 
-Lorsque vous exécutez l’exemple, vous pouvez exécuter l’outil [Explorateur d’appareils ou iothub-explorer][lnk-explorer-tools] pour surveiller les messages que la passerelle transmet à partir de l’appareil SensorTag.
+Lorsque vous exécutez l’exemple, vous pouvez vous servir de l’outil de l’[Explorateur d’appareils ou iothub-explorer][lnk-explorer-tools] pour surveiller les messages que la passerelle transfère à partir de l’appareil SensorTag.
 
-## <a name="send-cloudtodevice-messages"></a>Envoi de messages cloud vers appareil
-Le module BLE prend également en charge l’envoi d’instructions à partir d’IoT Hub Azure vers l’appareil. Vous pouvez utiliser l’[Explorateur d’appareils Azure IoT Hub](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) ou l’[Explorateur IoT Hub](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) pour envoyer des messages JSON que le module de passerelle BLE transmet à l’appareil BLE. Par exemple, si vous utilisez l’appareil Texas Instruments SensorTag, vous pouvez envoyer les messages JSON suivants à l’appareil à partir d’IoT Hub.
+## <a name="send-cloud-to-device-messages"></a>Envoi de messages cloud vers appareil
+Le module BLE prend également en charge l’envoi d’instructions à partir d’Azure IoT Hub à l’appareil. Vous pouvez utiliser l’[Explorateur d’appareils Azure IoT Hub](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) ou l’[Explorateur IoT Hub](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) pour envoyer des messages JSON que le module de passerelle BLE transmet à l’appareil BLE.
+Si vous utilisez l’appareil SensorTag de Texas Instruments, vous pouvez activer la DEL rouge, la DEL verte, ou le vibreur sonore en envoyant des commandes à partir de l’IoT Hub. Pour ce faire, commencez par envoyer les deux messages JSON suivants dans l’ordre. Ensuite, vous pouvez envoyer n’importe laquelle des commandes pour activer les témoins ou le vibreur sonore.
 
-* Réinitialiser tous les voyants et l’alarme sonore (les mettre hors tension)
+1 Réinitialisez les DEL et le vibreur sonore (en les mettant hors tension)
   
     ```json
     {
@@ -347,7 +441,7 @@ Le module BLE prend également en charge l’envoi d’instructions à partir d�
       "data": "AA=="
     }
     ```
-* Configurer les E/S en tant que « distantes »
+2 Configures les E/S en tant que « à distance »
   
     ```json
     {
@@ -384,37 +478,29 @@ Le module BLE prend également en charge l’envoi d’instructions à partir d�
     }
     ```
 
-Le comportement par défaut d’un appareil utilisant le protocole HTTP pour se connecter à IoT Hub consiste à vérifier toutes les 25 minutes s’il existe une nouvelle commande. Par conséquent, si vous envoyez plusieurs commandes séparées, vous devez patienter 25 minutes pour que l’appareil reçoive chaque commande.
-
-> [!NOTE]
-> La passerelle vérifie également l’existence de nouvelles commandes à chaque fois qu’elle démarre. Vous pouvez donc la forcer à traiter une commande en l’arrêtant et en la redémarrant.
-> 
-> 
-
 ## <a name="next-steps"></a>Étapes suivantes
-Si vous souhaitez approfondir vos connaissances sur les kits de développement logiciel (SDK) Gateway et découvrir certains exemples de code, consultez les didacticiels de développement et les ressources suivants :
+Si vous souhaitez approfondir vos connaissances sur le Kit de développement logiciel (SDK) de passerelle IoT et découvrir certains exemples de code, consultez les didacticiels de développement et les ressources suivants :
 
-* [Kit de développement logiciel (SDK) de la passerelle Azure IoT][lnk-sdk]
+* [Kit de développement logiciel (SDK) de passerelle Azure IoT][lnk-sdk]
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
 * [Guide du développeur][lnk-devguide]
 
 <!-- Links -->
-[lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
+[lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/ble_gateway
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
-[lnk-setup-win64]: https://software.intel.com/get-started-edison-windows
-[lnk-setup-win32]: https://software.intel.com/get-started-edison-windows-32
-[lnk-setup-osx]: https://software.intel.com/get-started-edison-osx
-[lnk-setup-linux]: https://software.intel.com/get-started-edison-linux
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
+[lnk-noobs]: https://www.raspberrypi.org/documentation/installation/noobs.md
+[lnk-raspbian]: https://www.raspberrypi.org/downloads/raspbian/
 
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-create-hub]: iot-hub-create-through-portal.md 
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO5-->
 
 

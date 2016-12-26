@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Apprenez à utiliser Data Factory pour configurer des pipelines de données automatisés vers et depuis des sources en local et dans le cloud afin de déplacer et traiter des données pour analyse."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 627543dce9888903254875eab218d33029000088
+ms.sourcegitcommit: 82f628be33ab24ef29a42121c577792768882eb5
+ms.openlocfilehash: ac936a317b6a68e2f0670ca9903dbbe100c82cdd
 
 ---
 # <a name="azure-data-factory-documentation"></a>Documentation Azure Data Factory
 
-Azure Data Factory est un service d’intégration de données basé sur le cloud qui automatise le déplacement et la transformation des données. Le service Data Factory crée des solutions d’intégration de données qui peuvent ingérer des données provenant de différents magasins de données, transformer et traiter ces données, puis republier les données résultantes dans les magasins de données.
+Découvrez comment utiliser Data Factory, un service d’intégration des données cloud, pour composer des services de stockage, de déplacement et de traitement des données au sein de pipelines de données automatisés. Des didacticiels et d’autres documents vous montrent comment configurer et gérer les pipelines de données, mais aussi comment déplacer et transformer les données en vue de leur analyse.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -86,52 +87,44 @@ Azure Data Factory est un service d’intégration de données basé sur le clou
 
 ---
 
-## <a name="reference"></a>Référence
-
+<h2>Référence</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Référence Azure PowerShell</p>
+                        <h3>Ligne de commande</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Informations de référence sur l’API managée de Data Factory</p>
-                    </div>
+                        <h3>Langues</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.datafactories.models">.NET</a></p>
+                        <p><a href="/azure/data-factory/data-factory-sdks">Référence du développeur Azure Data Factory</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/rest/api/datafactory">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Informations de référence sur l’API REST Data Factory</p>
+                        <p><a href="/rest/api/datafactory/">Référence sur les API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -147,6 +140,6 @@ Télécharger la documentation Data Factory </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

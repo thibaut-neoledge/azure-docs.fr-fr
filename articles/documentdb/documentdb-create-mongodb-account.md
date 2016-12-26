@@ -1,71 +1,77 @@
 ---
-title: Création d’un compte DocumentDB prenant en charge le protocole MongoDB | Microsoft Docs
-description: Découvrez comment créer un compte DocumentDB prenant en charge le protocole MongoDB (actuellement disponible en version préliminaire).
+title: "Créer un compte DocumentDB à utiliser avec les applications MongoDB | Microsoft Docs"
+description: "Utilisez ce didacticiel pour apprendre à créer un compte DocumentDB prenant en charge le protocole MongoDB (actuellement disponible en version préliminaire)."
+keywords: mongodb apps, mongodb app
 services: documentdb
 author: AndrewHoh
 manager: jhubbard
-editor: ''
-documentationcenter: ''
-
+editor: 
+documentationcenter: 
+ms.assetid: 413f3ae1-a68e-43be-b0d7-fa2987644f3e
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 11/24/2016
 ms.author: anhoh
+translationtype: Human Translation
+ms.sourcegitcommit: 74f80f14a66fa61c19cb5d5fd758cea0ccdd43c5
+ms.openlocfilehash: bf72fa88f9444578dd0192e94c89c862273886b2
+
 
 ---
-# <a name="how-to-create-a-documentdb-account-with-protocol-support-for-mongodb-using-the-azure-portal"></a>Créer un compte DocumentDB prenant en charge le protocole MongoDB à l’aide du portail Azure
-Pour créer un compte Azure DocumentDB prenant en charge le protocole MongoDB, vous devez :
 
-* Avoir un compte Azure. Si vous n’en avez pas, vous pouvez obtenir un [compte Azure gratuit](https://azure.microsoft.com/free/)
+# <a name="create-a-documentdb-account-for-use-with-mongodb-apps"></a>Créer un compte DocumentDB à utiliser avec les applications MongoDB
+Les bases de données DocumentDB peuvent désormais être utilisées comme magasins de données pour les applications écrites pour MongoDB. Pour utiliser cette fonctionnalité, vous avez besoin d’un compte Azure et d'un compte DocumentDB. Ce didacticiel vous guide dans le processus de création d’un compte DocumentDB à utiliser avec les applications de MongoDB. 
 
-## <a name="create-the-account"></a>Créer le compte
-Pour créer un compte DocumentDB prenant en charge le protocole MongoDB, procédez comme suit :
+## <a name="prerequisite"></a>Configuration requise
+Un compte Azure. Si vous ne possédez pas de compte Azure, vous pouvez créer un [compte Azure gratuit](https://azure.microsoft.com/free/) dès maintenant.
+## <a name="create-a-documentdb-account"></a>Création d'un compte DocumentDB
 
-1. Dans une nouvelle fenêtre, connectez-vous au [portail Azure](https://portal.azure.com).
-2. Cliquez sur **NOUVEAU**, cliquez sur **Données + Stockage**, cliquez sur **See all** (Afficher tout), puis recherchez le « protocole DocumentDB » dans la catégorie **Données + Stockage**. Cliquez sur **DocumentDB - Prise en charge de protocole pour MongoDB**.
-   
-    ![Capture d’écran des panneaux Marketplace et recherche des données et du stockage, mise en surbrillance de DocumentDB - Prise en charge de protocole pour MongoDB, Base de données Mongo](./media/documentdb-create-mongodb-account/marketplacegallery2.png)
-3. Sinon, dans la catégorie **Données + Stockage**, sous **Stockage**, cliquez sur **Plus**, puis cliquez sur **Load more** (Charger plus) une ou plusieurs fois pour afficher **DocumentDB - Prise en charge de protocole pour MongoDB**. Cliquez sur **DocumentDB - Prise en charge de protocole pour MongoDB**.
-   
-    ![Capture d’écran des panneaux Marketplace et Données et stockage, mise en surbrillance de DocumentDB - Prise en charge de protocole pour MongoDB, Base de données Mongo](./media/documentdb-create-mongodb-account/marketplacegallery1.png)
-4. Dans le panneau **DocumentDB - Prise en charge de protocole pour MongoDB (version préliminaire)**, cliquez sur **Créer** pour lancer le processus d’inscription à la version préliminaire.
-   
-    ![Le panneau DocumentDB - Prise en charge de protocole pour MongoDB dans le portail Azure](./media/documentdb-create-mongodb-account/marketplacegallery3.png)
-5. Dans le panneau **Compte DocumentDB**, cliquez sur **S’inscrire à la version préliminaire**. Lisez les informations, puis cliquez sur **OK**.
-   
-    ![Le panneau S’inscrire à la version préliminaire pour DocumentDB - Prise en charge de protocole pour MongoDB dans le portail Azure](./media/documentdb-create-mongodb-account/registerforpreview.png)
-6. Après avoir accepté les termes du contrat de la version préliminaire, vous serez redirigé vers le panneau de création.  Dans le panneau **Compte DocumentDB** , indiquez la configuration souhaitée pour le compte.
-   
-   ![Capture d’écran du panneau du nouveau compte DocumentDB prenant en charge le protocole MongoDB](./media/documentdb-create-mongodb-account/create-documentdb-mongodb-account.png)
+1. Dans un navigateur Internet, connectez-vous au [portail Azure](https://portal.azure.com).
+2. Dans le volet de navigation gauche, cliquez sur **NoSQL (DocumentDB)**.
 
-    - Dans la zone **ID**, entrez un nom pour identifier le compte.  Lorsque **l’ID** est validé, une coche verte s’affiche dans la case **ID**. La valeur de **ID** devient le nom d’hôte dans l’URI. Cet **ID** ne peut contenir que des minuscules, des chiffres, le caractère « - » et doit compter entre 3 et 50 caractères. Notez que *documents.azure.com* sera ajouté au nom du point de terminaison de votre choix. Celui-ci deviendra le point de terminaison de votre compte.
+    ![Capture d’écran du volet de navigation gauche du portail, avec mise en surbrillance de l'entrée DocumentDB NoSQL](./media/documentdb-create-mongodb-account/portalleftnav.png)
+
+3. Sinon, cliquez sur **Plus de services >**, tapez **DocumentDB** dans la barre de recherche supérieure, puis cliquez sur **NoSQL (DocumentDB)**.
+
+    ![Capture d’écran du panneau Plus de services avec recherche de l'entrée NoSQL DocumentDB](./media/documentdb-create-mongodb-account/more-services-search.PNG)
+
+4. En haut du panneau**NoSQL (DocumentDB)**, cliquez sur **+ Ajouter** sur la barre d’action supérieure.
+
+    ![Capture d’écran du bouton Ajouter dans le panneau de ressources DocumentDB NoSQL](./media/documentdb-create-mongodb-account/add-documentdb-account.png)
+
+5. Dans le panneau **Compte DocumentDB** , indiquez la configuration souhaitée pour le compte.
+
+   ![Capture d’écran du panneau du nouveau compte DocumentDB prenant en charge le protocole MongoDB](./media/documentdb-create-mongodb-account/create-documentdb-mongodb-account.PNG)
+
+    - Dans la zone **ID**, entrez un nom pour identifier le compte.  Lorsque **l’ID** est validé, une coche verte s’affiche dans la case **ID**. La valeur de **ID** devient le nom d’hôte dans l’URI. Cet **ID** ne peut contenir que des minuscules, des chiffres, le caractère « - » et doit compter entre 3 et 50 caractères. Notez que *documents.azure.com* sera ajouté au nom du point de terminaison de votre choix. Celui-ci deviendra le point de terminaison de votre compte.
+
+    - Pour **API NoSQL**, sélectionnez **MongoDB**. Cette opération spécifie l'API de communication que vous souhaitez utiliser pour interagir avec votre base de données DocumentDB.
 
     - Dans **Abonnement**, sélectionnez l’abonnement Azure que vous voulez utiliser pour le compte. Si votre compte ne comporte qu’un seul abonnement, ce compte sera sélectionné par défaut.
 
-    - Dans **Groupe de ressources**, sélectionnez ou créez un groupe de ressources pour le compte.  Un groupe de ressources déjà attaché à l’abonnement Azure est sélectionné par défaut.  Vous pouvez cependant choisir de sélectionner un nouveau groupe de ressources auquel ajouter le compte. Pour plus d’informations, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](resource-group-portal.md).
+    - Dans **Groupe de ressources**, sélectionnez ou créez un groupe de ressources pour le compte.  Un groupe de ressources déjà attaché à l’abonnement Azure est sélectionné par défaut.  Vous pouvez cependant choisir de sélectionner un nouveau groupe de ressources auquel ajouter le compte. Pour plus d’informations, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](../azure-portal/resource-group-portal.md).
 
     - Utilisez **Emplacement** pour indiquer l’emplacement géographique où héberger le compte.
 
-    - Cochez la case **Épingler au tableau de bord** 
+6. Une fois les options du nouveau compte configurées, cliquez sur **Créer**.  La création du compte peut prendre plusieurs minutes.
 
-1. Une fois les options du nouveau compte configurées, cliquez sur **Créer**.  La création du compte peut prendre plusieurs minutes.  Pour vérifier l’état, vous pouvez suivre l’avancement sur le Tableau d’accueil.  
-   ![Capture d’écran de la vignette Création dans le Tableau d’accueil - créateur de base de données en ligne](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-3.png)  
-   
-   Vous pouvez aussi surveiller l’avancement depuis le hub de notifications.  
-   
-   ![Création rapide de bases de données - capture d’écran du hub de notifications, indiquant que le compte DocumentDB est en cours de création](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-4.png)  
-   
-   ![Capture d’écran du hub de notifications montrant le compte DocumentDB créé avec succès et déployé vers un groupe de ressources - notification du créateur de base de données en ligne](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-5.png)
-2. Une fois le compte créé, il est prêt à être utilisé avec les paramètres par défaut. 
-   
-   ![Capture d’écran du panneau de compte par défaut](./media/documentdb-create-mongodb-account/defaultaccountblades.png)
+   Vous pouvez surveiller l’avancement depuis le hub de notifications.  
+
+   ![Capture d’écran du hub de notifications montrant la création du compte DocumentDB](./media/documentdb-create-mongodb-account/create-documentdb-mongodb-deployment-status.png)  
+
+7. Pour accéder à votre nouveau compte, cliquez sur **DocumentDB (NoSQL)** dans le menu de gauche. Dans la liste des comptes habituels de prise en charge des protocoles DocumentDB et DocumentDB avec Mongo, cliquez sur le nom de votre nouveau compte.
+8. Votre compte DocumentDB est maintenant prêt à être utilisé avec votre application MongoDB.
+
+   ![Capture d’écran du panneau de compte par défaut](./media/documentdb-create-mongodb-account/defaultaccountblade.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment vous [connecter](documentdb-connect-mongodb-account.md) à un compte DocumentDB prenant en charge le protocole MongoDB.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO4-->
 
 

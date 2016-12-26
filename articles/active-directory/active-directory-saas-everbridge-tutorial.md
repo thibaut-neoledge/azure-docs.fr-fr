@@ -1,34 +1,38 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec Everbridge | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Everbridge.
+title: "Didacticiel : Intégration d’Azure Active Directory à Everbridge | Microsoft Docs"
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Everbridge."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 58d7cd22-98c0-4606-9ce5-8bdb22ee8b3e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 11/22/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 5608f38de6ae78772499a40c4e2d449cd5efc79c
+ms.openlocfilehash: 511a3883cadd9bf2fe1cc39a8626c49fa19a7d8e
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-everbridge"></a>Didacticiel : Intégration d’Azure Active Directory avec Everbridge
+# <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Didacticiel : Intégration d’Azure Active Directory à Everbridge
 L’objectif de ce didacticiel est de vous montrer comment intégrer Everbridge à Azure AD (Azure Active Directory).
 
-L’intégration d’Everbridge avec Azure AD vous offre les avantages suivants :
+L’intégration d’Everbridge avec Azure AD vous offre les avantages suivants :
 
-* Dans Azure AD, vous pouvez contrôler qui a accès à Everbridge
-* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Everbridge (par le biais de l’authentification unique) avec leur compte Azure AD
-* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
+* Dans Azure AD, vous pouvez contrôler qui a accès à Everbridge
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Everbridge (par le biais de l’authentification unique) avec leur compte Azure AD
+* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Composants requis
-Pour configurer l’intégration d’Azure AD à Everbridge, vous avez besoin des éléments suivants :
+Pour configurer l’intégration d’Azure AD à Everbridge, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD
 * Un abonnement Everbridge pour lequel l’authentification unique est activée
@@ -38,7 +42,7 @@ Pour configurer l’intégration d’Azure AD à Everbridge, vous avez besoin de
 > 
 > 
 
-Vous devez en outre suivre les recommandations ci-dessous :
+Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
 * Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
@@ -52,9 +56,9 @@ Le scénario décrit dans ce didacticiel se compose des deux sections principale
 2. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-everbridge-from-the-gallery"></a>Ajout d’Everbridge à partir de la galerie
-Pour configurer l’intégration d’Everbridge à Azure AD, vous devez ajouter Everbridge à partir de la galerie à votre liste d’applications SaaS gérées.
+Pour configurer l’intégration d’Everbridge à Azure AD, vous devez ajouter Everbridge à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Everbridge à partir de la galerie, procédez comme suit :**
+**Pour ajouter Everbridge à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
    
@@ -77,29 +81,29 @@ Pour configurer l’intégration d’Everbridge à Azure AD, vous devez ajouter 
     ![Sélection de l’application dans la galerie](./media/active-directory-saas-everbridge-tutorial/tutorial_everbridge_001.png)
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Everbridge au moyen d’un utilisateur de test appelé « Britta Simon ».
+L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Everbridge au moyen d’un utilisateur de test appelé « Britta Simon ».
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Everbridge équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur Everbridge associé doit être établie.
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Everbridge équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur Everbridge associé doit être établie.
 
-Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Everbridge.
+Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Everbridge.
 
-Pour configurer et tester l’authentification unique Azure AD avec Everbridge, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec Everbridge, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Everbridge](#creating-a-everbridge-test-user)** pour avoir un équivalent de Britta Simon dans Everbridge qui soit lié à la représentation Azure AD associée.
+3. **[Création d’un utilisateur de test Everbridge](#creating-a-everbridge-test-user)** pour avoir un équivalent de Britta Simon dans Everbridge qui soit lié à la représentation Azure AD associée.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail classique et configurer l’authentification unique dans votre application Everbridge.
 
-**Pour configurer l’authentification unique Azure AD avec Everbridge, procédez comme suit :**
+**Pour configurer l’authentification unique Azure AD avec Everbridge, procédez comme suit :**
 
 1. Dans le portail Classic, dans la page d’intégration d’applications **Everbridge**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
     ![Configurer l’authentification unique][6] 
-2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Everbridge**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
+2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Everbridge**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-everbridge-tutorial/tutorial_everbridge_03.png) 
 3. Dans la page de boîte de dialogue **Configurer les paramètres d’application**, procédez comme suit et cliquez sur **Suivant** :
@@ -150,7 +154,7 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
 ![Créer un utilisateur Azure AD][20]
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
    
@@ -170,20 +174,21 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
    
     b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
    
-    c. Cliquez sur **Suivant**.
+    c. Cliquez sur **Next**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
-   ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-everbridge-tutorial/create_aaduser_06.png)
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-everbridge-tutorial/create_aaduser_06.png)
    
-   a. Dans la zone de texte **First Name**, tapez **Britta**.  
+    a. Dans la zone de texte **First Name**, tapez **Britta**.  
    
-   b. Dans la zone de texte **Last Name**, tapez **Simon**.
+    b. Dans la zone de texte **Last Name**, tapez **Simon**.
    
-   c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
+    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
    
-   d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
+    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
    
-   e. Cliquez sur **Suivant**.
+    e. Cliquez sur **Next**.
+
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-everbridge-tutorial/create_aaduser_07.png)
@@ -203,7 +208,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ![Affecter des utilisateurs][200]
 
-**Pour attribuer Britta Simon à Everbridge, procédez comme suit :**
+**Pour attribuer Britta Simon à Everbridge, procédez comme suit :**
 
 1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue d’annuaire, cliquez sur l’option **Applications** figurant dans le menu du haut.
    
@@ -226,7 +231,7 @@ Lorsque vous cliquez sur la vignette Everbridge dans le volet d’accès, vous d
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 
@@ -248,6 +253,6 @@ Lorsque vous cliquez sur la vignette Everbridge dans le volet d’accès, vous d
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

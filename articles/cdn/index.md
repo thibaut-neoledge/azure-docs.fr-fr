@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Apprenez à utiliser un réseau de distribution de contenu (CDN) pour diffuser du contenu de centres de données mondiaux vers n’importe quel appareil. Didacticiels, références d’API et autres documents."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: 79a8dc0dc2e81d0b159b07bbb496f04e06e5d28a
+ms.sourcegitcommit: 565971021beec4afde15c17737ee82b812ba894d
+ms.openlocfilehash: fe5c35945f14c5023f070f25fd76e47d7952ce54
 
 ---
 # <a name="cdn-documentation"></a>Documentation CDN
 
-Azure Content Delivery Network (CDN) propose aux développeurs une solution globale pour fournir du contenu de large bande passante hébergé dans Azure ou ailleurs.  Le réseau CDN vous permet de mettre en cache des objets disponibles publiquement, chargés à partir d’un stockage d’objets blob Azure, d’une application web, d’une machine virtuelle, d’un dossier d’application ou d’un autre emplacement HTTP/HTTPS.  Le réseau CDN est généralement utilisé pour distribuer du contenu statique tel que des images, des feuilles de style, des documents, des fichiers, des scripts côté client et des pages HTML.
+Apprenez à utiliser un réseau de distribution de contenu (CDN) pour distribuer du contenu à bande passante élevée hébergé dans Azure ou dans un autre service. Des didacticiels, des références d’API et d’autres documents vous montrent comment utiliser le CDN pour diffuser du contenu de centres de données mondiaux vers n’importe quel appareil.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -119,6 +120,6 @@ Télécharger la documentation Azure CDN </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Apprenez à créer des machines virtuelles Windows. La documentation vous aide à planifier, déployer et gérer un environnement informatique de machines virtuelles dans le cloud."
 translationtype: Human Translation
-ms.sourcegitcommit: c5ed66f3a060dcd1bac9c04c70c493dcebcf9df8
-ms.openlocfilehash: f8d6ab10622ac6daacaf66551f18eaecd1448dee
+ms.sourcegitcommit: 0970a23966dc099fe4d145ddc66f9a73c109e8a1
+ms.openlocfilehash: 1c56e72a39ff0ea47dcda600b61c937691c63dab
 
 ---
-#<a name="windows-virtual-machines-documentation"></a>Documentation sur les machines virtuelles Windows
+# <a name="windows-virtual-machines-documentation"></a>Documentation sur les machines virtuelles Windows
 
-Les machines virtuelles Azure sont l’un des nombreux types de ressources informatiques évolutives et à la demande proposés par Azure. En règle générale, une machine virtuelle est mieux adaptée à vos besoins si vous devez surtout améliorer le contrôle de votre environnement informatique. Une machine virtuelle Azure vous donne la flexibilité de la virtualisation sans que vous ayez à acheter le matériel physique qui exécute la machine virtuelle ni à en assurer la maintenance. Et vous conservez le contrôle sur la configuration, l’application de mises à jour correctives et l’installation du logiciel qui s’exécute sur la machine virtuelle.
+Apprenez à créer des machines virtuelles Windows. Les didacticiels, références d’API et autres documents vous aident à planifier, déployer et gérer un environnement informatique de machines virtuelles dans le cloud.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -103,107 +104,48 @@ Les machines virtuelles Azure sont l’un des nombreux types de ressources infor
 </ul>
 
 ---
-
-##<a name="reference"></a>Référence
-
+ 
+<h2>Référence</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Applets de commande PowerShell</p>
+                        <h3>Ligne de commande</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/cli/azure/vm">Interface de ligne de commande Azure</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/install-az-cli2">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Interface de ligne de commande Azure</h3>
-                        <p>Installer l’interface de ligne de commande Microsoft Azure</p>
+                        <h3>Langues</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
+                        <p><a href="/java/api">Java</a></p>
+                        <p><a href="https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk">Node.js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Référence API managée .NET</p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/compute">Informations de référence sur l’API REST de Compute</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Kit de développement logiciel (SDK) Java</h3>
-                        <p>Référence sur l’API Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/compute">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Compute)</h3>
-                        <p>Informations de référence sur l’API REST de Compute</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/mt163658">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Réseau)</h3>
-                        <p>Informations de référence sur l’API REST de Réseau</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/storage">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Stockage)</h3>
-                        <p>Informations de référence sur l’API REST de Stockage</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
 
@@ -217,6 +159,6 @@ Télécharger la documentation Machine virtuelle Windows </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

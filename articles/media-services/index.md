@@ -1,15 +1,14 @@
 ---
 layout: LandingPage
+description: "Apprenez à diffuser en continu des vidéos à la demande ou de qualité télévisuelle avec la plateforme cloud extensible Media Services. Didacticiels, références d’API et autres."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 78433e8f6d66d55f7917e4abbbbe1c24e662a400
+ms.sourcegitcommit: bc22da83e1683cc8be164e9ff3ed95d2fdc95d27
+ms.openlocfilehash: 7b6ff41479fdfe332148dc2366c7e547af5e98f9
 
 ---
 # <a name="media-services-documentation"></a>Documentation Media Services
 
-Azure Media Services est une plateforme extensible basée sur le cloud qui permet aux développeurs de créer des applications évolutives de gestion et de diffusion de médias. Media Services est basé sur les API REST qui permettent de charger, stocker, encoder et empaqueter en toute sécurité du contenu vidéo ou audio destiné à être diffusé à la demande ou en direct sur différents clients (par exemple, téléviseurs, PC et appareils mobiles).
-
-Vous pouvez créer des flux de travail de bout en bout en utilisant uniquement Media Services. Vous pouvez aussi choisir d’utiliser des composants tiers pour certaines parties de votre flux de travail Par exemple, vous pouvez encoder des flux de travail à l’aide d’un encodeur tiers, puis les charger, les protéger, les empaqueter et les distribuer à l’aide de Media Services.
+Apprenez à diffuser en continu des vidéos de qualité télévisuelle avec la plateforme cloud extensible Media Services. Des didacticiels, références d’API et autres documents vous montrent comment diffuser en toute sécurité du contenu vidéo ou audio à la demande et en direct pour des millions d’utilisateurs.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -210,6 +209,6 @@ Télécharger la documentation Media Services </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

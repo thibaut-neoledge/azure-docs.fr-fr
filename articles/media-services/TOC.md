@@ -44,7 +44,7 @@
 ##### [Schéma Media Encoder Standard](media-services-mes-schema.md)
 ##### [Métadonnées d’entrée](media-services-input-metadata-schema.md)
 ##### [Métadonnées de sortie](media-services-output-metadata-schema.md)
-#### Présélections MES 
+#### [Présélections MES](media-services-mes-presets-overview.md) 
 ##### [H264 – Vitesse de transmission multiple – 1 080 pixels – Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md)
 ##### [H264 – Vitesse de transmission multiple – 1 080 pixels](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md)
 ##### [H264 – Vitesse de transmission multiple – 16 x 9 SD – Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md)
@@ -134,7 +134,7 @@
 ### [Traiter avec Hyperlapse](media-services-hyperlapse-content.md)
 ### [Traiter avec Face Detector](media-services-face-and-emotion-detection.md)
 ### [Traiter avec Motion Detector](media-services-motion-detection.md)
-### [Traiter avec la rédaction de face](media-services-face-redaction.md)
+### [Utiliser Face Redactor](media-services-face-redaction.md)
 #### [Procédure pas à pas de rédaction de face](media-services-redactor-walkthrough.md)
 ### [Traiter avec Video Thumbnails](media-services-video-summarization.md)
 ### [Traiter avec OCR](media-services-video-optical-character-recognition.md)
@@ -207,6 +207,6 @@
 ## [Vidéos](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

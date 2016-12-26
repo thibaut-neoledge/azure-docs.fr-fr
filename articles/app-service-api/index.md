@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
+description: "Apprenez à utiliser API Apps dans Azure App Service pour développer, héberger et utiliser des API dans le cloud et en local. Didacticiels, vidéos et autres documents."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: ac7a22bd592cbb1e8cdee2e6d2896c0b8ad6ea26
-
+ms.sourcegitcommit: 410479b746b5911d1ebcb51c92a6de74686cffbe
+ms.openlocfilehash: e5b9d9322bcf5860debb93fe579665f778a41e7b
 
 ---
 # <a name="app-service---api-apps-documentation"></a>App Service - Documentation API Apps
 
-API Apps est l’un des quatre types d’applications proposés par Azure App Service. La fonction API Apps d’Azure App Service offre un ensemble complet de fonctionnalités en matière de développement, d’hébergement et d’utilisation des API dans le cloud et en local. Azure App Service est une plateforme entièrement gérée conçue pour les scénarios web et mobiles, ainsi que pour les scénarios d’intégration.
+Apprenez à utiliser API Apps dans Azure App Service pour développer, héberger et utiliser des API dans le cloud et en local. Des didacticiels, des vidéos et d’autres documents vous montrent comment créer et déployer des applications API.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -121,28 +121,6 @@ API Apps est l’un des quatre types d’applications proposés par Azure App S
     </li>     
 </ul>
 
----
-
-<h2>Référence</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Ressources</h3>
-                        <p><a href="/azure/app-service-web/app-service-web-app-azure-portal?toc=%2fazure%2fapp-service-api%2ftoc.json">Portail Azure</a></p>
-                        <p><a href="/azure/app-service-web/app-service-changes-existing-services?toc=%2fazure%2fapp-service-api%2ftoc.json">Référence sur App Service</a></p>
-                        <p><a href="/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started?toc=%2fazure%2fapp-service-api%2ftoc.json">Kit de développement logiciel (SDK) WebJobs</a></p>
-                   </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-
----
-
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-api.pdf">
         <div class="img"></div>
@@ -153,6 +131,6 @@ Télécharger la documentation Mobile Apps </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

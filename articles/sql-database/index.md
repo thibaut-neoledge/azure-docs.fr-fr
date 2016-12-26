@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Découvrez SQL Database, une base de données en tant que service dans le cloud. Des didacticiels, vidéos et autres documents vous montrent comment configurer, vous connecter et gérer une base de données relationnelle."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: 07cbe71fc9330724dd8b92c5321d4fca9ecde512
+ms.sourcegitcommit: e4df0029db106923e3d28f16b3dfe239cae5b032
+ms.openlocfilehash: 4c148d62e435f063810c096069c4020ef78568d8
 
 ---
 
 # <a name="sql-database-documentation"></a>Documentation SQL Database
 
-Azure SQL Database est un service de base de données relationnelle dans le cloud, dont les fonctionnalités stratégiques sont basées sur le moteur Microsoft SQL Server. Il offre des performances prévisibles et une évolutivité sans interruption de service, et assure une continuité des activités et une protection des données, le tout avec des tâches d’administration minimales. Comme elle est basée sur le moteur SQL Server, la base de données SQL Database prend en charge les outils, bibliothèques et API SQL Server existants, ce qui facilite sa migration et son extension vers le cloud.
+Découvrez comment utiliser SQL Database, une base de données relationnelle en tant que service dans le cloud reposant sur le moteur Microsoft SQL Server. Des didacticiels, vidéos et autres documents vous montrent comment configurer, vous connecter et gérer une base de données SQL.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -162,6 +163,6 @@ Télécharger la documentation SQL Database </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

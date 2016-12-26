@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Découvrez comment utiliser Resource Manager pour déployer et gérer des ressources de solution en tant que groupe et créer des modèles de déploiement de ressources cohérents et reproductibles."
 translationtype: Human Translation
-ms.sourcegitcommit: e48fea077e09518ab5005518c8e8a413df458b93
-ms.openlocfilehash: a7b6655d2314b198706177f1adaf1b88eb135307
+ms.sourcegitcommit: 0c80499b4b27b7c21473e0ed6468441fa26e965d
+ms.openlocfilehash: f687fd5682a912cf02efec097c6df4a0c1604938
 
 ---
 #<a name="azure-resource-manager-documentation"></a>Documentation Azure Resource Manager
 
-L’infrastructure de votre application est généralement constituée de plusieurs composants (peut-être une machine virtuelle, un compte de stockage et un réseau virtuel ou une application web, une base de données, un serveur de base de données et 3 services de tiers). Vous ne voyez pas ces composants comme des entités distinctes, mais plutôt comme des parties associées et interdépendantes d’une seule et même entité. Vous avez alors besoin de regrouper le déploiement, la gestion et la surveillance de ces différentes parties. Azure Resource Manager vous permet de travailler avec les ressources de solution sous forme de groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre solution dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Resource Manager fournit des fonctionnalités de sécurité, d’audit et de balisage pour vous aider à gérer vos ressources après le déploiement.
+Apprenez à utiliser Resource Manager pour déployer, surveiller et gérer des ressources de solution en tant que groupe. Des didacticiels, des références d’API et d’autres documents vous montrent comment configurer des groupes de ressources et créer des modèles de déploiement cohérents et reproductibles.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -158,6 +159,7 @@ Télécharger la documentation Azure Resource Manager </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

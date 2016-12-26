@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Découvrez Hadoop sur HDInsight. La documentation vous montre comment utiliser, entre autres, Hadoop, Spark, HBase et R-Server pour traiter, analyser et interpréter le Big Data."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 1513c4d2b658efff20095a293cec2a9687ebeabf
+ms.sourcegitcommit: a2902740659bb6d6246d1e44023bd27fa38aff91
+ms.openlocfilehash: 5cf7e165b9cd31fcf5bd03d03b6e1eb3d9cd46c7
 
 ---
 #<a name="azure-hdinsight-documentation"></a>Documentation Azure HDInsight
 
-Azure HDInsight est une distribution Apache Hadoop proposée sur le cloud.  Azure HDInsight rend les composants Hadoop de la distribution de la plateforme de données Hortonworks (HDP) disponibles dans le cloud, et déploie et approvisionne les clusters gérés avec fiabilité et disponibilité.  Azure HDInsight fournit des configurations de cluster pour Apache Hadoop, Spark, HBase et Storm.  Vous pouvez également utiliser des clusters personnalisés avec des actions de script.  
+Découvrez comment utiliser Hadoop dans le cloud sur HDInsight pour analyser les données de diffusion en continu ou historiques. Des didacticiels et d’autres documents vous montrent comment créer des clusters, traiter et analyser le Big Data, et développer des solutions avec Hadoop, Spark, HBase, R-Server, Storm et d’autres technologies dans l’écosystème Hadoop.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -122,64 +123,47 @@ Azure HDInsight est une distribution Apache Hadoop proposée sur le cloud.  Az
 </ul>
 
 ---
-
-## <a name="reference"></a>Référence
-
+ 
+<h2>Référence</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Référence Azure PowerShell</p>
+                        <h3>Ligne de commande</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
- <li>
-        <a href="/rest/api/hdinsight">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Langues</h3>
+                        <p><a href="https://msdn.microsoft.com/library/mt271028.aspx">.NET (Hadoop)</a></p>
+                        <p><a href="https://www.nuget.org/packages/Microsoft.HBase.Client/">.NET (HBase)</a></p>
+                        <p><a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library">.NET (Avro)</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Informations de référence sur l’API REST de HDInsight</p>
+                        <p><a href="/rest/api/hdinsight/">API REST</a></p>
+                        <p><a href="/rest/api/hdinsightspark/">API REST (Spark)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-         <a href="/rest/api/hdinsightspark">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <p>Référence API REST de Spark pour HDInsight</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt271028">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Informations de référence sur l’API managée de HDInsight</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
 
@@ -193,6 +177,6 @@ Télécharger la documentation HDInsight </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

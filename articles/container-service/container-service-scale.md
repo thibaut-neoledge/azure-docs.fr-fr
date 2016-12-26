@@ -3,8 +3,8 @@ title: "Mise à l’échelle de votre cluster ACS avec l’interface CLI Azure |
 description: "Mise à l’échelle de votre cluster Azure Container Service à l’aide de l’interface de ligne de commande Azure."
 services: container-service
 documentationcenter: 
-author: Thraka
-manager: timlt
+author: sauryadas
+manager: madhana
 editor: 
 tags: acs, azure-container-service
 keywords: Docker, conteneurs, micro-services, Mesos, Azure
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2016
-ms.author: timlt
+ms.author: saudas
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9e8df2e68b1b7018d76da89ba9ab332b6ea216fb

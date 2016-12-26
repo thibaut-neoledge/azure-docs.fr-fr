@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Apprenez à utiliser Azure Storage pour le stockage d’objets blob, de tables, de fichiers et de disques de machine virtuelle dans le cloud. Didacticiels, références d’API et autres documents."
 translationtype: Human Translation
-ms.sourcegitcommit: a6c333ae45868d5c29ce2f2587f1417fa9fafc0b
-ms.openlocfilehash: 27fd664b69ca4467daa2b0abc6e53c9cece221ae
+ms.sourcegitcommit: 3cd1ef210c363fc280cefca3c0697eb66da85a1d
+ms.openlocfilehash: 426166d22b721d45853f3f578d39e14966c57c50
 
 ---
 
 # <a name="storage-documentation"></a>Documentation Stockage
 
-Le service Stockage Azure est la solution de stockage cloud pour les applications récentes qui s’appuient sur la durabilité, la disponibilité et la scalabilité pour répondre aux besoins des clients.  Ce service est accessible globalement, hautement évolutif et élastique, et équilibre automatiquement la charge de vos données en fonction du trafic.  Stockage Azure propose les cinq services suivants pour répondre aux besoins en matière d’application : Stockage Blob, Stockage Table, Stockage File d’attente, Stockage sur disque et Stockage Fichier.
+Découvrez comment utiliser Azure Storage, un service de stockage cloud fiable, disponible et évolutif. Des didacticiels, références d’API et autres documents vous montrent comment configurer et gérer le stockage d’objets blob, de tables, de fichiers et de disques de machine virtuelle.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -148,6 +149,6 @@ Télécharger la documentation Stockage </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

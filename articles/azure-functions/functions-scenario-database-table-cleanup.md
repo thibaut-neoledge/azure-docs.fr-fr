@@ -1,13 +1,13 @@
 ---
-title: Utiliser Azure Functions pour effectuer une tâche de nettoyage planifiée | Microsoft Docs
-description: Utilisez Azure Functions pour créer une fonction C# qui s’exécute en fonction d’un compteur d’événements.
+title: "Utiliser Azure Functions pour effectuer une tâche de nettoyage planifiée | Microsoft Docs"
+description: "Utilisez Azure Functions pour créer une fonction C# qui s’exécute en fonction d’un compteur d’événements."
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: glenga
+translationtype: Human Translation
+ms.sourcegitcommit: b873a7d0ef9efa79c9a173a8bfd3522b12522322
+ms.openlocfilehash: c0b4a963275dae5bbf203388cb61086393803b15
+
 
 ---
 # <a name="use-azure-functions-to-perform-a-scheduled-clean-up-task"></a>Utiliser Azure Functions pour effectuer une tâche de nettoyage planifiée
@@ -48,16 +52,20 @@ Une application de fonction héberge l’exécution de vos fonctions dans Azure.
    
     ![Créer une nouvelle fonction déclenchée par un minuteur](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
 2. Dans le volet **Code** de l’onglet **Développer**, ajoutez les références d’assembly suivantes en haut du code actuel de la fonction :
-   
+    ```cs
         #r "System.Configuration"
         #r "System.Data"
+    ```
+
 3. Ajoutez les instructions `using` suivantes à la fonction :
-   
+    ```cs
         using System.Configuration;
         using System.Data.SqlClient;
-        using System.Threading.Tasks; 
+        using System.Threading.Tasks;
+    ```
+
 4. Remplacez la fonction **Run** existante par le code suivant :
-   
+    ```cs
         public static async Task Run(TimerInfo myTimer, TraceWriter log)
         {
             var str = ConfigurationManager.ConnectionStrings["sqldb_connection"].ConnectionString;
@@ -73,6 +81,8 @@ Une application de fonction héberge l’exécution de vos fonctions dans Azure.
                 }
             }
         }
+    ```
+
 5. Cliquez sur **Enregistrer**, surveillez la prochaine exécution de la fonction dans les fenêtres **Journaux**, puis notez le nombre de lignes supprimées de la table TodoItems.
 6. (Facultatif) À l’aide de [l’application de démarrage rapide Mobile Apps](../app-service-mobile/app-service-mobile-ios-get-started.md), marquez les éléments supplémentaires comme « terminés », puis revenez à la fenêtre **Journaux** et vérifiez que le même nombre de lignes est supprimé par la fonction pendant l’exécution suivante. 
 
@@ -80,14 +90,17 @@ Une application de fonction héberge l’exécution de vos fonctions dans Azure.
 Pour plus d’informations sur Azure Functions, consultez ces rubriques.
 
 * [Référence du développeur Azure Functions](functions-reference.md)  
-  Référence du programmeur pour le codage de fonctions et la définition de déclencheurs et de liaisons.
+   Référence du programmeur pour le codage de fonctions et la définition de déclencheurs et de liaisons.
 * [Test d’Azure Functions](functions-test-a-function.md)  
-  décrit plusieurs outils et techniques permettant de tester vos fonctions.
+   décrit plusieurs outils et techniques permettant de tester vos fonctions.
 * [Comment mettre à l’échelle Azure Functions](functions-scale.md)  
-  présente les plans de services disponibles dans Azure Functions, dont le plan de service dynamique, et explique comment choisir le plan adapté à vos besoins.  
+  Présente les plans de service disponibles avec Azure Functions, dont le plan de consommation, et explique comment choisir le plan approprié.  
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO5-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Découvrez comment configurer, gérer et accéder à un référentiel Data Lake à très grande échelle compatible avec Hadoop pour analyser des données de toute taille, de tout type et de toute vitesse d’ingestion."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: d26d0f965ad1195ab41e04e870ead1b335ff513e
+ms.sourcegitcommit: a33b0509d1280a33a1e5134217b56071256fec24
+ms.openlocfilehash: d5ff73f8c9303bff281b2a2bbf314c76072f7569
 
 ---
 # <a name="data-lake-store-documentation"></a>Documentation Data Lake Store
 
-Azure Data Lake Store est un référentiel hyperscale conçu pour les charges de travail d’analyse de Big Data. Azure Data Lake vous permet de capturer les données de toute taille, de tout type et à toute vitesse d'ingestion dans un emplacement unique en vue d'une analyse opérationnelle et exploratoire.  Azure Data Lake Store est accessible à partir de Hadoop (disponible avec le cluster HDInsight) à l’aide des scénarios compatibles WebHDFS. Il intègre toutes les capacités de qualité professionnelle requises en matière de sécurité, de facilité de gestion, d’extensibilité, de fiabilité et de disponibilité.
+Découvrez comment utiliser Data Lake Store pour créer un référentiel à très grande échelle compatible avec Hadoop pour analyser des données de toute taille, de tout type et de toute vitesse d’ingestion. Des didacticiels, des références d’API et d’autres documents vous montrent comment configurer, gérer et accéder à un référentiel Data Lake pour une analyse opérationnelle et exploratoire.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -211,6 +212,6 @@ Télécharger la documentation Azure Data Lake Store </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

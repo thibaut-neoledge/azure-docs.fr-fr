@@ -1,22 +1,26 @@
 ---
 title: Gestion du Cache Redis Azure avec Azure PowerShell | Microsoft Docs
-description: Découvrez comment effectuer des tâches administratives pour le Cache Redis Azure à l'aide d'Azure PowerShell.
+description: "Découvrez comment effectuer des tâches administratives pour le Cache Redis Azure à l&quot;aide d&quot;Azure PowerShell."
 services: redis-cache
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 11/28/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 9d76e82b1658c3ea4dd6631bae232d17f375ab33
+ms.openlocfilehash: 61c0fd56aad1cc589138aa02ea43ef315edf9baf
+
 
 ---
-# Gestion du Cache Redis Azure avec Azure PowerShell
+# <a name="manage-azure-redis-cache-with-azure-powershell"></a>Gestion du Cache Redis Azure avec Azure PowerShell
 > [!div class="op_single_selector"]
 > * [PowerShell](cache-howto-manage-redis-cache-powershell.md)
 > * [Interface de ligne de commande Azure](cache-manage-cli.md)
@@ -27,14 +31,13 @@ Cette rubrique décrit comment effectuer des tâches courantes telles que la cr�
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-[classic model](../resource-manager-deployment-model.md#classic-deployment-characteristics).
+Pour en savoir plus sur le modèle de déploiement Classic, consultez [Déploiement Azure Resource Manager et déploiement Classic : comprendre les modèles de déploiement et l’état de vos ressources](../azure-resource-manager/resource-manager-deployment-model.md#classic-deployment-characteristics).
 
-## Composants requis
-Si vous avez déjà installé Azure PowerShell, vous devez disposer d’Azure PowerShell version 1.0.0 ou ultérieure. Vous pouvez vérifier la version d’Azure PowerShell que vous avez installée à l’aide de cette commande à l’invite de commandes Azure PowerShell.
+## <a name="prerequisites"></a>Composants requis
+Si vous avez déjà installé Azure PowerShell, vous devez disposer d’Azure PowerShell version 1.0.0 ou ultérieure. Vous pouvez vérifier la version d’Azure PowerShell que vous avez installée à l’aide de cette commande à l’invite de commandes Azure PowerShell.
 
     Get-Module azure | format-table version
 
-[!INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 Tout d’abord, vous devez vous connecter à Azure avec cette commande.
 
@@ -50,24 +53,24 @@ Pour spécifier l’abonnement, exécutez la commande suivante. Dans l’exemple
 
     Select-AzureRmSubscription -SubscriptionName ContosoSubscription
 
-Avant de pouvoir utiliser Windows PowerShell avec Azure Resource Manager, vous devez disposer des composants suivants :
+Avant de pouvoir utiliser Windows PowerShell avec Azure Resource Manager, vous devez disposer des composants suivants :
 
-* Windows PowerShell, version 3.0 ou 4.0. Pour trouver la version de Windows PowerShell, tapez : `$PSVersionTable` et vérifiez que la valeur de `PSVersion` est 3.0 ou 4.0. Pour installer une version compatible, consultez la section [Windows Management Framework 3.0 ](http://www.microsoft.com/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+* Windows PowerShell, version 3.0 ou 4.0. Pour trouver la version de Windows PowerShell, tapez : `$PSVersionTable` et vérifiez que la valeur de `PSVersion` est 3.0 ou 4.0. Pour installer une version compatible, voir la section [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
 Pour accéder à l’aide détaillée d’un applet de commande présenté dans ce didacticiel, utilisez l’applet de commande Get-Help.
 
     Get-Help <cmdlet-name> -Detailed
 
-Par exemple, pour obtenir de l’aide sur l’applet de commande `New-AzureRmRedisCache`, tapez :
+Par exemple, pour obtenir de l’aide sur l’applet de commande `New-AzureRmRedisCache` , tapez :
 
     Get-Help New-AzureRmRedisCache -Detailed
 
-### Comment se connecter au cloud Azure Government ou au cloud Azure de Chine
+### <a name="how-to-connect-to-azure-government-cloud-or-azure-china-cloud"></a>Comment se connecter au cloud Azure Government ou au cloud Azure de Chine
 Par défaut, l’environnement Azure est `AzureCloud`, qui représente l’instance globale du cloud Azure. Pour vous connecter à une autre instance, utilisez la commande `Add-AzureRmAccount` avec le commutateur de ligne de commande `-Environment` ou -`EnvironmentName` accompagné de l’environnement ou du nom d’environnement désiré.
 
-Pour afficher la liste des environnements disponibles, exécutez l’applet de commande `Get-AzureRmEnvironment`.
+Pour afficher la liste des environnements disponibles, exécutez l’applet de commande `Get-AzureRmEnvironment` .
 
-### Pour vous connecter au cloud Azure Government
+### <a name="to-connect-to-the-azure-government-cloud"></a>Pour vous connecter au cloud Azure Government
 Pour vous connecter au cloud Azure Government, utilisez une des commandes suivantes.
 
     Add-AzureRMAccount -EnvironmentName AzureUSGovernment
@@ -79,11 +82,11 @@ ou
 Pour créer un cache dans le cloud Azure Government, utilisez un des emplacements suivants.
 
 * Gouvernement américain - Virginie
-* Gouvernement américain - Iowa
+* USGov Iowa
 
-Pour plus d’informations sur le cloud Azure Government, consultez [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) et [Guide du développeur Microsoft Azure Government](../azure-government-developer-guide.md).
+Pour plus d’informations sur le cloud Azure Government, voir [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) et [Guide du développeur Microsoft Azure Government](../azure-government-developer-guide.md).
 
-### Pour vous connecter au cloud Azure de Chine
+### <a name="to-connect-to-the-azure-china-cloud"></a>Pour vous connecter au cloud Azure de Chine
 Pour vous connecter au cloud Azure de Chine, utilisez une des commandes suivantes.
 
     Add-AzureRMAccount -EnvironmentName AzureChinaCloud
@@ -99,7 +102,7 @@ Pour créer un cache dans le cloud Azure de Chine, utilisez un des emplacements 
 
 Pour plus d’informations sur le cloud Azure de Chine, consultez [AzureChinaCloud pour Azure géré par 21Vianet en Chine](http://www.windowsazure.cn/).
 
-### Propriétés utilisées pour le cache Redis Azure PowerShell
+### <a name="properties-used-for-azure-redis-cache-powershell"></a>Propriétés utilisées pour le cache Redis Azure PowerShell
 Le tableau suivant contient les propriétés et les descriptions pour les paramètres fréquemment utilisés lors de la création et de la gestion de vos instances de cache Redis Azure avec Azure PowerShell.
 
 | Paramètre | Description | Default |
@@ -107,18 +110,18 @@ Le tableau suivant contient les propriétés et les descriptions pour les param�
 | Name |Nom du cache | |
 | Emplacement |Emplacement du cache | |
 | ResourceGroupName |Nom du groupe de ressources dans lequel créer le cache | |
-| Taille |Taille du cache. Les valeurs valides sont : P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 Mo, 1 Go, 2,5 Go, 6 Go, 13 Go, 26 Go, 53 Go |1 Go |
-| Nombre de partitions |Le nombre de partitions à créer lors de la création d'un cache premium avec le clustering activé. Les valeurs valides sont : 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
+| Taille |Taille du cache. Les valeurs valides sont : P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 Mo, 1 Go, 2,5 Go, 6 Go, 13 Go, 26 Go, 53 Go |1 Go |
+| Nombre de partitions |Le nombre de partitions à créer lors de la création d'un cache premium avec le clustering activé. Les valeurs valides sont : 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Spécifie la référence du cache. Les valeurs valides sont : De base, Standard, Premium |Standard |
 | RedisConfiguration |Spécifie les paramètres de configuration de Redis. Pour plus d’informations sur chaque paramètre, consultez le tableau [Propriétés RedisConfiguration](#redisconfiguration-properties) suivant. | |
 | enableNonSslPort |Indique si le port non SSL est activé. |False |
 | MaxMemoryPolicy |Ce paramètre est obsolète. Utilisez RedisConfiguration à la place. | |
-| StaticIP |Lorsque vous hébergez votre cache dans un réseau virtuel, spécifie une adresse IP unique dans le sous-réseau pour le cache. Si elle est omise, une adresse IP est choisie pour vous dans le sous-réseau. | |
+| StaticIP |Lorsque vous hébergez votre cache dans un réseau virtuel, spécifie une adresse IP unique dans le sous-réseau pour le cache. Si elle est omise, une adresse IP est choisie pour vous dans le sous-réseau. | |
 | Sous-réseau |Lorsque vous hébergez votre cache dans un réseau virtuel, spécifie le nom du sous-réseau dans lequel déployer le cache. | |
 | VirtualNetwork |Lorsque vous hébergez votre cache dans un réseau virtuel, spécifie l’ID de ressource du réseau virtuel dans lequel déployer le cache. | |
-| KeyType |Spécifie la clé d'accès à régénérer lors du renouvellement des clés d'accès. Les valeurs valides sont : Primaire, Secondaire | |
+| KeyType |Spécifie la clé d'accès à régénérer lors du renouvellement des clés d'accès. Les valeurs valides sont : Primaire, Secondaire | |
 
-### Propriétés RedisConfiguration
+### <a name="redisconfiguration-properties"></a>Propriétés RedisConfiguration
 | Propriété | Description | Niveaux de tarification |
 | --- | --- | --- |
 | rdb-backup-enabled |Indique si [la persistance des données Redis](cache-how-to-premium-persistence.md) est activée |Premium uniquement |
@@ -134,8 +137,8 @@ Le tableau suivant contient les propriétés et les descriptions pour les param�
 | zset-max-ziplist-value |Configure [l’optimisation de la mémoire](http://redis.io/topics/memory-optimization) pour les petites quantités de types de données agrégées |Standard et Premium |
 | bases de données |Configure le nombre de bases de données. Cette propriété ne peut être configurée qu’au moment de la création du cache. |Standard et Premium |
 
-## Création d’un cache Redis
-Les nouvelles instances de cache Redis Azure sont créées à l’aide de l’applet de commande [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx).
+## <a name="to-create-a-redis-cache"></a>Création d’un cache Redis
+Les nouvelles instances de cache Redis Azure sont créées à l’aide de l’applet de commande [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) .
 
 > [!IMPORTANT]
 > La première fois que vous créez un cache Redis dans un abonnement à l’aide du portail Azure, le portail inscrit l’espace de noms `Microsoft.Cache` pour cet abonnement. Si vous tentez de créer le premier cache Redis dans un abonnement à l’aide de PowerShell, vous devez d’abord inscrire cet espace de noms à l’aide de la commande suivante. Dans le cas contraire, les applets de commande comme `New-AzureRmRedisCache` et `Get-AzureRmRedisCache` échoueront.
@@ -222,27 +225,27 @@ Pour créer un cache avec les paramètres par défaut, exécutez la commande sui
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US"
 
-`ResourceGroupName`, `Name`, et `Location` sont des paramètres obligatoires, mais les autres sont facultatifs et disposent de valeurs par défaut. L’exécution de la commande précédente crée une instance de cache Redis Azure avec référence standard avec le nom, l’emplacement et le groupe de ressources spécifiés, dont la taille est 1 Go avec le port non SSL désactivé.
+`ResourceGroupName`, `Name`, et `Location` sont des paramètres obligatoires, mais les autres sont facultatifs et disposent de valeurs par défaut. L’exécution de la commande précédente crée une instance de cache Redis Azure avec référence standard avec le nom, l’emplacement et le groupe de ressources spécifiés, dont la taille est 1 Go avec le port non SSL désactivé.
 
-Pour créer un cache premium, spécifiez la taille de P1 (de 6 Go à 60 Go), P2 (de 13 Go à 130 Go), P3 (de 26 Go à 260 Go) ou P4 (de 53 Go à 530 Go). Pour activer le clustering, spécifiez un nombre de partitions à l'aide du paramètre `ShardCount`. L'exemple suivant permet de créer un cache premium P1 avec 3 partitions. La taille d’un cache premium P1 est de 6 Go. Puisque nous avons spécifié trois partitions, la taille totale est de 18 Go (3 x 6 Go).
+Pour créer un cache premium, spécifiez la taille de P1 (de 6 Go à 60 Go), P2 (de 13 Go à 130 Go), P3 (de 26 Go à 260 Go) ou P4 (de 53 Go à 530 Go). Pour activer le clustering, spécifiez un nombre de partitions à l'aide du paramètre `ShardCount`. L'exemple suivant permet de créer un cache premium P1 avec 3 partitions. La taille d’un cache premium P1 est de 6 Go. Puisque nous avons spécifié trois partitions, la taille totale est de 18 Go (3 x 6 Go).
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P1 -ShardCount 3
 
-Pour spécifier des valeurs pour le paramètre `RedisConfiguration`, entourez les valeurs dans `{}` en tant que paire clé/valeur telle que `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. L'exemple suivant permet de créer un cache standard de 1 Go avec la stratégie maxmemory `allkeys-random` et les notifications de keyspace configurées avec `KEA`. Pour plus d’informations, consultez [Notifications de keyspace (paramètres avancés)](cache-configure.md#keyspace-notifications-advanced-settings) et [Maxmemory-policy et maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved).
+Pour spécifier des valeurs pour le paramètre `RedisConfiguration`, entourez les valeurs dans `{}` en tant que paire clé/valeur telle que `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. L'exemple suivant permet de créer un cache standard de 1 Go avec la stratégie maxmemory `allkeys-random` et les notifications de keyspace configurées avec `KEA`. Pour plus d’informations, voir [Notifications de keyspace (paramètres avancés)](cache-configure.md#keyspace-notifications-advanced-settings) et [Maxmemory-policy et maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved).
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}
 
 <a name="databases"></a>
 
-## Pour configurer les paramètres des bases de données lors de la création du cache
-Le paramètre `databases` ne peut être configuré qu’au moment de la création du cache. L’exemple suivant crée un cache premium P3 (26 Go) avec 48 bases de données à l’aide de l’applet de commande [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx).
+## <a name="to-configure-the-databases-setting-during-cache-creation"></a>Pour configurer les paramètres des bases de données lors de la création du cache
+Le paramètre `databases` ne peut être configuré qu’au moment de la création du cache. L’exemple suivant crée un cache premium P3 (26 Go) avec 48 bases de données à l’aide de l’applet de commande [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) .
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
 
-Pour plus d’informations sur la propriété `databases`, consultez la section [Configuration du serveur de cache Azure Redis par défaut](cache-configure.md#default-redis-server-configuration). Pour plus d’informations sur la création d’un cache à l’aide de l’applet de commande [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx), consultez la section précédente, [Création d’un cache Redis](#to-create-a-redis-cache).
+Pour plus d’informations sur la propriété `databases` , consultez la section [Configuration du serveur de cache Azure Redis par défaut](cache-configure.md#default-redis-server-configuration). Pour plus d’informations sur la création d’un cache à l’aide de l’applet de commande [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx), voir la section précédente, [Création d’un cache Redis](#to-create-a-redis-cache).
 
-## Mise à jour d’un cache Redis
-Les instances de cache Redis Azure sont mises à jour à l'aide de l’applet de commande [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx).
+## <a name="to-update-a-redis-cache"></a>Mise à jour d’un cache Redis
+Les instances de cache Redis Azure sont mises à jour à l'aide de l’applet de commande [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) .
 
 Pour afficher la liste des paramètres disponibles et leurs descriptions pour `Set-AzureRmRedisCache`, exécutez la commande suivante.
 
@@ -298,7 +301,7 @@ Pour afficher la liste des paramètres disponibles et leurs descriptions pour `S
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
-L'applet de commande `Set-AzureRmRedisCache` peut être utilisée pour mettre à jour des propriétés telles que les valeurs `Size`, `Sku`, `EnableNonSslPort` et `RedisConfiguration`.
+L'applet de commande `Set-AzureRmRedisCache` peut être utilisée pour mettre à jour des propriétés telles que les valeurs `Size`, `Sku`, `EnableNonSslPort` et `RedisConfiguration`. 
 
 La commande suivante met à jour le paramètre maxmemory-policy du cache Redis appelé myCache.
 
@@ -306,8 +309,8 @@ La commande suivante met à jour le paramètre maxmemory-policy du cache Redis a
 
 <a name="scale"></a>
 
-## Pour mettre à l’échelle un cache Redis
-`Set-AzureRmRedisCache` peut être utilisé pour mettre à l’échelle une instance de cache Redis Azure quand les propriétés `Size`, `Sku` ou `ShardCount` sont modifiées.
+## <a name="to-scale-a-redis-cache"></a>Pour mettre à l’échelle un cache Redis
+`Set-AzureRmRedisCache` peut être utilisé pour mettre à l’échelle une instance de cache Redis Azure quand les propriétés `Size`, `Sku` ou `ShardCount` sont modifiées. 
 
 > [!NOTE]
 > La mise à l’échelle d’un cache à l’aide de PowerShell est soumise aux mêmes limites et recommandations que la mise à l’échelle d’un cache à l’aide du portail Azure. Vous pouvez choisir un niveau tarifaire différent avec les restrictions suivantes.
@@ -317,13 +320,13 @@ La commande suivante met à jour le paramètre maxmemory-policy du cache Redis a
 > * Vous ne pouvez pas passer d’un cache **Standard** à un cache **De base**.
 > * Vous pouvez passer d’un cache **De base** à un cache **Standard**, mais vous ne pouvez pas modifier la taille en même temps. Si vous avez besoin d'une taille différente, vous pouvez effectuer ultérieurement une opération de mise à l'échelle vers la taille voulue.
 > * Vous ne pouvez pas passer directement d’un cache **De base** à un cache **Premium**. Vous devez passer du niveau **De base** au niveau **Standard** en une opération de mise à l’échelle, puis du niveau **Standard** au niveau **Premium** en une deuxième opération.
-> * Vous ne pouvez pas mettre à l’échelle depuis une taille supérieure vers la taille **C0 (250 Mo)**.
+> * Vous ne pouvez pas mettre à l’échelle depuis une taille supérieure vers la taille **C0 (250 Mo)** .
 > 
 > Pour plus d’informations, voir [Mise à l’échelle du cache Redis Azure](cache-how-to-scale.md).
 > 
 > 
 
-L’exemple suivant montre comment mettre à l’échelle un cache nommé `myCache` vers un cache de 2,5 Go. Notez que cette commande fonctionne pour un cache De base ou un cache Standard.
+L’exemple suivant montre comment mettre à l’échelle un cache nommé `myCache` vers un cache de 2,5 Go. Notez que cette commande fonctionne pour un cache De base ou un cache Standard.
 
     Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
@@ -360,8 +363,8 @@ Quand l’opération de mise à l’échelle est terminée, `ProvisioningState` 
 
     Set-AzureRmRedisCache : Conflict: The resource '...' is not in a stable state, and is currently unable to accept the update request.
 
-## Obtention d’informations sur un cache Redis
-Vous pouvez récupérer des informations sur un cache à l’aide de l’applet de commande [Get-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634514.aspx).
+## <a name="to-get-information-about-a-redis-cache"></a>Obtention d’informations sur un cache Redis
+Vous pouvez récupérer des informations sur un cache à l’aide de l’applet de commande [Get-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634514.aspx) .
 
 Pour afficher la liste des paramètres disponibles et leurs descriptions pour `Get-AzureRmRedisCache`, exécutez la commande suivante.
 
@@ -436,8 +439,8 @@ Pour retourner des informations sur un cache spécifique, exécutez `Get-AzureRm
     TenantSettings     : {}
     ShardCount         :
 
-## Récupération des clés d'accès d’un cache Redis
-Pour récupérer les clés d'accès de votre cache, vous pouvez utiliser l’applet de commande [Get-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634516.aspx).
+## <a name="to-retrieve-the-access-keys-for-a-redis-cache"></a>Récupération des clés d'accès d’un cache Redis
+Pour récupérer les clés d'accès de votre cache, vous pouvez utiliser l’applet de commande [Get-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634516.aspx) .
 
 Pour afficher la liste des paramètres disponibles et leurs descriptions pour `Get-AzureRmRedisCacheKey`, exécutez la commande suivante.
 
@@ -469,15 +472,15 @@ Pour afficher la liste des paramètres disponibles et leurs descriptions pour `G
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
-Pour récupérer les clés de votre cache, appelez l’applet de commande `Get-AzureRmRedisCacheKey`, et passez le nom de votre cache et le nom du groupe de ressources contenant le cache.
+Pour récupérer les clés de votre cache, appelez l’applet de commande `Get-AzureRmRedisCacheKey` , et passez le nom de votre cache et le nom du groupe de ressources contenant le cache.
 
     PS C:\> Get-AzureRmRedisCacheKey -Name myCache -ResourceGroupName myGroup
 
     PrimaryKey   : b2wdt43sfetlju4hfbryfnregrd9wgIcc6IA3zAO1lY=
     SecondaryKey : ABhfB757JgjIgt785JgKH9865eifmekfnn649303JKL=
 
-## Régénération des clés d’accès de votre cache Redis
-Pour régénérer les clés d’accès de votre cache, vous pouvez utiliser l’applet de commande [New-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634512.aspx).
+## <a name="to-regenerate-access-keys-for-your-redis-cache"></a>Régénération des clés d’accès de votre cache Redis
+Pour régénérer les clés d’accès de votre cache, vous pouvez utiliser l’applet de commande [New-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634512.aspx) .
 
 Pour afficher la liste des paramètres disponibles et leurs descriptions pour `New-AzureRmRedisCacheKey`, exécutez la commande suivante.
 
@@ -526,8 +529,8 @@ Pour régénérer la clé principale ou secondaire de votre cache, appelez l’a
     PrimaryKey   : b2wdt43sfetlju4hfbryfnregrd9wgIcc6IA3zAO1lY=
     SecondaryKey : c53hj3kh4jhHjPJk8l0jji785JgKH9865eifmekfnn6=
 
-## Suppression d’un cache Redis
-Pour supprimer un cache Redis, utilisez l’applet de commande [Remove-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634515.aspx).
+## <a name="to-delete-a-redis-cache"></a>Suppression d’un cache Redis
+Pour supprimer un cache Redis, utilisez l’applet de commande [Remove-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634515.aspx) .
 
 Pour afficher la liste des paramètres disponibles et leurs descriptions pour `Remove-AzureRmRedisCache`, exécutez la commande suivante.
 
@@ -574,11 +577,11 @@ Dans l’exemple suivant, le cache nommé `myCache` est supprimé.
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
 
-## Pour importer un cache Redis
-Vous pouvez importer des données dans une instance du cache Redis Azure à l’aide de l’applet de commande `Import-AzureRmRedisCache`.
+## <a name="to-import-a-redis-cache"></a>Pour importer un cache Redis
+Vous pouvez importer des données dans une instance du cache Redis Azure à l’aide de l’applet de commande `Import-AzureRmRedisCache` .
 
 > [!IMPORTANT]
-> L’importation/exportation est uniquement disponible pour les caches de niveau [Premium](cache-premium-tier-intro.md). Pour plus d’informations sur l’importation/exportation, voir [Importer et exporter des données dans le cache Redis Azure](cache-how-to-import-export-data.md).
+> L’importation/exportation est uniquement disponible pour les caches de niveau [Premium](cache-premium-tier-intro.md) . Pour plus d’informations sur l’importation/exportation, voir [Importer et exporter des données dans le cache Redis Azure](cache-how-to-import-export-data.md).
 > 
 > 
 
@@ -634,11 +637,11 @@ La commande suivante importe des données à partir de l’objet blob spécifié
 
     PS C:\>Import-AzureRmRedisCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -Files @("https://mystorageaccount.blob.core.windows.net/mycontainername/blobname?sv=2015-04-05&sr=b&sig=caIwutG2uDa0NZ8mjdNJdgOY8%2F8mhwRuGNdICU%2B0pI4%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwd") -Force
 
-## Pour exporter un cache Redis
-Vous pouvez exporter des données depuis une instance du cache Redis Azure à l’aide de l’applet de commande `Export-AzureRmRedisCache`.
+## <a name="to-export-a-redis-cache"></a>Pour exporter un cache Redis
+Vous pouvez exporter des données depuis une instance du cache Redis Azure à l’aide de l’applet de commande `Export-AzureRmRedisCache` .
 
 > [!IMPORTANT]
-> L’importation/exportation est uniquement disponible pour les caches de niveau [Premium](cache-premium-tier-intro.md). Pour plus d’informations sur l’importation/exportation, voir [Importer et exporter des données dans le cache Redis Azure](cache-how-to-import-export-data.md).
+> L’importation/exportation est uniquement disponible pour les caches de niveau [Premium](cache-premium-tier-intro.md) . Pour plus d’informations sur l’importation/exportation, voir [Importer et exporter des données dans le cache Redis Azure](cache-how-to-import-export-data.md).
 > 
 > 
 
@@ -695,11 +698,11 @@ La commande suivante exporte les données à partir d’une instance du cache Re
         -Container "https://mystorageaccount.blob.core.windows.net/mycontainer?sv=2015-04-05&sr=c&sig=HezZtBZ3DURmEGDduauE7
         pvETY4kqlPI8JCNa8ATmaw%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwdl"
 
-## Pour redémarrer un cache Redis
-Vous pouvez redémarrer votre cache Redis Azure à l’aide de l’applet de commande `Reset-AzureRmRedisCache`.
+## <a name="to-reboot-a-redis-cache"></a>Pour redémarrer un cache Redis
+Vous pouvez redémarrer votre cache Redis Azure à l’aide de l’applet de commande `Reset-AzureRmRedisCache` .
 
 > [!IMPORTANT]
-> Le redémarrage est uniquement disponible pour les caches de [niveau Premium](cache-premium-tier-intro.md). Pour plus d’informations sur le redémarrage de votre cache, voir [Administration du cache - Redémarrage](cache-administration.md#reboot).
+> Le redémarrage est uniquement disponible pour les caches de [niveau Premium](cache-premium-tier-intro.md) . Pour plus d’informations sur le redémarrage de votre cache, voir [Administration du cache - Redémarrage](cache-administration.md#reboot).
 > 
 > 
 
@@ -756,14 +759,19 @@ La commande suivante redémarre les deux nœuds du cache spécifié.
         -Force
 
 
-## Étapes suivantes
-Pour en savoir plus sur l’utilisation de Windows PowerShell avec Azure, reportez-vous aux ressources suivantes :
+## <a name="next-steps"></a>Étapes suivantes
+Pour en savoir plus sur l’utilisation de Windows PowerShell avec Azure, reportez-vous aux ressources suivantes :
 
 * [Documentation relative à l’applet de commande Cache Redis Azure sur MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)
-* [Applets de commande Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkID=394765) : découvrez comment utiliser les applets de commande du module AzureResourceManager.
-* [Utilisation de groupes de ressources pour gérer vos ressources Azure](../resource-group-template-deploy-portal.md) : découvrez comment créer et gérer des groupes de ressources dans le portail Azure.
-* [Blog Azure](http://blogs.msdn.com/windowsazure) : découvrez les nouvelles fonctionnalités d'Azure.
-* [Blog Windows PowerShell](http://blogs.msdn.com/powershell) : découvrez les nouvelles fonctionnalités de Windows PowerShell.
-* [Blog « Hey, Scripting Guy! »](http://blogs.technet.com/b/heyscriptingguy/) : bénéficiez des conseils et astuces de la communauté Windows PowerShell.
+* [Applets de commande Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkID=394765): découvrez comment utiliser les applets de commande du module AzureResourceManager.
+* [Utilisation de groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-template-deploy-portal.md): découvrez comment créer et gérer des groupes de ressources dans le portail Azure.
+* [Blog Azure](http://blogs.msdn.com/windowsazure): découvrez les nouvelles fonctionnalités d'Azure.
+* [Blog Windows PowerShell](http://blogs.msdn.com/powershell): découvrez les nouvelles fonctionnalités de Windows PowerShell.
+* [Blog « Hey, Scripting Guy! »](http://blogs.technet.com/b/heyscriptingguy/) : bénéficiez des conseils et astuces de la communauté Windows PowerShell.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO5-->
+
+

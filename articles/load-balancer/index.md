@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Apprenez à utiliser l’équilibrage de charge pour optimiser les performances réseau de vos applications. Gérez le trafic des machines virtuelles et des ressources de cloud, ainsi que dans les réseaux virtuels intersite."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 8b95ce7f93293a25db4df5858209902ba6347591
+ms.sourcegitcommit: e62704476642d8a519b7bd8b9b101b47ab42e08c
+ms.openlocfilehash: 476eb9f4934d35a808fdd70b6443822eb0a7cfa7
 
 ---
 #<a name="load-balancer-documentation"></a>Documentation Équilibreur de charge
 
-L’équilibrage de charge Azure offre une haute disponibilité et des performances réseau élevées pour vos applications.  L’équilibrage de charge peut être configuré pour équilibrer la charge du trafic Internet entrant sur les machines virtuelles, du trafic entre les ressources cloud, du trafic dans un réseau virtuel intersite ou du trafic vers une machine virtuelle spécifique.
+Apprenez à configurer l’équilibrage de charge pour donner à vos applications une haute disponibilité et des performances réseau élevées. La documentation vous montre comment équilibrer le trafic vers et depuis les machines virtuelles et les ressources de cloud, sans oublier le trafic au sein des réseaux virtuels intersite.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -141,6 +142,6 @@ Télécharger la documentation Équilibreur de charge </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

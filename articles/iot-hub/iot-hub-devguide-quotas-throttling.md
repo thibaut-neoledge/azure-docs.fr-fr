@@ -1,12 +1,12 @@
 ---
-title: Developer guide - quotas and throttling | Microsoft Docs
-description: Azure IoT Hub developer guide - description of quotas that apply to IoT Hub and expected throttling behavior
+title: "Guide du développeur - Quotas et limitation | Microsoft Docs"
+description: "Guide du développeur Azure IoT Hub - description des quotas qui s’appliquent à IoT Hub et comportement de limitation attendu"
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 425e1b08-8789-4377-85f7-c13131fae4ce
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,50 +14,68 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
+ms.openlocfilehash: c0f8c779d7f9552dc05ac3791b74c3d57cb1fe64
+
 
 ---
-# <a name="reference---quotas-and-throttling"></a>Reference - Quotas and throttling
-## <a name="quotas-and-throttling"></a>Quotas and throttling
-Each Azure subscription can have at most 10 IoT hubs.
+# <a name="reference---quotas-and-throttling"></a>Référence - Quotas et limitation
+## <a name="quotas-and-throttling"></a>Quotas et limitation
+Chaque abonnement Azure peut avoir au maximum 10 IoT Hubs, et au maximum un hub gratuit.
 
-Each IoT hub is provisioned with a certain number of units in a specific SKU (for more information, see [Azure IoT Hub Pricing][lnk-pricing]). The SKU and number of units determine the maximum daily quota of messages that you can send.
+Chaque IoT Hub est configuré avec un certain nombre d’unités dans une référence SKU spécifique (pour plus d’informations, consultez [Tarification Azure IoT Hub][lnk-pricing]). La référence et le nombre d’unités déterminent le quota quotidien maximal de messages que vous pouvez envoyer.
 
-The SKU also determines the throttling limits that IoT Hub enforces on all operations.
+La référence détermine également le seuil de limitation qu’IoT Hub applique sur les opérations.
 
-## <a name="operation-throttles"></a>Operation throttles
-Operation throttles are rate limitations that are applied in the minute ranges, and are intended to avoid abuse. IoT Hub tries to avoid returning errors whenever possible, but it starts returning exceptions if the throttle is violated for too long.
+## <a name="operation-throttles"></a>Limitations d’opérations
+Les limitations d’opération sont les limites de taux qui sont appliquées dans les plages de minutes et sont destinées à éviter les abus. IoT Hub essaie d’éviter le renvoi d’erreurs chaque fois que c’est possible, mais les exceptions commencent à être renvoyées si la limitation est dépassée pendant trop longtemps.
 
-The following is the list of enforced throttles. Values refer to an individual hub.
+Vous trouverez ci-dessous la liste des limitations appliquées. Les valeurs font référence à un hub individuel.
 
-| Throttle | Per-hub value |
-| --- | --- |
-| Identity registry operations (create, retrieve, list, update, delete) |5000/min/unit (for S3) <br/> 100/min/unit (for S1 and S2). |
-| Device connections |6000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. |
-| Device-to-cloud sends |6000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. |
-| Cloud-to-device sends |5000/min/unit (for S3), 100/min/unit (for S1 and S2). |
-| Cloud-to-device receives |50000/min/unit (for S3), 1000/min/unit (for S1 and S2). |
-| File upload operations |5000 file upload notifications/min/unit (for S3), 100 file upload notifications/min/unit (for S1 and S2). <br/> 10000 SAS URIs can be out for a storage account at one time.<br/> 10 SAS URIs/device can be out at one time. |
+| Limitation | Hubs gratuits et S1 | Hubs S2 | Hubs S3 | 
+| -------- | ------- | ------- | ------- |
+| Opérations de registre des identités (création, récupération, création de listes, mise à jour, suppression) | 100/min/unité | 100/min/unité | 5 000/min/unité |
+| Connexions d’appareils | 100/s ou 12/s/unité maximum <br/> Par exemple, deux unités S1 équivalent à 2\*12 = 24/s, mais vous obtenez au moins 100/s sur vos unités. Avec neuf unités S1, vous obtenez 108/sec (9\*12) sur vos unités. | 120/s/unité | 6 000/s/unité |
+| Envois appareil-à-cloud | 100/s ou 12/s/unité maximum <br/> Par exemple, deux unités S1 équivalent à 2\*12 = 24/s, mais vous obtenez au moins 100/s sur vos unités. Avec neuf unités S1, vous obtenez 108/sec (9\*12) sur vos unités. | 120/s/unité | 6 000/s/unité |
+| Envois cloud-à-appareil | 100/min/unité | 100/min/unité | 5 000/min/unité |
+| Réceptions cloud-à-appareil <br/> (uniquement lorsque les appareils utilisent HTTP)| 1 000/min/unité | 1 000/min/unité| 50 000/min/unité |
+| Chargement de fichiers | 100 notifications de chargement de fichiers/min/unité | 100 notifications de chargement de fichiers/min/unité | 5 000 notifications de chargement de fichiers/min/unité |
+| Méthodes directes | 10/s/unité | 30/s/unité | 1 500/s/unité | 
+| Lectures de représentations | 10/s | 10/s ou 1/s/unité maximum | 50/s/unité |
+| Mises à jour de représentations | 10/s | 10/s ou 1/s/unité maximum | 50/s/unité |
+| Opérations de travaux <br/> (créer, mettre à jour, répertorier, supprimer) | 100/min/unité | 100/min/unité | 5 000/min/unité |
+| Débit d’opérations de travaux par appareil | 10/s | 10/s ou 1/s/unité maximum | 50/s/unité |
 
-It is important to clarify that the *device connections* throttle governs the rate at which new device connections can be established with an IoT hub, and not the maximum number of simultaneously connected devices. The throttle depends on the number of units that are provisioned for the hub.
+Il est important de préciser que la limitation des *connexions d’appareil* régit la fréquence à laquelle les nouvelles connexions d’appareil peuvent être établies avec un IoT Hub et pas le nombre maximal d’appareils connectés simultanément. La limitation dépend du nombre d’unités configurées pour l’IoT Hub.
 
-For example, if you buy a single S1 unit, you get a throttle of 100 connections per second. This means that to connect 100,000 devices, it takes at least 1000 seconds (approximately 16 minutes). However, you can have as many simultaneously connected devices as you have devices registered in your device identity registry.
+Par exemple, si vous achetez une seule unité S1, vous obtenez une limitation de 100 connexions par seconde. Cela signifie que pour connecter 100 000 appareils, au moins 1 000 secondes sont nécessaires (environ 16 minutes). Toutefois, vous pouvez avoir autant d’appareils connectés simultanément que d’appareils enregistrés dans le registre des identités.
 
-For an in-depth discussion of IoT Hub throttling behavior, see the blog post [IoT Hub throttling and you][lnk-throttle-blog].
+Le billet de blog [IoT Hub throttling and you][lnk-throttle-blog] (Limitation d’IoT Hub et vous) fournit une présentation détaillée du comportement de limitation d’IoT Hub.
 
 > [!NOTE]
-> At any given time, it is possible to increase quotas or throttle limits by increasing the number of provisioned units in an IoT hub.
+> À tout moment, il est possible d’augmenter les quotas ou les limites en augmentant le nombre d’unités approvisionnées dans un hub IoT.
 > 
 > [!IMPORTANT]
-> Identity registry operations are intended for run-time use in device management and provisioning scenarios. Reading or updating a large number of device identities is supported through [import and export jobs][lnk-importexport].
+> Les opérations de registre des identités sont prévues pour une utilisation au moment de l’exécution dans les scénarios de gestion et d’approvisionnement des appareils. La lecture ou la mise à jour d’un grand nombre d’identités d’appareils est prise en charge par le biais des [travaux d’importation et d’exportation][lnk-importexport].
 > 
 > 
 
-## <a name="next-steps"></a>Next steps
-Other reference topics in this IoT Hub developer guide include:
+## <a name="other-limits"></a>Autres limites
 
-* [IoT Hub endpoints][lnk-devguide-endpoints]
-* [Query language for twins, methods, and jobs][lnk-devguide-query]
-* [IoT Hub MQTT support][lnk-devguide-mqtt]
+IoT Hub applique d’autres limites à ses différentes fonctionnalités.
+
+| Opération | Limite |
+| --------- | ----- |
+| URI de chargement de fichiers | 10 000 URI de SAP peuvent être générés à la fois pour un compte de stockage. <br/>  10 URI de signature d’accès partagé/appareil peuvent être générés à la fois. |
+| Travaux | L’historique des travaux est conservé pendant 30 jours maximum. <br/> Le nombre maximal de travaux simultanés est 1 (pour les niveaux gratuit et S1), 5 (pour S2) ou 10 (pour S3). |
+
+## <a name="next-steps"></a>Étapes suivantes
+Les autres rubriques de référence dans le Guide du développeur IoT Hub comprennent :
+
+* [Points de terminaison IoT Hub][lnk-devguide-endpoints]
+* [Langage de requête d’IoT Hub pour les représentations d’appareil et les travaux][lnk-devguide-query]
+* [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
@@ -68,6 +86,7 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO5-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Apprenez à gérer le trafic entrant pour des performances applicatives optimales. La documentation montre comment répartir le trafic sur les points de terminaison de service Azure ou externes."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 07d7e13862c252db61136110e04559e51a53e4b7
+ms.sourcegitcommit: 3123dc992bb821e79edceef01d2654aaff2468c1
+ms.openlocfilehash: a10c68140066de5be6690f30c89f4f6f2fad0825
 
 ---
 #<a name="traffic-manager-documentation"></a>Documentation Traffic Manager
 
-Azure Traffic Manager vous permet de contrôler la répartition du trafic utilisateur pour les points de terminaison de service dans différentes régions. Traffic Manager utilise le DNS (Domain Name System) pour diriger les demandes des clients vers le point de terminaison approprié en fonction de la méthode de routage du trafic sélectionnée et de l’intégrité des points de terminaison, augmentant ainsi la disponibilité et la réactivité de vos applications.
+Découvrez comment utiliser Traffic Manager pour acheminer le trafic entrant de manière à optimiser les performances et la fiabilité de vos applications. Les didacticiels, références d’API et autres documents vous montrent comment gérer le trafic vers les points de terminaison de service Azure ou externes.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -129,6 +130,6 @@ Télécharger la documentation Traffic Manager </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

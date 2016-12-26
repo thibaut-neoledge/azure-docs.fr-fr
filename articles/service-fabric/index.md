@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Découvrez comment utiliser la plateforme middleware Service Fabric pour empaqueter et déployer des microservices pour des applications à l’échelle du cloud. Didacticiels, références d’API et exemples de code."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 2ec806d0d00f8db624820fac72083f3e53b89dfa
+ms.sourcegitcommit: 553950d52f53f7911e6de6dde3e2d92fd2e0395a
+ms.openlocfilehash: b6e7175ab63490907bb147ab519c20ebdee6bfc0
 
 ---
 #<a name="service-fabric-documentation"></a>Documentation Service Fabric
 
-Azure Service Fabric est une plateforme de systèmes distribués qui facilite le packaging, le déploiement et la gestion de microservices évolutifs et fiables. Service Fabric résout également les problèmes non négligeables du développement et de la gestion des applications cloud. Les développeurs et administrateurs sont en mesure d’éviter les problèmes d’infrastructure complexes et peuvent se concentrer sur l’implémentation de charges de travail stratégiques et exigeantes, évolutives, fiables et faciles à gérer. 
+Découvrez comment utiliser Service Fabric pour empaqueter, déployer et gérer des microservices évolutifs et fiables. Les didacticiels, références d’API et exemples de code vous montrent comment utiliser cette plateforme middleware pour créer et gérer des applications à l’échelle du cloud.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -106,64 +107,44 @@ Azure Service Fabric est une plateforme de systèmes distribués qui facilite le
 
 ---
 
-## <a name="reference"></a>Référence
-
+<h2>Référence</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/servicefabric/vlatest/servicefabric">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Référence PowerShell de Service Fabric</p>
+                        <h3>Ligne de commande</h3>
+                        <p><a href="/powershell/servicefabric/vlatest/servicefabric">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/java/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Référence sur l’API Java</p>
+                        <h3>Langues</h3>
+                        <p><a href="/java/api/microsoft.servicefabric.services">API Java</a></p>
+                        <p><a href="/dotnet/api/microsoft.servicefabric.services">.NET</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Référence API managée .NET</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/servicefabric">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API REST Service Fabric</p>
+                        <p><a href="/rest/api/servicefabric">Référence sur les API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>   
 
@@ -178,6 +159,6 @@ Télécharger la documentation Service Fabric </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

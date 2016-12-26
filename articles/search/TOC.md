@@ -1,5 +1,5 @@
 # Vue d'ensemble
-## [Présentation d’Azure Storage](search-what-is-azure-search.md)
+## [Présentation de Recherche Azure](search-what-is-azure-search.md)
 # Prise en main
 ## [Choisir une référence (SKU)](search-sku-tier.md)
 ## [Création d’un service](search-create-service-portal.md)
@@ -25,6 +25,8 @@
 ### [Limites du service](search-limits-quotas-capacity.md)
 ### [Évolutivité du service](search-capacity-planning.md)
 ### [Modèles de conception pour les architectures multi-locataires](search-modeling-multitenant-saas-applications.md)
+
+
 ## Développement
 ### [Mettre à niveau le kit de développement logiciel (SDK)](search-dotnet-sdk-migration.md)
 ### [Mettre à niveau l’API REST](search-api-migration.md)
@@ -58,17 +60,17 @@
 ### [Recherche multilingue](search-language-support.md)
 
 # Référence
-## [Versions d’API](search-api-versions.md)
-## [.NET du service](/dotnet/api/microsoft.azure.search)
-## [.NET de gestion](/dotnet/api/microsoft.azure.management.search)
-## [REST Service](/rest/api/searchservice/)
-## [REST Service (version préliminaire)](search-api-2015-02-28-preview.md)
-## [REST de gestion](/rest/api/searchmanagement/)
-## [Syntaxe de requête Lucene](https://msdn.microsoft.com/library/azure/mt589323)
-## [Syntaxe de requête simple](https://msdn.microsoft.com/library/azure/dn798920)
+## [.NET](/dotnet/api/microsoft.azure.search)
+## [.NET Management](/dotnet/api/microsoft.azure.management.search)
+## [Java](/java/api/com.microsoft.azure.management.search)
+## [REST](/rest/api/searchservice)
+## [.NET Management](/rest/api/searchmanagement)
 
-# Ressources
+# les ressources
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=search)
+## Utilisation des API Recherche
+## [Versions d’API](search-api-versions.md)
+## [REST Service (version préliminaire)](search-api-2015-02-28-preview.md)
 ## [Tarification](https://azure.microsoft.com/pricing/details/search/)
 ## Sites de démonstration
 ### [Application Annuaire des offres d’emploi (externe)](http://aka.ms/azjobsdemo)
@@ -85,6 +87,6 @@
 ### [Github Recherche Azure](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

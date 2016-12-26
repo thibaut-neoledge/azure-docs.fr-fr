@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Découvrez les analyses Big Data avec Data Lake Analytics. Des didacticiels vous montrent comment exécuter des analyses interactives par lots en temps réel, et comment écrire des requêtes U-SQL."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 4a9b9a0aef993055e0c5400a15918a05491509eb
+ms.sourcegitcommit: 84b03eb578df1a4122b18a01c0ffba8558adc088
+ms.openlocfilehash: f36a830ede202a7519d46fa9f12299dcec4c8130
 
 ---
 # <a name="data-lake-analytics-documentation"></a>Documentation Data Lake Analytics
 
-Azure Data Lake Analytics est un nouveau service, conçu pour faciliter l'analyse de Big Data. Ce service vous permet de vous concentrer sur l'écriture, l'exécution et la gestion des travaux, plutôt que le fonctionnement de l'infrastructure distribuée. Au lieu de déployer, de configurer et d'optimiser le matériel, vous pouvez écrire des requêtes pour transformer vos données et en extraire des informations pertinentes. Le service d'analyse peut traiter les travaux instantanément, quelle que soit leur échelle, en définissant le compteur sur la puissance requise. Vous payez les travaux uniquement lorsque ceux-ci sont exécutés, ce qui rend le service économique. Le service d'analyse prend en charge Azure Active Directory, ce qui vous permet de gérer les accès et les rôles et de bénéficier d'une intégration avec vos systèmes d'identité locaux. Il inclut également U-SQL, un langage qui associe les avantages de SQL avec la puissance d'expression du code utilisateur. Le runtime distribué et évolutif de U-SQL vous permet d'analyser efficacement les données situées dans le magasin et les serveurs SQL Server dans Azure, Azure SQL Database et Azure SQL Data Warehouse.
+Apprenez à utiliser Data Lake Analytics pour exécuter des travaux d’analyse Big Data mis à l’échelle de manière à obtenir des jeux de données conséquents. Des didacticiels et autres documents vous montrent comment créer et gérer des travaux d’analyse interactifs par lots en temps réel, et comment exécuter des requêtes à l’aide du langage U-SQL.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -231,6 +232,6 @@ Télécharger la documentation Data Lake Analytics </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

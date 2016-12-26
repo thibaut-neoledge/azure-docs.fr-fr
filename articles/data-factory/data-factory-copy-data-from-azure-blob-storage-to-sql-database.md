@@ -1,20 +1,24 @@
 ---
-title: Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory | Microsoft Docs
-description: Ce didacticiel vous montre comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données depuis Blob Storage vers une base de données SQL Azure.
-keywords: blob sql, blob storage, copie de données
+title: "Copie de données à partir du Stockage Blob vers une base de données SQL | Microsoft Docs"
+description: "Ce didacticiel vous montre comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données depuis Blob Storage vers une base de données SQL Azure."
+keywords: "blob sql, blob storage, copie de données"
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: e4035060-93bf-4e8d-bf35-35e2d15c51e0
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/29/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 0c5ee903840ee10bf296038e10da11662a9e0fbb
+ms.openlocfilehash: 98a93b683da1bfdc28be1f6e21174f814dd65220
+
 
 ---
 # <a name="copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory
@@ -22,13 +26,13 @@ ms.author: spelluru
 > * [Vue d’ensemble et étapes préalables requises](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
 > * [Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
-> * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+> * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modèle Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-> 
-> 
+>
+>
 
 Dans ce didacticiel, vous allez créer une fabrique de données avec un pipeline afin de copier des données entre Blob Storage et la base de données SQL.
 
@@ -36,33 +40,33 @@ L’activité de copie effectue le déplacement des données dans Azure Data Fac
 
 > [!NOTE]
 > Pour obtenir une présentation détaillée du service Data Factory, consultez l’article [Présentation d’Azure Data Factory](data-factory-introduction.md) .
-> 
-> 
+>
+>
 
 ## <a name="prerequisites-for-the-tutorial"></a>Configuration requise pour le didacticiel
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
+Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Abonnement Azure**.  Si vous n'êtes pas abonné, vous pouvez créer un compte d'essai gratuit en quelques minutes. Consultez l'article [Essai gratuit](http://azure.microsoft.com/pricing/free-trial/) pour plus d'informations.
 * **Compte Azure Storage**. Dans le cadre de ce didacticiel, le stockage d’objets blob est utilisé comme magasin de données **source** . Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) pour découvrir comment en créer un.
 * **Base de données SQL Azure**. Vous allez utiliser une base de données SQL Azure comme magasin de données **cible** dans ce didacticiel. Si vous n'avez pas de base de données SQL Azure pouvant être utilisée pour le didacticiel, consultez [Comment créer et configurer une base de données SQL Azure](../sql-database/sql-database-get-started.md) pour en créer une.
-* **SQL Server 2012/2014 ou Visual Studio 2013**. Vous allez utiliser SQL Server Management Studio ou Visual Studio pour créer un exemple de base de données et afficher les données de résultat dans la base de données.  
+* **SQL Server 2012/2014 ou Visual Studio 2013**. Vous allez utiliser SQL Server Management Studio ou Visual Studio pour créer un exemple de base de données et afficher les données de résultat dans la base de données.  
 
 ## <a name="collect-blob-storage-account-name-and-key"></a>Récupération du nom de compte Blob Storage et de la clé d'accès
 Pour réaliser ce didacticiel, vous avez besoin du nom et de la clé de votre compte de stockage Azure. Notez le **nom** et la **clé** de votre compte de stockage Azure.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Cliquez sur **Plus de services** sur le menu de gauche, puis sélectionnez **Comptes de stockage**.
-   
+
     ![Parcourir - Comptes de stockage](media\\data-factory-copy-data-from-azure-blob-storage-to-sql-database\\browse-storage-accounts.png)
 3. Dans le panneau **Comptes de stockage**, sélectionnez le **compte de stockage Azure** que vous souhaitez utiliser dans ce didacticiel.
 4. Sélectionnez le lien **Clés d’accès** sous **PARAMÈTRES**.
 5. Cliquez sur le bouton **copier** (image) situé en regard de la zone de texte **Nom du compte de stockage** et enregistrez/collez-la quelque part (dans un fichier texte, par exemple).
 6. Répétez l'étape précédente pour copier ou noter la **clé1**.
-   
+
     ![Clé d’accès de stockage](media\\data-factory-copy-data-from-azure-blob-storage-to-sql-database\\storage-access-key.png)
 7. Fermez tous les panneaux en cliquant sur **X**.
 
-## <a name="collect-sql-server,-database,-user-names"></a>Récupérer les noms de serveur SQL, de base de données et d’utilisateur
+## <a name="collect-sql-server-database-user-names"></a>Récupérer les noms de serveur SQL, de base de données et d’utilisateur
 Pour réaliser ce didacticiel, vous avez besoin des noms du serveur SQL Azure, de la base de données et de l’utilisateur. Notez les noms du **serveur**, de la **base de données** et de **l’utilisateur** pour votre base de données SQL Azure.
 
 1. Dans le **portail Azure**, cliquez sur **Plus de services** dans le volet gauche et sélectionnez **Bases de données SQL**.
@@ -75,45 +79,53 @@ Pour réaliser ce didacticiel, vous avez besoin des noms du serveur SQL Azure, d
 Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est **ACTIVÉ** pour votre serveur SQL Azure pour que le service Data Factory puisse accéder à votre serveur SQL Azure. Pour vérifier et activer ce paramètre, procédez comme suit :
 
 1. Cliquez sur le hub **Plus de services** situé à gauche, puis sur **Serveurs SQL**.
-2. Sélectionnez votre serveur, puis cliquez sur **Pare-feu** sous **PARAMÈTRES**. 
+2. Sélectionnez votre serveur, puis cliquez sur **Pare-feu** sous **PARAMÈTRES**.
 3. Dans le panneau **Paramètres de pare-feu**, cliquez sur **ACTIVER** pour **Autoriser l’accès aux services Azure**.
 4. Fermez tous les panneaux en cliquant sur **X**.
 
 ## <a name="prepare-blob-storage-and-sql-database"></a>Préparer Blob Storage et la Base de données SQL
-À présent, préparez votre stockage d'objets blob Azure et votre base de données SQL Azure pour ce didacticiel, en procédant comme suit :  
+À présent, préparez votre stockage d'objets blob Azure et votre base de données SQL Azure pour ce didacticiel, en procédant comme suit :  
 
 1. Ouvrez le Bloc-notes, collez le texte suivant, puis enregistrez-le sous le nom **emp.txt** dans le dossier **C:\ADFGetStarted** sur votre disque dur.
-   
-        John, Doe
-        Jane, Doe
+
+    ```
+    John, Doe
+    Jane, Doe
+    ```
 2. Utilisez des outils tels que [l’Explorateur de stockage Azure](https://azurestorageexplorer.codeplex.com/) pour créer le conteneur **adftutorial** et télécharger le fichier **emp.txt** vers ce dernier.
-   
+
     ![Azure Storage Explorer. Copie de données Blob Storage vers une base de données SQL](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Utilisez le script SQL suivant pour créer la table **emp** dans votre base de données SQL Azure.  
 
-        CREATE TABLE dbo.emp
-        (
-            ID int IDENTITY(1,1) NOT NULL,
-            FirstName varchar(50),
-            LastName varchar(50),
-        )
-        GO
+    ```SQL
+    CREATE TABLE dbo.emp
+    (
+        ID int IDENTITY(1,1) NOT NULL,
+        FirstName varchar(50),
+        LastName varchar(50),
+    )
+    GO
 
-        CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+    CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+    ```
 
-    **Si SQL Server 2012/2014 est installé sur votre ordinateur :** suivez les instructions de l' [Étape 2 : connexion à la base de données SQL de l'article Gestion de la base de données SQL Azure au moyen de SQL Server Management Studio](../sql-database/sql-database-manage-azure-ssms.md#Step2) pour vous connecter à votre serveur SQL Azure et exécuter le script SQL. Cet article utilise le [portail Azure Classic](http://manage.windowsazure.com), et non le [nouveau portail Azure](https://portal.azure.com), pour configurer le pare-feu d’un serveur SQL Azure.
+    **Si vous avez installé SQL Server 2012/2014 sur votre ordinateur :** suivez les instructions de l’article [Gestion d’Azure SQL Database à l’aide de SQL Server Management Studio](../sql-database/sql-database-manage-azure-ssms.md) pour vous connecter à votre serveur SQL Azure et exécuter le script SQL. Cet article utilise le [portail Azure Classic](http://manage.windowsazure.com), et non le [nouveau portail Azure](https://portal.azure.com), pour configurer le pare-feu d’un serveur SQL Azure.
 
     Si votre client n’est pas autorisé à accéder au serveur SQL Azure, vous devez configurer le pare-feu pour votre serveur SQL Azure afin d’autoriser l’accès à partir de votre ordinateur (adresse IP). Consultez [cet article](../sql-database/sql-database-configure-firewall-settings.md) pour savoir comment configurer le pare-feu de votre serveur SQL Azure.
 
-Vous avez terminé les étapes préalables requises. Créez une fabrique de données à l’aide de l’une des manières suivantes. Cliquez sur l’un des onglets en haut ou sur les liens suivants pour effectuer le didacticiel.     
+Vous avez terminé les étapes préalables requises. Créez une fabrique de données à l’aide de l’une des manières suivantes. Cliquez sur l’une des options de la liste déroulante en haut ou sur les liens suivants pour suivre le didacticiel.     
 
+* [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
 * [Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
-* [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+* [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+* [Modèle Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 * [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO5-->
 
 
