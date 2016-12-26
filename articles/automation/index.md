@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Apprenez à utiliser Automation pour automatiser les processus et la gestion de la configuration afin de gagner du temps, tout en renforçant la fiabilité de vos tâches d’administration récurrentes."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: c9444c341bc5746c96719e6ebfa464f294adf2f8
+ms.sourcegitcommit: 9f7b84331bd0575062518834ce1cd3db60fa6289
+ms.openlocfilehash: 98ddde79d422b692a1ded866fb12061bf942fc8a
 
 ---
 # <a name="automation-documentation"></a>Documentation Automation
 
-Azure Automation permet aux utilisateurs d’automatiser les tâches répétitives, manuelles, de longue durée et susceptibles d’engendrer des erreurs, qui sont couramment exécutées dans un environnement cloud. Il fait gagner du temps, accroît la fiabilité des tâches d’administration récurrentes et planifie même leur exécution automatique à intervalles réguliers.
+Apprenez à utiliser Automation pour gagner du temps et accroître la fiabilité des tâches d’administration récurrentes exécutées dans un environnement de cloud. Des didacticiels, références d’API et autres documents vous montrent comment automatiser les processus à l’aide de Runbooks, ou comment automatiser la gestion de configuration avec la Configuration de l’état souhaité (DSC, Desired State Configuration).
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -175,6 +176,6 @@ Télécharger la documentation Automation </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

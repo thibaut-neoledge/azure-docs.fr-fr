@@ -1,265 +1,268 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with ImageRelay | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and ImageRelay.
+title: "Didacticiel : Intégration d’Azure Active Directory à Image Relay | Microsoft Docs"
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Image Relay."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 65bb5990-07ef-4244-9f41-cd28fc2cb5a2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 11/21/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 4f7a99e82c73d446c928a821f80fc640a1994d67
+ms.openlocfilehash: cfcb97cbf5b1d2beff5c868ce8371918dbba4e3e
+
 
 ---
-# <a name="tutorial-azure-active-directory-integration-with-imagerelay"></a>Tutorial: Azure Active Directory integration with ImageRelay
-The objective of this tutorial is to show you how to integrate ImageRelay with Azure Active Directory (Azure AD).  
-Integrating ImageRelay with Azure AD provides you with the following benefits:
+# <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Didacticiel : Intégration d’Azure Active Directory à ImageRelay
+L’objectif de ce didacticiel est de vous montrer comment intégrer Image Relay dans Azure AD (Azure Active Directory).  
+L’intégration d’Image Relay à Azure AD vous offre les avantages suivants :
 
-* You can control in Azure AD who has access to ImageRelay
-* You can enable your users to automatically get signed-on to ImageRelay (single sign-on) with their Azure AD accounts
-* You can manage your accounts in one central location - the Azure classic portal
+* Dans Azure AD, vous pouvez contrôler qui a accès à Image Relay.
+* Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Image Relay (via l’authentification unique) avec leurs comptes Azure AD.
+* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisites
-To configure Azure AD integration with ImageRelay, you need the following items:
+## <a name="prerequisites"></a>Composants requis
+Pour configurer l’intégration d’Azure AD avec Image Relay, vous avez besoin des éléments suivants :
 
-* An Azure AD subscription
-* A ImageRelay single sign-on enabled subscription
+* Un abonnement Azure AD
+* Un abonnement Image Relay pour lequel l’authentification unique est activée
 
 > [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
+> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 > 
 > 
 
-To test the steps in this tutorial, you should follow these recommendations:
+Vous devez en outre suivre les recommandations ci-dessous :
 
-* You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
+* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="scenario-description"></a>Scenario Description
-The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
-The scenario outlined in this tutorial consists of two main building blocks:
+## <a name="scenario-description"></a>Description du scénario
+Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test.  
+Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Adding ImageRelay from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Ajout d’Image Relay à partir de la galerie
+2. Configuration et test de l’authentification unique Azure AD
 
-## <a name="adding-imagerelay-from-the-gallery"></a>Adding ImageRelay from the gallery
-To configure the integration of ImageRelay into Azure AD, you need to add ImageRelay from the gallery to your list of managed SaaS apps.
+## <a name="adding-image-relay-from-the-gallery"></a>Ajout d’Image Relay à partir de la galerie
+Pour configurer l’intégration d’Image Relay avec Azure AD, vous devez ajouter Image Relay à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**To add ImageRelay from the gallery, perform the following steps:**
+**Pour ajouter Image Relay à partir de la galerie, procédez comme suit :**
 
-1. In the Azure classic portal, on the left navigation pane, click **Active Directory**. 
+1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**. 
    
     ![Active Directory][1]
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
+2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
    
     ![Applications][2]
-4. Click **Add** at the bottom of the page.
+4. Cliquez sur **Ajouter** en bas de la page.
    
     ![Applications][3]
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
    
     ![Applications][4]
-6. In the search box, type **ImageRelay**.
+6. Dans la zone de recherche, tapez **Image Relay**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_01.png)
-7. In the results pane, select **ImageRelay**, and then click **Complete** to add the application.
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_01.png)
+7. Dans le volet des résultats, sélectionnez **Image Relay**, puis cliquez sur **Terminer** pour ajouter l’application.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_02.png)
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-signon"></a>Configuring and testing Azure AD single sign-on
-The objective of this section is to show you how to configure and test Azure AD single sign-on with ImageRelay based on a test user called "Britta Simon".
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
+L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec ImageRelay sur un utilisateur de test appelé « Britta Simon ».
 
-For single sign-on to work, Azure AD needs a user account that represents the related user in ImageRelay.  In other words, a link relationship between an Azure AD user and the related user in ImageRelay needs to be established.  
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in ImageRelay.
+Pour que l’authentification unique fonctionne, Azure AD a besoin d’un compte d’utilisateur qui représente l’utilisateur Image Relay associé.  En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur Image Relay associé doit être établie.  
+Pour cela, affectez la valeur de **Nom d’utilisateur** dans Azure AD comme valeur de **Nom d’utilisateur** dans Image Relay.
 
-To configure and test Azure AD single sign-on with ImageRelay, you need to complete the following building blocks:
+Pour configurer et tester l’authentification unique Azure AD avec Image Relay, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a ImageRelay test user](#creating-a-userecho-test-user)** - to have a counterpart of Britta Simon in ImageRelay that is linked to the Azure AD representation of her.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Création d’un utilisateur test Image Relay](#creating-a-userecho-test-user)** pour avoir un équivalent de Britta Simon dans Image Relay lié à la représentation Azure AD associée.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-signon"></a>Configuring Azure AD Single Sign-On
-The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your ImageRelay application.
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application Image Relay.
 
-**To configure Azure AD single sign-on with ImageRelay, perform the following steps:**
+**Pour configurer l’authentification unique Azure AD avec Image Relay, procédez comme suit :**
 
-1. In the Azure classic portal, on the **ImageRelay** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On** dialog.
+1. Sur la page d’intégration d’application **Image Relay** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
-     ![Configure Single Sign-On][6] 
-2. On the **How would you like users to sign on to ImageRelay** page, select **Azure AD Single Sign-On**, and then click **Next**.
+     ![Configurer l’authentification unique][6] 
+2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Image Relay**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_03.png) 
-3. On the **Configure App Settings** dialog page, perform the following steps:
+    ![Configurer l’authentification unique](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_03.png) 
+3. Sur la page **Configurer les paramètres d’application** , procédez comme suit :
    
-     ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_04.png) 
+     ![Configurer l’authentification unique](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_04.png) 
    
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign on to your ImageRelay application (for example: *https://fabrikam.ImageRelay.com/*).
+    a. Dans la zone de texte **URL de connexion**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application Image Relay (par exemple : *https://fabrikam.ImageRelay.com/*).
    
-    b. Click **Next**.
-4. On the **Configure single sign-on at ImageRelay** page, perform the following steps:
+    b. Cliquez sur **Next**.
+4. Sur la page **Configurer l’authentification unique sur Image Relay**, procédez comme suit :
    
-    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_05.png) 
+    ![Configurer l’authentification unique](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_05.png) 
    
-    a. Click **Download certificate**, and then save the file on your computer.
+    a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
    
-    b. Click **Next**.
-5. In another browser window, sign in to your ImageRelay company site as an administrator.
-6. In the toolbar on the top, click the **Users & Permissions** workload.
+    b. Cliquez sur **Next**.
+5. Dans une autre fenêtre de navigateur, connectez-vous à votre site d’entreprise Image Relay en tant qu’administrateur.
+6. Dans la barre d’outils du haut, cliquez sur la charge de travail **Utilisateurs et autorisations**.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_06.png) 
-7. Click **Create New Permission**.
+    ![Configurer l’authentification unique](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_06.png) 
+7. Cliquez sur **Créer une nouvelle autorisation**.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_08.png) 
-8. In the **Single Sign On Settings** workload, select the **This Group can only sign-in via Single Sign On** check box, and then click **Save**.
+    ![Configurer l’authentification unique](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_08.png) 
+8. Dans la charge de travail **Paramètres d’authentification unique**, sélectionnez la case à cocher **Ce groupe peut se connecter uniquement via l’authentification unique**, puis cliquez sur **Enregistrer**.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_09.png) 
-9. Go to **Account Settings**.
+    ![Configurer l’authentification unique](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_09.png) 
+9. Accédez à **Paramètres du compte**.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_10.png) 
-10. Go to the **Single Sign On Settings** workload.
+    ![Configurer l’authentification unique](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_10.png) 
+10. Accédez à la charge de travail **Paramètres d’authentification unique** .
     
-     ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_11.png)
-11. On the **SAML Settings** dialog, perform the following steps:
+     ![Configurer l’authentification unique](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_11.png)
+11. Dans la boîte de dialogue **SAML Settings** (Paramètres SAML), procédez comme suit :
     
-     ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_12.png)
+    ![Configurer l’authentification unique](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_12.png)
     
-     a. In the Azure classic portal, copy the **Single Sign-On Service URL**, and then paste it into the **Login URL** textbox.
+    a. Dans le portail Azure Classic, copiez la valeur de **l’URL du service d’authentification unique** et collez-la dans la zone de texte **URL de connexion**.
 
-    b. In the Azure classic portal, copy the **Single Sign-Out Service URL**, and then paste it into the **Logout URL** textbox.
+    b. Dans le portail Azure Classic, copiez la valeur de **l’URL du service de déconnexion unique** et collez-la dans la zone de texte **URL de déconnexion**.
 
-    c. As **Name Id Format**, select **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
+    c. Sous **Name Id Format** (Format d’ID de nom), sélectionnez **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
 
+    d. Sous **Binding Options for Requests from the Service Provider (Image Relay)** (Options de liaison pour les demandes provenant du fournisseur de services (ImageRelay)), sélectionnez **POST Binding** (Liaison POST).
 
-    d. As **Binding Options for Requests from the Service Provider (Image Relay)**, select **POST Binding**.
+    e. Sous **Certificat x.509**, cliquez sur **Mettre à jour le certificat**.
 
+    ![Configurer l’authentification unique](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_17.png)
 
-    e. Under **x.509 Certificate**, click **Update Certificate**.
+    f. Ouvrez le certificat que vous avez téléchargé dans le Bloc-notes, copiez son contenu, puis collez-le dans la zone de texte Certificat X.509.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_17.png)
+    ![Configurer l’authentification unique](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_18.png)
 
-    f. Open the downloaded certificate in notepad, copy the content, and then paste it into the x.509 Certificate textbox.
+    g. Dans la section **Approvisionnement juste à temps des utilisateurs**, sélectionnez la case à cocher **Activer l’approvisionnement juste à temps des utilisateurs**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_18.png)
+    ![Configurer l’authentification unique](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_19.png)
 
-    g. In **Just-In-Time User Provisioning** section, select the **Enable Just-In-Time User Provisioning**.
+    h. Sélectionnez le groupe d’autorisations (par exemple, **SSO de base**) qui sera autorisé à se connecter uniquement via l’authentification unique.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_19.png)
+    ![Configurer l’authentification unique](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_20.png)
 
-    h. Select the permission group (for example, **SSO Basic**) which is allowed to sign in only through single sign-on.
+    i. Cliquez sur **Save**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_20.png)
-
-    i. Click **Save**.
-
-1. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+1. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
-    ![Azure AD Single Sign-On][10]
-2. On the **Single sign-on confirmation** page, click **Complete**.
+    ![Authentification unique Azure AD][10]
+2. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.
    
-    ![Azure AD Single Sign-On][11]
+    ![Authentification unique Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure classic portal called Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.
 
-![Create Azure AD User][20]
+![Créer un utilisateur Azure AD][20]
 
-**To create a test user in Azure AD, perform the following steps:**
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_09.png) 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To display the list of users, in the menu on the top, click **Users**.
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_09.png) 
+2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_03.png) 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_03.png) 
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_04.png) 
-5. On the **Tell us about this user** dialog page, perform the following steps:
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_04.png) 
+5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_05.png) 
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_05.png) 
    
-    a. As Type Of User, select New user in your organization.
+    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
    
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
    
-    c. Click **Next**.
-6. On the **User Profile** dialog page, perform the following steps:
+    c. Cliquez sur **Next**.
+6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
-   ![Creating an Azure AD test user](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_06.png) 
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+    a. Dans la zone de texte **First Name**, tapez **Britta**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+    b. Dans la zone de texte **Last Name**, tapez **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
+    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
    
-   e. Click **Next**.
-7. On the **Get temporary password** dialog page, click **create**.
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_07.png) 
-8. On the **Get temporary password** dialog page, perform the following steps:
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_08.png) 
-   
-    a. Write down the value of the **New Password**.
-   
-    b. Click **Complete**.   
+    e. Cliquez sur **Next**.
 
-### <a name="creating-a-imagerelay-test-user"></a>Creating a ImageRelay test user
-The objective of this section is to create a user called Britta Simon in ImageRelay.
-
-**To create a user called Britta Simon in ImageRelay, perform the following steps:**
-
-1. Sign-on to your ImageRelay company site as an administrator.
-2. Go to **Users & Permissions**    and select **Create SSO User**.
+7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_21.png) 
-3. Enter the **Email**, **First Name**, **Last Name** and **Company** of the user you want to provision and select the permission group (for example, SSO Basic ) which is the group that can sign in only through single sign-on.
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_07.png) 
+8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
    
-    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_22.png) 
-4. Click **Create**.
-
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
-The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to ImageRelay.
-
-![Assign User][200] 
-
-**To assign Britta Simon to ImageRelay, perform the following steps:**
-
-1. In the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_08.png) 
    
-    ![Assign User][201] 
-2. In the applications list, select **ImageRelay**.
+    a. Notez la valeur du **Nouveau mot de passe**.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_23.png) 
-3. In the menu on the top, click **Users**.
-   
-    ![Assign User][203] 
-4. In the Users list, select **Britta Simon**.
-5. In the toolbar on the bottom, click **Assign**.
-   
-    ![Assign User][205]
+    b. Cliquez sur **Terminé**.   
 
-### <a name="testing-single-signon"></a>Testing Single Sign-On
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
-When you click the ImageRelay tile in the Access Panel, you should get automatically signed-on to your ImageRelay application.
+### <a name="creating-an-image-relay-test-user"></a>Création d’un utilisateur de test Image Relay
+L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Image Relay.
 
-## <a name="additional-resources"></a>Additional Resources
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+**Pour créer un utilisateur appelé Britta Simon dans Image Relay, procédez comme suit :**
+
+1. Connectez-vous à votre site d’entreprise Image Relay tant qu’administrateur.
+2. Accédez à **Utilisateurs et autorisations** et sélectionnez **Créer un utilisateur SSO**.
+   
+    ![Configurer l’authentification unique](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_21.png) 
+3. Renseignez les champs **E-mail**, **Prénom**, **Nom** et **Société** de l’utilisateur que vous souhaitez configurer, puis sélectionnez le groupe d’autorisations (par exemple authentification unique de base), qui peut se connecter uniquement via l’authentification unique.
+   
+    ![Configurer l’authentification unique](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_22.png) 
+4. Cliquez sur **Create**.
+
+### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui donnant accès à Image Relay.
+
+![Affecter des utilisateurs][200] 
+
+**Pour affecter Britta Simon à Image Relay, procédez comme suit :**
+
+1. Pour ouvrir la vue des applications dans le portail Azure Classic, cliquez dans la vue de répertoire sur **Applications** dans le menu du haut.
+   
+    ![Affecter des utilisateurs][201] 
+2. Dans la liste des applications, sélectionnez **Image Relay**.
+   
+    ![Configurer l’authentification unique](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_23.png) 
+3. Dans le menu situé en haut, cliquez sur **Utilisateurs**.
+   
+    ![Affecter des utilisateurs][203] 
+4. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
+5. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
+   
+    ![Affecter des utilisateurs][205]
+
+### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.  
+Lorsque vous cliquez sur la mosaïque Image Relay dans le panneau d’accès, vous devriez être connecté automatiquement à votre application Image Relay.
+
+## <a name="additional-resources"></a>Ressources supplémentaires
+* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 
@@ -281,6 +284,6 @@ When you click the ImageRelay tile in the Access Panel, you should get automatic
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

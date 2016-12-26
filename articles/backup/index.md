@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Utilisez la documentation Sauvegarde pour apprendre à effectuer des sauvegardes dans le cloud. Consultez les didacticiels et vidéos sur la sauvegarde d’applications, de serveurs Windows et de machines virtuelles Azure."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 4c3a00fe82ec903bcd756e8cd2ef940fc10e8af2
+ms.sourcegitcommit: e156357ceb900f1f610b7158a803f553ac3960a5
+ms.openlocfilehash: ed252f28a754b632a3dd95d848f70ec319124ba6
 
 ---
 #<a name="backup-documentation"></a>Documentation Sauvegarde
 
-Sauvegarde Azure est un service cloud qui vous permet de sauvegarder (ou de protéger) et de restaurer vos données dans le cloud Microsoft.  Azure Backup remplace votre solution de sauvegarde locale ou hors site par une solution basée dans le cloud à la fois fiable, sécurisée et économique.  
+Découvrez comment utiliser Azure Backup dans le cloud pour protéger les données en vue de leur restauration et de leur rétention à long terme. Des didacticiels, des vidéos et d’autres documents vous montrent comment sauvegarder les données, les applications, les serveurs Windows et les machines virtuelles Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -142,6 +143,6 @@ Télécharger la documentation Sauvegarde Azure </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

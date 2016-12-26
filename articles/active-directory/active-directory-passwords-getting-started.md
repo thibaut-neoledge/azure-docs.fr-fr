@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 93e02bc36c0502623316d6b896dd802ac8bdc284
+ms.sourcegitcommit: 48821a3b2b7da4646c4569cc540d867f02a4a32f
+ms.openlocfilehash: 6dc23714a4a052c7bf0bb5162fe1568ec272b5e3
 
 
 ---
@@ -71,7 +71,7 @@ Pour configurer la stratégie de réinitialisation du mot de passe utilisateur, 
 1. Ouvrez le navigateur de votre choix et accédez au [Portail Azure Classic](https://manage.windowsazure.com).
 2. Dans la barre de navigation à gauche du [portail Azure Classic](https://manage.windowsazure.com), recherchez l’**extension Active Directory**.
    
-   ![Gestion des mots de passe dans Azure AD][001]
+   ![Gestion des mots de passe dans Azure AD][001]
 3. Sous l’onglet **Annuaire** , cliquez sur l’annuaire dans lequel vous souhaitez configurer la stratégie de réinitialisation du mot de passe utilisateur, par exemple, Wingtip Toys.
    
     ![][002]
@@ -256,12 +256,40 @@ Vous pouvez également vérifier que le service a été correctement installé e
   ![][023]
 
 ### <a name="step-3-configure-your-firewall"></a>Étape 3 : configuration de votre pare-feu
-Une fois que vous avez activé l’écriture différée de mot de passe dans l’outil Azure AD Connect, vous devez vérifier que le service peut se connecter au cloud.
+Une fois que vous avez activé l’écriture différée du mot de passe, vous devez vous assurer que la machine exécutant Azure AD Connect peut atteindre les services de cloud computing Microsoft pour recevoir les demandes d’écriture différée du mot de passe. Cette étape implique la mise à jour des règles de connexion dans vos appliances réseau (serveurs proxy, pare-feu, etc.) pour autoriser les connexions sortantes à certaines URL appartenant à Microsoft et adresses IP sur des ports réseau spécifiques. Ces modifications peuvent varier selon la version de l’outil Azure AD Connect. Pour approfondir le contexte, vous pouvez lire les articles décrivant le [fonctionnement de l’écriture différée du mot de passe](active-directory-passwords-learn-more.md#how-password-writeback-works) et le [modèle de sécurité de l’écriture différée du mot de passe](active-directory-passwords-learn-more.md#password-writeback-security-model).
 
-1. Une fois l’installation terminée, si vous bloquez les connexions sortantes inconnues dans votre environnement, vous devez également ajouter les règles suivantes à votre pare-feu. Assurez-vous de bien redémarrer votre ordinateur AAD Connect après avoir apporté ces modifications :
-   * Autorisez les connexions sortantes sur le port TCP 443.
-   * Autorisez les connexions sortantes sur https://ssprsbprodncu-sb.accesscontrol.windows.net/.
-   * Quand vous utilisez un proxy ou que vous rencontrez des problèmes de connectivités d’ordre général, autorisez les connexions sortantes sur les ports TCP 9350-9354 et sur le port TCP 5671.
+#### <a name="why-do-i-need-to-do-this"></a>De quels éléments dois-je disposer pour effectuer cette opération ?
+
+Pour que l’écriture différée du mot de passe fonctionne correctement, la machine exécutant Azure AD Connect doit être en mesure d’établir des connexions HTTPS sortantes à **.servicebus.windows.net* et à une adresse IP spécifique utilisée par Azure, tel que défini dans la [liste des plages d’adresses IP du centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+
+Pour la version 1.0.8667.0 et les versions ultérieures de l’outil Azure AD Connect :
+
+- **Option 1 :** autorisez toutes les connexions HTTPS sortantes sur le port 443 (utilisant l’URL ou l’adresse IP).
+    - Quand utiliser cette option :
+        - Utilisez cette option si vous souhaitez mettre en œuvre la configuration la plus simple qui ne nécessite aucune mise à jour en cas de modification des plages d’adresses IP du centre de données Azure au fil du temps.
+    - Étapes requises :
+        - Autorisez toutes les connexions HTTPS sortantes sur le port 443 utilisant l’URL ou l’adresse IP.
+<br><br>
+- **Option 2 :** autorisez les connexions HTTPS sortantes à des plages d’adresses IP et URL spécifiques.
+    - Quand utiliser cette option :
+        - Utilisez cette option si vous travaillez dans un environnement réseau restreint ou que vous ne maîtrisez pas le processus d’autorisation des connexions sortantes.
+        - Pour que l’écriture différée du mot de passe continue de fonctionner dans cette configuration, vous devrez vous assurer que vos appliances réseau sont mises à jour chaque semaine avec les dernières adresses IP de la liste des plages d’adresses IP du centre de données Microsoft Azure. Ces plages d’adresses IP sont disponibles sous la forme d’un fichier XML qui est mis à jour tous les mercredis (heure du Pacifique) et mis en œuvre le lundi suivant (heure du Pacifique).
+    - Étapes requises :
+        - Autorisez toutes les connexions HTTPS sortantes à *.servicebus.windows.net
+        - Autorisez toutes les connexions HTTPS sortantes à toutes les adresses IP figurant dans la liste des plages d’adresses IP du centre de données Microsoft Azure et maintenez cette configuration à jour chaque semaine.
+
+> [!NOTE]
+> Si vous avez configuré l’écriture différée du mot de passe en suivant les instructions ci-dessus et que le journal des événements Azure AD Connect ne signale aucune erreur, mais que vous obtenez des erreurs de connectivité lors des tests, il est possible qu’une appliance réseau de votre environnement bloque les connexions HTTPS à des adresses IP. Par exemple, alors qu’une connexion à *https://*.servicebus.windows.net* est autorisée, une connexion à une adresse IP spécifique de cette plage peut être bloquée. Pour résoudre ce problème, vous devez soit configurer votre environnement réseau de façon à autoriser toutes les connexions HTTPS sortantes sur le port 443 à n’importe quelle URL ou adresse IP (Option 1 ci-dessus), soit travailler avec votre équipe de mise en réseau pour autoriser explicitement les connexions HTTPS à des adresses IP spécifiques (Option 2 ci-dessus).
+
+**Pour les versions antérieures :**
+
+- Autorisez les connexions TCP sortantes sur les ports 443, 9350-9354 et 5671 
+- Autorisez les connexions sortantes à *https://ssprsbprodncu-sb.accesscontrol.windows.net/*
+
+> [!NOTE]
+> Si vous utilisez une version d’Azure AD Connect antérieure à la version 1.0.8667.0, Microsoft vous recommande vivement de procéder à une mise à niveau vers la [dernière version d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594), qui intègre diverses améliorations en matière de mise en réseau de l’écriture différée afin de faciliter la configuration.
+
+Une fois que les appliances réseau ont été configurées, redémarrez la machine exécutant l’outil Azure AD Connect.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Étape 4 : définition des autorisations Active Directory adéquates
 Pour chaque forêt contenant des utilisateurs dont les mots de passe doivent être réinitialisés, si X correspond au compte spécifié pour cette forêt dans l’Assistant Configuration (durant l’installation d’origine), X doit avoir les droits étendus **Réinitialiser le mot de passe**, **Modifier le mot de passe** et **Autorisations en écriture** sur `lockoutTime`, et les droits **Autorisations en écriture** sur `pwdLastSet` sur l’objet racine de chaque domaine dans cette forêt. Le droit doit être marqué comme hérité par tous les objets utilisateur.  

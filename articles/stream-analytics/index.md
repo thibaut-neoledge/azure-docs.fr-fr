@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Apprenez à exécuter des analyses IoT dans le cloud avec le traitement des événements entièrement géré. Analysez en temps réel des données d’applications, de détecteurs, d’appareils et autres."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: c57faa7c307420bb92bec2f661e6739a7cfca7ee
+ms.sourcegitcommit: 5fbbb4ad21bbc4c4206d051e9585cd5d9888a545
+ms.openlocfilehash: 7d19b3b972bf5fdd9545f87f48eb924da8333ff7
 
 ---
 
 # <a name="stream-analytics-documentation"></a>Documentation Stream Analytics
 
-Azure Stream Analytics est un moteur de traitement des événements en temps réel entièrement géré qui permet d’obtenir des informations détaillées à partir des données.  Stream Analytics facilite la configuration de calculs d’analyse en temps réel sur les données de diffusion à partir d’appareils, de capteurs, de sites web, de médias sociaux, d’applications, de systèmes d’infrastructure et bien plus encore.
+Découvrez comment exécuter des analyses IoT dans le cloud avec Stream Analytics, un moteur de traitement des événements entièrement géré. Des didacticiels et d’autres documents vous montrent comment analyser les données en temps réel à partir d’applications, de capteurs, d’appareils, de réseaux sociaux et autres. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -171,6 +172,6 @@ Télécharger la documentation Stream Analytics </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

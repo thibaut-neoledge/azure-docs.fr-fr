@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 11/22/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 971a154170c5deb08e4aa5f061a53d120e6dead6
+ms.sourcegitcommit: 33e6b9ba880f56d967b49d0b89e61d1b531e8376
+ms.openlocfilehash: 1d8cb6894399a7863392a7f11bde69d75d4685c3
 
 
 ---
@@ -39,14 +39,14 @@ Resource Manager fournit les expressions ci-après pour travailler avec des enti
 <a id="add" />
 
 ### <a name="add"></a>ajouter
-**add(operand1, operand2)**
+`add(operand1, operand2)`
 
 Retourne la somme des deux entiers fournis.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| operand1 |Oui |Premier entier à ajouter. |
-| operand2 |Oui |Deuxième entier à ajouter. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- | 
+|operand1 |Oui |Entier  |Premier nombre à ajouter. |
+|operand2 |Oui |Entier  |Deuxième nombre à ajouter. |
 
 L’exemple suivant ajoute deux paramètres.
 
@@ -75,15 +75,15 @@ L’exemple suivant ajoute deux paramètres.
 <a id="copyindex" />
 
 ### <a name="copyindex"></a>copyIndex
-**copyIndex(offset)**
+`copyIndex(offset)`
 
-Retourne l'index actuel d'une boucle d'itération. 
+Retourne l’index d’une boucle d’itération. 
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| Offset |Non |Montant à ajouter à la valeur de l’itération actuelle. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| Offset |Non |Entier  |Le nombre à ajouter à la valeur d’itération de base zéro. |
 
-Cette fonction est toujours utilisée avec un objet **copy** . Pour obtenir une description complète d’exemples d’utilisation de l’expression **copyIndex**, voir [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+Cette fonction est toujours utilisée avec un objet **copy** . Si aucune valeur n’est fournie pour **offset**, la valeur d’itération actuelle est retournée. La valeur d’itération commence à zéro. Pour obtenir une description complète d’exemples d’utilisation de l’expression **copyIndex**, voir [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 
 L’exemple suivant montre une boucle de copie ainsi que la valeur d’index incluse dans le nom. 
 
@@ -103,14 +103,14 @@ L’exemple suivant montre une boucle de copie ainsi que la valeur d’index inc
 <a id="div" />
 
 ### <a name="div"></a>div
-**div(operand1, operand2)**
+`div(operand1, operand2)`
 
 Retourne la division entière des deux entiers fournis.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| operand1 |Oui |Entier à diviser. |
-| operand2 |Oui |Entier utilisé pour diviser. Ne peut pas être 0. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| operand1 |Oui |Entier  |Le nombre à diviser. |
+| operand2 |Oui |Entier  |Le nombre utilisé pour diviser. Ne peut pas être 0. |
 
 L’exemple suivant divise un paramètre par un autre paramètre.
 
@@ -139,13 +139,13 @@ L’exemple suivant divise un paramètre par un autre paramètre.
 <a id="int" />
 
 ### <a name="int"></a>int
-**int(valueToConvert)**
+`int(valueToConvert)`
 
 Convertit la valeur spécifiée en entier.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| valueToConvert |Oui |Valeur à convertir en entier. Le type de valeur peut uniquement être une chaîne ou un entier. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| valueToConvert |Oui |String ou Integer |La valeur à convertir en entier. |
 
 L’exemple ci-après convertit la valeur de paramètre fournie par l’utilisateur en entier.
 
@@ -160,14 +160,14 @@ L’exemple ci-après convertit la valeur de paramètre fournie par l’utilisat
 <a id="mod" />
 
 ### <a name="mod"></a>mod
-**mod(operand1, operand2)**
+`mod(operand1, operand2)`
 
 Retourne le reste de la division entière des deux entiers fournis.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| operand1 |Oui |Entier à diviser. |
-| operand2 |Oui |Entier utilisé pour diviser. Doit être différent de 0. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| operand1 |Oui |Entier  |Le nombre à diviser. |
+| operand2 |Oui |Entier  |Le nombre utilisé pour diviser, Ne peut pas être 0. |
 
 L’exemple suivant renvoie le reste de la division d’un paramètre par un autre paramètre.
 
@@ -196,14 +196,14 @@ L’exemple suivant renvoie le reste de la division d’un paramètre par un aut
 <a id="mul" />
 
 ### <a name="mul"></a>mul
-**mul(operand1, operand2)**
+`mul(operand1, operand2)`
 
 Retourne la multiplication des deux entiers fournis.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| operand1 |Oui |Premier entier à multiplier. |
-| operand2 |Oui |Deuxième entier à multiplier. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| operand1 |Oui |Entier  |Premier nombre à multiplier. |
+| operand2 |Oui |Entier  |Deuxième nombre à multiplier. |
 
 L’exemple suivant multiplie un paramètre par un autre paramètre.
 
@@ -232,14 +232,14 @@ L’exemple suivant multiplie un paramètre par un autre paramètre.
 <a id="sub" />
 
 ### <a name="sub"></a>sub
-**sub(operand1, operand2)**
+`sub(operand1, operand2)`
 
 Retourne la soustraction des deux entiers fournis.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| operand1 |Oui |Entier auquel est appliquée la soustraction. |
-| operand2 |Oui |Entier soustrait. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| operand1 |Oui |Entier  |Le nombre auquel est appliquée la soustraction. |
+| operand2 |Oui |Entier  |Le nombre qui est soustrait. |
 
 L’exemple suivant soustrait un paramètre à un autre paramètre.
 
@@ -287,13 +287,13 @@ Resource Manager fournit les fonctions ci-après pour travailler avec des chaîn
 <a id="base64" />
 
 ### <a name="base64"></a>base64
-**base64 (chaîne_entrée)**
+`base64 (inputString)`
 
 Retourne la représentation en base 64 de la chaîne d'entrée.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| chaîne_entrée |Oui |Valeur de chaîne à retourner sous la forme d'une représentation en base 64. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| chaîne_entrée |Oui |String |La valeur à retourner sous la forme d’une représentation en base64. |
 
 L’exemple suivant montre comment utiliser la fonction base64.
 
@@ -305,14 +305,14 @@ L’exemple suivant montre comment utiliser la fonction base64.
 <a id="concat" />
 
 ### <a name="concat---string"></a>concat - string
-**concat (string1, string2, string3, ...)**
+`concat (string1, string2, string3, ...)`
 
 Combine plusieurs valeurs de chaîne et renvoie la chaîne concaténée. 
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| string1 |Oui |Valeur de chaîne à concaténer. |
-| chaînes supplémentaires |Non |Valeurs de chaîne à concaténer. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| string1 |Oui |String |La première valeur pour la concaténation. |
+| chaînes supplémentaires |Non |String |Valeurs supplémentaires en ordre séquentiel pour la concaténation. |
 
 Cette fonction peut prendre n’importe quel nombre d’arguments et accepter à la fois des chaînes ou des tableaux pour les paramètres. Pour obtenir un exemple de concaténation des tableaux, consultez [concat - array](#concatarray).
 
@@ -329,13 +329,13 @@ L’exemple suivant montre comment combiner plusieurs valeurs pour retourner au 
 <a id="lengthstring" />
 
 ### <a name="length---string"></a>length - string
-**length(string)**
+`length(string)`
 
 Renvoie le nombre de caractères dans une chaîne.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| string |Oui |Valeur de chaîne à utiliser pour l’obtention du nombre de caractères. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| string |Oui |String |La valeur à utiliser pour l’obtention du nombre de caractères. |
 
 Pour découvrir un exemple d’utilisation de longueur avec un tableau, consultez [length - array](#length).
 
@@ -352,15 +352,15 @@ L’exemple suivant renvoie le nombre de caractères dans une chaîne.
 <a id="padleft" />
 
 ### <a name="padleft"></a>padLeft
-**padLeft(valeur_à_remplir, longueur_totale, caractère_de_remplissage)**
+`padLeft(valueToPad, totalLength, paddingCharacter)`
 
 Renvoie une chaîne alignée à droite en lui ajoutant des caractères sur la gauche jusqu’à ce que la longueur totale spécifiée ait été atteinte.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| valeur_à_remplir |Oui |Chaîne ou entier à aligner à droite. |
-| longueur_totale |Oui |Nombre total de caractères de la chaîne renvoyée. |
-| caractère_de_remplissage |Non |Caractère de remplissage à insérer sur la gauche jusqu’à ce que la longueur totale soit atteinte. La valeur par défaut est un espace. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| valeur_à_remplir |Oui |String ou Integer |Valeur à aligner à droite. |
+| longueur_totale |Oui |Entier  |Nombre total de caractères de la chaîne renvoyée. |
+| caractère_de_remplissage |Non |Caractère unique |Caractère de remplissage à insérer sur la gauche jusqu’à ce que la longueur totale soit atteinte. La valeur par défaut est un espace. |
 
 L’exemple ci-après indique comment remplir la valeur de paramètre fournie par l’utilisateur avec le caractère zéro jusqu’à ce que la chaîne atteigne 10 caractères. Si la valeur de paramètre d’origine comporte plus de 10 caractères, aucun caractère n’est ajouté.
 
@@ -374,15 +374,15 @@ L’exemple ci-après indique comment remplir la valeur de paramètre fournie pa
 <a id="replace" />
 
 ### <a name="replace"></a>replace
-**replace(chaîne_initiale, ancien_caractère, nouveau_caractère)**
+`replace(originalString, oldCharacter, newCharacter)`
 
 Renvoie une nouvelle chaîne dans laquelle toutes les instances d’un caractère de la chaîne initiale spécifiée ont été remplacées par un autre caractère.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| chaîne_initiale |Oui |Chaîne pour laquelle toutes les instances d’un caractère sont remplacées par un autre caractère. |
-| ancien_caractère |Oui |Caractère à supprimer de la chaîne initiale. |
-| nouveau_caractère |Oui |Caractère à ajouter à la place du caractère supprimé. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| chaîne_initiale |Oui |String |La valeur pour laquelle toutes les instances d’un caractère sont remplacées par un autre caractère. |
+| ancien_caractère |Oui |String |Caractère à supprimer de la chaîne initiale. |
+| nouveau_caractère |Oui |String |Caractère à ajouter à la place du caractère supprimé. |
 
 L’exemple ci-après indique comment supprimer tous les tirets de la chaîne fournie par l’utilisateur.
 
@@ -396,14 +396,14 @@ L’exemple ci-après indique comment supprimer tous les tirets de la chaîne fo
 <a id="skipstring" />
 
 ### <a name="skip---string"></a>skip - string
-**skip(originalValue, numberToSkip)**
+`skip(originalValue, numberToSkip)`
 
 Renvoie une chaîne avec tous les caractères après le nombre spécifié dans la chaîne.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| originalValue |Oui |Chaîne à utiliser pour ignorer les caractères. |
-| numberToSkip |Oui |Nombre de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les caractères de la chaîne sont renvoyés. Si elle est supérieure à la longueur de la chaîne, une chaîne vide est renvoyée. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| originalValue |Oui |String |Chaîne à utiliser pour ignorer les caractères. |
+| numberToSkip |Oui |Entier  |Nombre de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les caractères de la chaîne sont renvoyés. Si elle est supérieure à la longueur de la chaîne, une chaîne vide est renvoyée. |
 
 Pour découvrir un exemple de caractères ignorés avec un tableau, consultez [skip - array](#skip).
 
@@ -436,16 +436,16 @@ L’exemple suivant ignore le nombre spécifié de caractères de la chaîne.
 <a id="split" />
 
 ### <a name="split"></a>split
-**split(inputString, delimiterString)**
+`split(inputString, delimiterString)`
 
-**split(inputString, delimiterArray)**
+`split(inputString, delimiterArray)`
 
 Renvoie un tableau de chaînes qui contient les sous-chaînes de la chaîne d’entrée séparées par les délimiteurs spécifiés.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| chaîne_entrée |Oui |Chaîne à fractionner. |
-| delimiter |Oui |Le séparateur à utiliser. Peut être une chaîne unique ou un tableau de chaînes. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| chaîne_entrée |Oui |String |Chaîne à fractionner. |
+| delimiter |Oui |String ou Array of strings |Le séparateur à utiliser pour fractionner la chaîne. |
 
 L'exemple suivant fractionne la chaîne d'entrée en la séparant par une virgule.
 
@@ -473,13 +473,13 @@ L’exemple suivant fractionne la chaîne d’entrée par une virgule ou un poin
 <a id="string" />
 
 ### <a name="string"></a>string
-**string(valueToConvert)**
+`string(valueToConvert)`
 
 Convertit la valeur spécifiée en chaîne.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| valueToConvert |Oui |Valeur à convertir en chaîne. N’importe quel type de valeur peut être converti, y compris les objets et des tableaux. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| valueToConvert |Oui | Quelconque |Valeur à convertir en chaîne. N’importe quel type de valeur peut être converti, y compris les objets et des tableaux. |
 
 L’exemple ci-après convertit les valeurs de paramètre fournies par l’utilisateur en chaîne.
 
@@ -509,15 +509,15 @@ L’exemple ci-après convertit les valeurs de paramètre fournies par l’utili
 <a id="substring" />
 
 ### <a name="substring"></a>substring
-**substring(chaîne_à_analyser, index_début, longueur)**
+`substring(stringToParse, startIndex, length)`
 
 Retourne une sous-chaîne qui commence à la position de caractère spécifiée et qui contient le nombre de caractères spécifié.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| chaîne_à_analyser |Oui |La chaîne d’origine de laquelle la sous-chaîne est extraite. |
-| index_début |Non |La position de caractère (commençant à zéro) de la sous-chaîne. |
-| length |Non |Le nombre de caractères de la sous-chaîne. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| chaîne_à_analyser |Oui |String |La chaîne d’origine de laquelle la sous-chaîne est extraite. |
+| index_début |Non |Entier  |La position de caractère (commençant à zéro) de la sous-chaîne. |
+| length |Non |Entier  |Le nombre de caractères de la sous-chaîne. |
 
 L’exemple suivant extrait les trois premiers caractères d’un paramètre.
 
@@ -531,14 +531,14 @@ L’exemple suivant extrait les trois premiers caractères d’un paramètre.
 <a id="takestring" />
 
 ### <a name="take---string"></a>take - string
-**take(originalValue, numberToTake)**
+`take(originalValue, numberToTake)`
 
 Renvoie une chaîne avec le nombre de caractères spécifié à partir du début de la chaîne.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| originalValue |Oui |Chaîne à partir de laquelle il faut tirer les caractères. |
-| numberToTake |Oui |Nombre de caractères à tirer. Si cette valeur est inférieure ou égale à 0, une chaîne vide est renvoyée. Si elle est supérieure à la longueur de la chaîne donnée, tous les caractères de la chaîne sont renvoyés. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| originalValue |Oui |String |La valeur à partir de laquelle il faut tirer les caractères. |
+| numberToTake |Oui |Entier  |Nombre de caractères à tirer. Si cette valeur est inférieure ou égale à 0, une chaîne vide est renvoyée. Si elle est supérieure à la longueur de la chaîne donnée, tous les caractères de la chaîne sont renvoyés. |
 
 Pour découvrir un exemple de caractères tirés avec un tableau, consultez [take - array](#take).
 
@@ -570,13 +570,13 @@ L’exemple suivant tire le nombre spécifié de caractères de la chaîne.
 <a id="tolower" />
 
 ### <a name="tolower"></a>toLower
-**toLower(chaîne_à_modifier)**
+`toLower(stringToChange)`
 
 Convertit la chaîne spécifiée en minuscules.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| chaîne_à_modifier |Oui |Chaîne à convertir en minuscules. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| chaîne_à_modifier |Oui |String |La valeur à convertir en minuscules. |
 
 L’exemple ci-après convertit la valeur de paramètre fournie par l’utilisateur en minuscules.
 
@@ -590,13 +590,13 @@ L’exemple ci-après convertit la valeur de paramètre fournie par l’utilisat
 <a id="toupper" />
 
 ### <a name="toupper"></a>toUpper
-**toUpper(chaîne_à_modifier)**
+`toUpper(stringToChange)`
 
 Convertit la chaîne spécifiée en majuscules.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| chaîne_à_modifier |Oui |Chaîne à convertir en majuscules. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| chaîne_à_modifier |Oui |String |La valeur à convertir en majuscules. |
 
 L’exemple ci-après convertit la valeur de paramètre fournie par l’utilisateur en majuscules.
 
@@ -610,13 +610,13 @@ L’exemple ci-après convertit la valeur de paramètre fournie par l’utilisat
 <a id="trim" />
 
 ### <a name="trim"></a>découper
-**découper (stringToTrim)**
+`trim (stringToTrim)`
 
 Supprime tous les espaces de début et de fin de la chaîne indiquée.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| stringToTrim |Oui |Chaîne à découper. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| stringToTrim |Oui |String |La valeur à supprimer. |
 
 L’exemple suivant supprime les espaces à partir de la valeur de paramètre indiquée par l’utilisateur.
 
@@ -630,18 +630,18 @@ L’exemple suivant supprime les espaces à partir de la valeur de paramètre in
 <a id="uniquestring" />
 
 ### <a name="uniquestring"></a>uniqueString
-**uniqueString (baseString, ...)**
+`uniqueString (baseString, ...)`
 
 Crée une chaîne de hachage déterministe basée sur les valeurs fournies en tant que paramètres. 
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| baseString |Oui |Chaîne utilisée dans la fonction de hachage pour créer une chaîne unique. |
-| paramètres supplémentaires le cas échéant |Non |Vous pouvez ajouter autant de chaînes que nécessaire pour créer la valeur qui spécifie le niveau d’unicité. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| baseString |Oui |String |La valeur utilisée dans la fonction de hachage pour créer une chaîne unique. |
+| paramètres supplémentaires le cas échéant |Non |String |Vous pouvez ajouter autant de chaînes que nécessaire pour créer la valeur qui spécifie le niveau d’unicité. |
 
 Cette fonction est utile lorsque vous avez besoin de créer un nom unique pour une ressource. Vous fournissez des valeurs de paramètre qui limitent l’étendue d’unicité pour le résultat. Vous pouvez spécifier si le nom est unique pour l’abonnement, le groupe de ressources ou le déploiement. 
 
-La valeur renvoyée n’est pas une chaîne aléatoire, mais plutôt le résultat d’une fonction de hachage. La valeur renvoyée comprend 13 caractères. Elle n’est pas globalement unique. Il se peut que vous souhaitiez associer un préfixe de votre convention d’affectation de noms à la valeur pour créer un nom explicite. L’exemple suivant montre le format de la valeur renvoyée. Évidemment, la valeur réelle varie en fonction des paramètres fournis.
+La valeur renvoyée n’est pas une chaîne aléatoire, mais plutôt le résultat d’une fonction de hachage. La valeur renvoyée comprend 13 caractères. Elle n’est pas globalement unique. Il se peut que vous souhaitiez associer un préfixe de votre convention d’affectation de noms à la valeur pour créer un nom explicite. L’exemple suivant montre le format de la valeur renvoyée. La valeur réelle varie en fonction des paramètres fournis.
 
     tcvhiyu5h2o5o
 
@@ -659,7 +659,7 @@ Unique limité au déploiement pour un groupe de ressources
 
     "[uniqueString(resourceGroup().id, deployment().name)]"
 
-L’exemple suivant montre comment créer un nom unique pour un compte de stockage basé sur votre groupe de ressources (à l’intérieur de ce groupe, le nom n’est pas unique s’il est construit de la même façon).
+L'exemple suivant montre comment créer un nom unique pour un compte de stockage basé sur votre groupe de ressources. Dans le groupe de ressources, le nom n’est pas unique s’il est construit de la même façon.
 
     "resources": [{ 
         "name": "[concat('storage', uniqueString(resourceGroup().id))]", 
@@ -671,16 +671,16 @@ L’exemple suivant montre comment créer un nom unique pour un compte de stocka
 <a id="uri" />
 
 ### <a name="uri"></a>URI
-**URI (baseUri, relativeUri)**
+`uri (baseUri, relativeUri)`
 
 Crée un URI absolu en combinant le baseUri et la chaîne relativeUri.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| baseUri |Oui |La chaîne d’URI de base. |
-| relativeUri |Oui |La chaîne d’URI relatif à ajouter à la chaîne d’URI de base. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| baseUri |Oui |String |La chaîne d’URI de base. |
+| relativeUri |Oui |String |La chaîne d’URI relatif à ajouter à la chaîne d’URI de base. |
 
-La valeur du paramètre **baseUri** peut inclure un fichier spécifique, mais seul le chemin de base est utilisé lors de la construction de l’URI. Par exemple, en transmettant **http://contoso.com/resources/azuredeploy.json** en tant que résultats du paramètre baseUri dans un URI de base de **http://contoso.com/resources/**.
+La valeur du paramètre **baseUri** peut inclure un fichier spécifique, mais seul le chemin de base est utilisé lors de la construction de l’URI. Par exemple, si vous passez `http://contoso.com/resources/azuredeploy.json` comme paramètre baseUri, l’URI de base résultant est `http://contoso.com/resources/`.
 
 L’exemple suivant montre comment créer un lien vers un modèle imbriqué en fonction de la valeur du modèle parent.
 
@@ -699,14 +699,14 @@ Pour obtenir un tableau de valeurs de chaîne délimitée par une valeur, consul
 <a id="concatarray" />
 
 ### <a name="concat---array"></a>concat - array
-**concat (array1, array2, array3, ...)**
+`concat (array1, array2, array3, ...)`
 
 Combine plusieurs tableaux et renvoie le tableau concaténé. 
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| array1 |Oui |Tableau à concaténer. |
-| tableaux supplémentaires |Non |Tableaux à concaténer. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| array1 |Oui |Tableau |Le premier tableau pour la concaténation. |
+| tableaux supplémentaires |Non |Tableau |Tableaux supplémentaires en ordre séquentiel pour la concaténation. |
 
 Cette fonction peut prendre n’importe quel nombre d’arguments et accepter à la fois des chaînes ou des tableaux pour les paramètres. Pour obtenir un exemple de concaténation des valeurs de chaîne, consultez [concat - string](#concat).
 
@@ -728,13 +728,13 @@ L’exemple suivant montre comment combiner deux tableaux.
 <a id="length" />
 
 ### <a name="length---array"></a>length - array
-**length(array)**
+`length(array)`
 
 Retourne le nombre d'éléments dans un tableau.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| array |Oui |Tableau à utiliser pour obtenir le nombre d’éléments. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| array |Oui |Tableau |Tableau à utiliser pour obtenir le nombre d’éléments. |
 
 Vous pouvez utiliser cette fonction avec un tableau pour spécifier le nombre d’itérations lors de la création de ressources. Dans l’exemple ci-après, le paramètre **siteNames** fait référence à un tableau de noms à utiliser lors de la création de sites web.
 
@@ -750,14 +750,14 @@ Pour découvrir un exemple d’utilisation de longueur avec une valeur de chaîn
 <a id="skip" />
 
 ### <a name="skip---array"></a>skip - array
-**skip(originalValue, numberToSkip)**
+`skip(originalValue, numberToSkip)`
 
 Renvoie un tableau avec tous les éléments après le nombre spécifié dans le tableau.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| originalValue |Oui |Tableau à utiliser pour ignorer les éléments. |
-| numberToSkip |Oui |Nombre d’éléments à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments du tableau sont renvoyés. Si elle est supérieure à la longueur du tableau, un tableau vide est renvoyé. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| originalValue |Oui |Tableau |Tableau à utiliser pour ignorer les éléments. |
+| numberToSkip |Oui |Entier  |Nombre d’éléments à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments du tableau sont renvoyés. Si elle est supérieure à la longueur du tableau, un tableau vide est renvoyé. |
 
 Pour découvrir un exemple d’éléments ignorés avec une chaîne, consultez [skip - string](#skipstring).
 
@@ -790,14 +790,14 @@ L’exemple suivant ignore le nombre spécifié d’éléments du tableau.
 <a id="take" />
 
 ### <a name="take---array"></a>take - array
-**take(originalValue, numberToTake)**
+`take(originalValue, numberToTake)`
 
 Renvoie un tableau avec le nombre spécifié d’éléments depuis le début du tableau.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| originalValue |Oui |Tableau à partir duquel les éléments sont tirés. |
-| numberToTake |Oui |Nombre d’éléments à tirer. Si cette valeur est inférieure ou égale à 0, un tableau vide est renvoyé. Si elle est supérieure à la longueur du tableau donné, tous les éléments du tableau sont renvoyés. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| originalValue |Oui |Tableau |Tableau à partir duquel les éléments sont tirés. |
+| numberToTake |Oui |Entier  |Nombre d’éléments à tirer. Si cette valeur est inférieure ou égale à 0, un tableau vide est renvoyé. Si elle est supérieure à la longueur du tableau donné, tous les éléments du tableau sont renvoyés. |
 
 Pour découvrir un exemple d’éléments de ce type avec une chaîne, consultez [take - string](#takestring).
 
@@ -838,8 +838,8 @@ Pour obtenir des valeurs de ressources, de groupes de ressources ou d’abonneme
 
 <a id="deployment" />
 
-### <a name="deployment"></a>deployment
-**deployment()**
+### <a name="deployment"></a>déploiement
+`deployment()`
 
 Renvoie des informations sur l’opération de déploiement actuelle.
 
@@ -865,7 +865,7 @@ Quand l’objet de déploiement est passé inline, comme lors de l’utilisation
         }
     }
 
-Quand l’objet est passé comme lien, par exemple lors de l’utilisation du paramètre **-TemplateUri** pour pointer vers un objet distant, l’objet est retourné dans le format suivant. 
+Quand l’objet est passé comme lien, par exemple lors de l’utilisation du paramètre **-TemplateUri** pour pointer vers un objet distant, l’objet est retourné dans le format suivant : 
 
     {
         "name": "",
@@ -896,13 +896,13 @@ L’exemple suivant montre comment utiliser deployment() pour établir une liais
 <a id="parameters" />
 
 ### <a name="parameters"></a>parameters
-**parameters (nom_paramètre)**
+`parameters (parameterName)`
 
 Retourne une valeur de paramètre. Le nom de paramètre spécifié doit être défini dans la section parameters du modèle.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| nom_paramètre |Oui |Nom du paramètre à retourner. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| nom_paramètre |Oui |String |Nom du paramètre à retourner. |
 
 L'exemple suivant montre une utilisation simplifiée de la fonction parameters.
 
@@ -923,13 +923,13 @@ L'exemple suivant montre une utilisation simplifiée de la fonction parameters.
 <a id="variables" />
 
 ### <a name="variables"></a>variables
-**variables (nom_variable)**
+`variables (variableName)`
 
 Retourne la valeur de la variable. Le nom de variable spécifié doit être défini dans la section variables du modèle.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| nom_variable |Oui |Nom de la variable à retourner. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| variableName |Oui |String |Nom de la variable à retourner. |
 
 L’exemple suivant utilise une valeur de variable.
 
@@ -960,18 +960,18 @@ Pour obtenir des valeurs de paramètres, de variables ou du déploiement actuel,
 <a id="list" />
 
 ### <a name="listkeys-and-listvalue"></a>listKeys and list{Value}
-**listKeys (nom_ressource ou identificateur_ressource, version_api)**
+`listKeys (resourceName or resourceIdentifier, apiVersion)`
 
-**list{Value} (resourceName or resourceIdentifier, apiVersion)**
+`list{Value} (resourceName or resourceIdentifier, apiVersion)`
 
 Renvoie les valeurs pour n’importe quel type de ressource qui prend en charge l’opération list. L’utilisation la plus courante est **listKeys**. 
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| nom_ressource ou identificateur_ressource |Oui |Identificateur unique pour la ressource. |
-| apiVersion |Oui |Version d'API de l'état d'exécution des ressources. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| nom_ressource ou identificateur_ressource |Oui |String |Identificateur unique pour la ressource. |
+| apiVersion |Oui |String |Version d'API de l'état d'exécution des ressources. En règle générale, au format, **aaaa-mm-jj**. |
 
-Toute opération qui commence par **list** peut être utilisée en tant que fonction dans votre modèle. Les opérations disponibles incluent **listKeys**, mais également les opérations telles que **list**, **listAdminKeys** et **listStatus**. Pour déterminer les types de ressources qui ont une opération de liste, utilisez la commande PowerShell suivante.
+Toute opération qui commence par **list** peut être utilisée en tant que fonction dans votre modèle. Les opérations disponibles incluent **listKeys**, mais également des opérations telles que **list**, **listAdminKeys** et **listStatus**. Pour déterminer les types de ressources qui ont une opération de liste, utilisez la commande PowerShell suivante :
 
     Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
 
@@ -1010,14 +1010,14 @@ L’objet renvoyé par listKeys a le format suivant :
 <a id="providers" />
 
 ### <a name="providers"></a>fournisseurs
-**fournisseurs (espacedenoms_fournisseur, [type_ressource])**
+`providers (providerNamespace, [resourceType])`
 
 Renvoie des informations sur un fournisseur de ressources et les types de ressources qu’il prend en charge. Si vous ne fournissez pas un type de ressource, la fonction renvoie tous les types pris en charge pour le fournisseur de ressources.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| espacedenoms_fournisseur |Oui |Espace de noms du fournisseur. |
-| resourceType |Non |Type de ressource dans l'espace de noms spécifié. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| espacedenoms_fournisseur |Oui |String |Espace de noms du fournisseur. |
+| resourceType |Non |String |Type de ressource dans l'espace de noms spécifié. |
 
 Chaque type pris en charge est renvoyé au format suivant. Le classement du tableau n’est pas garanti.
 
@@ -1039,14 +1039,14 @@ L'exemple suivant montre comment utiliser la fonction provider :
 <a id="reference" />
 
 ### <a name="reference"></a>reference
-**reference (nom_ressource ou identificateur_ressource, [version_api])**
+`reference (resourceName or resourceIdentifier, [apiVersion])`
 
 Renvoie un objet représentant l’état d’exécution d’une autre ressource.
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| nom_ressource ou identificateur_ressource |Oui |Nom ou identificateur unique d’une ressource. |
-| apiVersion |Non |Version d’API de la ressource spécifiée. Incluez ce paramètre lorsque la ressource n’est pas approvisionnée dans le même modèle. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| nom_ressource ou identificateur_ressource |Oui |String |Nom ou identificateur unique d’une ressource. |
+| apiVersion |Non |String |Version d’API de la ressource spécifiée. Incluez ce paramètre lorsque la ressource n’est pas approvisionnée dans le même modèle. En règle générale, au format, **aaaa-mm-jj**. |
 
 La fonction **reference** dérive sa valeur d'un état d'exécution, et ne peut donc pas être utilisée dans la section variables. Elle peut être utilisée dans la section outputs d'un modèle.
 
@@ -1070,7 +1070,7 @@ L’exemple ci-après référence un compte de stockage qui n’est pas déploy�
         }
     }
 
-Vous pouvez récupérer une valeur spécifique à partir de l’objet renvoyé, comme l’URI du point de terminaison d’objet blob, tel qu’indiqué dans l’exemple suivant.
+Vous pouvez récupérer une valeur spécifique à partir de l’objet renvoyé, comme l’URI du point de terminaison d’objet blob, tel qu’indiqué dans l’exemple suivant :
 
     "outputs": {
         "BlobUri": {
@@ -1093,7 +1093,7 @@ Les propriétés de l’objet renvoyé par la fonction **reference** varient sel
 <a id="resourcegroup" />
 
 ### <a name="resourcegroup"></a>resourceGroup
-**resourceGroup()**
+`resourceGroup()`
 
 Renvoie un objet qui représente le groupe de ressources actuel. 
 
@@ -1125,17 +1125,17 @@ L'exemple suivant utilise l'emplacement du groupe de ressources pour affecter l'
 <a id="resourceid" />
 
 ### <a name="resourceid"></a>resourceId
-**resourceId ([ID_abonnement], [nom_groupe_ressource], type_ressource, nom_ressource1, [nom_ressource2]...)**
+`resourceId ([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
 
 Retourne l'identificateur unique d'une ressource. 
 
-| Paramètre | Requis | Description |
-|:---:|:---:|:--- |
-| subscriptionId |Non |La valeur par défaut est l’abonnement actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre abonnement. |
-| resourceGroupName |Non |La valeur par défaut est le groupe de ressources actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre groupe de ressources. |
-| resourceType |Oui |Type de ressource, y compris l'espace de noms du fournisseur de ressources. |
-| nom_ressource1 |Oui |Nom de la ressource. |
-| nom_ressource2 |Non |Segment de nom de ressource suivant si la ressource est imbriquée. |
+| Paramètre | Requis | Type | Description |
+|:--- |:--- |:--- |:--- |
+| subscriptionId |Non |Chaîne (au format GUID) |La valeur par défaut est l’abonnement actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre abonnement. |
+| resourceGroupName |Non |String |La valeur par défaut est le groupe de ressources actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre groupe de ressources. |
+| resourceType |Oui |String |Type de ressource, y compris l'espace de noms du fournisseur de ressources. |
+| nom_ressource1 |Oui |String |Nom de la ressource. |
+| nom_ressource2 |Non |String |Segment de nom de ressource suivant si la ressource est imbriquée. |
 
 Vous utilisez cette fonction lorsque le nom de la ressource est ambigu ou non configuré dans le même modèle. L'identificateur est retourné au format suivant :
 
@@ -1192,9 +1192,9 @@ Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de s
 <a id="subscription" />
 
 ### <a name="subscription"></a>abonnement
-**subscription()**
+`subscription()`
 
-Renvoie des détails sur l’abonnement au format suivant.
+Renvoie des détails sur l’abonnement au format suivant :
 
     {
         "id": "/subscriptions/#####",
@@ -1221,6 +1221,6 @@ L’exemple suivant montre la fonction subscription appelée dans la section out
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

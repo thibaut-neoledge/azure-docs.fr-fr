@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Apprenez à utiliser Key Vault pour créer et gérer des clés d’accès et de chiffrement pour vos ressources, applications et solutions cloud. Didacticiels, références d’API et autres."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 09d20c4c035a072d78118cb0e2184773f4642c81
+ms.sourcegitcommit: 017bbfb8485a7e449157e4ddb05149b5e1cc393f
+ms.openlocfilehash: ae529bdad36eeddb959ac4b0ad5c9ccffc3ac30a
 
 ---
 # <a name="key-vault-documentation"></a>Documentation Key Vault
 
-Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. En utilisant Key Vault, vous pouvez chiffrer les clés et les secrets (tels que les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers PFX et les mots de passe) à l’aide de clés protégées par des modules de sécurité matériels (HSM). Pour une meilleure garantie, vous pouvez importer ou générer des clés HSM.
+Apprenez à utiliser Key Vault pour protéger et gérer les clés de chiffrement et les secrets utilisés par les services et les applications cloud. Des didacticiels, références d’API et autres documents vous montrent comment créer et gérer des clés d’accès et de chiffrement pour vos ressources et solutions.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -160,6 +161,6 @@ Télécharger la documentation Key Vault </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

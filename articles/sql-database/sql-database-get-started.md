@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 6b016384339f0dc943237a88787c2c86debd9016
+ms.sourcegitcommit: c2252fc81f97019391ca2ba957f8402c4e97a9c2
+ms.openlocfilehash: f9b17c1cc77918fb1989b94b5bb359a697ceea7c
 
 
 ---
@@ -30,7 +30,7 @@ Ce didacticiel de mise en route vous montre comment utiliser le portail Azure po
 * créer un serveur logique Azure SQL ;
 * afficher les propriétés de serveur logique Azure SQL ;
 * créer une règle de pare-feu au niveau du serveur ;
-* créer l’exemple de base de données Adventure Works LT sous la forme d’une base de données autonome ;
+* créer l’exemple de base de données Adventure Works LT sous la forme d’une base de données unique ;
 * afficher les propriétés de l’exemple de base de données Adventure Works LT dans Azure.
 
 Dans ce didacticiel, vous utilisez également la version la plus récente de SQL Server Management Studio pour :
@@ -208,7 +208,7 @@ Lorsque vous aurez terminé ce didacticiel, vous aurez un exemple de base de don
     ![server credentials](./media/sql-database-get-started/server-credentials.png)
 
     > [!NOTE]
-    > Lorsqu’une base de données est ajoutée à un serveur, elle peut être ajoutée en tant que base de données autonome (valeur par défaut) ou ajoutée à un pool élastique. Pour plus d’informations sur les pools élastiques, consultez [Pools élastiques](sql-database-elastic-pool.md).
+    > Lorsqu’une base de données est ajoutée à un serveur, elle peut être ajoutée en tant que base de données unique (valeur par défaut) ou ajoutée à un pool élastique. Pour plus d’informations sur les pools élastiques, consultez [Pools élastiques](sql-database-elastic-pool.md).
     >
 
 7. Sous Niveau tarifaire, changez le niveau de tarification pour choisir **De base** (vous pouvez augmenter le niveau de tarification ultérieurement si vous le souhaitez, mais à des fins d’apprentissage, nous vous recommandons d’utiliser le niveau de coût le plus bas).
@@ -299,11 +299,13 @@ Maintenant que vous avez terminé ce didacticiel, vous souhaiterez peut-être ex
 * Si vous souhaitez commencer à créer des tables et d’autres objets, consultez la rubrique « Création d’une table » dans [Création d’une table](https://msdn.microsoft.com/library/ms365315.aspx).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
-[Définition de la base de données SQL](sql-database-technical-overview.md)
+
+- Pour une présentation technique, consultez [Définition de la base de données SQL - Présentation de SQL Database](sql-database-technical-overview.md).
+- Pour plus d’informations sur la tarification, voir [Bases de données SQL - Tarification](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

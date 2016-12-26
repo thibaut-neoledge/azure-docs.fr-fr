@@ -1,4 +1,4 @@
-- name: "Microsoft Azure"
+- name: "Microsoft Azure"
   tocHref: /azure/
   topicHref: /azure/index
   items:
@@ -9,6 +9,9 @@
       - name: "Connecter"
         tocHref: /azure/active-directory/connect/
         topicHref: /azure/active-directory/connect/
+      - name: "Connect Health"
+        tocHref: /azure/active-directory/connect-health/
+        topicHref: /azure/active-directory/connect-health/
       - name: "Développement"
         tocHref: /azure/active-directory/develop/
         topicHref: azure/active-directory/develop/
@@ -31,10 +34,10 @@
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/app-service-how-works-readme
     items:
-    - name: "Applications Web"
+    - name: "Web Apps"
       tocHref: /azure/app-service-web/
       topicHref: /azure/app-service-web/app-service-web-overview
-    - name: "Mobile Apps"
+    - name: "Mobile Apps"
       tocHref: /azure/app-service-mobile/
       topicHref: /azure/app-service-mobile/app-service-mobile-value-prop
     - name: "API Apps"
@@ -43,7 +46,7 @@
   - name: "Advisor"
     tocHref: /azure/advisor/
     topicHref: /azure/advisor/advisor-overview
-  - name: "Logic Apps"
+  - name: "Logic Apps"
     tocHref: /azure/app-service-logic/
     topicHref: /azure/app-service-logic/app-service-logic-what-are-logic-apps
   - name: "Application Gateway"
@@ -55,7 +58,7 @@
   - name: "Automatisation"
     tocHref: /azure/automation/
     topicHref: /azure/automation/automation-intro
-  - name: "Container Registry"
+  - name: "Container Registry"
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/container-registry-intro
   - name: "Fonctions"
@@ -218,7 +221,7 @@
   - name: "Service Bus"
     tocHref: /azure/service-bus/
     topicHref: /azure/service-bus/../service-bus-messaging/service-bus-queues-topics-subscriptions
-  - name: "Messagerie Service Bus "
+  - name: "Messagerie Service Bus "
     tocHref: /azure/service-bus-messaging/
     topicHref: /azure/service-bus-messaging/service-bus-queues-topics-subscriptions
   - name: "Service Bus Relay"
@@ -230,7 +233,7 @@
   - name: "Site Recovery"
     tocHref: /azure/site-recovery/
     topicHref: /azure/site-recovery/site-recovery-overview
-  - name: "SQL Data Warehouse"
+  - name: "SQL Data Warehouse"
     tocHref: /azure/sql-data-warehouse/
     topicHref: /azure/sql-data-warehouse/sql-data-warehouse-overview-what-is
   - name: "Base de données SQL"

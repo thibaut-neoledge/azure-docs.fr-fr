@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
 +toc_rel: breadcrumb.json
+description: "Apprenez à utiliser un réseau virtuel dans le cloud. La documentation vous montre comment déployer un réseau virtuel, l’utiliser pour lancer des ressources et l’intégrer à un réseau local."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: c285a2be335bed0adada1877f94c7999d7c8b7e5
+ms.sourcegitcommit: 9a76fe5c0b518cdd95be71e0c3cf928f0ff93668
+ms.openlocfilehash: 7e2c2db7000b2ea0a4fe698e47e775cc2a7db4dd
 
 ---
 # <a name="virtual-network-documentation"></a>Documentation Réseau virtuel
 
-Un Réseau virtuel Azure (VNet) est une représentation logique de votre propre réseau dans le cloud.  Un réseau virtuel vous permet de contrôler entièrement les éléments du réseau, de segmenter votre réseau virtuel en sous-réseaux et de lancer Machines virtuelles Azure ou Services cloud Azure.  En outre, vous pouvez utiliser l’une des options de connectivité disponibles dans Azure pour connecter le réseau virtuel à votre réseau local de façon à étendre votre réseau au cloud tout en gardant le contrôle de vos ressources.
+Apprenez à utiliser un réseau virtuel (VNet), autrement dit une représentation de votre réseau dans le cloud. La documentation vous montre comment configurer et gérer un réseau virtuel, l’utiliser pour lancer des machines virtuelles ou des services cloud, connecter le réseau virtuel à votre réseau local et étendre votre réseau au cloud tout en conservant le contrôle de vos ressources.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -158,6 +159,6 @@ Télécharger la documentation Réseau virtuel </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

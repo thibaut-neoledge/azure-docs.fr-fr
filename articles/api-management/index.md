@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Découvrez comment utiliser la gestion des API pour publier des API en toute sécurité et à grande échelle. Des documents vous montrent comment créer des passerelles API modernes pour les services principaux existants."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 79b75ae11af07735449714d3a3034c867224ebf4
+ms.sourcegitcommit: bc1895fc3b10c9fab96a120359e25324a1132a51
+ms.openlocfilehash: cd5342474c551bfb9eb1496ffd67f3b36933f1d8
 
 ---
 # <a name="api-management-documentation"></a>Documentation Gestion des API
 
-Gestion des API aide les organisations à publier des API pour des développeurs externes, partenaires et internes, afin de libérer le potentiel de leurs données et services.  Gestion des API offre les compétences principales pour assurer un programme d'API réussi à travers l'engagement du développeur, les perspectives commerciales, l'analyse, la sécurité et la protection.
+Découvrez comment utiliser la gestion des API pour publier des API pour des développeurs externes, partenaires et employés en toute sécurité et à grande échelle. Des didacticiels, des références d’API et d’autres documents vous montrent comment créer et gérer des passerelles API modernes pour les services principaux existants hébergés n’importe où.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -141,6 +142,6 @@ Télécharger la documentation Gestion des API </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

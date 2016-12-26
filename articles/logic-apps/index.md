@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Apprenez à développer des applications logiques qui automatisent et simplifient les workflows métier en local et dans le cloud. Didacticiels, modèles et références d’API."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 87c52e5ee76ed7848061315de8c8ba8a36b0d349
+ms.sourcegitcommit: 09066e463fe42bb845ccadc98cd79ed1c5881462
+ms.openlocfilehash: e8ab6aecb3d614a7b42e0524382022eabf66ea36
 
 ---
 # <a name="logic-apps-documentation"></a>Documentation Logic Apps
 
-Logic Apps est un outil de conception permettant de modéliser et d’automatiser les processus sous la forme de workflows. De nombreux connecteurs sont disponibles dans le cloud et en local pour accélérer l’intégration dans différents services et protocoles. Une application logique commence par un déclencheur (tel que « Lorsqu’un compte est ajouté à Dynamics CRM »), et après le déclenchement, peut initialiser de nombreuses actions de combinaison, des conversions et une logique de condition.
+Apprenez à développer des applications logiques qui simplifient et intègrent des workflows évolutifs dans le cloud. Des didacticiels, modèles et références d’API vous aident à concevoir et déployer des workflows métier automatisés en local et dans le cloud.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -154,6 +155,7 @@ Télécharger la documentation Logic Apps </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Découvrez comment utiliser BizTalk Services pour assurer l’intégration d’applications métiers locales et dans le cloud pour SAP, Oracle EBS, SQL Server et PeopleSoft."
 translationtype: Human Translation
-ms.sourcegitcommit: 329bf8f57270c901d54f27a2159287e08e4c355a
-ms.openlocfilehash: dfde406339068f9261fccb87039d18a0dfdedeff
+ms.sourcegitcommit: 74eb1a0a0f532ffe23fdfac0d8b25ee9434175a1
+ms.openlocfilehash: 754a932b8d98bbae8f7e24daab073cbec1d4d16e
 
 ---
 # <a name="biztalk-services-documentation"></a>Documentation BizTalk Services
 
-BizTalk Services assure l’intégration d’applications métiers locales et dans le cloud pour SAP, Oracle EBS, SQL Server et PeopleSoft. Ce service vous permet de vous connecter à une source de données HTTP, FTP, SFTP ou REST. Vous pouvez acheminer des messages à l’aide de nombreux artefacts Azure, tels que les files d’attente Service Bus, Rubriques, SQL Database et Stockage Blob.   
+Découvrez comment utiliser BizTalk Services pour assurer l’intégration d’applications métiers locales et dans le cloud pour SAP, Oracle EBS, SQL Server et PeopleSoft. Des didacticiels et d’autres documents vous montrent comment intégrer l’entreprise et le cloud.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -77,6 +78,7 @@ Télécharger la documentation BizTalk Services </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/08/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: bfc8a774ebaaae7dbf1018614681134a5b10a769
-ms.openlocfilehash: 7938e0c2f0363bcce51375ddab9c68e8e8068186
+ms.sourcegitcommit: 3c8406efd9d716df56ed3ca10fc596684945c2f2
+ms.openlocfilehash: 3281b001aeab42aace951b5bdd5d4ec901de396f
 
 
 ---
@@ -28,19 +28,19 @@ Découvrez comment installer Data Lake Tools pour Visual Studio et utiliser Data
 U-SQL est un langage hyper évolutif et hautement extensible conçu pour préparer, transformer et analyser toutes les données dans le lac de données et au-delà. Pour plus d'informations, consultez [Référence U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 ## <a name="prerequisites"></a>Configuration requise
-* **Visual Studio 2015, Visual Studio 2013 mise à jour 4 ou Visual Studio 2012. Les éditions Enterprise (Ultimate/Premium), Professional et Community sont prises en charge ; l’édition Express n’est pas prise en charge. Visual Studio « 15 » n’est actuellement pas pris en charge et nous y travaillons.**
+* **Visual Studio 2015, Visual Studio 2013 mise à jour 4 ou Visual Studio 2012. Les éditions Enterprise (Ultimate/Premium), Professional et Community sont prises en charge ; l’édition Express n’est pas prise en charge. Visual Studio 2017 n’est pas pris en charge pour l’instant.**
 * **Kit de développement logiciel (SDK) Microsoft Azure pour .NET version 2.7.1 ou ultérieure**.  Installez-le avec [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 * **[Data Lake Tools pour Visual Studio](http://aka.ms/adltoolsvs)**.
 
     Une fois les outils Data Lake pour Visual Studio installés, vous verrez un nœud « Data Lake Analytics » dans l’Explorateur de serveurs sous le nœud « Azure » (vous pouvez ouvrir l’Explorateur de serveurs en appuyant sur Ctrl+Alt+S).
-* **Consultez les deux sections suivantes dans [Prise en main d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md)**.
 
-  * [Créer un compte Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-  * [Télécharger SearchLog.tsv sur le compte Data Lake Storage par défaut](data-lake-analytics-get-started-portal.md#prepare-source-data).
+* **Compte Data Lake Analytics et exemples de données** Data Lake Tools ne prend pas en charge la création de comptes Data Lake Analytics. Vous pouvez créer un compte avec le Portail Azure, Azure PowerShell, le Kit de développement logiciel (SDK) .NET ou l’interface de ligne de commande Azure.
+Pour vous faciliter la tâche, un exemple de script PowerShell pour la création d’un service Data Lake Analytics et le chargement du fichier de données source vers le serveur est fourni dans [Annexe A - Exemple PowerShell pour la préparation du didacticiel](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial).
 
-    Pour votre commodité, vous pouvez trouver un exemple de script PowerShell pour la création d’un service Data Lake Analytics et le téléchargement d’un fichier de données source dans [Annexe A - Exemple PowerShell pour la préparation du didacticiel](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial).
+    En option, vous pouvez parcourir les deux sections ci-après de l’article [Prise en main d’Azure Data Lake Analytics à l’aide du Portail Azure](data-lake-analytics-get-started-portal.md) pour créer votre compte et charger les données manuellement :
 
-    Data Lake Tools ne prend pas en charge la création de comptes Data Lake Analytics. Par conséquent, vous devez le créer avec le portail Azure, Azure PowerShell, le Kit de développement logiciel (SDK) .NET ou l’interface de ligne de commande Azure. Pour lancer une tâche Data Lake Analytics, vous aurez besoin de données. Bien que Data Lake Tools prenne en charge le téléchargement de données, vous allez utiliser le portail pour télécharger les exemples de données, ce qui facilitera la progression dans ce didacticiel.
+    1. [Créer un compte Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
+    2. [Télécharger SearchLog.tsv sur le compte Data Lake Storage par défaut](data-lake-analytics-get-started-portal.md#prepare-source-data).
 
 ## <a name="connect-to-azure"></a>Connexion à Azure
 **Se connecter à Data Lake Analytics**
@@ -270,6 +270,8 @@ Pour commencer à utiliser Data Lake Analytics à l'aide de différents outils, 
 * [Prise en main de Data Lake Analytics à l'aide du Kit de développement logiciel (SDK) .NET](data-lake-analytics-get-started-net-sdk.md)
 * [Débogage de travaux U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 
+Pour découvrir les outils Data Lake pour Visual Studio Code, consultez la page [Use the Azure Data Lake Tools for Visual Studio Code (Utiliser les outils Azure Data Lake pour Visual Studio Code)](data-lake-analytics-data-lake-tools-for-vscode.md).
+
 Pour afficher d’autres rubriques sur le développement :
 
 * [Analyser les journaux web à l'aide de Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
@@ -350,6 +352,6 @@ Le script PowerShell ci-après prépare un compte Azure Data Lake Analytics et l
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

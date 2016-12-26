@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Découvrez comment utiliser Event Hubs pour ingérer des millions d’événements par seconde à partir des appareils IoT connectés et des applications sur de nombreuses plateformes."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: b5e9c3193e41320fa97a6a0246faaac622f2822a
+ms.sourcegitcommit: bedc8c16671de6071383659697ecd932e14cf3ba
+ms.openlocfilehash: 3d404f115c9a21c7ea62fb485a2129bca9de5c6c
 
 ---
 #<a name="event-hubs-documentation"></a>Documentation Event Hubs
 
-Les concentrateurs d’événements sont un service d’entrée de données hautement évolutif qui peut traiter des millions d’événements par seconde afin que vous puissiez traiter et analyser les grandes quantités de données générées par vos périphériques connectés et vos applications. Les concentrateurs d’événements fonctionnent comme la « porte d’entrée » d’un pipeline d’événements, et une fois que les données sont collectées dans un concentrateur d’événements, elles peuvent être transformées et stockées à l’aide de n’importe quel fournisseur d’analyse en temps réel ou adaptateur de traitement par lot ou de stockage.
+Découvrez comment utiliser Event Hubs pour collecter et gérer des millions d’événements par seconde à partir d’appareils IoT connectés et d’applications. Des didacticiels, des références d’API et d’autres documents vous montrent comment configurer une ingestion évolutive des événements sur un large éventail de plateformes.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -86,52 +87,32 @@ Les concentrateurs d’événements sont un service d’entrée de données haut
 
 ---
 
-## <a name="reference"></a>Référence
-
+<h2>Référence</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Référence API managée .NET</p>
-                    </div>
+                        <h3>Langues</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.eventhubs">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.eventhubs">Java</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/azure/service-bus-messaging/service-bus-amqp-protocol-guide">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>AMQP</h3>
-                        <p>Guide du protocole AMQP 1.0</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/rest/api/eventhub">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API REST des concentrateurs d'événements</p>
+                        <p><a href="/rest/api/eventhub">Référence sur les API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -145,6 +126,6 @@ Télécharger la documentation Event Hubs </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

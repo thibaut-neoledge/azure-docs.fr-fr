@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Apprenez à configurer une messagerie permettant de connecter les applications et services entre les environnements cloud et locaux.  Didacticiels, vidéos, références d’API et autres."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 0ecc51f19240ecfa49852ed1eafcf78d1227af16
+ms.sourcegitcommit: 37d0de5343692516cc9644d817384ad31f58fb40
+ms.openlocfilehash: a0b419acc990e3973432540fb9907e31ddedf41c
 
 ---
 #<a name="service-bus-documentation"></a>Documentation Service Bus
 
-Service Bus offre une communication cloud avec une messagerie d’entreprise et une communication relayée qui permet de connecter les solutions locales au cloud. 
+Découvrez comment utiliser Service Bus pour connecter vos environnements locaux et cloud. Des didacticiels, vidéos, références d’API et autres documents vous montrent comment configurer la messagerie dans le cloud entre vos applications et services.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -244,6 +245,6 @@ Télécharger la documentation Service Bus </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 
