@@ -1,13 +1,13 @@
 ---
-title: Connexion de réseaux virtuels classiques à des réseaux virtuels Resource Manager dans le portail | Microsoft Docs
-description: Découvrez comment créer une connexion VPN entre des réseaux virtuels classiques et des réseaux virtuels Resource Manager à l’aide d’une passerelle VPN et du portail
+title: "Connexion de réseaux virtuels classiques aux réseaux virtuels Resource Manager dans le portail | Microsoft Docs"
+description: "Découvrez comment créer une connexion VPN entre des réseaux virtuels classiques et des réseaux virtuels Resource Manager à l’aide d’une passerelle VPN et du portail"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: 5a90498c-4520-4bd3-a833-ad85924ecaf9
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/03/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 7834aefeb9eb007ffa9daf708250c9f06ec05e67
+ms.openlocfilehash: 96c709d8df311e649a2f8fe9dc177d43615c65ad
+
 
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-in-the-portal"></a>Connecter des réseaux virtuels utilisant des modèles de déploiement différents dans le portail
@@ -37,7 +41,8 @@ Nous mettons à jour le tableau suivant à mesure que de nouveaux articles et de
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-#### <a name="vnet-peering"></a>Homologation de réseaux virtuels
+**VNet Peering**
+
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 ## <a name="before-beginning"></a>Avant tout chose
@@ -48,18 +53,18 @@ Dans cet article, nous utilisons le portail Classic, le portail Azure et PowerSh
 ### <a name="prerequisites"></a>Composants requis
 * Les deux réseaux virtuels ont déjà été créés.
 * Les plages d’adresses des réseaux virtuels ne se chevauchent pas ou ne chevauchent aucune des plages des autres connexions susceptibles d’être utilisées par les passerelles.
-* Vous avez installé les dernières applets de commande PowerShell (1.0.2 ou version ultérieure). Pour plus d’informations, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) . Veillez à installer à la fois les applets de commande de gestion des services et Resource Manager (RM). 
+* Vous avez installé les dernières applets de commande PowerShell (1.0.2 ou version ultérieure). Pour plus d’informations, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) . Veillez à installer à la fois les applets de commande de gestion des services et Resource Manager (RM). 
 
-### <a name="<a-name="values"></a>example-settings"></a><a name="values"></a>Exemples de paramètres
+### <a name="a-namevaluesaexample-settings"></a><a name="values"></a>Exemples de paramètres
 Vous pouvez utiliser les exemples de paramètres en tant que référence.
 
 **Paramètres de réseau virtuel classique**
 
 Nom du réseau virtuel = ClassicVNet  <br>
-Emplacement = Ouest des États-Unis <br>
+Emplacement = Ouest des États-Unis <br>
 Espaces d’adressage du réseau virtuel = 10.0.0.0/24 <br>
 Sous-réseau-1 = 10.0.0.0/27 <br>
-Sous-réseau de passerelle : 10.0.0.32/29 <br>
+Sous-réseau de passerelle : 10.0.0.32/29 <br>
 Nom du réseau local = RMVNetLocal <br>
 
 **Paramètres de réseau virtuel Resource Manager**
@@ -76,7 +81,7 @@ Type de passerelle = VPN <br>
 Type de VPN = Route-based <br>
 Passerelle de réseau local = ClassicVNetLocal <br>
 
-## <a name="<a-name="createsmgw"></a>section-1:-configure-classic-vnet-settings"></a><a name="createsmgw"></a>Section 1 : Configurer les paramètres du réseau virtuel classique
+## <a name="a-namecreatesmgwasection-1-configure-classic-vnet-settings"></a><a name="createsmgw"></a>Section 1 : Configurer les paramètres du réseau virtuel classique
 Dans cette section, nous créons le réseau local et la passerelle pour votre réseau virtuel classique. Pour ce faire, vous devez utiliser le portail Classic. À l’heure actuelle, le portail Azure n’offre pas tous les paramètres associés à un réseau virtuel classique.
 
 ### <a name="part-1---create-a-new-local-network"></a>Partie 1 : Créer un réseau local
@@ -95,10 +100,10 @@ Ouvrez le [portail Classic](https://manage.windowsazure.com) et connectez-vous a
 1. Après avoir enregistré les paramètres, cliquez sur **Tableau de bord** en haut de la page pour passer à la page Tableau de bord. En bas de la page Tableau de bord, cliquez sur **Créer la passerelle**, puis sur **Routage dynamique**. Cliquez sur **Oui** pour lancer la création de votre passerelle. Une passerelle de routage dynamique est requise pour cette configuration.
 2. Attendez que la passerelle soit créée. Cette opération peut parfois prendre 45 minutes ou plus.
 
-### <a name="<a-name="ip"></a>part-4---view-the-gateway-public-ip-address"></a><a name="ip"></a>Partie 4 : Afficher l’adresse IP publique de la passerelle
+### <a name="a-nameipapart-4---view-the-gateway-public-ip-address"></a><a name="ip"></a>Partie 4 : Afficher l’adresse IP publique de la passerelle
 Une fois la passerelle créée, vous pouvez afficher l’adresse IP de la passerelle dans la page **Tableau de bord** . Il s’agit de l’adresse IP publique de votre passerelle. Notez ou copiez l’adresse IP publique. Elle vous servira ultérieurement lors de la création du réseau local pour la configuration de votre réseau virtuel Resource Manager.
 
-## <a name="<a-name="creatermgw"></a>section-2:-configure-resource-manager-vnet-settings"></a><a name="creatermgw"></a>Section 2 : Configurer les paramètres du réseau virtuel Resource Manager
+## <a name="a-namecreatermgwasection-2-configure-resource-manager-vnet-settings"></a><a name="creatermgw"></a>Section 2 : Configurer les paramètres du réseau virtuel Resource Manager
 Dans cette section, nous créons la passerelle de réseau virtuel et le réseau local pour votre réseau virtuel Resource Manager. Ne commencez pas la procédure suivante avant d’avoir récupéré l’adresse IP publique de la passerelle du réseau virtuel classique.
 
 Les captures d’écran sont fournies à titre d’exemple. Assurez-vous de remplacer ces valeurs par les vôtres. Si vous créez cette configuration dans le cadre d’un exercice, reportez-vous à ces [valeurs](#values).
@@ -125,21 +130,21 @@ Donnez à la passerelle de réseau local un nom qui sera utilisé par Azure pour
 ### <a name="part-4---copy-the-public-ip-address"></a>Partie 4 : Copier l’adresse IP publique
 Une fois la création de la passerelle de réseau virtuel terminée, copiez l’adresse IP publique associée à la passerelle. Elle vous servira lors de la configuration des paramètres de réseau local pour votre réseau virtuel classique. 
 
-## <a name="section-3:-modify-the-local-network-for-the-classic-vnet"></a>Section 3 : Modifier le réseau local pour le réseau virtuel classique
+## <a name="section-3-modify-the-local-network-for-the-classic-vnet"></a>Section 3 : Modifier le réseau local pour le réseau virtuel classique
 Ouvrez le [portail Classic](https://manage.windowsazure.com).
 
 1. Dans le portail Classic, faites défiler la page vers le bas sur le côté gauche et cliquez sur **Réseaux**. En haut de la page **Réseaux**, cliquez sur **Réseaux locaux**. 
 2. Cliquez sur le réseau local que vous avez configuré dans la partie 1 pour le sélectionner. En bas de la page, cliquez sur **Modifier**.
 3. Dans la page **Spécifier les détails de votre réseau local** , remplacez l’adresse IP temporaire par l’adresse IP publique de la passerelle Resource Manager que vous avez créée dans la section précédente. Cliquez sur la flèche pour passer à la section suivante. Vérifiez que **l’espace d’adressage** est correct, puis cliquez sur la coche pour accepter les modifications.
 
-## <a name="<a-name="connect"></a>section-4:-create-the-connection"></a><a name="connect"></a>Section 4 : Créer la connexion
+## <a name="a-nameconnectasection-4-create-the-connection"></a><a name="connect"></a>Section 4 : Créer la connexion
 Dans cette section, nous créons la connexion entre les réseaux virtuels. Pour ce faire, vous devez utiliser PowerShell. Vous ne pouvez pas créer cette connexion dans l’un ou l’autre des portails. Assurez-vous que vous avez téléchargé et installé les applets de commande PowerShell classiques et Resource Manager (RM).
 
 1. Dans la console PowerShell, connectez-vous à votre compte Azure. Les applets de commande suivantes vous invitent à entrer les informations d’identification de connexion pour votre compte Azure. Une fois que vous êtes connecté, vos paramètres de compte sont téléchargés pour être reconnus par Azure PowerShell.
    
         Login-AzureRmAccount 
    
-    Si vous possédez plusieurs abonnements, procurez-vous la liste de vos abonnements Azure.
+     Si vous possédez plusieurs abonnements, procurez-vous la liste de vos abonnements Azure.
    
         Get-AzureRmSubscription
    
@@ -153,7 +158,7 @@ Dans cette section, nous créons la connexion entre les réseaux virtuels. Pour 
    
         Set-AzureVNetGatewayKey -VNetName ClassicVNet `
         -LocalNetworkSiteName RMVNetLocal -SharedKey abc123
-4. Créez la connexion VPN en exécutant les commandes suivantes :
+4. Créez la connexion VPN en exécutant les commandes suivantes :
    
     **Définir les variables**
    
@@ -172,11 +177,14 @@ Vous pouvez vérifier votre connexion à l’aide du portail Classic, du portail
 
 [!INCLUDE [vpn-gateway-verify connection](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
-## <a name="<a-name="faq"></a>vnet-to-vnet-faq"></a><a name="faq"></a>Forum Aux Questions sur l’interconnexion de réseaux virtuels
+## <a name="a-namefaqavnet-to-vnet-faq"></a><a name="faq"></a>Forum Aux Questions sur l’interconnexion de réseaux virtuels
 Consultez les détails du Forum Aux Questions pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 
