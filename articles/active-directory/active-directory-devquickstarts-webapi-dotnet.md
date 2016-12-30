@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 873335f5d27b6b52afb8519cbe461952a4e2d4fb
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 686ff35a972e9489c01fbc6e0e68437428a9f4f4
 
 
 ---
@@ -39,7 +39,7 @@ Pour ce faire, vous devez :
 
 Pour commencer, téléchargez [la structure de l’application](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) ou [l’exemple terminé](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip).  Chaque option est une solution Visual Studio 2013.  Vous aurez également besoin d’un client Azure AD dans lequel inscrire votre application.  Si ce n’est pas déjà fait, [découvrez comment en obtenir un](active-directory-howto-tenant.md).
 
-## <a name="1-register-an-application-with-azure-ad"></a>*1.    Inscription d’une application auprès d’Azure AD*
+## <a name="1----register-an-application-with-azure-ad"></a>*1.    Inscription d’une application auprès d’Azure AD*
 Pour sécuriser votre application, vous devez tout d’abord créer une application dans votre client et fournir quelques informations essentielles à Azure AD.
 
 * Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com)
@@ -119,7 +119,7 @@ public IEnumerable<TodoItem> Get()
   * `ida:Tenant` est le nom de votre client Azure AD, par exemple, « contoso.onmicrosoft.com ».
   * `ida:Audience` est l’URI ID d’application que vous avez entré dans le portail Azure.
 
-## <a name="3-configure-a-client-application-run-the-service"></a>*3.    Configuration d’une application cliente et exécution du service*
+## <a name="3----configure-a-client-application--run-the-service"></a>*3.    Configuration d’une application cliente et exécution du service*
 Avant de pouvoir voir le service Todo List en action, vous devez configurer le client Todo List afin qu’il puisse obtenir des jetons d’AAD et effectuer des appels au service.
 
 * Accédez au [portail de gestion Azure](https://manage.windowsazure.com)
@@ -143,6 +143,6 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) est f
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

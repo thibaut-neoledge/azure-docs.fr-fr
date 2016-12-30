@@ -1,88 +1,104 @@
 ---
-title: Accès conditionnel Azure Active Directory | Microsoft Docs
-description: Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application.
+title: "Accès conditionnel Azure Active Directory | Microsoft Docs"
+description: "Utilisez le contrôle d’accès conditionnel dans Azure Active Directory pour vérifier des conditions spécifiques lors de l’authentification pour l’accès aux applications."
 services: active-directory
-keywords: accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel
-documentationcenter: ''
-author: markusvi
+keywords: "accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel"
+documentationcenter: 
+author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: da3f0a44-1399-4e0b-aefb-03a826ae4ead
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/21/2016
+ms.date: 12/16/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: af104d47d316b3e46108e7e2ed0771bd06f360af
+ms.openlocfilehash: 6c3b547b052bca6999e47ddc10fcce5e1e56fe09
+
 
 ---
-# Accès conditionnel Azure Active Directory
-Chaque structure doit impérativement s’assurer de sécuriser l’accès aux ressources d’entreprise. Avec l’avènement des services cloud et des appareils mobiles, la façon dont les utilisateurs accèdent aux ressources d’entreprise a considérablement évolué. La prolifération des appareils personnels et appartenant à l’entreprise nécessite une nouvelle approche en matière d’accès aux ressources de l’entreprise et de sécurité.
+# <a name="conditional-access-in-azure-active-directory"></a>Accès conditionnel dans Azure Active Directory
 
-## Pourquoi l’accès conditionnel ?
-Les fonctionnalités de contrôle d’accès conditionnel d’Azure Active Directory procurent aux entreprises des modes simples de sécurisation des ressources dans le cloud et en local. Les stratégies d’accès conditionnel peuvent vous protéger contre le risque de vol et de piratage des informations d’identification grâce à l’authentification multifacteur. Vous pouvez également appliquer des stratégies d’accès conditionnel pour sécuriser les données de l’entreprise, afin que seuls les appareils inscrits dans un système de gestion d’appareils mobiles comme Microsoft Intune aient accès aux services sensibles.
+> [!div class="op_single_selector"]
+> * [Portail Azure Classic](active-directory-conditional-access.md)
+> * [Portail Azure](active-directory-conditional-access-azure-portal.md)
 
-## Composants requis
-L’accès conditionnel Azure Active Directory est une fonctionnalité [Azure AD Premium](http://www.microsoft.com/identity). Tous les utilisateurs accédant à une application limitée par une stratégie d’accès conditionnel doivent disposer d’une licence Azure AD Premium. Consultez [Unlicensed User report](https://aka.ms/utc5ix) (Rapport sur les utilisateurs sans licence) pour en savoir plus sur l’utilisation de cette fonctionnalité.
+Les fonctionnalités de contrôle d’accès conditionnel d’Azure Active Directory (Azure AD) offrent des méthodes simples de sécurisation des ressources dans le cloud et en local. Les stratégies d’accès conditionnel telles que l’authentification multifacteur peuvent vous protéger contre le risque de vol et de piratage des informations d’identification. D’autres stratégies d’accès conditionnel peuvent vous aider à protéger les données de votre organisation. Par exemple, en plus des informations d’identification, vous pouvez avoir une stratégie permettant que seuls les appareils inscrits dans un système de gestion des appareils mobiles tels que Microsoft Intune puissent accéder aux services sensibles de votre organisation.
 
-## Comment est appliqué le contrôle d’accès conditionnel ?
-Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur, avant d’autoriser l’accès à l’application. Une fois que ces conditions d’accès sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application.
+## <a name="prerequisites"></a>Composants requis
+L’accès conditionnel Azure AD est une fonctionnalité [Azure Active Directory Premium](http://www.microsoft.com/identity). Tous les utilisateurs accédant à une application limitée par des stratégies d’accès conditionnel doivent disposer d’une licence Azure AD Premium. Pour en savoir plus sur les conditions requises de licence, consultez l’article [Rapport d’utilisation sans licence](https://aka.ms/utc5ix).
 
-![](./media/active-directory-conditional-access/conditionalaccess-overview.png)
+## <a name="how-is-conditional-access-control-enforced"></a>Comment est appliqué le contrôle d’accès conditionnel ?
+Une fois le contrôle d’accès conditionnel en place, Azure AD vérifie les conditions spécifiques que vous avez définies pour qu’un utilisateur puisse accéder à une application. Une fois que ces conditions d’accès sont remplies, l’utilisateur est authentifié et peut accéder à l’application.  
 
-## Conditions
-* **Groupe d’appartenance** : contrôler le niveau d’accès d’un utilisateur en fonction de son appartenance à un groupe.
-* **Emplacement** : utiliser l’emplacement de l’utilisateur pour déclencher l’authentification multifacteur (MFA) et bloquer les commandes lorsqu’un utilisateur n’est pas sur un réseau de confiance.
-* **Plateforme d’appareil** : utiliser le type de plateforme utilisée par un appareil (par exemple iOS, Android, Windows Mobile et Windows) comme condition d’application d’une stratégie.
-* **Appareil activé** : le statut d’appareil activé/désactivé est validé au cours de l’évaluation de la stratégie d’appareil. En désactivant un appareil perdu ou volé dans le répertoire, celui-ci n’est plus utilisable conformément à la stratégie.
-* **Risques liés à la connexion et à l’utilisateur** : des stratégies de risque d’accès conditionnel sont disponibles avec [Azure AD Identity Protection](active-directory-identityprotection.md) et offrent une protection avancée selon différents risques et activités de connexion inhabituelles.
+![Présentation de l’accès conditionnel](./media/active-directory-conditional-access/conditionalaccess-overview.png)
 
-## Commandes
-* **Multi-factor authentication (MFA)**: la MFA vous permet d’appliquer une authentification renforcée. La MFA peut être fournie par Azure MFA ou par un fournisseur MFA local à l’aide d’Active Directory Federation Server (AD FS). La MFA contribue à empêcher tout accès à vos ressources par un utilisateur non autorisé qui a obtenu l’accès aux informations d’identification d’un utilisateur valide.
-* **Bloquer** : des conditions comme l’emplacement de l’utilisateur peuvent être appliquées pour bloquer l’accès de l’utilisateur. L’accès peut par exemple être bloqué pour les utilisateurs qui ne sont pas sur un réseau approuvé.
-* **Appareils compatibles** : au niveau de l’appareil, vous pouvez définir des stratégies qui appliquent des conditions comme, par exemple, seuls les ordinateurs qui sont joints ou les appareils mobiles qui sont inscrits dans la gestion des appareils mobiles (MDM) et sont conformes, peuvent obtenir l’accès. Par exemple, vous pouvez utiliser Microsoft Intune pour confirmer la conformité sur les appareils et en informer Azure Active Directory pour les vérifications lors de l’accès aux applications. Pour obtenir des informations détaillées sur l’utilisation de Microsoft Intune pour protéger les applications et les données, consultez [Protéger les applications et les données avec Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/protect-apps-and-data-with-microsoft-intune). Vous pouvez également appliquer la protection des données pour les appareils perdus ou volés via Microsoft Intune. Pour plus d’informations, consultez [Protection de vos données avec effacement complet ou sélectif à l’aide de Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune).
+## <a name="conditions"></a>Conditions
+Voici les conditions que vous pouvez inclure dans une stratégie d’accès conditionnel :
 
-## Applications
-* Le niveau d’accès défini à l’aide de ces stratégies peut être appliqué aux applications et services en local ou dans le cloud. La stratégie est appliquée directement au site Web ou au service. La stratégie est ensuite appliquée pour l’accès navigateur ainsi que pour les applications accédant au service. La liste des services auxquels la stratégie peut être appliquée se trouve ici.
+* **Appartenance au groupe**. Contrôlez l’accès d’un utilisateur selon l’appartenance à un groupe.
+* **Emplacement**. Utilisez l’emplacement de l’utilisateur pour déclencher l’authentification multifacteur et bloquer les commandes lorsqu’un utilisateur n’est pas sur un réseau approuvé.
+* **Plate-forme d’appareil**. Utilisez la plateforme d’un appareil (par exemple iOS, Android, Windows Mobile ou Windows) comme condition d’application d’une stratégie.
+* **Appareil activé**. Le statut de l’appareil, activé ou désactivé, est validé au cours de l’évaluation de la stratégie d’appareil. Si vous désactivez un appareil perdu ou volé dans le répertoire, celui-ci n’est plus utilisable conformément à la stratégie.
+* **Risque utilisateur et à la connexion**. Vous pouvez utiliser [Azure AD Identity Protection](active-directory-identityprotection.md) pour les stratégies de risque d’accès conditionnel. Les stratégies de risque d’accès conditionnel permettent d’offrir à votre organisation une protection avancée, en fonction des évènements à risque et des activités de connexion inhabituelles.
 
-## Accès conditionnel basé sur les appareils
-Vous pouvez également restreindre l’accès aux applications à partir des appareils qui sont inscrits auprès d’Azure AD et qui répondent à des conditions spécifiques. L’accès conditionnel basé sur les appareils protège les ressources de l’organisation contre tout accès par des utilisateurs à partir de :
+## <a name="controls"></a>Commandes
+Voici les contrôles que vous pouvez utiliser dans une stratégie d’accès conditionnel :
 
-* Appareils inconnus/non gérés
-* Des appareils non conformes aux stratégies de sécurité définies par votre organisation.
+* **Authentification multifacteur**. Grâce à l’authentification multifacteur, vous pouvez appliquer une authentification renforcée. Vous pouvez utiliser l’authentification multifacteur avec Azure Multi-Factor Authentication ou via un fournisseur d’authentification multifacteur local, combiné aux services de fédération Active Directory (AD FS). L’authentification multifacteur contribue à empêcher tout accès à vos ressources par un utilisateur non autorisé qui peut avoir obtenu l’accès aux informations d’identification d’un utilisateur valide.
+* **Bloquer**. Vous pouvez appliquer des conditions comme l’emplacement de l’utilisateur pour bloquer l’accès de l’utilisateur. Vous pouvez, par exemple, bloquer l’accès à un utilisateur qui ne se trouve pas sur un réseau approuvé.
+* **Appareils conformes**. Vous pouvez définir des stratégies d’accès conditionnel au niveau de l’appareil. Vous pouvez définir une stratégie de façon que seuls les ordinateurs joints à un domaine ou seuls les appareils mobiles inscrits dans une application de gestion des appareils mobiles puissent accéder aux ressources de votre organisation. Par exemple, vous pouvez utiliser Intune pour vérifier la conformité de l’appareil, puis la signaler à Azure AD pour application lorsque l’utilisateur tente d’accéder à une application. Pour obtenir des informations détaillées sur l’utilisation d’Intune afin de protéger les applications et les données, consultez [Protéger les données et les applications avec Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/protect-apps-and-data-with-microsoft-intune). Vous pouvez également utiliser Intune pour appliquer la protection des données pour les appareils perdus ou volés. Pour plus d’informations, consultez [Protection de vos données avec effacement complet ou sélectif à l’aide de Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune).
 
-Des stratégies peuvent être définies en fonction des exigences suivantes :
+## <a name="applications"></a>Applications
+Vous pouvez appliquer une stratégie d’accès conditionnel au niveau de l’application. Définissez des niveaux d’accès pour les applications et les services dans le cloud ou en local. La stratégie est appliquée directement au site web ou au service. La stratégie est appliquée pour l’accès au navigateur et aux applications qui accèdent au service.
 
-* **Appareils joints à un domaine** : vous pouvez définir une stratégie pour limiter l’accès aux appareils qui sont joints à un domaine Active Directory local et également enregistrés avec Azure AD. Cette stratégie s’applique aux ordinateurs portables, tablettes d’entreprise et ordinateurs de bureau Windows qui appartiennent à un domaine Active Directory local et sont enregistrés avec Azure AD. Pour plus d’informations sur la configuration de l’inscription automatique des appareils joints à un domaine dans Azure AD, consultez [Configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration-setup.md).
-* **Appareils compatibles** : vous pouvez définir une stratégie pour limiter l’accès aux appareils qui sont marqués comme étant **conformes** dans le répertoire par le système de gestion. Cette stratégie garantit que seuls les appareils qui répondent aux stratégies de sécurité, comme le chiffrement des fichiers sur l’appareil, ont droit à l’accès. Cette stratégie peut être utilisée pour limiter l’accès par les périphériques suivants :
+## <a name="device-based-conditional-access"></a>Accès conditionnel basé sur les appareils
+Vous pouvez restreindre l’accès aux applications à partir des appareils qui sont inscrits auprès d’Azure AD et qui répondent à des conditions spécifiques. L’accès conditionnel en fonction de l’appareil protège les ressources d’une organisation contre tout accès par des utilisateurs à partir des appareils suivants :
+
+* Appareils inconnus ou non gérés.
+* Appareils non conformes aux stratégies de sécurité définies par votre organisation.
+
+Vous pouvez définir des stratégies en fonction des exigences suivantes :
+
+* **Appareils joints à un domaine**. Définissez une stratégie pour limiter l’accès aux appareils qui sont joints à un domaine Active Directory local et également inscrits auprès d’Azure AD. Cette stratégie s’applique aux tablettes de l’entreprise, ordinateurs portables et ordinateurs de bureau Windows.
+  Pour plus d’informations sur la configuration de l’inscription automatique des appareils joints à un domaine dans Azure AD, consultez [Configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration-setup.md).
+* **Appareils conformes**. Définissez une stratégie pour limiter l’accès aux appareils qui sont marqués comme étant **conformes** dans le répertoire du système de gestion. Cette stratégie garantit que seuls les appareils qui répondent aux stratégies de sécurité, comme le chiffrement des fichiers sur l’appareil, ont droit à l’accès. Vous pouvez utiliser cette stratégie pour limiter l’accès à partir des appareils suivants :
   
-  * Les **appareils joints à un domaine Windows** qui sont gérés par System Center Configuration Manager (branche actuelle) et déployés dans une configuration hybride.
-  * Les **appareils mobiles Windows 10 personnels ou professionnels** gérés par Microsoft Intune ou un système de gestion des appareils mobiles (MDM) tiers.
-  * Les **appareils iOS et Android** qui sont gérés par Microsoft Intune.
+  * **Appareils Windows joints à un domaine**. Appareils gérés par System Center Configuration Manager (dans la branche actuelle) et déployés dans une configuration hybride.
+  * **Appareils personnels ou professionnels Windows 10 Mobile**. Appareils gérés par Intune ou par un système de gestion d’appareils mobiles tiers pris en charge.
+  * **Appareils iOS et Android**. Appareils gérés par Intune.
 
-Les utilisateurs qui accèdent aux applications protégées par la stratégie d’accès conditionnel basée sur les appareils doivent le faire à partir d’appareils qui répondent aux conditions de cette stratégie. L’accès est refusé s’il s’agit d’un appareil qui ne respecte pas la stratégie.
+Les utilisateurs qui accèdent aux applications qui sont protégées par une stratégie d’autorité de certification en fonction de l’appareil doivent accéder à l’application à partir d’un appareil qui respecte les conditions requises de cette stratégie. L’accès est refusé s’il a été effectué sur un appareil qui ne respecte pas les conditions requises de la stratégie.
 
-Pour plus d’informations sur la façon de configurer la stratégie d’accès conditionnel basé sur les appareils dans Azure AD, consultez [Comment configurer la stratégie d’accès conditionnel basé sur les appareils pour contrôler aux applications connectées à Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
+Pour plus d’informations sur la façon de configurer une stratégie d’autorité de certification en fonction de l’appareil dans Azure AD, consultez [Définir la stratégie d’accès conditionnel en fonction de l’appareil pour les applications connectées à Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
-## Index d’article pour l’accès conditionnel Azure Active Directory
-Le plan de contenu suivant répertorie les documents auxquels vous devez vous référer pour vous renseigner sur l’activation de l’accès conditionnel au sein de votre déploiement actuel.
+## <a name="resources"></a>Ressources
+Consultez les articles et catégories de ressources suivants pour en savoir plus sur la définition de l’accès conditionnel pour votre organisation.
 
-### MFA et stratégies d’emplacement
-* [Getting started with conditional access to Azure AD connected apps based on group, location, and MFA policies (Prise en main de l’accès conditionnel aux applications connectées à Azure AD en fonction du groupe, de l’emplacement et des stratégies MFA)](active-directory-conditional-access-azuread-connected-apps.md)
-* [Quels sont les types d’applications pris en charge](active-directory-conditional-access-supported-apps.md)
+### <a name="multi-factor-authentication-and-location-policies"></a>Stratégies basées sur l’emplacement et l’authentification multifacteur
+* [Getting started with conditional access to Azure AD-connected apps based on group, location, and multi-factor authentication policies (Prise en main de l’accès conditionnel aux applications connectées à Azure AD en fonction de stratégies basées sur le groupe, l’emplacement et l’authentifiaction multifacteur)](active-directory-conditional-access-azuread-connected-apps.md)
+* [Prise en charge de l’accès conditionnel des applications](active-directory-conditional-access-supported-apps.md)
 
-### Accès conditionnel basé sur les appareils
-* [Comment définir la stratégie d’accès conditionnel basé sur les appareils pour contrôler aux applications connectées à Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md)
+### <a name="device-based-conditional-access"></a>Accès conditionnel basé sur les appareils
+* [Définir la stratégie d’accès conditionnel en fonction de l’appareil pour contrôler l’accès aux applications connectées à Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md)
 * [Configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration-setup.md)
-* [Correction des utilisateurs lors de l’accès aux applications protégées à accès conditionnel en fonction des appareils Azure AD](active-directory-conditional-access-device-remediation.md)
-* [Protection des données sur les appareils perdus ou volés à l’aide de Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
+* [Résolution des problèmes d’accès Azure Active Directory](active-directory-conditional-access-device-remediation.md)
+* [Protégez vos données avec la réinitialisation complète ou sélective à l’aide de Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
 
-### Protection des ressources en fonction d’un risque à la connexion
-[Azure AD Identity Protection](active-directory-identityprotection.md)
+### <a name="protect-resources-based-on-sign-in-risk"></a>Protection des ressources en fonction d’un risque à la connexion
+* [Azure AD Identity Protection](active-directory-identityprotection.md)
 
-### Informations supplémentaires
-* [FAQ sur l’accès conditionnel](active-directory-conditional-faqs.md)
+### <a name="next-steps"></a>Étapes suivantes
+* [Conditional access FAQs (Forums Aux Questions sur l’accès conditionnel)](active-directory-conditional-faqs.md)
 * [Référence technique](active-directory-conditional-access-technical-reference.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Dec16_HO4-->
+
+
