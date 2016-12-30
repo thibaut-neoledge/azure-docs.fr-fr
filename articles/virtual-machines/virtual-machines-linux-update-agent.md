@@ -131,7 +131,7 @@ Pour la plupart des versions de linux :
 
     #sudo service waagent restart
 
-Pour Ubantu, procédez comme suit :
+Pour Ubuntu, procédez comme suit :
 
     #sudo service walinuxagent restart
 
