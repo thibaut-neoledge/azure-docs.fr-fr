@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2016
+ms.date: 12/08/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: bd4d6f59ac4fbaa9bd0cb6a33a697cac0d13eb8c
-ms.openlocfilehash: 7a86469a9513869362eb37b21b155889dcee7942
+ms.sourcegitcommit: cbbc9f29fc4dea49807f1093b673bebac628314b
+ms.openlocfilehash: e886f9c1984003d1bd1391012b26eea39d4a0b76
 
 
 ---
@@ -26,7 +26,7 @@ Les tables de cet article offrent des informations sur les fournisseurs de conne
 ## <a name="a-namepartnersaexpressroute-connectivity-providers"></a><a name="partners"></a>Fournisseurs de connectivité ExpressRoute
 ExpressRoute est pris en charge dans tous les emplacements et régions Azure. La carte ci-dessous fournit une liste des régions Azure et des emplacements ExpressRoute. Les emplacements ExpressRoute se réfèrent à ceux où Microsoft s’associe à plusieurs fournisseurs de services.
 
-![Carte géographique][0]
+![Carte des emplacements][0]
 
 Vous aurez accès aux services Azure dans toutes les régions au sein d’une région géopolitique si vous êtes connecté à au moins un emplacement ExpressRoute dans la région géopolitique. 
 
@@ -37,7 +37,7 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 | --- | --- | --- |
 | **Amérique du Nord** |Est des États-Unis, Ouest des États-Unis, Est des États-Unis 2, Centre des États-Unis, Centre-Sud des États-Unis, Centre-Nord des États-Unis, Centre du Canada, Est du Canada |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montréal+, Québec+, Toronto |
 | **Amérique du Sud** |Sud du Brésil |São Paulo |
-| **Europe** |Europe du Nord, Europe de l’Ouest, Ouest du Royaume-Uni, Sud du Royaume-Uni |Amsterdam, Dublin, Londres, Newport(Pays de Galles)+, Paris |
+| **Europe** |Europe du Nord, Europe de l’Ouest, Ouest du Royaume-Uni, Sud du Royaume-Uni |Amsterdam, Dublin, Londres, Newport (Pays de Galles), Paris |
 | **Asie** |Asie orientale, Asie du Sud-Est |Hong Kong, Singapour |
 | **Japon** |Ouest du Japon, Est du Japon |Osaka, Tokyo |
 | **Australie** |Sud-est de l’Australie |Est de l’Australie |Melbourne, Sydney |
@@ -134,11 +134,13 @@ Si votre fournisseur de connectivité ne se trouve pas dans la liste des section
 
 | **Emplacement** | **Microsoft Exchange** | **Fournisseurs de connectivité** |
 | --- | --- | --- |
+| **Londres** | Equinix | Exponential E |
 | **New York** |Equinix |Lightower |
 | **Seattle** |Equinix |Alaska Communications |
 | **Silicon Valley** |Equinix |XO Communications |
 | **Singapour** |Equinix |1CLOUDSTAR |
-| **Washington DC** |Equinix |Lightower |
+| **Sydney** | Megaport | Macquarie |
+| **Washington DC** |Equinix | Lightower, Masergy |
 
 ## <a name="expressroute-system-integrators"></a>Intégrateurs système ExpressRoute
 L’activation de la connectivité privée pour l’adapter à vos besoins peut s’avérer difficile selon l’échelle de votre réseau. Vous pouvez faire appel à l’un des intégrateurs système figurant dans le tableau ci-dessous pour vous aider à intégrer ExpressRoute.
@@ -158,6 +160,6 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

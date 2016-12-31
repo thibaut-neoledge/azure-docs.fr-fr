@@ -93,6 +93,7 @@ Ce didacticiel vous explique les procédures suivantes :
 [lnk-twin-tutorial]: ../articles/iot-hub/iot-hub-node-node-twin-getstarted.md
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Dec16_HO2-->
 
 

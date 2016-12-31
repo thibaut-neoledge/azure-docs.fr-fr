@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/12/2016
+ms.date: 12/11/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1a680f20bc9ceee8efd943cd71312372fe56a878
+ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
+ms.openlocfilehash: 698b834ffa82f2a1ab171fb5efc13a2fe916b4ec
 
 
 ---
@@ -47,15 +47,16 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 * [Workflow de streaming à la demande AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ## <a name="prerequisites"></a>Composants requis
+
 Pour commencer à utiliser Azure Media Services, vous devez disposer des éléments suivants :
 
 1. Un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com).
 2. Un compte Azure Media Services. Utilisez le portail Azure, .NET ou l’API REST pour créer un compte Azure Media Services. Pour plus d’informations, consultez [Créer un compte](media-services-portal-create-account.md).
 3. (Facultatif) Un environnement de développement configuré. Choisissez .NET ou API REST comme environnement de développement. Pour plus d’informations, consultez [Configuration d'environnement](media-services-dotnet-how-to-use.md).
 
-En outre, découvrez comment [vous connecter](media-services-dotnet-connect-programmatically.md)par programmation.
+    En outre, découvrez comment [vous connecter](media-services-dotnet-connect-programmatically.md)par programmation.
 
-1. (Recommandé) Allocation d’une ou de plusieurs unités d’échelle. Il est recommandé d’allouer une ou plusieurs unités d’échelle pour les applications dans un environnement de production.   Pour plus d’informations, consultez [Gestion des points de terminaison de diffusion en continu](media-services-portal-manage-streaming-endpoints.md).
+4. (Recommandé) Allocation d’une ou de plusieurs unités d’échelle. Il est recommandé d’allouer une ou plusieurs unités d’échelle pour les applications dans un environnement de production.   Pour plus d’informations, consultez [Gestion des points de terminaison de diffusion en continu](media-services-portal-manage-streaming-endpoints.md).
 
 ## <a name="concepts-and-overview"></a>Concepts et vue d’ensemble
 Pour les concepts Azure Media Services, consultez [Concepts](media-services-concepts.md).
@@ -129,11 +130,11 @@ Lorsque vous utilisez la vidéo en flux continu, les composants suivants sont g�
 * Encoder votre flux en flux à débit adaptatif (facultatif)
 * Afficher un aperçu de votre flux en direct
 * Enregistrer et stocker le contenu ingéré pour le diffuser ultérieurement (vidéo à la demande)
-* Fournir le contenu via des protocoles de diffusion communs (par exemple, MPEG DASH, Smooth, TLS, HDS) directement à vos clients ou à un réseau de distribution de contenu (CDN) pour une distribution supplémentaire
+* Fournir le contenu par le biais des protocoles de diffusion en continu courants (par exemple, MPEG DASH, Smooth, HLS) directement à vos clients ou à un réseau de distribution de contenu (CDN) pour une distribution supplémentaire
 
 **Microsoft Azure Media Services** (AMS) offre la possibilité de recevoir, d’encoder, d’afficher, de stocker et de distribuer votre contenu vidéo en flux continu.
 
-Quand vous distribuez votre contenu aux clients, votre objectif est de distribuer une vidéo de haute qualité à divers appareils dans des conditions de réseau différentes. Pour prendre en charge les conditions de qualité et de réseau, utilisez des encodeurs dynamiques pour encoder votre flux dans un flux vidéo à débit binaire multiple (débit binaire adaptatif).  Pour prendre en charge la diffusion en continu sur différents appareils, utilisez l’ [empaquetage dynamique](media-services-dynamic-packaging-overview.md) Media Services pour empaqueter de manière dynamique votre flux dans différents protocoles. Media Services prend en charge la distribution des technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement).
+Quand vous distribuez votre contenu aux clients, votre objectif est de distribuer une vidéo de haute qualité à divers appareils dans des conditions de réseau différentes. Pour prendre en charge les conditions de qualité et de réseau, utilisez des encodeurs dynamiques pour encoder votre flux dans un flux vidéo à débit binaire multiple (débit binaire adaptatif).  Pour prendre en charge la diffusion en continu sur différents appareils, utilisez l’ [empaquetage dynamique](media-services-dynamic-packaging-overview.md) Media Services pour empaqueter de manière dynamique votre flux dans différents protocoles. Media Services prend en charge la distribution des technologies de streaming à débit adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 
 Dans Azure Media Sercices, les **canaux**, les **programmes** et le **point de terminaison de diffusion en continu** gèrent toutes les fonctionnalités vidéo en flux continu, notamment la réception, le formatage, le DVR, la sécurité, l’extensibilité et la redondance.
 

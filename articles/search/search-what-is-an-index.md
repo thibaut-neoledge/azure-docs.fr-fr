@@ -10,11 +10,11 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3f2a2b6c82c6c931261036ae1fba733b46a074dc
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
 
 
 ---
@@ -47,7 +47,7 @@ Lorsque vous définissez votre schéma, vous devez spécifier le nom, le type et
 | *Edm.DateTimeOffset* |Dates et heures représentées au format OData V4 (par exemple, `yyyy-MM-ddTHH:mm:ss.fffZ` ou `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |Point représentant un emplacement géographique de la planète. |
 
-Vous trouverez plus d’informations sur les [types de données d’Azure Search pris en charge sur MSDN](https://msdn.microsoft.com/library/azure/dn798938.aspx).
+Pour plus d’informations sur les types de données pris en charge par le service Recherche Azure, consultez [cet article](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### <a name="field-attributes"></a>Attributs de champ
 | Attribut | Description |
@@ -59,16 +59,16 @@ Vous trouverez plus d’informations sur les [types de données d’Azure Search
 | *À choix multiple* |Permet d’utiliser un champ pour le filtrage autonome dans une structure de [navigation par facettes](search-faceted-navigation.md) par un utilisateur. En général, les champs contenant des valeurs répétitives que vous pouvez utiliser pour regrouper plusieurs documents (par exemple, plusieurs documents appartenant à une seule marque ou catégorie de service) sont les mieux adaptés en tant que facettes. |
 | *Possibilité de recherche* |Indique que le champ peut faire l’objet d’une recherche en texte intégral. |
 
-Vous trouverez plus d’informations sur les [attributs d’index d’Azure Search sur MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Pour plus d’informations sur les attributs d’index du service Recherche Azure, consultez [cet article](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
 ## <a name="guidance-for-defining-an-index-schema"></a>Instructions de définition d’un schéma d’index
-Lorsque vous concevez votre index, prenez le temps lors de la phase de planification de réfléchir chaque décision. Il est important de ne perdre de vue ni votre expérience de recherche ni vos besoins métiers lorsque vous concevez votre index, chaque champ devant être associé à des [attributs corrects](https://msdn.microsoft.com/library/azure/dn798941.aspx). La modification d’un index une fois déployé implique la reconstruction et le rechargement des données.
+Lorsque vous concevez votre index, prenez le temps lors de la phase de planification de réfléchir chaque décision. Il est important de ne perdre de vue ni votre expérience de recherche ni vos besoins métiers lorsque vous concevez votre index, chaque champ devant être associé à des [attributs corrects](https://docs.microsoft.com/rest/api/searchservice/Create-Index). La modification d’un index une fois déployé implique la reconstruction et le rechargement des données.
 
 Si vos besoins en stockage de données changent au fil du temps, vous pouvez augmenter ou diminuer la capacité en ajoutant ou en supprimant des partitions. Pour plus d’informations, consultez [Gérer votre service de recherche dans Azure](search-manage.md) ou [Limites de service](search-limits-quotas-capacity.md).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

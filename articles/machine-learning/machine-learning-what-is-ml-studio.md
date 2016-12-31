@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/09/2016
+ms.date: 12/12/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2a5bcc177d298aecd9fd474bd15fc0331b26e887
+ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
+ms.openlocfilehash: b8115f1fb72b0ba89fd0c8afa3358878a0fab92b
 
 
 ---
@@ -33,25 +33,30 @@ Pour développer un modèle d'analyse prédictive, vous utilisez généralement 
 
 **Azure Machine Learning Studio** offre un espace de travail visuel et interactif qui vous permet de générer, tester et répéter facilement un modèle d'analyse prédictive. Vous faites glisser des ***jeux de données*** et des ***modules*** d’analyse sur un canevas interactif, en les connectant ensemble pour former une ***expérience***, que vous exécutez dans Machine Learning Studio. Pour affiner votre modèle, vous modifiez l’expérience, enregistrez une copie si vous le souhaitez et l’exécutez de nouveau. Quand vous êtes prêt, vous pouvez convertir votre ***expérience de formation*** en une ***expérience prédictive***, puis la publier en tant que ***service web*** afin que votre modèle soit accessible à d’autres.
 
+Aucune programmation n'est nécessaire : il suffit de visualiser la connexion des jeux de données et des modules pour construire votre modèle d'analyse prédictive.
+
 > [!TIP]
 > Pour télécharger et imprimer un diagramme offrant une vue d’ensemble des fonctionnalités de Machine Learning Studio, consultez [Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 > 
 > 
-
-Aucune programmation n'est nécessaire : il suffit de visualiser la connexion des jeux de données et des modules pour construire votre modèle d'analyse prédictive.
 
 ![Diagramme Azure ML Studio : créer des expériences, lire les données de nombreuses sources, écrire des données évaluées, écrire des modèles.][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>Prise en main de Machine Learning Studio
 Quand vous ouvrez [Machine Learning Studio](https://studio.azureml.net) pour la première fois, la page **Accueil** apparaît. À partir de là, vous pouvez afficher la documentation, des vidéos, des webinaires et rechercher d’autres ressources précieuses.
 
-Trois onglets apparaissent en haut de la page : **Accueil** (votre point de départ), **Studio** et **Galerie**.
+Cliquez sur le menu supérieur gauche ![Menu](media/machine-learning-what-is-ml-studio/menu.png) pour voir apparaître différentes options.
 
-### <a name="studio"></a>Studio
-Cliquez sur l’onglet **Studio** et vous serez invité à vous connecter à l’aide de votre compte Microsoft, professionnel ou scolaire. Une fois que vous êtes connecté, les onglets suivants apparaissent sur la gauche :
+### <a name="cortana-intelligence"></a>Cortana Intelligence
+Cliquez sur **Cortana Intelligence**. Vous êtes dirigé vers la page d’accueil de [Cortana Intelligence Suite](https://www.microsoft.com/cloud-platform/cortana-intelligence-suite). Cortana Intelligence Suite est une suite de traitement du Big Data et d’analyse avancée entièrement gérée conçue pour convertir vos données en action intelligente. Consultez la page d’accueil de la suite pour découvrir une documentation complète, y compris les témoignages de clients.
+
+### <a name="azure-machine-learning"></a>Azure Machine Learning
+À ce stade, deux options s’offrent à vous : **Accueil**, la page qui s’est affichée au démarrage, et **Studio**.
+
+Cliquez sur **Studio**. Vous êtes dirigé vers **Azure Machine Learning Studio**. Vous êtes invité à vous connecter à l’aide de votre compte Microsoft, ou de votre compte professionnel ou scolaire. Une fois que vous êtes connecté, les onglets suivants apparaissent sur la gauche :
 
 * **PROJETS** - Collections d’expériences, de DataSets, de notebooks et d’autres ressources représentant un projet spécifique
-* **EXPÉRIENCES** : expériences qui ont été créées, exécutées et enregistrées comme brouillons
+* **EXPÉRIENCES** : expériences que vous avez créées et exécutées ou enregistrées comme brouillons
 * **SERVICES WEB** : services que vous avez déployés à partir de vos expériences web
 * **NOTEBOOKS** : notebooks Jupyter que vous avez créés
 * **JEUX DE DONNÉES** : jeux de données que vous avez téléchargés dans Studio
@@ -59,7 +64,7 @@ Cliquez sur l’onglet **Studio** et vous serez invité à vous connecter à l�
 * **PARAMÈTRES** : ensemble des paramètres que vous pouvez utiliser pour configurer votre compte et vos ressources.
 
 ### <a name="gallery"></a>Galerie
-Cliquez sur l’onglet **Galerie** pour accéder à la galerie Cortana Intelligence. La galerie est l’endroit où la communauté des chercheurs et développeurs spécialisés dans les données peut partager des solutions créées à l’aide des composants de la suite Cortana Intelligence.
+Cliquez sur **Galerie** pour accéder à la **[galerie Cortana Intelligence](http://gallery.cortanaintelligence.com/)**. La galerie est l’endroit où la communauté des développeurs et des chercheurs en science des données peut partager des solutions créées à l’aide des composants de Cortana Intelligence Suite.
 
 Pour plus d’informations sur la galerie, voir [Partager et découvrir des solutions dans la galerie Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
 
@@ -92,10 +97,10 @@ Pour obtenir une liste des exemples de jeux de données inclus dans Machine Lear
 ### <a name="modules"></a>Modules
 Un module est un algorithme que vous appliquez à vos données. Machine Learning Studio comporte divers modules, allant de fonctions de saisie des données à des procédures de formation, de notation et de validation. Voici quelques exemples de modules fournis :
 
-* [Conversion au format ARFF][convert-to-arff] : convertit un jeu de données sérialisé .NET au format ARFF (Attribute-Relation File Format).
-* [Statistiques de calcul élémentaires][elementary-statistics] : calcule des statistiques élémentaires (par exemple, moyenne, écart-type, etc.).
-* [Régression linéaire][linear-regression] : crée en ligne un modèle de régression linéaire à gradient décroissant.
-* [Noter le modèle][score-model] : note une classification formée ou un modèle de régression.
+* [Conversion au format ARFF][convert-to-arff] : convertit un jeu de données sérialisé .NET au format ARFF (Attribute-Relation File Format).
+* [Statistiques de calcul élémentaires][elementary-statistics] : calcule des statistiques élémentaires (par exemple, moyenne, écart type, etc.).
+* [Régression linéaire][linear-regression] : crée un modèle de régression linéaire à gradient décroissant en ligne.
+* [Noter le modèle][score-model] : note un modèle de classification ou de régression formé.
 
 Lorsque vous créez une expérience, vous pouvez utiliser la liste des modules à gauche du canevas.  
 
@@ -116,6 +121,6 @@ Une fois votre modèle d'analyse prédictive prêt, vous pouvez le déployer com
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

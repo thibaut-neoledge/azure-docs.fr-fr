@@ -4,7 +4,7 @@ description: "Cette page fournit des instructions pour créer, configurer, déma
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 577054ca-8368-4fbf-8d53-a813f29dc3bc
 ms.service: application-gateway
@@ -12,36 +12,37 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/10/2016
+ms.date: 12/12/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 996bac38e6b67cfe7b72e11bf29831b12086bf1b
+ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
+ms.openlocfilehash: b78d8167ec5aacee34ed235637bc396f9b869a39
 
 
 ---
 # <a name="create-start-or-delete-an-application-gateway"></a>Création, démarrage ou suppression d’une passerelle Application Gateway
+
 > [!div class="op_single_selector"]
-> * [Portail Azure](application-gateway-create-gateway-portal.md)
+> * [portail Azure](application-gateway-create-gateway-portal.md)
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Modèle Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [Interface de ligne de commande Azure](application-gateway-create-gateway-cli.md)
-> 
-> 
 
 La passerelle Azure Application Gateway est un équilibreur de charge de couche 7. Elle assure l’exécution des requêtes HTTP de basculement et de routage des performances entre serveurs locaux ou dans le cloud. Application Gateway offre de nombreuses fonctionnalités de contrôleur de livraison d’applications (ADC) : équilibrage de charge HTTP, affinité de session basée sur les cookies, déchargement SSL (Secure Sockets Layer), sondes d’intégrité personnalisées, prise en charge de plusieurs sites, etc. Pour obtenir une liste complète des fonctionnalités prises en charge, consultez [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md)
 
 Cet article vous guide lors des étapes de création, de configuration, de démarrage et de suppression d’une passerelle Application Gateway.
 
 ## <a name="before-you-begin"></a>Avant de commencer
+
 1. Installez la dernière version des applets de commande Azure PowerShell à l’aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page Téléchargements](https://azure.microsoft.com/downloads/).
 2. Si vous disposez d’un réseau virtuel, sélectionnez un sous-réseau vide existant ou créez un sous-réseau de votre réseau virtuel existant uniquement pour une utilisation par la passerelle Application Gateway. Vous ne pouvez pas déployer la passerelle Application Gateway sur un autre réseau virtuel constitué par les ressources que vous avez l’intention de déployer derrière la passerelle Application Gateway, sauf si l’homologation de réseaux virtuels est utilisée. Pour en savoir plus, consultez [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md)
 3. Vérifiez que vous disposez d'un réseau virtuel qui fonctionne avec un sous-réseau valide. Assurez-vous qu’aucun ordinateur virtuel ou déploiement cloud n’utilise le sous-réseau. La passerelle Application Gateway doit être seule sur un sous-réseau virtuel.
 4. Les serveurs que vous configurez pour utiliser la passerelle Application Gateway doivent exister ou vous devez créer leurs points de terminaison sur le réseau virtuel ou avec une adresse IP/VIP publique affectée.
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>Quels sont les éléments nécessaires pour créer une passerelle Application Gateway ?
-Lorsque vous utilisez la commande **New-AzureApplicationGateway** pour créer la passerelle Application Gateway, aucune configuration n’est définie et vous devez configurer la ressource créée à l’aide de XML ou d’un objet de configuration.
+
+Lorsque vous utilisez la commande `New-AzureApplicationGateway` pour créer la passerelle Application Gateway, aucune configuration n’est définie et vous devez configurer la ressource créée à l’aide de XML ou d’un objet de configuration.
 
 Les valeurs sont :
 
@@ -52,6 +53,7 @@ Les valeurs sont :
 * **Règle :** la règle lie l’écouteur et le pool de serveurs principaux et définit vers quel pool de serveurs principaux le trafic doit être dirigé quand il atteint un écouteur spécifique.
 
 ## <a name="create-an-application-gateway"></a>Créez une passerelle d’application
+
 Pour créer une passerelle d’application :
 
 1. Créez une ressource de passerelle d’application.
@@ -60,15 +62,14 @@ Pour créer une passerelle d’application :
 
 > [!NOTE]
 > Si vous devez configurer une sonde personnalisée pour votre passerelle Application Gateway, consultez [Création d’une passerelle Application Gateway avec des sondes personnalisées à l’aide de PowerShell](application-gateway-create-probe-classic-ps.md). Pour plus d’informations, découvrez les [sondes personnalisées et l’analyse du fonctionnement](application-gateway-probe-overview.md) .
-> 
-> 
 
 ![Exemple de scénario][scenario]
 
 ### <a name="create-an-application-gateway-resource"></a>Créer une ressource de passerelle d’application
-Pour créer la passerelle, utilisez l’applet de commande **New-AzureApplicationGateway** en remplaçant les valeurs par les vôtres. La facturation de la passerelle ne démarre pas à ce stade. La facturation commence à une étape ultérieure, lorsque la passerelle a démarré correctement.
 
-L’exemple suivant illustre la création d’une nouvelle passerelle d’application avec un réseau virtuel appelé « testvnet1 » et un sous-réseau appelé « subnet-1 ».
+Pour créer la passerelle, utilisez l’applet de commande `New-AzureApplicationGateway` en remplaçant les valeurs par les vôtres. La facturation de la passerelle ne démarre pas à ce stade. La facturation commence à une étape ultérieure, lorsque la passerelle a démarré correctement.
+
+L’exemple ci-après illustre la création d’une passerelle Application Gateway à l’aide d’un réseau virtuel appelé « testvnet1 » et d’un sous-réseau appelé « subnet-1 » :
 
 ```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -76,7 +77,7 @@ New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subn
 
 *Description*, *InstanceCount* et *GatewaySize* sont des paramètres facultatifs.
 
-Pour vérifier que la passerelle a bien été créée, vous pouvez utiliser l’applet de commande **Get-AzureApplicationGateway** .
+Pour valider la création de la passerelle, vous pouvez utiliser l’applet de commande `Get-AzureApplicationGateway`.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -96,18 +97,19 @@ DnsName       :
 
 > [!NOTE]
 > La valeur par défaut pour *InstanceCount* est 2, avec une valeur maximale de 10. La valeur par défaut du paramètre *GatewaySize* est Medium. Vous pouvez choisir Small, Medium ou Large.
-> 
-> 
 
 Les paramètres *VirtualIPs* et *DnsName* sont sans valeur, car la passerelle n’a pas encore démarré. Ces valeurs seront créées une fois la passerelle en cours d'exécution.
 
 ## <a name="configure-the-application-gateway"></a>Configurer la passerelle Application Gateway
+
 Vous pouvez configurer la passerelle Application Gateway à l’aide d’un objet de configuration ou de XML.
 
 ## <a name="configure-the-application-gateway-by-using-xml"></a>Configurer la passerelle Application Gateway à l’aide de XML
+
 Dans l’exemple ci-dessous, vous allez utiliser un fichier XML pour configurer tous les paramètres de la passerelle d’application et les valider dans la ressource de passerelle d’application.  
 
 ### <a name="step-1"></a>Étape 1 :
+
 Copiez le texte suivant dans le Bloc-notes.
 
 ```xml
@@ -159,8 +161,6 @@ Modifiez les valeurs entre parenthèses pour les éléments de configuration. En
 
 > [!IMPORTANT]
 > L’élément de protocole Http ou Https est sensible à la casse.
-> 
-> 
 
 L’exemple suivant montre comment configurer la passerelle Application Gateway à l’aide d’un fichier de configuration. L’exemple de charge équilibre le trafic HTTP sur le port public 80 et envoie le trafic réseau au port 80 principal entre deux adresses IP.
 
@@ -210,21 +210,22 @@ L’exemple suivant montre comment configurer la passerelle Application Gateway 
 ```
 
 ### <a name="step-2"></a>Étape 2 :
-Ensuite, définissez la passerelle Application Gateway. Utilisez l’applet de commande **Set-AzureApplicationGatewayConfig** avec un fichier XML de configuration.
+
+Ensuite, définissez la passerelle Application Gateway. Utilisez l’applet de commande `Set-AzureApplicationGatewayConfig` avec un fichier XML de configuration.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
 ## <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Configurer la passerelle Application Gateway à l’aide d’un objet de configuration
-L’exemple suivant montre comment configurer la passerelle Application Gateway à l’aide d’objets de configuration. Vous devez configurer tous les éléments de configuration individuellement, puis les ajouter à un objet de configuration de passerelle d’application. Une fois l’objet de configuration créé, utilisez la commande **Set-AzureApplicationGateway** pour valider la configuration dans la ressource de passerelle Application Gateway créée précédemment.
+
+L’exemple suivant montre comment configurer la passerelle Application Gateway à l’aide d’objets de configuration. Vous devez configurer tous les éléments de configuration individuellement, puis les ajouter à un objet de configuration de passerelle d’application. Après avoir créé l’objet de configuration, vous utilisez la commande `Set-AzureApplicationGateway` pour valider la configuration dans la ressource Application Gateway créée précédemment.
 
 > [!NOTE]
-> Avant d’affecter une valeur à chaque objet de configuration, vous devez déclarer le type d’objet dans lequel PowerShell le stockera. La première ligne de création de chaque élément définit les Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(nom d’objet) utilisés.
-> 
-> 
+> Avant d’affecter une valeur à chaque objet de configuration, vous devez déclarer le type d’objet dans lequel PowerShell le stockera. La première ligne de création des différents éléments définit les objets `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` utilisés.
 
-### <a name="step-1"></a>Étape 1 :
+### <a name="step-1"></a>Étape 1
+
 Créez tous les éléments de configuration.
 
 Créez l’IP frontale comme indiqué dans l’exemple suivant.
@@ -295,6 +296,7 @@ $rule.BackendAddressPool = "pool1"
 ```
 
 ### <a name="step-2"></a>Étape 2 :
+
 Affectez tous les éléments de configuration à un objet de configuration Application Gateway ($appgwconfig).
 
 Ajoutez l’adresse IP frontale à la configuration.
@@ -339,27 +341,27 @@ $appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.Lis
 $appgwconfig.HttpLoadBalancingRules.Add($rule)
 ```
 
-### <a name="step-3"></a>Étape 3 :
-Validez l’objet de configuration dans la ressource de passerelle Application Gateway à l’aide de l’applet de commande **Set-AzureApplicationGatewayConfig**.
+### <a name="step-3"></a>Étape 3
+Validez l’objet de configuration dans la ressource Application Gateway à l’aide de `Set-AzureApplicationGatewayConfig`.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
 ```
 
 ## <a name="start-the-gateway"></a>Démarrer la passerelle
-Une fois la passerelle configurée, utilisez l’applet de commande **Start-AzureApplicationGateway** pour démarrer la passerelle. La facturation pour une passerelle Application Gateway commence une fois la passerelle démarrée avec succès.
+
+Une fois la passerelle configurée, utilisez l’applet de commande `Start-AzureApplicationGateway` pour démarrer la passerelle. La facturation pour une passerelle Application Gateway commence une fois la passerelle démarrée avec succès.
 
 > [!NOTE]
-> L’exécution de l’applet de commande **Start-AzureApplicationGateway** peut prendre 15 à 20 minutes.
-> 
-> 
+> La règle `Start-AzureApplicationGateway` peut prendre jusqu’à 15 à 20 minutes.
 
 ```powershell
 Start-AzureApplicationGateway AppGwTest
 ```
 
 ## <a name="verify-the-gateway-status"></a>Vérifier l'état de la passerelle
-Utilisez l’applet de commande **Get-AzureApplicationGateway** pour vérifier l’état de la passerelle. Si l’exécution de l’applet de commande **Start-AzureApplicationGateway** a réussi à l’étape précédente, l’*état* doit être En cours d’exécution, et les paramètres *Vip* et *DnsName* doivent posséder des entrées valides.
+
+Utilisez l’applet de commande `Get-AzureApplicationGateway` pour vérifier l’état de la passerelle. Si `Start-AzureApplicationGateway` a réussi à l’étape précédente, *l’état* doit être En cours d’exécution, et les paramètres *Vip* et *DnsName* doivent posséder des entrées valides.
 
 L’exemple suivant montre une passerelle Application Gateway opérationnelle, en cours d’exécution et prête à prendre le trafic destiné à `http://<generated-dns-name>.cloudapp.net`.
 
@@ -382,13 +384,14 @@ DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
 ## <a name="delete-an-application-gateway"></a>Supprimer une passerelle Application Gateway
+
 Pour supprimer une passerelle Application Gateway :
 
-1. Utilisez l’applet de commande **Stop-AzureApplicationGateway** pour arrêter la passerelle.
-2. Utilisez l’applet de commande **Remove-AzureApplicationGateway** pour supprimer la passerelle.
-3. Vérifiez que la passerelle a bien été supprimée à l’aide de l’applet de commande **Get-AzureApplicationGateway** .
+1. Utilisez l’applet de commande `Stop-AzureApplicationGateway` pour arrêter la passerelle.
+2. Utilisez l’applet de commande `Remove-AzureApplicationGateway` pour supprimer la passerelle.
+3. Vérifiez que la passerelle a été supprimée à l’aide de l’applet de commande `Get-AzureApplicationGateway`.
 
-L’exemple suivant montre l’applet de commande **Stop-AzureApplicationGateway** sur la première ligne, suivi de la sortie.
+L’exemple suivant montre l’applet de commande `Stop-AzureApplicationGateway` sur la première ligne, suivie de la sortie.
 
 ```powershell
 Stop-AzureApplicationGateway AppGwTest
@@ -402,7 +405,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 ```
 
-Une fois la passerelle Application Gateway arrêtée, utilisez l’applet de commande **Remove-AzureApplicationGateway** pour supprimer le service.
+Une fois la passerelle Application Gateway dans un état arrêté, utilisez l’applet de commande `Remove-AzureApplicationGateway` pour supprimer le service.
 
 ```powershell
 Remove-AzureApplicationGateway AppGwTest
@@ -416,7 +419,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 ```
 
-Pour vérifier que le service a bien été supprimé, vous pouvez utiliser l’applet de commande **Get-AzureApplicationGateway** . Cette étape n'est pas requise.
+Pour vérifier que le service a été supprimé, vous pouvez utiliser l’applet de commande `Get-AzureApplicationGateway`. Cette étape n'est pas requise.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -430,6 +433,7 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Si vous souhaitez configurer le déchargement SSL, consultez [Configuration d’une passerelle Application Gateway pour le déchargement SSL](application-gateway-ssl.md).
 
 Si vous voulez configurer une passerelle Application Gateway à utiliser avec l’équilibreur de charge interne, consultez [Création d’une passerelle Application Gateway avec un équilibrage de charge interne (ILB)](application-gateway-ilb.md).
@@ -443,6 +447,6 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

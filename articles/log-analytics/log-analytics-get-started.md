@@ -1,10 +1,10 @@
 ---
 title: "Bien démarrer avec Log Analytics | Microsoft Docs"
-description: "Vous pouvez en quelques minutes être opérationnel avec Log Analytics dans Microsoft Operations Management Suite (OMS)."
+description: "Vous pouvez devenir opérationnel avec Log Analytics en quelques minutes."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 508716de-72d3-4c06-9218-1ede631f23a6
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2016
+ms.date: 12/08/2016
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2f8defce183e61825d9df3397ea1082dbdb4b11a
+ms.sourcegitcommit: 49e624dd9bfc534fdbae25fd0c8646be36851635
+ms.openlocfilehash: 4ab71b6ee09883abd4d095f2b1788cf69d44a219
 
 
 ---
@@ -26,20 +26,19 @@ Vous pouvez en quelques minutes être opérationnel avec Log Analytics dans Micr
 * Site Web Microsoft Operations Management Suite
 * Abonnement Microsoft Azure
 
-Vous pouvez créer un espace de travail OMS gratuit à l’aide du site web OMS. Vous pouvez également utiliser un abonnement Microsoft Azure pour créer un espace de travail OMS. Les deux espaces de travail sont fonctionnellement équivalents, à la différence près qu’un espace de travail OMS gratuit ne peut envoyer que 500 Mo de données au service OMS par jour. Si vous utilisez un abonnement Azure, vous pouvez également utiliser cet abonnement pour accéder aux autres services Azure. Quelle que soit la méthode utilisée pour créer l’espace de travail, vous allez le créer avec un compte Microsoft ou un compte professionnel.
+Vous pouvez créer un espace de travail OMS gratuit à l’aide du site web OMS. Vous pouvez également utiliser un abonnement Microsoft Azure pour créer un espace de travail Log Analytics gratuit. Les espaces de travail créés dans les deux cas sont équivalents sur le plan fonctionnel. Les espaces de travail gratuits ne peuvent envoyer que 500 Mo de données par jour au service OMS. Tous les espaces de travail nécessitant un abonnement Azure, vous pouvez également utiliser votre abonnement pour accéder à d’autres services Azure. Quelle que soit la méthode utilisée pour créer l’espace de travail, vous allez le créer avec un compte Microsoft ou un compte professionnel.
 
 Voici le processus :
 
 ![diagramme d'intégration](./media/log-analytics-get-started/oms-onboard-diagram.png)
 
 ## <a name="log-analytics-prerequisites-and-deployment-considerations"></a>Conditions préalables et considérations relatives au déploiement de Log Analytics
-* Pour utiliser toutes les fonctionnalités de Log Analytics, vous devez souscrire à un abonnement Microsoft Azure payant. Si vous ne disposez pas d’un abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) pour accéder à n’importe quel service Azure. Vous pouvez également créer un compte OMS gratuit sur le site web [Operations Management Suite](http://microsoft.com/oms) et cliquer sur **Essai gratuit**.
-* Espace de travail OMS.
+* Pour utiliser toutes les fonctionnalités de Log Analytics, vous devez souscrire à un abonnement Microsoft Azure payant. Si vous ne disposez pas d’un abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) vous permettant d’accéder à n’importe quel service Azure pendant 30 jours. Vous pouvez également créer un compte OMS gratuit sur le site web [Operations Management Suite](http://microsoft.com/oms).
+* Vous devez créer un espace de travail.
 * Chaque ordinateur Windows à partir duquel vous souhaitez collecter des données doit exécuter Windows Server 2008 SP1 ou version ultérieure.
 * [Pare-feu](log-analytics-proxy-firewall.md) aux adresses du service web OMS.
-* Serveur (passerelle) [OMS Log Analytics Forwarder](https://blogs.technet.microsoft.com/msoms/2016/03/17/oms-log-analytics-forwarder) pour transférer le trafic des serveurs à OMS si les ordinateurs n’ont pas accès à Internet.
+* Déterminez si vos ordinateurs ont un accès direct à Internet. Dans le cas contraire, ils ont besoin d’un serveur passerelle pour accéder aux sites de service web OMS. Tous les accès s’effectuent par le biais du protocole HTTPS. Vous pouvez configurer un serveur [passerelle OMS](log-analytics-oms-gateway.md) pour transférer le trafic des serveurs à OMS si les ordinateurs n’ont pas accès à Internet.
 * Si vous utilisez Operations Manager, Log Analytics prend en charge Operations Manager 2012 SP1 UR6 et versions ultérieures et Operations Manager 2012 R2 UR2 et versions ultérieures. La prise en charge du proxy a été ajoutée dans Operations Manager 2012 SP1 UR7 et Operations Manager 2012 R2 UR3. Déterminez son intégration à OMS.
-* Déterminez si vos ordinateurs ont un accès direct à Internet. Dans le cas contraire, ils ont besoin d’un serveur passerelle pour accéder aux sites de service web OMS. Tous les accès s’effectuent par le biais du protocole HTTPS.
 * Déterminez les technologies et les serveurs qui envoient des données à OMS. Par exemple : des contrôleurs de domaine, SQL Server, etc.
 * Accordez l’autorisation aux utilisateurs dans OMS et Azure.
 * Si l’utilisation des données vous préoccupe, déployez chaque solution individuellement et testez l’impact sur les performances avant d’ajouter d’autres solutions.
@@ -48,20 +47,20 @@ Voici le processus :
 * Après avoir installé les agents, vérifiez qu’ils fonctionnent correctement. Sinon, vérifiez que le service d’isolation de clé CNG (Cryptography API: Next Generation) n’est pas désactivé par la stratégie de groupe.
 * Certaines solutions Log Analytics ont des exigences supplémentaires.
 
-## <a name="sign-up-in-3-steps-using-the-operations-management-suite"></a>S’inscrire en 3 étapes à l’aide d’Operations Management Suite
-1. Accédez au site web [Operations Management Suite](http://microsoft.com/oms) et cliquez sur **Essai gratuit**. Connectez-vous avec votre compte Microsoft, par exemple Outlook.com, ou avec un compte professionnel fourni par votre société ou établissement d’enseignement à utiliser avec Office 365 ou d’autres services Microsoft.
+## <a name="sign-up-in-3-steps-using-oms"></a>S’inscrire en 3 étapes à l’aide d’OMS
+1. Accédez au site web [Operations Management Suite](http://microsoft.com/oms). Connectez-vous avec votre compte Microsoft, par exemple Outlook.com, ou avec un compte professionnel fourni par votre société ou établissement d’enseignement à utiliser avec Office 365 ou d’autres services Microsoft.
 2. Fournissez un nom d’espace de travail unique. Un espace de travail est un conteneur logique où sont stockées vos données de gestion. Il permet de partitionner les données entre les différentes équipes de votre organisation, car les données sont réservées à son espace de travail. Spécifiez une adresse de messagerie et la région dans laquelle vous souhaitez stocker vos données.  
     ![créer un espace de travail et lier un abonnement](./media/log-analytics-get-started/oms-onboard-create-workspace-link01.png)
-3. Vous pouvez créer ensuite un abonnement Azure ou un lien à un abonnement Azure existant. Si vous souhaitez continuer à utiliser l’essai gratuit, cliquez sur **Pas maintenant**.  
+3. Ensuite, créez un abonnement Azure gratuit ou un lien vers un abonnement Azure existant.  
    ![créer un espace de travail et lier un abonnement](./media/log-analytics-get-started/oms-onboard-create-workspace-link02.png)
 
 Vous êtes prêt à utiliser le portail Operations Management Suite.
 
-Pour plus d’informations sur la configuration de votre espace de travail et la liaison de comptes Azure existants à des espaces de travail créés avec Operations Management Suite, consultez [Gérer l’accès à Log Analytics](log-analytics-manage-access.md).
+Pour plus d’informations sur la configuration de votre espace de travail et la liaison de comptes Azure existants à des espaces de travail créés avec Operations Management Suite, consultez l’article [Gérer les espaces de travail](log-analytics-manage-access.md).
 
 ## <a name="sign-up-quickly-using-microsoft-azure"></a>S’inscrire rapidement à l’aide de Microsoft Azure
-1. Accédez au [portail Azure](https://portal.azure.com) , connectez-vous, parcourez la liste des services, puis sélectionnez **Log Analytics (OMS)**.  
-    ![Portail Azure](./media/log-analytics-get-started/oms-onboard-azure-portal.png)
+1. Accédez au [Portail Azure](https://portal.azure.com) , connectez-vous, parcourez la liste des services, puis sélectionnez **Log Analytics**.  
+    ![Portail Azure](./media/log-analytics-get-started/oms-onboard-azure-portal.png)
 2. Cliquez sur **Ajouter**, puis sélectionnez les options pour les éléments suivants :
    * **Espace de travail OMS**
    * **Abonnement** : si vous possédez plusieurs abonnements, choisissez celui que vous souhaitez associer au nouvel espace de travail.
@@ -69,9 +68,10 @@ Pour plus d’informations sur la configuration de votre espace de travail et la
    * **Emplacement**
    * **Niveau de tarification**  
        ![création rapide](./media/log-analytics-get-started/oms-onboard-quick-create.png)
-3. Cliquez sur **Créer** pour afficher les détails de l’espace de travail dans le portail Azure.       
-    ![détails de l’espace de travail](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
-4. Cliquez sur le lien **Portail OMS** pour ouvrir le site web Operations Management Suite avec votre nouvel espace de travail.
+3. Cliquez sur **OK**. Une liste de vos espaces de travail s’affiche.
+4. Sélectionnez un espace de travail pour en visualiser les détails dans le Portail Azure.       
+    ![détails sur l’espace de travail](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
+5. Cliquez sur le lien **Portail OMS** pour ouvrir le site web Operations Management Suite avec votre nouvel espace de travail.
 
 Vous êtes prêt à utiliser le portail Operations Management Suite.
 
@@ -88,7 +88,7 @@ Pour choisir des solutions et connecter les serveurs que vous souhaitez gérer, 
     ![solutions](./media/log-analytics-get-started/oms-onboard-solutions02.png)  
     Sélectionnez une solution, puis cliquez sur **Ajouter**.
 2. **Connecter une source de données** : choisissez un mode de connexion à votre environnement de serveur pour la collecte des données.
-   
+
    * Connectez directement un serveur ou un client Windows Server en installant un agent.
    * Connectez des serveurs Linux à l’Agent OMS pour Linux.
    * Utilisez un compte de stockage Azure configuré avec l’extension de machine virtuelle de diagnostic Azure Windows ou Linux.
@@ -96,10 +96,10 @@ Pour choisir des solutions et connecter les serveurs que vous souhaitez gérer, 
    * Activez la télémétrie Windows pour utiliser la fonction Upgrade Analytics.
        ![sources connectées](./media/log-analytics-get-started/oms-onboard-data-sources.png)    
 3. **Collecter des données** : configurez au moins une source de données pour remplir votre espace de travail avec des données. Une fois que vous avez terminé, cliquez sur **Enregistrer**.    
-   
+
     ![collecter des données](./media/log-analytics-get-started/oms-onboard-logs.png)    
 
-## <a name="optionally-connect-servers-directly-to-the-operations-management-suite-by-installing-an-agent"></a>Si vous le souhaitez, connectez directement les serveurs à Operations Management Suite en installant un agent.
+## <a name="optionally-connect-windows-computers-by-installing-an-agent"></a>Connecter en option des ordinateurs Windows en installant un agent
 L’exemple suivant indique comment définir un agent Windows.
 
 1. Cliquez sur la mosaïque **Paramètres**, sur l’onglet **Sources connectées**, puis sur l’onglet correspondant au type de source que vous souhaitez ajouter, puis téléchargez un agent ou obtenez des informations sur la marche à suivre pour activer un agent. Vous pouvez par exemple cliquer sur **Télécharger l’agent Windows (64 bits)**. Dans le cas des agents Windows, vous ne pouvez installer l’agent que sur Windows Server 2008 SP 1 ou versions ultérieures, ou sur Windows 7 SP1 ou versions ultérieures.
@@ -108,7 +108,7 @@ L’exemple suivant indique comment définir un agent Windows.
     ![configuration de l’agent](./media/log-analytics-get-started/oms-onboard-agent.png)
 4. Dans la page suivante, vous êtes invité à entrer votre ID d’espace de travail et votre clé d’espace de travail. Votre ID et votre clé d’espace de travail sont indiqués dans l’écran où vous avez téléchargé le fichier de l’agent.  
     ![clés de l'agent](./media/log-analytics-get-started/oms-onboard-mma-keys.png)  
-   
+
     ![joindre des serveurs](./media/log-analytics-get-started/oms-onboard-key.png)
 5. Pendant l’installation, vous pouvez cliquer sur **Avancé** pour configurer votre serveur proxy et fournir des informations d’authentification. Cliquez sur le bouton **Suivant** pour revenir à l’écran d’informations sur l’espace de travail.
 6. Cliquez sur **Suivant** pour valider votre ID et votre clé d’espace de travail. Si des erreurs sont détectées, vous pouvez cliquer sur **Précédent** pour apporter des corrections. Une fois que votre ID et votre clé d’espace de travail sont validés, cliquez sur **Installer** pour terminer l’installation de l’agent.
@@ -116,8 +116,7 @@ L’exemple suivant indique comment définir un agent Windows.
 
 > [!NOTE]
 > Les solutions d’évaluation de la configuration et de la gestion de capacité ne sont actuellement pas prises en charge par les serveurs connectés directement à Operations Management Suite.
-> 
-> 
+
 
 Vous pouvez également connecter l’agent à System Center Operations Manager 2012 SP1 et ultérieur. Pour ce faire, sélectionnez **Connecter l’agent à System Center Operations Manager**. Si vous choisissez cette option, vous envoyez des données au service sans besoin de matériel supplémentaire ni charge sur vos groupes d’administration.
 
@@ -126,11 +125,11 @@ Pour plus d’informations sur la connexion d’agents à Operations Management 
 ## <a name="optionally-connect-servers-using-system-center-operations-manager"></a>Si vous le souhaitez, connectez les serveurs à l’aide de System Center Operations Manager.
 1. Dans la console Operations Manager, sélectionnez **Administration**.
 2. Développez le nœud **Operational Insights** et sélectionnez **Connexion à Operational Insights**.
-   
+
    > [!NOTE]
    > Selon le correctif cumulatif SCOM que vous utilisez, vous pouvez voir un nœud pour *System Center Advisor*, *Operational Insights* ou *Operations Management Suite*.
-   > 
-   > 
+   >
+   >
 3. Cliquez sur le lien **S’inscrire à Operational Insights** en haut à droite, et suivez les instructions affichées.
 4. Après avoir terminé l’Assistant Inscription, cliquez sur le lien **Ajouter un ordinateur/groupe** .
 5. Vous pouvez rechercher des ordinateurs ou des groupes surveillés par Operations Manager dans la boîte de dialogue **Recherche d’ordinateurs** . Sélectionnez les ordinateurs ou les groupes à intégrer à Log Analytics, cliquez sur **Ajouter**, puis sur **OK**. Vous pouvez vérifier que le service OMS reçoit des données en accédant à la vignette **Utilisation** dans le portail Operations Management Suite. Des données doivent apparaître dans 5 à 10 minutes environ.
@@ -147,7 +146,6 @@ Avec Operations Management Suite, vous pouvez rechercher rapidement les journa
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

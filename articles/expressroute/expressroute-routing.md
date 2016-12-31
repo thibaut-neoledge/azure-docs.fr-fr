@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2016
-ms.author: osamazia
+ms.date: 12/12/2016
+ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 111975ba10aaafb97673f4e8b813ba3523b76ffb
+ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
+ms.openlocfilehash: e04763fa711eed4c699f2bc3f20834849dfe52e0
 
 
 ---
@@ -117,7 +117,7 @@ Les routages par défaut sont autorisés uniquement sur les sessions d'homologat
 > 
 > 
 
-## <a name="support-for-bgp-communities-preview"></a>Prise en charge des communautés BGP (version préliminaire)
+## <a name="support-for-bgp-communities"></a>Prise en charge des communautés BGP
 Cette section fournit une vue d'ensemble de l'utilisation des communautés BGP avec ExpressRoute. Microsoft publiera des routages sur les chemins d’homologation publiques et Microsoft avec des routages marqués à l’aide des valeurs de communauté appropriées. La logique de cette procédure et les détails concernant les valeurs de la communauté sont décrits ci-dessous. Cependant, Microsoft ignorera toutes les valeurs de communauté marquées pour des itinéraires qui lui sont proposés.
 
 Si vous vous connectez à Microsoft via ExpressRoute dans n’importe quel emplacement d’homologation d’une région géopolitique, vous aurez accès à tous les services de cloud Microsoft de toutes les régions situées dans les limites géopolitiques. 
@@ -185,6 +185,8 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 > Microsoft ignore les valeurs de communauté BGP définies sur les itinéraires proposés à Microsoft.
 > 
 > 
+
+### <a name="bgp-community-support-in-national-clouds-preview"></a>Support de la communauté BGP dans les clouds nationaux (version préliminaire)
 
 | **Région Azure pour les clouds nationaux**| **Valeur de communauté BGP** |
 | --- | --- |

@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 09/27/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5cda0c5b491f71999da0b7bd70156256ab2d5908
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: c0c9d107ff1642d66e96de5409863e4e894d1b6b
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 5cda0c5b491f71999da0b7bd70156256ab2d5908
 L’analyse des performances d’une base de données SQL dans Azure démarre par l’analyse de l’utilisation des ressources par rapport au niveau de performances que vous avez choisi pour votre base de données. La surveillance permet de déterminer si votre base de données a une capacité excédentaire ou rencontre des problèmes parce que les ressources ont atteint leur maximum, et ensuite de décider s’il est temps d’ajuster le niveau de performances et le [niveau de service](sql-database-service-tiers.md) de votre base de données. Vous pouvez surveiller votre base de données à l’aide d’outils graphiques dans le [portail Azure](https://portal.azure.com) ou à l’aide de [vues de gestion dynamique](https://msdn.microsoft.com/library/ms188754.aspx) SQL.
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Analyser des bases de données au moyen du portail Azure
-Dans le [portail Azure](https://portal.azure.com/), vous pouvez surveiller l’utilisation d’une base de données unique en sélectionnant votre base de données et en cliquant sur le graphique **Surveillance**. Une fenêtre **Métrique** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
+Dans le [Portail Azure](https://portal.azure.com/), vous pouvez surveiller l’utilisation d’une base de données autonome en sélectionnant cette dernière, puis en cliquant sur le graphique **Surveillance**. Une fenêtre **Métrique** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
 
 * Pourcentage UC
 * Pourcentage DTU
@@ -51,7 +51,7 @@ Les métriques exposées dans le portail sont également disponibles dans des vu
 >
 >
 
-Pour les pools de base de données élastiques, vous pouvez surveiller des bases de données dans le pool avec les techniques décrites dans cette section. Mais vous pouvez également surveiller le pool dans son ensemble. Pour en savoir plus, consultez [Surveiller et gérer un pool élastique de bases de données](sql-database-elastic-pool-manage-portal.md).
+Pour les pools élastiques, vous pouvez surveiller des bases de données individuelles dans le pool avec les techniques décrites dans cette section. Mais vous pouvez également surveiller le pool dans son ensemble. Pour plus d’informations, consultez l’article [Surveiller et gérer un pool élastique](sql-database-elastic-pool-manage-portal.md).
 
 
 
