@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Apprenez à configurer les passerelles de réseau privé virtuel (VPN) pour gérer le trafic entre les réseaux virtuels du cloud et en local, ou entre des réseaux virtuels sur le cloud."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 844a2bb0bc702cf8e81684267677db8a8803208f
+ms.sourcegitcommit: a826f96cd679bb26b8a6cf9bb6bf55e93ba4e346
+ms.openlocfilehash: 99843baf9989378aa3d4ff6325a399dae0b632b6
 
 ---
 #<a name="vpn-gateway-documentation"></a>Documentation de la passerelle VPN
 
-Le service Passerelle VPN Azure est une passerelle de réseau privé virtuel utilisée pour faire circuler le trafic réseau entre des réseaux virtuels Azure et des emplacements locaux, ainsi qu’entre des réseaux virtuels au sein d’Azure (réseau virtuel à réseau virtuel).  
+Apprenez à configurer la Passerelle VPN, une passerelle de réseau privé virtuel. La documentation vous montre comment envoyer du trafic réseau entre des réseaux virtuels Azure et des emplacements locaux ou d’autres réseaux virtuels Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -122,78 +123,33 @@ Le service Passerelle VPN Azure est une passerelle de réseau privé virtuel uti
  
 ---
 
-## <a name="reference"></a>Référence
-
+<h2>Référence</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Référence sur PowerShell</p>
+                        <h3>Ligne de commande</h3>
+                        <p><a href="https://msdn.microsoft.com/library/mt163510(v=azure.300)">PowerShell (Resource Manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt270335(v=azure.300)">PowerShell (Classic)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/network/vpn-gateway">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Interface de ligne de commande Azure</h3>
-                        <p>Passerelle VPN à l’aide de l’interface de ligne de commande Azure</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Référence API managée .NET</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Référence du Kit de développement logiciel (SDK) Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/mt163859">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API REST de Passerelle VPN</p>
+                        <p><a href="https://msdn.microsoft.com/library/mt163859">REST (Resource Manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/jj154113">REST (Classic)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -207,6 +163,6 @@ Télécharger la documentation Passerelle VPN Azure </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

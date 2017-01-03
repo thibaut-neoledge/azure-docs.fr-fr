@@ -1,5 +1,5 @@
 # <a name="azure-technical-documentation-contributor-guide"></a>Guide du contributeur à la documentation technique Azure
-Vous avez trouvé le dépôt GitHub qui héberge la source de la documentation technique publiée dans le Centre de documentation Azure à l’adresse [http://docs.microsoft.com/azure](http://docs.microsoft.com/azure).
+Vous avez trouvé le dépôt GitHub qui héberge la source de la documentation technique publiée dans le Centre de documentation Azure, à l’adresse [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure).
 
 Ce dépôt contient également des conseils pour vous aider à contribuer à notre documentation technique. Pour obtenir la liste des articles dans le guide du contributeur, consultez l’[index](contributor-guide/contributor-guide-index.md).
 
@@ -17,9 +17,9 @@ Merci de l’intérêt que vous portez à la documentation Azure.
 * [Index de tous les articles du guide du contributeur](contributor-guide/contributor-guide-index.md) (ouvre une nouvelle page)
 
 ## <a name="ways-to-contribute"></a>Comment contribuer ?
-Pour envoyer des mises à jour de la [documentation Azure](http://docs.microsoft.com/azure), procédez comme suit :
+Pour envoyer des mises à jour de la [documentation Azure](https://docs.microsoft.com/azure), procédez comme suit :
 
-* Vous pouvez facilement contribuer aux articles techniques dans l’interface utilisateur de GitHub. Recherchez l’article dans ce dépôt ou consultez l’article à l’adresse [http://docs.microsoft.com/azure](http://docs.microsoft.com/azure) et cliquez sur le lien dans l’article qui mène à la source GitHub de l’article.
+* Vous pouvez facilement contribuer aux articles techniques dans l’interface utilisateur de GitHub. Recherchez l’article dans ce dépôt, ou consultez l’article à l’adresse [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) et cliquez sur le lien dans l’article qui mène à la source GitHub de l’article.
 * Si vous apportez des modifications substantielles à un article existant, si vous ajoutez ou modifiez des images ou si vous ajoutez un nouvel article, vous devez forker ce dépôt, installer GitBash et MarkdownPad, puis apprendre à utiliser certaines commandes git.
 
 ## <a name="code-of-conduct"></a>Code de conduite
@@ -27,16 +27,16 @@ Ce projet a adopté le [Code de conduite open source de Microsoft](https://opens
 
 ## <a name="about-your-contributions-to-azure-content"></a>À propos de vos contributions au contenu Azure
 ### <a name="minor-corrections"></a>Corrections mineures
-Les corrections mineures ou les clarifications que vous soumettez pour la documentation, ainsi que les exemples de code dans ce dépôt, sont couvertes par les [Conditions d’utilisation du site web docs.microsoft.com](/enterprise-mobility-security/termsofuse).
+Les corrections mineures ou les clarifications que vous soumettez pour la documentation, ainsi que les exemples de code dans ce dépôt, sont couvertes par les [Conditions d’utilisation du site web docs.microsoft.com](https://docs.microsoft.com/legal/termsofuse).
 
 ### <a name="larger-submissions"></a>Corrections majeures
 Si vous envoyez une demande de tirage avec des ajouts ou d’importantes modifications de la documentation et des exemples de code, nous vous enverrons un commentaire dans GitHub pour vous inviter à signer un contrat de licence de contribution en ligne si vous n’êtes pas un employé de Microsoft. Vous devrez remplir le formulaire en ligne pour que nous puissions accepter votre demande de tirage (pull request).
 
 ## <a name="repository-organization"></a>Organisation du dépôt
-Le contenu du dépôt azure-docs suit l’organisation de la documentation sur http://docs.microsoft.com/azure. Ce dépôt contient deux dossiers racines :
+Le contenu du dépôt azure-docs suit l’organisation de la documentation sur https://docs.microsoft.com/azure. Ce dépôt contient deux dossiers racines :
 
 ### <a name="articles"></a>\articles
-Le dossier *\articles* contient les articles de la documentation au format de fichiers Markdown avec une extension *.md*. En général, les articles sont regroupés par service Azure. 
+Le dossier *\articles* contient les articles de la documentation au format de fichiers Markdown avec une extension *.md*. En général, les articles sont regroupés par service Azure.
 
 Les articles doivent respecter les instructions d’affectation de noms de fichier. Pour plus d’informations, consultez [nos instructions d’affectation de noms de fichier](contributor-guide/file-names-and-locations.md).
 
@@ -49,7 +49,7 @@ Vous pouvez créer des sections de contenu réutilisables à inclure dans un ou 
 Ce dossier contient notre modèle Markdown standard avec la mise en forme Markdown de base dont vous avez besoin pour un article.
 
 ### <a name="contributor-guide"></a>\contributor-guide
-Ce dossier contient des articles qui font partie de notre guide du contributeur.  
+Ce dossier contient des articles qui font partie de notre guide du contributeur.
 
 ## <a name="use-github-git-and-this-repository"></a>Utiliser GitHub, Git et ce dépôt
 Pour plus d’informations sur la façon de contribuer, d’utiliser l’interface de GitHub pour apporter des modifications mineures, et de forker et cloner le dépôt pour effectuer des contributions majeures, consultez [Installer et configurer les outils de création dans GitHub](contributor-guide/tools-and-setup.md).
@@ -87,6 +87,6 @@ Pour découvrir toutes nos rubriques d’aide, consultez l’[index du guide du 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

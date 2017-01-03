@@ -46,6 +46,6 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

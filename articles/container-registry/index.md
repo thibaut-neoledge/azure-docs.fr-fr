@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Découvrez comment créer et gérer des Registres de conteneurs pour stocker vos images de déploiement avec un service de Registre Docker géré. Didacticiels, référence d’API et autres."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 2e77ba043efd03ecffd3e5e786046dedbed58877
+ms.sourcegitcommit: ab80e1ef9771caa4369863c0aff1cee2c3055830
+ms.openlocfilehash: c42d5fe49d099fed7b5df9901c313832d966e340
 
 ---
 
 # <a name="azure-container-registry-documentation"></a>Documentation Azure Container Registry
 
-Azure Container Registry (version préliminaire) est un registre privé destiné à héberger les images de conteneur. L’utilisation d’Azure Container Registry vous permet de stocker des images au format Docker pour tous les types de déploiements de conteneur. Azure Container Registry s’intègre également aux Orchestrators hébergés dans Azure Container Service, tels que Docker Swarm, DC/OS et Kubernetes. 
+Découvrez comment utiliser le Registre de conteneurs pour stocker et gérer des images pour tous les types de déploiement de conteneur. Des didacticiels, des références de l’API REST et d’autres documents vous montrent comment créer et gérer des Registres de conteneurs avec ce service de Registre Docker géré.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -98,6 +99,7 @@ Azure Container Registry (version préliminaire) est un registre privé destiné
 </ul>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO1-->
 
 

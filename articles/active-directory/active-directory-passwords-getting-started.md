@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 48821a3b2b7da4646c4569cc540d867f02a4a32f
-ms.openlocfilehash: 6dc23714a4a052c7bf0bb5162fe1568ec272b5e3
+ms.sourcegitcommit: 4e2508883998b1435d7c4f099bd6ef0e00bd885e
+ms.openlocfilehash: 4f9127ca06668884e6b6f5dbc81aad0a2b1ea9df
 
 
 ---
@@ -185,7 +185,7 @@ Avant de pouvoir activer et utiliser l’écriture différée de mot de passe, v
   > Si vous exécutez une version antérieure de Windows Server 2008 ou 2008 R2, vous pouvez toujours utiliser cette fonctionnalité, mais vous devez [télécharger et installer la mise à jour KB 2386717](https://support.microsoft.com/kb/2386717) avant de pouvoir appliquer votre stratégie de mot de passe AD locale dans le cloud.
   > 
   > 
-* Vous avez installé l’outil Azure AD Connect et vous avez préparé votre environnement AD pour la synchronisation dans le cloud.  Pour plus d’informations, consultez la page [Utilisation de votre infrastructure d’identité locale dans le cloud](active-directory-aadconnect.md).
+* Vous avez installé l’outil Azure AD Connect et vous avez préparé votre environnement AD pour la synchronisation dans le cloud.  Pour plus d’informations, consultez la page [Utilisation de votre infrastructure d’identité locale dans le cloud](connect/active-directory-aadconnect.md).
   
   > [!NOTE]
   > Avant de tester l’écriture différée du mot de passe, assurez-vous d’effectuer une importation complète et une synchronisation complète à partir d’Active Directory et Azure AD dans Azure AD Connect.
@@ -199,7 +199,7 @@ Avant de pouvoir activer et utiliser l’écriture différée de mot de passe, v
   > 
 
 ### <a name="step-1-download-the-latest-version-of-azure-ad-connect"></a>Étape 1 : téléchargement de la dernière version d’Azure AD Connect
-L’écriture différée de mot de passe est intégrée à Azure AD Connect et à l’outil Azure AD Sync à partir de la version **1.0.0419.0911** .  L’écriture différée de mot de passe avec déverrouillage de compte automatique est intégrée à Azure AD Connect et à l’outil Azure AD Sync à partir de la version **1.0.0485.0222** . Si vous exécutez une version antérieure, veuillez procéder à la mise à niveau vers cette version ou une version ultérieure avant de continuer. [Cliquez ici pour télécharger la dernière version d’Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect).
+L’écriture différée de mot de passe est intégrée à Azure AD Connect et à l’outil Azure AD Sync à partir de la version **1.0.0419.0911** .  L’écriture différée de mot de passe avec déverrouillage de compte automatique est intégrée à Azure AD Connect et à l’outil Azure AD Sync à partir de la version **1.0.0485.0222** . Si vous exécutez une version antérieure, veuillez procéder à la mise à niveau vers cette version ou une version ultérieure avant de continuer. [Cliquez ici pour télécharger la dernière version d’Azure AD Connect](connect/active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### <a name="to-check-the-version-of-azure-ad-sync"></a>Pour vérifier la version d’Azure AD Sync
 1. Accédez à **%ProgramFiles%\Azure Active Directory Sync\**.
@@ -393,6 +393,6 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

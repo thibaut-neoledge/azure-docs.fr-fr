@@ -1,12 +1,12 @@
 ---
-title: 'Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les tâches de gestion des identités hybrides | Microsoft Docs'
-description: Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application.
-documentationcenter: ''
+title: "Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les tâches de gestion des identités hybrides | Microsoft Docs"
+description: "Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 65f80aea-0426-4072-83e1-faf5b76df034
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: fbb295d00f90a70b6d8505575e9260d0d8c98f1f
+
 
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Planifier le cycle de vie des identités hybrides
@@ -30,22 +34,22 @@ Pour définir les tâches de gestion d'identité hybride, vous devez comprendre 
 
 Lors de la définition de ces exigences, assurez-vous qu'au moins les questions suivantes soient traitées.
 
-* Options d’approvisionnement : 
+* Options d’approvisionnement : 
   
-  * La solution d'identité hybride prend-elle en charge un système robuste de gestion des accès et de l'approvisionnement pour les comptes ?
-  * Comment les utilisateurs, les groupes et les mots de passe seront-ils gérés ?
-  * La gestion du cycle de vie des identités est-elle réactive ? 
-    * Combien de temps prend la suspension du compte de mises à jour du mot de passe ?
-* Gestion des licences : 
+  * La solution d'identité hybride prend-elle en charge un système robuste de gestion des accès et de l'approvisionnement pour les comptes ?
+  * Comment les utilisateurs, les groupes et les mots de passe seront-ils gérés ?
+  * La gestion du cycle de vie des identités est-elle réactive ? 
+    * Combien de temps prend la suspension du compte de mises à jour du mot de passe ?
+* Gestion des licences : 
   
-  * La solution d'identité hybride gère-t-elle les licences ?
+  * La solution d'identité hybride gère-t-elle les licences ?
     * Si oui, quelles sont les fonctionnalités disponibles ?
-* La solution gère-t-elle des licences basées sur des groupes ? 
+* La solution gère-t-elle des licences basées sur des groupes ? 
   
-      Si oui, est-il possible de lui affecter un groupe de sécurité ? 
+      - Si oui, est-il possible de lui affecter un groupe de sécurité ? 
        - Si oui, l'annuaire de cloud affecte-t-il automatiquement des licences à tous les membres du groupe ? 
-        - Que se passera-t-il si un utilisateur est ultérieurement ajouté au groupe ou supprimé ? Une licence sera-t-elle automatiquement affectée ou supprimée selon le cas ? 
-* Intégration avec des fournisseurs d'identité tiers :
+        - Que se passera-t-il si un utilisateur est ultérieurement ajouté au groupe ou supprimé ? Une licence sera-t-elle automatiquement affectée ou supprimée selon le cas ? 
+* Intégration avec des fournisseurs d'identité tiers :
 * Cette solution hybride peut-elle être intégrée avec des fournisseurs d'identité tiers pour implémenter l'authentification unique ?
 * Est-il possible d'unifier tous les fournisseurs d'identité dans un système d'identité cohérent ?
 * Si oui, comment, qui sont-ils et quelles fonctionnalités sont disponibles ?
@@ -55,7 +59,7 @@ Un des objectifs d'un gestionnaire d'identités pour être en mesure de mettre t
 
 ![](./media/hybrid-id-design-considerations/Directory_synchronization.png) Pour une conception appropriée la synchronisation de votre solution d'identité hybride, vérifiez que les questions suivantes sont traitées: • Quelles sont les solutions de synchronisation disponibles pour la solution d'identité hybride ?
 • Quelles sont les fonctionnalités d'authentification unique disponibles ?
-• Quelles sont les options pour la fédération d'identité entre B2B et B2C ?
+•    Quelles sont les options pour la fédération d'identité entre B2B et B2C ?
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Déterminer la stratégie d’adoption de la gestion des identités hybrides](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
@@ -63,6 +67,9 @@ Un des objectifs d'un gestionnaire d'identités pour être en mesure de mettre t
 ## <a name="see-also"></a>Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

@@ -9,7 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: csharp
@@ -17,20 +17,14 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 82b042fa17af4bc93989a4f12982530f44755280
+ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
+ms.openlocfilehash: e051a8828a5d36e08a0ea7d352f3d8aabf00b911
 
 
 ---
-# <a name="try-sql-database-use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>Essayer la Base de données SQL : Utiliser C# pour créer une Base de données SQL avec la bibliothèque de base de données SQL pour .NET
-> [!div class="op_single_selector"]
-> * [Portail Azure](sql-database-get-started.md)
-> * [C#](sql-database-get-started-csharp.md)
-> * [PowerShell](sql-database-get-started-powershell.md)
-> 
-> 
+# <a name="use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>Utiliser C# pour créer une Base de données SQL avec la bibliothèque de base de données SQL pour .NET
 
-Découvrez comment utiliser C# pour créer une base de données SQL Azure avec la [bibliothèque de base de données SQL Azure pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Cet article décrit comment créer une base de données unique avec SQL et C#. Pour créer des pools de base de données élastiques, voir [Créer un pool de base de données élastique](sql-database-elastic-pool-create-csharp.md).
+Découvrez comment utiliser C# pour créer une base de données SQL Azure avec la [bibliothèque de base de données SQL Azure pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Cet article décrit comment créer une base de données unique avec SQL et C#. Pour créer des pools élastiques, consultez l’article [Créer un pool élastique](sql-database-elastic-pool-create-csharp.md).
 
 La bibliothèque de gestion de base de données SQL Azure pour .NET fournit une API basée sur [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) qui encapsule l’[API REST de base de données SQL basée sur Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
@@ -293,6 +287,6 @@ Maintenant que vous avez essayé la base de données SQL et configuré une base 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -51,6 +51,6 @@ Pour obtenir une vue d’ensemble des problèmes de licence Azure AD et pour d�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

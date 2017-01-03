@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 9095cf61feaed43ac194a990bb5e387bb54fc00c
-ms.openlocfilehash: 9431df5553666a8725bd840a5cea62b0b5e35653
+ms.sourcegitcommit: 10c350247593c806d2c4e66248dedf5f42734628
+ms.openlocfilehash: 2227ab467aca534c5a8783dfdfa3084cb1c3a126
 
 
 ---
@@ -85,7 +85,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Pris en charge |Pris en charge |Amsterdam, Chicago, Dallas, Las Vegas+, Londres, Seattle, Silicon Valley, Washington DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Pris en charge |Pris en charge |Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapour, Sydney, Toronto, Washington DC |
 | **MTN** |Pris en charge |Pris en charge |Londres |
-| **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Pris en charge |Bientôt disponible |Newport (Nouvelle-Galles du Sud) |
+| **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Pris en charge |Pris en charge |Newport (Nouvelle-Galles du Sud) |
 | **NEXTDC** |Pris en charge |Pris en charge |Melbourne, Sydney |
 | **NTT Communications** |Pris en charge |Pris en charge |Londres, Los Angeles, Osaka, Singapour, Tokyo, Washington DC |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Pris en charge |Pris en charge |Amsterdam, Hong Kong, Londres, Silicon Valley, Singapour, Sydney, Washington DC |

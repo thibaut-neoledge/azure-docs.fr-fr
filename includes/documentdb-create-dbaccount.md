@@ -1,4 +1,4 @@
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Dans une nouvelle fenêtre, connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans la barre de lancement, cliquez sur **Nouveau**, **Bases de données**, puis sur **NoSQL (DocumentDB)**.
    
    ![Capture d’écran du portail Azure, proposant d’autres services et DocumentDB (NoSQL)](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
@@ -16,17 +16,17 @@
    ![Création rapide de bases de données - capture d’écran du hub de notifications, indiquant que le compte DocumentDB est en cours de création](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)  
    
    ![Capture d’écran du hub de notifications montrant le compte DocumentDB créé avec succès et déployé vers un groupe de ressources - notification du créateur de base de données en ligne](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
-5. Une fois le compte DocumentDB créé, il est immédiatement utilisable avec les paramètres par défaut. Pour consulter les paramètres par défaut, cliquez sur l’icône **NoSQL (DocumentDB)** sur la barre de lancement, cliquez sur votre nouveau compte, puis cliquez sur **Cohérence par défaut** dans le menu de la ressource.
+5. Une fois le compte DocumentDB créé, il est immédiatement utilisable avec les paramètres par défaut. Pour consulter les paramètres par défaut, cliquez sur l’icône **NoSQL (DocumentDB)** sur la barre de lancement, sélectionnez votre nouveau compte, puis cliquez sur **Cohérence par défaut** dans le menu de la ressource.
 
    ![Capture d’écran montrant comment ouvrir votre compte de base de données Azure DocumentDB dans le portail Azure](./media/documentdb-create-dbaccount/azure-documentdb-database-open-account-portal.png)  
 
-   La cohérence par défaut du compte DocumentDB est définie sur **Par session**.  Vous pouvez modifier la cohérence par défaut en cliquant sur **Cohérence par défaut** dans le menu de ressources. Pour en savoir plus sur les niveaux de cohérence proposés par DocumentDB, consultez [Niveaux de cohérence dans DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
+   La cohérence par défaut du compte DocumentDB est définie sur **Par session**.  Vous pouvez ajuster la cohérence par défaut en sélectionnant l’une des autres options de cohérence disponibles. Pour en savoir plus sur les niveaux de cohérence proposés par DocumentDB, consultez [Niveaux de cohérence dans DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

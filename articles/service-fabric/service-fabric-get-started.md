@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2016
-ms.author: ryanwi
+ms.date: 12/15/2016
+ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 04092b735fa77c72ffe6c492a3fc975eac2e99fd
-ms.openlocfilehash: a71b77a320e9321eaa857acfcfae8822de0ac9e5
+ms.sourcegitcommit: d9050347434a22fa79f5e751c676f77bf025d176
+ms.openlocfilehash: e2919b07b8fc6e9dff6823cb6995f52106612b8a
 
 
 ---
@@ -37,6 +37,7 @@ Les versions de système d’exploitation prises en charge pour le développemen
 * Windows 7
 * Windows 8 et Windows 8.1
 * Windows Server 2012 R2
+* Windows Server 2016
 * Windows 10
 
 > [!NOTE]
@@ -44,17 +45,21 @@ Les versions de système d’exploitation prises en charge pour le développemen
 > 
 > 
 
-## <a name="install-the-runtime-sdk-and-tools"></a>Installer le runtime, le SDK et les outils
-Web Platform Installer offre deux configurations pour le développement de Service Fabric.
+## <a name="install-the-sdk-and-tools"></a>Installer le Kit de développement logiciel (SDK) et les outils
+### <a name="to-use-visual-studio-2017-rc"></a>Pour utiliser Visual Studio 2017 RC
+Les outils Service Fabric font partie de la charge de travail de développement et de gestion Azure dans Visual Studio 2017 RC. Vous devez activer cette charge de travail dans le cadre de votre installation de Visual Studio.
+En outre, vous devez installer le Kit de développement logiciel (SDK) Microsoft Azure Service Fabric, à l’aide de Web Platform Installer.
 
-Visual Studio 2017 (Azure Development and Management Workload doit être installé) :
+* [Installer le Kit de développement logiciel (SDK) Microsoft Azure Service Fabric][core-sdk]
 
-* [Installer le runtime et le Kit de développement logiciel (SDK) Service Fabric (aucun outil Visual Studio)][core-sdk]
+### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Pour utiliser Visual Studio 2015 (requiert Visual Studio 2015 Update 2 ou une version ultérieure)
+Pour Visual Studio 2015, les outils Service Fabric sont installés avec le Kit de développement logiciel (SDK), à l’aide de Web Platform Installer :
 
-Visual Studio 2015 (requiert Visual Studio 2015 Update 2 ou une version ultérieure) :
+* [Installer le Kit de développement logiciel (SDK) et les outils de Microsoft Azure Service Fabric][full-bundle-vs2015]
 
-* [Installer le runtime et le Kit de développement logiciel (SDK) Service Fabric, ainsi que les outils][full-bundle-vs2015]
-* [Installer uniquement le runtime et le Kit de développement logiciel (SDK) Service Fabric (aucun outil Visual Studio)][core-sdk]
+### <a name="sdk-installation-only"></a>Installation du Kit de développement logiciel (SDK) uniquement
+Si vous avez uniquement besoin du SDK, vous pouvez installer ce package :
+* [Installer le Kit de développement logiciel (SDK) Microsoft Azure Service Fabric][core-sdk]
 
 > [!WARNING]
 > Les clients ont signalé des erreurs lors de l’installation par le biais de ces liens de lancement ou lors de l’utilisation de ces liens dans le navigateur Chrome. Ces problèmes liés à Web Platform Installer sont connus et sont en cours de résolution.  Pour contourner ces problèmes, essayez les opérations suivantes :
@@ -97,6 +102,6 @@ Maintenant que vous avez fini de configurer votre environnement de développemen
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

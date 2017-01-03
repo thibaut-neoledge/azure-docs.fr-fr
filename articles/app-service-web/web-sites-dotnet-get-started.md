@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 07/22/2016
+ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 58ba7a82281a21d38d4c785d1d01bbd25e5aa9b3
+ms.sourcegitcommit: 03b74607227aed68c6df01e80e4bb87e906ecf31
+ms.openlocfilehash: 48531201029bf09f30cb22852aaf5d3ad0b328fc
 
 
 ---
@@ -61,8 +61,8 @@ Ce didacticiel a été rédigé pour Visual Studio 2015 avec le [Kit de dévelo
 
 Si vous préférez utiliser Visual Studio 2013, [téléchargez la dernière version du SDK Azure pour Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Certains écrans diffèrent des illustrations.
 
-## <a name="configure-a-new-web-project"></a>Configurer un nouveau projet web
-L’étape suivante consiste à créer un projet web dans Visual Studio et une application web dans Azure App Service. Dans cette section du didacticiel, vous allez configurer le nouveau projet web. 
+## <a name="create-a-web-application"></a>Création d’une application web
+L’étape suivante consiste à créer un projet d’application web dans Visual Studio et une application web dans Azure App Service. Dans cette section du didacticiel, vous allez configurer le nouveau projet web. 
 
 1. Ouvrez Visual Studio 2015.
 2. Cliquez sur **Fichier > Nouveau > Projet**.
@@ -89,7 +89,7 @@ L’étape suivante consiste à créer un projet web dans Visual Studio et une a
     Ces paramètres font en sorte que Visual Studio crée une application web Azure pour votre projet web.
 10. Cliquez sur **OK**
 
-## <a name="configure-azure-resources-for-a-new-web-app"></a>Configurer les ressources Azure d’une nouvelle application web
+## <a name="create-the-azure-resources"></a>Création de ressources Azure
 Maintenant, vous allez indiquer à Visual Studio les ressources Azure que vous souhaitez créer.
 
 1. Dans la boîte de dialogue **Créer App Service**, cliquez sur **Ajouter un compte**, puis connectez-vous à Azure avec l’ID et le mot de passe du compte que vous utilisez pour gérer votre abonnement Azure.
@@ -128,14 +128,14 @@ Maintenant, vous allez indiquer à Visual Studio les ressources Azure que vous s
 8. Dans la boîte de dialogue **Configurer le plan App Service**, cliquez sur **OK**.
 9. Dans la boîte de dialogue **Créer App Service**, cliquez sur **Créer**.
 
-## <a name="visual-studio-creates-the-project-and-web-app"></a>Visual Studio crée le projet et l’application web.
+## <a name="inspect-the-azure-resources-in-visual-studio"></a>Inspection des ressources Azure dans Visual Studio
 Visual Studio crée rapidement, généralement en moins de 1 minute, le projet web et l’application web.  
 
 La fenêtre **Explorateur de solutions** indique les fichiers et les dossiers du nouveau projet.
 
 ![Explorateur de solutions](./media/web-sites-dotnet-get-started/solutionexplorer.png)
 
-La fenêtre **Activité Azure App Service** indique que l’application web a été créée.
+La fenêtre **Activité Azure App Service** indique que les ressources App Service ont été créées dans Azure. Vous pouvez cliquer sur le lien ici pour démarrer immédiatement la publication de votre nouveau projet. Toutefois, le didacticiel vous montre ultérieurement comment publier vos fichiers à tout moment.
 
 ![Application web créée dans la fenêtre Activité d’Azure App Service](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
 
@@ -143,8 +143,8 @@ La fenêtre **Cloud Explorer** vous permet d’afficher et de gérer des ressour
 
 ![Application web créée dans Cloud Explorer](./media/web-sites-dotnet-get-started/siteinse.png)
 
-## <a name="deploy-the-web-project-to-the-azure-web-app"></a>Déploiement du projet web dans l’application web Azure
-Dans cette section, vous allez déployer le projet web dans l’application web.
+## <a name="deploy-the-web-project-to-azure"></a>Déploiement du projet web dans Azure
+Dans cette section, vous déployez le projet web dans la ressource d’application web que vous avez créée dans Azure App Service.
 
 1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Publier**.
    
@@ -152,7 +152,10 @@ Dans cette section, vous allez déployer le projet web dans l’application web.
    
     Au bout de quelques secondes, l’Assistant **Publier le site web** s’ouvre. L’Assistant s’ouvre sur un *profil de publication* présentant des paramètres pour le déploiement du projet web sur la nouvelle application web.
    
-    Le profil de publication contient le nom d’utilisateur et le mot de passe pour le déploiement.  Ces informations d’identification ont été générées pour vous. Vous n’avez pas à les saisir. Le mot de passe est chiffré dans un fichier utilisateur spécifique masqué dans le dossier `Properties\PublishProfiles` .
+    > [!TIP] 
+    > Le profil de publication contient le nom d’utilisateur et le mot de passe pour le déploiement.  Ces informations d’identification ont été générées pour vous. Vous n’avez pas à les saisir. Le mot de passe est chiffré dans un fichier utilisateur spécifique masqué dans le dossier `Properties\PublishProfiles` .
+    >
+    >
 2. Sous l’onglet **Connexion** de l’Assistant **Publier le site web**, cliquez sur **Suivant**.
    
     ![Sur l’onglet Connexion de l’assistant Publier le site Web, cliquez sur Suivant](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
@@ -219,6 +222,6 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

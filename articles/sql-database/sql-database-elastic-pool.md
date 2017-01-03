@@ -9,16 +9,16 @@ manager: jhubbard
 editor: 
 ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 12/06/2016
+ms.date: 12/14/2016
 ms.author: CarlRabeler
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 829229542c05477d427b15a9d862f414d9c730d6
+ms.sourcegitcommit: 75bf523679c8d8ad6fbe4a8aa8a561d03008e59b
+ms.openlocfilehash: c3757dadb09ba070b30820a46007a9c82490d8f2
 
 
 ---
@@ -46,7 +46,7 @@ Vous pouvez ajouter des eDTU à un pool existant sans que les bases de données 
 De plus, vous pouvez ajouter des bases de données au pool ou en retirer. Si une base de données finit par sous-utiliser les ressources, retirez-la.
 
 ## <a name="which-databases-go-in-a-pool"></a>Quelles bases de données mettre dans un pool ?
-![Bases de données SQL partageant des eDTU dans un pool de base de données élastique.][1]
+![Bases de données SQL partageant des eDTU dans un pool élastique.][1]
 
 Les bases de données qui constituent d’excellentes candidates pour des pools élastiques ont généralement des périodes d’activité et d’autres périodes d’inactivité. Dans l’exemple ci-dessus, vous affichez l’activité d’une base de données unique, de 4 bases de données et enfin d’un pool élastique comprenant 20 bases de données. Les bases de données dont l’activité varie au fil du temps sont d’excellents candidats pour les pools élastiques, car elles ne sont pas toutes actives en même temps et peuvent partager des eDTU. Toutes les bases de données n'adoptent pas ce schéma. Les bases de données qui ont une demande en ressources constante sont mieux adaptées aux niveaux de service De base, Standard et Premium dans lesquels les ressources sont affectées individuellement.
 
@@ -54,7 +54,7 @@ Les bases de données qui constituent d’excellentes candidates pour des pools 
 
 ## <a name="edtu-and-storage-limits-for-elastic-pools-and-elastic-databases"></a>Limites relatives aux eDTU et au stockage pour les pools et bases de données élastiques
 
-Le tableau suivant décrit les caractéristiques des pools de base de données élastique De base, Standard et Premium.
+Le tableau ci-après décrit les caractéristiques des pools élastiques De base, Standard et Premium.
 
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
@@ -78,7 +78,7 @@ Les tableaux suivants décrivent les limites pour les pools et les bases de donn
 ### <a name="limits-for-elastic-databases"></a>Limites relatives aux bases de données élastiques
 | Propriété | Description |
 |:--- |:--- |
-| Nombre maximal d’eDTU par base de données |Nombre maximal d’eDTU pouvant être utilisées par une des bases de données du pool en fonction du nombre d’eDTU utilisées par les autres bases de données du pool.  Le nombre maximal d’eDTU par base de données n’est pas une garantie concernant l’octroi des ressources pour une base de donnée.  Il s’agit d’un paramètre global qui s’applique à toutes les bases de données du pool. Définissez un nombre maximal d’eDTU par base de données suffisamment élevé pour gérer les pics d’utilisation des bases de données. Une certaine allocation excessive est attendue dans la mesure où le pool prend généralement en compte des modèles de creux et de pics d’utilisation des bases de données dans lesquels toutes les bases de données ne connaissent pas simultanément des pics d’utilisation. Par exemple, supposons que le pic d’utilisation par base de données est de 20 eDTU et que seules 20 % des 100 bases de données du pool connaissent simultanément un pic d’utilisation.  Si le nombre maximal d’eDTU par base de données est défini sur 20 eDTU, vous pouvez envisager une allocation 5 fois plus élevée du pool et définir le nombre d’eDTU par pool sur 400. |
+| Nombre maximal d’eDTU par base de données |Nombre maximal d’eDTU pouvant être utilisées par une des bases de données du pool en fonction du nombre d’eDTU utilisées par les autres bases de données du pool.  Le nombre maximal d’eDTU par base de données n’est pas une garantie concernant l’octroi des ressources pour une base de données.  Il s’agit d’un paramètre global qui s’applique à toutes les bases de données du pool. Définissez un nombre maximal d’eDTU par base de données suffisamment élevé pour gérer les pics d’utilisation des bases de données. Une certaine allocation excessive est attendue dans la mesure où le pool prend généralement en compte des modèles de creux et de pics d’utilisation des bases de données dans lesquels toutes les bases de données ne connaissent pas simultanément des pics d’utilisation. Par exemple, supposons que le pic d’utilisation par base de données est de 20 eDTU et que seules 20 % des 100 bases de données du pool connaissent simultanément un pic d’utilisation.  Si le nombre maximal d’eDTU par base de données est défini sur 20 eDTU, vous pouvez envisager une allocation 5 fois plus élevée du pool et définir le nombre d’eDTU par pool sur 400. |
 | Nombre minimal d’eDTU par base de données |Nombre minimal d’eDTU garanti pour chaque base de données du pool.  Il s’agit d’un paramètre global qui s’applique à toutes les bases de données du pool. Le nombre minimal d’eDTU par base de données peut être défini sur 0, qui est également la valeur par défaut. Cette propriété est définie sur une valeur comprise entre 0 et le nombre moyen d’eDTU utilisées par base de données. Le produit du nombre de bases de données du pool et du nombre minimal d’eDTU par base de données ne peut pas dépasser le nombre d’eDTU par pool.  Par exemple, si un pool comporte 20 bases de données et que le nombre minimal d’eDTU par base de données est défini sur 10 eDTU, le nombre d’eDTU par pool doit être d’au moins 200 eDTU. |
 | Espace de stockage maximal par base de données (Go) |Espace de stockage maximal pour une base de données du pool. Les bases de données élastiques se partagent l’espace de stockage du pool. Par conséquent, le stockage de base de données est limité au stockage de pool minimal restant, dans la limite du stockage maximal par base de données. |
 
@@ -88,7 +88,7 @@ Un pool simplifie les tâches de gestion grâce à l’exécution des scripts da
 Pour en savoir plus sur les autres outils de base de données élastique, consultez la rubrique [Montée en charge avec la base de données SQL Azure](sql-database-elastic-scale-introduction.md).
 
 ## <a name="business-continuity-features-for-databases-in-a-pool"></a>Fonctionnalités de continuité des activités pour les bases de données d’un pool
-Les bases de données élastiques prennent généralement en charge les mêmes [fonctionnalités de continuité des activités](sql-database-business-continuity.md) que celles disponibles pour les bases de données uniques sur des serveurs V12.
+Les bases de données élastiques prennent généralement en charge les [fonctionnalités de continuité d’activité](sql-database-business-continuity.md) que disponibles pour les bases de données uniques.
 
 ### <a name="point-in-time-restore"></a>Restauration dans le temps
 La restauration dans le temps utilise les sauvegardes automatiques de base de données pour récupérer une base de données d’un pool à un moment précis dans le temps. Voir [Limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore)
@@ -107,6 +107,6 @@ Pour les applications qui ont des exigences de récupération extrêmement stric
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

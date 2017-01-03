@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
-ms.openlocfilehash: 9d9ddbddb1039f56c420cb8f10dfa9bb82788b72
+ms.sourcegitcommit: 3fdd561bba898b0e790f69a82ed731d7fd87d8c8
+ms.openlocfilehash: 7cf9fe659a91816e42394c1377232e122fe924a6
 
 
 ---
@@ -48,7 +48,7 @@ Une demande de jeton d’accès de service à service contient les paramètres s
 
 | Paramètre |  | Description |
 | --- | --- | --- |
-| response_type |required |Spécifie le type de réponse demandé. Dans un flux d’octroi des informations d’identification du client, la valeur doit être **client_credentials**. |
+| grant_type |required |Spécifie le type de réponse demandé. Dans un flux d’octroi des informations d’identification du client, la valeur doit être **client_credentials**. |
 | client_id |required |Spécifie l’ID de client Azure AD du service web appelant. Pour rechercher l’ID de client de l’application appelante, dans le portail de gestion Azure, cliquez successivement sur **Active Directory**, le répertoire, l’application, puis sur **Configurer**. |
 | client_secret |required |Entrez une clé enregistrée pour le service web appelant dans Azure AD. Pour créer une clé, dans le portail de gestion Azure, cliquez successivement sur **Active Directory**, le répertoire, l’application, puis sur **Configurer**. |
 | resource |required |Entrez l’URI ID d’application du service web de destination. Pour rechercher l’URI ID d’application, dans le portail de gestion Azure, cliquez successivement sur **Active Directory**, le répertoire, l’application, puis sur **Configurer**. |
@@ -93,6 +93,6 @@ L’exemple suivant illustre une réponse affirmative à une demande de jeton d�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

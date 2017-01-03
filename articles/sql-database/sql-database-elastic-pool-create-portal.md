@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 230a203cca2eaab197236557482cd4cedcfb9c53
+ms.sourcegitcommit: 16f4e287a955b787a08cc6949094bd0f5224421a
+ms.openlocfilehash: 29488482f3e6c5f3dcf0eac04fe7e5e33fb832ce
 
 
 ---
@@ -99,7 +99,7 @@ Après avoir défini le niveau de tarification, cliquez sur Configurer le pool �
 
 ## <a name="understand-pool-recommendations"></a>Comprendre les recommandations relatives au pool
 
-Le service SQL Database évalue l’historique d’utilisation et recommande un ou plusieurs pools lorsque cette approche est plus rentable que l’utilisation de bases de données autonomes. Chaque recommandation est configurée avec un sous-ensemble unique de bases de données du serveur qui correspond le mieux au pool.
+Le service SQL Database évalue l’historique d’utilisation et recommande un ou plusieurs pools lorsque cela est plus rentable que d’utiliser des bases de données uniques. Chaque recommandation est configurée avec un sous-ensemble unique de bases de données du serveur qui correspond le mieux au pool.
 
 ![pool recommandé](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
 
@@ -112,7 +112,7 @@ La recommandation relative au pool comprend les éléments suivants :
 
 Le service prend en compte les 30 derniers jours de télémétrie lors de la recommandation de pools. Pour qu’une base de données soit considérée comme candidate à un pool élastique, elle doit exister depuis au moins 7 jours. Les bases de données qui figurent déjà dans un pool élastique ne sont pas considérées comme candidates pour les recommandations de pool élastique.
 
-Le service évalue les besoins en matière de ressources et la rentabilité du déplacement des bases de données autonomes de chaque niveau de service vers des pools du même niveau. Par exemple, toutes les bases de données Standard d’un serveur sont évaluées pour leur compatibilité avec un pool élastique Standard. Cela signifie que le service n'effectue aucune recommandation multiniveau telle que le déplacement d'une base de données Standard dans un pool Premium.
+Le service évalue les besoins en ressources et la rentabilité du déplacement des bases de données uniques dans chaque niveau de service vers des pools du même niveau. Par exemple, toutes les bases de données Standard d’un serveur sont évaluées pour leur compatibilité avec un pool élastique Standard. Cela signifie que le service n'effectue aucune recommandation multiniveau telle que le déplacement d'une base de données Standard dans un pool Premium.
 
 ### <a name="dynamic-recommendations"></a>Recommandations dynamiques
 
@@ -129,6 +129,6 @@ Après avoir ajouté des bases de données au pool, des recommandations seront g
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Découvrez comment utiliser Active Directory Domain Services pour joindre des machines virtuelles Azure à un domaine sans l’aide de contrôleurs de domaine, et comment les gérer avec des stratégies de groupe."
 translationtype: Human Translation
-ms.sourcegitcommit: 55dedcab5b8e62b3666cffcfc7d9a0a31c624784
-ms.openlocfilehash: d3a6b967921edad13479c615ebec8edc9e568458
+ms.sourcegitcommit: 5c25e7f81a4f2219c244044ea70416d1e0c63b4e
+ms.openlocfilehash: b05e7bfbc89de74937daa7daf578aa8a9bb39d64
 
 ---
 # <a name="active-directory-domain-services-documentation"></a>Documentation Active Directory Domain Services
 
-Azure AD Domain Services (DS) fournit des services de domaine gérés tels que la jonction de domaine, la stratégie de groupe, le protocole LDAP, l’authentification Kerberos/NTLM, etc. totalement compatibles avec Windows Server Active Directory.  Ce service permet aux utilisateurs de déployer une large gamme de solutions informatiques de manière agile.
+Découvrez comment utiliser Active Directory Domain Services pour joindre des machines virtuelles Azure à un domaine sans l’aide de contrôleurs de domaine. Des didacticiels et d’autres documents vous montrent comment gérer des ordinateurs virtuels à l’aide de stratégies de groupe.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -168,6 +169,6 @@ Télécharger la documentation Active Directory Domain Services </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

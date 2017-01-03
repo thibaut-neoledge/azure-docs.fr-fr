@@ -17,8 +17,8 @@ ms.workload: NA
 ms.date: 09/06/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: f47aa2afad88f6afea4dae38603ec99e938d89ea
+ms.sourcegitcommit: ad6fb631f05b1e88e8cbaaca83f9863cfb643269
+ms.openlocfilehash: e5a6c17117e0c79d86c45a07f69433a96fdb9052
 
 
 ---
@@ -26,9 +26,9 @@ ms.openlocfilehash: f47aa2afad88f6afea4dae38603ec99e938d89ea
 Cet article explique les unités de transaction de base de données (DTU) et les unités de transaction de base de données élastique (eDTU) et ce qu’il se passe lorsque vous avez atteint le nombre maximal de DTU et d’eDTU.  
 
 ## <a name="what-are-database-transaction-units-dtus"></a>Définition des unités de transaction de base de données (DTU)
-Une DTU est une unité de mesure des ressources dont la disponibilité est assurée pour une base de données SQL Azure autonome à un niveau de performance spécifique au sein d’un [niveau de service de base de données autonome](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels). Une DTU est une mesure mixte de l’UC, de la mémoire et des E/S de données et des E/S du journal des transactions selon un ratio déterminé par une charge de travail d’évaluation OLTP conforme aux charges de travail OLTP réelles standard. Le fait de doubler les DTU en augmentant le niveau de performance d’une base de données revient à doubler l’ensemble des ressources disponibles pour cette base de données. Par exemple, une base de données Premium P11 comprenant 1 750 DTU fournit une puissance de calcul DTU 350 fois plus importante qu’une base de données de base comprenant 5 DTU. Pour comprendre la méthodologie sous-jacente à la charge de travail d’évaluation OLTP utilisée pour déterminer la fusion DTU, consultez [Vue d’ensemble du test d’évaluation de la base de données SQL](sql-database-benchmark-overview.md).
+Une DTU est une unité de mesure des ressources dont la disponibilité est assurée pour une base de données SQL Azure unique à un niveau de performance spécifique au sein d’un [niveau de service de base de données unique](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels). Une DTU est une mesure mixte de l’UC, de la mémoire et des E/S de données et des E/S du journal des transactions selon un ratio déterminé par une charge de travail d’évaluation OLTP conforme aux charges de travail OLTP réelles standard. Le fait de doubler les DTU en augmentant le niveau de performance d’une base de données revient à doubler l’ensemble des ressources disponibles pour cette base de données. Par exemple, une base de données Premium P11 comprenant 1 750 DTU fournit une puissance de calcul DTU 350 fois plus importante qu’une base de données de base comprenant 5 DTU. Pour comprendre la méthodologie sous-jacente à la charge de travail d’évaluation OLTP utilisée pour déterminer la fusion DTU, consultez [Vue d’ensemble du test d’évaluation de la base de données SQL](sql-database-benchmark-overview.md).
 
-![Introduction à SQL Database : DTU de base de données autonome par niveau de service et niveau de performances](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+![Introduction à la base de données SQL : DTU de base de données unique par couche et niveau](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 Vous pouvez [modifier les niveaux de service](sql-database-scale-up.md) à tout moment avec un temps d’arrêt minimal de votre application (généralement sous les quatre secondes environ). Pour de nombreuses entreprises et applications, la possibilité de créer des bases de données et d’augmenter ou ralentir les performances à la demande se révèle suffisante, surtout si les modèles d’utilisation sont relativement prévisibles. Mais si vous avez des modèles d'utilisation imprévisibles, il peut être difficile de gérer les coûts et votre modèle commercial. Pour ce scénario, vous utilisez un pool élastique avec un certain nombre d’eDTU.
 
@@ -51,13 +51,13 @@ Les pools sont idéaux dans le cas de nombreuses bases de données avec des mod�
 Les niveaux de performances sont étalonnés et régis pour fournir les ressources nécessaires permettant d’exécuter la charge de travail de votre base de données dans les limites maximales autorisées pour le niveau de service/niveau de performances sélectionné. Si votre charge de travail atteint les limites d’utilisation du processeur, d’E/S des données ou d’E/S du journal, vous continuez à recevoir les ressources au niveau maximum autorisé, mais la latence de vos requêtes sera augmentée. Ces limites ne génèrent pas d’erreur, plutôt un ralentissement de la charge de travail, sauf si le ralentissement s’accentue au point que les requêtes arrivent à expiration. Si vous atteignez les limites maximales autorisées de sessions/demandes utilisateur simultanées (threads de travail), vous voyez des erreurs explicites. Pour plus d’informations sur la limite des ressources autres que le processus, la mémoire, les E/S de données et les E/S du journal des transactions, consultez [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md) .
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour plus d’informations sur les DTU et les eDTU disponibles pour les bases de données autonomes et les pools élastiques, consultez [Niveau de Service](sql-database-service-tiers.md) .
+* Pour plus d’informations sur les DTU et les eDTU disponibles pour les bases de données uniques et les pools élastiques, consultez [Niveau de Service](sql-database-service-tiers.md) .
 * Pour plus d’informations sur la limite des ressources autres que le processus, la mémoire, les E/S de données et les E/S du journal des transactions, consultez [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md) .
 * Pour comprendre votre consommation de DTU, consultez [Query Performance Insight pour base de données SQL](sql-database-query-performance.md) .
 * Pour comprendre la méthodologie sous-jacente à la charge de travail d’évaluation OLTP utilisée pour déterminer la fusion DTU, consultez [Vue d’ensemble du test d’évaluation de la base de données SQL](sql-database-benchmark-overview.md) .
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
