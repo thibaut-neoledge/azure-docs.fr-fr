@@ -42,7 +42,7 @@ Si vous ne savez pas comment configurer un point de terminaison pour votre machi
 ## Installer Gnome Desktop
 Connectez-vous à votre machine virtuelle Linux via putty et installez `Gnome Desktop`.
 
-Pour Ubantu, procédez comme suit :
+Pour Ubuntu, procédez comme suit :
 
     #sudo apt-get update
     #sudo apt-get install ubuntu-desktop
@@ -53,7 +53,7 @@ Pour OpenSUSE, utilisez :
     #sudo zypper install gnome-session
 
 ## Installer xdrp
-Pour Ubantu, procédez comme suit :
+Pour Ubuntu, procédez comme suit :
 
     #sudo apt-get install xrdp
 
