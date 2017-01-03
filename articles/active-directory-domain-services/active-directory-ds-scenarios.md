@@ -1,12 +1,12 @@
 ---
-title: 'Services de domaine Azure Active Directory : scénarios de déploiement | Microsoft Docs'
-description: Scénarios de déploiement pour les Services de domaine Azure AD
+title: "Services de domaine Azure Active Directory : scénarios de déploiement | Microsoft Docs"
+description: "Scénarios de déploiement pour les Services de domaine Azure AD"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 359653f29adc538a4fe2f2143e8132bdd9a9d15b
+
 
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Scénarios de déploiement et cas d'usage
 Dans cette section, nous examinons quelques scénarios et cas pratiques qui tirent parti des services de domaine Azure Active Directory (AD).
 
-## <a name="secure,-easy-administration-of-azure-virtual-machines"></a>Administration sécurisée et simple des machines virtuelles Azure
+## <a name="secure-easy-administration-of-azure-virtual-machines"></a>Administration sécurisée et simple des machines virtuelles Azure
 Vous pouvez utiliser les services de domaine Azure Active Directory pour gérer vos machines virtuelles plus facilement. Des machines virtuelles Azure peuvent être jointes au domaine géré, ce qui vous permet d’utiliser vos informations d’identification AD d’entreprise pour vous connecter. Cette approche contribue à éviter les soucis de gestion des informations d’identification telles que la maintenance des comptes d’administrateur locaux sur chacune de vos machines virtuelles Azure.
 
 Les machines virtuelles du serveur qui sont jointes au domaine géré peuvent également être gérées et sécurisées à l’aide de la stratégie de groupe. Vous pouvez appliquer des lignes de base de sécurité requises pour vos machines virtuelles Azure et les verrouiller conformément aux instructions de sécurité de l’entreprise. Par exemple, vous pouvez utiliser les fonctionnalités de gestion de stratégie de groupe pour restreindre les types d’applications pouvant être exécutés sur ces machines virtuelles.
@@ -73,12 +77,15 @@ Considérez ces quelques points importants pour ce scénario de déploiement :
 * Vous ne pouvez pas modifier les mots de passe directement sur le domaine géré. Les utilisateurs finaux peuvent modifier leur mot de passe soit à l’aide du mécanisme de modification de mot de passe en libre-service Azure AD, soit depuis le répertoire local. Ces modifications sont automatiquement synchronisées et disponibles dans le domaine géré.
 
 ## <a name="azure-remoteapp"></a>Azure RemoteApp
-Azure RemoteApp permet à l’administrateur de Contoso de créer une collection jointe à un domaine. Cette fonctionnalité permet aux applications distantes prises en charge par Azure RemoteApp de s’exécuter sur les ordinateurs joints à un domaine et d’accéder à d’autres ressources à l’aide de l’authentification intégrée de Windows. Contoso peut utiliser les services de domaine Azure AD pour fournir un domaine géré utilisé par les collections jointes à un domaine Azure RemoteApp.
+Azure RemoteApp permet à l’administrateur de Contoso de créer une collection jointe à un domaine. Cette fonctionnalité permet aux applications distantes prises en charge par Azure RemoteApp de s’exécuter sur les ordinateurs joints à un domaine et d’accéder à d’autres ressources à l’aide de l’authentification intégrée de Windows. Contoso peut utiliser les services de domaine Azure AD pour fournir un domaine géré utilisé par les collections jointes à un domaine Azure RemoteApp.
 
 ![Azure RemoteApp](./media/active-directory-domain-services-scenarios/azure-remoteapp.png)
 
 Pour plus d’informations sur ce scénario de déploiement, consultez l’article du blog des services Bureau à distance intitulé [Lift-and-shift your workloads with Azure RemoteApp and Azure AD Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx)(en anglais).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

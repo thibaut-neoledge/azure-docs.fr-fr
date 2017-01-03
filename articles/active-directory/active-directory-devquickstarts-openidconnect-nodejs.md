@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/15/2016
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 1865043ca9c9019b9813f11eb4a55f7f16d79287
-ms.openlocfilehash: fc31f2c157cb91b95820e18aa186818d69977e24
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5d2c5bf3c1d370329603ff55cf9f32367e29368a
 
 
 ---
@@ -409,6 +409,6 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées.  Par exemple 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

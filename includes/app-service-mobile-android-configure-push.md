@@ -1,14 +1,14 @@
 
-1. Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Parcourir tout** > **App Services** > votre serveur principal d’application mobile. Sous **Paramètres**, cliquez sur **App Service Push** (Notification Push App Service), puis cliquez sur le nom de votre concentrateur de notifications.
-2. Accédez à **Google (GCM)**, entrez la clé du serveur FCM obtenue à partir de la console Firebase, puis cliquez sur **Enregistrer**.
+1. Dans le [Portail Azure](https://portal.azure.com/), cliquez sur **Parcourir tout** > **App Services**, puis cliquez sur votre serveur principal Mobile Apps. Sous **Paramètres**, cliquez sur **App Service Push (Notification Push App Service)**, puis sur le nom de votre hub de notification.
+2. Accédez à **Google (GCM)**, entrez la clé serveur FCM obtenue à partir de la console Firebase, puis cliquez sur **Enregistrer**.
 
-Votre service est désormais configuré et prêt à fonctionner avec Firebase Cloud Messaging !
+Votre service est désormais configuré pour fonctionner avec Firebase Cloud Messaging.
 
 <!-- URLs. -->
 
 <!-- images -->
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

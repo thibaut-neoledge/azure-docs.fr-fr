@@ -200,7 +200,7 @@ Quand vous exécutez l’application Spark Scala locale sur un ordinateur Window
    
    ![Résultat de l’exécution locale de l’application Spark](./media/hdinsight-apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
-## <a name="feedback-known-issues"></a>Commentaires et problèmes connus
+## <a name="feedback--known-issues"></a>Commentaires et problèmes connus
 Pour l’instant, la visualisation directe des sorties Spark n’est pas prise en charge. Nous travaillons à la résolution de ce problème.
 
 Si vous avez des suggestions ou des commentaires, ou que vous rencontrez des problèmes lors de l’utilisation de cet outil, n’hésitez pas à nous envoyer un e-mail à l’adresse hdivstool@microsoft.com.
@@ -234,6 +234,6 @@ Si vous avez des suggestions ou des commentaires, ou que vous rencontrez des pro
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1934fa46b38f36033c427a6ac061db94f4dc760b
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 724edc7894cabfb31f6e43a291f98ab60c0a9981
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 1934fa46b38f36033c427a6ac061db94f4dc760b
 > 
 > 
 
-Cet article vous explique comment utiliser le [Kit de développement logiciel (SDK) .NET Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx) pour importer des données dans un index Azure Search.
+Cet article vous explique comment utiliser le [Kit de développement logiciel (SDK) .NET Azure Search](https://aka.ms/search-sdk) pour importer des données dans un index Azure Search.
 
 Avant de commencer cette procédure, vous devez déjà avoir [créé un index Azure Search](search-what-is-an-index.md). Cet article suppose également que vous avez déjà créé un objet `SearchServiceClient` , comme indiqué dans [Créer un index Azure Search à l’aide du Kit de développement logiciel (SDK) .NET](search-create-index-dotnet.md#CreateSearchServiceClient).
 
@@ -45,11 +45,11 @@ Afin de transmettre des documents à l’index à l’aide du Kit de développem
 Pour importer des données dans l’index à l’aide du Kit de développement logiciel (SDK) .NET Azure Search, vous devez créer une instance de la classe `SearchIndexClient` . Vous pouvez construire cette instance vous-même, mais la procédure est plus facile si vous avez déjà une instance `SearchServiceClient` pour appeler sa méthode `Indexes.GetClient`. Par exemple, voici comment vous obtenez un `SearchIndexClient` pour l’index nommé « hotels » d’un `SearchServiceClient` nommé `serviceClient` :
 
 ```csharp
-SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
+ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ```
 
 > [!NOTE]
-> Dans une application de recherche classique, le remplissage et la gestion des index sont gérés par un composant séparé des requêtes de recherche. `Indexes.GetClient` est pratique pour remplir un index car il vous évite de fournir un autre `SearchCredentials`. Pour ce faire, il transmet la clé d’administration que vous avez utilisée afin de créer le `SearchServiceClient` dans le nouveau `SearchIndexClient`. Toutefois, dans la partie de votre application qui exécute des requêtes, il vaut mieux créer le `SearchIndexClient` directement afin de transmettre une clé de requête au lieu d'une clé d'administration. Cela est conforme au [principe du moindre privilège](https://en.wikipedia.org/wiki/Principle_of_least_privilege) et vous permet de mieux sécuriser votre application. Pour en savoir plus sur les clés d’administration et les clés de requête, consultez la [page de référence sur l’API REST Azure Search sur MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+> Dans une application de recherche classique, le remplissage et la gestion des index sont gérés par un composant séparé des requêtes de recherche. `Indexes.GetClient` est pratique pour remplir un index car il vous évite de fournir un autre `SearchCredentials`. Pour ce faire, il transmet la clé d’administration que vous avez utilisée afin de créer le `SearchServiceClient` dans le nouveau `SearchIndexClient`. Toutefois, dans la partie de votre application qui exécute des requêtes, il vaut mieux créer le `SearchIndexClient` directement afin de transmettre une clé de requête au lieu d'une clé d'administration. Cela est conforme au [principe du moindre privilège](https://en.wikipedia.org/wiki/Principle_of_least_privilege) et vous permet de mieux sécuriser votre application. Pour plus d’informations sur les clés d’administration et les clés de requête, consultez [l’article de référence sur l’API REST du service Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/).
 > 
 > 
 
@@ -165,29 +165,43 @@ Vous demandez peut-être comment le SDK .NET Azure Search peut charger des insta
 [SerializePropertyNamesAsCamelCase]
 public partial class Hotel
 {
+    [Key]
+    [IsFilterable]
     public string HotelId { get; set; }
 
+    [IsFilterable, IsSortable, IsFacetable]
     public double? BaseRate { get; set; }
 
+    [IsSearchable]
     public string Description { get; set; }
 
+    [IsSearchable]
+    [Analyzer(AnalyzerName.AsString.FrLucene)]
     [JsonProperty("description_fr")]
     public string DescriptionFr { get; set; }
 
+    [IsSearchable, IsFilterable, IsSortable]
     public string HotelName { get; set; }
 
+    [IsSearchable, IsFilterable, IsSortable, IsFacetable]
     public string Category { get; set; }
 
+    [IsSearchable, IsFilterable, IsFacetable]
     public string[] Tags { get; set; }
 
+    [IsFilterable, IsFacetable]
     public bool? ParkingIncluded { get; set; }
 
+    [IsFilterable, IsFacetable]
     public bool? SmokingAllowed { get; set; }
 
+    [IsFilterable, IsSortable, IsFacetable]
     public DateTimeOffset? LastRenovationDate { get; set; }
 
+    [IsFilterable, IsSortable, IsFacetable]
     public int? Rating { get; set; }
 
+    [IsFilterable, IsSortable]
     public GeographyPoint Location { get; set; }
 
     // ToString() method omitted for brevity...
@@ -197,20 +211,20 @@ public partial class Hotel
 La première chose à remarquer est que chaque propriété publique de `Hotel` correspond à un champ dans la définition de l'index, mais à une différence près : le nom de chaque champ commence par une minuscule, tandis que le nom de chaque propriété publique de `Hotel` commence par une majuscule. Il s'agit d'un scénario courant dans les applications .NET qui effectuent une liaison de données là où le schéma cible est en dehors du contrôle du développeur de l'application. Plutôt que de violer les consignes d’affectation de noms de .NET en faisant commencer les noms de propriété par une minuscule, vous pouvez demander au SDK d’attribuer automatiquement une casse minuscule aux noms de propriété avec l’attribut `[SerializePropertyNamesAsCamelCase]` .
 
 > [!NOTE]
-> Le SDK .NET Azure Search utilise la bibliothèque [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) pour sérialiser et désérialiser vos objets de modèle personnalisés vers et à partir de JSON. Vous pouvez personnaliser cette sérialisation si nécessaire. Pour plus d’informations, consultez [Mise à niveau vers le Kit de développement logiciel (SDK) Azure Search .NET version 1.1](search-dotnet-sdk-migration.md#WhatsNew). En voici un exemple : l’utilisation de l’attribut `[JsonProperty]` sur la propriété `DescriptionFr` dans l’exemple de code ci-dessus.
+> Le SDK .NET Azure Search utilise la bibliothèque [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) pour sérialiser et désérialiser vos objets de modèle personnalisés vers et à partir de JSON. Vous pouvez personnaliser cette sérialisation si nécessaire. Pour plus d’informations, consultez l’article [Sérialisation personnalisée avec JSON.NET](search-howto-dotnet-sdk.md#JsonDotNet). En voici un exemple : l’utilisation de l’attribut `[JsonProperty]` sur la propriété `DescriptionFr` dans l’exemple de code ci-dessus.
 > 
 > 
 
-La deuxième chose importante sur la classe `Hotel` concerne les types de données des propriétés publiques. Les types .NET de ces propriétés correspondent à leurs types de champ équivalents dans la définition de l'index. Par exemple, la propriété de chaîne `Category` correspond au champ `category`, qui est de type `DataType.String`. Il existe des mappages de type similaires entre `bool?` et `DataType.Boolean`, `DateTimeOffset?` et `DataType.DateTimeOffset`, etc. Les règles spécifiques pour le mappage de type sont documentées avec la méthode `Documents.Get`[MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx).
+La deuxième chose importante sur la classe `Hotel` concerne les types de données des propriétés publiques. Les types .NET de ces propriétés correspondent à leurs types de champ équivalents dans la définition de l'index. Par exemple, la propriété de chaîne `Category` correspond au champ `category`, qui est de type `DataType.String`. Il existe des mappages de type similaires entre `bool?` et `DataType.Boolean`, `DateTimeOffset?` et `DataType.DateTimeOffset`, etc. Les règles spécifiques pour le mappage de type sont documentées avec la méthode `Documents.Get` dans [l’article de référence sur le Kit de développement logiciel (SDK) .NET du service Recherche Azure](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations#Microsoft_Azure_Search_IDocumentsOperations_GetWithHttpMessagesAsync__1_System_String_System_Collections_Generic_IEnumerable_System_String__Microsoft_Azure_Search_Models_SearchRequestOptions_System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_).
 
 Cette capacité à utiliser vos propres classes comme des documents fonctionne dans les deux sens. Vous pouvez également récupérer les résultats de la recherche et laisser le Kit de développement logiciel (SDK) les désérialiser automatiquement à un type de votre choix, comme indiqué dans [l’article suivant](search-query-dotnet.md).
 
 > [!NOTE]
-> Le SDK .NET Azure Search prend également en charge les documents dynamiquement typés à l’aide de la classe `Document`, qui est un mappage de type clé/valeur entre des noms de champ et des valeurs de champ. Cela est utile dans les cas où vous ne connaissez pas le schéma de l’index lors de sa conception et où il serait peu pratique d’établir une liaison à des classes de modèles spécifiques. Toutes les méthodes du SDK qui gèrent les documents ont des surcharges qui fonctionnent avec la classe `Document` , ainsi que des surcharges fortement typées qui acceptent un paramètre de type générique. Seules ces dernières sont utilisées dans l’exemple de code de cet article. Pour plus d’informations sur la classe `Document` , consultez [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.document.aspx).
+> Le SDK .NET Azure Search prend également en charge les documents dynamiquement typés à l’aide de la classe `Document`, qui est un mappage de type clé/valeur entre des noms de champ et des valeurs de champ. Cela est utile dans les cas où vous ne connaissez pas le schéma de l’index lors de sa conception et où il serait peu pratique d’établir une liaison à des classes de modèles spécifiques. Toutes les méthodes du SDK qui gèrent les documents ont des surcharges qui fonctionnent avec la classe `Document` , ainsi que des surcharges fortement typées qui acceptent un paramètre de type générique. Seules ces dernières sont utilisées dans l’exemple de code de cet article.
 > 
 > 
 
-**Remarque importante sur les types de données**
+**Pourquoi utiliser des types de données Nullable**
 
 Lorsque vous créez vos propres classes de modèles à mapper à un index Azure Search, nous vous recommandons de déclarer les propriétés des types de valeurs, par exemple `bool` et `int`, comme acceptant la valeur null (par exemple, `bool?` au lieu de `bool`). Si vous utilisez une propriété ne pouvant être définie sur null, vous devez **garantir** qu’aucun document de cet index ne contient de valeur null pour le champ correspondant. Ni le Kit de développement logiciel ni le service Azure Search ne vous aideront à appliquer cette recommandation.
 

@@ -1,24 +1,29 @@
 ---
-title: 'Guide de démarrage rapide : API Machine Learning Recommendations | Microsoft Docs'
-description: Azure Machine Learning Recommendations - Guide de démarrage rapide
+title: "Guide de démarrage rapide : API recommandations Machine Learning | Microsoft Docs"
+description: "Azure Machine Learning Recommendations - Guide de démarrage rapide"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: LuisCabrer
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 5bce1a4a-1ad6-473f-812b-84f800fdc09a
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 11/17/2016
 ms.author: luisca
+translationtype: Human Translation
+ms.sourcegitcommit: 099090d06163f15a08592e25f6171cfacf24b0f1
+ms.openlocfilehash: bf47dd8f88405f2bed31c621e37531e3641ddc6c
+
 
 ---
-# Guide de démarrage rapide pour l'API de Machine Learning Recommendations
+# <a name="quick-start-guide-for-the-machine-learning-recommendations-api"></a>Guide de démarrage rapide pour l'API de Machine Learning Recommendations
 > [!NOTE]
-> Vous devez commencer à utiliser le Service cognitif de l’API Recommandations au lieu de cette version. Le Service cognitif de l’API Recommandations remplacera ce service et toutes les nouvelles fonctionnalités y seront développées. Il propose de nouvelles fonctionnalités telles que la prise en charge du traitement par lot, un meilleur Explorateur d’API, une surface d’API plus propre, une expérience d’inscription/de facturation plus cohérente, etc. En savoir plus sur la [migration vers le nouveau Service cognitif](http://aka.ms/recomigrate)
+> Vous devez commencer à utiliser le Service cognitif de l’API Recommandations au lieu de cette version. Le Service cognitif de l’API Recommandations remplacera ce service et toutes les nouvelles fonctionnalités y seront développées. Il propose de nouvelles fonctionnalités telles que la prise en charge du traitement par lot, un meilleur Explorateur d’API, une surface d’API plus propre, une expérience d’inscription/de facturation plus cohérente, etc.
+> En savoir plus sur la [migration vers le nouveau Service cognitif](http://aka.ms/recomigrate)
 > 
 > 
 
@@ -26,32 +31,33 @@ Ce document décrit comment intégrer votre service ou application pour utiliser
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Présentation générale
-Pour utiliser Azure Machine Learning Recommendations, procédez comme suit :
+## <a name="general-overview"></a>Présentation générale
+Pour utiliser Azure Machine Learning Recommendations, procédez comme suit :
 
-* Créez un modèle : le modèle est le conteneur de vos données d’utilisation, des données de catalogue et du modèle de recommandation.
-* Importer les données du catalogue : un catalogue contient des informations de métadonnées sur les éléments.
-* Importez des données d'utilisation : les données d'utilisation peuvent être téléchargées de deux manières :
+* Créez un modèle : le modèle est le conteneur de vos données d’utilisation, des données de catalogue et du modèle de recommandation.
+* Importer les données du catalogue : un catalogue contient des informations de métadonnées sur les éléments. 
+* Importez des données d’utilisation : les données d’utilisation peuvent être téléchargées de l’une des deux (ou des deux) manières suivantes :
   * En téléchargeant un fichier qui contient les données d'utilisation.
-  * En envoyant des événements d’acquisition de données. Généralement, vous téléchargez un fichier d’utilisation pour pouvoir créer un modèle de recommandation initial (démarrage) et l’utiliser jusqu’à ce que le système rassemble suffisamment de données en utilisant le format d’acquisition de données.
-* Générez un modèle de recommandation : il s’agit d’une opération asynchrone dans laquelle le système de recommandation prend toutes les données d’utilisation et crée un modèle de recommandation. Cette opération peut prendre plusieurs minutes, voire plusieurs heures, selon la taille des données et les paramètres de configuration de génération. Lors du déclenchement de la build, vous obtenez un ID de build. Utilisez-le pour vérifier à quel moment s’est terminé le processus de génération et ce, avant de commencer à utiliser les recommandations.
-* Utilisez les recommandations : obtenez des recommandations pour un élément spécifique ou pour une liste d’éléments.
+  * En envoyant des événements d’acquisition de données.
+    Généralement, vous téléchargez un fichier d’utilisation pour pouvoir créer un modèle de recommandation initial (démarrage) et l’utiliser jusqu’à ce que le système rassemble suffisamment de données en utilisant le format d’acquisition de données.
+* Générez un modèle de recommandation : il s’agit d’une opération asynchrone dans laquelle le système de recommandation prend toutes les données d’utilisation et crée un modèle de recommandation. Cette opération peut prendre plusieurs minutes, voire plusieurs heures, selon la taille des données et les paramètres de configuration de génération. Lors du déclenchement de la build, vous obtenez un ID de build. Utilisez-le pour vérifier à quel moment s’est terminé le processus de génération et ce, avant de commencer à utiliser les recommandations.
+* Utilisez les recommandations : obtenez des recommandations pour un élément spécifique ou pour une liste d’éléments.
 
-Toutes les étapes ci-dessus sont effectuées via l’API Azure Machine Learning Recommendations. Vous pouvez télécharger un exemple d'application qui implémente chacune de ces étapes également à partir de la [galerie.](http://1drv.ms/1xeO2F3)
+Toutes les étapes ci-dessus sont effectuées via l’API Azure Machine Learning Recommendations.  Vous pouvez télécharger un exemple d'application qui implémente chacune de ces étapes également à partir de la [galerie.](http://1drv.ms/1xeO2F3)
 
-## Limitations
-* Le nombre maximal de modèles par abonnement est de 10.
-* Le nombre maximal d'éléments pouvant être contenus dans un catalogue est de 100 000.
-* La quantité maximale de points d'utilisation conservée est d'environ 5 000 000. Le plus ancien est supprimé quand des nouveaux sont téléchargés ou signalés.
-* La taille maximale des données pouvant être envoyées dans POST (par exemple, importation des données de catalogue ou des données d'utilisation) est de 200 Mo.
-* Le nombre de transactions par seconde pour une build de modèle de recommandation inactive est d'environ 2 TPS. Une build de modèle de recommandation active peut prendre en charge jusqu'à 20 TPS.
+## <a name="limitations"></a>Limitations
+* Le nombre maximal de modèles par abonnement est de 10.
+* Le nombre maximal d'éléments pouvant être contenus dans un catalogue est de 100 000.
+* La quantité maximale de points d'utilisation conservée est d'environ 5 000 000. Le plus ancien est supprimé quand des nouveaux sont téléchargés ou signalés.
+* La taille maximale des données pouvant être envoyées dans POST (par exemple, importation des données de catalogue ou des données d’utilisation) est de 200 Mo.
+* Le nombre de transactions par seconde pour une build de modèle de recommandation inactive est d'environ 2 TPS. Une build de modèle de recommandation active peut prendre en charge jusqu'à 20 TPS.
 
-## Intégration
-### Authentification
-Microsoft Azure Marketplace prend en charge les méthodes d’authentification de base ou OAuth. Vous pouvez facilement trouver les clés de compte en accédant aux clés sur le Marketplace sous [vos paramètres de compte](https://datamarket.azure.com/account/keys).
+## <a name="integration"></a>Intégration
+### <a name="authentication"></a>Authentification
+Microsoft Azure Marketplace prend en charge les méthodes d’authentification de base ou OAuth. Vous pouvez facilement trouver les clés de compte en accédant aux clés sur le Marketplace sous [vos paramètres de compte](https://datamarket.azure.com/account/keys). 
 
-#### Authentification de base
-Ajoutez l’en-tête d’autorisation :
+#### <a name="basic-authentication"></a>Authentification de base
+Ajoutez l’en-tête d’autorisation :
 
     Authorization: Basic <creds>
 
@@ -69,36 +75,37 @@ Convertir en Base64 (JavaScript)
 
 
 
-### URI de service
-Les URI racines de service des API Azure Machine Learning Recommendations se trouvent [ici](https://api.datamarket.azure.com/amla/recommendations/v2/).
+### <a name="service-uri"></a>URI de service
+Les URI racines de service des API Azure Machine Learning Recommendations se trouvent [ici](https://api.datamarket.azure.com/amla/recommendations/v2/)
 
 L'URI de service complet est exprimée à l'aide des éléments de la spécification OData.
 
-### Version de l'API
-À la fin de chaque appel d’API doit se trouver un paramètre de requête appelé apiVersion qui doit avoir la valeur « 1.0 ».
+### <a name="api-version"></a>Version de l'API
+À la fin de chaque appel d’API doit se trouver un paramètre de requête appelé apiVersion qui doit avoir la valeur « 1.0 ».
 
-### Respect de la casse des ID
-Les ID, quelle que soit l'API qui les retourne, respectent la casse. Ils doivent donc être utilisés comme tels quand ils sont passés en tant que paramètres dans les appels d'API ultérieurs. Par exemple, les ID de modèle et de catalogue respectent la casse.
+### <a name="ids-are-case-sensitive"></a>Respect de la casse des ID
+Les ID, quelle que soit l’API qui les retourne, respectent la casse. Ils doivent donc être utilisés comme tels quand ils sont passés en tant que paramètres dans les appels d’API ultérieurs. Par exemple, les ID de modèle et de catalogue respectent la casse.
 
-### Création d’un modèle
-Création d'une requête « Créer un modèle » :
+### <a name="create-a-model"></a>Création d’un modèle
+Création d'une requête « Créer un modèle » :
 
 | Méthode HTTP | URI |
 |:--- |:--- |
-| POST |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27` |
+| POST |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27` |
 
 | Nom du paramètre | Valeurs valides |
 |:--- |:--- |
-| modelName |Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 20 |
-| apiVersion |1\.0 |
+| modelName |Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (_) sont autorisés.<br>Longueur maximale : 20 |
+| apiVersion |1.0 |
 |  | |
 | Corps de la requête |AUCUN |
 
-**Réponse** :
+**Réponse**:
 
-Code d'état HTTP : 200
+Code d'état HTTP : 200
 
-* `feed/entry/content/properties/id` : contient l'ID du modèle. **Remarque** : l'ID du modèle respecte la casse.
+* `feed/entry/content/properties/id` : contient l'ID du modèle.
+  Notez que l’ID de modèle respecte la casse.
 
 OData XML
 
@@ -131,24 +138,24 @@ OData XML
     </feed>
 
 
-### Importation de données de catalogue
+### <a name="import-catalog-data"></a>Importation de données de catalogue
 Si vous téléchargez plusieurs fichiers de catalogue dans le même modèle avec plusieurs appels, seuls les nouveaux éléments de catalogue sont insérés. Les éléments existants conservent leurs valeurs d'origine.
 
 | Méthode HTTP | URI |
 |:--- |:--- |
-| POST |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27` |
+| POST |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27` |
 
 | Nom du paramètre | Valeurs valides |
 |:--- |:--- |
 | modelId |Identificateur unique du modèle (respecte la casse) |
-| filename |Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 |
-| apiVersion |1\.0 |
+| filename |Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (_) sont autorisés.<br>Longueur maximale : 50 |
+| apiVersion |1.0 |
 |  | |
-| Corps de la requête |Données de catalogue. Format :<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>Item Id</td><td>Oui</td><td>Alphanumérique, longueur maximale 50</td><td>Identificateur unique d’un élément</td></tr><tr><td>Item Name</td><td>Oui</td><td>Alphanumérique, longueur maximale 255</td><td>Nom de l’élément</td></tr><tr><td>Item Category</td><td>Oui</td><td>Alphanumérique, longueur maximale 255</td><td>Catégorie à laquelle cet élément appartient (par exemple, livres de cuisine, arts dramatiques...)</td></tr><tr><td>Description</td><td>Non</td><td>Alphanumérique, longueur maximale 4 000</td><td>Description de cet élément</td></tr></table><br>La taille de fichier maximale est de 200 Mo.<br><br>Exemple :<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book), Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
+| Corps de la requête |Données de catalogue. Format :<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>Item Id</td><td>Oui</td><td>Alphanumérique, longueur maximale : 50</td><td>Identificateur unique d’un élément</td></tr><tr><td>Item Name</td><td>Oui</td><td>Alphanumérique, longueur maximale : 255</td><td>Nom de l’élément</td></tr><tr><td>Item Category</td><td>Oui</td><td>Alphanumérique, longueur maximale : 255</td><td>Catégorie à laquelle cet élément appartient (par exemple, livres de cuisine, pièces de théâtre, etc.)</td></tr><tr><td>Description</td><td>Non</td><td>Alphanumérique, longueur maximale : 4 000</td><td>Description de cet élément</td></tr></table><br>La taille de fichier maximale est de 200 Mo.<br><br>Exemple :<br><code>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</code> |
 
-**Réponse** :
+**Réponse**:
 
-Code d'état HTTP : 200
+Code d'état HTTP : 200
 
 * `Feed\entry\content\properties\LineCount` : nombre de lignes acceptées.
 * `Feed\entry\content\properties\ErrorCount` : nombre de lignes non insérées en raison d'une erreur.
@@ -177,25 +184,25 @@ OData XML
     </feed>
 
 
-### Importation de données d'utilisation
-#### Téléchargement d’un fichier
+### <a name="import-usage-data"></a>Importation de données d'utilisation
+#### <a name="uploading-a-file"></a>Téléchargement d’un fichier
 Cette section indique comment télécharger des données d'utilisation à l'aide d'un fichier. Vous pouvez appeler cette API plusieurs fois avec les données d'utilisation. Toutes les données d'utilisation sont enregistrées pour tous les appels.
 
 | Méthode HTTP | URI |
 |:--- |:--- |
-| POST |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27` |
+| POST |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27` |
 
 | Nom du paramètre | Valeurs valides |
 |:--- |:--- |
 | modelId |Identificateur unique du modèle (respecte la casse) |
-| filename |Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 |
-| apiVersion |1\.0 |
+| filename |Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (_) sont autorisés.<br>Longueur maximale : 50 |
+| apiVersion |1.0 |
 |  | |
-| Corps de la requête |Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>User Id</td><td>Oui</td><td>Alphanumérique</td><td>Identificateur unique d’un utilisateur</td></tr><tr><td>Item Id</td><td>Oui</td><td>Alphanumérique, longueur maximale 50</td><td>Identificateur unique d’un élément</td></tr><tr><td>Time</td><td>Non</td><td>Date au format AAAA/MM/JJTHH:MM:SS (ex. 2013/06/20T10:00:00)</td><td>Heure des données</td></tr><tr><td>Event</td><td>Non ; s’il est indiqué, la date doit l’être également</td><td>L’un des suivants :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>La taille de fichier maximale est de 200 Mo.<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| Corps de la requête |Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>User Id</td><td>Oui</td><td>Alphanumérique</td><td>Identificateur unique d’un utilisateur</td></tr><tr><td>Item Id</td><td>Oui</td><td>Alphanumérique, longueur maximale : 50</td><td>Identificateur unique d’un élément</td></tr><tr><td>Time</td><td>Non</td><td>Date au format suivant : AAAA/MM/JJTHH:MM:SS (par exemple, 2013/06/20T10:00:00)</td><td>Indication de temps des données</td></tr><tr><td>Événement</td><td>Non, mais s'il est indiqué, la date doit l'être également</td><td>Celui-ci peut avoir l'une des valeurs suivantes :<br>• Click (clic)<br>• RecommendationClick (clic de recommandation)<br>•    AddShopCart (ajout au panier)<br>• RemoveShopCart (suppression du panier)<br>• Purchase</td><td></td></tr></table><br>La taille de fichier maximale est de 200 Mo.<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
-**Réponse** :
+**Réponse**:
 
-Code d'état HTTP : 200
+Code d'état HTTP : 200
 
 * `Feed\entry\content\properties\LineCount` : nombre de lignes acceptées.
 * `Feed\entry\content\properties\ErrorCount` : nombre de lignes non insérées en raison d'une erreur.
@@ -226,7 +233,7 @@ OData XML
     </feed>
 
 
-#### Utilisation de l'acquisition de données
+#### <a name="using-data-acquisition"></a>Utilisation de l'acquisition de données
 Cette section explique comment envoyer des événements en temps réel à Azure Machine Learning Recommendations, généralement à partir de votre site web.
 
 | Méthode HTTP | URI |
@@ -235,11 +242,11 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
 
 | Nom du paramètre | Valeurs valides |
 |:--- |:--- |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Corps de la demande |Entrée de données d'événement pour chaque événement à envoyer. Pour une même session d'utilisateur ou de navigateur, vous devez envoyer le même ID dans le champ SessionId. (Consultez l'exemple du corps d'événement ci-dessous.) |
 
-* Exemple pour l'événement « Click » :
+* Exemple pour l'événement « Click » :
   
         <Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
@@ -251,7 +258,7 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
         </EventData>
         </EventData>
         </Event>
-* Exemple pour l'événement « RecommendationClick » :
+* Exemple pour l'événement « RecommendationClick » :
   
         <Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
@@ -263,7 +270,7 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
         </EventData>
           </EventData>
         </Event>
-* Exemple pour l'événement « AddShopCart » :
+* Exemple pour l'événement « AddShopCart » :
   
         <Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
@@ -275,7 +282,7 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
         </EventData>
           </EventData>
         </Event>
-* Exemple pour l'événement « RemoveShopCart » :
+* Exemple pour l'événement « RemoveShopCart » :
   
         <Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
@@ -287,7 +294,7 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
         </EventData>
           </EventData>
         </Event>
-* Exemple pour l’événement « Purchase » :
+* Exemple pour l’événement « Purchase » :
   
         <Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
@@ -304,7 +311,7 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
         </EventData>
         </EventData>
         </Event>
-* Exemple d'envoi de 2 événements « Click » et « AddShopCart » :
+* Exemple d'envoi de 2 événements « Click » et « AddShopCart » :
   
         <Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
@@ -324,40 +331,40 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
           </EventData>
         </Event>
 
-**Réponse** : Code d'état HTTP : 200
+**Réponse**: Code d'état HTTP : 200
 
-### Génération d'un modèle de recommandation
+### <a name="build-a-recommendation-model"></a>Génération d'un modèle de recommandation
 | Méthode HTTP | URI |
 |:--- |:--- |
-| POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27` |
+| POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27` |
 
 | Nom du paramètre | Valeurs valides |
 |:--- |:--- |
 | modelId |Identificateur unique du modèle (respecte la casse) |
-| userDescription |Identificateur textuel du catalogue. Notez que si vous utilisez des espaces, vous devez plutôt l'encoder avec %20. Consultez l'exemple ci-dessus.<br>Longueur maximale : 50 |
-| apiVersion |1\.0 |
+| userDescription |Identificateur textuel du catalogue. Notez que si vous utilisez des espaces, vous devez plutôt l'encoder avec %20. Consultez l'exemple ci-dessus.<br>Longueur maximale : 50 |
+| apiVersion |1.0 |
 |  | |
 | Corps de la requête |AUCUN |
 
-**Réponse** :
+**Réponse**:
 
-Code d'état HTTP : 200
+Code d'état HTTP : 200
 
-Il s'agit d'une API asynchrone. La réponse obtenue est un ID de build. Pour savoir à quel moment la build s'est terminée, vous devez appeler l'API « Get Builds Status of a Model » (obtention de l'état de build d'un modèle) et rechercher cet ID de build dans la réponse. Notez que l'exécution d'une build peut nécessiter de quelques minutes à plusieurs heures selon la taille des données.
+Il s'agit d'une API asynchrone. La réponse obtenue est un ID de build. Pour savoir à quel moment la build s'est terminée, vous devez appeler l'API « Get Builds Status of a Model » (obtention de l'état de build d'un modèle) et rechercher cet ID de build dans la réponse. Notez que l'exécution d'une build peut nécessiter de quelques minutes à plusieurs heures selon la taille des données.
 
 Vous ne pouvez pas utiliser de recommandations tant que la build n'est pas terminée.
 
-État de build valide :
+État de build valide :
 
-* Create : le modèle a été créé.
-* Queued : la build de modèle a été déclenchée et mise en file d'attente.
-* Building : le modèle est en cours de génération.
-* Success : la build a été correctement exécutée.
-* Error : la build s'est terminée par un échec.
-* Cancelled : la build a été annulée.
-* Cancelling : la build est en cours d’annulation.
+* Create : le modèle a été créé.
+* Queued : la build de modèle a été déclenchée et mise en file d'attente.
+* Building : le modèle est en cours de génération.
+* Success : la build a été correctement exécutée.
+* Error : la build s'est terminée par un échec.
+* Canceled : la build a été annulée.
+* Canceling : la build est en cours d’annulation.
 
-Notez que l'ID de build se trouve sous le chemin suivant : `Feed\entry\content\properties\Id`
+Notez que l'ID de build se trouve sous le chemin suivant : `Feed\entry\content\properties\Id`
 
 OData XML
 
@@ -398,30 +405,30 @@ OData XML
       </entry>
     </feed>
 
-### Obtention de l’état de build d’un modèle
+### <a name="get-build-status-of-a-model"></a>Obtention de l’état de build d’un modèle
 | Méthode HTTP | URI |
 |:--- |:--- |
-| GET |`<rootURI>/GetModelBuildsStatus?modelId=%27<modelId>%27&onlyLastBuild=<bool>&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/GetModelBuildsStatus?modelId=%279559872f-7a53-4076-a3c7-19d9385c1265%27&onlyLastBuild=true&apiVersion=%271.0%27` |
+| GET |`<rootURI>/GetModelBuildsStatus?modelId=%27<modelId>%27&onlyLastBuild=<bool>&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/GetModelBuildsStatus?modelId=%279559872f-7a53-4076-a3c7-19d9385c1265%27&onlyLastBuild=true&apiVersion=%271.0%27` |
 
 | Nom du paramètre | Valeurs valides |
 |:--- |:--- |
 | modelId |Identificateur unique du modèle (respecte la casse) |
 | onlyLastBuild |Indique s'il faut retourner l'historique de build du modèle en totalité ou uniquement l'état de la build la plus récente. |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 
-**Réponse** :
+**Réponse**:
 
-Code d'état HTTP : 200
+Code d'état HTTP : 200
 
-La réponse inclut une entrée par build. Chaque entrée comprend les données suivantes :
+La réponse inclut une entrée par build. Chaque entrée comprend les données suivantes :
 
 * `feed/entry/content/properties/UserName` : nom de l'utilisateur.
 * `feed/entry/content/properties/ModelName` : nom du modèle.
 * `feed/entry/content/properties/ModelId` : identificateur unique du modèle.
-* `feed/entry/content/properties/IsDeployed` : indique si la build est déployée (« build active »).
+* `feed/entry/content/properties/IsDeployed` : indique si la build est déployée (également appelée build active).
 * `feed/entry/content/properties/BuildId` : identificateur unique de la build.
 * `feed/entry/content/properties/BuildType` : type de build.
-* `feed/entry/content/properties/Status` : état de la build. Celui-ci peut avoir l’une des valeurs suivantes : Error, Building, Queued, Cancelling, Cancelled, Success.
+* `feed/entry/content/properties/Status` : état de la build. Celui-ci peut avoir l’une des valeurs suivantes : Error, Building, Queued, Canceling, Canceled, Success.
 * `feed/entry/content/properties/StatusMessage` : message d'état détaillé (s'applique uniquement à des états spécifiques).
 * `feed/entry/content/properties/Progress` : progression de l'exécution de la build (%).
 * `feed/entry/content/properties/StartTime` : heure de début de l'exécution de la build.
@@ -429,17 +436,17 @@ La réponse inclut une entrée par build. Chaque entrée comprend les données s
 * `feed/entry/content/properties/ExecutionTime` : durée de la build.
 * `feed/entry/content/properties/ProgressStep` : détails sur l’étape actuelle d’une build.
 
-État de build valide :
+État de build valide :
 
-* Created : l’entrée de demande de build a été créée.
-* Queued : la demande de build a été déclenchée et mise en attente.
-* Building : la build est en cours.
-* Success : la build a été correctement exécutée.
-* Error : la build s'est terminée par un échec.
-* Cancelled : la build a été annulée.
-* Cancelling : la build est en cours d’annulation.
+* Created : l’entrée de demande de build a été créée.
+* Queued : la demande de build a été déclenchée et mise en attente.
+* Building : la build est en cours.
+* Success : la build a été correctement exécutée.
+* Error : la build s'est terminée par un échec.
+* Canceled : la build a été annulée.
+* Canceling : la build est en cours d’annulation.
 
-Valeurs valides pour le type de build :
+Valeurs valides pour le type de build :
 
 * Rank - Build de classement. (Pour plus d’informations sur les builds de classement, consultez le document « Documentation sur les API Machine Learning Recommandation »).
 * Recommendation - Build de recommandation.
@@ -481,33 +488,33 @@ OData XML
     </feed>
 
 
-### Obtention de recommandations
+### <a name="get-recommendations"></a>Obtention de recommandations
 | Méthode HTTP | URI |
 |:--- |:--- |
-| GET |`<rootURI>/ItemRecommend?modelId=%27<modelId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27` |
+| GET |`<rootURI>/ItemRecommend?modelId=%27<modelId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27` |
 
 | Nom du paramètre | Valeurs valides |
 |:--- |:--- |
 | modelId |Identificateur unique du modèle (respecte la casse) |
-| itemIds |Liste des éléments séparés par des virgules faisant l’objet d’une recommandation.<br>Longueur maximale : 1024 |
+| itemIds |Liste des éléments séparés par des virgules faisant l’objet d’une recommandation.<br>Longueur maximale : 1024 |
 | numberOfResults |Nombre de résultats requis |
 | includeMetatadata |Utilisation ultérieure, toujours false |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 
-**Réponse :**
+**Réponse :**
 
-Code d'état HTTP : 200
+Code d'état HTTP : 200
 
-La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes :
+La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes :
 
 * `Feed\entry\content\properties\Id` : ID d’élément recommandé
 * `Feed\entry\content\properties\Name` : nom de l’élément
-* `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
-* `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, pour expliquer les recommandations)
+* `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
+* `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, pour expliquer les recommandations).
 
 OData XML
 
-L’exemple de réponse ci-dessous comprend 10 éléments recommandés :
+L’exemple de réponse ci-dessous comprend 10 éléments recommandés :
 
     <feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
       <title type="text" />
@@ -658,26 +665,26 @@ L’exemple de réponse ci-dessous comprend 10 éléments recommandés :
       </entry>
     </feed>
 
-### Mise à jour du modèle
-Vous pouvez mettre à jour la description du modèle ou l’identifiant de la build active. 
+### <a name="update-model"></a>Mise à jour du modèle
+Vous pouvez mettre à jour la description du modèle ou l’identifiant de la build active.
 *Identifiant de build active* : pour chaque modèle, chaque build possède un identifiant de build. L'ID de build active correspond à la première build réussie de chaque nouveau modèle. Une fois que vous avez un ID de build active et que vous effectuez d'autres builds pour le même modèle, vous pouvez le définir explicitement comme ID de build par défaut. Quand vous utilisez des recommandations, si vous ne spécifiez pas l’identifiant de build que vous souhaitez utiliser, un identifiant par défaut est automatiquement utilisé.
 
 Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommandation en production, de générer de nouveaux modèles et de les tester avant de les passer en production.
 
 | Méthode HTTP | URI |
 |:--- |:--- |
-| PUT |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27` |
+| PUT |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27` |
 
 | Nom du paramètre | Valeurs valides |
 |:--- |:--- |
 | id |Identificateur unique du modèle (respecte la casse) |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Corps de la requête |`<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Notez que les balises XML Description et ActiveBuildId sont facultatives. Si vous ne souhaitez pas définir Description ou ActiveBuildId, supprimez la balise entière. |
 
-**Réponse** :
+**Réponse**:
 
-Code d'état HTTP : 200
+Code d'état HTTP : 200
 
 OData XML
 
@@ -690,9 +697,12 @@ OData XML
       <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/UpdateModel?id='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;apiVersion='1.0'" />
     </feed>
 
-## Informations juridiques
-Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis. 
-Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. 
-Toute association ou lien est purement involontaire ou fortuit. Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence. © 2014 Microsoft. Tous droits réservés.
+## <a name="legal"></a>Informations juridiques
+Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis. Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. Toute association ou lien est purement involontaire ou fortuit. Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence. © 2014 Microsoft. Tous droits réservés. 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

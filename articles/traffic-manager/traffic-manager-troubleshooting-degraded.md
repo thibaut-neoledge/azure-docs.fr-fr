@@ -1,66 +1,102 @@
 ---
-title: Résolution des problèmes liés à l’état détérioré d’Azure Traffic Manager
-description: Comment résoudre les profils Traffic Manager lorsque l’état est affiché comme dégradé.
+title: "Résolution des problèmes liés à l’état détérioré d’Azure Traffic Manager"
+description: "Comment résoudre les profils Traffic Manager lorsque l’état est affiché comme dégradé."
 services: traffic-manager
-documentationcenter: ''
-author: sdwheeler
-manager: carmonm
-editor: joaoma
-
+documentationcenter: 
+author: kumudd
+manager: timlt
+ms.assetid: 8af0433d-e61b-4761-adcc-7bc9b8142fc6
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2016
-ms.author: sewhee
+ms.date: 10/11/2016
+ms.author: kumud
+translationtype: Human Translation
+ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
+ms.openlocfilehash: 179dc3fa0c1ab534cb1116269832f3bc81c4c434
 
 ---
-# Résolution des problèmes liés à l’état détérioré d’Azure Traffic Manager
-Cette page décrit comment résoudre le problème du profil Azure Traffic Manager qui affiche un état détérioré et fournit quelques points importants à connaître sur les sondes du gestionnaire de trafic.
 
-Vous avez configuré un profil Traffic Manager pointant vers certains de vos services hébergés .cloudapp.net et après quelques secondes, l’état s’affiche comme dégradé.
+# <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Résolution des problèmes liés à l’état détérioré d’Azure Traffic Manager
 
-![degradedstate](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degraded.png)
+Cet article décrit comment résoudre les problèmes d’un profil Azure Traffic Manager qui présente un état détérioré. Pour ce scénario, considérez que vous avez configuré un profil Traffic Manager pointant vers certains de vos services hébergés cloudapp.net. En vérifiant l’intégrité de votre Traffic Manager, vous constatez que l’état est détérioré.
 
-Si vous accédez à l’onglet Points de terminaison du profil, vous pouvez voir un ou plusieurs points de terminaison avec l’état hors connexion :
+![état détérioré](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degraded.png)
+
+Si vous accédez à l’onglet Points de terminaison de ce profil, vous pouvez voir un ou plusieurs points de terminaison en état Hors connexion :
 
 ![hors connexion](./media/traffic-manager-troubleshooting-degraded/traffic-manager-offline.png)
 
-## Remarques importantes sur la détection de Traffic Manager
-* Traffic Manager considère uniquement un point de terminaison comme étant en ligne si la sonde obtient en retour 200 du chemin d’accès de la sonde.
-* Une redirection 30x (ou toute réponse autre que 200) échoue, même si l’URL de redirection renvoie 200.
+## <a name="understanding-traffic-manager-probes"></a>Présentation des sondes de Traffic Manager
+
+* Traffic Manager considère qu’un point de terminaison est EN LIGNE uniquement si la sonde reçoit une réponse HTTP 200 en retour du chemin d’accès de la sonde. Toute réponse autre que 200 traduite un échec.
+* Une redirection 30 x échoue, même si l’URL redirigée retourne 200.
 * Pour les sondes HTTPs, les erreurs de certificat sont ignorées.
-* Le contenu réel du chemin d’accès de la sonde n’importe pas, aussi longtemps que la valeur 200 est retournée. Une technique courante si le contenu du site Web réel ne retourne pas 200 (autrement dit, si les pages ASP redirigent vers une page de connexion ACS ou autre URL CNAME) consiste à définir le chemin d’accès avec « /favicon.ico » ou valeur similaire.
-* La meilleure pratique consiste à définir le chemin d’accès de la sonde vers un élément qui possède une logique suffisante pour déterminer si le site fonctionne ou est à l’arrêt. Dans l’exemple ci-dessus, en définissant « / favicon.ico » comme chemin d’accès, vous testez uniquement si w3wp.exe répond, mais pas si votre site web est sain. Une meilleure option consisterait à définir un chemin d’accès tel que « / Probe.aspx » et, dans Probe.aspx, à inclure assez de logique pour déterminer si votre site est sain (autrement dit, vérifier les compteurs de performance pour vous assurer que vous n’êtes pas à 100 % de l’UC ou que vous ne recevez pas un grand nombre de demandes ayant échoué, tenter d’accéder aux ressources telles que l’état de session ou de la base de données pour vérifier que la logique de l’application fonctionne, etc.).
-* Si tous les points de terminaison d’un profil sont dégradés Traffic Manager traite tous les points de terminaison comme sains et acheminent le trafic vers tous les points de terminaison. Il s’agit de vous assurer que tout problème potentiel avec le mécanisme de détection se traduisant par des sondes ayant échoué de manière incorrecte ne provoque pas une interruption complète de votre service.
+* Le contenu réel du chemin d’accès de la sonde n’importe pas, aussi longtemps que la valeur retournée est 200. Le sondage d’une URL pour détecter du contenu statique, tel que « /favicon.ico », est une technique courante. Un contenu dynamique, par exemple, des pages ASP, ne retourne pas toujours 200, même quand l’application est intègre.
+* La meilleure pratique consiste à définir le chemin d’accès de la sonde vers un élément disposant d’une logique suffisante pour déterminer si le site fonctionne ou est à l’arrêt. Dans l’exemple précédent, en définissant le chemin d’accès « /favicon.ico », vous ne faites que tester le fait que w3wp.exe répond. Cette sonde n’indique pas que votre application web est intègre. Une meilleure option consisterait à définir un chemin d’accès vers un élément tel que « /Probe.aspx » disposant de la logique nécessaire pour déterminer l’intégrité du site. Par exemple, vous pourriez utiliser des compteurs de performances pour l’utilisation du processeur, ou mesurer le nombre de demandes ayant échoué. Vous pourriez également tenter d’accéder aux ressources de base de données ou à l’état de la session pour vous assurer que l’application web fonctionne.
+* Si tous les points de terminaison d’un profil sont détériorés, Traffic Manager traite tous les points de terminaison comme intègres, et achemine le trafic vers tous les points de terminaison. Ce comportement garantit que les problèmes liés au mécanisme de sondage n’entraînent pas d’interruption complète de votre service.
 
-## Résolution de problèmes
-L’outil wget permet de résoudre les problèmes d’échecs de sonde de Traffic Manager. Vous pouvez obtenir les fichiers binaires et le package de dépendances à partir de [wget](http://gnuwin32.sourceforge.net/packages/wget.htm). Notez que vous pouvez utiliser d’autres programmes tels que Fiddler ou curl à la place de wget : en gros, vous avez uniquement besoin d’un programme qui affiche la réponse HTTP brute.
+## <a name="troubleshooting"></a>Résolution de problèmes
 
-Une fois que vous avez installé wget, accédez à une invite de commandes et exécutez wget sur l’URL + le port de la sonde et le chemin d’accès configuré dans Traffic Manager. Pour cet exemple, ce serait http://watestsdp2008r2.cloudapp.net:80/Probe.
+Pour résoudre un problème d’échec d’analyse, vous avez besoin d’un outil qui affiche le code d’état HTTP retourné à partir de l’URL de la sonde. Il existe de nombreux outils qui affichent la réponse HTTP brute.
 
-![résolution des problèmes](./media/traffic-manager-troubleshooting-degraded/traffic-manager-troubleshooting.png)
+* [Fiddler](http://www.telerik.com/fiddler)
+* [curl](https://curl.haxx.se/)
+* [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 
-Utilisation de Wget :
+En outre, vous pouvez utiliser l’onglet réseau des outils de débogage F12 dans Internet Explorer pour afficher les réponses HTTP.
 
-![wget](./media/traffic-manager-troubleshooting-degraded/traffic-manager-wget.png)
+Pour cet exemple, voulons voir la réponse de l’URL de notre sonde : http://watestsdp2008r2.cloudapp.net:80/Probe. L’exemple PowerShell suivant illustre le problème.
 
-Notez que wget indique que l’URL a renvoyé une redirection 301 à http://watestsdp2008r2.cloudapp.net/Default.aspx. Comme la section ci-dessus « Remarques importantes sur la détection de Traffic Manager » nous l’a appris, une redirection 30x est considérée comme un échec par la détection Traffic Manager et la sonde rapporte un état hors connexion. À ce stade, il est très simple de vérifier la configuration du site web et de s’assurer qu’une réponse 200 est retournée par le chemin d’accès /Probe (ou de reconfigurer la sonde Traffic Manager pour pointer vers un chemin d’accès qui retournera 200).
+```powershell
+Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
+```
 
-Si votre sonde utilise le protocole HTTPs, vous devez ajouter le paramètre « --no-check-certificate » à wget afin qu’il ignore l’incompatibilité du certificat sur l’URL cloudapp.net.
+Exemple de sortie :
 
-## Étapes suivantes
-[À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-routing-methods.md)
+    StatusCode StatusDescription
+    ---------- -----------------
+           301 Moved Permanently
 
-[Qu’est-ce que Traffic Manager ?](traffic-manager-overview.md)
+Notez que nous avons reçu une réponse redirigée. Comme indiqué précédemment, tout StatusCode autre que 200 est considéré comme un échec. Traffic Manager modifie l’état du point de terminaison en Hors connexion. Pour résoudre le problème, vérifiez la configuration de site web pour vous assurer que le StatusCode approprié peut être retourné à partir du chemin d’accès de la sonde. Reconfigurez la sonde Traffic Manager pour qu’elle pointe vers un chemin d’accès qui renvoie la valeur 200.
+
+Si votre sonde utilise le protocole HTTPS, vous devez peut-être désactiver la vérification du certificat pour éviter les erreurs SSL/TLS pendant votre test. Les instructions PowerShell suivantes désactivent la validation de certificat pour la session PowerShell :
+
+```powershell
+add-type @"
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+public class TrustAllCertsPolicy : ICertificatePolicy {
+    public bool CheckValidationResult(
+    ServicePoint srvPoint, X509Certificate certificate,
+    WebRequest request, int certificateProblem) {
+    return true;
+    }
+}
+"@
+[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+```
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-routing-methods.md)
+
+[Qu’est-ce que Traffic Manager ?](traffic-manager-overview.md)
 
 [Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
 
-[Sites Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[Azure Web Apps](https://azure.microsoft.com/documentation/services/app-service/web/)
 
 [Opérations sur Traffic Manager (Référence sur l’API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
-[Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769)
+[Applets de commande Azure Traffic Manager][1]
 
-<!---HONumber=AcomDC_0824_2016-->
+[1]: https://msdn.microsoft.com/library/mt125941(v=azure.200).aspx
+
+
+
+<!--HONumber=Nov16_HO5-->
+
+

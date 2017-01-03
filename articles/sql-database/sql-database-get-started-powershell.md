@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 12/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: b557c6d3591b1d56144651e876fa4bb1b0646935
+ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
+ms.openlocfilehash: d00b7b543f105fd944e91f6ed27e6613366c6716
 
 
 ---
@@ -31,9 +31,9 @@ Ce didacticiel de mise en route vous explique comment utiliser PowerShell pour :
 * créer un serveur logique Azure SQL ;
 * visualiser les propriétés de serveur SQL Azure ;
 * créer une règle de pare-feu au niveau du serveur ;
-* créer l’exemple de base de données AdventureWorksLT sous la forme d’une base de données autonome ;
+* créer l’exemple de base de données AdventureWorksLT sous la forme d’une base de données unique ;
 * visualiser les propriétés de l’exemple de base de données AdventureWorksLT ;
-* créer une base de données autonome vide.
+* créer une base de données unique vide.
 
 Ce didacticiel vous apprend également à effectuer les opérations suivantes :
 
@@ -577,6 +577,6 @@ Maintenant que vous avez terminé ce premier didacticiel de mise en route et que
 [Définition de la base de données SQL](sql-database-technical-overview.md)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

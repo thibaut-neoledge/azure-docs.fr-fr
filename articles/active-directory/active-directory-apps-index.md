@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/02/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 922219ec12343bd40dd343613e370ddd1813f126
+ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
+ms.openlocfilehash: acb1cd18cf6e4fa9504d76fcac48dbe85579eab0
 
 
 ---
@@ -43,7 +43,7 @@ Cette section fournit un accès rapide aux guides de résolution des problèmes 
 | Authentification unique fédérée |[Dépannage de l’authentification unique basée sur SAML](active-directory-saml-debugging.md) |
 | Authentification unique par mot de passe |[Résolution des problèmes liés à l'extension du volet d'accès pour Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Proxy d’application |[Guide de résolution des problèmes pour le proxy d’application](active-directory-application-proxy-troubleshoot.md) |
-| Authentification unique entre AD en local et Azure AD |[Dépannage de la synchronisation du mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization)<br /><br />[Résolution des problèmes d’écriture différée du mot de passe](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Authentification unique entre AD en local et Azure AD |[Dépannage de la synchronisation du mot de passe](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization)<br /><br />[Résolution des problèmes d’écriture différée du mot de passe](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Appartenances au groupe dynamique |[Résolution des problèmes liés à l’appartenance au groupe dynamique](active-directory-accessmanagement-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>Authentification unique (SSO)
@@ -114,7 +114,7 @@ Une fois que vous avez défini l’authentification unique pour vos applications
 
 L’accès conditionnel est une fonctionnalité [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
 
-## <a name="apps-azure-ad"></a>Applications et Azure AD
+## <a name="apps--azure-ad"></a>Applications et Azure AD
 ### <a name="cloud-app-discovery-find-which-saas-apps-are-being-used-in-your-organization"></a>Cloud App Discovery : recherchez les applications SaaS en cours d’utilisation dans votre organisation
 Cloud App Discovery aide les services informatiques à déterminer les applications SaaS en cours d’utilisation dans l’ensemble de l’organisation. Un service informatique peut l’utiliser pour mesurer l’utilisation et la popularité des applications afin de déterminer celles qui gagneront le plus à être placées sous son contrôle et intégrées à Azure AD.
 
@@ -214,6 +214,6 @@ Pour afficher les rapports qui sont inclus dans les différentes éditions d’A
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

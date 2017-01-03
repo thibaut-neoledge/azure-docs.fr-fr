@@ -16,8 +16,8 @@ ms.workload: identity
 ms.date: 09/16/2016
 ms.author: patricka
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d48bfc4e98f1bdfcf4b692b1d1941647d8930ba1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9a52b64776c55bf72c300bf67f92643a53c7f234
 
 
 ---
@@ -125,6 +125,6 @@ Pour plus d'informations sur les entités et les types Azure AD exposés par Gr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

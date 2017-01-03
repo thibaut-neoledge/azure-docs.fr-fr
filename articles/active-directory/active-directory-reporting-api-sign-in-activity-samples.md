@@ -1,12 +1,12 @@
 ---
-title: Exemples de l’API de création de rapports sur l’activité de connexion Azure Active Directory | Microsoft Docs
-description: Prise en main de l'API de création de rapports Azure Active Directory
+title: "Exemples de l’API de création de rapports sur l’activité de connexion Azure Active Directory | Microsoft Docs"
+description: "Prise en main de l&quot;API de création de rapports Azure Active Directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: c41c1489-726b-4d3f-81d6-83beb932df9c
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2016
 ms.author: dhanyahk;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e6b1137c8ca33774ef9852b9441b541cf7723ebd
+
 
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-samples"></a>Exemples de l’API de création de rapports sur l’activité de connexion Azure Active Directory
@@ -21,7 +25,7 @@ Cette rubrique fait partie d’un ensemble de rubriques relatives à l’API de 
 La création de rapports Azure AD fournit une API qui vous permet d’accéder aux données de l’activité de connexion à l’aide de code ou d’outils associés.  
 Cette rubrique a pour but de vous fournir un exemple de code pour **l’API d’activité de connexion**.
 
-Consultez l'article :
+Consultez l'article :
 
 * [Journaux d’audit](active-directory-reporting-azure-portal.md#audit-logs) pour plus d’informations conceptuelles
 * [Prise en main de l’API de création de rapports Azure Active Directory](active-directory-reporting-api-getting-started.md) pour plus d’informations sur l’API de création de rapports.
@@ -80,10 +84,13 @@ Une fois que vous avez terminé la modification du script, exécutez-le, puis v�
 Le script renvoie la sortie du rapport sur la connexion au format JSON. Il crée également un fichier `SigninActivities.json` avec la même sortie. Vous pouvez expérimenter en modifiant le script pour renvoyer des données à partir d’autres rapports, et également commenter les formats de sortie dont vous n’avez pas besoin.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Vous souhaitez personnaliser les exemples de cette rubrique ? Consultez la [référence d’API d’activité de connexion Azure Active Directory](active-directory-reporting-api-sign-in-activity-reference.md). 
+* Vous souhaitez personnaliser les exemples de cette rubrique ? Consultez la [référence d’API d’activité de connexion Azure Active Directory](active-directory-reporting-api-sign-in-activity-reference.md). 
 * Si vous souhaitez obtenir une présentation complète de l’utilisation de l’API de création de rapports Azure Active Directory, consultez [Prise en main de l’API de création de rapports Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Si vous souhaitez en savoir plus sur la création de rapports Azure Active Directory, consultez le [Guide Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

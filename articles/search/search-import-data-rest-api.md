@@ -13,32 +13,33 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 340287e4a3331eba441bce7feb957f27aca38b2b
-
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 80a1630deb8f7e93a91118d880eb2477ace26eb6
 
 ---
+
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Charger des données dans Azure Search à l’aide de l’API REST
 > [!div class="op_single_selector"]
+>
 > * [Vue d'ensemble](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
 > * [REST](search-import-data-rest-api.md)
-> 
-> 
+>
+>
 
-Cet article vous explique comment utiliser l’ [API REST Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) pour importer des données dans un index Azure Search.
+Cet article vous explique comment utiliser l’ [API REST Azure Search](https://docs.microsoft.com/rest/api/searchservice/) pour importer des données dans un index Azure Search.
 
 Avant de commencer cette procédure, vous devez déjà avoir [créé un index Azure Search](search-what-is-an-index.md).
 
 Pour distribuer des documents dans l’index à l’aide de l’API REST, vous allez envoyer une requête HTTP POST au point de terminaison URL de votre index. Le corps de la requête HTTP est un objet JSON contenant les documents à ajouter, à modifier ou à supprimer.
 
-## <a name="i-identify-your-azure-search-services-admin-apikey"></a>I. Identifier la clé API d’administration de votre service Azure Search
+## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identifier la clé API d’administration de votre service Azure Search
 Lors de l’émission de requêtes HTTP sur votre service à l’aide de l’API REST, *chaque* demande d’API doit inclure la clé API générée pour le service Search que vous avez configuré. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
-1. Pour accéder aux clés API de votre service, vous devez vous connecter au [portail Azure](https://portal.azure.com/)
+1. Pour accéder aux clés API de votre service, vous devez vous connecter au [Portail Azure](https://portal.azure.com/)
 2. Accédez au panneau de votre service Azure Search
 3. Cliquez sur l’icône « Clés »
 
@@ -65,9 +66,9 @@ Chaque objet JSON du tableau « value » représente un document à indexer. C
 Maintenant que vous avez recueilli les valeurs de champ requises pour les actions de votre index, vous pouvez construire votre requête HTTP et le corps de requête JSON pour importer vos données.
 
 #### <a name="request-and-request-headers"></a>Requête et en-têtes de requête
-Dans l’URL, vous devez fournir le nom de votre service, le nom de l’index (« hotels » dans notre exemple) ainsi que la version d’API appropriée (la version actuelle de l’API est celle du `2015-02-28` au moment de la publication de ce document). Vous devez définir les en-têtes de requête `Content-Type` et `api-key`. Pour cette dernière, utilisez l’une des clés d’administration de votre service.
+Dans l’URL, vous devez fournir le nom de votre service, le nom de l’index (« hotels » dans notre exemple) ainsi que la version d’API appropriée (la version actuelle de l’API est celle du `2016-09-01` au moment de la publication de ce document). Vous devez définir les en-têtes de requête `Content-Type` et `api-key`. Pour cette dernière, utilisez l’une des clés d’administration de votre service.
 
-    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
+    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 
@@ -160,8 +161,8 @@ Un code d’état `207` est renvoyé lorsqu’au moins un élément n’a pas é
 
 > [!NOTE]
 > Cela signifie généralement que la charge de votre service de recherche a atteint un point tel que les demandes d’indexation commencent à renvoyer des réponses `503`. Dans ce cas, nous vous recommandons vivement de désactiver votre code client et d’attendre avant d’effectuer une nouvelle tentative. En laissant au système le temps de récupérer, vous aurez davantage de chance de voir vos futures requêtes aboutir. Si vous renouvelez rapidement vos tentatives de requête, vous ne ferez que prolonger la situation.
-> 
-> 
+>
+>
 
 #### <a name="429"></a>429
 Le code d’état `429` est renvoyé lorsque vous avez dépassé votre quota de nombre de documents par index.
@@ -171,17 +172,16 @@ Le code d’état `503` est renvoyé si aucun des éléments de la requête n’
 
 > [!NOTE]
 > Dans ce cas, nous vous recommandons vivement de désactiver votre code client et d’attendre avant d’effectuer une nouvelle tentative. En laissant au système le temps de récupérer, vous aurez davantage de chance de voir vos futures requêtes aboutir. Si vous renouvelez rapidement vos tentatives de requête, vous ne ferez que prolonger la situation.
-> 
-> 
+>
+>
 
-Pour plus d’informations sur les actions de document et les réponses de réussite/d’erreur, consultez la page [Ajouter, mettre à jour ou supprimer des documents](https://msdn.microsoft.com/library/azure/dn798930.aspx). Pour plus d’informations sur les autres codes d’état HTTP pouvant être renvoyés en cas d’échec, consultez la page [Codes d’état HTTP (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Pour plus d’informations sur les actions de document et les réponses de réussite/d’erreur, consultez la page [Ajouter, mettre à jour ou supprimer des documents](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents). Pour plus d’informations sur les autres codes d’état HTTP pouvant être renvoyés en cas d’échec, consultez la page [Codes d’état HTTP (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 ## <a name="next"></a>Suivant
 Une fois votre index Azure Search renseigné, vous pouvez commencer à exécuter des requêtes de recherche de documents. Pour plus d’informations, consultez l’article [Interroger votre index Azure Search](search-query-overview.md) .
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

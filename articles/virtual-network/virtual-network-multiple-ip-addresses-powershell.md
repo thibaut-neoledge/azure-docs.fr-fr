@@ -1,260 +1,396 @@
 ---
-title: Adresses IP pour les machines virtuelles - PowerShell | Microsoft Docs
-description: Apprenez à affecter des adresses IP à une machine virtuelle à l’aide d’Azure PowerShell.
+title: Plusieurs adresses IP pour les machines virtuelles - PowerShell | Microsoft Docs
+description: "Découvrez comment affecter plusieurs adresses IP à une machine virtuelle avec PowerShell | Gestionnaire des ressources."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: c44ea62f-7e54-4e3b-81ef-0b132111f1f8
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/05/2016
+ms.date: 11/16/2016
 ms.author: jdial;annahar
+translationtype: Human Translation
+ms.sourcegitcommit: a0d8a6dbe793bc4ea5211e772439d931c8e84a04
+ms.openlocfilehash: cf2a57f96576b18692dd42a9680d7f3b8d8f7c69
+
 
 ---
-# <a name="assign-multiple-ip-addresses-to-virtual-machines"></a>Affecter plusieurs adresses IP aux machines virtuelles
-Une ou plusieurs interfaces réseau peuvent être attachées à une machine virtuelle Azure. Une ou plusieurs adresses IP publiques ou privées peuvent être affectées à chaque interface réseau. Si vous n’êtes pas familiarisé avec les adresses IP dans Azure, lisez l’article [Adresses IP dans Azure](virtual-network-ip-addresses-overview-arm.md) pour en savoir plus. Cet article explique comment utiliser Azure PowerShell pour affecter plusieurs adresses IP à une interface réseau dans le modèle de déploiement Azure Resource Manager.
+# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Affecter plusieurs adresses IP à des machines virtuelles avec PowerShell
 
-L’affectation de plusieurs adresses IP à une interface réseau permet à la machine virtuelle :
+> [!div class="op_single_selector"]
+> * [portail Azure](virtual-network-multiple-ip-addresses-portal.md)
+> * [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+> * [INTERFACE DE LIGNE DE COMMANDE](virtual-network-multiple-ip-addresses-cli.md)
+>
 
-* d’héberger plusieurs sites web ou services avec des adresses IP différentes et des certificats SSL sur un serveur unique ;
+Une ou plusieurs cartes réseau sont attachées à une machine virtuelle Azure. Une ou plusieurs adresses IP publiques ou privées, statiques ou dynamiques, peuvent être affectées à chaque carte réseau. L’affectation de plusieurs adresses IP à une machine virtuelle permet :
+
+* D’héberger plusieurs sites web ou services avec des adresses IP différentes et des certificats SSL sur un serveur unique.
 * de jouer le rôle d’une appliance virtuelle réseau, telle qu’un pare-feu ou un équilibreur de charge.
+* La possibilité d’ajouter l’une des adresses IP privées pour toutes les cartes réseau à un pool principal Azure Load Balancer. Auparavant, seule l’adresse IP principale de la carte réseau principale pouvait être ajoutée à un pool principal. Pour en savoir plus sur la façon d’équilibrer la charge entre plusieurs configurations IP, lisez l’article [Équilibrage de la charge entre plusieurs configurations IP](../load-balancer/load-balancer-multiple-ip.md).
+
+Une ou plusieurs configurations IP sont associées à chaque carte réseau attachée à une machine virtuelle. Une adresse IP privée statique ou dynamique est affectée à chaque configuration. Une ressource d’adresse IP publique peut également être associée à chaque configuration. Une adresse IP statique ou dynamique est affectée à une ressource d’adresse IP publique. Si vous n’êtes pas familiarisé avec les adresses IP dans Azure, lisez l’article [Adresses IP dans Azure](virtual-network-ip-addresses-overview-arm.md) pour en savoir plus.
+
+Cet article explique comment utiliser PowerShell pour affecter plusieurs adresses IP à une machine virtuelle créée à l’aide du modèle de déploiement Azure Resource Manager. Il n’est pas possible d’affecter plusieurs adresses IP à des ressources créées à l’aide du modèle de déploiement classique. Pour en savoir plus sur les modèles de déploiement Azure, voir [Comprendre les modèles de déploiement](../resource-manager-deployment-model.md).
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
-Pour obtenir la version préliminaire, envoyez un e-mail à [Plusieurs adresses IP](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) en indiquant votre ID d’abonnement et l’utilisation prévue.
-
 ## <a name="scenario"></a>Scénario
-Dans cet article, vous allez associer trois configurations IP à une interface réseau.
-Les exemples de configuration suivants sont créés et affectés à une interface réseau à laquelle trois adresses IP privées et une adresse IP publique sont affectées :
+Une machine virtuelle avec une seule carte réseau est créée et connectée à un réseau virtuel. La machine virtuelle nécessite trois adresses IP *privées* différentes et deux adresses IP *publiques*. Les adresses IP sont affectées aux configurations IP suivantes :
 
-* IPConfig-1 : une adresse IP privée dynamique (par défaut) et une adresse IP publique émanant de la ressource d’adresses IP publiques nommée PIP1.
-* IPConfig-2 : une adresse IP privée statique et aucune adresse IP publique.
-* IPConfig-3 : une adresse IP privée dynamique et aucune adresse IP publique.
+* **IPConfig-1 :** attribue une adresse IP privée *dynamique* (par défaut) et une adresse IP publique *statique*.
+* **IPConfig-2 :** attribue une adresse IP privée *statique* et une adresse IP publique *statique*.
+* **IPConfig-3 :** attribue une adresse IP privée *dynamique* et aucune adresse IP publique.
   
-    ![Texte de remplacement d’image](./media/virtual-network-multiple-ip-addresses-powershell/OneNIC-3IP.png)
+    ![Plusieurs adresses IP](./media/virtual-network-multiple-ip-addresses-powershell/OneNIC-3IP.png)
 
-Ce scénario suppose que vous avez un groupe de ressources appelé *RG1* contenant un réseau virtuel appelé *VNet1* et un sous-réseau appelé *Subnet1*. De plus, il suppose que vous avez une machine virtuelle appelée *VM1*, une interface réseau appelée *VM1-NIC1* associée à celle-ci et une adresse IP publique appelée *PIP1*.
+Les configurations IP sont associées à la carte réseau lors de sa création, et la carte réseau est attachée à la machine virtuelle lors de la création de celle-ci. Les types d’adresses IP utilisés pour le scénario sont indiqués à titre d’illustration. Vous pouvez affecter les types d’adresse IP et d’attribution dont vous avez besoin.
 
-[Cet article](../virtual-machines/virtual-machines-windows-ps-create.md) explique comment créer les ressources mentionnées ci-dessus, si ce n’est déjà fait.
+## <a name="a-name--createacreate-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Créer une machine virtuelle avec plusieurs adresses IP
 
-## <a name="a-name-createacreate-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Créer une machine virtuelle avec plusieurs adresses IP
+Les étapes qui suivent expliquent comment créer un exemple de machine virtuelle avec plusieurs adresses IP, comme décrit dans le scénario. Modifiez les noms des variables et les types d’adresses IP en fonction des besoins de votre implémentation.
+
 1. Ouvrez une invite de commandes PowerShell et effectuez les étapes restantes de cette section dans une même session PowerShell. Si vous n’avez pas installé, ni configuré PowerShell, effectuez les étapes de l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) .
-2. Remplacez les « valeurs » des $Variables suivantes par l’[emplacement](https://azure.microsoft.com/regions) Azure de votre réseau virtuel, le nom de votre [groupe de ressources](../resource-group-overview.md#resource-groups), le réseau virtuel dans le groupe de ressources,le sous-réseau auquel vous souhaitez connecter l’interface réseau et le nom de l’interface réseau.
-   
-        $Location = "westcentralus"
-        $RgName   = "RG1"
-        $VNetName   = "VNet1"
-        $SubnetName = "Subnet1"
-        $NicName     = "VM1-NIC1"
-        $PIP = "PIP"
-   
-    Si vous ne connaissez pas le nom d’un emplacement ou d’un groupe de ressources Azure, tapez les commandes suivantes :
-   
-        Get-AzureRmLocation      | Format-Table Location
-        Get-AzureRmResourceGroup | Format-Table ResourceGroupName
-   
-    <a name="subnet"></a>L’interface réseau doit être connectée à un sous-réseau du réseau virtuel Azure existant. Les trois composants (carte réseau, sous-réseau et réseau virtuel) doivent appartenir à la même région et au même [abonnement](../azure-glossary-cloud-terminology.md#subscription).  Si vous n’êtes pas familier avec les réseaux virtuels, consultez l’article [Présentation du réseau virtuel](virtual-networks-overview.md) pour en savoir plus ou consultez l’article [Créer un réseau virtuel à l’aide de PowerShell](virtual-networks-create-vnet-arm-ps.md) pour apprendre à créer un réseau virtuel.
-   
-    Si vous ne connaissez pas le nom d’un réseau virtuel existant, entrez la commande suivante et remplacez *VNet1* dans la variable précédente par le nom d’un réseau virtuel :
-   
-        Get-AzureRmVirtualNetwork | Format-Table Name
-   
-    Si la liste renvoyée est vide, vous devez créer un réseau virtuel. Pour en savoir plus, consultez l’article [Créer un réseau virtuel](virtual-networks-create-vnet-arm-ps.md) .
-   
-    Tapez les commandes suivantes pour obtenir le nom des sous-réseaux du réseau virtuel et remplacez *Subnet1* ci-dessus par le nom du sous-réseau :
-   
-        $VNet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RgName
-        $VNet.Subnets | Format-Table Name, AddressPrefix
-3. Entrez la commande suivante pour récupérer le sous-réseau et l’affecter à une variable.
-   
-        $Subnet = $VNet.Subnets | Where-Object { $_.Name -eq $SubnetName }
-4. <a name="ipconfigs"></a>Définissez les configurations IP à affecter à l’interface réseau. Chaque configuration peut avoir une adresse IP statique ou dynamique privée et une ressource d’adresse IP publique associée avec une adresse statique ou dynamique.
-   
-    Ajoutez ou supprimez un certain nombre de configurations parmi les suivantes, selon le nombre d’adresses IP à associer à l’interface réseau et les paramètres que vous souhaitez configurer.
-   
-    **IPConfig-1**
-   
-    Remplacez la valeur *PIP1* par le nom d’une ressource d’adresse IP publique qui existe dans l’emplacement où vous créez l’interface réseau et qui n’est pas associée à une autre interface réseau. Remplacez *RG1* par le nom du groupe de ressources dans lequel la ressource d’adresse IP publique existe. Remplacez *IPConfig-1* par le nom que vous voulez attribuer à la première configuration IP. Entrez les commandes suivantes :
-   
-        $PIP1 = Get-AzureRmPublicIPAddress -Name "PIP1" -ResourceGroupName $RgName
-   
-        $IpConfigName1 = "IPConfig-1"
-        $IPConfig1     = New-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName1 -Subnet $Subnet -PublicIpAddress $PIP1 -Primary
-   
-    Notez la présence du commutateur *-Primary* . Lorsque vous affectez plusieurs configurations IP à une interface réseau, une configuration doit être affectée en tant que configuration *principale*. Si vous ne connaissez pas le nom d’une ressource d’adresse IP publique existante, entrez les commandes suivantes :
-   
-        Get-AzureRMPublicIPAddress |Format-Table Name, Location, IPAddress, IpConfiguration
-   
-    Si la colonne **IPConfiguration** du résultat est vide, la ressource d’adresse IP publique peut être utilisée, car elle n’est pas associée à une interface réseau existante. Si la liste est vide ou ne contient aucune ressource d’adresse IP publique disponible, vous pouvez en créer une à l’aide de la commande **New-AzureRmPublicIPAddress** .
-   
-   > [!NOTE]
-   > Les adresses IP publiques ont un coût nominal. Pour en savoir plus, lisez la page [Tarification des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses) .
-   > 
-   > 
-   
-    **IPConfig-2**
-   
-    Remplacez *IPConfig-2* par le nom que vous souhaitez donner à la deuxième configuration IP et remplacez *10.0.0.5* par une adresse IP valide inutilisée pour le sous-réseau que vous affectez à l’interface réseau. Entrez les commandes suivantes :
-   
-        $IPConfigName2 = "IPConfig-2"
-        $IPAddress = 10.0.0.5
-   
-        $IPConfig2 = New-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName2 -Subnet $Subnet -PrivateIpAddress $IPAddress
-   
-    Si vous ne connaissez pas la plage d’adresses IP affectée au sous-réseau, entrez la commande suivante :
-   
-        $VNet.Subnets | Format-Table Name, AddressPrefix
-   
-    **IPConfig-3**
-   
-    Remplacez *IPConfig-3* par le nom que vous voulez attribuer à la troisième configuration IP, puis entrez les commandes suivantes :
-   
-        $IPConfigName3 = "IPConfig-3"
-        $IPConfig3 = New-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName3 -Subnet $Subnet
-   
-   > [!NOTE]
-   > Vous pouvez affecter jusqu’à 250 adresses IP privées à une interface réseau. Il existe une limite au nombre d’adresses IP publiques qui peuvent être utilisées dans un abonnement. Pour plus d’informations, consultez l’article [Limites d’Azure](../azure-subscription-service-limits.md#networking-limits---azure-resource-manager) .
-   > 
-   > 
-5. Créez l’interface réseau en utilisant les configurations IP définies à l’étape précédente.
-   
-        $nic = New-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $RgName -Location $Location -IpConfiguration $IpConfig1,$IpConfig2,$IpConfig3
-6. Attachez l’interface réseau lors de la création d’une machine virtuelle en suivant les étapes de l’article [Créer une machine virtuelle](../virtual-machines/virtual-machines-windows-ps-create.md) . Bien que l’article porte sur la création d’une machine virtuelle exécutant Windows Server, les étapes sont identiques pour une machine virtuelle sous Linux hormis que le système d’exploitation est différent. Effectuez les étapes 1 à 3 de l’article. Ignorez les étapes 4 et 5, puis exécutez l’étape 6 de l’article Créer une machine virtuelle.
-   
-   > [!WARNING]
-   > L’étape 6 de l’article Créer une machine virtuelle échoue si vous avez remplacé la variable $nic par autre chose ou si vous n’avez pas effectué les étapes précédentes de cet article.
-   > 
-   > 
-7. Pour afficher les adresses IP privées qu’Azure DHCP a affectées à l’interface réseau et la ressource d’adresse IP publique affectée à celle-ci, entrez la commande suivante :
-   
-        $nic.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
-8. <a name="os"></a>À la configuration TCP/IP du système d’exploitation, ajoutez manuellement toutes les adresses IP privées secondaires (adresses IP auxquelles est associé le mot clé *False* dans la colonne **Principale** de la sortie affichée à l’étape précédente). L’adresse IP privée affectée à *IPConfig-1* à l’étape 5 est automatiquement affectée au système d’exploitation via Azure DHCP, car il s’agit de la configuration *principale*.
+2. Inscrivez-vous pour la version préliminaire en envoyant à [Plusieurs adresses IP](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) un message électronique contenant votre ID d’abonnement et l’utilisation prévue. N’essayez pas d’effectuer les étapes restantes :
+    - tant que vous n’avez pas reçu de message vous informant que vous avez été accepté dans la version préliminaire ;
+    - sans suivre les instructions fournies dans le message que vous recevez.
+3. Accomplissez les étapes 1 à 4 décrites dans [Créer une machine virtuelle Windows](../virtual-machines/virtual-machines-windows-ps-create.md). N’accomplissez pas l’étape 5 (création de ressource IP publique et d’interface réseau). Si vous modifiez les noms des variables utilisées dans cet article, modifiez également les noms des variables dans les étapes restantes. Pour créer une machine virtuelle Linux, sélectionnez un système d’exploitation Linux au lieu de Windows.
+4. Créez une variable pour stocker l’objet de sous-réseau créé à l’étape 4 (Créer une machine virtuelle) de l’article Création d’une machine virtuelle Windows en tapant la commande suivante :
 
-**Windows**
+    ```powershell
+    $SubnetName = $mySubnet.Name
+    $Subnet = $myVnet.Subnets | Where-Object { $_.Name -eq $SubnetName }
+    ```
+5. Définissez les configurations IP à affecter à l’interface réseau. Vous pouvez ajouter, supprimer ou modifier les configurations selon les besoins. Les configurations décrites dans le scénario sont les suivantes :
+
+    **IPConfig-1**
+
+    Entrez les commandes suivantes pour créer :
+    - une ressource d’adresse IP publique avec une adresse IP publique statique ;
+    - une configuration IP avec la ressource d’adresse IP publique et une adresse IP privée dynamique.
+
+    ```powershell
+    $myPublicIp1     = New-AzureRmPublicIpAddress -Name "myPublicIp1" -ResourceGroupName $myResourceGroup -Location $location -AllocationMethod Static
+    $IpConfigName1  = "IPConfig-1"
+    $IpConfig1      = New-AzureRmNetworkInterfaceIpConfig -Name $IpConfigName1 -Subnet $Subnet -PublicIpAddress $myPublicIp1 -Primary
+    ```
+
+    Remarquez le commutateur `-Primary` dans la commande précédente. Lorsque vous affectez plusieurs configurations IP à une interface réseau, une configuration doit être affectée en tant que configuration *principale*.
+
+    > [!NOTE]
+    > Les adresses IP publiques ont un coût nominal. Pour en savoir plus, lisez la page [Tarification des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Il existe une limite au nombre d’adresses IP publiques qui peuvent être utilisées dans un abonnement. Pour plus d’informations sur les limites, voir [Limites d’Azure](../azure-subscription-service-limits.md#networking-limits).
+    >
+
+    **IPConfig-2**
+
+    Modifiez la valeur de la variable **$IPAddress** qui suit une adresse valide disponible sur le sous-réseau que vous avez créé. Pour vérifier si l’adresse 10.0.0.5 est disponible sur le sous-réseau, entrez la commande `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.5 -VirtualNetwork $myVnet`. Si l’adresse est disponible, la sortie retourne *True*. S’il n’est pas disponible, la sortie retourne *False* et la liste des adresses disponibles. Entrez les commandes suivantes pour créer une nouvelle ressource d’adresse IP publique et une nouvelle configuration IP avec une adresse IP publique et une adresse IP privée statiques :
+    
+    ```powershell
+    $IpConfigName2 = "IPConfig-2"
+    $IPAddress     = 10.0.0.5
+    $myPublicIp2   = New-AzureRmPublicIpAddress -Name "myPublicIp2" -ResourceGroupName $myResourceGroup `
+    -Location $location -AllocationMethod Static
+    $IpConfig2     = New-AzureRmNetworkInterfaceIpConfig -Name $IpConfigName2 `
+    -Subnet $Subnet -PrivateIpAddress $IPAddress -PublicIpAddress $myPublicIp2
+    ```
+
+    **IPConfig-3**
+
+    Entrez les commandes suivantes pour créer une configuration IP avec une adresse IP privée dynamique et aucune adresse IP publique :
+
+    ```powershell
+    $IpConfigName3 = "IpConfig-3"
+    $IpConfig3 = New-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName3 -Subnet $Subnet
+    ```
+6. Créez la carte réseau en utilisant les configurations IP définies à l’étape précédente en entrant la commande suivante :
+
+    ```powershell
+    $myNIC = New-AzureRmNetworkInterface -Name myNIC -ResourceGroupName $myResourceGroup `
+    -Location $location -IpConfiguration $IpConfig1,$IpConfig2,$IpConfig3
+    ```
+    > [!NOTE]
+    > Bien que cet article affecte toutes les configurations IP à une seule carte réseau, vous pouvez également affecter plusieurs configurations IP à tout carte réseau dans une machine virtuelle. Pour découvrir comment créer une machine virtuelle avec plusieurs cartes réseau, voir [Créer une machine virtuelle avec plusieurs cartes d’interface réseau](virtual-network-deploy-multinic-arm-ps.md).
+
+7. Accomplissez l’étape 6 décrite dans [Créer une machine virtuelle](../virtual-machines/virtual-machines-windows-ps-create.md). 
+
+    > [!WARNING]
+    > L’étape 6 décrite dans Créer une machine virtuelle échoue dans les cas suivants :
+    > - Vous avez modifié la variable nommée $myNIC à l’étape 6 de cet article.
+    > - Vous n’avez pas accompli les étapes précédentes décrites ici et dans Créer un machine virtuelle.
+    >
+8. Entrez la commande suivante pour afficher les ressources d’adresses IP privées et d’adresse IP publique affectées à la carte réseau :
+
+    ```powershell
+    $myNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
+    ```
+
+## <a name="a-nameosconfigaadd-ip-addresses-to-a-vm-operating-system"></a><a name="OsConfig"></a>Ajouter des adresses IP à un système d’exploitation de machine virtuelle
+
+Connectez-vous à une machine virtuelle que vous avez créée à l’aide de plusieurs adresses IP privées. Vous devez ajouter manuellement toutes les adresses IP privées (y compris l’adresse principale) que vous avez ajoutées à la machine virtuelle. Effectuez les étapes suivantes dans le système d’exploitation de votre machine virtuelle :
+
+### <a name="windows"></a>Windows
 
 1. Tapez *ipconfig /all*à l’invite de commandes.  Seule l’adresse IP privée *principale* est visible (via DHCP).
-2. Tapez ensuite *ncpa.cpl* dans la fenêtre d’invite de commandes. Une nouvelle fenêtre apparaît.
+2. Saisissez *ncpa.cpl* dans l’invite de commandes pour ouvrir la fenêtre **Connexions réseau**.
 3. Ouvrez les propriétés de **Connexion au réseau local**.
 4. Double-cliquez sur Internet Protocol version 4 (IPv4).
-5. Cliquez sur **Utiliser l’adresse IP suivante** et entrez les valeurs suivantes :
-   
-   * **Adresse IP**: entrez l’adresse IP privée *principale* .
-   * **Masque de sous-réseau**: définissez cette option en fonction de votre sous-réseau. Par exemple, si le sous-réseau est un sous-réseau /24, le masque de sous-réseau est 255.255.255.0.
-   * **Passerelle par défaut**: première adresse IP du sous-réseau. Si votre sous-réseau est 10.0.0.0/24, l’adresse IP de la passerelle est 10.0.0.1.
-   * Cliquez sur **Utiliser l’adresse de serveur DNS suivante** et saisissez les valeurs ci-dessous :
-     * **Serveur DNS préféré :** saisissez 168.63.129.16 si vous n’utilisez pas votre propre serveur DNS.  Dans le cas contraire, entrez l’adresse IP de votre serveur DNS.
-   * Cliquez sur le bouton **Avancé** et ajoutez des adresses IP supplémentaires. Ajoutez chacune des adresses IP privées secondaires de l’étape 8 à l’interface réseau avec le même sous-réseau que celui de l’adresse IP principale.
-   * Cliquez sur **OK** pour fermer les paramètres TCP/IP, puis sur **OK** à nouveau pour fermer les paramètres de la carte réseau. La connexion RDP est rétablie.
+5. Cliquez sur **Utiliser l’adresse IP suivante** et entrez les valeurs suivantes :
+
+    * **Adresse IP**: entrez l’adresse IP privée *principale* .
+    * **Masque de sous-réseau**: définissez cette option en fonction de votre sous-réseau. Par exemple, si le sous-réseau est un sous-réseau /24, le masque de sous-réseau est 255.255.255.0.
+    * **Passerelle par défaut**: première adresse IP du sous-réseau. Si votre sous-réseau est 10.0.0.0/24, l’adresse IP de la passerelle est 10.0.0.1.
+    * Cliquez sur **Utiliser l’adresse de serveur DNS suivante** et saisissez les valeurs ci-dessous :
+        * **Serveur DNS préféré** : saisissez 168.63.129.16 si vous n’utilisez pas votre propre serveur DNS.  Si vous utilisez votre propre serveur DNS, entrez l’adresse IP de votre serveur.
+    * Cliquez sur le bouton **Avancé** et ajoutez des adresses IP supplémentaires. Ajoutez chacune des adresses IP privées secondaires de l’étape 8 à l’interface réseau avec le même sous-réseau que celui de l’adresse IP principale.
+    * Cliquez sur **OK** pour fermer les paramètres TCP/IP, puis sur **OK** à nouveau pour fermer les paramètres de la carte réseau. Votre connexion RDP est rétablie.
 6. Tapez *ipconfig /all*à l’invite de commandes. Toutes les adresses IP que vous avez ajoutées sont affichées et le protocole DHCP est désactivé.
-
-**Linux (Ubuntu)**
-
-1. Ouvrez une fenêtre de terminal.
-2. Assurez-vous d’être l’utilisateur root. Si ce n’est pas le cas, vous pouvez utiliser la commande suivante :
-   
-            sudo -i
-3. Mettez à jour le fichier de configuration de l’interface réseau (en supposant que « eth0 » est utilisé).
-   
-   * Conservez l’élément de ligne existant pour dhcp. Cela configure l’adresse IP principale qui était utilisée antérieurement.
-   * Ajoutez une configuration pour une adresse IP statique supplémentaire à l’aide des commandes suivantes :
-     
-               cd /etc/network/interfaces.d/
-               ls
-     
-       Un fichier .cfg doit s’afficher.
-4. Ouvrez le fichier : vi *nom_de_fichier*.
-   
-    Les lignes suivantes doivent figurer à la fin du fichier :
-   
-            auto eth0
-            iface eth0 inet dhcp
-5. Ajoutez les lignes suivantes après les lignes qui existent dans ce fichier :
-   
-            iface eth0 inet static
-            address <your private IP address here>
-6. Enregistrez le fichier à l’aide de la commande suivante :
-   
-            :wq
-7. Réinitialisez l’interface réseau à l’aide de la commande suivante :
-   
-           sudo ifdown eth0 && sudo ifup eth0
-   
-   > [!IMPORTANT]
-   > Exécutez les scripts ifup et ifdown sur la même ligne si vous utilisez une connexion à distance.
-   > 
-   > 
-8. Vérifiez que l’adresse IP est ajoutée à l’interface réseau à l’aide de la commande suivante :
-   
-            ip addr list eth0
-   
-    Vous devez voir l’adresse IP que vous avez ajoutée à la liste.
-
-**Linux (Redhat, CentOS, etc.)**
+    
+### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
 1. Ouvrez une fenêtre de terminal.
-2. Assurez-vous d’être l’utilisateur root. Si ce n’est pas le cas, vous pouvez utiliser la commande suivante :
-   
-            sudo -i
-3. Entrez votre mot de passe et suivez les instructions qui s’affichent. Une fois que vous êtes l’utilisateur root, accédez au dossier Scripts réseau avec la commande suivante :
-   
-            cd /etc/sysconfig/network-scripts
-4. Répertoriez les fichiers ifcfg connexes à l’aide de la commande suivante :
-   
-            ls ifcfg-*
-   
+2. Assurez-vous d’être l’utilisateur root. Si ce n’est pas le cas, saisissez la commande suivante :
+
+    ```bash
+    sudo -i
+    ```
+
+3. Mettez à jour le fichier de configuration de l’interface réseau (en supposant que « eth0 » est utilisé).
+
+    * Conservez l’élément de ligne existant pour dhcp. L’adresse IP principale reste configurée telle qu’elle était précédemment.
+    * Ajoutez une configuration pour une adresse IP statique supplémentaire à l’aide des commandes suivantes :
+
+        ```bash
+        cd /etc/network/interfaces.d/
+        ls
+        ```
+
+    Un fichier .cfg doit s’afficher.
+4. Ouvrez le fichier : vi *nom_de_fichier*.
+
+    Les lignes suivantes doivent figurer à la fin du fichier :
+
+    ```bash
+    auto eth0
+    iface eth0 inet dhcp
+    ```
+
+5. Ajoutez les lignes suivantes après les lignes qui existent dans ce fichier :
+
+    ```bash
+    iface eth0 inet static
+    address <your private IP address here>
+    ```
+
+6. Enregistrez le fichier à l’aide de la commande suivante :
+
+    ```bash
+    :wq
+    ```
+
+7. Réinitialisez l’interface réseau à l’aide de la commande suivante :
+
+    ```bash
+    sudo ifdown eth0 && sudo ifup eth0
+    ```
+
+    > [!IMPORTANT]
+    > Exécutez les scripts ifup et ifdown sur la même ligne si vous utilisez une connexion à distance.
+    >
+
+8. Vérifiez que l’adresse IP est ajoutée à l’interface réseau à l’aide de la commande suivante :
+
+    ```bash
+    Ip addr list eth0
+    ```
+
+    Vous devez voir l’adresse IP que vous avez ajoutée à la liste.
+    
+### <a name="linux-redhat-centos-and-others"></a>Linux (Redhat, CentOS, etc.)
+
+1. Ouvrez une fenêtre de terminal.
+2. Assurez-vous d’être l’utilisateur root. Si ce n’est pas le cas, saisissez la commande suivante :
+
+    ```bash
+    sudo -i
+    ```
+
+3. Entrez votre mot de passe et suivez les instructions qui s’affichent. Une fois que vous êtes l’utilisateur root, accédez au dossier Scripts réseau avec la commande suivante :
+
+    ```bash
+    cd /etc/sysconfig/network-scripts
+    ```
+
+4. Répertoriez les fichiers ifcfg connexes à l’aide de la commande suivante :
+
+    ```bash
+    ls ifcfg-*
+    ```
+
     Vous devez voir *ifcfg-eth0* dans la liste de fichiers.
-5. Copiez le fichier *ifcfg-eth0* et nommez-le *ifcfg-eth0:0* à l’aide de la commande suivante :
-   
-            cp ifcfg-eth0 ifcfg-eth0:0
-6. Modifiez le fichier *ifcfg-eth0:0* à l’aide de la commande suivante :
-   
-            vi ifcfg-eth1
-7. Donnez à l’appareil le nom approprié figurant dans le fichier, en l’occurrence *eth0:0*, avec la commande suivante :
-   
-            DEVICE=eth0:0
-8. Modifiez la ligne *IPADDR = YourPrivateIPAddress* pour y indiquer l’adresse IP.
-9. Enregistrez le fichier à l’aide de la commande suivante :
-   
-            :wq
-10. Redémarrez les services réseau et vérifiez que les modifications ont été appliquées en exécutant les commandes suivantes :
-    
-            /etc/init.d/network restart
-            Ipconfig
-    
-    Vous devez voir l’adresse IP que vous avez ajoutée à la liste, dans le cas présent *eth0:0*.
 
-## <a name="a-nameaddaadd-ip-addresses-to-an-existing-vm"></a><a name="add"></a>Ajouter des adresses IP à une machine virtuelle existante
-Pour ajouter des adresses IP supplémentaires à une interface réseau, procédez comme suit :
+5. Copiez le fichier *ifcfg-eth0* et nommez-le *ifcfg-eth0:0* à l’aide de la commande suivante :
+
+    ```bash
+    cp ifcfg-eth0 ifcfg-eth0:0
+    ```
+
+6. Modifiez le fichier *ifcfg-eth0:0* à l’aide de la commande suivante :
+
+    ```bash
+    vi ifcfg-eth1
+    ```
+
+7. Donnez à l’appareil le nom approprié figurant dans le fichier, en l’occurrence *eth0:0*, avec la commande suivante :
+
+    ```bash
+    DEVICE=eth0:0
+    ```
+
+8. Modifiez la ligne *IPADDR = YourPrivateIPAddress* pour y indiquer l’adresse IP.
+9. Enregistrez le fichier à l’aide de la commande suivante :
+
+    ```bash
+    :wq
+    ```
+
+10. Redémarrez les services réseau et vérifiez que les modifications ont été appliquées en exécutant les commandes suivantes :
+
+    ```bash
+    /etc/init.d/network restart
+    Ipconfig
+    ```
+
+    Vous devez voir l’adresse IP que vous avez ajoutée à la liste, dans le cas présent *eth0:0*.
+
+## <a name="a-nameaddaadd-ip-addresses-to-a-vm"></a><a name="add"></a>Ajouter des adresses IP à une machine virtuelle
+
+Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau en suivant les étapes décrites ci-après. Les exemples reposent sur le [scénario](#Scenario) décrit dans cet article.
 
 1. Ouvrez une invite de commandes PowerShell et effectuez les étapes restantes de cette section dans une même session PowerShell. Si vous n’avez pas installé, ni configuré PowerShell, effectuez les étapes de l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) .
-2. Remplacez les « valeurs » des $Variables suivantes par le nom de l’interface réseau à laquelle ajouter les adresses IP et le groupe de ressources et l’emplacement dans lesquels l’interface réseau réside :
-   
-        $NicName     = "RG1-VM1-NIC1"
-        $RgName   = "RG1"
-        $NicLocation = "westcentralus"
-   
-    Si vous ne connaissez pas le nom de l’interface réseau que vous souhaitez modifier, entrez les commandes suivantes, puis modifiez les valeurs des variables précédentes :
-   
-        Get-AzureRmNetworkInterface | Format-Table Name, ResourceGroupName, Location
-3. Créez une variable et affectez-la à l’interface réseau à l’aide de la commande suivante :
-   
-        $nic = Get-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $RgName
-4. Récupérez l’ID de sous-réseau auquel l’interface réseau est connectée en suivant les instructions de l’ [étape 3](#subnet) de la section Créer une machine virtuelle avec plusieurs adresses IP dans cet article.
-5. Créez les configurations IP que vous souhaitez ajouter au réseau en suivant les instructions de l’ [étape 5](#ipconfigs) de la section Créer une machine virtuelle avec plusieurs adresses IP dans cet article.
-6. Remplacez *$IPConfigName4* par le nom de la configuration IP que vous avez créée à l’étape précédente. Pour ajouter la configuration, entrez la commande suivante :
-   
-        Add-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName4 -NetworkInterface $nic -Subnet $Subnet1
-7. Pour configurer l’interface réseau avec la configuration IP, entrez la commande suivante :
-   
-        Set-AzureRmNetworkInterface -NetworkInterface $nic
-8. Ajoutez les adresses IP que vous avez ajoutées à l’interface réseau pour le système d’exploitation de la machine virtuelle en suivant les instructions de l’ [étape 9](#os) de la section Créer une machine virtuelle avec plusieurs adresses IP dans cet article.
+2. Inscrivez-vous pour la version préliminaire en envoyant à [Plusieurs adresses IP](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) un message électronique contenant votre ID d’abonnement et l’utilisation prévue. N’essayez pas d’effectuer les étapes restantes :
+    - tant que vous n’avez pas reçu de message vous informant que vous avez été accepté dans la version préliminaire ;
+    - sans suivre les instructions fournies dans le message que vous recevez.
+3. Remplacez les « valeurs » des $Variables suivantes par le nom de l’interface réseau à laquelle vous voulez ajouter une adresse IP, et par le groupe de ressources et l’emplacement dans lesquels réside l’interface réseau :
 
-<!--HONumber=Oct16_HO2-->
+    ```powershell
+    $NICname         = "myNIC"
+    $myResourceGroup = "myResourceGroup"
+    $location        = "westcentralus"
+    ```
+
+    Si vous ne connaissez pas le nom de l’interface réseau que vous souhaitez modifier, entrez les commandes suivantes, puis modifiez les valeurs des variables précédentes :
+
+    ```powershell
+    Get-AzureRmNetworkInterface | Format-Table Name, ResourceGroupName, Location
+    ```
+4. Créez une variable et affectez-la à l’interface réseau à l’aide de la commande suivante :
+
+    ```powershell
+    $myNIC = Get-AzureRmNetworkInterface -Name $NICname -ResourceGroupName $myResourceGroup
+    ```
+5. Dans les commandes suivantes, remplacez *myVNet* et *mySubnet* par les noms du réseau virtuel et du sous-réseau auxquels la carte réseau est connectée. Entrez les commandes pour récupérer les objets réseau virtuel et sous-réseau auxquels la carte réseau est connectée :
+
+    ```powershell
+    $myVnet = Get-AzureRMVirtualnetwork -Name myVNet -ResourceGroupName $myResourceGroup
+    $Subnet = $myVnet.Subnets | Where-Object { $_.Name -eq "mySubnet" }
+    ```
+    Si vous ne connaissez pas le nom du réseau virtuel ou du sous-réseau auxquels la carte réseau est connectée, entrez la commande suivante :
+    ```powershell
+    $mynic.IpConfigurations
+    ```
+    Dans la sortie, recherchez un texte similaire au texte suivant :
+
+        Subnet   : {
+                     "Id": "/subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"
+
+    Dans cette sortie, *myVnet* est le réseau virtuel, et *mySubnet* le sous-réseau, auxquels la carte réseau est connectée.
+
+6. Suivez les étapes de l’une des sections suivantes, selon vos besoins :
+
+    **Ajouter une adresse IP privée**
+    
+    Pour ajouter une adresse IP privée à une carte d’interface réseau, vous devez créer une configuration IP. La commande suivante crée une configuration avec l’adresse IP statique 10.0.0.7. Si vous souhaitez ajouter une adresse IP privée dynamique, supprimez `-PrivateIpAddress 10.0.0.7` avant d’entrer la commande. Lorsque vous spécifiez une adresse IP statique, il doit s’agir d’une adresse non utilisée pour le sous-réseau. Nous vous recommandons de commencer par entrer la commande `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet` afin de tester l’adresse pour vous assurer de sa disponibilité. Si l’adresse IP est disponible, la sortie retourne *True*. S’il n’est pas disponible, la sortie retourne *False* et la liste des adresses disponibles.
+
+    ```powershell
+    Add-AzureRmNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
+     $myNIC -Subnet $Subnet -PrivateIpAddress 10.0.0.7
+    ```
+    Créez autant de configurations que nécessaire, en utilisant des noms de configuration et adresses IP privées uniques (pour les configurations avec des adresses IP statiques).
+
+    **Ajouter une adresse IP publique**
+    
+    Pour ajouter une adresse IP publique, associez-la à une configuration IP nouvelle ou existante. Suivez les étapes de l’une des sections ci-après, selon votre besoin.
+
+    > [!NOTE]
+    > Les adresses IP publiques ont un coût nominal. Pour en savoir plus, lisez la page [Tarification des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Il existe une limite au nombre d’adresses IP publiques qui peuvent être utilisées dans un abonnement. Pour plus d’informations sur les limites, voir [Limites d’Azure](../azure-subscription-service-limits.md#networking-limits).
+    >
+
+    **Associer la ressource à une nouvelle configuration IP**
+    
+    Lorsque vous ajoutez une adresse IP publique dans une nouvelle configuration IP, vous devez également ajouter une adresse IP privée, car toutes les configurations IP doivent avoir une adresse IP privée. Vous pouvez ajouter une ressource d’adresse IP publique existante ou en créer une. Pour une ressource d’adresse IP publique, entrez la commande suivante :
+    
+    ```powershell
+    $myPublicIp3   = New-AzureRmPublicIpAddress -Name "myPublicIp3" -ResourceGroupName $myResourceGroup `
+    -Location $location -AllocationMethod Static
+    ```
+
+    Pour créer une configuration IP avec une adresse IP privée dynamique et la ressource d’adresse IP publique *myPublicIP3* associée, entrez la commande suivante :
+
+    ```powershell
+    Add-AzureRmNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
+     $myNIC -Subnet $Subnet -PublicIpAddress $myPublicIp3
+    ```
+
+    **Associer la ressource à une configuration IP existante**
+    Une ressource d’adresse IP publique peut uniquement être associée à une configuration IP n’ayant pas encore de ressource associée. Pour déterminer si une configuration IP a une adresse IP publique associée, entrez la commande suivante :
+
+    ```powershell
+    $myNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
+    ```
+
+    Recherchez dans la sortie une ligne similaire à celle ci-dessous :
+
+        Name       PrivateIpAddress PublicIpAddress                                           Primary
+        ----       ---------------- ---------------                                           -------
+        IPConfig-1 10.0.0.4         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress    True
+        IPConfig-2 10.0.0.5         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress   False
+        IpConfig-3 10.0.0.6                                                                     False
+
+    Étant donné que la colonne **PublicIpAddress** pour *IpConfig-3* est vide, aucune ressource d’adresse IP publique n’y est actuellement associée. Vous pouvez ajouter une ressource d’adresse IP publique existante à IpConfig-3, ou entrer la commande suivante pour en créer une :
+
+    ```powershell
+    $myPublicIp3   = New-AzureRmPublicIpAddress -Name "myPublicIp3" -ResourceGroupName $myResourceGroup `
+    -Location $location -AllocationMethod Static
+    ```
+
+    Pour associer la ressource d’adresse IP publique à la configuration IP existante nommée *IPConfig-3*, entrez la commande suivante :
+    
+    ```powershell
+    Set-AzureRmNetworkInterfaceIpConfig -Name IpConfig-3 -NetworkInterface $mynic -Subnet $Subnet -PublicIpAddress $myPublicIp3
+    ```
+
+7. Définissez la carte réseau avec la nouvelle configuration IP en entrant la commande suivante :
+
+    ```powershell
+    Set-AzureRmNetworkInterface -NetworkInterface $myNIC
+    ```
+
+8. Affichez les ressources d’adresses IP privées et d’adresse IP publique affectées à la carte réseau en entrant la commande suivante :
+
+    ```powershell   
+    $myNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
+    ```
+
+9. Ajoutez les adresses IP que vous avez ajoutées à l’interface réseau pour le système d’exploitation de la machine virtuelle en suivant les instructions fournies dans la section [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](#OsConfig) de cet article.
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

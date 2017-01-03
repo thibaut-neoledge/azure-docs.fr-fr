@@ -1,12 +1,12 @@
 ---
-title: Référence d’API de création de rapports sur l’activité de connexion Azure Active Directory | Microsoft Docs
-description: Référence d’API de création de rapports sur l’activité de connexion Azure Active Directory
+title: "Référence d’API de création de rapports sur l’activité de connexion Azure Active Directory | Microsoft Docs"
+description: "Référence d’API de création de rapports sur l’activité de connexion Azure Active Directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2016
 ms.author: dhanyahk;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: dce65678f9fc96d5802a7b705689cc63e6532c84
+
 
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Référence d’API de création de rapports sur l’activité de connexion Azure Active Directory
@@ -21,31 +25,31 @@ Cette rubrique fait partie d’un ensemble de rubriques relatives à l’API de 
 La création de rapports Azure AD fournit une API qui vous permet d’accéder aux données des rapports sur l’activité de connexion à l’aide de code ou d’outils associés.
 Cette rubrique a pour but de vous fournir des informations de référence sur **l’API de création de rapports sur l’activité de connexion**.
 
-Consultez l'article :
+Consultez l'article :
 
 * [Activités de connexion](active-directory-reporting-azure-portal.md#sign-in-activities) pour plus d’informations conceptuelles
 * [Prise en main de l’API de création de rapports Azure Active Directory](active-directory-reporting-api-getting-started.md) pour plus d’informations sur l’API de création de rapports.
 
 Si vous avez des questions, des problèmes ou des commentaires, veuillez contacter [Aide à la création de rapports AAD](mailto:aadreportinghelp@microsoft.com).
 
-## <a name="who-can-access-the-api-data?"></a>Qui peut accéder aux données de l’API ?
+## <a name="who-can-access-the-api-data"></a>Qui peut accéder aux données de l’API ?
 * Utilisateurs ayant le rôle d’administrateur de sécurité ou de lecteur de la sécurité
 * Administrateurs généraux
 * Toute application qui a l’autorisation d’accéder à l’API (l’autorisation de l’application peut être configurée uniquement en fonction de l’autorisation Administrateur général)
 
 ## <a name="prerequisites"></a>Composants requis
-Pour accéder à ce rapport via l’API de création de rapports, vous devez disposer des éléments suivants :
+Pour accéder à ce rapport via l’API de création de rapports, vous devez disposer des éléments suivants :
 
 * Une [édition Azure Active Directory Premium P1 ou P2](active-directory-editions.md)
 * Avoir respecté la [configuration requise pour accéder à l’API de création de rapports Azure AD](active-directory-reporting-api-prerequisites.md). 
 
 ## <a name="accessing-the-api"></a>Accès à l’API
-Vous pouvez soit accéder à cette API via [l’Afficheur Graph](https://graphexplorer2.cloudapp.net) , soit par programme à l’aide, par exemple, de PowerShell. Pour que PowerShell puisse interpréter correctement la syntaxe de filtre OData utilisée dans les appels REST Graph AAD, vous devez utiliser le caractère accent grave (`) pour « échapper » au caractère $. Le caractère accent grave sert de [caractère d’échappement de PowerShell](https://technet.microsoft.com/library/hh847755.aspx), ce qui permet à PowerShell d’effectuer une interprétation littérale du caractère $ et de ne pas le confondre avec un nom de variable PowerShell (par exemple : $filter).
+Vous pouvez soit accéder à cette API via [l’Afficheur Graph](https://graphexplorer2.cloudapp.net) , soit par programme à l’aide, par exemple, de PowerShell. Pour que PowerShell puisse interpréter correctement la syntaxe de filtre OData utilisée dans les appels REST Graph AAD, vous devez utiliser le caractère accent grave (`) pour « échapper » au caractère $. Le caractère accent grave sert de [caractère d’échappement de PowerShell](https://technet.microsoft.com/library/hh847755.aspx), ce qui permet à PowerShell d’effectuer une interprétation littérale du caractère $ et de ne pas le confondre avec un nom de variable PowerShell (par exemple : $filter).
 
 Cette rubrique porte sur l’Afficheur Graph. Pour obtenir un exemple PowerShell, consultez ce [script PowerShell](active-directory-reporting-api-sign-in-activity-samples.md#powershell-script).
 
 ## <a name="api-endpoint"></a>Point de terminaison d’API
-Vous pouvez accéder à cette API à l’aide de l’URI de base suivant :  
+Vous pouvez accéder à cette API à l’aide de l’URI de base suivant :  
 
     https://graph.windows.net/contoso.com/activities/signinEvents?api-version=beta  
 
@@ -61,7 +65,7 @@ Pour obtenir le lot d’enregistrements suivant, cliquez sur le lien Suivant. Ob
 
 ## <a name="supported-filters"></a>Filtres pris en charge
 Vous pouvez réduire le nombre d’enregistrements qui sont retournés par un appel d’API à l’aide d’un filtre.  
-Pour les données liées à l’API de connexion, les filtres suivants sont pris en charge :
+Pour les données liées à l’API de connexion, les filtres suivants sont pris en charge :
 
 * **$top=\<<nombre d’enregistrements à retourner>\>** : pour limiter le nombre d’enregistrements retournés. Il s’agit d’une opération coûteuse. N’utilisez pas ce filtre si vous souhaitez retourner des milliers d’objets.  
 * **$filter=\<<votre instruction de filtre>\>** : pour spécifier, en fonction des champs de filtre pris en charge, les types d’enregistrements qui vous intéressent
@@ -81,7 +85,7 @@ Pour indiquer le type d’enregistrements qui vous intéressent, vous pouvez cr�
 > 
 > 
 
-Pour réduire l’étendue des données retournées, vous pouvez créer une combinaison des filtres et des champs de filtres pris en charge. Par exemple, l’instruction suivante retourne les 10 premiers enregistrements entre le 1er juillet 2016 et le 6 juillet 2016 :
+Pour réduire l’étendue des données retournées, vous pouvez créer une combinaison des filtres et des champs de filtres pris en charge. Par exemple, l’instruction suivante retourne les 10 premiers enregistrements entre le 1er juillet 2016 et le 6 juillet 2016 :
 
     https://graph.windows.net/contoso.com/activities/signinEvents?api-version=beta&$top=10&$filter=signinDateTime+ge+2016-07-01T17:05:21Z+and+signinDateTime+le+2016-07-07T00:00:00Z
 
@@ -94,7 +98,7 @@ Pour réduire l’étendue des données retournées, vous pouvez créer une comb
 
 Utilisation d’une date spécifique
 
-    $filter=signinDateTime+eq+2016-04-25T23:59:00Z  
+    $filter=signinDateTime+eq+2016-04-25T23:59:00Z    
 
 
 
@@ -170,13 +174,16 @@ La valeur d’appDisplayName est une valeur de chaîne
 
 **Remarques**:
 
-Il existe deux options pour loginStatus : 0 - Réussite, 1 - Échec
+Il existe deux options pour loginStatus : 0 - Réussite, 1 - Échec
 
 - - -
 ## <a name="next-steps"></a>Étapes suivantes
-* Voulez-vous voir des exemples d’activités de connexion filtrées ? Consultez les [exemples de l’API de création de rapports sur l’activité de connexion Azure Active Directory](active-directory-reporting-api-sign-in-activity-samples.md).
+* Voulez-vous voir des exemples d’activités de connexion filtrées ? Consultez les [exemples de l’API de création de rapports sur l’activité de connexion Azure Active Directory](active-directory-reporting-api-sign-in-activity-samples.md).
 * Vous souhaitez en savoir plus sur l’API de création de rapports Azure AD ? Consultez [Prise en main de l’API de création de rapports Azure Active Directory](active-directory-reporting-api-getting-started.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

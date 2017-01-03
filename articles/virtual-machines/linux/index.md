@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Découvrez comment créer une machine virtuelle à l’aide de la distribution Linux de votre choix. Des documents présentent différentes façons de créer des modèles de machine virtuelle."
 translationtype: Human Translation
-ms.sourcegitcommit: c5ed66f3a060dcd1bac9c04c70c493dcebcf9df8
-ms.openlocfilehash: 7b5078165e008819baed1c1e38d1c1a677648955
+ms.sourcegitcommit: eabfc16b3714006f74cdaec68efb46f651ee1b97
+ms.openlocfilehash: 4ae49635b13d564a4bf03ea12e233c1b18985cce
 
 ---
-#<a name="linux-virtual-machine-documentation"></a>Documentation Machine virtuelle Linux
+# <a name="linux-virtual-machine-documentation"></a>Documentation Machine virtuelle Linux
 
-Utilisez les machines virtuelles Azure pour créer et exécuter des machines virtuelles Linux sur l’infrastructure Azure de calcul, de mise en réseau et de stockage.  Effectuez une mise à l’échelle allant jusqu’à plusieurs milliers de machines pour des déploiements à l’échelle d’Internet ou exécutez-en une pendant quelques minutes pour bénéficier d’avantages en termes de vitesse et de cohérence.
+Découvrez comment exécuter des machines virtuelles sur Azure à l’aide de la distribution Linux de votre choix. Des documents, des références d’API et des exemples vous montrent différentes façons de créer et de déployer des modèles de machine virtuelle.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -85,110 +86,50 @@ Utilisez les machines virtuelles Azure pour créer et exécuter des machines vir
 </ul>
 
 ---
-
-##<a name="reference"></a>Référence
-
+ 
+<h2>Référence</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Applets de commande PowerShell</p>
+                        <h3>Ligne de commande</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/cli/azure/vm">Interface de ligne de commande Azure</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/install-az-cli2">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Interface de ligne de commande Azure</h3>
-                        <p>Installer l’interface de ligne de commande Microsoft Azure</p>
+                        <h3>Langues</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
+                        <p><a href="/java/api">Java</a></p>
+                        <p><a href="https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk">Node.js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Référence API managée .NET</p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/compute">Référence sur les API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Kit de développement logiciel (SDK) Java</h3>
-                        <p>Référence sur l’API Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/compute">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Compute)</h3>
-                        <p>Informations de référence sur l’API REST de Compute</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/mt163658">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Réseau)</h3>
-                        <p>Informations de référence sur l’API REST de Réseau</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/storage">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Stockage)</h3>
-                        <p>Informations de référence sur l’API REST de Stockage</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
-    
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/linux.pdf">
@@ -200,6 +141,6 @@ Télécharger la documentation Machine virtuelle Linux </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

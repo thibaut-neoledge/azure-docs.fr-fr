@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/21/2016
+ms.date: 12/16/2016
 ms.author: haining;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 23954b17c96fd33159892b6f9254b4ae9d02ecf9
+ms.sourcegitcommit: 5e9aa39ccf91f98336e5db179b532930f7e83313
+ms.openlocfilehash: 35bf8b41288afd31ba7e6f861beb7a7bf2a36d94
 
 
 ---
@@ -27,7 +27,7 @@ Le diagramme **Vue d’ensemble des capacités de Microsoft Azure Machine Learni
 [Azure Machine Learning Studio](https://studio.azureml.net/) propose un grand nombre d’algorithmes d’apprentissage automatique, ainsi que des modules utiles pour la saisie, la sortie, la préparation et l’affichage des données. Ces composants permettent de développer une expérience d’analyse prédictive, d’effectuer une itération sur celle-ci et de l’utiliser pour former votre modèle.
 Puis, en un seul clic, vous pouvez configurer votre modèle dans le cloud Azure pour évaluer les nouvelles données.
 
-Ce diagramme illustre l’imbrication de tous ces éléments.
+Ce diagramme montre l’imbrication de tous ces éléments.
 
 > [!NOTE]
 > Voir [Aide-mémoire d’algorithme d’apprentissage automatique pour Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md) pour obtenir une aide supplémentaire pendant la navigation et la sélection entre les algorithmes d’apprentissage automatisé disponibles dans Machine Learning Studio.
@@ -54,6 +54,6 @@ Téléchargez le diagramme **Vue d’ensemble des capacités de Microsoft Azure 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

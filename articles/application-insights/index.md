@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Découvrez comment utiliser Application Insights, un service de gestion extensible des performances des applications pour détecter, trier et diagnostiquer les problèmes des applications et des services web."
 translationtype: Human Translation
-ms.sourcegitcommit: 7f01669fe78aebfb17ebc6a33ae29d098b62868a
-ms.openlocfilehash: 8100f42cc97155431e4d3ba47f7946b546296700
+ms.sourcegitcommit: f0fdb938519737e67849831a0751542f69c269d9
+ms.openlocfilehash: e5425bc1f39c9ca71b6eaf2c928b0d8397319d85
 
 ---
 # <a name="application-insights-documentation"></a>Documentation Application Insights
 
-Application Insights est un service de gestion des performances des applications (APM) extensible destiné aux développeurs web. Utilisez-le pour analyser votre application web en direct. Ce service détecte automatiquement les problèmes de performances. Il intègre de puissants outils d’analyse pour vous aider à diagnostiquer les problèmes et à comprendre ce que font les utilisateurs avec votre application. Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité. Il fonctionne avec des applications sur un large éventail de plates-formes, notamment .NET, Node.js et J2EE, hébergées sur site ou dans le cloud. En outre, ce service s’intègre à votre processus devOps et offre des points de connexion vers un large éventail d’autres outils.
+Découvrez comment utiliser Application Insights, un service de gestion extensible des performances des applications destiné aux développeurs web. Des didacticiels, des références d’API et d’autres documents vous montrent comment détecter, trier et diagnostiquer les problèmes des applications et services web.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -161,6 +162,6 @@ Télécharger la documentation Application Insights </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

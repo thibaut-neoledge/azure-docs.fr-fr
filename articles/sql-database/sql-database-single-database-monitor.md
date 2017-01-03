@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 09/27/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5cda0c5b491f71999da0b7bd70156256ab2d5908
+ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
+ms.openlocfilehash: f4150149cea4fa31e7b991e15ffcbefa8a202ada
 
 
 ---
@@ -51,10 +51,10 @@ Les métriques exposées dans le portail sont également disponibles dans des vu
 >
 >
 
-Pour les pools de base de données élastiques, vous pouvez surveiller des bases de données dans le pool avec les techniques décrites dans cette section. Mais vous pouvez également surveiller le pool dans son ensemble. Pour en savoir plus, consultez [Surveiller et gérer un pool élastique de bases de données](sql-database-elastic-pool-manage-portal.md).
+Pour les pools élastiques, vous pouvez surveiller des bases de données individuelles dans le pool avec les techniques décrites dans cette section. Mais vous pouvez également surveiller le pool dans son ensemble. Pour plus d’informations, consultez l’article [Surveiller et gérer un pool élastique](sql-database-elastic-pool-manage-portal.md).
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

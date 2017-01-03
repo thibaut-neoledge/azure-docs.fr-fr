@@ -3,7 +3,7 @@ title: Didacticiel - Prise en main du client Python Azure Batch | Microsoft Docs
 description: "Découvrez les concepts de base d’Azure Batch et la procédure de développement applicable au service Batch avec un scénario simple."
 services: batch
 documentationcenter: python
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 42cae157-d43d-47f8-88f5-486ccfd334f4
@@ -13,10 +13,10 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 11/30/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 64f70aab802ed377de1686fcdb7e641c30299b9c
-ms.openlocfilehash: 6630899081a76d7a8bc54f53a33c76dda9f1b0fa
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 3c1efaa277c6fba7965d6fe10cc5991cb02281d7
 
 
 ---
@@ -102,13 +102,13 @@ Le schéma suivant illustre les opérations principales effectuées par les scri
 [**Étape 1.**](#step-1-create-storage-containers) Créer des **conteneurs** dans le Stockage Blob Azure.<br/>
 [**Étape 2.**](#step-2-upload-task-script-and-data-files) Charger le script de tâche et les fichiers d’entrée dans les conteneurs.<br/>
 [**Étape 3.**](#step-3-create-batch-pool) Créer un **pool** Batch.<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;**3a.** Le pool **StartTask** télécharge le script de tâche (python_tutorial_task.py) dans les nœuds lorsque ces derniers rejoignent le pool.<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**3a.** Le pool **StartTask** télécharge le script de tâche (python_tutorial_task.py) dans les nœuds lorsque ces derniers rejoignent le pool.<br/>
 [**Étape 4.**](#step-4-create-batch-job) Créer un **travail** Batch.<br/>
 [**Étape 5.**](#step-5-add-tasks-to-job) Ajoutez des **tâches** au travail.<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;**5a.** Les tâches sont planifiées pour s’exécuter sur des nœuds.<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;**5b.** Chaque tâche télécharge ses données d’entrée depuis Stockage Azure, puis commence l’exécution.<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**5a.** Les tâches sont planifiées pour s’exécuter sur des nœuds.<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Chaque tâche télécharge ses données d’entrée depuis Stockage Azure, puis commence l’exécution.<br/>
 [**Étape 6.**](#step-6-monitor-tasks) Surveiller les tâches.<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;**6a.** Lorsque les tâches sont terminées, les résultats générés sont chargés dans Stockage Azure.<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Lorsque les tâches sont terminées, les résultats générés sont chargés dans Stockage Azure.<br/>
 [**Étape 7.**](#step-7-download-task-output)  Télécharger la sortie des tâches à partir de Storage.
 
 Comme indiqué précédemment, certaines solutions Batch ne suivent pas exactement cette procédure et peuvent exécuter de nombreuses autres opérations ; toutefois, cet exemple illustre les processus fréquemment inclus dans une solution Batch.
@@ -134,7 +134,7 @@ storage_account_key  = "";
 Les informations d’identification de votre compte Batch et de votre compte de stockage figurent dans le panneau du compte de chaque service dans le [portail Azure][azure_portal] :
 
 ![Informations d’identification Batch dans le portail][9]
-![Informations d’identification de stockage dans le portail][10]<br/>
+![Informations d’identification Stockage dans le portail][10]<br/>
 
 Dans les sections suivantes, nous analyserons les processus utilisés par les scripts pour traiter une charge de travail dans le service Batch. Nous vous encourageons à consulter régulièrement les scripts dans votre éditeur à mesure que vous progressez dans la lecture de cet article.
 
@@ -145,7 +145,7 @@ if __name__ == '__main__':
 ```
 
 ## <a name="step-1-create-storage-containers"></a>Étape 1 : créer des conteneurs de stockage
-![Créer des conteneurs dans le Stockage Azure][1]
+![Créer des conteneurs dans le service Stockage Azure][1]
 <br/>
 
 Batch prend en charge l’interaction avec Azure Storage. Les conteneurs présents dans votre compte de stockage fournissent les fichiers nécessaires aux tâches s’exécutant dans votre compte Batch. Les conteneurs fournissent également un emplacement pour stocker les données de sortie générées par les tâches. Le script *python_tutorial_client.py* commence par créer trois conteneurs dans [Stockage Blob Azure](../storage/storage-introduction.md#blob-storage) :
@@ -361,7 +361,7 @@ Lorsque vous créez un pool, vous définissez un [PoolAddParameter][py_pooladdpa
 
 * **ID** du pool (*id* - obligatoire)<p/> Comme pour la plupart des entités dans Batch, votre nouveau pool doit avoir un ID unique au sein de votre compte Batch. Votre code fait référence à ce pool en utilisant son ID ; c’est ainsi que vous pouvez identifier le pool dans le [portail][azure_portal] Azure.
 * **Nombre de nœuds de calcul** (*target_dedicated* - obligatoire)<p/>Cette propriété spécifie le nombre de machines virtuelles à déployer dans le pool. Il est important de noter que tous les comptes Batch ont un **quota** par défaut qui limite le nombre de **cœurs** (et par conséquent, celui des nœuds de calcul) dans un compte Batch. Pour en savoir plus sur les quotas par défaut et obtenir des instructions sur comment [augmenter un quota](batch-quota-limit.md#increase-a-quota) (par exemple, le nombre maximal de cœurs dans votre compte Batch), consultez l’article [Quotas et limites pour le service Azure Batch](batch-quota-limit.md). Si vous vous demandez pourquoi votre pool n’atteint pas plus de X nœuds, ce quota de cœurs peut en être la raison.
-* **Système d’exploitation** pour les nœuds (*virtual_machine_configuration***ou***cloud_service_configuration* - obligatoire)<p/>Dans *python_tutorial_client.py*, nous créons un pool de nœuds Linux à l’aide de [VirtualMachineConfiguration][py_vm_config]. La fonction `select_latest_verified_vm_image_with_node_agent_sku` dans `common.helpers` simplifie l’utilisation des images du [Marketplace de machines virtuelles Azure][vm_marketplace]. Pour plus d’informations sur l’utilisation des images du Marketplace, voir [Configurer des nœuds de calcul Linux dans des pools Azure Batch](batch-linux-nodes.md) .
+* **Système d’exploitation** pour les nœuds (*virtual_machine_configuration* **ou** *cloud_service_configuration* - obligatoire)<p/>Dans *python_tutorial_client.py*, nous créons un pool de nœuds Linux à l’aide de [VirtualMachineConfiguration][py_vm_config]. La fonction `select_latest_verified_vm_image_with_node_agent_sku` dans `common.helpers` simplifie l’utilisation des images du [Marketplace de machines virtuelles Azure][vm_marketplace]. Pour plus d’informations sur l’utilisation des images du Marketplace, voir [Configurer des nœuds de calcul Linux dans des pools Azure Batch](batch-linux-nodes.md) .
 * **Taille des nœuds de calcul** (*vm_size* - obligatoire)<p/>Étant donné que nous spécifions des nœuds Linux pour notre [VirtualMachineConfiguration][py_vm_config], nous spécifions une taille de machine virtuelle (`STANDARD_A1` dans cet exemple) parmi les [tailles des machines virtuelles dans Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Pour plus d’informations, voir [Configurer des nœuds de calcul Linux dans des pools Azure Batch](batch-linux-nodes.md) .
 * **Tâche de démarrage** (*start_task* : non obligatoire)<p/>Outre les propriétés du nœud physique citées plus haut, vous pouvez également spécifier une [StartTask][py_starttask] pour le pool (celle-ci n’est cependant pas obligatoire). La tâche StartTask s’exécute sur chacun des nœuds rejoignant le pool, ainsi qu’à chaque redémarrage d’un nœud. StarTask est particulièrement utile pour préparer les nœuds de calcul à l’exécution des tâches, telles que l’installation des applications que vos tâches exécuteront.<p/>Dans cet exemple d’application, la tâche StartTask copie les fichiers qu’elle a téléchargés à partir de Storage (spécifiés avec la propriété **resource_files** de StartTask) depuis le *répertoire de travail* de StartTask vers le répertoire *partagé* accessible à toutes les tâches qui s’exécutent sur le nœud. Pour l’essentiel, ceci copie `python_tutorial_task.py` sur le répertoire partagé sur chaque nœud lorsque le nœud rejoint le pool, afin que toutes les tâches qui s’exécutent sur le nœud puissent y accéder.
 
@@ -525,7 +525,7 @@ def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
 ```
 
 ## <a name="step-7-download-task-output"></a>Étape 7 : télécharger la sortie des tâches
-![Télécharger la sortie des tâches à partir de Storage][7]<br/>
+![Télécharger la sortie des tâches à partir du service Stockage][7]<br/>
 
 Une fois le travail terminé, les données de sortie des tâches peuvent être téléchargées à partir d’Azure Storage. Cette opération s’effectue par le biais d’un appel de `download_blobs_from_container` dans *python_tutorial_client.py* :
 
@@ -708,6 +708,6 @@ N’hésitez pas à apporter des modifications à *python_tutorial_client.py* et
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

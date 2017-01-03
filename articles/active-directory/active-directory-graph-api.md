@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 09/16/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c916a3cea737c14576db75edd074de47ca6e1fb0
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 83d136b7996ed28baecb70c80341df1cd31707b7
 
 
 ---
@@ -69,6 +69,6 @@ L’API Graph sert dans de nombreux scénarios d’application. Les scénarios s
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

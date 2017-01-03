@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
+ms.date: 12/09/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3e587c9422e008a7b3c46e34fed4d0f1b2a8189c
+ms.sourcegitcommit: 0500d903438e0fb062ca848e6f488860e214a705
+ms.openlocfilehash: 55b6f6e03bfd1877d4f204cb5751ae46379d6951
 
 
 ---
@@ -58,10 +58,12 @@ Ces articles décrivent comment effectuer des tâches spécifiques avec Azure Ac
 
 * [Obtention d’un locataire Azure AD](active-directory-howto-tenant.md)
 * [Connecter un utilisateur Azure AD à l’aide du modèle d’application mutualisée](active-directory-devhowto-multi-tenant-overview.md)
+* [Authenticate a service/daemon application using a certificate (Authentifier un service/une application démon à l’aide d’un certificat)](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/)
 * Activer l’authentification unique entre applications en utilisant ADAL, sur [Android](active-directory-sso-android.md) et sur les appareils [iOS](active-directory-sso-ios.md)
 * [Certifier votre application AppSource pour Azure AD](active-directory-devhowto-appsource-certified.md)
 * [Afficher votre application dans la galerie d’applications Azure AD](active-directory-app-gallery-listing.md)
 * [Envoyer des applications web pour Office 365 à Mon tableau de bord vendeur](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+* [Register an application with Azure Active Directory using the Azure portal (Inscrire une application auprès d’Azure Active Directory à l’aide du Portail Azure)](active-directory-app-registration.md)
 * [Présentation du manifeste d’application Azure Active Directory](active-directory-application-manifest.md)
 * [Comprendre les instructions de personnalisation pour les boutons d’acquisition de connexion et d’application dans votre application cliente](active-directory-branding-guidelines.md)
 * [Version préliminaire : comment créer des applications qui connectent les utilisateurs avec à la fois des comptes personnels et des comptes professionnels ou scolaires](active-directory-appmodel-v2-overview.md)
@@ -121,7 +123,6 @@ Pour obtenir des conseils sur l’utilisation d’un développement Windows Serv
 
 * [Scénarios AD FS pour développeurs](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) : fournit une vue d’ensemble des composants AD FS et de leur fonctionnement, avec des détails sur les scénarios d’authentification/autorisation pris en charge.
 * [Procédures pas à pas AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/ad-fs-development): liste d’articles de procédure pas à pas fournissant des instructions détaillées sur l’implémentation des flux d’authentification/autorisation connexes.
-
 
 
 

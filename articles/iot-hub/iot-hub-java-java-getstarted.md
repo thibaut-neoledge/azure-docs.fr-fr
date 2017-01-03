@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 12/15/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
+ms.sourcegitcommit: 91aa9a15797620e985f44d2aad4ef207d3884672
+ms.openlocfilehash: f76b573737c6b38ffe61c344ac6eb70f71d6ca44
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
 
 * **create-device-identity**, qui crée une identité d’appareil et une clé de sécurité associée pour connecter application d’appareil simulé ;
 * **read-d2c-messages**, qui affiche les données de télémétrie envoyées par votre application d’appareil simulé ;
-* **simulated-device**, qui se connecte à votre IoT Hub avec l’identité d’appareil créée précédemment et envoie un message de télémétrie chaque seconde en utilisant le protocole AMQP.
+* **simulated-device**, qui se connecte à votre IoT Hub avec l’identité d’appareil créée précédemment et envoie un message de télémétrie chaque seconde en utilisant le protocole MQTT.
 
 > [!NOTE]
 > L’article [Kits de développement logiciel (SDK) Azure IoT][lnk-hub-sdks] fournit des informations sur les kits de développement logiciel Azure IoT que vous pouvez utiliser pour générer les deux applications qui s’exécutent sur les appareils et sur le serveur de solution principal.
@@ -205,7 +205,7 @@ Dans cette section, vous allez créer une application console Java qui lit les m
                       receivedEvent.getSystemProperties().getOffset(), 
                       receivedEvent.getSystemProperties().getSequenceNumber(), 
                       receivedEvent.getSystemProperties().getEnqueuedTime()));
-                    System.out.println(String.format("| Device ID: %s", receivedEvent.getProperties().get("iothub-connection-device-id")));
+                    System.out.println(String.format("| Device ID: %s", receivedEvent.getSystemProperties().get("iothub-connection-device-id")));
                     System.out.println(String.format("| Message Payload: %s", new String(receivedEvent.getBody(),
                       Charset.defaultCharset())));
                     batchSize++;
@@ -313,12 +313,12 @@ Dans cette section, vous allez créer une application console Java qui simule un
    
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
-    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
+    private static IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
     private static String deviceId = "myFirstJavaDevice";
     private static DeviceClient client;
     ```
    
-    Cet exemple d’application utilise la variable **protocol** lorsqu’il instancie un objet **DeviceClient**. Vous pouvez utiliser le protocole HTTP ou AMQP pour communiquer avec le IoT Hub.
+    Cet exemple d’application utilise la variable **protocol** lorsqu’il instancie un objet **DeviceClient**. Vous pouvez utiliser le protocole MQTT, AMQP ou HTTP pour communiquer avec le IoT Hub.
 8. Ajoutez la classe imbriquée **TelemetryDataPoint** suivante dans la classe **App** pour spécifier les données de télémétrie envoyées par votre appareil à votre IoT Hub :
    
     ```
@@ -438,7 +438,7 @@ Vous êtes maintenant prêt à exécuter les applications.
     ![Vignette Utilisation du portail Azure indiquant le nombre de messages envoyés à IoT Hub][43]
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez configuré un nouveau IoT Hub dans le portail Azure, puis créé une identité d’appareil dans le registre des identités de l’IoT Hub. Vous avez utilisé cette identité d’appareil pour permettre à l’appareil simulé d’envoyer des messages appareil-à-cloud à l’IoT Hub. Vous avez également créé une application qui affiche les messages reçus par l’IoT Hub. 
+Dans ce didacticiel, vous avez configuré un nouveau IoT Hub dans le portail Azure, puis créé une identité d’appareil dans le registre des identités de l’IoT Hub. Vous avez utilisé cette identité d’appareil pour permettre à l’appareil simulé d’envoyer des messages Appareil vers cloud à l’IoT Hub. Vous avez également créé une application qui affiche les messages reçus par l’IoT Hub. 
 
 Pour continuer la prise en main de IoT Hub et explorer les autres scénarios IoT, consultez les articles suivants :
 
@@ -474,6 +474,6 @@ Pour découvrir comment étendre votre solution IoT et traiter les messages appa
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 
