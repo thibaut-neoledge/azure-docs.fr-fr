@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
-ms.openlocfilehash: 6f952fc8ae2ab065c3e1aa5f1a5622ee894d6fd1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4eb9a5c4087fc7e91d79a7789a261d590485555a
 
 
 ---
@@ -38,7 +38,7 @@ Ces étapes vous montrent comment personnaliser un jeu de commandes Azure PowerS
 
 Ces étapes utilisent une méthode de cases à remplir pour créer des jeux de commandes Azure PowerShell. Cette méthode peut être utile si vous découvrez PowerShell ou souhaitez connaître les valeurs à indiquer pour une configuration réussie. Les utilisateurs avancés de PowerShell peuvent prendre les commandes et indiquer leurs propres valeurs pour les variables (lignes commençant par « $ »).
 
-Si ce n’est pas encore fait, installez Azure PowerShell sur votre ordinateur local à l’aide des instructions décrites dans [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) . Puis ouvrez une invite de commandes Windows PowerShell.
+Si ce n’est pas encore fait, installez Azure PowerShell sur votre ordinateur local à l’aide des instructions décrites dans [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) . Puis ouvrez une invite de commandes Windows PowerShell.
 
 ## <a name="step-1-add-your-account"></a>Étape 1 : Ajouter votre compte
 1. À l’invite PowerShell, tapez **Add-AzureAccount**, puis cliquez sur **Entrée**.
@@ -160,6 +160,6 @@ Voici l'exemple de script complet pour créer la machine virtuelle Windows et la
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

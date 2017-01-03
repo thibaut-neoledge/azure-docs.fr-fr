@@ -283,6 +283,6 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

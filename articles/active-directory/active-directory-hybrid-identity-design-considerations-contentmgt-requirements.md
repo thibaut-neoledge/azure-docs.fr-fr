@@ -1,12 +1,12 @@
 ---
-title: 'Considérations relatives à la conception d''identités hybrides Azure Active Directory : déterminer les exigences en matière de gestion de contenu | Microsoft Docs'
-description: Fournit un aperçu de la façon de déterminer les besoins de gestion de contenu de votre entreprise. Généralement, lorsqu'un utilisateur a son propre appareil, il a peut-être également plusieurs informations d'identification qu’il utilisera en alternance en fonction de l'application utilisée. Il est important de faire la différence entre le contenu créé avec des informations d'identification personnelles et celui créé avec des informations d'identification d’entreprise. Votre solution d'identité doit être en mesure d'interagir avec les services du cloud pour fournir une expérience transparente à l'utilisateur final, tout en garantissant sa confidentialité et en augmentant la protection contre les fuites de données.
-documentationcenter: ''
+title: "Considérations relatives à la conception d&quot;identités hybrides Azure Active Directory : déterminer les exigences en matière de gestion de contenu | Microsoft Docs"
+description: "Fournit un aperçu de la façon de déterminer les besoins de gestion de contenu de votre entreprise. Généralement, lorsqu&quot;un utilisateur a son propre appareil, il a peut-être également plusieurs informations d&quot;identification qu’il utilisera en alternance en fonction de l&quot;application utilisée. Il est important de faire la différence entre le contenu créé avec des informations d&quot;identification personnelles et celui créé avec des informations d&quot;identification d’entreprise. Votre solution d&quot;identité doit être en mesure d&quot;interagir avec les services du cloud pour fournir une expérience transparente à l&quot;utilisateur final, tout en garantissant sa confidentialité et en augmentant la protection contre les fuites de données."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: dd1ef776-db4d-4ab8-9761-2adaa5a4f004
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 58f4227fc6ac6ca1bd76c440d3d4441786693b3b
+
 
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Déterminer les exigences de gestion de contenu pour votre solution d'identité hybride
@@ -47,7 +51,7 @@ Lors de la planification de votre solution d'identité hybride, veillez à ce qu
 * Votre entreprise a-t-elle besoin d'auditer l'accès aux ressources ?
   * Si oui, de quel type de ressources ?
   * Si oui, quel est le niveau d'information nécessaire ?
-  * Si oui, où le journal d'audit doit-il résider ? En local ou dans le cloud ?
+  * Si oui, où le journal d'audit doit-il résider ? En local ou dans le cloud ?
 * Votre société a-t-elle besoin de chiffrer des messages électroniques qui contiennent des données sensibles (SSN, numéros de carte de crédit, etc.) ?
 * Votre société a-t-elle besoin de crypter tous les documents/contenus partagés avec des partenaires commerciaux externes ?
 * Votre société a-t-elle besoin d'appliquer des stratégies d'entreprise sur certains types de courriers électroniques (ne pas répondre à tous, ne pas transférer) ?
@@ -63,6 +67,9 @@ Lors de la planification de votre solution d'identité hybride, veillez à ce qu
 ## <a name="see-also"></a>Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

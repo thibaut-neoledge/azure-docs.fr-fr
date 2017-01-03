@@ -1,27 +1,31 @@
 ---
-title: Exemples d’API d’audit de création de rapports Azure Active Directory | Microsoft Docs
-description: Prise en main de l'API de création de rapports Azure Active Directory
+title: "Exemples d’API d’audit de création de rapports Azure Active Directory | Microsoft Docs"
+description: "Prise en main de l&quot;API de création de rapports Azure Active Directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: de8b8ec3-49b3-4aa8-93fb-e38f52c99743
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/28/2016
+ms.date: 11/16/2016
 ms.author: dhanyahk;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 665b613db31b15b6f6d2826a0795be6275c832ca
+ms.openlocfilehash: 8216fa7ab092b2d0225d075d933fa56fbab56f40
+
 
 ---
-# <a name="azure-active-directory-reporting-audit-api-samples"></a>Exemples d’API d’audit de création de rapports Azure Active Directory
+# <a name="azure-active-directory-reporting-audit-api-samples"></a>Exemples d’API d’audit de création de rapports Azure Active Directory
 Cette rubrique fait partie d’un ensemble de rubriques relatives à l’API de création de rapports Azure Active Directory.  
 La création de rapports Azure AD fournit une API qui vous permet d’accéder aux données d’audit à l’aide de code ou d’outils associés.
 Cette rubrique a pour but de vous fournir un exemple de code pour **l’API d’audit**.
 
-Consultez l'article :
+Consultez l'article :
 
 * [Journaux d’audit](active-directory-reporting-azure-portal.md#audit-logs) pour plus d’informations conceptuelles
 * [Prise en main de l’API de création de rapports Azure Active Directory](active-directory-reporting-api-getting-started.md) pour plus d’informations sur l’API de création de rapports.
@@ -54,7 +58,7 @@ L’authentification de l’application ne fonctionne pas si votre client se tro
     if ($oauth.access_token -ne $null) {   
         $i=0
         $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-        $url = 'https://graph.windows.net/' + $tenantdomain + 'activities/audit?api-version=beta&`$filter=eventTime gt ' + $7daysago
+        $url = 'https://graph.windows.net/' + $tenantdomain + 'activities/audit?api-version=beta&`$filter=activityDate gt ' + $7daysago
 
         # loop through each query page (1 through n)
         Do{
@@ -158,10 +162,13 @@ Le script renvoie la sortie du rapport d’audit au format JSON. Il crée égale
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Vous souhaitez personnaliser les exemples de cette rubrique ? Consultez la [référence d’API d’audit Azure Active Directory](active-directory-reporting-api-audit-reference.md). 
+* Vous souhaitez personnaliser les exemples de cette rubrique ? Consultez la [référence d’API d’audit Azure Active Directory](active-directory-reporting-api-audit-reference.md). 
 * Si vous souhaitez obtenir une présentation complète de l’utilisation de l’API de création de rapports Azure Active Directory, consultez [Prise en main de l’API de création de rapports Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Si vous souhaitez en savoir plus sur la création de rapports Azure Active Directory, consultez le [Guide Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

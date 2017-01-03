@@ -1,9 +1,9 @@
 Utilisez la procédure ci-dessous correspondant à votre type de projet de serveur principal &mdash; [serveur principal .NET](#dotnet) ou [serveur principal Node.js](#nodejs).
 
-### <a name="a-namedotnetanet-backend-project"></a><a name="dotnet"></a>Projet de serveur principal .NET
-1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de serveur, puis cliquez sur **Gérer les packages NuGet**, recherchez `Microsoft.Azure.NotificationHubs` et cliquez sur **Installer**. Cette commande installe la bibliothèque cliente Notification Hubs.
+### <a name="a-namedotnetanet-back-end-project"></a><a name="dotnet"></a>Projet de serveur principal .NET
+1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de serveur, puis cliquez sur **Gérer les packages NuGet**. Recherchez `Microsoft.Azure.NotificationHubs`, puis cliquez sur **Installer**. Cette commande installe la bibliothèque cliente Notification Hubs.
 2. Dans le dossier Contrôleurs, ouvrez TodoItemController.cs et ajoutez les instructions `using` suivantes :
-   
+
         using Microsoft.Azure.Mobile.Server.Config;
         using Microsoft.Azure.NotificationHubs;
 3. Remplacez la méthode `PostTodoItem` par le code suivant :  
@@ -14,7 +14,7 @@ Utilisez la procédure ci-dessous correspondant à votre type de projet de serve
             // Get the settings for the server project.
             HttpConfiguration config = this.Configuration;
 
-            MobileAppSettingsDictionary settings = 
+            MobileAppSettingsDictionary settings =
                 this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
             // Get the Notification Hubs credentials for the Mobile App.
@@ -46,30 +46,30 @@ Utilisez la procédure ci-dessous correspondant à votre type de projet de serve
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-1. Publier à nouveau le projet de serveur
+4. Publier à nouveau le projet de serveur
 
-### <a name="a-namenodejsanodejs-backend-project"></a><a name="nodejs"></a>Projet de back-end Node.js
-1. Si vous ne l’avez pas déjà fait, [téléchargez le projet de démarrage rapide](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou utilisez [l’éditeur en ligne du portail Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+### <a name="a-namenodejsanodejs-back-end-project"></a><a name="nodejs"></a>Projet de serveur principal Node.js
+1. Si vous ne l’avez pas encore fait, [téléchargez le projet de démarrage rapide](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou utilisez [l’éditeur en ligne du Portail Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 2. Remplacez le code présent dans le fichier todoitem.js par le code suivant :
-   
+
         var azureMobileApps = require('azure-mobile-apps'),
         promises = require('azure-mobile-apps/src/utilities/promises'),
         logger = require('azure-mobile-apps/src/logger');
-   
+
         var table = azureMobileApps.table();
-   
+
         table.insert(function (context) {
-        // For more information about the Notification Hubs JavaScript SDK, 
+        // For more information about the Notification Hubs JavaScript SDK,
         // see http://aka.ms/nodejshubs
         logger.info('Running TodoItem.insert');
-   
+
         // Define the GCM payload.
         var payload = {
             "data": {
                 "message": context.item.text
             }
         };   
-   
+
         // Execute the insert.  The insert returns the results as a Promise,
         // Do the push as a post-execute action within the promise flow.
         return context.execute()
@@ -92,14 +92,13 @@ Utilisez la procédure ci-dessous correspondant à votre type de projet de serve
                 logger.error('Error while running context.execute: ', error);
             });
         });
-   
+
         module.exports = table;  
-   
-    Ce code envoie une notification GCM contenant item.text quand un nouvel élément todo est inséré. 
-3. Quand vous modifiez le fichier sur votre ordinateur local, republiez le projet serveur. 
+
+    Ce code envoie une notification GCM contenant item.text quand un nouvel élément todo est inséré.
+3. Quand vous modifiez le fichier sur votre ordinateur local, republiez le projet serveur.
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

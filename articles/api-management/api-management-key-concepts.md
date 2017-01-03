@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dcff834c9d4aff82e8319e6c23a74c2e49902a8c
+ms.sourcegitcommit: b0ead7ecbf9327e9df6846d6e046ed69f25832cf
+ms.openlocfilehash: 872fbd44a9bccf0d6e9f7f3f3bd839e384874ae5
 
 
 ---
@@ -42,7 +42,7 @@ Cette rubrique offre une présentation des principaux concepts associés à Gest
 > * Sécurisation de l'accès
 > * Analyse et mesures
 > * Prise de contrôle et aperçu d’une plate-forme de gestion des API
-> * Utilisation du cloud et solutions locales
+> * Utilisation du cloud par rapport aux solutions locales
 > * Gestion des API Azure
 > 
 > 
@@ -50,14 +50,14 @@ Cette rubrique offre une présentation des principaux concepts associés à Gest
 ## <a name="apis"> </a>API et opérations
 Les API sont la base d'une instance du service Gestion des API. Chaque API représente un ensemble d'opérations disponibles pour les développeurs. Chaque API contient une référence au service principal qui implémente l'API, et ses opérations effectuent un mappage vers les opérations implémentées par le service principal. Les opérations dans Gestion des API sont hautement configurables. Elles contrôlent le mappage d'URL, les paramètres de requête et de chemin d'accès, le contenu de la demande et de la réponse, et la mise en cache de la réponse de l'opération. La limite de débit, les quotas et les stratégies de restriction de l'adresse IP peuvent également être implémentés au niveau de l'API ou du fonctionnement individuel.
 
-Pour plus d'informations, consultez les pages [Création d'API][Création d'API] et [Ajout d'opérations à une API][Ajout d'opérations à une API].
+Pour plus d'informations, consultez les pages [Création d'API][How to create APIs] et [Ajout d'opérations à une API][How to add operations to an API].
 
 ## <a name="products"> </a> Produits
 Les produits sont la façon dont les API sont présentées en surface aux développeurs. Les produits dans Gestion des API possèdent une ou plusieurs API et sont configurés avec un titre, une description et des conditions d'utilisation. Les produits peuvent être **ouverts** ou **protégés**. Les produits protégés doivent faire l’objet d’un abonnement avant de pouvoir être utilisés, alors que les produits ouverts peuvent être utilisés sans abonnement. Lorsqu'un produit est prêt à l'emploi pour les développeurs, il peut être publié. Une fois le produit publié, les développeurs peuvent l’afficher et s’y abonner (dans le cas des produits protégés). L'approbation d'abonnement est configurée au niveau du produit et peut nécessiter l'approbation de l'administrateur ou être automatiquement approuvée.
 
 Les groupes permettent de gérer la visibilité des produits pour les développeurs. Les produits accordent de la visibilité aux groupes. Les développeurs peuvent afficher les produits visibles pour les groupes auxquels ils appartiennent et s'y abonner. 
 
-Pour plus d'informations, consultez la page [Création et publication d'un produit][Création et publication d'un produit] ainsi que la vidéo suivante.
+Pour plus d'informations, consultez la page [Création et publication d'un produit][How to create and publish a product] ainsi que la vidéo suivante.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Using-Products/player]
 > 
@@ -72,14 +72,14 @@ Les groupes permettent de gérer la visibilité des produits pour les développe
 
 Outre ces groupes système, les administrateurs peuvent créer des groupes personnalisés ou [utiliser des groupes externes dans des locataires Azure Active Directory qui leur sont associés](api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group). Des groupes externes et personnalisés peuvent être utilisés avec des groupes système offrant une certaine visibilité aux développeurs et un accès aux produits d’API. Vous pourriez, par exemple, créer un groupe personnalisé pour les développeurs affiliés à une organisation partenaire spécifique et leur permettre d’accéder aux API à partir d’un produit contenant uniquement des API pertinentes. Un utilisateur peut être membre de plusieurs groupes.
 
-Pour plus d'informations, consultez la page [Création et utilisation de groupes][Création et utilisation de groupes].
+Pour plus d'informations, consultez la page [Création et utilisation de groupes][How to create and use groups].
 
 ## <a name="developers"> </a> Développeurs
-Les développeurs représentent les comptes d'utilisateur dans une instance du service Gestion des API. Ils peuvent être créés ou invités à rejoindre le groupe par les administrateurs, ou ils peuvent s'inscrire au [Portail des développeurs][Portail des développeurs]. Chaque développeur est membre d'un ou plusieurs groupes, et peut s'abonner aux produits qui accordent de la visibilité à ces groupes.
+Les développeurs représentent les comptes d'utilisateur dans une instance du service Gestion des API. Ils peuvent être créés ou invités à rejoindre le groupe par les administrateurs, ou ils peuvent s'inscrire dans le [Portail des développeurs][Developer portal]. Chaque développeur est membre d'un ou plusieurs groupes, et peut s'abonner aux produits qui accordent de la visibilité à ces groupes.
 
 Lorsque des développeurs s'abonnent à un produit, ils reçoivent les clés principale et secondaire pour le produit. Cette clé est utilisée pour les appels dans les API du produit.
 
-Pour plus d’informations, consultez [Création ou invitation de développeurs][Création ou invitation de développeurs] et [Association de groupes aux développeurs][Association de groupes aux développeurs].
+Pour plus d'informations, consultez les pages [Création ou invitation de développeurs][How to create or invite developers] et [Association de groupes aux développeurs][How to associate groups with developers].
 
 ## <a name="policies"> </a> Stratégies
 Les stratégies sont une fonctionnalité puissante de Gestion des API. Elles permettent à l'éditeur de modifier le comportement de l'API grâce à la configuration. Les stratégies sont un ensemble d'instructions qui sont exécutées dans l'ordre sur demande ou sur réponse d'une API. Les instructions les plus utilisées comprennent la conversion du format XML au format JSON et la limitation du débit d'appels pour restreindre la quantité d'appels entrants d'un développeur. De nombreuses autres stratégies sont disponibles.
@@ -90,7 +90,7 @@ Les expressions de stratégie peuvent être utilisées comme valeurs d’attribu
 > 
 > 
 
-Pour obtenir la liste complète des stratégies Gestion des API, consultez la page [Référence de stratégie][Référence de stratégie]. Pour plus d'informations sur l'utilisation et la configuration des stratégies, consultez la page [Stratégies Gestion des API][Stratégies Gestion des API]. Pour consulter un didacticiel sur la création d'un produit avec des stratégies de limite de débit et de quota, consultez la page [Création et configuration de paramètres produit avancés][Création et configuration de paramètres produit avancés]. Pour obtenir une démonstration, consultez la vidéo suivante.
+Pour obtenir la liste complète des stratégies Gestion des API, consultez la page [Référence de stratégie][Policy reference]. Pour plus d'informations sur l'utilisation et la configuration des stratégies, consultez la page [Stratégies Gestion des API][API Management policies]. Pour consulter un didacticiel sur la création d'un produit avec des stratégies de limite de débit et de quota, référez-vous à la page [Création et configuration de paramètres de produit avancés][How create and configure advanced product settings]. Pour obtenir une démonstration, consultez la vidéo suivante.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
 > 
@@ -108,30 +108,30 @@ Pour en savoir plus sur la gestion des API, regardez la présentation suivante d
 > 
 > 
 
-[API et opérations]: #apis
-[Produits]: #products
-[Groupes]: #groups
-[Développeurs]: #developers
-[Stratégies]: #policies
-[Portail des développeurs]: #developer-portal
+[APIs and operations]: #apis
+[Products]: #products
+[Groups]: #groups
+[Developers]: #developers
+[Policies]: #policies
+[Developer portal]: #developer-portal
 
-[Création d'API]: api-management-howto-create-apis.md
-[Ajout d'opérations à une API]: api-management-howto-add-operations.md
-[Création et publication d'un produit]: api-management-howto-add-products.md
-[Création et utilisation de groupes]: api-management-howto-create-groups.md
-[Association de groupes aux développeurs]: api-management-howto-create-groups.md#associate-group-developer
-[Création et configuration de paramètres produit avancés]: api-management-howto-product-with-rules.md
-[Création ou invitation de développeurs]: api-management-howto-create-or-invite-developers.md
-[Référence de stratégie]: api-management-policy-reference.md
-[Stratégies Gestion des API]: api-management-howto-policies.md
-[Création d'une instance du service API Management]: api-management-get-started.md#create-service-instance
-
-
+[How to create APIs]: api-management-howto-create-apis.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to create and use groups]: api-management-howto-create-groups.md
+[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
+[How create and configure advanced product settings]: api-management-howto-product-with-rules.md
+[How to create or invite developers]: api-management-howto-create-or-invite-developers.md
+[Policy reference]: api-management-policy-reference.md
+[API Management policies]: api-management-howto-policies.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+<!--HONumber=Jan17_HO1-->
 
 

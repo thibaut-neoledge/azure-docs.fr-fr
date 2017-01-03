@@ -1,8 +1,8 @@
 
-Commencez par inscrire votre application auprès d’un site de fournisseur d’identité, puis définissez les informations d’identification générées par le fournisseur dans le backend Mobile App.
+Commencez par inscrire votre application auprès d’un site de fournisseur d’identité, puis définissez les informations d’identification générées par le fournisseur dans le serveur principal Mobile Apps.
 
-1. Configurez votre fournisseur d’identité en suivant les instructions correspondantes : 
-   
+1. Configurez votre fournisseur d’identité en suivant les instructions correspondantes :
+
    * [Azure Active Directory](../articles/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)
    * [Facebook](../articles/app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md)
    * [Google](../articles/app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md)
@@ -11,9 +11,9 @@ Commencez par inscrire votre application auprès d’un site de fournisseur d’
 2. Répétez les étapes précédentes pour chaque fournisseur que vous souhaitez prendre en charge dans votre application.
 
 <!-- URLs. -->
-[Portail Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,15 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
+ms.date: 12/11/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3600f03c22805789b1f75f892962e0d054e84058
+ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
+ms.openlocfilehash: 7c2709d472d7512eda927f4f70f82e7f74adca0c
 
 
 ---
 # <a name="using-playready-andor-widevine-dynamic-common-encryption"></a>Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-protect-with-drm.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -49,6 +50,7 @@ Cette rubrique peut être utile aux développeurs travaillant sur des applicatio
 Vous pouvez télécharger l’exemple décrit dans cet article à partir d’ [ici](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
 
 ## <a name="configuring-dynamic-common-encryption-and-drm-license-delivery-services"></a>Configuration de Dynamic Common Encryption et services de distribution de licences DRM
+
 Voici les étapes générales que vous aurez à exécuter lors de la protection de vos éléments multimédias avec PlayReady, en utilisant le service de distribution des licences Media Services, ainsi que le chiffrement dynamique.
 
 1. Créer un élément multimédia et télécharger des fichiers dans l'élément multimédia.
@@ -56,13 +58,13 @@ Voici les étapes générales que vous aurez à exécuter lors de la protection 
 3. Créer une clé de contenu et l'associer à l'élément multimédia encodé. Dans Media Services, la clé de contenu contient la clé de chiffrement de l'élément multimédia.
 4. Configurer la stratégie d'autorisation de la clé de contenu. La stratégie d'autorisation de la clé de contenu doit être configurée par vous et respectée par le client afin que la clé de contenu soit remise au client.
 
-Lorsque vous créez la stratégie d’autorisation de clé de contenu, vous devez spécifier les éléments suivants : méthode de livraison (PlayReady ou Widevine), restrictions de remise (ouvertes ou jeton) et informations spécifiques au type de remise de clé qui définit comment la clé est fournie au client (modèle de licence [PlayReady](media-services-playready-license-template-overview.md) ou [Widevine](media-services-widevine-license-template-overview.md)).
+    Lorsque vous créez la stratégie d’autorisation de clé de contenu, vous devez spécifier les éléments suivants : méthode de livraison (PlayReady ou Widevine), restrictions de remise (ouvertes ou jeton) et informations spécifiques au type de remise de clé qui définit comment la clé est fournie au client (modèle de licence [PlayReady](media-services-playready-license-template-overview.md) ou [Widevine](media-services-widevine-license-template-overview.md)).
 
-1. Configurer la stratégie de remise pour un élément multimédia. La configuration de la stratégie de remise inclut : le protocole de remise (par exemple, MPEG DASH, HLS, HDS, Smooth Streaming ou tous), le type de chiffrement dynamique (par exemple, Common Encryption), l’URL d’acquisition de licence PlayReady ou Widevine.
+5. Configurer la stratégie de remise pour un élément multimédia. La configuration de la stratégie de remise inclut : le protocole de remise (par exemple, MPEG DASH, HLS, Smooth Streaming ou tous), le type de chiffrement dynamique (par exemple, chiffrement commun), l’URL d’acquisition de licence PlayReady ou Widevine.
 
-Vous pouvez appliquer des stratégies différentes à chaque protocole dans le même élément multimédia. Par exemple, vous pouvez appliquer le chiffrement PlayReady à Smooth/DASH et AES Envelope à HLS. Tous les protocoles qui ne sont pas définis dans une stratégie de remise (par exemple, en cas d’ajout d’une stratégie unique qui spécifie uniquement TLS comme protocole) seront bloqués de la diffusion en continu. Cela ne s’applique toutefois pas si vous n’avez défini aucune stratégie de remise de ressources. Tous les protocoles seront alors autorisés.
+    Vous pouvez appliquer des stratégies différentes à chaque protocole dans le même élément multimédia. Par exemple, vous pouvez appliquer le chiffrement PlayReady à Smooth/DASH et AES Envelope à HLS. Tous les protocoles qui ne sont pas définis dans une stratégie de remise (par exemple, en cas d’ajout d’une stratégie unique qui spécifie uniquement TLS comme protocole) seront bloqués de la diffusion en continu. Cela ne s’applique toutefois pas si vous n’avez défini aucune stratégie de remise de ressources. Tous les protocoles seront alors autorisés.
 
-1. Créer un localisateur à la demande afin d'obtenir une URL de diffusion en continu.
+6. Créer un localisateur à la demande afin d'obtenir une URL de diffusion en continu.
 
 Vous trouverez un exemple .NET complet à la fin de la rubrique.
 
@@ -101,7 +103,7 @@ Pour plus d’informations, consultez [Configurer la stratégie d’autorisation
 Configurez la stratégie de remise pour votre élément multimédia. Certains éléments que la configuration de la stratégie de remise de l'élément multimédia inclut :
 
 * L’URL d’acquisition de licence PlayReady.
-* Le protocole de remise de l'élément multimédia (par exemple, MPEG DASH, HLS, HDS, Smooth Streaming ou tous).
+* Le protocole de remise de l’élément multimédia (par exemple, MPEG DASH, HLS, Smooth Streaming ou tous).
 * Le type de chiffrement dynamique (dans ce cas, Common Encryption).
 
 Pour plus d’informations, consultez [Configurer la stratégie de distribution d’éléments multimédia ](media-services-rest-configure-asset-delivery-policy.md).

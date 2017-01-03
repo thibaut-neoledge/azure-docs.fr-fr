@@ -1,38 +1,28 @@
-## <a name="about-records"></a>À propos des enregistrements
+### <a name="record-names"></a>Noms d’enregistrement
 
-Chaque enregistrement DNS a un nom et un type. Les enregistrements sont organisés selon différents types, en fonction des données qu’ils contiennent. Le type le plus courant est un enregistrement « A » qui associe un nom à une adresse IPv4. Un autre type est un enregistrement « MX », qui associe un nom à un serveur de messagerie.
+Dans Azure DNS, les enregistrements sont spécifiés à l’aide de noms relatifs. Un *nom de domaine complet (FQDN)* inclut le nom de la zone, contrairement à un *nom relatif*. Par exemple, le nom d’enregistrement relatif « www » dans la zone « contoso.com » crée le nom d’enregistrement complet « www.contoso.com ».
 
-Azure DNS prend en charge tous les types d’enregistrement DNS courants, notamment A, AAAA, CNAME, MX, NS, PTR, SOA, SRV et TXT. Notez les points suivants :
+Un enregistrement *apex* est un enregistrement DNS à la racine (ou *apex*) d’une zone DNS. Par exemple, dans la zone DNS « contoso.com », un enregistrement apex porte également le nom complet « contoso.com » (on parle parfois de domaine *nu*).  Par convention, le nom relatif '@' est utilisé pour représenter des enregistrements apex.
 
-* Les jeux d’enregistrements SOA sont créés automatiquement avec chaque zone. Ils ne peuvent pas être créés séparément.
-* Les enregistrements SPF doivent être créés à l’aide du type d’enregistrement TXT. Pour plus d’informations, consultez [cette page](http://tools.ietf.org/html/rfc7208#section-3.1).
+### <a name="record-types"></a>Types d’enregistrements
 
-Dans Azure DNS, les enregistrements sont spécifiés à l’aide de noms relatifs. Le nom de domaine complet inclut le nom de la zone, contrairement au nom relatif. Par exemple, le nom d’enregistrement relatif « www » dans la zone « contoso.com » crée le nom d’enregistrement complet www.contoso.com.
+Chaque enregistrement DNS a un nom et un type. Les enregistrements sont organisés selon différents types, en fonction des données qu’ils contiennent. Le type le plus courant est un enregistrement « A » qui mappe un nom à une adresse IPv4. Un autre type courant est un enregistrement « MX » qui mappe un nom à un serveur de messagerie.
 
-## <a name="about-record-sets"></a>À propos des jeux d’enregistrements
+le DNS Azure prend en charge tous les types d’enregistrement DNS courants, à savoir : A, AAAA, CNAME, MX, NS, PTR, SOA, SRV et TXT. Notez que les [enregistrements SPF sont représentés à l’aide d’enregistrements TXT](../articles/dns/dns-zones-records.md#spf-records).
 
-Vous devez parfois créer plusieurs enregistrements DNS avec un nom et un type donnés. Par exemple, supposons que le site web « www.contoso.com » est hébergé sur deux adresses IP différentes. Ce site web requiert deux enregistrements A différents, à savoir un pour chaque adresse IP. Voici un exemple de jeu d’enregistrements :
+### <a name="record-sets"></a>Jeux d’enregistrements
+
+Vous devez parfois créer plusieurs enregistrements DNS avec un nom et un type donnés. Par exemple, supposons que le site web « www.contoso.com » est hébergé sur deux adresses IP différentes. Ce site web requiert deux enregistrements A différents, à savoir un pour chaque adresse IP. Voici un exemple de jeu d’enregistrements :
 
     www.contoso.com.        3600    IN    A    134.170.185.46
     www.contoso.com.        3600    IN    A    134.170.188.221
 
-Azure DNS gère les enregistrements DNS à l’aide de jeux d’enregistrements. Un jeu d’enregistrements est une collection d’enregistrements DNS dans une zone ayant le même nom et le même type. La plupart des jeux d’enregistrements contiennent un enregistrement unique, mais les exemples comme celui-ci, dans lequel un jeu d’enregistrements contient plusieurs enregistrements, sont relativement courants.
+Le DNS Azure gère l’ensemble des enregistrements DNS à l’aide de *jeux d’enregistrements*. Un jeu d’enregistrements (également appelé *jeu d’enregistrements de ressource*) est la collection d’enregistrements DNS dans une zone qui portent le même nom et sont du même type. La plupart des jeux d’enregistrements contiennent un seul enregistrement. Toutefois, les exemples comme celui ci-dessus, dans lequel un jeu d’enregistrements contient plusieurs enregistrements, sont relativement courants.
 
-Les jeux d’enregistrements SOA et CNAME sont des exceptions. Les normes DNS n’autorisent pas plusieurs enregistrements avec le même nom pour ces types.
+Par exemple, supposons que vous avez déjà créé un enregistrement A nommé « www » dans la zone « contoso.com », qui pointe vers l’adresse IP « 134.170.185.46 » (le premier enregistrement ci-dessus).  Pour créer le deuxième enregistrement, vous devez l’ajouter au jeu d’enregistrements existant, au lieu de créer un autre jeu.
 
-La durée de vie (TTL) spécifie la durée pendant laquelle chaque enregistrement est mis en cache par les clients avant d’être réinterrogé. Dans cet exemple, la durée de vie est de 3600 secondes ou 1 heure. La durée de vie est spécifiée pour le jeu d’enregistrements, pas pour chaque enregistrement. La même valeur est donc utilisée pour tous les enregistrements au sein de ce jeu d’enregistrements.
+Les types d’enregistrements SOA et CNAME font exception. Comme les normes DNS n’autorisent pas que plusieurs enregistrements portent le même nom pour ces types, ces jeux d’enregistrements ne peuvent contenir qu’un seul enregistrement.
 
-#### <a name="wildcard-record-sets"></a>Jeux d’enregistrements génériques
-
-Azure DNS prend en charge les [enregistrements génériques](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Ces derniers sont retournés pour toute requête avec un nom correspondant (à moins qu’une correspondance plus proche provienne d'un jeu d'enregistrements non génériques). Les jeux d'enregistrements génériques sont pris en charge pour tous les types d'enregistrements, hormis NS et SOA.
-
-Pour créer un jeu d’enregistrements génériques, utilisez le nom de jeu d’enregistrements « \* ». Vous pouvez également utiliser un nom avec le caractère « \* », par exemple, « \*.foo ».
-
-#### <a name="cname-record-sets"></a>Jeux d’enregistrements CNAME
-
-Les jeux d’enregistrements CNAME ne peuvent pas coexister avec d’autres jeux d’enregistrements portant le même nom. Par exemple, vous ne pouvez pas créer un jeu d’enregistrements CNAME avec le nom relatif « www » et un enregistrement A avec le nom relatif « www » en même temps. Étant donné que l’extrémité de la zone (nom = ‘@’)) contient toujours les jeux d’enregistrements NS et SOA créés lors de la création de la zone, vous ne pouvez pas créer un jeu d’enregistrements CNAME au niveau de l’extrémité de la zone. Ces contraintes sont dues aux normes DNS. Il ne s’agit pas de limites d’Azure DNS.
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

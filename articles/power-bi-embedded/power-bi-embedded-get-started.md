@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 12/19/2016
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b8748ffac2159661d9496b7033b510e6e584fe0f
+ms.sourcegitcommit: f1b3464526b99cad1beb8f7604887a4cc32b0706
+ms.openlocfilehash: a8d787acb4bc3f6f8a7cd408d6f5ac4313a2121f
 
 
 ---
@@ -70,7 +70,10 @@ Même si deux touches sont répertoriées, une seule est nécessaire à un momen
 Maintenant que vous disposez d’une instance de Power BI pour votre application, ainsi que des **touches d’accès rapide**, vous pouvez importer un rapport dans votre propre application. Avant que vous appreniez à importer un rapport, la section suivante décrit comment créer des rapports et jeux de données Power BI à intégrer dans une application.
 
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Création de rapports et de jeux de données à intégrer dans une application
-Maintenant que vous avez créé une instance de Power BI pour votre application et que vous avez des **touches d’accès rapide**, vous devez créer les rapports et les jeux de données Power BI à intégrer. Vous pouvez créer des rapports et des jeux de données à l’aide de **Power BI Desktop**. Vous pouvez télécharger [Power BI Desktop gratuitement](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Ou, pour une prise en main rapide, vous pouvez télécharger [l’exemple PBIX Analyse des données de vente](http://go.microsoft.com/fwlink/?LinkID=780547). Pour en savoir plus sur l’utilisation de **Power BI Desktop**, consultez la section [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
+Maintenant que vous avez créé une instance de Power BI pour votre application et que vous avez des **touches d’accès rapide**, vous devez créer les rapports et les jeux de données Power BI à intégrer. Vous pouvez créer des rapports et des jeux de données à l’aide de **Power BI Desktop**. Vous pouvez télécharger [Power BI Desktop gratuitement](https://go.microsoft.com/fwlink/?LinkId=521662). Ou, pour une prise en main rapide, vous pouvez télécharger [l’exemple PBIX Analyse des données de vente](http://go.microsoft.com/fwlink/?LinkID=780547).
+
+> [!NOTE]
+> Pour en savoir plus sur l’utilisation de **Power BI Desktop**, consultez la section [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
 Avec **Power BI Desktop**, vous vous connectez à votre source de données en important une copie des données dans **Power BI Desktop** ou directement à l’aide de **DirectQuery**.
 
@@ -86,14 +89,11 @@ Lorsque vous enregistrez votre travail dans **Power BI Desktop**, un fichier PBI
 
 > [!NOTE]
 > **Power BI Embedded** contient d’autres API pour modifier le serveur et la base de données vers lesquels pointe votre jeu de données, et définir les informations d’identification du compte de service utilisé par le jeu de données pour se connecter à votre base de données. Consultez les pages [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) et [Patch Gateway Datasource](https://msdn.microsoft.com/library/mt711498.aspx).
-> 
-> 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans les étapes précédentes, vous avez créé une collection d’espaces de travail, votre premier rapport et votre premier jeu de données. Maintenant, vous allez découvrir comment écrire du code pour **Power BI Embedded**. Pour faciliter vos premiers pas, nous avons créé un exemple d’application web : [Prise en main de l’exemple Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md). Cet exemple vous montre comment :
 
 * Approvisionner du contenu
-  
   * Créer un espace de travail
   * Importer un fichier PBIX
   * Mettre à jour les chaînes de connexion et définir les informations d'identification de vos jeux de données.
@@ -104,9 +104,11 @@ Dans les étapes précédentes, vous avez créé une collection d’espaces de t
 * [Authentification et autorisation avec Power BI Embedded](power-bi-embedded-app-token-flow.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
+Des questions ? [Essayer la communauté Power BI](http://community.powerbi.com/)
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Jan17_HO1-->
 
 

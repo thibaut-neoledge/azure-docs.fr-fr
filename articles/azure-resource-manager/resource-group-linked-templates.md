@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/02/2016
+ms.date: 11/28/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: e7bb2b1ec4419bc265ff4a6f36d5d7d53fe8589f
+ms.sourcegitcommit: 922b08ab343d6aa0fd4b67d720e2f195e9dfac0f
+ms.openlocfilehash: 8f316ef559b9d1287ece7475192ec0b7a80af4e7
 
 
 ---
@@ -28,76 +28,94 @@ Vous pouvez déplacer des paramètres d’un modèle principal à un modèle li�
 ## <a name="linking-to-a-template"></a>Liaison à un modèle
 Pour créer un lien entre deux modèles, ajoutez une ressource de déploiement dans le modèle principal pointant vers le modèle lié. Vous définissez la propriété **templateLink** à l’URI du modèle lié. Vous pouvez fournir des valeurs de paramètre pour le modèle lié en spécifiant les valeurs directement dans votre modèle ou en créant un lien vers un fichier de paramètres. L’exemple suivant utilise la propriété **parameters** afin de spécifier directement une valeur de paramètre.
 
-    "resources": [ 
-      { 
-         "apiVersion": "2015-01-01", 
-         "name": "linkedTemplate", 
-         "type": "Microsoft.Resources/deployments", 
-         "properties": { 
-           "mode": "incremental", 
-           "templateLink": {
-              "uri": "https://www.contoso.com/AzureTemplates/newStorageAccount.json",
-              "contentVersion": "1.0.0.0"
-           }, 
-           "parameters": { 
-              "StorageAccountName":{"value": "[parameters('StorageAccountName')]"} 
-           } 
-         } 
+```json
+"resources": [ 
+  { 
+      "apiVersion": "2015-01-01", 
+      "name": "linkedTemplate", 
+      "type": "Microsoft.Resources/deployments", 
+      "properties": { 
+        "mode": "incremental", 
+        "templateLink": {
+          "uri": "https://www.contoso.com/AzureTemplates/newStorageAccount.json",
+          "contentVersion": "1.0.0.0"
+        }, 
+        "parameters": { 
+          "StorageAccountName":{"value": "[parameters('StorageAccountName')]"} 
+        } 
       } 
-    ] 
+  } 
+] 
+```
 
-Le service Resource Manager doit être en mesure d’accéder au modèle lié. Vous ne pouvez pas spécifier un fichier local ou un fichier uniquement disponible sur votre réseau local pour le modèle lié. Vous pouvez seulement fournir une valeur URI qui inclut soit **http** soit **https**. Une possibilité consiste à placer votre modèle lié dans un compte de stockage et à utiliser l’URI de cet élément, comme illustré ci-dessous.
+Comme pour d’autres types de ressources, vous pouvez définir des dépendances entre le modèle lié et d’autres ressources. Par conséquent, lorsque d’autres ressources requièrent une valeur de sortie à partir du modèle lié, vous pouvez vous assurer que le modèle lié est déployé avant celles-ci. Sinon, lorsque le modèle lié s’appuie sur d’autres ressources, vous pouvez vous assurer que d’autres ressources sont déployées avant le modèle lié. Vous pouvez récupérer une valeur à partir d’un modèle lié avec la syntaxe suivante :
 
-    "templateLink": {
-        "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
-        "contentVersion": "1.0.0.0",
-    }
+```json
+"[reference('linkedTemplate').outputs.exampleProperty]"
+```
+
+Le service Resource Manager doit être en mesure d’accéder au modèle lié. Vous ne pouvez pas spécifier un fichier local ou un fichier uniquement disponible sur votre réseau local pour le modèle lié. Vous pouvez seulement fournir une valeur URI qui inclut soit **http** soit **https**. Une possibilité consiste à placer votre modèle lié dans un compte de stockage et à utiliser l’URI de cet élément, comme illustré ci-dessous :
+
+```json
+"templateLink": {
+    "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
+    "contentVersion": "1.0.0.0",
+}
+```
 
 Bien que le modèle lié doive être disponible en externe, il n’a pas besoin d’être accessible au public. Vous pouvez ajouter votre modèle dans un compte de stockage privé, uniquement accessible au propriétaire du compte de stockage. Ensuite, vous créez un jeton de signature d’accès partagé (SAP) pour autoriser l’accès en cours de déploiement. Vous ajoutez ce jeton SAP à l’URI pour le modèle lié. Pour connaître les étapes de configuration d’un modèle dans un compte de stockage et de génération d’un jeton SAP, consultez [Déployer des ressources avec des modèles Resource Manager et Azure PowerShell](resource-group-template-deploy.md) ou [Déployer des ressources avec des modèles Resource Manager et l’interface de ligne de commande Azure](resource-group-template-deploy-cli.md). 
 
 L’exemple suivant montre un modèle parent lié à un autre modèle. Le modèle lié est accessible avec un jeton SAP qui est transmis en tant paramètre.
 
-    "parameters": {
-        "sasToken": { "type": "securestring" }
-    },
-    "resources": [
-        {
-            "apiVersion": "2015-01-01",
-            "name": "linkedTemplate",
-            "type": "Microsoft.Resources/deployments",
-            "properties": {
-              "mode": "incremental",
-              "templateLink": {
-                "uri": "[concat('https://storagecontosotemplates.blob.core.windows.net/templates/helloworld.json', parameters('sasToken'))]",
-                "contentVersion": "1.0.0.0"
-              }
-            }
+```json
+"parameters": {
+    "sasToken": { "type": "securestring" }
+},
+"resources": [
+    {
+        "apiVersion": "2015-01-01",
+        "name": "linkedTemplate",
+        "type": "Microsoft.Resources/deployments",
+        "properties": {
+          "mode": "incremental",
+          "templateLink": {
+            "uri": "[concat('https://storagecontosotemplates.blob.core.windows.net/templates/helloworld.json', parameters('sasToken'))]",
+            "contentVersion": "1.0.0.0"
+          }
         }
-    ],
+    }
+],
+```
 
 Même si le jeton est transmis sous forme de chaîne sécurisée, l’URI du modèle lié, y compris le jeton SAP, est enregistré dans les opérations de déploiement de ce groupe de ressources. Pour limiter l’exposition, définissez un délai d’expiration pour le jeton.
+
+Resource Manager gère chaque modèle lié comme un déploiement séparé. Dans l’historique de déploiement du groupe de ressources, vous voyez des déploiements distincts pour les modèles parents et imbriqués.
+
+![historique des déploiements](./media/resource-group-linked-templates/linked-deployment-history.png)
 
 ## <a name="linking-to-a-parameter-file"></a>Liaison à un fichier de paramètres
 L’exemple suivant utilise la propriété **parametersLink** pour créer un lien vers un fichier de paramètres.
 
-    "resources": [ 
-      { 
-         "apiVersion": "2015-01-01", 
-         "name": "linkedTemplate", 
-         "type": "Microsoft.Resources/deployments", 
-         "properties": { 
-           "mode": "incremental", 
-           "templateLink": {
-              "uri":"https://www.contoso.com/AzureTemplates/newStorageAccount.json",
-              "contentVersion":"1.0.0.0"
-           }, 
-           "parametersLink": { 
-              "uri":"https://www.contoso.com/AzureTemplates/parameters.json",
-              "contentVersion":"1.0.0.0"
-           } 
-         } 
-      } 
-    ] 
+```json
+"resources": [ 
+  { 
+     "apiVersion": "2015-01-01", 
+     "name": "linkedTemplate", 
+     "type": "Microsoft.Resources/deployments", 
+     "properties": { 
+       "mode": "incremental", 
+       "templateLink": {
+          "uri":"https://www.contoso.com/AzureTemplates/newStorageAccount.json",
+          "contentVersion":"1.0.0.0"
+       }, 
+       "parametersLink": { 
+          "uri":"https://www.contoso.com/AzureTemplates/parameters.json",
+          "contentVersion":"1.0.0.0"
+       } 
+     } 
+  } 
+] 
+```
 
 La valeur d’URI pour le fichier de paramètres liés ne peut pas être un fichier local et doit inclure **http** ou **https**. Le fichier de paramètres peut également être limité à l’accès avec un jeton SAP.
 
@@ -106,191 +124,200 @@ Les exemples précédents représentaient des valeurs d’URL codées en dur pou
 
 L’exemple suivant indique comment utiliser une URL de base afin de créer deux URL pour des modèles liés (**sharedTemplateUrl** et **vmTemplate**). 
 
-    "variables": {
-        "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
-        "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
-        "tshirtSizeSmall": {
-            "vmSize": "Standard_A1",
-            "diskSize": 1023,
-            "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]",
-            "vmCount": 2,
-            "slaveCount": 1,
-            "storage": {
-                "name": "[parameters('storageAccountNamePrefix')]",
-                "count": 1,
-                "pool": "db",
-                "map": [0,0],
-                "jumpbox": 0
-            }
-        }
-    }
+```json
+"variables": {
+    "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
+    "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
+    "vmTemplateUrl": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]"
+}
+```
 
 Vous pouvez également utiliser [deployment()](resource-group-template-functions.md#deployment) pour obtenir l’URL de base pour le modèle actuel, qui permet d’obtenir l’URL d’autres modèles dans le même emplacement. Cette approche est utile si l’emplacement des modèles change (à cause des versions notamment) ou si vous voulez éviter de coder en dur les URL dans le fichier de modèle. 
 
-    "variables": {
-        "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
-    }
+```json
+"variables": {
+    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
+}
+```
 
 ## <a name="conditionally-linking-to-templates"></a>Liaison conditionnelle vers les modèles
 Vous pouvez établir une liaison vers différents modèles en passant une valeur de paramètre utilisée pour construire l’URI du modèle lié. Cette approche fonctionne parfaitement lorsque vous devez spécifier le modèle lié à utiliser en cours de déploiement. Par exemple, vous pouvez spécifier un modèle à utiliser pour un compte de stockage existant, puis un autre modèle pour un nouveau compte de stockage.
 
 L’exemple suivant illustre un paramètre associé à un nom de compte de stockage, ainsi qu’un paramètre permettant de spécifier si le compte de stockage est nouveau ou existe déjà.
 
-    "parameters": {
-        "storageAccountName": {
-            "type": "String"
-        },
-        "newOrExisting": {
-            "type": "String",
-            "allowedValues": [
-                "new",
-                "existing"
-            ]
-        }
+```json
+"parameters": {
+    "storageAccountName": {
+        "type": "String"
     },
+    "newOrExisting": {
+        "type": "String",
+        "allowedValues": [
+            "new",
+            "existing"
+        ]
+    }
+},
+```
 
 Vous créez une variable pour l’URI de modèle, qui contient la valeur du paramètre nouveau ou existant.
 
-    "variables": {
-        "templatelink": "[concat('https://raw.githubusercontent.com/exampleuser/templates/master/',parameters('newOrExisting'),'StorageAccount.json')]"
-    },
+```json
+"variables": {
+    "templatelink": "[concat('https://raw.githubusercontent.com/exampleuser/templates/master/',parameters('newOrExisting'),'StorageAccount.json')]"
+},
+```
 
 Vous fournissez cette valeur de variable pour la ressource de déploiement.
 
-    "resources": [
-        {
-            "apiVersion": "2015-01-01",
-            "name": "linkedTemplate",
-            "type": "Microsoft.Resources/deployments",
-            "properties": {
-                "mode": "incremental",
-                "templateLink": {
-                    "uri": "[variables('templatelink')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "StorageAccountName": {
-                        "value": "[parameters('storageAccountName')]"
-                    }
+```json
+"resources": [
+    {
+        "apiVersion": "2015-01-01",
+        "name": "linkedTemplate",
+        "type": "Microsoft.Resources/deployments",
+        "properties": {
+            "mode": "incremental",
+            "templateLink": {
+                "uri": "[variables('templatelink')]",
+                "contentVersion": "1.0.0.0"
+            },
+            "parameters": {
+                "StorageAccountName": {
+                    "value": "[parameters('storageAccountName')]"
                 }
             }
         }
-    ],
+    }
+],
+```
 
 L’URI correspond à un modèle nommé **existingStorageAccount.json** ou **newStorageAccount.json**. Créez des modèles pour ces URI.
 
 L’exemple suivant illustre le modèle **existingStorageAccount.json** .
 
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "storageAccountName": {
-          "type": "String"
-        }
-      },
-      "variables": {},
-      "resources": [],
-      "outputs": {
-        "storageAccountInfo": {
-          "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
-          "type" : "object"
-        }
-      }
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountName": {
+      "type": "String"
     }
+  },
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "storageAccountInfo": {
+      "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
+      "type" : "object"
+    }
+  }
+}
+```
 
 L’exemple suivant illustre le modèle **newStorageAccount.json** . Tout comme le modèle de compte de stockage existant, l’objet de compte de stockage est renvoyé dans la section outputs. Le modèle principal fonctionne avec l’un ou l’autre de ces modèles liés.
 
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountName": {
+      "type": "string"
+    }
+  },
+  "resources": [
     {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "storageAccountName": {
-          "type": "string"
-        }
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[parameters('StorageAccountName')]",
+      "apiVersion": "2016-01-01",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
       },
-      "resources": [
-        {
-          "type": "Microsoft.Storage/storageAccounts",
-          "name": "[parameters('StorageAccountName')]",
-          "apiVersion": "2016-01-01",
-          "location": "[resourceGroup().location]",
-          "sku": {
-            "name": "Standard_LRS"
-          },
-          "kind": "Storage",
-          "properties": {
-          }
-        }
-      ],
-      "outputs": {
-        "storageAccountInfo": {
-          "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('StorageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
-          "type" : "object"
-        }
+      "kind": "Storage",
+      "properties": {
       }
     }
+  ],
+  "outputs": {
+    "storageAccountInfo": {
+      "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('StorageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
+      "type" : "object"
+    }
+  }
+}
+```
 
 ## <a name="complete-example"></a>Exemple complet
 Les exemples de modèles suivants montrent une disposition simplifiée des modèles liés pour illustrer certains des concepts décrits dans cet article. Ils partent du principe que les modèles ont été ajoutés au même conteneur dans un compte de stockage dont l’accès public est désactivé. Le modèle lié retransmet une valeur au modèle principal dans la section **outputs** .
 
 Le fichier **parent.json** est composé de :
 
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "containerSasToken": { "type": "string" }
+  },
+  "resources": [
     {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "containerSasToken": { "type": "string" }
-      },
-      "resources": [
-        {
-          "apiVersion": "2015-01-01",
-          "name": "linkedTemplate",
-          "type": "Microsoft.Resources/deployments",
-          "properties": {
-            "mode": "incremental",
-            "templateLink": {
-              "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
-              "contentVersion": "1.0.0.0"
-            }
-          }
-        }
-      ],
-      "outputs": {
-        "result": {
-          "type": "object",
-          "value": "[reference('linkedTemplate').outputs.result]"
+      "apiVersion": "2015-01-01",
+      "name": "linkedTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "incremental",
+        "templateLink": {
+          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
+          "contentVersion": "1.0.0.0"
         }
       }
     }
+  ],
+  "outputs": {
+    "result": {
+      "type": "object",
+      "value": "[reference('linkedTemplate').outputs.result]"
+    }
+  }
+}
+```
 
 Le fichier **helloworld.json** est composé de :
 
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {},
-      "variables": {},
-      "resources": [],
-      "outputs": {
-        "result": {
-            "value": "Hello World",
-            "type" : "string"
-        }
-      }
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "result": {
+        "value": "Hello World",
+        "type" : "string"
     }
+  }
+}
+```
 
 Dans PowerShell, vous obtenez un jeton pour le conteneur et déployez les modèles avec :
 
-    Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
-    $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
-    New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ("https://storagecontosotemplates.blob.core.windows.net/templates/parent.json" + $token) -containerSasToken $token
+```powershell
+Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
+$token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
+New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ("https://storagecontosotemplates.blob.core.windows.net/templates/parent.json" + $token) -containerSasToken $token
+```
 
 Dans l’interface de ligne de commande Azure, vous obtenez un jeton pour le conteneur et déployez les modèles avec le code suivant. Actuellement, vous devez fournir un nom pour le déploiement lorsque vous utilisez un modèle d’URI qui inclut un jeton SAP.  
 
-    expiretime=$(date -I'minutes' --date "+30 minutes")  
-    azure storage container sas create --container templates --permissions r --expiry $expiretime --json | jq ".sas" -r
-    azure group deployment create -g ExampleGroup --template-uri "https://storagecontosotemplates.blob.core.windows.net/templates/parent.json?{token}" -n tokendeploy  
+```
+expiretime=$(date -I'minutes' --date "+30 minutes")  
+azure storage container sas create --container templates --permissions r --expiry $expiretime --json | jq ".sas" -r
+azure group deployment create -g ExampleGroup --template-uri "https://storagecontosotemplates.blob.core.windows.net/templates/parent.json?{token}" -n tokendeploy  
+```
 
 Vous devez fournir le jeton SAP en tant que paramètre. Vous devez faire précéder le jeton de **?**.
 
@@ -301,6 +328,6 @@ Vous devez fournir le jeton SAP en tant que paramètre. Vous devez faire précé
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

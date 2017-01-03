@@ -1,6 +1,6 @@
 ---
-title: "Vue d’ensemble de la gestion des appareils avec IoT Hub | Microsoft Docs"
-description: "Cet article fournit une vue d’ensemble de la gestion des appareils dans Azure IoT Hub : cycle de vie des appareils d’entreprise, redémarrage, rétablissement des paramètres d’usine, mise à jour du microprogramme, configuration, représentations d’appareil physique, requêtes, travaux"
+title: Gestion des appareils avec Azure IoT Hub | Microsoft Docs
+description: "Vue d’ensemble de la gestion des appareils dans Azure IoT Hub : cycle de vie des appareils d’entreprise et modèles de gestion des appareils tels que redémarrage, réinitialisation aux paramètres d’usine, mise à jour du microprogramme, configuration, représentations d’appareil, requêtes et travaux."
 services: iot-hub
 documentationcenter: 
 author: bzurcher
@@ -13,16 +13,16 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2016
-ms.author: bzurcher
+ms.author: briz
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c62ef9126f29350c559063b1e65e8bad4dd09af0
+ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
+ms.openlocfilehash: 91dcace2d74d44a5d2ab3b9a1352b2fa052ddc44
 
 
 ---
-# <a name="overview-of-device-management-with-iot-hub-preview"></a>Vue d’ensemble de la gestion des appareils avec IoT Hub (version préliminaire)
+# <a name="overview-of-device-management-with-iot-hub"></a>Vue d’ensemble de la gestion des appareils avec IoT Hub
 ## <a name="introduction"></a>Introduction
-Azure IoT Hub fournit les fonctionnalités et un modèle d’extensibilité qui permettent aux développeurs d’appareils et de serveur principal de créer des solutions robustes de gestion des appareils. Les appareils IoT englobent les capteurs de contraintes et les microcontrôleurs à un seul objectif, les passerelles puissantes qui acheminent les communications pour les groupes d’appareils.  En outre, les cas d’utilisation et la configuration requise pour les opérateurs IoT varient considérablement entre les industries.  Malgré cette variation, la gestion des appareils avec IoT Hub fournit les fonctionnalités, les modèles et les bibliothèques de code pour répondre aux besoins d’un ensemble varié d’appareils et d’utilisateurs finaux.
+Azure IoT Hub fournit les fonctionnalités et un modèle d’extensibilité qui permettent aux développeurs d’appareils et de serveur principal de créer des solutions robustes de gestion des appareils. Les appareils englobent les capteurs de contraintes et les microcontrôleurs à un seul objectif, les passerelles puissantes qui acheminent les communications pour les groupes d’appareils.  En outre, les cas d’utilisation et la configuration requise pour les opérateurs IoT varient considérablement entre les industries.  Malgré cette variation, la gestion des appareils avec IoT Hub fournit les fonctionnalités, les modèles et les bibliothèques de code pour répondre aux besoins d’un ensemble varié d’appareils et d’utilisateurs finaux.
 
 Une composante essentielle de la création d’une solution IoT d’entreprise efficace consiste à fournir une stratégie portant sur la manière dont les opérateurs assurent la gestion continue de leur collection d’appareils. Les opérateurs IoT ont besoin d’outils et d’applications à la fois simples et fiables qui leur permettent de se concentrer sur les aspects plus stratégiques de leur travail. Cet article fournit :
 
@@ -37,12 +37,12 @@ L’IoT implique un ensemble unique de problèmes de gestion des appareils et ch
 ![Graphique Principes de gestion des appareils][img-dm_principles]
 
 * **Mise à l’échelle et automatisation** : les solutions IoT nécessitent des outils simples à même d’automatiser les tâches de routine et de permettre à un personnel opérationnel relativement réduit de gérer des millions d’appareils. Au quotidien, les opérateurs doivent pouvoir gérer les opérations d’appareils à distance, en bloc et être avertis uniquement lorsque les problèmes qui surviennent nécessitent leur attention directe.
-* **Transparence et compatibilité** : l’écosystème d’appareils IoT est incroyablement varié. Les outils de gestion doivent être adaptés pour prendre en charge une multitude de classes, de plateformes et de protocoles d’appareils. Les opérateurs doivent pouvoir prendre en charge de nombreux types d’appareils, depuis les puces intégrées limitées à processus unique jusqu’aux ordinateurs puissants et entièrement fonctionnels.
+* **Transparence et compatibilité** : l’écosystème d’appareils est incroyablement varié. Les outils de gestion doivent être adaptés pour prendre en charge une multitude de classes, de plateformes et de protocoles d’appareils. Les opérateurs doivent pouvoir prendre en charge de nombreux types d’appareils, depuis les puces intégrées limitées à processus unique jusqu’aux ordinateurs puissants et entièrement fonctionnels.
 * **Prise en compte du contexte** : les environnements IoT sont dynamiques et en perpétuelle évolution. La fiabilité du service est primordiale. Les opérations de gestion des appareils doivent tenir compte des fenêtres de maintenance des SLA, de l’état du réseau et de l’alimentation, des conditions d’utilisation et de la géolocalisation des appareils pour garantir que les temps d’arrêt liés à la maintenance n’affectent pas les opérations d’exploitation critiques ou n’engendrent pas de risques.
 * **Prise en charge de nombreux rôles** : la prise en charge des flux de travail et des processus uniques des rôles opérationnels liés à l’IoT est cruciale. Le personnel en charge des opérations doit travailler en harmonie avec les contraintes des services informatiques en interne.  Ils doivent également trouver des façons durables pour faire remonter les informations sur les opérations d’appareil en temps réel aux superviseurs et autres rôles de gestion dans l’entreprise.
 
 ## <a name="device-lifecycle"></a>Cycle de vie des appareils
-Il existe un ensemble d’étapes de gestion d’appareils générale qui sont communes à tous les projets IoT d’entreprise. Dans Azure IoT, il existe cinq phases dans le cycle de vie des appareils IoT :
+Il existe un ensemble d’étapes de gestion d’appareils générale qui sont communes à tous les projets IoT d’entreprise. Dans Azure IoT, il existe cinq phases dans le cycle de vie des appareils :
 
 ![Les cinq phases du cycle de vie des appareils Azure IoT : planifier, approvisionner, configurer, surveiller, mettre hors service][img-device_lifecycle]
 
@@ -50,36 +50,36 @@ Dans chacune de ces cinq étapes, il existe plusieurs conditions destinées à l
 
 * **Planification** : permettre aux opérateurs de créer un schéma de métadonnées d’appareils afin qu’ils puissent facilement et précisément rechercher et cibler un groupe d’appareils pour les opérations de gestion en bloc. Vous pouvez utiliser la représentation physique d’appareil pour stocker les métadonnées de cet appareil sous la forme d’étiquettes et de propriétés.
   
-    *Informations supplémentaires* : [Prise en main des doubles d’appareils][lnk-twins-getstarted], [Comprendre les doubles d’appareils][lnk-twins-devguide], [Utilisation des propriétés des doubles d’appareils][lnk-twin-properties]
-* **Approvisionnement** : approvisionner les nouveaux appareils en toute sécurité auprès d’IoT Hub et permettre aux opérateurs de détecter immédiatement les fonctionnalités des appareils.  Utilisez le registre des appareils IoT Hub pour créer des informations d’identification et des identités d’appareils flexibles et effectuez cette opération en bloc à l’aide d’un travail. Créez les appareils afin qu’ils signalent leurs fonctionnalités et leur condition via les propriétés de l’appareil dans la représentation d’appareil.
+    *Ressources supplémentaires* : [Prise en main des représentations d’appareils][lnk-twins-getstarted], [Comprendre les représentations d’appareils][lnk-twins-devguide], [Didacticiel : Utiliser des propriétés souhaitées pour configurer des appareils (version préliminaire)][lnk-twin-properties]
+* **Approvisionnement** : approvisionner les nouveaux appareils en toute sécurité auprès d’IoT Hub et permettre aux opérateurs de détecter immédiatement les fonctionnalités des appareils.  Utilisez le registre des identités IoT Hub pour créer des informations d’identification et des identités d’appareils flexibles et effectuez cette opération en bloc à l’aide d’un travail. Créez les appareils afin qu’ils signalent leurs fonctionnalités et leur condition via les propriétés de l’appareil dans la représentation d’appareil.
   
-    *Informations supplémentaires * : [Gérer les identités des appareils][lnk-identity-registry], [Gestion en bloc des identités d’appareils][lnk-bulk-identity], [Utilisation des propriétés des doubles d’appareils][lnk-twin-properties]
+    *Ressources supplémentaires* : [Gérer les identités des appareils][lnk-identity-registry], [Gestion en bloc des identités d’appareils IoT Hub][lnk-bulk-identity], [Didacticiel : Utiliser des propriétés souhaitées pour configurer des appareils (version préliminaire)][lnk-twin-properties]
 * **Configuration** : rendre possibles les modifications de configuration et les mises à jour de microprogramme en bloc sur les appareils, tout en assurant intégrité et sécurité. Effectuez ces opérations de gestion d’appareils en bloc à l’aide des propriétés requises ou de méthodes directes et de travaux de diffusion.
   
-    *Informations supplémentaires * : [Utilisation de méthodes directes][lnk-c2d-methods], [Invoquer une méthode directe sur un appareil][lnk-methods-devguide], [Utilisation des propriétés des doubles d’appareils][lnk-twin-properties], [Planifier et diffuser des travaux][lnk-jobs], [Planifier des travaux sur plusieurs appareils][lnk-jobs-devguide]
+    *Ressources supplémentaires* :  [Utilisation de méthodes directes][lnk-c2d-methods], [Appeler une méthode directe sur un appareil][lnk-methods-devguide], [Didacticiel : Utiliser des propriétés souhaitées pour configurer des appareils (version préliminaire)][lnk-twin-properties], [Planifier et diffuser des travaux][lnk-jobs], [Planifier des travaux sur plusieurs appareils][lnk-jobs-devguide]
 * **Surveillance** : surveiller l’intégrité globale de la collection d’appareils, l’état des opérations en cours et avertir les opérateurs des problèmes susceptibles de nécessiter leur attention.  Appliquez la représentation physique d’appareil pour autoriser les appareils à signaler des conditions de fonctionnement en temps réel et l’état des opérations de mise à jour. Créez des rapports de tableau de bord puissants qui font remonter les problèmes les plus immédiats à l’aide de requêtes sur la représentation physique d’appareil.
   
-    *Informations supplémentaires* : [Utilisation des propriétés des doubles d’appareils][lnk-twin-properties], [Langue de requête IoT Hub pour les doubles et les travaux][lnk-query-language]
-* **Mise hors service** : remplacer ou retirer des appareils après une défaillance, un cycle de mise à niveau ou à la fin de leur durée de vie.  Utilisez la représentation d’appareil pour conserver les informations sur l’appareil si l’appareil physique est remplacé ou archivé en cas de mise hors service. Utilisez le registre des appareils IoT Hub pour la révocation en toute sécurité des informations d’identification et des identités des appareils.
+    *Ressources supplémentaires* : [Didacticiel : Utiliser des propriétés souhaitées pour configurer des appareils (version préliminaire)][lnk-twin-properties], [Référence - Langage de requête pour les représentations et les travaux][lnk-query-language]
+* **Mise hors service** : remplacer ou retirer des appareils après une défaillance, un cycle de mise à niveau ou à la fin de leur durée de vie.  Utilisez la représentation d’appareil pour conserver les informations sur l’appareil si l’appareil physique est remplacé ou archivé en cas de mise hors service. Utilisez le registre des identités IoT Hub pour la révocation en toute sécurité des informations d’identification et des identités des appareils.
   
-    *Informations supplémentaires* : [Utilisation des propriétés des doubles d’appareils][lnk-twin-properties], [Gestion des identités des appareils][lnk-identity-registry]
+    *Ressources supplémentaires* : [Didacticiel : Utiliser des propriétés souhaitées pour configurer des appareils (version préliminaire)][lnk-twin-properties], [Gérer les identités des appareils][lnk-identity-registry]
 
 ## <a name="device-management-patterns"></a>Modèle de gestion des appareils
 IoT Hub permet de mettre en œuvre l’ensemble suivant de modèles de gestion des appareils.  Les [didacticiels de gestion des appareils][lnk-get-started] vous montrent plus en détail comment étendre ces modèles pour les adapter à votre situation et comment concevoir de nouveaux modèles basés sur ces modèles de base.
 
-* **Redémarrage** : l’application principale informe l’appareil via une méthode directe qu’un redémarrage a été lancé.  L’appareil utilise les propriétés de représentation d’appareil signalées pour mettre à jour l’état de redémarrage de l’appareil.
+* **Redémarrage** : l’application principale informe l’appareil par le biais d’une méthode directe qu’un redémarrage a été lancé.  L’appareil utilise les propriétés signalées pour mettre à jour l’état de redémarrage de l’appareil.
   
     ![Graphique du modèle de redémarrage de la gestion des appareils][img-reboot_pattern]
-* **Réinitialisation aux paramètres d’usine** : l’application principale informe l’appareil via une méthode directe qu’une réinitialisation aux paramètres d’usine a été lancée.  L’appareil utilise les propriétés de représentation d’appareil signalées pour mettre à jour l’état de réinitialisation aux paramètres d’usine de l’appareil.
+* **Réinitialisation aux paramètres d’usine** : l’application principale informe l’appareil par le biais d’une méthode directe qu’une réinitialisation aux paramètres d’usine a été lancée.  L’appareil utilise les propriétés signalées pour mettre à jour l’état de réinitialisation aux paramètres d’usine de l’appareil.
   
     ![Graphique du modèle de réinitialisation aux paramètres d’usine de la gestion des appareils][img-facreset_pattern]
-* **Configuration** : l’application principale utilise les propriétés de représentation d’appareil souhaitées pour configurer le logiciel en cours d’exécution sur l’appareil.  L’appareil utilise les propriétés de représentation d’appareil signalées pour mettre à jour l’état de configuration de l’appareil.
+* **Configuration** : l’application principale utilise les propriétés souhaitées pour configurer le logiciel en cours d’exécution sur l’appareil.  L’appareil utilise les propriétés signalées pour mettre à jour l’état de configuration de l’appareil.
   
     ![Graphique du modèle de configuration de la gestion des appareils][img-config_pattern]
-* **Mise à jour du microprogramme** : l’application principale informe l’appareil via une méthode directe qu’une mise à jour du microprogramme a été lancée.  L’appareil met en œuvre un processus en plusieurs étapes pour télécharger l’image du microprogramme, appliquer cette image et enfin se reconnecter au service IoT Hub.  Tout au long de ce processus, l’appareil utilise les propriétés de représentation d’appareil signalées pour mettre à jour la progression et l’état de l’appareil.
+* **Mise à jour du microprogramme** : l’application principale informe l’appareil par le biais d’une méthode directe qu’une mise à jour du microprogramme a été lancée.  L’appareil met en œuvre un processus en plusieurs étapes pour télécharger l’image du microprogramme, appliquer cette image et enfin se reconnecter au service IoT Hub.  Tout au long de ce processus, l’appareil utilise les propriétés signalées pour mettre à jour la progression et l’état de l’appareil.
   
     ![Graphique du modèle de mise à jour du microprogramme de la gestion des appareils][img-fwupdate_pattern]
-* **Signalement de la progression et de l’état** : l’application principale exécute des requêtes sur les représentations d’appareils sur un ensemble d’appareils afin de rendre compte de l’état et de la progression des actions en cours d’exécution sur les appareils.
+* **Signalement de la progression et de l’état** : le serveur principal de solution exécute des requêtes de représentation d’appareil sur un ensemble d’appareils afin de rendre compte de l’état et de la progression des actions en cours d’exécution sur les appareils.
   
     ![Graphique du modèle de signalement de la progression et de l’état de la gestion des appareils][img-report_progress_pattern]
 
@@ -98,20 +98,20 @@ Pour plus d’informations sur les fonctionnalités de gestion des appareils dan
 [img-report_progress_pattern]: media/iot-hub-device-management-overview/report-progress-pattern.png
 
 [lnk-twins-devguide]: iot-hub-devguide-device-twins.md
-[lnk-get-started]: iot-hub-device-management-get-started.md
+[lnk-get-started]: iot-hub-node-node-device-management-get-started.md
 [lnk-twins-getstarted]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
 [lnk-hub-getstarted]: iot-hub-csharp-csharp-getstarted.md
 [lnk-identity-registry]: iot-hub-devguide-identity-registry.md
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-query-language]: iot-hub-devguide-query-language.md
-[lnk-c2d-methods]: iot-hub-c2d-methods.md
+[lnk-c2d-methods]: iot-hub-node-node-direct-methods.md
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
-[lnk-jobs]: iot-hub-schedule-jobs.md
+[lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

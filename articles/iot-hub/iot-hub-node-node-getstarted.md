@@ -12,11 +12,11 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2016
+ms.date: 12/15/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 6a4275b7fb7501fec4e98f87b09e20b2114b556b
+ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
+ms.openlocfilehash: 5d005e3259333f79b9b9852e325864745ee54b84
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 6a4275b7fb7501fec4e98f87b09e20b2114b556b
 
 * **CreateDeviceIdentity.js**, qui crée une identité d’appareil et une clé de sécurité associée pour connecter votre application d’appareil simulé ;
 * **ReadDEviceToCloudMessages.js**, qui affiche les données de télémétrie envoyées par votre application d’appareil simulé ;
-* **SimulatedDevice.js**, qui se connecte à votre IoT Hub avec l’identité d’appareil créée précédemment et envoie un message de télémétrie chaque seconde en utilisant le protocole AMQP.
+* **SimulatedDevice.js**, qui se connecte à votre IoT Hub avec l’identité d’appareil créée précédemment et envoie un message de télémétrie chaque seconde en utilisant le protocole MQTT.
 
 > [!NOTE]
 > L’article [Kits de développement logiciel (SDK) Azure IoT][lnk-hub-sdks] fournit des informations sur les kits de développement logiciel Azure IoT que vous pouvez utiliser pour générer les deux applications qui s’exécutent sur les appareils et sur le serveur de solution principal.
@@ -44,7 +44,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 Votre IoT Hub est maintenant créé. Vous disposez du nom d’hôte et de la chaîne de connexion de l’IoT Hub dont vous avez besoin pour effectuer la suite du didacticiel.
 
 ## <a name="create-a-device-identity"></a>Création d’une identité d’appareil
-Dans cette section, vous créez une application console Node.js qui crée une identité d’appareil dans le registre d’identité de votre IoT Hub. Un appareil ne peut pas se connecter à IoT Hub, à moins de posséder une entrée dans le registre des identités. Reportez-vous à la section **Registre des identités des appareils** du [Guide du développeur IoT Hub][lnk-devguide-identity] pour plus d’informations. Lorsque vous exécutez cette application de console, elle génère un ID d’appareil et une clé uniques que votre appareil peut utiliser pour s’identifier pour lorsqu’il envoie des messages appareil-à-cloud à IoT Hub.
+Dans cette section, vous créez une application console Node.js qui crée une identité d’appareil dans le registre d’identité de votre IoT Hub. Un appareil ne peut pas se connecter à IoT Hub, à moins de posséder une entrée dans le registre des identités. Reportez-vous à la section **Registre d’identité** du [Guide du développeur IoT Hub][lnk-devguide-identity] pour plus d’informations. Lorsque vous exécutez cette application de console, elle génère un ID d’appareil et une clé uniques que votre appareil peut utiliser pour s’identifier pour lorsqu’il envoie des messages appareil-à-cloud à IoT Hub.
 
 1. Créez un dossier vide appelé **createdeviceidentity**. Dans le dossier **createdeviceidentity** , créez un fichier package.json à l’aide de la commande ci-dessous, à l’invite de commandes. Acceptez toutes les valeurs par défaut :
    
@@ -101,7 +101,7 @@ Dans cette section, vous créez une application console Node.js qui crée une id
 9. Prenez note de **l’ID de l’appareil** et de la **clé de l’appareil**. Vous aurez besoin de ces valeurs ultérieurement lorsque vous créerez une application qui se connecte à IoT Hub en tant qu’appareil.
 
 > [!NOTE]
-> Le registre des identités IoT Hub stocke uniquement les identités des appareils pour permettre un accès sécurisé à IoT Hub. Il stocke les ID et les clés des appareils à utiliser comme informations d’identification de sécurité, et un indicateur activé/désactivé que vous pouvez utiliser pour désactiver l’accès pour un appareil individuel. Si votre application a besoin de stocker d’autres métadonnées spécifiques aux appareils, elle doit utiliser un magasin spécifique aux applications. Reportez-vous au [Guide du développeur IoT Hub][lnk-devguide-identity] pour plus d’informations.
+> Le registre des identités IoT Hub stocke uniquement les identités des appareils pour permettre un accès sécurisé à IoT Hub. Il stocke les ID et les clés des appareils à utiliser comme informations d’identification de sécurité, et un indicateur activé/désactivé que vous pouvez utiliser pour désactiver l’accès pour un appareil individuel. Si votre application a besoin de stocker d’autres métadonnées spécifiques aux appareils, elle doit utiliser un magasin spécifique aux applications. Pour plus d’informations, reportez-vous au [Guide du développeur IoT Hub][lnk-devguide-identity].
 > 
 > 
 
@@ -149,7 +149,7 @@ Dans cette section, vous créez une application console Node.js qui lit les mess
       console.log('');
     };
     ```
-7. Ajoutez le code ci-dessous pour créer l’instance **EventHubClient**, ouvrez la connexion à votre IoT Hub et créez un récepteur pour chaque partition. Cette application utilise un filtre lorsqu’elle crée un récepteur afin que ce dernier lise uniquement les messages envoyés à l’IoT Hub une fois que le récepteur a commencé à s’exécuter. Dans un environnement de test, ce filtre permet de voir seulement l’ensemble des messages en cours. Dans un environnement de production, votre code doit vérifier qu’il traite la totalité des messages. Pour plus d’informations, consultez le didacticiel [Traiter les messages des appareils vers le cloud IoT Hub][lnk-process-d2c-tutorial] :
+7. Ajoutez le code ci-dessous pour créer l’instance **EventHubClient**, ouvrez la connexion à votre IoT Hub et créez un récepteur pour chaque partition. Cette application utilise un filtre lorsqu’elle crée un récepteur afin que ce dernier lise uniquement les messages envoyés à l’IoT Hub une fois que le récepteur a commencé à s’exécuter. Dans un environnement de test, ce filtre permet de voir seulement l’ensemble des messages en cours. Dans un environnement de production, votre code doit faire en sorte de traiter tous les messages. Pour plus d’informations, voir le didacticiel [Traitement des messages appareil-à-cloud IoT Hub][lnk-process-d2c-tutorial] :
    
     ```
     var client = EventHubClient.fromConnectionString(connectionString);
@@ -176,10 +176,10 @@ Dans cette section, vous créez une application console Node.js qui simule un ap
     ```
     npm init
     ```
-2. À l’invite de commandes, dans le dossier **simulateddevice**, exécutez la commande suivante pour installer le package device SDK **azure-iot-device** et le package **azure-iot-device-amqp** :
+2. À l’invite de commandes, dans le dossier **simulateddevice**, exécutez la commande suivante pour installer les packages Kit de développement logiciel (SDK) pour appareils **azure-iot-device** et **azure-iot-device-mqtt** :
    
     ```
-    npm install azure-iot-device azure-iot-device-amqp --save
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. Dans un éditeur de texte, créez un fichier **SimulatedDevice.js** dans le dossier **simulateddevice**.
 4. Ajoutez les instructions `require` ci-dessous au début du fichier **SimulatedDevice.js** :
@@ -187,7 +187,7 @@ Dans cette section, vous créez une application console Node.js qui simule un ap
     ```
     'use strict';
    
-    var clientFromConnectionString = require('azure-iot-device-amqp').clientFromConnectionString;
+    var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
     var Message = require('azure-iot-device').Message;
     ```
 5. Ajoutez une variable **connectionString** et utilisez-la pour créer une instance de **Client**. Remplacez **{youriothostname}** par le nom de l’IoT hub que vous avez créé dans la section *Créer un IoT Hub* . Remplacez **{yourdevicekey}** par la valeur clé d’appareil que vous avez générée dans la section *Création d’une identité d’appareil* :
@@ -207,7 +207,7 @@ Dans cette section, vous créez une application console Node.js qui simule un ap
       };
     }
     ```
-7. Créez un rappel et utilisez la fonction **setInterval** pour envoyer un nouveau message à votre IoT Hub toutes les secondes :
+7. Créez un rappel et utilisez la fonction **setInterval** pour envoyer un message à votre IoT Hub toutes les secondes :
    
     ```
     var connectCallback = function (err) {
@@ -296,6 +296,6 @@ Pour découvrir comment étendre votre solution IoT et traiter les messages appa
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

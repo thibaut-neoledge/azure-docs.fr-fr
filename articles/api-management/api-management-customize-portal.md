@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: cbd2c3e915b93340c1a1478c09b23480c4565a98
 
 
 ---
@@ -55,7 +55,7 @@ Dans cette section, nous souhaitons modifier le style des en-têtes uniquement. 
 
 Chaque règle représente une propriété de style de l'élément sélectionné. Par exemple, pour le texte d'en-tête sélectionné ci-dessus, la taille du texte est en @font-size-h1, tandis que le nom de la police avec des alternatives est en @headings-font-family.
 
-> Si vous connaissez [l’amorçage][bootstrap], ces règles sont en fait des [variables LESS][variables LESS] dans le thème d'amorçage utilisé par le portail des développeurs.
+> Si vous connaissez [l'amorçage][bootstrap], ces règles sont en fait des [variables LESS][LESS variables] dans le thème d'amorçage utilisé par le portail des développeurs.
 > 
 > 
 
@@ -87,12 +87,12 @@ Cliquez sur la page **Bienvenue** pour modifier le texte s’affichant sur la pa
 ## <a name="next-steps"> </a>Étapes suivantes
 * Découvrez comment personnaliser le contenu des pages du portail des développeurs à l’aide de [modèles](api-management-developer-portal-templates.md).
 
-[Modification du texte/logo dans les en-têtes de page]: #change-page-headers
-[Modification du style des en-têtes]: #change-headers-styling
-[Modification du contenu d’une page]: #edit-page-contents
-[Étapes suivantes]: #next-steps
+[Change the text/logo in the page headers]: #change-page-headers
+[Change the styling of the headers]: #change-headers-styling
+[Edit the contents of a page]: #edit-page-contents
+[Next steps]: #next-steps
 
-[Portail Azure Classic]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
@@ -103,10 +103,10 @@ Cliquez sur la page **Bienvenue** pour modifier le texte s’affichant sur la pa
 
 
 [bootstrap]: http://getbootstrap.com/
-[variables LESS]: http://getbootstrap.com/css/
+[LESS variables]: http://getbootstrap.com/css/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
