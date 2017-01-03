@@ -26,7 +26,7 @@ Vous souhaitez pouvoir envoyer un script d’installation vers plusieurs serveur
 ## <a name="enabling-access"></a>Activation de l’accès
 Le Proxy d’application fonctionne avec un service Windows Server léger appelé connecteur, à l’intérieur de votre réseau. Pour que le connecteur du Proxy d'application puisse fonctionner, il doit être inscrit auprès de votre annuaire Azure AD à l'aide d'un identifiant d’administrateur global et d’un mot de passe. Généralement, ces informations sont saisies pendant l'installation du connecteur dans une boîte de dialogue contextuelle. Sinon, vous pouvez utiliser Windows PowerShell pour créer un objet d’informations d’identification afin d’entrer vos informations d’inscription, ou vous pouvez créer votre propre jeton et l’utiliser pour communiquer vos informations d’inscription.
 
-## <a name="step-1-install-the-connector-without-registration"></a>Étape 1 : Installation du connecteur sans inscription
+## <a name="step-1--install-the-connector-without-registration"></a>Étape 1 : Installation du connecteur sans inscription
 Pour installer les MSI du connecteur sans inscrire le connecteur, procédez comme suit :
 
 1. Ouvrez une invite de commandes.

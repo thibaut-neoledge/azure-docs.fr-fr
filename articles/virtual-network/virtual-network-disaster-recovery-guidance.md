@@ -20,7 +20,7 @@ ms.openlocfilehash: dbb749b056c36f16e921933fb8345211e3eaa697
 
 
 ---
-# <a name="virtual-network-business-continuity"></a>Réseau virtuel – Continuité des activités
+# <a name="virtual-network--business-continuity"></a>Réseau virtuel – Continuité des activités
 ## <a name="overview"></a>Vue d'ensemble
 Un réseau virtuel (VNet) est une représentation de votre réseau dans le cloud. Il vous permet de définir votre propre espace d’adressage IP privé et de segmenter le réseau en sous-réseaux. Les réseaux virtuels servent de limite d’approbation pour héberger vos ressources de calcul telles que les machines virtuelles et les services cloud Azure (rôles web/de travail). Un réseau virtuel permet la communication IP privée directe entre les ressources qu’il contient. Un réseau virtuel peut également être lié à un réseau local par le biais de l’une des options hybrides telles que la passerelle VPN ou ExpressRoute.
 
