@@ -23,12 +23,12 @@ ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 # <a name="encrypt-an-azure-virtual-machine"></a>Chiffrement d’une machine virtuelle Azure
 Le Centre de sécurité Azure émet une alerte si certaines de vos machines virtuelles ne sont pas chiffrées. Ces alertes indiquant un niveau de gravité élevé, il est recommandé de chiffrer ces machines virtuelles.
 
-![Recommandation de chiffrement de disque](./media/security-center-disk-encryption\\security-center-disk-encryption-fig1.png)
+![Recommandation de chiffrement de disque](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
 > Les informations contenues dans ce document s’appliquent à la version préliminaire du Centre de sécurité Azure.
-> 
-> 
+>
+>
 
 Pour chiffrer les machines virtuelles Azure qui ont fait l’objet d’une alerte par le Centre de sécurité Azure, nous vous recommandons de procéder de la manière suivante :
 
@@ -43,8 +43,8 @@ Il existe de nombreuses méthodes permettant d’obtenir la configuration requis
 
 > [!NOTE]
 > Pour plus d’informations sur les autres méthodes de configuration du chiffrement pour les machines virtuelles Azure, consultez [Azure Disk Encryption for Windows and Linux Azure Virtual Machines](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)(Utilisation d’Azure Disk Encryption pour les machines virtuelles Azure exécutées sous Windows et Linux).
-> 
-> 
+>
+>
 
 ## <a name="install-and-configure-azure-powershell"></a>Installation et configuration d'Azure PowerShell
 Vous devez disposer d’Azure PowerShell version 1.2.1 ou ultérieure. L’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) décrit toutes les étapes à suivre pour configurer votre ordinateur avec Azure PowerShell. L’approche la plus simple consiste à installer Web PI, selon la procédure décrite dans la suite de cet article. Même si vous disposez déjà d’Azure PowerShell, nous vous recommandons de le réinstaller avec la méthode Web PI afin d’avoir la garantie d’utiliser la version la plus récente d’Azure PowerShell.
@@ -70,7 +70,7 @@ Maintenant que le contenu du script est enregistré, ouvrez le script dans Power
 
 Vous devriez obtenir un résultat semblable à ce qui suit :
 
-![Fenêtre PowerShell ISE](./media/security-center-disk-encryption\\security-center-disk-encryption-fig2.png)
+![Fenêtre PowerShell ISE](./media/security-center-disk-encryption/security-center-disk-encryption-fig2.png)
 
 Le volet supérieur correspond au « volet de script » et le volet inférieur à la « console ». Nous emploierons ces termes dans la suite de cet article.
 
@@ -84,8 +84,8 @@ Après le démarrage du script de configuration d’Azure Disk Encryption, vous 
 
 > [!NOTE]
 > Si vous souhaitez connaître l’intérêt qu’il y a à créer une application Azure Active Directory, consultez la rubrique *Inscription d’une application auprès d’Azure Active Directory* de l’article [Prise en main du coffre de clés Azure](../key-vault/key-vault-get-started.md).
-> 
-> 
+>
+>
 
 Pour chiffrer une machine virtuelle Azure, procédez comme suit :
 
@@ -94,12 +94,12 @@ Pour chiffrer une machine virtuelle Azure, procédez comme suit :
 3. Configurez la stratégie d’exécution sur votre ordinateur afin de pouvoir exécuter le script. Dans la console, entrez **Set-ExecutionPolicy Unrestricted** , puis appuyez sur ENTRÉE. Si une boîte de dialogue vous informe des effets d’une modification de la stratégie d’exécution, cliquez sur **Oui pour tout** ou **Oui** (si l’option **Oui pour tout** est disponible, sélectionnez-la ; sinon****, cliquez sur **Oui**).
 4. Connectez-vous à votre compte Azure. Dans la console, entrez **Login-AzureRmAccount** et appuyez sur **ENTRÉE**. Dans la nouvelle boîte de dialogue, entrez vos informations d’identification (assurez-vous que vous disposez des droits pour modifier les machines virtuelles ; dans le cas contraire, vous ne serez pas en mesure de les chiffrer. En cas de doute, renseignez-vous auprès du propriétaire ou de l’administrateur de votre abonnement). Vous devriez voir des informations concernant vos paramètres suivants : **Environment**, **Account**, **TenantId**, **SubscriptionId** et **CurrentStorageAccount**. Copiez le contenu du champ **SubscriptionId** dans le Bloc-notes. Vous en aurez besoin à l’étape 6.
 5. Identifiez l’abonnement auquel est associée votre machine virtuelle et repérez son emplacement. Accédez à [https://portal.azure.com](ttps://portal.azure.com) et connectez-vous.  À gauche de la page, cliquez sur **Machines virtuelles**. Vous obtenez une liste de vos machines virtuelles ainsi que des abonnements auxquels elles sont rattachées.
-   
-   ![Machines virtuelles](./media/security-center-disk-encryption\\security-center-disk-encryption-fig3.png)
+
+   ![Machines virtuelles](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)
 6. Revenez maintenant à PowerShell ISE. Définissez le contexte d’abonnement dans lequel le script sera exécuté. Dans la console, tapez **Select-AzureRmSubscription –SubscriptionId <ID_de_votre_abonement>** (remplacez ** <ID_de_votre_abonement>** par votre ID d’abonnement) et appuyez sur **ENTRÉE**. Vous verrez des informations concernant votre environnement et les paramètres **Account**, **TenantId**, **SubscriptionId** et **CurrentStorageAccount**.
 7. Vous êtes maintenant prêt à exécuter le script. Cliquez sur le bouton **Exécuter le script** ou appuyez sur la touche **F5** du clavier.
-   
-   ![Exécution du script PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig4.png)
+
+   ![Exécution du script PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig4.png)
 8. Le script vous invite à renseigner le paramètre **resourceGroupName** : entrez le nom du *Groupe de ressources* que vous souhaitez utiliser, puis appuyez sur **ENTRÉE**. Si vous ne disposez d’aucun groupe de ressources, saisissez un nouveau nom. Si vous disposez déjà d’un *Groupe de ressources* que vous souhaitez utiliser (par exemple, celui dans lequel se trouve votre machine virtuelle), entrez le nom du Groupe de ressources existant.
 9. Le script vous invite à renseigner le paramètre **keyVaultName** : entrez le nom du *Coffre de clés* que vous souhaitez utiliser, puis appuyez sur ENTRÉE. Si vous ne disposez d’aucun groupe de ressources, saisissez un nouveau nom. Si vous disposez déjà d’un coffre de clés et que vous souhaitez l’utiliser, entrez simplement le nom de ce *Coffre de clés*.
 10. Le script vous invite à renseigner le paramètre **location** : entrez le nom de l’emplacement dans lequel se trouve la machine virtuelle que vous souhaitez chiffrer, puis appuyez sur **ENTRÉE**. Si vous ne connaissez pas l’emplacement, revenez à l’étape 5.
@@ -110,7 +110,7 @@ Pour chiffrer une machine virtuelle Azure, procédez comme suit :
 
 Le script doit générer un résultat semblable à ce qui suit :
 
-![Sortie PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig5.png)
+![Sortie PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig5.png)
 
 ## <a name="encrypt-the-azure-virtual-machine"></a>Chiffrer la machine virtuelle Azure
 Vous êtes maintenant prêt à chiffrer votre machine virtuelle. Si votre machine virtuelle se trouve dans le même groupe de ressources que le coffre de clés, vous pouvez passer directement aux étapes du chiffrement. Dans le cas contraire, vous devez saisir la commande suivante dans la console de PowerShell ISE :
@@ -124,7 +124,7 @@ Pour vérifier que le nom du groupe de ressources que vous avez saisi est correc
 
 Appuyez sur **ENTRÉE**. Le nom du groupe de ressources dans lequel se trouvent vos machines virtuelles doit normalement s’afficher. Par exemple :
 
-![Sortie PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig6.png)
+![Sortie PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig6.png)
 
 ### <a name="encryption-steps"></a>Étapes du chiffrement
 Vous devez tout d’abord indiquer à PowerShell le nom de la machine virtuelle que vous souhaitez chiffrer. Dans la console, entrez la commande suivante :
@@ -139,7 +139,7 @@ Pour vérifier que le nom de la machine virtuelle saisi est correct, entrez la c
 
 Appuyez sur **ENTRÉE**. Le nom de la machine virtuelle que vous souhaitez chiffrer doit normalement s’afficher. Par exemple :
 
-![Sortie PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig7.png)
+![Sortie PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 
 Il existe deux façons d’exécuter la commande de chiffrement d’une machine virtuelle. La première méthode consiste à saisir la commande suivante dans la console PowerShell ISE :
 
@@ -151,25 +151,25 @@ Appuyez ensuite sur **ENTRÉE**.
 
 La deuxième méthode consiste à cliquer dans le volet de script (le volet supérieur de PowerShell ISE) et à faire défiler le contenu jusqu’en bas du script. Mettez en surbrillance la commande ci-dessus et cliquez dessus avec le bouton droit de la souris, puis cliquez sur **Exécuter la sélection** ou appuyez sur la touche **F8** du clavier.
 
-![PowerShell ISE](./media/security-center-disk-encryption\\security-center-disk-encryption-fig8.png)
+![PowerShell ISE](./media/security-center-disk-encryption/security-center-disk-encryption-fig8.png)
 
 Quelle que soit la méthode que vous utilisez, une boîte de dialogue vous informe que l’opération prendra 10 à 15 minutes. Cliquez sur **Oui**.
 
 Au cours du processus de chiffrement, vous pouvez revenir au portail Azure et consulter l’état de la machine virtuelle. À gauche de la page, cliquez sur **Machines virtuelles** puis, dans le panneau **Machines virtuelles**, cliquez sur le nom de la machine virtuelle que vous êtes en train de chiffrer. Dans le panneau qui s’affiche, vous remarquerez que l’**État** est défini sur **Mise à jour**. ce qui prouve que le chiffrement est en cours.
 
-![Plus de détails sur la machine virtuelle](./media/security-center-disk-encryption\\security-center-disk-encryption-fig9.png)
+![Plus de détails sur la machine virtuelle](./media/security-center-disk-encryption/security-center-disk-encryption-fig9.png)
 
 Revenez maintenant à PowerShell ISE. Une fois le script exécuté, vous obtenez le message suivant.
 
-![Sortie PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig10.png)
+![Sortie PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig10.png)
 
 Pour vérifier que la machine virtuelle est bien chiffrée, revenez au portail Azure et cliquez sur **Machines virtuelles** à gauche de la page. Cliquez sur le nom de la machine virtuelle que vous avez chiffrée. Dans le panneau **Paramètres**, cliquez sur **Disques**.
 
-![Options des paramètres](./media/security-center-disk-encryption\\security-center-disk-encryption-fig11.png)
+![Options des paramètres](./media/security-center-disk-encryption/security-center-disk-encryption-fig11.png)
 
 Dans le panneau **Disques**, l’option **Chiffrement** est **activée**.
 
-![Propriétés des disques](./media/security-center-disk-encryption\\security-center-disk-encryption-fig12.png)
+![Propriétés des disques](./media/security-center-disk-encryption/security-center-disk-encryption-fig12.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à chiffrer une machine virtuelle Azure. Pour plus d’informations sur le Centre de sécurité Azure, consultez les rubriques suivantes :
@@ -181,7 +181,6 @@ Dans ce document, vous avez appris à chiffrer une machine virtuelle Azure. Pour
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

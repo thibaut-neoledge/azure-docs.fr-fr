@@ -40,9 +40,9 @@ Ces ressources incluent des expériences, des modules personnalisés, des API, d
 Cliquez sur **Afficher tout** pour afficher toutes les ressources spécifiques au secteur dans la galerie.
 À partir de cette page, vous pouvez parcourir toutes les ressources de la Galerie, ou vous pouvez effectuer des recherches en sélectionnant des critères de filtre sur la gauche de la page, puis en saisissant les termes de recherche en haut.
 
-![Partager cet élément avec des amis](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![Partager cet élément avec des amis](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![Ajouter vos propres commentaires](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![Ajouter vos propres commentaires](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
  Cliquez sur n’importe quel élément de la galerie pour ouvrir sa page détaillée et voir plus d’informations.
 
@@ -53,6 +53,6 @@ Cliquez sur **Afficher tout** pour afficher toutes les ressources spécifiques a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

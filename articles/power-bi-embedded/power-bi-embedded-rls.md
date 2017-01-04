@@ -24,7 +24,7 @@ ms.openlocfilehash: a98185bf44af2271f5ded04c05d3134321db536a
 # <a name="row-level-security-with-power-bi-embedded"></a>Sécurité au niveau des lignes avec Power BI Embedded
 La sécurité au niveau des lignes (RLS) peut être utilisée pour restreindre l’accès des utilisateurs à des données particulières au sein d’un rapport ou d’un jeu de données, permettant à plusieurs utilisateurs différents d’utiliser le même rapport pour voir des données différentes. Power BI Embedded prend désormais en charge les jeux de données configurés avec la fonction RLS.
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-flow-1.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-flow-1.png)
 
 Pour tirer parti de la fonction RLS, il est important de comprendre trois concepts principaux : les utilisateurs, les rôles et les règles. Examinons-les de plus près :
 
@@ -37,13 +37,13 @@ Pour tirer parti de la fonction RLS, il est important de comprendre trois concep
 ### <a name="example"></a>Exemple
 Pour le reste de cet article, nous fournirons un exemple de création RLS et d’utilisation au sein d’une application intégrée. Notre exemple utilise le fichier PBIX [Exemple d’analyse des données de vente](http://go.microsoft.com/fwlink/?LinkID=780547) .
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-scenario-2.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-scenario-2.png)
 
 Notre exemple d’analyse des données de vente affiche les ventes pour tous les magasins dans une chaîne de magasins spécifique. Sans RLS, peu importe le directeur régional qui se connecte et visualise le rapport, les données affichées sont identiques. La direction a déterminé que chaque directeur régional devait uniquement voir les ventes des magasins qu’il gérait, et pour ce faire, nous devons donc avoir recours à RLS.
 
 RLS est créé dans Power BI Desktop. Lorsque le jeu de données et les rapports sont ouverts, nous pouvons basculer vers la vue schématique pour afficher le schéma :
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-diagram-view-3.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-3.png)
 
 Voici quelques points à noter concernant ce schéma :
 
@@ -52,34 +52,34 @@ Voici quelques points à noter concernant ce schéma :
 * Les flèches sur les lignes de relation indiquent de quelle façon les filtres peuvent circuler d’une table à l’autre. Par exemple, si un filtre est placé sur **Time[Date]**, dans le schéma actuel, il filtre uniquement sur les valeurs de la table **Sales**. Aucune autre table n’est affectée par ce filtre, car tous les flèches sur les lignes de relation pointent vers la table des ventes (et pas en direction opposée).
 * La table **Région** indique qui est le directeur pour chaque région :
   
-  ![](media\\power-bi-embedded-rls\\pbi-embedded-rls-district-table-4.png)
+  ![](media/power-bi-embedded-rls/pbi-embedded-rls-district-table-4.png)
 
 Selon ce schéma, si nous appliquons un filtre à la colonne **District Manager** dans la table District, et si ce filtre correspond à l’utilisateur qui consulte le rapport, ce filtre est également appliqué aux tables **Store** et **Sales** de façon à afficher uniquement les données de ce directeur régional.
 
 Voici comment procéder :
 
 1. Dans l’onglet de modélisation, cliquez sur **Gérer les rôles**.  
-   ![](media\\power-bi-embedded-rls\\pbi-embedded-rls-modeling-tab-5.png)
+   ![](media/power-bi-embedded-rls/pbi-embedded-rls-modeling-tab-5.png)
 2. Créer un rôle nommé **Directeur**.  
-   ![](media\\power-bi-embedded-rls\\pbi-embedded-rls-manager-role-6.png)
+   ![](media/power-bi-embedded-rls/pbi-embedded-rls-manager-role-6.png)
 3. Dans la table **District**, entrez l’expression DAX suivante : **[District Manager] = USERNAME()**  
-   ![](media\\power-bi-embedded-rls\\pbi-embedded-rls-manager-role-7.png)
+   ![](media/power-bi-embedded-rls/pbi-embedded-rls-manager-role-7.png)
 4. Pour vérifier que les règles fonctionnent, sous l’onglet **Modélisation**, cliquez sur **Afficher comme rôles**, puis entrez ce qui suit :  
-   ![](media\\power-bi-embedded-rls\\pbi-embedded-rls-view-as-roles-8.png)
+   ![](media/power-bi-embedded-rls/pbi-embedded-rls-view-as-roles-8.png)
    
    Les rapports affichent désormais les données comme si vous étiez connecté en tant que **Andrew Ma**.
 
 L’application du filtre comme nous l’avons indiqué retourne tous les enregistrements des tables **District**, **Store** et **Sales**. Cependant, en raison de la direction du filtre sur les relations entre **Sales** et **Time**, **Sales** et **Item**, et **Item** et **Time**, les tables ne sont pas filtrées.
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-diagram-view-9.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-9.png)
 
 Cela n’est peut-être pas problématique dans le cadre de notre recherche actuelle, mais si nous ne voulons pas que les directeurs voient des éléments dont la vente ne les concerne pas, nous pouvons activer le filtrage croisé bidirectionnel pour la relation et appliquer le filtre de sécurité dans les deux directions. Ceci est possible en modifiant la relation entre **Sales** et **Item**, comme ceci :
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-edit-relationship-10.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-edit-relationship-10.png)
 
 À présent, les filtres peuvent également circuler entre la table Ventes et la table **Élément** :
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-diagram-view-11.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-11.png)
 
 **Remarque** Si vous utilisez le mode DirectQuery pour vos données, vous devez activer le filtrage croisé bidirectionnel en sélectionnant ces deux options :
 
@@ -97,11 +97,11 @@ Si la propriété de nom d’utilisateur est présente, vous devez également tr
 
 Le jeton d’application complet ressemblera à ceci :
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-app-token-string-12.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-app-token-string-12.png)
 
 Avec tous ces éléments, lorsqu’un utilisateur se connecte à notre application pour afficher ce rapport, il pourra seulement voir les données qu’il est autorisé à voir, comme défini par notre sécurité au niveau des lignes.
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-dashboard-13.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-dashboard-13.png)
 
 ## <a name="see-also"></a>Voir aussi
 [Sécurité au niveau des lignes (RLS) avec Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)

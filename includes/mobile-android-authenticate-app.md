@@ -34,7 +34,8 @@
 
     Cela crée une méthode pour gérer le processus d'authentification. L’utilisateur est authentifié à l’aide d’infos d’identification Google. Une boîte de dialogue affiche l’identificateur de l’utilisateur authentifié. Vous ne pouvez pas poursuivre sans authentification positive.
 
-    > [!NOTE] Si vous utilisez un autre fournisseur d’identité que Google, remplacez la valeur passée à la méthode **login** ci-dessus par l’une des valeurs suivantes : _MicrosoftAccount_, _Facebook_, _Twitter_ ou _windowsazureactivedirectory_.
+    > [!NOTE]
+    > Si vous utilisez un autre fournisseur d’identité que Google, remplacez la valeur passée à la méthode **login** ci-dessus par l’une des valeurs suivantes : _MicrosoftAccount_, _Facebook_, _Twitter_ ou _windowsazureactivedirectory_.
 
 3. Dans la méthode **onCreate**, ajoutez la ligne de code suivante après le code qui permet d’instancier l’objet `MobileServiceClient`.
 
@@ -63,6 +64,6 @@
 Une fois que vous êtes connecté, l’application doit s’exécuter sans erreur et vous devez être en mesure d’interroger le service principal et de mettre à jour les données.
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
