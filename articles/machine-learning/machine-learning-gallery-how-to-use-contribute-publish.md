@@ -96,6 +96,6 @@ Nous souhaitons que la galerie soit gérée par nos utilisateurs, pour nos utili
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

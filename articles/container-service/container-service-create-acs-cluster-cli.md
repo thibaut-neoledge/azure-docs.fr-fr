@@ -42,7 +42,7 @@ Accédez à ce [lien](https://login.microsoftonline.com/common/oauth2/deviceauth
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 ```azurecli
-az resource group create -n acsrg1 -l "westus"
+az group create -n acsrg1 -l "westus"
 ```
 
 ![Image création du groupe de ressources](media/container-service-create-acs-cluster-cli/rg-create.png)

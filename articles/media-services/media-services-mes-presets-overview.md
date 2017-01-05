@@ -87,6 +87,6 @@ ms.openlocfilehash: 708444a1b2569cf794ce1f6d8d6c97c7d9e339b7
  Pour plus d’informations sur les encodeurs Azure Media Services, consultez la section [Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure](https://azure.microsoft.com/en-us/documentation/articles/media-services-encode-asset/).
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO5-->
 
 

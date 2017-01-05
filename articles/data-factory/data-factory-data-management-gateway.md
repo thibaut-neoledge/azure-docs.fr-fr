@@ -426,6 +426,6 @@ Vous pouvez supprimer une passerelle à l’aide de l’applet de commande **Rem
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

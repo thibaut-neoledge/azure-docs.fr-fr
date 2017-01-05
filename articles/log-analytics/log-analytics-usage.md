@@ -66,6 +66,6 @@ Le tableau de bord **Utilisation de Log Analytics** affiche les informations sui
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

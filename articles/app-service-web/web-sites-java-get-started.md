@@ -169,6 +169,6 @@ Pour plus d’informations sur le développement des applications Java dans Azu
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 
