@@ -44,11 +44,11 @@ Avant de commencer le développement de notre application, nous devons créer la
 
 Chaque espace de travail de Power BI Embedded est l’espace de travail de chaque client (locataire), et nous pouvons ajouter de nombreux espaces de travail à chaque collection d’espaces de travail. La même clé d’accès est utilisée dans chaque collection d’espaces de travail. En effet, la collection d’espaces de travail est la limite de sécurité de Power BI Embedded.
 
-![](media\\power-bi-embedded-iframe\\create-workspace.png)
+![](media/power-bi-embedded-iframe/create-workspace.png)
 
 Une fois que nous avons terminé la création de la collection d’espaces de travail, copions la clé d’accès à partir du portail Azure.
 
-![](media\\power-bi-embedded-iframe\\copy-access-key.png)
+![](media/power-bi-embedded-iframe/copy-access-key.png)
 
 > [!NOTE]
 > Nous pouvons également configurer la collection d’espaces de travail et obtenir la clé d’accès avec l’API REST. Pour plus d’informations, consultez [API du fournisseur de ressources Power BI](https://msdn.microsoft.com/library/azure/mt712306.aspx).
@@ -60,7 +60,7 @@ Ensuite, nous devons créer la connexion de données et les rapports à incorpor
 Pour cette tâche, aucune programmation et aucun code ne sont nécessaires. Nous n’utilisons que Power BI Desktop.
 Dans cet article, nous n’allons pas étudier les détails de l’utilisation de Power BI Desktop. Si vous avez besoin d’aide à ce sujet, consultez [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/). Dans notre exemple, nous utilisons simplement [l’exemple d’analyse des données de vente](https://powerbi.microsoft.com/documentation/powerbi-sample-datasets/).
 
-![](media\\power-bi-embedded-iframe\\power-bi-desktop-1.png)
+![](media/power-bi-embedded-iframe/power-bi-desktop-1.png)
 
 ## <a name="create-a-power-bi-workspace"></a>Création d’un espace de travail Power BI
 Maintenant que l’approvisionnement est fait, nous allons commencer la création de l’espace de travail d’un client dans la collection d’espaces de travail avec les API REST. La requête HTTP POST (REST) suivante crée le nouvel espace de travail dans notre collection d’espaces de travail existante. Dans notre exemple, le nom de la collection d’espaces de travail est **mypbiapp**.
@@ -260,7 +260,7 @@ Toutefois, lorsque nous incorporons le rapport dans notre page web, ce type d’
 
 Lorsque nous incorporons le rapport dans notre page web, nous devons utiliser le jeton calculé plutôt que la clé d’accès **AppKey**. Notre application doit créer le jeton OAuth Json Web Token \(JWT), qui se compose des revendications et de la signature numérique calculée. Comme illustré ci-dessous, cet OAuth JWT est un ensemble de tokens de chaînes encodés délimités par des points.
 
-![](media\\power-bi-embedded-iframe\\oauth-jwt.png)
+![](media/power-bi-embedded-iframe/oauth-jwt.png)
 
 Tout d’abord, nous devons préparer la valeur d’entrée, qui est signée ultérieurement. Cette valeur est la chaîne d’URL (rfc4648) encodée en base64 de l’objet JSON suivant. Elles sont délimitées par le caractère point \(.). Plus tard, nous expliquerons comment obtenir l’ID du rapport.
 
@@ -461,7 +461,7 @@ Si nous examinons l’exemple de code suivant, la première partie est la même 
 
 Et voici notre résultat :
 
-![](media\\power-bi-embedded-iframe\\view-report.png)
+![](media/power-bi-embedded-iframe/view-report.png)
 
 À ce stade, Power BI Embedded affiche uniquement le rapport dans l’iframe. Mais gardez un œil sur le [blog Power BI](). Des améliorations à venir pourraient utiliser de nouvelles API côté client qui nous permettront d’envoyer des informations dans l’iframe ainsi que de récupérer des informations. C’est très intéressant !
 

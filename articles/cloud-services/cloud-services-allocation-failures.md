@@ -27,7 +27,7 @@ Lorsque vous déployez des instances sur un service cloud ou ajoutez de nouvelle
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-### <a name="background-how-allocation-works"></a>Fonctionne de l’allocation en arrière-plan
+### <a name="background--how-allocation-works"></a>Fonctionne de l’allocation en arrière-plan
 Les serveurs des centres de données Azure sont partitionnés en clusters. Une nouvelle demande d'allocation de service cloud est tentée dans plusieurs clusters. Lorsque la première instance est déployée sur un service cloud (intermédiaire ou de production), ce service cloud est épinglé sur un cluster. Les déploiements ultérieurs du service cloud s'effectueront dans le même cluster. Dans cet article, nous parlerons « d’épinglage à un cluster ». La Figure 1 ci-dessous illustre le cas d'une allocation normale dans laquelle la tentative est exécutée dans plusieurs clusters. La Figure 2 illustre le cas d'une allocation épinglée au Cluster 2, là où est hébergé le service cloud CS_1 existant.
 
 ![Schéma d’allocation](./media/cloud-services-allocation-failure/Allocation1.png)

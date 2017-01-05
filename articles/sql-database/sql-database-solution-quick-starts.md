@@ -1,5 +1,5 @@
 ---
-title: "Démarrages rapides de solutions Azure SQL Database | Microsoft Docs"
+title: "Démarrages rapides de solutions Azure SQL Database | Microsoft Docs"
 description: "Découvrez les solutions de base de données SQL Azure"
 services: sql-database
 documentationcenter: 

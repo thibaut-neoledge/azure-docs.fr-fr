@@ -38,14 +38,14 @@ Cliquez sur **Afficher tout** pour afficher toutes les solutions.
 
  Cliquez sur une solution pour ouvrir sa page de détails, puis lisez des informations supplémentaires. Dans cette page, vous pouvez commenter, fournir un retour d’expérience ou poser des questions dans la section des commentaires. Vous pouvez même la partager avec des amis ou collègues à l’aide des fonctionnalités de partage de LinkedIn ou Twitter. Vous pouvez également envoyer par e-mail un lien vers la solution pour inviter d’autres utilisateurs à consulter la page.
 
-![Partager cet élément avec des amis](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![Partager cet élément avec des amis](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![Ajouter vos propres commentaires](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![Ajouter vos propres commentaires](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="deploy"></a>Déployer
 Si vous souhaitez utiliser une solution, cliquez sur **Déployer**. Suivez les étapes décrites pour configurer et déployer la solution dans votre espace de travail.
 
-![Déployer une solution de la galerie](media\\machine-learning-gallery-solutions\\deploy-solution.png)
+![Déployer une solution de la galerie](media/machine-learning-gallery-solutions/deploy-solution.png)
 
 **[ALLER À LA GALERIE >>](http://gallery.cortanaintelligence.com)**
 

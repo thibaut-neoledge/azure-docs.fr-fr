@@ -197,7 +197,7 @@ Nous allons utiliser MongoDB comme magasin de données. Par conséquent, nous de
 
 * `npm install mongoose`
 
-## <a name="9-install-additional-modules"></a>9.  Installation de modules supplémentaires
+## <a name="9--install-additional-modules"></a>9.  Installation de modules supplémentaires
 Ensuite, nous devons installer les autres modules requis.
 
 Depuis la ligne de commande, accédez au dossier **azuread** si vous ne vous y trouvez pas déjà :

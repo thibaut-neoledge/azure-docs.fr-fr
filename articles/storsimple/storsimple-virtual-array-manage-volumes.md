@@ -142,6 +142,6 @@ Découvrez comment [cloner un volume StorSimple](storsimple-virtual-array-clone.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO4-->
 
 

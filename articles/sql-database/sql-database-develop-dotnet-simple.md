@@ -24,13 +24,13 @@ ms.openlocfilehash: 85e49c3c7f23f90942ca2f9382626369cce7140e
 # <a name="connect-to-sql-database-by-using-net-c"></a>Connexion à SQL Database à l’aide de .NET (C#)
 [!INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
-## <a name="step-1-configure-development-environment"></a>Étape 1 : Configurer l’environnement de développement
+## <a name="step-1--configure-development-environment"></a>Étape 1 : Configurer l’environnement de développement
 [Configurer l’environnement de développement pour le développement ADO.NET](https://msdn.microsoft.com/library/mt718321.aspx)
 
 ## <a name="step-2-create-a-sql-database"></a>Étape 2 : créer une base de données SQL
 Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre à créer un exemple de base de données.  Il est important que vous suiviez le guide pour créer un **modèle de base de données AdventureWorks**. Les exemples ci-dessous fonctionnent uniquement avec le **schéma AdventureWorks**.  
 
-## <a name="step-3-get-connection-string"></a>Étape 3 : Obtenir la chaîne de connexion
+## <a name="step-3--get-connection-string"></a>Étape 3 : Obtenir la chaîne de connexion
 [!INCLUDE [sql-database-include-connection-string-dotnet-20-portalshots](../../includes/sql-database-include-connection-string-dotnet-20-portalshots.md)]
 
 ## <a name="step-4-run-sample-code"></a>Étape 4 : Exécuter l’exemple de code

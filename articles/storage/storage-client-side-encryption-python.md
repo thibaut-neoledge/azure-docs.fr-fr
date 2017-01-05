@@ -120,7 +120,7 @@ Pour effectuer des opérations de requête, vous devez spécifier un programme d
 
 La bibliothèque de stockage cliente attend l’utilisation de la clé de chiffrement de clés (KEK) et du programme de résolution de clé pour implémenter l’interface suivante. [d’d’Azure Key Vault](https://azure.microsoft.com/services/key-vault/) pour la gestion de la clé de chiffrement de clés (KEK) Python est en attente et sera intégrée ultérieurement à cette bibliothèque.
 
-## <a name="client-api-interface"></a>API/Interface cliente
+## <a name="client-api--interface"></a>API/Interface cliente
 Après avoir créé un objet de service de stockage (c'est-à-dire blockblobservice), l’utilisateur peut affecter des valeurs aux champs qui constituent une stratégie de chiffrement : key_encryption_key, key_resolver_function et require_encryption. Les utilisateurs peuvent fournir uniquement une KEK, uniquement un programme de résolution ou les deux. key_encryption_key est le type de clé de base identifié à l’aide d’un identificateur de clé. Il fournit le programme logique pour l’encapsulage/le désencapsulage. key_resolver_function est utilisé pour résoudre une clé pendant le processus de déchiffrement. Elle retourne une KEK valide avec un identificateur de clé. Les utilisateurs ont ainsi la possibilité de choisir entre plusieurs clés gérées dans plusieurs emplacements.
 
 La KEK doit implémenter les méthodes suivantes pour chiffrer des données :

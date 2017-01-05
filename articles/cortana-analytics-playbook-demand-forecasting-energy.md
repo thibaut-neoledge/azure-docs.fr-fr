@@ -122,7 +122,7 @@ Le tableau suivant compare les prévisions à long terme et les prévisions à c
 
 Comme nous le voyons dans cette table, il est très important de distinguer les scénarios de prévision à court terme des scénarios à long terme, car ils répondent à des besoins professionnels différents et peuvent se présenter avec des modèles de déploiement et d’utilisation différents.
 
-### <a name="example-use-case-1-esmart-systems-overload-optimization"></a>Exemple d’étude de cas 1 : systèmes eSmart, optimisation de surcharge
+### <a name="example-use-case-1-esmart-systems--overload-optimization"></a>Exemple d’étude de cas 1 : systèmes eSmart, optimisation de surcharge
 Un des rôles importants du [réseau intelligent](https://en.wikipedia.org/wiki/Smart_grid) consiste à optimiser et ajuster de façon dynamique et continue les modèles de consommation en fonction des changements. La consommation d’énergie peut être affectée par les modifications à court terme provoquées principalement par les fluctuations de température (*par exemple*, lorsque davantage d’électricité est utilisée pour l’air conditionné ou le chauffage). Dans le même temps, la consommation d’énergie est également influencée par les tendances à long terme. Ces dernières peuvent inclure les effets de saisonnalité, les jours fériés, la croissance à long terme de la consommation et même des facteurs économiques tels que l’indice des prix, le prix du pétrole et le produit intérieur brut.
 
 Dans ce cas, [eSmart](http://www.esmartsystems.com/) souhaite déployer des solutions cloud permettant de prédire la propension à se trouver en situation de surcharge dans une sous-centrale du réseau. eSmart souhaite en particulier identifier les sous-centrales susceptibles de connaître des surcharges au cours de l’heure à venir, et pouvoir immédiatement intervenir pour éviter ou résoudre le problème.
@@ -139,7 +139,7 @@ Les modèles à court et à long terme sont déployés individuellement par chaq
 
 Vous trouverez d’autres informations sur ce cas d’utilisation [ici](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18945).
 
-#### <a name="use-case-qualification-criteria-prerequisites"></a>Critères de qualification pour l’étude de cas : conditions préalables
+#### <a name="use-case-qualification-criteria--prerequisites"></a>Critères de qualification pour l’étude de cas : conditions préalables
 Le principal atout de Cortana Intelligence réside dans sa capacité à déployer et à mettre à l’échelle des solutions orientées apprentissage automatique. Elle est conçue pour prendre en charge des milliers de prévisions exécutées simultanément. Elle peut être mise à l’échelle automatiquement pour répondre à d’éventuelles modifications du modèle de consommation. Un des aspects principaux de la solution réside dans la précision et dans les performances de calcul. Par exemple, une société de service public peut être intéressée par une prévision de demande d’énergie précise pour l’heure suivante, et pour chaque heure de la journée. D’autre part, nous n’avons plus à nous préoccuper des raisons pour lesquelles la prévision est telle qu’elle est (c’est le modèle qui s’en charge).
 
 Il est néanmoins important de réaliser que tous les cas d’utilisation et problèmes d’entreprise ne peuvent pas être résolus par l’apprentissage automatique.

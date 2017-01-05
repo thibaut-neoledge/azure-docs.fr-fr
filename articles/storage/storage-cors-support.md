@@ -100,7 +100,7 @@ Les règles CORS sont évaluées comme suit :
 
 Étant donné que les règles sont traitées dans l'ordre dans lequel elles sont indiquées dans le corps de la demande, il est recommandé de spécifier les règles les plus restrictives en ce qui concerne les origines en premier dans la liste, afin qu'elles soient évaluées en priorité. Spécifiez les règles les moins restrictives (par exemple, une règle pour autoriser toutes les origines) à la fin de la liste.
 
-### <a name="example-cors-rules-evaluation"></a>Exemple : évaluation de règles CORS
+### <a name="example--cors-rules-evaluation"></a>Exemple : évaluation de règles CORS
 L'exemple suivant illustre un corps de demande partiel pour une opération visant à définir des règles CORS pour les services de stockage. Pour plus d’informations sur la construction de la requête, consultez [Définition des propriétés du service Blob](https://msdn.microsoft.com/library/hh452235.aspx), [Définition des propriétés du service de File d’attente](https://msdn.microsoft.com/library/hh452232.aspx) et [Définition des propriétés du service de Table](https://msdn.microsoft.com/library/hh452240.aspx).
 
 ```xml

@@ -313,6 +313,6 @@ Lorsque vous cliquez sur la vignette Questetra BPM Suite dans le volet d'accès,
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO4-->
 
 

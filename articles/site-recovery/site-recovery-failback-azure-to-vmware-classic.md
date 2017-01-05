@@ -172,7 +172,7 @@ Après la reprotection, la machine virtuelle est déplacée vers la version de r
 2. Dans **Confirmer le basculement** , vérifiez le sens du basculement (vers Azure) et sélectionnez le point de récupération à utiliser pour le basculement (dernier). Si vous avez activé **Multimachine virtuelle** lorsque vous avez configuré les propriétés de réplication, vous pouvez récupérer jusqu’à la dernière application ou jusqu’au dernier point de récupération cohérent en cas d’incident. Cochez la case pour démarrer le basculement.
 3. Site Recovery arrête les machines virtuelles Azure pendant le basculement. Après que vous avez vérifié que la restauration automatique s’est terminée comme prévu, vous pouvez vous assurer que les machines virtuelles Azure ont été arrêtées correctement.
 
-### <a name="reprotect-the-on-premises-site"></a>Reprotéger le site local
+### <a name="reprotect-the--on-premises-site"></a>Reprotéger le site local
 Une fois la restauration automatique terminée, vos données se trouvent de nouveau sur le site local, mais elles ne sont pas protégées. Pour démarrer à nouveau une réplication vers Azure, procédez comme suit :
 
 1. Dans le portail Site Recovery > onglet **Machines**, sélectionnez les machines virtuelles qui ont été restaurées automatiquement, puis cliquez sur **Reprotéger**. 

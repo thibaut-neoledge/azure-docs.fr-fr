@@ -74,6 +74,6 @@ StorSimple Data Manager est disponible en version préliminaire privée. Pour vo
 [Utilisez l’interface utilisateur de StorSimple Data Manager pour transformer vos données](storsimple-data-manager-ui.md).
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO4-->
 
 
