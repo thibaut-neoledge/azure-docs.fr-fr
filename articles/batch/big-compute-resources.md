@@ -113,6 +113,6 @@ Azure propose [plusieurs tailles de machine virtuelle](../virtual-machines/virtu
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

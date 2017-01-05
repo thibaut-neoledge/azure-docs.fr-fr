@@ -39,10 +39,10 @@ Azure propose actuellement deux options pour l’hébergement des charges de tra
 ## <a name="a-idodbcadata-access-technologies-odbc-and-ole-db"></a><a id="ODBC"></a>Technologies d’accès aux données : ODBC et OLE DB
 La connexion à Azure SQL DB se fait de façon classique. Actuellement, il existe deux moyens de se connecter à des bases de données : ODBC (Open Database Connectivity) et OLE DB (Object Linking and Embedding Database). Ces dernières années, Microsoft s’est aligné sur [ODBC pour l’accès aux données relationnelles natives](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC est relativement simple, mais aussi beaucoup plus rapide qu’OLE DB. Le seul inconvénient ici est qu’ODBC utilise une API de style C ancienne. 
 
-## <a name="a-idcreateastep-1-creating-your-azure-sql-database"></a><a id="Create">Étape 1 : création de votre base de données SQL Azure</a>
+## <a name="a-idcreateastep-1--creating-your-azure-sql-database"></a><a id="Create">Étape 1 : création de votre base de données SQL Azure</a>
 Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre à créer un exemple de base de données.  Sinon, vous pouvez suivre cette [vidéo de deux minutes](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) pour créer une base de données SQL Azure à l’aide du portail Azure.
 
-## <a name="a-idconnectionstringastep-2-get-connection-string"></a><a id="ConnectionString"></a>Étape 2 : obtention de la chaîne de connexion
+## <a name="a-idconnectionstringastep-2--get-connection-string"></a><a id="ConnectionString"></a>Étape 2 : obtention de la chaîne de connexion
 Une fois que votre base de données SQL Azure a été approvisionnée, vous devez exécuter les étapes suivantes pour déterminer les informations de connexion et ajouter l’adresse IP de votre client pour l’accès au pare-feu. 
 
 Dans le [portail Azure](https://portal.azure.com/), accédez à la chaîne de connexion ODBC de votre base de données SQL Azure en cliquant sur **Afficher les chaînes de connexion de la base de données** dans la vue d’ensemble de votre base de données : 
@@ -53,7 +53,7 @@ Dans le [portail Azure](https://portal.azure.com/), accédez à la chaîne de co
 
 Copiez le contenu de la chaîne **ODBC (Inclut Node.js) [Authentification SQL]**. Nous utiliserons cette chaîne ultérieurement pour la connexion à partir de l’interpréteur de ligne de commande ODBC C++. Cette chaîne fournit des détails tels que le pilote, le serveur et d’autres paramètres de connexion de base de données. 
 
-## <a name="a-idfirewallastep-3-add-your-ip-to-the-firewall"></a><a id="Firewall"></a>Étape 3 : ajout de votre adresse IP au pare-feu
+## <a name="a-idfirewallastep-3--add-your-ip-to-the-firewall"></a><a id="Firewall"></a>Étape 3 : ajout de votre adresse IP au pare-feu
 Accédez à la section du pare-feu de votre serveur de bases de données et ajoutez [l’adresse IP de votre client au pare-feu à l’aide de ces étapes](sql-database-configure-firewall-settings.md) pour permettre l’établissement d’une connexion : 
 
 ![Fenêtre d’ajout de l’adresse IP](./media/sql-database-develop-cplusplus-simple/ip.png)

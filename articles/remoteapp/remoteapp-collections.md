@@ -70,14 +70,14 @@ Azure RemoteApp prend en charge les comptes Microsoft et Azure Active Directory,
 | Fournisseurs d’identités tiers pris en charge par Azure (par exemple Ping) |OUI |OUI |OUI | |
 | Azure Multi-Factor Authentication | |OUI |OUI |OUI |
 
-### <a name="cloud-and-cloud-vnet"></a>Cloud et Cloud + réseau virtuel
+### <a name="cloud-and-cloud--vnet"></a>Cloud et Cloud + réseau virtuel
 Avec les collections cloud, vous pouvez utiliser des comptes Microsoft, des comptes Azure AD ou une combinaison des deux. Utilisez les comptes qui conviennent le mieux à vos utilisateurs.
 
 Il n’existe aucune exigence particulière quant à l’utilisation de comptes Microsoft. 
 
 Si vous souhaitez utiliser des comptes Azure AD, vous devez vous assurer que votre locataire Azure AD correspond à celui associé à votre abonnement. Quand vous avez créé votre abonnement Azure RemoteApp, le locataire Azure AD que vous utilisiez a été associé automatiquement à votre abonnement. Tout utilisateur Azure AD auquel vous affectez une autorisation doit être ce même locataire. Si nécessaire, vous pouvez [modifier le locataire Azure AD](remoteapp-changetenant.md) associé à votre abonnement.
 
-### <a name="hybrid-or-cloud-azure-ad-ad"></a>Hybride (ou cloud + Azure AD + AD)
+### <a name="hybrid-or-cloud--azure-ad--ad"></a>Hybride (ou cloud + Azure AD + AD)
 L’utilisation d’Azure AD + Active Directory local est une condition requise pour une collection hybride. Vous devez utiliser AD Connect pour intégrer les deux annuaires, mais vous avez le choix en ce qui concerne la configuration d’AD Connect. 
 
 Il existe deux scénarios AD Connect : utilisation de la synchronisation de mot de passe ou utilisation de la fédération Active Directory. Consultez les [informations relatives à AD Connect](../active-directory/active-directory-aadconnect.md) pour déterminer l’option la mieux adaptée à votre cas.

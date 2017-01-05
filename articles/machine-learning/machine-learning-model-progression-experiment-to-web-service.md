@@ -44,7 +44,7 @@ Bien qu’Azure Machine Learning Studio soit principalement conçu pour vous aid
 ## <a name="developing-and-deploying-a-predictive-web-service"></a>Développement et déploiement d’un service web prédictif
 Voici les étapes effectuées pour une solution classique lorsque vous développez et déployez à l’aide de Machine Learning Studio :
 
-![Flux de déploiement](media\\machine-learning-model-progression-experiment-to-web-service\\model-stages-from-experiment-to-web-service.png)
+![Flux de déploiement](media/machine-learning-model-progression-experiment-to-web-service/model-stages-from-experiment-to-web-service.png)
 
 *Figure 1 : Étapes d’un modèle d’analyse prédictive classique*
 

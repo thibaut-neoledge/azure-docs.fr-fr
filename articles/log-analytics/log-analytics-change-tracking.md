@@ -4,15 +4,15 @@ description: "Vous pouvez utiliser la solution de suivi des modifications de con
 services: operations-management-suite
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
-ms.service: operations-management-suite
+ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -90,7 +90,6 @@ Vous pouvez afficher les modifications apportées à votre infrastructure, puis 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez les [recherches de journaux dans Log Analytics](log-analytics-log-searches.md) pour afficher les données détaillées du suivi des modifications.
-
 
 
 

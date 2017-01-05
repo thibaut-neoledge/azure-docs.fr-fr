@@ -76,6 +76,6 @@ Pour consulter d’autres exemples traitant notamment de la récupération d’i
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -144,6 +144,6 @@ Avant de pouvoir télécharger des fichiers à partir de votre Function App via 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO4-->
 
 

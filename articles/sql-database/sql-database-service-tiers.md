@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/14/2016
+ms.date: 01/04/2017
 ms.author: carlrab; janeng
 translationtype: Human Translation
 ms.sourcegitcommit: a40319d3e53c07a94bc34714ca7393c2747fb50c
@@ -73,6 +73,7 @@ Le tableau suivant décrit les caractéristiques des niveaux de service de pool.
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 Chaque base de données au sein d'un pool respecte également les caractéristiques de base de données unique pour ce niveau. Par exemple, le pool de base possède une limite de sessions maximale par pool de 4800 à 28800, mais une base de données individuelle dans un pool de base a une limite de base de données de 300 sessions.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

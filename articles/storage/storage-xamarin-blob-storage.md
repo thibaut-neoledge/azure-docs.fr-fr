@@ -89,7 +89,7 @@ namespace XamarinApp
 
 Veillez à remplacer « nom_de_votre_compte_ici » et « clé_de_votre_compte_ici » par le nom du compte et la clé de compte. Vous pouvez ensuite utiliser cette classe partagée dans votre application iOS, Android et Windows Phone. Vous pouvez simplement ajouter `MyClass.createContainerAndUpload()` à chaque projet. Par exemple :
 
-### <a name="xamarinappdroid-mainactivitycs"></a>XamarinApp.Droid > MainActivity.cs
+### <a name="xamarinappdroid--mainactivitycs"></a>XamarinApp.Droid > MainActivity.cs
 
 ```csharp
 using Android.App;
@@ -124,7 +124,7 @@ namespace XamarinApp.Droid
 }
 ```
 
-### <a name="xamarinappios-viewcontrollercs"></a>XamarinApp.iOS > ViewController.cs
+### <a name="xamarinappios--viewcontrollercs"></a>XamarinApp.iOS > ViewController.cs
 
 ```csharp
 using System;
@@ -162,7 +162,7 @@ namespace XamarinApp.iOS
 }
 ```
 
-### <a name="xamarinappwinphone-mainpagexaml-mainpagexamlcs"></a>XamarinApp.WinPhone > MainPage.xaml > MainPage.xaml.cs
+### <a name="xamarinappwinphone--mainpagexaml--mainpagexamlcs"></a>XamarinApp.WinPhone > MainPage.xaml > MainPage.xaml.cs
 
 ```csharp
 using Windows.UI.Xaml.Controls;

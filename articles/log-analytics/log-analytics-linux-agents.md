@@ -4,7 +4,7 @@ description: "Avec Log Analytics, vous pouvez collecter et exploiter les donnée
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: ab5b76d8-9ab5-406e-8768-76fb0632d830
 ms.service: log-analytics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -87,8 +87,8 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 
 > [!NOTE]
 > rsyslog ou syslog-ng est requis pour collecter les messages syslog. Le démon syslog par défaut sur la version 5 de Red Hat Enterprise Linux, CentOS et Oracle Linux (sysklog) ne prend pas en charge la collecte des événements syslog. Pour collecter les données syslog avec cette version de ces distributions, le démon rsyslog doit être installé et configuré à la place de sysklog.
-> 
-> 
+>
+>
 
 ## <a name="quick-install"></a>Installation rapide
 Exécutez les commandes suivantes pour télécharger l’omsagent, valider la somme de contrôle, puis installer et intégrer l’agent. Ces commandes sont de type 64 bits. L’ID et la clé primaire de l’espace de travail sont disponibles sur le portail OMS dans **Paramètres**, sous l’onglet **Sources connectées**.
@@ -215,8 +215,8 @@ Pour définir le compte utilisateur par défaut du serveur MySQL sur l’hôte l
 
 > [!NOTE]
 > Le fichier des informations d’identification doit être accessible en lecture par le compte omsagent. L’exécution de la commande mycimprovauth comme omsgent est recommandée.
-> 
-> 
+>
+>
 
 ```
 sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
@@ -280,8 +280,8 @@ La configuration syslog par défaut de l’agent OMS télécharge les événemen
 
 > [!NOTE]
 > Si vous modifiez cette configuration, vous devez redémarrer le démon syslog pour que les modifications prennent effet.
-> 
-> 
+>
+>
 
 La configuration syslog par défaut de l’Agent OMS pour Linux dans OMS est la suivante :
 
@@ -331,12 +331,12 @@ Si vous utilisez Nagios ou Zabbix pour gérer vos ordinateurs Linux, OMS peut re
 Pour collecter les alertes d’un serveur Nagios, vous devez apporter les modifications de configuration suivantes.
 
 1. Accordez à l’utilisateur **omsagent** un accès en lecture au fichier journal Nagios (/var/log/nagios/nagios.log/var/log/nagios/nagios.log). Si le fichier nagios.log appartient au groupe **nagios**, vous pouvez ajouter l’utilisateur **omsagent** au groupe **nagios**.
-   
+
     ```
     sudo usermod –a -G nagios omsagent
     ```
 2. Modifiez le fichier de configuration omsagent.conf (/etc/opt/microsoft/omsagent/conf/omsagent.conf). Vérifiez que les entrées suivantes sont présentes et non mises en commentaire :
-   
+
     ```
     <source>
     type tail
@@ -345,13 +345,13 @@ Pour collecter les alertes d’un serveur Nagios, vous devez apporter les modifi
     format none
     tag oms.nagios
     </source>
-   
+
     <filter oms.nagios>
     type filter_nagios_log
     </filter>
     ```
 3. Redémarrez le démon omsagent :
-   
+
     ```
     sudo service omsagent restart
     ```
@@ -383,7 +383,7 @@ Type=Alert
 #### <a name="to-view-all-nagios-alerts-with-log-analytics"></a>Pour afficher toutes les alertes Nagios avec Log Analytics
 1. Dans le portail Operations Management Suite, cliquez sur la mosaïque **Recherche de journal** .
 2. Dans la barre de requête, tapez la requête suivante :
-   
+
     ```
     Type=Alert SourceSystem=Nagios
     ```
@@ -394,7 +394,7 @@ Après avoir consulté les résultats de la recherche, vous pouvez examiner les 
 ### <a name="to-view-all-zabbix-alerts-with-log-analytics"></a>Pour afficher tous les événements Zabbix avec Log Analytics
 1. Dans le portail Operations Management Suite, cliquez sur la mosaïque **Recherche de journal** .
 2. Dans la barre de requête, tapez la requête suivante :
-   
+
     ```
     Type=Alert SourceSystem=Zabbix
     ```
@@ -407,14 +407,14 @@ L’Agent OMS pour Linux partage ses fichiers binaires avec l’agent System Cen
 
 > [!NOTE]
 > Si l’Agent OMS pour Linux est installé sur un ordinateur non géré par Operations Manager, et que vous décidez ensuite de gérer l’ordinateur avec Operations Manager, vous devez modifier la configuration d’OMI avant de détecter l’ordinateur. **Cette étape n’est pas nécessaire si l’agent Operations Manager est installé avant l’Agent OMS pour Linux.**
-> 
-> 
+>
+>
 
 ### <a name="to-enable-the-oms-agent-for-linux-to-communicate-with-operations-manager"></a>Pour permettre à l’Agent OMS pour Linux de communiquer avec Operations Manager
 1. Modifiez le fichier /etc/opt/omi/conf/omiserver.conf.
 2. Vérifiez que la ligne commençant par **httpsport =** spécifie le port 1270. Par exemple `httpsport=1270`
 3. Redémarrez le serveur OMI.
-   
+
     ```
     service omiserver restart or systemctl restart omiserver
     ```
@@ -541,8 +541,8 @@ Si aucune des informations de résolution de problèmes de cette section ne vous
 
 > [!NOTE]
 > Les fichiers de changement de configuration pour les compteurs de performances et Syslog sont remplacés si la Configuration du portail OMS est activée. Vous pouvez désactiver la configuration sur le portail OMS pour tous les nœuds ou un seul d’entre eux en exécutant la commande suivante :
-> 
-> 
+>
+>
 
 ```
 sudo su omsagent -c /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable
@@ -701,11 +701,11 @@ Il s’agit d’un problème connu qui se produit lors du premier chargement de 
 
 * Dans certains cas, l’agent de configuration de l’Agent OMS pour Linux n’est pas en mesure de communiquer avec le service de configuration du portail, de sorte que la configuration la plus récente n’est pas appliquée.
 * Vérifiez que l’agent `omsconfig` est installé avec les éléments suivants :
-  
+
   * `dpkg --list omsconfig` ou `rpm -qi omsconfig`
   * S’il n’est pas installé, réinstallez la dernière version de l’Agent OMS pour Linux.
 * Vérifiez que l’agent `omsconfig` peut communiquer avec le Service OMS.
-  
+
   * Exécutez la commande `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.
     * La commande ci-dessus retourne la configuration que l’agent récupère à partir du portail, dont les paramètres Syslog, les compteurs de performances Linux et les journaux personnalisés
     * En cas d’échec de la commande ci-dessus, exécutez la commande `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py`. Cette commande force l’agent omsconfig à communiquer avec le Service OMS pour récupérer la configuration la plus récente.
@@ -726,7 +726,7 @@ Il s’agit d’un problème connu qui se produit lors du premier chargement de 
 * Sur le portail OMS, dans **Paramètres** sous l’onglet **Données**, vérifiez que l’option **Appliquer la configuration suivante à mes serveurs Linux** est activée.  
   ![appliquer la configuration](./media/log-analytics-linux-agents/customloglinuxenabled.png)
 * Vérifiez que l’agent `omsconfig` peut communiquer avec le Service OMS.
-  
+
   * Exécutez la commande `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.
   * La commande ci-dessus retourne la configuration que l’agent récupère à partir du portail, dont les paramètres Syslog, les compteurs de performances Linux et les journaux personnalisés.
   * En cas d’échec de la commande ci-dessus, exécutez la commande `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py`. Cette commande force l’agent omsconfig à communiquer avec le Service OMS pour récupérer la configuration la plus récente.
@@ -782,7 +782,6 @@ rsyslog ou syslog-ng est requis pour collecter les messages syslog. Le démon sy
 * [Ajoutez des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md) pour ajouter des fonctionnalités et collecter des données.
 * Familiarisez-vous avec les [recherches de journal](log-analytics-log-searches.md) pour afficher les informations détaillées collectées par les solutions.
 * Utilisez les [tableaux de bord](log-analytics-dashboards.md) pour enregistrer et afficher vos propres recherches personnalisées.
-
 
 
 

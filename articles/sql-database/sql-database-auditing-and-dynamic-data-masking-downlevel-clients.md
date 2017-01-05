@@ -21,7 +21,7 @@ ms.openlocfilehash: 06c1dfbcfa365f6c34708021f63a756e295e2ab4
 
 
 ---
-# <a name="sql-database---downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>SQL Database : prise en charge des clients de niveau inférieur et modification des points de terminaison IP à des fins d’audit
+# <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>SQL Database : prise en charge des clients de niveau inférieur et modification des points de terminaison IP à des fins d’audit
 [audit](sql-database-auditing-get-started.md) fonctionne automatiquement avec les clients SQL qui prennent en charge la redirection TDS.
 
 ## <a name="a-idsubheading-1adownlevel-clients-support"></a><a id="subheading-1"></a>Prise en charge des clients de niveau inférieur

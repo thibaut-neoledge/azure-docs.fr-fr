@@ -140,6 +140,6 @@ En savoir plus sur la [gestion de StorSimple Virtual Array à l’aide de l’in
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO4-->
 
 

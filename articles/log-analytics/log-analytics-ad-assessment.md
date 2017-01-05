@@ -4,7 +4,7 @@ description: "La solution d’évaluation Active Directory permet d’évaluer l
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
 ms.service: log-analytics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -41,11 +41,11 @@ Utilisez les informations suivantes pour installer et configurer les solutions.
 * Des agents doivent être installés sur les contrôleurs de domaine qui sont membres du domaine à évaluer.
 * La solution d'évaluation Active Directory nécessite l’installation de .NET Framework 4 sur chaque ordinateur qui dispose d'un agent OMS.
 * Ajoutez la solution d’évaluation Active Directory à votre espace de travail OMS en utilisant le processus décrit dans la rubrique [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).  Aucune configuration supplémentaire n’est requise.
-  
+
   > [!NOTE]
   > Une fois que vous avez ajouté la solution, le fichier AdvisorAssessment.exe est ajouté aux serveurs comportant des agents. Les données de configuration sont lues puis envoyées au service OMS dans le cloud pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données.
-  > 
-  > 
+  >
+  >
 
 ## <a name="active-directory-assessment-data-collection-details"></a>Détails de la collecte de données d’évaluation Active Directory
 L’évaluation Active Directory collecte les données WMI, les données du registre et les données de performances à l’aide des agents que vous avez activés.
@@ -99,11 +99,11 @@ Si vous souhaitez ignorer, des recommandations, vous pouvez créer un fichier te
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Pour identifier les recommandations que vous ignorerez
 1. Connectez-vous à votre espace de travail et ouvrez Recherche de journal. Utilisez la requête suivante pour répertorier les recommandations qui ont échoué pour les ordinateurs de votre environnement.
-   
+
    ```
    Type=ADAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
-   
+
    Voici une capture d’écran montrant la requête de recherche de journal : ![Échecs de recommandations](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
 2. Choisissez les recommandations que vous souhaitez ignorer. Vous utiliserez les valeurs RecommendationId dans la procédure suivante.
 
@@ -118,7 +118,7 @@ Si vous souhaitez ignorer, des recommandations, vous pouvez créer un fichier te
 Une fois les prochaines évaluations planifiées exécutées, par défaut tous les sept jours, les recommandations spécifiées sont marquées *Ignorées* et n’apparaissent pas dans le tableau de bord d’évaluation.
 
 1. Vous pouvez utiliser les requêtes Recherche de journal suivantes pour répertorier toutes les recommandations ignorées.
-   
+
     ```
     Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
@@ -170,7 +170,6 @@ Une fois les prochaines évaluations planifiées exécutées, par défaut tous l
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez [Recherches de journal dans Log Analytics](log-analytics-log-searches.md) pour afficher les données d’évaluation AD détaillées ainsi que les recommandations.
-
 
 
 

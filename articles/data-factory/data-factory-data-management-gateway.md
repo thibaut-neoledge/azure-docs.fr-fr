@@ -3,7 +3,7 @@ title: "Passerelle de gestion des données pour Data Factory | Microsoft Doc
 description: "Mettez en place une passerelle de données pour déplacer vos données entre un emplacement local et le cloud. Utilisez la passerelle de gestion des données dans Azure Data Factory pour déplacer vos données."
 services: data-factory
 documentationcenter: 
-author: linda33wj
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2016
-ms.author: jingwang
+ms.author: abnarain
 translationtype: Human Translation
 ms.sourcegitcommit: 1b2514e1e6f39bb3ce9d8a46f4af01835284cdcc
 ms.openlocfilehash: f0b3d45ea72ec3e7e0b19bc97ff9d8051067d1fa
@@ -21,7 +21,7 @@ ms.openlocfilehash: f0b3d45ea72ec3e7e0b19bc97ff9d8051067d1fa
 
 ---
 # <a name="data-management-gateway"></a>Passerelle de gestion de données
-La passerelle de gestion des données est un agent client que vous devez installer dans votre environnement local pour permettre la copie des données entre le cloud et les magasins de données locaux. Les magasins de données locaux pris en charge par Data Factory sont répertoriés dans la section [Sources de données prises en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . 
+La passerelle de gestion des données est un agent client que vous devez installer dans votre environnement local pour permettre la copie des données entre le cloud et les magasins de données locaux. Les magasins de données locaux pris en charge par Data Factory sont répertoriés dans la section [Sources de données prises en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) .
 
 > [!NOTE]
 > Actuellement, la passerelle prend en charge uniquement l’activité de copie et l’activité de procédure stockée dans Data Factory. Il n’est pas possible d’utiliser la passerelle à partir d’une activité personnalisée pour accéder à des sources de données locales.

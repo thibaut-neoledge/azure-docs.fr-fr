@@ -48,15 +48,15 @@ L’inclusion de profils de données lors de l’inscription de ressources de do
 
 > [!NOTE]
 > Vous pouvez également ajouter de la documentation à une ressource pour décrire dans quelle mesure les données peuvent être intégrées à une application. Voir [Comment documenter des sources de données](data-catalog-how-to-documentation.md).
-> 
-> 
+>
+>
 
 <a name="howto"/>
 
 ## <a name="how-to-include-a-data-profile-when-registering-a-data-source"></a>Comment inclure un profil de données lors de l’inscription d’une source de données
 Vous pouvez inclure très facilement un profil de votre source de données. Lorsque vous procédez à l’inscription d’une source de données dans le panneau **Objets à inscrire** de l’outil d’inscription de sources de données, sélectionnez l’option **Inclure le profil de données**.
 
-![](media\\data-catalog-data-profile\\data-catalog-register-profile.png)
+![](media/data-catalog-data-profile/data-catalog-register-profile.png)
 
 Pour en savoir plus sur l’inscription des sources de données, consultez les articles [Inscription de sources de données](data-catalog-how-to-register.md) et [Prise en main d’Azure Data Catalog](data-catalog-get-started.md).
 
@@ -65,13 +65,13 @@ Pour découvrir des ressources de données qui incluent un profil de données, v
 
 > [!NOTE]
 > La sélection de l’option **Inclure le profil de données** dans l’outil d’enregistrement de la source de données inclut les informations de profil au niveau de la colonne et de la table. Toutefois, l’API Data Catalog autorise l’enregistrement des ressources de données avec un seul jeu d’informations de profil.
-> 
-> 
+>
+>
 
 ## <a name="viewing-data-profile-information"></a>Affichage des informations de profil de données
 Dès lors que vous obtenez une source de données appropriée associée à un profil, vous pouvez afficher les détails du profil de données. Pour afficher le profil de données, sélectionnez une ressource de données et choisissez **Profil de données** dans la fenêtre du portail Data Catalog.
 
-![](media\\data-catalog-data-profile\\data-catalog-view.png)
+![](media/data-catalog-data-profile/data-catalog-view.png)
 
 Un profil de données dans **Azure Data Catalog** affiche les informations de profil au niveau de la table et au niveau de la colonne :
 
@@ -92,7 +92,6 @@ Le profilage des données fournit des statistiques et des informations sur les r
 ## <a name="see-also"></a>Voir aussi
 * [Inscription de sources de données](data-catalog-how-to-register.md)
 * [Prise en main d’Azure Data Catalog](data-catalog-get-started.md)
-
 
 
 

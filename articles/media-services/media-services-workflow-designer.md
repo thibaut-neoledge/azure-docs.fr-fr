@@ -46,7 +46,7 @@ Les [flux de travail publiés](media-services-workflow-designer.md#existing_work
 
 Les vidéos suivantes vous indiquent comment utiliser le concepteur.
 
-### <a name="day-1-getting-started"></a>Jour 1 : prise en main
+### <a name="day-1--getting-started"></a>Jour 1 : prise en main
 La vidéo du jour 1 présente :
 
 * Vue d'ensemble du concepteur

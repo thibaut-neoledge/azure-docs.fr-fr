@@ -116,7 +116,7 @@ L’utilisateur exécutant l’outil de référencement pour Azure Data Catalog
 ## <a name="q-will-azure-data-catalog-be-made-available-for-on-premises-deployment-as-well"></a>Q : Azure Data Catalog sera-t-il également disponible pour un déploiement local ?
 Azure Data Catalog est un service cloud qui peut fonctionner avec des sources de données cloud et locales, offrant ainsi une solution de détection de sources de données hybrides. Aucune version du service Azure Data Catalog s’exécutant localement n’est actuellement prévue.
 
-## <a name="q-can-we-extract-more-richer-metadata-from-the-data-sources-we-register"></a>Q : Est-il possible d’extraire davantage de métadonnées/des métadonnées plus riches à partir de sources de données que nous inscrivons ?
+## <a name="q-can-we-extract-more--richer-metadata-from-the-data-sources-we-register"></a>Q : Est-il possible d’extraire davantage de métadonnées/des métadonnées plus riches à partir de sources de données que nous inscrivons ?
 Nous travaillons activement au développement des fonctionnalités d’Azure Data Catalog. S’il existe des métadonnées supplémentaires que vous aimeriez voir extraites à partir de la source de données pendant l’inscription, suggérez-les (ou votez en leur faveur si elles ont déjà été suggérées) dans le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Par la suite, nous autoriserons des tiers à ajouter de nouveaux types de sources de données via une API d'extensibilité.
 
 ## <a name="q-how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>Q : Comment restreindre la visibilité des ressources de données inscrites, afin que seules certaines personnes puissent les découvrir ?
@@ -125,7 +125,7 @@ R : Sélectionnez les ressources de données dans Azure Data Catalog, puis cli
 ## <a name="q-how-do-i-update-the-registration-for-a-data-asset-to-that-changes-in-the-data-source-are-reflected-in-the-catalog"></a>Q : comment mettre à jour l'inscription d’une ressource de données pour que les modifications apportées dans la source de données soient reflétées dans le catalogue ?
 R : Pour mettre à jour les métadonnées pour les ressources de données qui sont déjà inscrites dans le catalogue, réinscrivez simplement la source de données qui contient les ressources. Les modifications apportées à la source de données, telles que l’ajout ou la suppression de colonnes de tables ou de vues, seront actualisées dans le catalogue, mais les annotations fournies par les utilisateurs seront conservées.
 
-## <a name="q-my-question-isnt-answered-here-what-should-i-do"></a>Q : Je n’ai pas trouvé de réponse à ma question ici. Que dois-je faire ?
+## <a name="q-my-question-isnt-answered-here--what-should-i-do"></a>Q : Je n’ai pas trouvé de réponse à ma question ici. Que dois-je faire ?
 Rendez-vous sur le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Les questions qui y sont posées se retrouveront ici.
 
 

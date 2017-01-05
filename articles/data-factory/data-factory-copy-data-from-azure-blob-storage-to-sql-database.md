@@ -57,13 +57,13 @@ Pour réaliser ce didacticiel, vous avez besoin du nom et de la clé de votre co
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Cliquez sur **Plus de services** sur le menu de gauche, puis sélectionnez **Comptes de stockage**.
 
-    ![Parcourir - Comptes de stockage](media\\data-factory-copy-data-from-azure-blob-storage-to-sql-database\\browse-storage-accounts.png)
+    ![Parcourir - Comptes de stockage](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
 3. Dans le panneau **Comptes de stockage**, sélectionnez le **compte de stockage Azure** que vous souhaitez utiliser dans ce didacticiel.
 4. Sélectionnez le lien **Clés d’accès** sous **PARAMÈTRES**.
 5. Cliquez sur le bouton **copier** (image) situé en regard de la zone de texte **Nom du compte de stockage** et enregistrez/collez-la quelque part (dans un fichier texte, par exemple).
 6. Répétez l'étape précédente pour copier ou noter la **clé1**.
 
-    ![Clé d’accès de stockage](media\\data-factory-copy-data-from-azure-blob-storage-to-sql-database\\storage-access-key.png)
+    ![Clé d’accès de stockage](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
 7. Fermez tous les panneaux en cliquant sur **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>Récupérer les noms de serveur SQL, de base de données et d’utilisateur

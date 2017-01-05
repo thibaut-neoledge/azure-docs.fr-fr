@@ -48,7 +48,7 @@ Ces ressources de base de la galerie peuvent être regroupées logiquement de di
 
 Enfin, **[Competitions (Concours)](machine-learning-gallery-competitions.md)** offre une excellente opportunité de concourir avec la communauté de scientifiques des données pour résoudre des problèmes complexes à l’aide de Cortana Intelligence Suite.
 
-![Page d’accueil de la galerie Cortana Intelligence](media\\machine-learning-gallery-how-to-use-contribute-publish\\gallery-home-page.png)
+![Page d’accueil de la galerie Cortana Intelligence](media/machine-learning-gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
 ## <a name="discover-and-learn"></a>Découvrez et apprenez
 N’importe qui peut parcourir et rechercher les différents types de ressources dans la galerie qui ont été proposés par Microsoft et la communauté d’analyse avancée.
@@ -60,25 +60,25 @@ Cliquez sur **Browse all** (Tout parcourir) dans l’en-tête de la galerie, pui
 
 Consultez les contributions d’un auteur spécifique en cliquant sur son nom depuis n’importe quelle vignette :
 
-![Affichage des contributions d’un auteur](media\\machine-learning-gallery-how-to-use-contribute-publish\\view-by-author.png)
+![Affichage des contributions d’un auteur](media/machine-learning-gallery-how-to-use-contribute-publish/view-by-author.png)
 
 Vous pouvez commenter, donner votre avis ou poser des questions dans la section des commentaires de chaque page de ressources.
 Vous pouvez même partager une ressource d’intérêt avec vos amis ou collègues à l’aide des fonctionnalités de partage de LinkedIn ou Twitter.
 Vous pouvez également envoyer des liens par e-mail vers ces ressources pour inviter d’autres utilisateurs à consulter ces pages.
 
-![Partager cet élément avec des amis](media\\machine-learning-gallery-how-to-use-contribute-publish\\comment-and-share.png)
+![Partager cet élément avec des amis](media/machine-learning-gallery-how-to-use-contribute-publish/comment-and-share.png)
 
 ## <a name="contribute-to-the-gallery"></a>Contribuer à la galerie
 Lorsque vous vous connectez, vous devenez membre de la communauté de la galerie. Cela vous permet de partager vos propres éléments de galerie afin que les autres utilisateurs puissent, à leur tour, bénéficier des solutions que vous avez découvertes.
 
 Lorsque d’autres personnes découvrent votre contribution dans la galerie, vous pouvez suivre le nombre de vues et de téléchargements de votre contribution :
 
-![Partager cet élément avec des amis](media\\machine-learning-gallery-how-to-use-contribute-publish\\view-and-download-counts.png)
+![Partager cet élément avec des amis](media/machine-learning-gallery-how-to-use-contribute-publish/view-and-download-counts.png)
 
 Les utilisateurs peuvent également ajouter des commentaires et partager votre contribution avec d’autres membres de la communauté de science des données.
 Vous pouvez ouvrir une session avec un outil de discussion comme Disqus et recevoir des notifications pour les commentaires sur vos contributions.
 
-![Suivez des commentaires de l’utilisateur](media\\machine-learning-gallery-how-to-use-contribute-publish\\follow-comments.png)
+![Suivez des commentaires de l’utilisateur](media/machine-learning-gallery-how-to-use-contribute-publish/follow-comments.png)
 
 Vous pouvez contribuer aux éléments suivants dans la galerie : suivez ces liens pour plus d’informations :
 

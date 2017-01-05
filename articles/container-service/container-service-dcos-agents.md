@@ -3,7 +3,7 @@ title: "Pools d’agents publics et privés DC/OS ACS | Microsoft Docs"
 description: "Fonctionnement des pools d’agents publics et privés avec un cluster Azure Container Service."
 services: container-service
 documentationcenter: 
-author: Thraka
+author: dlepow
 manager: timlt
 editor: 
 tags: acs, azure-container-service
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
-ms.author: timlt
+ms.author: danlep
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: a6d9ab6d95de936e4f1d28d47d4e1d74c080bdae
