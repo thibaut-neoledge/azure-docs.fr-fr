@@ -2,18 +2,18 @@
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 
 # Prise en main
-## [Déployer à l’aide d’un modèle Resource Manager](../resource-group-template-deploy.md)
+## [Déployer à l’aide d’un modèle Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
 
 # Procédure
 ## Déployer
-### [Créer des modèles Azure Resource Manager](../resource-group-authoring-templates.md)
+### [Créer des modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## Gérer
-### [Utiliser le portail en version préliminaire pour gérer les ressources](resource-group-portal.md)
+### [Utiliser le portail en version préliminaire pour gérer les ressources](../azure-resource-manager/resource-group-portal.md)
 ### [Gérer l’accès à l’aide de RBAC](../active-directory/role-based-access-control-configure.md)
-### [Utiliser des balises pour organiser les ressources](../resource-group-using-tags.md)
+### [Utiliser des balises pour organiser les ressources](../azure-resource-manager/resource-group-using-tags.md)
 ### [Mettre à l’échelle vos ressources](../monitoring-and-diagnostics/insights-how-to-scale.md)
-### [Créer un principal du service Azure](../resource-group-create-service-principal-portal.md)
+### [Créer un principal du service Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ## Surveiller
 ### [Surveillance des mesures de service](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)
 ### [Activation de la surveillance et des diagnostics](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
@@ -23,7 +23,7 @@
 ### [Réception de notifications d’alerte](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 # Rubriques connexes
-## [Fonctions des modèles Azure Resource Manager](../resource-group-template-functions.md)
+## [Fonctions des modèles Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md)
 ## [Meilleures pratiques pour la mise à l’échelle automatique](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Mesures courantes pour la mise à l’échelle automatique](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ## [Webhooks pour les notifications de mise à l’échelle automatique](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
@@ -42,6 +42,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

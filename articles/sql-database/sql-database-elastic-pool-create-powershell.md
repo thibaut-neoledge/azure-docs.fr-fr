@@ -1,6 +1,6 @@
 ---
-title: "Créer un pool de base de données élastique avec PowerShell | Microsoft Docs"
-description: "Découvrez comment utiliser PowerShell pour augmenter la taille des instances de ressources de Base de données SQL Azure en créant un pool de base de données élastique évolutif afin de gérer plusieurs bases de données."
+title: "Créer un pool élastique avec PowerShell | Microsoft Docs"
+description: "Découvrez comment utiliser PowerShell pour augmenter la taille des instances de ressources Azure SQL Database en créant un pool élastique évolutif afin de gérer plusieurs bases de données."
 services: sql-database
 documentationcenter: 
 author: srinia
@@ -8,30 +8,30 @@ manager: jhubbard
 editor: 
 ms.assetid: 37a707ee-9223-43ae-8c35-1ccafde8b83e
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: a877c17a503e58c49ae781aed61ed120d069c737
-ms.openlocfilehash: 19ea620789b31ee68d8e34acd161eeb820947b23
+ms.sourcegitcommit: 6c8420a154d998aa95c0220049ee54b3039a872b
+ms.openlocfilehash: 679cdacc3782f667635a586df4cd77a9af7884d9
 
 
 ---
-# <a name="create-a-new-elastic-database-pool-with-powershell"></a>Créer un pool de base de données élastique avec PowerShell
+# <a name="create-a-new-elastic-pool-with-powershell"></a>Créer un pool élastique avec PowerShell
 > [!div class="op_single_selector"]
-> * [Portail Azure](sql-database-elastic-pool-create-portal.md)
+> * [portail Azure](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
 > * [C#](sql-database-elastic-pool-create-csharp.md)
 >
 >
 
-Découvrez comment créer un [pool de base de données élastique](sql-database-elastic-pool.md) avec des applets de commande PowerShell.
+Découvrez comment créer un [pool élastique](sql-database-elastic-pool.md) à l’aide d’applets de commande PowerShell.
 
-Pour connaître les codes d’erreur courants, consultez la page [Codes d’erreur SQL pour les applications clientes SQL Database : erreur de connexion à la base de données et autres problèmes](sql-database-develop-error-messages.md)
+Pour connaître les codes d’erreur courants, consultez la page [Codes d’erreur SQL pour les applications clientes SQL Database : erreur de connexion à la base de données et autres problèmes](sql-database-develop-error-messages.md).
 
 > [!NOTE]
 > Les pools élastiques sont mis à la disposition générale dans toutes les régions Azure, à l’exception du Nord du centre des États-Unis et de l’Inde de l’Ouest, où ils sont actuellement en préversion.  Les pools élastiques seront mis à la disposition générale dans ces régions dès que possible. En outre, les pools élastiques ne prennent pas en charge les bases de données utilisant [l’OLTP ou l’analytique en mémoire](sql-database-in-memory.md).
@@ -41,7 +41,7 @@ Pour connaître les codes d’erreur courants, consultez la page [Codes d’erre
 Vous devez utiliser Azure PowerShell 1.0 ou une version supérieure. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="create-a-new-pool"></a>Créer un pool
-L’applet de commande [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) permet de créer un pool. Les valeurs correspondant au nombre d’eDTU par pool, ainsi qu’au nombre de DTU minimal et maximal, sont limitées par la valeur de niveau de service (de base, standard ou premium). Consultez l’article [Limites relatives aux eDTU et au stockage pour les pools et bases de données élastiques](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+L’applet de commande [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) permet de créer un pool. Les valeurs correspondant au nombre d’eDTU par pool, ainsi qu’au nombre de DTU minimal et maximal, sont limitées par la valeur de niveau de service (de base, standard ou premium). Consultez l’article [Limites relatives aux eDTU et au stockage pour les pools et bases de données élastiques](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
     New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
@@ -84,6 +84,6 @@ Ce script crée un groupe de ressources Azure et un serveur. Lorsque vous y ête
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

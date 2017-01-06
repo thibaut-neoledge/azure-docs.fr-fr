@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/28/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
-ms.openlocfilehash: 1479595fb7de2e0a37520c7d323624142e624af1
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: a87bb18aeacbc980fc6859c7c83a102dce0263a8
 
 
 ---
@@ -56,7 +56,7 @@ Cliquez sur **Enregistrer** pour enregistrer les modifications.
 - Pour comprendre comment créer des utilisateurs supplémentaires pouvant se connecter aux bases de données, consultez [Authentification et autorisation de base de données SQL : octroi de l’accès](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
-* [Sécurisation de votre base de données](sql-database-security.md)   
+* [Sécurisation de votre base de données](sql-database-security-overview.md)   
 * [Centre de sécurité pour le moteur de base de données SQL Server et la base de données SQL Azure](https://msdn.microsoft.com/library/bb510589)   
 
 
@@ -64,6 +64,6 @@ Cliquez sur **Enregistrer** pour enregistrer les modifications.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

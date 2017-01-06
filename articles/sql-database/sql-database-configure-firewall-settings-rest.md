@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
-ms.openlocfilehash: cd5d47aa012b21a283e3d6482fe0afddcfa14033
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: cc0faa49daaafe19c71d2c765b8e865be04f81e2
 
 
 ---
@@ -39,7 +39,7 @@ Base de données SQL Microsoft Azure utilise des règles de pare-feu pour autori
 > 
 
 ## <a name="manage-server-level-firewall-rules-through-rest-api"></a>Gestion des règles de pare-feu au niveau du serveur via un API REST
-1. La gestion des règles de pare-feu via l’API REST doit être authentifiée. Pour plus d’informations, consultez [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](../resource-manager-api-authentication.md).
+1. La gestion des règles de pare-feu via l’API REST doit être authentifiée. Pour plus d’informations, consultez [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](../azure-resource-manager/resource-manager-api-authentication.md).
 2. Les règles au niveau du serveur peuvent être créées, mises à jour ou supprimées via API REST
    
     Pour créer ou mettre à jour une règle de pare-feu au niveau du serveur, exécutez la méthode PUT à l’aide des éléments suivants :
@@ -79,7 +79,7 @@ Pour obtenir de l’aide afin de vous connecter à une base de données SQL Azur
 Pour comprendre comment naviguer dans les bases de données, consultez [Gérer la sécurité d’accès et de connexion aux bases de données](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
-* [Sécurisation de votre base de données](sql-database-security.md)
+* [Sécurisation de votre base de données](sql-database-security-overview.md)
 * [Centre de sécurité pour le moteur de base de données SQL Server et la base de données SQL Azure](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
@@ -91,6 +91,6 @@ Pour comprendre comment naviguer dans les bases de données, consultez [Gérer l
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

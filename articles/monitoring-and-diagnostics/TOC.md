@@ -30,7 +30,7 @@
 ### [Configurer un webhook sur une alerte de journal d’activité](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 ### [Archiver le journal d’activité](../monitoring-and-diagnostics/monitoring-archive-activity-log.md)
 ### [Transférer le journal d’activité vers Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
-### [Opérations d’audit avec Resource Manager](../resource-group-audit.md)
+### [Opérations d’audit avec Resource Manager](../azure-resource-manager/resource-group-audit.md)
 ## Gérer les journaux de diagnostic
 ### [Archive](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 ### [Flux de concentrateurs d’événements](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
@@ -49,6 +49,6 @@
 ## [Exemples d’Azure CLI 2.0 (version préliminaire)](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Listes des mesures prises en charge](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 
