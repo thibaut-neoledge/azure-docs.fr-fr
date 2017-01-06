@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 1/6/2017
 ms.author: v-six
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -53,25 +53,24 @@ Voici les scénarios d'allocation courants qui entraînent l'épinglage d'une de
 
 ## <a name="solutions"></a>Solutions
 1. Redéployer vers un service cloud : cette solution est la plus susceptible de réussir car elle permet à la plateforme de choisir parmi tous les clusters de cette région.
-   
+
    * Déployez la charge de travail vers un nouveau service cloud  
    * Mettez à jour l'enregistrement CNAME ou A pour faire pointer le trafic vers le nouveau service cloud
    * Une fois le trafic de l'ancien site nul, vous pouvez supprimer l'ancien service cloud. Cette solution ne devrait pas entraîner de temps d'arrêt.
 2. Supprimer les emplacements intermédiaire et de production : cette solution permet de conserver votre nom DNS, mais entraînera un temps d'arrêt de votre application.
-   
+
    * Supprimez les emplacements de production et intermédiaire d'un service cloud de sorte que le service cloud soit vide, puis
    * Créez un nouveau déploiement dans le service cloud. Cela retentera l'allocation sur tous les clusters de la région. Vérifiez que le service cloud n'est pas lié à un groupe d'affinités.
 3. IP réservée : cette solution permet de conserver votre adresse IP existante, mais entraîne un temps d’arrêt de votre application.  
-   
+
    * Créez une IP réservée pour votre déploiement à l'aide de PowerShell
-     
+
      ```
      New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
      ```
    * Suivez la solution 2 mentionnée plus haut, en veillant à spécifier la nouvelle IP réservée dans le .cscfg du service.
 4. Supprimer le groupe d'affinités pour les nouveaux déploiements : les groupes d'affinités ne sont plus recommandés. Suivez les étapes de la solution 1 ci-dessus pour déployer un nouveau service cloud. Vérifiez que le service cloud n'est pas dans un groupe d'affinités.
 5. Convertir en réseau virtuel régional : consultez [Comment migrer des groupes d'affinités vers un réseau virtuel régional (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-
 
 
 
