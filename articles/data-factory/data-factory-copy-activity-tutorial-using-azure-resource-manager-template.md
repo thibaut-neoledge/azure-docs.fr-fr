@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: d175d3d4d7d7a58f071dab0f32e3fdd3cb3146ce
-ms.openlocfilehash: 8020a4863f0432480dd985870676a714d9abd52e
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: 9ad4378ab27433858d14237fe451b16690711f3a
 
 
 ---
@@ -38,7 +38,7 @@ Ce didacticiel vous montre comment créer et surveiller une fabrique de données
 ## <a name="prerequisites"></a>Configuration requise
 * Lisez l’article [Vue d’ensemble et étapes préalables requises](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) et effectuez les **étapes préalables requises**.
 * Suivez les instructions de l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) pour installer la dernière version d’Azure PowerShell sur votre ordinateur. Dans ce didacticiel, vous utilisez PowerShell pour déployer des entités Data Factory. 
-* (Facultatif) Consultez [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md) pour en savoir plus sur les modèles Azure Resource Manager.
+* (Facultatif) Consultez [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) pour en savoir plus sur les modèles Azure Resource Manager.
 
 ## <a name="in-this-tutorial"></a>Dans ce didacticiel
 Dans ce didacticiel, vous créez une fabrique de données avec les entités Data Factory suivantes :
@@ -583,6 +583,6 @@ Vous pouvez également réutiliser le modèle pour effectuer des tâches répét
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

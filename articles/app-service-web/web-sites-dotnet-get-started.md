@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 03b74607227aed68c6df01e80e4bb87e906ecf31
-ms.openlocfilehash: 48531201029bf09f30cb22852aaf5d3ad0b328fc
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
 
 
 ---
@@ -216,7 +216,7 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
   * [Activation du protocole HTTPS pour un site web Azure](web-sites-configure-ssl-certificate.md)
 * Supprimez le groupe de ressources contenant votre application web et les ressources Azure associées, lorsque vous en avez terminé.
   
-    Pour plus d’informations sur l’utilisation des groupes de ressources dans le portail Azure, consultez [Déployer des ressources avec des modèles Resource Manager et le portail Azure](../resource-group-template-deploy-portal.md).   
+    Pour plus d’informations sur l’utilisation des groupes de ressources dans le portail Azure, consultez [Déployer des ressources avec des modèles Resource Manager et le portail Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).   
 * Pour plus d’exemples de création d’une application web ASP.NET dans App Service, consultez [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Créer et déployer une application web ASP.NET dans Azure App Service) et [Create and deploy a mobile app in Azure App Service (Créer et déployer une application mobile dans Azure App Service)](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service) dans la [démonstration](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) de 2015 Connect pour [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz). Pour d’autres démarrages rapides à partir de la démonstration pour HealthClinic.biz, consultez [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)(Démarrages rapides avec les outils de développement Azure).
 
 

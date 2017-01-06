@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/15/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 3ed7c49603891b9719819143003d27888f800a95
-ms.openlocfilehash: 21a7feb9eb2588643ffc67408de9f8e60aff7798
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 4a2cd02f6f9b6ac51c32314ce892e572e569eb7c
 
 
 ---
@@ -34,7 +34,7 @@ Regardez ces vidéos pour en savoir plus sur les groupes de machines virtuelles 
 ## <a name="creating-and-managing-vm-scale-sets"></a>Création et gestion des groupes de machines virtuelles identiques
 Vous pouvez créer un groupe identique de machines virtuelles sur le [Portail Azure](https://portal.azure.com) en sélectionnant *Nouveau* et en tapant « identique » dans la barre de recherche. « groupe identique de machines virtuelles » apparaîtra dans les résultats. À partir de là, vous pourrez renseigner les champs obligatoires pour personnaliser et déployer votre groupe identique. 
 
-Les groupes identiques de machines virtuelles peuvent également être définis et déployés à l’aide de modèles JSON et [d’API REST](https://msdn.microsoft.com/library/mt589023.aspx) , tout comme des machines virtuelles Azure Resource Manager individuelles. Par conséquent, les méthodes de déploiement d’Azure Resource Manager standard peuvent être utilisées. Pour en savoir plus sur les modèles, consultez [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
+Les groupes identiques de machines virtuelles peuvent également être définis et déployés à l’aide de modèles JSON et [d’API REST](https://msdn.microsoft.com/library/mt589023.aspx) , tout comme des machines virtuelles Azure Resource Manager individuelles. Par conséquent, les méthodes de déploiement d’Azure Resource Manager standard peuvent être utilisées. Pour en savoir plus sur les modèles, consultez [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Vous trouverez des modèles d’exemple de groupes identiques de machines virtuelles dans le dépôt GitHub des modèles de démarrage rapide Azure, [ici](https://github.com/Azure/azure-quickstart-templates) (recherchez les modèles dont le titre contient *vmss*)
 
@@ -148,6 +148,6 @@ Cette section répertorie quelques scénarios de jeu de mise à l’échelle de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

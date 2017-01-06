@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: ac1c60e04b42e2804ef17ba35368dd28c1d748a4
 
 
 ---
@@ -43,7 +43,7 @@ Ce didacticiel vous montre comment créer et surveiller une fabrique de données
 ## <a name="prerequisites"></a>Composants requis
 * Lisez l’article [Vue d’ensemble du didacticiel](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) et effectuez les **étapes préalables requises** .
 * Installez [Curl](https://curl.haxx.se/dlwiz/) sur votre ordinateur. L’outil Curl et les commandes REST vous permettent de créer une fabrique de données. 
-* Suivez les instructions de [cet article](../resource-group-create-service-principal-portal.md) pour effectuer les opérations suivantes : 
+* Suivez les instructions de [cet article](../azure-resource-manager/resource-group-create-service-principal-portal.md) pour effectuer les opérations suivantes : 
   1. Créez une application Web nommée **ADFCopyTutotiralApp** dans Azure Active Directory.
   2. Obtenez un **ID client** et une **clé secrète**. 
   3. Obtenez l’ **ID de locataire**. 
@@ -578,6 +578,6 @@ Dans ce didacticiel, vous avez utilisé une API REST pour créer une fabrique de
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

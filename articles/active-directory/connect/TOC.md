@@ -80,6 +80,7 @@
 
 
 # Rubriques connexes
+## [Surveillez votre infrastructure d’identité locale et vos services de synchronisation dans le cloud](../connect-health/active-directory-aadconnect-health.md)
 ## [Guide sur la conception d’identités hybrides](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
 
 
@@ -88,6 +89,6 @@
 ##[Abandon de la synchronisation de répertoires](active-directory-aadconnect-dirsync-deprecated.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

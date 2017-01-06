@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/26/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fd0e8f5bd41fcf105571f76aab2f192c2f6dd21d
+ms.sourcegitcommit: c5479dd817e8929ff5e9129d4643d49758e7ab16
+ms.openlocfilehash: 82d4d74a14ec31453f0d3eb9a18140c3569f806c
 
 
 ---
@@ -289,9 +289,6 @@ Machine Learning Studio s’appuie sur un compte de stockage Azure fourni par l�
 
 Si vous avez modifié les clés d’accès du compte de stockage, resynchronisez-les dans l’espace de travail à l’aide du portail Azure Classic.  
 
-## <a name="azure-marketplace"></a>Azure Marketplace
-Voir [Publication et utilisation d’applications Machine Learning sur Azure Marketplace : forum aux questions](machine-learning-marketplace-faq.md).
-
 ## <a name="support-and-training"></a>Support et formations
 **Où puis-je obtenir des formations pour Azure Machine Learning ?**
 
@@ -545,6 +542,6 @@ L'accès invité est une expérience d'essai limitée qui vous permet de créer 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: e0353fe07c98060c88f8fefdcc3c1052437f23ab
+ms.sourcegitcommit: bccec1e4078c38e1cc9205a36d3a5df579df35b6
+ms.openlocfilehash: d5ff397e947a7edc8310da59ff9fe8896829e35d
 
 
 ---
@@ -36,8 +36,9 @@ Apache Storm sur HDInsight est un cluster géré intégré dans l‘environneme
   * Prendre en charge une combinaison de plusieurs langages de programmation : il peut lire des données à l‘aide de Java, puis les traiter en utilisant le C#
     
     > [!NOTE]
-    > Les topologies C# sont uniquement prises en charge sur les clusters HDInsight Windows.
+    > Pour utiliser une topologie C# avec un cluster basé sur Linux, vous devez mettre à jour le package NuGet de Microsoft.SCP.Net.SDK utilisé par votre projet vers la version 0.10.0.6 ou une version supérieure. La version du package doit également correspondre à la version principale de Storm installée sur HDInsight. Par exemple, Storm sur les versions 3.3 et 3.4 de HDInsight utilise Storm 0.10.x, tandis que HDInsight 3.5 utilise Storm 1.0.x.
     > 
+    > Les topologies C# sur les clusters basés sur Linux doivent utiliser .NET 4.5, et utiliser Mono pour s’exécuter sur le cluster HDInsight. La plupart des éléments fonctionneront, vous devez toutefois consulter le document [Compatibilité Mono](http://www.mono-project.com/docs/about-mono/compatibility/) pour identifier les éventuelles incompatibilités.
     > 
   * Utiliser l’interface Java **Trident** pour créer des topologies Storm qui prennent en charge « exactement une fois » le traitement des messages, la persistance de magasin de données « transactionnels » et un ensemble d‘opérations d‘analyses courantes de flux de données
 * Il inclut des fonctionnalités intégrées permettant d’augmenter ou de diminuer en puissance : mettez un cluster HDInsight à l’échelle sans aucun impact sur les topologies Storm en cours d‘exécution
@@ -206,6 +207,6 @@ En savoir plus sur les solutions d‘analyse en temps réel avec Apache Storm d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

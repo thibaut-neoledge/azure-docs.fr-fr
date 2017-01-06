@@ -34,7 +34,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 
-![Scénario](./media/active-directory-saas-15five-tutorial/IC784667.png "Scenario")
+![Scénario](./media/active-directory-saas-15five-tutorial/IC784667.png "Scénario")
 
 ## <a name="enabling-the-application-integration-for-15five"></a>Activation de l’intégration d’application pour 15Five
 Cette section décrit l’activation de l’intégration d’application pour 15Five.
@@ -49,13 +49,13 @@ Cette section décrit l’activation de l’intégration d’application pour 15
    ![Applications](./media/active-directory-saas-15five-tutorial/IC700994.png "Applications")
 4. Cliquez sur **Ajouter** en bas de la page.
    
-   ![Ajouter une application](./media/active-directory-saas-15five-tutorial/IC749321.png "Add application")
+   ![Ajouter une application](./media/active-directory-saas-15five-tutorial/IC749321.png "Ajouter une application")
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
    
-   ![Ajouter une application à partir de la galerie](./media/active-directory-saas-15five-tutorial/IC749322.png "Add an application from gallerry")
+   ![Ajouter une application à partir de la galerie](./media/active-directory-saas-15five-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 6. Dans la **zone de recherche**, tapez **15Five**.
    
-   ![Galerie d’applications](./media/active-directory-saas-15five-tutorial/IC784668.png "Application Gallery")
+   ![Galerie d’applications](./media/active-directory-saas-15five-tutorial/IC784668.png "Galerie d’applications")
 7. Dans le volet de résultats, sélectionnez **15Five**, puis cliquez sur **Terminer** pour ajouter l’application.
    
    ![15Five](./media/active-directory-saas-15five-tutorial/IC784669.png "15Five")
@@ -67,16 +67,16 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
 1. Sur la page d’intégration d’application **15Five** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-15five-tutorial/IC784670.png "Configure single sign-on")
+   ![Configurer l’authentification unique](./media/active-directory-saas-15five-tutorial/IC784670.png "Configurer l’authentification unique")
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à 15Five**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-15five-tutorial/IC784671.png "Configure single sign-on")
+   ![Configurer l’authentification unique](./media/active-directory-saas-15five-tutorial/IC784671.png "Configurer l’authentification unique")
 3. Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à 15Five**, tapez votre URL selon le modèle *https://company.15Five.com*, puis cliquez sur **Suivant**.
    
-   ![Configurer l’URL de l’application](./media/active-directory-saas-15five-tutorial/IC784672.png "Configure App URL")
+   ![Configurer l’URL de l’application](./media/active-directory-saas-15five-tutorial/IC784672.png "Configurer l’URL de l’application")
 4. Dans la page **Configurer l’authentification unique sur 15Five**, cliquez sur **Télécharger les métadonnées**, puis transférez le fichier de métadonnées à l’équipe de support 15Five.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-15five-tutorial/IC784673.png "Configure single sign-on")
+   ![Configurer l’authentification unique](./media/active-directory-saas-15five-tutorial/IC784673.png "Configurer l’authentification unique")
    
    > [!NOTE]
    > L’authentification unique doit être activée par l’équipe de support 15Five.
@@ -84,7 +84,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
    > 
 5. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-15five-tutorial/IC784674.png "Configure single sign-on")
+   ![Configurer l’authentification unique](./media/active-directory-saas-15five-tutorial/IC784674.png "Configurer l’authentification unique")
    
 
 ## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
@@ -96,13 +96,13 @@ Dans le cas de 15Five, l’approvisionnement est une tâche manuelle.
 1. Connectez-vous à votre site d’entreprise **15Five** en tant qu’administrateur.
 2. Accédez à **Manage Company**.
    
-   ![Manage Company](./media/active-directory-saas-15five-tutorial/IC784675.png "Manage Company")
+   ![Gérer l’entreprise](./media/active-directory-saas-15five-tutorial/IC784675.png "Gérer l’entreprise")
 3. Accédez à **Contacts \> Ajouter des personnes**.
    
-   ![Personnes](./media/active-directory-saas-15five-tutorial/IC784676.png "People")
+   ![Personnes](./media/active-directory-saas-15five-tutorial/IC784676.png "Personnes")
 4. Dans la section Add New Person, procédez comme suit :
    
-   ![Add New Person](./media/active-directory-saas-15five-tutorial/IC784677.png "Add New Person")
+   ![Ajouter une nouvelle personne](./media/active-directory-saas-15five-tutorial/IC784677.png "Ajouter une nouvelle personne")
    
    1. Tapez le **prénom**, le **nom**, la **fonction** et **l’adresse de messagerie** du compte Azure Active Directory valide que vous souhaitez approvisionner dans les zones de texte correspondantes.
    2. Cliquez sur **Done**.
@@ -121,16 +121,16 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 1. Dans le portail Azure Classic, créez un compte de test.
 2. Sur la page d’intégration d’application **15Five**, cliquez sur **Affecter des utilisateurs**.
    
-   ![Affecter des utilisateurs](./media/active-directory-saas-15five-tutorial/IC784678.png "Assign users")
+   ![Affecter des utilisateurs](./media/active-directory-saas-15five-tutorial/IC784678.png "Affecter des utilisateurs")
 3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
    
-   ![Oui](./media/active-directory-saas-15five-tutorial/IC767830.png "Yes")
+   ![Oui](./media/active-directory-saas-15five-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

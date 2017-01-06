@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
-ms.openlocfilehash: fdfe28f9bf0ab38b19c1b7b7188f484e769558b0
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: 8b085c94078a8e6c4ded95c85443d14637025dc2
 
 
 ---
@@ -36,7 +36,7 @@ Dans cet article, vous utilisez l’API REST Data Factory pour créer votre prem
 ## <a name="prerequisites"></a>Composants requis
 * Lisez l’article [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et effectuez les **étapes préalables requises** .
 * Installez [Curl](https://curl.haxx.se/dlwiz/) sur votre ordinateur. L’outil CURL et les commandes REST vous permettent de créer une fabrique de données.
-* Suivez les instructions de [cet article](../resource-group-create-service-principal-portal.md) pour effectuer les opérations suivantes :
+* Suivez les instructions de [cet article](../azure-resource-manager/resource-group-create-service-principal-portal.md) pour effectuer les opérations suivantes :
   1. Créez une application Web nommée **ADFGetStartedApp** dans Azure Active Directory.
   2. Obtenez un **ID client** et une **clé secrète**.
   3. Obtenez l’ **ID de locataire**.
@@ -487,6 +487,6 @@ Dans cet article, vous avez créé un pipeline avec une activité de transformat
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 
