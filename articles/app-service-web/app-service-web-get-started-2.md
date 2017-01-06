@@ -11,17 +11,17 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.date: 05/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 310bf3656db6ae6e0a8d3c1cc13442e2aa4e7752
+ms.sourcegitcommit: b2c501b6e048d569ebf43b8f40d6b08f687ab624
+ms.openlocfilehash: 549b84788259796c2146fa19763fb00d4e03019c
 
 
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>Ajouter des fonctionnalités à votre première application web
-Dans [Déployer votre première application web dans Azure en 5 minutes](app-service-web-get-started.md), vous avez déployé un exemple d’application web vers [Azure App Service](../app-service/app-service-value-prop-what-is.md). Cet article vous montrera comment ajouter des fonctionnalités exceptionnelles à votre application web déployée. En quelques minutes, vous allez :
+Dans [Déployer votre première application web dans Azure en 5 minutes](app-service-web-get-started-cli-nodejs.md), vous avez déployé un exemple d’application web vers [Azure App Service](../app-service/app-service-value-prop-what-is.md). Cet article vous montrera comment ajouter des fonctionnalités exceptionnelles à votre application web déployée. En quelques minutes, vous allez :
 
 * appliquer l’authentification aux utilisateurs ;
 * mettre automatiquement à l’échelle votre application ;
@@ -157,6 +157,6 @@ En outre, découvrez comment en faire plus avec l’application déployée. Voic
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

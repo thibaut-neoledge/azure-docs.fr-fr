@@ -43,16 +43,16 @@ Pour utiliser Baidu, vous devez disposer d’un compte Baidu. Si vous en avez d�
 
 1. Accédez au [portail Baidu] et cliquez sur le lien **登录** (**Connexion**). Cliquez sur **立即注册** pour démarrer le processus d’inscription d’un compte.
    
-       ![][1]
+   ![][1]
 2. Entrez les informations requises (téléphone/adresse de messagerie, mot de passe et code de vérification), puis cliquez sur **Inscription**.
    
-       ![][2]
+   ![][2]
 3. Vous allez recevoir un courrier électronique à l’adresse e-mail que vous avez entrée avec un lien permettant d’activer votre compte Baidu.
    
-       ![][3]
+   ![][3]
 4. Connectez-vous à votre compte de messagerie, ouvrez le courrier électronique d’activation Baidu, puis cliquez sur le lien d’activation pour activer votre compte Baidu.
    
-       ![][4]
+   ![][4]
 
 Une fois que vous possédez un compte Baidu activé, connectez-vous au [portail Baidu].
 

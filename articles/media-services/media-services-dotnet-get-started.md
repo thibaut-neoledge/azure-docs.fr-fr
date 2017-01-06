@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/11/2016
+ms.date: 12/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
-ms.openlocfilehash: 26720340d72c31016e51cc33589388780a2f4a8a
+ms.sourcegitcommit: f01cd8d3a68776dd12d2930def1641411e6a4994
+ms.openlocfilehash: a9f77a58cdb13c357b6c3734bd9e3efa4ff5087b
 
 
 ---
@@ -25,16 +25,27 @@ ms.openlocfilehash: 26720340d72c31016e51cc33589388780a2f4a8a
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
-> Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). 
-> 
-> 
+> Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+>
+>
 
 ## <a name="overview"></a>Vue d'ensemble
 Ce didacticiel vous présente les étapes d'implémentation d'une application de diffusion de contenu vidéo à la demande (VoD) avec le Kit de développement logiciel (SDK) Azure Media Services (AMS) pour .NET.
 
 Il présente le workflow Media Services de base et les objets et tâches de programmation les plus courants requis pour le développement Media Services. À la fin de ce didacticiel, vous pourrez lire en continu ou télécharger de façon progressive un exemple de fichier multimédia que vous aurez chargé, encodé et téléchargé.
 
+### <a name="ams-model"></a>Modèle d’AMS
+
+L’image suivante illustre certains des objets couramment utilisés lors du développement d’applications VoD par rapport au modèle OData de Media Services.
+
+Cliquez sur l’image pour l’afficher en plein écran.  
+
+<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
+
+Vous pouvez afficher l’ensemble du modèle [ici](https://media.windows.net/API/$metadata?api-version=2.14).  
+
 ## <a name="what-youll-learn"></a>Ce que vous allez apprendre
+
 Ce didacticiel montre comment effectuer les tâches suivantes :
 
 1. Création d'un compte Media Services (avec le portail Azure).
@@ -49,41 +60,38 @@ Ce didacticiel montre comment effectuer les tâches suivantes :
 ## <a name="prerequisites"></a>Conditions préalables
 Les éléments suivants sont requis pour suivre le didacticiel.
 
-* Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. 
-  
+* Pour suivre ce didacticiel, vous avez besoin d'un compte Azure.
+
     Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Vous obtenez des crédits que vous pouvez utiliser pour essayer des services Azure payants. Une fois que les crédits sont épuisés, vous pouvez quand même conserver le compte et utiliser les services et fonctionnalités Azure gratuits, comme la fonction Web Apps dans Azure App Service.
 * Systèmes d’exploitation : Windows 8 ou ultérieur, Windows 2008 R2, Windows 7.
 * .NET Framework 4.0 ultérieur
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou une version ultérieure.
-
-## <a name="download-sample"></a>Charger l’exemple
-Obtenez et exécutez un exemple [ici](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ## <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Création d’un compte Azure Media Services à l’aide du portail Azure
 Cette section montre comment créer un compte AMS.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Cliquez sur **+Nouveau** > **Média + CDN** > **Media Services**.
-   
+
     ![Media Services Créer](./media/media-services-portal-vod-get-started/media-services-new1.png)
 3. Dans **CREATE MEDIA SERVICES ACCOUNT** (CRÉER UN COMPTE MEDIA SERVICES), entrez les valeurs requises.
-   
+
     ![Media Services Créer](./media/media-services-portal-vod-get-started/media-services-new3.png)
-   
+
    1. Dans **Nom du compte**, entrez le nom du nouveau compte AMS. Un nom de compte Media Services se compose de chiffres ou de lettres en minuscules, sans espaces. Sa longueur est comprise entre 3 et 24 caractères.
    2. Dans Abonnement, sélectionnez l’un des abonnements Azure auxquels vous avez accès.
    3. Dans **Groupe de ressources**, sélectionnez la ressource (nouvelle ou existante).  Un groupe de ressources désigne une collection de ressources qui partagent un cycle de vie, des autorisations et des stratégies. En savoir plus [ici](../azure-resource-manager/resource-group-overview.md#resource-groups).
-   4. Dans **Emplacement**, sélectionnez la région géographique utilisée pour stocker les enregistrements multimédias et les métadonnées de votre compte Media Services. Cette région servira à traiter et diffuser vos médias. Seules les régions Media Services disponibles s’affichent dans la liste déroulante. 
+   4. Dans **Emplacement**, sélectionnez la région géographique utilisée pour stocker les enregistrements multimédias et les métadonnées de votre compte Media Services. Cette région servira à traiter et diffuser vos médias. Seules les régions Media Services disponibles s’affichent dans la liste déroulante.
    5. Dans **Compte de stockage**, sélectionnez le compte de stockage qui fournira le stockage d’objets blob du contenu multimédia provenant de votre compte Media Services. Vous pouvez sélectionner un compte de stockage dans la même région géographique que votre compte Media Services ou en créer un. Ce dernier sera créé dans la même région. Les règles des noms de compte de stockage sont identiques à celles des comptes Media Services.
-      
+
        Pour en savoir plus sur le stockage, cliquez [ici](../storage/storage-introduction.md).
    6. Sélectionnez **Épingler au tableau de bord** pour voir la progression du déploiement du compte.
 4. Cliquez sur **Créer** en bas du formulaire.
-   
-    Une fois créé, le compte prend l’état **En cours d’exécution**. 
-   
+
+    Une fois créé, le compte prend l’état **En cours d’exécution**.
+
     ![Media Services Paramètres](./media/media-services-portal-vod-get-started/media-services-settings.png)
-   
+
     Pour gérer votre compte AMS (par exemple, charger des vidéos, encoder des éléments multimédias ou surveiller la progression de tâches), utilisez la fenêtre **Paramètres** .
 
 ## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Configurer les points de terminaison de diffusion en continu à l’aide du portail Azure
@@ -100,19 +108,19 @@ L’empaquetage dynamique vous permet de ne stocker et payer les fichiers que da
 
 Pour créer et modifier le nombre d’unités réservées de diffusion en continu, procédez comme suit :
 
-1. Dans la fenêtre **Paramètres**, cliquez sur **Points de terminaison de diffusion en continu**. 
-2. Cliquez sur le point de terminaison de diffusion en continu par défaut. 
-   
+1. Dans la fenêtre **Paramètres**, cliquez sur **Points de terminaison de diffusion en continu**.
+2. Cliquez sur le point de terminaison de diffusion en continu par défaut.
+
     La fenêtre **DEFAULT STREAMING ENDPOINT DETAILS** (DÉTAILS DU POINT DE TERMINAISON DE DIFFUSION EN CONTINU PAR DÉFAUT) s’affiche.
 3. Pour spécifier le nombre d’unités de diffusion en continu, faites glisser le curseur **Unités de diffusion en continu** .
-   
+
     ![Unités de diffusion en continu](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
 4. Cliquez sur le bouton **Enregistrer** pour enregistrer vos modifications.
-   
+
    > [!NOTE]
    > L’allocation de nouvelles unités peut prendre environ 20 minutes.
-   > 
-   > 
+   >
+   >
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Créer et configurer un projet Visual Studio
 
@@ -123,20 +131,20 @@ Pour créer et modifier le nombre d’unités réservées de diffusion en contin
 
 3. Ajoutez une référence à l’assembly System.Configuration. Cet assembly contient la classe **System.Configuration.ConfigurationManager** qui est utilisée pour accéder aux fichiers de configuration, par exemple App.config.
 
-    Pour ajouter une référence, procédez comme suit : dans l’Explorateur de solutions, cliquez avec le bouton droit de la souris sur le nom du projet, puis sélectionnez **Ajouter** > **une référence...** et saisissez la configuration dans la zone de recherche. 
+    Pour ajouter une référence, procédez comme suit : dans l’Explorateur de solutions, cliquez avec le bouton droit de la souris sur le nom du projet, puis sélectionnez **Ajouter** > **une référence...** et saisissez la configuration dans la zone de recherche.
 
 4. Ouvrez le fichier App.config (ajoutez le fichier à votre projet s'il n'a pas été ajouté par défaut) et ajoutez une section *appSettings* au fichier. Définissez les valeurs pour le nom et la clé de votre compte Azure Media Services, comme illustré dans l’exemple suivant. Pour obtenir le nom du compte et les informations sur la clé, accédez au [portail Azure](https://portal.azure.com/) et sélectionnez votre compte AMS. Sélectionnez ensuite **Paramètres** > **Clés**. La fenêtre Gérer les clés affiche le nom du compte ainsi que les clés primaires et secondaires. Copiez les valeurs du nom du compte et de la clé primaire.
-   
+
         <configuration>
         ...
           <appSettings>
             <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
             <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
           </appSettings>
-   
+
         </configuration>
 5. Remplacez les instructions **using** existantes au début du fichier Program.cs par le code suivant.
-   
+
         using System;
         using System.Collections.Generic;
         using System.Linq;
@@ -146,7 +154,7 @@ Pour créer et modifier le nombre d’unités réservées de diffusion en contin
         using System.Threading;
         using System.IO;
         using Microsoft.WindowsAzure.MediaServices.Client;
-6. Créez un dossier sous le répertoire de projets et copiez-y le fichier .mp4 ou .wmv à encoder et à diffuser en continu ou télécharger. Dans cet exemple, le chemin d'accès « C:\VideoFiles » est utilisé.
+6. Créez un dossier (à tout emplacement sur votre disque local) et copiez-y le fichier .mp4 à encoder et à diffuser en continu ou à télécharger. Dans cet exemple, le chemin d'accès « C:\VideoFiles » est utilisé.
 
 ## <a name="connect-to-the-media-services-account"></a>Se connecter au compte Media Services
 
@@ -154,6 +162,7 @@ Lorsque vous utilisez Media Services avec .NET, vous devez utiliser la classe **
 
 Remplacez la classe Program par défaut par le code ci-dessous. Le code montre comment lire les valeurs de connexion à partir du fichier App.config et comment créer l’objet **CloudMediaContext** pour se connecter à Media Services. Pour plus d’informations sur la connexion à Media Services, consultez la page [Connexion à Media Services avec le Kit de développement logiciel (SDK) Media Services pour .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
+Veillez à mettre à jour le nom du fichier et le chemin d’accès où se trouve votre fichier multimédia.
 
 La fonction **Main** appelle des méthodes qui seront définies ultérieurement dans cette section.
 
@@ -184,7 +193,7 @@ La fonction **Main** appelle des méthodes qui seront définies ultérieurement 
                 _context = new CloudMediaContext(_cachedCredentials);
 
                 // Add calls to methods defined in this section.
-
+        // Make sure to update the file name and path to where you have your media file.
                 IAsset inputAsset =
                     UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
 
@@ -256,8 +265,7 @@ Pour tirer parti de l’empaquetage dynamique, vous devez effectuer les opérati
 
 Le code suivant vous explique comment effectuer envoyer une tâche d'encodage. Le travail contient une tâche qui spécifie le fichier mezzanine à transcoder en un ensemble de MP4 à débit adaptatif à l’aide de **Media Encoder Standard**. Le code envoie la tâche et attend qu'elle soit terminée.
 
-Une fois la tâche terminée, vous pourrez diffuser votre élément multimédia ou télécharger progressivement les fichiers MP4 qui ont été créés après le transcodage.
-Notez que vous n’avez pas besoin d’unité de diffusion en continu pour télécharger progressivement les fichiers MP4.
+Une fois votre tâche de codage terminée, vous pourrez publier vos ressources, puis diffuser en continu ou télécharger les fichiers MP4.
 
 Ajoutez la méthode suivante à la classe Program.
 
@@ -299,23 +307,26 @@ Ajoutez la méthode suivante à la classe Program.
 
 Pour diffuser en continu ou télécharger un élément multimédia, vous devez tout d'abord le « publier » en créant un localisateur. Les localisateurs assurent l’accès aux fichiers contenus dans l’élément multimédia. Media Services prend en charge deux types de localisateurs : les localisateurs OnDemandOrigin, utilisés pour diffuser du contenu multimédia (par exemple, MPEG DASH, HLS ou Smooth Streaming) et les localisateurs SAP (signature d’accès partagé), utilisés pour télécharger des fichiers multimédias (pour plus d’informations sur les localisateurs SAP, consultez [ce blog](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/)).
 
-Une fois que vous avez créé les localisateurs, vous pouvez générer les URL utilisées pour transmettre en continu ou télécharger les fichiers.
+### <a name="some-details-about-url-formats"></a>Informations sur les formats d’URL
 
-Les URL de diffusion en continu pour Smooth Streaming ont le format suivant :
+Une fois que vous avez créé les localisateurs, vous pouvez générer les URL qui seront utilisées pour diffuser en continu ou télécharger vos fichiers. L’exemple dans ce didacticiel affiche les URL que vous pouvez coller dans les navigateurs appropriés. Cette section donne simplement quelques rapides exemples de l’aspect des différents formats.
 
-     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+#### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>Les URL de diffusion en continu pour MPEG DASH ont le format suivant :
 
-Les URL de diffusion en continu pour HLS ont le format suivant :
+{nom du point de terminaison de streaming-nom du compte media services}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest**(format=mpd-time-csf)**
 
-     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+#### <a name="a-streaming-url-for-hls-has-the-following-format"></a>Les URL de diffusion en continu pour HLS ont le format suivant :
 
-Les URL de diffusion en continu pour MPEG DASH ont le format suivant :
+{nom du point de terminaison de streaming-nom du compte media services}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest**(format=m3u8-aapl)**
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+#### <a name="a-streaming-url-for-smooth-streaming-has-the-following-format"></a>Les URL de diffusion en continu pour Smooth Streaming ont le format suivant :
 
-Les URL SAS permettant de télécharger les fichiers ont le format suivant :
+{nom du point de terminaison de diffusion en continu-nom du compte media services}.streaming.mediaservices.windows.net/{ID_de_localisateur}/{nom_de_fichier}.ISM/Manifest
 
-    {blob container name}/{asset name}/{file name}/{SAS signature}
+
+#### <a name="a-sas-url-used-to-download-files-has-the-following-format"></a>Les URL SAS permettant de télécharger les fichiers ont le format suivant :
+
+{nom du conteneur d’objets blob}/{nom de la ressource}/{nom du fichier}/{signature SAS}
 
 Les extensions du Kit de développement logiciel (SDK) Media Services pour .NET fournissent des méthodes d'assistance pratiques qui retournent des URL formatées pour la ressource publiée.
 
@@ -389,6 +400,7 @@ Ajoutez la méthode suivante à la classe Program.
     }
 
 ## <a name="test-by-playing-your-content"></a>Tester en lisant votre contenu
+
 Une fois que vous exécutez le programme défini dans la section précédente, les URL similaires à celles qui suivent seront affichées dans la fenêtre de la console.
 
 URL de diffusion adaptative :
@@ -424,18 +436,27 @@ URL de téléchargement progressif (audio et vidéo).
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-Pour tester votre vidéo, utilisez le [lecteur Azure Media Services](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+Pour diffuser votre vidéo, collez votre URL dans la zone de texte URL du [lecteur Azure Media Services](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 Pour tester le téléchargement progressif, collez l'URL dans un navigateur (par exemple, Internet Explorer, Chrome ou Safari).
 
-## <a name="next-steps-media-services-learning-paths"></a>Étapes suivantes : Parcours d’apprentissage Media Services
+Pour plus d’informations, consultez les rubriques suivantes :
+
+- [Lecture de votre contenu à l’aide des lecteurs existants](media-services-playback-content-with-existing-players.md)
+- [Développement d'applications de lecteur vidéo](media-services-develop-video-players.md)
+- [Incorporation d'une vidéo de diffusion en continu adaptative MPEG-DASH dans une application HTML5 avec DASH.js](media-services-embed-mpeg-dash-in-html5.md)
+
+## <a name="download-sample"></a>Charger l’exemple
+L’exemple de code suivant contient le code que vous avez créé dans ce didacticiel : [exemple](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+
+## <a name="next-steps"></a>Étapes suivantes 
+
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else"></a>Vous recherchez quelque chose d’autre ?
-Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas les informations recherchées, faites-nous part de vos commentaires à l’aide du fil de discussion Disqus ci-dessous.
+
 
 <!-- Anchors. -->
 
@@ -446,6 +467,6 @@ Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

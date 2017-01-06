@@ -12,7 +12,7 @@ Apprenez à comprendre votre facturation Azure et à gérer et analyser l’util
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/billing/billing-understand-your-bill">
+        <a href="/azure/billing/billing-getting-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

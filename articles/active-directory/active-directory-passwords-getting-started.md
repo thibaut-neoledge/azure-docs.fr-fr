@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 4e2508883998b1435d7c4f099bd6ef0e00bd885e
-ms.openlocfilehash: 4f9127ca06668884e6b6f5dbc81aad0a2b1ea9df
+ms.sourcegitcommit: e2e5c302d04a41386bfc98dd4e3f8546265dd9f3
+ms.openlocfilehash: e686952a7363e4758f8a3532b54cf5e7f05ce865
 
 
 ---
@@ -236,7 +236,7 @@ Lorsque vous avez téléchargé l’outil Azure AD Connect, vous pouvez activer 
 #### <a name="to-enable-password-writeback-using-windows-powershell"></a>Pour activer l’écriture différée de mot de passe en utilisant Windows PowerShell
 1. Sur votre **ordinateur de synchronisation d’annuaires**, ouvrez une nouvelle **fenêtre Windows PowerShell avec élévation de privilèges**.
 2. Si le module n’est pas déjà chargé, entrez la commande `import-module ADSync` pour charger les applets de commande Azure AD Connect dans votre session active.
-3. Obtenez la liste des connecteurs Azure AD dans votre système en exécutant l’applet de commande `Get-ADSyncConnector` et en stockant les résultats dans `$aadConnectorName`, par exemple `$connectors = ADSyncConnector|where-object {$\_.name -like "\*AAD"}`.
+3. Obtenez la liste des connecteurs Azure AD dans votre système en exécutant l’applet de commande `Get-ADSyncConnector` et en stockant les résultats dans `$aadConnectorName`, par exemple `$connectors = Get-ADSyncConnector|where-object {$\_.name -like "\*AAD"}`.
 4. Obtenez l’état actuel de l’écriture différée pour le connecteur actuel en exécutant l’applet de commande suivante : `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
 5. Activez l’écriture différée de mot de passe en exécutant l’applet de commande : `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
