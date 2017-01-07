@@ -1,5 +1,5 @@
 ---
-title: Prise en main des applications web Node.js dans Azure App Service
+title: "Bien démarrer avec les applications web Node.js dans Azure App Service | Microsoft Docs"
 description: "Découvrez comment déployer une application Node.js sur une application web dans Azure App Service."
 services: app-service\web
 documentationcenter: nodejs
@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: get-started-article
-ms.date: 07/01/2016
+ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2050bda9c1a4390232d32370863e8d6a62ed5c2b
-ms.openlocfilehash: 66f1a0987960c9251922f1d22ed647d10bb0d10e
+ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
+ms.openlocfilehash: 9667d805fee3277275a71e6907d0abffb35a3c48
 
 
 ---
@@ -25,53 +25,55 @@ ms.openlocfilehash: 66f1a0987960c9251922f1d22ed647d10bb0d10e
 
 Ce didacticiel explique comment créer une application [Node.js] simple et la déployer dans [Azure App Service] à partir d’un environnement de ligne de commande comme cmd.exe ou bash. Les instructions de ce didacticiel s’appliquent à tous les systèmes d’exploitation pouvant exécuter Node.js.
 
-> [!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
-> 
-> 
+[!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
 
 <a name="prereq"></a>
+
+## <a name="cli-versions-to-complete-the-task"></a>Versions de l’interface de ligne de commande permettant d’effectuer la tâche
+
+Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
+
+- [Azure CLI 1.0](app-service-web-nodejs-get-started-cli-nodejs.md) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager
+- [Azure CLI 2.0 (version préliminaire)](app-service-web-nodejs-get-started.md) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager
 
 ## <a name="prerequisites"></a>Composants requis
 * [Node.js]
 * [Bower]
 * [Yeoman]
 * [Git]
-* [Interface de ligne de commande Azure]
-* Un compte Microsoft Azure Si vous n’avez pas de compte, vous pouvez [demander un essai gratuit] ou [activer les avantages de votre abonnement Visual Studio].
+* [Version préliminaire d’Azure CLI 2.0](/cli/azure/install-az-cli2)
+* Un compte Microsoft Azure Si vous n’avez pas de compte, vous pouvez [vous inscrire pour un essai gratuit] ou [activer les avantages de votre abonnement Visual Studio].
 
-## <a name="create-and-deploy-a-simple-nodejs-web-app"></a>Création et déploiement d’une application Node.js simple
+> [!NOTE]
+> Vous pouvez [essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751) sans compte Azure. Créez une application de base et expérimentez-la pendant une heure, sans carte de paiement et sans engagement.
+> 
+> 
+
+## <a name="create-and-configure-a-simple-nodejs-app-for-azure"></a>Création et configuration d’une simple application Node.js pour Azure
 1. Ouvrez le terminal de ligne de commande de votre choix et installez le [générateur Express pour Yeoman].
    
         npm install -g generator-express
+
 2. `CD` dans un répertoire de travail et générez une application expresse en utilisant la syntaxe suivante :
    
         yo express
    
     Choisissez les options suivantes lorsque vous y êtes invité :  
    
-    `? Would you like to create a new directory for your project?`**Yes**  
-    `? Enter directory name`**{appname}**  
-    `? Select a version to install:`**MVC**  
-    `? Select a view engine to use:`**Jade**  
-    `? Select a css preprocessor to use (Sass Requires Ruby):`**None**  
-    `? Select a database to use:`**None**  
-    `? Select a build tool to use:`**Grunt**
+    `? Would you like to create a new directory for your project?` **Yes**  
+    `? Enter directory name` **{appname}**  
+    `? Select a version to install:` **MVC**  
+    `? Select a view engine to use:` **Jade**  
+    `? Select a css preprocessor to use (Sass Requires Ruby):` **None**  
+    `? Select a database to use:` **None**  
+    `? Select a build tool to use:` **Grunt**
+
 3. Exécutez la commande `CD` dans le répertoire racine de votre nouvelle application et démarrez-la pour vérifier qu’elle s’exécute correctement dans votre environnement de développement :
    
         npm start
    
     Dans votre navigateur, accédez à <http://localhost:3000> pour vérifier que la page d’accueil Express s’affiche. Une fois que vous êtes sûr que votre application s’exécute correctement, utilisez la commande `Ctrl-C` pour l’arrêter.
-4. Passez en mode ASM et connectez-vous à Azure (vous avez besoin de [l’interface de ligne de commande Azure](#prereq)) :
-   
-        azure config mode asm
-        azure login
-   
-    Suivez les instructions de l’invite pour poursuivre la connexion à un compte Microsoft associé à votre abonnement Azure.
-5. Assurez-vous que vous vous trouvez toujours dans le répertoire racine de votre application, puis créez la ressource d’application App Service dans Azure avec un nom d’application unique à l’aide de la commande suivante. Par exemple : http://{appname}.azurewebsites.net
-   
-        azure site create --git {appname}
-   
-    Suivez les instructions pour sélectionner une région Azure vers laquelle effectuer le déploiement. Si vous n’avez jamais configuré les informations d’identification de déploiement Git/FTP pour votre abonnement Azure, vous êtes invité à les créer.
+
 6. Ouvrez le fichier ./config/config.js à partir de la racine de votre application, et définissez le port de production sur `process.env.port` ; votre propriété `production` de l’objet `config` doit ressembler à l’exemple suivant :
    
         production: {
@@ -82,23 +84,73 @@ Ce didacticiel explique comment créer une application [Node.js] simple et la d�
             port: process.env.port,
         }
    
-    Cela permet à votre application Node.js de répondre aux demandes Web sur le port par défaut sur lequel iisnode écoute.
+    > [!NOTE] 
+    > Par défaut, Azure App Service exécute les applications Node.js avec les variables d’environnement `production` (`process.env.NODE_ENV="production"`).
+    > Votre configuration permet donc à votre application Node.js dans Azure de répondre aux requêtes web sur le port par défaut écouté par iisnode.
+    >
+    >
+
 7. Ouvrez ./package.json et ajoutez la propriété `engines` pour [spécifier la version de Node.js](#version).
    
         "engines": {
-            "node": "6.6.0"
+            "node": "6.9.1"
         }, 
-8. Enregistrez vos modifications, puis utiliser git pour déployer votre application dans Azure :
+
+8. Enregistrez vos modifications, puis initialisez un référentiel Git à la racine de votre application et validez votre code :
    
         git add .
         git add -f config
         git commit -m "{your commit message}"
+
+## <a name="deploy-your-nodejs-app-to-azure"></a>Déploiement de votre application Node.js dans Azure
+
+1. Connectez-vous à Azure (vous avez besoin [de la version préliminaire d’Azure CLI 2.0](#prereq)) :
+   
+        az login
+   
+    Suivez les instructions de l’invite pour poursuivre la connexion à un compte Microsoft associé à votre abonnement Azure.
+
+3. Définissez l’utilisateur de déploiement pour App Service. Vous déploierez le code ultérieurement à l’aide de ces informations d’identification.
+   
+        az appservice web deployment user set --user-name <username> --password <password>
+
+3. Créez un [groupe de ressources](../azure-resource-manager/resource-group-overview.md). Pour ce didacticiel PHP, il n’est pas vraiment nécessaire de vous familiariser avec l’outil.
+
+        az group create --location "<location>" --name my-nodejs-app-group
+
+    Pour connaître les valeurs possibles que vous pouvez utiliser pour `<location>`, utilisez la commande CLI `az appservice list-locations`.
+
+3. Créez un [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) appelé « FREE ». Pour ce didacticiel PHP, sachez que vous ne serez pas facturé pour les applications web utilisées dans ce plan.
+
+        az appservice plan create --name my-nodejs-appservice-plan --resource-group my-nodejs-app-group --sku FREE
+
+4. Créez une application web avec un nom unique dans `<app_name>`.
+
+        az appservice web create --name <app_name> --resource-group my-nodejs-app-group --plan my-nodejs-appservice-plan
+
+5. Configurez le déploiement Git local pour votre nouvelle application web avec la commande suivante :
+
+        az appservice web source-control config-local-git --name <app_name> --resource-group my-nodejs-app-group
+
+    Vous obtenez une sortie JSON similaire à ce qui suit, ce qui signifie que le référentiel Git distant est configuré :
+
+        {
+        "url": "https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git"
+        }
+
+6. Ajoutez l’URL dans le fichier JSON en tant que Git distant pour votre référentiel local (appelé `azure` par souci de simplicité).
+
+        git remote add azure https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git
+   
+7. Déployez votre exemple de code dans le Git distant `azure`. Lorsque vous y êtes invité, utilisez les informations d’identification de déploiement que vous avez configurées précédemment.
+
         git push azure master
    
     Le générateur Express fournit un fichier .gitignore, de sorte que votre commande `git push` ne consomme pas de bande passante en tentant de charger le répertoire node_modules/.
+
 9. Pour terminer, lancez votre application Azure en direct dans le navigateur :
    
-        azure site browse
+        az appservice web browse --name <app_name> --resource-group my-nodejs-app-group
    
     Vous devez maintenant voir votre application web Node.js s’exécuter dans Azure App Service.
    
@@ -108,9 +160,9 @@ Ce didacticiel explique comment créer une application [Node.js] simple et la d�
 Pour mettre à jour votre application web Node.js dans App Service, il vous suffit d’exécuter `git add`, `git commit` et `git push` comme vous l’avez fait lors du premier déploiement de votre application web.
 
 ## <a name="how-app-service-deploys-your-nodejs-app"></a>Comment le App Service déploie votre application Node.js
-Azure App Service utilise [iisnode] pour exécuter les applications Node.js. L’interface de ligne de commande (CLI) d’Azure et le moteur Kudu (déploiement Git) fonctionnent en parallèle afin de simplifier votre travail de développement et de déploiement d’applications Node.js à partir de la ligne de commande. 
+Azure App Service utilise [iisnode] pour exécuter les applications Node.js. Azure CLI 2.0 (version préliminaire) et le moteur Kudu (déploiement Git) fonctionnent en parallèle afin de simplifier votre travail de développement et de déploiement d’applications Node.js à partir de la ligne de commande. 
 
-* `azure site create --git` reconnaît le schéma Node.js courant de server.js ou d’app.js, et crée un fichier iisnode.yml dans votre répertoire racine. Vous pouvez ensuite utiliser ce fichier pour personnaliser iisnode.
+* Vous pouvez créer un fichier iisnode.yml dans votre répertoire racine et l’utiliser pour personnaliser les propriétés d’iisnode. Tous les paramètres configurables sont documentées [ici](https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/iisnode.yml).
 * Sur la ligne `git push azure master`, Kudu automatise les tâches de déploiement suivantes :
   
   * Si le fichier package.json se trouve à la racine du référentiel, exécutez la commande `npm install --production`.
@@ -133,7 +185,7 @@ Dans votre flux de travail classique, vous demandez à App Service d’utiliser 
 Par exemple :
 
     "engines": {
-        "node": "6.6.0"
+        "node": "6.9.1"
     }, 
 
 Le moteur de déploiement Kudu détermine le moteur Node.js à utiliser dans l’ordre suivant :
@@ -141,6 +193,10 @@ Le moteur de déploiement Kudu détermine le moteur Node.js à utiliser dans l�
 * Examinons tout d’abord iisnode.yml pour voir si `nodeProcessCommandLine` est spécifié. Si tel est le cas, vous pouvez l’utiliser.
 * Ensuite, examinons le fichier package.json pour voir si `"node": "..."` est spécifié dans l’objet `engines`. Si tel est le cas, vous pouvez l’utiliser.
 * Par défaut, choisissez une version de Node.js par défaut.
+
+Pour obtenir la liste mise à jour de toutes les versions Node.js/NPM prises en charge dans Azure App Service, accédez à l’URL suivante pour votre application :
+
+    https://<app_name>.scm.azurewebsites.net/api/diagnostics/runtime
 
 > [!NOTE]
 > Il est recommandé de définir explicitement le moteur Node.js souhaité. La version de Node.js par défaut peut changer, et vous pouvez obtenir des erreurs dans votre application web Azure, car la version de Node.js par défaut ne convient pas à votre application.
@@ -157,7 +213,7 @@ Pour lire les journaux iisnode, suivez les étapes ci-après.
 > 
 > 
 
-1. Ouvrez le fichier iisnode.yml fourni par l’interface de ligne de commande Azure.
+1. Ouvrez le fichier iisnode.yml disponible avec Azure CLI 2.0 (version préliminaire).
 2. Spécifiez les deux paramètres suivants : 
    
         loggingEnabled: true
@@ -221,7 +277,6 @@ Pour activer Node-Inspector, procédez comme suit :
 
 <!-- URL List -->
 
-[Interface de ligne de commande Azure]: ../xplat-cli-install.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [activer les avantages de votre abonnement Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Bower]: http://bower.io/
@@ -235,7 +290,7 @@ Pour activer Node-Inspector, procédez comme suit :
 [MEANJS]: http://meanjs.org/
 [Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
-[demander un essai gratuit]: http://go.microsoft.com/fwlink/?LinkId=623901
+[vous inscrire pour un essai gratuit]: http://go.microsoft.com/fwlink/?LinkId=623901
 [web app]: ./app-service-web-overview.md
 [Yeoman]: http://yeoman.io/
 
@@ -248,6 +303,6 @@ Pour activer Node-Inspector, procédez comme suit :
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 
