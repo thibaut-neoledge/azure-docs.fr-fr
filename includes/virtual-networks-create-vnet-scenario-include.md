@@ -10,6 +10,6 @@ Dans ce scénario, vous allez créer un réseau virtuel nommé **TestVNet** avec
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

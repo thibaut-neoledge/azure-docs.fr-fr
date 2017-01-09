@@ -16,6 +16,6 @@ Utilisez les applets de commande suivantes pour redémarrer un appareil virtuel.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

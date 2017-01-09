@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/12/2016
+ms.date: 1/6/2017
 ms.author: v-six
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -32,7 +32,7 @@ Les variables d’environnement Windows standard TEMP et TMP sont accessibles 
 ## <a name="suggestion-to-fix-the-problem"></a>Suggestion pour corriger le problème
 Implémentez l'une des alternatives suivantes :
 
-* Configurez une ressource de stockage local et accédez-y directement au lieu d’utiliser TEMP ou TMP. Pour accéder à une ressource de stockage local à partir du code exécuté dans votre application, appelez la méthode [RoleEnvironment.GetLocalResource](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) . 
+* Configurez une ressource de stockage local et accédez-y directement au lieu d’utiliser TEMP ou TMP. Pour accéder à une ressource de stockage local à partir du code exécuté dans votre application, appelez la méthode [RoleEnvironment.GetLocalResource](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) .
 * Configurez une ressource de stockage local et pointez les répertoires TEMP et TMP vers le chemin d'accès de la ressource de stockage local. Cette modification doit être effectuée dans la méthode [RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) .
 
 L'exemple de code suivant montre comment modifier les répertoires cible TEMP et TMP dans la méthode OnStart :
@@ -75,7 +75,6 @@ Lisez un blog expliquant [comment augmenter la taille du dossier temporaire ASP.
 Affichez plus d’ [articles de résolution des problèmes](/?tag=top-support-issue&product=cloud-services) liés aux services cloud.
 
 Pour découvrir comment résoudre les problèmes liés aux rôles de service cloud à l’aide des données de diagnostic informatiques PaaS Azure, consultez la [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
-
 
 
 
