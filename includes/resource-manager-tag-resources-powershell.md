@@ -1,5 +1,5 @@
 ### <a name="tag-cmdlet-changes-in-latest-powershell-version"></a>Modifications d’applet de commande de balise dans la dernière version de PowerShell
-La version d’août 2016 [d’Azure PowerShell 2.0][powershell] inclut des modifications importantes concernant l’utilisation des balises. Avant de continuer, vérifiez la version de votre module AzureRm.Resources.
+La version d’août 2016 d’Azure PowerShell 2.0 inclut des modifications importantes pour l’utilisation des balises. Avant de continuer, vérifiez la version de votre module AzureRm.Resources.
 
     Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 
@@ -226,7 +226,6 @@ Vous pouvez consulter les balises commençant par « masqué-» et « lien: �
 
 Pour ajouter des balises à la taxonomie, utilisez l’applet de commande **New-AzureRmTag** . Ces balises seront incluses dans la saisie semi-automatique, même si elles n'ont pas encore été appliquées à des ressources ou des groupes de ressources. Pour supprimer un nom ou une valeur de balise, commencez par supprimer la balise sur toutes les ressources où elle est appliquée, puis utilisez l’applet de commande **Remove-AzureRmTag** pour la supprimer de la taxonomie.
 
-[powershell]: https://msdn.microsoft.com/library/mt619274(v=azure.200).aspx
 
 
 <!--HONumber=Nov16_HO3-->
