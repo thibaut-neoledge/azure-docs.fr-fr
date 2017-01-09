@@ -17,6 +17,6 @@ Lorsque vous sélectionnez une référence SKU, tenez compte des éléments sui
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

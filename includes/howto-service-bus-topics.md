@@ -14,7 +14,7 @@ Pour commencer à utiliser les rubriques et les abonnements Service Bus dans Azu
 
 Pour créer un espace de noms :
 
-1. Connectez-vous au [Portail Azure][Portail Azure].
+1. Connectez-vous au [portail Azure][Azure portal].
 2. Dans le volet de navigation gauche du portail, cliquez sur **Nouveau**, puis sur **Enterprise Integration** et sur **Service Bus**.
 3. Dans la boîte de dialogue **Créer un espace de noms** , entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible.
 4. Lorsque vous avez vérifié la disponibilité de l’espace de noms, sélectionnez le niveau tarifaire (Basique, Standard ou Premium).
@@ -35,7 +35,7 @@ Pour créer un espace de noms :
    
     ![connection-string][connection-string]
 
-[Portail Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [create-namespace]: ./media/howto-service-bus-topics/create-namespace.png
 [connection-info]: ./media/howto-service-bus-topics/connection-info.png
 [connection-string]: ./media/howto-service-bus-topics/connection-string.png
@@ -43,6 +43,6 @@ Pour créer un espace de noms :
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

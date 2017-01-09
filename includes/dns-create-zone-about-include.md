@@ -1,13 +1,18 @@
-Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier. Afin d’héberger votre domaine, vous devez créer une zone DNS. Les enregistrements DNS créés pour un domaine particulier sont situés dans une zone DNS pour le domaine.
+Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier. Pour commencer à héberger votre domaine dans le DNS Azure, vous devez créer une zone DNS pour ce nom de domaine. Chaque enregistrement DNS pour votre domaine est ensuite créé à l’intérieur de cette zone DNS.
 
-Par exemple, le domaine « contoso.com » peut contenir un certain nombre d’enregistrements DNS, tels que « mail.contoso.com » (pour un serveur de messagerie) et « www.contoso.com » (pour un site web).
+Par exemple, le domaine « contoso.com » peut contenir plusieurs enregistrements DNS, tels que « mail.contoso.com » (pour un serveur de messagerie) et « www.contoso.com » (pour un site web).
 
-## <a name="a-namenamesaabout-dns-zone-names"></a><a name="names"></a>À propos des noms de zones DNS
-* Le nom de la zone doit être unique dans le groupe de ressources et la zone ne doit pas déjà exister. Sinon, l’opération échoue.
-* Le même nom de zone peut être réutilisé dans un autre groupe de ressources ou abonnement Azure.
-* Lorsque plusieurs zones partagent le même nom, chaque instance se voit affecter différentes adresses de serveur de noms, et une seule instance peut être déléguée à partir du domaine parent. Pour plus d’informations, consultez la page [Délégation d’un domaine à Azure DNS](../articles/dns/dns-domain-delegation.md).
+Lorsque vous créez une zone DNS dans Azure DNS :
 
+* Le nom de la zone doit être unique dans le groupe de ressources et la zone ne doit pas déjà exister. Dans le cas contraire, l’opération échoue.
+* Vous pouvez réutiliser le même nom de zone dans un autre groupe de ressources ou abonnement Azure.
+* Lorsque plusieurs zones partagent le même nom, des adresses de serveur de noms différentes sont attribuées à chaque instance. Vous ne pouvez configurer qu’un seul ensemble d’adresses auprès du bureau d’enregistrement de noms de domaine.
 
-<!--HONumber=Nov16_HO2-->
+> [!NOTE]
+> Pour créer une zone DNS avec un nom de domaine dans le DNS Azure, vous ne devez pas nécessairement être propriétaire de ce nom. En revanche, vous devez être propriétaire du domaine pour pouvoir configurer les serveurs de noms du DNS Azure en tant que serveurs de noms corrects pour le nom de domaine auprès du bureau d’enregistrement de noms de domaine.
+> 
+> Pour plus d’informations, voir [Délégation de domaine à Azure DNS](../articles/dns/dns-domain-delegation.md).
+
+<!--HONumber=Jan17_HO1-->
 
 

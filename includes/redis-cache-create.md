@@ -35,6 +35,6 @@ Une fois les options du nouveau cache configurées, cliquez sur **Créer**. La c
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

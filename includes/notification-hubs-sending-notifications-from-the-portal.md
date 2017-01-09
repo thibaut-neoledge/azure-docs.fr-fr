@@ -13,6 +13,6 @@ Dans la section suivante du didacticiel, vous allez apprendre à utiliser l’ [
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

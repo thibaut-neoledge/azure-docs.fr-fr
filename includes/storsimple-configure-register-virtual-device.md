@@ -19,6 +19,6 @@ Une fois la configuration et l'inscription terminées, l’appareil est mis en l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

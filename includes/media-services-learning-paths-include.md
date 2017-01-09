@@ -5,6 +5,6 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

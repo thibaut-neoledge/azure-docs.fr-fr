@@ -5,6 +5,6 @@ Microsoft Azure ExpressRoute vous permet d'étendre vos réseaux locaux au cloud
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
