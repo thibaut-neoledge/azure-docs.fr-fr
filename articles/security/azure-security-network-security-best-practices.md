@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2016
+ms.date: 01/09/2017
 ms.author: TomSh
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -75,8 +75,8 @@ Nous vous recommandons de configurer des itinéraires définis par l’utilisate
 
 > [!NOTE]
 > Les itinéraires définis par l’utilisateur ne sont pas obligatoires ; les itinéraires de système par défaut sont applicables dans la plupart des cas.
-> 
-> 
+>
+>
 
 Pour en savoir plus sur les itinéraires définis par l’utilisateur et leur configuration, consultez l’article [Présentation des itinéraires définis par l’utilisateur et du transfert IP](../virtual-network/virtual-networks-udr-overview.md).
 
@@ -235,7 +235,6 @@ Toutefois, cela implique le traitement préalable de divers problèmes liés à 
 Microsoft a créé le [diagramme d’architecture de référence des extensions de centre de données](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content) et la documentation associée pour vous aider à comprendre à quoi ressemble une extension de centre de données de ce type. Il fournit un exemple d’implémentation de référence, que vous pouvez utiliser pour planifier et concevoir une extension de centre de données d’entreprise sécurisée dans le cloud. Nous vous recommandons de consulter ce document pour vous familiariser avec les composants clés d’une solution sécurisée.
 
 Pour en savoir plus sur l’extension sécurisée de votre centre de données dans Azure, consultez notre vidéo portant sur [l’extension de votre centre de données dans Microsoft Azure](https://www.youtube.com/watch?v=Th1oQQCb2KA).
-
 
 
 

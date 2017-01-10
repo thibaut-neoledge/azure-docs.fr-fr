@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 01/09/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -39,7 +39,6 @@ Les programmes de primes Microsoft paient les chercheurs pour découvrir de nouv
 Apprenez-en plus sur ces programmes sur la page [Primes liées aux bugs MSRC](https://technet.microsoft.com/security/dn425036) et sur le [blog MSRC](https://blogs.technet.microsoft.com/msrc/).
 
 Pour plus d’informations sur le MSRC, consultez la [page d’accueil du MSRC](https://technet.microsoft.com/library/dn440717.aspx).
-
 
 
 
