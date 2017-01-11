@@ -1,5 +1,5 @@
 ---
-title: "Explorer les didacticiels relatifs à Azure SQL Database | Microsoft Docs"
+title: "Explorer les didacticiels relatifs à Azure SQL Database | Microsoft Docs"
 description: "En savoir plus sur les fonctions et capacités de la base de données SQL"
 keywords: 
 services: sql-database
@@ -14,11 +14,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 08/24/2016
+ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 5584c728100c2b7ccba7cf2ca79f888bdf08be64
+ms.sourcegitcommit: 0b200aff6a38a76abd1abaa742006f3d75e7121e
+ms.openlocfilehash: 0cbde2e33517e46e49824d9f66f75e4e2f384d97
 
 
 ---
@@ -31,13 +31,29 @@ Dans les didacticiels suivants, vous allez apprendre à utiliser SQL Server Mana
 > [!IMPORTANT]
 > Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour de Microsoft Azure et Base de données SQL. [Mettre à jour SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 >
->
 
 | Didacticiel | Description |
 | --- | --- | --- |
-| [Connexion à une base de données SQL Azure à l'aide d'une connexion du principal au niveau du serveur](sql-database-get-started-security.md#connect-to-azure-sql-database-using-sql-server-authentication) |Ce didacticiel vous apprend à vous connecter à une base de données SQL Azure à l’aide des identifiants de connexion d’un principal au niveau du serveur. |
+| [Connexion à une base de données SQL Azure à l'aide d'une connexion du principal au niveau du serveur](sql-database-get-started-security.md#connect-to-azure-sql-database-using-sql-server-authentication) |Ce didacticiel vous apprend à vous connecter à SQL Azure Database à l’aide d’une connexion du principal au niveau du serveur SQL. |
 | [Connexion à une base de données SQL Azure en tant qu’utilisateur](sql-database-get-started-security.md#connect-to-azure-sql-database-as-a-user) |Ce didacticiel vous apprend à vous connecter à une base de données SQL Azure à l’aide d’un compte utilisateur au niveau de la base de données. |
 |  | |
+
+## <a name="create-servers-databases-and-server-level-firewall-rules"></a>Créer des serveurs, des bases de données et des règles de pare-feu au niveau du serveur
+Les didacticiels ci-après vous apprennent à créer des serveurs, des bases de données et des règles de pare-feu au niveau du serveur, ainsi qu’à vous connecter et adresser des requêtes aux serveurs et aux bases de données.
+
+| Didacticiel | Description |
+| --- | --- | --- |
+| [Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide du portail Azure et de SQL Server Management Studio](sql-database-get-started.md) | Dans ce didacticiel, vous utilisez le Portail Azure et SQL Server Management Studio pour créer un serveur logique Azure SQL Database, en visualiser les propriétés, créer un pare-feu au niveau du serveur, vous connecter à la base de données MASTER, créer un exemple de base de données, en afficher les propriétés, vous connecter à l’exemple de base de données et créer une base de données vide. |
+| [Get started with Azure SQL Database servers, databases, and firewall rules by using Azure PowerShell (Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide d’Azure PowerShell)](sql-database-get-started-powershell.md) | Dans ce didacticiel, vous utilisez PowerShell pour créer un serveur logique Azure SQL Database, en visualiser les propriétés, créer un pare-feu au niveau du serveur, vous connecter à la base de données MASTER, créer un exemple de base de données, en afficher les propriétés, vous connecter à l’exemple de base de données et créer une base de données vide. |
+| [Utiliser C# pour créer une Base de données SQL avec la bibliothèque de base de données SQL pour .NET](sql-database-get-started-csharp.md)| Dans ce didacticiel, vous utilisez C# pour créer un serveur SQL Database, une règle de pare-feu et une base de données SQL. Vous créez également une application Active Directory (AD) et le principal du service requis pour authentifier l’application C#. |
+
+## <a name="backup-and-recovery"></a>Sauvegarde et récupération
+Dans le didacticiel ci-après, vous restaurez une version antérieure d’une base de données, vous configurez une rétention de sauvegarde à long terme et vous restaurez une base de données à partir du coffre Azure Recovery Services. 
+
+| Didacticiel | Description |
+| --- | --- | --- |
+| [Get Started with Backup and Restore for Data Protection and Recovery (Prise en main des fonctionnalités de sauvegarde et de restauration pour la protection et la récupération des données)](sql-database-get-started-backup-recovery.md) | Dans le didacticiel ci-après, vous utilisez le Portail Azure pour restaurer une version antérieure d’une base de données, configurer une rétention de sauvegarde à long terme et restaurer une base de données à partir du coffre Azure Recovery Services. |
+
 
 ## <a name="elastic-pools"></a>Pools élastiques
 Dans les didacticiels suivants, vous apprendrez à utiliser les [pools élastiques](sql-database-elastic-pool.md) pour gérer les objectifs de performance de plusieurs bases de données ayant des modèles d’utilisation variables et imprévisibles.
@@ -72,7 +88,7 @@ Dans les didacticiels suivants, vous apprendrez à exécuter des [requêtes éla
 |  | |
 
 ## <a name="performance-optimization"></a>Optimisation des performances
-Dans les didacticiels suivants, vous apprendrez à optimiser les [performances de bases de données uniques](sql-database-performance-guidance.md). Pour optimiser les performances de plusieurs bases de données, consultez [Pools élastiques](#elastic-pools).
+Dans les didacticiels ci-après, vous apprenez à optimiser les [performances de bases de données autonomes](sql-database-performance-guidance.md). Pour optimiser les performances de plusieurs bases de données, consultez [Pools élastiques](#elastic-pools).
 
 | Didacticiel | Description |
 | --- | --- | --- |
@@ -93,8 +109,8 @@ Dans les didacticiels suivants, vous allez apprendre à [migrer une base de donn
 | [Déterminer la compatibilité de Base de données SQL à l’aide de SqlPackage.exe](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md#using-sqlpackageexe) |Ce didacticiel vous apprend à utiliser l’utilitaire de ligne de commande SQLPackage.exe afin de déterminer la compatibilité de la base de données SQL Azure. |
 | [Déterminer la compatibilité de Base de données SQL à l’aide de SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md#using-sql-server-management-studio) |Ce didacticiel vous apprend à utiliser SQL Server Management Studio afin de déterminer la compatibilité de la base de données SQL Azure. |
 | [Migration d’une base de données SQL Server vers Base de données SQL à l’aide de l’assistant de déploiement de base de données vers Microsoft Azure Database](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md#use-the-deploy-database-to-microsoft-azure-database-wizard) |Ce didacticiel vous apprend à migrer une base de données SQL Server compatible dans votre base de données SQL Azure à l’aide de l’Assistant de déploiement de base de données vers Microsoft Azure Database dans SQL Server Management Studio. |
-| [Exporter une base de données SQL Server vers un fichier BACPAC à l’aide de SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md) |Ce didacticiel vous apprend à exporter une base de données SQL Server compatible dans un fichier BACPAC à l’aide de l’Assistant Exportation d’une application de couche données dans SQL Server Management Studio. |
-| [Exporter une base de données SQL Server vers un fichier BACPAC à l’aide de SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md) |Ce didacticiel vous apprend à exporter une base de données SQL Server compatible vers un fichier BACPAC à l’aide de l’utilitaire de ligne de commande SQLPackage.exe. |
+| [Exporter une base de données SQL Server vers un fichier BACPAC à l’aide de SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md) |Ce didacticiel vous apprend à exporter une base de données SQL Server compatible dans un fichier BACPAC à l’aide de l’Assistant Exportation d’une application de couche données dans SQL Server Management Studio. |
+| [Exporter une base de données SQL Server vers un fichier BACPAC à l’aide de SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md) |Ce didacticiel vous apprend à exporter une base de données SQL Server compatible vers un fichier BACPAC à l’aide de l’utilitaire de ligne de commande SQLPackage.exe. |
 | [Importer un fichier BACPAC vers une base de données SQL Azure à l’aide de SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) |Ce didacticiel vous apprend à importer une base de données SQL Azure à partir d’un fichier BACPAC à l’aide de l’Assistant Exportation d’une application de couche données dans SQL Server Management Studio. |
 | [Importation vers Base de données SQL à partir d’un fichier BACPAC à l’aide de SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md#import-from-a-bacpac-file-into-azure-sql-database-using-sqlpackage) |Ce didacticiel vous apprend à importer une base de données dans une base de données SQL Azure à partir d’un fichier BACPAC à l’aide de l’utilitaire de ligne de commande SQLPackage. |
 | [Importer un fichier BACPAC pour créer une nouvelle base de données SQL Azure](sql-database-import.md) |Ce didacticiel vous apprend à importer une base de données dans une base de données SQL Azure à partir d’un fichier BACPAC stocké dans un objet bloc Azure à l’aide du portail Azure. |
@@ -153,8 +169,8 @@ Dans les didacticiels suivants, vous apprendrez à utiliser la [géorestauration
 
 | Didacticiel | Description |
 | --- | --- | --- |
-| [Restaurer une base de données SQL Azure à un point antérieur dans le temps avec le portail Azure](sql-database-point-in-time-restore-portal.md) |Ce didacticiel explique comment restaurer votre base de données à un point antérieur dans le temps à l’aide du portail Azure. |
-| [Restaurer une base de données SQL Azure à un point dans le temps avec PowerShell](sql-database-point-in-time-restore-powershell.md) |Ce didacticiel explique comment restaurer votre base de données à un point antérieur dans le temps à l’aide de PowerShell. |
+| [Restaurer une base de données SQL Azure à un point antérieur dans le temps avec le portail Azure](sql-database-point-in-time-restore.md) |Ce didacticiel explique comment restaurer votre base de données à un point antérieur dans le temps à l’aide du portail Azure. |
+| [Restaurer une base de données SQL Azure à un point dans le temps avec PowerShell](sql-database-point-in-time-restore.md) |Ce didacticiel explique comment restaurer votre base de données à un point antérieur dans le temps à l’aide de PowerShell. |
 | [Restaurer une base de données SQL Azure supprimée à l’aide du portail Azure](sql-database-restore-deleted-database-portal.md) |Ce didacticiel vous apprend à restaurer une base de données supprimée à l’aide du portail Azure. |
 | [Restaurer une base de données SQL Azure supprimée avec PowerShell](sql-database-restore-deleted-database-powershell.md) |Ce didacticiel vous apprend à restaurer une base de données supprimée à l’aide de PowerShell. |
 | [Configurer la géoréplication pour Base de données SQL Azure avec le portail Azure](sql-database-geo-replication-portal.md) |Ce didacticiel vous apprend à configurer la géoréplication active à l’aide du portail Azure. |
@@ -178,6 +194,6 @@ Ce didacticiel fournit des informations relatives à la [synchronisation des don
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

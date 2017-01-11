@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/19/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
-ms.openlocfilehash: 7156249627e7fe669aec5455f2afb20db404d25f
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: 85ea0270bf88b35018e112725ac828dbc33af834
 
 
 ---
@@ -50,7 +50,7 @@ Pour utiliser la mise à jour corrective automatisée, prenez en compte les cond
 
 **Azure PowerShell**:
 
-* [Installez les dernières commandes Azure PowerShell](../powershell-install-configure.md) si vous projetez de configurer la mise à jour corrective automatisée avec PowerShell.
+* [Installez les dernières commandes Azure PowerShell](/powershell/azureps-cmdlets-docs) si vous projetez de configurer la mise à jour corrective automatisée avec PowerShell.
 
 > [!NOTE]
 > La mise à jour corrective automatisée utilise l’extension de l’agent IaaS SQL Server. Les images actuelles de la galerie de machines virtuelles SQL ajoutent cette extension par défaut. Pour plus d’informations, consultez [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Extension de l’agent IaaS SQL Server).
@@ -130,6 +130,6 @@ Pour plus d’informations sur l’exécution de SQL Server sur des machines vir
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
