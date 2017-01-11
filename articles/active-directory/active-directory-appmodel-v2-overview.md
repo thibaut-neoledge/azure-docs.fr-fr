@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -20,7 +20,7 @@ ms.openlocfilehash: e98ec55dbe5ff0411af124b45bd7ef6177aa957e
 
 
 ---
-# <a name="sign-in-microsoft-account-azure-ad-users-in-a-single-app"></a>Connecter les utilisateurs de compte Microsoft et d’Azure AD dans une même application
+# <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>Connecter les utilisateurs de compte Microsoft et d’Azure AD dans une même application
 Auparavant, un développeur d’application qui souhaitait prendre en charge à la fois les comptes Microsoft et Azure Active Directory devait opérer une intégration avec deux systèmes distincts.  Nous avons mis en place une nouvelle version d’API d’authentification qui vous permet de connecter des utilisateurs avec les deux types de comptes à l’aide du système Azure AD.  Ce système d’authentification convergé est appelé **le point de terminaison v2.0**.  Avec le point de terminaison v2.0 et moyennant une intégration unique, vous pouvez toucher un public qui représente plusieurs millions d’utilisateurs titulaires aussi bien de comptes personnels que professionnels/scolaires.
 
 Les applications qui utilisent le point de terminaison v2.0 peuvent également consommer des API REST à partir de [Microsoft Graph](https://graph.microsoft.io) et [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) à l’aide d’un type de compte.
@@ -59,6 +59,6 @@ Les liens ci-dessous vous seront utiles pour explorer la plateforme en profondeu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 
