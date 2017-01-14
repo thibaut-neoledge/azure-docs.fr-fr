@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 09/26/2016
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6703485aff4a826394238b35720c2e528feae115
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e6090b9d4f39da58b394d1e7a33ff462536f2395
 
 
 ---
@@ -73,7 +73,7 @@ Pour configurer vos données de référence, vous devez d'abord créer une entr�
 </table>
 
 ## <a name="generating-reference-data-on-a-schedule"></a>Génération de données de référence sur une planification
-Si vos données de référence sont un jeu de données variant lentement, la prise en charge de l’actualisation des données de référence peut être activée en spécifiant un modèle de chemin d’accès dans la configuration d’entrée à l’aide des jetons de substitution {date} et {time}. Stream Analytics collectera les définitions de données de référence mises à jour en fonction de ce modèle de chemin d’accès. Par exemple, un modèle `sample/{date}/{time}/products.csv` avec un format de date **« JJ-MM-AAAA »** et un format d'heure **« HH:mm »`sample/2015-04-16/17:30/products.csv` demande à Stream Analytics de récupérer l'objet blob mis à jour ** à 17:30 le 16 avril 2015 (UTC).
+Si vos données de référence sont un jeu de données variant lentement, la prise en charge de l’actualisation des données de référence peut être activée en spécifiant un modèle de chemin d’accès dans la configuration d’entrée à l’aide des jetons de substitution {date} et {time}. Stream Analytics collectera les définitions de données de référence mises à jour en fonction de ce modèle de chemin d’accès. Par exemple, un modèle `sample/{date}/{time}/products.csv` avec un format de date **« JJ-MM-AAAA »** et un format d'heure **« HH:mm »** demande à Stream Analytics de récupérer l'objet blob `sample/2015-04-16/17:30/products.csv` mis à jour  à 17:30 le 16 avril 2015 (UTC).
 
 > [!NOTE]
 > Actuellement, les tâches Stream Analytics recherchent l’actualisation des objets blob uniquement lorsque l’heure machine s’approche de l’heure encodée dans le nom de l’objet blob. Par exemple la tâche recherche `sample/2015-04-16/17:30/products.csv` dès que possible, mais aucune version antérieure à 17 h 30 le 16 avril 2015 (UTC). Elle ne recherche *jamais* un fichier avec une heure encodée antérieure à la dernière heure détectée.
@@ -114,6 +114,6 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
