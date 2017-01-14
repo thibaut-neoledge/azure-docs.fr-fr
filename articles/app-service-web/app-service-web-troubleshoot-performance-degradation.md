@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0f49f7b9a1db2498d6a78031496a2d3c51888d8b
-ms.openlocfilehash: 926b0e9b75e84ecfef48d1c27524a8e33ef8c3fd
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b0f1954b44e42b406aa5ffa71eee74a3bd7be4cc
 
 
 ---
@@ -113,7 +113,7 @@ Pour obtenir des instructions détaillées sur la façon de configurer votre app
 #### <a name="use-remote-profiling"></a>Utiliser le profilage distant
 Dans Azure Service App, Web Apps, API Apps et WebJobs peuvent être profilés à distance. Si votre processus s’exécute plus lentement que prévu, ou si la latence des demandes HTTP est supérieure à la normale et le taux d’utilisation de l’UC du processus élevé, vous pouvez analyser à distance le profil de vos processus et faire en sorte que les piles d’appel d’exemple analysent l’activité du processus et les chemins actifs de code.
 
-Pour plus d’informations, consultez [Prise en charge d’analyse de profil distant dans Azure App Service](/blog/remote-profiling-support-in-azure-app-service).
+Pour plus d’informations, consultez [Prise en charge d’analyse de profil distant dans Azure App Service](https://azure.microsoft.com/blog/remote-profiling-support-in-azure-app-service).
 
 #### <a name="use-the-azure-app-service-support-portal"></a>Utilisation du portail de support Azure App Service
 Web Apps vous offre la possibilité de résoudre les problèmes liés à votre application web grâce à des journaux HTTP, les journaux des événements, les vidages de processus et bien plus encore. Vous pouvez accéder à toutes ces informations à l’aide de notre portail de support à l’adresse **http://&lt;your app name>.scm.azurewebsites.net/Support**
@@ -130,7 +130,7 @@ Une fois les données collectées, une analyse sera également exécutée sur le
 
 Si vous souhaitez télécharger les données, par défaut, celles-ci sont stockées dans le dossier D:\home\data\DaaS.
 
-Pour plus d'informations sur le portail de support Azure App Service, consultez [Nouvelles mises à jour à l'extension de site de support pour les sites web Azure](/blog/new-updates-to-support-site-extension-for-azure-websites).
+Pour plus d'informations sur le portail de support Azure App Service, consultez [Nouvelles mises à jour à l'extension de site de support pour les sites web Azure](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites).
 
 #### <a name="use-the-kudu-debug-console"></a>Utilisation de la console de débogage Kudu
 Web Apps est fourni avec une console de débogage que vous pouvez utiliser pour le débogage, l’exploration, le téléchargement de fichiers, ainsi que les points de terminaison JSON pour obtenir des informations relatives à votre environnement. Il s'agit de la *console Kudu* ou du *tableau de bord SCM* pour votre application web.
@@ -146,7 +146,7 @@ Kudu fournit, entre autres, les éléments suivants :
 
 Autre fonctionnalité utile de Kudu, dans le cas où votre application lève des exceptions de première chance, vous pouvez utiliser Kudu et l’outil Procdump de SysInternals pour créer des vidages de mémoire. Ces vidages de mémoire sont des instantanés du processus et peuvent souvent vous aider à résoudre les problèmes plus complexes avec votre application web.
 
-Pour plus d’informations sur les fonctionnalités disponibles dans Kudu, consultez [Outils Team Services de Sites Web Azure que vous devez connaître](/blog/windows-azure-websites-online-tools-you-should-know-about/).
+Pour plus d’informations sur les fonctionnalités disponibles dans Kudu, consultez [Outils Team Services de Sites Web Azure que vous devez connaître](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 
@@ -163,7 +163,7 @@ Vous pouvez définir la mise à l’échelle pour qu’elle soit manuelle ou aut
 #### <a name="use-autoheal"></a>Utilisation de la correction automatique (AutoHeal)
 La correction automatique (AutoHeal) recycle le processus de travail pour votre application en fonction des paramètres que vous choisissez (comme les modifications de configuration, les requêtes, les limites de mémoire ou le temps nécessaire pour exécuter une requête). La plupart du temps, le recyclage du processus est le moyen le plus rapide pour résoudre un problème. Même si vous pouvez toujours redémarrer l’application web directement dans le portail Azure, la fonctionnalité de correction automatique (AutoHeal) le fera automatiquement pour vous. Il vous suffit d’ajouter des déclencheurs dans le fichier web.config racine pour votre application web. Notez que ces paramètres fonctionnent de la même façon même si votre application n’est pas une application .Net.
 
-Pour plus d'informations, consultez [Correction automatique de Sites Web Azure](/blog/auto-healing-windows-azure-web-sites/).
+Pour plus d'informations, consultez [Correction automatique de Sites Web Azure](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 
 #### <a name="restart-the-web-app"></a>Redémarrage de l’application web
 Il s’agit souvent du moyen le plus simple de résoudre des problèmes à usage unique. Dans le [portail Azure](https://portal.azure.com/), sur le panneau de votre application web, vous avez la possibilité d’arrêter ou de redémarrer votre application.
@@ -174,6 +174,6 @@ Vous pouvez également gérer votre application web à l’aide d’Azure PowerS
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,26 +1,30 @@
 ---
-title: Solution Analyseur de performances réseau dans OMS | Microsoft Docs
-description: L’Analyseur de performances réseau vous aide à surveiller les performances de vos réseaux, presque en temps réel, afin de détecter et localiser d’éventuels goulots d’étranglement affectant les performances réseau.
+title: "Solution Analyseur de performances réseau dans OMS | Microsoft Docs"
+description: "L’Analyseur de performances réseau vous aide à surveiller les performances de vos réseaux, presque en temps réel, afin de détecter et localiser d’éventuels goulots d’étranglement affectant les performances réseau."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
+ms.date: 11/09/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 57df4ab0b2a1df6631eb6e67a90f69cebb1dfe75
+ms.openlocfilehash: 2334540ec0eeec32d0c4b3a6d9597a290bad6ec0
+
 
 ---
-# <a name="network-performance-monitor-(preview)-solution-in-oms"></a>Solution Analyseur de performances réseau (version préliminaire) dans OMS
+# <a name="network-performance-monitor-preview-solution-in-oms"></a>Solution Analyseur de performances réseau (version préliminaire) dans OMS
 > [!NOTE]
-> Il s’agit d’une [solution en version préliminaire](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
-> 
-> 
+> Il s’agit d’une [solution en version préliminaire](log-analytics-add-solutions.md#preview-management-solutions-and-features).
+>
+>
 
 Ce document décrit comment installer et utiliser dans OMS la solution Analyseur de performances réseau qui vous aide à surveiller les performances de vos réseaux, presque en temps réel, afin de détecter et localiser d’éventuels goulots d’étranglement affectant les performances réseau. La solution Analyseur de performances réseau vous permet de surveiller la perte et la latence entre deux réseaux, sous-réseaux ou serveurs. L’Analyseur de performances réseau détecte divers problèmes réseau, tels que des pertes de trafic, des erreurs de routage et d’autres problèmes que les méthodes de surveillance réseau classiques ne sont pas en mesure de détecter. L’Analyseur de performances réseau génère des alertes et des notifications en cas de dépassement d’un seuil pour une liaison réseau. Le système peut apprendre ces seuils automatiquement, et vous pouvez également les configurer pour utiliser des règles d’alerte personnalisées. L’Analyseur de performances réseau détecte en temps opportun les problèmes de performances réseau, et en localise la source en identifiant un segment ou un appareil réseau particuliers.
 
@@ -31,11 +35,11 @@ La solution utilise des transactions synthétiques en tant que mécanisme princi
 Les produits de surveillance réseau classiques se concentrent sur la surveillance de l’intégrité des appareils réseau (routeurs, commutateurs, etc.), mais ne fournissent pas d’informations sur la qualité réelle de la connectivité réseau entre deux points, contrairement à l’Analyseur de performances réseau.
 
 ### <a name="using-the-solution-standalone"></a>Utilisation de la solution en mode autonome
-Si vous souhaitez surveiller la qualité des connexions réseau entre charges de travail critiques, réseaux, centres de données ou sites de bureau, vous pouvez utiliser la solution Analyseur de performances réseau en mode autonome pour surveiller l’intégrité de la connectivité entre les éléments suivants :
+Si vous souhaitez surveiller la qualité des connexions réseau entre charges de travail critiques, réseaux, centres de données ou sites de bureau, vous pouvez utiliser la solution Analyseur de performances réseau en mode autonome pour surveiller l’intégrité de la connectivité entre les éléments suivants :
 
-* plusieurs centres de données ou sites de bureau connectés via un réseau public ou privé ;
-* charges de travail critiques exécutant des applications métier ;
-* services cloud publics, tels que Microsoft Azure ou Amazon Web Services (AWS), et réseaux locaux, si vous disposez d’IaaS (machine virtuelle) et de passerelles configurées pour permettre la communication entre réseaux locaux et réseaux cloud ;
+* plusieurs centres de données ou sites de bureau connectés via un réseau public ou privé ;
+* charges de travail critiques exécutant des applications métier ;
+* services cloud publics, tels que Microsoft Azure ou Amazon Web Services (AWS), et réseaux locaux, si vous disposez d’IaaS (machine virtuelle) et de passerelles configurées pour permettre la communication entre réseaux locaux et réseaux cloud ;
 * réseaux Azure et locaux lorsque vous utilisez ExpressRoute.
 
 ### <a name="using-the-solution-with-other-networking-tools"></a>Utilisation de la solution avec d’autres outils de mise en réseau
@@ -48,8 +52,8 @@ Utilisez les procédures de base d’installation des agents décrites dans [Con
 
 > [!NOTE]
 > Vous devez installer au moins 2 agents afin de disposer de suffisamment de données pour détecter et analyser vos ressources réseau. Autrement, la solution reste en état de configuration jusqu’à ce que vous installiez et configuriez des agents supplémentaires.
-> 
-> 
+>
+>
 
 ### <a name="where-to-install-the-agents"></a>Où installer les agents
 Avant d’installer des agents, réfléchissez à la topologie de votre réseau et aux parties de celui-ci que vous souhaitez analyser. Nous vous recommandons d’installer plusieurs agents pour chaque sous-réseau à surveiller. En d’autres termes, pour chaque sous-réseau à analyser, choisissez au moins deux serveurs ou machines virtuelles sur lesquels installer l’agent.
@@ -67,13 +71,13 @@ Le port ouvert par défaut est 8084. Vous pouvez utiliser un port personnalisé 
 
 > [!NOTE]
 > Le script EnableRules.ps1 configure des règles de pare-feu Windows uniquement sur l’ordinateur exécutant le script. Si vous avez un pare-feu réseau, vous devez vous assurer qu’il autorise le trafic destiné au port TCP que l’Analyseur de performances réseau utilise.
-> 
-> 
+>
+>
 
 ## <a name="configuring-the-solution"></a>Configuration de la solution
 Utilisez les informations suivantes pour installer et configurer la solution.
 
-1. La solution Analyseur de performances réseau acquiert des données à partir d’ordinateurs exécutant Windows Server 2008 SP 1 ou version ultérieure, ou Windows 7 SP1 ou version ultérieure, qui répondent aux mêmes exigences que Microsoft Monitoring Agent (MMA).
+1. La solution Analyseur de performances réseau acquiert des données à partir d’ordinateurs exécutant Windows Server 2008 SP 1 ou version ultérieure, ou Windows 7 SP1 ou version ultérieure, qui répondent aux mêmes exigences que Microsoft Monitoring Agent (MMA).
 2. Ajoutez la solution Analyseur de performances réseau à votre espace de travail OMS en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).  
    ![Symbole de l’Analyseur de performances réseau](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 3. Dans le portail OMS, vous voyez une nouvelle vignette libellée **Analyseur de performances réseau**, avec le message *La solution nécessite une configuration supplémentaire*. Vous devez configurer la solution pour ajouter des réseaux basés sur les sous-réseaux et les nœuds découverts par les agents. Cliquez sur **Analyseur de performances réseau** pour commencer à configurer le réseau par défaut.  
@@ -152,14 +156,14 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 
 | plateforme | Agent direct | Agent SCOM | Azure Storage | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Oui](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![Oui](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![Non](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![Non](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![Non](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |Établissements de liaisons TCP toutes les 5 secondes, données envoyées toutes les 3 minutes |
+| Windows |![Oui](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![Oui](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![Non](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![Non](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![Non](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |Établissements de liaisons TCP toutes les 5 secondes, données envoyées toutes les 3 minutes |
 
 La solution utilise des transactions synthétiques pour évaluer l’intégrité du réseau. Des agents OMS installés en différents points du réseau échangent des paquets TCP entre eux et, dans le cadre de ce processus, découvrent la durée des boucles et les pertes de paquets éventuelles. Périodiquement, chaque agent effectue également une détermination d’itinéraire d’autres agents afin de trouver tous les itinéraires à tester au sein du réseau. Ces données permettent aux agents de déduire les chiffres relatifs à la latence et aux pertes de paquets du réseau. Les tests sont répétés toutes les cinq secondes, et les données sont agrégées pendant une période de trois minutes par les agents avant leur chargement vers OMS.
 
 > [!NOTE]
 > Bien que les agents communiquent fréquemment entre eux, ils ne génèrent pas beaucoup de trafic réseau lors des tests. Pour déterminer les pertes et la latence, les agents s’appuient uniquement sur les paquets d’établissements de liaisons TCP SYN-SYNACK-ACK. Aucun paquet de données n’est échangé. Durant ce processus, les agents communiquent entre eux uniquement si nécessaire, et la topologie de communication des agents est optimisée pour réduire le trafic réseau.
-> 
-> 
+>
+>
 
 ## <a name="using-the-solution"></a>Utilisation de la solution
 Cette section explique toutes les fonctions du tableau de bord et comment les utiliser.
@@ -205,7 +209,7 @@ La carte topologique affiche le nombre d’itinéraires existant entre les deux 
 
 Lorsque vous cliquez sur un nœud ou pointez dessus sur la carte topologique, vous pouvez voir des propriétés du nœud telles que son adresse IP et son nom de domaine complet. Cliquez sur un tronçon pour voir son adresse IP. Vous pouvez mettre en surbrillance des itinéraires particuliers en effaçant les itinéraires, puis en sélectionnant uniquement ceux que vous voulez afficher en surbrillance sur la carte. Vous pouvez effectuer un zoom avant ou arrière sur la carte topologique à l’aide de la molette de votre souris.
 
-Notez que la topologie cartographiée est celle de la couche 3 et qu’elle ne contient pas les connexions et appareils de la couche 2.
+Notez que la topologie cartographiée est celle de la couche 3 et qu’elle ne contient pas les connexions et appareils de la couche 2.
 
 ![Carte topologique tronçon par tronçon](./media/log-analytics-network-performance-monitor/npm-topology.png)
 
@@ -215,7 +219,7 @@ L’Analyseur de performances réseau est en mesure de trouver les goulots d’�
 Cette approche est utile pour déterminer les goulots d’étranglement du réseau lorsque l’accès aux tronçons est indisponible, car elle ne requiert pas de données collectées à partir d’appareils réseau tels que des routeurs ou des commutateurs. Elle est également utile lorsque les tronçons entre deux nœuds ne sont pas sous votre contrôle administratif. Par exemple, les tronçons peuvent être des routeurs ISP.
 
 ### <a name="log-analytics-search"></a>Recherche Log Analytics
-Toutes les données présentées sous forme graphique via le tableau de bord de l’Analyseur de performances réseau et les pages d’exploration sont également disponibles en mode natif dans une recherche Log Analytics. Vous pouvez interroger les données à l’aide du langage de requête de recherche, et créer des rapports personnalisés en exportant les données vers Excel ou Power BI. Le panneau **Requêtes courantes** dans le tableau de bord comprend des requêtes utiles qui peuvent vous servir de point de départ pour créer vos propres requêtes et rapports.
+Toutes les données présentées sous forme graphique via le tableau de bord de l’Analyseur de performances réseau et les pages d’exploration sont également disponibles en mode natif dans une recherche Log Analytics. Vous pouvez interroger les données à l’aide du langage de requête de recherche, et créer des rapports personnalisés en exportant les données vers Excel ou Power BI. Le panneau **Requêtes courantes** dans le tableau de bord comprend des requêtes utiles qui peuvent vous servir de point de départ pour créer vos propres requêtes et rapports.
 
 ![Requêtes de recherche](./media/log-analytics-network-performance-monitor/npm-queries.png)
 
@@ -233,13 +237,15 @@ Toutes les données présentées sous forme graphique via le tableau de bord de 
 5. Tous les chemins entre les 2 nœuds sélectionnés sont représentés dans la carte topologique. Vous pouvez visualiser, tronçon par tronçon, la topologie des itinéraires entre deux nœuds sur la carte topologique. Vous obtenez ainsi une vision claire du nombre d’itinéraires existant entre les nœuds et des chemins qu’empruntent les paquets de données. Les goulots d’étranglement des performances du réseau sont marqués en rouge. Vous pouvez localiser une connexion réseau ou un appareil réseau défectueux en examinant les éléments colorés en rouge sur la carte topologique.  
    ![Exemple d’affichage topologique défectueux](./media/log-analytics-network-performance-monitor/npm-investigation05.png)
 6. Vous pouvez consulter les pertes, la latence et le nombre de tronçons de chaque chemin dans le volet **Détails des chemins**. Dans cet exemple, le volet présente 3 chemins défectueux. Utilisez la barre de défilement pour afficher les détails de ces chemins défectueux.  Utilisez les cases à cocher pour sélectionner l’un des chemins afin de tracer la topologie de ce seul chemin. Vous pouvez utiliser la roulette de votre souris pour effectuer un zoom avant ou arrière sur la carte topologique.
-   
+
    Dans l’image ci-dessous, vous pouvez voir clairement la cause première des aspects problématiques d’une section spécifique du réseau en examinant les chemins et les tronçons marqués de rouge. Un clic sur un nœud dans la carte topologique révèle les propriétés du nœud, dont son nom de domaine complet et son adresse IP. Un clic sur un tronçon affiche l’adresse IP de celui-ci.  
-   ![topologie défectueuse : exemple de détails d’un chemin](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
+   ![topologie défectueuse : exemple de détails d’un chemin](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Rechercher dans les journaux](log-analytics-log-searches.md) pour afficher des enregistrements de données détaillées sur les performances réseau.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Dec16_HO1-->
 
 

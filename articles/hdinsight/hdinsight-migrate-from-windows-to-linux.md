@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 10/28/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: f82e8fcb6228df25c8e3181059fe06fea5fbce78
+ms.sourcegitcommit: 8a7ca492d846f274019eb228fc027defac0aa390
+ms.openlocfilehash: ae954da8c71e6fcc67941919851ea67b825c54d0
 
 
 ---
@@ -27,8 +27,6 @@ Ce document fournit des détails sur les différences entre HDInsight sur Window
 
 > [!NOTE]
 > Les clusters HDInsight utilisent le support à long terme (long term support, LTS) Ubuntu du système d’exploitation pour les nœuds du cluster. Pour plus d’informations sur la version d’Ubuntu disponible avec HDInsight, ainsi que d’autres informations sur le contrôle de version des composants, consultez la page [Versions des composants HDInsight](hdinsight-component-versioning.md).
->
->
 
 ## <a name="migration-tasks"></a>Tâches de migration
 Le workflow général pour la migration se présente comme suit.
@@ -56,10 +54,13 @@ Vous pouvez utiliser la commande Hadoop HDFS pour copier directement des donnée
 
 1. Recherchez les informations sur le compte de stockage et le conteneur par défaut pour votre cluster existant. Pour ce faire, utilisez le script Azure PowerShell suivant.
 
-        $clusterName="Your existing HDInsight cluster name"
-        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-        write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
-        write-host "Default container: $clusterInfo.DefaultStorageContainer"
+    ```powershell
+    $clusterName="Your existing HDInsight cluster name"
+    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+    write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
+    write-host "Default container: $clusterInfo.DefaultStorageContainer"
+    ```
+
 2. Suivez les étapes du document Création de clusters Hadoop basés sur Linux dans HDInsight pour créer un environnement de test. Arrêtez-vous avant de créer le cluster et sélectionnez à la place **Configuration facultative**.
 3. Dans le panneau Configuration facultative, sélectionnez **Comptes de stockage liés**.
 4. Sélectionnez **Ajouter une clé de stockage**puis sélectionnez le compte de stockage renvoyé par le script PowerShell à l’étape 1, quand vous y êtes invité. Cliquez sur **Sélectionner** dans chaque panneau pour les fermer. Enfin, créez le cluster.
@@ -71,7 +72,8 @@ Vous pouvez utiliser la commande Hadoop HDFS pour copier directement des donnée
 
         hdfs dfs -cp wasbs://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
 
-    [AZURE.NOTE] Si la structure de répertoire qui contient les données n’existe pas dans l’environnement de test, vous pouvez la créer à l’aide de la commande suivante.
+    > [!NOTE]
+    > Si la structure de répertoire qui contient les données n’existe pas dans l’environnement de test, vous pouvez la créer à l’aide de la commande suivante.
 
         hdfs dfs -mkdir -p /new/path/to/create
 
@@ -81,7 +83,7 @@ Vous pouvez utiliser la commande Hadoop HDFS pour copier directement des donnée
 Vous pouvez également utiliser l’applet de commande `Start-AzureStorageBlobCopy` Azure PowerShell pour copier des blobs entre des comptes de stockage externes à HDInsight. Pour plus d’informations, consultez la section Gestion des objets blob Azure dans Utilisation d’Azure PowerShell avec Azure Storage.
 
 ## <a name="client-side-technologies"></a>Technologies côté client
-En général, les technologies côté client telles que les [applets de commande Azure PowerShell](../powershell-install-configure.md), [l’interface de ligne de commande Azure](../xplat-cli-install.md) ou le [Kit de développement logiciel (SDK) .NET pour Hadoop](https://hadoopsdk.codeplex.com/) continuent de fonctionner de la même façon avec les clusters Linux, car elles s’appuient sur des API REST qui sont identiques sur les deux types de systèmes d’exploitation de clusters.
+En général, les technologies côté client telles que les [applets de commande Azure PowerShell](/powershell/azureps-cmdlets-docs), [l’interface de ligne de commande Azure](../xplat-cli-install.md) ou le [Kit de développement logiciel (SDK) .NET pour Hadoop](https://hadoopsdk.codeplex.com/) continuent de fonctionner de la même façon avec les clusters Linux, car elles s’appuient sur des API REST qui sont identiques sur les deux types de systèmes d’exploitation de clusters.
 
 ## <a name="server-side-technologies"></a>Technologies côté serveur
 Le tableau suivant fournit des conseils sur la migration des composants côté serveur qui sont spécifiques à Windows.
@@ -135,8 +137,6 @@ Ambari dispose d’un système d’alerte pouvant vous indiquer des problèmes p
 > Les alertes Ambari indiquent qu’un problème se pose *peut-être* et non pas qu’un problème se pose *vraiment*. Par exemple, vous pouvez recevoir une alerte indiquant que HiveServer2 n’est pas accessible, même si vous pouvez y accéder normalement.
 >
 > De nombreuses alertes sont implémentées comme des requêtes basées sur un intervalle pour un service et attendent une réponse dans un intervalle de temps spécifique. Par conséquent, l’alerte ne signifie pas nécessairement que le service est arrêté, simplement qu’il n’a pas retourné de résultats dans l’intervalle de temps attendu.
->
->
 
 En général, vous devez évaluer si une alerte se produit pendant une période prolongée, ou si elle reflète des problèmes d’utilisateur qui ont été signalés précédemment avec le cluster avant que des mesures ne soient prises.
 
@@ -222,6 +222,6 @@ Si vous savez que les scripts ne contiennent pas de chaînes avec des caractère
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

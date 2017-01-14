@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 07/22/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 382d0cf15dafca51571346dab1e9d55eb2d09d67
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9129eda8e4b3c3865878b8ceafb95a155ba02885
 
 
 ---
@@ -32,7 +32,7 @@ Le contrôle d'accès en fonction du rôle (RBAC) dans l'API du portail Azure et
 
 Avant d’utiliser PowerShell pour gérer le contrôle d’accès en fonction du rôle (RBAC), vous devez disposer des composants suivants :
 
-* Azure PowerShell, version 0.8.8 ou ultérieure. Pour installer la dernière version et l’associer à votre abonnement Azure, consultez la page [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+* Azure PowerShell, version 0.8.8 ou ultérieure. Pour installer la dernière version et l’associer à votre abonnement Azure, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Applets de commande Azure Resource Manager. Installez les [applets de commande Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) dans PowerShell.
 
 ## <a name="list-roles"></a>Répertorier les rôles
@@ -216,6 +216,6 @@ Dans l’exemple suivant, le rôle personnalisé *Opérateur de machine virtuell
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 3d3996a8b36a17a0040d50da07e6fc2a1c088dda
+ms.sourcegitcommit: 72ca562c53f813599f19069cfac7ef3ac1957968
+ms.openlocfilehash: 1e56580e0ee84be40430661f5ea76a39ed315586
 
 
 ---
@@ -119,7 +119,7 @@ La procédure suivante crée un cluster HDInsight sous Linux.
 
     Le script PowerShell configure uniquement le nom du cluster. Le nom du compte de stockage est codé en dur dans le modèle. Vous devrez entrer le mot de passe utilisateur du cluster (le nom d’utilisateur par défaut est *admin*) et le mot de passe utilisateur SSH (le nom d’utilisateur SSH par défaut est *sshuser*).  
 
-Pour plus d’informations, consultez la rubrique [Déploiement avec PowerShell](../resource-group-template-deploy.md#deploy-with-powershell).
+Pour plus d’informations, consultez la rubrique [Déploiement avec PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy).
 
 ## <a name="deploy-with-azure-cli"></a>Déploiement avec l’interface de ligne de commande Azure
 L’exemple suivant appelle un modèle Resource Manager pour créer un cluster, son compte de stockage dépendant et son conteneur :
@@ -359,6 +359,6 @@ Le modèle Azure Resource Manager suivant crée un cluster Hadoop basé sur Linu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

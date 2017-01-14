@@ -2,73 +2,77 @@
 title: Suite de services web de distribution normale | Microsoft Docs
 description: Suite de services web de distribution normale
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: ireiter
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: aab7b92e-953b-43d8-b0af-031394406bfe
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2016
+ms.date: 10/04/2016
 ms.author: ireiter
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cd4f532d69f9380ac96675d403dbad1c83e89636
+
 
 ---
-# Normal Distribution Suite
-La suite de distribution normale correspond à un ensemble d’exemples de services web ([Générateur](https://datamarket.azure.com/dataset/aml_labs/ndg7), [Calculatrice de quantile](https://datamarket.azure.com/dataset/aml_labs/ndq5), [Calculatrice de probabilité](https://datamarket.azure.com/dataset/aml_labs/ndp5)) qui facilite la génération et la gestion des distributions normales. Les services permettent de générer une séquence de distribution normale de n’importe quelle longueur, de calculer les quantiles à partir d’une probabilité donnée et de calculer la probabilité à partir d’un quantile donné. Chacun des services émet des résultats différents selon le service sélectionné (voir la description ci-dessous). La suite de distribution normale repose sur les fonctions R qnorm, rnorm et pnorm qui sont incluses dans le package de statistiques R.
+# <a name="normal-distribution-suite"></a>Normal Distribution Suite
+La suite de distribution normale correspond à un ensemble d’exemples de services web ([Générateur](https://datamarket.azure.com/dataset/aml_labs/ndg7), [Calculatrice de quantile](https://datamarket.azure.com/dataset/aml_labs/ndq5), [Calculatrice de probabilité](https://datamarket.azure.com/dataset/aml_labs/ndp5)) qui facilite la génération et la gestion des distributions normales. Les services permettent de générer une séquence de distribution normale de n’importe quelle longueur, de calculer les quantiles à partir d’une probabilité donnée et de calculer la probabilité à partir d’un quantile donné. Chacun des services émet des résultats différents selon le service sélectionné (voir la description ci-dessous). La suite de distribution normale repose sur les fonctions R qnorm, rnorm et pnorm qui sont incluses dans le package de statistiques R.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-> Les utilisateurs peuvent potentiellement accéder à ce service web par le biais d’une application mobile, d’un site web ou même d’un ordinateur local, par exemple. Mais l’objectif du service web est également de servir d’exemple d’utilisation d’Azure Machine Learning pour créer des services web avec le code R. Avec seulement quelques lignes de code R et quelques clics dans Azure Machine Learning Studio, vous pouvez créer une expérience avec le code R et la publier en tant que service web. Le service web peut ensuite être publié sur Azure Marketplace afin que les utilisateurs et les appareils du monde entier l’utilisent sans que l’auteur du service web n’ait à configurer l’infrastructure.
+> Les utilisateurs peuvent potentiellement accéder à ce service web par le biais d’une application mobile, d’un site web ou même d’un ordinateur local, par exemple. Mais l’objectif du service web est également de servir d’exemple d’utilisation d’Azure Machine Learning pour créer des services web avec le code R. Avec seulement quelques lignes de code R et quelques clics dans Azure Machine Learning Studio, vous pouvez créer une expérience avec le code R et la publier en tant que service web. Le service web peut ensuite être publié sur Azure Marketplace afin que les utilisateurs et les appareils du monde entier l’utilisent sans que l’auteur du service web n’ait à configurer l’infrastructure.  
 > 
 > 
 
-## Utilisation du service web
-La suite de distribution normale inclut les 3 services suivants.
+## <a name="consumption-of-web-service"></a>Utilisation du service web
+La suite de distribution normale inclut les 3 services suivants.
 
-### Calculatrice de quantile pour la distribution normale
-Ce service accepte 4 arguments d'une distribution normale et calcule le quantile associé.
+### <a name="normal-distribution-quantile-calculator"></a>Calculatrice de quantile pour la distribution normale
+Ce service accepte 4 arguments d'une distribution normale et calcule le quantile associé.
 
-Les arguments d'entrée sont les suivants :
+Les arguments d'entrée sont les suivants :
 
-* p : probabilité unique d’un événement avec distribution normale
-* Mean : moyenne de la distribution normale
-* SD : écart type de la distribution normale
-* Side : L pour la partie inférieure de la distribution et U pour la partie supérieure de la distribution
+* p : probabilité unique d’un événement avec distribution normale 
+* Mean : moyenne de la distribution normale
+* SD : écart type de la distribution normale 
+* Side : L pour la partie inférieure de la distribution et U pour la partie supérieure de la distribution
 
 La sortie du service correspond au quantile calculé qui est associé à la probabilité donnée.
 
-### Calculatrice de probabilité de distribution normale
-Ce service accepte 4 arguments d'une distribution normale et calcule la probabilité associée.
+### <a name="normal-distribution-probability-calculator"></a>Calculatrice de probabilité de distribution normale
+Ce service accepte 4 arguments d'une distribution normale et calcule la probabilité associée.
 
-Les arguments d'entrée sont les suivants :
+Les arguments d'entrée sont les suivants :
 
-* q : quantile unique d’un événement avec une distribution normale
-* Mean : moyenne de la distribution normale
-* SD : écart type de la distribution normale
-* Side : L pour la partie inférieure de la distribution et U pour la partie supérieure de la distribution
+* q : quantile unique d’un événement avec une distribution normale 
+* Mean : moyenne de la distribution normale
+* SD : écart type de la distribution normale 
+* Side : L pour la partie inférieure de la distribution et U pour la partie supérieure de la distribution
 
 La sortie du service correspond à la probabilité calculée qui est associée au quantile donné.
 
-### Générateur de distribution normale
-Ce service accepte 3 arguments d'une distribution normale et génère une séquence aléatoire de nombres qui sont distribués normalement. Les arguments suivants doivent lui être fournis au sein de la demande :
+### <a name="normal-distribution-generator"></a>Générateur de distribution normale
+Ce service accepte 3 arguments d'une distribution normale et génère une séquence aléatoire de nombres qui sont distribués normalement. Les arguments suivants doivent lui être fournis au sein de la demande :
 
-* n : nombre d’observations
-* Mean : moyenne de la distribution normale
-* SD : écart type de la distribution normale
+* n : nombre d’observations 
+* Mean : moyenne de la distribution normale
+* SD : écart type de la distribution normale 
 
-La sortie du service est une séquence de longueur n avec une distribution normale basée sur les arguments mean et sd.
+La sortie du service est une séquence de longueur n avec une distribution normale basée sur les arguments mean et sd.
 
-> Étant hébergé sur Azure Marketplace, ce service est un service OData. Il peut être appelé à l’aide des méthodes POST ou GET.
+> Étant hébergé sur Azure Marketplace, ce service est un service OData. Il peut être appelé à l’aide des méthodes POST ou GET. 
 > 
 > 
 
-Il existe plusieurs façons d’utiliser le service de manière automatique (exemple d’applications : [Générateur](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionGenerator.aspx), [Calculatrice de probabilité](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionProbabilityCalculator.aspx), [Calculatrice de quantile](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionQuantileCalculator.aspx)).
+Il existe plusieurs façons d’utiliser le service de manière automatique (exemple d’applications : [Générateur](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionGenerator.aspx), [Calculatrice de probabilité](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionProbabilityCalculator.aspx), [Calculatrice de quantile](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionQuantileCalculator.aspx)).
 
-### Début du code C# pour l'utilisation du service web :
-### Calculatrice de quantile pour la distribution normale
+### <a name="starting-c-code-for-web-service-consumption"></a>Début du code C# pour l'utilisation du service web :
+### <a name="normal-distribution-quantile-calculator"></a>Calculatrice de quantile pour la distribution normale
     public class Input
     {
             public string p;
@@ -99,7 +103,7 @@ Il existe plusieurs façons d’utiliser le service de manière automatique (exe
     }
 
 
-### Calculatrice de probabilité de distribution normale
+### <a name="normal-distribution-probability-calculator"></a>Calculatrice de probabilité de distribution normale
     public class Input
     {
             public string q;
@@ -129,7 +133,7 @@ Il existe plusieurs façons d’utiliser le service de manière automatique (exe
             var scoreResult = result.ReadAsStringAsync().Result;
     }
 
-### Générateur de distribution normale
+### <a name="normal-distribution-generator"></a>Générateur de distribution normale
     public class Input
     {
             public string n;
@@ -159,15 +163,15 @@ Il existe plusieurs façons d’utiliser le service de manière automatique (exe
     }
 
 
-## Création du service web
-> Ce service web a été créé à l’aide d’Azure Machine Learning. Pour un essai gratuit, ainsi que des vidéos de présentation relatives à la création d’expériences et à la [publication de services web](machine-learning-publish-a-machine-learning-web-service.md), consultez la page [azure.com/ml](http://azure.com/ml).
+## <a name="creation-of-web-service"></a>Création du service web
+> Ce service web a été créé à l’aide d’Azure Machine Learning. Pour un essai gratuit, ainsi que des vidéos de présentation relatives à la création d’expériences et à la [publication de services web](machine-learning-publish-a-machine-learning-web-service.md), consultez [azure.com/ml](http://azure.com/ml). 
 > 
 > 
 
 Voici une capture d'écran de l'expérience qui a créé le service web et l'exemple de code pour chacun des modules dans l'expérience.
 
-### Calculatrice de quantile pour la distribution normale
-Flux de l’expérience :
+### <a name="normal-distribution-quantile-calculator"></a>Calculatrice de quantile pour la distribution normale
+Flux de l’expérience :
 
 ![Flux de l’expérience][2]
 
@@ -201,8 +205,8 @@ Flux de l’expérience :
     # Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
-### Calculatrice de probabilité de distribution normale
-Flux de l’expérience :
+### <a name="normal-distribution-probability-calculator"></a>Calculatrice de probabilité de distribution normale
+Flux de l’expérience :
 
 ![Flux de l’expérience][3]
 
@@ -231,8 +235,8 @@ Flux de l’expérience :
     # Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
-### Générateur de distribution normale
-Flux de l’expérience :
+### <a name="normal-distribution-generator"></a>Générateur de distribution normale
+Flux de l’expérience :
 
 ![Flux de l’expérience][4]
 
@@ -251,10 +255,10 @@ Flux de l’expérience :
     # Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
-## Limitations
+## <a name="limitations"></a>Limitations
 Il s’agit d’exemples très simples en rapport avec la distribution normale. Comme illustré dans l'exemple de code ci-dessus, l'interception des erreurs est mise œuvre de façon limitée.
 
-## Forum Aux Questions
+## <a name="faq"></a>Forum Aux Questions
 Pour les questions fréquemment posées relatives à l’utilisation du service web ou à la publication sur Azure Marketplace, consultez [ce lien](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-normal-distribution/normal-img1.png
@@ -263,4 +267,8 @@ Pour les questions fréquemment posées relatives à l’utilisation du service 
 [4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

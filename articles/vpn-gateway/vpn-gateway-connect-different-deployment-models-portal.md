@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/03/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 7834aefeb9eb007ffa9daf708250c9f06ec05e67
-ms.openlocfilehash: 96c709d8df311e649a2f8fe9dc177d43615c65ad
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 2c6ffb6c175612c57ddff3a71b2c7a1855c52348
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: 96c709d8df311e649a2f8fe9dc177d43615c65ad
 > 
 > 
 
-Azure propose actuellement deux modèles de gestion : le modèle classique et le modèle Resource Manager (RM). Si vous utilisez Azure depuis un certain temps, vous avez probablement des machines virtuelles et des rôles d’instance Azure exécutés dans un réseau virtuel classique. Il est possible que vos nouvelles machines virtuelles et instances de rôle s’exécutent dans un réseau virtuel créé dans Resource Manager. Cet article vous guide dans le processus de connexion de réseaux virtuels classiques à des réseaux virtuels Resource Manager afin de permettre aux ressources situées dans les modèles de déploiement distincts de communiquer entre elles via une connexion de passerelle. 
+Azure propose actuellement deux modèles de gestion : le modèle classique et le modèle Resource Manager (RM). Si vous utilisez Azure depuis un certain temps, vous avez probablement des machines virtuelles et des rôles d’instance Azure exécutés dans un réseau virtuel classique. Il est possible que vos nouvelles machines virtuelles et instances de rôle s’exécutent dans un réseau virtuel créé dans Resource Manager. Cet article vous guide dans le processus de connexion de réseaux virtuels classiques à des réseaux virtuels Resource Manager afin de permettre aux ressources situées dans les modèles de déploiement distincts de communiquer entre elles via une connexion de passerelle.
 
 Vous pouvez créer une connexion entre des réseaux virtuels situés dans des abonnements différents et des régions différentes. Vous pouvez également connecter des réseaux virtuels qui disposent déjà de connexions à des réseaux locaux, à condition que la passerelle avec laquelle ils ont été configurés soit dynamique ou basée sur un itinéraire. Pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel, consultez le [Forum Aux Questions sur l’interconnexion de réseaux virtuels](#faq) à la fin de cet article.
 
@@ -53,7 +53,7 @@ Dans cet article, nous utilisons le portail Classic, le portail Azure et PowerSh
 ### <a name="prerequisites"></a>Composants requis
 * Les deux réseaux virtuels ont déjà été créés.
 * Les plages d’adresses des réseaux virtuels ne se chevauchent pas ou ne chevauchent aucune des plages des autres connexions susceptibles d’être utilisées par les passerelles.
-* Vous avez installé les dernières applets de commande PowerShell (1.0.2 ou version ultérieure). Pour plus d’informations, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) . Veillez à installer à la fois les applets de commande de gestion des services et Resource Manager (RM). 
+* Vous avez installé les dernières applets de commande PowerShell (1.0.2 ou version ultérieure). Pour plus d’informations, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) . Veillez à installer à la fois les applets de commande de gestion des services et Resource Manager (RM). 
 
 ### <a name="a-namevaluesaexample-settings"></a><a name="values"></a>Exemples de paramètres
 Vous pouvez utiliser les exemples de paramètres en tant que référence.
@@ -185,6 +185,6 @@ Consultez les détails du Forum Aux Questions pour plus d’informations sur les
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,22 +15,22 @@ ms.workload: infrastructure-services
 ms.date: 07/18/2016
 ms.author: magoedte;paulomarquesc
 translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: 4a9886cf5ee80bafd4b36d0d7f6781aea9b36dd6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0d4098199cec948541eddba8fa88242606e2ec5c
 
 
 ---
 # <a name="azure-automation-scenario-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Scénario Azure Automation : utilisation de balises au format JSON afin de créer une planification pour le démarrage et l’arrêt de machines virtuelles Azure
-Dans la plupart des cas, les clients souhaitent planifier le démarrage et l’arrêt des machines virtuelles pour alléger les frais d’abonnement ou pour prendre en charge les exigences professionnelles et techniques.  
+Dans la plupart des cas, les clients souhaitent planifier le démarrage et l’arrêt des machines virtuelles pour alléger les frais d’abonnement ou pour prendre en charge les exigences professionnelles et techniques.
 
-Le scénario ci-après vous permet d’automatiser le démarrage et l’arrêt de vos machines virtuelles à l’aide d’une balise appelée Schedule au niveau d’un groupe de ressources ou d’une machine virtuelle dans Azure. Cette planification peut être configurée du dimanche au samedi, avec une heure de démarrage et une heure d’arrêt.  
+Le scénario ci-après vous permet d’automatiser le démarrage et l’arrêt de vos machines virtuelles à l’aide d’une balise appelée Schedule au niveau d’un groupe de ressources ou d’une machine virtuelle dans Azure. Cette planification peut être configurée du dimanche au samedi, avec une heure de démarrage et une heure d’arrêt.
 
 Nous proposons certaines options prêtes à l’emploi. Vous avez notamment vu les points suivants :
 
 * [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) avec des paramètres de mise à l’échelle automatique qui vous permettent de diminuer ou d’augmenter la taille des instances ;
 * [DevTest Labs](../devtest-lab/devtest-lab-overview.md) intégrant la fonctionnalité de planification des opérations de démarrage et d’arrêt.
 
-Toutefois, ces options prennent uniquement en charge des scénarios spécifiques et ne sont pas applicables aux machines virtuelles IaaS (infrastructure as a service).   
+Toutefois, ces options prennent uniquement en charge des scénarios spécifiques et ne sont pas applicables aux machines virtuelles IaaS (infrastructure as a service).
 
 Lorsque la balise Schedule est appliquée à un groupe de ressources, elle s’applique également à toutes les machines virtuelles figurant dans ce groupe. En outre, si une planification est appliquée directement à une machine virtuelle, la dernière planification est prioritaire dans l’ordre suivant :
 
@@ -67,7 +67,7 @@ Procédez comme suit pour activer la planification relative au Runbook Test-Reso
 6. Pour la planification **Démarrer**, définissez l’heure de début sur un incrément d’heure.
 7. Sélectionnez **Périodicité**, puis, dans le champ d’intervalle **Survenir chaque**, sélectionnez **1 heure**.
 8. Vérifiez que l’option **Définir l’expiration** est définie sur **Non**, puis cliquez sur **Créer** pour enregistrer votre nouvelle planification.
-9. Dans le panneau d’options **Planifier un Runbook**, sélectionnez **Paramètres et valeurs pour l’exécution**. Dans le panneau **Paramètres** de Test-ResourceSchedule, entrez le nom de votre abonnement dans le champ **SubscriptionName**.  Il s’agit du seul paramètre requis pour le Runbook.  Lorsque vous avez terminé, cliquez sur **OK**.  
+9. Dans le panneau d’options **Planifier un Runbook**, sélectionnez **Paramètres et valeurs pour l’exécution**. Dans le panneau **Paramètres** de Test-ResourceSchedule, entrez le nom de votre abonnement dans le champ **SubscriptionName**.  Il s’agit du seul paramètre requis pour le Runbook.  Lorsque vous avez terminé, cliquez sur **OK**.
 
 Une fois terminée, la planification du Runbook devrait ressembler à ce qui suit :
 
@@ -78,43 +78,47 @@ Cette solution sélectionne une chaîne JSON avec un format spécifié et l’aj
 
 Ce Runbook itère ensuite sur les machines virtuelles associées à des planifications et vérifie les actions à entreprendre. Le code ci-après illustre un exemple de la façon dont les solutions doivent être formatées :
 
-    {
-       "TzId": "Eastern Standard Time",
-        "0": {  
-           "S": "11",
-           "E": "17"
-        },
-        "1": {
-           "S": "9",
-           "E": "19"
-        },
-        "2": {
-           "S": "9",
-           "E": "19"
-        },
-    }
+```json
+{
+    "TzId": "Eastern Standard Time",
+    "0": {
+        "S": "11",
+        "E": "17"
+    },
+    "1": {
+        "S": "9",
+        "E": "19"
+    },
+    "2": {
+        "S": "9",
+        "E": "19"
+    },
+}
+```
 
 Voici certaines informations détaillées concernant cette structure :
 
 1. Le format de cette structure JSON est optimisé pour contourner la limite de 256 caractères applicable à une valeur de balise unique dans Azure.
 2. *TzId* représente le fuseau horaire de la machine virtuelle. Cet ID peut être obtenu à l’aide de la classe .NET TimeZoneInfo dans une session PowerShell :**[System.TimeZoneInfo]::GetSystemTimeZones()**.
 
-    ![GetSystemTimeZones dans PowerShell](./media/automation-scenario-start-stop-vm-wjson-tags/automation-get-timzone-powershell.png)
+   ![GetSystemTimeZones dans PowerShell](./media/automation-scenario-start-stop-vm-wjson-tags/automation-get-timzone-powershell.png)
 
    * Les jours de la semaine sont représentés par une valeur numérique comprise entre zéro et six. La valeur zéro correspond à dimanche.
    * L’heure de début est représentée par l’attribut **S** , et sa valeur est exprimée au format 24 heures.
    * L’heure de fin ou d’arrêt est représentée par l’attribut **E** , et sa valeur est exprimée au format 24 heures.
 
-     Si les attributs **S** et **E** présentent tous deux la valeur zéro (0), la machine virtuelle conserve l’état dans lequel elle se trouve au moment de l’évaluation.   
+     Si les attributs **S** et **E** présentent tous deux la valeur zéro (0), la machine virtuelle conserve l’état dans lequel elle se trouve au moment de l’évaluation.
 3. Si vous souhaitez ignorer l’évaluation un jour spécifique de la semaine, n’ajoutez pas la section correspondant à ce jour-là. Dans l’exemple ci-après, l’évaluation se limite au lundi, et les autres jours de la semaine sont ignorés :
 
-        {
-          "TzId": "Eastern Standard Time",
-           "1": {
-             "S": "11",
-             "E": "17"
-           }
+    ```json
+    {
+        "TzId": "Eastern Standard Time",
+        "1": {
+            "S": "11",
+            "E": "17"
         }
+    }
+    ```
 
 ## <a name="tag-resource-groups-or-vms"></a>Baliser des groupes de ressources ou des machines virtuelles
 Pour arrêter des machines virtuelles, vous devez baliser ces machines ou les groupes de ressources dans lesquels elles se trouvent. Les machines virtuelles dépourvues de balise Schedule ne sont pas évaluées. Par conséquent, elles ne sont pas démarrées ni arrêtées.
@@ -126,82 +130,110 @@ Pour baliser une machine virtuelle ou un groupe de ressources dans le portail, p
 
 1. Aplatissez la chaîne JSON et vérifiez qu’elle ne contient pas d’espaces.  La chaîne JSON devrait ressembler à ceci :
 
-        {"TzId":"Eastern Standard Time","0":{"S":"11","E":"17"},"1":{"S":"9","E":"19"},"2": {"S":"9","E":"19"},"3":{"S":"9","E":"19"},"4":{"S":"9","E":"19"},"5":{"S":"9","E":"19"},"6":{"S":"11","E":"17"}}
+    ```json
+    {"TzId":"Eastern Standard Time","0":{"S":"11","E":"17"},"1":{"S":"9","E":"19"},"2": {"S":"9","E":"19"},"3":{"S":"9","E":"19"},"4":{"S":"9","E":"19"},"5":{"S":"9","E":"19"},"6":{"S":"11","E":"17"}}
+    ```
+
 2. Sélectionnez l’icône **Balise** pour une machine virtuelle ou un groupe de ressources afin d’y appliquer cette planification.
 
-![Option de balisage de machine virtuelle](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-tag-option.png)    
+   ![Option de balisage de machine virtuelle](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-tag-option.png)
 
-1. Les balises sont définies à l’aide d’une paire clé/valeur. Tapez **Schedule** dans le champ **Clé**, puis collez la chaîne JSON dans le champ **Valeur**. Cliquez sur **Save**. Votre nouvelle balise doit maintenant apparaître dans la liste des balises pour votre ressource.
+3. Les balises sont définies à l’aide d’une paire clé/valeur. Tapez **Schedule** dans le champ **Clé**, puis collez la chaîne JSON dans le champ **Valeur**. Cliquez sur **Save**. Votre nouvelle balise doit maintenant apparaître dans la liste des balises pour votre ressource.
 
-![Balise de planification de machine virtuelle](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-schedule-tag.png)
+   ![Balise de planification de machine virtuelle](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-schedule-tag.png)
 
 ### <a name="tag-from-powershell"></a>Baliser à partir de PowerShell
-Tous les Runbooks importés contiennent des informations d’aide au début du script qui décrivent comment exécuter les Runbooks directement à partir de PowerShell. Vous pouvez appeler les Runbooks Add-ScheduleResource et Update-ScheduleResource à partir de PowerShell. Pour ce faire, vous transmettez les paramètres requis qui vous permettent de créer ou de mettre à jour la balise Schedule sur une machine virtuelle ou un groupe de ressources en dehors du portail.  
+Tous les Runbooks importés contiennent des informations d’aide au début du script qui décrivent comment exécuter les Runbooks directement à partir de PowerShell. Vous pouvez appeler les Runbooks Add-ScheduleResource et Update-ScheduleResource à partir de PowerShell. Pour ce faire, vous transmettez les paramètres requis qui vous permettent de créer ou de mettre à jour la balise Schedule sur une machine virtuelle ou un groupe de ressources en dehors du portail.
 
-Pour créer, ajouter et supprimer des balises par le biais de PowerShell, vous devez commencer par [configurer votre environnement PowerShell pour Azure](../powershell-install-configure.md). Après avoir effectué cette configuration, vous pouvez passer aux étapes suivantes.
+Pour créer, ajouter et supprimer des balises par le biais de PowerShell, vous devez commencer par [configurer votre environnement PowerShell pour Azure](/powershell/azureps-cmdlets-docs). Après avoir effectué cette configuration, vous pouvez passer aux étapes suivantes.
 
 ### <a name="create-a-schedule-tag-with-powershell"></a>Créer une balise Schedule avec PowerShell
-1. Ouvrez une session PowerShell. Puis utilisez l’exemple ci-après pour vous authentifier avec votre compte d’identification et pour spécifier un abonnement :   
+1. Ouvrez une session PowerShell. Puis utilisez l’exemple ci-après pour vous authentifier avec votre compte d’identification et pour spécifier un abonnement :
 
-        Conn = Get-AutomationConnection -Name AzureRunAsConnection
-        Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-        -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-        Select-AzureRmSubscription -SubscriptionName "MySubscription"
+    ```powershell
+    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    Select-AzureRmSubscription -SubscriptionName "MySubscription"
+    ```
+
 2. Définissez une table de hachage de planification. Voici un exemple montrant comment cette table devrait être créée :
 
-        $schedule= @{ "TzId"="Eastern Standard Time"; "0"= @{"S"="11";"E"="17"};"1"= @{"S"="9";"E"="19"};"2"= @{"S"="9";"E"="19"};"3"= @{"S"="9";"E"="19"};"4"= @{"S"="9";"E"="19"};"5"= @{"S"="9";"E"="19"};"6"= @{"S"="11";"E"="17"}}
+    ```powershell
+    $schedule= @{ "TzId"="Eastern Standard Time"; "0"= @{"S"="11";"E"="17"};"1"= @{"S"="9";"E"="19"};"2"= @{"S"="9";"E"="19"};"3"= @{"S"="9";"E"="19"};"4"= @{"S"="9";"E"="19"};"5"= @{"S"="9";"E"="19"};"6"= @{"S"="11";"E"="17"}}
+    ```
+
 3. Définissez les paramètres requis par le Runbook. Dans l’exemple suivant, nous balisons une machine virtuelle :
 
-        $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"; `
-        "VmName"="VM01";"Schedule"=$schedule}
+    ```powershell
+    $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"; "VmName"="VM01";"Schedule"=$schedule}
+    ```
 
     Si vous balisez un groupe de ressources, supprimez le paramètre *VMName* de la table de hachage $params comme suit :
 
-        $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"; `
-        "Schedule"=$schedule}
+    ```powershell
+    $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"; "Schedule"=$schedule}
+    ```
+
 4. Exécutez le Runbook Add-ResourceSchedule avec les paramètres ci-après pour créer la balise Schedule :
 
-        Start-AzureRmAutomationRunbook -Name "Add-ResourceSchedule" -Parameters $params `
-        -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```powershell
+    Start-AzureRmAutomationRunbook -Name "Add-ResourceSchedule" -Parameters $params `
+    -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```
+
 5. Pour mettre à jour la balise d’un groupe de ressources ou d’une machine virtuelle, exécutez le Runbook **Update-ResourceSchedule** avec les paramètres suivants :
 
-        Start-AzureRmAutomationRunbook -Name "Update-ResourceSchedule" -Parameters $params `
-        -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```powershell
+    Start-AzureRmAutomationRunbook -Name "Update-ResourceSchedule" -Parameters $params `
+    -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```
 
 ### <a name="remove-a-schedule-tag-with-powershell"></a>Supprimer une balise Schedule avec PowerShell
 1. Ouvrez une session PowerShell et exécutez la commande ci-après pour vous authentifier avec votre compte d’identification et pour sélectionner et spécifier un abonnement :
 
-        Conn = Get-AutomationConnection -Name AzureRunAsConnection
-        Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-        -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-        Select-AzureRmSubscription -SubscriptionName "MySubscription"
+    ```powershell
+    Conn = Get-AutomationConnection -Name AzureRunAsConnection
+    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    Select-AzureRmSubscription -SubscriptionName "MySubscription"
+    ```
+
 2. Définissez les paramètres requis par le Runbook. Dans l’exemple suivant, nous balisons une machine virtuelle :
 
-        $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01" `
-        ;"VmName"="VM01"}
+    ```powershell
+    $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01";"VmName"="VM01"}
+    ```
 
     Si vous supprimez une balise d’un groupe de ressources, supprimez le paramètre *VMName* de la table de hachage $params comme suit :
 
-        $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"}
+    ```powershell
+    $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"}
+    ```
+
 3. Exécutez le Runbook Remove-ResourceSchedule pour supprimer la balise Schedule :
 
-        Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
-        -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```powershell
+    Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
+    -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```
+
 4. Pour mettre à jour la balise d’un groupe de ressources ou d’une machine virtuelle, exécutez le Runbook Remove-ResourceSchedule avec les paramètres suivants :
 
-        Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
-        -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```powershell
+    Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
+    -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```
 
 > [!NOTE]
-> Nous vous recommandons de surveiller de façon proactive ces Runbooks (et les états de machine virtuelle) pour vérifier que vos machines virtuelles s’arrêtent et démarrent en conséquence.  
->
+> Nous vous recommandons de surveiller de façon proactive ces Runbooks (et les états de machine virtuelle) pour vérifier que vos machines virtuelles s’arrêtent et démarrent en conséquence.
 >
 
-Pour visualiser les détails du travail du Runbook Test-ResourceSchedule dans le Portail Azure, sélectionnez la vignette **Travaux** du Runbook. Le résumé du travail affiche les paramètres d’entrée et le flux de sortie, en plus des informations générales sur le travail et des éventuelles exceptions.  
+Pour visualiser les détails du travail du Runbook Test-ResourceSchedule dans le Portail Azure, sélectionnez la vignette **Travaux** du Runbook. Le résumé du travail affiche les paramètres d’entrée et le flux de sortie, en plus des informations générales sur le travail et des éventuelles exceptions.
 
 Le **Résumé du travail** inclut les messages des flux de sortie, des flux d’avertissements et des flux d’erreurs. Pour visualiser les résultats détaillés de l’exécution du Runbook, sélectionnez la vignette **Sortie** .
 
-![Sortie Test-ResourceSchedule](./media/automation-scenario-start-stop-vm-wjson-tags/automation-job-output.png)  
+![Sortie Test-ResourceSchedule](./media/automation-scenario-start-stop-vm-wjson-tags/automation-job-output.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir des informations sur la prise en main des Runbooks de workflow PowerShell, voir [Mon premier runbook PowerShell Workflow](automation-first-runbook-textual.md).
@@ -212,6 +244,6 @@ Le **Résumé du travail** inclut les messages des flux de sortie, des flux d’
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

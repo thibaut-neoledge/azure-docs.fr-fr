@@ -16,15 +16,14 @@ ms.topic: article
 ms.date: 09/22/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 614adbd3536d6740e6a46895b36575f0f4c66a8c
+ms.sourcegitcommit: cff4e05de2a9e2f0603fd4beebe26e44b4652dc8
+ms.openlocfilehash: d168c6e477eff07b8f499c1be869f85506c2fabc
 
 
 ---
 # <a name="azure-cli-commands-in-azure-service-management-asm-mode"></a>Commandes de l’interface de ligne de commande Azure en mode Azure Service Management (ASM)
-[!INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)]
-
-Vous pouvez également [approfondir les commandes du modèle Resource Manager](virtual-machines/azure-cli-arm-commands.md) et utiliser l’interface CLI pour [migrer les ressources](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) du modèle Classic au modèle Resource Manager.
+> [!IMPORTANT]
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../articles/azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Vous pouvez également [approfondir les commandes du modèle Resource Manager](virtual-machines/azure-cli-arm-commands.md) et utiliser l’interface CLI pour [migrer les ressources](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) du modèle Classic au modèle Resource Manager.
 
 Cet article fournit la syntaxe et les options des commandes de l’interface de ligne de commande Azure régulièrement utilisées pour créer et gérer les ressources Azure dans le modèle de déploiement classique. Pour accéder à ces commandes, exécutez l’interface de ligne de commande en mode Azure Service Management (ASM). Il ne s’agit pas d’une référence complète, et votre version de l’interface de ligne de commande peut présenter des commandes ou paramètres légèrement différents. 
 
@@ -2354,6 +2353,6 @@ Supprime une entrée de serveur DNS de la configuration réseau.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

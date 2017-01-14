@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3f79e68adc5cac151de6bb60188ca72772d94c21
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7f76f8786bf08e4aacc63758260202fe7e1a832f
 
 
 ---
 # <a name="push-notifications-with-azure-notification-hubs---frequently-asked-questions"></a>Notifications Push avec Azure Notification Hubs - Forum aux Questions
 ## <a name="general"></a>Généralités
-### <a name="1-what-is-the-price-model-for-notification-hubs"></a>1.    Quel modèle de prix s’applique au service Notification Hubs ?
+### <a name="1----what-is-the-price-model-for-notification-hubs"></a>1.    Quel modèle de prix s’applique au service Notification Hubs ?
 Le service Notification Hubs est proposé en trois niveaux :
 
 * **Gratuit** - obtenir jusqu’à 1 million de notifications Push par abonnement par mois.
@@ -41,7 +41,7 @@ Pour les détails les plus récents, consultez la page [Tarification de Notifica
 * *Notifications Push planifiées* - permettent de planifier des notifications Push qui seront par la suite mises en file d’attente et envoyées.
 * *Importation en masse* - permet d’importer des inscriptions en bloc.
 
-### <a name="2-what-is-the-notification-hubs-sla"></a>2.    Qu’est-ce que le contrat SLA de Notification Hubs ?
+### <a name="2----what-is-the-notification-hubs-sla"></a>2.    Qu’est-ce que le contrat SLA de Notification Hubs ?
 Pour les niveaux **De base** et **Standard** du service Notification Hubs, nous garantissons qu’au moins 99,9 % du temps les applications correctement configurées peuvent envoyer des notifications Push ou exécuter des opérations de gestion d’inscriptions en ce qui concerne un Notification Hub déployé au sein d’un niveau pris en charge. Pour plus d’informations sur notre contrat SLA, voir la page [Contrat SLA de Notification Hubs] .
 
 > [!NOTE]
@@ -49,7 +49,7 @@ Pour les niveaux **De base** et **Standard** du service Notification Hubs, nous 
 > 
 > 
 
-### <a name="3-which-customers-are-using-notification-hubs"></a>3.    Quels sont vos clients du service Notification Hubs ?
+### <a name="3----which-customers-are-using-notification-hubs"></a>3.    Quels sont vos clients du service Notification Hubs ?
 Parmi nos nombreux clients actuels de Notification Hubs, citons en particulier les suivants :
 
 * Sochi 2014 : des centaines de groupes d’intérêt, plus de trois millions d’appareils, plus de 150 millions de notifications transmises en deux semaines. [Étude de cas Sochi]
@@ -64,27 +64,27 @@ Accédez au [portail Azure Classic], cliquez sur Service Bus, puis sur votre esp
 
 ![](./media/notification-hubs-faq/notification-hubs-classic-portal-scale.png)
 
-## <a name="design-development"></a>Conception et développement
-### <a name="1-which-server-side-platforms-do-you-support"></a>1.    Quelles plateformes côté service prenez-vous en charge ?
+## <a name="design--development"></a>Conception et développement
+### <a name="1----which-server-side-platforms-do-you-support"></a>1.    Quelles plateformes côté service prenez-vous en charge ?
 Nous fournissons des Kits de développement logiciel (SDK) et des [exemples complets] pour les plateformes .NET, Java, PHP, Python et Node.js. Vous pouvez donc configurer votre serveur principal d’applications pour communiquer avec Notification Hubs à partir de toutes ces plateformes. Les API de Notification Hubs étant basées sur des interfaces REST, vous pouvez choisir de communiquer directement avec celles-ci si vous ne souhaitez pas ajouter une dépendance supplémentaire. Pour plus de détails, consultez la page [NH - API REST].
 
-### <a name="2-which-client-platforms-do-you-support"></a>2.    Quelles plateformes clientes prenez-vous en charge ?
+### <a name="2----which-client-platforms-do-you-support"></a>2.    Quelles plateformes clientes prenez-vous en charge ?
 Nous prenons en charge l’envoi de notifications Push aux plateformes [Apple iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-gcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (par Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) & [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)), [Chrome Apps](notification-hubs-chrome-push-notifications-get-started.md) et [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Pour obtenir la liste complète des didacticiels traitant de l’envoi de notifications Push sur ces plateformes, visitez notre page [NH - Didacticiels de prise en main] .
 
-### <a name="3-do-you-support-smsemailweb-notifications"></a>3.    Prenez-vous en charge les notifications web, par courrier électronique et par SMS ?
+### <a name="3----do-you-support-smsemailweb-notifications"></a>3.    Prenez-vous en charge les notifications web, par courrier électronique et par SMS ?
 Notification Hubs a été principalement conçu pour permettre l’envoi de notifications à des applications mobiles basées sur les plateformes citées plus haut. Nous ne proposons pas encore de fonctionnalités d’envoi par courrier électronique ou par SMS. Toutefois, les plateformes de fournisseurs tiers qui proposent ces fonctionnalités peuvent être intégrées avec Notification Hubs pour l’envoi de notifications Push natives à l’aide [d’Azure Mobile Apps].
 
 Notification Hubs ne fournit pas non plus de service prêt à l’emploi de remise de notification Push dans le navigateur. Les clients peuvent choisir d’implémenter cela en utilisant SignalR par dessus les plateformes prises en charge côté serveur. Si vous souhaitez envoyer des notifications à des applications de navigateur dans le bac à sable Chrome, consultez le [didacticiel sur les applications Chrome].
 
-### <a name="4-what-is-the-relation-between-azure-mobile-apps-and-azure-notification-hubs-and-when-do-i-use-what"></a>4.    Quel est le lien entre Azure Mobile Apps et Azure Notification Hubs, et quand dois-je utiliser un service ou l’autre ?
+### <a name="4----what-is-the-relation-between-azure-mobile-apps-and-azure-notification-hubs-and-when-do-i-use-what"></a>4.    Quel est le lien entre Azure Mobile Apps et Azure Notification Hubs, et quand dois-je utiliser un service ou l’autre ?
 Si vous disposez d’un serveur principal d’applications mobiles et souhaitez seulement ajouter la fonctionnalité d’envoi de notifications Push, vous pouvez utiliser Azure Notification Hubs. Si vous souhaitez configurer un tout nouveau serveur principal d’applications mobiles, songez à utiliser Azure Mobile Apps. Une application mobile Azure configure automatiquement un hub de notification, qui permet d’envoyer facilement des notifications Push à partir du serveur principal d’applications mobiles. La tarification d’Azure Mobile Apps inclut les frais de base d’un hub de notification. Vous ne payez que si vous dépassez le nombre de notifications Push prévu dans l’abonnement. Pour plus de détails sur les coûts, consultez la page [Tarification de App Service].
 
-### <a name="5-how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>5.    Combien d’appareils puis-je prendre en charge si j’envoie des notifications Push via Notification Hubs ?
+### <a name="5----how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>5.    Combien d’appareils puis-je prendre en charge si j’envoie des notifications Push via Notification Hubs ?
 Pour plus d’informations sur le nombre d’appareils pris en charge, voir la [Tarification de Notification Hubs] .
 
 Pour certains scénarios, si vous devez prendre en charge plus de 10 000 000 d’appareils inscrits, veuillez [nous contacter](https://azure.microsoft.com/overview/contact-us/) directement afin que nous vous aidions à mettre à l’échelle votre solution.
 
-### <a name="6-how-many-push-notifications-can-i-send-out"></a>6.    Combien de notifications Push puis-je envoyer ?
+### <a name="6----how-many-push-notifications-can-i-send-out"></a>6.    Combien de notifications Push puis-je envoyer ?
 Selon le niveau sélectionné, Azure est automatiquement mis à l’échelle en fonction du nombre de notifications transitant par le système.
 
 > [!NOTE]
@@ -94,7 +94,7 @@ Selon le niveau sélectionné, Azure est automatiquement mis à l’échelle en 
 
 Nos clients utilisent Notification Hubs pour envoyer des millions de notifications Push quotidiennement. Vous n’avez rien de spécial à faire pour mettre à l’échelle la portée de vos notifications Push tant que vous utilisez Azure Notification Hubs.
 
-### <a name="7-how-long-does-it-take-for-sent-push-notifications-to-reach-my-device"></a>7.    Combien de temps faut-il pour que des notifications Push atteignent mon appareil ?
+### <a name="7----how-long-does-it-take-for-sent-push-notifications-to-reach-my-device"></a>7.    Combien de temps faut-il pour que des notifications Push atteignent mon appareil ?
 Azure Notification Hubs peut traiter au moins **un million d’envois de notifications Push par minute** dans un scénario d’utilisation normale, où la charge entrante est relativement homogène et régulière. Ce taux peut varier en fonction du nombre de balises, de la nature des envois entrants et d’autres facteurs externes.
 
 Pendant le délai de livraison estimé, le service est en mesure de calculer les cibles par plateforme et d’acheminer des messages vers les services de remise de notifications Push correspondants sur la base des balises/expressions de balises inscrites. Ensuite, ce sont les services de notifications Push (PNS) qui sont responsables de l'envoi des notifications vers l'appareil.
@@ -106,10 +106,10 @@ Un PNS ne garantit pas de contrat SLA pour la remise de notifications. Toutefois
 > 
 > 
 
-### <a name="8-is-there-any-latency-guarantee"></a>8.    Y a-t-il une garantie de latence ?
+### <a name="8----is-there-any-latency-guarantee"></a>8.    Y a-t-il une garantie de latence ?
 En raison de la nature même des notifications Push, qui sont remises par un service de notifications Push spécifique d’une plateforme externe, il n’y a aucune garantie de latence. En règle générale, la majorité des notifications Push sont remises après quelques minutes.
 
-### <a name="9-what-are-the-considerations-i-need-to-take-into-account-when-designing-a-solution-with-namespaces-and-notification-hubs"></a>9.    Quels sont les points à prendre en compte lors de la conception d’une solution avec des espaces de noms et Notification Hubs ?
+### <a name="9----what-are-the-considerations-i-need-to-take-into-account-when-designing-a-solution-with-namespaces-and-notification-hubs"></a>9.    Quels sont les points à prendre en compte lors de la conception d’une solution avec des espaces de noms et Notification Hubs ?
 #### <a name="mobile-appenvironment"></a>Application mobile/Environnement
 * Vous devez prévoir un hub de notification par application mobile et par environnement.
 * Dans un scénario d’architecture mutualisée, chaque locataire doit disposer d’un concentrateur distinct.
@@ -137,13 +137,13 @@ Si votre application est utilisée dans le monde entier, vous pouvez créer plus
 > 
 > 
 
-### <a name="10-should-i-do-registrations-from-the-app-backend-or-directly-through-client-devices"></a>10.    Dois-je effectuer les inscriptions à partir du service principal d’application ou directement via des appareils clients ?
+### <a name="10----should-i-do-registrations-from-the-app-backend-or-directly-through-client-devices"></a>10.    Dois-je effectuer les inscriptions à partir du service principal d’application ou directement via des appareils clients ?
 Il est utilise de réaliser les inscriptions à partir du service principal d’application si vous devez authentifier le client avant de l’inscrire ou si ce service doit créer ou modifier des balises selon une logique d’application particulière. Pour plus d’informations, consultez les pages [Aide sur l’inscription auprès du serveur principal] et [Aide sur l’inscription auprès du serveur principal - 2].
 
-### <a name="11-what-is-the-push-notification-delivery-security-model"></a>11.    Quel est le modèle de sécurité de remise de notification Push ?
+### <a name="11----what-is-the-push-notification-delivery-security-model"></a>11.    Quel est le modèle de sécurité de remise de notification Push ?
 Azure Notification Hubs utilise un modèle de sécurité basé sur une [signature d’accès partagé (SAP)](../storage/storage-dotnet-shared-access-signature-part-1.md). Vous pouvez utiliser les jetons SAP au niveau de l’espace de noms racine ou au niveau granulaire de Notification Hubs. Ces jetons SAP peuvent être définis avec des règles d'autorisation différentes, par exemple, des autorisations pour envoyer les messages, des autorisations pour écouter les notifications, etc.  Pour plus de détails, consultez le document [NH - Modèle de sécurité].
 
-### <a name="12-how-should-i-handle-sensitive-payload-in-the-push-notifications"></a>12.    Comment gérer une charge utile sensible dans les notifications Push ?
+### <a name="12----how-should-i-handle-sensitive-payload-in-the-push-notifications"></a>12.    Comment gérer une charge utile sensible dans les notifications Push ?
 Toutes les notifications sont remises à des appareils cibles par les services de notification Push (PNS) des plateformes. Quand un expéditeur envoie une notification à Azure Notification Hubs, nous traitons la notification, puis la transmettons au PNS correspondant.
 
 Toutes les connexions entre l'expéditeur, Azure Notifications Hubs et le PNS utilisent le protocole HTTPS.
@@ -156,7 +156,7 @@ Toutes les connexions entre l'expéditeur, Azure Notifications Hubs et le PNS ut
 Pour l’envoi des charges utiles sensibles, nous recommandons toutefois d’utiliser un modèle Push sécurisé qui fonctionne comme suit : l’expéditeur remet à l’appareil une notification ping dotée d’un ID de message mais sans la charge utile sensible. Lorsque l’application sur l’appareil reçoit cette charge utile, elle peut appeler directement une API sécurisée pour récupérer les détails du message. Un guide sur la façon d’implémenter le modèle décrit ci-dessus est également disponible à la page [NH - Didacticiel sur les notifications Push sécurisées].
 
 ## <a name="operations"></a>Opérations
-### <a name="1-what-is-the-disaster-recovery-dr-story"></a>1.    En quoi consiste la récupération d'urgence ?
+### <a name="1----what-is-the-disaster-recovery-dr-story"></a>1.    En quoi consiste la récupération d'urgence ?
 Nous assurons la couverture de la récupération d’urgence des métadonnées (nom de hub de notification, chaîne de connexion et autres informations critiques). Quand un scénario de récupération d’urgence est déclenché, les données d’inscription sont le **seul segment** de l’infrastructure de Notification Hubs qui est perdu. Vous devez implémenter une solution pour réinsérer ces données dans votre nouveau concentrateur après la récupération.
 
 * *Étape 1* - Créez un Notification Hub secondaire dans un autre centre de données. Vous pouvez le créer juste au moment de l’événement de récupération d’urgence ou en créer après le départ. L’option que vous choisissez fait peu de différence, car la configuration du hub de notification est un processus relativement rapide, de l’ordre de quelques secondes. En avoir un dès le début permet de limiter l’impact de l’événement de récupération d’urgence sur vos capacités de gestion. Nous recommandons donc fortement cette option.
@@ -179,14 +179,14 @@ Si vous n’avez pas de serveur principal, quand l’application démarre sur le
 
 L’inconvénient est qu’un laps de temps s’écoule pendant lequel les appareils sur lesquels les applications n’ont pas été ouvertes ne reçoivent pas de notification.
 
-### <a name="2-is-there-any-audit-log-capability"></a>2.    Existe-t-il une fonctionnalité de journal d'audit ?
+### <a name="2----is-there-any-audit-log-capability"></a>2.    Existe-t-il une fonctionnalité de journal d'audit ?
 Toutes les opérations de gestion concernant Notification Hubs sont enregistrées dans les journaux des opérations qui sont exposés dans le [portail Azure Classic].
 
-## <a name="monitoring-troubleshooting"></a>Surveillance et dépannage
-### <a name="1-what-troubleshooting-capabilities-are-available"></a>1.    Quelles sont les fonctionnalités proposées pour faciliter la résolution des problèmes ?
+## <a name="monitoring--troubleshooting"></a>Surveillance et dépannage
+### <a name="1----what-troubleshooting-capabilities-are-available"></a>1.    Quelles sont les fonctionnalités proposées pour faciliter la résolution des problèmes ?
 Azure Notification Hubs fournit plusieurs fonctionnalités vous permettant de résoudre des problèmes courants, en particulier ceux liés à la suppression de notifications, qui sont les plus fréquents. Pour plus de détails, voir notre livre blanc [Azure Notification Hubs : instructions relatives au diagnostic] .
 
-### <a name="2-what-telemetry-features-are-available"></a>2.    Quelles sont les fonctionnalités de télémétrie proposées ?
+### <a name="2----what-telemetry-features-are-available"></a>2.    Quelles sont les fonctionnalités de télémétrie proposées ?
 Azure Notification Hubs permet d’afficher des données de télémétrie dans le [portail Azure Classic]. Pour plus de détails sur les mesures disponibles, voir la page [Métriques] .
 
 > [!NOTE]
@@ -207,7 +207,7 @@ Nous offrons également la possibilité d’exporter les données de télémétr
 [NH - API REST]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [NH - Didacticiels de prise en main]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [didacticiel sur les applications Chrome]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
-[Tarification de Mobile Services]: http://azure.microsoft.com/pricing/details/mobile-services/
+[Mobile Services Pricing]: http://azure.microsoft.com/pricing/details/mobile-services/
 [Aide sur l’inscription auprès du serveur principal]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Aide sur l’inscription auprès du serveur principal - 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
 [NH - Modèle de sécurité]: https://msdn.microsoft.com/library/azure/dn495373.aspx
@@ -216,13 +216,13 @@ Nous offrons également la possibilité d’exporter les données de télémétr
 [Métriques]: https://msdn.microsoft.com/library/dn458822.aspx
 [exemples de métriques de Notification Hubs]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Exportation et modification d’inscriptions en bloc]: https://msdn.microsoft.com/library/dn790624.aspx
-[Portail Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [exemples complets]: https://github.com/Azure/azure-notificationhubs-samples
 [d’Azure Mobile Apps]: https://azure.microsoft.com/en-us/services/app-service/mobile/
 [Tarification de App Service]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
