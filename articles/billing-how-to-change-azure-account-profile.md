@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 11/29/2016
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1081ffe3aebbef101e83cf557877540b7d36bfd0
+ms.sourcegitcommit: d77d6ca5b5880be66e07cda28399640e1e57d598
+ms.openlocfilehash: 80d150f5a4ad1a79c529aa2ccfe7e441809a6d11
 
 
 ---
@@ -30,16 +30,16 @@ Vous avez manqué un message électronique important de la part d'Azure ? Vous s
 
 > [!NOTE]
 > Si à un moment donné dans cet article, vous rencontrez un problème et avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide.
-> 
-> 
+>
+>
 
 ## <a name="important-information-about-your-profile-email-address"></a>Informations importantes concernant l'adresse de messagerie de votre profil
 L'adresse de messagerie du profil de l'administrateur de compte est utilisée par Microsoft pour vous informer des mises à jour importantes concernant la facturation dans le cadre de l'abonnement. Nous vous recommandons de spécifier une adresse de messagerie que vous consultez régulièrement.
 
 ## <a name="how-to-change-your-profile-information"></a>Comment modifier vos informations de profil
-1. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/) en tant qu’administrateur de compte, puis cliquez sur **Profil**. Ou https://account.windowsazure.com/Profile.
+1. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/) en tant qu’administrateur de compte, puis cliquez sur **Profil**. 
 2. Sélectionnez le bouton **Modifier les détails**, puis mettez à jour les informations du **profil**.
-   
+
    ![Profil](./media/billing-how-to-change-azure-account-profile/profile.png)
 
 ## <a name="frequently-asked-questions"></a>Forum Aux Questions
@@ -60,12 +60,11 @@ Si vous vous inscrivez à la nouvelle fonctionnalité d'aperçu des alertes de f
 
 > [!NOTE]
 > Si vous avez d’autres questions, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
-> 
-> 
+>
+>
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 812d5c977ace7176e81e3e875daaf8e643c95a46
+ms.sourcegitcommit: 5b959ce0a0dae23714586756bba83bcc50671874
+ms.openlocfilehash: 914a985eb98b77542ab867a4adf2645e870d54c0
 
 
 ---
@@ -207,13 +207,15 @@ Vous pouvez supprimer simultanément tous les jeux de mise à l’échelle de ma
 ## <a name="change-the-capacity-of-a-scale-set"></a>Modifier la capacité d’un groupe identique
 Vous pouvez ajouter ou supprimer des machines virtuelles en modifiant la capacité du groupe. Récupérez le groupe identique que vous souhaitez modifier, définissez la capacité voulue, puis mettez-le à jour avec la nouvelle capacité. Dans ces commandes, remplacez les valeurs entre guillemets par le nom de votre groupe de ressources et du groupe identique.
 
-  $vmss = Get-AzureRmVmss -ResourceGroupName "nom du groupe de ressources" -VMScaleSetName "nom du groupe identique" $vmss.sku.capacity = 5 Update-AzureRmVmss -ResourceGroupName "nom du groupe de ressources" -Name "nom du groupe identique" -VirtualMachineScaleSet $vmss 
+    $vmss = Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
+    $vmss.sku.capacity = 5
+    Update-AzureRmVmss -ResourceGroupName "resource group name" -Name "scale set name" -VirtualMachineScaleSet $vmss 
 
 Si vous supprimez des machines virtuelles du groupe identique, les machines virtuelles possédant les ID le plus élevés sont supprimées en premier.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

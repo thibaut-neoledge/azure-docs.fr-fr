@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0890076fb1f80489ec9ec75dddb8cbd4cfaa44f3
+ms.sourcegitcommit: 59288709e706ba7f0162f5f857019ce2972e2743
+ms.openlocfilehash: 87fc42320c584d98987c9c63d4773b4e395516f6
 
 
 ---
@@ -104,10 +104,10 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
     
     Voici un exemple relatif à l'utilisation de la commande de l'interface en ligne de commande pour rééquilibrer la topologie Storm :
     
-    ## <a name="reconfigure-the-topology-mytopology-to-use-5-worker-processes"></a>Reconfigurez la topologie « mytopology » pour utiliser 5 processus de travail,
-    ## <a name="the-spout-blue-spout-to-use-3-executors-and"></a>le spout « blue-spout » pour utiliser 3 exécuteurs et
-    ## <a name="the-bolt-yellow-bolt-to-use-10-executors"></a>le bolt « yellow-bolt » pour utiliser 10 exécuteurs
-      $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 Pour modifier la taille du cluster Hadoop à l’aide d’Azure PowerShell, exécutez la commande suivante depuis un ordinateur client :
 

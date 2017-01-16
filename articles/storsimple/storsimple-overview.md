@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 10/05/2016
 ms.author: v-sharos@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 96779fef9604a12609c53561e2591dfded3ef616
+ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
+ms.openlocfilehash: 34b09279785d87f75d16e3baf320ffb66cf9b682
 
 
 ---
@@ -133,7 +133,7 @@ Vous pouvez accéder à Windows PowerShell pour StorSimple à partir d’une co
 Pour plus d’informations, consultez [Utiliser Windows PowerShell pour StorSimple pour gérer votre appareil](storsimple-windows-powershell-administration.md).
 
 ## <a name="azure-powershell-storsimple-cmdlets"></a>Cmdlets PowerShell d’Azure StorSimple
-Les applets de commande Azure PowerShell StorSimple sont une collection d'applets de commande Windows PowerShell qui vous permettent d'automatiser les tâches de niveau de service et la migration à partir de la ligne de commande. Pour plus d’informations sur les cmdlets Azure PowerShell pour StorSimple, consultez la page [Documentation de référence des cmdlets](https://msdn.microsoft.com/library/dn920427.aspx).
+Les applets de commande Azure PowerShell StorSimple sont une collection d'applets de commande Windows PowerShell qui vous permettent d'automatiser les tâches de niveau de service et la migration à partir de la ligne de commande. Pour plus d’informations sur les cmdlets Azure PowerShell pour StorSimple, consultez la page [Documentation de référence des cmdlets](https://docs.microsoft.com/powershell/servicemanagement/azure.storsimple/v3.1.0/azure.storsimple).
 
 ## <a name="storsimple-snapshot-manager"></a>Gestionnaire d’instantanés StorSimple
 StorSimple Snapshot Manager est un composant logiciel enfichable MMC (Microsoft Management Console) qui vous permet de créer des copies de sauvegarde à un moment donné, cohérentes, des données locales et du cloud. Le composant logiciel enfichable s’exécute sur un hôte Windows Server. Vous pouvez utiliser StorSimple Snapshot Manager pour :

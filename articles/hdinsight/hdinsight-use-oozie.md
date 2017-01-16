@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ba93904f61f2472851e7cc170c77ab6b58101463
+ms.sourcegitcommit: e11d42322d8deda57678f82f3c8a402f0e69c9af
+ms.openlocfilehash: 7d3f49770629a4cb37e20a9074408055a6304321
 
 
 ---
@@ -61,9 +61,9 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 * **Un poste de travail sur lequel est installé Azure PowerShell**. 
   
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
   
-    Pour exécuter des scripts Windows PowerShell, vous devez exécuter Azure PowerShell en tant qu’administrateur et définir la stratégie d’exécution sur *RemoteSigned*. Pour plus d’informations, consultez la rubrique [Exécution des scripts Windows PowerShell][powershell-script].
 
 ## <a name="define-oozie-workflow-and-the-related-hiveql-script"></a>Définition du workflow Oozie et du script HiveQL lié
 Les définitions des workflows Oozie sont écrites en hPDL (un langage de définition du processus XML). Le nom du fichier de workflow par défaut est *workflow.xml*. Dans ce didacticiel, vous allez utiliser le fichier de flux de travail suivant.

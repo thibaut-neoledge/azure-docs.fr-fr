@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: d07d1c838d99d0de0c5b62aaf42330b447df102c
-ms.openlocfilehash: eeb75df30811a83ecd1285ec7a38929c65995edc
+ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
+ms.openlocfilehash: 9d6d4ca99d5733f4e586ccba44307d8f5ffa09e8
 
 
 ---
@@ -246,7 +246,7 @@ Procédez comme suit pour brancher les câbles de port série de votre appareil.
 Votre appareil est désormais branché à l’alimentation, au réseau et au port série. L’étape suivante consiste à configurer le logiciel et à déployer votre appareil.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Découvrez comment [déployer et configurer votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
+Découvrez comment [déployer et configurer votre appareil StorSimple local](storsimple-deployment-walkthrough-u2.md).
 
 
 

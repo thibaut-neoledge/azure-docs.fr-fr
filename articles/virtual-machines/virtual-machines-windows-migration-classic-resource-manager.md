@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/22/2016
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 525e40a424afdf6ec7486bff249b11439a8cf740
+ms.sourcegitcommit: 66b1bcdf0f79ff4743f466c3737696f53ef6a44c
+ms.openlocfilehash: 8eb70339785ca15131b5ce8debd6a232a8a693b9
 
 
 ---
@@ -189,7 +189,7 @@ Non. Les machines virtuelles (Classic) sont des services entièrement pris en ch
 
 **Que se passera-t-il pour mes machines virtuelles si je n’envisage pas de procéder à cette migration dans un avenir proche ?**
 
-Nous ne déconseillons pas l’utilisation des API et du modèle de ressource Classic existants. Compte tenu des fonctionnalités avancées offertes par le modèle de déploiement Resource Manager, notre objectif est de faciliter la migration. Nous vous recommandons donc vivement de passer en revue [certaines des avancées réalisées](../resource-manager-deployment-model.md) en matière d’IaaS dans Resource Manager.
+Nous ne déconseillons pas l’utilisation des API et du modèle de ressource Classic existants. Compte tenu des fonctionnalités avancées offertes par le modèle de déploiement Resource Manager, notre objectif est de faciliter la migration. Nous vous recommandons donc vivement de passer en revue [certaines des avancées réalisées](../azure-resource-manager/resource-manager-deployment-model.md) en matière d’IaaS dans Resource Manager.
 
 **Quelles sont les implications de ce plan de migration pour mes outils existants ?**
 
@@ -250,6 +250,6 @@ Ce message est affiché lorsque la machine virtuelle n’a pas de connectivité 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 
