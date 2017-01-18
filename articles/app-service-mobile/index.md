@@ -195,6 +195,6 @@ Découvrez comment utiliser Mobile Apps dans Azure App Service pour développer 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

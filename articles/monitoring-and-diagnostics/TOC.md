@@ -49,6 +49,6 @@
 ## [Exemples d’Azure CLI 2.0 (version préliminaire)](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Listes des mesures prises en charge](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 
