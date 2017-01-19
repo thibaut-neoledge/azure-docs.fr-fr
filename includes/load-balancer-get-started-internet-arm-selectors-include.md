@@ -3,7 +3,8 @@
 > * [PowerShell](../articles/load-balancer/load-balancer-get-started-internet-arm-ps.md)
 > * [Interface de ligne de commande Azure](../articles/load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Modèle](../articles/load-balancer/load-balancer-get-started-internet-arm-template.md)
-> 
-> 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Jan17_HO3-->
+
+

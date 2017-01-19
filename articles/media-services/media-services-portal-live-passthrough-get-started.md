@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 7f22e8fb10f61cc0bb2e7d0a83449bf2e46a12d3
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: a00a75c6f4f45827a6e2ad22b96febc807590e57
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 7f22e8fb10f61cc0bb2e7d0a83449bf2e46a12d3
 > [!div class="op_single_selector"]
 > * [Portail](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
@@ -34,7 +34,7 @@ Ce didacticiel vous guide tout au long des étapes d’utilisation du portail Az
 Les éléments suivants sont requis pour suivre le didacticiel :
 
 * Un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/). 
-* Un compte Media Services.    Pour créer un compte Media Services, consultez [Création d’un compte Media Services](media-services-portal-create-account.md).
+* Un compte Media Services. Pour créer un compte Media Services, consultez [Création d’un compte Media Services](media-services-portal-create-account.md).
 * Une webcam. Par exemple, un [encodeur Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
 
 Il est vivement recommandé de consulter les articles suivants :
@@ -46,6 +46,9 @@ Il est vivement recommandé de consulter les articles suivants :
 ## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Scénario courant de diffusion dynamique en continu
 Les étapes suivantes décrivent les tâches impliquées dans la création d’applications courantes de diffusion en continu qui utilisent des canaux configurés pour une livraison directe. Ce didacticiel explique comment créer et gérer un canal direct et des événements en direct.
 
+>[!NOTE]
+>Assurez-vous que le point de terminaison à partir duquel vous souhaitez diffuser du contenu se trouve dans l’état **En cours d’exécution**. 
+    
 1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local qui produit un flux à débit binaire multiple au format MP4 fragmenté ou RTMP. Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
    
     Cette étape peut également être effectuée après la création du canal.
@@ -59,11 +62,7 @@ Les étapes suivantes décrivent les tâches impliquées dans la création d’a
 5. Créez un événement/programme en direct. 
    
     Lors de l’utilisation du portail Azure, la création d’un événement en direct a également pour effet de créer un élément multimédia. 
-   
-   > [!NOTE]
-   > Assurez-vous d'avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
-   > 
-   > 
+
 6. Démarrez l’événement ou le programme dès que vous êtes prêt à lancer la diffusion en continu et l’archivage.
 7. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
 8. Arrêtez l’événement ou le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
@@ -78,28 +77,6 @@ Les étapes suivantes décrivent les tâches impliquées dans la création d’a
 Si vous souhaitez afficher les notifications et les erreurs produites par le portail Azure, cliquez sur l’icône Notification.
 
 ![Notifications](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
-
-## <a name="configure-streaming-endpoints"></a>Configurer les points de terminaison de diffusion en continu
-Media Services assure l’empaquetage dynamique qui vous permet de distribuer des fichiers MP4 multidébit dans les formats de diffusion en continu MPEG DASH, HLS ou Smooth Streaming sans avoir à effectuer de ré-empaquetage dans ces formats. L’empaquetage dynamique vous permet de ne stocker et payer les fichiers que dans un seul format de stockage. Ensuite, Media Services crée et fournit la réponse appropriée en fonction des demandes des clients.
-
-Pour tirer parti de l’empaquetage dynamique, vous devez obtenir au moins une unité de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous envisagez de distribuer votre contenu.  
-
-Pour créer et modifier le nombre d’unités réservées de diffusion en continu, procédez comme suit :
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Dans la fenêtre **Paramètres**, cliquez sur **Points de terminaison de diffusion en continu**. 
-3. Cliquez sur le point de terminaison de diffusion en continu par défaut. 
-   
-    La fenêtre **DEFAULT STREAMING ENDPOINT DETAILS** (DÉTAILS DU POINT DE TERMINAISON DE DIFFUSION EN CONTINU PAR DÉFAUT) s’affiche.
-4. Pour spécifier le nombre d’unités de diffusion en continu, faites glisser le curseur **Unités de diffusion en continu** .
-   
-    ![Unités de diffusion en continu](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
-5. Cliquez sur le bouton **Enregistrer** pour enregistrer vos modifications.
-   
-   > [!NOTE]
-   > L’allocation de nouvelles unités peut prendre environ 20 minutes.
-   > 
-   > 
 
 ## <a name="create-and-start-pass-through-channels-and-events"></a>Créer et démarrer des canaux directs et des événements
 Un canal est associé à des événements/programmes vous permettant de contrôler la publication et le stockage des segments dans un flux dynamique. Les canaux gèrent des événements. 
@@ -180,6 +157,6 @@ Consultez les parcours d’apprentissage de Media Services.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

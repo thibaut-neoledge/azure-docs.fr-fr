@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 3205077236dd44253b3fa36d6eace36fb307871e
-ms.openlocfilehash: 2fe52756ea5522e0d9d763afc1c89d45bf830877
+ms.sourcegitcommit: 71d165b8eaf4fe292577dce138d96ad049de61ab
+ms.openlocfilehash: 14032f3e54a078389d1be75742dda757d6a74a36
 
 
 ---
@@ -178,7 +178,7 @@ Dans cette étape, vous créez un jeu de données nommé **InputDataset** qui po
      
      Si vous ne spécifiez pas de nom (**fileName**) pour un jeu de données **d’entrée**, tous les fichiers/objets blob du dossier d’entrée (**folderPath**) sont considérés comme des entrées. Si vous spécifiez un fileName dans le JSON, seul le fichier/objet blob spécifié est considéré comme une entrée.
      
-     Si vous ne spécifiez pas de nom ( **fileName**) pour une **table de sortie**, les fichiers générés dans **folderPath** sont nommés selon le format suivant : Data.&lt;Guid\&.txt (exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
+     Si vous ne spécifiez pas de nom (**fileName**) pour une **table de sortie**, les fichiers générés dans le **folderPath** sont nommés selon le format suivant : Data.&lt;Guid&gt;.txt (example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
      
      Pour affecter une valeur à **folderPath** et **fileName** de manière dynamique en fonction de l’heure de **SliceStart**, utilisez la propriété **partitionedBy**. Dans l’exemple suivant, folderPath utilise les valeurs Year, Month et Day à partir de SliceStart (heure de début de la partie en cours de traitement), alors que fileName utilise la valeur Hour à partir de SliceStart. Par exemple, si une partie est produite pour 2016-09-20T08:00:00, la valeur folderName est wikidatagateway/wikisampledataout/2016/09/20, alors que la valeur de fileName est 08.csv. 
 
@@ -311,7 +311,7 @@ Dans cette étape, vous créez un pipeline avec une **activité de copie** qui u
 3. Cliquez sur **Déployer** dans la barre d’outils pour créer et déployer le pipeline **ADFTutorialPipeline**. Vérifiez que le pipeline apparaît dans l’arborescence. 
 4. Maintenant, fermez le panneau **Éditeur** en cliquant sur **X**. Cliquez sur **X** à nouveau pour afficher la page d’accueil **Data Factory** de **ADFTutorialDataFactory**.
 
-**Félicitations !**  Vous avez correctement créé une fabrique de données Azure, les services liés, les tables et un pipeline et avez planifié le pipeline.   
+**Félicitations !** Vous avez correctement créé une fabrique de données Azure, les services liés, les tables et un pipeline et avez planifié le pipeline.   
 
 ### <a name="view-the-data-factory-in-a-diagram-view"></a>Afficher une vue schématique d'une fabrique de données
 1. Dans le panneau **Data Factory**, cliquez sur **Diagramme**.
@@ -379,7 +379,7 @@ Dans cette étape, vous utilisez le portail Azure pour surveiller ce qui se pass
     
     ![Résultats de la requête SQL](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
 
-### <a name="monitor-pipeline-using-monitor-manage-app"></a>Surveiller le pipeline à l’aide de l’application de surveillance et de gestion
+### <a name="monitor-pipeline-using-monitor--manage-app"></a>Surveiller le pipeline à l’aide de l’application de surveillance et de gestion
 Vous pouvez également utiliser l’application de surveillance et de gestion pour surveiller vos pipelines. Pour en savoir plus sur l’utilisation de cette application, consultez l’article [Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et de gestion](data-factory-monitor-manage-app.md).
 
 1. Cliquez sur la mosaïque **Surveiller et gérer** sur la page d’accueil de votre fabrique de données.
@@ -413,6 +413,6 @@ Dans ce didacticiel, vous avez créé une fabrique de données Azure pour copier
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

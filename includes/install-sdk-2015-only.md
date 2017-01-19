@@ -1,5 +1,5 @@
-## <a name="setupdevenv"></a>Configuration de l’environnement de développement
-Pour commencer, configurez votre environnement de développement en installant le [Kit de développement logiciel (SDK) Azure pour Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003).
+## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Configuration de l’environnement de développement
+Pour commencer, configurez votre environnement de développement en installant le [Kit de développement logiciel (SDK) Azure pour Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003).
 
 Si vous n’avez pas installé Visual Studio, Visual Studio Express pour le web est également installé.
 
@@ -8,4 +8,8 @@ Si vous n’avez pas installé Visual Studio, Visual Studio Express pour le web 
 > 
 > 
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

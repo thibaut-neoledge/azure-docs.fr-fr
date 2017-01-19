@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
-ms.openlocfilehash: 1d92c9a2dfae4a209ea95a33facd4b8e058fd866
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 61f4c723e8d790f5c6dd76b7aff6c5372ed1a979
 
 
 ---
@@ -51,9 +51,9 @@ Pour effectuer les étapes de cet article, vous avez besoin des éléments suiva
 Pour créer une base de données SQL avec C#, chargez les bibliothèques de gestion nécessaires (à l’aide de la [console du gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console)) :
 
 1. Cliquez sur **Outils** > **Gestionnaire de package NuGet** > **Console du gestionnaire de package**.
-2. Saisissez `Install-Package Microsoft.Azure.Management.Sql –Pre` pour installer la [bibliothèque Microsoft Azure SQL Management](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
-3. Saisissez `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` pour installer la [bibliothèque Microsoft Azure Resource Manager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
-4. Saisissez `Install-Package Microsoft.Azure.Common.Authentication –Pre` pour installer la [bibliothèque Microsoft Azure Common Authentication](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
+2. Saisissez `Install-Package Microsoft.Azure.Management.Sql -Pre` pour installer la [bibliothèque Microsoft Azure SQL Management](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
+3. Saisissez `Install-Package Microsoft.Azure.Management.ResourceManager -Pre` pour installer la [bibliothèque Microsoft Azure Resource Manager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
+4. Saisissez `Install-Package Microsoft.Azure.Common.Authentication -Pre` pour installer la [bibliothèque Microsoft Azure Common Authentication](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
 
 > [!NOTE]
 > Les exemples de cet article utilisent une forme synchrone de chaque bloc et demande d’API jusqu’à la fin de l’appel REST sur le service sous-jacent. Des méthodes asynchrones sont disponibles.
@@ -315,6 +315,6 @@ Le script PowerShell suivant crée l’application Active Directory (AD) et le p
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

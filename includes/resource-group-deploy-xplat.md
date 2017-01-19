@@ -1,4 +1,4 @@
-## Comment effectuer un déploiement avec l'interface de ligne de commande Azure
+## <a name="how-to-deploy-with-azure-cli"></a>Comment effectuer un déploiement avec l'interface de ligne de commande Azure
 1. Connectez-vous à votre compte Azure.
    
         azure login
@@ -10,7 +10,7 @@
 2. Si vous avez plusieurs abonnements, fournissez l'ID d'abonnement que vous souhaitez utiliser pour le déploiement.
    
         azure account set <YourSubscriptionNameOrId>
-3. Basculez sur le module Azure Resource Manager.
+3. Basculez sur le module Azure Resource Manager.
    
         azure config mode arm
    
@@ -36,7 +36,7 @@
         info:    group create command OK
 5. Pour créer un déploiement pour votre groupe de ressources, exécutez la commande suivante et indiquez les paramètres nécessaires. Les paramètres comprennent un nom pour votre déploiement, le nom de votre groupe de ressources, le chemin d'accès ou l'URL du modèle que vous avez créé et tous les autres paramètres nécessaires à votre scénario.
    
-   Vous disposez des options suivantes pour fournir les valeurs des paramètres :
+   Vous disposez des options suivantes pour fournir les valeurs des paramètres :
    
    * Utiliser des paramètres incorporés et un modèle local.
      
@@ -62,4 +62,8 @@
    
          azure group log show -l -v ExampleResourceGroup
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+
