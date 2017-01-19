@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/21/2016
+ms.date: 12/14/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dd3e982ba908e542ce0b536699e37e2bc95e6706
+ms.sourcegitcommit: de2c52f8db5445e3e2eee62f673109f6d38cffa0
+ms.openlocfilehash: c58ee1c07e454a711ab0d6365a5cd432b0d939c8
 
 
 ---
@@ -33,7 +33,7 @@ Dans ce didacticiel, nous allons découvrir comment utiliser Studio afin de cré
 >
 >Si vous ne connaissez pas le machine learning, la série de vidéos [Science des données pour les débutants](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) peut être un bon point de départ. Cette série de vidéos constitue une excellente introduction au machine learning, qui utilise le langage et les concepts courants.
 >
->Si vous connaissez déjà le machine learning et recherchez des informations plus générales sur Machine Learning Studio et sur les algorithmes de machine learning qu’il propose, voici quelques ressources utiles :
+>Si vous connaissez le Machine Learning et recherchez des informations plus générales sur Machine Learning Studio et sur les algorithmes de Machine Learning qu’il propose, voici quelques ressources utiles :
 >
 - [Qu'est-ce que Machine Learning Studio ?](machine-learning-what-is-ml-studio.md) : il s’agit d’une vue d’ensemble de Studio.
 - [Principes de base de l’apprentissage automatique avec exemples d’algorithmes](machine-learning-basics-infographic-with-algorithm-examples.md) : cette infographie vous permet de découvrir les différents types d’algorithmes de machine learning inclus dans Machine Learning Studio.
@@ -95,7 +95,9 @@ Voici comment obtenir ce jeu de données dans le cadre de votre expérience.
 
 1. Créez une expérience en cliquant sur l’option **+NOUVEAU** située en bas de la fenêtre Machine Learning Studio, sélectionnez **EXPÉRIENCE**, puis **Expérience vide**.
 
-2. Un nom par défaut est attribué à l’expérience : il apparaît en haut du canevas. Sélectionnez le texte et remplacez-le par un nom plus significatif, par exemple **Prédiction sur les prix automobiles**.
+2. Un nom par défaut est attribué à l’expérience : il apparaît en haut du canevas. Sélectionnez le texte et remplacez-le par un nom plus significatif, par exemple **Prédiction sur les prix automobiles**. Le nom n’a pas besoin d’être unique.
+
+    ![Renommer l’expérience][rename-experiment]
 
 2. Sur la gauche de la zone de dessin de l’expérience se trouve une palette de jeux de données et de modules. Tapez la valeur **automobile** dans la zone de recherche se trouvant en haut de cette palette, afin de rechercher le jeu de données **Données sur le prix des véhicules automobiles (brutes)**. Faites glisser ce jeu de données vers le canevas de l’expérience.
 
@@ -111,7 +113,7 @@ Pour voir à quoi ressemblent ces données, cliquez sur le port de sortie situé
 
 > [!TIP]
 > Les jeux de données et les modules disposent de ports d’entrée et de sortie représentés par de petits cercles : les ports d’entrée se situent en haut, tandis que les ports de sortie se situent en bas.
-Pour créer un flux de données dans votre expérience, vous devez connecter ces ports.
+Pour créer un flux de données dans votre expérience, connectez le port de sortie d’un module au port d’entrée d’un autre module.
 À tout moment, vous pouvez cliquer sur le port de sortie d’un jeu de données ou d’un module afin de voir à quoi les données ressemblent à ce stade dans le flux de données.
 
 Dans cet exemple de jeu de données, chaque instance de véhicule automobile apparaît sous la forme d’une ligne, et les variables associées à chaque véhicule automobile apparaissent dans des colonnes. Compte tenu des variables associées à un véhicule automobile spécifique, nous allons essayer de prédire le prix dans la colonne de droite (colonne 26, intitulée « price »).
@@ -169,7 +171,7 @@ Nous commençons par ajouter un module qui supprime la colonne **normalized-loss
     <br/>
     ***Définissez le mode de nettoyage du module « Nettoyage des données manquantes » sur « Supprimer toute la ligne »***
 
-4. Démarrez l’expérience en cliquant sur l’option **DÉMARRER** sous la zone de dessin de l’expérience.
+4. Exécutez l’expérience en cliquant sur **EXÉCUTER** au bas de la page.
 
     Une fois l’expérience terminée, une coche verte s’affiche en regard de chaque module pour indiquer la réussite de leurs opérations. Notez que le statut **Exécution terminée** s’affiche dans le coin supérieur droit de la fenêtre.
 
@@ -326,7 +328,7 @@ L’expérience finale doit ressembler à ceci :
 Pour découvrir comment comparer plusieurs modèles dans le cadre d’une expérience unique, consultez [Compare Regressors](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) (Comparer les régresseurs) dans la [galerie Cortana Intelligence](https://gallery.cortanaintelligence.com).
 
     > [!TIP]
-    > Pour copier une itération de votre expérience, utilisez le bouton **ENREGISTRER SOUS** qui figure sous le canevas de l’expérience. Vous pouvez afficher toutes les itérations de votre expérience en cliquant sur l’option **AFFICHER L’HISTORIQUE D’EXÉCUTION** , sous la zone de dessin. Pour en savoir plus, consultez la section [Gérer les itérations des expériences dans Microsoft Azure Machine Learning Studio][runhistory].
+    > Pour copier une itération de votre expérience, utilisez le bouton **ENREGISTRER SOUS** au bas de la page. Vous pouvez afficher toutes les itérations de votre expérience en cliquant sur **AFFICHER L’HISTORIQUE D’EXÉCUTION** au bas de la page. Pour en savoir plus, consultez la section [Gérer les itérations des expériences dans Microsoft Azure Machine Learning Studio][runhistory].
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
@@ -340,6 +342,7 @@ Vous souhaitez en savoir plus ? Pour obtenir un guide complet et détaillé du p
 
 <!-- Images -->
 [sign-in-to-studio]: ./media/machine-learning-create-experiment/sign-in-to-studio.png
+[rename-experiment]: ./media/machine-learning-create-experiment/rename-experiment.png
 [visualize-auto-data]:./media/machine-learning-create-experiment/visualize-auto-data.png
 [select-visualize]: ./media/machine-learning-create-experiment/select-visualize.png
 [showing-excluded-column]:./media/machine-learning-create-experiment/showing-excluded-column.png
@@ -377,6 +380,6 @@ Vous souhaitez en savoir plus ? Pour obtenir un guide complet et détaillé du p
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 
