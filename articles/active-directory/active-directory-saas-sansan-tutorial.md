@@ -1,12 +1,12 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à SanSan | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SanSan.
+title: "Didacticiel : Intégration d’Azure Active Directory à SanSan | Microsoft Docs"
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et SanSan."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f653a0f2-c44a-4670-b936-68c136b578ea
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a21fb8c22b5c429fc768e128162836275ff18bf1
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-sansan"></a>Didacticiel : Intégration d’Azure Active Directory à SanSan
+# <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Didacticiel : Intégration d’Azure Active Directory à SanSan
 Dans ce didacticiel, vous allez apprendre à intégrer SanSan à Azure Active Directory (Azure AD).
 
 L’intégration de SanSan à Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à SanSan.
 * Vous pouvez autoriser les utilisateurs à se connecter automatiquement à SanSan (via l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
+* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Composants requis
 Pour configurer l’intégration d’Azure AD à SanSan, vous avez besoin des éléments suivants :
@@ -38,7 +42,7 @@ Pour configurer l’intégration d’Azure AD à SanSan, vous avez besoin des é
 > 
 > 
 
-Vous devez en outre suivre les recommandations ci-dessous :
+Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
 * Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
@@ -86,7 +90,7 @@ Pour configurer et tester l’authentification unique Microsoft Azure AD avec Sa
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Microsoft Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test SanSan](#creating-an-sansan-test-user)** pour avoir un équivalent de Britta Simon dans SanSan associé à sa représentation dans Azure AD.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Microsoft Azure AD.
-5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-microsoft-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Microsoft Azure AD
 Dans cette section, vous allez activer l’authentification unique Microsoft Azure AD dans le portail Azure Classic et configurer l’authentification unique dans votre application SanSan.
@@ -99,7 +103,7 @@ Dans cette section, vous allez activer l’authentification unique Microsoft Azu
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à SanSan**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_03.png) 
-3. Sur la page **Configurer les paramètres d’application** , procédez comme suit :
+3. Sur la page **Configurer les paramètres d’application** , procédez comme suit :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_04.png) 
    
@@ -113,11 +117,11 @@ Dans cette section, vous allez activer l’authentification unique Microsoft Azu
 
     b. Dans la zone de texte **Identificateur** , entrez l’URL au format suivant : 
 
-      | Environnement             | URL |
-      | :--                     | :-- |
-      | Web PC                  | `https://ap.sansan.com/v/saml2/<company name>`|
-      | Application mobile native       | `https://internal.api.sansan.com/saml2/<company name>` |
-      | Paramètres de navigateur mobile | `https://ap.sansan.com/s/saml2/<company name>` |
+    | Environnement             | URL |
+    | :--                     | :-- |
+    | Web PC                  | `https://ap.sansan.com/v/saml2/<company name>`|
+    | Application mobile native       | `https://internal.api.sansan.com/saml2/<company name>` |
+    | Paramètres de navigateur mobile | `https://ap.sansan.com/s/saml2/<company name>` |
 
 
     c. Cliquez sur **Suivant**.
@@ -157,7 +161,7 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
 ![Créer un utilisateur Azure AD][20]
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
    
@@ -177,7 +181,7 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
    
     b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
    
-    c. Cliquez sur **Suivant**.
+    c. Cliquez sur **Next**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sansan-tutorial/create_aaduser_06.png) 
@@ -190,7 +194,7 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
    
    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
    
-   e. Cliquez sur **Suivant**.
+   e. Cliquez sur **Next**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sansan-tutorial/create_aaduser_07.png) 
@@ -237,7 +241,7 @@ Lorsque vous cliquez sur la vignette SanSan dans le volet d’accès, vous devez
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 
@@ -259,6 +263,6 @@ Lorsque vous cliquez sur la vignette SanSan dans le volet d’accès, vous devez
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

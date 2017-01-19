@@ -1,13 +1,13 @@
 ---
-title: Ajouter le connecteur Yammer à vos applications logiques | Microsoft Docs
-description: Vue d’ensemble du connecteur Yammer avec les paramètres d’API REST
-services: ''
-documentationcenter: ''
+title: "Ajouter le connecteur Yammer à vos applications logiques | Microsoft Docs"
+description: "Vue d’ensemble du connecteur Yammer avec les paramètres d’API REST"
+services: 
+documentationcenter: 
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: b5ae0827-fbb3-45ec-8f45-ad1cc2e7eccc
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,61 +15,66 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 104edc61f964f5e0b6c2144a39201283b71145a2
+
 
 ---
-# Prise en main du connecteur Yammer
+# <a name="get-started-with-the-yammer-connector"></a>Prise en main du connecteur Yammer
 Connectez-vous à Yammer pour accéder aux conversations dans votre réseau d’entreprise.
 
 > [!NOTE]
-> Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
+> Cette version de l’article s’applique à la version de schéma 2015-08-01-preview des applications logiques.
 > 
 > 
 
-Avec Yammer, vous pouvez effectuer les opérations suivantes :
+Avec Yammer, vous pouvez effectuer les opérations suivantes :
 
 * Créer votre flux d’activité en fonction des données que vous obtenez de Yammer. 
 * Utiliser des déclencheurs quand un nouveau message arrive dans un groupe ou un flux que vous suivez.
-* Utiliser des actions pour publier un message, obtenir tous les messages et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un nouveau message apparaît, vous pouvez envoyer un message électronique à l’aide d’Office 365.
+* Utiliser des actions pour publier un message, obtenir tous les messages et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un nouveau message apparaît, vous pouvez envoyer un message électronique à l’aide d’Office 365.
 
-Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour ajouter une opération à des applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Déclencheurs et actions
-Yammer inclut les déclencheurs et les actions suivants.
+## <a name="triggers-and-actions"></a>Déclencheurs et actions
+Yammer inclut les déclencheurs et les actions suivants. 
 
 | Déclencheur | Actions |
 | --- | --- |
-| <ul><li>Quand il y a un nouveau message dans un groupe</li><li>Quand il y a un nouveau message dans le flux de mes abonnements</li></ul> |<ul><li>Obtenir tous les messages</li><li>Obtenir les messages d’un groupe</li><li>Obtenir les messages de mon flux d’abonnements</li><li>Publier un message</li><li>Quand il y a un nouveau message dans un groupe</li><li>Quand il y a un nouveau message dans le flux de mes abonnements</li></ul> |
+| <ul><li>Quand un nouveau message figure dans un groupe</li><li>Quand un nouveau message figure dans le flux Suivis</li></ul> |<ul><li>Obtenir tous les messages</li><li>Obtient les messages dans un groupe</li><li>Obtient les messages du flux « Suivis »</li><li>Publier un message</li><li>Quand un nouveau message figure dans un groupe</li><li>Quand un nouveau message figure dans le flux Suivis</li></ul> |
 
-Tous les connecteurs prennent en charge les données aux formats JSON et XML.
+Tous les connecteurs prennent en charge les données aux formats JSON et XML. 
 
-## Créer une connexion à Yammer
-Pour utiliser le connecteur Yammer, vous devez créer une **connexion**, puis fournir les détails de ces propriétés :
+## <a name="create-a-connection-to-yammer"></a>Créer une connexion à Yammer
+Pour utiliser le connecteur Yammer, vous devez créer une **connexion**, puis fournir les détails de ces propriétés : 
 
 | Propriété | Requis | Description |
 | --- | --- | --- |
 | Jeton |Oui |Indiquez les informations d’identification Yammer. |
 
-> [!INCLUDE [Procédure de création d’une connexion à Yammer](../../includes/connectors-create-api-yammer.md)]
+> [!INCLUDE [Steps to create a connection to Yammer](../../includes/connectors-create-api-yammer.md)]
 > 
 > [!TIP]
-> Vous pouvez utiliser cette connexion dans d'autres applications logiques.
+> Vous pouvez utiliser cette connexion dans d’autres applications logiques.
 > 
 > 
 
-## Informations de référence sur l’API REST Yammer
-Cette documentation concerne la version 1.0.
+## <a name="yammer-rest-api-reference"></a>Informations de référence sur l’API REST Yammer
+Cette documentation concerne la version 1.0.
 
-### Obtenir tous les messages publics dans le réseau Yammer de l’utilisateur connecté
-Correspond à la catégorie de conversations « Toutes » dans l’interface web de Yammer. ```GET: /messages.json```
+### <a name="get-all-public-messages-in-the-logged-in-users-yammer-network"></a>Obtenir tous les messages publics dans le réseau Yammer de l’utilisateur connecté
+Correspond à la catégorie de conversations « Toutes » dans l’interface web de Yammer.  
+```GET: /messages.json```
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| older\_then |integer |no |query |(aucun) |Retourne des messages antérieurs à l’ID de message spécifié sous forme de chaîne numérique. Ce paramètre est utile pour paginer les messages. Par exemple, si vous voyez actuellement 20 messages et que le plus ancien porte le numéro 2 912, vous pouvez ajouter « ?older\_than=2912 » à votre demande pour obtenir les 20 messages antérieurs à ceux actuellement affichés. |
-| newer\_then |integer |no |query |(aucun) |Retourne des messages postérieurs à l’ID de message spécifié sous forme de chaîne numérique. Utilisez ce paramètre pour déterminer s’il existe de nouveaux messages. Si vous voyez des messages et que le dernier message retourné porte le numéro 3 516, vous pouvez utiliser le paramètre « ?newer\_than=3516 » pour ne pas obtenir de doublons des messages actuellement affichés. |
+| older_then |integer |no |query |(aucun) |Retourne des messages antérieurs à l’ID de message spécifié sous forme de chaîne numérique. Ce paramètre est utile pour paginer les messages. Par exemple, si vous voyez actuellement 20 messages et que le plus ancien porte le numéro 2 912, vous pouvez ajouter « ?older_than=2912 » à votre demande pour obtenir les 20 messages antérieurs à ceux actuellement affichés. |
+| newer_then |integer |no |query |(aucun) |Retourne des messages postérieurs à l’ID de message spécifié sous forme de chaîne numérique. Utilisez ce paramètre pour déterminer s’il existe de nouveaux messages. Si vous voyez des messages et que le dernier message retourné porte le numéro 3 516, vous pouvez utiliser le paramètre « ?newer_than=3516 » pour ne pas obtenir de doublons des messages actuellement affichés. |
 | limit |integer |no |query |(aucun) |Retourner uniquement le nombre spécifié de messages. |
 | page |integer |no |query |(aucun) |Obtenir la page spécifiée. Si les données retournées dépassent la limite, vous pouvez utiliser ce champ pour accéder aux pages suivantes. |
 
-### Response
+### <a name="response"></a>Response
 | Nom | Description |
 | --- | --- |
 | 200 |OK |
@@ -81,51 +86,52 @@ Correspond à la catégorie de conversations « Toutes » dans l’interface web
 | 504 |Dépassement du délai de la passerelle |
 | default |L’opération a échoué. |
 
-### Publier un message dans un groupe ou dans tous les flux de l’entreprise.
-Si l’ID de groupe est fourni, le message est publié dans le groupe spécifié. Sinon, il est publié dans tous les flux de l’entreprise. ```POST: /messages.json```
+### <a name="post-a-message-to-a-group-or-all-company-feed"></a>Publier un message dans un groupe ou dans tous les flux de l’entreprise.
+Si l’ID de groupe est fourni, le message est publié dans le groupe spécifié, sinon dans tous les flux de l’entreprise.    
+```POST: /messages.json``` 
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| entrée | |yes |body |(aucun) |Publier une demande de message |
+| entrée | |Oui |body |(aucun) |Publier une demande de message |
 
-### Response
+### <a name="response"></a>Response
 | Nom | Description |
 | --- | --- |
 | 201 |Date de création |
 
-## Définitions d’objet
-#### Message : message Yammer
+## <a name="object-definitions"></a>Définitions d’objet
+#### <a name="message-yammer-message"></a>Message : message Yammer
 | Nom | Type de données | Requis |
 | --- | --- | --- |
 | id |integer |no |
-| content\_excerpt |string |no |
-| sender\_id |integer |no |
-| replied\_to\_id |integer |no |
-| created\_at |string |no |
-| network\_id |integer |no |
-| message\_type |string |no |
-| sender\_type |string |no |
+| content_excerpt |string |no |
+| sender_id |integer |no |
+| replied_to_id |integer |no |
+| created_at |string |no |
+| network_id |integer |no |
+| message_type |string |no |
+| sender_type |string |no |
 | url |string |no |
-| web\_url |string |no |
-| group\_id |integer |no |
+| web_url |string |no |
+| group_id |integer |no |
 | body |non défini |no |
-| thread\_id |integer |no |
-| direct\_message |booléenne |no |
-| client\_type |string |no |
-| client\_url |string |no |
+| thread_id |integer |no |
+| direct_message |booléenne |no |
+| client_type |string |no |
+| client_url |string |no |
 | language |string |no |
-| notified\_user\_ids |array |no |
+| notified_user_ids |array |no |
 | privacy |string |no |
-| liked\_by |non défini |no |
-| system\_message |booléenne |no |
+| liked_by |non défini |no |
+| system_message |booléenne |no |
 
-#### PostOperationRequest : représente une demande de publication sur Yammer pour le connecteur Yammer
+#### <a name="postoperationrequest-represents-a-post-request-for-yammer-connector-to-post-to-yammer"></a>PostOperationRequest : représente une demande de publication sur Yammer pour le connecteur Yammer
 | Nom | Type de données | Requis |
 | --- | --- | --- |
 | body |string |yes |
-| group\_id |integer |no |
-| replied\_to\_id |integer |no |
-| direct\_to\_id |integer |no |
+| group_id |integer |no |
+| replied_to_id |integer |no |
+| direct_to_id |integer |no |
 | broadcast |booléenne |no |
 | topic1 |string |no |
 | topic2 |string |no |
@@ -148,38 +154,42 @@ Si l’ID de groupe est fourni, le message est publié dans le groupe spécifié
 | topic19 |string |no |
 | topic20 |string |no |
 
-#### MessageList : liste des messages
+#### <a name="messagelist-list-of-messages"></a>MessageList : liste des messages
 | Nom | Type de données | Requis |
 | --- | --- | --- |
 | messages |array |no |
 
-#### MessageBody : corps du message
+#### <a name="messagebody-message-body"></a>MessageBody : corps du message
 | Nom | Type de données | Requis |
 | --- | --- | --- |
 | parsed |string |no |
 | plain |string |no |
 | rich |string |no |
 
-#### LikedBy : aimé par
+#### <a name="likedby-liked-by"></a>LikedBy : aimé par
 | Nom | Type de données | Requis |
 | --- | --- | --- |
 | count |integer |no |
 | names |array |no |
 
-#### YammmerEntity : aimé par
+#### <a name="yammmerentity-liked-by"></a>YammmerEntity : aimé par
 | Nom | Type de données | Requis |
 | --- | --- | --- |
 | type |string |no |
 | id |integer |no |
-| full\_name |string |no |
+| full_name |string |no |
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 [1]: ./media/connectors-create-api-yammer/connectionconfig1.png
-[2]: ./media/connectors-create-api-yammer/connectionconfig2.png
+[2]: ./media/connectors-create-api-yammer/connectionconfig2.png 
 [3]: ./media/connectors-create-api-yammer/connectionconfig3.png
 [4]: ./media/connectors-create-api-yammer/connectionconfig4.png
 [5]: ./media/connectors-create-api-yammer/connectionconfig5.png
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

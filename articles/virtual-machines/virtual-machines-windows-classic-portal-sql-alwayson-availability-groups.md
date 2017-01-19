@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: f6be1d51f570467e0a7cdc26892a648d7f6ea225
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: a48bc18cb27e163f00cc94be8c6d6c44d57472e6
 
 
 ---
@@ -32,9 +32,8 @@ ms.openlocfilehash: f6be1d51f570467e0a7cdc26892a648d7f6ea225
 
 <br/>
 
-> [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-> 
-> 
+> [!IMPORTANT] 
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 
 Ce didacticiel de bout en bout vous indique comment implémenter des groupes de disponibilité en utilisant SQL Server Always On sur des machines virtuelles Azure.
 
@@ -420,6 +419,6 @@ Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

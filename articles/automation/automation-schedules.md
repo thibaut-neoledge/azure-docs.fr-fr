@@ -1,31 +1,35 @@
 ---
-title: Planifications dans Azure Automation | Microsoft Docs
-description: Les planifications Automation permettent de planifier les Runbooks dans Azure pour qu'ils démarrent automatiquement. Décrit comment créer et gérer une planification afin de pouvoir démarrer automatiquement un Runbook à un instant donné ou selon une planification périodique.
+title: "Planifications dans Azure Automation | Microsoft Docs"
+description: "Les planifications Automation permettent de planifier les Runbooks dans Azure pour qu&quot;ils démarrent automatiquement. Décrit comment créer et gérer une planification afin de pouvoir démarrer automatiquement un Runbook à un instant donné ou selon une planification périodique."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 1c2da639-ad20-4848-920b-88e471b2e1d9
 ms.service: automation
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: mgoedtel
+ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d12b1522e1935e4e9ebefd1a49fdfda8b339286c
+
 
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Planification d'un Runbook dans Azure Automation
 Pour planifier le démarrage d'un Runbook dans Azure Automation à une heure spécifiée, liez-le à une ou plusieurs planifications. Vous pouvez configurer une planification de Runbooks dans le portail Azure Classic et dans le portail Azure pour qu’elle s’exécute une seule fois ou selon un calendrier horaire ou quotidien récurrent. Vous pouvez également planifier une exécution hebdomadaire ou mensuelle, ou encore qui interviendra certains jours de la semaine, certains jours du mois ou un jour spécifique du mois.  Un Runbook peut être lié à plusieurs planifications et une planification peut avoir plusieurs Runbooks qui lui sont liés.
 
 > [!NOTE]
-> Les planifications ne prennent pas en charge les configurations Azure Automation DSC pour le moment.
+> Les planifications ne prennent pas en charge les configurations Azure Automation DSC pour le moment.
 > 
 > 
 
-## <a name="windows-powershell-cmdlets"></a>Applets de commande Windows PowerShell
-Les applets de commande du tableau suivant permettent de créer et de gérer les planifications avec Windows PowerShell dans Azure Automation. Elles sont fournies dans le cadre du [module Azure PowerShell](../powershell-install-configure.md).
+## <a name="windows-powershell-cmdlets"></a>Applets de commande Windows PowerShell
+Les applets de commande du tableau suivant permettent de créer et de gérer les planifications avec Windows PowerShell dans Azure Automation. Elles sont fournies dans le cadre du [module Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 | Applets de commande | Description |
 |:--- |:--- |
@@ -69,7 +73,7 @@ Vous pouvez utiliser le portail Azure, le portail Azure Classic ou Windows Power
 5. Tapez un **Nom** et éventuellement une **Description** pour votre planification, qui s’exécutera **Une fois**, **Toutes les heures**, **Tous les jours**, **Toutes les semaines** ou **Tous les mois**.
 6. Spécifiez une **Heure de début** et d'autres options en fonction du type de planification que vous avez sélectionné.
 
-### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Pour créer une planification avec Windows PowerShell
+### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Pour créer une planification avec Windows PowerShell
 Vous pouvez utiliser l’applet de commande [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690271.aspx) pour créer une planification dans Azure Automation pour les Runbooks classiques, ou utiliser l’applet de commande [New-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603577.aspx) pour les Runbooks exécutés dans le portail Azure. Vous devez spécifier l’heure de début de la planification et indiquer sa fréquence d’exécution.
 
 Les exemples de commandes suivant montrent comment créer une planification le 15 et le 30 de chaque mois à l’aide d’une applet de commande Azure Resource Manager.
@@ -142,7 +146,7 @@ Vous pouvez désactiver une planification dans le portail Azure Classic à parti
 3. Cliquez sur le nom d'une planification pour ouvrir sa page Détails.
 4. Remplacez **Activé** par **Non**.
 
-### <a name="to-disable-a-schedule-with-windows-powershell"></a>Pour désactiver une planification avec Windows PowerShell
+### <a name="to-disable-a-schedule-with-windows-powershell"></a>Pour désactiver une planification avec Windows PowerShell
 Vous pouvez utiliser l’applet de commande [Set-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690270.aspx) pour modifier les propriétés d’une planification existante pour un Runbook classique, ou utiliser l’applet de commande [Set-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603566.aspx) pour les Runbooks exécutés dans le portail Azure. Pour désactiver la planification, spécifiez la valeur **false** pour le paramètre **IsEnabled**.
 
 Les exemples de commandes suivants montrent comment désactiver une planification pour un Runbook à l’aide d’une applet de commande Azure Resource Manager.
@@ -162,6 +166,9 @@ Les exemples de commandes suivants montrent comment désactiver une planificatio
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour vous familiariser avec les Runbooks dans Azure Automation, consultez [Démarrage d’un Runbook dans Azure Automation](automation-starting-a-runbook.md) 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

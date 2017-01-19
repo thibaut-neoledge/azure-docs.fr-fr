@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e86afaa9813a45c31d7c1d8725995ba5fc73f574
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 89e517a17417475f975dbaa0cee8517145a7c6c3
 
 
 ---
@@ -28,7 +28,7 @@ Cet article explique comment créer rapidement un conteneur Cloud Services à l�
 3. Utilisez l’applet de commande [Add-AzureAccount](https://msdn.microsoft.com/library/dn495128.aspx) pour vous connecter.
 
    > [!NOTE]
-   > Pour obtenir des instructions complémentaires sur l’installation de l’applet de commande Azure PowerShell et sur la connexion à votre abonnement Azure, consultez l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+   > Pour obtenir des instructions complémentaires sur l’installation de l’applet de commande Azure PowerShell et sur la connexion à votre abonnement Azure, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
    >
    >
 4. Créez un conteneur de service cloud Azure vide à l’aide de l’applet de commande **New-AzureService** .
@@ -55,6 +55,6 @@ Get-help New-AzureService
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

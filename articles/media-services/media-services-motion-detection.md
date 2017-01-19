@@ -49,28 +49,28 @@ Vous pouvez utiliser les paramètres suivants :
 
 ### <a name="json-example"></a>Exemple JSON
     {
-      'version': '1.0',
-      'options': {
-        'sensitivityLevel': 'medium',
-        'frameSamplingValue': 1,
-        'detectLightChange': 'False',
+      "version": "1.0",
+      "options": {
+        "sensitivityLevel": "medium",
+        "frameSamplingValue": 1,
+        "detectLightChange": "False",
         "mergeTimeThreshold":
-        '00:00:02',
-        'detectionZones': [
+        "00:00:02",
+        "detectionZones": [
           [
-            {'x': 0, 'y': 0},
-            {'x': 0.5, 'y': 0},
-            {'x': 0, 'y': 1}
+            {"x": 0, "y": 0},
+            {"x": 0.5, "y": 0},
+            {"x": 0, "y": 1}
            ],
           [
-            {'x': 0.3, 'y': 0.3},
-            {'x': 0.55, 'y': 0.3},
-            {'x': 0.8, 'y': 0.3},
-            {'x': 0.8, 'y': 0.55},
-            {'x': 0.8, 'y': 0.8},
-            {'x': 0.55, 'y': 0.8},
-            {'x': 0.3, 'y': 0.8},
-            {'x': 0.3, 'y': 0.55}
+            {"x": 0.3, "y": 0.3},
+            {"x": 0.55, "y": 0.3},
+            {"x": 0.8, "y": 0.3},
+            {"x": 0.8, "y": 0.55},
+            {"x": 0.8, "y": 0.8},
+            {"x": 0.55, "y": 0.8},
+            {"x": 0.3, "y": 0.8},
+            {"x": 0.3, "y": 0.55}
           ]
         ]
       }
@@ -165,28 +165,28 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 2. Créer un travail avec une tâche de détection de mouvement vidéo basée sur un fichier de configuration qui contient la présélection JSON suivante : 
    
         {
-          'Version': '1.0',
-          'Options': {
-            'SensitivityLevel': 'medium',
-            'FrameSamplingValue': 1,
-            'DetectLightChange': 'False',
+          "Version": "1.0",
+          "Options": {
+            "SensitivityLevel": "medium",
+            "FrameSamplingValue": 1,
+            "DetectLightChange": "False",
             "MergeTimeThreshold":
-            '00:00:02',
-            'DetectionZones': [
+            "00:00:02",
+            "DetectionZones": [
               [
-                {'x': 0, 'y': 0},
-                {'x': 0.5, 'y': 0},
-                {'x': 0, 'y': 1}
+                {"x": 0, "y": 0},
+                {"x": 0.5, "y": 0},
+                {"x": 0, "y": 1}
                ],
               [
-                {'x': 0.3, 'y': 0.3},
-                {'x': 0.55, 'y': 0.3},
-                {'x': 0.8, 'y': 0.3},
-                {'x': 0.8, 'y': 0.55},
-                {'x': 0.8, 'y': 0.8},
-                {'x': 0.55, 'y': 0.8},
-                {'x': 0.3, 'y': 0.8},
-                {'x': 0.3, 'y': 0.55}
+                {"x": 0.3, "y": 0.3},
+                {"x": 0.55, "y": 0.3},
+                {"x": 0.8, "y": 0.3},
+                {"x": 0.8, "y": 0.55},
+                {"x": 0.8, "y": 0.8},
+                {"x": 0.55, "y": 0.8},
+                {"x": 0.3, "y": 0.8},
+                {"x": 0.3, "y": 0.55}
               ]
             ]
           }

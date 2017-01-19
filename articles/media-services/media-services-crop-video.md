@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: anilmur;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 770eaaba800ed9847a34d38813ebbda82014a697
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7b0d7469e9c3688092bf7f98962ede0e4d7ef951
 
 
 ---
@@ -29,7 +29,7 @@ Vous disposez en tant qu’entrée d’une vidéo présentant une résolution de
 
 Le rognage dans MES étant une étape de prétraitement, les paramètres de rognage de la présélection d’encodage s’appliquent à la vidéo d’entrée d’origine. L’encodage s’effectue à un stade ultérieur, et les paramètres de largeur/hauteur s’appliquent à la vidéo *prétraitée* et non à la vidéo d’origine. Lorsque vous concevez votre présélection, vous devez effectuer les opérations suivantes : (a) sélectionnez les paramètres de rognage en fonction de la vidéo d’entrée d’origine et (b) sélectionnez vos paramètres d’encodage en fonction de la vidéo rognée. Si vos paramètres d’encodage ne correspondent pas à la vidéo rognée, le résultat ne répondra pas à vos attentes.
 
-La rubrique [suivante](media-services-advanced-encoding-with-mes.md#encoding_with_dotnet) montre comment créer une tâche d’encodage avec MES et comment spécifier une présélection personnalisée pour la tâche d’encodage. 
+La rubrique [suivante](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) montre comment créer une tâche d’encodage avec MES et comment spécifier une présélection personnalisée pour la tâche d’encodage. 
 
 ## <a name="creating-a-custom-preset"></a>Création d’une présélection personnalisée
 Dans l’exemple ci-dessous :
@@ -145,7 +145,6 @@ Consultez les parcours d’apprentissage Azure Media Services pour en savoir plu
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

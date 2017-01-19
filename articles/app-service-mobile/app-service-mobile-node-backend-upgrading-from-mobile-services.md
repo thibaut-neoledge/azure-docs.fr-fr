@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e3173c64af4c2b09ee825cc4fdaaa6da448be60e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 879854c4afc6fa5ac31f8e18dad0164e77f190cd
 
 
 ---
@@ -67,7 +67,7 @@ Vous devez installer [Node] sur votre ordinateur local  ainsi que le package de 
 ```npm i -g azure-mobile-apps-compatibility```
 
 ## <a name="a-nameobtain-ams-scriptsa-obtain-your-azure-mobile-services-scripts"></a><a name="obtain-ams-scripts"></a> Obtenir vos scripts Azure Mobile Services
-* Connectez-vous au [portail Azure].
+* Connectez-vous au [Portail Azure].
 * Dans **Toutes les ressources** ou **App Services**, recherchez votre site Mobile Services.
 * Sur le site, cliquez sur **Outils** -> **Kudu** -> **Accéder** pour ouvrir le site Kudu.
 * Cliquez sur **Console de débogage** -> **PowerShell** pour ouvrir la console de débogage.
@@ -86,14 +86,14 @@ Un backend Azure Mobile Apps structuré est alors créé dans le répertoire `ou
 ## <a name="a-namedeploy-ama-appa-deploy-your-azure-mobile-apps-backend"></a><a name="deploy-ama-app"></a> Déployer votre backend Azure Mobile Apps
 Au cours du déploiement, vous devez effectuer les opérations suivantes :
 
-1. Créer une application Mobile App dans le [portail Azure].
+1. Créer une application Mobile App dans le [Portail Azure].
 2. Exécuter le script `createViews.sql` sur votre base de données connectée.
 3. Lier la base de données liée à votre Mobile Service à votre nouvel App Service.
 4. Lier d’autres ressources (par exemple Notification Hubs) au nouvel App Service.
 5. Déployer le code généré sur votre nouveau site.
 
 ### <a name="create-a-new-mobile-app"></a>Créer une application Mobile App
-1. Connectez-vous au [portail Azure].
+1. Connectez-vous au [Portail Azure].
 2. Cliquez sur **+NOUVEAU** > **Web + Mobile** > **Application mobile**, puis indiquez le nom de votre serveur principal Mobile App.
 3. Pour **Groupe de ressources**, sélectionnez un groupe de ressources existant ou créez-en un (en utilisant le même nom que votre application). 
    
@@ -110,7 +110,7 @@ Vous pouvez exécuter ce script à partir de SQL Server Management Studio ou de 
 ### <a name="link-the-database-to-your-app-service"></a>Lier la base de données à votre App Service
 Liez la base de données existante à votre App Service :
 
-* Dans le [portail Azure], ouvrez votre App Service.
+* Dans le [Portail Azure], ouvrez votre App Service.
 * Sélectionnez **Tous les paramètres** -> **Connexions de données**.
 * Cliquez sur **+ Ajouter**.
 * Dans la liste déroulante, sélectionnez **Base de données SQL**
@@ -129,7 +129,7 @@ Une fois que vous avez un serveur principal Mobile App opérationnel, vous pouve
 L’une des principales modifications entre les versions a trait aux constructeurs qui n’exigent plus de clé d’application. Désormais, vous passez simplement l’URL de votre application mobile. Par exemple, sur les clients .NET, le constructeur `MobileServiceClient` est désormais :
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://contoso.azurewebsites.net", // URL of the Mobile App
+            "https://contoso.azurewebsites.net" // URL of the Mobile App
         );
 
 Pour en savoir plus sur l’installation des nouveaux Kits de développement logiciel (SDK) et l’utilisation de la nouvelle structure, cliquez sur les liens ci-dessous :
@@ -145,40 +145,40 @@ Une fois la nouvelle version cliente prête, essayez-la par rapport à votre pro
 
 <!-- URLs. -->
 
-[portail Azure]: https://portal.azure.com/
-[portail Azure Classic]: https://manage.windowsazure.com/
+[Azure portal]: https://portal.azure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Que sont les applications Mobile Apps ?]: app-service-mobile-value-prop.md
-[J’utilise déjà les sites web et des services mobiles. Comment App Service peut-il m’aider ?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
-[Kit de développement logiciel (SDK) de serveur d’application mobile]: https://www.npmjs.com/package/azure-mobile-apps
-[Créer une application mobile]: app-service-mobile-xamarin-ios-get-started.md
-[Ajouter des notifications Push à votre application mobile]: app-service-mobile-xamarin-ios-get-started-push.md
-[Ajouter l’authentification à votre application mobile]: app-service-mobile-xamarin-ios-get-started-users.md
+[I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
+[Mobile App Server SDK]: https://www.npmjs.com/package/azure-mobile-apps
+[Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
+[Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
+[Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /en-us/documentation/services/scheduler/
-[tâche web]: ../app-service-web/websites-webjobs-resources.md
-[Utilisation du Kit de développement logiciel (SDK) serveur .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Migration à partir de Mobile Services vers une application mobile App Service]: app-service-mobile-migrating-from-mobile-services.md
-[Migration de votre service mobile Azure existant vers App Service]: app-service-mobile-migrating-from-mobile-services.md
+[Web Job]: ../app-service-web/websites-webjobs-resources.md
+[How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [tarification App Service]: https://azure.microsoft.com/en-us/pricing/details/app-service/
-[Présentation du Kit de développement logiciel (SDK) serveur .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [concepts d’authentification]: ../app-service/app-service-authentication-overview.md
 [démarrage rapide de l’authentification]: app-service-mobile-auth.md
 
-[portail Azure]: https://portal.azure.com/
+[Portail Azure]: https://portal.azure.com/
 [OData]: http://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-[exemple basicapp sur GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
-[exemple todo sur GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
-[répertoire d’exemples sur GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
-[exemple de schéma-statique sur GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/static-schema
+[basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
+[todo sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
+[samples directory on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
+[static-schema sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/static-schema
 [QueryJS]: https://github.com/Azure/queryjs
-[Node.js Tools 1.1 pour Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
-[package mssql Node]: https://www.npmjs.com/package/mssql
+[Node.js Tools 1.1 for Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
+[mssql Node.js package]: https://www.npmjs.com/package/mssql
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

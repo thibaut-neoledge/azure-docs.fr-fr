@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: bsiva
 translationtype: Human Translation
-ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
-ms.openlocfilehash: 667f796ff6c411389847f5200ebdc28db1ee1973
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7ccf60c1f83a50b948b9855f2fedefeb75a0393b
 
 
 ---
@@ -77,7 +77,7 @@ Si vous souhaitez déployer le mappage réseau, les conditions suivantes doivent
 * [En savoir plus](site-recovery-network-mapping.md) sur le mappage réseau :
 
 ### <a name="powershell-prerequisites"></a>Conditions préalables pour PowerShell
-Assurez-vous qu’Azure PowerShell est prêt à l’emploi. Si vous utilisez déjà PowerShell, vous devrez passer à la version 0.8.10 ou ultérieure. Pour plus d'informations sur la configuration de PowerShell, consultez la section [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md). Une fois PowerShell configuré, vous pouvez afficher toutes les applets de commande disponibles pour le service [ici](https://msdn.microsoft.com/library/dn850420.aspx).
+Assurez-vous qu’Azure PowerShell est prêt à l’emploi. Si vous utilisez déjà PowerShell, vous devrez passer à la version 0.8.10 ou ultérieure. Pour plus d'informations sur la configuration de PowerShell, consultez la section [Installation et configuration d'Azure PowerShell](/powershell/azureps-cmdlets-docs). Une fois PowerShell configuré, vous pouvez afficher toutes les applets de commande disponibles pour le service [ici](https://msdn.microsoft.com/library/dn850420.aspx).
 
 Pour obtenir des conseils sur l'utilisation des applets de commande, par exemple la façon dont les valeurs de paramètres, les entrées et les sorties sont gérées dans Azure PowerShell, consultez la section [Prise en main des applets de commande Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
 
@@ -408,6 +408,6 @@ Utilisez les commandes suivantes pour suivre l’activité. Vous devez attendre 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

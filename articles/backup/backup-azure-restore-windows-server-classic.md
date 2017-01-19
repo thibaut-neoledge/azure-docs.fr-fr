@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: trinadhk; jimpark; markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8b22f1a70c516ae2b1a9d095670d1b6719590eaa
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8216106cf44016d355885d9117b6ac69127341c0
 
 
 ---
@@ -34,7 +34,8 @@ Cet article présente les étapes requises pour effectuer deux types d’opérat
 
 Dans les deux cas, les données sont récupérées à partir de l’archivage Azure Backup.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT]
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 
 ## <a name="recover-data-to-the-same-machine"></a>Récupération des données sur le même ordinateur
 Si vous avez supprimé accidentellement un fichier et que vous voulez le restaurer sur le même ordinateur (à partir duquel la sauvegarde est effectuée), les étapes suivantes vous aident à récupérer les données.
@@ -120,6 +121,6 @@ Les termes ci-après sont utilisés pour cette procédure :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

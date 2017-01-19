@@ -16,15 +16,16 @@ ms.topic: article
 ms.date: 07/25/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: ca3993ef2cead2c38c09e2a7bceacadc7007834e
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 5d08c629fc6e94b43b73c74d8485f6aee695cf4a
 
 
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2012-r2"></a>Installation de MongoDB sur une machine virtuelle créée avec le modèle de déploiement classique exécutant Windows Server 2012 R2
 [MySQL](http://www.mysql.com) est une base de données SQL open source connue. Ce didacticiel vous montre comment installer et exécuter la version Community de MySQL 5.6.23 comme serveur MySQL sur une machine virtuelle s’exécutant sous Windows Server 2012 R2. Pour obtenir des instructions sur l’installation de MySQL sur Linux, consultez [Installation de MySQL sur Azure](virtual-machines-linux-mysql-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 
 ## <a name="create-a-virtual-machine-running-windows-server-2012-r2"></a>Création d'une machine virtuelle s’exécutant sous Windows Server 2012 R2
 Si vous ne disposez pas d’une machine virtuelle s’exécutant sous Windows Server 2012 R2, vous pouvez utiliser ce [didacticiel](virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) pour créer la machine virtuelle. 
@@ -119,6 +120,6 @@ Pour en savoir plus sur l'exécution de MySQL, consultez la [Documentation de My
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

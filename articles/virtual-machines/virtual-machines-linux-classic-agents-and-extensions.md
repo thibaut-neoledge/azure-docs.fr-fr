@@ -16,21 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: aa62c48a8e2de2082928f2d3fb9429925fdda207
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 0a03dbdc8858e2fd3e8b9bad468e66bc250229a6
 
 
 ---
 # <a name="about-the-virtual-machine-agent-and-extensions"></a>À propos de l'agent de machine virtuelle et des extensions
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Pour plus d’informations sur les agents et les extensions de machines virtuelles avec Resource Manager, suivez [ce lien](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour plus d’informations sur les agents et les extensions de machines virtuelles avec Resource Manager, suivez [ce lien](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-agents-and-extensions](../../includes/virtual-machines-common-classic-agents-and-extensions.md)]
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

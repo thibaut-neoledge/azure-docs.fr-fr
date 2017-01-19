@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 7d06def30876877626ceca1dd8c362d0ce519856
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cad8626d920f51eba94da4a775c346488a2e17ec
 
 
 ---
@@ -521,6 +521,6 @@ En savoir plus sur le fonctionnement des [tâches](cloud-services-startup-tasks.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

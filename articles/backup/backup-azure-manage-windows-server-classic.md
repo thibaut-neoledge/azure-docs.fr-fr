@@ -1,12 +1,12 @@
 ---
-title: Gérer les serveurs et les coffres Azure Backup à l’aide du modèle de déploiement classique | Microsoft Docs
-description: Ce didacticiel vous apprend à gérer les serveurs et les coffres Azure Backup.
+title: "Gérer les serveurs et les coffres Azure Backup à l’aide du modèle de déploiement classique | Microsoft Docs"
+description: "Ce didacticiel vous apprend à gérer les serveurs et les coffres Azure Backup."
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: markgalioto
 manager: jwhit
 editor: tysonn
-
+ms.assetid: f175eb12-0905-437f-91fd-eaee03ab6e81
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: jimpark;markgal
+translationtype: Human Translation
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 41d02237708517c782d64aeadcafd053fcd6523d
+
 
 ---
 # <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>Gérer les serveurs et les coffres Azure Backup à l’aide du modèle de déploiement classique
@@ -25,9 +29,8 @@ ms.author: jimpark;markgal
 
 Cet article offre une vue d’ensemble des tâches de gestion des sauvegardes disponibles via le portail Azure Classic et l’agent Microsoft Azure Backup.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Modèle de déploiement Resource Manager.
+> [!IMPORTANT]
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 
 ## <a name="management-portal-tasks"></a>Tâches du portail de gestion
 1. Connectez-vous au [portail de gestion](https://manage.windowsazure.com).
@@ -47,7 +50,7 @@ Sélectionnez **Tableau de bord** pour afficher l’aperçu de l’utilisation d
 * Le stockage total consommé dans Azure
 * L’état des travaux récents
 
-En bas du tableau de bord, vous pouvez réaliser les tâches suivantes :
+En bas du tableau de bord, vous pouvez réaliser les tâches suivantes :
 
 * **Gérer un certificat** : si un certificat a été utilisé pour enregistrer le serveur, utilisez cette tâche pour mettre à jour le certificat. Si vous utilisez des informations d'identification de coffre, n'utilisiez pas **Manage certificate**.
 * **Supprimer** : permet de supprimer le coffre de sauvegarde actuel. Si un coffre de sauvegarde n'est plus utilisé, vous pouvez le supprimer pour libérer de l'espace de stockage. **Supprimer** est disponible uniquement une fois que tous les serveurs inscrits ont été supprimés du coffre.
@@ -61,7 +64,7 @@ Sélectionnez **Éléments inscrits** pour afficher le nom des serveurs inscrits
 
 Le filtre **Type** permet de filtrer les valeurs par défaut sur une machine virtuelle Azure. Sélectionnez **Windows Server** dans le menu déroulant pour afficher le nom des serveurs inscrits auprès de ce coffre.
 
-Exécutez ensuite les tâches suivantes :
+Exécutez ensuite les tâches suivantes :
 
 * **Autoriser la réinscription** : quand cette option est sélectionnée pour un serveur, vous pouvez utiliser **l’Assistant Inscription** dans l’agent de Sauvegarde Microsoft Azure local pour inscrire à nouveau le serveur auprès du coffre de sauvegarde. Vous devrez peut-être effectuer cette nouvelle inscription en raison d'une erreur dans le certificat ou de la nécessité de régénérer un serveur.
 * **Supprimer** : permet de supprimer un serveur du coffre de sauvegarde. Toutes les données stockées associées au serveur sont immédiatement supprimées.
@@ -120,7 +123,7 @@ Dans les **Actions** disponibles à droite de la console de l’agent de sauvega
     ![Sélectionner les éléments à sauvegarder](./media/backup-azure-manage-windows-server-classic/add-items-modify.png)
 5. Spécifiez la **planification de sauvegarde**, puis cliquez sur **Suivant**.
    
-    Vous pouvez planifier des sauvegardes quotidiennes (au maximum 3 fois par jour) ou hebdomadaires.
+    Vous pouvez planifier des sauvegardes quotidiennes (au maximum 3 fois par jour) ou hebdomadaires.
    
     ![Spécifier votre planification de sauvegarde](./media/backup-azure-manage-windows-server-classic/specify-backup-schedule-modify-close.png)
    
@@ -186,10 +189,13 @@ Pour activer la limitation :
     ![Confirmation de l’exclusion](./media/backup-azure-manage-windows-server-classic/finish-exclusions.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Restaurer un serveur Windows Server ou un client Windows à partir d’Azure](backup-azure-restore-windows-server.md)
+* [Restaurer un serveur Windows Server ou un client Windows à partir d’Azure](backup-azure-restore-windows-server.md)
 * Pour en savoir plus sur Azure Backup, consultez la [vue d’ensemble d’Azure Backup](backup-introduction-to-azure-backup.md)
 * Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO1-->
 
 

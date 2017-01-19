@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a85dc1388701c750af48249c818a5227d73e77e6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 146aa7706b5ff2a613dd94c75f3ad447ace82834
 
 
 ---
@@ -47,9 +47,11 @@ Les valeurs de propriété peuvent contenir des chaînes littérales et des [exp
 ## <a name="to-use-a-property"></a>Pour utiliser une propriété
 Pour utiliser une propriété dans une stratégie, placez le nom de la propriété dans une paire d’accolades telle que `{{ContosoHeader}}`, comme illustré dans l’exemple suivant.
 
-    <set-header name="{{ContosoHeader}}" exists-action="override">
-      <value>{{ContosoHeaderValue}}</value>
-    </set-header>
+```xml
+<set-header name="{{ContosoHeader}}" exists-action="override">
+  <value>{{ContosoHeaderValue}}</value>
+</set-header>
+```
 
 Dans cet exemple, `ContosoHeader` est utilisé comme nom d’en-tête d’une stratégie `set-header`, et `ContosoHeaderValue` comme valeur de cet en-tête. Lorsque cette stratégie est évaluée lors d’une demande ou d’une réponse à la passerelle Gestion des API, `{{ContosoHeader}}` et `{{ContosoHeaderValue}}` sont remplacés par leurs valeurs de propriété respectives.
 
@@ -57,9 +59,11 @@ Les propriétés peuvent être utilisées en tant qu’attribut complet ou valeu
 
 Les propriétés peuvent également contenir des expressions de stratégie. Dans l’exemple suivant, `ExpressionProperty` est utilisé.
 
-    <set-header name="CustomHeader" exists-action="override">
-        <value>{{ExpressionProperty}}</value>
-    </set-header>
+```xml
+<set-header name="CustomHeader" exists-action="override">
+    <value>{{ExpressionProperty}}</value>
+</set-header>
+```
 
 Lorsque cette stratégie est évaluée, `{{ExpressionProperty}}` est remplacé par sa valeur : `@(DateTime.Now.ToString())`. Étant donné que la valeur est une expression de stratégie, l’expression est évaluée et la stratégie poursuit son exécution.
 
@@ -151,6 +155,6 @@ Pour filtrer la liste des propriétés en fonction des valeurs de balise, entrez
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
