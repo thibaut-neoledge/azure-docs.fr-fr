@@ -13,11 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 01/05/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 32afda1861c2c558f8bb9ffedf897cd8d1df0b5c
+ms.sourcegitcommit: aec8fd057bd31fc933d19996567437b2a897623b
+ms.openlocfilehash: 889c9a53e3ce454ee9ac9fc0f24b2ff8244e87c6
 
 
 ---
@@ -54,7 +54,7 @@ Avant de poursuivre, voici quelques points que vous devez comprendre et prendre 
 Dans cette section, vous allez suivre une procédure qui vous permettra de créer un compte Azure Automation à partir du portail Azure.  Cette procédure permet de créer aussi bien un compte d’identification standard qu’un compte d’identification Classic.  
 
 > [!NOTE]
-> Pour effectuer cette procédure, vous *devez* être membre du rôle Administrateurs des abonnements et coadministrateur de l’abonnement, ce qui permet d’accéder à l’abonnement de l’utilisateur.  Vous devez également ajouter l’utilisateur en tant qu’utilisateur au domaine Active Directory par défaut de cet abonnement. Il est inutile d’attribuer le compte à un rôle privilégié.
+> Pour effectuer cette procédure, vous devez posséder le rôle Administrateurs de services ou être coadministrateur de l’abonnement, ce qui permet d’accéder à l’abonnement de l’utilisateur. Vous devez également ajouter l’utilisateur en tant qu’utilisateur au domaine Active Directory par défaut de cet abonnement. Il est inutile d’attribuer le compte à un rôle privilégié. Les utilisateurs qui ne sont pas membres du domaine Active Directory de l’abonnement avant de recevoir le rôle Coadministrateur de l’abonnement seront ajoutés à Active Directory en tant qu’invités et verront l’avertissement « Vous ne disposez pas des autorisations nécessaires pour créer... » dans le panneau **Ajouter un compte Automation**. Les utilisateurs qui ont d’abord reçu le rôle Coadministrateur peuvent être supprimés des abonnements Active Directory puis rajoutés pour en faire des utilisateurs complets dans Active Directory. Pour vérifier si tel est le cas, dans le volet **Azure Active Directory** du portail Azure, sélectionnez **Utilisateurs et groupes** et **Tous les utilisateurs**, choisissez l’utilisateur concerné, puis sélectionnez **Profil**.  La valeur de l’attribut **Type d’utilisateur** sous le profil de l’utilisateur ne doit pas être **Invité**.  
 > 
 > 
 
@@ -394,6 +394,6 @@ Vous pouvez utiliser l’exemple de code mis à jour ci-dessous, extrait de l’
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

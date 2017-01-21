@@ -1,6 +1,6 @@
 ---
 title: Prise en main de Microsoft Power BI Embedded
-description: "Power BI incorporée, ajoutez des rapports interactifs Power BI dans votre application business intelligence"
+description: "Power BI Embedded, ajout de rapports Power BI interactifs dans votre application décisionnelle"
 services: power-bi-embedded
 documentationcenter: 
 author: guyinacube
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 12/19/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: f1b3464526b99cad1beb8f7604887a4cc32b0706
-ms.openlocfilehash: a8d787acb4bc3f6f8a7cd408d6f5ac4313a2121f
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: cedf69c6e50470e9d16d8e1e361bb51eb8abed72
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: a8d787acb4bc3f6f8a7cd408d6f5ac4313a2121f
 
 Les ressources de **Microsoft Power BI Embedded** sont approvisionnées via les [API Azure ARM](https://msdn.microsoft.com/library/mt712306.aspx). Dans ce cas, la ressource que vous approvisionnez constitue une **collection d’espaces de travail Power BI**.
 
-![](media\\power-bi-embedded-get-started\\introduction.png)
+![](media/power-bi-embedded-get-started/introduction.png)
 
 ## <a name="create-a-workspace-collection"></a>Création d’une collection d’espaces de travail
 Une **collection d’espaces de travail** est la ressource Azure de premier niveau, qui contient les données intégrées à votre application. Pour créer une **collection d’espaces de travail** , deux possibilités s’offrent à vous :
@@ -39,16 +39,16 @@ Nous allons voir comment créer une **collection d’espaces de travail** à l�
 1. Ouvrez le **portail Azure**à l’adresse [http://portal.azure.com](http://portal.azure.com)et connectez-vous-y.
 2. Cliquez sur **+ Nouveau** dans le panneau supérieur.
    
-   ![](media\\power-bi-embedded-get-started\\create-workspace-1.png)
+   ![](media/power-bi-embedded-get-started/create-workspace-1.png)
 3. Sous **Données + analyse**, cliquez sur **Power BI Embedded**.
 4. Dans le **panneau Création**, entrez les informations requises. Pour connaître la **tarification**, consultez la page [Tarification de Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
    
-   ![](media\\power-bi-embedded-get-started\\create-workspace-2.png)
+   ![](media/power-bi-embedded-get-started/create-workspace-2.png)
 5. Cliquez sur **Create**.
 
 L’approvisionnement de la **collection d’espaces de travail** prend quelques instants. Une fois qu’il est terminé, le **panneau Collection d’espaces de travail**s’affiche.
 
-   ![](media\\power-bi-embedded-get-started\\create-workspace-3.png)
+   ![](media/power-bi-embedded-get-started/create-workspace-3.png)
 
 Le **panneau Création** contient les informations nécessaires pour appeler les API qui créent des espaces de travail et y déploient des contenus.
 
@@ -57,11 +57,11 @@ Le **panneau Création** contient les informations nécessaires pour appeler les
 ## <a name="view-power-bi-api-access-keys"></a>Affichage des touches d'accès rapide aux API de Power BI
 Les **touches d’accès rapide**sont l’un des éléments d’informations les plus importants pour appeler les API REST de Power BI. Elles sont utilisées pour générer les **jetons d’application** qui servent à authentifier les demandes d’API. Pour afficher vos **touches d’accès rapide**, cliquez sur **Touches d’accès rapide** dans le **panneau Paramètres**. Pour en savoir plus sur les **jetons d’application**, voir [Authentification et autorisation avec Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
-   ![](media\\power-bi-embedded-get-started\\access-keys.png)
+   ![](media/power-bi-embedded-get-started/access-keys.png)
 
 Vous allez constater que vous disposez de deux touches.
 
-   ![](media\\power-bi-embedded-get-started\\access-keys-2.png)
+   ![](media/power-bi-embedded-get-started/access-keys-2.png)
 
 Copiez-les et stockez-les de manière sécurisée dans votre application. Il est très important de considérer ces touches d’accès rapide comme un mot de passe, car elles permettent d’accéder à l’ensemble du contenu de votre **collection d’espaces de travail**.
 

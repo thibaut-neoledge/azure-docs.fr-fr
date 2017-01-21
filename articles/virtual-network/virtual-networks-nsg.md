@@ -1,6 +1,6 @@
 ---
-title: "Présentation du groupe de sécurité réseau"
-description: "Obtenez de plus amples informations sur le pare-feu distribué dans Azure à l’aide des groupes de sécurité réseau, et apprenez à utiliser les groupes de sécurité réseau pour isoler et contrôler le flux de trafic au sein de vos réseaux virtuels."
+title: "Groupes de sécurité réseau | Microsoft Docs"
+description: "Découvrez comment isoler et contrôler le flux de trafic au sein des réseaux virtuels utilisant le pare-feu distribué dans Azure à l’aide des groupes de sécurité réseau."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,13 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 92ba745915c4b496ac6b0ff3b3e25f6611f5707c
+ms.sourcegitcommit: 1de0827c01c772a4298b7b568363e89f08910ff7
+ms.openlocfilehash: 46dce57f509872580c57bb1d8d93af51623211ac
 
 
 ---
-# <a name="what-is-a-network-security-group-nsg"></a>Présentation du groupe de sécurité réseau
+# <a name="network-security-groups"></a>groupes de sécurité réseau ;
+
 Un groupe de sécurité réseau (NSG) contient une liste des règles de liste de contrôle d’accès (ACL) qui autorise ou rejette les instances de machine virtuelle dans un réseau virtuel. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des instances de machine virtuelle au sein de ce sous-réseau. Lorsqu’un groupe de sécurité réseau est associé à un sous-réseau, les règles ACL s’appliquent à toutes les instances de machine virtuelle présentes dans ce sous-réseau. En outre, le trafic vers un ordinateur virtuel individuel peut être limité par l’association d’un groupe de sécurité réseau directement à la machine virtuelle.
+
+> [!NOTE]
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article traite des deux modèles, mais Microsoft recommande d’utiliser le modèle Resource Manager dans la plupart des nouveaux déploiements.
 
 ## <a name="nsg-resource"></a>Ressource du groupe de sécurité réseau
 Les groupes de sécurité réseau peuvent présenter les propriétés suivantes.
@@ -36,10 +40,9 @@ Les groupes de sécurité réseau peuvent présenter les propriétés suivantes.
 > [!NOTE]
 > Les contrôles d’accès réseau basés sur le point de terminaison et les groupes de sécurité réseau ne sont pas pris en charge sur la même instance de machine virtuelle. Si vous souhaitez utiliser un groupe de sécurité réseau et une ACL de point de terminaison déjà en place, supprimez d'abord l’ACL de point de terminaison. Pour en savoir plus sur cette procédure, consultez [Gestion des listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell](virtual-networks-acl-powershell.md).
 > 
-> 
 
 ### <a name="nsg-rules"></a>règles de groupe de sécurité réseau
-Les règles de groupe de sécurité réseau contiennent les propriétés suivantes.
+Les règles de groupe de sécurité réseau contiennent les propriétés suivantes :
 
 | Propriété | Description | Contraintes | Considérations |
 | --- | --- | --- | --- |
@@ -90,55 +93,41 @@ Comme illustré par les règles par défaut ci-dessous, le trafic d’origine et
 ## <a name="associating-nsgs"></a>Association de groupe de sécurité réseau
 Vous pouvez associer un groupe de sécurité réseau aux machines virtuelles, aux cartes réseau et sous-réseau, selon le modèle de déploiement que vous utilisez.
 
-[!INCLUDE [learn-about-deployment-models-both-include.md](../../includes/learn-about-deployment-models-both-include.md)]
-
 * **Association d’un groupe de sécurité réseau à une machine virtuelle (uniquement pour les déploiements classiques).**  Lorsque vous associez un groupe de sécurité réseau à une machine virtuelle, les règles d’accès réseau du groupe de sécurité réseau sont appliquées à tout le trafic à destination et en provenance de la machine virtuelle. 
 * **Association d’un groupe de sécurité réseau à une carte réseau (uniquement pour les déploiements de gestionnaire de ressources).**  Lorsque vous associez un groupe de sécurité réseau à une carte réseau, les règles d’accès réseau du groupe de sécurité réseau sont appliquées uniquement à cette carte d’interface réseau. Cela signifie que dans une machine virtuelle dotée de plusieurs cartes d’interface réseau, si un groupe de sécurité réseau est appliqué à une seule carte d’interface réseau, il n’affecte pas le trafic lié à d’autres cartes d’interface réseau. 
 * **Association d’un groupe de sécurité réseau à un sous-réseau et une machine virtuelle**. Lorsqu’un groupe de sécurité réseau est affecté à un sous-réseau, les règles d’accès réseau au sein du groupe de sécurité réseau sont appliquées à toutes les ressources IaaS et PaaS dans le sous-réseau. 
 
 Vous pouvez associer différents groupes de sécurité réseau à une machine virtuelle (ou une carte réseau, selon le modèle de déploiement) et le sous-réseau auquel une carte réseau ou la machine virtuelle est liée. Lorsque cela se produit, toutes les règles d’accès réseau sont appliquées au trafic, par ordre de priorité dans chaque groupe de sécurité réseau, dans l’ordre suivant :
 
-* **Trafic entrant**
-  
-  1. groupe de sécurité réseau appliqué au sous-réseau 
-     
-     Si le groupe de sécurité réseau du sous-réseau dispose d’une règle de correspondance pour refuser le trafic, le paquet est abandonné ici.
-  2. groupe de sécurité réseau appliqué à la carte réseau (Gestionnaire de ressources) ou machine virtuelle (classique). 
-     
-     Si la machine virtuelle\groupe de sécurité réseau appliqué à la carte d’interface réseau dispose d’une règle de correspondance pour refuser le trafic, le paquet est abandonné au niveau de la machine virtuelle\carte d’interface réseau, bien que le groupe de sécurité réseau du sous-réseau dispose d’une règle de correspondance pour autoriser le trafic.
-* **Trafic sortant**
-  
-  1. groupe de sécurité réseau appliqué à la carte réseau (Gestionnaire de ressources) ou machine virtuelle (classique). 
-     
-     Si la machine virtuelle\groupe de sécurité réseau appliqué à la carte d’interface réseau dispose d’une règle de correspondance pour refuser le trafic, le paquet est abandonné ici.
-  2. groupe de sécurité réseau appliqué au sous-réseau
-     
-     Si le groupe de sécurité réseau du sous-réseau dispose d’une règle de correspondance pour refuser le trafic, le paquet est abandonné ici, bien que la machine virtuelle\groupe de sécurité réseau appliqué à la carte d’interface réseau dispose d’une règle de correspondance pour autoriser le trafic.
-     
-      ![ACL de groupe de sécurité réseau](./media/virtual-network-nsg-overview/figure2.png)
+- **Trafic entrant**
+
+  1. **Groupe de sécurité réseau appliqué au sous-réseau :** si le groupe de sécurité réseau du sous-réseau dispose d’une règle de correspondance pour refuser le trafic, le paquet est abandonné.
+
+  2. **Groupe de sécurité réseau appliqué à la carte d’interface réseau** (Resource Manager) ou à la machine virtuelle (classique) : si le groupe de sécurité réseau appliqué à la carte d’interface réseau\machine virtuelle dispose d’une règle de correspondance pour refuser le trafic, le paquet est abandonné au niveau de la machine virtuelle\carte d’interface réseau, bien que le groupe de sécurité réseau du sous-réseau dispose d’une règle de correspondance pour autoriser le trafic.
+
+- **Trafic sortant**
+
+  1. **Groupe de sécurité réseau appliqué à la carte d’interface réseau** (Resource Manager) ou à la machine virtuelle (classique) : si le groupe de sécurité réseau appliqué à la carte d’interface réseau\machine virtuelle dispose d’une règle de correspondance pour refuser le trafic, le paquet est abandonné.
+
+  2. **Groupe de sécurité réseau appliqué au sous-réseau :** si le groupe de sécurité réseau du sous-réseau dispose d’une règle de correspondance pour refuser le trafic, le paquet est abandonné ici, bien que le groupe de sécurité réseau appliqué à la carte d’interface réseau\machine virtuelle dispose d’une règle de correspondance pour autoriser le trafic.
 
 > [!NOTE]
 > Bien que vous ne puissiez associer qu’un seul groupe de sécurité réseau à un sous-réseau, une machine virtuelle ou une carte d’interface réseau, vous pouvez associer le même groupe de sécurité réseau au nombre de ressources que vous souhaitez.
-> 
-> 
+>
 
 ## <a name="implementation"></a>Implémentation
 Vous pouvez implémenter des groupes de sécurité réseau dans les modèles de déploiement standard ou du Gestionnaire de ressources à l’aide des différents outils répertoriés ci-dessous.
 
 | Outil de déploiement | Classique | Gestionnaire de ressources |
 | --- | --- | --- |
-| Portail classique |![Non](./media/virtual-network-nsg-overview/red.png) |![Non](./media/virtual-network-nsg-overview/red.png) |
-| Portail Azure |![Oui](./media/virtual-network-nsg-overview/green.png) |[![Oui][vert]](virtual-networks-create-nsg-arm-pportal.md) |
-| PowerShell |[![Oui][vert]](virtual-networks-create-nsg-classic-ps.md) |[![Oui][vert]](virtual-networks-create-nsg-arm-ps.md) |
-| Interface de ligne de commande Azure |[![Oui][vert]](virtual-networks-create-nsg-classic-cli.md) |[![Oui][vert]](virtual-networks-create-nsg-arm-cli.md) |
-| Modèle ARM |![Non](./media/virtual-network-nsg-overview/red.png) |[![Oui][vert]](virtual-networks-create-nsg-arm-template.md) |
-
-| **Clé** | ![Oui](./media/virtual-network-nsg-overview/green.png)  Pris en charge. | ![Non](./media/virtual-network-nsg-overview/red.png)  Non pris en charge. |
-| --- | --- | --- |
-|  | | |
+| Portail classique | Non  | Non |
+| Portail Azure   | Oui | [Oui](virtual-networks-create-nsg-arm-pportal.md) |
+| PowerShell     | [Oui](virtual-networks-create-nsg-classic-ps.md) | [Oui](virtual-networks-create-nsg-arm-ps.md) |
+| Interface de ligne de commande Azure      | [Oui](virtual-networks-create-nsg-classic-cli.md) | [Oui](virtual-networks-create-nsg-arm-cli.md) |
+| Modèle ARM   | Non  | [Oui](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>Planification
-Avant d’implémenter des groupes de sécurité réseau, vous devez répondre aux questions ci-dessous :    
+Avant d’implémenter des groupes de sécurité réseau, vous devez répondre aux questions suivantes :
 
 1. Quels sont les types de ressources depuis ou vers lesquels vous voulez filtrer le trafic (cartes réseau dans la même machine virtuelle, machines virtuelles ou autres ressources telles que les services de cloud ou des environnements de service d’application connectées au même sous-réseau, ou entre les ressources connectées à différents sous-réseaux) ?
 2. Les ressources vers ou depuis lesquelles vous voulez filtre le trafic à partir de sous-réseau dans les réseaux virtuels existants sont-elles connectées à des réseaux dans des réseaux virtuels existants ou seront-elles connectées à de nouveaux réseaux virtuels ou sous-réseaux ?
@@ -270,12 +259,8 @@ Les configurations requises 1 à 6 (à l’exception de 3) ci-dessus sont limit
 * [Déploiement des groupes de sécurité réseau dans Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
 * [Gestion des journaux de groupe de sécurité réseau](virtual-network-nsg-manage-log.md).
 
-[vert]: ./media/virtual-network-nsg-overview/green.png
-[jaune]: ./media/virtual-network-nsg-overview/yellow.png
-[rouge]: ./media/virtual-network-nsg-overview/red.png
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

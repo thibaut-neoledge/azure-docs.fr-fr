@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 75bf523679c8d8ad6fbe4a8aa8a561d03008e59b
-ms.openlocfilehash: c7cb4b872723e07b720c87ecef9d9d8f136c25eb
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
 
 
 ---
@@ -156,11 +156,11 @@ Nous continuons d’ajouter des fonctionnalités à la version 12 (V12). Par co
 - Consultez la page [Vue d’ensemble des bases de données SQL](sql-database-overview.md) pour obtenir une vue d’ensemble des bases de données Azure SQL.
 - Pour plus d’informations sur la prise en charge de Transact-SQL et les différences, consultez la page [Différences dans le langage Transact-SQL pour Azure SQL Database](sql-database-transact-sql-information.md).
 - Pour plus d’informations sur les quotas de ressources spécifiques et les limitations basées sur votre **niveau de service**. Pour obtenir une présentation des niveaux de service, consultez [Niveaux de service de Base de données SQL](sql-database-service-tiers.md).
-- Pour des informations sur la sécurité, consultez [Instructions et limitations de sécurité dans la base de données SQL Azure](sql-database-security-guidelines.md).
+- Pour une vue d’ensemble de la sécurité, consultez [Vue d’ensemble de la sécurité de base de données SQL Azure](sql-database-security-overview.md).
 - Pour plus d'informations sur la disponibilité des pilotes et sur la prise en charge de la base de données SQL, consultez [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md).
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 11/18/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: ec3384dd68a28117cc00de20e4c08ad0ccd67bad
-ms.openlocfilehash: a7516a98cbe25f9ed458131083a18899d3d50004
+ms.sourcegitcommit: b9fda8b5f4ffa6679cc8ca9696a4c51084c80645
+ms.openlocfilehash: 7c3d73ca6f4f567247ec9796199e68f764a52808
 
 
 ---
@@ -80,7 +80,7 @@ Dans cette section, vous allez créer un cluster HDInsight version 3.5 (Storm ve
      > * [Utilisation de SSH avec Hadoop Linux sur HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
      > * [Utilisation de SSH (PuTTY) avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-3. Sélectionnez __J’accepte les termes et conditions mentionnés ci-dessus__**OK**, puis choisissez __Épingler au tableau de bord__.
+3. Sélectionnez __J’accepte les termes et conditions mentionnés ci-dessus__, cliquez sur **OK**, puis choisissez __Épingler au tableau de bord__.
 
 6. Cliquez sur **Acheter**. Vous verrez une nouvelle vignette intitulée Envoi du déploiement pour Déploiement de modèle. La création du cluster prend environ 20 minutes.
 
