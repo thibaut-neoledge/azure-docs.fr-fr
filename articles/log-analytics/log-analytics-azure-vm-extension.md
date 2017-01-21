@@ -161,7 +161,7 @@ Voici un exemple de modèle Azure Resource Manager utilisé pour déployer une m
     "workspaceName": {
       "type": "string",
       "metadata": {
-         "description": "OMD workspace name"
+         "description": "OMS workspace name"
       }
     },
     "windowsOSVersion": {

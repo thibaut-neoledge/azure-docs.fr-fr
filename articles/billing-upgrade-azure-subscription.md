@@ -3,8 +3,8 @@ title: "Mise à niveau de votre abonnement Azure gratuit pour le paiement à l�
 description: "Décrit le processus et la configuration requise pour la mise à niveau d’un abonnement gratuit vers le paiement à l’utilisation"
 services: 
 documentationcenter: 
-author: jlian
-manager: mbaldwin
+author: adpick
+manager: adpick
 editor: 
 tags: billing
 ms.assetid: 0b4ac8f3-3df0-478a-8a07-b18b40f0cf5f
