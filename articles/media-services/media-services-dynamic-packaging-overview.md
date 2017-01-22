@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8de073bbd9da8cd722eb0ebdb7140dbd15509fe6
+ms.sourcegitcommit: 0c77ee0f612c1cbef551a129a22cf3f125e6f29d
+ms.openlocfilehash: 004cea5afb7ed6853043841c2c820b49d8a31584
 
 
 ---
@@ -34,10 +34,6 @@ Le diagramme suivant illustre le flux d'empaquetage dynamique.
 
 ![Encodage dynamique](./media/media-services-dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
-> [!NOTE]
-> Pour tirer parti de l'empaquetage dynamique, vous devez d'abord obtenir au moins une unité de diffusion en continu à la demande pour le point de terminaison de diffusion en continu à partir duquel vous envisagez de distribuer votre contenu. Pour plus d'informations, consultez [Mise à l'échelle de Media Services](media-services-portal-manage-streaming-endpoints.md).
-> 
-> 
 
 ## <a name="common-scenario"></a>Scénario courant
 1. Téléchargez un fichier d'entrée (appelé fichier mezzanine). Par exemple, H.264, MP4 ou WMV (pour obtenir la liste des formats pris en charge, consultez [Formats pris en charge par Media Encoder Standard](media-services-media-encoder-standard-formats.md)).
@@ -67,6 +63,6 @@ Les formats de fichiers sources suivants ne sont pas pris en charge par l'empaqu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

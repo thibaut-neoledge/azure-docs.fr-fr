@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/22/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: ee70cb290f8da874ff378ded97430acd3a0fc1cd
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 01a554815a48cf1b81037eaa2f55bc4f07838721
 
 
 ---
@@ -167,7 +167,7 @@ Pour créer le groupe de ressources pour l’environnement de préproduction, ta
     azure group create "TestApp1-Pre-Production" "Central US"
 
 ### <a name="powershell"></a>PowerShell
-Vérifiez qu’Azure PowerShell 1.01 ou version ultérieure est installé sur un ordinateur Windows et que votre [compte Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md) (également appelé compte professionnel ou scolaire) est bien associé à votre abonnement Azure.comme indiqué dans l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). À partir d’une invite de commande PowerShell, tapez la commande suivante pour créer le groupe de ressources pour l’environnement de développement.
+Vérifiez qu’Azure PowerShell 1.01 ou version ultérieure est installé sur un ordinateur Windows et que votre [compte Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md) (également appelé compte professionnel ou scolaire) est bien associé à votre abonnement Azure.comme indiqué dans l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs). À partir d’une invite de commande PowerShell, tapez la commande suivante pour créer le groupe de ressources pour l’environnement de développement.
 
     New-AzureRmResourceGroup -Name TestApp1-Development -Location "Central US"
 
@@ -235,7 +235,7 @@ Après avoir affiché un message « Waiting for deployment to complete » pend
     data:    requestedServiceObjectiveName  String        S0
     info:    group deployment create command OKx
 
-Si la commande échoue, résolvez tous les messages d’erreur et réessayez.  Les problèmes courants sont l’utilisation de valeurs de paramètres qui ne respectent pas les contraintes d’affectation de noms des ressources Azure. D'autres conseils de dépannage sont disponibles dans l'article [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](resource-manager-troubleshoot-deployments-cli.md) .
+Si la commande échoue, résolvez tous les messages d’erreur et réessayez.  Les problèmes courants sont l’utilisation de valeurs de paramètres qui ne respectent pas les contraintes d’affectation de noms des ressources Azure. D'autres conseils de dépannage sont disponibles dans l'article [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](resource-manager-common-deployment-errors.md) .
 
 À partir de la ligne de commande de l’interface de ligne de commande, tapez la commande ci-dessous pour déployer des ressources dans le groupe de ressources créé pour l’environnement de test, en remplaçant [chemin d’accès] par le chemin d’accès aux fichiers que vous avez enregistrés dans les étapes précédentes.
 
@@ -278,7 +278,7 @@ Une fois que vous voyez un curseur clignotant pendant quelques minutes, la comma
 
     Outputs           :
 
-  Si la commande échoue, résolvez tous les messages d’erreur et réessayez.  Les problèmes courants sont l’utilisation de valeurs de paramètres qui ne respectent pas les contraintes d’affectation de noms des ressources Azure. D'autres conseils de dépannage sont disponibles dans l'article [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](resource-manager-troubleshoot-deployments-powershell.md) .
+  Si la commande échoue, résolvez tous les messages d’erreur et réessayez.  Les problèmes courants sont l’utilisation de valeurs de paramètres qui ne respectent pas les contraintes d’affectation de noms des ressources Azure. D'autres conseils de dépannage sont disponibles dans l'article [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](resource-manager-common-deployment-errors.md) .
 
   À partir d’une invite de commande PowerShell, tapez la commande ci-dessous pour déployer des ressources dans le groupe de ressources créé pour l’environnement de test, en remplaçant [chemin d’accès] par le chemin d’accès aux fichiers que vous avez enregistrés dans les étapes précédentes.
 
@@ -364,6 +364,6 @@ Maintenant que vous avez pu constater comme il est facile de créer, de gérer e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

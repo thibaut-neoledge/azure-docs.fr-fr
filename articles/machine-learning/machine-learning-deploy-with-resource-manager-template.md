@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: ahgyger
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 72ec470c5539ad2e239836aa91d7afe43341b19a
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: e0a06c070159a87932cda4b31d9363e54c008a35
 
 
 ---
@@ -139,7 +139,7 @@ Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |
 Après la configuration de l’espace de travail, vous pouvez également automatiser de nombreuses tâches Azure Machine Learning Studio à l’aide du [Module PowerShell pour Azure Machine Learning](http://aka.ms/amlps).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus, consultez [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md). 
+* Pour en savoir plus, consultez [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). 
 * Parcourez le [Référentiel de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates). 
 * Regardez cette vidéo sur [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
 
@@ -152,6 +152,6 @@ Après la configuration de l’espace de travail, vous pouvez également automat
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

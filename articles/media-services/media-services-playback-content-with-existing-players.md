@@ -15,18 +15,13 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1f7e9b0c1a3bfc53153900ed353ba8805fff075e
+ms.sourcegitcommit: 0c77ee0f612c1cbef551a129a22cf3f125e6f29d
+ms.openlocfilehash: 41049570b1858010c338c149c5d3545e58a197b2
 
 
 ---
 # <a name="playing-your-content-with-existing-players"></a>Lecture de votre contenu à l’aide des lecteurs existants
 Azure Media Services prend en charge de nombreux formats de diffusion en continu populaires, tels que la diffusion en continu lisse, la diffusion en continu HTTP et MPEG-Dash. Cette rubrique vous oriente vers les lecteurs existants que vous pouvez utiliser pour tester votre flux de données.
-
-> [!NOTE]
-> Pour lire du contenu empaqueté ou chiffré dynamiquement, veillez à obtenir au moins une unité de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de remettre votre contenu. Pour plus d’informations sur la mise à l’échelle des unités de diffusion en continu, voir : [Mise à l’échelle des unités de diffusion en continu](media-services-portal-manage-streaming-endpoints.md).
-> 
-> 
 
 ### <a name="the-azure-portal-media-services-content-player"></a>Le lecteur de contenu Media Services sur le portail Azure
 Le **portail Azure** propose un lecteur de contenu que vous pouvez utiliser pour tester votre vidéo.
@@ -82,6 +77,6 @@ Pour plus d’informations sur le développement de vos propres lecteurs, consul
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

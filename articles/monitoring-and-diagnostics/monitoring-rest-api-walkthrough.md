@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: mcollier
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9a1114fb61990cf2c590a28bce97ff4b7a425ae5
+ms.sourcegitcommit: 1fe845d442c7010580d4592f205e92e8ef70e34a
+ms.openlocfilehash: 6d66a8fa6eac5bc0ecdddc12b67697045556bf46
 
 
 ---
@@ -30,7 +30,7 @@ En plus de fonctionner avec divers points de données de mesures, comme cet arti
 ## <a name="authenticating-azure-monitor-requests"></a>Authentification des requêtes Azure Monitor
 La première étape consiste à authentifier la requête.
 
-Toutes les tâches exécutées sur l’API Azure Monitor utilisent le modèle d’authentification d’Azure Resource Manager. Ainsi, toutes les requêtes doivent être authentifiées avec Azure Active Directory (Azure AD). Une approche pour authentifier l’application client consiste à créer un principal du service Azure AD et récupérer le jeton d’authentification (JWT). L’exemple de script suivant illustre la création d’un principal de service Azure AD via PowerShell. Pour une présentation plus détaillée, reportez-vous à la documentation sur [l’utilisation d’Azure PowerShell pour créer un principal de service pour accéder aux ressources](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-password). Il est également possible de [créer un principal de service via le portail Azure](../resource-group-create-service-principal-portal.md).
+Toutes les tâches exécutées sur l’API Azure Monitor utilisent le modèle d’authentification d’Azure Resource Manager. Ainsi, toutes les requêtes doivent être authentifiées avec Azure Active Directory (Azure AD). Une approche pour authentifier l’application client consiste à créer un principal du service Azure AD et récupérer le jeton d’authentification (JWT). L’exemple de script suivant illustre la création d’un principal de service Azure AD via PowerShell. Pour une présentation plus détaillée, reportez-vous à la documentation sur [l’utilisation d’Azure PowerShell pour créer un principal de service pour accéder aux ressources](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-password). Il est également possible de [créer un principal de service via le portail Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
@@ -191,12 +191,12 @@ L’ID de ressource peut également être obtenu à partir du portail Azure. Pou
 ### <a name="azure-powershell"></a>Azure PowerShell
 L’ID de ressource peut également être récupéré à l’aide des applets de commande d’Azure PowerShell. Par exemple, pour obtenir l’ID de ressource pour une application web Azure, exécutez l’applet de commande Get-AzureRmWebApp, comme dans la capture d’écran suivante :
 
-![Alt ID ressource obtenu via PowerShell](./media\\monitoring-rest-api-walkthrough\\resourceid_powershell.png)
+![Alt ID ressource obtenu via PowerShell](./media/monitoring-rest-api-walkthrough/resourceid_powershell.png)
 
 ### <a name="azure-cli"></a>Interface de ligne de commande Azure
 Pour récupérer l’ID de ressource à l’aide de l’interface CLI Azure, exécutez la commande « azure webapp show », en spécifiant l’option -json option, comme illustré dans la capture d’écran suivante :
 
-![Alt ID ressource obtenu via PowerShell](./media\\monitoring-rest-api-walkthrough\\resourceid_azurecli.png)
+![Alt ID ressource obtenu via PowerShell](./media/monitoring-rest-api-walkthrough/resourceid_azurecli.png)
 
 ## <a name="retrieve-activity-log-data"></a>Récupérer des données du journal d’activité
 Outre l’utilisation des définitions de mesure et des valeurs associées, il est également possible de récupérer des informations supplémentaires intéressantes relatives aux ressources Azure. Par exemple, il est possible d’obtenir les données du [journal d’activité](https://msdn.microsoft.com/library/azure/dn931934.aspx) par requête. L’exemple suivant montre comment utiliser des API REST Azure Monitor pour demander des données de journal d’activité au sein d’une plage de dates spécifique pour un abonnement Azure :
@@ -219,6 +219,6 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/provide
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

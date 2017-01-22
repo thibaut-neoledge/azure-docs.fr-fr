@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: 8eea2b930c9182f43cb1f1e416652ce8378d70b0
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 876b6a81c5fba7cd9567f913860dd5bdc2391c15
 
 
 ---
@@ -35,8 +35,8 @@ Considérez les éléments suivants lors du développement d’applications Medi
 
 * Le service de files d’attente ne garantit pas une remise dans l’ordre d’arrivée (FIFO). Pour plus d'informations, consultez [Files d'attente Azure et files d'attente Azure Service Bus - comparaison et différences](https://msdn.microsoft.com/library/azure/hh767287.aspx).
 * Les files d’attente de stockage Azure ne constituent pas un service de type Push ; vous devez interroger les files d’attente.
-* Le nombre de files d’attente est illimité. Pour plus d'informations, consultez [API REST du service de file d'attente](https://msdn.microsoft.com/library/azure/dd179363.aspx).
-* Les files d'attente de stockage Azure présentent certaines limitations et spécificités décrites dans l'article suivant : [Files d'attente Azure et files d'attente Azure Service Bus - comparaison et différences](https://msdn.microsoft.com/library/azure/hh767287.aspx)
+* Le nombre de files d’attente est illimité. Pour plus d'informations, consultez [API REST du service de file d'attente](https://docs.microsoft.com/rest/api/storageservices/fileservices/Queue-Service-REST-API).
+* Les files d'attente de stockage Azure présentent certaines limitations et spécificités décrites dans l'article suivant : [Files d'attente Azure et files d'attente Azure Service Bus - comparaison et différences](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)
 
 ### <a name="code-example"></a>Exemple de code
 L’exemple de code de cette section permet d’effectuer les opérations suivantes :
@@ -354,6 +354,6 @@ Consulter les parcours d’apprentissage de Media Services
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: d0cae49b3d45be153daf53cd3ff352e25c447ed1
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 7618f94574fd02d29a55ccbe8723a0228ad64f7f
 
 
 ---
@@ -49,11 +49,11 @@ Les informations de cette série sont organisées en plusieurs articles :
   Cet article est un index de services Azure qui fournit des liens vers des conseils en matière de récupération d’urgence et de conception.
 * [Vue d’ensemble : continuité des activités cloud et récupération d’urgence d’une base de données avec la base de données SQL](../sql-database/sql-database-business-continuity.md).
   Cet article fournit des techniques de base de données SQL Azure pour la disponibilité. Il se concentre principalement sur les stratégies de sauvegarde et de restauration. Si vous utilisez la base de données SQL Azure dans votre service cloud, vous devez consulter ce document et ses ressources connexes.
-* [Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* [Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md).
   Cet article présente les options de disponibilité que vous pouvez explorer lorsque vous utilisez une solution infrastructure as a service (IaaS) pour héberger vos services de base de données. Cet article traite des groupes de disponibilité AlwaysOn, de la mise en miroir de bases de données, de l’envoi de journaux et des opérations de sauvegarde/restauration. Plusieurs didacticiels montrent comment utiliser ces techniques.
 * [Meilleures pratiques de conception de services à grande échelle dans Azure Cloud Services](https://azure.microsoft.com//blog/best-practices-for-designing-large-scale-services-on-windows-azure/).
   Cet article est consacré au développement d’architectures cloud hautement évolutives. La plupart des techniques que vous utilisez pour améliorer l’évolutivité contribuent également à améliorer la disponibilité. En outre, si votre application ne peut pas être mise à l’échelle en cas de pic de charge, le problème d’extensibilité devient un problème de disponibilité.
-* [Sauvegarde et restauration de SQL Server dans les machines virtuelles Azure](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* [Sauvegarde et restauration de SQL Server dans les machines virtuelles Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md).
   Cet article fournit des conseils techniques sur la façon de sauvegarder et restaurer Microsoft SQL Server sur des machines virtuelles Azure.
 * [Failsafe: guidance for resilient cloud architectures (Sécurité intégrée : recommandations applicables à la résilience des architectures cloud)](https://channel9.msdn.com/Series/FailSafe).
   Cet article fournit des conseils pour le développement d’architectures cloud résilientes et pour l’implémentation de ces architectures sur des technologies Microsoft, ainsi que des recommandations sur l’implémentation de ces architectures dans le cadre de scénarios spécifiques.
@@ -66,6 +66,6 @@ Cet article fait partie d’une série qui fournit des conseils techniques pour 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

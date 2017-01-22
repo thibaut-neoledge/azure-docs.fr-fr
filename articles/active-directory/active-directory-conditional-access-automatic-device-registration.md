@@ -5,25 +5,25 @@ services: active-directory
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 01/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5c387c5355957fea0ccffe58e707fae3d2e77c34
+ms.sourcegitcommit: b621a1716b731c99f9ad54d2e29006fb7bddadbb
+ms.openlocfilehash: 8fb880a03548540059ad896925adb57577d1aed2
 
 
 ---
 # <a name="automatic-device-registration-with-azure-active-directory-for-windows-domain-joined-devices"></a>Inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine
 En tant qu’administrateur, vous pouvez choisir d’inscrire automatiquement et en mode silencieux des appareils joints à votre domaine Windows auprès d’Azure Active Directory (Azure AD). Ceci peut être utile si vous avez configuré des stratégies d’accès conditionnel basées sur les appareils à des applications Office 365 ou à des applications gérées localement par AD FS. Vous pouvez en savoir plus sur les scénarios d’inscription d’appareils en lisant la [Présentation de l’inscription d’appareils auprès d’Azure Active Directory](active-directory-conditional-access-device-registration-overview.md).
 
-> AZURE.NOTE Pour les dernières informations sur la configuration de l’inscription automatique des appareils, consultez [Configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration-setup.md).
+> [!NOTE]
+>  Pour les dernières informations sur la configuration de l’inscription automatique des appareils, consultez [Configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration-setup.md).
 > 
 > 
 
@@ -31,7 +31,6 @@ L’inscription automatique d’appareils auprès d’Azure Active Directory est
 
 Pour commencer l’inscription des appareils joints à votre domaine Windows auprès d’Azure AD, assurez-vous de respecter les conditions requises ci-dessous. Quand vous avez rempli les conditions requises, configurez l’inscription automatique des appareils pour les appareils joints à votre domaine Windows.
 
-## <a name="prerequisites-for-automatic-device-registration-of-domain-joined-windows-devices-with-azure-active-directory"></a>Conditions requises pour l’inscription automatique d’appareils Windows joints à un domaine auprès d’Azure Active Directory
 ## <a name="deploy-ad-fs-and-connect-to-azure-active-directory-using-azure-active-directory-connect"></a>Déployez AD FS et connectez-vous à Azure Active Directory à l’aide d’Azure Active Directory Connect.
 1. Utilisez Azure Active Directory Connect pour déployer Active Directory Federation Services (AD FS) avec Windows Server 2012 R2 et configurez une relation de fédération avec Azure Active Directory.
 2. Configurez une règle de revendication d’approbation de partie de confiance Azure Active Directory supplémentaire.
@@ -100,6 +99,6 @@ Pour en savoir plus sur le déploiement de l'inscription d'appareils avec AD FS
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 271e2bd40fb605dc6be229bea8fb479effae4298
+ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
+ms.openlocfilehash: a932b617d57184ef714bf18f1e1e23599db52487
 
 
 ---
@@ -26,7 +26,7 @@ Les clients Azure Active Directory (Azure AD) B2C sont souvent très volumineux.
 Pour les clients B2C, il existe deux modes principaux de communication avec l’API Graph.
 
 * Pour les tâches interactives, à exécution unique, vous devez agir comme un compte d’administrateur dans le client B2C lorsque vous exécutez ces tâches. Avec ce mode, un administrateur doit se connecter à l’aide de ses informations d’identification avant de pouvoir effectuer des appels à l’API Graph.
-* Pour les tâches automatisées, en continu, vous devez utiliser un compte de service doté des privilèges nécessaires pour effectuer des tâches de gestion. Dans Azure AD, vous pouvez le faire en inscrivant une application et en l’authentifiant auprès d’Azure AD à l’aide d’un **ID d’application** qui utilise [l’octroi des informations d’identification du client OAuth 2.0](../active-directory/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). Dans ce cas, l’application joue son propre rôle, et non celui d’un utilisateur, pour appeler l’API Graph.
+* Pour les tâches automatisées, en continu, vous devez utiliser un compte de service doté des privilèges nécessaires pour effectuer des tâches de gestion. Dans Azure AD, vous pouvez le faire en inscrivant une application et en l’authentifiant auprès d’Azure AD à l’aide d’un **ID d’application** qui utilise [l’octroi des informations d’identification du client OAuth 2.0](../active-directory/develop/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). Dans ce cas, l’application joue son propre rôle, et non celui d’un utilisateur, pour appeler l’API Graph.
 
 Dans cet article, nous allons expliquer comment exécuter le cas d’utilisation automatisée. Pour cette démonstration, nous allons créer un `B2CGraphClient` .NET 4.5 qui effectuera les opérations de création, de lecture, de mise à jour et de suppression (CRUD) d’utilisateurs. Le client aura une interface de ligne de commande (CLI) Windows permettant d’appeler des méthodes différentes. Toutefois, le code est écrit pour se comporter de façon non interactive et automatisée.
 
@@ -364,6 +364,6 @@ Si vous avez des questions ou souhaitez effectuer d’autres actions à l’aide
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

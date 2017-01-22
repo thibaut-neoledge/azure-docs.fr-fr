@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 12/13/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 034539eabb6ec7110dd584c42cf35157d39446b6
+ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
+ms.openlocfilehash: a2f124de8a35f6fdff23fa8b3c816b8c0b44acdd
 
 
 ---
@@ -41,7 +41,7 @@ Entrez **RedisSessionStateProvider** dans la zone de texte, choisissez parmi les
 
 Le package NuGet du fournisseur d’état de session Redis a une dépendance sur le package StackExchange.Redis.StrongName. Le package StackExchange.Redis.StrongName sera automatiquement installé s’il ne figure pas déjà dans votre projet. Notez qu’il existe, en plus du package StackExchange.Redis.StrongName avec nom fort, une version de StackExchange.Redis sans nom fort. Si votre projet utilise la version de StackExchange.Redis sans nom fort, vous devez la désinstaller avant ou après avoir installé le package NuGet du fournisseur d’état de session Redis. À défaut, vous risquez de rencontrer des conflits de noms dans votre projet. Pour plus d’informations sur ces packages, consultez la section [Configuration des clients de cache .NET](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
-Le package NuGet télécharge et ajoute les références d'assembly nécessaires et ajoute la section suivante dans le fichier web.config qui contient la configuration requise pour que votre application ASP.NET utilise le fournisseur d'état de session Cache Redis.
+Le package NuGet télécharge et ajoute les références d’assembly nécessaires et la section suivante au fichier web.config qui contient la configuration requise permettant à l’application ASP.NET d’utiliser fournisseur d’état de session Cache Redis.
 
 ```xml
 <sessionState mode="Custom" customProvider="MySessionStateStore">
@@ -118,6 +118,6 @@ Consultez l’article [Fournisseur de caches de sortie ASP.NET pour le Cache Red
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 
