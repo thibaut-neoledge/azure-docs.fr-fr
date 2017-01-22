@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 6d5f4640556f98f9601139c318ffc578e9df2539
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 315fb49ba25c46afaa6571d9249ecd1c8da13e91
 
 
 ---
@@ -27,7 +27,7 @@ Cette rubrique fournit une vue d’ensemble des bases de données SQL Azure. Pou
 ## <a name="what-is-azure-sql-database"></a>Qu’est-ce que la base de données SQL Azure ?
 Chaque base de données d’Azure SQL Database est associée à un serveur logique. La base de données peut être :
 
-- Une base de données autonome avec son [propre ensemble de ressources](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU)
+- Une base de données unique avec son [propre ensemble de ressources](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU)
 - Une partie d’un [pool élastique](sql-database-elastic-pool.md) qui [partage un ensemble de ressources](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU)
 - Une partie d’un [ensemble de bases de données partitionnées dont la taille des instances a été augmentée](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling). Il peut s’agir de bases de données uniques ou mises en pool
 - Une partie d’un ensemble de bases de données participant à un [modèle de conception SaaS partagé au sein d’une architecture mutualisée ](sql-database-design-patterns-multi-tenancy-saas-applications.md), et dont les bases de données peuvent être uniques ou mises en pool (ou les deux) 
@@ -65,12 +65,12 @@ Vous pouvez gérer les serveurs logiques Azure SQL Database à l’aide de plusi
 - Pour une vue d’ensemble des serveurs logiques SQL Azure, consultez [SQL Database logical server overview](sql-database-server-overview.md) (Vue d’ensemble du serveur logique SQL Database)
 - Pour plus d’informations sur la prise en charge de Transact-SQL et les différences, consultez la page [Différences dans le langage Transact-SQL pour Azure SQL Database](sql-database-transact-sql-information.md).
 - Pour plus d’informations sur les quotas de ressources spécifiques et les limitations basées sur votre **niveau de service**. Pour obtenir une présentation des niveaux de service, consultez [Niveaux de service de Base de données SQL](sql-database-service-tiers.md).
-- Pour des informations sur la sécurité, consultez [Instructions et limitations de sécurité dans la base de données SQL Azure](sql-database-security-guidelines.md).
+- Pour une vue d’ensemble de la sécurité, consultez [Azure SQL Database Security Overview (Vue d’ensemble de la sécurité de Azure SQL Database)](sql-database-security-overview.md).
 - Pour plus d'informations sur la disponibilité des pilotes et sur la prise en charge de la base de données SQL, consultez [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md).
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

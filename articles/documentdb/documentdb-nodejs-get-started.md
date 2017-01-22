@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: hero-article
-ms.date: 12/16/2016
+ms.date: 12/25/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: a1cd22bb4d5719493e32071879f1dc601901941f
-ms.openlocfilehash: 481e5d664ae4ae029135e06350e8c053eb6832c1
+ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
+ms.openlocfilehash: 08f4cd48ea41d66203e296415181d5da14327854
 
 
 ---
@@ -25,8 +25,10 @@ ms.openlocfilehash: 481e5d664ae4ae029135e06350e8c053eb6832c1
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [Node.JS](documentdb-nodejs-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
+>  
 > 
 
 Bienvenue dans le didacticiel Node.js pour le Kit de développement logiciel (SDK) d’Azure DocumentDB ! À la fin de ce didacticiel, vous disposerez d’une application console qui crée et interroge des ressources DocumentDB.
@@ -624,8 +626,6 @@ Voilà, vous n’avez plus qu’à générer l’élément pour être sur la bon
 * Consultez la section Développer de la [page de documentation DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/)pour découvrir plus en détail le modèle de programmation.
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
-
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
 

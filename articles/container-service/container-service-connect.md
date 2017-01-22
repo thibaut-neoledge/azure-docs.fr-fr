@@ -17,13 +17,17 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 319978579ae6ad868030d2ec99bce6e6aaa22299
-ms.openlocfilehash: 24a8b9c4e78971199236553802a71134bd12829c
+ms.sourcegitcommit: bcc2d3468c8a560105aa2c2feb0d969ec3cccdcb
+ms.openlocfilehash: 5296586b9266f432042f847f4dff9e6ff62ebc8b
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Connexion à un cluster Azure Container Service
-Les clusters DC/OS, Kubernetes et Docker Swarm déployés par Azure Container Service exposent tous des points de terminaison REST.  Pour Kubernetes, ce point de terminaison est exposé en toute sécurité sur Internet et vous pouvez y accéder directement à partir de n’importe quel ordinateur connecté à Internet. Pour DC/OS et Docker Swarm, vous devez créer un tunnel SSH pour garantir une connexion sécurisée au point de terminaison REST. Chacune de ces connexions est décrite ci-dessous.
+Les clusters DC/OS, Kubernetes et Docker Swarm déployés par Azure Container Service proposent tous des points de terminaison REST.  Pour Kubernetes, ce point de terminaison est exposé en toute sécurité sur Internet et vous pouvez y accéder directement à partir de n’importe quel ordinateur connecté à Internet. Pour DC/OS et Docker Swarm, vous devez créer un tunnel SSH pour garantir une connexion sécurisée au point de terminaison REST. Chacune de ces connexions est décrite ci-dessous.
+
+> [!NOTE]
+> La prise en charge de Kubernetes dans l’Azure Container Service est actuellement en version préliminaire.
+>
 
 ## <a name="connecting-to-a-kubernetes-cluster"></a>Connexion à un cluster Kubernetes
 Pour vous connecter à un cluster Kubernetes, vous devez avoir l’outil en ligne de commande `kubectl` installé.  La façon la plus simple d’installer cet outil consiste à utiliser l’outil en ligne de commande `az` Azure 2.0.
@@ -172,6 +176,6 @@ Déployer et gérer des conteneurs avec DC/OS ou Swarm :
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 
