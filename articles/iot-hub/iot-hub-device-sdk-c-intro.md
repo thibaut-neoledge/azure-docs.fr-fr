@@ -1,6 +1,6 @@
 ---
-title: "Utiliser le Kit de développement logiciel (SDK) d’appareil Azure IoT pour C | Microsoft Docs"
-description: "Découvrez et commencez à utiliser l’exemple de code dans le Kit de développement logiciel d’appareil Azure IoT pour C."
+title: "Le Kit de développement logiciel (SDK) d’appareil Azure IoT pour C | Microsoft Docs"
+description: "Prenez en main Azure IoT device SDK pour C et apprenez à créer des applications d’appareil qui communiquent avec un IoT Hub."
 services: iot-hub
 documentationcenter: 
 author: olivierbloch
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 38dd351fb6acf5b754eb8fd4b768262241ab24c3
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 953bc766fca590a4c1517f3671333e537407c241
 
 
 ---
-# <a name="introducing-the-azure-iot-device-sdk-for-c"></a>Présentation du kit de développement logiciel Azure IoT device SDK pour C
+# <a name="azure-iot-device-sdk-for-c"></a>Azure IoT device SDK pour C
 Le **Kit de développement logiciel (SDK) d’appareil Azure IoT** (Azure IoT device SDK) est un ensemble de bibliothèques conçu pour simplifier le processus d’envoi d’événements et de réception de messages à partir du service **Azure IoT Hub**. Il existe différentes variantes de ce kit de développement logiciel, chacune concernant une plateforme spécifique, mais cet article met l'accent sur le **kit de développement logiciel Azure IoT device SDK pour C**.
 
 Le kit de développement logiciel d’appareil Azure IoT pour C est rédigé en code ANSI C (C99) afin d’optimiser sa portabilité. Il est ainsi adapté pour fonctionner sur plusieurs plateformes et appareils, en particulier quand la réduction de l’encombrement du disque et de l’empreinte mémoire est une priorité.  
@@ -75,7 +75,7 @@ Voici quelques conseils pour vous aider à exécuter la procédure décrite dans
   ![](media/iot-hub-device-sdk-c-intro/08-CMake.PNG)
 * Avant d’ouvrir **l’invite de commandes Développeur pour VS2015**, installez les outils en ligne de commande Git. Pour installer ces outils, exécutez les opérations suivantes :
   
-  1. Lancez le programme d’installation **Visual Studio 2015** (ou choisissez **Microsoft Visual Studio 2015** dans le panneau de configuration **Programmes et fonctionnalités**, puis sélectionnez **Modifier**).
+  1. Lancez le programme d’installation **Microsoft Visual Studio 2015** (ou choisissez **Microsoft Visual Studio 2015** dans le panneau de configuration **Programmes et fonctionnalités**, puis sélectionnez **Modifier**).
   2. Assurez-vous que la fonctionnalité **Git pour Windows** est sélectionnée dans le programme d’installation. Vous pouvez également sélectionner l’option **Extension GitHub pour Visual Studio** pour fournir l’intégration à l’IDE :
      
         ![](media/iot-hub-device-sdk-c-intro/10-GitTools.PNG)
@@ -89,15 +89,15 @@ Quand vous avez terminé toutes les étapes décrites dans la page [« Prepare y
 ### <a name="obtaining-device-credentials"></a>Obtention des informations d’identification d’appareil
 Maintenant que votre environnement de développement est configuré, vous devez à présent obtenir un ensemble d’informations d’identification d’appareils.  Pour qu’un appareil puisse accéder à un IoT Hub, vous devez d’abord ajouter l’appareil au registre des identifiés de l’IoT Hub. Lorsque vous ajoutez votre périphérique, vous obtenez un jeu d’informations d’identification dont vous avez besoin pour permettre au périphérique de se connecter au hub IoT. Les exemples d’application qui figurent dans la section qui suit attendent ces informations d’identification sous la forme de **chaîne de connexion de périphérique**.
 
-Le référentiel open source du Kit de développement logiciel (SDK) fournit deux outils permettant de gérer le IoT Hub. L’un est une application Windows appelée Explorateur d’appareils. Le second est un outil d’interface de ligne de commande (CLI) interplateforme basé sur node.js appelé iothub-explorer. Pour obtenir plus d’informations sur ces outils, cliquez [ici](https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md).
+Le référentiel open source du Kit de développement logiciel (SDK) fournit deux outils permettant de gérer le IoT Hub. L’un est une application Windows appelée *Explorateur d’appareils*. Le second est un outil d’interface de ligne de commande (CLI) interplateforme basé sur node.js appelé *iothub-explorer*. Pour obtenir plus d’informations sur ces outils, cliquez [ici](https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md).
 
 Comme nous allons passer en revue l’exécution des exemples sur Windows dans cet article, nous utilisons l’outil Explorateur d’appareils. Mais vous pouvez également utiliser iothub-explorer si vous préférez les outils de l’interface de ligne de commande (CLI).
 
-L’outil [Explorateur d’appareils](https://github.com/Azure/azure-iot-sdks/tree/master/tools/DeviceExplorer) utilise les bibliothèques de service Azure IoT pour effectuer diverses fonctions sur IoT Hub, notamment ajouter des appareils. Si vous utilisez l'Explorateur d'appareils pour ajouter un appareil, vous obtiendrez une chaîne de connexion correspondante. Vous avez besoin de cette chaîne de connexion pour que les exemples d'applications s'exécutent.
+L’outil [Explorateur d’appareils](https://github.com/Azure/azure-iot-sdks/tree/master/tools/DeviceExplorer) utilise les bibliothèques de service Azure IoT pour effectuer diverses fonctions sur IoT Hub, notamment ajouter des appareils. Si vous utilisez l'outil Explorateur d'appareils pour ajouter un appareil, vous obtiendrez une chaîne de connexion correspondante. Vous avez besoin de cette chaîne de connexion pour que les exemples d'applications s'exécutent.
 
-Si vous n’êtes pas déjà familiarisé avec la procédure, la procédure qui suit explique comment utiliser l’Explorateur de périphérique pour ajouter un périphérique et obtenir une chaîne de connexion d’appareil.
+Si vous n’êtes pas déjà familiarisé avec la procédure, la procédure qui suit explique comment utiliser l’outil Explorateur d’appareils pour ajouter un périphérique et obtenir une chaîne de connexion d’appareil.
 
-Un programme d’installation Windows de l’outil Explorateur d’appareils est disponible sur la [page de publication du Kit de développement logiciel (SDK)](https://github.com/Azure/azure-iot-sdks/releases). Mais vous pouvez également exécuter l’outil directement à partir de son code en ouvrant **[DeviceExplorer.sln](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/DeviceExplorer.sln)** dans **Visual Studio 2015** et en générant la solution.
+Un programme d’installation Windows de l’outil Explorateur d’appareils est disponible sur la [page de publication du Kit de développement logiciel (SDK)](https://github.com/Azure/azure-iot-sdks/releases). Mais vous pouvez également exécuter l’outil directement à partir de son code en ouvrant **[DeviceExplorer.sln](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/DeviceExplorer.sln)** dans **Microsoft Visual Studio 2015** et en générant la solution.
 
 Au moment d’exécuter le programme, vous allez voir cette interface :
 
@@ -119,7 +119,7 @@ Une fois l’appareil créé, la liste des appareils est actualisée avec tous l
 
   ![](media/iot-hub-device-sdk-c-intro/06-RightClickDevice.PNG)
 
-Si vous choisissez l’option **Copier la chaîne de connexion de l’appareil sélectionné** , la chaîne de connexion en question est copiée dans le Presse-papiers. Conservez une copie de la chaîne de connexion. Vous en aurez besoin au moment d’exécuter les exemples d’application décrits dans les prochaines sections.
+Si vous choisissez l’option **Copier la chaîne de connexion de l’appareil sélectionné** , la chaîne de connexion en question est copiée dans le Presse-papiers. Conservez une copie de la chaîne de connexion de l’appareil. Vous en aurez besoin au moment d’exécuter les exemples d’application décrits dans les prochaines sections.
 
 Une fois que vous avez effectué les opérations ci-dessus, vous êtes prêt à commencer l’exécution du code. En haut du fichier source principal, les deux exemples décrits ci-dessous contiennent une constante qui permet d’entrer une chaîne de connexion. Par exemple, la ligne correspondante de l’application **iothub\_client\_sample\_amqp** se présente comme suit.
 
@@ -162,7 +162,7 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle;
 iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, AMQP_Protocol);
 ```
 
-Notez que nous transférons une copie de notre chaîne de connexion d’appareil vers cette fonction (celle que nous avons obtenue dans l’Explorateur d’appareils). Nous désignons également le protocole à utiliser. Cet exemple utilise AMQP, mais MQTT et HTTP sont également possibles.
+Notez que nous transférons une copie de la chaîne de connexion d’appareil vers cette fonction (celle que nous avons obtenue dans l’Explorateur d’appareils). Nous désignons également le protocole à utiliser. Cet exemple utilise AMQP, mais MQTT et HTTP sont également possibles.
 
 Lorsque vous disposez d’un pointeur **IOTHUB\_CLIENT\_HANDLE** valide, vous pouvez commencer à appeler des API pour envoyer des événements et recevoir des messages de la part d’IoT Hub. Nous examinerons cela plus tard.
 
@@ -455,7 +455,7 @@ Pour en savoir plus sur le développement pour IoT Hub, voir les [Kits de dével
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Simulation d’un appareil avec le Kit de développement logiciel (SDK) de passerelle IoT][lnk-gateway]
+* [Simulation d’un appareil avec le Kit de développement logiciel (SDK) de la passerelle IoT][lnk-gateway]
 
 [lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
@@ -466,6 +466,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

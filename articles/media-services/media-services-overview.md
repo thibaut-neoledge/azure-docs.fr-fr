@@ -46,7 +46,7 @@ L’image suivante illustre certains des objets couramment utilisés lors du dé
 
 Cliquez sur l’image pour l’afficher en plein écran.  
 
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
+<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
 
 Vous pouvez afficher l’ensemble du modèle [ici](https://media.windows.net/API/$metadata?api-version=2.15).  
 
@@ -79,8 +79,8 @@ Cette section décrit les scénarios courants et fournit des liens vers des rubr
 ![Flux de travail VOD](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 >[!NOTE]
->Une fois votre compte AMS créé, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**. 
-    
+>Une fois votre compte AMS créé, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**.
+
 ### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Protéger le contenu stocké et assurer une diffusion multimédia en continu en clair (sans chiffrement)
 1. Téléchargez un fichier mezzanine de haute qualité dans une ressource.
 
@@ -184,7 +184,8 @@ Media Services prend en charge l’intégration avec le CDN d’Azure. Pour plus
 Vous pouvez mettre à l’échelle **Media Services** en spécifiant le nombre d’**unités réservées de diffusion en continu** et d’**unités réservées d’encodage** que vous voulez attribuer à votre compte.
 
 Vous pouvez aussi mettre à l’échelle votre compte Media Services en lui ajoutant des comptes de stockage. Chaque compte de stockage est limité à 500 To. Pour développer votre capacité stockage au-delà des limites par défaut, vous pouvez choisir de rattacher plusieurs comptes de stockage à un même compte Media Services.
-En fonction de leurs besoins, les clients Media Services choisissent un point de terminaison de streaming **Standard** ou un ou plusieurs points de terminaison de streaming **Premium**. Le point de terminaison de streaming standard convient à la plupart des charges de travail de diffusion en continu. Il inclut les mêmes fonctionnalités que les unités de diffusion en continu premium. Le point de terminaison de streaming standard convient à la plupart des charges de travail de diffusion en continu. Si votre charge de travail est avancée, si vos besoins en capacité de diffusion en continu ne correspondent pas aux cibles de débit du point de terminaison de streaming standard ou si vous souhaitez contrôler la capacité du service StreamingEndpoint afin de gérer les besoins croissants en termes de bande passante en ajustant les unités d’échelle (également appelées unités de diffusion premium), il est alors recommandé d’allouer des unités d’échelle.
+En fonction de leurs besoins, les clients Media Services choisissent un point de terminaison de streaming **Standard** ou un ou plusieurs points de terminaison de streaming **Premium**. Le point de terminaison de streaming standard convient à la plupart des charges de travail de diffusion en continu. Il inclut les mêmes fonctionnalités que les unités de diffusion en continu premium.
+Le point de terminaison de streaming standard convient à la plupart des charges de travail de diffusion en continu. Si votre charge de travail est avancée, si vos besoins en capacité de diffusion en continu ne correspondent pas aux cibles de débit du point de terminaison de streaming standard ou si vous souhaitez contrôler la capacité du service StreamingEndpoint afin de gérer les besoins croissants en termes de bande passante en ajustant les unités d’échelle (également appelées unités de diffusion premium), il est alors recommandé d’allouer des unités d’échelle.
 
 [Cette](media-services-portal-scale-streaming-endpoints.md) rubrique offre des liens vers des rubriques connexes.
 

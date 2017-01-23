@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4e86a871222def32f7779f07eab5668d366ecec4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6dcc79a2adf81c82d245c99116f28eb4db983396
 
 
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Encodage avancé avec Media Encoder Premium Workflow
 > [!NOTE]
 > Le processeur multimédia Media Encoder Premium Workflow présenté dans cette rubrique n’est pas disponible en Chine.
-> 
-> 
+>
+>
 
 Pour les questions relatives à Encoder Premium, envoyez un e-mail à mepd sur Microsoft.com.
 
 ## <a name="overview"></a>Vue d'ensemble
-Microsoft Azure Media Services lance le processeur multimédia **Media Encoder Premium Workflow** . Ce processeur offre des fonctionnalités d’encodage avancées pour vos flux de travail à la demande premium. 
+Microsoft Azure Media Services lance le processeur multimédia **Media Encoder Premium Workflow** . Ce processeur offre des fonctionnalités d’encodage avancées pour vos flux de travail à la demande premium.
 
-Vous trouverez dans les rubriques suivantes des détails concernant **Media Encoder Premium Workflow**: 
+Vous trouverez dans les rubriques suivantes des détails concernant **Media Encoder Premium Workflow**:
 
 * [Formats pris en charge par le flux de travail Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md) : présente les formats et les codecs pris en charge par **Media Encoder Premium Workflow**.
-* La section [Comparer les encodeurs](media-services-encode-asset.md#compare_encoders) compare les fonctionnalités d’encodage de **Media Encoder Premium Workflow** et de **Media Encoder Standard**.
+* [Vue d’ensemble et comparaison des encodeurs media à la demande Azure](media-services-encode-asset.md) compare les fonctionnalités d’encodage du **workflow d'encodeur multimédia premium** et de **Media Encoder Standard**.
 
 Cette rubrique montre comment encoder avec **Media Encoder Premium Workflow** en utilisant .NET.
 
@@ -47,29 +47,29 @@ Vous pouvez aussi vous procurer les fichiers de flux de travail par défaut [ici
 
 Les fichiers de flux de travail doivent être téléchargés vers votre compte Media Services sous forme de ressource, qui doit être transmise à la tâche d’encodage.
 
-L’exemple suivant montre comment encoder avec **Media Encoder Premium Workflow**. 
+L’exemple suivant montre comment encoder avec **Media Encoder Premium Workflow**.
 
-Les étapes à exécuter sont les suivantes : 
+Les étapes à exécuter sont les suivantes :
 
-1. Créez une ressource et téléchargez un fichier de flux de travail. 
+1. Créez une ressource et téléchargez un fichier de flux de travail.
 2. Créez une ressource et téléchargez un fichier multimédia source.
 3. Procurez-vous le processeur multimédia « Media Encoder Premium Workflow ».
-4. Créez un travail et une tâche. 
-   
+4. Créez un travail et une tâche.
+
     Dans la plupart des cas, la chaîne de configuration de la tâche est vide (comme dans l'exemple suivant). Il existe certains scénarios avancés (qui nécessitent de définir dynamiquement les propriétés d'exécution) auquel cas, vous fournissez une chaîne XML à la tâche d'encodage. La création d'une superposition, l'assemblage parallèle ou séquentiel multimédia, le sous-titrage sont des exemples de ces scénarios.
 5. Ajoutez deux ressources d’entrée à la tâche.
-   
+
     a. En premier lieu, la ressource de flux de travail.
-   
+
     b. En second lieu, la ressource vidéo.
-   
-    **Remarque**: la ressource de flux de travail doit être ajoutée à la tâche avant la ressource multimédia. 
-   La chaîne de configuration de cette tâche doit être vide. 
+
+    **Remarque**: la ressource de flux de travail doit être ajoutée à la tâche avant la ressource multimédia.
+   La chaîne de configuration de cette tâche doit être vide.
 6. Soumettez le travail d’encodage.
 
 L’exemple ci-dessous est complet. Pour plus d’informations sur la configuration dans le cadre du développement .NET Media Services, consultez [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md).
 
-     using System; 
+     using System;
     using System.Linq;
     using System.Configuration;
     using System.IO;
@@ -116,7 +116,7 @@ L’exemple ci-dessous est complet. Pour plus d’informations sur la configurat
 
                 var workflowAsset = CreateAssetAndUploadSingleFile(_workflowFilePath);
                 var videoAsset = CreateAssetAndUploadSingleFile(_singleMP4InputFilePath);
-                IAsset outputAsset = CreateEncodingJob(workflowAsset, videoAsset); 
+                IAsset outputAsset = CreateEncodingJob(workflowAsset, videoAsset);
 
             }
 
@@ -151,7 +151,7 @@ L’exemple ci-dessous est complet. Pour plus d’informations sur la configurat
             {
                 // Declare a new job.
                 IJob job = _context.Jobs.Create("Premium Workflow encoding job");
-                // Get a media processor reference, and pass to it the name of the 
+                // Get a media processor reference, and pass to it the name of the
                 // processor to use for the specific task.
                 IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Premium Workflow");
 
@@ -164,9 +164,9 @@ L’exemple ci-dessous est complet. Pour plus d’informations sur la configurat
                 // Specify the input asset to be encoded.
                 task.InputAssets.Add(workflow);
                 task.InputAssets.Add(video); // we add one asset
-                // Add an output asset to contain the results of the job. 
-                // This output is specified as AssetCreationOptions.None, which 
-                // means the output asset is not encrypted. 
+                // Add an output asset to contain the results of the job.
+                // This output is specified as AssetCreationOptions.None, which
+                // means the output asset is not encrypted.
                 task.OutputAssets.AddNew("Output asset",
                     AssetCreationOptions.None);
 
@@ -177,12 +177,12 @@ L’exemple ci-dessous est complet. Pour plus d’informations sur la configurat
                 // Launch the job.
                 job.Submit();
 
-                // Check job execution and wait for job to finish. 
+                // Check job execution and wait for job to finish.
                 Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
                 progressJobTask.Wait();
 
-                // If job state is Error the event handling 
-                // method for job progress should log errors.  Here we check 
+                // If job state is Error the event handling
+                // method for job progress should log errors.  Here we check
                 // for error state and exit if needed.
                 if (job.State == JobState.Error)
                 {
@@ -279,7 +279,6 @@ Pour les questions relatives à Encoder Premium, envoyez un e-mail à mepd sur M
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

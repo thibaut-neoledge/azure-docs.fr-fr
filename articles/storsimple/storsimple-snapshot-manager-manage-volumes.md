@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ad6693598cffd5aec7554f5612bc75d7c61d80dd
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5086fa86149e4d8133df339b1261d3792fa66b4c
 
 
 ---
@@ -48,7 +48,7 @@ Appliquez la procédure suivante pour monter, initialiser et formater des volume
 
 #### <a name="to-mount-volumes"></a>Pour monter des volumes
 1. Sur votre ordinateur hôte, démarrez l’initiateur Microsoft iSCSI.
-2. Renseignez l’une des adresses IP d’interface en tant qu’adresse de portail cible ou adresse IP de détection, puis connectez-vous à l’appareil. Une fois que l’appareil est connecté, les volumes sont accessibles par votre système Windows. Pour en savoir plus sur l’utilisation de l’initiateur Microsoft iSCSI, accédez à la section « Connexion à un périphérique cible iSCSI » de la page [Installation et configuration de l’initiateur Microsoft iSCSI][1].
+2. Renseignez l’une des adresses IP d’interface en tant qu’adresse de portail cible ou adresse IP de détection, puis connectez-vous à l’appareil. Une fois que l’appareil est connecté, les volumes sont accessibles par votre système Windows. Pour en savoir plus sur l’utilisation de l’initiateur Microsoft iSCSI, accédez à la section « Connexion à un appareil cible iSCSI » de la page [Installation et configuration de l’initiateur Microsoft iSCSI][1].
 3. Pour démarrer le composant Gestion des disques, utilisez l’une des options suivantes :
    
    * Dans la zone **Exécuter** , saisissez Diskmgmt.msc.
@@ -215,6 +215,6 @@ Appliquez la procédure suivante pour configurer un volume dynamique mis en miro
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

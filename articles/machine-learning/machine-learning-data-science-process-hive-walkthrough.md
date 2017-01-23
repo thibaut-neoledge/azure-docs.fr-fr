@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/09/2016
 ms.author: hangzh;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6eb9fd3750eaf03547f93462d97bc30d30a9a8bc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4b466878831b9a8d78c03738397f2119a6d5e13d
 
 
 ---
@@ -736,7 +736,7 @@ Certains détails sur le module [Importer des données][import-data] et les para
 **Nom de conteneur Azure** : c’est le nom de conteneur par défaut pour le cluster et c’est généralement le même que le nom du cluster. Pour un cluster appelé « abc123 », il s'agit simplement d’abc123.
 
 > [!IMPORTANT]
-> **Toute table que nous souhaitons interroger à l’aide du module [Importer des données][import-data] dans Azure Machine Learning doit être une table interne.**  Voici un conseil pour déterminer si une table T dans une base de données D.db est une table interne.
+> **Toute table que nous souhaitons interroger à l’aide du module [Importer des données][import-data] dans Azure Machine Learning doit être une table interne.** Voici un conseil pour déterminer si une table T dans une base de données D.db est une table interne.
 > 
 > 
 
@@ -748,7 +748,7 @@ Si la table est une table interne et qu’elle est remplie, son contenu doit s�
 
 Voici un aperçu de la requête Hive et du module [Importer des données][import-data] :
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/1eTYf52.png)
+![Requête Hive pour le module Importer des données](./media/machine-learning-data-science-process-hive-walkthrough/1eTYf52.png)
 
 Notez que, puisque nos données à l’échantillon réduit résident dans le conteneur par défaut, la requête Hive obtenue d’Azure Machine Learning est très simple est consiste simplement en « SELECT * FROM nyctaxidb.nyctaxi\_downsampled\_data ».
 
@@ -765,17 +765,17 @@ a. Pour ce problème, notre étiquette (ou classe) cible est « avec pourboire�
 
 L'instantané ci-dessous illustre notre expérience pour prédire si un pourboire a été versé pour une course donnée.
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/QGxRz5A.png)
+![Instantané de l’expérience](./media/machine-learning-data-science-process-hive-walkthrough/QGxRz5A.png)
 
 b. Pour cette expérience, nos distributions d'étiquette cible ont été d’environ 1:1.
 
 L'instantané ci-dessous montre la distribution d’étiquettes de classe de pourboire pour le problème de classification binaire.
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/9mM4jlD.png)
+![Distribution d'étiquettes de classe de pourboire](./media/machine-learning-data-science-process-hive-walkthrough/9mM4jlD.png)
 
 Par conséquent, nous obtenons une intégration de 0,987 comme indiqué dans la figure ci-dessous.
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/8JDT0F8.png)
+![Valeur ASC](./media/machine-learning-data-science-process-hive-walkthrough/8JDT0F8.png)
 
 **2. Classification multiclasse ** : pour prédire le montant des pourboires réglés pour la course, en utilisant les classes précédemment définies.
 
@@ -785,15 +785,15 @@ a. Pour ce problème, notre cible (ou classe) est « tip\_class », ce qui peu
 
 L'instantané ci-dessous illustre notre expérience pour prédire le compartiment où un pourboire est susceptible de tomber (classe 0 : pourboire = 0 $, classe 1 : pourboire > 0 $ et pourboire <= 5 $, classe 2 : pourboire > 5 $ et pourboire <= 10 $, classe 3 : pourboire > 10 $ et pourboire <= 20 $, classe 4 : pourboire > 20 $)
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/5ztv0n0.png)
+![Instantané de l’expérience](./media/machine-learning-data-science-process-hive-walkthrough/5ztv0n0.png)
 
 Nous montrons maintenant à quoi ressemble notre distribution de classe test réelle. Nous voyons que la classe 0 et la classe 1 prévalent et que les autres classes sont rares.
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/Vy1FUKa.png)
+![Distribution de classe de test](./media/machine-learning-data-science-process-hive-walkthrough/Vy1FUKa.png)
 
 b. Pour cette expérience, nous utilisons une matrice de confusion pour consulter la précision de nos prédictions. Consultez l’illustration ci-dessous.
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/cxFmErM.png)
+![Matrice de confusion](./media/machine-learning-data-science-process-hive-walkthrough/cxFmErM.png)
 
 Notez que la précision des classes sur les classes les plus courantes est assez bonne, mais que le modèle n'effectue pas un bon travail d’« apprentissage » sur les classes plus rares.
 
@@ -805,11 +805,11 @@ a. Pour ce problème, notre étiquette (ou classe) cible est « tip\_amount »
 
 L'instantané ci-dessous illustre notre expérience pour prédire la quantité de pourboire donné.
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/11TZWgV.png)
+![Instantané de l’expérience](./media/machine-learning-data-science-process-hive-walkthrough/11TZWgV.png)
 
 b. Pour les problèmes de régression, nous évaluons la précision de nos prévisions en examinant l'erreur au carré dans les prévisions, le coefficient de détermination, etc. Nous présentons ce qui suit.
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/Jat9mrz.png)
+![Statistiques de prédiction](./media/machine-learning-data-science-process-hive-walkthrough/Jat9mrz.png)
 
 Nous voyons que le coefficient de détermination est de 0,709, ce qui signifie que 71 % environ de la variance est expliquée par nos coefficients modèles.
 
@@ -823,7 +823,7 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 
 ## <a name="references"></a>Références
 •    [Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](http://www.andresmh.com/nyctaxitrips/)  
-•    [Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+•    [Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](http://chriswhong.com/open-data/foil_nyc_taxi/)   
 •    [Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -839,6 +839,6 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

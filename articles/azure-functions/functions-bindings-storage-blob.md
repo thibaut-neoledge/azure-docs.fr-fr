@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/02/2016
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: 880ea646b1e976975f610ce81d0b372e81d2e34a
+ms.sourcegitcommit: 593f97bf0fc855e2d122e093961013f923e2e053
+ms.openlocfilehash: b3d9dcceb8e0a3a7c31e4a0a8cf1eb9dd82bf6c8
 
 
 ---
@@ -54,7 +54,7 @@ Le déclencheur d’objet blob Stockage d’une fonction utilise les objets JSON
 Notez les points suivants :
 
 * Pour `path`, consultez [Modèles de nom](#pattern) pour savoir comment mettre en forme les modèles de nom d’objet blob.
-* `connection` doit contenir le nom d’un paramètre d’application comportant une chaîne de connexion de stockage. Dans le portail Azure, l’éditeur standard sous l’onglet **Intégrer** configure ce paramètre d’application pour vous quand vous créez un compte de stockage ou en sélectionne un. Pour créer manuellement ce paramètre d’application, consultez [Configurer ce paramètre d’application manuellement](). 
+* `connection` doit contenir le nom d’un paramètre d’application comportant une chaîne de connexion de stockage. Dans le Portail Azure, l’éditeur standard sous l’onglet **Intégrer** configure ce paramètre d’application pour vous quand vous créez un compte de stockage ou en sélectionnez un. Pour créer manuellement ce paramètre d’application, consultez [Configurer ce paramètre d’application manuellement](). 
 
 En outre, consultez les sections suivantes pour plus d’informations :
 
@@ -71,7 +71,7 @@ Vous pouvez spécifier un modèle de nom d’objet blob dans la propriété `pat
 "path": "input/original-{name}",
 ```
 
-Ce chemin d’accès trouverait un objet blob nommé *original-Blob1.txt* dans le conteneur *input*, et la variable `name` du code de fonction présenterait la valeur `Blob1`.
+Ce chemin d’accès trouverait un objet blob appelé *original-Blob1.txt* dans le conteneur *input*, et la variable `name` du code de fonction présenterait la valeur `Blob1`.
 
 Autre exemple :
 
@@ -224,7 +224,7 @@ L’entrée d’objet blob Stockage d’une fonction utilise les objets JSON sui
 Notez les points suivants :
 
 * `path` doit contenir le nom du conteneur et le nom de l’objet blob. Par exemple, si votre fonction contient un [déclencheur de file d’attente](functions-bindings-storage-queue.md), vous pouvez utiliser `"path": "samples-workitems/{queueTrigger}"` pour pointer vers un objet blob dans le conteneur `samples-workitems` avec un nom qui correspond au nom de l’objet blob spécifié dans le message du déclencheur.   
-* `connection` doit contenir le nom d’un paramètre d’application comportant une chaîne de connexion de stockage. Dans le portail Azure, l’éditeur standard sous l’onglet **Intégrer** configure ce paramètre d’application pour vous quand vous créez un compte de stockage ou en sélectionne un. Pour créer manuellement ce paramètre d’application, consultez [Configurer ce paramètre d’application manuellement](). 
+* `connection` doit contenir le nom d’un paramètre d’application comportant une chaîne de connexion de stockage. Dans le portail Azure, l’éditeur standard sous l’onglet **Intégrer** configure ce paramètre d’application pour vous quand vous créez un compte Stockage ou en sélectionne un. Pour créer manuellement ce paramètre d’application, consultez [Configurer ce paramètre d’application manuellement](). 
 
 <a name="inputusage"></a>
 
@@ -337,7 +337,7 @@ La sortie d’objet blob Stockage pour une fonction utilise les objets JSON suiv
 Notez les points suivants :
 
 * `path` doit contenir le nom du conteneur et le nom de l’objet blob destinataires de l’opération d’écriture. Par exemple, si votre fonction contient un [déclencheur de file d’attente](functions-bindings-storage-queue.md), vous pouvez utiliser `"path": "samples-workitems/{queueTrigger}"` pour pointer vers un objet blob dans le conteneur `samples-workitems` avec un nom qui correspond au nom de l’objet blob spécifié dans le message du déclencheur.   
-* `connection` doit contenir le nom d’un paramètre d’application comportant une chaîne de connexion de stockage. Dans le portail Azure, l’éditeur standard sous l’onglet **Intégrer** configure ce paramètre d’application pour vous quand vous créez un compte de stockage ou en sélectionne un. Pour créer manuellement ce paramètre d’application, consultez [Configurer ce paramètre d’application manuellement](). 
+* `connection` doit contenir le nom d’un paramètre d’application comportant une chaîne de connexion de stockage. Dans le Portail Azure, l’éditeur standard sous l’onglet **Intégrer** configure ce paramètre d’application pour vous quand vous créez un compte de stockage ou en sélectionnez un. Pour créer manuellement ce paramètre d’application, consultez [Configurer ce paramètre d’application manuellement](). 
 
 <a name="outputusage"></a>
 
@@ -358,6 +358,8 @@ Dans les fonctions C#, vous pouvez également définir une sortie vers les types
 * `ICloudBlob`
 * `CloudBlockBlob` 
 * `CloudPageBlob` 
+* `ICollector<T>` (pour générer plusieurs objets Blob)
+* `IAsyncCollector<T>` (version asynchrone de `ICollector<T>`)
 
 <a name="outputsample"></a>
 
@@ -370,6 +372,6 @@ Voir [Exemple d’entrée](#inputsample).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

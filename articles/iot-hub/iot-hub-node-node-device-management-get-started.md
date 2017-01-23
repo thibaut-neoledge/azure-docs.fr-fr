@@ -1,6 +1,6 @@
 ---
-title: "Prise en main de la gestion d’appareils | Microsoft Docs"
-description: "Ce didacticiel vous apprend à bien démarrer avec la gestion d’appareils dans Azure IoT Hub."
+title: Prise en main de la gestion des appareils Azure IoT Hub (Node) | Microsoft Docs
+description: "Guide d’utilisation de la gestion des appareils IoT Hub pour lancer un redémarrage d’appareil à distance. Vous utilisez le SDK Azure IoT pour Node.js afin d’implémenter une application d’appareil simulé qui inclut une méthode directe et une application de service qui appelle la méthode directe."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 829164eaa856d824ed1f37c43799dabb8f0a0868
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: e1bb89ba369818d7ba0e92a54a4712033f648187
 
 
 ---
-# <a name="tutorial-get-started-with-device-management"></a>Didacticiel : Prise en main de la gestion d’appareils
+# <a name="get-started-with-device-management-node"></a>Prise en main de la gestion d’appareils (Node)
 ## <a name="introduction"></a>Introduction
 Les applications cloud IoT peuvent utiliser des primitives dans Azure IoT Hub, à savoir la représentation d’appareil et les méthodes directes, pour démarrer et surveiller à distance les actions de gestion sur les appareils.  Cet article fournit des conseils et du code illustrant comment une application cloud IoT et un appareil fonctionnent ensemble pour lancer et surveiller le redémarrage d’un appareil distant à l’aide d’IoT Hub.
 
@@ -38,7 +38,7 @@ Ce didacticiel vous explique les procédures suivantes :
 
 * Utiliser le portail Azure pour créer un IoT Hub et une identité d’appareil dans celui-ci.
 * Créer une application d’appareil simulé disposant d’une méthode directe permettant le redémarrage qui peut être appelée par le cloud.
-* Créer une application console qui appelle une méthode directe de redémarrage sur l’application d’appareil simulé via votre IoT Hub.
+* Créer une application console Node.js qui appelle une méthode directe de redémarrage sur l’application d’appareil simulé via votre IoT Hub.
 
 À la fin de ce didacticiel, vous disposerez de deux applications console Node.js :
 
@@ -56,7 +56,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Création d’une application de périphérique simulé
-Dans cette section, vous allez :
+Dans cette section, vous allez :
 
 * Créer une application console Node.js qui répond à une méthode directe appelée par le cloud
 * Déclencher un redémarrage d’appareil simulé
@@ -67,7 +67,7 @@ Dans cette section, vous allez :
     ```
     npm init
     ```
-2. À l’invite de commandes, dans le dossier **manageddevice**, exécutez la commande suivante pour installer les packages Kit de développement logiciel (SDK) pour appareils **azure-iot-device** et **azure-iot-device-mqtt** :
+2. À l’invite de commandes, dans le dossier **manageddevice**, exécutez la commande suivante pour installer les packages Kit de développement logiciel (SDK) pour appareils **azure-iot-device** et **azure-iot-device-mqtt** :
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -81,7 +81,7 @@ Dans cette section, vous allez :
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Ajoutez une variable **connectionString** et utilisez-la pour créer un client d’appareil.  Remplacez la chaîne de connexion par la chaîne de connexion de votre appareil.  
+5. Ajoutez une variable **connectionString** et utilisez-la pour créer une instance de **Client**.  Remplacez la chaîne de connexion par la chaîne de connexion de votre appareil.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
@@ -260,7 +260,7 @@ Pour approfondir la prise en main de IoT Hub, consultez l’article [Prise en ma
 [img-output]: media/iot-hub-get-started-with-dm/image6.png
 [img-dm-ui]: media/iot-hub-get-started-with-dm/dmui.png
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-fwupdate]: iot-hub-node-node-firmware-update.md
@@ -276,6 +276,6 @@ Pour approfondir la prise en main de IoT Hub, consultez l’article [Prise en ma
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

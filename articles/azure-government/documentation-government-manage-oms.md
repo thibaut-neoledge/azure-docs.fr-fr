@@ -8,8 +8,8 @@ author: sacha
 manager: jobruno
 editor: 
 translationtype: Human Translation
-ms.sourcegitcommit: ccbcf15eaf9b13625338ea1d66554eae7dc7d2eb
-ms.openlocfilehash: 0d010bb21d807239da37172bc2885ddadc5c8028
+ms.sourcegitcommit: 1f44321bc0ec33362c64da9a19d3309c45783ed2
+ms.openlocfilehash: fb38649d6f40e24849ba5a8de371b1c911089fc7
 
 ---
 
@@ -40,7 +40,7 @@ Vous pouvez connecter les machines virtuelles Azure à OMS directement via le p
 Vous pouvez également procéder à la connexion par programme et/ou configurer l’extension OMS directement dans vos modèles Azure Resource Manager. Pour bénéficier d’instructions sur les machines Windows et sur les machines Linux, accédez respectivement à [cette section](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents) et à [cette section](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-linux-agents).
 
 ## <a name="onboarding-storage-accounts-and-scom-to-oms"></a>Intégration des comptes de stockage et des points de terminaison SCOM à OMS
-OMS peut également se connecter à votre compte de stockage et/ou à vos déploiements SCOM 2013 existants afin de prendre en charge des scénarios hybrides (sur les fournisseurs cloud ou sur des infrastructures cloud/en local) de gestion des opérations.
+OMS peut également se connecter à votre compte de stockage et/ou à vos déploiements System Center Operations Manager existants afin de prendre en charge des scénarios hybrides (sur les fournisseurs cloud ou sur des infrastructures cloud/en local) de gestion des opérations.
 
 ![Figure 2 : Connexion du stockage Azure et de SCOM à OMS](./media/documentation-government-oms-figure2.png)
 <p align="center">Figure 2 : Connexion du stockage Azure et de SCOM à OMS</p>
@@ -105,6 +105,6 @@ Pour plus d’informations sur OMS, consultez notre page de documentation ici :
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

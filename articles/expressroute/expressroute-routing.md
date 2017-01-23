@@ -212,6 +212,6 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

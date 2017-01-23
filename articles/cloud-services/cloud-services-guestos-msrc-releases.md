@@ -4,7 +4,7 @@ description: "Publications de la liste des mises à jour appliquées au SE invit
 services: cloud-services
 documentationcenter: na
 author: raiye
-manager: markkie
+manager: timlt
 editor: 
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
@@ -12,16 +12,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/31/2016
+ms.date: 12/1/2016
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
+ms.sourcegitcommit: f21cf5318cc3fe0a0fc18dec4d85e8bc020a2c8a
+ms.openlocfilehash: 4beac394fbb975b8956ff62a54cc605bacd2a505
 
 
 ---
 # <a name="azure-guest-os"></a>SE invité d'Azure
-Les tableaux suivants indiquent les mises à jour de Microsoft Security Response Center (MSRC) appliquées au SE invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au SE invité que vous utilisez. Les mises à jour vont toujours de l’avant pour la famille [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+Les tableaux suivants indiquent les mises à jour de Microsoft Security Response Center (MSRC) appliquées au SE invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au SE invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+## <a name="november-guest-os"></a>SE invité novembre
+| ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+| MS16-129 |[3199057] |Mise à jour de sécurité cumulative pour Microsoft Edge |5.3 |8 novembre 2016 |
+| MS16-130 |[3199172] |Mise à jour de sécurité pour Microsoft Windows |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
+| MS16-131 |[3199151]   |Mise à jour de sécurité pour Microsoft Vidéo Control |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
+| MS16-132 |[3199120] |Mise à jour de sécurité pour Microsoft Component |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
+| MS16-134 |[3193706] |Mise à jour de sécurité pour le pilote de système de fichiers journaux commun |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
+| MS16-135 |[3199135] |Mise à jour de sécurité pour les pilotes en mode noyau |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
+| MS16-137 |[3199173]   |Mise à jour de sécurité pour les méthodes d’authentification Windows |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
+| MS16-138 |[3199647] |Mise à jour de sécurité pour disque dur virtuel Microsoft |5.3, 4.38, 3.45 |8 novembre 2016 |
+| MS16-139 |[3199720] |Mise à jour de sécurité pour le noyau Windows |2.57 |8 novembre 2016 |
+| MS16-140 |[3193479] |Mise à jour de sécurité pour Boot Manager |5.3, 4.38, 3.45 |8 novembre 2016 |
+| MS16-142 |[3198467] |Mise à jour de sécurité cumulative pour Internet Explorer |2.57, 4.38, 5.3 |8 novembre 2016 |
+| N/A |[3192321] |L’heure d’été cesse d’être appliquée en Turquie |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
+| N/A |[3185330] |Correctif qualitatif mensuel de sécurité octobre 2016 pour Windows 7 SP1 et Windows Server 2008 R2 SP1 |2.57 |8 novembre 2016 |
+| N/A |[3192403] |Aperçu du correctif qualitatif mensuel octobre 2016 pour Windows 7 SP1 et Windows Server 2008 R2 SP1 |2.57 |8 novembre 2016 |
+| N/A |[3177467] |Correctif de pile pour Windows 7 SP1 et Windows Server 2008 R2 SP1 : 20 septembre 2016 |2.57 |8 novembre 2016 |
+| N/A |[3185332] |Correctif qualitatif mensuel de sécurité octobre 2016 pour Windows Server 2012 |3.45 |8 novembre 2016 |
+| N/A |[3192406] |Aperçu du correctif qualitatif mensuel octobre 2016 pour Windows Server 2012 |3.45 |8 novembre 2016 |
+| N/A |[3185331] |Correctif qualitatif mensuel de sécurité octobre 2016 pour Windows 8.1 et Windows Server 2012 R2 |4.38 |8 novembre 2016 |
+| N/A |[3192404] |Aperçu du correctif qualitatif mensuel octobre 2016 pour Windows 8.1 et Windows Server 2012 R2 |4.38 |8 novembre 2016 |
+| N/A |[3199986] |Correctif de pile pour Windows 10 version 1607 : 27 octobre 2016 |5.3 |8 novembre 2016 |
+| N/A |[3197954] |Mise à jour cumulative pour Windows 10 Version 1607 et Windows Server 2016 : 27 octobre 2016 |5.3 |8 novembre 2016 |
 
 ## <a name="october-guest-os"></a>SE invité octobre
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
@@ -357,6 +382,28 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 | N/A |[2999802] |Des lignes pleines sont imprimées dans Windows au lieu de lignes en pointillés |4.15, 3.22, 2.34 |13 janvier 2015 |
 | N/A |[2896881] |Durée d'ouverture de session importante lorsque vous utilisez la commande AddPrinterConnection VBScript pour mapper des imprimantes pour les utilisateurs lors du processus d'ouverture de session dans Windows |4.15, 3.22, 2.34 |13 janvier 2015 |
 
+[3199057]: http://support.microsoft.com/kb/3199057 
+[3199172]: http://support.microsoft.com/kb/3199172 
+[3199151]: http://support.microsoft.com/kb/3199151 
+[3193706]: http://support.microsoft.com/kb/3193706 
+[3199120]: http://support.microsoft.com/kb/3199120 
+[3199135]: http://support.microsoft.com/kb/3199135 
+[3199173]: http://support.microsoft.com/kb/3199173 
+[3199647]: http://support.microsoft.com/kb/3199647 
+[3199720]: http://support.microsoft.com/kb/3199720 
+[3193479]: http://support.microsoft.com/kb/3193479 
+[3198467]: http://support.microsoft.com/kb/3198467 
+[3192321]: http://support.microsoft.com/kb/3192321 
+[3185330]: http://support.microsoft.com/kb/3185330 
+[3192403]: http://support.microsoft.com/kb/3192403 
+[3177467]: http://support.microsoft.com/kb/3177467 
+[3185332]: http://support.microsoft.com/kb/3185332 
+[3192406]: http://support.microsoft.com/kb/3192406 
+[3185331]: http://support.microsoft.com/kb/3185331 
+[3192404]: http://support.microsoft.com/kb/3192404 
+[3199986]: http://support.microsoft.com/kb/3199986 
+[3197954]: http://support.microsoft.com/kb/3197954  
+
 [3192887]: http://support.microsoft.com/kb/3192887
 [3192884]: http://support.microsoft.com/kb/3192884
 [3192892]: http://support.microsoft.com/kb/3192892
@@ -636,6 +683,6 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 
