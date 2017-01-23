@@ -34,6 +34,7 @@
 ### [Évaluation de la ligne de base](oms-security-baseline.md)
 ### [Évaluation des logiciels malveillants](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Évaluation des mises à jour du système](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Connecter des produits de sécurité](oms-security-connect-products.md)
 ## [Intégrer avec OMS](operations-management-suite-integration.md)
 
 
@@ -64,6 +65,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

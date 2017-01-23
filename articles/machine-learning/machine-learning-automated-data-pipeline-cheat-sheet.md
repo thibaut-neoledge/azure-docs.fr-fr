@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 12/12/2016
 ms.author: mithal;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: abdcd9b6b92ebbff0aab405680139cbb3c295b91
+ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
+ms.openlocfilehash: 68a3a313831a4d424de26812a58a0f82c1ebad74
 
 
 ---
@@ -31,7 +31,7 @@ Une fois que vous avez téléchargé l’aide-mémoire, imprimez-le au format ta
 
  **[aide-mémoire relatif au pipeline de données automatisé pour les prévisions Microsoft Azure Machine Learning](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
-![Vue d’ensemble des capacités de Microsoft Azure Machine Learning Studio][op-cheat-sheet]
+![Microsoft Azure Machine Learning Studio : de quoi s’agit-il ?][op-cheat-sheet]
 
 [op-cheat-sheet]: ./media/machine-learning-automated-data-pipeline-cheat-sheet/machine-learning-automated-data-pipeline-cheat-sheet_v1.1.png
 
@@ -46,6 +46,6 @@ Une fois que vous avez téléchargé l’aide-mémoire, imprimez-le au format ta
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

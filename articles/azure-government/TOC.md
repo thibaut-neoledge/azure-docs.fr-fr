@@ -1,5 +1,5 @@
 # Vue d’ensemble
-## [Qu’est-ce qu’Azure Government ?](../azure-government-overview.md?toc=%2fazure%2fazure-government%2ftoc.json)
+## [Qu’est-ce qu’Azure Government ?](../azure-government-overview.md?toc=%2fazure%2fazure-government%2ftoc.json)
 ## [ITAR](documentation-government-overview-itar.md)
 ## [Justice et sécurité publique](documentation-government-overview-jps.md)
 ## [Ministère de la défense](documentation-government-overview-dod.md)
@@ -27,12 +27,13 @@
 ### [Mise en réseau](documentation-government-networking.md)
 ### [Sécurité et identité](documentation-government-services-securityandidentity.md)
 ### [Surveillance et gestion](documentation-government-services-monitoringandmanagement.md)
+### [Web et mobilité](documentation-government-services-webandmobile.md)
 
 # les ressources
 ## [Tarification](https://azure.microsoft.com/pricing/)
 ## [Version d’évaluation](https://azuregov.microsoft.com/trial/azuregovtrial)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 
