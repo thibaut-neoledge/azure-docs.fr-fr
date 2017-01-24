@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/05/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 50bf12615f90f03ade80df61678592392bef128b
+ms.sourcegitcommit: fc79b8017f2184091f2473a0ff9cdfbd0a4cbdf8
+ms.openlocfilehash: bc3098db4ba43d69b23b3644bd2ad62c867cbb00
 
 
 ---
@@ -44,7 +44,7 @@ Vous pouvez installer Giraph sur n’importe quel type de cluster (Hadoop, Storm
 1. Démarrez la création d’un cluster à l’aide de l’option **CRÉATION PERSONNALISÉE** , comme décrit dans [Création de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md).
 2. Sur la page **Actions de script** de l’Assistant, cliquez sur **ajouter l’action de script** pour fournir des informations sur l’action de script, comme illustré ci-dessous :
 
-    ![Utilisation d’une action de script pour personnaliser un cluster](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "Use Script Action to customize a cluster")
+    ![Utiliser Action de script pour personnaliser un cluster](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "Utiliser Action de script pour personnaliser un cluster")
 
     <table border='1'>
         <tr><th>Propriété</th><th>Valeur</th></tr>
@@ -80,51 +80,58 @@ L’exemple SimpleShortestPathsComputation indique l’implémentation basique d
     ![tiny_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
 2. Exécutez l'exemple SimpleShortestPathsComputation. Utilisez les applets de commande Azure PowerShell suivantes pour exécuter l'exemple en utilisant le fichier tiny_graph.txt comme entrée.
 
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+    > [!IMPORTANT]
+    > La prise en charge de la gestion des ressources HDInsight par Azure PowerShell à l’aide d’Azure Service Manager est **déconseillée** ; elle sera supprimée le 1er janvier 2017. Dans ce document, la procédure repose sur les nouvelles applets de commande HDInsight qui fonctionnent avec Azure Resource Manager.
+    >
+    > Suivez les étapes indiquées dans [Installation et de configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) pour installer la dernière version d’Azure PowerShell. Si vous devez modifier certains scripts pour utiliser les nouvelles applets de commande fonctionnant avec Azure Resource Manager, consultez [Migration vers les outils de développement Azure Resource Manager pour les clusters HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md) pour plus d’informations.
 
-        $clusterName = "clustername"
-        # Giraph examples jar
-        $jarFile = "wasbs:///example/jars/giraph-examples.jar"
-        # Arguments for this job
-        $jobArguments = "org.apache.giraph.examples.SimpleShortestPathsComputation",
-                        "-ca", "mapred.job.tracker=headnodehost:9010",
-                        "-vif", "org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat",
-                        "-vip", "wasbs:///example/data/tiny_graph.txt",
-                        "-vof", "org.apache.giraph.io.formats.IdWithValueTextOutputFormat",
-                        "-op",  "wasbs:///example/output/shortestpaths",
-                        "-w", "2"
-        # Create the definition
-        $jobDefinition = New-AzureHDInsightMapReduceJobDefinition
-          -JarFile $jarFile
-          -ClassName "org.apache.giraph.GiraphRunner"
-          -Arguments $jobArguments
+    ```powershell
+    $clusterName = "clustername"
+    # Giraph examples jar
+    $jarFile = "wasbs:///example/jars/giraph-examples.jar"
+    # Arguments for this job
+    $jobArguments = "org.apache.giraph.examples.SimpleShortestPathsComputation",
+                    "-ca", "mapred.job.tracker=headnodehost:9010",
+                    "-vif", "org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat",
+                    "-vip", "wasbs:///example/data/tiny_graph.txt",
+                    "-vof", "org.apache.giraph.io.formats.IdWithValueTextOutputFormat",
+                    "-op",  "wasbs:///example/output/shortestpaths",
+                    "-w", "2"
+    # Create the definition
+    $jobDefinition = New-AzureHDInsightMapReduceJobDefinition
+        -JarFile $jarFile
+        -ClassName "org.apache.giraph.GiraphRunner"
+        -Arguments $jobArguments
 
-        # Run the job, write output to the Azure PowerShell window
-        $job = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $jobDefinition
-        Write-Host "Wait for the job to complete ..." -ForegroundColor Green
-        Wait-AzureHDInsightJob -Job $job
-        Write-Host "STDERR"
-        Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $job.JobId -StandardError
-        Write-Host "Display the standard output ..." -ForegroundColor Green
-        Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $job.JobId -StandardOutput
+    # Run the job, write output to the Azure PowerShell window
+    $job = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $jobDefinition
+    Write-Host "Wait for the job to complete ..." -ForegroundColor Green
+    Wait-AzureHDInsightJob -Job $job
+    Write-Host "STDERR"
+    Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $job.JobId -StandardError
+    Write-Host "Display the standard output ..." -ForegroundColor Green
+    Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $job.JobId -StandardOutput
+    ```
 
     Dans l’exemple ci-dessus, remplacez **clustername** par le nom de votre cluster HDInsight sur lequel Giraph est installé.
 3. Affichez les résultats. Une fois la tâche terminée, les résultats sont stockés dans deux fichiers de sortie dans le dossier **wasbs:///example/out/shotestpaths**. Les fichiers se nomment **part-m-00001** et **part-m-00002**. Procédez comme suit pour télécharger et afficher le résultat :
 
-        $subscriptionName = "<SubscriptionName>"       # Azure subscription name
-        $storageAccountName = "<StorageAccountName>"   # Azure Storage account name
-        $containerName = "<ContainerName>"             # Blob storage container name
+    ```powershell
+    $subscriptionName = "<SubscriptionName>"       # Azure subscription name
+    $storageAccountName = "<StorageAccountName>"   # Azure Storage account name
+    $containerName = "<ContainerName>"             # Blob storage container name
 
-        # Select the current subscription
-        Select-AzureSubscription $subscriptionName
+    # Select the current subscription
+    Select-AzureSubscription $subscriptionName
 
-        # Create the Storage account context object
-        $storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-        $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+    # Create the Storage account context object
+    $storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
+    $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
-        # Download the job output to the workstation
-        Get-AzureStorageBlobContent -Container $containerName -Blob example/output/shortestpaths/part-m-00001 -Context $storageContext -Force
-        Get-AzureStorageBlobContent -Container $containerName -Blob example/output/shortestpaths/part-m-00002 -Context $storageContext -Force
+    # Download the job output to the workstation
+    Get-AzureStorageBlobContent -Container $containerName -Blob example/output/shortestpaths/part-m-00001 -Context $storageContext -Force
+    Get-AzureStorageBlobContent -Container $containerName -Blob example/output/shortestpaths/part-m-00002 -Context $storageContext -Force
+    ```
 
     Cette opération crée la structure de répertoires **example/output/shortestpaths** dans le répertoire actuel de votre poste de travail et télécharge les deux fichiers de sortie à cet emplacement.
 
@@ -164,7 +171,7 @@ Consultez [Personnalisation de clusters HDInsight à l’aide d’une action de 
 [tools]: https://github.com/Blackmist/hdinsight-tools
 [aps]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
-[powershell-install]: ../powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
@@ -172,6 +179,6 @@ Consultez [Personnalisation de clusters HDInsight à l’aide d’une action de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

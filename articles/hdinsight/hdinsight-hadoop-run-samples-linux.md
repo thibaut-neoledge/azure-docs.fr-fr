@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d4b6db263becb722cabfab2160c0a460034eae72
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8e9cf3d1a2ae950f4f843458ae8b22d99beddd7e
 
 
 ---
@@ -65,7 +65,7 @@ Les clusters HDInsight sur Linux fournissent un ensemble d’exemples MapReduce 
 **Code source** : pour ces exemples, est inclus dans le cluster HDInsight sous **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples**
 
 > [!NOTE]
->  `2.2.4.9-1` constitue la version de la plateforme de données Hortonworks du cluster HDInsight et peut changer au fil de la mise à jour de HDInsight.
+> `2.2.4.9-1` constitue la version de la plateforme de données Hortonworks du cluster HDInsight et peut changer au fil de la mise à jour de HDInsight.
 > 
 > 
 
@@ -137,7 +137,7 @@ La façon de construire des puzzles Sudoku est particulière dans la mesure où 
     ? ? ? ? 4 5 ? 7 8
 
 > [!NOTE]
->  `2.2.4.9-1` du chemin d’accès peut changer au fil des mises à jour du cluster HDInsight.
+> `2.2.4.9-1` du chemin d’accès peut changer au fil des mises à jour du cluster HDInsight.
 > 
 > 
 
@@ -224,6 +224,6 @@ Dans cet article, vous avez appris à exécuter les exemples inclus avec les clu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

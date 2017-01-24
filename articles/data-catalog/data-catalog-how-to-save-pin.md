@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/10/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -79,7 +79,6 @@ La page d’accueil du portail Azure Data Catalog comprend une section intitul
 
 ## <a name="summary"></a>Résumé
 Azure Data Catalog offre aux utilisateurs des fonctionnalités qui leur permettent de mieux découvrir les sources de données dont ils ont besoin, et ainsi de passer moins de temps à rechercher les données et plus de temps à les utiliser. Des recherches enregistrées et des ressources de données épinglées sont générées d’après ces fonctionnalités de base afin que les utilisateurs puissent identifier facilement les sources de données avec lesquelles ils comptent travailler régulièrement.
-
 
 
 

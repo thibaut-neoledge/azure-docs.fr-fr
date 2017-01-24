@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 09/07/2016
-ms.author: marsma
+ms.date: 01/05/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3907de9630fec99b1d28c750bfbfdf6f646bf194
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 84e7e6ddf03172e646c55e7e3bf45a32feb15b06
 
 
 ---
@@ -59,7 +59,7 @@ Voici les composants requis pour utiliser les modèles Batch :
     
     * Le gestionnaire de travaux Azure Batch avec l’outil de fractionnement du travail
     * Le processeur de tâches Azure Batch
-  * Les télécharger à partir de la galerie en ligne pour Visual Studio : [Modèles de projet Microsoft Azure Batch][vs_gallery_templates]
+  * Les télécharger à partir de la galerie en ligne pour Visual Studio : [Modèles de projet Microsoft Azure Batch][vs_gallery_templates]
 * Si vous prévoyez d’utiliser la fonctionnalité [Packages d’applications](batch-application-packages.md) pour déployer le gestionnaire de travaux et le processeur de tâches sur les nœuds de calcul Batch, vous devez lier un compte de stockage à votre compte Batch.
 
 ## <a name="preparation"></a>Préparation
@@ -454,6 +454,6 @@ Le [Forum Azure Batch][forum] sur MSDN est l’endroit idéal pour discuter de B
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

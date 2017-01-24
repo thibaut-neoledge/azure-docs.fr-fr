@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: f5bdbd801107650f87993b395338adfb1b26d17e
-ms.openlocfilehash: 28f0a833ca410a518291c99b308ac52a1318761e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d408b5affc166ae4fae6b94ab3e069b51ecfdd3c
 
 
 ---
@@ -883,10 +883,10 @@ Azure Search permet d’ajouter des fonctionnalités de recherche puissantes et 
 Le comportement de nouvelle tentative dans le Kit de développement logiciel (SDK) Recherche Azure est contrôlé par la méthode `SetRetryPolicy` sur les classes [SearchServiceClient] et [SearchIndexClient]. La stratégie par défaut effectue une nouvelle tentative avec temporisation exponentielle lorsque Recherche Azure renvoie une réponse 5xx ou 408 (Délai d’expiration de la demande).
 
 ### <a name="telemetry"></a>Télémétrie
-Effectuez le suivi avec ETW ou via l’inscription d’un fournisseur de suivi personnalisé. Pour plus d’informations, consultez [Suivi][autorest-tracing] dans la documentation AutoRest.
+Effectuez le suivi avec ETW ou via l’inscription d’un fournisseur de suivi personnalisé. Pour plus d’informations, consultez [Traçage][autorest-tracing] dans la documentation AutoRest.
 
 ### <a name="more-information"></a>Plus d’informations
-* [Nouvelles tentatives automatiques][autorest-retry] dans la documentation AutoRest
+* [Les nouvelles tentatives automatiques][autorest-retry] dans la documentation AutoRest
 
 ## <a name="azure-active-directory-retry-guidelines"></a>Instructions relatives aux nouvelles tentatives Azure Active Directory
 Azure Active Directory (AD) est une solution cloud de gestion et des accès et des identités complète qui combine des services d’annuaire essentiels, une gestion avancée des identités, des services de sécurité et une gestion des accès de l’application. Azure AD offre également aux développeurs une plate-forme de gestion des identités pour permettre un contrôle d’accès à leurs applications, en fonction d’une stratégie et de règles centralisés.
@@ -1101,6 +1101,6 @@ Pour obtenir des exemples d’utilisation du bloc applicatif de gestion des erre
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

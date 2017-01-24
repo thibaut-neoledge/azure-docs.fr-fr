@@ -1,34 +1,34 @@
 ---
 title: "Obtenir les outils Azure (macOS 10.10) | Microsoft Docs"
-description: "Sur macOS, installez Python et l’interface de ligne de commande Azure (Azure CLI)."
+description: "Sur Mac OS, installez Python et l’interface de ligne de commande Azure (Azure CLI)."
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timlt
+manager: timtl
 tags: 
 keywords: iot cloud service, azure cli
-ms.assetid: 1814b703-2d81-45db-aff0-eb338c97f120
+ms.assetid: f2d7d584-7734-401c-976c-81788a7282a3
 ms.service: iot-hub
-ms.devlang: node
+ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 7fbf21434952ece22468df6873e10e6f3eae1724
-ms.openlocfilehash: 3bf03cbd56ac72a0be62c1adc769dcbbd9295029
+ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
+ms.openlocfilehash: e8da9d89e2af04a3c3ad3272d2af5060b23f9249
 
 
 ---
 # <a name="get-azure-tools-macos-1010"></a>Obtenir les outils Azure (macOS 10.10)
 > [!div class="op_single_selector"]
-> * [Windows 7 et versions ultérieures](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md)
-> * [Ubuntu 16.04](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-ubuntu.md)
-> * [macOS 10.10](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
+> * [Windows 7 et versions ultérieures](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md)
+> * [Ubuntu 16.04](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-ubuntu.md)
+> * [macOS 10.10](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-mac.md)
 
 ## <a name="what-you-will-do"></a>Procédure à suivre
-Installez l’interface de ligne de commande Azure (Azure CLI). Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+Installez l’interface de ligne de commande Azure (Azure CLI). Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>Contenu
 Cet article portera sur les éléments suivants :
@@ -73,7 +73,7 @@ Si l’installation a réussi, vous devez voir la sortie suivante.
 Vous avez installé l’interface de ligne de commande Azure. La tâche suivante consiste à créer votre Azure IoT Hub et votre identité d’appareil à l’aide de l’interface de ligne de commande Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Créer votre IoT Hub et inscrire Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
+[Créer votre IoT Hub et inscrire Raspberry Pi 3](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md)
 
 
 
