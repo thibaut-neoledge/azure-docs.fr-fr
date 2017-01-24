@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/05/2016
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: a4121f8857fa9eaeb1cf1bca70e29666f6a04f63
-ms.openlocfilehash: 6c290b3925b2e3a6fdc7fbc639d0db3017233328
+ms.sourcegitcommit: 7fc30c4283a96f3202e7010828e178895d3613b6
+ms.openlocfilehash: 08245a850e3c78ce893ef18030ee09e701241d1b
 
 
 ---
@@ -46,63 +46,61 @@ Dans la définition JSON de l’activité HDInsight :
 3. Spécifiez le chemin d’accès du fichier JAR, ainsi que le nom de fichier, pour la propriété **jarFilePath** .
 4. Spécifiez le service lié qui fait référence au stockage d’objets blob Azure contenant le fichier JAR pour la propriété **jarLinkedService** .   
 5. Spécifiez les arguments du programme MapReduce dans la section **arguments**. Lors de l’exécution, vous verrez quelques arguments supplémentaires (par exemple : mapreduce.job.tags) à partir de l’infrastructure MapReduce. Pour différencier vos arguments avec les arguments MapReduce, envisagez d’utiliser l’option et la valeur en tant qu’arguments comme indiqué dans l’exemple suivant (-s, --entrée, --sortie etc. sont des options immédiatement suivies par leurs valeurs).
-   
-        {
-            "name": "MahoutMapReduceSamplePipeline",
-            "properties": {
-                "description": "Sample Pipeline to Run a Mahout Custom Map Reduce Jar. This job calcuates an Item Similarity Matrix to determine the similarity between 2 items",
-                "activities": [
-                    {
-                        "type": "HDInsightMapReduce",
-                        "typeProperties": {
-                            "className": "org.apache.mahout.cf.taste.hadoop.similarity.item.ItemSimilarityJob",
-                            "jarFilePath": "adfsamples/Mahout/jars/mahout-examples-0.9.0.2.2.7.1-34.jar",
-                            "jarLinkedService": "StorageLinkedService",
-                            "arguments": [
-                                "-s",
-                                "SIMILARITY_LOGLIKELIHOOD",
-                                "--input",
-                                "wasb://adfsamples@spestore.blob.core.windows.net/Mahout/input",
-                                "--output",
-                                "wasb://adfsamples@spestore.blob.core.windows.net/Mahout/output/",
-                                "--maxSimilaritiesPerItem",
-                                "500",
-                                "--tempDir",
-                                "wasb://adfsamples@spestore.blob.core.windows.net/Mahout/temp/mahout"
-                            ]
-                        },
-                        "inputs": [
-                            {
-                                "name": "MahoutInput"
-                            }
-                        ],
-                        "outputs": [
-                            {
-                                "name": "MahoutOutput"
-                            }
-                        ],
-                        "policy": {
-                            "timeout": "01:00:00",
-                            "concurrency": 1,
-                            "retry": 3
-                        },
-                        "scheduler": {
-                            "frequency": "Hour",
-                            "interval": 1
-                        },
-                        "name": "MahoutActivity",
-                        "description": "Custom Map Reduce to generate Mahout result",
-                        "linkedServiceName": "HDInsightLinkedService"
-                    }
-                ],
-                "start": "2014-01-03T00:00:00Z",
-                "end": "2014-01-04T00:00:00Z",
-                "isPaused": false,
-                "hubName": "mrfactory_hub",
-                "pipelineMode": "Scheduled"
-            }
-        }
 
+    ```JSON   
+    {
+        "name": "MahoutMapReduceSamplePipeline",
+        "properties": {
+            "description": "Sample Pipeline to Run a Mahout Custom Map Reduce Jar. This job calcuates an Item Similarity Matrix to determine the similarity between 2 items",
+            "activities": [
+                {
+                    "type": "HDInsightMapReduce",
+                    "typeProperties": {
+                        "className": "org.apache.mahout.cf.taste.hadoop.similarity.item.ItemSimilarityJob",
+                        "jarFilePath": "adfsamples/Mahout/jars/mahout-examples-0.9.0.2.2.7.1-34.jar",
+                        "jarLinkedService": "StorageLinkedService",
+                        "arguments": [
+                            "-s",
+                            "SIMILARITY_LOGLIKELIHOOD",
+                            "--input",
+                            "wasb://adfsamples@spestore.blob.core.windows.net/Mahout/input",
+                            "--output",
+                            "wasb://adfsamples@spestore.blob.core.windows.net/Mahout/output/",
+                            "--maxSimilaritiesPerItem",
+                            "500",
+                            "--tempDir",
+                            "wasb://adfsamples@spestore.blob.core.windows.net/Mahout/temp/mahout"
+                        ]
+                    },
+                    "inputs": [
+                        {
+                            "name": "MahoutInput"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "MahoutOutput"
+                        }
+                    ],
+                    "policy": {
+                        "timeout": "01:00:00",
+                        "concurrency": 1,
+                        "retry": 3
+                    },
+                    "scheduler": {
+                        "frequency": "Hour",
+                        "interval": 1
+                    },
+                    "name": "MahoutActivity",
+                    "description": "Custom Map Reduce to generate Mahout result",
+                    "linkedServiceName": "HDInsightLinkedService"
+                }
+            ],
+            "start": "2017-01-03T00:00:00Z",
+            "end": "2017-01-04T00:00:00Z"
+        }
+    }
+    ```
 Vous pouvez utiliser l’activité MapReduce de HDInsight pour exécuter un fichier jar MapReduce dans un cluster HDInsight. Dans l'exemple suivant de définition JSON d'un pipeline, l'activité HDInsight est configurée pour exécuter un fichier JAR Mahout.
 
 ## <a name="sample-on-github"></a>Exemple sur GitHub
@@ -115,55 +113,62 @@ Le pipeline dans cet exemple exécute le programme Map/Reduce du nombre de mots 
 Tout d'abord, vous créez un service lié pour lier le stockage Azure qui est utilisé par le cluster Azure HDInsight à la fabrique de données Azure. Si vous copiez/collez le code suivant, n’oubliez pas de remplacer le **nom de compte** et la **clé de compte** par le nom et la clé de votre stockage Azure. 
 
 #### <a name="azure-storage-linked-service"></a>Service lié Azure Storage
-    {
-        "name": "StorageLinkedService",
-        "properties": {
-            "type": "AzureStorage",
-            "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>"
-            }
+
+```JSON
+{
+    "name": "StorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>"
         }
     }
+}
+```
 
 #### <a name="azure-hdinsight-linked-service"></a>Service lié Azure HDInsight
 Tout d'abord, vous créez un service lié pour lier le cluster Azure HDInsight à la fabrique de données Azure. Si vous copiez/collez le code suivant, remplacez **le nom du cluster HDInsight** par le nom de votre cluster HDInsight et modifiez le nom d’utilisateur et le mot de passe.   
 
-    {
-        "name": "HDInsightLinkedService",
-        "properties": {
-            "type": "HDInsight",
-            "typeProperties": {
-                "clusterUri": "https://<HDInsight cluster name>.azurehdinsight.net",
-                "userName": "admin",
-                "password": "**********",
-                "linkedServiceName": "StorageLinkedService"
-            }
+```JSON
+{
+    "name": "HDInsightLinkedService",
+    "properties": {
+        "type": "HDInsight",
+        "typeProperties": {
+            "clusterUri": "https://<HDInsight cluster name>.azurehdinsight.net",
+            "userName": "admin",
+            "password": "**********",
+            "linkedServiceName": "StorageLinkedService"
         }
     }
+}
+```
 
 ### <a name="datasets"></a>Groupes de données
 #### <a name="output-dataset"></a>Jeu de données de sortie
 Le pipeline de cet exemple n’accepte pas d’entrées. Vous spécifiez un jeu de données de sortie pour l’activité MapReduce HDInsight. Il s’agit simplement d’un ensemble de données factice qui est nécessaire au fonctionnement de la planification de pipeline.  
 
-    {
-        "name": "MROutput",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "StorageLinkedService",
-            "typeProperties": {
-                "fileName": "WordCountOutput1.txt",
-                "folderPath": "example/data/",
-                "format": {
-                    "type": "TextFormat",
-                    "columnDelimiter": ","
-                }
-            },
-            "availability": {
-                "frequency": "Day",
-                "interval": 1
+```JSON
+{
+    "name": "MROutput",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+            "fileName": "WordCountOutput1.txt",
+            "folderPath": "example/data/",
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
             }
+        },
+        "availability": {
+            "frequency": "Day",
+            "interval": 1
         }
     }
+}
+```
 
 ### <a name="pipeline"></a>Pipeline
 Le pipeline de cet exemple n'a qu'une seule activité de type : HDInsightMapReduce. Certaines propriétés importantes dans le JSON sont : 
@@ -178,44 +183,46 @@ Le pipeline de cet exemple n'a qu'une seule activité de type : HDInsightMapRed
 | frequency/interval |Les valeurs de ces propriétés correspondent au jeu de données de sortie. |
 | linkedServiceName |fait référence au service HDInsight lié créé précédemment. |
 
-    {
-        "name": "MRSamplePipeline",
-        "properties": {
-            "description": "Sample Pipeline to Run the Word Count Program",
-            "activities": [
-                {
-                    "type": "HDInsightMapReduce",
-                    "typeProperties": {
-                        "className": "wordcount",
-                        "jarFilePath": "<HDInsight cluster name>/example/jars/hadoop-examples.jar",
-                        "jarLinkedService": "StorageLinkedService",
-                        "arguments": [
-                            "/example/data/gutenberg/davinci.txt",
-                            "/example/data/WordCountOutput1"
-                        ]
-                    },
-                    "outputs": [
-                        {
-                            "name": "MROutput"
-                        }
-                    ],
-                    "policy": {
-                        "timeout": "01:00:00",
-                        "concurrency": 1,
-                        "retry": 3
-                    },
-                    "scheduler": {
-                        "frequency": "Day",
-                        "interval": 1
-                    },
-                    "name": "MRActivity",
-                    "linkedServiceName": "HDInsightLinkedService"
-                }
-            ],
-            "start": "2014-01-03T00:00:00Z",
-            "end": "2014-01-04T00:00:00Z"
-        }
+```JSON
+{
+    "name": "MRSamplePipeline",
+    "properties": {
+        "description": "Sample Pipeline to Run the Word Count Program",
+        "activities": [
+            {
+                "type": "HDInsightMapReduce",
+                "typeProperties": {
+                    "className": "wordcount",
+                    "jarFilePath": "<HDInsight cluster name>/example/jars/hadoop-examples.jar",
+                    "jarLinkedService": "StorageLinkedService",
+                    "arguments": [
+                        "/example/data/gutenberg/davinci.txt",
+                        "/example/data/WordCountOutput1"
+                    ]
+                },
+                "outputs": [
+                    {
+                        "name": "MROutput"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1,
+                    "retry": 3
+                },
+                "scheduler": {
+                    "frequency": "Day",
+                    "interval": 1
+                },
+                "name": "MRActivity",
+                "linkedServiceName": "HDInsightLinkedService"
+            }
+        ],
+        "start": "2014-01-03T00:00:00Z",
+        "end": "2014-01-04T00:00:00Z"
     }
+}
+```
 
 ## <a name="run-spark-programs"></a>Exécuter des programmes Spark
 Vous pouvez utiliser l'activité MapReduce pour exécuter des programmes Spark sur votre cluster HDInsight Spark. Consultez la page [Appeler des programmes Spark à partir d'Azure Data Factory](data-factory-spark.md) pour plus d'informations.  
@@ -227,8 +234,8 @@ Vous pouvez utiliser l'activité MapReduce pour exécuter des programmes Spark s
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [adfgetstartedmonitoring]:data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#monitor-pipelines 
 
-[Référence du développeur]: http://go.microsoft.com/fwlink/?LinkId=516908
-[Portail Azure]: http://portal.azure.com
+[Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[Azure Portal]: http://portal.azure.com
 
 ## <a name="see-also"></a>Voir aussi
 * [Activité Hive](data-factory-hive-activity.md)
@@ -240,6 +247,6 @@ Vous pouvez utiliser l'activité MapReduce pour exécuter des programmes Spark s
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 02/02/2016
 ms.author: stephpr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 044007fc099007ea64d958fb6c15a6ed29eccdcc
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 0de0314902805a2bdb37ce3c6f79ec221f3aed31
 
 
 ---
@@ -34,7 +34,7 @@ Vous découvrirez comment effectuer les actions suivantes :
 > 
 > Si vous n’avez pas de compte GitHub, vous pouvez vous inscrire [ici](https://github.com/join).
 > 
-> Si vous n’avez pas de compte [Microsoft Azure](https://azure.microsoft.com/), vous pouvez vous inscrire à un essai GRATUIT [ici](https://azure.microsoft.com/pricing/free-trial/). Vous êtes également amené à suivre la procédure d’inscription pour obtenir un [compte Microsoft](http://account.microsoft.com) si vous n’en avez pas déjà un. Par ailleurs, si vous êtes abonné à Visual Studio, vous pouvez [activer vos avantages MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+> Si vous n’avez pas de compte [Microsoft Azure](https://azure.microsoft.com/), vous pouvez vous inscrire à un essai GRATUIT [ici](https://azure.microsoft.com/pricing/free-trial/). Vous êtes également amené à suivre la procédure d’inscription pour obtenir un [compte Microsoft](http://account.microsoft.com) si vous n’en avez pas déjà un. Par ailleurs, si vous êtes abonné à Visual Studio, vous pouvez [activer vos avantages MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 > 
 > Si vous n’avez pas git sur votre machine de développement et que vous utilisez un ordinateur Macintosh ou Windows, installez git à partir d’ [ici](http://www.git-scm.com). Si vous utilisez Linux, installez git en utilisant le mécanisme le plus approprié pour vous, comme `sudo apt-get install git`.
 > 
@@ -261,6 +261,6 @@ Pour plus d’informations sur le développement d’applications Node.js dans A
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/10/2017
 ms.author: juliako;cenkdin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 941f9e45b7b61c2ae7ce0fcd5b3a3d1891ff8315
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: e10c7b29469f9756803aaba64596bf86830893fa
 
 
 ---
@@ -36,10 +36,10 @@ Cette rubrique montre comment utiliser les API REST pour créer, mettre à jour 
 ## <a name="types-used-to-create-filters"></a>Types utilisés pour créer des filtres
 Les types suivants sont utilisés lors de la création de filtres :  
 
-* [Filter](http://msdn.microsoft.com/library/azure/mt149056.aspx)
-* [AssetFilter](http://msdn.microsoft.com/library/azure/mt149053.aspx)
-* [PresentationTimeRange](http://msdn.microsoft.com/library/azure/mt149052.aspx)
-* [FilterTrackSelect et FilterTrackPropertyCondition](http://msdn.microsoft.com/library/azure/mt149055.aspx)
+* [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
+* [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
+* [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
+* [FilterTrackSelect et FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
 > [!NOTE]
 > Lorsque vous utilisez l’API REST de Media Services, les considérations suivantes s’appliquent :
@@ -328,12 +328,7 @@ Les exemples suivants montrent comment ajouter des filtres à vos URL de diffusi
 
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
 
-
-**HDS**
-
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f, filter=MyFilter)
-
-
+    
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -346,6 +341,6 @@ Les exemples suivants montrent comment ajouter des filtres à vos URL de diffusi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

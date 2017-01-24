@@ -1,5 +1,5 @@
 ---
-title: "Procédure pas à pas d’exemple d’infrastructure | Microsoft Docs"
+title: "Procédure pas à pas d’exemple d’infrastructure Azure | Microsoft Docs"
 description: "Découvrez-en plus sur les principales instructions de conception et d’implémentation pour le déploiement d’un exemple d’infrastructure dans Azure."
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 95b8ccfbd88e423f035905204615bebffb6c0c50
+ms.sourcegitcommit: 1e52ae69951b6b1feee6207033a85a583d13bcc2
+ms.openlocfilehash: 851dd4a2a76eff0e2f95c9a0a7280986cfb3e26a
 
 
 ---
@@ -53,7 +53,7 @@ La conception qui en résulte doit comprendre :
 Tous les éléments ci-dessus sont conformes aux conventions de dénomination :
 
 * Adventure Works Cycles utilise **[Charge de travail informatique]-[Emplacement]-[Ressources Azure]** comme préfixe
-  * Pour cet exemple, « **azos** » (Azure On-line Store) est le nom de la charge de travail informatique et « **use** » (États-Unis de l’Est 2) est l’emplacement.
+  * Pour cet exemple, « **azos** » (Azure On-line Store) est le nom de la charge de travail informatique et « **use** » (États-Unis de l’Est 2) est l’emplacement
 * Les comptes de stockage utilisent adventureazosusesa**[description]**
   * Le mot « adventure » a été ajouté au préfixe pour garantir l’unicité et les noms de compte de stockage ne prennent pas en charge l’utilisation de traits d’union.
 * Les réseaux virtuels utilisent AZOS-USE-VN**[numéro]**
@@ -124,6 +124,6 @@ Cette configuration comprend :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

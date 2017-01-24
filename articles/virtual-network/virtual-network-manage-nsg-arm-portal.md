@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 60343b409c734bcc9bb50d6216ff2295aede783b
-ms.openlocfilehash: f4f56614bab80849820c31127b190953e2ef8b87
+ms.sourcegitcommit: 1fe845d442c7010580d4592f205e92e8ef70e34a
+ms.openlocfilehash: e9bcf8a893ff209337f6a5763b631a22f8514e20
 
 
 ---
@@ -27,13 +27,13 @@ ms.openlocfilehash: f4f56614bab80849820c31127b190953e2ef8b87
 > * [Portail](virtual-network-manage-nsg-arm-portal.md)
 > * [PowerShell](virtual-network-manage-nsg-arm-ps.md)
 > * [interface de ligne de commande Azure](virtual-network-manage-nsg-arm-cli.md)
-> 
+>
 
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
 > [!NOTE]
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement Resource Manager que Microsoft recommande pour la plupart des nouveaux déploiements à la place du modèle de déploiement classique.
-> 
+>
 
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
@@ -68,7 +68,7 @@ Pour afficher la liste des groupes de sécurité réseau dans le groupe de resso
 
 ### <a name="list-all-rules-for-an-nsg"></a>Répertorier toutes les règles pour un groupe de sécurité réseau
 
-Pour afficher les règles d’un groupe de sécurité réseau nommé **NSG-FrontEnd**, procédez comme suit : 
+Pour afficher les règles d’un groupe de sécurité réseau nommé **NSG-FrontEnd**, procédez comme suit :
 
 1. Dans le panneau **Groupes de sécurité réseau** ou le panneau **Ressources** présenté ci-dessus, cliquez sur **NSG-FrontEnd**.
 
@@ -84,7 +84,7 @@ Pour afficher les règles d’un groupe de sécurité réseau nommé **NSG-Front
 
     > [!NOTE]
     > Pour afficher les règles par défaut, cliquez sur l’icône **Règles par défaut** en haut du panneau qui affiche les règles.
-    > 
+    >
 
 ### <a name="view-nsgs-associations"></a>Afficher les associations de groupes de sécurité réseau
 
@@ -182,7 +182,7 @@ Pour associer à nouveau le groupe de sécurité réseau **NSG-FrontEnd** au sou
 
 > [!NOTE]
 > Vous pouvez également associer un groupe de sécurité réseau à un sous-réseau à partir du panneau **Paramètres** du groupe de sécurité réseau.
-> 
+>
 
 ## <a name="delete-an-nsg"></a>Suppression d'un groupe de sécurité réseau
 Vous ne pouvez supprimer un groupe de sécurité réseau que s’il n’est associé à aucune ressource. Pour supprimer un groupe de sécurité réseau, procédez comme suit :
@@ -195,13 +195,13 @@ Vous ne pouvez supprimer un groupe de sécurité réseau que s’il n’est asso
 6. Si des sous-réseaux sont répertoriés, cliquez sur le sous-réseau et suivez les étapes 2 et 3 de [Dissocier un groupe de sécurité réseau d’un sous-réseau](#Dissociate-an-NSG-from-a-subnet).
 7. Faites défiler à gauche vers le panneau **NSG-FrontEnd**, puis cliquez sur **Supprimer** > **Oui**.
 
-    [Portail Azure - Groupes de sécurité réseau](./media/virtual-network-manage-nsg-arm-portal/figure16.png)
+    ![Portail Azure - Groupes de sécurité réseau](./media/virtual-network-manage-nsg-arm-portal/figure16.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Activez la journalisation](virtual-network-nsg-manage-log.md) des groupes de sécurité réseau.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

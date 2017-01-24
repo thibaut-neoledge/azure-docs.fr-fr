@@ -12,15 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/11/2016
+ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
-ms.openlocfilehash: 698b834ffa82f2a1ab171fb5efc13a2fe916b4ec
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: f22b87fc5bdfe2db5de39adaafe9c71d8c32b26a
 
 
 ---
 # <a name="azure-media-services-overview-and-common-scenarios"></a>Vue d’ensemble d’Azure Media Services et scénarios courants
+
 Microsoft Azure Media Services est une plateforme extensible basée sur le cloud qui permet aux développeurs de créer des applications évolutives de gestion et de diffusion de médias. Media Services est basé sur les API REST qui permettent de télécharger, stocker, encoder et empaqueter en toute sécurité du contenu vidéo ou audio destiné à être diffusé à la demande ou en direct sur différents clients (par exemple, téléviseurs, PC et appareils mobiles).
 
 Vous pouvez créer des flux de travail de bout en bout en utilisant uniquement Media Services. Vous pouvez aussi choisir d'utiliser des composants tiers pour certaines parties de votre flux de travail (par exemple, en encodant avec un encodeur tiers). Le contenu est ensuite téléchargé, protégé, empaqueté et remis à l'aide de Media Services.
@@ -28,17 +29,27 @@ Vous pouvez créer des flux de travail de bout en bout en utilisant uniquement M
 Vous pouvez choisir de diffuser votre contenu en direct ou de distribuer du contenu à la demande. Cette rubrique décrit les scénarios courants pour distribuer vos contenus [en direct](media-services-overview.md#live_scenarios) ou [à la demande](media-services-overview.md#vod_scenarios). La rubrique contient également des liens vers d’autres rubriques pertinentes.
 
 ## <a name="sdks-and-tools"></a>Kits de développement logiciel (SDK) et outils
+
 Pour créer des solutions Media Services, vous pouvez utiliser les composants suivants :
 
-* [API REST Media Services](https://msdn.microsoft.com/library/azure/hh973617.aspx)
+* [API REST Media Services](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 * Un des Kits de développement logiciel (SDK) de client disponibles :
-* [Kit de développement logiciel (SDK) Azure Media Services pour .NET](https://github.com/Azure/azure-sdk-for-media-services),
-* [Kit de développement logiciel (SDK) Azure pour Java](https://github.com/Azure/azure-sdk-for-java),
-* [Kit de développement logiciel (SDK) Azure pour PHP](https://github.com/Azure/azure-sdk-for-php),
-* [Azure Media Services pour Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (il s’agit d’une version non Microsoft du Kit de développement logiciel (SDK) Node.js. Il est géré par une communauté et ne fournit pas une couverture à 100 % des API AMS).
+    * [Kit de développement logiciel (SDK) Azure Media Services pour .NET](https://github.com/Azure/azure-sdk-for-media-services),
+    * [Kit de développement logiciel (SDK) Azure pour Java](https://github.com/Azure/azure-sdk-for-java),
+    * [Kit de développement logiciel (SDK) Azure pour PHP](https://github.com/Azure/azure-sdk-for-php),
+    * [Azure Media Services pour Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (il s’agit d’une version non Microsoft du Kit de développement logiciel (SDK) Node.js. Il est géré par une communauté et ne fournit pas une couverture à 100 % des API AMS).
 * Outils existants :
-* [portail Azure](https://portal.azure.com/)
-* [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) est une application Winforms/C# pour Windows)
+    * [portail Azure](https://portal.azure.com/)
+    * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) est une application Winforms/C# pour Windows)
+
+L’image suivante illustre certains des objets couramment utilisés lors du développement par rapport au modèle OData de Media Services.
+
+Cliquez sur l’image pour l’afficher en plein écran.  
+
+<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
+
+Vous pouvez afficher l’ensemble du modèle [ici](https://media.windows.net/API/$metadata?api-version=2.15).  
+
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
@@ -54,9 +65,8 @@ Pour commencer à utiliser Azure Media Services, vous devez disposer des éléme
 2. Un compte Azure Media Services. Utilisez le portail Azure, .NET ou l’API REST pour créer un compte Azure Media Services. Pour plus d’informations, consultez [Créer un compte](media-services-portal-create-account.md).
 3. (Facultatif) Un environnement de développement configuré. Choisissez .NET ou API REST comme environnement de développement. Pour plus d’informations, consultez [Configuration d'environnement](media-services-dotnet-how-to-use.md).
 
-    En outre, découvrez comment [vous connecter](media-services-dotnet-connect-programmatically.md)par programmation.
-
-4. (Recommandé) Allocation d’une ou de plusieurs unités d’échelle. Il est recommandé d’allouer une ou plusieurs unités d’échelle pour les applications dans un environnement de production.   Pour plus d’informations, consultez [Gestion des points de terminaison de diffusion en continu](media-services-portal-manage-streaming-endpoints.md).
+    Découvrez également comment [vous connecter par programmation](media-services-dotnet-connect-programmatically.md).
+4. Un point de terminaison de streaming standard ou premium à l’état Démarré.  Pour plus d’informations, consultez [Gestion des points de terminaison de streaming](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-manage-streaming-endpoints).
 
 ## <a name="concepts-and-overview"></a>Concepts et vue d’ensemble
 Pour les concepts Azure Media Services, consultez [Concepts](media-services-concepts.md).
@@ -64,27 +74,27 @@ Pour les concepts Azure Media Services, consultez [Concepts](media-services-conc
 Pour découvrir une série de procédures qui présente tous les principaux composants d’Azure Media Services, consultez les [didacticiels pas à pas Azure Media Services](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Cette série constitue une excellente présentation des concepts, et utilise l’outil AMSE pour effectuer les tâches AMS. Notez que l’outil AMSE est un outil Windows. Cet outil prend en charge la plupart des tâches que vous pouvez obtenir par programmation avec le [Kit de développement logiciel (SDK) AMS pour .NET](https://github.com/Azure/azure-sdk-for-media-services), le [Kit de développement logiciel (SDK) Azure pour Java](https://github.com/Azure/azure-sdk-for-java) ou le [Kit de développement logiciel (SDK) Azure pour PHP](https://github.com/Azure/azure-sdk-for-php).
 
 ## <a name="a-idvodscenariosadelivering-media-on-demand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Diffusion multimédia à la demande avec Azure Media Services : tâches et scénarions courants
-Cette section décrit les scénarios courants et fournit des liens vers des rubriques pertinentes. Le diagramme suivant présente les principaux composants de la plateforme Media Services impliqués dans la distribution de contenu à la demande. 
+Cette section décrit les scénarios courants et fournit des liens vers des rubriques pertinentes. Le diagramme suivant présente les principaux composants de la plateforme Media Services impliqués dans la distribution de contenu à la demande.
 
 ![Flux de travail VOD](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
+>[!NOTE]
+>Une fois votre compte AMS créé, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**.
+
 ### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Protéger le contenu stocké et assurer une diffusion multimédia en continu en clair (sans chiffrement)
 1. Téléchargez un fichier mezzanine de haute qualité dans une ressource.
-   
+
     Il est recommandé d’appliquer une option de chiffrement de stockage à votre ressource afin de protéger votre contenu lors du téléchargement et lorsqu’il est au repos, lors du stockage.
-2. Encoder en un ensemble de fichiers MP4 à débit adaptatif. 
-   
+2. Encoder en un ensemble de fichiers MP4 à débit adaptatif.
+
     Il est recommandé d’appliquer une option de chiffrement de stockage à la ressource de sortie afin de protéger votre contenu lorsqu’il est au repos.
-3. Configurez la stratégie de remise de ressources (utilisée par l’empaquetage dynamique). 
-   
-    Si votre ressource est stockée sous forme chiffrée, vous **devez** configurer une stratégie de remise de ressources. 
+3. Configurez la stratégie de remise de ressources (utilisée par l’empaquetage dynamique).
+
+    Si votre ressource est stockée sous forme chiffrée, vous **devez** configurer une stratégie de remise de ressources.
 4. Publiez la ressource en créant un localisateur à la demande.
-   
-    Assurez-vous d’avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
 5. Diffusez le contenu publié.
 
 ### <a name="protect-content-in-storage-deliver-dynamically-encrypted-streaming-media"></a>Protéger le contenu stocké et diffuser du contenu multimédia chiffré dynamiquement en continu
-Pour pouvoir utiliser le chiffrement dynamique, vous devez obtenir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu chiffré.
 
 1. Téléchargez un fichier mezzanine de haute qualité dans une ressource. Appliquez l’option de chiffrement de stockage à la ressource.
 2. Encoder en un ensemble de fichiers MP4 à débit adaptatif. Appliquez l’option de chiffrement de stockage à la ressource de sortie.
@@ -92,29 +102,27 @@ Pour pouvoir utiliser le chiffrement dynamique, vous devez obtenir au moins une 
 4. Configurez la stratégie d’autorisation de clé de contenu.
 5. Configurez la stratégie de remise de ressources (utilisée par l’empaquetage dynamique et le chiffrement dynamique).
 6. Publiez la ressource en créant un localisateur à la demande.
-7. Diffusez le contenu publié. 
+7. Diffusez le contenu publié.
 
 ### <a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>Utiliser Media Analytics pour extraire des connaissances exploitables de vos vidéos
 Media Analytics est une collection de composants visuels et vocaux qui aident les organisations et les entreprises à extraire des connaissances exploitables de leurs fichiers vidéo. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Media Analytics](media-services-analytics-overview.md).
 
 1. Téléchargez un fichier mezzanine de haute qualité dans une ressource.
 2. Utilisez un des services Media Analytics pour traiter vos vidéos :
-   
+
    * **Indexeur** – [Traiter les vidéos avec l’Indexeur multimédia Azure 2](media-services-process-content-with-indexer2.md)
    * **Hyperlapse** – [Fichiers multimédias Hyperlapse avec Azure Media Hyperlapse](media-services-hyperlapse-content.md)
    * **Détection de mouvement** – [Détection de mouvement pour Azure Media Analytics](media-services-motion-detection.md).
    * **Détection des visages et émotions du visage** – [Détection des visages et des émotions pour Azure Media Analytics](media-services-face-and-emotion-detection.md).
    * **Synthèse vidéo** – [Utilisez les vidéos miniatures Azure Media pour créer une synthèse vidéo](media-services-video-summarization.md)
-3. Les processeurs multimédias Media Analytics créent des fichiers MP4 ou JSON. Si un processeur multimédia a produit un fichier MP4, vous pouvez télécharger ce dernier progressivement. Si un processeur multimédia a produit un fichier JSON, vous pouvez télécharger ce dernier à partir d’Azure Blob Storage. 
+3. Les processeurs multimédias Media Analytics créent des fichiers MP4 ou JSON. Si un processeur multimédia a produit un fichier MP4, vous pouvez télécharger ce dernier progressivement. Si un processeur multimédia a produit un fichier JSON, vous pouvez télécharger ce dernier à partir d’Azure Blob Storage.
 
 ### <a name="deliver-progressive-download"></a>Remettre le téléchargement progressif
 1. Téléchargez un fichier mezzanine de haute qualité dans une ressource.
 2. Encoder en un fichier MP4 unique.
 3. Publiez la ressource en créant un localisateur à la demande ou de signature d’accès partagé (SAS, Shared Access Signature).
-   
-    Si vous utilisez un localisateur à la demande, assurez-vous d’avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de télécharger progressivement le contenu.
-   
-    Si vous utilisez un localisateur SAS, le contenu est téléchargé depuis le stockage d’objets blob Azure. Dans ce cas, il n’est pas nécessaire de disposer d’unités réservées de diffusion en continu.
+
+    Si vous utilisez un localisateur SAS, le contenu est téléchargé depuis le stockage d’objets blob Azure. Dans ce cas, il n’est pas nécessaire de disposer de points de terminaison de streaming à l’état Démarré.
 4. Téléchargez le contenu de manière progressive.
 
 ## <a name="a-idlivescenariosadelivering-live-streaming-events-with-azure-media-services"></a><a id="live_scenarios"></a>Diffusion d’événements en direct en continu avec Azure Media Services
@@ -140,12 +148,12 @@ Dans Azure Media Sercices, les **canaux**, les **programmes** et le **point de t
 
 Un **canal** représente un pipeline de traitement du contenu vidéo en flux continu. Un canal peut recevoir des flux d’entrée live de l’une des manières suivantes :
 
-* Un encodeur en direct local envoie au canal un paquet **RTMP** ou **Smooth Streaming** (MP4 fragmenté) à débit binaire multiple, configuré pour un envoi **direct**. L’envoi **direct** correspond aux flux reçus qui transitent par les **canaux** sans traitement supplémentaire. Vous pouvez utiliser les encodeurs dynamiques suivants qui produisent un flux Smooth Streaming à débit binaire multiple : Elemental, Envivio, Cisco.  Les encodeurs dynamiques suivants produisent un flux au format RTMP : Adobe Flash Live, Telestream Wirecast et transcodeurs Tricaster.  Un encodeur live peut également envoyer un flux à débit binaire unique vers un canal qui n’est pas activé pour le Live Encoding, mais ce n’est pas recommandé. Lorsqu’il y est invité, Media Services fournit le flux aux clients.
+* Un encodeur en direct local envoie au canal un paquet **RTMP** ou **Smooth Streaming** (MP4 fragmenté) à débit binaire multiple, configuré pour un envoi **direct**. L’envoi **direct** correspond aux flux ingérés qui transitent par les **canaux** sans transcodage ni encodage. Vous pouvez utiliser les encodeurs live suivants qui produisent un flux Smooth Streaming multidébit : MediaExcel, Imagine Communications, Ateme, Envivio, Cisco et Elemental. Les encodeurs live suivants produisent un flux au format RTMP : Adobe Flash Live Encoder, Haivision, Telestream Wirecast, Teradek et Tricaster.  Un encodeur live peut également envoyer un flux à débit binaire unique vers un canal qui n’est pas activé pour le Live Encoding, mais ce n’est pas recommandé. Lorsqu’il y est invité, Media Services fournit le flux aux clients.
 
 > [!NOTE]
 > La méthode pass-through est le moyen le plus économique de diffuser des vidéos en continu si plusieurs événements vous concernent sur une longue période, et si vous avez déjà investi dans des encodeurs locaux. Consultez les détails de la [tarification](https://azure.microsoft.com/pricing/details/media-services/) .
-> 
-> 
+>
+>
 
 * Un encodeur dynamique envoie un flux à vitesse de transmission unique vers le canal activé pour effectuer un encodage en direct avec Media Services dans l’un des formats suivants : RTP (MPEG-TS), RTMP ou Smooth Streaming (MP4 fragmenté). Le canal procède ensuite à l’encodage en temps réel du flux à débit binaire unique entrant en flux vidéo à débit binaire multiple (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients.
 
@@ -172,9 +180,12 @@ Azure Media Services fournit les outils dont vous avez besoin pour créer des ap
 Media Services prend en charge l’intégration avec le CDN d’Azure. Pour plus d’informations sur l’activation du CDN Azure, voir [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-portal-manage-streaming-endpoints.md).
 
 ## <a name="scaling-a-media-services-account"></a>Mise à l’échelle d’un compte Media Services
+
 Vous pouvez mettre à l’échelle **Media Services** en spécifiant le nombre d’**unités réservées de diffusion en continu** et d’**unités réservées d’encodage** que vous voulez attribuer à votre compte.
 
 Vous pouvez aussi mettre à l’échelle votre compte Media Services en lui ajoutant des comptes de stockage. Chaque compte de stockage est limité à 500 To. Pour développer votre capacité stockage au-delà des limites par défaut, vous pouvez choisir de rattacher plusieurs comptes de stockage à un même compte Media Services.
+En fonction de leurs besoins, les clients Media Services choisissent un point de terminaison de streaming **Standard** ou un ou plusieurs points de terminaison de streaming **Premium**. Le point de terminaison de streaming standard convient à la plupart des charges de travail de diffusion en continu. Il inclut les mêmes fonctionnalités que les unités de diffusion en continu premium.
+Le point de terminaison de streaming standard convient à la plupart des charges de travail de diffusion en continu. Si votre charge de travail est avancée, si vos besoins en capacité de diffusion en continu ne correspondent pas aux cibles de débit du point de terminaison de streaming standard ou si vous souhaitez contrôler la capacité du service StreamingEndpoint afin de gérer les besoins croissants en termes de bande passante en ajustant les unités d’échelle (également appelées unités de diffusion premium), il est alors recommandé d’allouer des unités d’échelle.
 
 [Cette](media-services-portal-scale-streaming-endpoints.md) rubrique offre des liens vers des rubriques connexes.
 
@@ -186,7 +197,7 @@ Vous pouvez aussi mettre à l’échelle votre compte Media Services en lui ajou
 
 ## <a name="service-level-agreement-sla"></a>Contrat de Niveau de Service (SLA)
 * Pour Media Services, nous garantissons une disponibilité de 99,9 % des transactions d'API REST.
-* Pour la diffusion en continu, nous traiterons avec succès les demandes de service avec une garantie de disponibilité de 99,9 % pour le contenu multimédia existant quand au moins une unité de diffusion en continu est achetée.
+* Pour la diffusion en continu, nous traiterons avec succès les demandes de service avec une garantie de disponibilité de 99,9 % pour le contenu multimédia existant si un point de terminaison de streaming standard ou premium est acheté.
 * Pour les Canaux en Direct, nous garantissons que les canaux en cours d’exécution auront une connectivité externe au moins 99,9 % du temps.
 * Pour la Protection de Contenu, nous garantissons que nous serons en mesure de traiter les demandes de clé au moins 99,9 % du temps.
 * Pour l’Indexeur, nous serons en mesure d’assurer les demandes de tâche d’indexation traitées avec une unité réservée d’encodage 99,9 % du temps.
@@ -201,7 +212,6 @@ Pour plus d’informations, consultez le [contrat SLA Microsoft Azure](https://
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 7e28fdde31c735b5de99aa7031ceb1b2abf72576
+ms.sourcegitcommit: 702ea254c19d1f9782f83d8445b7f440f11963b9
+ms.openlocfilehash: 7f4bccda8a7cebff0d80627320d34062d4d55add
 
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>Création d’un index Azure Search à l’aide de l’API REST
@@ -36,7 +36,7 @@ Avant de suivre ce guide et de passer à la création d’un index, vous devez a
 
 Pour créer un index Azure Search à l’aide de l’API REST, vous allez générer une seule requête POST HTTP sur le point de terminaison URL de votre service Azure Search. Votre définition d’index figurera dans le corps de la requête sous la forme d’un contenu JSON correct.
 
-## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identifier la clé API d’administration de votre service Azure Search
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Identifier la clé API d’administration de votre service Azure Search
 Maintenant que vous avez configuré un service Azure Search, vous pouvez émettre des requêtes HTTP sur le point de terminaison URL de votre service à l’aide de l’API REST. *Toutes* les requêtes d’API doivent inclure la clé API générée pour le service Recherche que vous avez approvisionné. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
 1. Pour accéder aux clés API de votre service, vous devez vous connecter au [Portail Azure](https://portal.azure.com/)
@@ -50,7 +50,7 @@ Votre service comporte à la fois des *clés d’administration* et des *clés d
 
 Dans le cadre de la création d’un index, vous pouvez utiliser votre clé d’administration principale ou secondaire.
 
-## <a name="ii-define-your-azure-search-index-using-well-formed-json"></a>II. Définir votre index Azure Search à l’aide d’un code JSON correct
+## <a name="define-your-azure-search-index-using-well-formed-json"></a>Définir votre index Azure Search à l’aide d’un code JSON correct
 Une simple requête HTTP POST transmise à votre service vous permet de créer votre index. Le corps de votre requête HTTP POST doit contenir un seul objet JSON qui définit votre index Azure Search.
 
 1. La première propriété de cet objet JSON correspond au nom de l’index.
@@ -86,7 +86,7 @@ Notez que, dans votre index, un seul champ de type `Edm.String` doit être dési
 
 La définition d’index ci-dessus utilise un analyseur de langue pour le champ `description_fr` dans la mesure où il est destiné à stocker du texte en français. Pour plus d’informations sur les analyseurs de langue, consultez [l’article relatif à la prise en charge linguistique](https://docs.microsoft.com/rest/api/searchservice/Language-support), ainsi que le [billet de blog](https://azure.microsoft.com/blog/language-support-in-azure-search/) correspondant.
 
-## <a name="iii-issue-the-http-request"></a>III. Envoyer la requête HTTP
+## <a name="issue-the-http-request"></a>Envoyer la requête HTTP
 1. En utilisant votre définition d’index dans le corps de votre requête, envoyez une requête HTTP POST vers l’URL de point de terminaison de votre service Azure Search. Dans l’URL, veillez à utiliser le nom de votre service en tant que nom d’hôte et placez l’attribut `api-version` approprié comme paramètre de chaîne de requête (à la date de publication de ce document, l’API `2016-09-01` correspond à la version la plus récente).
 2. Dans les en-têtes de requête, spécifiez `Content-Type` comme `application/json`. Vous devrez également renseigner dans l’en-tête `api-key` la clé d’administration de votre service que vous avez identifiée à l’étape I.
 
@@ -105,11 +105,11 @@ Pour supprimer un index, il vous suffit de générer une requête HTTP DELETE. V
     api-key: [api-key]
 
 
-## <a name="next"></a>Suivant
+## <a name="next-steps"></a>Étapes suivantes
 Après avoir créé un index Azure Search, vous pouvez commencer à [télécharger du contenu dans votre index](search-what-is-data-import.md) afin d’y lancer des recherches.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

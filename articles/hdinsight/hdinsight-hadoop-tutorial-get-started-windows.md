@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 03/07/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 231044047e53b64f0d4f083ec6aec2b0687f3f2b
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: 176c06bd1d8117fda70001762f86f1a98829f78b
 
 
 ---
@@ -46,11 +46,11 @@ Visionnez une vidéo de démonstration de ce didacticiel pour vous familiariser 
 
 **[Regarder le didacticiel Hadoop pour HDInsight sur YouTube](https://www.youtube.com/watch?v=Y4aNjnoeaHA&list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS)**
 
-Parallèlement à la mise à disposition générale d'Azure HDInsight, Microsoft fournit également l'émulateur HDInsight pour Azure, connu auparavant sous le nom de *Microsoft HDInsight Developer Preview*. L'émulateur cible les scénarios de développement et ne prend en charge que les déploiements sur un seul nœud. Pour plus d'informations sur l'utilisation de l'émulateur HDInsight, consultez la rubrique [Prise en main de l'émulateur HDInsight][hdinsight-emulator].
+Parallèlement à la mise à disposition générale d'Azure HDInsight, Microsoft fournit également l'émulateur HDInsight pour Azure, connu auparavant sous le nom de *Microsoft HDInsight Developer Preview*. L'émulateur cible les scénarios de développement et ne prend en charge que les déploiements sur un seul nœud. Pour plus d’informations sur l’utilisation de l’émulateur HDInsight, consultez la rubrique [Prise en main de l’émulateur HDInsight][hdinsight-emulator].
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 Avant de commencer ce didacticiel pour Hadoop sur Windows, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -67,10 +67,10 @@ Lorsque vous créez un cluster, vous créez les ressources de calcul Azure conte
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Cliquez sur **NOUVEAU**, sur **Analyse des données**, puis sur **HDInsight**. Le portail ouvre un panneau **Nouveau cluster HDInsight** .
    
-    ![Créer un cluster dans le portail Azure](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.1.png "Create a new cluster in the Azure Portal")
+    ![Créer un nouveau cluster dans le portail Azure](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.1.png "Créer un nouveau cluster dans le portail Azure")
 3. Entrez ou sélectionnez les valeurs suivantes :
    
-    ![Saisir le nom et le type du cluster](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.2.png "Enter cluster name and type")
+    ![Saisir le nom et le type du cluster](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.2.png "Saisir le nom et le type du cluster")
    
    | Nom du champ | Valeur |
    | --- | --- |
@@ -100,7 +100,7 @@ Lorsque vous créez un cluster, vous créez les ressources de calcul Azure conte
 À présent qu’un cluster HDInsight a été créé, la prochaine étape consiste à exécuter un travail Hive afin d’interroger un exemple de table Hive. Nous allons utiliser *hivesampletable*, qui est fournie avec les clusters HDInsight. Cette table contient des données sur des fabricants, des plateformes et des modèles d'appareils mobiles. Une requête Hive exécutée sur cette table permet d'extraire les données relatives aux appareils mobiles d'un fabricant spécifique.
 
 > [!NOTE]
-> HDInsight Hadoop Tools pour Visual Studio est fourni avec le Kit de développement logiciel (SDK) Azure pour .NET version 2.5 ou ultérieure. L'utilisation des outils de Visual Studio vous permet de vous connecter à un cluster HDInsight, de créer des tables Hive et d'exécuter des requêtes Hive. Pour plus d'informations, consultez la rubrique [Prise en main de HDInsight Hadoop Tools pour Visual Studio][1].
+> HDInsight Hadoop Tools pour Visual Studio est fourni avec le Kit de développement logiciel (SDK) Azure pour .NET version 2.5 ou ultérieure. L'utilisation des outils de Visual Studio vous permet de vous connecter à un cluster HDInsight, de créer des tables Hive et d'exécuter des requêtes Hive. Pour plus d’informations, consultez la page [Prise en main de HDInsight Hadoop Tools pour Visual Studio][1].
 > 
 > 
 
@@ -172,13 +172,13 @@ Un cluster HDInsight fournit une console de requête incluant une galerie de pri
 1. Dans le tableau d’accueil du portail Azure, cliquez sur la vignette du cluster que vous venez de créer.
 2. Dans le nouveau volet de cluster, cliquez sur **Tableau de bord**. Lorsque vous y êtes invité, entrez le nom d'utilisateur administrateur et le mot de passe correspondant au cluster HDInsight.
    
-    ![Tableau de bord du cluster](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.Cluster.Dashboard.png "Launch cluster dashboard")
+    ![Lancer le tableau de bord du cluster](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.Cluster.Dashboard.png "Lancer le tableau de bord du cluster")
 3. Dans la page web qui s’ouvre, cliquez sur l’onglet**Galerie de prise en main**, puis sous la catégorie **Solutions avec des exemples de données**, cliquez sur l’exemple que vous souhaitez exécuter. Suivez les instructions de la page web pour terminer l'exemple. Le tableau suivant répertorie quelques exemples et fournit plus d’informations sur les chaque exemple.
 
 | Exemple | Fonction |
 | --- | --- |
 | [Analyse des données de capteur][hdinsight-sensor-data-sample] |Découvrez comment utiliser HDInsight pour traiter les données d’historique produites par les systèmes de chauffage, de ventilation et de climatisation, et ainsi identifier les systèmes qui ne sont pas en mesure de maintenir de façon fiable une température donnée. |
-| [Analyse des journaux de site web][hdinsight-weblogs-sample] |Découvrez comment utiliser HDInsight pour analyser des fichiers journaux de site web afin d’obtenir des informations sur la fréquence des accès au site web en une journée à partir de sites web externes, ainsi qu’un résumé des erreurs de site web rencontrées par les utilisateurs. |
+| [Analyse du journal de site web][hdinsight-weblogs-sample] |Découvrez comment utiliser HDInsight pour analyser des fichiers journaux de site web afin d’obtenir des informations sur la fréquence des accès au site web en une journée à partir de sites web externes, ainsi qu’un résumé des erreurs de site web rencontrées par les utilisateurs. |
 | [Analyse de tendances Twitter](hdinsight-analyze-twitter-data.md) |Apprenez à utiliser HDInsight pour analyser les tendances dans Twitter. |
 
 ## <a name="delete-the-cluster"></a>Suppression du cluster
@@ -188,9 +188,9 @@ Un cluster HDInsight fournit une console de requête incluant une galerie de pri
 Dans ce didacticiel Hadoop, vous avez appris à créer un cluster Hadoop sur Windows dans HDInsight, à exécuter une requête Hive sur des données et à importer les résultats dans Excel, où ils peuvent faire l’objet d’un traitement plus poussé et être affichés sous forme de graphique avec des outils décisionnels. Pour plus d'informations, consultez les didacticiels suivants :
 
 * [Prise en main de HDInsight Hadoop Tools pour Visual Studio][1]
-* [Mise en route de l'émulateur HDInsight][hdinsight-emulator]
-* [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage]
-* [Administration de HDInsight à l'aide de PowerShell][hdinsight-admin-powershell]
+* [Prise en main de l’émulateur HDInsight][hdinsight-emulator]
+* [Utilisation de Stockage Blob Azure avec HDInsight][hdinsight-storage]
+* [Administration de HDInsight à l’aide de PowerShell][hdinsight-admin-powershell]
 * [Téléchargement de données vers HDInsight][hdinsight-upload-data]
 * [Utilisation de MapReduce avec HDInsight][hdinsight-use-mapreduce]
 * [Utilisation de Hive avec HDInsight][hdinsight-use-hive]
@@ -231,8 +231,8 @@ Dans ce didacticiel Hadoop, vous avez appris à créer un cluster Hadoop sur Win
 
 
 [powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[powershell-install-configure]: powershell-install-configure.md
-[powershell-open]: powershell-install-configure.md#step-1-install
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
+[powershell-open]: /powershell/azureps-cmdlets-docs#step-1-install
 
 
 [img-hdi-dashboard]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.png
@@ -255,6 +255,6 @@ Dans ce didacticiel Hadoop, vous avez appris à créer un cluster Hadoop sur Win
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

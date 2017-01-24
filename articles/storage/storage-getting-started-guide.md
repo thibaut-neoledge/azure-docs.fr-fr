@@ -3,8 +3,8 @@ title: Familiarisez-vous avec Azure Storage en cinq minutes | Microsoft Docs
 description: "Développez rapidement les objets blob, les tables et les files d&quot;attente Microsoft Azure à l&quot;aide des rubriques de démarrage rapide Azure, de Visual Studio et de l’émulateur d’Azure Storage. Exécutez votre première application Azure Storage en cinq minutes."
 services: storage
 documentationcenter: .net
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: 582f76f8-c814-4a69-8a5c-1fd0e0d5d8f2
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a8f90f07a4402c0d2fb9ffc3bd35de18e2a39927
+ms.sourcegitcommit: 12ce6b6bccf3ea2aa2945ddd775716f29cf01e1f
+ms.openlocfilehash: 47b2623eb3b83220ef8e3cfafde06dab3ac3d22e
 
 
 ---
@@ -32,10 +32,10 @@ Vérifiez que les conditions préalables suivantes sont remplies avant de commen
 1. Pour compiler et générer l’application, [Visual Studio](https://www.visualstudio.com/) doit être installé sur votre ordinateur.
 2. Installez la dernière version du [Kit de développement logiciel (SDK) Azure pour .NET](https://azure.microsoft.com/downloads/). Le Kit de développement logiciel (SDK) inclut des exemples de projets de démarrage rapide Azure, l'émulateur de stockage Azure et la [bibliothèque cliente de stockage Azure pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 3. Assurez-vous que [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) est installé sur votre ordinateur, car cette application est nécessaire aux exemples de projets de démarrage rapide Azure que nous allons utiliser dans ce didacticiel.
-   
+
     Si vous ne savez pas quelle version de .NET Framework est installée sur votre ordinateur, consultez la rubrique [Comment déterminer les versions .NET Framework installées](https://msdn.microsoft.com/vstudio/hh925568.aspx). Sinon, cliquez sur le bouton **Démarrer** ou appuyez sur la touche Windows, et tapez **Panneau de configuration**. Ensuite, cliquez sur **Programmes** > **Programmes et fonctionnalités**, et vérifiez si .NET Framework 4.5 est répertorié parmi les programmes installés.
 4. Vous aurez besoin d’un abonnement Azure et d’un compte de stockage Azure.
-   
+
    * Pour obtenir un abonnement Azure, consultez [Version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/), [Options d’achat](https://azure.microsoft.com/pricing/purchase-options/) et [Offres spéciales membres](https://azure.microsoft.com/pricing/member-offers/) (pour les membres de MSDN, Microsoft Partner Network, BizSpark et des autres programmes Microsoft).
    * Pour créer un compte de stockage dans Azure, consultez la page [Création d’un compte de stockage](storage-create-storage-account.md#create-a-storage-account).
 
@@ -48,21 +48,21 @@ Une fois votre compte créé, vous pouvez créer une application Azure Storage s
     a. Choisissez l’un des modèles suivants : **Azure Storage : Blobs**, **Azure Storage : Fichiers**, **Azure Storage : Files d’attente** ou **Azure Storage : Tables**.
     b. Vérifiez que la version cible sélectionnée est **.NET Framework 4.5**.
     c. Donnez un nom à votre projet et créez la nouvelle solution Visual Studio, comme indiqué :
-     
+
     ![Exemples de Démarrage rapide pour Azure][Image1]
 
 Il peut être utile d’examiner le code source avant d'exécuter l'application. Pour ce faire, dans le menu **Affichage** de Visual Studio, sélectionnez **Explorateur de solutions**. Ensuite, double-cliquez sur le fichier Program.cs.
 
 Exécutez ensuite l'exemple d'application :
 
-1. Dans le menu **Affichage** de Visual Studio, sélectionnez **Explorateur de solutions**. Ouvrez le fichier App.config et supprimez les marques de commentaire de la chaîne de connexion pour l’émulateur de stockage Azure :
-   
+1. Dans le menu **Affichage** de Visual Studio, sélectionnez **Explorateur de solutions**. Ouvrez le fichier App.config et supprimez les marques de commentaire de la chaîne de connexion pour l'émulateur de stockage Azure :
+
    `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
 
 2. Annulez les marques de commentaire de la chaîne de connexion du service Azure Storage et indiquez le nom du compte de stockage et la clé d'accès dans le fichier App.config :
-   
+
    `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
-   
+
    Pour récupérer votre clé d’accès du compte de stockage, reportez-vous à [Gérer vos clés d’accès de stockage](storage-create-storage-account.md#manage-your-storage-access-keys).
 3. Une fois que vous avez fourni la clé d’accès et le nom du compte de stockage dans le fichier App.config, dans le menu **Fichier**, cliquez sur **Enregistrer tout** pour enregistrer tous les fichiers du projet.
 4. Dans le menu **Générer**, cliquez sur **Générer la solution**.
@@ -79,11 +79,11 @@ Pour l’essayer, nous allons créer une application Azure Storage simple à l�
     a. Choisissez l’un des modèles suivants : **Azure Storage : Blobs**, **Azure Storage : Fichiers**, **Azure Storage : Files d’attente** ou **Azure Storage : Tables**.
     b. Vérifiez que la version cible sélectionnée est **.NET Framework 4.5**.
     c. Donnez un nom à votre projet et créez la nouvelle solution Visual Studio, comme indiqué :
-   
+
     ![Exemples de Démarrage rapide pour Azure][Image1]
 
 4. Dans le menu **Affichage** de Visual Studio, sélectionnez **Explorateur de solutions**. Ouvrez le fichier App.config et supprimez la marque de commentaire de la chaîne de connexion pour votre compte de stockage Azure si vous en avez ajouté une. Puis supprimez la marque de commentaire de la chaîne de connexion pour l’émulateur de stockage Azure :
-   
+
    `<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>`
 
 Il peut être utile d’examiner le code source avant d'exécuter l'application. Pour ce faire, dans le menu **Affichage** de Visual Studio, sélectionnez **Explorateur de solutions**. Ensuite, double-cliquez sur le fichier Program.cs.

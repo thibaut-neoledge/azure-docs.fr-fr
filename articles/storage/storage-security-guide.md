@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8f674c34cfbfd5c107258d7acd33583947cd61d6
+ms.sourcegitcommit: d943e28507de9675d30e662354ca811fbd8c1b4a
+ms.openlocfilehash: 489041f211f28dd373e34bf9ba719d7fcc8c035d
 
 
 ---
@@ -89,7 +89,7 @@ Voici les principaux points à prendre en compte pour accéder aux opérations d
 * [RBAC : rôles intégrés](../active-directory/role-based-access-built-in-roles.md)
   
   Cet article explique en détail tous les rôles intégrés disponibles dans RBAC.
-* [Présentation du déploiement de Resource Manager et du déploiement classique](../resource-manager-deployment-model.md)
+* [Présentation du déploiement de Resource Manager et du déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md)
   
   Cet article décrit le modèle de déploiement Resource Manager et le modèle de déploiement classique et explique les avantages liés à l’utilisation de Resource Manager et des groupes de ressources. Il explique le fonctionnement des fournisseurs de solutions de calcul, de réseau et de stockage selon le modèle Resource Manager.
 * [Gestion du contrôle d’accès basé sur les rôles à l’aide de l’API REST](../active-directory/role-based-access-control-manage-access-rest.md)
@@ -259,7 +259,7 @@ Pour plus d’informations sur l’utilisation des signatures d’accès partag�
   * [SAS Getting Started Tutorial (Didacticiel de prise en main des signatures d’accès partagé)](https://github.com/Azure-Samples/storage-dotnet-sas-getting-started)
 
 ## <a name="encryption-in-transit"></a>Chiffrement en transit
-### <a name="transport-level-encryption-using-https"></a>Chiffrement au niveau du transport – Utilisation de HTTPS
+### <a name="transport-level-encryption--using-https"></a>Chiffrement au niveau du transport – Utilisation de HTTPS
 Une autre étape à suivre pour garantir la sécurité de vos données Azure Storage consiste à chiffrer les données entre le client et Azure Storage. La première recommandation est de toujours utiliser le protocole [HTTPS](https://en.wikipedia.org/wiki/HTTPS) , qui garantit une communication sécurisée via l’Internet public.
 
 Vous devez toujours utiliser HTTPS lors de l’appel des API REST ou de l’accès aux objets dans le stockage. De plus, les **signatures d’accès partagé**, qui peuvent être utilisées pour déléguer l’accès aux objets de stockage Azure, incluent une option pour spécifier que seul le protocole HTTPS est autorisé avec les signatures d’accès partagé. Cette option garantit que le protocole approprié est utilisé par tous ceux qui envoient des liens avec des jetons SAP.
@@ -527,6 +527,6 @@ Pour plus d’informations sur CORS et sur la façon de l’activer, consultez l
   Cet article traite de l’utilisation du mode FIPS sur des ordinateurs Windows anciens.
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/14/2016
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 84df08d44e035d90049f2c81a73e962c2588fe85
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4efcb1b30f002d7baecaa46f9994dfbc9ad42dee
 
 
 ---
@@ -51,13 +51,13 @@ Plusieurs problèmes peuvent affecter la migration. Vérifiez les éléments sui
 Vous devrez peut-être ajouter une règle dans les paramètres de pare-feu Azure du serveur Azure pour permettre à SQL Server de communiquer avec le serveur Azure distant.
 
 ## <a name="see-also"></a>Voir aussi
-[Gérer et dépanner Stretch Database](sql-server-stretch-database-manage.md)
+[Gestion et dépannage de Stretch Database](sql-server-stretch-database-manage.md)
 
 <!--Image references-->
 [StretchMonitorImage1]: ./media/sql-server-stretch-database-monitor/StretchDBMonitor.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -67,6 +67,8 @@ Si vous mettez à niveau votre projet du Kit de développement logiciel (SDK) Az
 ## <a name="enable-diagnostics-in-cloud-service-projects-before-deploying-them"></a>Activation des diagnostics dans les projets de service cloud avant leur déploiement
 Dans Visual Studio, vous pouvez choisir de recueillir des données de diagnostic pour des rôles exécutés dans Azure, lorsque vous exécutez le service dans l’émulateur avant le déploiement du service. Toutes les modifications apportées aux paramètres de diagnostic dans Visual Studio sont enregistrées dans le fichier de configuration diagnostics.wadcfgx. Ces paramètres de configuration spécifient le compte de stockage où les données de diagnostic sont enregistrées lorsque vous déployez votre service cloud.
 
+[!INCLUDE [cloud-services-wad-warning](../includes/cloud-services-wad-warning.md)]
+
 ### <a name="to-enable-diagnostics-in-visual-studio-before-deployment"></a>Activation des diagnostics dans Visual Studio avant le déploiement
 1. Dans le menu contextuel du rôle qui vous intéresse, choisissez **Propriétés**, puis l’onglet **Configuration** dans la fenêtre **Propriétés** du rôle.
 2. Dans la section **Diagnostics**, vérifiez que la case à cocher **Activer les diagnostics** est activée.

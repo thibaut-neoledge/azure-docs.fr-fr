@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ecd33fdad27cb5bb13931075f4c603f9bd479207
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: 9dfc7107447a11c73fb14412c2d9ffba936564d7
 
 
 ---
@@ -239,7 +239,7 @@ Après avoir téléchargé les fichiers, procédez comme suit pour exécuter les
     Une fois ce travail terminé, le résultat devrait être le même que lorsque vous avez exécuté le script à l’aide de Jython.
 
 ### <a name="powershell"></a>PowerShell
-Ces étapes utilisent Azure PowerShell. Si ce dernier n'est pas déjà installé et configuré sur votre ordinateur de développement, consultez la page [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md) avant d'exécuter la procédure suivante.
+Ces étapes utilisent Azure PowerShell. Si ce dernier n'est pas déjà installé et configuré sur votre ordinateur de développement, consultez la page [Installation et configuration d'Azure PowerShell](/powershell/azureps-cmdlets-docs) avant d'exécuter la procédure suivante.
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -465,6 +465,6 @@ Pour connaître d’autres façons d’utiliser Pig et Hive et en savoir plus su
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

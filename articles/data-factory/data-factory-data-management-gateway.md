@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: abnarain
 translationtype: Human Translation
-ms.sourcegitcommit: 1b2514e1e6f39bb3ce9d8a46f4af01835284cdcc
-ms.openlocfilehash: f0b3d45ea72ec3e7e0b19bc97ff9d8051067d1fa
+ms.sourcegitcommit: 355de60c6a06f4694b8bce4a6ff3b6c2f65b2233
+ms.openlocfilehash: f4ec798bcd1da7f2067929382c37915022fc1eed
 
 
 ---
@@ -255,12 +255,15 @@ Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique c
 1. Lancez Windows PowerShell sur l’ordinateur de passerelle.
 2. Accédez au dossier C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript.
 3. Exécutez la commande suivante pour désactiver la fonctionnalité de mise à jour automatique.   
-
-        .\GatewayAutoUpdateToggle.ps1  -off
+    
+    ```PowerShell
+    .\GatewayAutoUpdateToggle.ps1  -off
+    ```
 4. Pour la réactiver :
-
-        .\GatewayAutoUpdateToggle.ps1  -on  
-
+    
+    ```PowerShell
+    .\GatewayAutoUpdateToggle.ps1  -on  
+    ```
 ## <a name="configuration-manager"></a>Gestionnaire de configuration
 Une fois la passerelle installée, vous pouvez lancer le Gestionnaire de configuration de passerelle de gestion des données de l’une des manières suivantes :
 
@@ -349,25 +352,28 @@ Pour chiffrer les informations d’identification dans Data Factory Editor, proc
    4. Cliquez sur **OK** pour chiffrer les informations d’identification et fermer la boîte de dialogue.
 8. Vous devez maintenant voir une propriété **encryptedCredential** dans **connectionString**.        
 
-         {
-             "name": "SqlServerLinkedService",
-             "properties": {
-                 "type": "OnPremisesSqlServer",
-                 "description": "",
-                 "typeProperties": {
-                     "connectionString": "data source=myserver;initial catalog=mydatabase;Integrated Security=False;EncryptedCredential=eyJDb25uZWN0aW9uU3R",
-                     "gatewayName": "adftutorialgateway"
-                 }
-             }
-         }
-
+    ```JSON
+    {
+        "name": "SqlServerLinkedService",
+        "properties": {
+            "type": "OnPremisesSqlServer",
+            "description": "",
+            "typeProperties": {
+                "connectionString": "data source=myserver;initial catalog=mydatabase;Integrated Security=False;EncryptedCredential=eyJDb25uZWN0aW9uU3R",
+                "gatewayName": "adftutorialgateway"
+            }
+        }
+    }
+    ```
 Si vous accédez au portail à partir d’un ordinateur différent de l’ordinateur de passerelle, vous devrez peut-être vous assurer que l’application Gestionnaire d’informations d’identification peut se connecter à l’ordinateur de passerelle. Sinon, vous ne pourrez pas définir les informations d’identification de la source de données, ni tester la connexion à la source de données.  
 
 Quand vous utilisez l’application **Définition des informations d’identification**, le portail chiffre les informations d’identification avec le certificat que vous avez spécifié dans l’onglet **Certificat** du **Gestionnaire de configuration de passerelle** sur l’ordinateur de passerelle.
 
 Si vous recherchez une approche basée sur une API pour chiffrer les informations d’identification, vous pouvez utiliser l’applet de commande PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) pour chiffrer les informations d’identification. L'applet de commande utilise le certificat qui a servi à configurer la passerelle pour chiffrer les informations d'identification. Vous ajoutez des informations d’identification chiffrées pour l’élément **EncryptedCredential** de **connectionString** dans JSON. Vous utilisez JSON avec l’applet de commande [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) ou dans Data Factory Editor.
 
-    "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+```JSON
+"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+```
 
 Il existe une autre approche pour définir les informations d’identification à l’aide de Data Factory Editor. Si vous créez un service SQL Server lié à l’aide de l’éditeur et entrez les informations d’identification en texte brut, ces informations d’identification sont chiffrées à l’aide d’un certificat appartenant au service Data Factory. Il n’utilise PAS le certificat que passerelle est configurée pour utiliser. Bien que cette approche puisse être un peu plus rapide dans certains cas, elle reste moins sécurisée. Par conséquent, nous vous recommandons de suivre cette approche uniquement à des fins de développement/test.
 
@@ -376,49 +382,64 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
 
 1. Lancez **Azure PowerShell** en mode administrateur.
 2. Connectez-vous à votre compte Azure en exécutant la commande suivante et en entrant vos informations d’identification Azure.
-
+    
+    ```PowerShell
     Login-AzureRmAccount
+    ```
 3. Utilisez l’applet de commande **New-AzureRmDataFactoryGateway** pour créer une passerelle logique, comme suit :
 
-        $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
-
+    ```PowerShell
+    $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
+    ```
     **Exemple de commande et de sortie**:
 
-        PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+    ```
+    PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
-        Name              : MyGateway
-        Description       : gateway for walkthrough
-        Version           :
-        Status            : NeedRegistration
-        VersionStatus     : None
-        CreateTime        : 9/28/2014 10:58:22
-        RegisterTime      :
-        LastConnectTime   :
-        ExpiryTime        :
-        ProvisioningState : Succeeded
-        Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
-
+    Name              : MyGateway
+    Description       : gateway for walkthrough
+    Version           :
+    Status            : NeedRegistration
+    VersionStatus     : None
+    CreateTime        : 9/28/2014 10:58:22
+    RegisterTime      :
+    LastConnectTime   :
+    ExpiryTime        :
+    ProvisioningState : Succeeded
+    Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
+    ```
 
 1. Dans Azure PowerShell, accédez au dossier **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\**. Exécutez le script **RegisterGateway.ps1** associé à la variable locale **$Key** comme indiqué dans la commande suivante. Ce script enregistre l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
 
-        PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
-
-        Agent registration is successful!
-
+    ```PowerShell
+    PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
+    ```
+    ```
+    Agent registration is successful!
+    ```
     Vous pouvez inscrire la passerelle sur un ordinateur distant en utilisant le paramètre IsRegisterOnRemoteMachine. Exemple :
 
-        .\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
+    ```PowerShell
+    .\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
+    ```
 2. Vous pouvez utiliser l’applet de commande **Get-AzureRmDataFactoryGateway** pour obtenir la liste des passerelles dans votre fabrique de données. Lorsque **l’état** est **online**, cela signifie que votre passerelle est prête.
 
-        Get-AzureRmDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
-
+    ```PowerShell        
+    Get-AzureRmDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
+    ```
 Vous pouvez supprimer une passerelle à l’aide de l’applet de commande **Remove-AzureRmDataFactoryGateway** et mettre à jour la description de la passerelle en utilisant les applets de commande **Set-AzureRmDataFactoryGateway**. Pour obtenir la syntaxe et d’autres détails sur ces applets de commande, consultez la rubrique Référence des applets de commande Azure Data Factory.  
 
 ### <a name="list-gateways-using-powershell"></a>Répertorier les passerelles à l’aide de PowerShell
-    Get-AzureRmDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
+    
+```PowerShell
+Get-AzureRmDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
+```
 
 ### <a name="remove-gateway-using-powershell"></a>Supprimer une passerelle à l’aide de PowerShell
-    Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
+    
+```PowerShell
+Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
+```
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -426,6 +447,6 @@ Vous pouvez supprimer une passerelle à l’aide de l’applet de commande **Rem
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

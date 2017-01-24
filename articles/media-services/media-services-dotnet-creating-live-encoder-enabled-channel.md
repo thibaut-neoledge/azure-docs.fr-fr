@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: d532cb3774e7d98d6c52ffdc40d6ba124d8d3ea3
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 341e66158f1aeb5de02f3038a0c5d81240fad8d1
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: d532cb3774e7d98d6c52ffdc40d6ba124d8d3ea3
 > [!div class="op_single_selector"]
 > * [Portail](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [API REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+> * [API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > [!NOTE]
 > Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
@@ -46,31 +46,32 @@ Les étapes suivantes décrivent les tâches impliquées dans la création d’a
 
 1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local capable de générer un flux à débit binaire unique dans l’un des protocoles suivants : RTMP, Smooth Streaming ou RTP (MPEG-TS). Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-Cette étape peut également être effectuée après la création du canal.
+    Cette étape peut également être effectuée après la création du canal.
 
-1. Créez et démarrez un canal.
-2. Récupérez l’URL de réception du canal.
+2. Créez et démarrez un canal.
+3. Récupérez l’URL de réception du canal.
 
-L’URL de réception est utilisée par l’encodeur dynamique pour envoyer le flux au canal.
+    L’URL de réception est utilisée par l’encodeur dynamique pour envoyer le flux au canal.
 
-1. Récupérez l’URL d’aperçu du canal.
+4. Récupérez l’URL d’aperçu du canal.
 
-Utilisez cette URL pour vérifier que votre canal reçoit correctement le flux dynamique.
+    Utilisez cette URL pour vérifier que votre canal reçoit correctement le flux dynamique.
 
-1. Créez un élément multimédia.
-2. Si vous souhaitez que l'élément multimédia soit chiffré dynamiquement pendant la lecture, procédez comme suit :
-3. Créez une clé de contenu.
-4. Configurez la stratégie d'autorisation de la clé de contenu.
-5. Configurez la stratégie de remise d'éléments multimédias (utilisée par l'empaquetage dynamique et le chiffrement dynamique).
-6. Créez un programme et spécifiez l'utilisation de l'élément multimédia créé.
-7. Publiez l'élément multimédia associé au programme en créant un localisateur OnDemand.
+5. Créez un élément multimédia.
+6. Si vous souhaitez que l'élément multimédia soit chiffré dynamiquement pendant la lecture, procédez comme suit :
+7. Créez une clé de contenu.
+8. Configurez la stratégie d'autorisation de la clé de contenu.
+9. Configurez la stratégie de remise d'éléments multimédias (utilisée par l'empaquetage dynamique et le chiffrement dynamique).
+10. Créez un programme et spécifiez l'utilisation de l'élément multimédia créé.
+11. Publiez l'élément multimédia associé au programme en créant un localisateur OnDemand.
 
-Assurez-vous d'avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
+    >[!NOTE]
+    >Une fois votre compte AMS créé, un point de terminaison de diffusion continue **par défaut** est ajouté à l’état **Arrêté**. Le point de terminaison à partir duquel vous souhaitez diffuser du contenu doit se trouver dans l’état **En cours d’exécution**. 
 
-1. Démarrez le programme dès que vous êtes prêt à lancer la diffusion en continu et l’archivage.
-2. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
-3. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
-4. Supprimez le programme (et éventuellement la ressource).
+12. Démarrez le programme dès que vous êtes prêt à lancer la diffusion en continu et l’archivage.
+13. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
+14. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
+15. Supprimez le programme (et éventuellement la ressource).
 
 ## <a name="what-youll-learn"></a>Ce que vous allez apprendre
 Cette rubrique montre comment exécuter différentes opérations sur des canaux et des programmes à l’aide du Kit de développement logiciel (SDK) .NET Media Services. Bon nombre d'opérations étant de longue durée, les API .NET qui gèrent les opérations de ce type sont utilisées.
@@ -100,7 +101,6 @@ Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation g
 
 ## <a name="considerations"></a>Considérations
 * Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l'adresse Microsoft.com si vous avez besoin d'exécuter un canal sur de plus longues périodes.
-* Assurez-vous d'avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
 
 ## <a name="download-sample"></a>Charger l’exemple
 Obtenez et exécutez un exemple [ici](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
@@ -524,12 +524,10 @@ Consultez les parcours d’apprentissage de Media Services.
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else"></a>Vous recherchez quelque chose d’autre ?
-Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas les informations recherchées, faites-nous part de vos commentaires à l’aide du fil de discussion Disqus ci-dessous.
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

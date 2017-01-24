@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/29/2016
+ms.date: 12/20/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: bec9f1fb0797b0c073dde9e65ab6bbffe8e3b5c2
+ms.sourcegitcommit: 370bcf5189c855185f11277518e0cbd5377993ab
+ms.openlocfilehash: fd323a828ee879d6093e2473accbea883f861420
 
 
 ---
@@ -35,10 +35,10 @@ Cet article requiert les éléments suivants :
 * l’interface de ligne de commande (CLI) Azure *doit être en* mode Azure Resource Manager avec `azure config mode arm`
 
 ## <a name="manually-install-and-configure-mongodb-on-a-vm"></a>Installer et configurer MongoDB manuellement sur une machine virtuelle
-MongoDB [propose des instructions d’installation](https://docs.mongodb.com/manual/administration/install-on-linux/) pour les distributions Linux, notamment Red Hat / CentOS, SUSE, Ubuntu et Debian. L’exemple suivant crée une machine virtuelle `CoreOS` à l’aide d’une clé SSH stockée sur `.ssh/azure_id_rsa.pub`. Répondez aux invites pour le nom de compte de stockage, le nom DNS et les informations d’identification d’administrateur :
+MongoDB [propose des instructions d’installation](https://docs.mongodb.com/manual/administration/install-on-linux/) pour les distributions Linux, notamment Red Hat / CentOS, SUSE, Ubuntu et Debian. L’exemple suivant crée une machine virtuelle `CentOS` à l’aide d’une clé SSH stockée sur `~/.ssh/id_rsa.pub`. Répondez aux invites pour le nom de compte de stockage, le nom DNS et les informations d’identification d’administrateur :
 
 ```azurecli
-azure vm quick-create --ssh-publickey-file .ssh/azure_id_rsa.pub --image-urn CentOS
+azure vm quick-create --ssh-publickey-file ~/.ssh/id_rsa.pub --image-urn CentOS
 ```
 
 Connectez-vous à la machine virtuelle à l’aide de l’adresse IP publique affichée à la fin de l’étape de création de machine virtuelle précédente :
@@ -127,7 +127,7 @@ azure group create --name myResourceGroup --location WestUS \
 Une fois le déploiement terminé, connectez-vous par SSH à la machine virtuelle. Obtenez l’adresse IP de votre machine virtuelle à l’aide de la commande `azure vm show` comme dans l’exemple suivant :
 
 ```azurecli
-azure vm show --resource-group myResourceGroup --name myVM
+azure vm show --resource-group myResourceGroup --name myLinuxVM
 ```
 
 Vers la fin de la sortie, `Public IP address` s’affiche. Connectez-vous par SSH à votre machine virtuelle avec l’adresse IP de votre machine virtuelle :
@@ -186,6 +186,6 @@ Les modèles Azure Resource Manager utilisent l’extension de script personnali
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

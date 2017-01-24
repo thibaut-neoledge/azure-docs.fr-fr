@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/31/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: fb25351de7f4b64ab36d5a1f2629677f0acece47
-ms.openlocfilehash: 3d1d6ea9ea933c5aaf27b58b9f49a5b845f610ce
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: c1fd18ad8889033cba8a92f6ae255ba6478e6595
 
 
 ---
@@ -169,7 +169,7 @@ Configurez une passerelle de routage dynamique pour chaque réseau virtuel. Cett
 2. Dans la page **Spécifier l’espace d’adresses** , cliquez sur la coche en bas à droite sans apporter de modifications.
 
 ## <a name="step-7---create-the-vpn-connection"></a>Étape 7 - créez la connexion VPN
-Lorsque vous avez terminé les étapes précédentes, définissez les clés prépartagées IPsec/IKE et créez la connexion. Cet ensemble d’étapes utilise PowerShell et ne peut pas être configuré dans le portail. Pour plus d’informations sur l’installation des applets de commande Azure PowerShell, voir [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) . Veillez à télécharger la dernière version des applets de commande de gestion des services. 
+Lorsque vous avez terminé les étapes précédentes, définissez les clés prépartagées IPsec/IKE et créez la connexion. Cet ensemble d’étapes utilise PowerShell et ne peut pas être configuré dans le portail. Pour plus d’informations sur l’installation des applets de commande Azure PowerShell, voir [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) . Veillez à télécharger la dernière version des applets de commande de gestion des services. 
 
 1. Ouvrez Windows PowerShell et connectez-vous.
    
@@ -200,6 +200,6 @@ Vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3ee46dc265669d3520677b474181c9c7c720644c
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: eae360dd3e627a82986cef32ef39860f60ffe51f
 
 
 ---
@@ -33,13 +33,13 @@ La demande contient des informations non valides et est rejetée pour l’une de
   > Si vous utilisez les Kits de développement logiciel (SDK) .NET ou Java pour vous connecter à Media Services, la version de l’API est automatiquement spécifiée chaque fois que vous tentez d’effectuer une action sur Media Services.
   > 
   > 
-* Une propriété non définie a été spécifiée. Le nom de la propriété figure dans le message d’erreur. Vous ne pouvez spécifier que des propriétés membres d’une entité donnée. Pour obtenir la liste des entités et de leurs propriétés, voir [Référence de l’API REST d’Azure Media Services](http://msdn.microsoft.com/library/azure/hh973617.aspx).
+* Une propriété non définie a été spécifiée. Le nom de la propriété figure dans le message d’erreur. Vous ne pouvez spécifier que des propriétés membres d’une entité donnée. Pour obtenir la liste des entités et de leurs propriétés, voir [Référence de l’API REST d’Azure Media Services](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 * Une valeur de propriété non valide a été spécifiée. Le nom de la propriété figure dans le message d’erreur. Pour connaître les types de propriété valides et leurs valeurs, voir le lien précédent.
 * Une valeur de propriété requise est manquante.
 * Une partie de l’URL spécifiée contient une valeur incorrecte.
 * Une tentative de mise à jour d’une propriété WriteOnce a été effectuée.
 * Une tentative a été faite de créer un travail comportant une ressource d’entrée avec un fichier de ressources (AssetFile) non spécifié ou qui n’a pas pu être déterminé.
-* Une tentative de mise à jour d’un localisateur de SAP a été effectuée. Des localisateurs de SAP peuvent uniquement être créés ou supprimés. Des localisateurs de streaming peuvent être mis à jour. Pour plus d’informations, voir [Localisateurs](http://msdn.microsoft.com/library/azure/hh974308.aspx).
+* Une tentative de mise à jour d’un localisateur de SAP a été effectuée. Des localisateurs de SAP peuvent uniquement être créés ou supprimés. Des localisateurs de streaming peuvent être mis à jour. Pour plus d’informations, voir [Localisateurs](https://docs.microsoft.com/rest/api/media/operations/locator).
 * Une opération ou demande non prises en charge ont été envoyées.
 
 ## <a name="401-unauthorized"></a>401 Non autorisé
@@ -127,6 +127,6 @@ Pour gérer cette erreur, nous recommandons d’utiliser une logique de nouvelle
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

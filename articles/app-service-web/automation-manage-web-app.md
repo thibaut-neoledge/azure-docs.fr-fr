@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/29/2016
 ms.author: magoedte;csand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d9b12c074417e51057dea68e8cff04df5081e111
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: 4fcfa2e7ec2e8257407026ed4cca0e15fd0b5bb6
 
 
 ---
@@ -31,7 +31,7 @@ Azure Automation fournit un moteur d’exécution de workflow à haute fiabilit�
 Réduisez les coûts opérationnels et libérez du temps pour que votre équipe d’informaticiens et de développeurs puisse se concentrer sur des tâches qui génèrent une valeur ajoutée pour l’entreprise, en déléguant l’exécution automatique de vos tâches de gestion de Cloud à Azure Automation.
 
 ## <a name="how-can-azure-automation-help-manage-azure-web-app"></a>Comment Azure Automation peut-il vous aider à gérer une application web Azure ?
-Dans Azure Automation, une application web est gérée à l’aide d’applets de commande PowerShell qui sont disponibles dans les [modules Azure PowerShell](../powershell-install-configure.md). Vous pouvez [installer ces applets de commande PowerShell dans Azure Automation](https://azure.microsoft.com/blog/announcing-azure-resource-manager-support-azure-automation-runbooks/)afin d’exécuter toutes vos tâches de gestion d’application Web dans ce service. Dans Azure Automation, vous pouvez également associer ces applets de commande à des applets de commande d'autres services Azure, afin d'automatiser des tâches complexes entre des services Azure et des systèmes tiers.
+Dans Azure Automation, une application web est gérée à l’aide d’applets de commande PowerShell qui sont disponibles dans les [modules Azure PowerShell](/powershell/azureps-cmdlets-docs). Vous pouvez [installer ces applets de commande PowerShell dans Azure Automation](https://azure.microsoft.com/blog/announcing-azure-resource-manager-support-azure-automation-runbooks/)afin d’exécuter toutes vos tâches de gestion d’application Web dans ce service. Dans Azure Automation, vous pouvez également associer ces applets de commande à des applets de commande d'autres services Azure, afin d'automatiser des tâches complexes entre des services Azure et des systèmes tiers.
 
 Voici quelques exemples de gestion d’App Services avec Automation :
 
@@ -45,6 +45,6 @@ Maintenant que vous connaissez les bases d’Azure Automation et que vous savez 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -6,7 +6,6 @@ documentationcenter:
 keywords: "configurer le déploiement Microsoft Passport, Microsoft Windows Hello Entreprise"
 author: MarkusVi
 manager: femila
-editor: 
 tags: azure-classic-portal
 ms.assetid: 7dbbe3c6-1cd7-429c-a9b2-115fcbc02416
 ms.service: active-directory
@@ -14,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 01/10/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6f08fcdb4ec6dd124760cff54c522d998d5a0327
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 115fbee1990b20f6a7186e5f36d0b618cf2e3b7b
 
 
 ---
@@ -117,6 +116,6 @@ Sur la page **Enregistrement SCEP** du profil de certificat, vous devez choisir 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

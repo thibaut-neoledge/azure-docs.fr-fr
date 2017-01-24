@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 410ac5fbbd244494f9925fdba2a85aca51c8e097
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: de1fa2afdff9c16b59febfcd00d7dd73776c4ada
 
 
 ---
@@ -30,7 +30,7 @@ Grâce aux machines virtuelles Azure, vous pouvez créer des clusters MATLAB Dis
 
 ## <a name="prerequisites"></a>Conditions préalables
 * **Ordinateur client** : vous avez besoin d’un ordinateur client Windows pour communiquer avec Azure et le cluster MATLAB Distributed Computing Server après le déploiement. 
-* **Azure PowerShell** : voir [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour installer Azure PowerShell sur votre ordinateur client. 
+* **Azure PowerShell** : voir [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) pour installer Azure PowerShell sur votre ordinateur client. 
 * **Abonnement Azure** : si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/) en quelques minutes. Pour les clusters de grande taille, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat. 
 * **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs pour déployer un cluster de grande taille ou plusieurs clusters MATLAB Distributed Computing Server. Pour augmenter un quota, [ouvrez une demande de service clientèle en ligne](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitement. 
 * **Licences MATLAB, Parallel Computing Toolbox et MATLAB Distributed Computing Server** : les scripts reposent sur l’hypothèse que le gestionnaire [MathWorks Hosted License Manager](http://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) est utilisé pour toutes les licences.  
@@ -77,6 +77,6 @@ Comme pour d’autres types de clusters MATLAB Distributed Computing Server, vou
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

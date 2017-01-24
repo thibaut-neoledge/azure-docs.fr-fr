@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/14/2016
+ms.date: 11/18/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3a2795fd08b838edcf255e518f705683cc2df15e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4d3609ae1ea5fba89a9c0222586f578fdaeea757
 
 
 ---
@@ -39,7 +39,7 @@ Update 3 comporte les principaux correctifs de bogues et améliorations suivants
 
 * **Modifications de la récupération d’espace automatisée** : à partir d’Update 3, les algorithmes de récupération d’espace s’exécutent sur le contrôleur de secours du système, ce qui accélère l’exécution. Pour plus d’informations sur les ports requis pour utiliser la récupération d’espace, reportez-vous aux [Exigences de mise en réseau StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 * **Amélioration des performances** : Update 3 a amélioré les performances de lecture-écriture dans le cloud.
-* **Améliorations liées à la migration** : dans cette version, plusieurs correctifs de bogues et améliorations ont été apportés à la fonctionnalité de migration d’appareils de la série 5000/7000 vers des appareils de la série 8000. Pour plus d’informations sur l’utilisation de la fonctionnalité de migration, consultez [Migration à partir d’appareils de la série 5000/7000 vers des appareils de la série 8000](https://www.microsoft.com/en-us/download/details.aspx?id=47322). 
+* **Améliorations liées à la migration** : dans cette version, plusieurs correctifs de bogues et améliorations ont été apportés à la fonctionnalité de migration d’appareils de la série 5000/7000 vers des appareils de la série 8000. Pour plus d’informations sur l’utilisation de la fonctionnalité de migration, consultez [Migration à partir d’appareils de la série 5000/7000 vers des appareils de la série 8000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b). 
 * **Correctifs liés à la surveillance** : dans cette version, les bogues liés aux graphiques d’analyse, au tableau de bord du service et au tableau de bord de l’appareil ont été résolus.
 
 ## <a name="issues-fixed-in-update-3"></a>Problèmes résolus dans Update 3
@@ -94,6 +94,6 @@ Découvrez comment [installer Update 3](storsimple-install-update-3.md) sur votr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

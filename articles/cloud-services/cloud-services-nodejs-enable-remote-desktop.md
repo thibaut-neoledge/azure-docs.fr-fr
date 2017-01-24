@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6dedf3a7a7b4092784291334b0586b8f37e86354
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 09878cccc847040c59cbf285f40ac6a1a310c993
 
 
 ---
@@ -29,7 +29,7 @@ Le Bureau à distance vous permet d'accéder au bureau d'une instance de rôle e
 > 
 
 ## <a name="prerequisites"></a>Composants requis
-* Installez et configurez [Azure PowerShell](../powershell-install-configure.md).
+* Installez et configurez [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Déploiement d'une application Node.js dans les services cloud Azure Pour plus d’informations, consultez [Création et déploiement d’une application Node.js dans Azure Cloud Services](cloud-services-nodejs-develop-deploy-app.md).
 
 ## <a name="step-1-use-azure-powershell-to-configure-the-service-for-remote-desktop-access"></a>Étape 1 : configuration du service pour l’accès au Bureau à distance au moyen d’Azure PowerShell
@@ -106,6 +106,6 @@ Une fois que vous n'avez plus besoin des connexions Bureau à distance aux insta
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

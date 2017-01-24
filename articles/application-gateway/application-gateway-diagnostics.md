@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/16/2016
-ms.author: amitsriva
+ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: dfae00654129371f4ca78c53bacb7084a03ec946
-ms.openlocfilehash: e61234f5e8c3683f9ed67ca95d1692a572a68201
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 75bd55d0df91a124e637ec06af0df3e245fc9231
 
 
 ---
@@ -253,6 +253,6 @@ Pour en savoir plus sur les webhooks et sur la façon de les utiliser avec des a
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

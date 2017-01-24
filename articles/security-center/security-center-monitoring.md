@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2016
+ms.date: 01/03/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: aac0354a8fbfb73bab3e7b5da7d9aefa69c9eb16
-ms.openlocfilehash: 5251ab851dd2934050747cd3ad7b2c4f0b9e98bb
+ms.sourcegitcommit: 7f074883c2330c5814eef415f193e1775caec432
+ms.openlocfilehash: ddb38f99adef288958fd3828cb685912bf35f218
 
 
 ---
@@ -35,7 +35,7 @@ La mosaïque **Intégrité de la sécurité des ressources** vous permet de surv
 
 ![Mosaïque Intégrité de la sécurité des ressources](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
 
-Si Azure Security Center identifie une vulnérabilité qui doit être corrigée (par exemple, une machine virtuelle à laquelle il manque des mises à jour de sécurité ou un sous-réseau sans [groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md)), cette vulnérabilité est identifiée dans ce panneau.
+Si Azure Security Center identifie une vulnérabilité qui doit être corrigée (par exemple, une machine virtuelle à laquelle il manque des mises à jour de sécurité ou un sous-réseau sans [groupe de sécurité réseau](/virtual-network/virtual-networks-nsg.md)), cette vulnérabilité est identifiée dans ce panneau.
 
 ### <a name="monitor-virtual-machines"></a>Surveillance des machines virtuelles
 Quand vous cliquez sur **Machines virtuelles** dans la mosaïque **Intégrité de la sécurité des ressources**, le panneau **Machines virtuelles** s’ouvre et affiche des informations détaillées sur les étapes d’intégration et de prévention, ainsi que la liste de toutes les machines virtuelles surveillées par Azure Security Center, comme illustré dans la capture d’écran suivante.
@@ -162,22 +162,22 @@ Ce tableau est trié (machines virtuelles et sous-réseaux) par niveau de gravit
 * Orange : priorité moyenne ; doivent être traités dès que possible
 * Vert (le dernier) : état d’intégrité
 
-Dans cette topologie, le premier niveau se décompose comme suit : [réseaux virtuels](../virtual-network/virtual-networks-overview.md), [passerelles de réseau virtuel](../vpn-gateway/vpn-gateway-site-to-site-create.md) et [réseaux virtuels (classiques)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Le deuxième niveau comprend des sous-réseaux et le troisième niveau regroupe les machines virtuelles appartenant à ces sous-réseaux. La colonne de droite présente l’état actuel du groupe de sécurité réseau pour ces ressources, comme illustré dans l’exemple suivant :
+Dans cette topologie, le premier niveau se décompose comme suit : [réseaux virtuels](../virtual-network/virtual-networks-overview.md), [passerelles de réseau virtuel](/vpn-gateway/vpn-gateway-site-to-site-create.md) et [réseaux virtuels (classiques)](/virtual-network/virtual-networks-create-vnet-classic-pportal.md). Le deuxième niveau comprend des sous-réseaux et le troisième niveau regroupe les machines virtuelles appartenant à ces sous-réseaux. La colonne de droite présente l’état actuel du groupe de sécurité réseau pour ces ressources, comme illustré dans l’exemple suivant :
 
 ![État du groupe de sécurité réseau dans la section Topologie de mise en réseau](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
 
 La partie inférieure de ce panneau regroupe les recommandations pour cette machine virtuelle, similaires celles décrites ci-dessus. Vous pouvez cliquer sur une recommandation pour en savoir plus, ou appliquer la configuration ou le contrôle de sécurité nécessaire.
 
 ### <a name="monitor-data"></a>Surveiller des données
-Lorsque vous cliquez sur l’option **Données** de la mosaïque **Intégrité de la sécurité des ressources**, le panneau **SQL** s’ouvre et affiche des recommandations relatives aux problèmes, telles que la désactivation de la fonction d’audit ou de Transparent Data Encryption. Il contient également des [recommandations](security-center-sql-service-recommendations.md) pour l’état général de la base de données.
+Lorsque vous cliquez sur **Données** dans la mosaïque **Intégrité de la sécurité des ressources**, le panneau **Ressources de données** s’ouvre avec des recommandations pour SQL et le stockage. Il contient également des [recommandations](security-center-sql-service-recommendations.md) pour l’état général de la base de données. Pour plus d’informations sur le chiffrement du stockage, consultez Enable encryption for Azure storage account in Azure Security Center (Activer le chiffrement pour le compte de stockage Azure dans Azure Security Center).
 
-![Intégrité des ressources SQL](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
+![Ressources de données](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
 
-Vous pouvez cliquer sur n’importe quelle recommandation pour obtenir plus de détails sur les actions permettant de résoudre un problème. L’exemple suivant illustre en détail la recommandation **Audit de base de données non activé** .
+Sous **Recommandations SQL**, vous pouvez cliquer sur une recommandation et obtenir des informations sur les actions permettant de résoudre un problème. L’exemple suivant montre le détail de la recommandation **Database Auditing & Threat detection on SQL databases (Audit de base de données et détection des menaces sur les bases de données SQL)**.
 
-![Détails relatifs à une recommandation SQL](./media/security-center-monitoring/security-center-monitoring-fig14-ga.png)
+![Détails relatifs à une recommandation SQL](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
 
-Le panneau **Activer l’audit sur les bases de données SQL** comporte les informations suivantes :
+Le panneau **Enable Auditing & Threat detection on SQL databases (Activer l’audit et la détection des menaces sur les bases de données SQL)** fournit les informations suivantes :
 
 * Une liste des bases de données SQL.
 * Le serveur sur lequel elles se trouvent.
@@ -185,13 +185,14 @@ Le panneau **Activer l’audit sur les bases de données SQL** comporte les info
 * L’état actuel du problème.
 * Le niveau de gravité du problème.
 
-Lorsque vous cliquez sur la base de données pour donner suite à cette recommandation, le panneau **Audit et détection des menaces** s’ouvre, comme illustré dans la capture d’écran suivante.
+Lorsque vous cliquez sur la base de données pour suivre cette recommandation, le panneau **Audit et détection des menaces** s’ouvre, comme illustré dans la capture d’écran suivante.
 
 ![Panneau Audit et détection des menaces](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
 
 Pour activer l’audit, sélectionnez **ACTIVÉ** sous **Audit**.
 
 ### <a name="monitor-applications"></a>Surveillance des applications
+
 Si votre charge de travail Azure comprend des applications situées sur des [machines virtuelles (créées via Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) comportant des ports web exposés (ports TCP 80 et 443), Azure Security Center peut les surveiller pour identifier les problèmes de sécurité potentiels et recommander des étapes de résolution. Lorsque vous cliquez sur la mosaïque **Applications**, le panneau **Applications** s’ouvre et affiche des recommandations dans la section **Recommandations relatives aux applications**. Il montre également la répartition des applications par hôte/IP virtuelle, comme illustré dans la capture d’écran suivante.
 
 ![État de sécurité des applications](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
@@ -216,6 +217,6 @@ Dans cet article, vous avez vu comment utiliser les fonctionnalités de surveill
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

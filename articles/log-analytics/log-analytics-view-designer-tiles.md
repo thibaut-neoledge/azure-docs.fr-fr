@@ -1,25 +1,29 @@
 ---
-title: Référence de la vignette Concepteur de vues de Log Analytics | Microsoft Docs
-description: Le Concepteur de vues de Log Analytics permet de créer dans la console OMS des vues personnalisées contenant différentes visualisations des données du référentiel OMS. Cet article fournit une référence pour les paramètres de chacune des vignettes utilisables dans vos vues personnalisées.
+title: "Référence de la vignette Concepteur de vues de Log Analytics | Microsoft Docs"
+description: "Le Concepteur de vues de Log Analytics permet de créer dans la console OMS des vues personnalisées contenant différentes visualisations des données du référentiel OMS. Cet article fournit une référence pour les paramètres de chacune des vignettes utilisables dans vos vues personnalisées."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 41787c8f-6c13-4520-b0d3-5d3d84fcf142
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/26/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: c00a472e2dda12874dd7bee4ccb6c4d53bf104a7
+ms.openlocfilehash: 1f4a42ea42000c3a8dd25baea610332ea6cd6a71
+
 
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Référence de la vignette Concepteur de vues de Log Analytics
 Le Concepteur de vues de Log Analytics permet de créer des vues personnalisées dans la console OMS, qui contiennent différentes visualisations de données du référentiel OMS. Cet article fournit une référence pour les paramètres de chacune des vignettes utilisables dans vos vues personnalisées.
 
-Autres articles disponibles concernant le Concepteur de vues :
+Autres articles disponibles concernant le Concepteur de vues :
 
 * [Concepteur de vues](log-analytics-view-designer.md) - vue d’ensemble du Concepteur de vues et des procédures de création et de modification des vues personnalisées.
 * [Référence des composants de visualisation](log-analytics-view-designer-parts.md) - référence des paramètres pour chacune des vignettes utilisables dans vos vues personnalisées. 
@@ -51,9 +55,7 @@ La vignette **Nombre** affiche un nombre unique correspondant au nombre d’enre
 | Activé |Sélectionner si la vérification du flux de données doit être activée pour la vignette.  Un autre message s’affiche si les données ne sont pas disponibles pour la vignette.  Cette option est généralement utilisée pour fournir un message pendant la période temporaire, lorsque la vue est installée et que des données sont disponibles. |
 | Requête |Requête à exécuter pour vérifier si les données sont disponibles pour la vue.  Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
 | Message |Message à afficher si la requête de vérification du flux de données ne retourne aucune donnée.  Si vous ne fournissez aucun message, le texte *Exécution de l'évaluation* s’affiche. |
-| **Intervalle de temps** | |
-| Durée |Durée à partir de la date en cours à utiliser pour déterminer l’intervalle de temps de la requête.  Par exemple, si **7 jours** est spécifié, la requête est limitée aux enregistrements créés au cours de la période de 7 jusqu’à la date en cours. |
-| Décalage de la date de fin |Décalage facultatif par rapport à la date en cours, à utiliser pour l’intervalle de temps de la requête principale.  Par exemple, si la valeur **-1 jour** est définie comme **Décalage de la date de fin**, et la valeur **7 jours** comme **Durée**, la requête est limitée aux enregistrements créés au cours de la période s’étendant d’il y a 8 jours à hier. |
+
 
 ## <a name="two-numbers-tile"></a>Vignette Deux nombres
 La vignette **Deux nombres** affiche deux nombres indiquant le décompte des enregistrements retournés par deux requêtes de journal distinctes, et une étiquette pour chacune d’elles.
@@ -74,9 +76,7 @@ La vignette **Deux nombres** affiche deux nombres indiquant le décompte des enr
 | Activé |Sélectionner si la vérification du flux de données doit être activée pour la vignette.  Un autre message s’affiche si les données ne sont pas disponibles pour la vignette.  Cette option est généralement utilisée pour fournir un message pendant la période temporaire, lorsque la vue est installée et que des données sont disponibles. |
 | Requête |Requête à exécuter pour vérifier si les données sont disponibles pour la vue.  Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
 | Message |Message à afficher si la requête de vérification du flux de données ne retourne aucune donnée.  Si vous ne fournissez aucun message, le texte *Exécution de l'évaluation* s’affiche. |
-| **Intervalle de temps** | |
-| Durée |Durée à partir de la date en cours à utiliser pour déterminer l’intervalle de temps de la requête.  Par exemple, si **7 jours** est spécifié, la requête est limitée aux enregistrements créés au cours de la période de 7 jusqu’à la date en cours. |
-| Décalage de la date de fin |Décalage facultatif par rapport à la date en cours, à utiliser pour l’intervalle de temps de la requête principale.  Par exemple, si la valeur **-1 jour** est définie comme **Décalage de la date de fin**, et la valeur **7 jours** comme **Durée**, la requête est limitée aux enregistrements créés au cours de la période s’étendant d’il y a 8 jours à hier. |
+
 
 ## <a name="donut-tile"></a>Vignette Anneau
 La vignette **Anneau** affiche un nombre unique résumé à partir d’une colonne de valeur dans une requête de journal.  L’anneau affiche sous forme graphique les résultats des trois premiers enregistrements.
@@ -88,10 +88,10 @@ La vignette **Anneau** affiche un nombre unique résumé à partir d’une colon
 | Nom |Texte à afficher en haut de la vignette. |
 | Description |Texte à afficher sous le nom de la vignette. |
 | **Anneau** | |
-| Requête |Requête à exécuter pour obtenir l’anneau.  La première propriété doit être une valeur de texte et la seconde une valeur numérique.  Il s’agit généralement d’une requête qui utilise le mot clé **measure** pour résumer les résultats. |
+| Requête |Requête à exécuter pour obtenir l’anneau.  La première propriété doit être une valeur de texte et la seconde une valeur numérique.  Il s’agit généralement d’une requête qui utilise le mot clé **measure** pour résumer les résultats. |
 | **Anneau** |**> Centrer** |
 | Texte |Texte à afficher sous la valeur contenue dans l’anneau. |
-| Opération |Opération à effectuer sur la valeur de propriété à résumer en une valeur unique.<br><br>- Sum : addition des valeurs de tous les enregistrements avec la valeur de propriété.<br>- Percentage : pourcentage des valeurs additionnées des enregistrements avec la valeur de propriété, en comparaison des valeurs additionnées de tous les enregistrements. |
+| Opération |Opération à effectuer sur la valeur de propriété à résumer en une valeur unique.<br><br>- Sum : addition des valeurs de tous les enregistrements avec la valeur de propriété.<br>- Percentage : pourcentage des valeurs additionnées des enregistrements avec la valeur de propriété, en comparaison des valeurs additionnées de tous les enregistrements. |
 | Valeurs de résultat utilisées dans l’opération relative au centre |Vous pouvez cliquer sur le signe plus (+) pour ajouter une ou plusieurs valeurs.  Les résultats de la requête sont alors limités aux enregistrements dont vous avez spécifié les valeurs de propriété.  Si aucune valeur n’est ajoutée, tous les enregistrements sont inclus dans la requête. |
 | **Anneau** |**> Options supplémentaires** |
 | Couleurs |Couleur à afficher pour chacune des trois premières propriétés.  Si vous souhaitez spécifier d’autres couleurs pour des valeurs de propriété spécifiques, utilisez l’option Mappage avancé des couleurs. |
@@ -100,9 +100,7 @@ La vignette **Anneau** affiche un nombre unique résumé à partir d’une colon
 | Activé |Sélectionner si la vérification du flux de données doit être activée pour la vignette.  Un autre message s’affiche si les données ne sont pas disponibles pour la vignette.  Cette option est généralement utilisée pour fournir un message pendant la période temporaire, lorsque la vue est installée et que des données sont disponibles. |
 | Requête |Requête à exécuter pour vérifier si les données sont disponibles pour la vue.  Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
 | Message |Message à afficher si la requête de vérification du flux de données ne retourne aucune donnée.  Si vous ne fournissez aucun message, le texte *Exécution de l'évaluation* s’affiche. |
-| **Intervalle de temps** | |
-| Durée |Durée à partir de la date en cours à utiliser pour déterminer l’intervalle de temps de la requête.  Par exemple, si **7 jours** est spécifié, la requête est limitée aux enregistrements créés au cours de la période de 7 jusqu’à la date en cours. |
-| Décalage de la date de fin |Décalage facultatif par rapport à la date en cours, à utiliser pour l’intervalle de temps de la requête principale.  Par exemple, si la valeur **-1 jour** est définie comme **Décalage de la date de fin**, et la valeur **7 jours** comme **Durée**, la requête est limitée aux enregistrements créés au cours de la période s’étendant d’il y a 8 jours à hier. |
+
 
 ## <a name="line-chart-tile"></a>Vignette Graphique en courbes
 La vignette **Graphique en courbes** affiche un graphique en courbes comprenant plusieurs séries provenant d’une requête de journal dans le temps.  
@@ -114,7 +112,7 @@ La vignette **Graphique en courbes** affiche un graphique en courbes comprenant 
 | Nom |Texte à afficher en haut de la vignette. |
 | Description |Texte à afficher sous le nom de la vignette. |
 | **Graphique en courbes** | |
-| Requête |Requête à exécuter pour obtenir le graphique en courbes.  La première propriété doit être une valeur de texte et la seconde une valeur numérique.  Il s’agit généralement d’une requête qui utilise le mot clé **measure** pour résumer les résultats.  Si la requête utilise le mot clé **interval**, l’axe des abscisses (X) du graphique utilise cet intervalle de temps.  Si la requête n’inclut pas le mot clé **interval**, des intervalles horaires sont utilisés pour l’axe des abscisses (X). |
+| Requête |Requête à exécuter pour obtenir le graphique en courbes.  La première propriété doit être une valeur de texte et la seconde une valeur numérique.  Il s’agit généralement d’une requête qui utilise le mot clé **measure** pour résumer les résultats.  Si la requête utilise le mot clé **interval**, l’axe des abscisses (X) du graphique utilise cet intervalle de temps.  Si la requête n’inclut pas le mot clé **interval**, des intervalles horaires sont utilisés pour l’axe des abscisses (X). |
 | **Graphique en courbes** |**> Axe des Y** |
 | Utiliser l’échelle logarithmique |Sélectionnez cette option pour utiliser une échelle logarithmique pour l’axe des ordonnées (Y). |
 | Units |Spécifiez les unités à utiliser pour exprimer les valeurs retournées par la requête.  Ces informations sont utilisées pour afficher sur le graphique des étiquettes indiquant les types de valeurs et, le cas échéant, pour convertir des valeurs.  Le **Type d’unité** spécifie la catégorie de l’unité et définit les valeurs de **Type d’unité en cours** disponibles.  Si vous sélectionnez une valeur dans **Convertir en**, les valeurs numériques sont converties du type **Unité actuelle** dans le type **Convertir en**. |
@@ -123,11 +121,9 @@ La vignette **Graphique en courbes** affiche un graphique en courbes comprenant 
 | Activé |Sélectionner si la vérification du flux de données doit être activée pour la vignette.  Un autre message s’affiche si les données ne sont pas disponibles pour la vignette.  Cette option est généralement utilisée pour fournir un message pendant la période temporaire, lorsque la vue est installée et que des données sont disponibles. |
 | Requête |Requête à exécuter pour vérifier si les données sont disponibles pour la vue.  Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
 | Message |Message à afficher si la requête de vérification du flux de données ne retourne aucune donnée.  Si vous ne fournissez aucun message, le texte *Exécution de l'évaluation* s’affiche. |
-| **Intervalle de temps** | |
-| Durée |Durée à partir de la date en cours à utiliser pour déterminer l’intervalle de temps de la requête.  Par exemple, si **7 jours** est spécifié, la requête est limitée aux enregistrements créés au cours de la période de 7 jusqu’à la date en cours. |
-| Décalage de la date de fin |Décalage facultatif par rapport à la date en cours, à utiliser pour l’intervalle de temps de la requête principale.  Par exemple, si la valeur **-1 jour** est définie comme **Décalage de la date de fin**, et la valeur **7 jours** comme **Durée**, la requête est limitée aux enregistrements créés au cours de la période s’étendant d’il y a 8 jours à hier. |
 
-## <a name="line-chart-&-callout-tile"></a>Vignette Graphique en courbes et légende
+
+## <a name="line-chart--callout-tile"></a>Vignette Graphique en courbes et légende
 La vignette **Graphique en courbes et légende** affiche un graphique en courbes avec plusieurs séries à partir d’une requête de journal dans le temps, et une légende avec une valeur de synthèse.  
 
 ![Vignette Graphique en courbes et légende](media/log-analytics-view-designer/tile-line-chart-callout.png)
@@ -137,11 +133,11 @@ La vignette **Graphique en courbes et légende** affiche un graphique en courbes
 | Nom |Texte à afficher en haut de la vignette. |
 | Description |Texte à afficher sous le nom de la vignette. |
 | **Graphique en courbes** | |
-| Requête |Requête à exécuter pour obtenir le graphique en courbes.  La première propriété doit être une valeur de texte et la seconde une valeur numérique.  Il s’agit généralement d’une requête qui utilise le mot clé **measure** pour résumer les résultats.  Si la requête utilise le mot clé **interval**, l’axe des abscisses (X) du graphique utilise cet intervalle de temps.  Si la requête n’inclut pas le mot clé **interval**, des intervalles horaires sont utilisés pour l’axe des abscisses (X). |
+| Requête |Requête à exécuter pour obtenir le graphique en courbes.  La première propriété doit être une valeur de texte et la seconde une valeur numérique.  Il s’agit généralement d’une requête qui utilise le mot clé **measure** pour résumer les résultats.  Si la requête utilise le mot clé **interval**, l’axe des abscisses (X) du graphique utilise cet intervalle de temps.  Si la requête n’inclut pas le mot clé **interval**, des intervalles horaires sont utilisés pour l’axe des abscisses (X). |
 | **Graphique en courbes** |**> Légende** |
 | Légende |Texte de titre à afficher au-dessus de la valeur de la légende. |
 | Nom de la série |Valeur de propriété pour la série à utiliser pour la valeur de la légende.  Si aucune série n’est fournie, tous les enregistrements de la requête sont utilisés. |
-| Opération |Opération à effectuer sur la valeur de propriété à résumer en une valeur unique pour la légende.<br>- Average : moyenne des valeurs de tous les enregistrements.<br><br>- Count : nombre de tous les enregistrements retournés par la requête.<br>- Last Sample : valeur du dernier intervalle inclus dans le graphique.<br>- Max : valeur maximale des intervalles inclus dans le graphique.<br>-Min : valeur minimale des intervalles inclus dans le graphique.<br>-Sum : somme des valeurs de tous les enregistrements. |
+| Opération |Opération à effectuer sur la valeur de propriété à résumer en une valeur unique pour la légende.<br>- Average : moyenne des valeurs de tous les enregistrements.<br><br>- Count : nombre de tous les enregistrements retournés par la requête.<br>- Last Sample : valeur du dernier intervalle inclus dans le graphique.<br>- Max : valeur maximale des intervalles inclus dans le graphique.<br>-Min : valeur minimale des intervalles inclus dans le graphique.<br>-Sum : somme des valeurs de tous les enregistrements. |
 | **Graphique en courbes** |**> Axe des Y** |
 | Utiliser l’échelle logarithmique |Sélectionnez cette option pour utiliser une échelle logarithmique pour l’axe des ordonnées (Y). |
 | Units |Spécifiez les unités à utiliser pour exprimer les valeurs retournées par la requête.  Ces informations sont utilisées pour afficher sur le graphique des étiquettes indiquant les types de valeurs et, le cas échéant, pour convertir des valeurs.  Le **Type d’unité** spécifie la catégorie de l’unité et définit les valeurs de **Type d’unité en cours** disponibles.  Si vous sélectionnez une valeur dans **Convertir en**, les valeurs numériques sont converties du type **Unité actuelle** dans le type **Convertir en**. |
@@ -150,9 +146,7 @@ La vignette **Graphique en courbes et légende** affiche un graphique en courbes
 | Activé |Sélectionner si la vérification du flux de données doit être activée pour la vignette.  Un autre message s’affiche si les données ne sont pas disponibles pour la vignette.  Cette option est généralement utilisée pour fournir un message pendant la période temporaire, lorsque la vue est installée et que des données sont disponibles. |
 | Requête |Requête à exécuter pour vérifier si les données sont disponibles pour la vue.  Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
 | Message |Message à afficher si la requête de vérification du flux de données ne retourne aucune donnée.  Si vous ne fournissez aucun message, le texte *Exécution de l'évaluation* s’affiche. |
-| **Intervalle de temps** | |
-| Durée |Durée à partir de la date en cours à utiliser pour déterminer l’intervalle de temps de la requête.  Par exemple, si **7 jours** est spécifié, la requête est limitée aux enregistrements créés au cours de la période de 7 jusqu’à la date en cours. |
-| Décalage de la date de fin |Décalage facultatif par rapport à la date en cours, à utiliser pour l’intervalle de temps de la requête principale.  Par exemple, si la valeur **-1 jour** est définie comme **Décalage de la date de fin**, et la valeur **7 jours** comme **Durée**, la requête est limitée aux enregistrements créés au cours de la période s’étendant d’il y a 8 jours à hier. |
+
 
 ## <a name="two-timelines-tile"></a>Vignette Deux chronologies
 La vignette **Deux chronologies** affiche les résultats de deux requêtes de journal dans le temps sous la forme de graphiques à barres.  Une légende est affichée pour chaque série.  
@@ -167,24 +161,25 @@ La vignette **Deux chronologies** affiche les résultats de deux requêtes de jo
 | Légende |Texte à afficher dans la légende de la première série. |
 | Couleur |Couleur à utiliser pour les colonnes de la première série. |
 | Requête de graphique |Requête à exécuter pour la première série.  Le décompte du nombre d’enregistrements sur chaque intervalle de temps est représenté par les colonnes de graphique. |
-| Opération |Opération à effectuer sur la valeur de propriété à résumer en une valeur unique pour la légende.<br><br>- Average : moyenne des valeurs de tous les enregistrements.<br>- Count : nombre de tous les enregistrements retournés par la requête.<br>- Last Sample : valeur du dernier intervalle inclus dans le graphique.<br>- Max : valeur maximale des intervalles inclus dans le graphique. |
+| Opération |Opération à effectuer sur la valeur de propriété à résumer en une valeur unique pour la légende.<br><br>- Average : moyenne des valeurs de tous les enregistrements.<br>- Count : nombre de tous les enregistrements retournés par la requête.<br>- Last Sample : valeur du dernier intervalle inclus dans le graphique.<br>- Max : valeur maximale des intervalles inclus dans le graphique. |
 | **Deuxième graphique** | |
 | Légende |Texte à afficher sous la légende pour la deuxième série. |
 | Couleur |Couleur à utiliser pour les colonnes de la deuxième série. |
 | Requête de graphique |Requête à exécuter pour la deuxième série.  Le décompte du nombre d’enregistrements sur chaque intervalle de temps est représenté par les colonnes de graphique. |
-| Opération |Opération à effectuer sur la valeur de propriété à résumer en une valeur unique pour la légende.<br><br>- Average : moyenne des valeurs de tous les enregistrements.<br>- Count : nombre de tous les enregistrements retournés par la requête.<br>- Last Sample : valeur du dernier intervalle inclus dans le graphique.<br>- Max : valeur maximale des intervalles inclus dans le graphique. |
+| Opération |Opération à effectuer sur la valeur de propriété à résumer en une valeur unique pour la légende.<br><br>- Average : moyenne des valeurs de tous les enregistrements.<br>- Count : nombre de tous les enregistrements retournés par la requête.<br>- Last Sample : valeur du dernier intervalle inclus dans le graphique.<br>- Max : valeur maximale des intervalles inclus dans le graphique. |
 | **Avancée** |**> Vérification du flux de données** |
 | Activé |Sélectionner si la vérification du flux de données doit être activée pour la vignette.  Un autre message s’affiche si les données ne sont pas disponibles pour la vignette.  Cette option est généralement utilisée pour fournir un message pendant la période temporaire, lorsque la vue est installée et que des données sont disponibles. |
 | Requête |Requête à exécuter pour vérifier si les données sont disponibles pour la vue.  Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
 | Message |Message à afficher si la requête de vérification du flux de données ne retourne aucune donnée.  Si vous ne fournissez aucun message, le texte *Exécution de l'évaluation* s’affiche. |
-| **Intervalle de temps** | |
-| Durée |Durée à partir de la date en cours à utiliser pour déterminer l’intervalle de temps de la requête.  Par exemple, si **7 jours** est spécifié, la requête est limitée aux enregistrements créés au cours de la période de 7 jusqu’à la date en cours. |
-| Décalage de la date de fin |Décalage facultatif par rapport à la date en cours, à utiliser pour l’intervalle de temps de la requête principale.  Par exemple, si la valeur **-1 jour** est définie comme **Décalage de la date de fin**, et la valeur **7 jours** comme **Durée**, la requête est limitée aux enregistrements créés au cours de la période s’étendant d’il y a 8 jours à hier. |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur la [recherche dans les journaux](log-analytics-log-searches.md) pour prendre en charge les requêtes dans les vignettes.
 * Ajouter des [composants de visualisation](log-analytics-view-designer-parts.md) à votre vue personnalisée.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

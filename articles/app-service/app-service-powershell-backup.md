@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d2095543e6cb964c9f1aa036c62e9ff6f80dc7c3
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: 172b55a68662dd98c4af946d51f3ece51f7835e1
 
 
 ---
@@ -49,7 +49,7 @@ Une URL SAP peut être générée avec PowerShell. Voici un exemple montrant com
         $sasUrl = New-AzureStorageContainerSASToken -Name $blobContainerName -Permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1) -FullUri
 
 ## <a name="install-azure-powershell-132-or-greater"></a>Installer Azure PowerShell 1.3.2 ou versions ultérieures
-Pour obtenir des instructions sur l’installation et l’utilisation d’Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) .
+Pour obtenir des instructions sur l’installation et l’utilisation d’Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 
 ## <a name="create-a-backup"></a>Création d'une sauvegarde
 Utilisez l’applet de commande New-AzureRmWebAppBackup pour créer une sauvegarde d’une application web.
@@ -154,6 +154,6 @@ Vous pouvez également diriger un objet de sauvegarde dans l’applet de command
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

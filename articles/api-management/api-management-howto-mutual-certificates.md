@@ -1,35 +1,39 @@
 ---
-title: Comment sécuriser les services principaux à l'aide d'une authentification par certificat client dans la Gestion des API Azure
-description: Découvrez comment sécuriser des services principaux à l'aide d'une authentification par certificat client dans la Gestion des API Azure
+title: "Comment sécuriser les services principaux à l&quot;aide d&quot;une authentification par certificat client dans la Gestion des API Azure"
+description: "Découvrez comment sécuriser des services principaux à l&quot;aide d&quot;une authentification par certificat client dans la Gestion des API Azure"
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 43453331-39b2-4672-80b8-0a87e4fde3c6
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 12/15/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: de47ff52eac40c4b4c57eef89763b71fd525ffa4
+
 
 ---
-# Comment sécuriser les services principaux à l'aide d'une authentification par certificat client dans la Gestion des API Azure
+# <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Comment sécuriser les services principaux à l'aide d'une authentification par certificat client dans la Gestion des API Azure
 La Gestion des API permet de sécuriser l'accès au service principal d'une API en utilisant des certificats client. Ce guide explique comment gérer les certificats dans le portail des éditeurs de l’API et comment configurer une API pour utiliser un certificat et accéder à son service principal.
 
-Pour en savoir plus sur la gestion des certificats à l’aide de l’API REST de gestion des API, consultez [Entité de certificat API REST de gestion des API Azure][Entité de certificat API REST de gestion des API Azure].
+Pour en savoir plus sur la gestion des certificats à l’aide de l’API REST de gestion des API, consultez [Entité de certificat API REST de gestion des API Azure][Azure API Management REST API Certificate entity].
 
 ## <a name="prerequisites"> </a>Configuration requise
-Ce guide explique comment configurer votre instance de service de gestion des API afin d'utiliser l'authentification par certificat lient pour accéder au service principal d'une API. Avant de suivre la procédure présentée dans cette rubrique, vous devez configurer votre service principal pour l'authentification avec certificat client ([pour configurer l’authentification avec certificat dans Azure WebSites, consultez cet article][pour configurer l’authentification avec certificat dans Azure WebSites, consultez cet article]) et avoir accès au certificat et au mot de passe associés afin de les charger dans le portail de publication de la gestion des API.
+Ce guide explique comment configurer votre instance de service de gestion des API afin d'utiliser l'authentification par certificat pour accéder au service principal d'une API. Avant de suivre la procédure présentée dans cette rubrique, vous devez configurer votre service principal pour l’authentification avec certificat client ([pour configurer l’authentification avec certificat dans Sites Web Azure, consultez cet article ][to configure certificate authentication in Azure WebSites refer to this article]) et avoir accès au certificat et au mot de passe associés afin de les charger dans le portail de publication de la gestion des API.
 
 ## <a name="step1"> </a>Chargement d’un certificat client
-Pour commencer, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
+Pour commencer, cliquez sur **Portail des éditeurs** dans le portail Azure de votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
 
 ![Portail des éditeurs d’API][api-management-management-console]
 
-> Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][Création d'une instance de service Gestion des API] dans le didacticiel [Prise en main de Gestion des API Azure][Prise en main de Gestion des API Azure].
+> Si vous n’avez pas encore créé une instance de service Gestion des API, consultez la page de [création d’une instance de service Gestion des API][Create an API Management service instance] dans le didacticiel de [prise en main de Gestion des API Azure][Get started with Azure API Management].
 > 
 > 
 
@@ -39,15 +43,15 @@ Cliquez sur **Sécurité** dans le menu **Gestion des API** de gauche, puis sur 
 
 Pour charger un nouveau certificat, cliquez sur **Charger un certificat**.
 
-![Téléchargement d’un certificat][api-management-upload-certificate]
+![Charger un certificat][api-management-upload-certificate]
 
 Accédez à votre certificat, puis entrez le mot de passe pour le certificat.
 
-> Le certificat doit être au format **.pfx**. Les certificats auto-signés sont autorisés.
+> Le certificat doit être au format **.pfx** . Les certificats auto-signés sont autorisés.
 > 
 > 
 
-![Téléchargement d’un certificat][api-management-upload-certificate-form]
+![Charger un certificat][api-management-upload-certificate-form]
 
 Cliquez sur **Charger** pour charger le certificat.
 
@@ -57,7 +61,11 @@ Cliquez sur **Charger** pour charger le certificat.
 
 ![Certificat chargé][api-management-certificate-uploaded]
 
-Lorsque le certificat est chargé, il s'affiche dans l'onglet **Certificats clients**. Si vous avez plusieurs certificats, faites une note indiquant les quatre derniers caractères de l'empreinte numérique, qui sont utilisés pour sélectionner le certificat lors de la configuration d'une API pour l'utilisation de certificats, tel qu'indiqué dans la section suivante [Configuration d'une API afin d'utiliser un certificat pour l'authentification de passerelle][Configuration d'une API afin d'utiliser un certificat pour l'authentification de passerelle].
+Lorsque le certificat est chargé, il s'affiche dans l'onglet **Certificats clients** . Si vous avez plusieurs certificats, faites une note indiquant les quatre derniers caractères de l’empreinte numérique, qui sont utilisés pour sélectionner le certificat lors de la configuration d’une API pour l’utilisation de certificats, tel qu’indiqué dans la section suivante [Configuration d’une API afin d’utiliser un certificat pour l’authentification de passerelle][Configure an API to use a client certificate for gateway authentication].
+
+> Pour désactiver la validation des chaînes de certificat lorsque vous utilisez, par exemple, un certificat auto-signé, suivez les étapes décrites dans cet [élément](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end) de FAQ.
+> 
+> 
 
 ## <a name="step1a"> </a>Suppression d’un certificat client
 Pour supprimer un certificat, cliquez sur **Supprimer** à côté du certificat en question.
@@ -73,15 +81,15 @@ Si le certificat est en cours d'utilisation par une API, un écran d'avertisseme
 ![Confirmation de suppression][api-management-confirm-delete-policy]
 
 ## <a name="step2"> </a>Configuration d'une API afin d'utiliser un certificat pour l'authentification de passerelle
-Cliquez sur **API** dans le menu **Gestion des API** de gauche, cliquez sur le nom de l'API désirée, puis cliquez sur l'onglet **Sécurité**.
+Cliquez sur **API** dans le menu **Gestion des API** de gauche, cliquez sur le nom de l’API désirée, puis cliquez sur l’onglet **Sécurité**.
 
 ![Sécurité API][api-management-api-security]
 
-Sélectionnez **Certificats client** dans la liste déroulante **Avec informations d'identification**.
+Sélectionnez **Certificats client** dans la liste déroulante **Avec informations d’identification**.
 
 ![Certificats clients][api-management-mutual-certificates]
 
-Sélectionnez le certificat désiré dans la liste déroulante **Certificat client**. Si plusieurs certificats s'affichent, vous pouvez consulter le sujet ou les quatre derniers caractères de l'empreinte numérique (notés dans la section précédente) afin d'identifier le certificat correct.
+Sélectionnez le certificat désiré dans la liste déroulante **Certificat client** . Si plusieurs certificats s'affichent, vous pouvez consulter le sujet ou les quatre derniers caractères de l'empreinte numérique (notés dans la section précédente) afin d'identifier le certificat correct.
 
 ![Sélection de certificat][api-management-select-certificate]
 
@@ -99,7 +107,7 @@ Cliquez sur **Enregistrer** pour enregistrer la modification de configuration de
 
 ![Stratégie de certificat][api-management-certificate-policy]
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations sur les autres méthodes de sécurisation de votre service principal, telles que l’authentification HTTP de base ou partagée, regardez la vidéo suivante
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Last-mile-Security/player]
@@ -127,23 +135,27 @@ Pour plus d'informations sur les autres méthodes de sécurisation de votre serv
 [Monitoring and analytics]: ../api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Prise en main de Gestion des API Azure]: api-management-get-started.md
+[Get started with Azure API Management]: api-management-get-started.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
-[Création d'une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[Entité de certificat API REST de gestion des API Azure]: http://msdn.microsoft.com/library/azure/dn783483.aspx
+[Azure API Management REST API Certificate entity]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[pour configurer l’authentification avec certificat dans Azure WebSites, consultez cet article]: https://azure.microsoft.com/documentation/articles/app-service-web-configure-tls-mutual-auth/
+[to configure certificate authentication in Azure WebSites refer to this article]: https://azure.microsoft.com/en-us/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
 [Delete a client certificate]: #step1a
-[Configuration d'une API afin d'utiliser un certificat pour l'authentification de passerelle]: #step2
+[Configure an API to use a client certificate for gateway authentication]: #step2
 [Test the configuration by calling an operation in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
 
 
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Dec16_HO3-->
+
+

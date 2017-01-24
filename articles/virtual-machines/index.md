@@ -1,15 +1,14 @@
 ---
 layout: LandingPage
 toc_rel: breadcrumb.json
-description: "Découvrez comment créer, déployer et gérer des machines virtuelles Windows ou Linux. Didacticiels, références d’API et autres documents."
 translationtype: Human Translation
-ms.sourcegitcommit: eabfc16b3714006f74cdaec68efb46f651ee1b97
-ms.openlocfilehash: fc2fb1a52416e5743476a2fc4e57956b602a1689
+ms.sourcegitcommit: c086dc37b8665017de0dbbad9c7ac82931932a72
+ms.openlocfilehash: 57994a1476186696b81b05e0ce7ae645337d35b2
 
 ---
-# <a name="virtual-machines-documentation"></a>Documentation Machines virtuelles
+#<a name="virtual-machines-documentation"></a>Documentation Machines virtuelles
 
-Découvrez comment créer des machines virtuelles Azure. Des didacticiels, des références d’API et d’autres documents vous montrent comment créer et déployer des machines virtuelles Windows et Linux, ainsi que des modèles de machine virtuelle complexes.
+Une machine virtuelle Azure vous donne la flexibilité de la virtualisation sans devoir acheter le matériel physique qui exécute la machine virtuelle ni en assurer la maintenance. Toutefois, vous devez toujours assurer la maintenance de la machine virtuelle : configuration, mise à jour corrective et maintenance du logiciel qui s’exécute sur la machine virtuelle.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -60,6 +59,6 @@ Télécharger la documentation Machines virtuelles </div>
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a5da863c7cbd5760a15f5e72fa7a884973ed38af
+ms.sourcegitcommit: 15a3f9f40bdb84b939b30e33e5f2033411adc3cc
+ms.openlocfilehash: a637422b704e1dc4e8c0e4ce81183de8b4ffb9a7
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: a5da863c7cbd5760a15f5e72fa7a884973ed38af
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 ## <a name="summary"></a>Résumé
-Dans ce didacticiel, vous allez ajouter l’authentification au projet de démarrage rapide todolist sur Apache Cordova en faisant appel à un fournisseur d’identité pris en charge. Ce didacticiel est basé sur le didacticiel [Prise en main des applications mobiles] , que vous devez effectuer en premier.
+Dans ce didacticiel, vous allez ajouter l’authentification au projet de démarrage rapide todolist sur Apache Cordova en faisant appel à un fournisseur d’identité pris en charge. Ce didacticiel est basé sur le didacticiel [Prise en main de Mobile Apps] , que vous devez effectuer en premier.
 
 ## <a name="a-nameregisteraregister-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Inscription de votre application pour l’authentification et configuration d’App Service
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -34,55 +34,61 @@ Dans ce didacticiel, vous allez ajouter l’authentification au projet de démar
 ## <a name="a-namepermissionsarestrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-À présent, vous pouvez vérifier que l’accès anonyme à votre serveur principal a été désactivé. Dans Visual Studio, ouvrez le projet créé durant le didacticiel [Prise en main des applications mobiles], puis exécutez votre application dans **l’Émulateur Google Android** et vérifiez qu’un problème de connexion inattendue est indiqué après le démarrage de l’application.
+À présent, vous pouvez vérifier que l’accès anonyme à votre serveur principal a été désactivé. Dans Visual Studio :
 
-Ensuite, vous allez mettre à jour l’application pour authentifier les utilisateurs avant de demander des ressources à partir du serveur principal d’applications mobiles.
+* Ouvrez le projet que vous avez créé avec le didacticiel [Prise en main de Mobile Apps].
+* Exécutez votre application dans **l’émulateur Android de Google**.
+* Vérifiez qu’un problème inattendu de connexion s’affiche après le démarrage de l’application.
 
-## <a name="a-nameadd-authenticationaadd-authentication-to-the-app"></a><a name="add-authentication"></a>Ajouter l'authentification à l'application
+Ensuite, vous mettez à jour l’application pour authentifier les utilisateurs avant de demander des ressources à partir du serveur principal d’applications mobiles.
+
+## <a name="a-nameadd-authenticationaadd-authentication-to-the-app"></a><a name="add-authentication"></a>Ajout de l’authentification à l’application
 1. Ouvrez votre projet dans **Visual Studio**, puis ouvrez le fichier `www/index.html` pour modification.
-2. Localisez la balise META `Content-Security-Policy` dans la section d’en-tête.  Vous devez ajouter l’hôte OAuth à la liste des ressources autorisées.
-   
+2. Localisez la balise META `Content-Security-Policy` dans la section d’en-tête.  Ajoutez l’hôte OAuth à la liste des ressources autorisées.
+
    | Fournisseur | Nom du fournisseur du Kit de développement logiciel. | Hôte OAuth |
    |:--- |:--- |:--- |
-   | Azure Active Directory |aad |https://login.windows.net |
-   | Facebook |Facebook |https://www.facebook.com |
-   | Google |Google |https://accounts.google.com |
-   | Microsoft |microsoftaccount |https://login.live.com |
-   | Twitter |Twitter |https://api.twitter.com |
-   
+   | Azure Active Directory | aad | https://login.windows.net |
+   | Facebook | Facebook | https://www.facebook.com |
+   | Google | Google | https://accounts.google.com |
+   | Microsoft | microsoftaccount | https://login.live.com |
+   | Twitter | Twitter | https://api.twitter.com |
+
     Voici un exemple Content-Security-Policy (implémenté pour Azure Active Directory) :
-   
+
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'
             data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
-   
-    Vous devez remplacer `https://login.windows.net` par l’hôte OAuth du tableau ci-dessus.  Consultez la [documentation Content-Security-Policy] pour en savoir plus sur cette balise META.
-   
-    Notez que certains fournisseurs d’authentification ne requièrent aucune modification Content-Security-Policy avec des appareils mobiles appropriés.  Par exemple, aucune modification de l’approche Content-Security-Policy n’est nécessaire lorsque vous recourez à l’authentification Google sur un appareil Android.
+
+    Remplacez `https://login.windows.net` par l’hôte OAuth du tableau précédent.  Consultez la [documentation Content-Security-Policy] pour en savoir plus sur la balise meta content-security-policy.
+
+    Certains fournisseurs d’authentification ne requièrent aucune modification Content-Security-Policy avec des appareils mobiles appropriés.  Par exemple, aucune modification de l’approche Content-Security-Policy n’est nécessaire lorsque vous recourez à l’authentification Google sur un appareil Android.
+
 3. Ouvrez le fichier `www/js/index.js` pour modification, recherchez la méthode `onDeviceReady()` et, sous le code de création du client, ajoutez le code suivant :
-   
+
         // Login to the service
         client.login('SDK_Provider_Name')
             .then(function () {
-   
+
                 // BEGINNING OF ORIGINAL CODE
-   
+
                 // Create a table reference
                 todoItemTable = client.getTable('todoitem');
-   
+
                 // Refresh the todoItems
                 refreshDisplay();
-   
+
                 // Wire up the UI Event Handler for the Add Item
                 $('#add-item').submit(addItemHandler);
                 $('#refresh').on('click', refreshDisplay);
-   
+
                 // END OF ORIGINAL CODE
-   
+
             }, handleError);
-   
-    Notez que ce code remplace le code existant qui crée la référence de table et actualise l'interface utilisateur.
-   
+
+    Ce code remplace le code existant qui crée la référence de table et actualise l'interface utilisateur.
+
     La méthode login() lance l'authentification auprès du fournisseur. La méthode login() est une méthode asynchrone qui renvoie une promesse JavaScript.  Le reste de l’initialisation est placé au sein de la réponse de promesse, de manière à ce qu’aucune exécution n’intervienne avant la fin de la méthode login().
+
 4. Dans le code que vous venez d'ajouter, remplacez `SDK_Provider_Name` par le nom de votre fournisseur de connexion. Par exemple, pour Azure Active Directory, utilisez `client.login('aad')`.
 5. Exécutez votre projet.  Une fois que le projet a terminé l’initialisation, votre application affiche la page de connexion OAuth du fournisseur d’authentification choisi.
 
@@ -97,16 +103,16 @@ Découvrez comment utiliser les Kits de développement logiciel.
 * [Kit de développement logiciel du serveur Node.js]
 
 <!-- URLs. -->
-[Prise en main des applications mobiles]: app-service-mobile-cordova-get-started.md
+[Prise en main de Mobile Apps]: app-service-mobile-cordova-get-started.md
 [documentation Content-Security-Policy]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
 [Notifications Push]: app-service-mobile-cordova-get-started-push.md
 [À propos de l’authentification]: app-service-mobile-auth.md
-[Kit de développement logiciel (SDK) Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md 
+[Kit de développement logiciel (SDK) Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
 [Kit de développement logiciel du serveur ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Kit de développement logiciel du serveur Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

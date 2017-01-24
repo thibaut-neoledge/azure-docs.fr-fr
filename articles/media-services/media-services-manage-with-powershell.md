@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 87f6d18ddc97921b62cbf111738044f24a0a940b
+ms.sourcegitcommit: 2549c876ee35d6a7fa425d43e2f86d24131ca791
+ms.openlocfilehash: 3d999d9e27844bc0164cc3572522b9ec022118a1
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 87f6d18ddc97921b62cbf111738044f24a0a940b
 > [!div class="op_single_selector"]
 > * [Portail](media-services-portal-create-account.md)
 > * [PowerShell](media-services-manage-with-powershell.md)
-> * [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/media/mediaservice)
 > 
 > [!NOTE]
 > Pour pouvoir créer un compte Azure Media Services, vous devez disposer d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Version d'évaluation gratuite d'Azure</a>.
@@ -212,7 +212,7 @@ Cette applet de commande prend en charge les paramètres courants : -Debug, -Er
 ### <a name="inputs"></a>Entrées
 Le type d’entrée est le type des objets que vous pouvez envoyer à l’applet de commande.
 
-### <a name="outputs"></a>outputs
+### <a name="outputs"></a>Sorties
 Le type de sortie est le type des objets émis par l'applet de commande.
 
 ## <a name="remove-azurermmediaservice"></a>Remove-AzureRmMediaService
@@ -253,7 +253,7 @@ Cette applet de commande prend en charge les paramètres courants : -Debug, -Er
 ### <a name="inputs"></a>Entrées
 Le type d’entrée est le type des objets que vous pouvez envoyer à l’applet de commande.
 
-### <a name="outputs"></a>outputs
+### <a name="outputs"></a>Sorties
 Le type de sortie est le type des objets émis par l'applet de commande.
 
 ## <a name="get-azurermmediaservice"></a>Get-AzureRmMediaService
@@ -303,7 +303,7 @@ Cette applet de commande prend en charge les paramètres courants : -Debug, -Er
 ### <a name="inputs"></a>Entrées
 Le type d’entrée est le type des objets que vous pouvez envoyer à l’applet de commande.
 
-### <a name="outputs"></a>outputs
+### <a name="outputs"></a>Sorties
 Le type de sortie est le type des objets émis par l'applet de commande.
 
 ## <a name="get-azurermmediaservicekeys"></a>Get-AzureRmMediaServiceKeys
@@ -344,7 +344,7 @@ Cette applet de commande prend en charge les paramètres courants : -Debug, -Er
 ### <a name="inputs"></a>Entrées
 Le type d’entrée est le type des objets que vous pouvez envoyer à l’applet de commande.
 
-### <a name="outputs"></a>outputs
+### <a name="outputs"></a>Sorties
 Le type de sortie est le type des objets émis par l'applet de commande.
 
 ## <a name="set-azurermmediaservicekey"></a>Set-AzureRmMediaServiceKey
@@ -399,7 +399,7 @@ Cette applet de commande prend en charge les paramètres courants : -Debug, -Er
 ### <a name="inputs"></a>Entrées
 Le type d’entrée est le type des objets que vous pouvez envoyer à l’applet de commande.
 
-### <a name="outputs"></a>outputs
+### <a name="outputs"></a>Sorties
 Le type de sortie est le type des objets émis par l'applet de commande.
 
 ## <a name="sync-azurermmediaservicestoragekeys"></a>Sync-AzureRmMediaServiceStorageKeys
@@ -452,7 +452,7 @@ Cette applet de commande prend en charge les paramètres courants : -Debug, -Er
 ### <a name="inputs"></a>Entrées
 Le type d’entrée est le type des objets que vous pouvez envoyer à l’applet de commande.
 
-### <a name="outputs"></a>outputs
+### <a name="outputs"></a>Sorties
 Le type de sortie est le type des objets émis par l'applet de commande.
 
 ## <a name="next-step"></a>Étape suivante
@@ -466,6 +466,6 @@ Consultez les chemins d’apprentissage de Media Services.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

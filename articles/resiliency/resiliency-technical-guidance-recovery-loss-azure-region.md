@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 15f0183d8ada59227a412788f1d53a9db0e712c8
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 0062dc90d8e1a823e17183e96a91a9f224e8cf48
 
 
 ---
@@ -97,7 +97,7 @@ Azure SQL Database fournit deux types de restauration : la géo-restauration et 
 [Géoréplication active](../sql-database/sql-database-geo-replication-overview.md) est disponible avec tous les niveaux de bases de données. Elle est conçue pour les applications qui ont des exigences de récupération plus agressives que celles proposées par la géo-restauration. À l'aide de la géoréplication active, vous pouvez créer jusqu'à quatre répliques secondaires sur des serveurs dans différentes régions. Vous pouvez lancer le basculement sur n’importe quelle base de données secondaire. En outre, la géoréplication active peut être utilisée pour prendre en charge les scénarios de mise à niveau ou de déplacement d'application, ainsi que l'équilibrage de charge pour les charges de travail en lecture seule. Pour plus d’informations, consultez [Configurer la géoréplication](../sql-database/sql-database-geo-replication-portal.md) et [Basculement vers la base de données secondaire](../sql-database/sql-database-geo-replication-failover-portal.md). Pour plus d’informations sur la conception, l’implémentation et la mise à niveau d’applications sans interruption, consultez [Concevoir une application pour la récupération d’urgence cloud à l’aide de la géoréplication active dans SQL Database](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) et [Gestion des mises à niveau propagées des applications cloud à l’aide de la géoréplication active de SQL Database](../sql-database/sql-database-manage-application-rolling-upgrade.md).
 
 ### <a name="sql-server-on-virtual-machines"></a>SQL Server sur Virtual Machines
-Plusieurs options sont disponibles pour la récupération et la haute disponibilité de SQL Server 2012 (et version ultérieure) sur Azure Virtual Machines. Pour plus d’informations, consultez [Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Plusieurs options sont disponibles pour la récupération et la haute disponibilité de SQL Server 2012 (et version ultérieure) sur Azure Virtual Machines. Pour plus d’informations, consultez [Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md).
 
 ## <a name="other-azure-platform-services"></a>Autres services de plateforme Azure
 Lorsque vous tentez d’exécuter votre service cloud dans plusieurs régions Azure, vous devez prendre en compte les implications pour chacune de vos dépendances. Dans les sections suivantes, les instructions spécifiques au service partent du principe que vous devez utiliser le même service Azure dans un autre centre de données Azure. Cela nécessite d’effectuer des tâches de configuration et de réplication des données.
@@ -188,6 +188,6 @@ Cet article fait partie d’une série intitulée [Guide technique de la résili
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

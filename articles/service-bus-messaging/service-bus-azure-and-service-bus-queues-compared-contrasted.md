@@ -15,8 +15,8 @@ ms.workload: tbd
 ms.date: 09/23/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0740427b1cd990fb94e82f1f045cc9e7f11468cd
+ms.sourcegitcommit: a925285f94fc7b1a53e605f19bb8c1ff81ce6718
+ms.openlocfilehash: c9088b2472a6e72367666391a322068c1fdf662e
 
 
 ---
@@ -130,7 +130,7 @@ Cette section compare les fonctionnalités avancées fournies par les files d'at
 * Pour trouver les messages « incohérents » dans les files d’attente Azure, lors du retrait de la file d’attente d’un message l’application examine la propriété **[DequeueCount](https://msdn.microsoft.com/library/azure/dd179474.aspx)** du message. Si la propriété **DequeueCount** dépasse un seuil donné, l’application déplace le message vers une file d’attente de type « lettre morte » définie par l’application.
 * Les files d'attente Azure vous permettent d'obtenir un journal détaillé de toutes les transactions exécutées sur la file d'attente, ainsi que des métriques agrégées. Ces deux options sont utiles pour déboguer et comprendre comment votre application utilise les files d'attente Azure. Elles sont également utiles pour régler les performances de votre application et réduire les coûts d'utilisation des files d'attente.
 * Le concept de « sessions de messagerie » pris en charge par Service Bus permet aux messages appartenant à un certain groupe logique d’être associés à un destinataire spécifique, ce qui ensuite crée une affinité de type session entre les messages et leurs récepteurs respectifs. Vous pouvez activer cette fonctionnalité avancée dans Service Bus en définissant la propriété [SessionID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) d’un message. Les récepteurs peuvent ensuite écouter par le biais d'un ID de session spécifique et recevoir les messages qui partagent l'identificateur de session spécifié.
-* La fonctionnalité de détection des doublons prise en charge par les files d’attente Service Bus supprime automatiquement les messages en double envoyés à une file d’attente ou une rubrique, selon la valeur de la propriété [MessageID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx).
+* La fonctionnalité de détection des doublons prise en charge par les files d’attente Service Bus supprime automatiquement les messages en double envoyés à une file d’attente ou une rubrique, selon la valeur de la propriété [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx).
 
 ## <a name="capacity-and-quotas"></a>Capacité et quotas
 Cette section compare les files d’attente Azure et les files d’attente Service Bus du point de vue de la [capacité et des quotas](service-bus-quotas.md) qui peuvent s’appliquer.
@@ -145,11 +145,11 @@ Cette section compare les files d’attente Azure et les files d’attente Servi
 
 ### <a name="additional-information"></a>Informations supplémentaires
 * Service Bus applique les limites en termes de taille de file d'attente. La taille de file d'attente maximale est spécifiée lors de la création de la file d'attente et peut avoir une valeur comprise entre 1 Go et 80 Go. Si la valeur de taille de la file d'attente définie lors de la création de celle-ci est atteinte, les messages entrants supplémentaires seront rejetés et une exception sera reçue par le code appelant. Pour plus d’informations sur les quotas dans Service Bus, consultez [Quotas Service Bus](service-bus-quotas.md).
-* Vous pouvez créer des files d'attente Service Bus avec des tailles de 1, 2, 3, 4 ou 5 Go (la valeur par défaut est 1 Go). Avec le partitionnement activé (qui est la valeur par défaut), Service Bus crée 16 partitions pour chaque Go que vous spécifiez. Par conséquent, si vous créez une file d’attente de 5 Go, avec 16 partitions la taille maximale de la file d’attente est (5 * 16) = 80 Go. Vous pouvez voir la taille maximale de votre file d’attente ou rubrique partitionnée en examinant son entrée dans le [portail Azure][portail Azure].
+* Vous pouvez créer des files d'attente Service Bus avec des tailles de 1, 2, 3, 4 ou 5 Go (la valeur par défaut est 1 Go). Avec le partitionnement activé (qui est la valeur par défaut), Service Bus crée 16 partitions pour chaque Go que vous spécifiez. Par conséquent, si vous créez une file d’attente de 5 Go, avec 16 partitions la taille maximale de la file d’attente est (5 * 16) = 80 Go. Vous pouvez voir la taille maximale de votre file d’attente ou rubrique partitionnée en examinant son entrée dans le [portail Azure][Azure portal].
 * Avec les files d’attente Azure, si le contenu du message n’est pas sécurisé pour XML, il doit être encodé au format **Base64**. Si vous encodez le message au format **Base64**, la charge utilisateur peut atteindre 48 Ko, au lieu de 64 Ko.
 * Avec les files d'attente Service Bus, chaque message stocké dans une file d'attente est composé de deux parties : un en-tête et un corps. La taille totale du message ne peut pas dépasser la taille de message maximale prise en charge par le niveau de service.
 * Lorsque des clients communiquent avec des files d'attente Service Bus au moyen du protocole TCP, le nombre maximal de connexions simultanées à une file d'attente Service Bus unique est limité à 100. Ce nombre est partagé entre les expéditeurs et les destinataires. Si ce quota est atteint, les requêtes suivantes pour des connexions supplémentaires sont rejetées et une exception sera reçue par le code appelant. Cette limite n'est pas appliquée aux clients qui se connectent aux files d'attente à l'aide d'une API REST.
-* Si vous avez besoin de plus de 10 000 files d'attente dans un seul espace de noms Service Bus, vous pouvez contacter l'équipe de support Azure et demander l'augmentation du nombre de files d'attente. Pour aller au-delà de 10 000 files d’attente avec Service Bus, vous pouvez également créer des espaces de noms supplémentaires à l’aide du [portail Azure][portail Azure].
+* Si vous avez besoin de plus de 10 000 files d'attente dans un seul espace de noms Service Bus, vous pouvez contacter l'équipe de support Azure et demander l'augmentation du nombre de files d'attente. Pour aller au-delà de 10 000 files d’attente avec Service Bus, vous pouvez également créer des espaces de noms supplémentaires à l’aide du [portail Azure][Azure portal].
 
 ## <a name="management-and-operations"></a>Gestion et opérations
 Cette section compare les fonctionnalités de gestion fournies par les files d'attente Azure et les files d'attente Service Bus.
@@ -226,11 +226,11 @@ Les articles suivants fournissent davantage de conseils et d'informations sur l'
 * [Utilisation du service de mise en file d’attente dans Azure](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 * [Présentation de la facturation du stockage Azure - bande passante, transactions et capacité](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
-[portail Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

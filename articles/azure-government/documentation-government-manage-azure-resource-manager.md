@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/10/2016
-ms.author: brendalee
+ms.author: brendal
 translationtype: Human Translation
-ms.sourcegitcommit: 4febeb038f1007e1e20981d120debe4db1d7731a
-ms.openlocfilehash: dd511273e8ce3b9dd98b3d26534a9ddb7aee8ebf
+ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
+ms.openlocfilehash: 89aa44df74effec7da2eb008faf8f01dda0d27ca
 
 
 ---
 # <a name="azure-resource-manager"></a>Azure Resource Manager
-Pour plus d’informations sur les fournisseurs Resource Manager, les versions d’API et les schémas, accédez [à cette page](../resource-manager-supported-services.md). Les tableaux suivants répertorient les services pris en charge par Azure Government dans Resource Manager.
+Pour plus d’informations sur les fournisseurs Resource Manager, les versions d’API et les schémas, accédez [à cette page](../azure-resource-manager/resource-manager-supported-services.md). Les tableaux suivants répertorient les services pris en charge par Azure Government dans Resource Manager.
 
 ## <a name="compute"></a>Calcul
 | Service | Resource Manager activé |
@@ -45,7 +45,7 @@ Pour plus d’informations sur les fournisseurs Resource Manager, les versions
 | Virtual Network |Oui |
 | Passerelle VPN |Oui |
 
-## <a name="data-storage"></a>Données et stockage
+## <a name="data--storage"></a>Données et stockage
 | Service | Resource Manager activé |
 | --- | --- |
 | Base de données de documents |Non |
@@ -56,7 +56,7 @@ Pour plus d’informations sur les fournisseurs Resource Manager, les versions
 | SQL Data Warehouse |Oui |
 | StorSimple |Non |
 
-## <a name="web-mobile"></a>Web et mobilité
+## <a name="web--mobile"></a>Web et mobilité
 | Service | Resource Manager activé |
 | --- | --- |
 | API Apps |Oui |
@@ -89,7 +89,7 @@ Pour plus d’informations sur les fournisseurs Resource Manager, les versions
 | IoTHubs |Non |
 | Notification Hubs |Non |
 
-## <a name="media-cdn"></a>Média et CDN
+## <a name="media--cdn"></a>Média et CDN
 | Service | Resource Manager activé |
 | --- | --- |
 | CDN |Non |
@@ -131,6 +131,6 @@ Pour obtenir des informations supplémentaires et des mises à jour, inscrivez-v
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jonor;sivae
 translationtype: Human Translation
-ms.sourcegitcommit: f5bdbd801107650f87993b395338adfb1b26d17e
-ms.openlocfilehash: 634f0c28c833612fdd1a6cd656c364eb3f5e43e5
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 42fe3f1789344f98782c3e24cdc19fe299ac7c02
 
 
 ---
@@ -33,7 +33,7 @@ Le schéma logique suivant peut vous orienter vers un exemple spécifique des di
 [Exemple 4 : Ajouter une connexion hybride avec un réseau privé virtuel (VPN) d’appliance virtuelle de site à site.](#example-4-add-a-hybrid-connection-with-a-site-to-site-virtual-appliance-virtual-private-network)</br>
 [Exemple 5 : Ajouter une connexion hybride avec un réseau VPN de passerelle Azure de site à site.](#example-5-add-a-hybrid-connection-with-a-site-to-site-azure-gateway-vpn)</br>
 [Exemple 6 : Ajouter une connexion hybride avec ExpressRoute.](#example-6-add-a-hybrid-connection-with-expressroute)</br>
- Des exemples d'ajout de connexions entre réseaux virtuels, de haute disponibilité et de chaînage de service seront ajoutés à ce document dans les prochains mois.
+Des exemples d'ajout de connexions entre réseaux virtuels, de haute disponibilité et de chaînage de service seront ajoutés à ce document dans les prochains mois.
 
 ## <a name="microsoft-compliance-and-infrastructure-protection"></a>Conformité et protection des infrastructures Microsoft
 Microsoft joue un rôle de premier plan dans le soutien des initiatives de conformité requises par les clients d’entreprise. Voici quelques-unes des certifications de conformité pour Azure : ![badges de conformité Azure][1]
@@ -512,7 +512,7 @@ L’ajout d’une connexion réseau d’homologation privée ExpressRoute peut �
 ## <a name="references"></a>Références
 ### <a name="helpful-websites-and-documentation"></a>Sites web et documentation utiles
 * Accès à Azure avec Azure Resource Manager :
-* Accéder à Azure avec PowerShell : [https://azure.microsoft.com/documentation/articles/powershell-install-configure/](powershell-install-configure.md)
+* Accéder à Azure avec PowerShell : [https://azure.microsoft.com/documentation/articles/powershell-install-configure/](/powershell/azureps-cmdlets-docs)
 * Documentation relative à la mise en réseau virtuelle : [https://azure.microsoft.com/documentation/services/virtual-network/](https://azure.microsoft.com/documentation/services/virtual-network/)
 * Documentation relative aux groupes de sécurité réseau : [https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/](virtual-network/virtual-networks-nsg.md)
 * Documentation relative au routage défini par l’utilisateur : [https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/](virtual-network/virtual-networks-udr-overview.md)
@@ -528,9 +528,9 @@ L’ajout d’une connexion réseau d’homologation privée ExpressRoute peut �
 [4]: ./media/best-practices-network-security/azuresecurityarchitecture.png "Architecture de sécurité Azure"
 [5]: ./media/best-practices-network-security/dmzazure.png "Une zone DMZ dans un réseau virtuel Azure"
 [6]: ./media/best-practices-network-security/dmzhybrid.png "Réseau hybride avec trois limites de sécurité"
-[7]: ./media/best-practices-network-security/example1design.png "Réseau de périmètre entrant avec groupe de sécurité réseau"
+[7]: ./media/best-practices-network-security/example1design.png "Zone DMZ avec groupe de sécurité réseau (NSG)"
 [8]: ./media/best-practices-network-security/example2design.png "Zone DMZ entrante avec NVA et NSG"
-[9]: ./media/best-practices-network-security/example3design.png "DMZ bidirectionnel avec NVA, NSG et UDR"
+[9]: ./media/best-practices-network-security/example3design.png "Zone DMZ bidirectionnelle avec NVA, NSG et UDR"
 [10]: ./media/best-practices-network-security/example3firewalllogical.png "Affichage logique des règles de pare-feu"
 [11]: ./media/best-practices-network-security/example4designoptions.png "Zone DMZ avec réseau hybride connecté à une NVA"
 [12]: ./media/best-practices-network-security/example4designs2s.png "Zone DMZ avec NVA connectée à l’aide d’un VPN de site à site"
@@ -552,6 +552,6 @@ L’ajout d’une connexion réseau d’homologation privée ExpressRoute peut �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

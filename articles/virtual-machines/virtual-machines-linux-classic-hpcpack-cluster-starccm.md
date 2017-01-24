@@ -1,13 +1,13 @@
 ---
-title: Exécuter Star-CCM+ avec HPC Pack sur des machines virtuelles Linux | Microsoft Docs
-description: Déployer un cluster Microsoft HPC Pack sur Azure et exécuter un travail Star-CCM+ sur plusieurs nœuds de calcul Linux d’un réseau RDMA.
+title: "Exécuter Star-CCM+ avec HPC Pack sur des machines virtuelles Linux | Microsoft Docs"
+description: "Déployer un cluster Microsoft HPC Pack sur Azure et exécuter un travail Star-CCM+ sur plusieurs nœuds de calcul Linux d’un réseau RDMA."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: xpillons
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager,hpc-pack
-
+ms.assetid: 75523406-d268-4623-ac3e-811c7b74de4b
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,19 +15,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
+translationtype: Human Translation
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 94a6a0968336f74ff116bf71aaa2e7c2ee135105
+
 
 ---
-# Exécuter Star-CCM+ avec Microsoft HPC Pack sur un cluster Linux RDMA dans Azure
+# <a name="run-star-ccm-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Exécuter Star-CCM+ avec Microsoft HPC Pack sur un cluster Linux RDMA dans Azure
 Cet article vous explique comment déployer un cluster Microsoft HPC Pack sur Azure et exécuter un travail [CD-adapco STAR-CCM+](http://www.cd-adapco.com/products/star-ccm%C2%AE) sur plusieurs nœuds de calcul Linux interconnectés avec InfiniBand.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Microsoft HPC Pack fournit des fonctionnalités permettant d’exécuter un éventail d’applications HPC à grande échelle et parallèles, y compris des applications MPI, sur des clusters de machines virtuelles Microsoft Azure. HPC Pack prend également en charge l’exécution d’applications Linux HPC sur les machines virtuelles de nœuds de calcul Linux déployées dans un cluster HPC Pack. Pour une présentation de l’utilisation des nœuds de calcul Linux avec HPC Pack, consultez l’article [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md)
+Microsoft HPC Pack fournit des fonctionnalités permettant d’exécuter un éventail d’applications HPC à grande échelle et parallèles, y compris des applications MPI, sur des clusters de machines virtuelles Microsoft Azure. HPC Pack prend également en charge l’exécution d’applications Linux HPC sur les machines virtuelles de nœuds de calcul Linux déployées dans un cluster HPC Pack. Pour une présentation de l’utilisation des nœuds de calcul Linux avec HPC Pack, consultez l’article [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-## Configurer un cluster HPC Pack
-Téléchargez les scripts de déploiement IaaS de HPC Pack à partir du [Centre de téléchargement](https://www.microsoft.com/fr-FR/download/details.aspx?id=44949) et extrayez-les localement.
+## <a name="set-up-an-hpc-pack-cluster"></a>Configurer un cluster HPC Pack
+Téléchargez les scripts de déploiement IaaS de HPC Pack à partir du [Centre de téléchargement](https://www.microsoft.com/en-us/download/details.aspx?id=44949) et extrayez-les localement.
 
-Azure PowerShell doit être installé et configuré. Si le logiciel PowerShell n’est pas configuré sur votre ordinateur local, consultez l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+Azure PowerShell doit être installé et configuré. Si le logiciel PowerShell n’est pas configuré sur votre ordinateur local, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Lors de la rédaction de cet article, les images Linux d’Azure Marketplace (qui contient les pilotes InfiniBand pour Azure) correspondent à SLES 12, CentOS 6.5 et CentOS 7.1. Cet article utilise SLES 12. Pour récupérer le nom de toutes les images Linux prenant en charge HPC dans le Marketplace, exécutez la commande PowerShell suivante :
 
@@ -89,7 +93,7 @@ Vous devrez peut-être corriger le redirecteur DNS. Pour ce faire, démarrez le 
 2. Cliquez sur le bouton **Modifier** pour supprimer tous les redirecteurs, puis cliquez sur **OK**.
 3. Vérifiez que la case **Utiliser les indications de racine si aucun redirecteur n’est disponible** est cochée et cliquez sur **OK**.
 
-## Créer les nœuds de calcul Linux
+## <a name="set-up-linux-compute-nodes"></a>Créer les nœuds de calcul Linux
 Pour déployer les nœuds de calcul Linux, utilisez le même modèle de déploiement que vous avez utilisé pour créer le nœud principal.
 
 Copiez le fichier **MyCluster.xml** de votre ordinateur local vers le nœud principal et modifiez la balise **NodeCount** en fonction du nombre de nœuds à déployer (<= 20). Veillez à avoir un nombre suffisant de cœurs dans votre quota Azure, car chaque instance A9 consomme 16 cœurs dans votre abonnement. Vous pouvez utiliser des instances A8 (8 cœurs) au lieu d’instances A9, si vous souhaitez utiliser davantage de machines virtuelles avec le même budget.
@@ -100,8 +104,8 @@ Exécutez les commandes Azure PowerShell suivantes dans une invite de commandes 
 
 1. Exécutez **Add-AzureAccount** pour vous connecter à votre abonnement Azure.
 2. Si vous avez plusieurs abonnements, exécutez **Get-AzureSubscription** pour les afficher.
-3. Définissez l’abonnement par défaut en exécutant la commande **Select-AzureSubscription -SubscriptionName xxxx-Default**.
-4. Exécutez **.\\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml** pour commencer à déployer les nœuds de calcul Linux.
+3. Définissez l’abonnement par défaut en exécutant la commande **Select-AzureSubscription -SubscriptionName xxxx-Default** .
+4. Exécutez **.\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml** pour commencer à déployer les nœuds de calcul Linux.
    
    ![Déploiement d’un nœud principal en action][hndeploy]
 
@@ -111,14 +115,14 @@ Ouvrez le Gestionnaire de cluster de HPC Pack. Après quelques minutes, des nœu
 
 Maintenant que tous les nœuds sont opérationnels dans le cluster, il reste quelques opérations de configuration de l’infrastructure à effectuer.
 
-## Configurer un partage Azure File pour les nœuds Windows et Linux
+## <a name="set-up-an-azure-file-share-for-windows-and-linux-nodes"></a>Configurer un partage Azure File pour les nœuds Windows et Linux
 Vous pouvez utiliser le service Azure File pour stocker les scripts, les packages d’applications et les fichiers de données. Azure File fournit des fonctionnalités CIFS en plus d’un stockage d’objets blob Azure comme magasin persistant. Sachez que ce n’est pas la solution la plus évolutive, mais c’est la plus simple et elle ne nécessite aucune machine virtuelle dédiée.
 
 Créez un partage Azure File en suivant les instructions fournies dans l’article [Prise en main d’Azure File Storage sur Windows](../storage/storage-dotnet-how-to-use-files.md).
 
 Conservez le nom de votre compte de stockage **saname**, le nom du partage de fichiers **sharename** et la clé du compte de stockage **sakey**.
 
-### Montage du partage Azure File sur le nœud principal
+### <a name="mount-the-azure-file-share-on-the-head-node"></a>Montage du partage Azure File sur le nœud principal
 Ouvrez une invite de commandes avec élévation de privilèges et exécutez la commande suivante pour stocker les informations d’identification dans le coffre de l’ordinateur local :
 
 ```
@@ -128,11 +132,12 @@ Ouvrez une invite de commandes avec élévation de privilèges et exécutez la c
 Puis, pour monter le partage Azure File, exécutez :
 
 ```
-    net use Z: \<saname>.file.core.windows.net<sharename> /persistent:yes
+    net use Z: \\<saname>.file.core.windows.net\<sharename> /persistent:yes
 ```
 
-### Montage du partage Azure File sur les nœuds de calcul Linux
-L’utilitaire clusrun, fourni avec HPC Pack, est particulièrement utile. Cet outil de ligne de commande vous permet d’exécuter la même commande simultanément sur plusieurs nœuds de calcul. Dans notre cas, il est utilisé pour monter le partage Azure File et le rendre persistant aux redémarrages. Exécutez les commandes suivantes dans une invite de commandes avec élévation de privilèges sur le nœud principal.
+### <a name="mount-the-azure-file-share-on-linux-compute-nodes"></a>Montage du partage Azure File sur les nœuds de calcul Linux
+L’utilitaire clusrun, fourni avec HPC Pack, est particulièrement utile. Cet outil de ligne de commande vous permet d’exécuter la même commande simultanément sur plusieurs nœuds de calcul. Dans notre cas, il est utilisé pour monter le partage Azure File et le rendre persistant aux redémarrages.
+Exécutez les commandes suivantes dans une invite de commandes avec élévation de privilèges sur le nœud principal.
 
 Pour créer le répertoire du point de montage :
 
@@ -152,7 +157,7 @@ Pour rendre le partage permanent :
     clusrun /nodegroup:LinuxNodes "echo //<saname>.file.core.windows.net/<sharename> /hpcdata cifs vers=2.1,username=<saname>,password='<sakey>',dir_mode=0777,file_mode=0777 >> /etc/fstab"
 ```
 
-## Installer STAR-CCM+
+## <a name="install-star-ccm"></a>Installer STAR-CCM+
 Les instances A8 et A9 de machine virtuelle Azure prennent en charge InfiniBand et les fonctionnalités RDMA. Les pilotes de noyau qui mettent en œuvre ces fonctionnalités sont disponibles pour les images Windows Server 2012 R2, SUSE 12, CentOS 6.5 et CentOS 7.1 dans Azure Marketplace. Microsoft MPI et Intel MPI (version 5.x) sont les deux bibliothèques MPI qui prennent en charge ces pilotes dans Azure.
 
 CD-adapco STAR-CCM+ 11.x et version ultérieure est fourni avec Intel MPI version 5.x et prend donc en charge InfiniBand pour Azure.
@@ -161,7 +166,7 @@ Récupérez le package Linux64 STAR-CCM+ sur le [portail CD-adapco](https://stev
 
 Sur le nœud principal, dans le partage Azure File **/hpcdata**, créez un script shell intitulé **setupstarccm.sh** avec le contenu suivant. Ce script s’exécutera sur chaque nœud de calcul pour configurer STAR-CCM+ localement.
 
-#### Exemple de script setupstarcm.sh
+#### <a name="sample-setupstarcmsh-script"></a>Exemple de script setupstarcm.sh
 ```
     #!/bin/bash
     # setupstarcm.sh to set up STAR-CCM+ locally
@@ -190,7 +195,7 @@ Maintenant, pour installer Star-CCM+ sur tous vos nœuds de calcul Linux, ouvrez
 
 Pendant l’exécution de la commande, vous pouvez surveiller l’utilisation du processeur à l’aide de la carte thermique du Gestionnaire de cluster. Après quelques minutes, tous les nœuds devraient être correctement installés.
 
-## Exécuter des travaux STAR-CCM+
+## <a name="run-star-ccm-jobs"></a>Exécuter des travaux STAR-CCM+
 HPC Pack est utilisé pour ses fonctionnalités de planificateur afin d’exécuter des travaux Star-CCM+. Pour ce faire, nous avons besoin de prendre en charge les quelques scripts utilisés pour démarrer le travail et exécuter Star-CCM+. Pour plus de simplicité, les données d’entrée sont d’abord conservées sur le partage Azure File.
 
 Le script PowerShell suivant est utilisé pour mettre en attente un travail Star-CCM+. Il tient compte de trois arguments :
@@ -205,9 +210,9 @@ Les nœuds sont alloués exclusivement au travail et ne peuvent pas être partag
 
 Le modèle d’entrée et le script **runstarccm.sh** sont stockés dans le partage **/hpcdata** précédemment monté.
 
-Les fichiers journaux sont nommés d’après l’ID du travail et stockés dans le **partage /hpcdata** avec les fichiers de sortie STAR-CCM+.
+Les fichiers journaux sont nommés d’après l’ID du travail et stockés dans le **partage /hpcdata**avec les fichiers de sortie STAR-CCM+.
 
-#### Exemple de script SubmitStarccmJob.ps1
+#### <a name="sample-submitstarccmjobps1-script"></a>Exemple de script SubmitStarccmJob.ps1
 ```
     Add-PSSnapin Microsoft.HPC -ErrorAction silentlycontinue
     $scheduler="headnodename"
@@ -233,7 +238,7 @@ Les fichiers journaux sont nommés d’après l’ID du travail et stockés dans
 ```
 Remplacez le **runner.java** par le lanceur de modèle Java STAR-CCM+ de votre choix et votre code de journalisation.
 
-#### Exemple de script runstarccm.sh
+#### <a name="sample-runstarccmsh-script"></a>Exemple de script runstarccm.sh
 ```
     #!/bin/bash
     echo "start"
@@ -279,17 +284,17 @@ Remplacez le **runner.java** par le lanceur de modèle Java STAR-CCM+ de votre c
     exit ${RTNSTS}
 ```
 
-Dans notre test, nous avons utilisé un jeton de licence Power-On-Demand, dont vous devez définir la variable d’environnement **$CDLMD\_LICENSE\_FILE** sur **1999@flex.cd-adapco.com** et la clé dans l’option **-podkey** de la ligne de commande.
+Dans notre test, nous avons utilisé un jeton de licence Power-On-Demand, dont vous devez définir la variable d’environnement **$CDLMD_LICENSE_FILE** sur **1999@flex.cd-adapco.com** et la clé dans l’option **-podkey** de la ligne de commande.
 
-Après une phase d’initialisation, le script extrait, à partir des variables d’environnement **$CCP\_NODES\_CORES** définies par HPC Pack, la liste des nœuds permettant de générer un fichier d’hôte utilisé par le lanceur MPI. Ce fichier d’hôte contient la liste des noms de nœuds de calcul utilisés pour le travail (un nom par ligne).
+Après une phase d’initialisation, le script extrait, à partir des variables d’environnement **$CCP_NODES_CORES** définies par HPC Pack, la liste des nœuds permettant de générer un fichier d’hôte utilisé par le lanceur MPI. Ce fichier d’hôte contient la liste des noms de nœuds de calcul utilisés pour le travail (un nom par ligne).
 
-Le format de **$CCP\_NODES\_CORES** suit ce modèle :
+Le format de **$CCP_NODES_CORES** suit ce modèle :
 
 ```
 <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>...`
 ```
 
-Où :
+Où :
 
 * `<Number of nodes>` est le nombre de nœuds affectés à ce travail.
 * `<Name of node_n_...>` est le nom de chaque nœud affecté à ce travail.
@@ -311,7 +316,7 @@ Enfin, pour démarrer un travail, vérifiez que vos nœuds sont opérationnels e
     .\ SubmitStarccmJob.ps1 <model> <nbNodes> <nbCoresPerNode>
 ```
 
-## Arrêter les nœuds
+## <a name="stop-nodes"></a>Arrêter les nœuds
 Ensuite, une fois vos tests terminés, vous pouvez utiliser les commandes PowerShell HPC Pack suivantes pour arrêter et démarrer des nœuds :
 
 ```
@@ -319,14 +324,18 @@ Ensuite, une fois vos tests terminés, vous pouvez utiliser les commandes PowerS
     Start-HPCIaaSNode.ps1 -Name <prefix>-00*
 ```
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Essayez d’exécuter d’autres charges de travail Linux, par exemple :
 
-* [Exécution de NAMD avec Microsoft HPC Pack sur des nœuds de calcul Linux dans Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
-* [Exécuter OpenFoam avec Microsoft HPC Pack sur un cluster Linux RDMA dans Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
+* [Exécution de NAMD avec Microsoft HPC Pack sur des nœuds de calcul Linux dans Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Exécuter OpenFOAM avec Microsoft HPC Pack sur un cluster Linux RDMA dans Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 <!--Image references-->
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/ClusterManager.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Dec16_HO1-->
+
+

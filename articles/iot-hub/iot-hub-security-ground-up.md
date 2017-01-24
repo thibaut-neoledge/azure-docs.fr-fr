@@ -1,25 +1,29 @@
 ---
-title: Sécuriser votre solution IoT de bout en bout | Microsoft Docs
-description: Cet article décrit les fonctionnalités de sécurité intégrées de Microsoft Azure IoT Suite
+title: "Sécuriser votre solution Azure IoT de bout en bout | Microsoft Docs"
+description: "Comment utiliser les fonctionnalités de sécurité intégrée de Microsoft Azure IoT Hub et de Suite."
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: YuriDio
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 1a30c2d5-ad82-4980-8203-5ce275184964
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 10/17/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: a4452dee2beec650f84dff4083e91684fe61d8b6
+
 
 ---
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
-## Étapes suivantes
-Pour en savoir plus sur la sécurisation de votre solution IoT, consultez :
+## <a name="see-also"></a>Voir aussi
+Pour en savoir plus sur la sécurisation de votre solution IoT, consultez :
 
 * [Meilleures pratiques relatives à la sécurité IoT][lnk-security-best-practices]
 * [Architecture de la sécurité IoT][lnk-security-architecture]
@@ -27,18 +31,16 @@ Pour en savoir plus sur la sécurisation de votre solution IoT, consultez :
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Conception de votre solution][lnk-design]
-* [Exploration de la gestion des appareils à l’aide de l’exemple d’interface utilisateur][lnk-dmui]
-* [Simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway][lnk-gateway]
-* [Utilisation du portail Azure pour gérer IoT Hub][lnk-portal]
+* [Simulation d’un appareil avec le Kit de développement logiciel (SDK) de la passerelle IoT][lnk-gateway]
 
 [lnk-security-best-practices]: iot-hub-security-best-practices.md
 [lnk-security-architecture]: iot-hub-security-architecture.md
 [lnk-security-deployment]: iot-hub-security-deployment.md
 
-[lnk-design]: iot-hub-guidance.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Dec16_HO1-->
+
+

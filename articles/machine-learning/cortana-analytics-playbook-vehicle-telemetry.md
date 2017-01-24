@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/09/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 55c85d95a16e0c0ea7bb11d6f47ae85aeb80577d
+ms.sourcegitcommit: 307ed83dc1f47bb86af4a476acbb51876012ff25
+ms.openlocfilehash: e4311a740ccb4cac2c1d6e7e1197a736d3a4a777
 
 
 ---
@@ -41,10 +41,10 @@ La solution est implémentée comme un [modèle d’architecture lambda](https:/
 * offre à cette solution un tableau de bord complet permettant de visualiser à la fois les données en temps réel et les analyses prédictives à l’aide de Power BI.
 
 ## <a name="architecture"></a>Architecture
-![](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)
-*Figure 1 – Architecture de la solution d’analyse télémétrique de véhicule*
+![Diagramme d’architecture de solution](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)
+*Figure 1 – Architecture d’analyse de télémétrie de véhicule*
 
-Cette solution inclut les **composants Cortana Intelligence** suivants et présente leur intégration de bout en bout.
+Cette solution inclut les **composants Cortana Intelligence** suivants et présente leur intégration de bout en bout :
 
 * **Event Hubs** , pour la réception dans Azure de millions d’événements de télémétrie associés aux véhicules.
 * **STREAM ANALYTICS** , pour une visibilité en temps réel sur l’état des véhicules et une conservation de ces données dans un stockage à long terme afin d’enrichir les analyses par lots.
@@ -61,6 +61,6 @@ Cette solution utilise deux **sources de données**différentes :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

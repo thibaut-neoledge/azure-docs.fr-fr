@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 10/27/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: b2cd533ab24feb3ce521db5f8406576f86e460d9
+ms.sourcegitcommit: d4fa4187b25dcbb7cf3b75cb9186b5d245c89227
+ms.openlocfilehash: 12da49e49782869153dcecbf6e4ca0ec24fa5960
 
 
 ---
@@ -145,7 +145,7 @@ Les modèles Azure Resource Manager utilisent des fichiers JSON déclaratifs pou
 }
 ```
 
-En savoir plus sur la [création de plusieurs instances à l’aide de *copy*](../resource-group-create-multiple.md). 
+En savoir plus sur la [création de plusieurs instances à l’aide de *copy*](../azure-resource-manager/resource-group-create-multiple.md). 
 
 Vous pouvez également utiliser `copyIndex()` pour ajouter ensuite un numéro à un nom de ressource permettant de créer `myNic1`, `myNic2`, etc. Voici un exemple d’ajout de la valeur d’index :
 
@@ -163,6 +163,6 @@ N’oubliez pas que vous ne pouvez pas ajouter de cartes réseau à une machine 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 09/14/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7ac66acf154cde7f5241666c4c5dab0c482a0ab1
+ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
+ms.openlocfilehash: 6e8239199edb40813081094b4efa680346685b42
 
 
 ---
@@ -113,7 +113,7 @@ Maintenant que vous avez vu comment utiliser Pig avec HDInsight, utilisez les li
 * [Utilisation de Hive avec HDInsight][hdinsight-use-hive]
 * [Utilisation de Sqoop avec HDInsight](hdinsight-use-sqoop.md)
 * [Utilisation d’Oozie avec HDInsight](hdinsight-use-oozie.md)
-* [Utilisation de tâches MapReduce avec HDInsight][hdinsight-use-mapreduce]
+* [Utilisation des tâches MapReduce avec HDInsight][hdinsight-use-mapreduce]
 
 [check]: ./media/hdinsight-use-pig/hdi.checkmark.png
 
@@ -135,7 +135,7 @@ Maintenant que vous avez vu comment utiliser Pig avec HDInsight, utilisez les li
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md#mapreduce-sdk
 
-[Powershell-install-configure]: ../powershell-install-configure.md
+[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 
@@ -146,6 +146,6 @@ Maintenant que vous avez vu comment utiliser Pig avec HDInsight, utilisez les li
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

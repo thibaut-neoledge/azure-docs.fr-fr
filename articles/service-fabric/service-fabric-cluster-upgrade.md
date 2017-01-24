@@ -1,12 +1,12 @@
 ---
-title: Mise à niveau d’un cluster Azure Service Fabric | Microsoft Docs
-description: Mettez à niveau le code et/ou la configuration Service Fabric qui exécute un cluster Service Fabric. Cela inclut le mode de mise à jour du cluster, la mise à niveau de certificats, l’ajout de ports d’application, l’application des correctifs de système d’exploitation, etc. À quoi vous attendre lors de l'exécution des mises à niveau ?
+title: "Mise à niveau d’un cluster Azure Service Fabric | Microsoft Docs"
+description: "Mettez à niveau le code et/ou la configuration Service Fabric qui exécute un cluster Service Fabric. Cela inclut le mode de mise à jour du cluster, la mise à niveau de certificats, l’ajout de ports d’application, l’application des correctifs de système d’exploitation, etc. À quoi vous attendre lors de l&quot;exécution des mises à niveau ?"
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2016
 ms.author: chackdan
+translationtype: Human Translation
+ms.sourcegitcommit: 0231c3148d03ffef0a518a68bb79398462da2605
+ms.openlocfilehash: 89721efbb9f05871716ca1b16ad0d54eaf1ffd62
+
 
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>Mettre à niveau un cluster Azure Service Fabric
@@ -44,7 +48,7 @@ Vous pouvez définir le cluster sur le mode Manuel ou Automatique lors de la cr�
 
 Vous pouvez définir le cluster sur le mode Automatique ou Manuel dans le cas d’un cluster activé, à l’aide de l’expérience de gestion. 
 
-#### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal."></a>Mise à niveau vers une nouvelle version sur un cluster défini sur le mode Manuel, via le portail
+#### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal"></a>Mise à niveau vers une nouvelle version sur un cluster défini sur le mode Manuel, via le portail
 Pour effectuer la mise à niveau vers une nouvelle version, il vous suffit de sélectionner la version disponible dans la liste déroulante, puis d’enregistrer. La mise à niveau de Service Fabric est lancée automatiquement. Les stratégies de contrôle d’intégrité du cluster (combinaison de l’intégrité des nœuds et de l’intégrité de toutes les applications en cours d’exécution dans le cluster) sont respectées pendant la mise à niveau.
 
 Si les stratégies d'intégrité du cluster ne sont pas respectées, la mise à niveau est annulée. Faites dérouler ce document pour en savoir plus sur la définition de ces stratégies de contrôle d’intégrité personnalisées. 
@@ -58,7 +62,7 @@ Ajoutez la configuration « upgradeMode » dans la définition de ressource Micr
 
 ![ARMUpgradeMode][ARMUpgradeMode]
 
-#### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template."></a>Mise à niveau vers une nouvelle version sur un cluster défini sur le mode Manuel, via un modèle Resource Manager
+#### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template"></a>Mise à niveau vers une nouvelle version sur un cluster défini sur le mode Manuel, via un modèle Resource Manager
 Lorsque le cluster est en mode Manuel, si vous voulez effectuer une mise à niveau vers une nouvelle version, modifiez le paramètre « clusterCodeVersion » en indiquant une version prise en charge et en la déployant. Le déploiement du modèle lance la mise à niveau de la structure automatiquement. Les stratégies de contrôle d’intégrité du cluster (combinaison de l’intégrité des nœuds et de l’intégrité de toutes les applications en cours d’exécution dans le cluster) sont respectées pendant la mise à niveau.
 
 Si les stratégies d'intégrité du cluster ne sont pas respectées, la mise à niveau est annulée. Faites dérouler ce document pour en savoir plus sur la définition de ces stratégies de contrôle d’intégrité personnalisées. 
@@ -71,7 +75,9 @@ Exécutez la commande suivante. La sortie doit ressembler à ce qui suit.
 Le paramètre « supportExpiryUtc » vous indique lorsqu’une version donnée arrive à expiration ou a expiré. La version la plus récente n’est pas associée à une date valide. Elle a donc la valeur « 9999-12-31T23:59:59.9999999 », qui signifie simplement que la date d’expiration n’est pas encore définie.
 
 ```REST
-GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/clusterVersions?api-version= 2016-09-01
+GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2016-09-01
+
+Example: https://management.azure.com/subscriptions/1857f442-3bce-4b96-ad95-627f76437a67/providers/Microsoft.ServiceFabric/locations/eastus/clusterVersions?api-version=2016-09-01
 
 Output:
 {
@@ -115,40 +121,40 @@ Output:
 ## <a name="fabric-upgrade-behavior-when-the-cluster-upgrade-mode-is-automatic"></a>Comportement de mise à niveau de la structure lorsque le mode de mise à niveau du cluster est Automatique
 Microsoft tient à jour le code de l’infrastructure et la configuration exécutés dans un cluster Azure. Nous effectuons des mises à niveau automatiques surveillées du logiciel en fonction des besoins. Ces mises à niveau peuvent concerner le code, la configuration ou les deux. Pour garantir que votre application n’est pas affectée par ces mises à niveau, ou l’est au minimum, nous effectuons ces dernières en plusieurs phases :
 
-### <a name="phase-1:-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>Phase 1 : Une mise à niveau est effectuée à l'aide de toutes les stratégies d'intégrité du cluster
+### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>Phase 1 : Une mise à niveau est effectuée à l'aide de toutes les stratégies d'intégrité du cluster
 Pendant cette phase, les mises à niveau traitent un domaine de mise à niveau à la fois et les applications qui étaient en cours d'exécution dans le cluster continuent à fonctionner sans interruption. Les stratégies de contrôle d’intégrité du cluster (combinaison de l’intégrité des nœuds et de l’intégrité de toutes les applications en cours d’exécution dans le cluster) sont respectées pendant la mise à niveau.
 
-Si les stratégies d'intégrité du cluster ne sont pas respectées, la mise à niveau est annulée. Un message électronique est envoyé au propriétaire de l’abonnement. Le message électronique contient les informations suivantes :
+Si les stratégies d'intégrité du cluster ne sont pas respectées, la mise à niveau est annulée. Un message électronique est envoyé au propriétaire de l’abonnement. Le message électronique contient les informations suivantes :
 
 * Une notification indiquant que nous avons dû annuler une mise à niveau du cluster.
 * Des suggestions d'actions correctives, le cas échéant.
-* Le nombre de jours (n) avant l’exécution de la Phase 2.
+* Le nombre de jours (n) avant l’exécution de la Phase 2.
 
-Nous essayons d'exécuter la même mise à niveau plusieurs fois dans le cas où les mises à niveau ont échoué pour des raisons d'infrastructure. Après le délai de n jours à partir de la date d'envoi du message électronique, nous passons à la Phase 2.
+Nous essayons d'exécuter la même mise à niveau plusieurs fois dans le cas où les mises à niveau ont échoué pour des raisons d'infrastructure. Après le délai de n jours à partir de la date d'envoi du message électronique, nous passons à la Phase 2.
 
 Si les stratégies d'intégrité du cluster sont respectées, la mise à niveau est considérée comme réussie et marquée comme terminée. Cela peut se produire pendant la première exécution ou l'une des exécutions de la mise à niveau suivantes dans cette phase. Aucun message électronique de confirmation d'une exécution réussie n'est envoyé. Ceci afin d'éviter de vous envoyer trop de messages électroniques, la réception d'un message devant être considérée comme une exception. Nous pensons que la plupart des mises à niveau du cluster s'exécuteront sans affecter la disponibilité de votre application.
 
-### <a name="phase-2:-an-upgrade-is-performed-by-using-default-health-policies-only"></a>Phase 2 : Une mise à niveau est effectuée à l'aide des stratégies d'intégrité par défaut uniquement
-Les stratégies d'intégrité de cette phase sont définies de telle sorte que le nombre d'applications intègres au début de la mise à niveau reste identique pendant la durée de la mise à niveau. Comme lors de la Phase 1, les mises à niveau de la Phase 2 traitent un domaine de mise à niveau à la fois et les applications qui étaient en cours d'exécution dans le cluster continuent à fonctionner sans interruption. Les stratégies d’intégrité du cluster (une combinaison de l’intégrité du nœud et l’intégrité de toutes les applications en cours d’exécution dans le cluster) sont respectées pendant la durée de la mise à niveau.
+### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>Phase 2 : Une mise à niveau est effectuée à l'aide des stratégies d'intégrité par défaut uniquement
+Les stratégies d'intégrité de cette phase sont définies de telle sorte que le nombre d'applications intègres au début de la mise à niveau reste identique pendant la durée de la mise à niveau. Comme lors de la Phase 1, les mises à niveau de la Phase 2 traitent un domaine de mise à niveau à la fois et les applications qui étaient en cours d'exécution dans le cluster continuent à fonctionner sans interruption. Les stratégies d’intégrité du cluster (une combinaison de l’intégrité du nœud et l’intégrité de toutes les applications en cours d’exécution dans le cluster) sont respectées pendant la durée de la mise à niveau.
 
-Si les stratégies d'intégrité de cluster en vigueur ne sont pas respectées, la mise à niveau est annulée. Un message électronique est envoyé au propriétaire de l’abonnement. Le message électronique contient les informations suivantes :
+Si les stratégies d'intégrité de cluster en vigueur ne sont pas respectées, la mise à niveau est annulée. Un message électronique est envoyé au propriétaire de l’abonnement. Le message électronique contient les informations suivantes :
 
 * Une notification indiquant que nous avons dû annuler une mise à niveau du cluster.
 * Des suggestions d'actions correctives, le cas échéant.
-* Le nombre de jours (n) avant l’exécution de la Phase 3.
+* Le nombre de jours (n) avant l’exécution de la Phase 3.
 
-Nous essayons d'exécuter la même mise à niveau plusieurs fois dans le cas où les mises à niveau ont échoué pour des raisons d'infrastructure. Un message électronique de rappel est envoyé deux jours avant que le délai de n jours ne soit écoulé. Après le délai de n jours à partir de la date d'envoi du message électronique, nous passons à la Phase 3. Les messages électroniques que nous vous envoyons lors de la Phase 2 doivent être pris au sérieux et des actions correctives doivent être prises.
+Nous essayons d'exécuter la même mise à niveau plusieurs fois dans le cas où les mises à niveau ont échoué pour des raisons d'infrastructure. Un message électronique de rappel est envoyé deux jours avant que le délai de n jours ne soit écoulé. Après le délai de n jours à partir de la date d'envoi du message électronique, nous passons à la Phase 3. Les messages électroniques que nous vous envoyons lors de la Phase 2 doivent être pris au sérieux et des actions correctives doivent être prises.
 
 Si les stratégies d'intégrité du cluster sont respectées, la mise à niveau est considérée comme réussie et marquée comme terminée. Cela peut se produire pendant la première exécution ou l'une des exécutions de la mise à niveau suivantes dans cette phase. Aucun message électronique de confirmation d'une exécution réussie n'est envoyé.
 
-### <a name="phase-3:-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>Phase 3 : Une mise à niveau est effectuée à l'aide de stratégies d'intégrité agressives
+### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>Phase 3 : Une mise à niveau est effectuée à l'aide de stratégies d'intégrité agressives
 Les stratégies d'intégrité de cette phase visent à compléter la mise à niveau plutôt qu’à protéger l'intégrité des applications. Un nombre très faible de mises à niveau du cluster se termine par cette phase. Si votre cluster atteint cette phase, il est très probable que votre application devienne défectueuse et/ou ne soit plus disponible.
 
-Comme pour les deux autres phases, les mises à niveau de la Phase 3 traitent un domaine de mise à niveau à la fois.
+Comme pour les deux autres phases, les mises à niveau de la Phase 3 traitent un domaine de mise à niveau à la fois.
 
 Si les stratégies d'intégrité du cluster ne sont pas respectées, la mise à niveau est annulée. Nous essayons d'exécuter la même mise à niveau plusieurs fois dans le cas où les mises à niveau ont échoué pour des raisons d'infrastructure. Après cela, le cluster est épinglé et il ne bénéficiera plus des mises à niveau et/ou du support.
 
-Un message électronique contenant ces informations est envoyé au propriétaire de l’abonnement, ainsi que les actions correctives. Nous pensons qu'aucun cluster ne sera confronté à un échec de la Phase 3.
+Un message électronique contenant ces informations est envoyé au propriétaire de l’abonnement, ainsi que les actions correctives. Nous pensons qu'aucun cluster ne sera confronté à un échec de la Phase 3.
 
 Si les stratégies d'intégrité du cluster sont respectées, la mise à niveau est considérée comme réussie et marquée comme terminée. Cela peut se produire pendant la première exécution ou l'une des exécutions de la mise à niveau suivantes dans cette phase. Aucun message électronique de confirmation d'une exécution réussie n'est envoyé.
 
@@ -163,11 +169,11 @@ Vous pouvez facilement ajouter ou supprimer des certificats pour le cluster et l
 ### <a name="application-ports"></a>Ports d'application
 Vous pouvez modifier les ports d'application en modifiant les propriétés de ressource d'équilibrage de charge associées au type de nœud. Vous pouvez utiliser le portail ou bien directement Resource Manager PowerShell.
 
-Pour ouvrir un nouveau port sur toutes les machines virtuelles dans un type de nœud, vous devez effectuer les opérations suivantes :
+Pour ouvrir un nouveau port sur toutes les machines virtuelles dans un type de nœud, vous devez effectuer les opérations suivantes :
 
 1. Ajouter une nouvelle sonde à l'équilibrage de charge approprié.
    
-    Si vous avez déployé votre cluster à l’aide du portail, les équilibrages de charge sont nommés « LB-nom du groupe de ressources-Nom du type de nœud », un pour chaque type de nœud. Étant donné que les noms de l'équilibrage de charge sont uniques dans un groupe de ressources seulement, il est préférable de les rechercher dans un groupe de ressources spécifique.
+    Si vous avez déployé votre cluster à l’aide du portail, les équilibrages de charge sont nommés « LB-nom du groupe de ressources-Nom du type de nœud », un pour chaque type de nœud. Étant donné que les noms de l'équilibrage de charge sont uniques dans un groupe de ressources seulement, il est préférable de les rechercher dans un groupe de ressources spécifique.
    
     ![Capture d'écran qui illustre l'ajout d'une sonde à un équilibrage de charge sur le portail.][AddingProbes]
 2. Ajouter une nouvelle règle pour l'équilibrage de charge.
@@ -219,6 +225,7 @@ Si vous devez mettre à niveau l'image du système d'exploitation sur les machin
 [Manage_Automaticmode]: ./media/service-fabric-cluster-upgrade/Manage_Automaticmode.PNG
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Dec16_HO1-->
 
 

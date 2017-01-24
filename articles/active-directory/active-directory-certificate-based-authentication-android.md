@@ -1,11 +1,11 @@
 ---
-title: Prise en main de l’authentification par certificat sur Android | Microsoft Docs
-description: Découvrez comment configurer l’authentification par certificat dans des solutions avec les appareils Android
+title: "Prise en main de l’authentification par certificat sur Android | Microsoft Docs"
+description: "Découvrez comment configurer l’authentification par certificat dans des solutions avec les appareils Android"
 services: active-directory
 author: MarkusVi
 documentationcenter: na
 manager: femila
-
+ms.assetid: c6ad7640-8172-4541-9255-770f39ecce0e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d73b4ad270f868b3ec1d99c142f35688a80abbe1
+
 
 ---
-# <a name="get-started-with-certificate-based-authentication-on-android-public-preview"></a>Prise en main de l’authentification par certificat sur Android - Version préliminaire publique
+# <a name="get-started-with-certificate-based-authentication-on-android---public-preview"></a>Prise en main de l’authentification par certificat sur Android - Version préliminaire publique
 > [!div class="op_single_selector"]
 > * [iOS](active-directory-certificate-based-authentication-ios.md)
 > * [Android](active-directory-certificate-based-authentication-android.md)
@@ -24,16 +28,16 @@ ms.author: markvi
 
 Cette rubrique vous montre comment configurer et utiliser l’authentification par certificat (CBA) sur un appareil Android pour les utilisateurs de clients dans les plans Office 365 Enterprise, Business et Education. 
 
-CBA vous permet d’être authentifié par Azure Active Directory avec un certificat client sur un appareil Android ou iOS lors de la connexion de votre compte Exchange Online à : 
+CBA vous permet d’être authentifié par Azure Active Directory avec un certificat client sur un appareil Android ou iOS lors de la connexion de votre compte Exchange Online à : 
 
-* Des applications mobiles Office, telles que Microsoft Outlook et Microsoft Word ;   
+* Des applications mobiles Office, telles que Microsoft Outlook et Microsoft Word ;   
 * Des clients Exchange ActiveSync (EAS). 
 
 La configuration de cette fonctionnalité élimine le besoin d’entrer un nom d’utilisateur et un mot de passe dans certaines applications de messagerie et Microsoft Office sur votre appareil mobile. 
 
 ## <a name="supported-scenarios-and-requirements"></a>Configuration requise et scénarios pris en charge
 ### <a name="general-requirements"></a>Conditions générales
-Pour tous les scénarios de cette rubrique, les tâches suivantes sont requises :  
+Pour tous les scénarios de cette rubrique, les tâches suivantes sont requises :  
 
 * Accédez aux autorités de certification pour émettre des certificats clients.  
 * Les autorités de certification doivent être configurées dans Azure Active Directory. Vous trouverez des instructions détaillées sur l’exécution de la configuration dans la section [Prise en main](#getting-started) .  
@@ -57,12 +61,12 @@ La version du système d’exploitation de l’appareil doit être Android 5.0 (
 
 Un serveur de fédération doit être configuré.  
 
-Pour qu’Azure Active Directory révoque un certificat client, le jeton ADFS doit posséder les déclarations suivantes :  
+Pour qu’Azure Active Directory révoque un certificat client, le jeton ADFS doit posséder les déclarations suivantes :  
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`  
-  (Le numéro de série du certificat client) 
+   (Le numéro de série du certificat client) 
 * `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`  
-  (La chaîne de l’émetteur du certificat client) 
+   (La chaîne de l’émetteur du certificat client) 
 
 Azure Active Directory ajoute ces déclarations au jeton d’actualisation si elles sont disponibles dans le jeton ADFS (ou n’importe quel autre jeton SAML). Lorsque le jeton d’actualisation doit être validé, ces informations sont utilisées pour vérifier la révocation. 
 
@@ -74,12 +78,12 @@ Pour plus d’informations, consultez [Personnalisation des pages de connexion A
 Certaines applications Exchange ActiveSync sur Android 5.0 (Lollipop) ou version ultérieure sont prises en charge. Pour déterminer si votre application de messagerie prend en charge cette fonctionnalité, contactez le développeur de votre application. 
 
 ## <a name="getting-started"></a>Prise en main
-Pour commencer, vous devez configurer les autorités de certification dans Azure Active Directory. Pour chaque autorité de certification, vous devez télécharger les éléments suivants : 
+Pour commencer, vous devez configurer les autorités de certification dans Azure Active Directory. Pour chaque autorité de certification, vous devez télécharger les éléments suivants : 
 
 * La partie publique du certificat, au format *.cer* 
 * Les URL accessibles sur Internet où résident les listes de révocation de certificat (CRL)
 
-Voici le schéma d’une autorité de certification : 
+Voici le schéma d’une autorité de certification : 
 
     class TrustedCAsForPasswordlessAuth 
     { 
@@ -112,41 +116,41 @@ Vous trouverez ci-dessous des exemples d’ajout, de suppression ou de modificat
 2. Installez le module Azure AD. Vous devez installer la version [1.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) ou une version ultérieure.  
    
         Install-Module -Name AzureADPreview –RequiredVersion 1.1.143.0 
-3. Connectez-vous à votre client cible : 
+3. Connectez-vous à votre client cible : 
    
         Connect-AzureAD 
 
 ### <a name="adding-a-new-certificate-authority"></a>Ajout d’une nouvelle autorité de certification
-1. Définissez différentes propriétés de l’autorité de certification et ajoutez celle-ci à Azure Active Directory : 
+1. Définissez différentes propriétés de l’autorité de certification et ajoutez celle-ci à Azure Active Directory : 
    
         $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]" 
         $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation 
         $new_ca.AuthorityType=0 
         $new_ca.TrustedCertificate=$cert 
         New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca 
-2. Obtenez les autorités de certification : 
+2. Obtenez les autorités de certification : 
    
         Get-AzureADTrustedCertificateAuthority 
 
 ### <a name="retrieving-the-list-certificate-authorities"></a>Récupération de la liste des autorités de certification
-Récupérez les autorités de certification actuellement stockées dans Azure Active Directory pour votre client : 
+Récupérez les autorités de certification actuellement stockées dans Azure Active Directory pour votre client : 
 
         Get-AzureADTrustedCertificateAuthority 
 
 
 ### <a name="removing-a-certificate-authority"></a>Suppression d’une autorité de certification
-1. Récupérez les autorités de certification : 
+1. Récupérez les autorités de certification : 
    
-       $c=Get-AzureADTrustedCertificateAuthority 
-2. Supprimez le certificat de l’autorité de certification : 
+     $c=Get-AzureADTrustedCertificateAuthority 
+2. Supprimez le certificat de l’autorité de certification : 
    
         Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
 
 ### <a name="modfiying-a-certificate-authority"></a>Modification d’une autorité de certification
-1. Récupérez les autorités de certification : 
+1. Récupérez les autorités de certification : 
    
-       $c=Get-AzureADTrustedCertificateAuthority 
-2. Modifiez les propriétés de l’autorité de certification : 
+     $c=Get-AzureADTrustedCertificateAuthority 
+2. Modifiez les propriétés de l’autorité de certification : 
    
         $c[0].AuthorityType=1 
 3. Définissez **l’autorité de certification**: 
@@ -154,7 +158,7 @@ Récupérez les autorités de certification actuellement stockées dans Azure Ac
         Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0] 
 
 ## <a name="testing-office-mobile-applications"></a>Test des applications Office mobiles
-Pour tester l’authentification par certificat sur votre application Office mobile : 
+Pour tester l’authentification par certificat sur votre application Office mobile : 
 
 1. Sur votre appareil de test, installez une application Office mobile (par exemple, OneDrive) à partir de Google Play Store.
 2. Vérifiez que le certificat utilisateur a été configuré sur votre appareil de test. 
@@ -164,7 +168,7 @@ Pour tester l’authentification par certificat sur votre application Office mob
 Vous devez être connecté. 
 
 ## <a name="testing-exchange-activesync-client-applications"></a>Test des applications clientes Exchange ActiveSync
-Pour accéder à Exchange ActiveSync via l’authentification par certificat, un profil EAS contenant le certificat client doit être disponible pour l’application. Le profil EAS doit contenir les informations suivantes :
+Pour accéder à Exchange ActiveSync via l’authentification par certificat, un profil EAS contenant le certificat client doit être disponible pour l’application. Le profil EAS doit contenir les informations suivantes :
 
 * Le certificat utilisateur à utiliser pour l’authentification 
 * Le point de terminaison EAS doit être outlook.office365.com (actuellement, cette fonctionnalité est uniquement prise en charge dans l’environnement mutualisé Exchange Online)
@@ -172,7 +176,7 @@ Pour accéder à Exchange ActiveSync via l’authentification par certificat, un
 Un profil EAS peut être configuré et placé sur l’appareil via l’utilisation d’une gestion des appareils mobiles, comme Intune, ou en plaçant manuellement le certificat dans le profil EAS sur l’appareil.  
 
 ### <a name="testing-eas-client-applications-on-android"></a>Test des applications clientes EAS sur Android
-Pour tester l’authentification par certificat avec une application sur Android 5.0 (Lollipop) ou une version ultérieure, procédez comme suit :  
+Pour tester l’authentification par certificat avec une application sur Android 5.0 (Lollipop) ou une version ultérieure, procédez comme suit :  
 
 1. Configurez un profil EAS dans l’application qui respecte les spécifications citées ci-dessus.  
 2. Une fois que le profil est configuré correctement, ouvrez l’application et vérifiez la synchronisation de la messagerie. 
@@ -186,17 +190,16 @@ Pour garantir que la révocation persiste, vous devez définir la propriété **
 
 Les étapes suivantes décrivent le processus de mise à jour et d’invalidation du jeton d’autorisation avec la définition du champ **StsRefreshTokenValidFrom** . 
 
-1. Connectez-vous au service MSOL avec les informations d’identification administrateur : 
+1. Connectez-vous au service MSOL avec les informations d’identification administrateur : 
    
         $msolcred = get-credential 
         connect-msolservice -credential $msolcred 
-2. Récupérez la valeur StsRefreshTokensValidFrom actuelle pour un utilisateur : 
+2. Récupérez la valeur StsRefreshTokensValidFrom actuelle pour un utilisateur : 
    
-       $user = Get-MsolUser -UserPrincipalName test@yourdomain.com` 
-       $user.StsRefreshTokensValidFrom 
-3. Configurez une nouvelle valeur StsRefreshTokensValidFrom pour l’utilisateur. Elle doit être égale à l’horodateur actuel : 
+     $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`   $user.StsRefreshTokensValidFrom 
+3. Configurez une nouvelle valeur StsRefreshTokensValidFrom pour l’utilisateur. Elle doit être égale à l’horodateur actuel : 
    
-       Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+     Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
 
 La date que vous définissez doit être dans le futur. Si la date n’est pas dans le futur, la propriété **StsRefreshTokensValidFrom** n’est pas définie. Si la date est dans le futur, la propriété **StsRefreshTokensValidFrom** est définie sur l’heure actuelle (et non la date indiquée par la commande Set-MsolUser). 
 
@@ -204,6 +207,7 @@ La date que vous définissez doit être dans le futur. Si la date n’est pas da
 [1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Dec16_HO2-->
 
 

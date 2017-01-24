@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 416ec840c60bf7446e37aeda241fc2646f83a52f
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: d0ea8137dcdd72cf09806006bdca4c24d6f1c1de
 
 
 ---
@@ -152,7 +152,7 @@ Le plus gros défi que pose l’implémentation de cette architecture est la str
 L’une des implémentations possibles serait d’utiliser la file d’attente intermédiaire de l’exemple précédent. Le rôle de travail qui traite les données vers la destination de stockage définitive peut apporter la modification dans la région primaire et secondaire. Ces tâches sont importantes ; cet article n’aborde cependant pas de manière détaillée la question du code de réplication. Le point essentiel est qu’une partie importante de votre temps et de vos tests doit être consacrée à la façon dont vous répliquez vos données vers la région secondaire. Des traitements et des tests supplémentaires peuvent vous permettre de vous assurer que les processus de récupération et de basculement gèrent correctement les incohérences des données ou les transactions en double.
 
 > [!NOTE]
-> La majeure partie de ce document porte sur la fonctionnalité PaaS (Platform as a Service). Cependant, d’autres options de réplication et de disponibilité pour les applications hybrides utilisent des machines virtuelles Azure. Ces applications hybrides utilisent la fonctionnalité IaaS (Infrastructure as a Service) pour héberger SQL Server sur des machines virtuelles dans Azure. Cela permet d’avoir des approches de disponibilité traditionnelles dans SQL Server, telles que les groupes de disponibilité AlwaysOn ou la copie des journaux de transaction. Certaines techniques, telles que AlwaysOn, fonctionnent uniquement entre les machines virtuelles Azure et les instances SQL Server. Pour plus d’informations, consultez [Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> La majeure partie de ce document porte sur la fonctionnalité PaaS (Platform as a Service). Cependant, d’autres options de réplication et de disponibilité pour les applications hybrides utilisent des machines virtuelles Azure. Ces applications hybrides utilisent la fonctionnalité IaaS (Infrastructure as a Service) pour héberger SQL Server sur des machines virtuelles dans Azure. Cela permet d’avoir des approches de disponibilité traditionnelles dans SQL Server, telles que les groupes de disponibilité AlwaysOn ou la copie des journaux de transaction. Certaines techniques, telles que AlwaysOn, fonctionnent uniquement entre les machines virtuelles Azure et les instances SQL Server. Pour plus d’informations, consultez [Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md).
 > 
 > 
 
@@ -246,7 +246,7 @@ Une stratégie supplémentaire de récupération d’urgence consiste à créer 
 
 Ces architectures hybrides posent certains défis. Cet article a traité en grande partie des modèles d’architecture PaaS. Les applications PaaS classiques dans Azure s’appuient sur des constructions Azure spécifiques, telles que les rôles, les services cloud et Traffic Manager. La création d’une solution locale pour ce type d’application PaaS nécessiterait une architecture bien plus différente. Cela peut être dissuasif d’un point de vue financier ou administratif.
 
-Cependant, une solution hybride de récupération d’urgence pose moins de défis que les architectures traditionnelles ayant simplement été déplacées vers le cloud. Cela se vérifie avec les architectures utilisant IaaS. Les applications IaaS utilisent des machines virtuelles dans le cloud pouvant avoir des équivalents directs en local. Vous pouvez utiliser des réseaux virtuels pour connecter des machines virtuelles dans le cloud aux ressources du réseau local. Cela crée davantage de possibilités, ce qui ne serait pas possible avec les applications basées uniquement sur PaaS. Par exemple, SQL Server peut ainsi tirer parti de solutions de récupération d’urgence telles que les groupes de disponibilité AlwaysOn et la mise en miroir des bases de données. Pour en savoir plus, consultez [Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Cependant, une solution hybride de récupération d’urgence pose moins de défis que les architectures traditionnelles ayant simplement été déplacées vers le cloud. Cela se vérifie avec les architectures utilisant IaaS. Les applications IaaS utilisent des machines virtuelles dans le cloud pouvant avoir des équivalents directs en local. Vous pouvez utiliser des réseaux virtuels pour connecter des machines virtuelles dans le cloud aux ressources du réseau local. Cela crée davantage de possibilités, ce qui ne serait pas possible avec les applications basées uniquement sur PaaS. Par exemple, SQL Server peut ainsi tirer parti de solutions de récupération d’urgence telles que les groupes de disponibilité AlwaysOn et la mise en miroir des bases de données. Pour en savoir plus, consultez [Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md).
 
 Les solutions IaaS fournissent également un moyen plus simple aux applications locales d’utiliser Azure comme option de basculement. Vous pourriez avoir une application entièrement fonctionnelle dans une région locale existante. Mais que se passe-t-il si vous ne disposez pas d’assez de ressources pour entretenir une région géographiquement distincte pour le basculement ? Vous pouvez décider d’utiliser des machines virtuelles et des réseaux virtuels pour exécuter votre application dans Azure. Dans ce cas, définissez des processus pouvant synchroniser des données vers le cloud. Le déploiement Azure devient ensuite la région secondaire à utiliser pour le basculement. La région primaire reste l’application en local. Pour plus d’informations sur les architectures et les fonctionnalités IaaS, consultez la [documentation sur les machines virtuelles](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
@@ -288,6 +288,6 @@ Cet article fait partie d’une série d’articles axés sur la thématique [R�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

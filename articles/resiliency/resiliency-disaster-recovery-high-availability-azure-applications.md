@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 448a1728b94c695d719acafdf4ef9e1d577414db
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: ee3e7103bd647c2d8651ec912fbb764a342781e2
 
 
 ---
@@ -112,7 +112,7 @@ Lorsque vous créez le plan de récupération d’urgence et de disponibilité d
 
 [Vue d’ensemble : continuité des activités cloud et récupération d’urgence d’une base de données avec SQL Database](../sql-database/sql-database-business-continuity.md)
 
-[Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)
 
 [Failsafe: guidance for resilient cloud architectures (Sécurité intégrée : recommandations applicables à la résilience des architectures cloud)](https://channel9.msdn.com/Series/FailSafe)
 
@@ -124,6 +124,6 @@ Cet article fait partie d’une série d’articles axés sur la récupération 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 
