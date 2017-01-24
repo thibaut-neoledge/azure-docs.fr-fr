@@ -1,5 +1,5 @@
 ---
-title: "Instructions de dénomination d’infrastructure | Microsoft Docs"
+title: "Instructions de dénomination d’infrastructure Azure | Microsoft Docs"
 description: "Découvrez-en plus sur les principales instructions de conception et d’implémentation pour la dénomination dans des services d’infrastructure Azure."
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0ad6e170a52d29cb85ec6de57a39f08b30c25b03
+ms.sourcegitcommit: 310dc34634f7104ddfc7dfab13f09ab945b53cf4
+ms.openlocfilehash: 1f456fc982f185e1c68aca91650f73e2d1bb5947
 
 
 ---
-# <a name="infrastructure-naming-guidelines"></a>Instructions de dénomination d’infrastructure
+# <a name="azure-infrastructure-naming-guidelines"></a>Instructions de dénomination d’infrastructure Azure
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Cet article se concentre sur la compréhension de l’approche des conventions de dénomination de vos diverses ressources Azure afin de créer un ensemble de ressources logique et facilement identifiable au sein de votre environnement.
@@ -45,7 +45,7 @@ Vous pouvez choisir de suivre un ensemble spécifique de conventions d’affecta
 Convenez d’un ensemble de conventions d’affectation de noms en amont. Certains facteurs sont à prendre en compte pour l’ensemble des règles de dénomination.
 
 ## <a name="affixes"></a>Affixes
-Lorsque vous cherchez à définir une convention de dénomination, une décision est à prendre quant au positionnement de l’affixe :
+Lorsque vous cherchez à définir une convention de dénomination, vous devez décider de l’emplacement de l’affixe :
 
 * au début du nom (préfixe)
 * à la fin du nom (suffixe)
@@ -95,7 +95,7 @@ Si une machine virtuelle est créée à partir d’un fichier d’image .vhd qui
 Nous recommandons que le nom de la machine virtuelle Azure soit le même que le nom d’ordinateur du système d’exploitation sous-jacent.
 
 ## <a name="storage-account-names"></a>Noms des comptes de stockage
-Le nom des comptes de stockage sont régis par des règles spécifiques. Vous ne pouvez utiliser que des lettres minuscules et des chiffres. Pour plus d’informations, voir [Création d’un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) . En outre, le nom du compte de stockage, ainsi que core.windows.net, doit être un nom DNS unique et globalement valide. Par exemple, si le compte de stockage est appelé mystorageaccount, les noms DNS suivants qui en résultent doivent être uniques :
+Le nom des comptes de stockage sont régis par des règles spécifiques. Vous ne pouvez utiliser que des lettres minuscules et des chiffres. Pour plus d’informations, consultez la rubrique [Création d’un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) . En outre, le nom du compte de stockage, ainsi que core.windows.net, doit être un nom DNS unique et globalement valide. Par exemple, si le compte de stockage est appelé mystorageaccount, les noms DNS suivants qui en résultent doivent être uniques :
 
 * mystorageaccount.blob.core.windows.net
 * mystorageaccount.table.core.windows.net
@@ -107,6 +107,6 @@ Le nom des comptes de stockage sont régis par des règles spécifiques. Vous ne
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

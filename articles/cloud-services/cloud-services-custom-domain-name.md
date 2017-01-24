@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 12/14/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 69ffe9fd723e582bb9148ca9de570ede9231961d
+ms.sourcegitcommit: 2b020004762125aad201cf7eb454da5cf73288ae
+ms.openlocfilehash: bc8b93d59b53e17eff4b7448f5c6b445894f47e9
 
 
 ---
@@ -31,7 +31,7 @@ Lorsque vous créez une service cloud, Azure l'attribue à un sous-domaine de cl
 
 Toutefois, vous pouvez également exposer votre application sur votre propre nom de domaine, par exemple, contoso.com. Cet article explique comment réserver ou configurer un domaine personnalisé avec des rôles Web de service cloud.
 
-Avez-vous déjà compris ce que sont les enregistrements CNAME et A ? [Passer l’explication](#add-a-cname-record-for-your-custom-domain).
+Vous avez compris ce que sont les enregistrements CNAME et A ? [Passez l’explication](#add-a-cname-record-for-your-custom-domain).
 
 > [!NOTE]
 > Passez à la vitesse supérieure ! Utilisation de la [procédure pas à pas](http://support.microsoft.com/kb/2990804)Azure. Grâce à elle, l'association d'un nom de domaine personnalisé et la sécurisation de la communication (SSL) avec les services cloud Azure ou les sites Web Azure deviennent un jeu d'enfants.
@@ -76,7 +76,7 @@ Pour créer un enregistrement CNAME, vous devez ajouter une nouvelle entrée dan
        ![section aperçu rapide indiquant l’URL du site][csurl]
      
        **OR**  
-   * Installez et configurez [Azure Powershell](../powershell-install-configure.md), puis utilisez la commande suivante :
+   * Installez et configurez [Azure Powershell](/powershell/azureps-cmdlets-docs), puis utilisez la commande suivante :
      
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -111,7 +111,7 @@ Pour créer un enregistrement A, vous devez tout d’abord connaître l’adres
        ![section aperçu rapide illustrant l’adresse IP virtuelle publique][vip]
      
        **OR**  
-   * Installez et configurez [Azure Powershell](../powershell-install-configure.md), puis utilisez la commande suivante :
+   * Installez et configurez [Azure Powershell](/powershell/azureps-cmdlets-docs), puis utilisez la commande suivante :
      
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -147,18 +147,18 @@ Cet exemple montre comment créer un enregistrement A pour le domaine racine. P
 * Découvrez comment [déployer un service cloud](cloud-services-how-to-create-deploy.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate.md).
 
-[Exposition de votre application sur un domaine personnalisé]: #access-app
+[Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
-[Exposition de vos données sur un domaine personnalisé]: #access-data
-[Échanges d’adresses IP virtuelles]: http://msdn.microsoft.com/library/ee517253.aspx
-[Création d’un enregistrement CNAME associant le sous-domaine au compte de stockage]: #create-cname
+[Expose Your Data on a Custom Domain]: #access-data
+[VIP swaps]: http://msdn.microsoft.com/library/ee517253.aspx
+[Create a CNAME record that associates the subdomain with the storage account]: #create-cname
 [portail Azure Classic]: https://manage.windowsazure.com
-[Boîte de dialogue Validation du domaine personnalisé]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
+[Validate Custom Domain dialog box]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
 [vip]: ./media/cloud-services-custom-domain-name/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Instructions pour solutions de stockage | Microsoft Docs
+title: Instructions pour les solutions Stockage Azure | Microsoft Docs
 description: "Découvrez-en plus sur les principales instructions de conception et d’implémentation pour le déploiement de solutions de stockage dans des services d’infrastructure Azure."
 documentationcenter: 
 services: virtual-machines-linux
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: ad01dd5585eab70404d476e234b8d2dcee93f2a9
+ms.sourcegitcommit: a99ab839ec9ade0049e1cc59054e333048e0208c
+ms.openlocfilehash: 8b4ee1634981a449d9968f9156df10a9d40baae9
 
 
 ---
-# <a name="storage-infrastructure-guidelines"></a>Instructions pour les infrastructures de stockage
+# <a name="azure-storage-infrastructure-guidelines"></a>Instructions pour les infrastructures Stockage Azure
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Cet article se concentre sur la compréhension des besoins de stockage et les considérations de conception pour obtenir des performances de machines virtuelles optimales.
@@ -59,7 +59,7 @@ Vous pouvez lire [plus d’informations sur les options de réplication pour la 
 
 Les disques de système d’exploitation et disques de données ont une taille maximale de 1 023 gigaoctets (Go). La taille maximale d’un objet blob est de 1 024 Go et doit comprendre les métadonnées (pied de page) du fichier VHD (un Go est égal à 1 024<sup>3</sup> octets). Vous pouvez utiliser le Gestionnaire de volumes logiques (LVM) pour dépasser cette limite en regroupant des disques de données pour présenter des volumes logiques plus de 1 023 Go à votre machine virtuelle.
 
-Il existe certaines limites d’évolutivité lors de la conception de vos déploiements de Stockage Azure : consultez [Abonnement Microsoft Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md#storage-limits) pour plus de détails. Voir également [Objectifs de performance et d’extensibilité d’Azure Storage](../storage/storage-scalability-targets.md).
+Il existe certaines limites d’évolutivité lors de la conception de vos déploiements de Stockage Azure. Consultez [Abonnement Microsoft Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md#storage-limits) pour plus de détails. Voir également [Objectifs de performance et d’extensibilité d’Azure Storage](../storage/storage-scalability-targets.md).
 
 En ce qui concerne le stockage d’applications, vous pouvez stocker des données d’objets non structurées, comme des documents, des images, des sauvegardes, des données de configuration, des journaux, etc. à l’aide de Stockage Blob. Plutôt que d’écrire sur un disque virtuel connecté à la machine virtuelle, l’application peut écrire directement sur le stockage d’objets blob. Stockage Blob offre également la possibilité de choisir entre [des niveaux de stockage chaud et froid](../storage/storage-blob-storage-tiers.md) selon vos besoins de disponibilité et vos contraintes de coût.
 
@@ -88,6 +88,6 @@ Pour plus d’informations sur les fonctionnalités d’E/S des différentes opt
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

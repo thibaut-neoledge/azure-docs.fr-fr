@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 09/22/2016
 ms.author: ccompy
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1fab186771728114084bbf66f398df684c9e8125
+ms.sourcegitcommit: af98ae3b425e2e0584da53721249dbcd605a17d1
+ms.openlocfilehash: 8d8e1ce7758691a392fdb6d6459e04c6b4f7f5f6
 
 
 ---
 # <a name="how-to-create-an-app-service-environment"></a>Comment créer un environnement App Service
 ### <a name="overview"></a>Vue d’ensemble
-Les environnements App Service constituent une option de service Premium d’Azure App Service offrant une fonction de configuration améliorée qui n’est pas disponible dans les clusters mutualisés.  La fonctionnalité ASE déploie essentiellement Azure App Service sur le réseau virtuel du client.  Pour mieux comprendre les possibilités offertes par les environnements App Service, lisez la documentation [Présentation d'un environnement App Service Environment][WhatisASE].
+Les environnements App Service constituent une option de service Premium d’Azure App Service offrant une fonction de configuration améliorée qui n’est pas disponible dans les clusters mutualisés.  La fonctionnalité ASE déploie essentiellement Azure App Service sur le réseau virtuel du client.  Pour mieux comprendre les possibilités offertes par les environnements App Service, lisez la documentation [Qu'est-ce qu'un environnement App Service ?][WhatisASE].
 
 ### <a name="before-you-create-your-ase"></a>Avant de créer votre ASE
 Il est important de connaître les choses que vous ne pouvez pas modifier.  Voici les aspects que vous ne pouvez pas modifier concernant votre ASE après sa création :
@@ -46,10 +46,10 @@ Il existe deux façons d'accéder à l'interface utilisateur de création d'un A
 3. Sélectionnez ou spécifiez un nouveau groupe de ressources.  Le groupe de ressources utilisé pour votre ASE doit être le même que celui utilisé pour votre réseau virtuel.  Si vous sélectionnez un réseau virtuel préexistant, la sélection du groupe de ressources pour votre ASE sera mise à jour pour refléter celle de votre réseau virtuel.
    
     ![][2]
-4. Effectuez vos sélections de réseau virtuel et d’emplacement.  Vous pouvez choisir de créer un réseau virtuel ou de sélectionner un réseau virtuel existant.  Si vous sélectionnez un réseau virtuel, vous pouvez indiquer un nom et un emplacement. Le nouveau réseau virtuel se voit affecter la plage d’adresses 192.268.250.0/23 et un sous-réseau nommé **default** est défini avec la plage 192.168.250.0/24.  Vous pouvez aussi simplement sélectionner un réseau virtuel préexistant classique ou du Gestionnaire de ressources.  La sélection du type de l’adresse IP virtuelle détermine si votre ASE est accessible directement à partir d’internet (externe) ou si elle utilise un équilibrage de charge interne (ILB).  Pour en savoir plus, consultez [Utilisation d’un équilibreur de charge interne avec un environnement App Service][ILBASE].  Si vous sélectionnez un type d’adresse IP virtuelle d’externe, vous pouvez sélectionner le nombre d’adresses IP externes avec lesquelles le système est créé à des fins IPSSL.  Si vous sélectionnez Interne, vous devez spécifier le sous-domaine que votre ASE utilisera.  Les ASE peuvent être déployés dans les réseaux virtuels qui utilisent *soit* des plages d’adresses publiques, *soit* des espaces d’adressage RFC1918 (par exemple, des adresses privées).  Pour utiliser un réseau virtuel avec une plage d’adresses publiques, vous devrez créer le réseau virtuel à l’avance.  Lorsque vous sélectionnez un réseau virtuel préexistant, vous devrez créer un nouveau sous-réseau lors de la création de l’ASE.  **Vous ne pouvez pas utiliser un sous-réseau créé au préalable dans le portail.  Vous pouvez créer un ASE avec un sous-réseau pré-existant si vous le créez à l’aide d’un modèle Resource Manager.**  Pour créer un ASE à partir d’un modèle, utilisez les informations ici, [Création d’un environnement App Service à partir du modèle][ILBAseTemplate] et ici, [Création d’un environnement App Service ILB à partir du modèle][ASEfromTemplate].
+4. Effectuez vos sélections de réseau virtuel et d’emplacement.  Vous pouvez choisir de créer un réseau virtuel ou de sélectionner un réseau virtuel existant.  Si vous sélectionnez un réseau virtuel, vous pouvez indiquer un nom et un emplacement. Le nouveau réseau virtuel se voit affecter la plage d’adresses 192.168.250.0/23 et un sous-réseau nommé **default** est défini sur la plage 192.168.250.0/24.  Vous pouvez aussi simplement sélectionner un réseau virtuel préexistant classique ou du Gestionnaire de ressources.  La sélection du type de l’adresse IP virtuelle détermine si votre ASE est accessible directement à partir d’internet (externe) ou si elle utilise un équilibrage de charge interne (ILB).  Pour en savoir plus, consultez [Utilisation d’un équilibreur de charge interne avec un environnement App Service][ILBASE].  Si vous sélectionnez un type d’adresse IP virtuelle d’externe, vous pouvez sélectionner le nombre d’adresses IP externes avec lesquelles le système est créé à des fins IPSSL.  Si vous sélectionnez Interne, vous devez spécifier le sous-domaine que votre ASE utilisera.  Les ASE peuvent être déployés dans les réseaux virtuels qui utilisent *soit* des plages d’adresses publiques, *soit* des espaces d’adressage RFC1918 (par exemple, des adresses privées).  Pour utiliser un réseau virtuel avec une plage d’adresses publiques, vous devrez créer le réseau virtuel à l’avance.  Lorsque vous sélectionnez un réseau virtuel préexistant, vous devrez créer un nouveau sous-réseau lors de la création de l’ASE.  **Vous ne pouvez pas utiliser un sous-réseau créé au préalable dans le portail.  Vous pouvez créer un ASE avec un sous-réseau pré-existant si vous le créez à l’aide d’un modèle Resource Manager.**  Pour créer un ASE à partir d’un modèle, utilisez les informations dans les rubriques sur la [création d’un environnement App Service à partir du modèle][ILBAseTemplate] et la[création d’un environnement App Service ILB à partir du modèle][ASEfromTemplate].
 
 ### <a name="details"></a>Détails
-Un ASE est créé avec 2 serveur frontaux et 2 travaux.  Les ressources frontales servent de points de terminaison HTTP/HTTPS et envoient le trafic vers les travaux, les rôles qui hébergent vos applications.   Vous pouvez ajuster la quantité après la création de l’ASE et pouvez même définir des règles de mise à l’échelle automatique sur ces pools de ressources.  Pour plus de détails sur la mise à l’échelle manuelle ainsi que la gestion et la surveillance d’un environnement App Service, consultez : [Configuration d’un environnement App Service][ASEConfig]. 
+Un ASE est créé avec 2 serveur frontaux et 2 travaux.  Les ressources frontales servent de points de terminaison HTTP/HTTPS et envoient le trafic vers les travaux, les rôles qui hébergent vos applications.   Vous pouvez ajuster la quantité après la création de l’ASE et pouvez même définir des règles de mise à l’échelle automatique sur ces pools de ressources.  Pour plus de détails sur la mise à l’échelle manuelle et la gestion et la surveillance d’un environnement App Service, consultez : [Comment configurer un environnement App Service][ASEConfig]. 
 
 Seul un ASE peut exister dans le sous-réseau utilisé par l’ASE.  Le sous-réseau ne peut pas être utilisé à d’autres fins que l’ASE.
 
@@ -61,16 +61,16 @@ Après la création d'un ASE, vous pouvez ajuster les éléments suivants :
 * Quantité d’adresses IP disponibles pour IP SSL
 * Tailles de ressources de calcul utilisées par les serveurs frontaux ou les travaux (la taille minimale des serveurs frontaux est P2)
 
-Des détails supplémentaires sur la mise à l’échelle manuelle ainsi que la gestion et la surveillance des environnements App Service sont disponibles ici : [Configuration d’un environnement App Service][ASEConfig]. 
+Des détails supplémentaires sur la mise à l’échelle manuelle, ainsi que sur la gestion et la surveillance des environnements App Service, sont disponibles dans la rubrique [Comment configurer un environnement App Service][ASEConfig]. 
 
-Pour plus d’informations sur la mise à l’échelle automatique, un guide est disponible dans la rubrique [Configuration de la mise à l’échelle automatique pour un environnement App Service][ASEAutoscale]
+Pour plus d’informations sur la mise à l’échelle automatique, un guide est disponible dans la rubrique sur la [configuration de la mise à l’échelle automatique pour un environnement App Service][ASEAutoscale]
 
 D'autres dépendances, telles que la base de données et le stockage, ne peuvent pas être personnalisées.  Celles-ci sont gérées par Azure et sont fournies avec le système.  Le stockage système prend en charge jusqu’à 500 Go pour l’ensemble de l’environnement App Service, et la base de données est ajustée par Azure en fonction de la mise à l’échelle du système.
 
 ## <a name="getting-started"></a>Prise en main
 Tous les articles et procédures concernant les environnements App Service sont disponibles dans le [fichier Lisez-moi des environnements App Service](../app-service/app-service-app-service-environments-readme.md).
 
-Pour prendre en main les environnements App Service, consultez [Présentation de l’environnement App Service][WhatisASE]
+Pour prendre en main les environnements App Service, consultez [la présentation des environnements App Service][WhatisASE].
 
 Pour plus d’informations sur la plateforme Azure App Service, consultez la rubrique [Azure App Service][AzureAppService].
 
@@ -94,6 +94,6 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 
