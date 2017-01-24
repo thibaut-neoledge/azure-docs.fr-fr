@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bd378c8dedd3d2bfed540be0fa009f751bcc5d1c
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: dc5b6f194a7e34d5061b9fa2e4a6123f54f6c14a
 
 
 ---
@@ -33,7 +33,7 @@ Pour créer un tableau de bord, sélectionnez le bouton **Nouveau tableau de bor
 
 ![créer un tableau de bord](./media/azure-portal-dashboards/new-dashboard.png)
 
-Cette action crée un nouveau tableau de bord privé vide, et vous fait passer en mode de personnalisation. Vous pouvez alors renommer votre tableau de bord et ajouter ou réorganiser les mosaïques.  Dans ce mode, la galerie de mosaïques réductible remplace le menu de navigation gauche.  La galerie de mosaïques vous permet de rechercher des mosaïques pour vos ressources Azure de différentes façons : par [groupe de ressources](../azure-resource-manager/resource-group-overview.md#resource-groups), par type de ressource, par [balise](../resource-group-using-tags.md) ou par nom de ressource.  
+Cette action crée un nouveau tableau de bord privé vide, et vous fait passer en mode de personnalisation. Vous pouvez alors renommer votre tableau de bord et ajouter ou réorganiser les mosaïques.  Dans ce mode, la galerie de mosaïques réductible remplace le menu de navigation gauche.  La galerie de mosaïques vous permet de rechercher des mosaïques pour vos ressources Azure de différentes façons : par [groupe de ressources](../azure-resource-manager/resource-group-overview.md#resource-groups), par type de ressource, par [balise](../azure-resource-manager/resource-group-using-tags.md) ou par nom de ressource.  
 
 ![personnaliser un tableau de bord](./media/azure-portal-dashboards/customize-dashboard.png)
 
@@ -97,12 +97,12 @@ Une fois votre tableau de bord publié, le volet de contrôle **Partage + accès
 ![gérer le contrôle d’accès](./media/azure-portal-dashboards/manage-access.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour gérer les ressources, voir [Gérer les ressources Azure sur le portail](resource-group-portal.md).
-* Pour déployer des ressources, voir [Déployer des ressources à l’aide de modèles Resource Manager et du portail Azure](../resource-group-template-deploy-portal.md).
+* Pour gérer les ressources, voir [Gérer les ressources Azure sur le portail](../azure-resource-manager/resource-group-portal.md).
+* Pour déployer des ressources, voir [Déployer des ressources à l’aide de modèles Resource Manager et du portail Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

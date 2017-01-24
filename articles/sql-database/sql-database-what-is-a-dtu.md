@@ -17,8 +17,8 @@ ms.workload: NA
 ms.date: 09/06/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: ad6fb631f05b1e88e8cbaaca83f9863cfb643269
-ms.openlocfilehash: e5a6c17117e0c79d86c45a07f69433a96fdb9052
+ms.sourcegitcommit: 3d619f5d6959594ee9b139d611d7e45390a40c55
+ms.openlocfilehash: d9b0eaa48d71f3ecf0a23f3bddb3c777c98afea7
 
 
 ---
@@ -37,9 +37,9 @@ Une eDTU est une unité de mesure de l’ensemble des ressources (DTU) pouvant �
 
 ![Introduction à la base de données SQL : eDTU par couche et niveau](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
-Un pool bénéficie d’un nombre défini d’eDTU, pour un prix donné. Au sein du pool, les différentes bases de données peuvent en toute souplesse s’adapter automatiquement en fonction des paramètres définis. Si la charge est élevée, une base de données peut consommer plus d’eDTU pour répondre à la demande. Les bases de données soumises à des charges légères en consomment moins, tandis que celles qui ne sont soumises à aucune charge n’en consomment pas du tout. L’approvisionnement des ressources pour l’ensemble du pool plutôt que pour des bases de données uniques simplifie vos tâches de gestion. En outre, vous disposez d’un budget prévisible pour le pool.
+Un pool bénéficie d’un nombre défini d’eDTU, pour un prix donné. Au sein du pool élastique, les différentes bases de données peuvent s’adapter facilement et automatiquement aux limites définies. En cas de charge importante, une base de données peut consommer davantage d’eDTU pour satisfaire la demande, tandis qu’une base de données sous une charge légère en consomme moins, et que les bases de données sans charge ne consomment aucune eDTU. En configurant les ressources pour l’ensemble du pool, plutôt que pour chaque base de données, les tâches de gestion sont simplifiées et vous avez un aperçu du budget nécessaire pour le pool.
 
-Vous pouvez ajouter des eDTU à un pool existant sans que les bases de données du pool élastique connaissent de temps d’arrêt ou soient affectées. De même, si les eDTU supplémentaires ne sont plus nécessaires, ils peuvent être supprimés à partir d’un pool existant à tout moment. Vous pouvez ajouter ou retirer des bases de données du pool. Si une base de données finit par sous-utiliser les ressources, retirez-la.
+Vous pouvez ajouter des eDTU à un pool existant sans que les bases de données du pool ne connaissent de temps d’arrêt et ne soient affectées. De même, si les eDTU supplémentaires ne sont plus nécessaires, elles peuvent être supprimées à partir d’un pool existant à tout moment. Vous pouvez ajouter des bases de données dans le pool ou en supprimer. Vous pouvez également limiter la quantité d’eDTU qu’une base de données peut utiliser en cas de charge importante pour réserver des eDTU pour les autres bases de données. Si on prévoit qu’une base de données sous-utilise des ressources, vous pouvez la déplacer hors du pool et la configurer comme une base de données unique avec une quantité prévisible des ressources nécessaires.
 
 ## <a name="how-can-i-determine-the-number-of-dtus-needed-by-my-workload"></a>Comment puis-je déterminer le nombre de DTU requises par ma charge de travail ?
 Si vous cherchez à migrer une charge de travail de machine virtuelle SQL Server ou locale existante vers une base de données SQL Azure, vous pouvez utiliser l’outil [DTU Calculator](http://dtucalculator.azurewebsites.net/) pour évaluer approximativement le nombre de DTU requises. Dans le cas d’une charge de travail de base de données SQL Azure existante, vous pouvez utiliser [Query Performance Insight pour base de données SQL](sql-database-query-performance.md) pour comprendre votre consommation des ressources de la base de données (DTU) et obtenir des informations plus approfondies sur la façon d’optimiser votre charge de travail. Vous pouvez également utiliser la DMV [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) pour obtenir les informations sur la consommation des ressources au cours de la dernière heure. Sinon, la vue de catalogue [sys.resource_stats](http://msdn.microsoft.com/library/dn269979.aspx) peut également être interrogée pour obtenir les mêmes données pour les 14 derniers jours, mais avec une précision inférieure (moyennes de cinq minutes).

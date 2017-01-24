@@ -3,8 +3,8 @@ title: "Présentation du stockage | Microsoft Docs"
 description: "Vue d’ensemble d’Azure Storage, stockage de données en ligne de Microsoft dans le cloud. Découvrez comment utiliser la meilleure solution de stockage cloud disponible dans vos applications."
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ac0044da9cf804dabd9d71e3380782120728a55a
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 40ab7632f47de4d4eef277f4c4071ce2d4de1eed
 
 
 ---
@@ -75,7 +75,7 @@ Pour les utilisateurs qui doivent stocker de grandes quantités de données d’
 * Données de configuration pour applications cloud
 * Big Data tels que journaux et autres jeux de données volumineux
 
-Chaque objet blob est organisé dans un conteneur. Les conteneurs fournissent également un moyen utile d'affecter des stratégies de sécurité à des groupes d'objets. Un compte de stockage peut contenir un nombre quelconque de conteneurs, et un conteneur peut contenir un nombre quelconque d'objets blobs, jusqu'à la limite de capacité de 500 To du compte de stockage.  
+Chaque objet blob est organisé dans un conteneur. Les conteneurs fournissent également un moyen utile d'affecter des stratégies de sécurité à des groupes d'objets. Un compte de stockage peut contenir un nombre quelconque de conteneurs, et un conteneur peut contenir un nombre quelconque d'objets blobs, jusqu'à la limite de capacité de 500 To du compte de stockage.
 
 Le stockage d’objets blob propose trois types d’objets : les objets blob de bloc, les objets blob d’ajout et les objets blob de page (disques).
 
@@ -104,7 +104,7 @@ Un compte de stockage peut contenir un nombre quelconque de files d'attente. Une
 ## <a name="file-storage"></a>Stockage de fichiers
 Le stockage de fichiers Azure offre des partages de fichiers SMB dans le cloud permettant de migrer des applications héritées utilisant ces partages vers Azure rapidement, sans réécritures onéreuses. Avec le stockage de fichiers Azure, les applications exécutées sur des machines virtuelles Azure ou dans des services cloud peuvent monter un partage de fichiers dans le cloud, tout comme une application de bureau monte un partage SMB standard. Un nombre illimité de composants d’application peuvent ensuite monter un partage de stockage de fichiers et y accéder simultanément.
 
-Un partage de stockage de fichiers étant un partage de fichiers SMB standard, les applications exécutées dans Azure peuvent accéder aux données du partage grâce à des API d'E/S de système de fichiers. Les développeurs peuvent ainsi tirer profit de leur code et compétences actuels pour migrer les applications existantes. Les professionnels de l'informatique peuvent utiliser des applets de commande PowerShell pour créer, monter et gérer les partages de stockage de fichiers dans le cadre de l'administration des applications Azure.
+Un partage Stockage Fichier étant un partage de fichiers SMB standard, les applications exécutées dans Azure peuvent accéder aux données du partage par le biais d’API d’E/S de système de fichiers. Les développeurs peuvent ainsi tirer profit de leur code et compétences actuels pour migrer les applications existantes. Les professionnels de l'informatique peuvent utiliser des applets de commande PowerShell pour créer, monter et gérer les partages de stockage de fichiers dans le cadre de l'administration des applications Azure.
 
 Comme les autres services de stockage Azure, le stockage de fichiers expose une API REST pour l'accès aux données d'un partage. Les applications locales peuvent appeler l'API REST de stockage de fichiers pour accéder aux données d'un partage de fichiers. Ainsi, une entreprise peut choisir de migrer certaines applications héritées vers Azure tout en continuant à exécuter d'autres applications au sein de leurs locaux. Le montage d'un partage de fichiers est possible uniquement pour les applications exécutées dans Azure. Une application locale ne peut accéder au partage de fichiers que via l'API REST.
 
@@ -128,32 +128,32 @@ Pour plus d’informations sur les signatures d’accès partagé, consultez [Ut
 ## <a name="replication-for-durability-and-high-availability"></a>Réplication pour la durabilité et la haute disponibilité
 Les données de votre compte de stockage Microsoft Azure sont toujours répliquées pour en garantir la durabilité et la haute disponibilité. La réplication copie vos données dans le même centre de données ou dans un second centre de données, selon l’option de réplication que vous choisissez. La réplication protège vos données et maintient votre application en bon état de fonctionnement en cas de panne matérielle temporaire. Si vos données sont répliquées vers un deuxième centre de données, elles sont également protégées en cas de panne catastrophique à l’emplacement primaire.
 
-La réplication garantit que votre compte de stockage répond aux exigences du [contrat de niveau de service (SLA) pour le stockage](https://azure.microsoft.com/support/legal/sla/storage/) même en cas de panne. Pour plus d’informations sur les garanties de durabilité et de disponibilité du stockage Azure, consultez le contrat de niveau de service. 
+La réplication garantit que votre compte de stockage répond aux exigences du [contrat de niveau de service (SLA) pour le stockage](https://azure.microsoft.com/support/legal/sla/storage/) même en cas de panne. Pour plus d’informations sur les garanties de durabilité et de disponibilité du stockage Azure, consultez le contrat de niveau de service.
 
-Lorsque vous créez un compte de stockage, vous pouvez sélectionner une des options de réplication suivantes :  
+Lorsque vous créez un compte de stockage, vous pouvez sélectionner une des options de réplication suivantes :
 
-* **Stockage localement redondant (LRS).**  Le stockage localement redondant effectue trois copies de vos données. Le stockage LRS est répliqué trois fois par centre de données et par région. Il protège vos données des défaillances matérielles normales, mais pas des pannes susceptibles de survenir dans un centre de données.  
-  
+* **Stockage localement redondant (LRS).**  Le stockage localement redondant effectue trois copies de vos données. Le stockage LRS est répliqué trois fois par centre de données et par région. Il protège vos données des défaillances matérielles normales, mais pas des pannes susceptibles de survenir dans un centre de données.
+
     Vous pouvez bénéficier d'une réduction pour le stockage LRS. Pour une durabilité maximale, nous vous recommandons d’utiliser le stockage géo-redondant décrit ci-dessous.
-* **Stockage redondant dans une zone (ZRS).**  Le stockage redondant dans une zone effectue trois copies de vos données. Le stockage ZRS est répliqué trois fois dans deux ou trois installations au sein d’une même région ou dans deux régions distinctes, ce qui confère aux données une durabilité supérieure à celle offerte par le stockage LRS. Le stockage ZRS garantie la durabilité de vos données au sein d'une même région.  
-  
-    Le stockage ZRS offre un niveau de durabilité supérieur à celui du stockage LRS ; toutefois, pour une durabilité maximale, nous vous recommandons d'utiliser le stockage géo-redondant décrit ci-dessous.  
-  
+* **Stockage redondant dans une zone (ZRS).**  Le stockage redondant dans une zone effectue trois copies de vos données. Le stockage ZRS est répliqué trois fois dans deux ou trois installations au sein d’une même région ou dans deux régions distinctes, ce qui confère aux données une durabilité supérieure à celle offerte par le stockage LRS. Le stockage ZRS garantie la durabilité de vos données au sein d'une même région.
+
+    Le stockage ZRS offre un niveau de durabilité supérieur à celui du stockage LRS ; toutefois, pour une durabilité maximale, nous vous recommandons d'utiliser le stockage géo-redondant décrit ci-dessous.
+
   > [!NOTE]
   > ZRS est actuellement disponible uniquement pour les objets BLOB de blocs et est pris en charge uniquement dans les versions 2014-02-14 et versions ultérieures.
-  > 
+  >
   > Une fois votre compte de stockage créé et la réplication ZRS sélectionné, vous ne pouvez plus revenir en arrière et choisir un autre type de réplication (ou inversement).
-  > 
-  > 
+  >
+  >
 * **Stockage géo-redondant (GRS)**. Le stockage GRS effectue six copies de vos données. Avec le stockage GRS, vos données sont répliquées trois fois dans la région principale et trois fois dans une région secondaire située à des centaines de kilomètres de la région principale, ce qui confère aux données le plus haut niveau de durabilité disponible. En cas de défaillance dans la région principale, Azure Storage bascule vers la région secondaire. Le stockage GRS assure la durabilité de vos données dans deux régions distinctes.
-  
+
     Pour plus d’informations sur les associations de régions principales et secondaires, voir [Régions Azure](https://azure.microsoft.com/regions/).
-* **Stockage géo-redondant avec accès en lecture (RA-GRS)**. Le stockage géo-redondant avec accès en lecture réplique vos données dans un emplacement secondaire et permet d’y accéder en lecture. Le stockage géo-redondant avec accès en lecture offre un accès aux données, qu’elles se situent dans l’emplacement principal ou secondaire, si l’un des deux n’est pas disponible. Le stockage géo-redondant avec accès en lecture est l’option par défaut sur votre compte de stockage lors de la création de celui-ci. 
-  
+* **Stockage géo-redondant avec accès en lecture (RA-GRS)**. Le stockage géo-redondant avec accès en lecture réplique vos données dans un emplacement secondaire et permet d’y accéder en lecture. Le stockage géo-redondant avec accès en lecture offre un accès aux données, qu’elles se situent dans l’emplacement principal ou secondaire, si l’un des deux n’est pas disponible. Le stockage géo-redondant avec accès en lecture est l’option par défaut sur votre compte de stockage lors de la création de celui-ci.
+
   > [!IMPORTANT]
   > Vous pouvez modifier le mode de réplication de vos données après la création de votre compte de stockage, sauf si vous avez défini la réplication ZRS à cette étape. Toutefois, notez qu’il vous faudra éventuellement subir un coût forfaitaire supplémentaire lié au transfert de données si vous passez de LRS à GRS ou RA-GRS.
-  > 
-  > 
+  >
+  >
 
 Pour plus d’informations sur les options de réplication de stockage, voir [Réplication Azure Storage](storage-redundancy.md) .
 

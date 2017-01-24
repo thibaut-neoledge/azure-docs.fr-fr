@@ -1,4 +1,10 @@
-1. Connectez-vous au [Portail Azure][Portail Azure].
+## <a name="create-a-service-namespace"></a>Création d'un espace de noms de service
+
+Pour utiliser les files d’attente Service Bus dans Azure, vous devez d’abord créer un espace de noms. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application. 
+
+Pour créer un espace de noms :
+
+1. Connectez-vous au [portail Azure][Azure portal].
 2. Dans le volet de navigation gauche du portail, cliquez sur **Nouveau**, puis sur **Enterprise Integration** et sur **Service Bus**.
 3. Dans la boîte de dialogue **Créer un espace de noms** , entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible.
 4. Lorsque vous avez vérifié la disponibilité de l’espace de noms, sélectionnez le niveau tarifaire (Basique, Standard ou Premium).
@@ -26,8 +32,8 @@
 [connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[Portail Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

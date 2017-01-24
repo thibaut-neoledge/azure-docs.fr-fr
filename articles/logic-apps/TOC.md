@@ -7,7 +7,7 @@
 ## [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Utiliser les fonctionnalités des applications logiques](../app-service-logic/app-service-logic-use-logic-app-features.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Vue d’ensemble des modèles](../app-service-logic/app-service-logic-use-logic-app-templates.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Création d'une image de modèle personnalisée](../app-service-logic/app-service-logic-arm-provision.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+## [Créer une application à l’aide d’un modèle](../app-service-logic/app-service-logic-arm-provision.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Exemples et scénarios](../app-service-logic/app-service-logic-examples-and-scenarios.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Scénario de service Bus](../app-service-logic/app-service-logic-scenario-function-sb-trigger.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Traitement B2B](../app-service-logic/app-service-logic-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -72,13 +72,11 @@
 ### [Tarification](../app-service-logic/app-service-logic-pricing.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
 # Référence
+## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
 ## Historique de schéma
 ### [GA](../app-service-logic/app-service-logic-schema-2016-04-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Version préliminaire](../app-service-logic/app-service-logic-schema-2015-08-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-
-## [Applets de commande PowerShell](/powershell/resourcemanager/)
-## [.NET](https://msdn.microsoft.com/library/azure/mt416943)
-## [API REST](/rest/api/logic/)
+## [REST](/rest/api/logic/)
 
 ## schéma 2014 (avant la disponibilité générale)
 ### [Connecteur de ressources Azure](../app-service-logic/app-service-logic-connector-azure-resource.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -91,6 +89,6 @@
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

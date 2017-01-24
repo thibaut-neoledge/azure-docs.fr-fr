@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: a13152d5322b81f722f59a524f6c8ca495659b75
-ms.openlocfilehash: 1166f88cc10cd53dc53ee6830ef15b3efde6ad23
+ms.sourcegitcommit: 8056e7ece1942c9090a7c36447a96829febaf1a4
+ms.openlocfilehash: a45e069f18a07bca314210f074455fda68e552c4
 
 
 ---
@@ -62,7 +62,7 @@ Vous allez d’abord exporter *sample.log* et *hivesampletable* vers la base de 
     /tutorials/usesqoop/importeddata
 
 ## <a name="create-cluster-and-sql-database"></a>Création du cluster et de la base de données SQL
-Cette section vous montre comment créer un cluster, une base de données SQL Database et les schémas de base de données SQL pour exécuter le didacticiel à l’aide du portail Azure et d’un modèle Azure Resource Manager. Ce modèle se trouve dans les [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). Le modèle Resource Manager appelle un package bacpac pour déployer les schémas de table vers la base de données SQL.  Le package bacpac est disponible dans un conteneur d’objets blob public : https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Si vous souhaitez utiliser un conteneur privé pour stocker les fichiers bacpac, appliquez les valeurs suivantes au modèle :
+Cette section vous montre comment créer un cluster, une base de données SQL Database et les schémas de base de données SQL pour exécuter le didacticiel à l’aide du portail Azure et d’un modèle Azure Resource Manager. Ce modèle se trouve dans les [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). Le modèle Resource Manager appelle un package bacpac pour déployer les schémas de table vers la base de données SQL Database.  Le package bacpac est disponible dans un conteneur d’objets blob public : https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Si vous souhaitez utiliser un conteneur privé pour stocker les fichiers bacpac, appliquez les valeurs suivantes au modèle :
    
         "storageKeyType": "Primary",
         "storageKey": "<TheAzureStorageAccountKey>",
@@ -71,7 +71,7 @@ Si vous préférez utiliser Azure PowerShell pour créer le cluster et la base d
 
 1. Cliquez sur l’image suivante pour ouvrir un modèle Resource Manager dans le portail Azure.         
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
 
 2. Entrez les propriétés suivantes :
@@ -109,7 +109,7 @@ Si vous choisissez d’utiliser une base de données SQL Azure ou Microsoft SQL 
 * **Base de données SQL Azure**: vous devez configurer une règle de pare-feu pour le serveur de base de données SQL Azure afin d’autoriser l'accès depuis votre station de travail. Pour des instructions sur la création d’une base de données SQL Azure et la configuration d’un pare-feu, consultez la rubrique [Prise en main de la base de données SQL Azure][sqldatabase-get-started]. 
   
   > [!NOTE]
-  > Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels qu’Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l'activer depuis le portail de gestion Azure. Pour obtenir des instructions sur la création d’une base de données Azure SQL et la configuration des règles de pare-feu, consultez la rubrique [Création et configuration d’une base de données SQL][sqldatabase-create-configue].
+  > Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels qu’Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l'activer depuis le portail de gestion Azure. Pour obtenir des instructions sur la création d’une base de données SQL Azure et la configuration des règles de pare-feu, consultez la rubrique [Création et configuration d’une base de données SQL][sqldatabase-create-configue].
   > 
   > 
 * **SQL Server**: si votre cluster HDInsight se trouve sur le même réseau virtuel que SQL Server dans Azure, vous pouvez utiliser les étapes décrites dans cet article pour importer et exporter des données vers une base de données SQL Server.
@@ -153,9 +153,9 @@ Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, co
 
 * [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
-* [Utilisation d’Oozie avec HDInsight][hdinsight-use-oozie] : utilisez l’action Sqoop dans un flux de travail Oozie.
-* [Analyse des données sur les retards de vol avec HDInsight][hdinsight-analyze-flight-data] : utilisez Hive pour analyser des données sur les retards de vol, puis utilisez Sqoop pour exporter ces données vers une base de données SQL Azure.
-* [Téléchargement de données vers HDInsight][hdinsight-upload-data] : découvrez d’autres méthodes pour télécharger des données vers HDInsight ou le Stockage Blob Azure.
+* [Utilisation d’Oozie avec HDInsight][hdinsight-use-oozie] : utilisez l’action Sqoop dans un workflow Oozie.
+* [Analyse des données sur les retards de vol avec HDInsight][hdinsight-analyze-flight-data] : utilisez Hive pour analyser des données sur les retards de vol, puis utilisez Sqoop pour exporter ces données vers une base de données SQL Azure.
+* [Chargement de données vers HDInsight][hdinsight-upload-data] : découvrez d’autres méthodes pour charger des données vers HDInsight ou Stockage Blob Azure.
 
 ## <a name="appendix-a---a-powershell-sample"></a>Annexe A - Exemple PowerShell
 L’exemple PowerShell effectue les étapes suivantes :
@@ -201,7 +201,7 @@ L’exemple PowerShell effectue les étapes suivantes :
    
     Cela convient pour d'autres exemples qui utilisent ces données, mais nous devons supprimer ces exceptions pour pouvoir importer le fichier dans la base de données SQL Azure ou SQL Server. Notez que la présence de lignes vides ou contenant un nombre d'éléments inférieur au nombre de champs définis dans la table de la base de données SQL Azure entraînera l'échec de la commande Sqoop export. La table log4jlogs contient 7 champs de type chaîne.
    
-    Cette procédure crée un fichier sur le cluster : tutorials/usesqoop/data/sample.log. Pour examiner le fichier de données modifiées, vous pouvez utiliser le portail Azure, un outil d’exploration Azure Storage, ou Azure PowerShell. Le didacticiel [Prise en main de HDInsight][hdinsight-get-started] inclut un exemple de code présentant l’utilisation d’Azure PowerShell pour télécharger un fichier et afficher son contenu.
+    Cette procédure crée un fichier sur le cluster : tutorials/usesqoop/data/sample.log. Pour examiner le fichier de données modifiées, vous pouvez utiliser le portail Azure, un outil d’exploration Azure Storage, ou Azure PowerShell. Le didacticiel [Prise en main de HDInsight][hdinsight-get-started] inclut un exemple de code présentant l’utilisation d’Azure PowerShell pour télécharger un fichier et afficher son contenu.
 6. Exportez un fichier de données vers la base de données SQL Azure.
    
     Le fichier source est tutorials/usesqoop/data/sample.log. La table vers laquelle les données sont exportées est nommée log4jlogs.
@@ -217,7 +217,7 @@ L’exemple PowerShell effectue les étapes suivantes :
 7. Exportez une table Hive vers la base de données SQL Azure.
 8. Importez la table mobiledata dans le cluster HDInsight.
    
-    Pour examiner le fichier de données modifiées, vous pouvez utiliser le portail Azure, un outil d’exploration Azure Storage, ou Azure PowerShell.  Le didacticiel [Prise en main de HDInsight][hdinsight-get-started] inclut un exemple de code présentant l’utilisation d’Azure PowerShell pour télécharger un fichier et afficher son contenu.
+    Pour examiner le fichier de données modifiées, vous pouvez utiliser le portail Azure, un outil d’exploration Azure Storage, ou Azure PowerShell.  Le didacticiel [Prise en main de HDInsight][hdinsight-get-started] inclut un exemple de code présentant l’utilisation d’Azure PowerShell pour télécharger un fichier et afficher son contenu.
 
 ### <a name="the-powershell-sample"></a>Exemple PowerShell
     # Prepare an Azure SQL database to be used by the Sqoop tutorial
@@ -627,13 +627,13 @@ L’exemple PowerShell effectue les étapes suivantes :
 [sqldatabase-create-configue]: ../sql-database/sql-database-get-started.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-install]: powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/17/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0a044412d138478cf8ebd8ed8768fd4764b8a551
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f70240f2bebca76872194e556cf9cae9130b56db
 
 
 ---
@@ -238,7 +238,7 @@ Notez la différence entre les résultats de la recherche et les résultats de l
   Dans le code de présentation, un paramètre de décompte doit s’afficher sur la facette. Il est utilisé pour afficher le nombre de résultats de la facette. Dans les résultats de la facette, le décompte indique le nombre de documents qui correspondent au terme ou à la plage de la facette.
 * `&facet=City,count:12`<br/>
    Dans une requête de facette, vous pouvez définir le décompte sur une valeur.  La valeur par défaut est 10, mais vous pouvez définir une valeur supérieure ou inférieure. Le paramètre `count:12` renvoie les 12 premières correspondances dans les résultats de la facette selon le décompte de documents.
-* «<br/>
+* "`@odata.count`"<br/>
    Dans la réponse de la requête, cette valeur indique le nombre d'éléments correspondants dans les résultats de la recherche. En moyenne, il est supérieur à la somme de tous les résultats de la facette combinés, en raison de la présence d'éléments qui correspondent au terme de la recherche, mais sans correspondance avec la valeur de la facette.
 
 **Niveaux dans la navigation à facettes** 
@@ -339,15 +339,15 @@ Pour plus d'informations sur les principes de conception pour la navigation à f
 Vous pouvez également regarder la [Présentation approfondie d'Azure Search](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). À 45:25 sur la vidéo, vous trouverez une démonstration sur la façon d'implémenter des facettes.
 
 <!--Anchors-->
-[Procédure de création]: #howtobuildit
-[Création de la couche de présentation]: #presentationlayer
-[Création de l'index]: #buildindex
-[Vérification de la qualité des données]: #checkdata
-[Création de la requête]: #buildquery
-[Conseils sur la façon de contrôler la navigation à facettes]: #tips
-[Navigation à facettes basée sur des valeurs de plage]: #rangefacets
-[Navigation à facettes basée sur des points géographiques]: #geofacets
-[Faites un essai]: #tryitout
+[How to build it]: #howtobuildit
+[Build the presentation layer]: #presentationlayer
+[Build the index]: #buildindex
+[Check for data quality]: #checkdata
+[Build the query]: #buildquery
+[Tips on how to control faceted navigation]: #tips
+[Faceted navigation based on range values]: #rangefacets
+[Faceted navigation based on GeoPoints]: #geofacets
+[Try it out]: #tryitout
 
 <!--Image references-->
 [1]: ./media/search-faceted-navigation/Facet-1-slide.PNG
@@ -362,18 +362,18 @@ Vous pouvez également regarder la [Présentation approfondie d'Azure Search](ht
 [10]: ./media/search-faceted-navigation/Facet-10-appTitle.png
 
 <!--Link references-->
-[Conception pour la recherche à facettes]: http://www.uie.com/articles/faceted_search/
-[Modèles de conception : navigation à facettes]: http://alistapart.com/article/design-patterns-faceted-navigation
-[Créer votre première application]: search-create-first-solution.md
-[Syntaxe d'expression OData (Azure Search)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
-[Démo de la Recherche Azure avec Adventure Works]: https://azuresearchadventureworksdemo.codeplex.com/
+[Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
+[Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
+[Create your first application]: search-create-first-solution.md
+[OData expression syntax (Azure Search)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
+[Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
 [http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/ 
-[Billet de forum sur les facettes dans la Recherche Azure]: ../faceting-on-azure-search.md?forum=azuresearch
-[Rechercher des documents (API Azure Search)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
+[Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
+[Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

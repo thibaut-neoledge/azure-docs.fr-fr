@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: f8e9579f15c79eef6a90c6a583b3f9ba2599d55d
-ms.openlocfilehash: d51a62cd3b0320beb7996d1b472ad500cfddd1d1
+ms.sourcegitcommit: ef5c1f296a0a4ee6476db663e85c49c351f826b9
+ms.openlocfilehash: 53a2012a1d928c961cbfbdcea485ae18d776360f
 
 
 ---
@@ -80,28 +80,28 @@ Lorsque les banques de données source et récepteur résident toutes les deux d
 
 | Géographie de la banque de données de destination | Région de la banque de données de destination | Région utilisée pour le déplacement des données |
 |:--- |:--- |:--- |
-| États-Unis | Est des États-Unis |Est des États-Unis |
-| . | Est des États-Unis 2 |Est des États-Unis 2 |
-| . | Centre des États-Unis |Centre des États-Unis |
-| . | États-Unis - partie centrale septentrionale |États-Unis - partie centrale septentrionale |
-| . | Centre-Sud des États-Unis |Centre-Sud des États-Unis |
-| . | Centre-Ouest des États-Unis |Centre des États-Unis |
-| . | Ouest des États-Unis |Ouest des États-Unis |
-| . | Ouest des États-Unis 2 |Ouest des États-Unis |
+| États-Unis | Est des États-Unis | Est des États-Unis |
+| . | Est des États-Unis 2 | Est des États-Unis 2 |
+| . | Centre des États-Unis | Centre des États-Unis |
+| . | États-Unis - partie centrale septentrionale | États-Unis - partie centrale septentrionale |
+| . | Centre-Sud des États-Unis | Centre-Sud des États-Unis |
+| . | Centre-Ouest des États-Unis | Centre-Ouest des États-Unis |
+| . | Ouest des États-Unis | Ouest des États-Unis |
+| . | Ouest des États-Unis 2 | Ouest des États-Unis |
 | Canada | Est du Canada | Centre du Canada |
 | . | Centre du Canada | Centre du Canada |
-| Brésil | Sud du Brésil |Sud du Brésil |
-| Europe | Europe du Nord |Europe du Nord |
-| . | Europe de l'Ouest |Europe de l'Ouest |
-| Asie-Pacifique | Asie du Sud-Est |Asie du Sud-Est |
-| . | Est de l'Asie |Asie du Sud-Est |
-| Australie | Est de l’Australie |Est de l’Australie |
-| . | Sud-Est de l’Australie |Sud-Est de l’Australie |
-| Japon | Est du Japon |Est du Japon |
-| . | Ouest du Japon |Est du Japon |
-| Inde | Inde centrale |Inde centrale |
-| . | Inde occidentale |Inde centrale |
-| . | Inde du Sud |Inde centrale |
+| Brésil | Sud du Brésil | Sud du Brésil |
+| Europe | Europe du Nord | Europe du Nord |
+| . | Europe de l'Ouest | Europe de l'Ouest |
+| Asie-Pacifique | Asie du Sud-Est | Asie du Sud-Est |
+| . | Est de l'Asie | Asie du Sud-Est |
+| Australie | Est de l’Australie | Est de l’Australie |
+| . | Sud-Est de l’Australie | Sud-Est de l’Australie |
+| Japon | Est du Japon | Est du Japon |
+| . | Ouest du Japon | Est du Japon |
+| Inde | Inde centrale | Inde centrale |
+| . | Inde occidentale | Inde centrale |
+| . | Inde du Sud | Inde centrale |
 
 
 > [!NOTE]
@@ -127,47 +127,48 @@ Pour une activité de copie, la section `typeProperties` varie selon les types d
 
 Voici un exemple de définition JSON :
 
-    {
-      "name": "ADFTutorialPipeline",
-      "properties": {
-        "description": "Copy data from Azure blob to Azure SQL table",
-        "activities": [
+```json
+{
+  "name": "ADFTutorialPipeline",
+  "properties": {
+    "description": "Copy data from Azure blob to Azure SQL table",
+    "activities": [
+      {
+        "name": "CopyFromBlobToSQL",
+        "type": "Copy",
+        "inputs": [
           {
-            "name": "CopyFromBlobToSQL",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "InputBlobTable"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "OutputSQLTable"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "BlobSource"
-              },
-              "sink": {
-                "type": "SqlSink",
-                "writeBatchSize": 10000,
-                "writeBatchTimeout": "60:00:00"
-              }
-            },
-            "Policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "NewestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
-            }
+            "name": "InputBlobTable"
           }
         ],
-        "start": "2016-07-12T00:00:00Z",
-        "end": "2016-07-13T00:00:00Z"
+        "outputs": [
+          {
+            "name": "OutputSQLTable"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource"
+          },
+          "sink": {
+            "type": "SqlSink",
+            "writeBatchSize": 10000,
+            "writeBatchTimeout": "60:00:00"
+          }
+        },
+        "Policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "NewestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
       }
-    }
-
+    ],
+    "start": "2016-07-12T00:00:00Z",
+    "end": "2016-07-13T00:00:00Z"
+  }
+}
+```
 La planification définie dans le jeu de données de sortie détermine quand l’activité s’exécute (par exemple **quotidiennement** : fréquence : **jour** et intervalle : **1**). L’activité permet de copier les données d’un jeu de données d’entrée (**source**) vers un jeu de données de sortie (**récepteur**).
 
 Vous pouvez spécifier plus d’un jeu de données d’entrée pour l’activité de copie. Ils sont utilisés pour vérifier les dépendances avant l’exécution de l’activité. Toutefois, seules les données du premier jeu de données sont copiées vers le jeu de données de destination. Pour plus d’informations, consultez [Planification et exécution](data-factory-scheduling-and-execution.md).  
@@ -192,6 +193,6 @@ Le mappage d’un système de type natif donné en .NET pour une banque de donn�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

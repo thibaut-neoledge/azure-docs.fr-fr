@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/09/2016
+ms.date: 12/14/2016
 ms.author: ryanwi;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 515daddf2c118f26721a557b0caf5d5415cb22c5
+ms.sourcegitcommit: efe9845280de3bcd882a7c879b53576600aae0a7
+ms.openlocfilehash: 1bc418f3cadfc83fbec0f2e2c508c77d97b84285
 
 
 ---
@@ -56,7 +56,7 @@ Le kit de développement logiciel offre deux façons de configurer un cluster lo
 ## <a name="deploy-an-application"></a>Déployer une application
 Le kit de développement de Fabric Service inclut un ensemble complet d’infrastructures et outils pour créer des applications. Si vous souhaitez apprendre à créer des applications dans Visual Studio, consultez [Créer votre première application Service Fabric dans Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 
-Dans ce didacticiel, nous allons utiliser un exemple d’application existant (appelé WordCount) afin de pouvoir nous concentrer sur les aspects de la gestion de la plateforme, notamment le déploiement, la surveillance et la mise à niveau.
+Dans ce didacticiel, vous utilisez un exemple d’application existant (appelé WordCount) afin de pouvoir vous concentrer sur les aspects de la gestion de la plateforme, autrement dit le déploiement, la surveillance et la mise à niveau.
 
 1. Lancez une nouvelle fenêtre PowerShell en tant qu’administrateur.
 2. Importez le module de kit de développement logiciel Service Fabric PowerShell.
@@ -82,14 +82,14 @@ Dans ce didacticiel, nous allons utiliser un exemple d’application existant (a
    Publish-NewServiceFabricApplication -ApplicationPackagePath c:\ServiceFabric\WordCountV1.sfpkg -ApplicationName "fabric:/WordCount"
     ```
    
-    Si tout se passe correctement, vous devez obtenir un résultat ressemblant à ce qui suit :
+    Si tout se passe correctement, vous devez voir apparaître la sortie suivante :
    
     ![Déploiement d’une application sur le cluster local][deploy-app-to-local-cluster]
 7. Pour voir l’application en action, lancez le navigateur et accédez à [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html). Ce qui suit doit s’afficher :
    
     ![Interface utilisateur des applications déployées.][deployed-app-ui]
    
-    L’application WordCount est très simple. Il inclut le code JavaScript côté client pour générer des « mots » à cinq caractères aléatoires, qui sont ensuite relayés vers l’application via une API web ASP.NET. Un service avec état conserve un suivi du nombre de mots comptés. Ils sont partitionnés en fonction du premier caractère du mot. Vous trouverez le code source de l’application WordCount dans les [exemples de prise en main](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
+    L’application WordCount est d’une grande simplicité. Il inclut le code JavaScript côté client pour générer des « mots » à cinq caractères aléatoires, qui sont ensuite relayés vers l’application via une API web ASP.NET. Un service avec état conserve un suivi du nombre de mots comptés. Ils sont partitionnés en fonction du premier caractère du mot. Vous trouverez le code source de l’application WordCount dans les [exemples de prise en main](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
    
     L’application que nous avons déployée contient quatre partitions. Les mots commençant par les lettres A à G sont stockés dans la première partition, ceux qui commencent par les lettres H à N sont stockés dans la deuxième et ainsi de suite.
 
@@ -114,7 +114,7 @@ Maintenant que l’application est déployée, examinons certains des détails d
     ![Répertorier les services de l’application dans PowerShell][ps-getsfsvc]
    
     L’application se compose de deux services : le serveur web frontal et le service avec état qui gère les mots.
-3. Enfin, examinez la liste des partitions de WordCountService :
+3. Enfin, examinez la liste des partitions de WordCountService :
    
     ```powershell
     Get-ServiceFabricPartition 'fabric:/WordCount/WordCountService'
@@ -134,26 +134,26 @@ Maintenant que l’application est déployée, examinons certains des détails d
    > 
 
 ## <a name="upgrade-an-application"></a>Mettre à niveau une application
-Service Fabric fournit des mises à niveau sans temps mort en analysant l’état de l’application au fur et à mesure qu’il se déploie sur le cluster. Nous allons effectuer une simple mise à niveau de l’application WordCount.
+Service Fabric fournit des mises à niveau sans temps mort en analysant l’état de l’application au fur et à mesure qu’il se déploie sur le cluster. Effectuez une mise à niveau de l’application WordCount.
 
 La nouvelle version de l’application compte désormais uniquement les mots commençant par une voyelle. Au fur et à mesure que la mise à niveau se déploie, nous voyons deux changements de comportement dans l’application. Tout d’abord, la vitesse de développement du nombre baisse, car un nombre de mots inférieur est compté. Ensuite, comme la première partition comporte deux voyelles (A et E) et tous les autres une seule, le décompte doit commencer pour devancer les autres.
 
-1. [Téléchargez le package WordCount v2](http://aka.ms/servicefabric-wordcountappv2) au même emplacement que celui où vous avez téléchargé le package v1.
+1. [Téléchargez le package WordCount version 2](http://aka.ms/servicefabric-wordcountappv2) au même emplacement que celui où vous avez téléchargé le package version 1.
 2. Revenez à votre fenêtre PowerShell et utilisez les commandes de mise à niveau du kit de développement logiciel pour enregistrer la nouvelle version dans le cluster. Commencez ensuite la mise à niveau de l’application : /WordCount application.
    
     ```powershell
     Publish-UpgradedServiceFabricApplication -ApplicationPackagePath C:\ServiceFabric\WordCountV2.sfpkg -ApplicationName "fabric:/WordCount" -UpgradeParameters @{"FailureAction"="Rollback"; "UpgradeReplicaSetCheckTimeout"=1; "Monitored"=$true; "Force"=$true}
     ```
    
-    Vous devriez voir dans PowerShell un résultat similaire à ce qui suit au commencement de la mise à niveau.
+    Vous devriez voir apparaître la sortie ci-après dans PowerShell au début de la mise à niveau.
    
     ![Progression de la mise à niveau dans PowerShell][ps-appupgradeprogress]
-3. Bien que la mise à niveau s’exécute, il peut s’avérer plus facile de surveiller son état à partir de Fabric Service Explorer. Lancez une fenêtre de navigateur et accédez à [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Développez **Applications** dans l’arborescence figurant sur la gauche, puis choisissez **WordCount** et enfin **fabric:/WordCount**. Dans l'onglet Bases, vous verrez l'état de la mise à niveau à mesure qu'elle se poursuit dans les domaines de mise à niveau du cluster.
+3. Bien que la mise à niveau s’exécute, il peut s’avérer plus facile de surveiller son état à partir de Fabric Service Explorer. Lancez une fenêtre de navigateur et accédez à [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Développez **Applications** dans l’arborescence figurant sur la gauche, puis choisissez **WordCount** et enfin **fabric:/WordCount**. Dans l’onglet Bases, vous voyez l’état de la mise à niveau à mesure qu’elle se poursuit dans les domaines de mise à niveau du cluster.
    
     ![Progression de la mise à niveau dans Service Fabric Explorer][sfx-upgradeprogress]
    
     Comme la mise à niveau se poursuit dans chaque domaine, les vérifications d’état sont effectuées pour vous assurer que l’application se comporte correctement.
-4. Si vous réexécutez la requête qui précède pour l’ensemble des services inclus dans l’application fabric:/Wordcount, notez que la version de WordCountService a changé, mais pas la version de WordCountWebService :
+4. Si vous réexécutez la requête qui précède pour l’ensemble des services inclus dans l’application fabric:/Wordcount, notez que la version de WordCountService a changé, mais non la version de WordCountWebService :
    
     ```powershell
     Get-ServiceFabricService -ApplicationName 'fabric:/WordCount'
@@ -161,7 +161,7 @@ La nouvelle version de l’application compte désormais uniquement les mots com
    
     ![Services d’application de requête après mise à niveau][ps-getsfsvc-postupgrade]
    
-    Cela met en évidence la façon dont Service Fabric gère les mises à niveau d’application. Cela ne touche que l’ensemble des services (ou des packages de configuration/code au sein de ces services) qui ont été modifiés, rendant le processus de mise à niveau plus rapide et plus fiable.
+    Cet exemple met en évidence la façon dont Service Fabric gère les mises à niveau d’application. Cela ne touche que l’ensemble des services (ou des packages de configuration/code au sein de ces services) qui ont été modifiés, rendant le processus de mise à niveau plus rapide et plus fiable.
 5. Enfin, retournez au navigateur pour observer le comportement de la nouvelle version de l’application. Comme prévu, le nombre progresse plus lentement et la première partition se termine avec légèrement plus du volume.
    
     ![Afficher la nouvelle version de l’application dans le navigateur][deployed-app-ui-v2]
@@ -175,10 +175,10 @@ Avant de conclure, il est important de se rappeler que le cluster local est rée
     Unpublish-ServiceFabricApplication -ApplicationName "fabric:/WordCount"
     ```
    
-    Sinon, supprimez l’application à partir du menu **ACTIONS** de Service Fabric Explorer ou du menu contextuel dans la vue Liste des applications du volet gauche.
+    Une autre possibilité consiste à supprimer l’application à partir du menu **ACTIONS** de Service Fabric Explorer ou du menu contextuel dans la vue Liste des applications sur la gauche.
    
     ![Supprimer une application dans Service Fabric Explorer][sfe-delete-application]
-2. Après avoir supprimé l’application du cluster, vous pouvez annuler l’inscription des versions 1.0.0 et 2.0.0 du type d’application WordCount. Cette opération supprime les packages d’application, y compris le code et la configuration, à partir du magasin d’images du cluster.
+2. Après avoir supprimé l’application du cluster, annulez l’inscription des versions 1.0.0 et 2.0.0 du type d’application WordCount. Cette opération supprime les packages d’application, y compris le code et la configuration, à partir du magasin d’images du cluster.
    
     ```powershell
     Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 2.0.0
@@ -189,19 +189,21 @@ Avant de conclure, il est important de se rappeler que le cluster local est rée
 3. Pour arrêter le cluster tout en conservant les données et les traces de l’application, cliquez sur **Arrêter le cluster local** dans l’application de zone de notification.
 4. Pour supprimer complètement le cluster, cliquez sur **Supprimer le cluster local** dans l’application de zone de notification. Cette option se traduira par un autre déploiement lent la prochaine fois que vous appuierez sur F5 dans Visual Studio. Supprimez le cluster local uniquement si vous n’envisagez pas de l’utiliser pendant un certain temps, ou si vous avez besoin de libérer des ressources.
 
-## <a name="1-node-and-5-node-cluster-mode"></a>Modes de cluster 1 nœud et 5 nœuds
-Lorsque vous travaillez avec le cluster local pour développer des applications, vous êtes souvent amené à effectuer des itérations rapides d’écriture de code, de débogage, de modification de code, etc.. Afin d’optimiser ce processus, le cluster local peut s’exécuter dans deux modes : 1 nœud ou 5 nœuds. Ces deux modes de cluster présentent chacun des avantages.
-Le mode de cluster 5 nœuds vous permet d’utiliser un cluster réel. Vous pouvez tester des scénarios de basculement, et travailler avec un plus grand nombre d’instances et de réplicas de vos services.
-Le mode de cluster 1 nœud est optimisé pour accélérer le déploiement et l’inscription des services, pour vous aider à valider rapidement le code à l’aide du runtime Service Fabric.
+## <a name="one-node-and-five-node-cluster-mode"></a>Modes de cluster un nœud et cinq nœuds
+Lorsque vous développez des applications, vous êtes souvent amené à effectuer des itérations rapides d’écriture de code, de débogage, de modification de code et de débogage. Afin d’optimiser ce processus, le cluster local peut s’exécuter dans deux modes : un nœud ou cinq nœuds. Ces deux modes de cluster présentent chacun des avantages. Le mode de cluster cinq nœuds vous permet d’utiliser un cluster réel. Vous pouvez tester des scénarios de basculement, et travailler avec un plus grand nombre d’instances et de réplicas de vos services. Le mode de cluster un nœud est optimisé pour accélérer le déploiement et l’inscription des services, afin de vous aider à valider rapidement le code à l’aide du runtime Service Fabric.
 
-Aucun de ces modes ne constitue un émulateur ou un simulateur. Il exécute le même code de plateforme que celui qu’on trouve sur les clusters comportant plusieurs ordinateurs.
+Ni le mode de cluster un nœud, ni le mode de cluster cinq nœuds ne constituent un émulateur ou un simulateur. Le cluster de développement local exécute le même code de plateforme que celui qu’on trouve sur les clusters comportant plusieurs machines.
 
-> [!NOTE]
-> Cette fonctionnalité est disponible dans le Kit de développement logiciel (SDK) version 5.2 et ultérieure.
+> [!WARNING]
+> Lorsque vous changez le mode de cluster, le cluster actuel est supprimé de votre système, et un autre cluster est créé. La modification du mode de cluster entraîne la suppression des données stockées dans le cluster.
 > 
 > 
 
-Pour basculer le cluster sur le mode 1 nœud, utilisez le gestionnaire de cluster local Service Fabric ou utilisez PowerShell comme suit :
+Pour sélectionner le mode de cluster un nœud, sélectionnez **Switch Cluster Mode (Changer de mode de cluster)** dans le gestionnaire de cluster local Service Fabric.
+
+![Changer de mode de cluster][switch-cluster-mode]
+
+Une autre possibilité consiste à modifier le mode de cluster en utilisant PowerShell :
 
 1. Lancez une nouvelle fenêtre PowerShell en tant qu’administrateur.
 2. Exécutez le script de configuration de cluster à partir du dossier du kit de développement logiciel :
@@ -213,15 +215,6 @@ Pour basculer le cluster sur le mode 1 nœud, utilisez le gestionnaire de cluste
     L’installation du cluster prend quelques instants. Une fois l’installation terminée, vous devriez obtenir un résultat similaire à ceci :
    
     ![Résultat de configuration du cluster][cluster-setup-success-1-node]
-
-Si vous utilisez le gestionnaire de cluster local Service Fabric :
-
-![Changer de mode de cluster][switch-cluster-mode]
-
-> [!WARNING]
-> Lorsque vous changez de mode de cluster, le cluster actuel est supprimé de votre système et un nouveau cluster est créé. Les données stockées dans le cluster sont également supprimées.
-> 
-> 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Maintenant que vous avez déployé et mis à niveau certaines des applications pré intégrées, vous pouvez [Réessayer de générer les vôtres dans Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
@@ -250,6 +243,6 @@ Si vous utilisez le gestionnaire de cluster local Service Fabric :
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

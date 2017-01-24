@@ -23,7 +23,7 @@ ms.openlocfilehash: 24b23c412ae4e092427b4e68b16df0369f9e9f0e
 # <a name="get-started-with-azure-blob-storage-using-net"></a>Prise en main du stockage d’objets blob Azure à l’aide de .NET
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
+[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
 Le stockage d’objets blob Azure est un service qui stocke des données non structurées dans le cloud en tant qu’objets/blobs. Ce service peut stocker tout type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d’installation d’application. Le stockage d’objets blob est également appelé Blob Storage.

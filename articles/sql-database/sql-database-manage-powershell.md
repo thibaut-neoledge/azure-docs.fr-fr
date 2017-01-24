@@ -8,6 +8,7 @@ manager: jhubbard
 editor: monicar
 ms.assetid: 3f21ad5e-ba99-4010-b244-5e5815074d31
 ms.service: sql-database
+ms.custom: how to
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,8 +16,8 @@ ms.topic: article
 ms.date: 11/15/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: a91b60f20394c236d64bfae242f820e56dd3ed79
-ms.openlocfilehash: 83ff32bb99ba0cf08f61ba4f2a97dee74bd6e1c5
+ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
+ms.openlocfilehash: 54000d76fac3f5759f72fe623326324e6c978505
 
 
 ---
@@ -62,7 +63,7 @@ $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
  -ResourceGroupName $resourceGroupName -ServerVersion $sqlServerVersion
 ```
 
-Pour plus d’informations, consultez [Qu’est-ce que SQL Database](sql-database-technical-overview.md). Pour obtenir un exemple de script, consultez [Créer un script PowerShell de base de données SQL](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+Pour en savoir plus sur les serveurs, consultez la rubrique détaillant les [fonctionnalités de la base de données SQL](sql-database-features.md). Pour obtenir un exemple de script, consultez [Créer un script PowerShell de base de données SQL](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
 
 ## <a name="how-do-i-create-a-sql-database-server-firewall-rule"></a>Créer une règle de pare-feu de serveur SQL Database
 Pour créer une règle de pare-feu et accéder au serveur, utilisez l’applet de commande [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860\(v=azure.300\).aspx). Exécutez la commande suivante en remplaçant les adresses IP de début et de fin par des valeurs valides pour votre client. Le groupe de ressources et le serveur doivent déjà exister dans votre abonnement.
@@ -174,6 +175,6 @@ Pour plus d’informations sur la gestion de bases de données élastiques avec 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

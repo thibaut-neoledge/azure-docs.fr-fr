@@ -346,7 +346,7 @@ Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consu
 * [BizTalk Services : tableau comparatif des états du service BizTalk](biztalk-service-state-chart.md)  
 * [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
-[Démarrage rapide]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
+[QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
 [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png

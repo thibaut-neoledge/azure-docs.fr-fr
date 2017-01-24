@@ -1,6 +1,7 @@
 1. Dans le portail, à partir de **Toutes les ressources**, cliquez sur **+ Ajouter**. Dans la zone de recherche du panneau **Tout**, tapez **passerelle de réseau local**, puis cliquez sur Rechercher. Cette commande retourne une liste. Cliquez sur **Passerelle de réseau Local** pour ouvrir le panneau, puis cliquez sur **Créer** pour ouvrir le panneau **Créer une passerelle réseau local**.
    
-    ![créer une passerelle de réseau local](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
+    ![créer une passerelle de réseau local](./media/vpn-gateway-add-lng-rm-portal-include/newlng.png)
+
 2. Dans le panneau **Créer une passerelle de réseau local**, spécifiez un **Nom** pour votre objet Passerelle de réseau local.
 3. Spécifiez une **adresse IP** publique valide pour la passerelle de réseau virtuel ou le périphérique VPN auquel vous souhaitez vous connecter.<br>Si ce réseau local représente un emplacement local, il s’agit de l’adresse IP publique du périphérique VPN auquel vous souhaitez vous connecter. Il ne peut pas se trouver derrière NAT et doit être accessible par Azure.<br>Si ce réseau local représente un autre réseau virtuel, spécifiez l’adresse IP publique qui a été affectée à la passerelle de réseau virtuel pour ce réseau virtuel.<br>
 4. **Espace d’adressage** fait référence aux plages d’adresses du réseau qui représente ce réseau local. Vous pouvez ajouter plusieurs plages d’espaces d’adressage. Assurez-vous que les plages que vous spécifiez ici ne se chevauchent pas avec les plages d’autres réseaux auxquels vous souhaitez vous connecter.
@@ -11,6 +12,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

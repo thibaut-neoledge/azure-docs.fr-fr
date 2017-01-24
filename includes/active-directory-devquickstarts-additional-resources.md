@@ -1,5 +1,5 @@
 ## <a name="additional-resources"></a>Ressources supplémentaires
-* [Guide du développeur AD Azure](../articles/active-directory/active-directory-developers-guide.md)
+* [Guide du développeur AD Azure](../articles/active-directory/develop/active-directory-developers-guide.md)
 * [Exemples Azure AD sur GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=active-directory)
 * [CloudIdentity.com](http://cloudidentity.com)
 
@@ -8,6 +8,6 @@ Nous vous encourageons à activer les notifications d’incidents de sécurité 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

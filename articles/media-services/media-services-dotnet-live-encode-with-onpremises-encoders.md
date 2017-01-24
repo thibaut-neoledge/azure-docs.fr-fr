@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/31/2016
-ms.author: cenkd;juliako
+ms.date: 01/05/2017
+ms.author: cenkdin;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 46cd4171b4d88aa68386b80471f1e7d05539cdd4
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: b00dcddf38885b002822b9e92010bdf2c5938cc4
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 46cd4171b4d88aa68386b80471f1e7d05539cdd4
 > [!div class="op_single_selector"]
 > * [Portail](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
@@ -58,6 +58,9 @@ L’exemple de code suivant montre comment réaliser les tâches suivantes :
 * Obtenir les localisateurs pour tous vos points de terminaison de diffusion en continu
 * Arrêter des ressources
 
+>[!NOTE]
+>Assurez-vous que le point de terminaison à partir duquel vous souhaitez diffuser du contenu se trouve dans l’état **En cours d’exécution**. 
+    
 Pour plus d’informations sur la configuration d’un encodeur dynamique, voir [Prise en charge RTMP et encodeurs en direct dans Azure Media Services](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
     using System;
@@ -397,6 +400,6 @@ Consulter les parcours d’apprentissage de Media Services
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

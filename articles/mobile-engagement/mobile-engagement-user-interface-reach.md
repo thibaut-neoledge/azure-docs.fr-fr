@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 37c12d1f3c0bbd50b05e7f89d163a3e27a66f71e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0f09a4118c3cfbd014e1c53fd22da06eb7ede260
 
 
 ---
@@ -81,8 +81,8 @@ Cliquez sur **Statistiques** pour afficher les détails d'une campagne Reach. L'
 ![Reach2][19]
 
 ## <a name="see-also"></a>Voir aussi
-* [Concepts][Lien 6]
-* [Guide de résolution des problèmes - Service][Lien 24]
+* [Concepts][Link 6]
+* [Service de guide de résolution des problèmes][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -145,39 +145,39 @@ Cliquez sur **Statistiques** pour afficher les détails d'une campagne Reach. L'
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Lien 1]: mobile-engagement-user-interface.md
-[Lien 2]: mobile-engagement-troubleshooting-guide.md
-[Lien 3]: mobile-engagement-how-tos.md
-[Lien 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Lien 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Lien 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Lien 7]: https://account.windowsazure.com/PreviewFeatures
-[Lien 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Lien 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Lien 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Lien 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Lien 12]: mobile-engagement-user-interface-navigation.md
-[Lien 13]: mobile-engagement-user-interface-home.md
-[Lien 14]: mobile-engagement-user-interface-my-account.md
-[Lien 15]: mobile-engagement-user-interface-analytics.md
-[Lien 16]: mobile-engagement-user-interface-monitor.md
-[Lien 17]: mobile-engagement-user-interface-reach.md
-[Lien 18]: mobile-engagement-user-interface-segments.md
-[Lien 19]: mobile-engagement-user-interface-dashboard.md
-[Lien 20]: mobile-engagement-user-interface-settings.md
-[Lien 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Lien 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Lien 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Lien 24]: mobile-engagement-troubleshooting-guide-service.md
-[Lien 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Lien 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Lien 27]: mobile-engagement-user-interface-reach-campaign.md
-[Lien 28]: mobile-engagement-user-interface-reach-criterion.md
-[Lien 29]: mobile-engagement-user-interface-reach-content.md
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: mobile-engagement-user-interface-reach-campaign.md
+[Link 28]: mobile-engagement-user-interface-reach-criterion.md
+[Link 29]: mobile-engagement-user-interface-reach-content.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

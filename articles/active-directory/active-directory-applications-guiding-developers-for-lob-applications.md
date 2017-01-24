@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d78bad26df7a9e428481e23ba4316953dfd4401c
+ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
+ms.openlocfilehash: fe295cb9b79593f7fd4635d142ec86d1c6897192
 
 
 ---
@@ -45,7 +45,7 @@ En inscrivant une application, tout utilisateur peut effectuer les opérations s
       - Autorisations déléguées (tout utilisateur). Par exemple : Azure AD, connexion et lecture de profil
 
 > [!NOTE]
-> Par défaut, tout membre peut inscrire une application. Pour savoir comment limiter les autorisations d’inscription d’applications à des membres spécifiques, reportez-vous au document [Comment les applications sont ajoutées à Azure AD](active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+> Par défaut, tout membre peut inscrire une application. Pour savoir comment limiter les autorisations d’inscription d’applications à des membres spécifiques, reportez-vous au document [Comment les applications sont ajoutées à Azure AD](develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 > 
 > 
 
@@ -84,6 +84,6 @@ Pour en savoir plus sur le consentement de l’utilisateur et sur l’expérienc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

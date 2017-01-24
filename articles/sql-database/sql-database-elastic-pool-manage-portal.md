@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 3dc9b7a3-4b10-423a-8e44-9174aca5cf3d
 ms.service: sql-database
+ms.custom: sharded databases pool; how to
 ms.devlang: NA
 ms.date: 11/17/2016
 ms.author: ninarn
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 37249c24c3e74ff9f4fcf9362b6053d1ba7b0cbd
-ms.openlocfilehash: 10bb7d9672824b00a1e3ba02e0e3d1db4260b128
+ms.sourcegitcommit: c17cedb24dacc6aeefa02a963b4dffcf22e246ec
+ms.openlocfilehash: 285be87188be8fa426e42d6ec43cd066100f423d
 
 
 ---
@@ -60,20 +61,21 @@ Vous pouvez accéder à un pool particulier pour consulter l’utilisation des r
 
 Vous pouvez modifier le graphique et le panneau Métrique pour afficher d’autres métriques, telles que le pourcentage d’UC, le pourcentage d’E/S des données et le pourcentage d’E/S des fichiers journaux utilisés.
 
-2. Dans le panneau Métrique, cliquez sur **Modifier**.
+1. Dans le panneau Métrique, cliquez sur **Modifier**.
 
     ![Cliquez sur Modifier][6]
 
-- Dans le panneau **Modifier le graphique**, sélectionnez une nouvelle plage de temps (dernière heure, aujourd’hui ou semaine dernière) ou cliquez sur **Personnalisé** pour sélectionner la plage de temps de votre choix au cours des deux dernières semaines. Sélectionnez le type de graphique (bâtons ou linéaire), puis sélectionnez les ressources à surveiller.
+2. Dans le panneau **Modifier le graphique**, sélectionnez une nouvelle plage de temps (dernière heure, aujourd’hui ou semaine dernière) ou cliquez sur **Personnalisé** pour sélectionner la plage de temps de votre choix au cours des deux dernières semaines. Sélectionnez le type de graphique (bâtons ou linéaire), puis sélectionnez les ressources à surveiller.
 
-> [!Note]
-> Seules les mesures présentant la même unité peuvent figurer simultanément dans le graphique. Par exemple, si vous sélectionnez « Pourcentage eDTU », vous serez en mesure de sélectionner d’autres mesures de pourcentage.
->
->
+   > [!Note]
+   > Seules les mesures présentant la même unité peuvent figurer simultanément dans le graphique. Par exemple, si vous sélectionnez « Pourcentage eDTU », vous serez en mesure de sélectionner d’autres mesures de pourcentage.
+   >
 
-    ![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
+    ![Cliquez sur Modifier](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
 
-- Cliquez ensuite sur **OK**.
+    
+
+3. Cliquez ensuite sur **OK**.
 
 
 ## <a name="elastic-database-monitoring"></a>Surveillance de la base de données élastique
@@ -226,6 +228,6 @@ Consultez [Montée en charge avec la base de données SQL Azure](sql-database-el
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

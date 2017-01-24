@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 99dfabcfcfcef69a43b45994cb4c729bd7faecff
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: e764936afda8bd498f97a8dc3426136815c18a5a
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 99dfabcfcfcef69a43b45994cb4c729bd7faecff
 > [!div class="op_single_selector"]
 > * [Portail](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [API REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+> * [API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
@@ -54,9 +54,7 @@ Ci-après figurent les étapes générales impliquées dans la création d’app
    
     Utilisez cette URL pour vérifier que votre canal reçoit correctement le flux dynamique.
 5. Créez un événement/programme (ce qui crée également un élément multimédia). 
-6. Publiez l’événement (ce qui crée un localisateur OnDemand pour l’élément multimédia associé).  
-   
-    Assurez-vous d’avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
+6. Publiez l’événement (ce qui crée un localisateur OnDemand pour l’élément multimédia associé).    
 7. Démarrez l’événement dès que vous êtes prêt à lancer la diffusion en continu et l’archivage.
 8. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
 9. Arrêtez l’événement chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
@@ -65,13 +63,12 @@ Ci-après figurent les étapes générales impliquées dans la création d’app
 ## <a name="in-this-tutorial"></a>Dans ce didacticiel
 Dans ce didacticiel, le portail Azure est utilisé pour effectuer les tâches suivantes : 
 
-1. Configurez les points de terminaison de diffusion en continu.
-2. Créez un canal qui est activé pour effectuer un encodage en temps réel.
-3. Obtenez l’URL de réception afin de la fournir à l’encodeur dynamique. L’encodeur dynamique utilise cette URL pour recevoir le flux dans le canal. .
-4. Créer un événement/programme (et un élément multimédia)
-5. Publier la ressource et obtenir les URL de diffusion en continu  
-6. Lecture de votre contenu 
-7. Nettoyage
+1. Créez un canal qui est activé pour effectuer un encodage en temps réel.
+2. Obtenez l’URL de réception afin de la fournir à l’encodeur dynamique. L’encodeur dynamique utilise cette URL pour recevoir le flux dans le canal.
+3. Créer un événement/programme (et un élément multimédia).
+4. Publier l’élément multimédia et obtenir les URL de diffusion en continu.  
+5. Lire votre contenu.
+6. Nettoyage.
 
 ## <a name="prerequisites"></a>Composants requis
 Les éléments suivants sont requis pour suivre le didacticiel.
@@ -80,28 +77,6 @@ Les éléments suivants sont requis pour suivre le didacticiel.
   Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Un compte Media Services. Pour créer un compte Media Services, consultez [Créer un compte](media-services-portal-create-account.md).
 * Une webcam et un encodeur capable d’envoyer un flux dynamique à débit binaire unique.
-
-## <a name="configure-streaming-endpoints"></a>Configurer les points de terminaison de diffusion en continu
-Media Services assure l’empaquetage dynamique qui vous permet de distribuer des fichiers MP4 multidébit dans les formats de diffusion en continu MPEG DASH, HLS ou Smooth Streaming sans avoir à effectuer de ré-empaquetage dans ces formats. Avec l’empaquetage dynamique, vous devez stocker et payer les fichiers dans un seul format de stockage. Ensuite, Media Services crée et fournit la réponse appropriée en fonction des demandes des clients.
-
-Pour tirer parti de l’empaquetage dynamique, vous devez obtenir au moins une unité de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous envisagez de distribuer votre contenu.  
-
-Pour créer et modifier le nombre d’unités réservées de diffusion en continu, procédez comme suit :
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) et sélectionnez votre compte AMS.
-2. Dans la fenêtre **Paramètres**, cliquez sur **Points de terminaison de diffusion en continu**. 
-3. Cliquez sur le point de terminaison de diffusion en continu par défaut. 
-   
-    La fenêtre **DEFAULT STREAMING ENDPOINT DETAILS** (DÉTAILS DU POINT DE TERMINAISON DE DIFFUSION EN CONTINU PAR DÉFAUT) s’affiche.
-4. Pour spécifier le nombre d’unités de diffusion en continu, faites glisser le curseur **Unités de diffusion en continu** .
-   
-    ![Unités de diffusion en continu](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-streaming-units.png)
-5. Cliquez sur le bouton **Enregistrer** pour enregistrer vos modifications.
-   
-   > [!NOTE]
-   > L’allocation de nouvelles unités peut prendre environ 20 minutes.
-   > 
-   > 
 
 ## <a name="create-a-channel"></a>Créer un CANAL
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez Media Services, puis cliquez sur le nom de votre compte Media Services.
@@ -172,6 +147,9 @@ Si vous souhaitez conserver le contenu archivé sans qu’il soit disponible pou
 ### <a name="createstartstop-events"></a>Créer/Démarrer/Arrêter des événements
 Une fois que le flux transite dans le canal, vous pouvez commencer l’événement de diffusion en continu en créant une ressource, un programme et un localisateur de diffusion en continu. Le flux est alors archivé et mis à la disposition des observateurs via le point de terminaison de diffusion en continu. 
 
+>[!NOTE]
+>Une fois votre compte AMS créé, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**. 
+
 Il existe deux façons de démarrer un événement : 
 
 1. Dans la page **Canal**, appuyez sur **Événement réel** pour ajouter un événement.
@@ -216,7 +194,7 @@ Pour gérer vos éléments multimédias, cliquez sur **Paramètre** puis sur **�
 
 ## <a name="considerations"></a>Considérations
 * Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l'adresse Microsoft.com si vous avez besoin d'exécuter un canal sur de plus longues périodes.
-* Assurez-vous d'avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
+* Assurez-vous que le point de terminaison de streaming à partir duquel vous souhaitez diffuser votre contenu se trouve à l’état **En cours d’exécution**.
 
 ## <a name="next-step"></a>Étape suivante
 Consultez les parcours d’apprentissage de Media Services.
@@ -229,6 +207,6 @@ Consultez les parcours d’apprentissage de Media Services.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

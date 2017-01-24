@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/21/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: fa6c9b6b60aef689568c58699eeb89d14b1ae2bf
-ms.openlocfilehash: 73c47bcfbe018947930bb23fbbcc201b91a49944
+ms.sourcegitcommit: 08499c4242fdc59ef932d6b8f2e8442e5cdc55b2
+ms.openlocfilehash: a606f06de55b1db4392d066a3e1d026eb3b54d74
 
 
 ---
@@ -77,7 +77,7 @@ ClientAliveCountMax 0
 
 SSHD est le serveur SSH qui s’exécute sur la machine virtuelle Linux.  SSH est un client qui s’exécute à partir d’un interpréteur de commandes sur votre MacBook ou votre poste de travail Linux, ou à partir d’un script Bash sur Windows.  SSH est également le protocole utilisé pour sécuriser et chiffrer les communications entre votre poste de travail et la machine virtuelle Linux, ce qui fait également de SSH un VPN (réseau privé virtuel).
 
-Dans le cadre de cet article, il est très important que la connexion à votre machine virtuelle Linux soit ouverte durant toutes les étapes.  Une fois une connexion SSH établie, la session reste ouverte tant que la fenêtre n’est pas fermée.  Le fait d’avoir un terminal connecté permet d’apporter des modifications au service SSHD en empêchant que l’accès soit bloqué si une modification entraîne une rupture.  Si vous voyez toutefois votre accès à votre machine virtuelle Linux bloqué à cause d’une configuration SSHD rompue, Azure offre la possibilité de réinitialiser une configuration SSHD rompue à l’aide de [l’extension d’accès aux machines virtuelles Azure](virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Dans le cadre de cet article, il est très important que la connexion à votre machine virtuelle Linux soit ouverte durant toutes les étapes.  Une fois une connexion SSH établie, la session reste ouverte tant que la fenêtre n’est pas fermée.  Le fait d’avoir un terminal connecté permet d’apporter des modifications au service SSHD en empêchant que l’accès soit bloqué si une modification entraîne une rupture.  Si vous voyez toutefois votre accès à votre machine virtuelle Linux bloqué à cause d’une configuration SSHD rompue, Azure offre la possibilité de réinitialiser une configuration SSHD rompue à l’aide de [l’extension d’accès aux machines virtuelles Azure](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Pour cette raison, nous ouvrons deux terminaux et établissons une connexion SSH avec la machine virtuelle Linux à partir de chacun d’eux.  Nous utilisons le premier terminal pour modifier le fichier de configuration SSHD et redémarrer le service SSHD.  Nous utilisons le deuxième terminal pour tester ces modifications une fois le service redémarré.  Étant donné que nous désactivons les mots de passe SSH et que nous nous appuyons uniquement sur les clés SSH, si ces dernières sont incorrectes et que vous fermez la connexion à la machine virtuelle, celle-ci sera définitivement verrouillée et personne ne pourra se connecter à moins de la supprimer et de la recréer.
 
@@ -177,14 +177,14 @@ Il est vivement recommandé d’installer et de configurer l’application open 
 
 Maintenant que vous avez configuré et verrouillé le serveur SSH sur votre machine virtuelle Linux, vous pouvez suivre d’autres meilleures pratiques de sécurité.  
 
-* [Gérer les utilisateurs, SSH et vérifier ou réparer les disques de machines virtuelles Azure Linux à l'aide de l’extension VMAccess](virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Gérer les utilisateurs, SSH et vérifier ou réparer les disques de machines virtuelles Azure Linux à l'aide de l’extension VMAccess](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-* [Chiffrer des disques sur une machine virtuelle Linux à l’aide de l’interface de ligne de commande Azure (CLI)](virtual-machines-linux-encrypt-disks?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Chiffrer des disques sur une machine virtuelle Linux à l’aide de l’interface de ligne de commande Azure (CLI)](virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-* [Accès et sécurité dans les modèles Azure Resource Manager](virtual-machines-linux-dotnet-core-3-access-security?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Accès et sécurité dans les modèles Azure Resource Manager](virtual-machines-linux-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

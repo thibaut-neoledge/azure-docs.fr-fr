@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/09/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 53346b6f9e7b5a172ecc343883f55409d5ca8057
+ms.sourcegitcommit: 70fbc8f973a341f818cb5958931a199021b7dc46
+ms.openlocfilehash: 4e63cb94d9bd39f0621eb0dc07c60335a91324d8
 
 
 ---
@@ -71,11 +71,13 @@ HDInsight Tools pour IntelliJ est disponible dans le cadre du kit de ressources 
 2. Dans la fenêtre suivante, fournissez les informations de projet.
    
    * Fournissez un nom de projet et un emplacement de projet.
-   * Pour **Project SDK**(Kit de développement logiciel (SDK) de projet), prenez soin d’indiquer une version de Java supérieure à la version 7.
-   * Pour **Scala SDK** (Kit de développement logiciel de Scala (SDK)), cliquez sur **Créer**, cliquez sur **Télécharger**, puis sélectionnez la version de Scala à utiliser. **Assurez-vous que vous n’utilisez pas la version 2.11.x**. Cet exemple utilise la version **2.10.6**.
-     
-       ![Créer une application Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
-   * Pour le **Kit de développement logiciel (SDK) Spark**, téléchargez et utilisez le Kit de développement logiciel (SDK) disponible [ici](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). Vous pouvez également ignorer ce dernier et utiliser le [référentiel Spark Maven](http://mvnrepository.com/search?q=spark) à la place. Toutefois, vérifiez que vous disposez du référentiel Maven approprié pour développer vos applications Spark. (Par exemple, vous devez vous assurer que le module Spark Streaming est installé si vous utilisez la fonctionnalité de diffusion en continu de Spark. En outre, vérifiez que vous utilisez le référentiel libellé Scala 2.10 ; n’utilisez pas le référentiel Scala 2.11.)
+   * Pour un **projet SDK**, Java 1.7 ou version ultérieure pour un cluster Spark 1.6, et Java 1.8 pour un cluster Spark 2.0.
+   * Pour **Scala SDK** (Kit de développement logiciel de Scala (SDK)), cliquez sur **Créer**, cliquez sur **Télécharger**, puis sélectionnez la version de Scala à utiliser.
+   * * Choisissez **JDK 1.8 et Scala 2.11.x** si vous souhaitez envoyer la tâche à un cluster Spark 2.0.
+   * * Choisissez **JDK 1.7 ou version ultérieure et Scala 2.10.x** si vous souhaitez envoyer la tâche à un cluster Spark 1.6.
+
+        ![](./media/hdinsight-apache-spark-intellij-tool-plugin/show-scala2.11.x-select.png)
+   * Pour le **Kit de développement logiciel (SDK) Spark**, téléchargez et utilisez le Kit de développement logiciel (SDK) disponible [ici](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409) (spark-assembly-2.0.0-hadoop2.7.0-SNAPSHOT.jar pour un cluster Spark 2.0 et spark-assembly-x.jar pour un cluster Spark 1.6). Vous pouvez également ignorer ce dernier et utiliser le [référentiel Spark Maven](http://mvnrepository.com/search?q=spark) à la place. Toutefois, vérifiez que vous disposez du référentiel Maven approprié pour développer vos applications Spark. (Par exemple, vous devez vous assurer que le module Spark Streaming est installé si vous utilisez la fonctionnalité de diffusion en continu de Spark. En outre, vérifiez que vous utilisez le référentiel libellé Scala 2.10 pour un cluster Spark 1.6 et Scala 2.11 pour un cluster Spark 2.0.)
      
        ![Créer une application Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-project-details.png)
    * Cliquez sur **Terminer**.
@@ -87,7 +89,7 @@ HDInsight Tools pour IntelliJ est disponible dans le cadre du kit de ressources 
        ![Créer un fichier jar](./media/hdinsight-apache-spark-intellij-tool-plugin/default-artifact.png)
       
       Vous pouvez également créer votre propre artefact en cliquant sur l’icône **+** mis en surbrillance dans la capture d’écran ci-dessus.
-4. Dans la boîte de dialogue **Structure de projet**, cliquez sur **Projet**. Si le **SDK du projet** est défini sur 1.8, assurez-vous que le **niveau de langage du projet** est défini sur **7 - Diamonds, ARM, multi-catch, etc**.
+4. Dans la boîte de dialogue **Structure de projet**, cliquez sur **Projet**. Si le **SDK du projet** est défini sur 1.8, assurez-vous que le **niveau de langage du projet** est défini sur **7 - Diamonds, ARM, multi-catch, etc** (facultatif pour un cluster Spark 2.0).
    
     ![Définir le niveau de langage du projet](./media/hdinsight-apache-spark-intellij-tool-plugin/set-project-language-level.png)
 5. Ajoutez le code source de votre application.
@@ -180,10 +182,10 @@ Quand vous exécutez l’application Spark Scala locale sur un ordinateur Window
    
    * Fournissez un nom de projet et un emplacement de projet.
    * Pour **Project SDK**(Kit de développement logiciel (SDK) de projet), prenez soin d’indiquer une version de Java supérieure à la version 7.
-   * Pour **Scala SDK** (Kit de développement logiciel de Scala (SDK)), cliquez sur **Créer**, cliquez sur **Télécharger**, puis sélectionnez la version de Scala à utiliser. **Assurez-vous que vous n’utilisez pas la version 2.11.x**. Cet exemple utilise la version **2.10.6**.
+   * Pour **Scala SDK** (Kit de développement logiciel de Scala (SDK)), cliquez sur **Créer**, cliquez sur **Télécharger**, puis sélectionnez la version de Scala à utiliser. **Scala 2.11.x pour Spark 2.0 et Scala 2.10.x pour Spark 1.6**.
      
        ![Créer une application Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
-   * Pour le **Kit de développement logiciel (SDK) Spark**, téléchargez et utilisez le Kit de développement logiciel (SDK) disponible [ici](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). Vous pouvez également ignorer ce dernier et utiliser le [référentiel Spark Maven](http://mvnrepository.com/search?q=spark) à la place. Toutefois, vérifiez que vous disposez du référentiel Maven approprié pour développer vos applications Spark. (Par exemple, vous devez vous assurer que le module Spark Streaming est installé si vous utilisez la fonctionnalité de diffusion en continu de Spark. En outre, vérifiez que vous utilisez le référentiel libellé Scala 2.10 ; n’utilisez pas le référentiel Scala 2.11.)
+   * Pour le **Kit de développement logiciel (SDK) Spark**, téléchargez et utilisez le Kit de développement logiciel (SDK) disponible [ici](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). Vous pouvez également ignorer ce dernier et utiliser le [référentiel Spark Maven](http://mvnrepository.com/search?q=spark) à la place. Toutefois, vérifiez que vous disposez du référentiel Maven approprié pour développer vos applications Spark. (Par exemple, vous devez vous assurer que le module Spark Streaming est installé si vous utilisez la fonctionnalité de diffusion en continu de Spark. En outre, vérifiez que vous utilisez le référentiel libellé Scala 2.10 pour un cluster Spark 1.6 et Scala 2.11 pour un cluster Spark 2.0.)
      
        ![Créer une application Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-create-project.png)
    * Cliquez sur **Terminer**.
@@ -231,7 +233,7 @@ Cette erreur est due au fait que le tas n’est pas suffisamment grand pour perm
 
 ![Résultat de l’exécution locale de l’application Spark](./media/hdinsight-apache-spark-intellij-tool-plugin/change-heap-size.png)
 
-## <a name="feedback-known-issues"></a>Commentaires et problèmes connus
+## <a name="feedback--known-issues"></a>Commentaires et problèmes connus
 Pour l’instant, la visualisation directe des sorties Spark n’est pas prise en charge. Nous travaillons à la résolution de ce problème.
 
 Si vous avez des suggestions ou des commentaires, ou que vous rencontrez des problèmes lors de l’utilisation de cet outil, n’hésitez pas à nous envoyer un e-mail à l’adresse hdivstool@microsoft.com.
@@ -265,6 +267,6 @@ Si vous avez des suggestions ou des commentaires, ou que vous rencontrez des pro
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

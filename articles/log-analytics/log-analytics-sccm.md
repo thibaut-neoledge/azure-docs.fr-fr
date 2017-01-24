@@ -1,27 +1,31 @@
 ---
-title: Connexion de Configuration Manager à Log Analytics | Microsoft Docs
-description: Cet article décrit comment connecter Configuration Manager à Log Analytics et commencer à analyser des données.
+title: "Connexion de Configuration Manager à Log Analytics | Microsoft Docs"
+description: "Cet article décrit comment connecter Configuration Manager à Log Analytics et commencer à analyser des données."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
-manager: jwhit
-editor: ''
-
+manager: carmonm
+editor: 
+ms.assetid: f2298bd7-18d7-4371-b24a-7f9f15f06d66
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 01/02/2017
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 820a9463c0e58054cf70324b680c5af8fdcacade
+ms.openlocfilehash: 18479c3680aa46113e59d25b6e034830f78a1859
+
 
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Connexion de Configuration Manager à Log Analytics
 Vous pouvez connecter System Center Configuration Manager à Log Analytics dans OMS pour synchroniser les données de regroupement d’appareils. Cela rend les données de votre déploiement de Configuration Manager disponibles dans OMS.
 
-Plusieurs étapes sont nécessaires pour connecter Configuration Manager à OMS. Voici un aperçu rapide de l’ensemble du processus :
+Plusieurs étapes sont nécessaires pour connecter Configuration Manager à OMS. Voici un aperçu rapide de l’ensemble du processus :
 
-1. Dans le portail de gestion Azure, inscrivez Configuration Manager en tant qu’application web et/ou application API web, et assurez-vous de disposer de l’ID et de la clé secrète client résultant de l’inscription à partir d’Azure Active Directory. Pour plus d’informations sur cette étape, voir [Utiliser le portail pour créer une application et un principal du service Active Directory pouvant accéder aux ressources](../resource-group-create-service-principal-portal.md).
+1. Dans le portail de gestion Azure, inscrivez Configuration Manager en tant qu’application web et/ou application API web, et assurez-vous de disposer de l’ID et de la clé secrète client résultant de l’inscription à partir d’Azure Active Directory. Pour plus d’informations sur cette étape, voir [Utiliser le portail pour créer une application et un principal du service Active Directory pouvant accéder aux ressources](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 2. Dans le portail de gestion Azure, [Configuration Manager (l’application web inscrite) l’autorisation d’accéder à OMS](#provide-configuration-manager-with-permissions-to-oms).
 3. Dans Configuration Manager, [ajoutez une connexion à l’aide de l’Assistant Ajout de connexion OMS](#add-an-oms-connection-to-configuration-manager).
 4. Dans Configuration Manager, vous pouvez [mettre à jour les propriétés de connexion](#update-oms-connection-properties) en cas d’expiration ou de perte du mot de passe ou de la clé secrète du client.
@@ -36,25 +40,25 @@ La procédure suivante décrit comment accorder au portail de gestion Azure les 
 
 > [!NOTE]
 > Vous devez spécifier pour Configuration Manager des autorisations d’accès à OMS. Autrement, vous recevez un message d’erreur lorsque vous utilisez l’Assistant Configuration dans Configuration Manager.
-> 
-> 
+>
+>
 
 1. Ouvrez le [portail Azure](https://portal.azure.com/), puis cliquez sur **Parcourir** > **Log Analytics (OMS)** pour ouvrir le panneau Log Analytics (OMS).  
 2. Dans le panneau **Log Analytics (OMS)**, cliquez sur **Ajouter** pour ouvrir le panneau **space de travail OMS**.  
    ![Panneau OMS](./media/log-analytics-sccm/sccm-azure01.png)
 3. Dans le panneau **Espace de travail OMS**, entrez les informations suivantes, puis cliquez sur **OK**.
-   
+
    * **Espace de travail OMS**
    * **Abonnement**
    * **Groupe de ressources**
    * **Emplacement**
    * **Niveau tarifaire**  
      ![Panneau OMS](./media/log-analytics-sccm/sccm-azure02.png)  
-     
+
      > [!NOTE]
      > L’exemple ci-dessus crée un groupe de ressources. Le groupe de ressources est utilisé uniquement pour accorder à Configuration Manager les autorisations nécessaires pour accéder à l’espace de travail OMS dans cet exemple.
-     > 
-     > 
+     >
+     >
 4. Cliquez sur **Parcourir** > **Groupes de ressources** pour ouvrir le panneau **Groupes de ressources**.
 5. Dans le panneau **Groupes de ressources**, cliquez sur le groupe de ressources que vous avez créé ci-dessus pour ouvrir le panneau de paramètres &lt;Nom du groupe de ressources&gt;.  
    ![Panneau de paramètres de groupe de ressources](./media/log-analytics-sccm/sccm-azure03.png)
@@ -71,7 +75,7 @@ Pour que vous puissiez ajouter une connexion OMS, il faut que votre environnemen
 
 1. Dans l’espace de travail **Administration** de Configuration Manager, sélectionnez **Connecteur OMS**. Cette opération ouvre l’**Assistant Ajout de connexion OMS**. Sélectionnez **Suivant**.
 2. Dans l’écran **Général**, vérifiez que vous avez effectué les actions suivantes et que vous disposez des détails de chaque élément, puis sélectionnez **Suivant**.
-   
+
    1. Dans le portail de gestion Azure, vous avez inscrit Configuration Manager en tant qu’application web et/ou application API web, et vous disposez de l’[ID client résultant de l’inscription](../active-directory/active-directory-integrating-applications.md).
    2. Dans le portail de gestion Azure, vous avez créé une clé secrète d’application pour l’application inscrite dans Azure Active Directory.  
    3. Dans le portail de gestion Azure, vous avez accordé à l’application web inscrite l’autorisation d’accéder à OMS.  
@@ -86,8 +90,8 @@ Pour que vous puissiez ajouter une connexion OMS, il faut que votre environnemen
 
 > [!NOTE]
 > Vous devez connecter OMS au site de niveau supérieur de votre hiérarchie. Si vous connectez OMS à un site principal autonome, puis ajoutez un site d’administration centrale à votre environnement, vous devrez supprimer et recréer la connexion OMS au sein de la nouvelle hiérarchie.
-> 
-> 
+>
+>
 
 Après avoir lié Configuration Manager à OMS, vous pouvez ajouter ou supprimer des regroupements, et afficher les propriétés de la connexion OMS.
 
@@ -99,7 +103,7 @@ En cas d’expiration ou de perte de mot de passe ou de clé secrète du client,
 
 ## <a name="download-and-install-the-agent"></a>Téléchargement et installation de l’agent
 1. Dans le portail OMS, sélectionnez [Télécharger le fichier de configuration de l’agent sur OMS](log-analytics-windows-agents.md#download-the-agent-setup-file-from-oms).
-2. Utilisez l’une des méthodes suivantes pour installer et configurer l’agent sur l’ordinateur exécutant le rôle de système de site de point de connexion de service de Configuration Manager :
+2. Utilisez l’une des méthodes suivantes pour installer et configurer l’agent sur l’ordinateur exécutant le rôle de système de site de point de connexion de service de Configuration Manager :
    * [Installer l’agent à l’aide du programme d’installation](log-analytics-windows-agents.md#install-the-agent-using-setup)
    * [Installer l’agent à l’aide de la ligne de commande](log-analytics-windows-agents.md#install-the-agent-using-the-command-line)
    * [Installer l’agent à l’aide de DSC dans Azure Automation](log-analytics-windows-agents.md#install-the-agent-using-dsc-in-azure-automation)
@@ -126,6 +130,8 @@ Lorsque vous cliquez sur l’un deux, la fenêtre Recherche s’ouvre, affichant
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez [Recherche de journal](log-analytics-log-searches.md) pour afficher des informations détaillées sur vos données Configuration Manager.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Jan17_HO1-->
 
 

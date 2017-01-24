@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6031391dddc9f5c283974bd22ad22d60d0697a4d
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 775578cb4e89f561449eea10b21a300f20646424
 
 
 ---
@@ -25,7 +25,7 @@ Les tâches d’encodage sont une des opérations de traitement les plus courant
 
 Cette rubrique montre comment utiliser .NET pour encoder vos éléments multimédias avec Media Encoder Standard (MES). Media Encoder Standard se configure à l’aide d’une des présélections d’encodeur décrites [ici](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
-Nous vous recommandons de toujours encoder vos fichiers mezzanine sous forme de jeu de fichiers MP4 à débit adaptatif, puis de convertir ce jeu au format souhaité au moyen de l’ [empaquetage dynamique](media-services-dynamic-packaging-overview.md). Pour tirer parti de l'empaquetage dynamique, vous devez d'abord obtenir au moins une unité de diffusion en continu à la demande pour le point de terminaison de diffusion en continu à partir duquel vous envisagez de distribuer votre contenu. Pour plus d’informations, voir [Mise à l’échelle de Media Services](media-services-portal-manage-streaming-endpoints.md).
+Nous vous recommandons de toujours encoder vos fichiers mezzanine sous forme de jeu de fichiers MP4 à débit adaptatif, puis de convertir ce jeu au format souhaité au moyen de l’ [empaquetage dynamique](media-services-dynamic-packaging-overview.md). 
 
 Si votre ressource de sortie est stockée sous forme chiffrée, vous devez configurer une stratégie de remise de ressources. Pour plus d'informations, consultez [Configuration de la stratégie de remise de ressources](media-services-dotnet-configure-asset-delivery-policy.md).
 
@@ -43,9 +43,9 @@ Media Encoder Standard se configure à l’aide d’une des présélections d’
 ### <a name="input-and-output-metadata"></a>Métadonnées d’entrée et de sortie
 Quand vous encodez un ou plusieurs éléments multimédias d’entrée à l’aide de MES, vous obtenez un élément multimédia de sortie une fois cette tâche d’encodage terminée. L’élément multimédia de sortie contient la vidéo, l’audio, les miniatures, le manifeste, et ainsi de suite, en fonction des paramètres d’encodage prédéfinis.
 
-Il contient également un fichier avec des métadonnées relatives à l’élément multimédia d’entrée. Le nom du fichier XML de métadonnées a le format suivant : <asset_id>_metadata.xml (par exemple, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), où <asset_id> est la valeur AssetId de l’élément multimédia d’entrée. Le schéma de ce XML de métadonnées d’entrée est décrit [ici](http://msdn.microsoft.com/library/azure/dn783120.aspx).
+Il contient également un fichier avec des métadonnées relatives à l’élément multimédia d’entrée. Le nom du fichier XML de métadonnées a le format suivant : <asset_id>_metadata.xml (par exemple, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), où <asset_id> est la valeur AssetId de l’élément multimédia d’entrée. Le schéma de ce XML de métadonnées d’entrée est décrit [ici](media-services-input-metadata-schema.md).
 
-L’élément multimédia de sortie contient également un fichier avec des métadonnées relatives à l’élément multimédia de sortie. Le nom du fichier XML de métadonnées a le format suivant : <nom_fichier_source>_manifest.xml (par exemple, BigBuckBunny_manifest.xml). Le schéma de ce XML de métadonnées de sortie est décrit [ici](http://msdn.microsoft.com/library/azure/dn783217.aspx).
+L’élément multimédia de sortie contient également un fichier avec des métadonnées relatives à l’élément multimédia de sortie. Le nom du fichier XML de métadonnées a le format suivant : <nom_fichier_source>_manifest.xml (par exemple, BigBuckBunny_manifest.xml). Le schéma de ce XML de métadonnées de sortie est décrit [ici](media-services-output-metadata-schema.md).
 
 Si vous souhaitez examiner l’un des deux fichiers de métadonnées, vous pouvez créer un localisateur SAS et télécharger le fichier sur votre ordinateur local. Vous trouverez un exemple illustrant comment créer un localisateur SAS et télécharger un fichier dans la rubrique Utilisation des extensions du SDK Media Services .NET.
 
@@ -150,6 +150,6 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

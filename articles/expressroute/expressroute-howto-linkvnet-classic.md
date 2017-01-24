@@ -1,13 +1,13 @@
 ---
-title: Lier un réseau virtuel à un circuit ExpressRoute à l’aide du modèle de déploiement classique et de PowerShell | Microsoft Docs
-description: Ce document explique comment lier des réseaux virtuels à des circuits ExpressRoute à l’aide du modèle de déploiement classique et de PowerShell.
+title: "Lier un réseau virtuel à un circuit ExpressRoute à l’aide du modèle de déploiement classique et de PowerShell | Microsoft Docs"
+description: "Ce document explique comment lier des réseaux virtuels à des circuits ExpressRoute à l’aide du modèle de déploiement classique et de PowerShell."
 services: expressroute
 documentationcenter: na
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 9b53fd72-9b6b-4844-80b9-4e1d54fd0c17
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
+ms.openlocfilehash: 7b0eef9e6ec4bc8da9e68eabbc515f78001bc9d6
+
 
 ---
 # <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>Lier un réseau virtuel à un circuit ExpressRoute
@@ -32,7 +36,7 @@ Cet article vous aide à lier des réseaux virtuels à des circuits Azure Expres
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Conditions préalables à la configuration
-1. Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger les modules PowerShell les plus récents à partir de la section PowerShell de la [page des téléchargements Azure](https://azure.microsoft.com/downloads/). Suivez les instructions de [Comment installer et configurer Azure PowerShell](../powershell-install-configure.md) pour des étapes pas à pas permettant de configurer votre ordinateur pour l’utilisation des modules Azure PowerShell.
+1. Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger les modules PowerShell les plus récents à partir de la section PowerShell de la [page des téléchargements Azure](https://azure.microsoft.com/downloads/). Suivez les instructions de [Comment installer et configurer Azure PowerShell](/powershell/azureps-cmdlets-docs) pour des étapes pas à pas permettant de configurer votre ordinateur pour l’utilisation des modules Azure PowerShell.
 2. Avant de commencer la configuration, vous devez examiner les [conditions préalables](expressroute-prerequisites.md), la [configuration requise pour le routage](expressroute-routing.md) et les [flux de travail](expressroute-workflows.md).
 3. Vous devez disposer d’un circuit ExpressRoute actif.
    * Suivez les instructions pour [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le activer par votre fournisseur de service de connectivité.
@@ -40,7 +44,7 @@ Cet article vous aide à lier des réseaux virtuels à des circuits Azure Expres
    * Vérifiez que l’homologation privée Azure est être configurée, et que l’homologation BGP entre votre réseau et Microsoft est être opérationnelle pour pouvoir activer la connectivité de bout en bout.
    * Vous devez disposer d'un réseau virtuel et d’une passerelle de réseau virtuel créés et totalement approvisionnés. Suivez les instructions pour [configurer un réseau virtuel pour ExpressRoute](expressroute-howto-vnet-portal-classic.md).
 
-Vous pouvez lier jusqu’à 10 réseaux virtuels à un circuit ExpressRoute. Tous les réseaux virtuels doivent être situés dans la même région géopolitique. Si vous avez activé le module complémentaire Premium d’ExpressRoute, vous pouvez lier un plus grand nombre de réseaux virtuels à votre circuit ExpressRoute ou des réseaux virtuels situés dans d’autres régions géopolitiques. Pour plus d’informations sur le module complémentaire Premium, consultez le [FAQ](expressroute-faqs.md) .
+Vous pouvez lier jusqu’à 10 réseaux virtuels à un circuit ExpressRoute. Tous les réseaux virtuels doivent être situés dans la même région géopolitique. Si vous avez activé le module complémentaire Premium d’ExpressRoute, vous pouvez lier un plus grand nombre de réseaux virtuels à votre circuit ExpressRoute ou des réseaux virtuels situés dans d’autres régions géopolitiques. Pour plus d’informations sur le module complémentaire Premium, consultez le [FAQ](expressroute-faqs.md) .
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Connecter un réseau virtuel du même abonnement à un circuit
 Vous pouvez lier un réseau virtuel à un circuit ExpressRoute à l’aide de l’applet de commande suivante. Assurez-vous que la passerelle de réseau virtuel est créée et prête pour la liaison avant d’exécuter l’applet de commande.
@@ -66,7 +70,9 @@ Le *propriétaire du circuit* est l’administrateur/coadministrateur de l’abo
 Le propriétaire du circuit a le pouvoir de modifier et de révoquer les autorisations à tout moment. La révocation d’une autorisation entraîne la suppression de tous les liens de l’abonnement dont l’accès a été révoqué.
 
 ### <a name="circuit-owner-operations"></a>Opérations du propriétaire du circuit
-#### <a name="creating-an-authorization"></a>Création d’une autorisation
+
+**Création d’une autorisation**
+
 Le propriétaire du circuit autorise les administrateurs d’autres abonnements à utiliser le circuit spécifié. Dans l’exemple ci-dessous, l’administrateur du circuit (Service informatique de Contoso) permet à l’administrateur d’un autre abonnement (Dev-Test) de lier jusqu’à deux réseaux virtuels au circuit. Le service informatique de Contoso le permet en spécifiant l’ID Microsoft de Dev-Test. L'applet de commande n'envoie pas de courrier électronique à l’ID Microsoft spécifié. Le propriétaire du circuit doit notifier explicitement au propriétaire de l’autre abonnement que l’autorisation a pris fin.
 
     New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
@@ -77,7 +83,8 @@ Le propriétaire du circuit autorise les administrateurs d’autres abonnements 
     MicrosoftIds        : devtest@contoso.com
     Used                : 0
 
-#### <a name="reviewing-authorizations"></a>Vérification des autorisations
+**Vérification des autorisations**
+
 Le propriétaire du circuit peut vérifier toutes les autorisations émises sur un circuit donné en exécutant l’applet de commande suivante :
 
     Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
@@ -101,7 +108,8 @@ Le propriétaire du circuit peut vérifier toutes les autorisations émises sur 
     Used                : 2
 
 
-#### <a name="updating-authorizations"></a>Mise à jour des autorisations
+**Mise à jour des autorisations**
+
 Le propriétaire du circuit peut modifier les autorisations à l’aide de l’applet de commande suivante :
 
     Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
@@ -113,14 +121,17 @@ Le propriétaire du circuit peut modifier les autorisations à l’aide de l’a
     Used                : 0
 
 
-#### <a name="deleting-authorizations"></a>Suppression des autorisations
+**Suppression des autorisations**
+
 Le propriétaire du circuit peut révoquer/supprimer les autorisations accordées à l’utilisateur en exécutant l’applet de commande suivante :
 
     Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"
 
 
 ### <a name="circuit-user-operations"></a>Opérations de l’utilisateur du circuit
-#### <a name="reviewing-authorizations"></a>Vérification des autorisations
+
+**Vérification des autorisations**
+
 L’utilisateur du circuit peut vérifier les autorisations à l’aide de l’applet de commande suivante :
 
     Get-AzureAuthorizedDedicatedCircuit
@@ -135,7 +146,8 @@ L’utilisateur du circuit peut vérifier les autorisations à l’aide de l’a
     Status                           : Enabled
     UsedLinks                        : 0
 
-#### <a name="redeeming-link-authorizations"></a>Échange des autorisations de lien
+**Échange des autorisations de lien**
+
 L’utilisateur du circuit peut exécuter l’applet de commande suivante pour échanger une autorisation de lien :
 
     New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1'
@@ -147,6 +159,9 @@ L’utilisateur du circuit peut exécuter l’applet de commande suivante pour �
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO1-->
 
 

@@ -3,9 +3,9 @@ title: "Déploiement continu d’Azure Automation DSC avec Chocolatey | Microsof
 description: "Déploiement continu du DevOps à l’aide d’Azure Automation DSC et du gestionnaire de packages Chocolatey  Exemple avec modèle ARM JSON complet et source PowerShell."
 services: automation
 documentationcenter: 
-author: sebastus
-manager: stevenka
-editor: 
+author: eslesar
+manager: carmonm
+editor: tysonn
 ms.assetid: c0baa411-eb76-4f91-8d14-68f68b4805b6
 ms.service: automation
 ms.devlang: na

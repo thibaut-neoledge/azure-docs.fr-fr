@@ -15,8 +15,8 @@ ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9b0df6e95e465efce467b8bcc60063f0b1ead946
+ms.sourcegitcommit: 9b2d456d8dba33af224ea147f5f8ec49ba7397f9
+ms.openlocfilehash: 202134cd03bf776c1d646ae24c09a79e14fdc5d3
 
 
 ---
@@ -29,8 +29,8 @@ Vous verrez également comment définir des points d’arrêt pour le débogage.
 
 > [!NOTE]
 > La prise en charge des conteneurs Windows sera proposée dans une version ultérieure
-> 
-> 
+>
+>
 
 ## <a name="prerequisites"></a>Composants requis
 Les outils suivants doivent être installés.
@@ -54,18 +54,18 @@ Si vous utilisez la Boîte à outils Docker, vous devrez [Configurer le client D
 Pour effectuer une itération rapide des modifications, vous pouvez lancer votre application au sein d’un conteneur et continuer à apporter des modifications, en les observant comme vous le feriez avec IIS Express.
 
 1. Définissez la configuration de solution sur `Debug`, puis appuyez sur **&lt;CTRL + F5 >** pour créer votre image de Docker et l’exécuter localement.
-   
+
     Une fois l’image de conteneur créée et en cours d’exécution dans un conteneur Docker, Visual Studio lancera l’application web dans votre navigateur par défaut.
     Si vous utilisez le navigateur Microsoft Edge ou rencontrez des erreurs, consultez la section [Résolution des problèmes](vs-azure-tools-docker-troubleshooting-docker-errors.md) .
 2. Accédez à la page À propos, à laquelle nous allons apporter nos modifications.
 3. Revenez à Visual Studio et ouvrez `Views\Home\About.cshtml`.
 4. Ajoutez le contenu HTML suivant à la fin du fichier et enregistrez les modifications.
-   
+
     ```
     <h1>Hello from a Docker Container!</h1>
     ```
 5. Dans la fenêtre de sortie, lorsque le build .NET est terminé et que vous voyez ces lignes, revenez sur votre navigateur et actualisez la page À propos.
-   
+
    ```
    Now listening on: http://*:80
    Application started. Press Ctrl+C to shut down
@@ -77,16 +77,16 @@ Les modifications nécessitent souvent une inspection plus poussée, en exploita
 
 1. Revenez à Visual Studio et ouvrez `Controllers\HomeController.cs`
 2. Remplacez le contenu de la méthode About() par ce qui suit :
-   
+
    ```
-   string message = "Your application description page from wthin a Container";
+   string message = "Your application description page from within a Container";
    ViewData["Message"] = message;
    ````
 3. Définissez un point d’arrêt à gauche de la ligne `string message`....
 4. Appuyez sur **&lt;F5>** pour démarrer le débogage.
 5. Accédez à la page À propos de pour atteindre votre point d’arrêt.
 6. Basculez sur Visual Studio pour afficher le point d’arrêt, puis inspectez la valeur du message.
-   
+
    ![][2]
 
 ## <a name="summary"></a>Résumé
@@ -118,6 +118,6 @@ Avec [Visual Studio 2015 Tools pour Docker](https://aka.ms/DockerToolsForVS), vo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

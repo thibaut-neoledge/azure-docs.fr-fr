@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: 7ee42899d1f50d562a8e776c840f0cbde12b13fe
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 09c4c9d43d6e29872ed6484b27334c8e9aa428b5
 
 
 ---
@@ -43,9 +43,10 @@ Cette rubrique montre comment utiliser Azure Media Services pour chiffrer dynami
 >
 
 ## <a name="requirements-and-considerations"></a>Conditions requises et éléments à prendre en compte
+
 * Les éléments suivants sont nécessaires pour utiliser AMS afin de fournir du contenu HLS chiffré avec FairPlay et des licences FairPlay.
 
-  * Un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+  * Un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
   * Un compte Media Services. Pour créer un compte Media Services, consultez [Créer un compte](media-services-portal-create-account.md).
   * S’inscrire au programme [Apple Developer Program](https://developer.apple.com/).
   * Apple exige que le propriétaire du contenu se procure le [package de déploiement](https://developer.apple.com/contact/fps/). Dans votre demande, indiquez que vous déjà implémenté le module de sécurité des clés (KSM) et que vous avez besoin du package FPS final. Le package FPS final contiendra les instructions à suivre pour générer la certification et obtenir la clé secrète de l’application (ASK), qui vous servira à configurer FairPlay.
@@ -162,8 +163,7 @@ L'exemple suivant illustre la fonctionnalité introduite dans le Kit de dévelop
                 <add key="Audience" value="urn:test"/>
               </appSettings>
         </configuration>
-5. Obtenir au moins une unité de diffusion pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu. Pour plus d’informations, consultez [configurer les points de terminaison de diffusion en continu](media-services-dotnet-get-started.md#configure-streaming-endpoints-using-the-azure-portal).
-6. Remplacez le code dans votre fichier Program.cs par le code présenté dans cette section.
+7. Remplacez le code dans votre fichier Program.cs par le code présenté dans cette section.
 
         using System;
         using System.Collections.Generic;
@@ -566,6 +566,6 @@ L'exemple suivant illustre la fonctionnalité introduite dans le Kit de dévelop
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

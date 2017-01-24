@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: ff2e3c27f9fc02ebe30380798be00211113208e3
-ms.openlocfilehash: 4f3c0cee8fe686c5355ce460064a7188d35f3e44
+ms.sourcegitcommit: 206b958b4c266b9977a9beb8ffb6a0576f068a9a
+ms.openlocfilehash: cc4fbb67baf14f4a104a5de6dbf11ad195a42d15
 
 
 ---
@@ -31,10 +31,11 @@ ms.openlocfilehash: 4f3c0cee8fe686c5355ce460064a7188d35f3e44
  Pour déployer et exécuter des [applications Azure Service Fabric](service-fabric-application-model.md) sur votre ordinateur de développement Linux, installez le runtime et le Kit de développement logiciel (SDK) courant. Vous pouvez également installer les Kits de développement logiciel (SDK) facultatifs pour Java et .NET Core.
 
 ## <a name="prerequisites"></a>Composants requis
+
 ### <a name="supported-operating-system-versions"></a>Versions du système d’exploitation prises en charge
 Les versions de système d’exploitation prises en charge pour le développement sont les suivantes :
 
-* Ubuntu 16.04 (Xenial Xerus)
+* Ubuntu 16.04 (« Xenial Xerus »)
 
 ## <a name="update-your-apt-sources"></a>Mettre à jour vos sources apt
 Pour installer le Kit de développement logiciel (SDK) et le package runtime associé via apt-get, vous devez tout d’abord mettre à jour vos sources apt.
@@ -59,7 +60,7 @@ Pour installer le Kit de développement logiciel (SDK) et le package runtime ass
 ## <a name="install-and-set-up-the-sdk"></a>Installer et configurer le Kit de développement logiciel (SDK)
 Une fois vos sources mises à jour, vous pouvez installer le Kit de développement logiciel (SDK).
 
-1. Installez le package de Kit de développement logiciel (SDK) Service Fabric. Vous serez invité à confirmer l’installation et à accepter un contrat de licence.
+1. Installez le package de Kit de développement logiciel (SDK) Service Fabric. Vous devez confirmer l’installation et accepter un contrat de licence.
    
     ```bash
     sudo apt-get install servicefabricsdkcommon
@@ -72,7 +73,7 @@ Une fois vos sources mises à jour, vous pouvez installer le Kit de développeme
 
 
 ## <a name="set-up-the-azure-cross-platform-cli"></a>Configurer l’interface de ligne de commande interplateforme Azure
-[L’interface de ligne de commande interplateforme Azure][azure-xplat-cli-github] inclut des commandes permettant d’interagir avec des entités Service Fabric, y compris des clusters et des applications. Puisqu’elle est basée sur Node.js, [assurez-vous que vous avez installé Node][install-node] avant de suivre les instructions ci-dessous.
+[L’interface de ligne de commande interplateforme Azure][azure-xplat-cli-github] inclut des commandes permettant d’interagir avec des entités Service Fabric, y compris des clusters et des applications. Comme elle est basée sur Node.js, [assurez-vous que vous avez installé Node][install-node] avant de suivre les instructions ci-dessous :
 
 1. Clonez le référentiel Github sur votre ordinateur de développement.
    
@@ -112,6 +113,12 @@ Si tout a été correctement installé, vous pourrez démarrer un cluster local.
 
 À ce stade, vous êtes en mesure de déployer des packages d’application Service Fabric préconfigurés ou nouveaux basés sur des conteneurs invités ou des exécutables invités. Pour générer de nouveaux services à l’aide des Kits de développement logiciel (SDK) .Net Core ou Java, suivez les étapes de configuration facultatives ci-dessous.
 
+
+> [!NOTE]
+> Les clusters autonomes ne sont pas pris en charge sous Linux. La version préliminaire ne prend en charge que les clusters composés de plusieurs machines Linux Azure et d’un boîtier.
+> 
+> 
+
 ## <a name="install-the-java-sdk-and-eclipse-neon-plugin-optional"></a>Installer le Kit de développement logiciel (SDK) Java et le plug-in Eclipse Neon (facultatif)
 Le Kit de développement logiciel (SDK) Java fournit les bibliothèques et les modèles nécessaires pour générer des services Service Fabric à l’aide de Java.
 
@@ -142,28 +149,32 @@ Le Kit de développement logiciel (SDK) .NET Core fournit les bibliothèques et 
 
 1. Installez le package du Kit de développement (SDK) .NET Core.
    
-    ```bash
-    sudo apt-get install servicefabricsdkcsharp
-    ```
+   ```bash
+   sudo apt-get install servicefabricsdkcsharp
+   ```
+
 2. Exécutez le script de configuration du Kit de développement logiciel (SDK).
    
-    ```bash
-    sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
-    ```
+   ```bash
+   sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
+   ```
+
 ## <a name="updating-the-sdk-and-runtime"></a>Mise à jour du kit de développement logiciel et du runtime
 
 Pour mettre à jour vers la dernière version du kit de développement logiciel et du runtime, exécutez les étapes suivantes (supprimez de la liste les kits de développement logiciel que vous ne souhaitez pas mettre à jour ou installer) :
 
-    ```bash
-    sudo apt-get update
-    sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
-    ```
+   ```bash
+   sudo apt-get update
+   sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
+   ```
 
 Pour mettre à jour l’interface CLI, accédez au répertoire où vous avez cloné le CLI et exécutez `git pull` pour mettre à jour. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Create your first Java application on Linux](service-fabric-create-your-first-linux-application-with-java.md)
-* [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
+* [Create your first Java application on Linux (Créer votre première application Java sur Linux)](service-fabric-create-your-first-linux-application-with-csharp.md)
+* [Prepare your development environment on OSX (Préparer votre environnement de développement sur OSX)](service-fabric-get-started-mac.md)
+* [Use the Azure CLI to manage your Service Fabric applications (Utiliser l’interface Azure CLI pour gérer vos applications Service Fabric)](service-fabric-azure-cli.md)
 
 <!-- Links -->
 
@@ -178,6 +189,6 @@ Pour mettre à jour l’interface CLI, accédez au répertoire où vous avez clo
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

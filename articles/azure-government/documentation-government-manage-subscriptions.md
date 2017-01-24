@@ -16,8 +16,8 @@ ms.workload: azure-government
 ms.date: 10/21/2016
 ms.author: zakramer
 translationtype: Human Translation
-ms.sourcegitcommit: 40432290f50ce08320fef1604e764b5a93a9eb0b
-ms.openlocfilehash: a49552a68a0f1f077d4416cb2ba70fe2f7a632ff
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 398abc29328adc179b860ab2cde5e6122f81779d
 
 
 ---
@@ -36,7 +36,7 @@ Que vous utilisiez Azure PowerShell pour gérer un abonnement volumineux à l’
 * Noms de régions
 
 > [!NOTE]
-> Si vous n’avez pas encore utilisé PowerShell, voir la [Présentation d’Azure PowerShell](../powershell-install-configure.md).
+> Si vous n’avez pas encore utilisé PowerShell, voir la [Présentation d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 > 
 > 
 
@@ -138,6 +138,6 @@ Pour obtenir des informations supplémentaires et des mises à jour, inscrivez-v
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

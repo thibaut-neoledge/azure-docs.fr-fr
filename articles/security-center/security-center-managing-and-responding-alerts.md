@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/17/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c0a1cf550c46810624d9eee7722409ff19b75369
+ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
+ms.openlocfilehash: 7a4413c6d2ecf497e72e2909e627761f0a9ff23a
 
 
 ---
@@ -42,20 +42,19 @@ Vous pouvez connaître vos alertes actuelles en consultant la vignette **Alertes
 1. La vignette **Alertes de sécurité** est affichée dans le tableau de bord Centre de sécurité.
    
     ![Vignette Alertes de sécurité dans le Centre de sécurité](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-ga.png)
+
 2. Cliquez sur la vignette pour ouvrir le panneau **Alertes de sécurité** , qui fournit des détails supplémentaires sur les alertes, comme indiqué ci-dessous.
    
    ![Panneau Alertes de sécurité dans le Centre de sécurité](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
 
 Les détails de chaque alerte sont affichés au bas du panneau. Pour les organiser à votre convenance, cliquez sur la colonne que vous voulez trier. La définition de chaque colonne est indiquée ci-dessous :
 
-* **Alerte**: brève explication de l’alerte.
+* **Description** : brève explication de l’alerte.
 * **Nombre**: liste de toutes les alertes d’un type spécifique qui ont été détectées un jour précis.
 * **Détectée par**: service à l’origine du déclenchement de l’alerte.
 * **Date**: date à laquelle l’événement s’est produit.
 * **État**: état actuel de l’alerte. Il existe deux types d’état :
-  
   * **Active**: l’alerte de sécurité a été détectée.
-  * **Ignorée**: l’alerte de sécurité a été ignorée par l’utilisateur. Cet état est généralement attribué aux alertes qui ont été examinées, mais qui ont nécessité une correction ou qui ne correspondent pas à une attaque.
 * **Gravité**: niveau de gravité (élevé, moyen ou bas).
 
 ### <a name="filtering-alerts"></a>Filtrage des alertes
@@ -63,10 +62,7 @@ Vous pouvez filtrer les alertes en fonction de la date, de l’état et du nivea
 
 1. Cliquez sur **Filtrer** dans le panneau **Alertes de sécurité**. Dans le panneau **Filtrer** qui s’ouvre, vous pouvez sélectionner la date, l’état et les niveaux de gravité que vous souhaitez visualiser.
    
-    ![Filtrage des alertes dans le Centre de sécurité](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-ga.png)
-2. Pour certaines alertes, vous pouvez déterminer qu’il s’agit d’un faux positif pour votre environnement, ou que le comportement signalé est normal pour une ressource donnée. Si vous déterminez qu’une alerte de sécurité n’est pas applicable, vous pouvez l’ignorer, puis la faire disparaître à l’aide du filtre. Il existe deux façons d’ignorer une alerte de sécurité. Cliquez avec le bouton droit sur une alerte, puis sélectionnez **Ignorer**, ou pointez sur un élément, cliquez sur les trois points qui apparaissent à droite, puis sélectionnez **Ignorer**. Vous pouvez afficher les alertes de sécurité ignorées en cliquant sur **Filtrer**, puis en sélectionnant **Ignorées**.
-   
-   ![Masquage des alertes dans le Centre de sécurité](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig4-ga.png)
+    ![Filtrage des alertes dans le Centre de sécurité](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-2017.png)
 
 ### <a name="respond-to-security-alerts"></a>Répondre à des alertes de sécurité
 Sélectionnez une alerte de sécurité pour en savoir plus sur les événements qui l’ont déclenchée et, le cas échéant, les étapes à suivre pour y remédier. Les alertes de sécurité sont regroupées par type et date d’apparition. Le fait de cliquer sur une alerte de sécurité ouvre un volet contenant une liste des alertes groupées.
@@ -98,6 +94,6 @@ Dans ce document, vous avez appris à configurer des stratégies de sécurité d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

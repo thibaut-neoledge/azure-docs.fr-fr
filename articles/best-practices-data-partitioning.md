@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/14/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: f5bdbd801107650f87993b395338adfb1b26d17e
-ms.openlocfilehash: 3e3d9daf8a45f87f0d1d666dc1054cd1b530e35f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 738c6ecb40118491dd2e833443c91891e99941d3
 
 
 ---
@@ -566,7 +566,7 @@ Quand vous étudiez des stratégies d’implémentation de la cohérence des don
 [Data Types]: http://redis.io/topics/data-types
 [Limites et quotas de DocumentDB]: documentdb/documentdb-limits.md
 [Vue d’ensemble des fonctionnalités de bases de données élastiques]: sql-database/sql-database-elastic-scale-introduction.md
-[Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1 (Utilitaire de migration de fédérations)
+[Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
 [Index Table Pattern]: http://aka.ms/Index-Table-Pattern
 [Gestion des besoins de capacité de DocumentDB]: documentdb/documentdb-manage.md
 [Materialized View Pattern]: http://aka.ms/Materialized-View-Pattern
@@ -588,6 +588,6 @@ Quand vous étudiez des stratégies d’implémentation de la cohérence des don
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

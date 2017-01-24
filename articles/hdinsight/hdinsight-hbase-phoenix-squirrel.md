@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 427ddb00988b2ac6c2701c909d338942ae6a4352
+ms.sourcegitcommit: 58212ae80ef2b930661e739aeb4779c6f9bd1bec
+ms.openlocfilehash: c1faf24f1f11eba9bfa3042f5d1cd279363e4eca
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 427ddb00988b2ac6c2701c909d338942ae6a4352
 Découvrez comment utiliser [Apache Phoenix](http://phoenix.apache.org/) dans HDInsight et comment installer et configurer SQuirreL sur votre poste de travail pour vous connecter à un cluster HBase dans HDInsight. Pour plus d'informations sur Phoenix, consultez [Phoenix en 15 minutes ou moins](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Pour en savoir plus sur la grammaire Phoenix, consultez la page [Grammaire Phoenix](http://phoenix.apache.org/language/index.html).
 
 > [!NOTE]
-> Pour des informations sur la version de Phoenix dans HDInsight, consultez [Nouveautés des versions de cluster Hadoop fournies par HDInsight][hdinsight-versions].
+> Pour plus d’informations sur la version de Phoenix dans HDInsight, consultez [Nouveautés des versions de cluster Hadoop fournies par HDInsight](hdinsight-component-versioning.md).
 >
 > Les informations de ce document sont spécifiques aux clusters HDInsight sous Windows. Pour plus d’informations sur l’utilisation de Phoenix dans HDInsight sous Linux, consultez [Use Apache Phoenix with Linux-based HBase clusters in HDinsight](hdinsight-hbase-phoenix-squirrel-linux.md).
 >
@@ -78,7 +78,7 @@ Cette section vous indique comment installer et configurer SQuirreL sur votre po
 ### <a name="prerequisites"></a>Composants requis
 Avant de suivre les procédures, vous devez disposer des éléments suivants :
 
-* Un cluster HBase déployé sur un réseau virtuel Azure avec une machine virtuelle DNS.  Pour obtenir des instructions, consultez [Approvisionnement de clusters HBase sur Azure Virtual Network][hdinsight-hbase-provision-vnet].
+* Un cluster HBase déployé sur un réseau virtuel Azure avec une machine virtuelle DNS.  Pour des instructions, consultez [Approvisionnement de clusters HBase sur Azure Virtual Network][hdinsight-hbase-provision-vnet].
 
   > [!IMPORTANT]
   > Vous devez installer un serveur DNS sur le réseau virtuel. Pour obtenir des instructions, consultez [Configurer des serveurs DNS entre deux réseaux virtuels Azure](hdinsight-hbase-geo-replication-configure-dns.md)
@@ -199,9 +199,11 @@ L'une des méthodes pour créer un certificat X.509 consiste à utiliser l'outil
 2. Ouvrez/exécutez le fichier jar. Pour cela, vous avez besoin de l' [environnement d'exécution Java](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html).
 3. Cliquez sur **Suivant** deux fois.
 4. Spécifiez un chemin d'accès pour lequel vous disposez de l'autorisation d'écriture, puis cliquez sur **Suivant**.
-    >[AZURE.NOTE] Le dossier d'installation par défaut se trouve dans le dossier C:\Program Files\squirrel-sql-3.6.  Pour pouvoir écrire dans ce chemin d'accès, le programme d'installation doit disposer des privilèges d'administrateur. Vous pouvez ouvrir une invite de commandes en tant qu'administrateur, accéder au dossier bin de Java et puis exécuter
-    >
-    >     java.exe -jar [the path of the SQuirreL jar file]
+
+  > [!NOTE]
+  > Le dossier d'installation par défaut se trouve dans le dossier C:\Program Files\squirrel-sql-3.6.  Pour pouvoir écrire dans ce chemin d'accès, le programme d'installation doit disposer des privilèges d'administrateur. Vous pouvez ouvrir une invite de commandes en tant qu’administrateur, accéder au dossier bin de Java et exécuter :
+  >
+  >     java.exe -jar [the path of the SQuirreL jar file]
 5. Cliquez sur **OK** pour confirmer la création du répertoire cible.
 6. La configuration par défaut installe les packages de base et standard.  Cliquez sur **Next**.
 7. Cliquez sur **Suivant** deux fois, puis sur **Terminé**.
@@ -265,10 +267,10 @@ Vous devez le copier sur votre poste de travail sous [Dossier d’installation S
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris comment utiliser Apache Phoenix dans HDInsight.  Pour plus d'informations, consultez les rubriques suivantes :
 
-* [Vue d’ensemble de HDInsight HBase][hdinsight-hbase-overview] : HBase est une base de données NoSQL open source Apache basée sur Hadoop qui fournit un accès aléatoire et une forte cohérence pour de grandes quantités de données non structurées et semi-structurées.
-* [Approvisionnement de clusters HBase sur Azure Virtual Network][hdinsight-hbase-provision-vnet] : avec l’intégration du réseau virtuel, les clusters HBase peuvent être déployés sur le même réseau virtuel que vos applications pour permettre à ces dernières de communiquer directement avec HBase.
-* [Configurer la réplication HBase dans HDInsight](hdinsight-hbase-geo-replication.md): découvrez comment configurer la réplication HBase entre deux centres de données Azure.
-* [Analyse de sentiments Twitter avec HBase dans HDInsight][hbase-twitter-sentiment] : découvrez comment effectuer une [analyse de sentiments](http://en.wikipedia.org/wiki/Sentiment_analysis) en temps réel des données volumineuses à l’aide de HBase dans un cluster Hadoop sous HDInsight.
+* [Vue d’ensemble de HDInsight HBase][hdinsight-hbase-overview] : HBase est une base de données NoSQL open source Apache basée sur Hadoop qui fournit un accès aléatoire et une forte cohérence pour de grandes quantités de données non structurées et semi-structurées.
+* [Approvisionnement de clusters HBase sur Azure Virtual Network][hdinsight-hbase-provision-vnet] : avec l’intégration du réseau virtuel, les clusters HBase peuvent être déployés sur le même réseau virtuel que vos applications pour permettre à celles-ci de communiquer directement avec HBase.
+* [Configurer la réplication HBase dans HDInsight](hdinsight-hbase-replication.md): découvrez comment configurer la réplication HBase entre deux centres de données Azure.
+* [Analyse de sentiments Twitter avec HBase dans HDInsight][hbase-twitter-sentiment] : découvrez comment effectuer une [analyse de sentiments](http://en.wikipedia.org/wiki/Sentiment_analysis) en temps réel des données volumineuses à l’aide de HBase dans un cluster Hadoop sous HDInsight.
 
 [azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
@@ -290,6 +292,6 @@ Dans cet article, vous avez appris comment utiliser Apache Phoenix dans HDInsigh
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

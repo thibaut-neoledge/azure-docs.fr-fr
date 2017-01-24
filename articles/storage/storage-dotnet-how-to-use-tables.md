@@ -23,7 +23,7 @@ ms.openlocfilehash: 98307e924927655c8a7de0e8fc6a7c0c2b57af00
 # <a name="get-started-with-azure-table-storage-using-net"></a>Prise en main du stockage de tables Azure à l’aide de .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
 Le stockage de tables Azure est un service qui stocke des données NoSQL structurées dans le cloud. Le stockage de tables est un magasin de clés/attributs doté d’une conception sans schéma. Comme le stockage de tables est sans schéma, il est aisé d’adapter vos données en fonction des besoins de votre application. L'accès aux données est rapide et peu coûteux pour tous les types d'applications. Normalement, le stockage de tables est considérablement moins coûteux que le SQL traditionnel pour des volumes de données similaires.

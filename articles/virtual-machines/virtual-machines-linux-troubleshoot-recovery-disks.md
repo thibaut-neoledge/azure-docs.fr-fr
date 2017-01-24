@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: d5623b9d9e87731d99d12c6445722acefdc3ff66
-ms.openlocfilehash: 2eb29b7f01e5e56a7a5acf3ababc339a216c2047
+ms.sourcegitcommit: 08499c4242fdc59ef932d6b8f2e8442e5cdc55b2
+ms.openlocfilehash: 89094f69fab8b30a16fcc5bc1bcd628ed52da757
 
 
 ---
@@ -93,7 +93,7 @@ L’exemple suivant supprime la machine virtuelle nommée `myVM` du groupe de re
 azure vm delete --resource-group myResourceGroup --name myVM 
 ```
 
-Attendez la suppression définitive de la machine virtuelle avant d’associer le disque dur virtuel à une autre machine virtuelle. Le bail du disque dur virtuel, qui l’associe à la machine virtuelle, doit être publié avant l’association du disque dur virtuel à une autre machine virtuelle.
+Attendez la suppression définitive de la machine virtuelle avant d’associer le disque dur virtuel à une autre machine virtuelle. Le bail du disque dur virtuel, qui l’associe à la machine virtuelle, doit être libéré avant l’association du disque dur virtuel à une autre machine virtuelle.
 
 
 ## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>Associer un disque dur virtuel existant à une autre machine virtuelle
@@ -147,7 +147,7 @@ azure vm disk attach --resource-group myResourceGroup --name myVMRecovery \
 
 
 ## <a name="fix-issues-on-original-virtual-hard-disk"></a>Résoudre des problèmes sur le disque dur virtuel d’origine
-Avec le disque dur virtuel existant monté, vous pouvez désormais exécutez les procédures de maintenance et de dépannage requises. Une fois que vous avez résolu les problèmes, passez aux étapes suivantes.
+Avec le disque dur virtuel existant monté, vous pouvez désormais exécuter les procédures de maintenance et de dépannage requises. Une fois que vous avez résolu les problèmes, passez aux étapes suivantes.
 
 
 ## <a name="unmount-and-detach-original-virtual-hard-disk"></a>Démonter et dissocier le disque dur virtuel d’origine
@@ -159,7 +159,7 @@ Une fois les erreurs résolues, vous démontez et dissociez le disque dur virtue
     cd /
     ```
 
-    Désormais, montez le disque dur virtuel existant. L’exemple suivant démonte l’appareil au niveau de `/dev/sdc1` :
+    Montez alors le disque dur virtuel existant. L’exemple suivant démonte l’appareil au niveau de `/dev/sdc1` :
 
     ```bash
     sudo umount /dev/sdc1
@@ -232,9 +232,9 @@ azure vm enable-diag --resource-group myResourceGroup --name myDeployedVM
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Si vous rencontré des problèmes pour vous connecter à votre machine virtuelle, consultez la rubrique [Dépannage d’une connexion SSH à une machine virtuelle Linux Azure défaillante, qui génère une erreur ou qui est refusée](virtual-machines-linux-troubleshoot-ssh-connection?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Pour résoudre les problèmes liés à l’accès aux applications exécutées sur votre machine virtuelle, consultez la section [Résoudre les problèmes de connectivité des applications sur une machine virtuelle Linux Azure](virtual-machines-linux-troubleshoot-app-connection?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Si vous rencontrez des problèmes pour vous connecter à votre machine virtuelle, consultez la rubrique [Dépannage d’une connexion SSH à une machine virtuelle Linux Azure défaillante, qui génère une erreur ou qui est refusée](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Pour résoudre les problèmes liés à l’accès aux applications exécutées sur votre machine virtuelle, consultez la section [Résoudre les problèmes de connectivité des applications sur une machine virtuelle Linux Azure](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

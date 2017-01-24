@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 09/20/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dcddd23ed51c9e115b5b961547652d57513b75aa
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: a6b5e865e9a57b1eaf8ad08aa70466f772bdb244
 
 
 ---
@@ -117,7 +117,7 @@ Si vous utilisez Tez avec Hive, consultez les documents suivants pour les inform
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
-[Powershell-install-configure]: powershell-install-configure.md
+[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 
@@ -125,6 +125,6 @@ Si vous utilisez Tez avec Hive, consultez les documents suivants pour les inform
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

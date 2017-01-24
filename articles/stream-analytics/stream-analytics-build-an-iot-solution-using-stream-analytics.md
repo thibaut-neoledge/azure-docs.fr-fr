@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 11/16/2016
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: eb8cf20a5dbe34fb823b4e05430dee544fc271d1
-ms.openlocfilehash: a16bdb85b7915dfe5bd6afda51b21a39cb041e9b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 65dea49959402b66ba7513051dfe16d91d68ef3b
 
 
 ---
@@ -36,7 +36,7 @@ Après avoir effectué ce didacticiel, vous pourrez :
 ## <a name="prerequisites"></a>Composants requis
 Pour suivre ce didacticiel, vous avez besoin des composants suivants :
 
-* La version la plus récente d’ [Azure PowerShell](../powershell-install-configure.md)
+* La version la plus récente d’ [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * Visual Studio 2015 ou la version gratuite de [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 * Un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Des privilèges d’administrateur sur l’ordinateur
@@ -137,7 +137,7 @@ Le script Setup.ps1 dans le dossier TollApp sur GitHub permet de créer toutes l
 
 Téléchargez et enregistrez le dossier et les fichiers de support [TollApp](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) .
 
-Ouvrez une fenêtre **Microsoft Azure PowerShell***en tant qu’administrateur*. Si vous ne disposez pas encore d’Azure PowerShell, suivez les instructions de la section [Installer et configurer Azure PowerShell](../powershell-install-configure.md) pour l’installer.
+Ouvrez une fenêtre **Microsoft Azure PowerShell***en tant qu’administrateur*. Si vous ne disposez pas encore d’Azure PowerShell, suivez les instructions de la section [Installer et configurer Azure PowerShell](/powershell/azureps-cmdlets-docs) pour l’installer.
 
 Étant donné que Windows bloque automatiquement les fichiers .exe, .dll et .ps1, vous devez définir la stratégie d’exécution avant d’exécuter le script. Assurez-vous que la fenêtre Azure PowerShell s’exécute *en tant qu’administrateur*. Exécutez l’applet de commande **Set-ExecutionPolicy unrestricted**. Quand vous y êtes invité, tapez **O**.
 
@@ -445,6 +445,6 @@ Pour en savoir plus sur Azure Stream Analytics, consultez la [documentation en l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

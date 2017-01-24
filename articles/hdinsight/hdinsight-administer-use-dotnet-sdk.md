@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aa0f2dd07ffa8437ff224c278135744202adcd73
+ms.sourcegitcommit: ec710057c2016175f65578a9d6884f7273b65169
+ms.openlocfilehash: f2a762ad64feeef91802429cdd959cec67b73473
 
 
 ---
@@ -33,6 +33,7 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="connect-to-azure-hdinsight"></a>Se connecter à Azure HDInsight
+
 Les packages Nuget suivants doivent être installés :
 
     Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
@@ -79,10 +80,6 @@ L’exemple de code suivant montre comment vous connecter à Azure avant que vou
             /// <summary>
             /// Authenticate to an Azure subscription and retrieve an authentication token
             /// </summary>
-            /// <param name="TenantId">The AAD tenant ID</param>
-            /// <param name="ClientId">The AAD client ID</param>
-            /// <param name="SubscriptionId">The Azure subscription ID</param>
-            /// <returns></returns>
             static TokenCloudCredentials Authenticate(string TenantId, string ClientId, string SubscriptionId)
             {
                 var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + TenantId);
@@ -167,14 +164,14 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
     
     L’interface utilisateur web de Storm est disponible dans le cluster HDInsight :
     
-    ![hdinsight storm mise à l’échelle rééquilibrage](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![Rééquilibrage de mise à l’échelle HDInsight Storm](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
     
     Voici un exemple relatif à l'utilisation de la commande de l'interface en ligne de commande pour rééquilibrer la topologie Storm :
     
-    ## <a name="reconfigure-the-topology-mytopology-to-use-5-worker-processes"></a>Reconfigurez la topologie « mytopology » pour utiliser 5 processus de travail,
-    ## <a name="the-spout-blue-spout-to-use-3-executors-and"></a>le spout « blue-spout » pour utiliser 3 exécuteurs et
-    ## <a name="the-bolt-yellow-bolt-to-use-10-executors"></a>le bolt « yellow-bolt » pour utiliser 10 exécuteurs
-      $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 Pour redimensionner un cluster de façon synchrone ou asynchrone, utilisez l’extrait de code suivant :
 
@@ -254,7 +251,7 @@ Consultez l'article [Utilisation de Sqoop avec HDInsight](hdinsight-hadoop-use-s
 Consultez [Utilisation d’Oozie avec Hadoop pour définir et exécuter un workflow dans HDInsight](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Téléchargement de données vers le stockage d'objets blob Azure
-Consultez la page [Téléchargement de données vers HDInsight][hdinsight-upload-data].
+Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Voir aussi
 * [Documentation de référence sur le Kit de développement logiciel (SDK) .NET HDInsight](https://msdn.microsoft.com/library/mt271028.aspx)
@@ -285,6 +282,6 @@ Consultez la page [Téléchargement de données vers HDInsight][hdinsight-upload
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

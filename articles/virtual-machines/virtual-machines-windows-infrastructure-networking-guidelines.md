@@ -1,35 +1,39 @@
 ---
-title: Instructions pour les infrastructures réseau | Microsoft Docs
-description: Découvrez-en plus sur les principales instructions de conception et d’implémentation pour le déploiement d’un réseau virtuel dans des services d’infrastructure Azure.
-documentationcenter: ''
+title: "Instructions pour les infrastructures réseau Azure | Microsoft Docs"
+description: "Découvrez-en plus sur les principales instructions de conception et d’implémentation pour le déploiement d’un réseau virtuel dans des services d’infrastructure Azure."
+documentationcenter: 
 services: virtual-machines-windows
 author: iainfoulds
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: e2d45973-5eba-4904-8ba0-1821f64feed7
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 1e52ae69951b6b1feee6207033a85a583d13bcc2
+ms.openlocfilehash: 5db3100d94af1461d538eb1bb9b16b7bf387517a
+
 
 ---
-# Instructions pour les infrastructures réseau
+# <a name="azure-networking-infrastructure-guidelines"></a>Instructions pour les infrastructures réseau Azure
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Cet article se concentre sur la compréhension des étapes de planification nécessaires pour un réseau virtuel dans Azure et la connectivité entre les environnements locaux existants.
 
-## Instructions d’implémentation pour les réseaux virtuels
-Décisions :
+## <a name="implementation-guidelines-for-virtual-networks"></a>Instructions d’implémentation pour les réseaux virtuels
+Décisions :
 
-* Quel type de réseau virtuel devez-vous pour héberger votre charge de travail ou votre infrastructure informatique (cloud ou intersite) ?
-* Pour les réseaux virtuels intersite, de quelle taille d’espace adressage avez-vous besoin pour héberger les sous-réseaux et les machines virtuelles maintenant et pour une extension future raisonnable ?
+* Quel type de réseau virtuel devez-vous pour héberger votre charge de travail ou votre infrastructure informatique (cloud ou intersite) ?
+* Pour les réseaux virtuels intersite, de quelle taille d’espace adressage avez-vous besoin pour héberger les sous-réseaux et les machines virtuelles maintenant et pour une extension future raisonnable ?
 * Allez-vous créer des réseaux virtuels centralisés ou plutôt des réseaux virtuels pour chaque groupe de ressources ?
 
-Tâches :
+Tâches :
 
 * Définissez l’espace d’adressage du réseau virtuel à créer.
 * Définir l’ensemble de sous-réseaux et l’espace d’adressage pour chacun.
@@ -37,13 +41,13 @@ Tâches :
 * Travaillez avec l’équipe réseau locale pour assurer que le routage approprié est configuré lors de la création de réseaux virtuels intersite.
 * Créer le réseau virtuel à l’aide de votre convention d’affectation de noms.
 
-## Réseaux virtuels
-Des réseaux virtuels sont nécessaires pour prendre en charge les communications entre les machines virtuelles. Vous pouvez définir des sous-réseaux, des adresses IP personnalisées, des paramètres DNS, des filtrages de sécurité et l’équilibrage de charge, tout comme avec les réseaux physiques. Avec un [VPN de site à site](../vpn-gateway/vpn-gateway-topology.md) ou un [Circuit Express Route](../expressroute/expressroute-introduction.md), vous pouvez connecter des réseaux virtuels Azure à vos réseaux locaux. Vous pouvez en savoir plus sur [les réseaux virtuels et leurs composants](../virtual-network/virtual-networks-overview.md).
+## <a name="virtual-networks"></a>Réseaux virtuels
+Des réseaux virtuels sont nécessaires pour prendre en charge les communications entre les machines virtuelles. Vous pouvez définir des sous-réseaux, des adresses IP personnalisées, des paramètres DNS, des filtrages de sécurité et l’équilibrage de charge, tout comme avec les réseaux physiques. Avec une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou un [Circuit Express Route](../expressroute/expressroute-introduction.md), vous pouvez connecter des réseaux virtuels Azure à vos réseaux locaux. Vous pouvez en savoir plus sur [les réseaux virtuels et leurs composants](../virtual-network/virtual-networks-overview.md).
 
 Avec les groupes de ressources, vous disposez de plus de flexibilité dans la façon dont vous concevez vos composants de réseau virtuel. Les machines virtuelles peuvent se connecter à des réseaux virtuels en dehors de leur propre groupe de ressources. Une approche de conception courante consisterait à créer des groupes de ressources centralisés contenant votre infrastructure réseau de base, qui peut être gérée par une équipe commune, puis des machines virtuelles et leurs applications déployées sur des groupes de ressources distincts. Cette approche permet aux propriétaires d’applications d’accéder au groupe de ressources qui contient leurs machines virtuelles sans ouvrir l’accès à la configuration des ressources réseau virtuelles à plus grande échelle.
 
-## Connectivité de site
-### Réseaux virtuels cloud uniquement
+## <a name="site-connectivity"></a>Connectivité de site
+### <a name="cloud-only-virtual-networks"></a>Réseaux virtuels cloud uniquement
 Si les utilisateurs et les ordinateurs locaux ne nécessitent pas de connectivité continue aux machines virtuelles dans un réseau virtuel Azure, votre conception de réseau virtuel sera simple :
 
 ![Diagramme d’un réseau virtuel de base uniquement dans le cloud](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
@@ -52,8 +56,8 @@ Cette approche s’applique généralement à des charges de travail Internet, t
 
 Les réseaux virtuels ne se connectant pas à votre réseau local, les réseaux virtuels uniquement basés sur Azure peuvent utiliser une partie de l’espace d’adressage IP privé, même si le même espace privé est utilisé localement.
 
-### Réseaux virtuels intersite
-Si les utilisateurs et les ordinateurs locaux nécessitent une connectivité continue aux machines virtuelles dans un réseau virtuel Azure, créez un réseau virtuel entre différents locaux. Connectez-le à votre réseau local avec une connexion ExpressRoute ou VPN de site à site.
+### <a name="cross-premises-virtual-networks"></a>Réseaux virtuels intersite
+Si les utilisateurs et les ordinateurs locaux nécessitent une connectivité continue aux machines virtuelles dans un réseau virtuel Azure, créez un réseau virtuel entre différents locaux.  Connectez-le à votre réseau local avec une connexion ExpressRoute ou VPN de site à site.
 
 ![Diagramme de réseau virtuel entre sites locaux](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
 
@@ -65,7 +69,7 @@ Pour autoriser les paquets à circuler de votre réseau virtuel intersite vers v
 
 Vous pouvez convertir un réseau virtuel cloud en un réseau virtuel intersite, mais il nécessite probablement une renumérotation de l’IP de votre espace d’adressage de réseau virtuel et des ressources Azure. Par conséquent, déterminez avec soin si un réseau virtuel doit se connecter à votre réseau local lorsque vous affectez un sous-réseau d’IP.
 
-## Sous-réseaux
+## <a name="subnets"></a>Sous-réseaux
 Les sous-réseaux vous permettent d’organiser des ressources apparentées, soit logiquement (par exemple, un sous-réseau pour les machines virtuelles associées à la même application), soit physiquement (par exemple, un sous-réseau par groupe de ressources), ou d’employer des techniques d’isolation de sous-réseaux pour renforcer la sécurité. Vous pouvez également employer des techniques d’isolation de sous-réseaux pour renforcer la sécurité.
 
 Pour les réseaux virtuels entre différents locaux, vous devez concevoir des sous-réseaux possédant les mêmes conventions que les ressources locales. **Azure utilise toujours les trois premières adresses IP de l’espace d’adressage pour chaque sous-réseau**. Pour déterminer le nombre d’adresses nécessaires pour le sous-réseau, commencez par compter le nombre de machines virtuelles dont vous avez besoin actuellement. Estimez la croissance future, puis utilisez le tableau suivant pour déterminer la taille du sous-réseau.
@@ -85,18 +89,23 @@ Pour les réseaux virtuels entre différents locaux, vous devez concevoir des so
 
 Si vous choisissez une taille de sous-réseau trop petite, vous devez renuméroter les IP et redéployer les machines virtuelles dans le sous-réseau.
 
-## Groupes de sécurité réseau
-Vous pouvez appliquer des règles de filtrage pour le trafic qui transite via vos réseaux virtuels à l’aide de groupes de sécurité réseau. Vous pouvez créer des règles de filtrage granulaires pour sécuriser votre environnement de réseau virtuel, le trafic entrant et sortant du trafic, les plages d’IP de source et de destination, les ports autorisés, etc. Les groupes de sécurité réseau peuvent être appliqués à des sous-réseaux au sein d’un réseau virtuel, ou directement à une interface réseau virtuelle spécifiée. Il est recommandé d’avoir un certain niveau de filtrage du trafic sur vos groupes de sécurité réseau pour vos réseaux virtuels. Vous pouvez [en savoir plus sur les groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
+## <a name="network-security-groups"></a>Groupes de sécurité réseau
+Vous pouvez appliquer des règles de filtrage pour le trafic qui transite via vos réseaux virtuels à l’aide de groupes de sécurité réseau. Vous pouvez créer des règles de filtrage granulaires pour sécuriser votre environnement de réseau virtuel, le trafic entrant et sortant du trafic, les plages d’IP de source et de destination, les ports autorisés, etc. Les groupes de sécurité réseau peuvent être appliqués à des sous-réseaux au sein d’un réseau virtuel, ou directement à une interface réseau virtuelle spécifiée. Il est recommandé d’avoir un certain niveau de filtrage du trafic sur vos groupes de sécurité réseau pour vos réseaux virtuels. Vous pouvez en savoir plus sur [Groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
 
-## Composants réseau supplémentaires
-Comme avec une infrastructure de réseau local physique, un réseau virtuel Azure peut contenir plus que des sous-réseaux et des adresses IP. Lorsque vous concevez votre infrastructure d’application, vous souhaiterez incorporer certains de ces composants supplémentaires :
+## <a name="additional-network-components"></a>Composants réseau supplémentaires
+Comme avec une infrastructure de réseau local physique, un réseau virtuel Azure peut contenir plus que des sous-réseaux et des adresses IP. Lorsque vous concevez votre infrastructure d’application, vous souhaiterez incorporer certains de ces composants supplémentaires :
 
 * [Des passerelles VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) - connectez des réseaux virtuels Azure à d’autres réseaux virtuels Azure, ou connectez des réseaux locaux via une connexion VPN de site à site. Implémentez des connexions Express Route dédiées et sécurisées. Vous pouvez également fournir aux utilisateurs un accès direct grâce à des connexions VPN de point à site.
 * [Un équilibreur de charge](../load-balancer/load-balancer-overview.md) - fournit l’équilibrage de la charge du trafic pour le trafic externe et interne de la façon dont vous le souhaitez.
 * [Une Application Gateway](../application-gateway/application-gateway-introduction.md) - équilibrage de charge HTTP de la couche Application, en fournissant des avantages supplémentaires pour les applications web par rapport au déploiement de l’équilibreur de charge Azure.
 * [Traffic Manager](../traffic-manager/traffic-manager-overview.md) - distribution du trafic basée sur DNS aux utilisateurs finaux directs vers le point de terminaison de l’application disponible le plus proche, ce qui vous permet d’héberger votre application hors des centres de données Azure dans différentes régions.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Dec16_HO3-->
+
+

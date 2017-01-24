@@ -1,59 +1,63 @@
 ---
-title: Reformation des modèles Machine Learning par programme | Microsoft Docs
-description: Apprenez à reformer un modèle par programmation et à mettre à jour le service web de sorte qu’il utilise le modèle reformé dans Azure Machine Learning.
+title: "Reformation des modèles Machine Learning par programme | Microsoft Docs"
+description: "Apprenez à reformer un modèle par programme et à mettre à jour le service Web pour utiliser le modèle reformé dans Azure Machine Learning."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: raymondlaghaeian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/12/2017
 ms.author: raymondl;garye;v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8544f04360c44d54b9c3e69448b6d5b29826f06c
+
 
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Reformation des modèles Machine Learning par programme
 Cette procédure pas à pas explique comment reformer par programmation un service web Azure Machine Learning en utilisant C# et le service d’exécution de lot Machine Learning.
 
-Une fois le modèle reformé, les procédures pas à pas suivantes montrent comment le mettre à jour dans votre service web prédictif :
+Une fois le modèle reformé, les procédures pas à pas suivantes montrent comment le mettre à jour dans votre service web prédictif :
 
-* Si vous avez déployé un service web classique dans le portail des services web Azure Machine Learning, voir [Reformer un service web classique](machine-learning-retrain-a-classic-web-service.md). 
-* Si vous avez déployé un nouveau service web, voir [Reformer un nouveau service web à l’aide des applets de commande de gestion Machine Learning](machine-learning-retrain-new-web-service-using-powershell.md).
+* Si vous avez déployé un service web classique dans le portail des services web Azure Machine Learning, consultez [Reformer un service web classique](machine-learning-retrain-a-classic-web-service.md). 
+* Si vous avez déployé un nouveau service web, consultez [Reformer un nouveau service web à l’aide des applets de commande de gestion Machine Learning](machine-learning-retrain-new-web-service-using-powershell.md).
 
 Pour une présentation du processus de reformation, voir [Reformer un modèle Machine Learning](machine-learning-retrain-machine-learning-model.md).
 
-Si vous voulez commencer avec votre service web Azure Resource Manager existant, voir [Reformer un service web prédictif existant](machine-learning-retrain-existing-resource-manager-based-web-service.md).
+Si vous voulez commencer avec votre service web Azure Resource Manager existant, consultez [Reformer un service web prédictif existant](machine-learning-retrain-existing-resource-manager-based-web-service.md).
 
-## <a name="create-a-training-experiment"></a>Création d’une expérience d’apprentissage
-Pour cet exemple, vous allez utiliser « Sample 5 : Train, Test, Evaluate for Binary Classification : Adult Dataset » dans les exemples Microsoft Azure Machine Learning. 
+## <a name="create-a-training-experiment"></a>Créez une expérience d'apprentissage
+Pour cet exemple, vous allez utiliser « Sample 5 : Train, Test, Evaluate for Binary Classification : Adult Dataset » dans les exemples Microsoft Azure Machine Learning. 
 
-Pour créer l’expérience :
+Pour créer l’expérience :
 
-1. Connectez-vous à Microsoft Azure Machine Learning Studio. 
+1. Connectez-vous à Microsoft Azure Machine Learning Studio. 
 2. En bas à droite du tableau de bord, cliquez sur **Nouveau**.
 3. Parmi les exemples Microsoft, sélectionnez l’exemple 5.
-4. Pour renommer l’expérience, en haut du canevas de l’expérience, sélectionnez le nom de l’expérience « Sample 5 : Train, Test, Evaluate for Binary Classification : Adult Dataset ».
+4. Pour renommer l’expérience, en haut du canevas de l’expérience, sélectionnez le nom de l’expérience « Sample 5 : Train, Test, Evaluate for Binary Classification : Adult Dataset ».
 5. Tapez Modèle de recensement.
 6. En bas de la zone de dessin de l’expérience, cliquez sur **Exécuter**.
 7. Cliquez sur **Configurer le service web**, puis sélectionnez **Reformation du service web**. 
    
    ![Expérience initiale.][2]
 
-Diagramme 2 : Expérience initiale.
+Diagramme 2 : Expérience initiale.
 
-## <a name="create-a-predictive-experiment-and-publish-as-a-web-service"></a>Créer une expérience prédictive et la publier en tant que service web
+## <a name="create-a-predictive-experiment-and-publish-as-a-web-service"></a>Créer une expérience prédictive et la publier comme service web
 Ensuite, vous créez une expérience prédictive.
 
-1. En bas du canevas de l’expérience, cliquez sur **Configurer le service web**, puis sélectionnez **Service web prédictif**. Le modèle est enregistré sous forme de modèle formé et des modules d’entrée et de sortie du service web sont ajoutés. 
+1. En bas du canevas de l’expérience, cliquez sur **Configurer le service web**, puis sélectionnez **Service web prédictif**. Le modèle est enregistré sous forme d’un modèle formé, et des modules d’entrée et de sortie du service web sont ajoutés. 
 2. Cliquez sur **Exécuter**. 
 3. Une fois l’exécution de l’expérience terminée, cliquez sur **Déployer le service web [classique]** ou **Déployer le service web [nouveau]**.
 
-## <a name="deploy-the-training-experiment-as-a-training-web-service"></a>Déployer l’expérience de formation en tant que service web de formation
-Pour reformer le modèle, vous devez déployer l’expérience de formation que vous avez créée en tant que service web de reformation. Ce service web a besoin d’un module *Sortie du service web* connecté au module *[Former la modèle][train-model]* afin de pouvoir produire de nouveaux modèles formés.
+## <a name="deploy-the-training-experiment-as-a-training-web-service"></a>Déployer l’expérience de formation comme service web de formation
+Pour reformer le modèle, vous devez déployer l’expérience de formation que vous avez créée comme service web de reformation. Ce service web a besoin d’un module *Sortie du service web* connecté au module *[Former le modèle][train-model]* afin de pouvoir produire de nouveaux modèles formés.
 
 1. Pour revenir à l’expérience d’apprentissage, cliquez sur l’icône Expériences dans le volet gauche, puis sur l’expérience nommée Modèle de recensement.  
 2. Dans la zone de recherche des éléments d’expérience, tapez Service web. 
@@ -61,7 +65,7 @@ Pour reformer le modèle, vous devez déployer l’expérience de formation que 
 4. Faites glisser deux modules *Sortie du service web* sur le canevas de l’expérience. Connectez la sortie du module *Former le modèle* à l’un des modules, et la sortie du module *Évaluer le modèle* à l’autre. La sortie du service web pour **Former le modèle** nous fournit le nouveau modèle formé. La sortie attachée au module **Évaluer le modèle** retourne la sortie de celui-ci, c’est-à-dire les résultats des performances.
 5. Cliquez sur **Exécuter**. 
 
-Ensuite, vous devez déployer l’expérience de formation en tant que service web qui produit un modèle formé et des résultats d’évaluation du modèle. La procédure diffère selon que vous utilisez un service web classique ou un nouveau service web.  
+Ensuite, vous devez déployer l’expérience de formation comme service web qui produit un modèle formé et les résultats d’évaluation du modèle. La procédure diffère selon que vous utilisez un service web classique ou un nouveau service web.  
 
 **Service web classique**
 
@@ -75,7 +79,7 @@ Dans les deux cas, une fois l’exécution de l’expérience terminée, le flux
 
 ![Flux de travail produit après l’exécution.][4]
 
-Diagramme 3 : Flux de travail produit après l’exécution.
+Diagramme 3 : Flux de travail produit après l’exécution.
 
 ## <a name="retrain-the-model-with-new-data-using-bes"></a>Effectuer à nouveau l’apprentissage du modèle avec de nouvelles données à l’aide de BES
 Pour cet exemple, vous utilisez le langage C# pour créer l’application de reformation. Pour accomplir cette tâche, vous pouvez également utiliser l’exemple de code Python ou R.
@@ -84,7 +88,7 @@ Pour appeler les API Retraining :
 
 1. Créez une application console C# dans Visual Studio (Nouveau -> projet -> Bureau Windows -> Application console).
 2. Connectez-vous au portail de services web Azure Machine Learning.
-3. Si vous utilisez un service web classique, cliquez sur **Classic Web Services**(Services web classiques).
+3. Si vous utilisez un service web classique, cliquez sur **Services web classiques**.
    1. Cliquez sur le service web utilisé.
    2. Cliquez sur le point de terminaison par défaut.
    3. Cliquez sur **Consommer**.
@@ -106,7 +110,7 @@ Localisez la déclaration **apiKey** .
 Dans la section des **informations de base sur la consommation** de la page **Utiliser**, recherchez la clé primaire et copiez-la dans la déclaration **apiKey**.
 
 ### <a name="update-the-azure-storage-information"></a>Mettre à jour les informations Azure Storage
-L’exemple de code BES charge un fichier à partir d’un lecteur local (par exemple, « C:\temp\CensusInput.csv ») vers Azure Storage, le traite et réécrit les résultats dans Azure Storage.  
+L’exemple de code BES charge un fichier à partir d’un lecteur local (par exemple, « C:\temp\CensusInput.csv ») vers Azure Storage, le traite et réécrit les résultats dans Azure Storage.  
 
 Pour réaliser cette tâche, vous devez récupérer les informations de nom de compte, de clé et de conteneur de stockage pour votre compte de stockage depuis le portail Azure Classic et mettre à jour les valeurs correspondantes dans le code. 
 
@@ -129,7 +133,7 @@ Vous devez également vous assurer que le fichier d’entrée est disponible à 
 ### <a name="specify-the-output-location"></a>Spécifier l’emplacement de sortie
 Lorsque vous spécifiez l’emplacement de sortie dans la charge utile des demandes, l’extension du fichier spécifiée dans *RelativeLocation* doit avoir pour valeur ilearner. 
 
-Voir l’exemple suivant :
+Voir l’exemple suivant :
 
     Outputs = new Dictionary<string, AzureBlobDataReference>() {
         {
@@ -142,13 +146,13 @@ Voir l’exemple suivant :
         },
 
 > [!NOTE]
-> Le nom de vos emplacements de sortie peut être différent de ceux de cette procédure pas à pas, selon l’ordre dans lequel vous avez ajouté les modules de sortie du service web. Étant donné que vous avez défini cette expérience d’apprentissage avec deux sorties, les résultats incluent les informations d’emplacement de stockage des deux.  
+> Le nom de vos emplacements de sortie peut être différent de ceux de cette procédure pas à pas, selon l’ordre dans lequel vous avez ajouté les modules de sortie du service web. Étant donné que vous avez défini cette expérience de formation avec deux sorties, les résultats incluent les informations d’emplacement de stockage des deux.  
 > 
 > 
 
 ![Sortie du nouvel apprentissage.][6]
 
-Diagramme 4 : Sortie du nouvel apprentissage.
+Diagramme 4 : Sortie du nouvel apprentissage.
 
 ## <a name="evaluate-the-retraining-results"></a>Évaluer les résultats du nouvel apprentissage
 Lorsque vous exécutez l’application, la sortie inclut le jeton SAP et l’URL nécessaires pour accéder aux résultats de l’évaluation.
@@ -160,11 +164,11 @@ Examinez les résultats pour déterminer si le modèle de nouveau entraîné est
 Copiez les éléments *BaseLocation*, *RelativeLocation* et *SasBlobToken* des résultats de sortie. Vous allez les utiliser pendant le processus de reformation.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Reformer un service web classique](machine-learning-retrain-a-classic-web-service.md)
+Si vous avez déployé le service web prédictif en cliquant sur **Déployer un service web [classique]**, consultez [Reformer un service web classique](machine-learning-retrain-a-classic-web-service.md).
 
-[Retrain a New Web service using the Machine Learning Management cmdlets](machine-learning-retrain-new-web-service-using-powershell.md)
+Si vous avez déployé le service web prédictif en cliquant sur **Déployer un service web [nouveau]**, consultez [Reformer un nouveau service web à l’aide des applets de commande de gestion Machine Learning](machine-learning-retrain-new-web-service-using-powershell.md).
 
-<!-- Retrain a New Web service using the Machine Learning Management REST API -->
+<!-- Retrain a New web service using the Machine Learning Management REST API -->
 
 
 [1]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE01.png
@@ -180,6 +184,7 @@ Copiez les éléments *BaseLocation*, *RelativeLocation* et *SasBlobToken* des r
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Dec16_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ecdf6e68a8d2bf7c034b92b57b45ae496a063713
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b568a9bea9679a9edeb708a5f7fcc6d68854574f
 
 
 ---
@@ -57,7 +57,7 @@ Pour afficher les itinéraires agrégés qui s’appliquent à une machine virtu
 ### <a name="view-effective-routes-for-a-network-interface"></a>Afficher les itinéraires effectifs pour une interface réseau
 Pour afficher les itinéraires agrégés appliqués à une carte d’interface réseau, procédez comme suit :
 
-1. Démarrez une session Azure PowerShell et connectez-vous à Azure. Si vous n’êtes pas familiarisé avec Azure PowerShell, lisez l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) .
+1. Démarrez une session Azure PowerShell et connectez-vous à Azure. Si vous n’êtes pas familiarisé avec Azure PowerShell, lisez l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 2. La commande suivante renvoie tous les itinéraires appliqués à une carte d’interface réseau nommée *VM1-NIC1* dans le groupe de ressources *RG1*.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -139,6 +139,6 @@ Quelques éléments à prendre en compte lors de l’examen de la liste d’itin
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

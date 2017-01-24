@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 01/03/2017
 ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
-ms.openlocfilehash: e04763fa711eed4c699f2bc3f20834849dfe52e0
+ms.sourcegitcommit: 4f67c67639eaf33bb1f2aa236164e98030f5b555
+ms.openlocfilehash: c76471f4c0f4e1b751d623f691578d354008d863
 
 
 ---
@@ -126,9 +126,7 @@ Par exemple, si vous êtes connecté à Microsoft à Amsterdam via ExpressRoute,
 
 Reportez-vous à la page [Partenaires ExpressRoute et emplacements d’homologation](expressroute-locations.md) pour obtenir une liste détaillée des régions géopolitiques, des régions Azure associées et des emplacements d’homologation ExpressRoute correspondants.
 
-Vous pouvez acheter plusieurs circuits ExpressRoute par région géopolitique. Le fait de disposer de plusieurs connexions vous offre des avantages significatifs en termes de haute disponibilité en raison de la redondance géographique. Si vous avez plusieurs circuits ExpressRoute, vous recevrez le même jeu de préfixes publiés par Microsoft sur les chemins d'homologation publiques et Microsoft. Cela signifie que vous disposez de plusieurs chemins de votre réseau vers Microsoft. Vous risquez ainsi de prendre des décisions de routage non optimales au sein de votre réseau. Et par conséquent, vous risquez de rencontrer des problèmes de connectivité non optimale avec différents services. 
-
-Microsoft marquera les préfixes publiés via l'homologation publique et l’homologation Microsoft avec les valeurs de communauté BGP appropriées indiquant la région dans laquelle les préfixes sont hébergés. Vous pouvez compter sur les valeurs de communauté pour prendre des décisions de routage avisées et offrir [aux clients un routage optimal](expressroute-optimize-routing.md).
+Vous pouvez acheter plusieurs circuits ExpressRoute par région géopolitique. Le fait de disposer de plusieurs connexions vous offre des avantages significatifs en termes de haute disponibilité en raison de la redondance géographique. Si vous avez plusieurs circuits ExpressRoute, vous recevrez le même jeu de préfixes publiés par Microsoft sur les chemins d'homologation publiques et Microsoft. Cela signifie que vous disposez de plusieurs chemins de votre réseau vers Microsoft. Vous risquez ainsi de prendre des décisions de routage non optimales au sein de votre réseau. Et par conséquent, vous risquez de rencontrer des problèmes de connectivité non optimale avec différents services. Vous pouvez compter sur les valeurs fournies par la communauté pour prendre les bonnes décisions en matière de routage et offrir un [routage optimal aux utilisateurs](expressroute-optimize-routing.md).
 
 | **Région Microsoft Azure** | **Valeur de communauté BGP** |
 | --- | --- |
@@ -214,6 +212,6 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

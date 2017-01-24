@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/21/2016
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: 8db20ca36190197abcb73200eeed79e004435af9
-ms.openlocfilehash: d851dec517c162073ade6ffb4ebcf972c5054698
+ms.sourcegitcommit: f1e4b86a04a76513a2f0d9a9f89e49611c0447d5
+ms.openlocfilehash: b31fa50a62d5b26a7346f212076ec3a2b0386f5e
 
 
 ---
@@ -28,7 +28,7 @@ Tout d’abord, vous devez inscrire votre application avec votre client Azure Ac
 * Sélectionnez votre client Azure AD en cliquant sur votre compte dans le coin supérieur droit de la page.
 * Dans le volet de navigation gauche, cliquez sur **Azure Active Directory**.
 * Cliquez sur **Inscriptions des applications**, puis sur **Ajouter**.
-* Suivez les invites et créez une application. Pour ce didacticiel, il peut s’agir d’une application web ou d’une application native. Cependant, si vous souhaitez obtenir des exemples spécifiques pour les applications web ou les applications natives, consultez nos rubriques de [démarrage rapide](../articles/active-directory/active-directory-developers-guide.md).
+* Suivez les invites et créez une application. Pour ce didacticiel, il peut s’agir d’une application web ou d’une application native. Cependant, si vous souhaitez obtenir des exemples spécifiques pour les applications web ou les applications natives, consultez nos rubriques de [démarrage rapide](../articles/active-directory/develop/active-directory-developers-guide.md).
   * Pour les applications web, indiquez l’**URL de connexion**, c’est-à-dire l’URL de base de votre application, à laquelle les utilisateurs peuvent se connecter, par exemple `http://localhost:12345`.
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
   * Pour les applications natives, indiquez un **URI de redirection**, qui sera utilisé par Azure AD pour retourner les réponses de jeton. Entrez une valeur spécifique à votre application, par exemple, `http://MyFirstAADApp`
@@ -36,6 +36,6 @@ Tout d’abord, vous devez inscrire votre application avec votre client Azure Ac
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

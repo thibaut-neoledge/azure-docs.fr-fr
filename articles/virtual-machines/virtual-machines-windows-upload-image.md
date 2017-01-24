@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: fe188671ff1cb5ba93edbff316afd7b6e23a2dd1
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: 5aa6b2149170ef04af0ebde957feda5630c5d5eb
 
 
 ---
@@ -40,7 +40,7 @@ Vous pouvez télécharger des disques durs virtuels généralisés et spécialis
   * Vérifiez que la machine virtuelle est configurée pour extraire son adresse IP et ses paramètres DNS via DHCP. Cela permet de s’assurer que le serveur obtient une adresse IP dans le réseau virtuel lors de son démarrage. 
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
-Si vous n’avez pas déjà installé PowerShell version 1.4 ou ultérieure, lisez [Installer et configurer Azure PowerShell](../powershell-install-configure.md).
+Si vous n’avez pas déjà installé PowerShell version 1.4 ou ultérieure, lisez [Installer et configurer Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 1. Ouvrez Azure PowerShell et connectez-vous à votre compte Azure. Une fenêtre contextuelle s’ouvre pour vous permettre d’entrer les informations d’identification de votre compte Azure.
    
@@ -132,6 +132,6 @@ Selon votre connexion réseau et la taille de votre fichier de disque dur virtue
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

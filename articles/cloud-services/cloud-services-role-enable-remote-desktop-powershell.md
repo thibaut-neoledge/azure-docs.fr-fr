@@ -12,21 +12,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2016
+ms.date: 11/22/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d2a3f912b9c3532c41219c68a948acea8416624a
+ms.sourcegitcommit: a40453394f0178f41e6ebf2ad47950763f1dde93
+ms.openlocfilehash: 330770854cdd0431d4b4c34760ef92b114751c9c
 
 
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services avec PowerShell
 > [!div class="op_single_selector"]
+> * [Portail Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [Portail Azure Classic](cloud-services-role-enable-remote-desktop.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
-> 
-> 
+>
+>
 
 Le Bureau à distance vous permet d'accéder au bureau d'un rôle en cours d'exécution dans Azure. Vous pouvez utiliser une connexion Bureau à distance pour dépanner et diagnostiquer les problèmes rencontrés par votre application lorsqu'elle est en cours d'exécution.
 
@@ -53,8 +54,8 @@ ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-S
 
 > [!IMPORTANT]
 > Lors de la définition du mot de passe, assurez-vous que vous remplissez les [exigences de complexité](https://technet.microsoft.com/library/cc786468.aspx).
-> 
-> 
+>
+>
 
 Pour créer l’objet d’informations d’identification à partir du fichier de mot de passe sécurisé, vous devez lire le contenu du fichier et le reconvertir en chaîne sécurisée à l’aide [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
 
@@ -100,17 +101,16 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 > [!NOTE]
 > Pour supprimer complètement la configuration d’extension, vous devez appeler l’applet de commande *remove* avec le paramètre **UninstallConfiguration** .
-> 
+>
 > Le paramètre **UninstallConfiguration** désinstalle toute configuration d’extension appliquée au service. Chaque configuration de l’extension est associée à la configuration du service. L’appel de l’applet de commande *remove* sans **UninstallConfiguration** dissocie le <mark>déploiement</mark> de la configuration d’extension, supprimant ainsi de manière efficace l’extension. Cependant, la configuration d’extension reste associée au service.
-> 
-> 
+>
+>
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 [Configuration des services cloud](cloud-services-how-to-configure.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

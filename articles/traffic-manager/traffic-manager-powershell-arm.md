@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: c5df6d998812568c764ccb6914b3c81fe4e568ec
-ms.openlocfilehash: d9d9630487f9eeb381198230a20d01c1c5f6678d
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: f97ba8ebc940d4b3eec5d2610503f8a86af8dbe2
 
 ---
 
@@ -52,7 +52,7 @@ Quand il est fait référence à un point de terminaison de type « AzureEndpoi
 
 Ces instructions utilisent Microsoft Azure PowerShell. L’article suivant explique comment installer et configurer Azure PowerShell.
 
-* [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md)
+* [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 Les exemples de cet article supposent que vous disposez déjà d’un groupe de ressources. Vous pouvez en créer un à l’aide de la commande suivante :
 
@@ -342,6 +342,6 @@ Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remov
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

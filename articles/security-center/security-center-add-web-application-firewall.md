@@ -12,21 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 12/01/2016
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8d7034d296804ceeb0580eb80569b86fcf152db6
+ms.sourcegitcommit: 2286437f4ab13384f895e906ccda48ac1b4c553d
+ms.openlocfilehash: b44a0373ceca84b423984e01eee1e57a67d97cdd
 
 
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Ajouter un pare-feu d'applications web dans le Centre de sécurité Azure
-Le Centre de sécurité Azure peut vous recommander d'ajouter un pare-feu d'applications web (WAF) d'un partenaire Microsoft afin de sécuriser vos applications web. Ce document inclut un exemple vous expliquant comment procéder.
+Azure Security Center peut vous recommander d'ajouter un pare-feu d'applications web (WAF) d'un partenaire Microsoft afin de sécuriser vos applications web. Ce document inclut un exemple vous expliquant comment procéder pour appliquer cette recommandation.
+
+Une recommandation WAF est indiquée pour n’importe quelle IP publique (adresse IP de niveau d’instance ou adresse IP à équilibrage de charge) ayant un groupe de sécurité réseau associé avec des ports web entrants ouverts (80, 443).
+
+Security Center recommande d’approvisionner un WAF pour vous défendre contre les attaques ciblant vos applications web sur les machines virtuelles et sur l’environnement App Service (ASE). Un environnement App Service (ASE) est une option de plan de service [Premium](https://azure.microsoft.com/pricing/details/app-service/) d'Azure App Service qui fournit un environnement totalement isolé et dédié pour l'exécution sécurisée de vos applications Azure App Service. Pour en savoir plus sur ASE, voir [Documentation sur l’environnement App Service](../app-service/app-service-app-service-environments-readme.md).
 
 > [!NOTE]
-> Ce document présente le service à l’aide d’un exemple de déploiement.  Il ne s’agit pas d’un guide pas à pas.
-> 
-> 
+> Ce document présente le service à l’aide d’un exemple de déploiement.  Ce document n'est pas un guide pas à pas.
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implémenter la recommandation
 1. Dans le panneau **Recommandations**, sélectionnez **Sécuriser l’application web à l’aide du pare-feu d’applications web**.
@@ -34,13 +38,13 @@ Le Centre de sécurité Azure peut vous recommander d'ajouter un pare-feu d'appl
 2. Dans le panneau **Sécuriser l’application web à l’aide du pare-feu d’applications web** , sélectionnez une application web. Le panneau **Ajouter un pare-feu d’applications web** s’ouvre.
    ![Add a web application firewall][2]
 3. Vous pouvez choisir d'utiliser un pare-feu d'applications web existant s'il est disponible, ou en créer un. Dans cet exemple, il n'existe aucun pare-feu WAF existant, et nous allons donc en créer un.
-4. Pour créer un pare-feu WAF, sélectionnez une solution dans la liste des partenaires intégrés. Dans cet exemple, nous allons sélectionner **Pare-feu d’applications web Barracuda**.
+4. Pour créer un pare-feu WAF, sélectionnez une solution dans la liste des partenaires intégrés. Dans cet exemple, nous sélectionnons **Pare-feu d’applications web Barracuda**.
 5. Le panneau **Pare-feu d’applications web Barracuda** s’ouvre et affiche des informations sur la solution du partenaire. Sélectionnez **Créer** dans le panneau d’informations.
    ![Panneau d’informations du pare-feu][3]
 6. Le panneau **Nouveau pare-feu d’applications web** s’ouvre. Vous pouvez y **configurer des machines virtuelles** et fournir des **informations sur le pare-feu d’applications web**. Sélectionnez **Configuration de machine virtuelle**.
-7. Dans le panneau **Configuration de machine virtuelle** , entrez les informations nécessaires pour créer la machine virtuelle qui doit exécuter le pare-feu d’applications web.
+7. Dans le panneau **Configuration de machine virtuelle**, entrez les informations nécessaires pour créer la machine virtuelle qui exécute le pare-feu d’applications web.
    ![VM configuration][4]
-8. Retournez au panneau **Nouveau pare-feu d’applications web**, puis sélectionnez **Informations sur le pare-feu d’applications web**. Dans le panneau **Informations sur le pare-feu d’applications web** , vous pouvez configurer le pare-feu d’applications web. L’étape 7 vous permet de configurer la machine virtuelle sur laquelle le pare-feu d’applications web doit être exécuté, et l’étape 8 vous permet d’approvisionner le pare-feu d’applications web.
+8. Retournez au panneau **Nouveau pare-feu d’applications web**, puis sélectionnez **Informations sur le pare-feu d’applications web**. Dans le panneau **Informations sur le pare-feu d’applications web**, vous pouvez configurer le pare-feu d’applications web. L’étape 7 vous permet de configurer la machine virtuelle sur laquelle le pare-feu d’applications web s'exécute, et l’étape 8 vous permet d’approvisionner le pare-feu d’applications web.
 
 ## <a name="finalize-application-protection"></a>Finaliser la protection des applications
 1. Retournons au panneau **Recommandations** . Une entrée a été générée après la création du pare-feu d’applications web, appelée **Finaliser la protection des applications**. Cela vous indique que vous devez terminer le processus de configuration du pare-feu d’applications web dans le réseau virtuel Azure pour qu’il puisse protéger l’application.
@@ -50,9 +54,9 @@ Le Centre de sécurité Azure peut vous recommander d'ajouter un pare-feu d'appl
    ![Restreindre le trafic][6]
 
 > [!NOTE]
-> Vous pouvez protéger plusieurs applications web dans le centre de sécurité en les ajoutant à vos déploiements WAF existants. Les dispositifs WAF (créés à l’aide du modèle de déploiement de Resource Manager) doivent être déployés sur un réseau virtuel distinct. Les dispositifs WAF (créés à l’aide du modèle de déploiement classique) sont limités à l’utilisation d’un groupe de sécurité réseau. Cette prise en charge sera étendue prochainement à un déploiement entièrement personnalisé d’un dispositif WAF (pour les machines virtuelles de type Classique). En savoir plus sur les [modèles de déploiement de type Classique et Resource Manager](../azure-classic-rm.md) pour les ressources Azure.
-> 
-> 
+> Vous pouvez protéger plusieurs applications web dans le centre de sécurité en les ajoutant à vos déploiements WAF existants.
+>
+>
 
 Les journaux du pare-feu d’applications web sont maintenant entièrement intégrés. Le Centre de sécurité peut commencer automatiquement à collecter et à analyser les journaux afin de vous informer des alertes de sécurité les plus importantes.
 
@@ -80,6 +84,6 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

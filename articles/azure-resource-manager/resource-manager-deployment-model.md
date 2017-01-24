@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
@@ -58,21 +58,27 @@ Pour les machines virtuelles, les comptes de stockage et les réseaux virtuels, 
 
 Dans certains cas, une commande Resource Manager peut récupérer des informations sur une ressource créée via un déploiement classique ou effectuer une tâche d’administration, telle que le déplacement d’une ressource classique vers un autre groupe de ressources, mais ces exemples ne doivent pas donner l’impression que le type prend en charge les opérations de Resource Manager. Par exemple, supposons que vous disposiez d’un groupe de ressources qui contient une machine virtuelle, créée via un déploiement classique. Si vous exécutez la commande PowerShell Resource Manager suivante :
 
-    Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
+```powershell
+Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
+```
 
 Elle renvoie la machine virtuelle :
 
-    Name              : ExampleClassicVM
-    ResourceId        : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.ClassicCompute/virtualMachines/ExampleClassicVM
-    ResourceName      : ExampleClassicVM
-    ResourceType      : Microsoft.ClassicCompute/virtualMachines
-    ResourceGroupName : ExampleGroup
-    Location          : westus
-    SubscriptionId    : {guid}
+```powershell
+Name              : ExampleClassicVM
+ResourceId        : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.ClassicCompute/virtualMachines/ExampleClassicVM
+ResourceName      : ExampleClassicVM
+ResourceType      : Microsoft.ClassicCompute/virtualMachines
+ResourceGroupName : ExampleGroup
+Location          : westus
+SubscriptionId    : {guid}
+```
 
 Toutefois, l’applet de commande Resource Manager **Get-AzureRmVM** renvoie uniquement les machines virtuelles déployées par le biais de Resource Manager. La commande suivante ne renvoie pas la machine virtuelle créée via un déploiement classique.
 
-    Get-AzureRmVM -ResourceGroupName ExampleGroup
+```powershell
+Get-AzureRmVM -ResourceGroupName ExampleGroup
+```
 
 Seules les ressources créées via Resource Manager prennent en charge les balises. Vous ne pouvez pas appliquer des balises aux ressources classiques.
 
@@ -87,13 +93,19 @@ Pour vous aider à comprendre les deux modèles, examinons maintenant les caract
   
      ![Déploiement Resource Manager](./media/resource-manager-deployment-model/select-resource-manager.png)
 * Créé avec la version Resource Manager des applets de commande Azure PowerShell. Ces commandes présentent le format *Verb-AzureRmNoun*.
-  
-        New-AzureRmResourceGroupDeployment
+
+  ```powershell
+  New-AzureRmResourceGroupDeployment
+  ```
+
 * Créé via [l’API REST Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) pour les opérations REST.
 * Créé à l’aide de commandes de l’interface de ligne de commande Azure exécutées en mode **arm** .
   
-        azure config mode arm
-        azure group deployment create 
+  ```azurecli
+  azure config mode arm
+  azure group deployment create
+  ```
+
 * Le type de ressource n’inclut pas **(classique)** dans le nom. L’illustration suivante indique le type en tant que **compte de stockage**.
   
     ![application web](./media/resource-manager-deployment-model/resource-manager-type.png)
@@ -111,13 +123,19 @@ Les ressources créées dans le modèle de déploiement classique partagent les 
   
      ![Déploiement classique](./media/resource-manager-deployment-model/select-classic.png)
 * Créées via la version Gestion des services des applets de commande Azure PowerShell. Ces noms de commande présentent le format *Verb-AzureNoun*.
-  
-        New-AzureVM 
+
+  ```powershell
+  New-AzureVM
+  ```
+
 * Créées via [l’API REST Gestion des services](https://msdn.microsoft.com/library/azure/ee460799.aspx) pour les opérations REST.
 * Créées à l’aide de commandes de l’interface de ligne de commande Azure exécutées en mode **asm** .
-  
-        azure config mode asm
-        azure vm create 
+
+  ```azurecli
+  azure config mode asm
+  azure vm create
+  ```
+   
 * Le type de ressource inclut **(classique)** dans le nom. L’illustration suivante indique le type en tant que **compte de stockage (classique)**.
   
     ![type classique](./media/resource-manager-deployment-model/classic-type.png)

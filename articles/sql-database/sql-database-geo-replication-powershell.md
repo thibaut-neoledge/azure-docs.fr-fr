@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: bc5e50e4-bbb2-4ce1-9ee5-9a632de6fa06
 ms.service: sql-database
+ms.custom: business continuity; how to
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
@@ -15,8 +16,8 @@ ms.workload: NA
 ms.date: 07/14/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 293dc178b955f8b3a24c2dde7d97fe44cb1fe91f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 605f7d33c197af60579e30f0b2823968865c7229
 
 
 ---
@@ -42,7 +43,7 @@ Pour configurer la géoréplication active à l’aide de PowerShell, vous devez
 
 * Un abonnement Azure. 
 * Une base de données SQL Azure : la base de données primaire que vous souhaitez répliquer.
-* Azure PowerShell 1.0 ou version ultérieure. Vous pouvez télécharger et installer les modules Azure PowerShell en suivant la procédure décrite dans [Comment installer et configurer Azure PowerShell](../powershell-install-configure.md).
+* Azure PowerShell 1.0 ou version ultérieure. Vous pouvez télécharger et installer les modules Azure PowerShell en suivant la procédure décrite dans [Comment installer et configurer Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="configure-your-credentials-and-select-your-subscription"></a>Configurer vos informations d'identification et sélectionner votre abonnement
 Tout d'abord, vous devez établir l'accès à votre compte Azure : lancez PowerShell, puis exécutez l’applet de commande suivante. Sur l’écran de connexion, saisissez l'adresse électronique et le mot de passe que vous utilisez pour vous connecter au portail Azure.
@@ -140,6 +141,6 @@ La commande suivante récupère l’état du lien de réplication entre la base 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

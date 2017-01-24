@@ -1,25 +1,29 @@
 ---
 title: Concepteur de vues de Log Analytics | Microsoft Docs
-description: Le Concepteur de vues de Log Analytics permet de créer dans la console OMS des vues personnalisées contenant différentes visualisations des données du référentiel OMS. Cet article contient une présentation du Concepteur de vues et des procédures de création et modification des vues personnalisées.
+description: "Le Concepteur de vues de Log Analytics permet de créer dans la console OMS des vues personnalisées contenant différentes visualisations des données du référentiel OMS. Cet article contient une présentation du Concepteur de vues et des procédures de création et modification des vues personnalisées."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: efe0eeb6c9389545f51f22bbf0a2d6389939c375
+
 
 ---
 # <a name="log-analytics-view-designer"></a>Concepteur de vues de Log Analytics
 Le Concepteur de vues de Log Analytics permet de créer des vues personnalisées dans la console OMS, qui contiennent différentes visualisations de données du référentiel OMS. Cet article contient une présentation du Concepteur de vues et des procédures de création et modification des vues personnalisées.
 
-Autres articles disponibles concernant le Concepteur de vues :
+Autres articles disponibles concernant le Concepteur de vues :
 
 * [Référence de vignette](log-analytics-view-designer-tiles.md) - référence des paramètres pour chacune des vignettes utilisables dans vos vues personnalisées. 
 * [Référence des composants de visualisation](log-analytics-view-designer-parts.md) - référence des paramètres pour chacune des vignettes utilisables dans vos vues personnalisées. 
@@ -52,7 +56,7 @@ Pour modifier une vue dans le Concepteur de vues, ouvrez la vue en cliquant sur 
 ![Modifier une vue](media/log-analytics-view-designer/menu-edit.png)
 
 ### <a name="clone-an-existing-view"></a>Cloner une vue
-Lorsque vous clonez une vue, cela a pour effet de créer une vue et de l’ouvre dans le Concepteur de vues.  La nouvelle vue porte le même nom que la vue originale, avec le mot « Copy » ajouté à la fin.  Pour cloner une vue, ouvrez la vue existante en cliquant sur sa vignette dans le tableau de bord OMS principal.  Cliquez ensuite sur le bouton **Cloner** pour ouvrir la vue dans le Concepteur de vues.
+Lorsque vous clonez une vue, cela a pour effet de créer une vue et de l’ouvre dans le Concepteur de vues.  La nouvelle vue porte le même nom que la vue originale, avec le mot « Copy » ajouté à la fin.  Pour cloner une vue, ouvrez la vue existante en cliquant sur sa vignette dans le tableau de bord OMS principal.  Cliquez ensuite sur le bouton **Cloner** pour ouvrir la vue dans le Concepteur de vues.
 
 ![Cloner une vue](media/log-analytics-view-designer/edit-menu-clone.png)
 
@@ -62,7 +66,7 @@ Pour supprimer une vue, ouvrez-la en cliquant sur sa vignette dans le tableau de
 ![Supprimer une vue](media/log-analytics-view-designer/edit-menu-delete.png)
 
 ### <a name="export-an-existing-view"></a>Exporter une vue
-Vous pouvez exporter une vue dans un fichier JSON que vous pouvez importer dans un autre espace de travail ou utiliser dans un [modèle Azure Resource Manager](../resource-group-authoring-templates.md).  Pour exporter une vue, ouvrez-la en cliquant sur sa vignette dans le tableau de bord OMS principal.  Cliquez ensuite sur le bouton **Exporter** pour créer un fichier dans le dossier de téléchargement du navigateur.  Le nom du fichier celui de la vue, avec l’extension *omsview*.
+Vous pouvez exporter une vue dans un fichier JSON que vous pouvez importer dans un autre espace de travail ou utiliser dans un [modèle Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).  Pour exporter une vue, ouvrez-la en cliquant sur sa vignette dans le tableau de bord OMS principal.  Cliquez ensuite sur le bouton **Exporter** pour créer un fichier dans le dossier de téléchargement du navigateur.  Le nom du fichier celui de la vue, avec l’extension *omsview*.
 
 ![Exporter une vue](media/log-analytics-view-designer/edit-menu-export.png)
 
@@ -92,6 +96,9 @@ Les vues ne comprennent qu’une seule ligne de composants de visualisation.  R�
 * Ajouter des [vignettes](log-analytics-view-designer-tiles.md) à votre vue personnalisée.
 * Ajouter des [composants de visualisation](log-analytics-view-designer-parts.md) à votre vue personnalisée.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

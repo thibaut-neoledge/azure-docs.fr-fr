@@ -1,5 +1,5 @@
 ---
-title: "Instructions pour les infrastructures réseau | Microsoft Docs"
+title: "Instructions pour les infrastructures réseau Azure | Microsoft Docs"
 description: "Découvrez-en plus sur les principales instructions de conception et d’implémentation pour le déploiement d’un réseau virtuel dans des services d’infrastructure Azure."
 documentationcenter: 
 services: virtual-machines-linux
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7bf465a884a5adcf86d0039d096a3ba8663b6979
+ms.sourcegitcommit: 70e52cefccee4b963e512724b96525bcbacf330c
+ms.openlocfilehash: 906ea9308ffee9dc719e1f17171deaba394a26d6
 
 
 ---
-# <a name="networking-infrastructure-guidelines"></a>Instructions pour les infrastructures réseau
+# <a name="azure-networking-infrastructure-guidelines"></a>Instructions pour les infrastructures réseau Azure
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Cet article se concentre sur la compréhension des étapes de planification nécessaires pour un réseau virtuel dans Azure et la connectivité entre les environnements locaux existants.
@@ -106,6 +106,6 @@ Comme avec une infrastructure de réseau local physique, un réseau virtuel Wind
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

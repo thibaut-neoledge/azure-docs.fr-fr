@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fdf26c779c73c67f8abc7770415787fd90397e05
+ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
+ms.openlocfilehash: 2464b54f70dc38b79a883b08664f4f165ec4c2d3
 
 
 ---
@@ -61,11 +61,11 @@ Pour déplacer les ressources vers un autre abonnement, incluez le paramètre **
 Vous devrez confirmer que vous souhaitez déplacer les ressources spécifiées. Tapez **Y** pour confirmer que vous souhaitez déplacer les ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous pouvez déplacer de nombreux types de ressources différents entre les groupes de ressources et les abonnements. Pour plus d’informations, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un abonnement](../resource-group-move-resources.md).    
+Vous pouvez déplacer de nombreux types de ressources différents entre les groupes de ressources et les abonnements. Pour plus d’informations, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un abonnement](../azure-resource-manager/resource-group-move-resources.md).    
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

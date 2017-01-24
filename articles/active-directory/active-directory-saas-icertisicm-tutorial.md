@@ -1,12 +1,12 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec Icertis Contract Management Platform | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Icertis Contract Management Platform.
+title: "Didacticiel : Intégration d’Azure Active Directory avec Icertis Contract Management Platform | Microsoft Docs"
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Icertis Contract Management Platform."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6627e6dd-f559-4cd4-a509-f6d9a4961b49
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d8ba034936f4d9ec14c1214575486ddbb709907a
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Didacticiel : Intégration d’Azure Active Directory avec Icertis Contract Management Platform
+# <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Didacticiel : Intégration d’Azure Active Directory avec Icertis Contract Management Platform
 L’objectif de ce didacticiel est de vous montrer comment intégrer Icertis Contract Management Platform dans Azure AD (Azure Active Directory).
 
 L’intégration d’Icertis Contract Management Platform avec Azure AD vous offre les avantages suivants :
 
 * Vous pouvez contrôler dans Azure AD qui a accès à Icertis Contract Management Platform.
 * Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Icertis Contract Management Platform (via l’authentification unique) avec leurs comptes Azure AD.
-* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
+* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Composants requis
 Pour configurer l’intégration d’Azure AD à Icertis Contract Management Platform, vous avez besoin des éléments suivants :
@@ -38,7 +42,7 @@ Pour configurer l’intégration d’Azure AD à Icertis Contract Management Pla
 > 
 > 
 
-Vous devez en outre suivre les recommandations ci-dessous :
+Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
 * Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
@@ -85,13 +89,13 @@ Pour cela, affectez la valeur du **nom d’utilisateur** dans Azure AD comme val
 
 Pour configurer et tester l’authentification unique Azure AD avec Icertis Contract Management Platform, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Icertis Contract Management Platform](#creating-a-icertis-contract-management-platform-test-user)** pour avoir un équivalent de Britta Simon dans Icertis Contract Management Platform lié à la représentation Azure AD associée.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Classic et configurer l’authentification unique dans votre application Icertis Contract Management Platform.
 
 **Pour configurer l’authentification unique Azure AD avec Icertis Contract Management Platform, procédez comme suit :**
@@ -121,10 +125,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     b. Cliquez sur **Next**.
 2. Pour obtenir la configuration de l’authentification unique pour votre application, contactez l’équipe de support Icertis Contract Management Platform et envoyez-lui les éléments suivants : 
    
-   * le fichier de **métadonnées téléchargé** ; 
-   * le fichier de **l’ID d’entité** 
-   * le fichier de **l’URL d’authentification unique SAML** 
-   * le fichier de **l’URL du service de déconnexion unique**
+    - le fichier de **métadonnées téléchargé** ; 
+   
+    - le fichier de **l’ID d’entité** 
+   
+    - le fichier de **l’URL d’authentification unique SAML** 
+   
+    - le fichier de **l’URL du service de déconnexion unique**
 3. Dans le portail Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
     ![Authentification unique Azure AD][10]
@@ -137,7 +144,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ![Créer un utilisateur Azure AD][20]
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
    
@@ -146,7 +153,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-icertisicm-tutorial/create_aaduser_03.png)
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils inférieure.
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-icertisicm-tutorial/create_aaduser_04.png)
 5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
@@ -171,7 +178,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
    
    e. Cliquez sur **Next**.
-7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **Créer**.
+7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-icertisicm-tutorial/create_aaduser_07.png)
 8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
@@ -207,13 +214,13 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
     ![Affecter des utilisateurs][205]
 
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque Icertis Contract Management Platform dans le volet d’accès, vous devez être connecté automatiquement à votre application Icertis Contract Management Platform.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 
@@ -235,6 +242,6 @@ Lorsque vous cliquez sur la mosaïque Icertis Contract Management Platform dans 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

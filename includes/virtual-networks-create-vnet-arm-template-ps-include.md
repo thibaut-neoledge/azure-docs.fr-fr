@@ -1,7 +1,7 @@
 ## <a name="deploy-the-arm-template-by-using-powershell"></a>Déployer le modèle ARM à l'aide de PowerShell
 Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les étapes ci-dessous.
 
-1. Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../articles/powershell-install-configure.md) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
+1. Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 2. Au besoin, exécutez l’applet de commande **`New-AzureRmResourceGroup`** pour créer un groupe de ressources. La commande suivante crée un groupe de ressources nommé *TestRG* dans la région Azure *Centre des États-Unis*. Pour plus d’informations sur les groupes de ressources, consultez [Présentation d’Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
    
         New-AzureRmResourceGroup -Name TestRG -Location centralus
@@ -87,6 +87,6 @@ Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les 
                               }
                             ]
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 12/13/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: f480b8155c7bee797f1fed0f80200eec500e95a2
-ms.openlocfilehash: f8e0b05301b83223a7cb15d55be7001f3299213f
+ms.sourcegitcommit: 8f3e6b271f3ca5973a00f2a5a9e11dafeb9637aa
+ms.openlocfilehash: 45371ca337f291f37e1ac5c388170b7079dfad52
 
 
 ---
@@ -41,9 +41,9 @@ Vous ne savez pas vraiment ce qu’est une collection ? Consultez [Qu’est-ce 
 
     Une **partition unique** possède une capacité de stockage réservée de 10 Go et peut atteindre des niveaux de débit compris entre 400 et 10 000 unités de requête par seconde (RU/s). Une unité de requête (RU) correspond au débit de lecture d’un document de 1 Ko. Pour plus d’informations sur les unités de requête, consultez [Unités de requête](documentdb-request-units.md).
 
-    Une **collection partitionnée** peut être mise à l’échelle afin de gérer une quantité illimitée de stockage sur plusieurs partitions, avec des niveaux de débit à partir de 10 100 unités de requête par seconde. Dans le portail, le plus grand espace de stockage que vous pouvez réserver est de 250 Go, et le débit le plus élevé est 250 000 RU/s. Pour augmenter un quota, envoyez une demande, comme décrit dans [Demander l’augmentation des quotas de compte DocumentDB](documentdb-increase-limits.md). Pour plus d’informations sur les collections partitionnées, consultez [Collections à partition unique et collections partitionnées](documentdb-partition-data.md#single-partition-and-partitioned-collections).
+    Une **collection partitionnée** peut être mise à l’échelle afin de gérer une quantité illimitée de stockage sur plusieurs partitions, avec des niveaux de débit à partir de 10 100 unités de requête par seconde. Pour plus d’informations sur les collections partitionnées, consultez [Collections à partition unique et collections partitionnées](documentdb-partition-data.md#single-partition-and-partitioned-collections).
 
-    Par défaut, le débit pour une nouvelle collection à partition unique est défini sur 1 000 RU/s avec une capacité de stockage de 10 Go. Pour une collection partitionnée, le débit de la collection est défini sur 10100 RU/s avec une capacité de stockage de 250 Go. Une fois la collection créée, vous pouvez modifier le débit et le stockage de la collection.
+    Par défaut, le débit pour une nouvelle collection à partition unique est défini sur 1 000 RU/s avec une capacité de stockage de 10 Go. Pour une collection partitionnée, le débit de la collection est défini sur 10100 RU/s, sans limite maximale pour la capacité ou le débit.
 6. Si vous créez une collection partitionnée, sélectionnez la **Clé de partition** pour la collection. Il est important de sélectionner la clé de partition correcte pour obtenir une collection performante. Pour plus d’informations sur la sélection d’une clé de partition, consultez [Conception du partitionnement](documentdb-partition-data.md#designing-for-partitioning).
 7. Dans le panneau **Base de données**, créez une base de données ou utilisez une base de données existante. Les noms de base de données doivent inclure entre 1 et 255 caractères et ne peuvent pas contenir `/ \ # ?` ni d’espace de fin. Pour valider le nom, cliquez en dehors de la zone de texte. Quand le nom est validé, une coche verte s’affiche dans la case.
 8. Cliquez sur **OK** en bas de l'écran pour créer la nouvelle collection.
@@ -83,6 +83,6 @@ Une fois que chaque collection contient des documents, vous pouvez utiliser [Doc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

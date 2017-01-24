@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 06/16/2016
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
-ms.openlocfilehash: 4333abeda4e78ae6aa01684f8eb8b2001f3c1ae3
+ms.sourcegitcommit: 66b1bcdf0f79ff4743f466c3737696f53ef6a44c
+ms.openlocfilehash: 84a5272844b36951bb0132b21be9913ca50ee817
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 4333abeda4e78ae6aa01684f8eb8b2001f3c1ae3
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
 * Pour obtenir une vue d’ensemble d’Azure Resource Manager, consultez cet [article](../azure-resource-manager/resource-group-overview.md)
-* Pour connaître les différences entre Azure Service Management et Azure Resource Manager, consultez cet [article](../resource-manager-deployment-model.md)
+* Pour connaître les différences entre Azure Service Management et Azure Resource Manager, consultez cet [article](../azure-resource-manager/resource-manager-deployment-model.md)
 
 La principale différence dans la configuration de WinRM dans les deux piles réside dans la manière dont le certificat est installé sur la machine virtuelle. Dans la pile Azure Resource Manager, les certificats sont modélisés en tant que ressources gérées par le fournisseur de ressources Key Vault. Par conséquent, l’utilisateur doit fournir leur propre certificat et le charger vers un coffre de clés avant de l’utiliser dans une machine virtuelle.
 
@@ -167,6 +167,6 @@ Une fois l’installation terminée, vous pouvez vous connecter à la machine vi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

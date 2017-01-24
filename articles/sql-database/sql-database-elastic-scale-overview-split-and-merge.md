@@ -7,6 +7,7 @@ manager: jhubbard
 author: ddove
 ms.assetid: 204fd902-0397-4185-985a-dea3ed7c7d9f
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d6fc4d314adf02e9c6d5a72b3b7d58db3c2f5731
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 00497f64feea692cf0f289991d1b905f39e1c880
 
 
 ---
@@ -55,7 +56,7 @@ Les besoins en capacité varient en raison du caractère saisonnier de l'entrepr
 
 avec plusieurs locataires par base de données, l'allocation de shardlets aux partitions peut entraîner des goulots d'étranglement sur certaines partitions. Cela nécessite la réaffectation des shardlets ou le déplacement des shardlets occupés vers des partitions nouvelles ou moins utilisées. 
 
-## <a name="concepts-key-features"></a>Concepts et fonctionnalités clés
+## <a name="concepts--key-features"></a>Concepts et fonctionnalités clés
 **Services hébergés par le client**
 
 Le service de fractionnement/fusion est fourni comme un service hébergé par le client. Vous devez déployer et héberger le service dans votre abonnement Microsoft Azure. Le package que vous téléchargez à partir de NuGet comporte un modèle de configuration à réaliser ainsi que les informations relatives à votre déploiement. Pour plus d'informations, consultez le [didacticiel du service de fractionnement et de fusion](sql-database-elastic-scale-configure-deploy-split-and-merge.md) . Étant donné que le service s'exécute dans votre abonnement Azure, vous pouvez contrôler et configurer la plupart des aspects de sécurité du service. Le modèle par défaut comprend les options permettant de configurer SSL, l’authentification client basée sur certificat, le chiffrement des informations d’identification stockées, la protection contre le déni de service et les restrictions d’adresse IP. Vous trouverez plus d’informations sur la sécurité dans le document suivant [configuration de la sécurité de la fusion et du fractionnement](sql-database-elastic-scale-split-merge-security-configuration.md).
@@ -200,7 +201,7 @@ En outre, une propriété d'unicité avec la clé de partitionnement en tant que
 
 Il est inutile de configurer une nouvelle base de données de métadonnées de fractionnement et de fusion pour la mise à niveau. La nouvelle version mettra automatiquement à niveau votre base de données de métadonnées existante vers la nouvelle version. 
 
-## <a name="best-practices-troubleshooting"></a>Meilleures pratiques et dépannage :
+## <a name="best-practices--troubleshooting"></a>Meilleures pratiques et dépannage :
 * Définissez un locataire test et exercez vos opérations les plus importantes de fractionnement, de fusion et de déplacement avec le locataire test sur plusieurs partitions. Assurez-vous que toutes les métadonnées sont définies correctement dans la carte de partitions et que les opérations ne violent pas les contraintes ou les clés étrangères.
 * Maintenez la taille des données du locataire test au-dessus de la taille maximale des données de votre locataire le plus volumineux pour garantir que vous ne rencontrerez pas de problèmes liés à la taille des données. Cela vous aide à évaluer une limite supérieure relative au temps requis pour déplacer un seul locataire. 
 * Assurez-vous que votre schéma autorise les suppressions. Le service de fractionnement et de fusion requiert la possibilité de supprimer les données de la partition source une fois que les données ont été copiées dans la partition cible. Par exemple, les **déclencheurs de suppression** peuvent empêcher le service de supprimer les données de la partition source et provoquer l'échec des opérations.
@@ -218,6 +219,6 @@ Il est inutile de configurer une nouvelle base de données de métadonnées de f
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 08/18/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7df0243622af7166a57a6ec81ed356022246a3ed
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 230a652ceca8b4643d1984d81383c6628b8e1f5f
 
 
 ---
@@ -78,7 +78,7 @@ Les tableaux suivants répertorient les erreurs courantes que vous pouvez rencon
 | 3 |Invoke-HcsSetupWizard : il existe un conflit d’adresses IP avec un autre système sur le réseau (exception de HRESULT : 0x80070263). |L’adresse IP fournie pour DATA 0 était déjà utilisée par un autre système. |Fournissez une nouvelle adresse IP qui n’est pas en cours d’utilisation. |
 | 4 |Invoke-HcsSetupWizard : échec de la ressource de cluster (Exception de HRESULT : 0x800713AE). |Adresse IP virtuelle en double. L’adresse IP fournie est déjà en cours d’utilisation. |Fournissez une nouvelle adresse IP qui n’est pas en cours d’utilisation. |
 | 5. |Invoke-HcsSetupWizard : adresse IPv4 non valide. |L’adresse IP est fournie dans un format incorrect. |Vérifiez le format et fournissez à nouveau votre adresse IP. Pour plus d’informations, consultez la page [Adressage IPv4][1]. |
-| 6. |Invoke-HcsSetupWizard : adresse IPv6 non valide. |L’adresse IP est fournie dans un format incorrect. |Vérifiez le format et fournissez à nouveau votre adresse IP. Pour plus d’informations, consultez la page [Adressage IPv6][2]. |
+| 6 |Invoke-HcsSetupWizard : adresse IPv6 non valide. |L’adresse IP est fournie dans un format incorrect. |Vérifiez le format et fournissez à nouveau votre adresse IP. Pour plus d’informations, consultez la page [Adressage IPv6][2]. |
 | 7 |Invoke-HcsSetupWizard : il n’y a plus de points de terminaison disponibles auprès du mappeur de point de terminaison. (Exception de HRESULT : 0x800706D9) |La fonctionnalité de cluster ne fonctionne pas. |[contactez le support technique Microsoft](storsimple-contact-microsoft-support.md) . |
 
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>Erreurs pendant la configuration des paramètres de proxy web facultatifs
@@ -529,7 +529,7 @@ L’erreur peut provenir des éléments suivants :
 2. Assurez-vous que l’appareil est câblé correctement : vérifiez le câblage sur le panneau arrière de l’appareil. Le câblage est spécifique au modèle d’appareil. Pour plus d’informations, consultez [Installation de votre appareil StorSimple 8100](storsimple-8100-hardware-installation.md) ou [Installation de votre appareil StorSimple 8600](storsimple-8600-hardware-installation.md).
    
    > [!NOTE]
-   > Si vous utilisez des ports réseau 10 GbE, vous devez utiliser les adaptateurs QSFP-SFP et les câbles SFP fournis. Pour plus d’informations, consultez la [liste des câbles, commutateurs et transmetteurs recommandés par le fournisseur OEM pour les ports Mellanox](http://www.mellanox.com/page/cables?mtag=cable_overview).
+   > Si vous utilisez des ports réseau 10 GbE, vous devez utiliser les adaptateurs QSFP-SFP et les câbles SFP fournis. Pour plus d’informations, consultez la [liste des câbles, commutateurs et transmetteurs recommandés pour les ports GbE 10](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
    > 
    > 
 3. Vérifiez l’intégrité de l’interface réseau :
@@ -567,6 +567,6 @@ L’erreur peut provenir des éléments suivants :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

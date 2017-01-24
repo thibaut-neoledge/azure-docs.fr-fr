@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/16/2016
+ms.date: 01/07/2017
 ms.author: terrylan
 translationtype: Human Translation
 ms.sourcegitcommit: 0821ec479f21ddcc6dc370070d9a40221054877f
@@ -47,7 +47,6 @@ Pour chaque meilleure pratique, nous tentons d’expliquer les éléments suivan
 * Comment apprendre à utiliser la meilleure pratique
 
 Nous sommes impatients d’ajouter de nombreux autres articles sur l’architecture de sécurité Azure et les meilleures pratiques. Si vous souhaitez que nous incluions certaines rubriques, faites-le nous savoir dans la zone de discussion en bas de cette page.
-
 
 
 

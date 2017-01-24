@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/22/2016
+ms.date: 12/06/2016
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3885733b67933f331f65760474649fba18adce12
+ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
+ms.openlocfilehash: 140bee520dd8de0d9303a7d80e10cae407c8b10d
 
 
 ---
@@ -30,7 +30,7 @@ La création d’un cluster dans Azure est effectuée via un modèle Resource Ma
 Vous pouvez créer des clusters sur des machines virtuelles exécutant les systèmes d’exploitation suivants :
 
 * Windows Server 2012 R2
-* Windows Server 2016 (une fois annoncé comme étant mis à la disposition générale)
+* Windows Server 2016 
 * Linux Ubuntu 16.04 (en version préliminaire publique) 
 
 ## <a name="create-service-fabric-standalone-clusters-on-premise-or-with-any-cloud-provider"></a>Créer des clusters Service Fabric autonomes sur site ou avec n’importe quel fournisseur de cloud
@@ -53,7 +53,7 @@ Le processus de création d’un cluster Service Fabric en local est similaire a
 Vous pouvez créer des clusters sur des machines virtuelles ou des ordinateurs qui exécutent ces systèmes d’exploitation :
 
 * Windows Server 2012 R2
-* Windows Server 2016 (une fois annoncé comme étant mis à la disposition générale)
+* Windows Server 2016 
 * Linux (prochainement)
 
 ## <a name="advantages-of-service-fabric-clusters-on-azure-over-standalone-service-fabric-clusters-created-on-premises"></a>Avantages des clusters Service Fabric sur Azure par rapport aux clusters Service Fabric créés en local
@@ -67,13 +67,14 @@ L’exécution de clusters Service Fabric sur Azure offre des avantages par rapp
 * **Mise à l’échelle automatique :** pour les clusters sur Azure, nous fournissons une fonctionnalité de mise à l’échelle automatique intégrée provenant des jeux de mise à l’échelle de machine virtuelle. Dans des environnements locaux ou d’autres environnements cloud, vous devez créer votre propre fonctionnalité de mise à l’échelle automatique ou mettre à l’échelle manuellement à l’aide des API que Service Fabric expose pour la mise à l’échelle des clusters.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Créer un cluster sur des machines virtuelles ou des ordinateurs exécutant Windows Server : [Création d’un cluster Service Fabric pour Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 
-Créer un cluster sur des machines virtuelles ou des ordinateurs exécutant Linux : [Service Fabric sur Linux](service-fabric-linux-overview.md)
+* Créer un cluster sur des machines virtuelles ou des ordinateurs exécutant Windows Server : [Création d’un cluster Service Fabric pour Windows Server](service-fabric-cluster-creation-for-windows-server.md)
+* Créer un cluster sur des machines virtuelles ou des ordinateurs exécutant Linux : [Service Fabric sur Linux](service-fabric-linux-overview.md)
+* En savoir plus sur les [options de prise en charge de Service Fabric](service-fabric-support.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Nouvelle configuration SQL Database avec PowerShell | Microsoft Docs
-description: "Apprenez dès maintenant à créer une base de données SQL avec PowerShell. Les tâches courantes d’installation de base de données peuvent être gérées via les applets de commande PowerShell."
+title: "Powershell : Prise en main de la base de données SQL Azure | Microsoft Docs"
+description: "Découvrez comment créer un serveur logique SQL Database, une règle de pare-feu de niveau serveur et des bases de données à l’aide de PowerShell. Vous apprendrez également à interroger des bases de données à l’aide de PowerShell."
 keywords: "créer une base de données sql, configuration de base de données"
 services: sql-database
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.workload: data-management
 ms.date: 12/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
-ms.openlocfilehash: d00b7b543f105fd944e91f6ed27e6613366c6716
+ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
+ms.openlocfilehash: e3a9ba798639a9939d8c3d5330b21715ac4be53d
 
 
 ---
 
-# <a name="get-started-with-azure-sql-database-servers-databases-and-firewall-rules-by-using-azure-powershell"></a>Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide d’Azure PowerShell
+# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-powershell"></a>Didacticiel SQL Database : Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide de PowerShell
 
 Ce didacticiel de mise en route vous explique comment utiliser PowerShell pour :
 
@@ -115,8 +115,8 @@ $serverResourceGroupName = $resourceGroupName
 $serverAdmin = "{server-admin}"
 $serverAdminPassword = "{server-admin-password}"
 
-$securePassword = ConvertTo-SecureString –String $serverAdminPassword –AsPlainText -Force
-$serverCreds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+$securePassword = ConvertTo-SecureString -String $serverAdminPassword -AsPlainText -Force
+$serverCreds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
 $myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
 if(!$myServer)
@@ -232,7 +232,7 @@ $storageKeyType = "StorageAccessKey"
 $storageUri = "{storage-uri}" # URL of bacpac file you uploaded to your storage account
 $storageKey = "{storage-key}" # key1 in the Access keys setting of your storage account
 
-$importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $resourceGroupName –ServerName $serverName –DatabaseName $databaseName –StorageKeytype $storageKeyType –StorageKey $storageKey -StorageUri $storageUri –AdministratorLogin $serverAdmin –AdministratorLoginPassword $securePassword –Edition $databaseEdition –ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
+$importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -StorageKeytype $storageKeyType -StorageKey $storageKey -StorageUri $storageUri -AdministratorLogin $serverAdmin -AdministratorLoginPassword $securePassword -Edition $databaseEdition -ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
 
 
 Do {
@@ -385,8 +385,8 @@ $serverResourceGroupName = $myServerResourceGroupName
 $serverAdmin = $myServerAdmin
 $serverAdminPassword = $myServerAdminPassword
 
-$securePassword = ConvertTo-SecureString –String $serverAdminPassword –AsPlainText -Force
-$serverCreds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+$securePassword = ConvertTo-SecureString -String $serverAdminPassword -AsPlainText -Force
+$serverCreds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
 $myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
 if(!$myServer)
@@ -475,7 +475,7 @@ $storageKeyType = $myStorageKeyType
 $storageUri = $myStorageUri
 $storageKey = $myStorageKey
 
-$importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $resourceGroupName –ServerName $serverName –DatabaseName $databaseName –StorageKeytype $storageKeyType –StorageKey $storageKey -StorageUri $storageUri –AdministratorLogin $serverAdmin –AdministratorLoginPassword $securePassword –Edition $databaseEdition –ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
+$importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -StorageKeytype $storageKeyType -StorageKey $storageKey -StorageUri $storageUri -AdministratorLogin $serverAdmin -AdministratorLoginPassword $securePassword -Edition $databaseEdition -ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
 
 Do {
      $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
@@ -566,7 +566,7 @@ Remove-AzureRmResourceGroup -Name {resource-group-name}
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez terminé ce premier didacticiel de mise en route et que vous avez créé une base de données avec certains exemples de données, vous souhaiterez peut-être explorer les nombreux autres didacticiels afin de mettre en œuvre ce que vous avez appris dans ce didacticiel. 
 
-* Si vous souhaitez commencer à explorer la sécurité Azure SQL Database, consultez [Prise en main de la sécurité](sql-database-get-started-security.md).
+* Si vous souhaitez commencer à explorer la sécurité Azure SQL Database, consultez [Prise en main de la sécurité](sql-database-control-access-sql-authentication-get-started.md).
 * Si vous connaissez Excel, découvrez comment [vous connecter à une base de données SQL dans Azure avec Excel](sql-database-connect-excel.md).
 * Si vous êtes prêt à commencer le codage, choisissez votre langage de programmation dans [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md).
 * Si vous souhaitez déplacer vos bases de données SQL Server locales vers Azure, consultez la page [Migration de base de données SQL Server vers SQL Database dans le cloud](sql-database-cloud-migrate.md).
@@ -577,6 +577,7 @@ Maintenant que vous avez terminé ce premier didacticiel de mise en route et que
 [Définition de la base de données SQL](sql-database-technical-overview.md)
 
 
-<!--HONumber=Jan17_HO1-->
+
+<!--HONumber=Jan17_HO4-->
 
 

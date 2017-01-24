@@ -2,7 +2,7 @@
 title: "Mise à l’échelle du nombre d’instances manuellement ou avec la mise à l’échelle automatique avec le portail Azure | Microsoft Docs"
 description: "Découvrez comment effectuer une mise à l’échelle de vos services Azure."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics

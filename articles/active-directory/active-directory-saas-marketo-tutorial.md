@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 11/30/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2d31f2643ac39fb6227b57d2b064058af1dbe20d
+ms.sourcegitcommit: 1a2ff324cfa65977685f6a0eee9cd398b0717519
+ms.openlocfilehash: 20f3a8b006e45e3a94e95b516bca292a82c5fd03
 
 
 ---
@@ -139,46 +139,47 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Configurer l’authentification unique](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_12.png)
 6. Pour configurer l’authentification unique de l’application, suivez les étapes ci-dessous :
    
-   a. Connectez-vous à l’application Marketo à l’aide des informations d’identification d’administrateur.
+    a. Connectez-vous à l’application Marketo à l’aide des informations d’identification d’administrateur.
    
-   b. Cliquez sur le bouton Admin dans le volet de navigation supérieure.
+    b. Cliquez sur le bouton Admin dans le volet de navigation supérieure.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_06.png) 
+    ![Configurer l’authentification unique](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_06.png) 
    
-   c. Accédez au menu Intégration et cliquez sur Authentification unique.
+    c. Accédez au menu Intégration et cliquez sur Authentification unique.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_07.png) 
+    ![Configurer l’authentification unique](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_07.png) 
    
-   d. Pour activer les paramètres SAML, cliquez sur le bouton Modifier.
+    d. Pour activer les paramètres SAML, cliquez sur le bouton Modifier.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_08.png) 
+    ![Configurer l’authentification unique](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_08.png) 
    
-   e. **Activez** les paramètres d’authentification unique.
+    e. **Activez** les paramètres d’authentification unique.
    
-   f. Entrez l’ID de l’émetteur que vous avez copié à partir de l’Assistant de configuration Azure AD.
+    f. Entrez l’ID de l’émetteur que vous avez copié à partir de l’Assistant de configuration Azure AD.
    
-   g. Dans la zone de texte d’ID d’entité, tapez l’URL **http://saml.marketo.com/sp**
+    g. Dans la zone de texte d’ID d’entité, tapez l’URL **http://saml.marketo.com/sp**
    
-   h. Sélectionnez l’emplacement d’ID utilisateur en tant **qu’élément Identificateur de nom**
+    h. Sélectionnez l’emplacement d’ID utilisateur en tant **qu’élément Identificateur de nom**
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_09.png)
+    ![Configurer l’authentification unique](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_09.png)
    
-   > [!NOTE]
-   > Si votre identificateur d’utilisateur n’est pas une valeur UPN, alors changez la valeur dans l’onglet Attribut.
-   > 
-   > 
+    > [!NOTE]
+    > Si votre identificateur d’utilisateur n’est pas une valeur UPN, alors changez la valeur dans l’onglet Attribut.
+    > 
+    > 
    
-   i. Chargez le certificat que vous avez téléchargé à partir de l’Assistant de configuration Azure AD. Enregistrez les paramètres.
+    i. Chargez le certificat que vous avez téléchargé à partir de l’Assistant de configuration Azure AD. Enregistrez les paramètres.
    
-   j. Modifiez les paramètres des pages de redirection.
+    j. Modifiez les paramètres des pages de redirection.
    
-   k. Copiez l’URL de connexion à partir de l’Assistant de configuration Azure AD dans la zone de texte **URL de connexion** .
+    k. Copiez l’URL de connexion à partir de l’Assistant de configuration Azure AD dans la zone de texte **URL de connexion** .
    
-   l. Copiez l’URL de déconnexion à partir de l’Assistant de configuration Azure AD dans la zone de texte **Logout URL** (URL de déconnexion).
+    l. Copiez l’URL de déconnexion à partir de l’Assistant de configuration Azure AD dans la zone de texte **Logout URL** (URL de déconnexion).
    
-   m. Dans l’URL d’erreur, copiez l’URL de votre instance Marketo, puis cliquez sur le bouton Enregistrer pour enregistrer les paramètres.
+    m. Dans l’URL d’erreur, copiez l’URL de votre instance Marketo, puis cliquez sur le bouton Enregistrer pour enregistrer les paramètres.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_10.png)
+    ![Configurer l’authentification unique](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_10.png)
+
 7. Pour activer l’authentification unique pour les utilisateurs, procédez comme suit :
    
     a. Connectez-vous à l’application Marketo à l’aide des informations d’identification d’administrateur.
@@ -225,17 +226,18 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
     b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
    
     c. Cliquez sur **Next**.
-6. Sur la page de boîte de dialogue **Profil utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-marketo-tutorial/create_aaduser_06.png) 
+6. Sur la page de boîte de dialogue **Profil utilisateur**, procédez comme suit :  ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-marketo-tutorial/create_aaduser_06.png) 
    
-   a. Dans la zone de texte **First Name**, tapez **Britta**.  
+    a. Dans la zone de texte **First Name**, tapez **Britta**.  
    
-   b. Dans la zone de texte **Last Name**, tapez **Simon**.
+    b. Dans la zone de texte **Last Name**, tapez **Simon**.
    
-   c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
+    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
    
-   d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
+    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
    
-   e. Cliquez sur **Next**.
+    e. Cliquez sur **Next**.
+
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-marketo-tutorial/create_aaduser_07.png) 
@@ -329,6 +331,6 @@ Lorsque vous cliquez sur la mosaïque Marketo dans le volet d’accès, vous êt
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

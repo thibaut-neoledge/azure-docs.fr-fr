@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c1e8a4befdf4d233bf00d1697ea3d9ff64cc6bbd
+ms.sourcegitcommit: 0c77ee0f612c1cbef551a129a22cf3f125e6f29d
+ms.openlocfilehash: 69fa0a7802ca39f86ada0af47b7a99e56436f973
 
 
 ---
@@ -62,11 +62,6 @@ Cette section fournit des suggestions sur la façon de résoudre les problèmes 
   
     ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle10.png)
 
-### <a name="problem-unable-to-playback-the-published-stream"></a>Problème : impossible de lire le flux publié.
-* **Problème potentiel**: aucun point de terminaison de diffusion en continu n’est en cours d’exécution ou aucune unité de diffusion en continu (unité d’échelle) n’a été allouée. 
-  
-    **Étapes de dépannage**: accédez à l’onglet « Point de terminaison de diffusion en continu » dans l’outil AMSE et vérifiez qu’un point de terminaison de diffusion en continu est en cours d’exécution avec une unité de diffusion en continu. 
-
 > [!NOTE]
 > Si, après avoir suivi la procédure de dépannage, vous ne pouvez toujours pas diffuser en continu avec succès, envoyez un ticket de support en utilisant le portail Azure.
 > 
@@ -81,6 +76,6 @@ Cette section fournit des suggestions sur la façon de résoudre les problèmes 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,28 +1,32 @@
 ---
-title: Mettre à l’échelle automatiquement des jeux de mise à l’échelle de machines virtuelles Linux | Microsoft Docs
-description: Mettre à l’échelle automatiquement un jeu de mise à l’échelle de machine virtuelle Linux avec l’interface de ligne de commande Azure
+title: "Mettre à l’échelle automatiquement des groupes identiques de machines virtuelles Linux | Microsoft Docs"
+description: "Mettre à l’échelle automatiquement un jeu de mise à l’échelle de machine virtuelle Linux avec l’interface de ligne de commande Azure"
 services: virtual-machine-scale-sets
-documentationcenter: ''
-author: davidmu1
+documentationcenter: 
+author: Thraka
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 83e93d9c-cac0-41d3-8316-6016f5ed0ce4
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
-ms.author: davidmu
+ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 655bb950ad21ab2df0e88db52b8f54b89d35f871
+ms.openlocfilehash: d095814e32b7354419d454d0d7bd3df772b6f01e
+
 
 ---
 # <a name="automatically-scale-linux-machines-in-a-virtual-machine-scale-set"></a>Mise à l’échelle automatique de machines Linux dans un jeu de mise à l’échelle de machine virtuelle
-Les jeux de mise à l’échelle de machines virtuelles facilitent le déploiement et la gestion de machines virtuelles identiques en tant qu’ensemble. Les groupes à échelle identique fournissent une couche de calcul hautement évolutive et personnalisable pour les applications « hyperscale », et prennent en charge les images de plateforme Windows, les images de plateforme Linux, des images personnalisées et les extensions. Pour en savoir plus, consultez la rubrique [Vue d’ensemble des jeux de mise à l’échelle de machines virtuelles](virtual-machine-scale-sets-overview.md).
+Les jeux de mise à l’échelle de machines virtuelles facilitent le déploiement et la gestion de machines virtuelles identiques en tant qu’ensemble. Les groupes à échelle identique fournissent une couche de calcul hautement évolutive et personnalisable pour les applications « hyperscale », et prennent en charge les images de plateforme Windows, les images de plateforme Linux, des images personnalisées et les extensions. Pour en savoir plus, consultez la rubrique [Vue d’ensemble des jeux de mise à l’échelle de machines virtuelles](virtual-machine-scale-sets-overview.md).
 
-Ce didacticiel vous montre comment créer un jeu de mise à l’échelle de machine virtuelle Linux à l’aide de la dernière version de Ubuntu Linux. Il vous montre également comment mettre automatiquement à l’échelle les machines dans le jeu. Pour créer le jeu de mise à l’échelle et configurer la mise à l’échelle, créez un modèle Azure Resource Manager et déployez-le à l’aide de l’interface de ligne de commande Azure. Pour en savoir plus sur les modèles, consultez [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md). Pour plus d'informations sur la mise à l'échelle automatique de jeux de mise à l'échelle, consultez la rubrique [Mise à l'échelle automatique et jeux de mise à l'échelle de machines virtuelles](virtual-machine-scale-sets-autoscale-overview.md).
+Ce didacticiel vous montre comment créer un jeu de mise à l’échelle de machine virtuelle Linux à l’aide de la dernière version de Ubuntu Linux. Il vous montre également comment mettre automatiquement à l’échelle les machines dans le jeu. Pour créer le jeu de mise à l’échelle et configurer la mise à l’échelle, créez un modèle Azure Resource Manager et déployez-le à l’aide de l’interface de ligne de commande Azure. Pour en savoir plus sur les modèles, consultez [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Pour plus d'informations sur la mise à l'échelle automatique de jeux de mise à l'échelle, consultez la rubrique [Mise à l'échelle automatique et jeux de mise à l'échelle de machines virtuelles](virtual-machine-scale-sets-autoscale-overview.md).
 
-Dans ce didacticiel, vous allez déployer les ressources et les extensions suivantes :
+Dans ce didacticiel, vous allez déployer les ressources et les extensions suivantes :
 
 * Microsoft.Storage/storageAccounts
 * Microsoft.Network/virtualNetworks
@@ -34,19 +38,19 @@ Dans ce didacticiel, vous allez déployer les ressources et les extensions suiva
 * Microsoft.Insights.VMDiagnosticsSettings
 * Microsoft.Insights/autoscaleSettings
 
-Pour plus d’informations sur les ressources de Resource Manager, consultez [Calcul, réseau et fournisseurs de stockage Azure sous Azure Resource Manager](../virtual-machines/virtual-machines-linux-compare-deployment-models.md).
+Pour plus d’informations sur les ressources Azure Manager, consultez [Déploiement Azure Resource Manager et déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md).
 
 Avant de commencer les étapes de ce didacticiel, [installez l’interface de ligne de commande Azure](../xplat-cli-install.md).
 
-## <a name="step-1:-create-a-resource-group-and-a-storage-account"></a>Étape 1 : créer un groupe de ressources et un compte de stockage
-1. **Se connecter à Microsoft Azure** : dans votre interface de ligne de commande (Bash, Terminal, invite de commandes), passez en mode Resource Manager, puis [connectez-vous avec votre ID professionnel ou scolaire](../xplat-cli-connect.md#use-the-log-in-method). Suivez les invites pour une expérience de connexion interactive à votre compte Azure.
+## <a name="step-1-create-a-resource-group-and-a-storage-account"></a>Étape 1 : créer un groupe de ressources et un compte de stockage
+1. **Se connecter à Microsoft Azure** : dans votre interface de ligne de commande (Bash, Terminal, invite de commandes), passez en mode Resource Manager, puis [connectez-vous avec votre ID professionnel ou scolaire](../xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login). Suivez les invites pour une expérience de connexion interactive à votre compte Azure.
    
         azure config mode arm
    
         azure login
    
    > [!NOTE]
-   > Si vous disposez d’un ID professionnel ou scolaire et n’avez pas d’authentification à deux facteurs activée, vous pouvez utiliser `azure login -u` avec l’ID pour vous connecter sans session interactive. Si vous ne disposez pas d’un ID professionnel ou scolaire, vous pouvez [créer un ID professionnel ou scolaire à partir de votre compte Microsoft personnel](../virtual-machines/virtual-machines-linux-create-aad-work-id.md).
+   > Si vous disposez d’un ID professionnel ou scolaire et n’avez pas d’authentification à deux facteurs activée, vous pouvez utiliser `azure login -u` avec l’ID pour vous connecter sans session interactive. Si vous ne disposez pas d’un ID professionnel ou scolaire, vous pouvez [créer un ID professionnel ou scolaire à partir de votre compte Microsoft personnel](../virtual-machines/virtual-machines-linux-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
    > 
    > 
 2. **Créer un groupe de ressources** : toutes les ressources doivent être déployées dans un groupe de ressources. Pour les besoins de ce didacticiel, nommez le groupe de ressources **vmsstest1**.
@@ -56,8 +60,8 @@ Avant de commencer les étapes de ce didacticiel, [installez l’interface de li
    
         azure storage account create -g vmsstestrg1 -l centralus --kind Storage --sku-name LRS vmsstestsa
 
-## <a name="step-2:-create-the-template"></a>Étape 2 : créer le modèle
-Un modèle Azure Resource Manager permet de déployer et gérer des ressources Azure simultanément grâce à une description des ressources JSON et des paramètres de déploiement associés.
+## <a name="step-2-create-the-template"></a>Étape 2 : créer le modèle
+Un modèle Azure Resource Manager permet de déployer et gérer des ressources Azure simultanément grâce à une description des ressources JSON et des paramètres de déploiement associés.
 
 1. Dans votre éditeur favori, créez le fichier VMSSTemplate.json, puis ajoutez la structure JSON initiale pour prendre en charge le modèle.
    
@@ -109,8 +113,8 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources A
    * Les noms d’adresse IP et les préfixes destinés au réseau et aux sous-réseaux.
    * Les noms et les identificateurs du réseau virtuel, de l’équilibreur de charge et des interfaces réseau.
    * Les noms de compte de stockage pour les comptes associés aux machines du groupe à échelle identique.
-   * Paramètres de l’extension de diagnostic qui est installé sur les machines virtuelles. Pour plus d’informations sur l’extension de diagnostic, consultez [Créer une machine virtuelle Windows avec des fonctionnalités de surveillance et de diagnostics à l’aide d’un modèle Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
-4. Ajoutez la ressource de compte de stockage sous l’élément parent de ressources que vous avez ajouté au modèle. Ce modèle utilise une boucle pour créer les cinq comptes de stockage recommandés dans lesquels les disques de système d’exploitation et les données de diagnostic sont stockés. Cet ensemble de comptes peut prendre en charge jusqu’à 100 machines virtuelles dans un groupe à échelle identique, qui est la valeur maximale actuelle. Chaque compte de stockage nommé par un indicateur de lettre a été défini dans les variables combinées au suffixe que vous fournissez dans les paramètres du modèle.
+   * Paramètres de l’extension de diagnostic qui est installé sur les machines virtuelles. Pour plus d’informations sur l’extension de diagnostic, consultez [Créer une machine virtuelle Windows avec des fonctionnalités de surveillance et de diagnostics à l’aide d’un modèle Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+4. Ajoutez la ressource de compte de stockage sous l’élément parent de ressources que vous avez ajouté au modèle. Ce modèle utilise une boucle pour créer les cinq comptes de stockage recommandés dans lesquels les disques de système d’exploitation et les données de diagnostic sont stockés. Cet ensemble de comptes peut prendre en charge jusqu’à 100 machines virtuelles dans un groupe à échelle identique, qui est la valeur maximale actuelle. Chaque compte de stockage nommé par un indicateur de lettre a été défini dans les variables combinées au suffixe que vous fournissez dans les paramètres du modèle.
    
         {
           "type": "Microsoft.Storage/storageAccounts",
@@ -277,174 +281,174 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources A
         },
 10. Ajoutez la ressource de jeu de mise à l’échelle de machines virtuelles et spécifiez l’extension Diagnostics installée sur toutes les machines virtuelles du jeu de mise à l’échelle. La plupart des paramètres de cette ressource sont similaires à la ressource de machine virtuelle. Les principales différences sont l’élément capacity qui spécifie le nombre de machines virtuelles du jeu de mise à l’échelle et le paramètre upgradePolicy qui spécifie la manière dont les mises à jour sont appliquées aux machines virtuelles. Le jeu de mise à l’échelle n’est pas créé tant que tous les comptes de stockage ne sont pas créés, comme spécifié par l’élément dependsOn.
     
-            {
-              "type": "Microsoft.Compute/virtualMachineScaleSets",
-              "apiVersion": "2016-03-30",
-              "name": "[parameters('vmSSName')]",
-              "location": "[resourceGroup().location]",
-              "dependsOn": [
-                "storageLoop",
-                "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
-                "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]"
-              ],
-              "sku": {
-                "name": "Standard_A1",
-                "tier": "Standard",
-                "capacity": "[parameters('instanceCount')]"
-              },
-              "properties": {
-                "upgradePolicy": {
-                  "mode": "Manual"
-                },
-                "virtualMachineProfile": {
-                  "storageProfile": {
-                    "osDisk": {
-                      "vhdContainers": [
-                        "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[0],'.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[1],'.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[2],'.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[3],'.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[4],'.blob.core.windows.net/vmss')]"
-                      ],
-                      "name": "vmssosdisk",
-                      "caching": "ReadOnly",
-                      "createOption": "FromImage"
-                    },
-                    "imageReference": {
-                      "publisher": "Canonical",
-                      "offer": "UbuntuServer",
-                      "sku": "14.04.4-LTS",
-                      "version": "latest"
-                    }
-                  },
-                  "osProfile": {
-                    "computerNamePrefix": "[parameters('vmSSName')]",
-                    "adminUsername": "[parameters('adminUsername')]",
-                    "adminPassword": "[parameters('adminPassword')]"
-                  },
-                  "networkProfile": {
-                    "networkInterfaceConfigurations": [
-                      {
-                        "name": "networkconfig1",
-                        "properties": {
-                          "primary": "true",
-                          "ipConfigurations": [
-                            {
-                              "name": "ip1",
-                              "properties": {
-                                "subnet": {
-                                  "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/subnet1')]"
-                                },
-                                "loadBalancerBackendAddressPools": [
-                                  {
-                                    "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/loadBalancers/',variables('loadBalancerName'),'/backendAddressPools/bepool1')]"
-                                  }
-                                ],
-                                "loadBalancerInboundNatPools": [
-                                  {
-                                    "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/loadBalancers/',variables('loadBalancerName'),'/inboundNatPools/natpool1')]"
-                                  }
-                                ]
-                              }
-                            }
-                          ]
-                        }
-                      }
-                    ]
-                  },
-                  "extensionProfile": {
-                    "extensions": [
-                      {
-                        "name":"LinuxDiagnostic",
-                        "properties": {
-                          "publisher":"Microsoft.OSTCExtensions",
-                          "type":"LinuxDiagnostic",
-                          "typeHandlerVersion":"2.1",
-                          "autoUpgradeMinorVersion":false,
-                          "settings": {
-                            "xmlCfg":"[base64(concat(variables('wadcfgxstart'),variables('wadmetricsresourceid'),variables('wadcfgxend')))]",
-                            "storageAccount":"[variables('diagnosticsStorageAccountName')]"
-                          },
-                          "protectedSettings": {
-                            "storageAccountName":"[variables('diagnosticsStorageAccountName')]",
-                            "storageAccountKey":"[listkeys(variables('accountid'), '2015-06-15').key1]",
-                            "storageAccountEndPoint":"https://core.windows.net"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                }
-              }
-            },
-11. Ajoutez la ressource autoscaleSettings qui définit le mode d’ajustement du groupe à échelle identique en fonction de l’utilisation du processeur sur les machines virtuelles du groupe. 
+         {
+           "type": "Microsoft.Compute/virtualMachineScaleSets",
+           "apiVersion": "2016-03-30",
+           "name": "[parameters('vmSSName')]",
+           "location": "[resourceGroup().location]",
+           "dependsOn": [
+             "storageLoop",
+             "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+             "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]"
+           ],
+           "sku": {
+             "name": "Standard_A1",
+             "tier": "Standard",
+             "capacity": "[parameters('instanceCount')]"
+           },
+           "properties": {
+             "upgradePolicy": {
+               "mode": "Manual"
+             },
+             "virtualMachineProfile": {
+               "storageProfile": {
+                 "osDisk": {
+                   "vhdContainers": [
+                     "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[0],'.blob.core.windows.net/vmss')]",
+                     "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[1],'.blob.core.windows.net/vmss')]",
+                     "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[2],'.blob.core.windows.net/vmss')]",
+                     "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[3],'.blob.core.windows.net/vmss')]",
+                     "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[4],'.blob.core.windows.net/vmss')]"
+                   ],
+                   "name": "vmssosdisk",
+                   "caching": "ReadOnly",
+                   "createOption": "FromImage"
+                 },
+                 "imageReference": {
+                   "publisher": "Canonical",
+                   "offer": "UbuntuServer",
+                   "sku": "14.04.4-LTS",
+                   "version": "latest"
+                 }
+               },
+               "osProfile": {
+                 "computerNamePrefix": "[parameters('vmSSName')]",
+                 "adminUsername": "[parameters('adminUsername')]",
+                 "adminPassword": "[parameters('adminPassword')]"
+               },
+               "networkProfile": {
+                 "networkInterfaceConfigurations": [
+                   {
+                     "name": "networkconfig1",
+                     "properties": {
+                       "primary": "true",
+                       "ipConfigurations": [
+                         {
+                           "name": "ip1",
+                           "properties": {
+                             "subnet": {
+                               "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/subnet1')]"
+                             },
+                             "loadBalancerBackendAddressPools": [
+                               {
+                                 "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/loadBalancers/',variables('loadBalancerName'),'/backendAddressPools/bepool1')]"
+                               }
+                             ],
+                             "loadBalancerInboundNatPools": [
+                               {
+                                 "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/loadBalancers/',variables('loadBalancerName'),'/inboundNatPools/natpool1')]"
+                               }
+                             ]
+                           }
+                         }
+                       ]
+                     }
+                   }
+                 ]
+               },
+               "extensionProfile": {
+                 "extensions": [
+                   {
+                     "name":"LinuxDiagnostic",
+                     "properties": {
+                       "publisher":"Microsoft.OSTCExtensions",
+                       "type":"LinuxDiagnostic",
+                       "typeHandlerVersion":"2.1",
+                       "autoUpgradeMinorVersion":false,
+                       "settings": {
+                         "xmlCfg":"[base64(concat(variables('wadcfgxstart'),variables('wadmetricsresourceid'),variables('wadcfgxend')))]",
+                         "storageAccount":"[variables('diagnosticsStorageAccountName')]"
+                       },
+                       "protectedSettings": {
+                         "storageAccountName":"[variables('diagnosticsStorageAccountName')]",
+                         "storageAccountKey":"[listkeys(variables('accountid'), '2015-06-15').key1]",
+                         "storageAccountEndPoint":"https://core.windows.net"
+                       }
+                     }
+                   }
+                 ]
+               }
+             }
+           }
+         },
+11. Ajoutez la ressource autoscaleSettings qui définit le mode d’ajustement du groupe à échelle identique en fonction de l’utilisation du processeur sur les machines virtuelles du groupe.
     
-            {
-              "type": "Microsoft.Insights/autoscaleSettings",
-              "apiVersion": "2015-04-01",
-              "name": "[concat(parameters('resourcePrefix'),'as1')]",
-              "location": "[resourceGroup().location]",
-              "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]"
-              ],
-              "properties": {
-                "enabled": true,
-                "name": "[concat(parameters('resourcePrefix'),'as1')]",
-                "profiles": [
-                  {
-                    "name": "Profile1",
-                    "capacity": {
-                      "minimum": "1",
-                      "maximum": "10",
-                      "default": "1"
-                    },
-                    "rules": [
-                      {
-                        "metricTrigger": {
-                          "metricName": "\\Processor\\PercentProcessorTime",
-                          "metricNamespace": "",
-                          "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]",
-                          "timeGrain": "PT1M",
-                          "statistic": "Average",
-                          "timeWindow": "PT5M",
-                          "timeAggregation": "Average",
-                          "operator": "GreaterThan",
-                          "threshold": 50.0
-                        },
-                        "scaleAction": {
-                          "direction": "Increase",
-                          "type": "ChangeCount",
-                          "value": "1",
-                          "cooldown": "PT5M"
-                        }
-                      }
-                    ]
-                  }
-                ],
-                "targetResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]"
-              }
-            }
+         {
+           "type": "Microsoft.Insights/autoscaleSettings",
+           "apiVersion": "2015-04-01",
+           "name": "[concat(parameters('resourcePrefix'),'as1')]",
+           "location": "[resourceGroup().location]",
+           "dependsOn": [
+             "[concat('Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]"
+           ],
+           "properties": {
+             "enabled": true,
+             "name": "[concat(parameters('resourcePrefix'),'as1')]",
+             "profiles": [
+               {
+                 "name": "Profile1",
+                 "capacity": {
+                   "minimum": "1",
+                   "maximum": "10",
+                   "default": "1"
+                 },
+                 "rules": [
+                   {
+                     "metricTrigger": {
+                       "metricName": "\\Processor\\PercentProcessorTime",
+                       "metricNamespace": "",
+                       "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]",
+                       "timeGrain": "PT1M",
+                       "statistic": "Average",
+                       "timeWindow": "PT5M",
+                       "timeAggregation": "Average",
+                       "operator": "GreaterThan",
+                       "threshold": 50.0
+                     },
+                     "scaleAction": {
+                       "direction": "Increase",
+                       "type": "ChangeCount",
+                       "value": "1",
+                       "cooldown": "PT5M"
+                     }
+                   }
+                 ]
+               }
+             ],
+             "targetResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]"
+           }
+         }
     
-    Pour ce didacticiel, les valeurs suivantes sont importantes :
+    Pour ce didacticiel, les valeurs suivantes sont importantes :
     
     * **metricName** : cette valeur est la même que celle du compteur de performances que nous avons défini dans la variable wadperfcounter. Grâce à cette variable, l’extension Diagnostics collecte le compteur **Processor\PercentProcessorTime**.
     * **metricResourceUri** : cette valeur est l’identificateur de ressource du jeu de mise à l’échelle de machines virtuelles.
     * **timeGrain** : cette valeur est la granularité des mesures collectées. Dans ce modèle, elle est définie sur une minute.
-    * **statistic** : cette valeur détermine la façon dont les mesures sont combinées pour prendre en charge l’action de mise à l’échelle automatique. Les valeurs possibles sont : Moyenne, Min, Max. Dans ce modèle, l’utilisation moyenne totale du processeur des machines virtuelles est collectée.
-    * **timeWindow** : cette valeur est la plage de temps pendant laquelle les données d’instance sont collectées. Elle doit être comprise entre 5 minutes et 12 heures.
-    * **timeAggregation** : cette valeur détermine la façon dont les données collectées doivent être combinées au fil du temps. La valeur par défaut est Average. Les valeurs possibles sont : Moyenne, Minimum, Maximum, Dernier, Total, Nombre.
-    * **operator** : cette valeur est l’opérateur utilisé pour comparer les données de mesure et le seuil. Les valeurs possibles sont : est égal à -Equals), différent de (NotEquals), supérieur à (GreaterThan), égal ou supérieur à (GreaterThanOrEqual), Inférieur à (LessThan), Inférieur ou égal à (LessThanOrEqual).
-    * **threshold** : cette valeur déclenche l’action de mise à l’échelle. Dans ce modèle, les machines sont ajoutées au jeu de mise à l’échelle défini lorsque l’utilisation moyenne du processeur dans le jeu de machines des est supérieur à 50 %.
-    * **direction** : cette valeur détermine l’opération qui est effectuée lorsque la valeur de seuil est atteinte. Les valeurs possibles sont Augmenter ou Diminuer. Dans ce modèle, le nombre de machines virtuelles dans le jeu de mise à l’échelle est augmenté si le seuil est supérieur à 50 % dans la fenêtre de temps définie.
+    * **statistic** : cette valeur détermine la façon dont les mesures sont combinées pour prendre en charge l’action de mise à l’échelle automatique. Les valeurs possibles sont : Moyenne, Min, Max. Dans ce modèle, l’utilisation moyenne totale du processeur des machines virtuelles est collectée.
+    * **timeWindow** : cette valeur est la plage de temps pendant laquelle les données d’instance sont collectées. Elle doit être comprise entre 5 minutes et 12 heures.
+    * **timeAggregation** : cette valeur détermine la façon dont les données collectées doivent être combinées au fil du temps. La valeur par défaut est Average. Les valeurs possibles sont : Moyenne, Minimum, Maximum, Dernier, Total, Nombre.
+    * **operator** : cette valeur est l’opérateur utilisé pour comparer les données de mesure et le seuil. Les valeurs possibles sont : est égal à -Equals), différent de (NotEquals), supérieur à (GreaterThan), égal ou supérieur à (GreaterThanOrEqual), Inférieur à (LessThan), Inférieur ou égal à (LessThanOrEqual).
+    * **threshold** : cette valeur déclenche l’action de mise à l’échelle. Dans ce modèle, les machines sont ajoutées au jeu de mise à l’échelle défini lorsque l’utilisation moyenne du processeur dans le jeu de machines des est supérieur à 50 %.
+    * **direction** : cette valeur détermine l’opération qui est effectuée lorsque la valeur de seuil est atteinte. Les valeurs possibles sont Augmenter ou Diminuer. Dans ce modèle, le nombre de machines virtuelles dans le jeu de mise à l’échelle est augmenté si le seuil est supérieur à 50 % dans la fenêtre de temps définie.
     * **type** : cette valeur est le type d’action qui doit se produire. Elle doit être définie sur ChangeCount.
     * **value** : cette valeur est le nombre de machines virtuelles qui sont ajoutées ou supprimées dans le jeu de mise à l’échelle. Cette valeur doit être définie sur 1 ou supérieur. La valeur par défaut est 1. Dans ce modèle, le nombre d’ordinateurs présent dans le jeu de mise à l’échelle augmente de 1 lorsque le seuil est atteint.
     * **cooldown** : cette valeur est la durée d’attente depuis la dernière opération de mise à l’échelle avant que l’action suivante se produise. Elle doit être comprise entre une minute et une semaine.
 12. Enregistrez le fichier de modèle.    
 
-## <a name="step-3:-upload-the-template-to-storage"></a>Étape 3 : Téléchargement du modèle de stockage
-Le modèle peut être chargé pour autant que vous connaissiez le nom et la clé primaire du compte de stockage que vous avez créé à l’étape 1.
+## <a name="step-3-upload-the-template-to-storage"></a>Étape 3 : Téléchargement du modèle de stockage
+Le modèle peut être chargé pour autant que vous connaissiez le nom et la clé primaire du compte de stockage que vous avez créé à l’étape 1.
 
-1. Dans votre interface de ligne de commande (interpréteur de commandes, terminal, invite de commandes), exécutez les commandes suivantes pour définir les variables d’environnement nécessaires pour accéder au compte de stockage :
+1. Dans votre interface de ligne de commande (interpréteur de commandes, terminal, invite de commandes), exécutez les commandes suivantes pour définir les variables d’environnement nécessaires pour accéder au compte de stockage :
    
         export AZURE_STORAGE_ACCOUNT={account_name}
         export AZURE_STORAGE_ACCESS_KEY={key}
@@ -457,12 +461,12 @@ Le modèle peut être chargé pour autant que vous connaissiez le nom et la clé
    
         azure storage blob upload VMSSTemplate.json templates VMSSTemplate.json
 
-## <a name="step-4:-deploy-the-template"></a>Étape 4 : déployer le modèle
-Maintenant que vous avez créé le modèle, vous pouvez commencer à déployer les ressources. Utilisez cette commande pour démarrer le processus :
+## <a name="step-4-deploy-the-template"></a>Étape 4 : déployer le modèle
+Maintenant que vous avez créé le modèle, vous pouvez commencer à déployer les ressources. Utilisez cette commande pour démarrer le processus :
 
     azure group deployment create --template-uri https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json vmsstestrg1 vmsstestdp1
 
-Lorsque vous appuyez sur Entrée, vous êtes invité à fournir des valeurs pour les variables que vous avez affectées. Remplacez les valeurs suivantes :
+Lorsque vous appuyez sur Entrée, vous êtes invité à fournir des valeurs pour les variables que vous avez affectées. Remplacez les valeurs suivantes :
 
     vmName: vmsstestvm1
     vmSSName: vmsstest1
@@ -471,21 +475,21 @@ Lorsque vous appuyez sur Entrée, vous êtes invité à fournir des valeurs pour
     adminPassword: VMpass1
     resourcePrefix: vmsstest
 
-Environ 15 minutes sont nécessaires pour le déploiement correct de toutes les ressources.
+Environ 15 minutes sont nécessaires pour le déploiement correct de toutes les ressources.
 
 > [!NOTE]
-> Vous pouvez également utiliser la capacité du portail à déployer les ressources. Utilisez ce lien : https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
+> Vous pouvez également utiliser la capacité du portail à déployer les ressources. Utilisez ce lien : https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
 > 
 > 
 
-## <a name="step-5:-monitor-resources"></a>Étape 5 : analyser les ressources
-Vous pouvez obtenir des informations sur les jeux de mise à l’échelle de machine virtuelle à l’aide des méthodes suivantes :
+## <a name="step-5-monitor-resources"></a>Étape 5 : analyser les ressources
+Vous pouvez obtenir des informations sur les jeux de mise à l’échelle de machine virtuelle à l’aide des méthodes suivantes :
 
-* Le portail Azure : vous pouvez en obtenir une quantité limitée d’informations sur l’utilisation du portail.
-* [Explorateur de ressources Azure](https://resources.azure.com/) : cet outil est le meilleur qui soit pour déterminer l’état actuel de votre groupe identique. Suivez ce chemin d’accès. Vous devriez voir la vue de l’instance du groupe à échelle identique que vous avez créée :
+* Le portail Azure : vous pouvez en obtenir une quantité limitée d’informations sur l’utilisation du portail.
+* [Explorateur de ressources Azure](https://resources.azure.com/) : cet outil est le meilleur qui soit pour déterminer l’état actuel de votre groupe identique. Suivez ce chemin d’accès. Vous devriez voir la vue de l’instance du groupe à échelle identique que vous avez créée :
   
        subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
-* Interface de ligne de commande Azure - Utilisez cette commande pour obtenir des informations :
+* Interface de ligne de commande Azure - Utilisez cette commande pour obtenir des informations :
   
        azure resource show -n vmsstest1 -r Microsoft.Compute/virtualMachineScaleSets -o 2015-06-15 -g vmsstestrg1
 * Connectez-vous à la machine virtuelle jumpbox comme vous le feriez pour n’importe quel autre ordinateur et vous pouvez ensuite accéder à distance aux machines virtuelles du groupe à échelle identique pour surveiller les processus individuels.
@@ -495,17 +499,20 @@ Vous pouvez obtenir des informations sur les jeux de mise à l’échelle de mac
 > 
 > 
 
-## <a name="step-6:-remove-the-resources"></a>Étape 6 : supprimer les ressources
-Étant donné que les ressources utilisées dans Microsoft Azure vous sont facturées, il est toujours conseillé de supprimer les ressources qui ne sont plus nécessaires. Vous n’avez pas besoin de supprimer séparément les ressources d’un groupe de ressources. Vous pouvez supprimer le groupe de ressources pour supprimer automatiquement toutes ses ressources.
+## <a name="step-6-remove-the-resources"></a>Étape 6 : supprimer les ressources
+Étant donné que les ressources utilisées dans Microsoft Azure vous sont facturées, il est toujours conseillé de supprimer les ressources qui ne sont plus nécessaires. Vous n’avez pas besoin de supprimer séparément les ressources d’un groupe de ressources. Vous pouvez supprimer le groupe de ressources pour supprimer automatiquement toutes ses ressources.
 
         azure group delete vmsstestrg1
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez des exemples de fonctionnalités de surveillance Azure Insights dans les [exemple de démarrage rapide de l’interface de ligne de commande (CLI) multiplateforme Azure Insights](../monitoring-and-diagnostics/insights-cli-samples.md)
-* Pour en savoir plus sur les fonctionnalités de notification, consultez [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Insights](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) 
-* Découvrez comment [utiliser les journaux d’audit pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Insights](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
+* Découvrez des exemples de fonctionnalités de surveillance Azure Monitor dans les [exemples de démarrage rapide de l’interface CLI multiplateforme d’Azure Monitor](../monitoring-and-diagnostics/insights-cli-samples.md)
+* Pour en savoir plus sur les fonctionnalités de notification, consultez [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
+* Découvrez comment [utiliser les journaux d’audit pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 * Découvrez le modèle [Mettre à l’échelle automatiquement un groupe identique de machine virtuelle exécutant une application Ubuntu/Apache/PHP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) qui configure une pile LAMP pour tester la fonctionnalité de mise à l’échelle automatique des groupes identiques de machines virtuelles.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

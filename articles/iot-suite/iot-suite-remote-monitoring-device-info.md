@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2016
+ms.date: 12/15/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 9138fc1da6c45e2aa874e3e26c4a65ceb248d8f1
-ms.openlocfilehash: 325e25412e80d005a87b49e6971703cd74551c5e
+ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
+ms.openlocfilehash: 8aac22bed0b16c97faabf1e15c9fc9f40c34ca67
 
 
 ---
@@ -28,7 +28,7 @@ La solution préconfigurée de surveillance à distance Azure IoT Suite montre u
 * Comment la solution gère les métadonnées d’appareil.
 
 ## <a name="context"></a>Context
-La solution préconfigurée de surveillance à distance utilise [Azure IoT Hub][lnk-iot-hub] pour permettre à vos appareils d’envoyer des données vers le cloud. IoT Hub inclut un [registre des identités][lnk-identity-registry] pour contrôler l’accès à IoT Hub. Le registre des identités des appareils IoT Hub est distinct du *registre des appareils* spécifique de la solution de surveillance à distance qui stocke les métadonnées des informations d’appareil. La solution de surveillance à distance utilise une base de données [DocumentDB][lnk-docdb] pour implémenter son registre des appareils pour le stockage des métadonnées des informations d’appareil. L’[architecture de référence de Microsoft Azure IoT][lnk-ref-arch] décrit le rôle du registre des appareils dans une solution IoT classique.
+La solution préconfigurée de surveillance à distance utilise [Azure IoT Hub][lnk-iot-hub] pour permettre à vos appareils d’envoyer des données vers le cloud. IoT hub inclut un [registre d’identité des appareils][lnk-identity-registry] pour contrôler l’accès à IoT Hub. Le registre des identités des appareils IoT Hub est distinct du *registre des appareils* spécifique de la solution de surveillance à distance qui stocke les métadonnées des informations d’appareil. La solution de surveillance à distance utilise une base de données [DocumentDB][lnk-docdb] pour implémenter son registre des appareils pour le stockage des métadonnées des informations d’appareil. L’[architecture de référence de Microsoft Azure IoT][lnk-ref-arch] décrit le rôle du registre des appareils dans une solution IoT classique.
 
 > [!NOTE]
 > La solution préconfigurée de surveillance à distance synchronise le registre des identités des appareils avec le registre des appareils. Les deux utilisent le même id d’appareil pour identifier chaque appareil connecté à votre IoT hub de manière unique.
@@ -92,10 +92,10 @@ Vous pouvez modifier toutes ces propriétés en cliquant sur **Modifier** dans l
 
 Vous pouvez utiliser le portail de la solution pour supprimer un appareil de votre solution. Lorsque vous supprimez un appareil, la solution supprime les métadonnées relatives aux informations d’appareil à partir du registre des appareils de la solution et supprime l’entrée de l’appareil du registre des identités des appareils IoT Hub. Avant de pouvoir supprimer un appareil, vous devez le désactiver.
 
-![Suppression d’appareils][img-device-remove]
+![Supprimer l’appareil][img-device-remove]
 
 ## <a name="device-information-message-processing"></a>Traitement des messages d’information d’appareil
-Les messages d’information d’appareil envoyés par un appareil sont différents des messages de télémétrie. Les messages d’information d’appareil incluent des informations telles que les propriétés de l’appareil, les commandes auxquelles répond un appareil et tous les historiques de commandes. IoT Hub lui-même n’a aucune connaissance des métadonnées contenues dans un message d’information d’appareil et traite le message de la même manière qu’il traite tout message appareil-à-cloud. Dans la solution de surveillance à distance, une tâche [Azure Stream Analytics][lnk-stream-analytics] (ASA) lit les messages issus d’IoT Hub. Le travail **DeviceInfo** Stream Analytics filtre les messages contenant **« ObjectType » : « DeviceInfo »** et les transmet à l’instance hôte **EventProcessorHost** qui s’exécute dans une tâche web. La logique de l’instance **EventProcessorHost** utilise l’ID d’appareil pour rechercher l’enregistrement DocumentDB de l’appareil spécifique et le mettre à jour. L’enregistrement du registre des appareils inclut désormais des informations, telles que les propriétés d’appareil, les commandes et l’historique des commandes.
+Les messages d’information d’appareil envoyés par un appareil sont différents des messages de télémétrie. Les messages d’information d’appareil incluent des informations telles que les propriétés de l’appareil, les commandes auxquelles répond un appareil et tous les historiques de commandes. IoT Hub lui-même n’a aucune connaissance des métadonnées contenues dans un message d’information d’appareil et traite le message de la même manière qu’il traite tout message appareil-à-cloud. Dans la solution de surveillance à distance, une tâche [Azure Stream Analytics][lnk-stream-analytics] (ASA) lit les messages issus de IoT Hub. Le travail **DeviceInfo** Stream Analytics filtre les messages contenant **« ObjectType » : « DeviceInfo »** et les transmet à l’instance hôte **EventProcessorHost** qui s’exécute dans une tâche web. La logique de l’instance **EventProcessorHost** utilise l’ID d’appareil pour rechercher l’enregistrement DocumentDB de l’appareil spécifique et le mettre à jour. L’enregistrement du registre des appareils inclut désormais des informations, telles que les propriétés d’appareil, les commandes et l’historique des commandes.
 
 > [!NOTE]
 > Un message d’information d’appareil est un message appareil-à-cloud standard. La solution fait la distinction entre les messages d’information d’appareil et les messages de télémétrie en utilisant des requêtes ASA.
@@ -267,7 +267,7 @@ Maintenant que vous savez comment personnaliser les solutions préconfigurées, 
 
 * [Présentation de la solution préconfigurée de maintenance prédictive][lnk-predictive-overview]
 * [Forum Aux Questions (FAQ) relatives à IoT Suite][lnk-faq]
-* [Sécurité IoT depuis le début][lnk-security-groundup]
+* [Sécurisation de l’Internet des objets de bout en bout][lnk-security-groundup]
 
 <!-- Images and links -->
 [img-device-list]: media/iot-suite-remote-monitoring-device-info/image1.png
@@ -288,6 +288,6 @@ Maintenant que vous savez comment personnaliser les solutions préconfigurées, 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

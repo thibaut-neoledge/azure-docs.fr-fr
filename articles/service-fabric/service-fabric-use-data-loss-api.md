@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/19/2016
 ms.author: lemai
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3cef3af0662ae12c301c6bca76bae05a61ce67e1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8771556954be77543b0eaa21b7201f93ffa0ed70
 
 
 ---
@@ -44,7 +44,7 @@ Pour démarrer une commande, appelez l’API « Start » pour l’API correspond
 
 1. Elle se termine correctement.  Si vous appelez « GetProgress » sur cette API dans ce cas, l’état de progression de l’objet affiche Completed (terminé).
 2. Elle rencontre une erreur irrécupérable.  Si vous appelez « GetProgress » sur cette API dans ce cas, l’état de progression de l’objet affiche Faulted (défaillance)
-3. Vous l’annulez avec l’API [CancelTestCommandAsync][cancel] ou l’applet de commande PowerShell [Stop-ServiceFabricTestCommand][cancelps].  Si vous appelez « GetProgress » sur cette API dans ce cas, l’état de progression de l’objet affiche Cancelled (annulé) ou ForceCancelled (annulation forcée), selon un argument de cette API.  Pour plus d’informations, consultez la documentation concernant [CancelTestCommandAsync][cancel].
+3. Pour l’annuler, utilisez l’API [CancelTestCommandAsync][cancel] ou l’applet de commande PowerShell [Stop-ServiceFabricTestCommand][cancelps].  Si vous appelez « GetProgress » sur cette API dans ce cas, l’état de progression de l’objet affiche Cancelled (annulé) ou ForceCancelled (annulation forcée), selon un argument de cette API.  Consultez la documentation de [CancelTestCommandAsync][cancel] pour plus de détails.
 
 ## <a name="details-of-running-a-command"></a>Détails de l’exécution d’une commande
 Pour démarrer une commande, appelez l’API Start avec les arguments attendus.  Toutes les API Start ont un argument Guid nommé operationId.  Vous devriez effectuer le suivi de l’argument operationId car il est utilisé pour suivre la progression de cette commande.  Cet argument doit être passée à l’API « GetProgress » afin de suivre la progression de la commande.  La valeur operationId doit être unique.
@@ -237,6 +237,6 @@ Dès qu’une commande a atteint un état terminal, ses métadonnées resteront 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

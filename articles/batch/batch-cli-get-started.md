@@ -3,7 +3,7 @@ title: "Prise en main de l’interface de ligne de commande Azure Batch | Micros
 description: "Obtenez une brève introduction aux commandes Batch dans l’interface de ligne de commande Azure pour la gestion des ressources du service Azure Batch."
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 09/30/2016
-ms.author: marsma
+ms.date: 01/05/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a874623c7ab24478af14e6cf4391dcc29052590f
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: cb1f049597d53263f0f92fe1192b285c09d78eeb
 
 
 ---
@@ -129,7 +129,7 @@ Lorsque vous créez des ressources Batch comme des pools et des travaux, vous po
 
 Si vous pouvez effectuer de nombreuses opérations de création de ressources en utilisant uniquement des options de ligne de commande, certaines fonctionnalités requièrent un fichier au format JSON contenant les détails des ressources. Par exemple, vous devez utiliser un fichier JSON si vous souhaitez spécifier des fichiers de ressources pour une tâche de démarrage.
 
-Pour trouver le fichier JSON requis pour créer une ressource, reportez-vous à l’article [Référence de l’API REST Batch][rest_api] sur MSDN. Chaque rubrique « Ajouter un *type de ressource*» contient un exemple de fichier JSON pour créer la ressource, que vous pouvez utiliser comme modèle pour vos fichiers JSON. Par exemple, vous trouverez un fichier JSON pour la création de pools dans l’article [Ajout d’un pool à un compte][rest_add_pool].
+Pour trouver le fichier JSON requis pour créer une ressource, consultez l’article [Référence de l’API REST Batch][rest_api] sur MSDN. Chaque rubrique « Ajouter un *type de ressource*» contient un exemple de fichier JSON pour créer la ressource, que vous pouvez utiliser comme modèle pour vos fichiers JSON. Par exemple, le fichier JSON pour la création de pools est disponible dans l’article [Ajouter un pool à un compte][rest_add_pool].
 
 > [!NOTE]
 > Si vous spécifiez un fichier JSON lorsque vous créez une ressource, tous les autres paramètres que vous spécifiez sur la ligne de commande de cette ressource sont ignorés.
@@ -259,12 +259,12 @@ Cette section est destinée à vous fournir les ressources qu’il convient d’
 * Utilisez `-h` pour obtenir le **texte d’aide** d’une commande d’interface de ligne de commande.
 * Utilisez `-v` et `-vv` pour afficher une sortie de commande **détaillée** ; l’option `-vv` permet d’obtenir une sortie plus détaillée, et affiche les requêtes et réponses REST réelles. Ces commutateurs sont pratiques pour afficher une sortie complète des erreurs.
 * L’option `--json` permet d’afficher la **sortie de commande au format JSON**. Par exemple, `azure batch pool show "pool001" --json` affiche les propriétés de pool001 au format JSON. Vous pouvez ensuite copier et modifier cette sortie pour l’utiliser dans un `--json-file` (voir la section [Fichiers JSON](#json-files) plus haut dans cet article).
-* Le [forum Batch sur MSDN][batch_forum] est une ressource très utile, et est surveillé attentivement par les membres de l’équipe Batch. Veillez à y publier vos questions si vous rencontrez des problèmes ou si vous avez besoin d’aide pour une opération spécifique.
+* Le [forum Batch sur MSDN][batch_forum] est une ressource d’une grande aide qui fait l’objet d’une surveillance attentive par les membres de l’équipe Batch. Veillez à y publier vos questions si vous rencontrez des problèmes ou si vous avez besoin d’aide pour une opération spécifique.
 * Pour le moment, toutes les opérations sur les ressources Batch ne pas prises en charge par l’interface de ligne de commande Batch. Par exemple, vous ne pouvez pas spécifier actuellement une *version* de package d’application pour un pool, mais seulement l’ID du package. Dans ce cas, vous devez peut-être fournir un `--json-file` pour votre commande au lieu d’utiliser les options de ligne de commande. Veillez à ce que la version de l’interface de ligne de commande soit toujours à jour afin de bénéficier des améliorations ultérieures.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez l’article [Déploiement d’applications avec des packages d’applications Azure Batch](batch-application-packages.md) pour découvrir comment utiliser cette fonctionnalité pour gérer et déployer les applications que vous exécutez sur les nœuds de calcul Batch.
-* Consultez la page [Interroger efficacement le service Batch](batch-efficient-list-queries.md) pour en savoir plus sur la réduction du nombre d’éléments et le type d’informations retournées pour les requêtes envoyées au service Batch.
+* Consultez l’article [Interroger efficacement le service Batch](batch-efficient-list-queries.md) pour en savoir plus sur la réduction du nombre d’éléments et le type d’informations retournées pour les requêtes envoyées au service Batch.
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
@@ -273,6 +273,6 @@ Cette section est destinée à vous fournir les ressources qu’il convient d’
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

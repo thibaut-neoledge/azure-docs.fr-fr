@@ -4,7 +4,7 @@ description: Describes how you can set up alerts on your Azure bill so you can a
 services: 
 documentationcenter: 
 author: vikdesai
-manager: mbaldwin
+manager: vikdesai
 editor: 
 tags: billing
 ms.assetid: 9b7b3eeb-cd9d-4690-86a3-51b1e2a8974f
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2016
+ms.date: 01/07/2017
 ms.author: vikdesai
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 76e72abdb4876af7a3ca9be082ff125a2c70c6c7
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ce21f881d95b369073168d205c315d74de9f24ef
 
 
 ---
@@ -50,6 +50,6 @@ Une fois que vous avez configuré des alertes, le Centre des comptes les répert
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

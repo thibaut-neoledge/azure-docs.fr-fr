@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8b0758e1fa5f12dc49d8548b733aefdf1f43d6f0
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: d649ce6bcb5629cb820befd3478afa3f70293ccb
 
 
 ---
@@ -59,7 +59,7 @@ Voici les étapes générales pour la génération de clés de contenu que vous 
 1. Pour le chiffrement du stockage, générez de façon aléatoire une clé AES de 32 octets. 
    
     Il s’agit de la clé de contenu de votre ressource, ce qui signifie que tous les fichiers associés à cette ressource doivent utiliser la même clé de contenu lors du déchiffrement. 
-2. Appelez les méthodes [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) et [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) pour obtenir le certificat X.509 approprié qui doit être utilisé pour chiffrer votre clé de contenu.
+2. Appelez les méthodes [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) et [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) pour obtenir le certificat X.509 approprié qui doit être utilisé pour chiffrer votre clé de contenu.
 3. Chiffrez votre clé de contenu avec la clé publique du certificat X.509. 
    
    Le Kit de développement logiciel (SDK) Media Services pour .NET utilise RSA avec OAEP lorsque vous effectuez le chiffrement.  Vous trouverez un exemple .NET dans la [fonction EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
@@ -300,7 +300,7 @@ Réponse :
     HTTP/1.1 204 No Content 
 
 ## <a name="create-an-assetfile"></a>Création d’un AssetFile
-L’entité [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) représente un fichier audio ou vidéo stocké dans un conteneur d’objets blob. Un fichier de ressources est toujours associé à une ressource et une ressource peut contenir un ou plusieurs fichiers de ressources. La tâche de Media Services Encoder échoue si un objet de fichier de ressources n’est pas associé à un fichier numérique dans un conteneur d’objets blob.
+L’entité [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) représente un fichier audio ou vidéo stocké dans un conteneur d’objets blob. Un fichier de ressources est toujours associé à une ressource et une ressource peut contenir un ou plusieurs fichiers de ressources. La tâche de Media Services Encoder échoue si un objet de fichier de ressources n’est pas associé à un fichier numérique dans un conteneur d’objets blob.
 
 Notez que l’instance **AssetFile** et le fichier multimédia réel sont deux objets distincts. L’instance AssetFile contient des métadonnées concernant le fichier multimédia, tandis que le fichier multimédia contient le contenu multimédia réel.
 
@@ -368,6 +368,6 @@ Après avoir téléchargé le fichier multimédia numérique dans un conteneur d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: d5623b9d9e87731d99d12c6445722acefdc3ff66
-ms.openlocfilehash: 3ac48dba5d4dbb28f06c0cea6ff0526f75cb33ae
+ms.sourcegitcommit: 08499c4242fdc59ef932d6b8f2e8442e5cdc55b2
+ms.openlocfilehash: 4edfcbfb011c2296ad499d4ff62a07f0c388432a
 
 
 ---
@@ -174,11 +174,11 @@ Lorsque vous créez votre machine virtuelle à partir du disque dur virtuel exis
 ![Mettre à jour les paramètres des diagnostics de démarrage](./media/virtual-machines-linux-troubleshoot-recovery-disks/reenable-boot-diagnostics.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Si vous rencontrez des problèmes pour vous connecter à votre machine virtuelle, consultez la rubrique [Dépannage d’une connexion SSH à une machine virtuelle Linux Azure défaillante, qui génère une erreur ou qui est refusée](virtual-machines-linux-troubleshoot-ssh-connection?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Pour résoudre les problèmes liés à l’accès aux applications exécutées sur votre machine virtuelle, consultez la section [Résoudre les problèmes de connectivité des applications sur une machine virtuelle Linux Azure](virtual-machines-linux-troubleshoot-app-connection?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Si vous rencontrez des problèmes pour vous connecter à votre machine virtuelle, consultez la rubrique [Dépannage d’une connexion SSH à une machine virtuelle Linux Azure défaillante, qui génère une erreur ou qui est refusée](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Pour résoudre les problèmes liés à l’accès aux applications exécutées sur votre machine virtuelle, consultez la section [Résoudre les problèmes de connectivité des applications sur une machine virtuelle Linux Azure](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Pour plus d’informations sur l’utilisation de Resource Manager, consultez la page [Présentation d’Azure Resource Manager](../azure-resource-manager/resource-group-overview?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Pour plus d’informations sur l’utilisation de Resource Manager, consultez la page [Présentation d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

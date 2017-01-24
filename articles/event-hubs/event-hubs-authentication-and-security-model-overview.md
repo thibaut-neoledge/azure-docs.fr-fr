@@ -1,23 +1,27 @@
 ---
-title: Vue d’ensemble du modèle de sécurité et d’authentification d’Event Hubs| Microsoft Docs
-description: Présentation du modèle de sécurité et de l'authentification Event Hubs.
+title: "Vue d’ensemble du modèle de sécurité et d’authentification Azure Event Hubs| Microsoft Docs"
+description: "Présentation du modèle de sécurité et de l&quot;authentification Event Hubs."
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 93841e30-0c5c-4719-9dc1-57a4814342e7
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/30/2016
 ms.author: sethm;clemensv
+translationtype: Human Translation
+ms.sourcegitcommit: 05ca343cfdfc602759eb3ea30a7186a0bb47bd74
+ms.openlocfilehash: 3f20a19c212c082aa766cc2bd67e938aaabf715e
+
 
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Présentation du modèle de sécurité et de l'authentification Event Hubs
-Le modèle de sécurité Event Hubs remplit les conditions suivantes :
+Le modèle de sécurité Azure Event Hubs remplit les conditions suivantes :
 
 * Seuls les appareils qui présentent des informations d'identification valides peuvent envoyer des données à un hub d'événements.
 * Un appareil ne peut pas emprunter l'identité d'un autre appareil.
@@ -35,11 +39,11 @@ Bien que cela soit déconseillé, il est possible d'équiper les appareils de je
 Tous les jetons sont signés avec une clé SAS. En règle générale, tous les jetons sont signés avec la même clé. Les appareils ne sont pas conscients de la clé. Cela empêche les appareils de fabriquer des jetons.
 
 ### <a name="create-the-sas-key"></a>Créer la clé SAP
-Lorsque vous créez un espace de noms Event Hubs, Azure Event Hubs génère une clé SAS de 256 bits nommée **RootManageSharedAccessKey**. Cette clé accorde les droits d'envoi, d'écoute et de gestion pour l'espace de noms. Vous pouvez créer des clés supplémentaires. Nous vous recommandons de produire une clé qui accorde les droits d'envoi au hub d'événements spécifique. Pour le reste de cette rubrique, supposons que vous avez nommé cette clé `EventHubSendKey`.
+Lorsque vous créez un espace de noms Azure Event Hubs, le service génère une clé SAS de 256 bits nommée **RootManageSharedAccessKey**. Cette clé accorde les droits d'envoi, d'écoute et de gestion pour l'espace de noms. Vous pouvez créer des clés supplémentaires. Nous vous recommandons de produire une clé qui accorde les droits d'envoi au hub d'événements spécifique. Pour le reste de cette rubrique, supposons que vous avez nommé cette clé **EventHubSendKey**.
 
-L'exemple suivant crée une clé d'envoi uniquement lors de la création du hub d'événements :
+L'exemple suivant crée une clé d'envoi uniquement lors de la création du hub d'événements :
 
-```
+```csharp
 // Create namespace manager.
 string serviceNamespace = "YOUR_NAMESPACE";
 string namespaceManageKeyName = "RootManageSharedAccessKey";
@@ -60,21 +64,21 @@ nm.CreateEventHub(ed);
 ### <a name="generate-tokens"></a>Générer des jetons
 Vous pouvez générer des jetons à l'aide de la clé SAS. Vous ne devez produire qu'un seul jeton par appareil. Les jetons peuvent ensuite être générés à l'aide de la méthode suivante. Tous les jetons sont générés à l'aide de la clé **EventHubSendKey** . Une URI unique est affectée à chaque jeton.
 
-```
+```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
 ```
 
 Lors de l'appel de cette méthode, l'URI doit être spécifiée en tant que `//<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. Pour tous les jetons, l'URI est identique, à l'exception de `PUBLISHER_NAME`, qui doit être différent pour chaque jeton. Dans l'idéal, `PUBLISHER_NAME` représente l'ID de l'appareil qui reçoit ce jeton.
 
-Cette méthode génère un jeton avec la structure suivante :
+Cette méthode génère un jeton avec la structure suivante :
 
-```
+```csharp
 SharedAccessSignature sr={URI}&sig={HMAC_SHA256_SIGNATURE}&se={EXPIRATION_TIME}&skn={KEY_NAME}
 ```
 
-L'heure d'expiration du jeton est exprimée en secondes à partir du 1er janvier 1970. Vous trouverez ci-dessous un exemple de jeton :
+L'heure d'expiration du jeton est exprimée en secondes à partir du 1er janvier 1970. Vous trouverez ci-dessous un exemple de jeton :
 
-```
+```csharp
 SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFmBHG77A%3d&se=1403130337&skn=RootManageSharedAccessKey
 ```
 
@@ -98,17 +102,17 @@ En l'absence d'authentification SAS pour les groupes de consommateurs individuel
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur Event Hubs, consultez les rubriques suivantes :
 
-* [Vue d’ensemble des hubs d’événements]
-* Une [solution de messages de file d'attente] utilisant les files d'attente Service Bus.
-* Un [exemple d'application complet qui utilise des hubs d’événements].
+* [Vue d’ensemble des concentrateurs d’événements]
+* [Vue d’ensemble SAS]
+* Un [exemple d’application complet qui utilise Event Hubs]
 
-[Vue d’ensemble des hubs d’événements]: event-hubs-overview.md
-[exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Solution de messages de file d’attente]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-
-
+[Vue d’ensemble des concentrateurs d’événements]: event-hubs-overview.md
+[exemple d’application complet qui utilise Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Vue d’ensemble SAS]: ../service-bus-messaging/service-bus-sas-overview.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Dec16_HO1-->
 
 

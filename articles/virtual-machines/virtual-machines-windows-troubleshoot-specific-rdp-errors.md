@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 10/14/2016
+ms.date: 01/10/2017
 ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b

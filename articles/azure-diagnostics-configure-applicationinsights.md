@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 12/15/2015
 ms.author: saurabh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cad20d6dc02d7c569d593e2cf02fd4347a9008e8
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: fff688c7088a3c677763495b1a46ce54606d6816
 
 
 ---
@@ -69,7 +69,7 @@ Si vous souhaitez envoyer uniquement les journaux d'applications détaillés à 
 
     <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose" sinks="ApplicationInsights.MyLogData"/>
 
-Vous pouvez également inclure plusieurs récepteurs à la configuration à différents niveaux de la hiérarchie. Dans ce cas, le récepteur spécifié au niveau supérieur de la hiérarchie fonctionne comme un paramètre global et celui spécifié au niveau des éléments écrase ce paramètre global.    
+Vous pouvez également inclure plusieurs récepteurs à la configuration à différents niveaux de la hiérarchie. Dans ce cas, le récepteur spécifié au niveau supérieur de la hiérarchie fonctionne comme un paramètre global et celui spécifié au niveau des éléments individuels écrase ce paramètre global.    
 
 Voici un exemple complet de fichier de configuration publique qui envoie toutes les erreurs à Application Insights (spécifié au nœud **DiagnosticMonitorConfiguration**), ainsi que les journaux de niveau détaillé des journaux d’applications (spécifié au nœud **Logs**).
 
@@ -109,12 +109,11 @@ Il existe certaines limitations à connaître pour cette fonctionnalité
 * Vous ne pouvez pas envoyer des données blob collectées par l'extension des diagnostics Azure à Application Insights. Par exemple, rien qui soit spécifié sous le nœud *Directories* . Pour les vidages sur incident, le vidage sur incident réel sera toujours envoyé au stockage d'objets blob et seule une notification de génération du vidage sur incident sera envoyée à Application Insights.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Utilisez [PowerShell](cloud-services/cloud-services-diagnostics-powershell.md) pour activer l’extension des diagnostics Azure pour votre application. 
+* Utilisez [PowerShell](cloud-services/cloud-services-diagnostics-powershell.md) pour activer l’extension des diagnostics Azure pour votre application.
 * Utilisez [Visual Studio](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) pour activer l'extension des diagnostics Azure pour votre application
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

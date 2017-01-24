@@ -4,7 +4,7 @@ description: "Découvrez comment résoudre les problèmes si votre carte de cré
 services: 
 documentationcenter: 
 author: JiangChen79
-manager: mbaldwin
+manager: adpick
 editor: 
 tags: billing,top-support-issue
 keywords: "carte de crédit refusée, carte de débit refusée, votre carte de crédit a été refusée, carte de crédit non acceptée"

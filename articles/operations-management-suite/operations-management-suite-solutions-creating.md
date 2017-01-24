@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
-ms.openlocfilehash: 90c83d286047bcfa7563d75e380559154ca36f5b
+ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
+ms.openlocfilehash: 63b95e205a48e11a5a0717c07ad49cccc8da91b4
 
 
 ---
@@ -34,9 +34,9 @@ Les solutions de gestion dans OMS incluent plusieurs ressources prenant en charg
 Par exemple, une solution de gestion peut inclure un [runbook Azure Automation](../automation/automation-intro.md) qui collecte des données dans le référentiel Log Analytics à l’aide d’une [planification](../automation/automation-schedules.md) et d’une [vue](../log-analytics/log-analytics-view-designer.md) qui fournit différentes visualisations des données collectées.  La même planification peut être utilisée par une autre solution.  En tant qu’auteur de la solution de gestion, vous définissez les trois ressources mais spécifiez que le runbook et la vue doivent être automatiquement supprimés en même temps que la solution.    Vous pouvez également définir la planification, mais en spécifiant qu’elle doit rester en place si la solution est supprimée, au cas où elle est en cours d’utilisation par l’autre solution.
 
 ## <a name="management-solution-files"></a>Fichiers de solution de gestion
-Les solutions de gestion sont implémentées en tant que [modèles de gestion des ressources](../resource-manager-template-walkthrough.md).  Avant de créer des solutions de gestion, apprenez à [créer un modèle](../resource-group-authoring-templates.md).  Cet article fournit des détails uniques sur les modèles utilisés pour des solutions. Il indique également comment définir des ressources de solution courantes.
+Les solutions de gestion sont implémentées en tant que [modèles de gestion des ressources](../resource-manager-template-walkthrough.md).  Avant de créer des solutions de gestion, apprenez à [créer un modèle](../azure-resource-manager/resource-group-authoring-templates.md).  Cet article fournit des détails uniques sur les modèles utilisés pour des solutions. Il indique également comment définir des ressources de solution courantes.
 
-La structure de base d’un fichier solution de gestion est identique à un [modèle Resource Manager](../resource-group-authoring-templates.md#template-format) qui se présente comme suit.  Chacune des sections suivantes décrit les éléments de niveau supérieur et leur contenu dans une solution.  
+La structure de base d’un fichier solution de gestion est identique à un [modèle Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#template-format) qui se présente comme suit.  Chacune des sections suivantes décrit les éléments de niveau supérieur et leur contenu dans une solution.  
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -48,7 +48,7 @@ La structure de base d’un fichier solution de gestion est identique à un [mod
     }
 
 ## <a name="parameters"></a>Paramètres
-Les [Paramètres](../resource-group-authoring-templates.md#parameters) sont des valeurs que l’utilisateur doit indiquer lorsqu’il installe la solution de gestion.  Il existe des paramètres standard compris dans toutes les solutions, et vous pouvez ajouter des paramètres supplémentaires en fonction des besoins spécifiques de votre solution.  La manière dont les utilisateurs fournissent des valeurs de paramètre lors de l’installation de la solution dépend du paramètre lui-même et de la façon dont la solution est installée.
+Les [Paramètres](../azure-resource-manager/resource-group-authoring-templates.md#parameters) sont des valeurs que l’utilisateur doit indiquer lorsqu’il installe la solution de gestion.  Il existe des paramètres standard compris dans toutes les solutions, et vous pouvez ajouter des paramètres supplémentaires en fonction des besoins spécifiques de votre solution.  La manière dont les utilisateurs fournissent des valeurs de paramètre lors de l’installation de la solution dépend du paramètre lui-même et de la façon dont la solution est installée.
 
 Lorsqu’un utilisateur installe votre solution de gestion par le biais de la [Place de marché Azure](operations-management-suite-solutions.md#finding-and-installing-management-solutions) ou des [modèles de démarrage rapide Azure](operations-management-suite-solutions.md#finding-and-installing-management-solutions), il est invité à sélectionner un [espace de travail OMS et un compte Automation](operations-management-suite-solutions-creating.md#oms-workspace-and-automation-account).  Ils sont utilisés pour remplir les valeurs de chacun des paramètres standard.  L’utilisateur n’est pas invité à fournir directement des valeurs pour les paramètres standard, mais il est invité à fournir une valeur pour tout paramètre supplémentaire.
 
@@ -258,16 +258,16 @@ Pour obtenir des informations et des exemples de ressources communes aux solutio
 * [Ressources Automation](operations-management-suite-solutions-resources-automation.md)
 
 ## <a name="testing-a-management-solution"></a>Test d’une solution de gestion
-Avant de déployer votre solution de gestion, il est recommandé de la tester à l’aide de [Test-AzureRmResourceGroupDeployment](../resource-group-template-deploy.md#deploy-with-powershell).  Cela permet de valider votre fichier de solution et vous aide à identifier les problèmes éventuels avant son déploiement.
+Avant de déployer votre solution de gestion, il est recommandé de la tester à l’aide de [Test-AzureRmResourceGroupDeployment](../azure-resource-manager/resource-group-template-deploy.md#deploy).  Cela permet de valider votre fichier de solution et vous aide à identifier les problèmes éventuels avant son déploiement.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez comment [créer des modèles Azure Resource Manager](../resource-group-authoring-templates.md).
+* Découvrez comment [créer des modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 * Dans [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates), recherchez des exemples de modèles Resource Manager.
 * Afficher les détails de [l’ajout de vues à une solution de gestion](operations-management-suite-solutions-resources-views.md).
 * Afficher les détails de [l’ajout de ressources Automation à une solution de gestion](operations-management-suite-solutions-resources-automation.md).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

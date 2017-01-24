@@ -1,5 +1,5 @@
 ---
-title: "Essayer SQL Database : Utiliser C# pour créer une base de données SQL Database| Microsoft Docs"
+title: "C# : Prise en main d’Azure SQL Database | Microsoft Docs"
 description: "Essayez la base de données SQL pour développer des applications SQL et C# et créez une base de données SQL Azure avec C# à l’aide de la bibliothèque de base de données SQL pour .NET."
 keywords: essayer sql, sql c##
 services: sql-database
@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
-ms.openlocfilehash: 32c18821ac9cf5516fba9762ca5bb834194dcdc9
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: d55c08dbd1d2372e5396f40e74b4f63f3e2f0022
 
 
 ---
@@ -51,9 +51,9 @@ Pour effectuer les étapes de cet article, vous avez besoin des éléments suiva
 Pour créer une base de données SQL avec C#, chargez les bibliothèques de gestion nécessaires (à l’aide de la [console du gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console)) :
 
 1. Cliquez sur **Outils** > **Gestionnaire de package NuGet** > **Console du gestionnaire de package**.
-2. Saisissez `Install-Package Microsoft.Azure.Management.Sql –Pre` pour installer la toute dernière [bibliothèque Microsoft Azure SQL Management](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
-3. Saisissez `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` pour installer la [bibliothèque Microsoft Azure Resource Manager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
-4. Saisissez `Install-Package Microsoft.Azure.Common.Authentication –Pre` pour installer la [bibliothèque Microsoft Azure Common Authentication](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
+2. Saisissez `Install-Package Microsoft.Azure.Management.Sql -Pre` pour installer la toute dernière [bibliothèque Microsoft Azure SQL Management](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
+3. Saisissez `Install-Package Microsoft.Azure.Management.ResourceManager -Pre` pour installer la [bibliothèque Microsoft Azure Resource Manager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
+4. Saisissez `Install-Package Microsoft.Azure.Common.Authentication -Pre` pour installer la [bibliothèque Microsoft Azure Common Authentication](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
 
 > [!NOTE]
 > Les exemples de cet article utilisent une forme synchrone de chaque bloc et demande d’API jusqu’à la fin de l’appel REST sur le service sous-jacent. Des méthodes asynchrones sont disponibles.
@@ -287,6 +287,6 @@ Maintenant que vous avez essayé la base de données SQL et configuré une base 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

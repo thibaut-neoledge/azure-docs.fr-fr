@@ -12,11 +12,11 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2016
+ms.date: 12/06/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: ea6553d2024516b4c4bd307db4e92d598b78bc75
+ms.sourcegitcommit: a8b41b598b21ba61db9bae82d467aed5a781a8b4
+ms.openlocfilehash: fe551944f8fd13451aa2db91f4b2794b7c9f045d
 
 
 ---
@@ -66,7 +66,6 @@ Pour l’instant, les services qui permettent le déplacement vers un nouveau gr
 * Automatisation
 * Batch
 * Bing Maps
-* BizTalk Services
 * CDN
 * Cloud Services : consultez [Limitations relatives au déploiement Classic](#classic-deployment-limitations)
 * Cognitive Services
@@ -80,7 +79,7 @@ Pour l’instant, les services qui permettent le déplacement vers un nouveau gr
 * DNS
 * Base de données de documents
 * Event Hubs
-* Clusters HDInsight
+* Clusters HDInsight - voir [Limitations de HDInsight](#hdinsight-limitations)
 * IoT Hubs
 * Key Vault 
 * Équilibreurs de charge
@@ -113,6 +112,7 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 * Service de contrôle d’intégrité hybride Active Directory
 * Application Gateway
 * Application Insights
+* BizTalk Services
 * ExpressRoute
 * Dynamics LCS
 * Coffre Recovery Services : par ailleurs, ne déplacez pas les ressources de calcul, de réseau et de stockage associées au coffre Recovery Services. Consultez [Limitations de Recovery Services](#recovery-services-limitations).
@@ -165,6 +165,12 @@ Vous pouvez déplacer un certificat App Service vers un nouveau groupe de ressou
 Le déplacement n’est pas possible pour les ressources de stockage, de réseau ou de calcul utilisées pour configurer la récupération d’urgence avec Azure Site Recovery. 
 
 Par exemple, supposons que vous avez configuré la réplication de vos machines locales vers un compte de stockage (Storage1) et que vous souhaitez que la machine protégée apparaisse après le basculement vers Azure comme une machine virtuelle (VM1) connectée à un réseau virtuel (Network1). Vous ne pouvez pas déplacer ces ressources Azure (Storage1, VM1 et Network1) sur différents groupes de ressources dans le même abonnement ou sur différents abonnements.
+
+## <a name="hdinsight-limitations"></a>Limitations de HDInsight
+
+Vous pouvez déplacer des clusters HDInsight vers un nouvel abonnement ou groupe de ressources. Toutefois, vous ne pouvez pas déplacer sur différents abonnements les ressources réseau liées au cluster HDInsight (par exemple le réseau virtuel, une carte réseau ou un équilibrage de charge). En outre, vous ne pouvez pas déplacer vers un nouveau groupe de ressources une carte réseau connectée à une machine virtuelle pour le cluster.
+
+Lorsque vous déplacez un cluster HDInsight vers un nouvel abonnement, déplacez tout d’abord les autres ressources (le compte de stockage, par exemple). Puis, déplacez le cluster HDInsight par lui-même.
 
 ## <a name="classic-deployment-limitations"></a>Limitations relatives au déploiement Classic
 Les options de déplacement des ressources déployées avec le modèle classique diffèrent selon que vous déplaciez les ressources au sein d’un abonnement ou vers un nouvel abonnement. 
@@ -323,6 +329,6 @@ Dans le corps de la requête, vous indiquez le groupe de ressources cible et les
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

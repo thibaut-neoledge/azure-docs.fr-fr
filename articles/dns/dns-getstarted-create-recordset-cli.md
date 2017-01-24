@@ -1,73 +1,100 @@
 ---
-title: "Création d’un jeu d’enregistrements et d’enregistrements pour une zone DNS à l’aide de l’interface de ligne de commande | Microsoft Docs"
+title: "Création d’enregistrements DNS à l’aide de l’interface de ligne de commande Azure | Microsoft Docs"
 description: "Création d’enregistrements hôtes pour Azure DNS. Configuration d’enregistrements et de jeux d’enregistrements à l’aide de l’interface de ligne de commande"
 services: dns
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: 
+author: georgewallace
+manager: timlt
 ms.assetid: 02b897d3-e83b-4257-b96d-5c29aa59e843
 ms.service: dns
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2016
-ms.author: sewhee
+ms.date: 12/21/2016
+ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 40accee35eca32eefd4afc2315c70d51e0edcdcd
-
+ms.sourcegitcommit: 18a21cdc0f9641356dfaf6f6d93edfcac11af210
+ms.openlocfilehash: 790af1544ed86155f5f864f3914b5fd1c4f42f4b
 
 ---
-# <a name="create-dns-record-sets-and-records-by-using-cli"></a>Création de jeux d’enregistrements et d’enregistrements DNS à l’aide de l’interface de ligne de commande
+
+# <a name="create-dns-records-using-the-azure-cli"></a>Création d’enregistrements DNS à l’aide de l’interface de ligne de commande Azure
+
 > [!div class="op_single_selector"]
-> * [Portail Azure](dns-getstarted-create-recordset-portal.md)
+> * [portail Azure](dns-getstarted-create-recordset-portal.md)
 > * [PowerShell](dns-getstarted-create-recordset.md)
 > * [Interface de ligne de commande Azure](dns-getstarted-create-recordset-cli.md)
-> 
-> 
 
-Cet article vous guide dans le processus de création de jeux d’enregistrements et d’enregistrements à l’aide de la CLI. Après avoir créé votre zone DNS, vous devez ajouter les enregistrements DNS de votre domaine. Pour ce faire, vous devez d’abord comprendre les enregistrements DNS et les jeux d’enregistrements.
+Cet article vous guide tout au long du processus de création d’enregistrements et de jeux d’enregistrements à l’aide de l’interface de ligne de commande Azure.
+
+## <a name="introduction"></a>Introduction
+
+Avant de créer des enregistrements DNS dans Azure DNS, vous devez comprendre comment Azure DNS organise les enregistrements DNS en jeux d’enregistrements DNS.
 
 [!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
+Pour plus d’informations sur les enregistrements DNS dans Azure DNS, voir [Enregistrements et zones DNS](dns-zones-records.md).
+
 ## <a name="create-a-record-set-and-record"></a>Création d’un jeu d’enregistrements et d’un enregistrement
-Dans cette section, nous allons vous montrer comment créer un jeu d’enregistrements et des enregistrements. Dans cet exemple, vous allez créer un jeu d’enregistrements avec le nom relatif « www » dans la zone DNS « contoso.com ». Le nom complet des enregistrements est « www.contoso.com ». Le type d’enregistrement est « A » et la durée de vie est de 60 secondes. À la fin de cette étape, vous aurez créé un jeu d’enregistrements vide.
 
-Pour créer un jeu d’enregistrements à l’apex de la zone (dans cet exemple, « contoso.com »), utilisez le nom d’enregistrement "@", (guillemets compris). Il s'agit d'une convention DNS courante.
+Cette section décrit la procédure de création d’enregistrements DNS dans Azure DNS. Les exemples reposent sur l’hypothèse [que vous avez déjà installé l’interface de ligne de commande Azure, que vous êtes connecté et que vous avez créé une zone DNS](dns-getstarted-create-dnszone-cli.md).
 
-### <a name="1-create-a-record-set"></a>1. Création d’un jeu d'enregistrements
-Pour créer un jeu d’enregistrements, utilisez `azure network dns record-set create`. Spécifiez le groupe de la ressource, le nom de la zone, le nom relatif du jeu d’enregistrements, le type d’enregistrement et la durée de vie. Si le paramètre `--ttl` n’est pas défini, la valeur par défaut est quatre (en secondes). À la fin de cette étape, vous obtiendrez un jeu d’enregistrements « www » vide.
+Les exemples fournis sur cette page utilisent tous le type d’enregistrement DNS « A ». Pour plus d’informations sur les autres types d’enregistrements et sur la procédure de gestion des enregistrements et des jeux d’enregistrements DNS, consultez l’article [Création d’enregistrements et de jeux d’enregistrements DNS à l’aide de l’interface de ligne de commande](dns-operations-recordsets-cli.md).
 
-*Syntaxe : network dns record-set create <groupe_ressources> <nom_zone_dns><name> <type> <ttl>*
+## <a name="create-a-dns-record"></a>Créer un enregistrement DNS
 
-    azure network dns record-set create myresourcegroup  contoso.com  www A  60
+Pour créer un enregistrement DNS, utilisez la commande `azure network dns record-set add-record`. Pour obtenir de l’aide, consultez l’article `azure network dns record-set add-record -h`.
 
-### <a name="2-add-records"></a>2. Ajout d’enregistrements
-Pour utiliser le jeu d’enregistrements « www » que vous venez de créer, vous devez y ajouter des enregistrements. Pour ajouter des enregistrements aux jeux d’enregistrements, utilisez `azure network dns record-set add-record`.
+Lors de la création d’un enregistrement, vous devez spécifier le nom du groupe de ressources, le nom de la zone, le type d’enregistrement et les détails de l’enregistrement créé.
 
-Les paramètres pour ajouter des enregistrements à un jeu d'enregistrements varient selon le type de jeu d'enregistrements. Par exemple, lors de l’utilisation d’un jeu d’enregistrements de type « A », vous ne pouvez spécifier que les enregistrements avec le paramètre `-a <IPv4 address>`.
+Si le jeu d’enregistrements n’existe pas, cette commande le crée pour vous. Si le jeu d’enregistrements existe déjà, cette commande ajoute l’enregistrement spécifié au jeu d’enregistrements existant. 
 
-Ajoutez des enregistrements *A* IPv4 au jeu d’enregistrements « www » à l’aide de la commande suivante :
+Si un jeu d’enregistrements est créé, une durée de vie (TTL) de 3600 est utilisée par défaut. Pour obtenir des instructions sur l’utilisation de différentes TTL, consultez [Création d’enregistrements et de jeux d’enregistrements DNS à l’aide de l’interface de ligne de commande Azure](dns-operations-recordsets-cli.md).
 
-*Syntaxe : network dns record-set add-record <groupe_ressources> <nom_zone_dns> <nom_jeu_enregistrements> <type>*
+L’exemple suivant crée un enregistrement A appelé *www* dans la zone *contoso.com* du groupe de ressources *MyResourceGroup*. L’adresse IP de l’enregistrement A est *1.2.3.4*.
 
-    azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
+```azurecli
+azure network dns record-set add-record MyResourceGroup contoso.com www A -a 1.2.3.4
+```
 
-## <a name="additional-record-type-examples"></a>Autres exemples de types d’enregistrements
-Les exemples suivants montrent comment créer un jeu d’enregistrements de chaque type d’enregistrement. Chaque jeu d’enregistrements contient un seul enregistrement.
+Pour créer un jeu d’enregistrements à l’apex de la zone (en l’occurrence, « contoso.com »), utilisez le nom d’enregistrement "@", (guillemets compris).
 
-[!INCLUDE [dns-add-record-cli-include](../../includes/dns-add-record-cli-include.md)]
+```azurecli
+azure network dns record-set add-record MyResourceGroup contoso.com "@" A -a 1.2.3.4
+```
+
+Les paramètres utilisés pour spécifier les données de l’enregistrement varient selon le type de l’enregistrement. Par exemple, pour un enregistrement de type « A », vous spécifiez l’adresse IPv4 avec le paramètre `-a <IPv4 address>`. Pour obtenir la liste des paramètres correspondant aux autres types d’enregistrements, consultez l’article `azure network dns record-set add-record -h`. Pour des exemples de chaque type d’enregistrement, consultez [Création d’enregistrements et de jeux d’enregistrements DNS à l’aide de l’interface de ligne de commande Azure](dns-operations-recordsets-cli.md).
+
+
+## <a name="verify-name-resolution"></a>Vérifier la résolution de noms
+
+Vous pouvez vérifier la présence de vos enregistrements DNS sur les serveurs de noms Azure DNS à l’aide d’outils DNS comme nslookup, dig ou [l’applet de commande PowerShell Resolve-DnsName](https://technet.microsoft.com/library/jj590781.aspx).
+
+Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nouvelle zone dans Azure DNS, vous devez [diriger la requête DNS directement vers l’un des serveurs de noms pour votre zone](dns-getstarted-create-dnszone.md#test-name-servers). Veillez à indiquer les valeurs correctes pour votre zone d’enregistrements dans la commande ci-dessous.
+
+    nslookup
+    > set type=A
+    > server ns1-01.azure-dns.com
+    > www.contoso.com
+
+    Server:  ns1-01.azure-dns.com
+    Address:  40.90.4.1
+
+    Name:    www.contoso.com
+    Address:  1.2.3.4
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour gérer votre jeu d’enregistrements et vos enregistrements, consultez [Gestion d’enregistrements et de jeux d’enregistrements DNS à l’aide du portail Azure](dns-operations-recordsets-portal.md).
 
-Pour plus d’informations sur Azure DNS, consultez la [Vue d’ensemble d’Azure DNS](dns-overview.md).
+Découvrez comment [déléguer votre nom de domaine aux serveurs de noms Azure DNS](dns-domain-delegation.md).
+
+Apprenez à [gérer les zones DNS à l’aide de l’interface de ligne de commande Azure](dns-operations-dnszones-cli.md).
+
+Découvrez comment [gérer des enregistrements et des jeux d’enregistrements DNS à l’aide de l’interface de ligne de commande Azure](dns-operations-recordsets-cli.md).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

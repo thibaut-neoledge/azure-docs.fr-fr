@@ -1,6 +1,6 @@
 ---
-title: "Configurer une règle de pare-feu au niveau du serveur sur une base de données SQL | Microsoft Docs"
-description: "Découvrez comment configurer le pare-feu pour les adresses IP qui accèdent au serveur SQL Azure."
+title: "Portail Azure : Règles de pare-feu au niveau du serveur Azure SQL Database | Microsoft Docs"
+description: "Découvrez comment configurer des règles de pare-feu au niveau du serveur pour les adresses IP qui accèdent au serveur SQL Azure à l’aide du portail Azure."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/28/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: a87bb18aeacbc980fc6859c7c83a102dce0263a8
+ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
+ms.openlocfilehash: 36938e642853d587cd28405f5e518ac9ac0697ac
 
 
 ---
@@ -51,7 +51,7 @@ Cliquez sur **Enregistrer** pour enregistrer les modifications.
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour trouver un didacticiel de prise en main, consultez [Didacticiel sur la base de données SQL : création d’un serveur, d’une règle de pare-feu de niveau serveur, d’un exemple de base de données, d’une règle de pare-feu de niveau base de données et connexion à SQL Server](sql-database-get-started.md).
-- Pour trouver un didacticiel de prise en main de la sécurité, consultez [Prise en main de la sécurité](sql-database-get-started-security.md)
+- Pour trouver un didacticiel de prise en main de la sécurité, consultez [Prise en main de la sécurité](sql-database-control-access-sql-authentication-get-started.md)
 - Pour obtenir de l’aide afin de vous connecter à une base de données SQL Azure à partir d’applications open source ou tierces, consultez [Exemples de code de démarrage rapide client pour Base de données SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - Pour comprendre comment créer des utilisateurs supplémentaires pouvant se connecter aux bases de données, consultez [Authentification et autorisation de base de données SQL : octroi de l’accès](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
@@ -64,6 +64,6 @@ Cliquez sur **Enregistrer** pour enregistrer les modifications.
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 
