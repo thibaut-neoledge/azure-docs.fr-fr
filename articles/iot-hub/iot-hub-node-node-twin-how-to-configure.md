@@ -1,6 +1,6 @@
 ---
-title: "Utilisation de propriétés de représentation d’appareil | Microsoft Docs"
-description: "Ce didacticiel montre comment utiliser des propriétés de représentation d’appareil"
+title: "Utilisation des propriétés des représentations physiques Azure IoT Hub (Node) | Microsoft Docs"
+description: "Guide d’utilisation des représentations d’appareils Azure IoT Hub pour configurer des appareils. Les kits de développement logiciel (SDK) Azure IoT pour Node.js permettent d’implémenter une application d’appareil simulé et une application de service qui modifie la configuration d’un appareil à l’aide d’une représentation d’appareil."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 400eab43a417980abe9df5fa75ee9f9e43b296d0
-ms.openlocfilehash: cc3e2f92550b77fe837afa19f51ea7691422ac9b
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 397dffe8ec93ced9196bce8fcc12a058c6876bd4
 
 
 ---
-# <a name="tutorial-use-desired-properties-to-configure-devices"></a>Didacticiel : Utilisation des propriétés souhaitées pour configurer des appareils
+# <a name="use-desired-properties-to-configure-devices-node"></a>Utilisation des propriétés souhaitées pour configurer des appareils (Node)
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
 À la fin de ce didacticiel, vous disposerez de deux applications console Node.js :
 
 * **SimulateDeviceConfiguration.js**, application d’appareil simulée qui attend une mise à jour de configuration souhaitée, et signale l’état d’un processus de mise à jour de configuration simulée.
-* **SetDesiredConfigurationAndQuery.js**, application Node.js destinée à être exécuté à partir du serveur principal, qui définit la configuration souhaitée sur un appareil, et interroge le processus de mise à jour de configuration.
+* **SetDesiredConfigurationAndQuery.js**, application Node.js sur le serveur principal qui définit la configuration souhaitée sur un appareil, et interroge le processus de mise à jour de configuration.
 
 > [!NOTE]
 > L’article [Kits de développement logiciel (SDK) Azure IoT][lnk-hub-sdks] fournit des informations sur les Kits de développement logiciel (SDK) IoT que vous pouvez utiliser pour générer des applications pour appareil et des applications principales.
@@ -58,7 +58,7 @@ Dans cette section, vous créez une application console Node.js qui se connecte 
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. À l’aide d’un éditeur de texte, créez un fichier **SimulateDeviceConfiguration.js** dans le dossier **simulatedeviceconfiguration**.
-4. Ajoutez le code suivant au fichier **SimulateDeviceConfiguration.js**, puis remplacez l’espace réservé **{device connection string}** par la chaîne de connexion que vous avez copiée lors de la création de l’identité d’appareil **myDeviceId** :
+4. Ajoutez le code suivant au fichier **SimulateDeviceConfiguration.js**, puis remplacez l’espace réservé **{device connection string}** par la chaîne de connexion à l’appareil que vous avez copiée lors de la création de l’identité d’appareil **myDeviceId** :
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -169,12 +169,12 @@ Dans cette section, vous allez créer une application console Node.js qui met à
     npm install azure-iothub node-uuid --save
     ```
 3. À l’aide d’un éditeur de texte, créez un fichier **SetDesiredAndQuery.js** dans le dossier **addtagsandqueryapp**.
-4. Ajoutez le code suivant au fichier **SetDesiredAndQuery.js**, puis remplacez l’espace réservé **{service connection string}** par la chaîne de connexion que vous avez copiée lors de la création de votre hub :
+4. Ajoutez le code suivant au fichier **SetDesiredAndQuery.js**, puis remplacez l’espace réservé **{iot hub connection string}** par la chaîne de connexion que vous avez copiée lors de la création de votre IoT Hub :
    
         'use strict';
         var iothub = require('azure-iothub');
         var uuid = require('node-uuid');
-        var connectionString = '{service connection string}';
+        var connectionString = '{iot hub connection string}';
         var registry = iothub.Registry.fromConnectionString(connectionString);
    
         registry.getTwin('myDeviceId', function(err, twin){
@@ -265,7 +265,7 @@ Utilisez les ressources suivantes :
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
 [lnk-schedule-jobs]: iot-hub-node-node-schedule-jobs.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
@@ -278,6 +278,6 @@ Utilisez les ressources suivantes :
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 
