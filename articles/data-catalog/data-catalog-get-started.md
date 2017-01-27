@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/20/2016
+ms.date: 01/19/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 115668dae46557f6d6caefc9e7c1178768e7e775
+ms.sourcegitcommit: 2b128e2771ea89d1c0d6b8d52357d1bcc993115a
+ms.openlocfilehash: a9629d0a4bfc44f5d035a29f8e97d76922cc0060
 
 
 ---
@@ -117,7 +117,7 @@ Vous pouvez désormais inscrire les ressources de données de l’exemple de bas
 Dans cet exercice, vous allez utiliser l’outil de référencement pour inscrire les ressources de données de la base de données Adventure Works auprès du catalogue. L’inscription est le processus par lequel les métadonnées structurelles clés (telles que les noms, les types et les emplacements) sont extraites de la source de données et des ressources qu’elle contient, puis copiées dans le catalogue. La source de données et les ressources de données restent au même endroit, mais les métadonnées sont utilisées par le catalogue pour faciliter leur découverte et leur compréhension.
 
 ### <a name="register-a-data-source"></a>Référencer une source de données
-1. Accédez à la [page d’accueil Azure Data Catalog](https://azuredatacatalog.com) , puis cliquez sur **Publier des données**.
+1. Accédez à la [page d’accueil Azure Data Catalog](http://azuredatacatalog.com) , puis cliquez sur **Publier des données**.
    
    ![Azure Data Catalog--bouton Publier des données](media/data-catalog-get-started/data-catalog-publish-data.png)
 2. Cliquez sur **Lancer l’application** pour télécharger, installer et exécuter l’outil de référencement sur votre ordinateur.
@@ -366,6 +366,6 @@ Dans ce didacticiel, vous avez exploré les fonctionnalités essentielles d’Az
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
