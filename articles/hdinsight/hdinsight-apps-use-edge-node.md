@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 12/14/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 3b7bbd63a0bd87ee45a387bc0612541f0d82208b
-ms.openlocfilehash: 73f7235686435300d18fe518c08adbd6c3904f39
+ms.sourcegitcommit: a344a3a05c2a27e6b6500a6560c7fbb2096c9bfc
+ms.openlocfilehash: 0303145ba0ce611242f218cdf6a2274e9e393fb4
 
 
 ---
@@ -60,14 +60,14 @@ Comme indiqué dans l’exemple, vous pouvez éventuellement appeler une [action
 Après avoir créé un nœud de périmètre, vous pouvez vous connecter au nœud de périmètre à l’aide de SSH et exécuter les outils clients pour accéder au cluster Hadoop dans HDInsight.
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Ajouter un nœud de périmètre à un cluster existant
-Dans cette section, vous allez utiliser un modèle Resource Manager pour ajouter un nœud de périmètre à un cluster HDInsight existant.  Le modèle Resource Manager se trouve dans les [modèles de démarrage rapide Azure](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-with-edge-node/). Le modèle Resource Manager appelle un script d’action de script situé à https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. Le script n’effectue aucune action.  Cela sert à illustrer l’appel d’action de script à partir d’un modèle Resource Manager.
+Dans cette section, vous allez utiliser un modèle Resource Manager pour ajouter un nœud de périmètre à un cluster HDInsight existant.  Le modèle Resource Manager se trouve dans [GitHub](https://github.com/hdinsight/Iaas-Applications/tree/master/EmptyNode). Le modèle Resource Manager appelle un script d’action de script situé à l’emplacement https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/EmptyNode/scripts/EmptyNodeSetup.sh. Le script n’effectue aucune action.  Cela sert à illustrer l’appel d’action de script à partir d’un modèle Resource Manager.
 
 **Pour ajouter un nœud de périmètre vide à un cluster existant**
 
 1. Créez un cluster HDInsight si vous n’avez pas encore.  Consultez [Didacticiel Hadoop : prise en main de Hadoop sous Linux dans HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 2. Cliquez sur l’image suivante pour vous connecter à Azure et ouvrir le modèle Azure Resource Manager dans le portail Azure. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FEmptyNode%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
 3. Configurez les propriétés suivantes :
    
    * **Abonnement** : sélectionnez l’abonnement Azure utilisé pour créer le cluster.
@@ -86,7 +86,7 @@ Dans cette section, vous allez utiliser un modèle Resource Manager pour créer 
 1. Créez un cluster HDInsight si vous n’avez pas encore.  Consultez [Didacticiel Hadoop : prise en main de Hadoop sous Linux dans HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 2. Cliquez sur l’image suivante pour vous connecter à Azure et ouvrir le modèle Azure Resource Manager dans le portail Azure. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
 3. Configurez les propriétés suivantes :
    
    * **Abonnement** : sélectionnez l’abonnement Azure utilisé pour créer le cluster.
@@ -103,7 +103,7 @@ Dans cette section, vous allez utiliser un modèle Resource Manager pour créer 
 4. Cochez **J’accepte les termes et conditions mentionnés ci-dessus**, puis cliquez sur **Acheter** pour créer le cluster avec le nœud de périmètre.
 
 ## <a name="access-an-edge-node"></a>Accéder à un nœud de périmètre
-Le point de terminaison ssh de nœud de périmètre est <EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22.  Par exemple, new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.
+Le point de terminaison ssh de nœud de périphérie est &lt;EdgeNodeName>.&lt;ClusterName>-ssh.azurehdinsight.net:22.  Par exemple, new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.
 
 Le nœud de périmètre apparaît comme une application sur le portail Azure.  Le portail vous donne les informations d’accès au nœud de périmètre à l’aide de SSH.
 
@@ -148,6 +148,6 @@ Dans cet article, vous avez appris comment ajouter un nœud de périmètre et co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

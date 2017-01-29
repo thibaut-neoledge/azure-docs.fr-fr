@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/19/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: 04ebda0187791772814e40401643583036ca6afa
+ms.sourcegitcommit: c5e80c3cd3caac07e250d296c61fb3813e0000dd
+ms.openlocfilehash: 40c4f88bc91773158d416d5e89424b92cf15cf91
 
 
 ---
@@ -158,7 +158,7 @@ Vous pouvez personnaliser davantage le plan de récupération en déplaçant les
 
 ![Personnaliser un plan de récupération](./media/site-recovery-sql/customize-rp.png)
 
-### <a name="step-4-fail-over"></a>Étape 4 : Basculer
+#### <a name="step-4--fail-over"></a>Étape 4 : Basculer
 Différentes options de basculement sont disponibles une fois le groupe de disponibilité ajouté à un plan de récupération.
 
 | Basculement | Détails |
@@ -174,7 +174,7 @@ Considérez les options de basculement ci-dessous.
 | **Option 1 :** |1. Effectuez un test de basculement de l'application et des couches frontales.<br/><br/>2. Mettez à jour la couche applicative pour accéder à la copie du réplica en lecture seule et effectuez un test en lecture seule de l'application. |
 | **Option 2 :** |1. Créez une copie de l'instance d’ordinateur virtuel SQL Server répliquée (à l'aide de clone VMM pour la sauvegarde Azure ou de site à site), et copiez-la dans un réseau de test.<br/><br/> 2. Testez le basculement à l'aide du plan de récupération. |
 
-Étape 5 : effectuer une restauration automatique
+#### <a name="step-5-fail-back"></a>Étape 5 : effectuer une restauration automatique
 
 Si vous voulez définir de nouveau le groupe de disponibilité comme principal sur le serveur SQL Server local, vous devez déclencher un basculement planifié sur le plan de récupération et choisir le sens de Microsoft Azure vers le serveur VMM local.
 
@@ -188,13 +188,36 @@ Pour les environnements qui ne sont pas gérés par un serveur VMM ou de configu
 
 1. Créez un fichier local pour le script qui bascule un groupe de disponibilité. Cet exemple de script spécifie le chemin d'accès au groupe de disponibilité sur le réplica Azure et le bascule vers cette instance de réplica. Ce script s’exécutera sur l’ordinateur virtuel du réplica SQL Server par l’intermédiaire de l'extension de script personnalisé.
 
-     Param(   [string]$SQLAvailabilityGroupPath   )   import-module sqlps   Switch-SqlAvailabilityGroup -Path $SQLAvailabilityGroupPath -AllowDataLoss -force
-2. Chargez le script dans un objet blob d’un compte de stockage Azure. Utilisez cet exemple :
+        Param(
+        [string]$SQLAvailabilityGroupPath
+        )
+        import-module sqlps
+        Switch-SqlAvailabilityGroup -Path $SQLAvailabilityGroupPath -AllowDataLoss -force
 
-     $context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key"   Set-AzureStorageBlobContent -Blob "AGFailover.ps1" -Container "script-container" -File "ScriptLocalFilePath" -context $context
-3. Créez un runbook Azure Automation pour appeler les scripts sur l'ordinateur virtuel du réplica SQL Server dans Azure. Pour ce faire, utilisez cet exemple de script. [cliquez ici](site-recovery-runbook-automation.md) .
+1. Chargez le script dans un objet blob d’un compte de stockage Azure. Utilisez cet exemple :
 
-     workflow SQLAvailabilityGroupFailover   {
+        $context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key"
+        Set-AzureStorageBlobContent -Blob "AGFailover.ps1" -Container "script-container" -File "ScriptLocalFilePath" -context $context
+
+1. Créez un runbook Azure Automation pour appeler les scripts sur l'ordinateur virtuel du réplica SQL Server dans Azure. Pour ce faire, utilisez cet exemple de script. [cliquez ici](site-recovery-runbook-automation.md) .
+
+1. Lorsque vous créez un plan de récupération pour l’application, ajoutez une étape de script « démarrage avant le groupe 1 » qui exécute le runbook d’automatisation pour basculer vers le groupe de disponibilité.
+
+
+1. **Test de basculement** : SQL AlwaysOn ne prend pas en charge le test de basculement de manière native. Par conséquent, la méthode recommandée est la suivante :
+    1. Configurez la [Sauvegarde Azure](../backup/backup-azure-vms.md) sur la machine virtuelle qui héberge le réplica du groupe de disponibilité dans Azure. 
+    1. Avant de déclencher le test de basculement du plan de récupération, récupérez la machine virtuelle à partir de la sauvegarde effectuée à l’étape 1
+    1. Effectuer le test de basculement du plan de récupération
+
+
+> [!NOTE]
+> Le script ci-dessous suppose que le groupe de disponibilité SQL est hébergé sur une machine virtuelle Azure classique et que le nom de la machine virtuelle restaurée à l’étape 2 est SQLAzureVM-Test. Modifiez le script en fonction du nom que vous utilisez pour la machine virtuelle récupérée.
+> 
+> 
+
+
+     workflow SQLAvailabilityGroupFailover
+     {
 
          param (
              [Object]$RecoveryPlanContext
@@ -217,9 +240,28 @@ Pour les environnements qui ne sont pas gérés par un serveur VMM ou de configu
 
           if ($Using:RecoveryPlanContext.FailoverType -eq "Test")
                 {
-                #Skipping TFO in this version.
-                #We will update the script in a follow-up post with TFO support
-                Write-output "tfo: Skipping SQL Failover";
+                    Write-output "tfo"
+                    
+                    Write-Output "Creating ILB"
+                    Add-AzureInternalLoadBalancer -InternalLoadBalancerName SQLAGILB -SubnetName Subnet-1 -ServiceName SQLAzureVM-Test -StaticVNetIPAddress #IP
+                    Write-Output "ILB Created"
+
+                    #Update the script with name of the virtual machine recovered using Azure Backup
+                    Write-Output "Adding SQL AG Endpoint"
+                    Get-AzureVM -ServiceName "SQLAzureVM-Test" -Name "SQLAzureVM-Test"| Add-AzureEndpoint -Name sqlag -LBSetName sqlagset -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName SQLAGILB | Update-AzureVM
+
+                    Write-Output "Added Endpoint"
+        
+                    $VM = Get-AzureVM -Name "SQLAzureVM-Test" -ServiceName "SQLAzureVM-Test" 
+                       
+                    Write-Output "UnInstalling custom script extension"
+                    Set-AzureVMCustomScriptExtension -Uninstall -ReferenceName CustomScriptExtension -VM $VM |Update-AzureVM 
+                    Write-Output "Installing custom script extension"
+                    Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $vm -Publisher Microsoft.Compute -Version 1.*| Update-AzureVM   
+                    
+                    Write-output "Starting AG Failover"
+                    Set-AzureVMCustomScriptExtension -VM $VM -FileUri $sasuri -Run "AGFailover.ps1" -Argument "-Path sqlserver:\sql\sqlazureVM\default\availabilitygroups\testag"  | Update-AzureVM
+                    Write-output "Completed AG Failover"
                 }
           else
                 {
@@ -230,7 +272,7 @@ Pour les environnements qui ne sont pas gérés par un serveur VMM ou de configu
 
                 Write-Output "Installing custom script extension"
                 #Install the Custom Script Extension on teh SQL Replica VM
-                Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $VM -Publisher Microsoft.Compute -Version 1.3| Update-AzureVM;
+                Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $VM -Publisher Microsoft.Compute -Version 1.*| Update-AzureVM;
 
                 Write-output "Starting AG Failover";
                 #Execute the SQL Failover script
@@ -246,7 +288,6 @@ Pour les environnements qui ne sont pas gérés par un serveur VMM ou de configu
 
          }
      }
-4. Lorsque vous créez un plan de récupération pour l'application, ajoutez une étape de script « démarrage avant le groupe 1 » qui exécute le runbook d’automatisation pour basculer vers des groupes de disponibilité.
 
 ## <a name="integrate-protection-with-sql-alwayson-on-premises-to-on-premises"></a>Intégrer la protection à SQL AlwaysOn (localement vers localement)
 Si le serveur SQL utilise des groupes de disponibilité pour la haute disponibilité ou une instance de cluster de basculement, nous vous recommandons d’utiliser également les groupes de disponibilité sur le site de récupération. Notez que ceci vaut pour les applications qui n’utilisent pas les transactions distribuées.
@@ -301,6 +342,6 @@ Pour les clusters SQL standard, la restauration automatique après un basculemen
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

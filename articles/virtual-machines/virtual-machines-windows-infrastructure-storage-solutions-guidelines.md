@@ -1,5 +1,5 @@
 ---
-title: Instructions pour solutions de stockage | Microsoft Docs
+title: Instructions pour les solutions Stockage Azure | Microsoft Docs
 description: "Découvrez-en plus sur les principales instructions de conception et d’implémentation pour le déploiement de solutions de stockage dans des services d’infrastructure Azure."
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 589c79b9caba359ce8063c051ebe80dcbc68456c
+ms.sourcegitcommit: 310dc34634f7104ddfc7dfab13f09ab945b53cf4
+ms.openlocfilehash: 38f17470f7d4067ba5a9d3d974cfa5dd051320a5
 
 
 ---
-# <a name="storage-infrastructure-guidelines"></a>Instructions pour les infrastructures de stockage
+# <a name="azure-storage-infrastructure-guidelines"></a>Instructions pour les infrastructures Stockage Azure
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Cet article se concentre sur la compréhension des besoins de stockage et les considérations de conception pour obtenir des performances de machines virtuelles optimales.
@@ -59,7 +59,7 @@ Vous pouvez lire [plus d’informations sur les options de réplication pour la 
 
 Les disques de système d’exploitation et disques de données ont une taille maximale de 1 023 gigaoctets (Go). La taille maximale d’un objet blob est de 1 024 Go et doit comprendre les métadonnées (pied de page) du fichier VHD (un Go est égal à 1 024<sup>3</sup> octets). Vous pouvez utiliser les espaces de stockage dans Windows Server 2012 pour dépasser cette limite en regroupant des disques de données pour présenter des volumes logiques de plus de 1 023 Go à votre machine virtuelle.
 
-Il existe certaines limites d’évolutivité lors de la conception de vos déploiements de Stockage Azure : consultez [Abonnement Microsoft Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md#storage-limits) pour plus de détails. Voir également [Objectifs de performance et d’extensibilité d’Azure Storage](../storage/storage-scalability-targets.md).
+Il existe certaines limites d’évolutivité lors de la conception de vos déploiements de Stockage Azure. Consultez [Abonnement Microsoft Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md#storage-limits) pour plus de détails. Voir également [Objectifs de performance et d’extensibilité d’Azure Storage](../storage/storage-scalability-targets.md).
 
 En ce qui concerne le stockage d’applications, vous pouvez stocker des données d’objets non structurées, comme des documents, des images, des sauvegardes, des données de configuration, des journaux, etc. à l’aide de Stockage Blob. Plutôt que d’écrire sur un disque virtuel connecté à la machine virtuelle, l’application peut écrire directement sur le stockage d’objets blob. Stockage Blob offre également la possibilité de choisir entre [des niveaux de stockage chaud et froid](../storage/storage-blob-storage-tiers.md) selon vos besoins de disponibilité et vos contraintes de coût.
 
@@ -78,7 +78,7 @@ Si vous utilisez l’entrelacement pour les disques de données Azure, respectez
 Pour plus d’informations, voir la page [Espaces de stockage : une conception pour la performance](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
 
 ## <a name="multiple-storage-accounts"></a>Comptes de stockage multiples
-Lorsque vous concevez votre environnement de Stockage Azure, vous pouvez utiliser plusieurs comptes de stockage quand le nombre de machines virtuelles que vous déployez augmente. Cela permet de répartir les E/S sur l’infrastructure de Stockage Azure sous-jacente afin de maintenir des performances optimales pour vos machines virtuelles et vos applications. Lorsque vous concevez des applications que vous déployez, prenez en compte les exigences d’E/S de chaque machine virtuelle et équilibrez ces machines virtuelles à travers les comptes de Stockage Azure. Essayez d’éviter de grouper toutes les machines virtuelles gourmandes en E/S sur un ou deux comptes de stockage seulement.
+Lorsque vous concevez votre environnement de Stockage Azure, vous pouvez utiliser plusieurs comptes de stockage quand le nombre de machines virtuelles que vous déployez augmente. Cette approche permet de répartir les E/S sur l’infrastructure de Stockage Azure sous-jacente afin de maintenir des performances optimales pour vos machines virtuelles et vos applications. Lorsque vous concevez des applications que vous déployez, prenez en compte les exigences d’E/S de chaque machine virtuelle et équilibrez ces machines virtuelles à travers les comptes de Stockage Azure. Essayez d’éviter de grouper toutes les machines virtuelles gourmandes en E/S sur un ou deux comptes de stockage seulement.
 
 Pour plus d’informations sur les fonctionnalités d’E/S des différentes options de Stockage Azure et des valeurs maximales recommandées, consultez [Objectifs de performance et d’évolutivité du Stockage Azure](../storage/storage-scalability-targets.md).
 
@@ -88,6 +88,6 @@ Pour plus d’informations sur les fonctionnalités d’E/S des différentes opt
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

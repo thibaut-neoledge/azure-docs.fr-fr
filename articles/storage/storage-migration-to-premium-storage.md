@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/21/2016
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: ad39a17ae7aa6d7a1e2de0acee7259821e481728
+ms.sourcegitcommit: 7611f7940b076ba18b3966b0bc9a63fe53b55592
+ms.openlocfilehash: 0ebec265fe2ac2d53dbe3afcb660dddbe7b050ea
 
 
 ---
@@ -44,7 +44,7 @@ Cette section vous permet de vous assurer que vous êtes prêt à suivre les ét
 
 ### <a name="prerequisites"></a>Composants requis
 * Vous aurez besoin d’un abonnement Azure. Si vous n’en avez pas, vous pouvez souscrire un abonnement pour un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/) d’un mois ou visiter la page [Tarification Azure](https://azure.microsoft.com/pricing/) pour davantage d’options.
-* Pour exécuter les applets de commande PowerShell, vous avez besoin du module Microsoft Azure PowerShell. Consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour des instructions sur l’installation et le point d’installation.
+* Pour exécuter les applets de commande PowerShell, vous avez besoin du module Microsoft Azure PowerShell. Consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) pour des instructions sur l’installation et le point d’installation.
 * Lorsque vous prévoyez d’utiliser des machines virtuelles Azure exécutées sur Premium Storage, vous devez utiliser les machines virtuelles compatibles Premium Storage. Vous pouvez utiliser des disques de Stockage Standard et Premium avec les machines virtuelles compatibles avec Premium Storage. Les disques de stockage Premium seront bientôt disponibles avec plusieurs types de machines virtuelles. Pour plus d’informations sur les tailles et les types de disque de machine virtuelle Azure disponibles, consultez [Tailles des machines virtuelles](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) et [Tailles des services cloud](../cloud-services/cloud-services-sizes-specs.md).
 
 ### <a name="considerations"></a>Considérations
@@ -62,7 +62,7 @@ Il existe trois types de disque qui peuvent être utilisés avec votre machine v
 | IOPS par disque |500 |2 300 |5 000 |
 | Débit par disque |100 Mo par seconde |150 Mo par seconde |200 Mo par seconde |
 
-En fonction de votre charge de travail, déterminez si les disques de données supplémentaires sont nécessaires pour votre machine virtuelle. Vous pouvez joindre plusieurs disques de données persistantes à votre machine virtuelle. Si nécessaire, vous pouvez répartir les données sur les disques pour augmenter la capacité et les performances du volume. (Découvrez ce qu’est l’entrelacement de disques [ici](storage-premium-storage-performance.md#disk-striping).) Si vous équilibrez les disques de données de stockage Premium à l’aide des [espaces de stockage][4], vous devez les configurer avec une colonne pour chaque disque utilisé. Dans le cas contraire, les performances globales du volume agrégé par bandes peuvent être limitées, en raison d'une distribution inégale du trafic sur les disques. Pour les machines virtuelles Linux, vous pouvez utiliser l’utilitaire *mdadm* pour obtenir le même résultat. Consultez l’article [Configuration d’un RAID logiciel sur Linux](../virtual-machines/virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour plus d’informations.
+En fonction de votre charge de travail, déterminez si les disques de données supplémentaires sont nécessaires pour votre machine virtuelle. Vous pouvez joindre plusieurs disques de données persistantes à votre machine virtuelle. Si nécessaire, vous pouvez répartir les données sur les disques pour augmenter la capacité et les performances du volume. (Découvrez ce qu’est l’entrelacement de disques [ici](storage-premium-storage-performance.md#disk-striping).) Si vous équilibrez les disques de données Stockage Premium à l’aide des [espaces de stockage][4], vous devez les configurer avec une colonne pour chaque disque utilisé. Dans le cas contraire, les performances globales du volume agrégé par bandes peuvent être limitées, en raison d'une distribution inégale du trafic sur les disques. Pour les machines virtuelles Linux, vous pouvez utiliser l’utilitaire *mdadm* pour obtenir le même résultat. Consultez l’article [Configuration d’un RAID logiciel sur Linux](../virtual-machines/virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour plus d’informations.
 
 #### <a name="storage-account-scalability-targets"></a>Objectifs d’évolutivité de compte de stockage
 Les comptes de stockage Premium ont les objectifs d’évolutivité suivants en plus des [Objectifs d’évolutivité et de performances de stockage Azure](storage-scalability-targets.md). Si les besoins de votre application dépassent les objectifs d’évolutivité d’un compte de stockage unique, générez votre application pour qu’elle utilise plusieurs comptes de stockage et partitionnez vos données sur ces comptes.
@@ -313,7 +313,7 @@ Un exemple de script de migration est fourni à la fin de cette section. Ce scri
 Préparez votre application pour les interruptions de service. Pour effectuer une migration sans erreur, vous devez arrêter tous les processus en cours d’exécution dans le système actuel. Ce n’est qu’à cette condition que le système présentera un état cohérent, permettant sa migration vers la nouvelle plateforme. La durée de l’interruption de service dépend de la quantité de données dans les disques à migrer.
 
 > [!NOTE]
-> Si vous créez une machine virtuelle Azure Resource Manager à partir d’un disque dur virtuel spécialisé, reportez-vous à [ce modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) pour le déploiement d’une machine virtuelle Resource Manager à l’aide du disque existant.
+> Si vous créez une machine virtuelle Azure Resource Manager à partir d’un disque dur virtuel spécialisé, reportez-vous à [ce modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) pour le déploiement d’une machine virtuelle Resource Manager à l’aide du disque existant.
 >
 >
 
@@ -764,7 +764,7 @@ Consultez également les ressources suivantes pour en savoir plus sur Azure Stor
 
 * [Stockage Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure.](storage-premium-storage.md)
+* [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
@@ -773,6 +773,6 @@ Consultez également les ressources suivantes pour en savoir plus sur Azure Stor
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -12,27 +12,27 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: d99e2d885d56e3752a3b1caf51e52c801acaab52
-ms.openlocfilehash: 98201867fd8b1b5f074aa6135e04b04faf384224
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 62a69761575d4d0afdc58e43117407c2c0ca916f
 
 
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Comment déployer une instance de service Gestion des API Azure dans plusieurs régions Azure
 Gestion des API prend en charge le déploiement sur plusieurs régions, ce qui permet aux éditeurs d’API de ne distribuer qu’un seul service Gestion des API sur le nombre de régions Azure. Ceci permet de réduire la latence de la demande telle qu’elle est perçue par les utilisateurs distribués de l’API. La disponibilité du service est également améliorée si une région est mise hors connexion. 
 
-Lors de la création initiale du service Gestion des API, il ne contient qu’une seule [unitéé][unitéé] et se trouve dans une seule région Azure, désignée comme région primaire. D’autres régions peuvent être facilement ajoutées via le portail Azure. Un serveur de passerelle Gestion des API est déployé dans chaque région et le trafic d’appel est acheminé vers la passerelle la plus proche. Si une région est déconnectée, le trafic est automatiquement redirigé vers la passerelle suivante la plus proche. 
+Lors de la création initiale du service Gestion des API, il ne contient qu’une seule [unité][unit] et se trouve dans une seule région Azure, désignée comme région primaire. D’autres régions peuvent être facilement ajoutées via le portail Azure. Un serveur de passerelle Gestion des API est déployé dans chaque région et le trafic d’appel est acheminé vers la passerelle la plus proche. Si une région est déconnectée, le trafic est automatiquement redirigé vers la passerelle suivante la plus proche. 
 
 > [!IMPORTANT]
-> Le déploiement multirégion est disponible uniquement dans le niveau **[Premium][Premium]**.
+> Le déploiement multi-régions est disponible uniquement dans le niveau **[Premium][Premium]**.
 > 
 > 
 
 ## <a name="add-region"> </a>Déploiement d’une instance de service Gestion des API sur une nouvelle région
 > [!NOTE]
-> Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d’une instance du service API Management][Création d’une instance du service API Management] dans le didacticiel [Prise en main de Gestion des API Azure][Prise en main de Gestion des API Azure].
+> Si vous n’avez pas encore créé une instance de service Gestion des API, consultez la page de [création d’une instance de service Gestion des API][Create an API Management service instance] dans le didacticiel de [prise en main de Gestion des API Azure][Get started with Azure API Management].
 > 
 > 
 
@@ -70,18 +70,18 @@ Confirmez la suppression, puis cliquez sur **Enregistrer** pour appliquer les mo
 [api-management-select-location-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-location-units.png
 [api-management-remove-region]: ./media/api-management-howto-deploy-multi-region/api-management-remove-region.png
 
-[Création d’une instance du service API Management]: api-management-get-started.md#create-service-instance
-[Prise en main de Gestion des API Azure]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
 
-[Déploiement d’une instance de service Gestion des API sur une nouvelle région]: #add-region
-[Suppression d’une instance de service Gestion des API dans une région]: #remove-region
+[Deploy an API Management service instance to a new region]: #add-region
+[Delete an API Management service instance from a region]: #remove-region
 
-[unitéé]: http://azure.microsoft.com/pricing/details/api-management/
+[unit]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 
