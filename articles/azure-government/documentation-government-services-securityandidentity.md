@@ -1,19 +1,18 @@
 ---
 title: "Sécurité et identité Azure Government | Microsoft Docs"
 description: This provides a comparision of features and guidance on developing applications for Azure Government
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: 
 ms.assetid: e2fe7983-5870-43e9-ae01-2d45d3102c8a
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/12/2016
+ms.date: 11/14/2016
 ms.author: ryansoc
 translationtype: Human Translation
 ms.sourcegitcommit: cd01170c3c0a3f62024de3357d342af1f4f90c6c
@@ -21,7 +20,7 @@ ms.openlocfilehash: 27d447e8e3c336bbce2e1ca81d2c7c413b0360fc
 
 
 ---
-# <a name="azure-government-security-identity"></a>Sécurité et identité Azure Government
+# <a name="azure-government-security--identity"></a>Sécurité et identité Azure Government
 ## <a name="key-vault"></a>Key Vault
 Pour plus d’informations sur ce service et son utilisation, consultez la [documentation publique d’Azure Key Vault](../key-vault/index.md).
 

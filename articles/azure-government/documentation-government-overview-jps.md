@@ -1,19 +1,18 @@
 ---
 title: "Vue d’ensemble d’Azure Government JPS | Microsoft Docs"
 description: "Cette article fournit une comparaison de fonctionnalités et des conseils pour le développement d’applications pour Azure Government."
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: 
 ms.assetid: ef582573-b6d6-4f74-8dcc-d31b2807ff24
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/17/2016
+ms.date: 11/14/2016
 ms.author: ryansoc
 translationtype: Human Translation
 ms.sourcegitcommit: 7eb9fd7e4939542fb7382c20238a221cb6d4b6d1

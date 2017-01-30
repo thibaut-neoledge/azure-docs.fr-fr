@@ -1,19 +1,18 @@
 ---
 title: "Sécurité Azure Government | Microsoft Docs"
 description: "Fournit une vue d’ensemble des services disponibles dans Azure Government"
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: zakramer
 manager: liki
-editor: 
 ms.assetid: c3645bda-bf35-4232-a54d-7a0bfab2d594
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/18/2016
+ms.date: 11/14/2016
 ms.author: ryansoc
 translationtype: Human Translation
 ms.sourcegitcommit: a9cc2bc044caddec63645932067f7a346945db78
