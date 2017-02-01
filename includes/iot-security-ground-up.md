@@ -28,7 +28,7 @@ Microsoft Azure IoT Suite tire parti de la sécurité et de la confidentialité 
 
 Pour présenter clairement les fonctionnalités de sécurité et de confidentialité intégrées à Azure IoT Suite, nous avons fractionné la suite selon les trois principaux domaines de sécurité. 
 
-![Azure IoT Suite](media/iot-security-ground-up/securing-iot-ground-up-fig2.png)
+![Azure IoT Suite](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
 
 ### <a name="secure-device-provisioning-and-authentication"></a>Approvisionnement et authentification sécurisés des appareils
 Azure IoT Suite sécurise les appareils emportés sur le terrain en fournissant une clé d’identité unique pour chacun d’eux. Cette clé peut être utilisée par l’infrastructure IoT pour communiquer avec l’appareil, lorsqu’il est en cours d’utilisation. La configuration du processus est simple et rapide. La clé générée avec un ID d’appareil sélectionné par l’utilisateur constitue la base d’un jeton utilisé pour toutes les communications entre l’appareil et Azure IoT Hub.
