@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202
 ms.service: sql-database
-ms.custom: app development
+ms.custom: development
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 07/12/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: 9b684851aceb2813fad6ea58c2393cff2e95355e
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 865ddf4e8849c8c94ac8e20a22874e2edaead646
 
 
 ---
@@ -137,10 +137,10 @@ Les erreurs suivantes sont liées à la création et à l’utilisation de pools
 
 Rubriques connexes :
 
-* [Créer un pool de base de données élastique (C#)](sql-database-elastic-pool-create-csharp.md) 
-* [Gérer un pool de base de données élastique (C#)](sql-database-elastic-pool-manage-csharp.md). 
-* [Créer un pool de base de données élastique (PowerShell)](sql-database-elastic-pool-create-powershell.md) 
-* [Surveiller et gérer un pool de base de données élastique (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
+* [Créer un pool élastique (C#)](sql-database-elastic-pool-create-csharp.md) 
+* [Gérer un pool élastique (C#)](sql-database-elastic-pool-manage-csharp.md). 
+* [Créer un pool élastique (PowerShell)](sql-database-elastic-pool-create-powershell.md) 
+* [Surveiller et gérer un pool élastique (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
 
 ## <a name="general-errors"></a>Erreurs générales.
 Les erreurs suivantes n’entrent dans aucune des catégories précédentes.
@@ -219,6 +219,6 @@ Les erreurs suivantes n’entrent dans aucune des catégories précédentes.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

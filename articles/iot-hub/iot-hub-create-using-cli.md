@@ -1,115 +1,125 @@
 ---
-title: "Création d’un IoT Hub à l’aide de l’interface de ligne de commande Azure | Microsoft Docs"
-description: "Suivez cet article pour créer un IoT Hub à l’aide de l’Interface de ligne de commande (CLI) Azure."
+title: "Création d’un IoT Hub à l’aide de l’interface de ligne de commande Azure (az.py) | Microsoft Docs"
+description: "Création d’un Azure IoT Hub à l’aide de l’interface de ligne de commande Azure multiplateforme 2.0 (version préliminaire) (az.py)."
 services: iot-hub
 documentationcenter: .net
-author: BeatriceOltean
+author: dominicbetts
 manager: timlt
 editor: 
-ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
+ms.assetid: 
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
-ms.author: boltean
+ms.date: 12/02/2016
+ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 637cdc4763cd0caa9f75e25015c0c12e9db629cb
+ms.sourcegitcommit: 39c8c4944ef19379dc04e04a717ab60d305593c4
+ms.openlocfilehash: c52d9a5fadf494cc066bee773543c9d67bb8334b
 
 
 ---
-# <a name="create-an-iot-hub-using-azure-cli"></a>Création d’un IoT Hub à l’aide de l’interface de ligne de commande Azure
+# <a name="create-an-iot-hub-using-the-azure-cli-20-preview"></a>Créer un IoT Hub à l’aide de l’interface Azure CLI 2.0 (version préliminaire)
+
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Introduction
-L’interface de ligne de commande (CLI) Azure permet de créer et gérer des hubs Azure IoT par programme. Cet article explique comment utiliser l’interface de ligne de commande Azure pour créer un IoT Hub.
+
+Vous pouvez utiliser l’interface de ligne de commande Azure 2.0 (version préliminaire) pour créer et gérer des hubs Azure IoT de façon programmée. Cet article explique comment utiliser l’interface de ligne de commande Azure 2.0 (version préliminaire) (az.py) pour créer un IoT Hub.
+
+Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
+
+* [Azure CLI (azure.js)](iot-hub-create-using-cli-nodejs.md) : l'interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager.
+* Azure CLI 2.0 (version préliminaire) (az.py) : l’interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager, comme décrit dans cet article.
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez en créer un [gratuitement][lnk-free-trial] en quelques minutes.
-* [Azure CLI 0.10.4][lnk-CLI-install] ou version ultérieure. Si vous disposez déjà d’Azure CLI, vous pouvez valider la version actuelle à l’invite de commandes avec la commande suivante :
-  ```
-    azure --version
-  ```
+* Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.
+* [Version préliminaire d’Azure CLI 2.0][lnk-CLI-install].
 
-> [!NOTE]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Azure Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md). L’interface de ligne de commande (CLI) Azure doit être en mode Azure Resource Manager :
-> 
-> ```
-> azure config mode arm
-> ```
-> 
-> 
+## <a name="sign-in-and-set-your-azure-account"></a>Se connecter à votre compte Azure et le définir
 
-## <a name="set-your-azure-account-and-subscription"></a>Configurer votre compte et votre abonnement Microsoft Azure
-1. À l’invite de commandes, connectez-vous en tapant la commande suivante
-   
-   ```
-    azure login
-   ```
-   Utilisez le navigateur web suggéré et le code d’authentification.
-2. Si vous possédez plusieurs abonnements Azure, la connexion à Azure donne accès à tous les abonnements Azure associés à vos informations d’identification. Vous pouvez afficher les abonnements et identifier l’abonnement Azure par défaut à l’aide de la commande suivante
-   
-   ```
-    azure account list 
-   ```
+Connectez-vous à votre compte Azure et configurez l'interface de ligne de commande Azure pour une utilisation avec les ressources IoT Hub.
 
-   Pour définir le contexte de l’abonnement sous lequel vous souhaitez exécuter le reste des commandes, utilisez la commande suivante :
+1. Dans l’invite de commande, exécutez la [commande login][lnk-login-command] :
+    
+    ```azurecli
+    az login
+    ```
 
-   ```
-    azure account set <subscription name>
-   ```
+    Suivez les instructions pour vous authentifier à l’aide du code et vous connecter à votre compte Azure via un navigateur web.
 
-3. Si vous n’avez pas de groupe de ressources, vous pouvez en créer un nommé **exampleResourceGroup** 
-   ```
-    azure group create -n exampleResourceGroup -l westus
-   ```
+2. Si vous possédez plusieurs abonnements Azure, la connexion à Azure vous donne accès à tous les abonnements Azure associés à vos informations d’identification. Utilisez la [commande suivante pour répertorier les comptes Azure][lnk-az-account-command] que vous pouvez utiliser :
+    
+    ```azurecli
+    az account list 
+    ```
 
-> [!TIP]
-> Pour plus d’informations sur l’utilisation de l’interface de ligne de commande Azure pour gérer des ressources Azure, voir l’article [Utiliser l’interface de ligne de commande Azure pour gérer les ressources et les groupes de ressources Azure][lnk-CLI-arm]. 
-> 
-> 
+    Utilisez la commande suivante pour sélectionner l’abonnement que vous souhaitez utiliser afin d'exécuter les commandes pour créer votre IoT Hub. Vous pouvez utiliser le nom de l’abonnement ou l’ID de la sortie de la commande précédente :
+
+    ```azurecli
+    az account set --subscription {your subscription name or id}
+    ```
+
+3. Vous devez inscrire le fournisseur IoT avant de déployer les ressources IoT. Exécutez la [commande suivante pour enregistrer le fournisseur IoT][lnk-az-register-command] :
+    
+    ```azurecli
+    az provider register -namespace "Microsoft.Devices"
+    ```
+
+4. Vous devrez peut-être installer le _composant iot_ de l’interface de ligne de commande Azure. Exécutez la [commande suivante pour ajouter le composant iot][lnk-az-addcomponent-command] :
+    
+    ```azurecli
+    az component update --add iot
+    ```
 
 ## <a name="create-an-iot-hub"></a>Création d’un IoT Hub
-Paramètres obligatoires :
 
-```
- azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u <units>  
-    - <resourceGroup> The resource group name (case insensitive alphanumeric, underscore and hyphen, 1-64 length)
-    - <name> (The name of the IoT hub to be created. The format is case insensitive alphanumeric, underscore and hyphen, 3-50 length )
-    - <location> (The location (azure region/datacenter) where the IoT hub will be provisioned.
-    - <sku-name> (The name of the sku, one of: [F1, S1, S2, S3] etc. For the latest full list refer to the pricing page for IoT Hub.
-    - <units> (The number of provisioned units. Range : F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. IoT Hub units are based on your total message count and the number of devices you want to connect.)
-```
-Pour afficher tous les paramètres disponibles pour la création, vous pouvez utiliser la commande d’aide dans une invite de commandes
+Utilisez l’interface de ligne de commande Azure pour créer un groupe de ressources, puis ajoutez un IoT Hub.
 
-```
-    azure iothub create -h 
-```
-Exemple rapide :
+1. Lorsque vous créez un IoT Hub, vous devez le créer dans un groupe de ressources. Utilisez un groupe de ressources existant, ou exécutez la [commande suivante pour en créer un][lnk-az-resource-command] :
+    
+    ```azurecli
+     az resource group create --name {your resource group name} --location westus
+    ```
 
- Pour créer un IoT Hub appelé **exampleIoTHubName** dans le groupe de ressources **exampleResourceGroup** exécutez simplement la commande suivante
+    > [!TIP]
+    > L’exemple précédent crée le groupe de ressources dans l’emplacement États-Unis de l'Ouest. Vous pouvez afficher une liste des emplacements disponibles en exécutant la commande `az account list-locations -o table`.
+    >
+    >
 
-```
-    azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1 -u 1
-```
+2. Utilisez la [commande suivante pour créer un IoT Hub][lnk-az-iot-command] dans votre groupe de ressources :
+    
+    ```azurecli
+    az iot hub create --name {your iot hub name} --resource-group {your resource group name} --sku S1
+    ```
 
 > [!NOTE]
-> Cette commande CLI Azure crée un IoT Hub Standard S1 pour lequel vous êtes facturé. Vous pouvez supprimer l’IoT Hub **exampleIoTHubName** à l’aide de la commande suivante 
-> 
-> ```
-> azure iothub delete -g exampleResourceGroup -n exampleIoTHubName
-> ```
-> 
-> 
-> 
+> Le nom de votre IoT Hub doit être globalement unique. La commande précédente crée un IoT Hub dans le niveau de tarification S1 pour lequel vous êtes facturé. Pour plus d’informations, consultez la [tarification Azure IoT Hub][lnk-iot-pricing].
+>
+>
+
+## <a name="remove-an-iot-hub"></a>Supprimer un hub IoT
+
+Vous pouvez utiliser l’interface de ligne de commande Azure pour [supprimer une ressource][lnk-az-resource-command], par exemple un IoT Hub, ou un groupe de ressources et toutes ses ressources, y compris les IoT Hubs.
+
+Pour supprimer un IoT Hub, exécutez la commande suivante :
+
+```azurecli
+az resource delete --name {your iot hub name} --resource-group {your resource group name} --resource-type Microsoft.Devices/IotHubs
+```
+
+Pour supprimer un groupe de ressources et toutes ses ressources, exécutez la commande suivante :
+
+```azurecli
+az resource group delete --name {your resource group name}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur le développement pour IoT Hub, consultez les pages suivantes :
 
-* [Kits de développement logiciel (SDK) IoT][lnk-sdks]
+* [Guide du développeur d’IoT Hub][lnk-devguide]
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
@@ -117,17 +127,19 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-azure-portal]: https://portal.azure.com/
-[lnk-status]: https://azure.microsoft.com/status/
-[lnk-CLI-install]: ../xplat-cli-install.md
-[lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
-[lnk-CLI-arm]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
-
-[lnk-sdks]: iot-hub-devguide-sdks.md
+[lnk-CLI-install]: https://docs.microsoft.com/cli/azure/install-az-cli2
+[lnk-login-command]: https://docs.microsoft.com/cli/azure/get-started-with-az-cli2
+[lnk-az-account-command]: https://docs.microsoft.com/cli/azure/account
+[lnk-az-register-command]: https://docs.microsoft.com/cli/azure/provider
+[lnk-az-addcomponent-command]: https://docs.microsoft.com/cli/azure/component
+[lnk-az-resource-command]: https://docs.microsoft.com/cli/azure/resource
+[lnk-az-iot-command]: https://docs.microsoft.com/cli/azure/iot
+[lnk-iot-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
+[lnk-devguide]: iot-hub-devguide.md
 [lnk-portal]: iot-hub-create-through-portal.md 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

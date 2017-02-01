@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/22/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 0e947e0eaa6755f499860d5ce6d8bf354bc7eca4
-ms.openlocfilehash: 35a281cf40cc5bb0a23c17990438ba696b22bc54
+ms.sourcegitcommit: 91474f61ab724d3fd7a70c51dcd097fade8953dd
+ms.openlocfilehash: 3789079412932d56be1c9697fc23c56de5afba6f
 
 
 ---
@@ -73,12 +73,12 @@ Les valeurs de cette chaîne sont disponibles dans le panneau Chaîne de connexi
 * Port (obligatoire)
   * 10250
 * Base de données (facultatif)
-  * Base de données par défaut utilisée par la connexion
+  * La base de données par défaut utilisée par la connexion (si aucune base de données n’est fournie, la base de données par défaut est « test »)
 * ssl = true (obligatoire)
 
 Par exemple, observez le compte décrit dans les informations de chaîne de connexion ci-dessus.  Exemple de chaîne de connexion valide :
 
-    mongodb://contoso123:<password@anhohmongo.documents.azure.com:10250/mydatabase?ssl=true
+    mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@anhohmongo.documents.azure.com:10250/mydatabase?ssl=true
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Apprenez à [utiliser MongoChef](documentdb-mongodb-mongochef.md) avec un compte DocumentDB prenant en charge le protocole MongoDB.
@@ -86,6 +86,6 @@ Par exemple, observez le compte décrit dans les informations de chaîne de conn
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

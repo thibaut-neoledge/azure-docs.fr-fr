@@ -12,43 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 12/11/2016
 ms.author: willzhan;kilroyh;yanmf;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: a4f363fcd05e8596f445ce7d40638c5e27c896e6
+ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
+ms.openlocfilehash: 32c792c097e44d46fef9d161ef8d361e97167224
 
 
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Windows Azure et Azure Media Services
-## <a name="key-words"></a>Mots-clés
-Azure Active Directory, Azure Media Services, Azure Media Player, Chiffrement dynamique, Remise de licence, PlayReady, Widevine, FairPlay, Common Encryption(CENC), Multi-DRM, Axinom, DASH, EME, MSE, Clé d’authentification Web JSON (JWT), Claims, Navigateurs modernes,Substitution de clé, Clé symétrique, Clé asymétrique, OpenID Connect, certificat X509.
-
-## <a name="in-this-article"></a>Dans cet article
-Les rubriques traitées dans cet article sont les suivantes :
-
-* [Introduction](media-services-cenc-with-multidrm-access-control.md#introduction)
-  * [Présentation de cet article](media-services-cenc-with-multidrm-access-control.md#overview-of-this-article)
-* [Une conception de référence](media-services-cenc-with-multidrm-access-control.md#a-reference-design)
-* [Correspondance entre conception et technologie pour la mise en œuvre](media-services-cenc-with-multidrm-access-control.md#mapping-design-to-technology-for-implementation)
-* [Implémentation](media-services-cenc-with-multidrm-access-control.md#implementation)
-  * [Procédures de mise en œuvre](media-services-cenc-with-multidrm-access-control.md#implementation-procedures)
-  * [Des problèmes de mise en œuvre](media-services-cenc-with-multidrm-access-control.md#some-gotchas-in-implementation)
-* [Rubriques supplémentaires pour l’implémentation](media-services-cenc-with-multidrm-access-control.md#additional-topics-for-implementation)
-  * [HTTP ou HTTPS](media-services-cenc-with-multidrm-access-control.md#http-or-https)
-  * [Substitution de la clé de signature Azure Active Directory](media-services-cenc-with-multidrm-access-control.md#azure-active-directory-signing-key-rollover)
-  * [Où se trouve le jeton d’accès ?](media-services-cenc-with-multidrm-access-control.md#where-is-the-access-token)
-  * [Qu’en est-il de la diffusion en continu ?](media-services-cenc-with-multidrm-access-control.md#what-about-live-streaming)
-  * [Qu’en est-il des serveurs de licences hors Azure Media Services ?](media-services-cenc-with-multidrm-access-control.md#what-about-license-servers-outside-of-azure-media-services)
-  * [Que se passe-t-il si je souhaite utiliser un STS personnalisé ?](media-services-cenc-with-multidrm-access-control.md#what-if-i-want-to-use-a-custom-sts)
-* [Le système et le test terminé](media-services-cenc-with-multidrm-access-control.md#the-completed-system-and-test)
-  * [Connexion utilisateur](media-services-cenc-with-multidrm-access-control.md#user-login)
-  * [Utilisation de Encrypted Media Extensions pour PlayReady](media-services-cenc-with-multidrm-access-control.md#using-encrypted-media-extensions-for-playready)
-  * [Utilisation d’EME pour Widevine](media-services-cenc-with-multidrm-access-control.md#using-eme-for-widevine)
-  * [Utilisateurs sans intitulé](media-services-cenc-with-multidrm-access-control.md#not-entitled-users)
-  * [Exécution d’un Service d’émission de jeton sécurisé personnalisé](media-services-cenc-with-multidrm-access-control.md#running-custom-secure-token-service)
-* [Résumé](media-services-cenc-with-multidrm-access-control.md#summary)
-
+ 
 ## <a name="introduction"></a>Introduction
 Il est bien connu que la conception et la mise en place d’un sous-système DRM pour une OTT ou une solution de diffusion en continu en ligne est une tâche complexe. Et il est très courant que les fournisseurs/opérateurs de vidéo en ligne externalisent cette partie aux fournisseurs de services spécialisés DRM. L’objectif de ce document est de présenter la conception et l’implémentation d’un sous-système DRM de bout en bout dans OTT ou une solution de diffusion en ligne en continu de référence.
 
@@ -75,7 +48,7 @@ Dans cet article, « multi DRM » aborde les thèmes suivants :
 
 1. Microsoft PlayReady
 2. Google Widevine
-3. FairPlay Apple (non pris en charge par Azure Media Services)
+3. Apple FairPlay 
 
 Le tableau suivant résume l’application de la plateforme/application native et les navigateurs pris en charge pour chaque DRM.
 
@@ -85,7 +58,7 @@ Le tableau suivant résume l’application de la plateforme/application native e
 | **Appareils Windows 10 (PC Windows, tablettes Windows, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>UWP |DASH (pour HLS, PlayReady n’est pas pris en charge)<br/><br/>DASH, Smooth Streaming (pour HLS, PlayReady n’est pas pris en charge) |
 | **Appareils Android (téléphone, tablette, TV)** |Widevine |Chrome/EME |DASH |
 | **iOS (iPhone, iPad), clients OS X et Apple TV** |FairPlay |Safari 8+/EME |HLS |
-| **Plug-in : Adobe Primetime** |Primetime Access |Plug-in de navigateur |HDS, HLS |
+
 
 Compte tenu de l'état actuel du déploiement de chaque DRM, un service mettra généralement en œuvre 2 ou 3 DRM pour s’assurer que vous gérez tous les types de points de terminaison de façon optimale.
 
@@ -482,12 +455,9 @@ Dans ce document, nous avons abordé les sujets des DRM natives multiples, et un
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-### <a name="acknowledgments"></a>Remerciements
-William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
+ 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

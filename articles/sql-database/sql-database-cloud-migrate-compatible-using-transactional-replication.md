@@ -3,7 +3,7 @@ title: "Migration vers SQL Database à l’aide de la réplication transactionne
 description: "Base de données SQL Microsoft Azure, migration de base de données, importer une base de données, réplication transactionnelle"
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
+author: jognanay
 manager: jhubbard
 editor: 
 ms.assetid: eebdd725-833d-4151-9b2b-a0303f39e30f
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
-ms.date: 11/08/2016
-ms.author: carlrab
+ms.date: 12/09/2016
+ms.author: carlrab; jognanay;
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: 891c10b2f8e560a3c97f93198c742f657a92e927
+ms.sourcegitcommit: 8baeadbf7ef24e492c4115745c0d384e4f526188
+ms.openlocfilehash: 8380925a56d39bd53fe737bed539b862cc835fad
 
 
 ---
@@ -41,19 +41,41 @@ Avec la réplication transactionnelle, toutes les modifications apportées à vo
 
  ![Diagramme SeedCloudTR](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 
+## <a name="how-transactional-replication-works"></a>Comment fonctionne la réplication transactionnelle
+
+La réplication transactionnelle implique trois principaux composants. Il s’agit de l’éditeur, du distributeur et de l’abonné. Ces composants effectuent ensemble la réplication. Le distributeur est chargé de contrôler les processus qui déplacent vos données d’un serveur à l’autre. Lorsque vous configurez la distribution, SQL crée une base de données de distribution. Chaque éditeur doit être lié à une base de données de distribution. La base de données de distribution conserve les métadonnées de chaque publication associée et les données sur la progression de chaque réplication. Pour la réplication de transactions, elle contient toutes les transactions qui doivent être exécutées dans l’abonné.
+
+L’éditeur est la base de données dont proviennent toutes les données de la migration. Il peut y avoir de nombreuses publications au sein de l’éditeur. Ces publications contiennent des articles correspondant à toutes les tables et données qui doivent être répliquées. Selon la façon dont vous définissez la publication et les articles, vous pouvez répliquer tout ou partie de votre base de données. 
+
+Dans la réplication, l’abonné est le serveur qui reçoit toutes les données et transactions de la publication. Chaque publication peut avoir de nombreuses réplications.
+
 ## <a name="transactional-replication-requirements"></a>Conditions requises de la réplication transactionnelle
-La réplication transactionnelle est une technologie intégrée à SQL Server depuis SQL Server 6.5. Il s’agit d’une technologie mature et éprouvée que la plupart des administrateurs de bases de données maîtrisent parfaitement. Avec [SQL Server 2016](https://www.microsoft.com/sql-server/sql-server-2016), vous pouvez désormais configurer votre Azure SQL Database en tant [qu’abonnée de réplication transactionnelle](https://msdn.microsoft.com/library/mt589530.aspx) à votre publication locale. L’expérience de configuration dans Management Studio est identique à la configuration d’un abonné de réplication transactionnelle sur un serveur local. Ce scénario est pris en charge quand le serveur de publication et le serveur de distribution sont au moins de l’une des versions de SQL Server suivantes :
-
-* SQL Server 2016 et versions ultérieures 
-* SQL Server 2014 SP1 CU3 et versions ultérieures
-* SQL Server 2014 RTM CU10 et versions ultérieures
-* SQL Server 2012 SP2 CU8 et versions ultérieures
-* SQL Server 2012 SP3 et versions ultérieures
-
+[Cliquez sur ce lien pour voir la liste actualisée des exigences.](https://msdn.microsoft.com/en-US/library/mt589530.aspx)
 > [!IMPORTANT]
 > Utilisez la dernière version de SQL Server Management Studio pour rester synchronisé avec les mises à jour de Microsoft Azure et de Base de données SQL. Les versions antérieures de SQL Server Management Studio ne peuvent pas configurer Base de données SQL en tant qu’abonné. [Mettre à jour SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 > 
-> 
+
+## <a name="migration-to-sql-database-using-transaction-replication-workflow"></a>Workflow de migration vers SQL Database à l’aide de la réplication transactionnelle
+
+1. Configurer la distribution
+   -  [Avec SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_1)
+   -  [Avec Transact-SQL](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_2)
+2. Créer une publication
+   -  [Avec SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_1)
+   -  [Avec Transact-SQL](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
+3. Créer un abonnement
+   -  [Avec SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_0)
+   -  [Avec Transact-SQL](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
+
+## <a name="some-tips-and-differences-for-migrating-to-sql-database"></a>Quelques conseils et différences pour la migration vers SQL Database
+
+1. Utilisez un serveur de distribution local 
+   - Cela a un impact sur les performances du serveur. 
+   - Si l’impact sur les performances est inacceptable, vous pouvez utiliser un autre serveur, mais cela ajoute de la complexité de gestion et d’administration.
+2. Lorsque vous sélectionnez un dossier de capture instantanée, assurez-vous qu’il est suffisamment grand pour contenir un BCP de chaque table que vous souhaitez répliquer. 
+3. Notez que la création d’instantanés verrouillera les tables associées jusqu’à ce qu’elle soit terminée : gardez cela à l’esprit quand vous planifiez votre capture instantanée. 
+4. Seuls les abonnements de type push sont pris en charge dans Azure SQL Database.
+   - Vous ne pouvez ajouter des abonnés que du côté de votre base de données locale.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Version la plus récente de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
@@ -61,14 +83,11 @@ La réplication transactionnelle est une technologie intégrée à SQL Server de
 * [SQL Server 2016 ](https://www.microsoft.com/sql-server/sql-server-2016)
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
-* [Réplication transactionnelle](https://msdn.microsoft.com/library/mt589530.aspx)
-* [Fonctionnalités SQL Database](sql-database-features.md)
-* [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
-* [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
+* Pour plus d’informations sur la réplication transactionnelle, consultez la page [Réplication transactionnelle](https://msdn.microsoft.com/library/mt589530.aspx).
+* Pour en savoir plus sur les options et le processus global de migration, consultez la page [Migration d’une base de données SQL Server vers SQL Database dans le cloud](sql-database-cloud-migrate.md).
 
 
 
-
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

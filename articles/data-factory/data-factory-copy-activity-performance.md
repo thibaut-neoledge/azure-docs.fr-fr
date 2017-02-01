@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 32b8f2ba9acd315a8ad05659b014ad41ed77a498
-ms.openlocfilehash: f3756f7a89ac6875b01b099e23021ed73227c4ea
+ms.sourcegitcommit: 4cc2906d19562fc420d92ea0f3097a972acc45b9
+ms.openlocfilehash: dfacb95f816c45413b292c93c13d0e37b7ce517e
 
 
 ---
@@ -44,12 +44,11 @@ Cet article explique :
 ![Matrice des performances](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
 > [!NOTE]
-> Vous pouvez obtenir un débit plus élevé en exploitant davantage d’unités de déplacement des données (DMU) que le nombre maximum par défaut, à savoir 8 pour l’exécution d’une activité de copie du cloud vers le cloud. Par exemple, avec 100 DMU, vous pouvez copier des données d’Azure Blob vers Azure Data Lake Store à un taux de 1 Go par seconde. Pour en savoir plus sur cette fonctionnalité et le scénario pris en charge, consultez la section [Unités de déplacement de données cloud](#cloud-data-movement-units). Contactez le [support Azure](https://azure.microsoft.com/support/) pour demander plus de DMU.
+> Vous pouvez obtenir un débit plus élevé en exploitant davantage d’unités de déplacement des données (DMU) que le nombre maximum par défaut, à savoir 8 pour l’exécution d’une activité de copie du cloud vers le cloud. Par exemple, avec 100 unités DMU, vous pouvez copier des données depuis Azure Blob vers Azure Data Lake Store à **1,0 Go/s**. Pour en savoir plus sur cette fonctionnalité et le scénario pris en charge, consultez la section [Unités de déplacement de données cloud](#cloud-data-movement-units). Contactez le [support Azure](https://azure.microsoft.com/support/) pour demander plus de DMU.
 >
 >
 
-Points à noter :
-
+**Points à noter :**
 * Le débit est calculé à l’aide de la formule suivante : [taille des données lues à partir de la source]/[durée d’exécution de l’activité de copie].
 * Les chiffres de référence des performances dans le tableau ont été mesurés à l’aide du jeu de données [TPC-H](http://www.tpc.org/tpch/) durant une seule exécution de l’activité de copie.
 * Pour effectuer des copies entre des magasins de données cloud, définissez **cloudDataMovementUnits** sur 1 et sur 4 (ou 8) pour la comparaison. **parallelCopies** n’est pas spécifiée. Consultez la section [Copie en parallèle](#parallel-copy) pour plus d’informations sur ces fonctionnalités.
@@ -98,25 +97,26 @@ Pour chaque exécution d’activité de copie, Data Factory détermine le nombre
 
 Généralement, le comportement par défaut doit offrir le meilleur débit. Or, pour contrôler la charge sur les ordinateurs qui hébergent vos banques de données ou pour optimiser les performances de copie, vous pouvez choisir de remplacer la valeur par défaut et spécifier une valeur pour la propriété **parallelCopies** . La valeur doit être comprise entre 1 et 32 (inclus). Au moment de l’exécution, pour des performances optimales, l’activité de copie utilise une valeur inférieure ou égale à la valeur que vous avez définie.
 
-    "activities":[  
-        {
-            "name": "Sample copy activity",
-            "description": "",
-            "type": "Copy",
-            "inputs": [{ "name": "InputDataset" }],
-            "outputs": [{ "name": "OutputDataset" }],
-            "typeProperties": {
-                "source": {
-                    "type": "BlobSource",
-                },
-                "sink": {
-                    "type": "AzureDataLakeStoreSink"
-                },
-                "parallelCopies": 8
-            }
+```json
+"activities":[  
+    {
+        "name": "Sample copy activity",
+        "description": "",
+        "type": "Copy",
+        "inputs": [{ "name": "InputDataset" }],
+        "outputs": [{ "name": "OutputDataset" }],
+        "typeProperties": {
+            "source": {
+                "type": "BlobSource",
+            },
+            "sink": {
+                "type": "AzureDataLakeStoreSink"
+            },
+            "parallelCopies": 8
         }
-    ]
-
+    }
+]
+```
 Points à noter :
 
 * Lorsque vous copiez des données entre des banques basées sur fichier, la valeur **parallelCopies** détermine le parallélisme au niveau du fichier. La segmentation dans un seul fichier se produit en arrière-plan de manière automatique et transparente. Elle est conçue pour utiliser la meilleure taille de segment appropriée pour un type de magasin de données source donné pour charger des données de manière parallèle et orthogonale à la valeur parallelCopies. Le nombre réel de copies en parallèle que le service de déplacement de données utilise pour l’opération de copie au moment de l’exécution ne peut pas être supérieur au nombre de fichiers dont vous disposez. Si le comportement de copie est défini sur **mergeFile**, l’activité de copie ne peut pas tirer parti du parallélisme au niveau du fichier.
@@ -133,25 +133,26 @@ Une **unité de déplacement de données cloud** est une mesure qui représente 
 
 Par défaut, Data Factory utilise une unité de déplacement de données cloud unique pour mener à bien une exécution d’activité de copie unique. Pour remplacer cette valeur par défaut, spécifiez une valeur pour la propriété **cloudDataMovementUnits** comme suit. Pour plus d’informations sur le niveau de gain de performances que vous pouvez obtenir lorsque vous configurez plusieurs unités pour une source et un récepteur de copie spécifiques, voir [Performances de référence](#performance-reference).
 
-    "activities":[  
-        {
-            "name": "Sample copy activity",
-            "description": "",
-            "type": "Copy",
-            "inputs": [{ "name": "InputDataset" }],
-            "outputs": [{ "name": "OutputDataset" }],
-            "typeProperties": {
-                "source": {
-                    "type": "BlobSource",
-                },
-                "sink": {
-                    "type": "AzureDataLakeStoreSink"
-                },
-                "cloudDataMovementUnits": 4
-            }
+```json
+"activities":[  
+    {
+        "name": "Sample copy activity",
+        "description": "",
+        "type": "Copy",
+        "inputs": [{ "name": "InputDataset" }],
+        "outputs": [{ "name": "OutputDataset" }],
+        "typeProperties": {
+            "source": {
+                "type": "BlobSource",
+            },
+            "sink": {
+                "type": "AzureDataLakeStoreSink"
+            },
+            "cloudDataMovementUnits": 4
         }
-    ]
-
+    }
+]
+```
 Les **valeurs autorisées** pour la propriété **cloudDataMovementUnits** sont les suivantes : 1 (par défaut), 2, 4 et 8. Le **nombre réel d’unités de déplacement de données cloud** que l’opération de copie utilise au moment de l’exécution est égal ou inférieur à la valeur configurée, en fonction de votre modèle de données.
 
 > [!NOTE]
@@ -191,35 +192,36 @@ Configurez le paramètre **enableStaging** sur l’activité de copie pour spéc
 | Propriété | Description | Valeur par défaut | Requis |
 | --- | --- | --- | --- |
 | **enableStaging** |Indiquez si vous souhaitez copier les données via un magasin de données intermédiaire. |False |Non |
-| **linkedServiceName** |Spécifiez le nom d’un service lié [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) faisant référence à l’instance de stockage que vous utilisez comme banque de données intermédiaire. <br/><br/>  Vous ne pouvez pas utiliser le stockage avec une signature d’accès partagé pour charger les données dans SQL Data Warehouse via PolyBase. Vous pouvez l’utiliser dans tous les autres scénarios. |N/A |Oui, quand **enableStaging** est défini sur TRUE |
-| **path** |Spécifiez le chemin du stockage Blob où vous souhaitez placer les données intermédiaires. Si vous ne renseignez pas le chemin d’accès, le service crée un conteneur pour stocker les données temporaires. <br/><br/>  Ne spécifiez un chemin d’accès que si vous utilisez le stockage avec une signature d’accès partagé, ou si vous avez besoin de données temporaires dans un emplacement spécifique. |N/A |Non |
+| **linkedServiceName** |Spécifiez le nom d’un service lié [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) faisant référence à l’instance de stockage que vous utilisez comme banque de données intermédiaire. <br/><br/> Vous ne pouvez pas utiliser le stockage avec une signature d’accès partagé pour charger les données dans SQL Data Warehouse via PolyBase. Vous pouvez l’utiliser dans tous les autres scénarios. |N/A |Oui, quand **enableStaging** est défini sur TRUE |
+| **path** |Spécifiez le chemin du stockage Blob où vous souhaitez placer les données intermédiaires. Si vous ne renseignez pas le chemin d’accès, le service crée un conteneur pour stocker les données temporaires. <br/><br/> Ne spécifiez un chemin d’accès que si vous utilisez le stockage avec une signature d’accès partagé, ou si vous avez besoin de données temporaires dans un emplacement spécifique. |N/A |Non |
 | **enableCompression** |Spécifie si les données doivent être compressées avant d’être copiées vers la destination. Ce paramètre réduit le volume de données transférées. |False |Non |
 
 Voici un exemple de définition de l’activité de copie avec les propriétés qui sont décrites dans le tableau précédent :
 
-    "activities":[  
-    {
-        "name": "Sample copy activity",
-        "type": "Copy",
-        "inputs": [{ "name": "OnpremisesSQLServerInput" }],
-        "outputs": [{ "name": "AzureSQLDBOutput" }],
-        "typeProperties": {
-            "source": {
-                "type": "SqlSource",
-            },
-            "sink": {
-                "type": "SqlSink"
-            },
-            "enableStaging": true,
-            "stagingSettings": {
-                "linkedServiceName": "MyStagingBlob",
-                "path": "stagingcontainer/path",
-                "enableCompression": true
-            }
+```json
+"activities":[  
+{
+    "name": "Sample copy activity",
+    "type": "Copy",
+    "inputs": [{ "name": "OnpremisesSQLServerInput" }],
+    "outputs": [{ "name": "AzureSQLDBOutput" }],
+    "typeProperties": {
+        "source": {
+            "type": "SqlSource",
+        },
+        "sink": {
+            "type": "SqlSink"
+        },
+        "enableStaging": true,
+        "stagingSettings": {
+            "linkedServiceName": "MyStagingBlob",
+            "path": "stagingcontainer/path",
+            "enableCompression": true
         }
     }
-    ]
-
+}
+]
+```
 
 ### <a name="billing-impact"></a>Impact sur la facturation
 Vous êtes facturé en fonction de deux étapes : la durée de la copie et le type de copie.
@@ -408,6 +410,6 @@ Voici des références relatives à la surveillance et au réglage des performan
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

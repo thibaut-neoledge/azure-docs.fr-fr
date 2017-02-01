@@ -16,22 +16,23 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: bradsev;garye
 translationtype: Human Translation
-ms.sourcegitcommit: bac1b01a40b3e7bed2edaf1f694daf0ab70de68c
-ms.openlocfilehash: 26353f84e22aec1964f520edc60d036c2ab57c28
+ms.sourcegitcommit: 701c54bac16cbf208fd655fd72f2d4acfc0ba891
+ms.openlocfilehash: 89856f6509d0d2e2e472a61db70b9b04dc1ac7b7
 
 
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importation de vos données Azure Machine Learning Studio à partir de différentes sources de données en ligne avec le module Importer les données
+
+[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
+
 Cet article décrit le support pour l'importation en ligne de données provenant de plusieurs sources et les informations nécessaires au déplacement depuis ces sources vers l’expérience Azure Machine Learning.
 
 > [!NOTE]
-> Cet article fournit des informations générales sur le module [Importer les données][import-data]. Pour plus d’informations sur les types de données auxquelles vous pouvez accéder, les formats, les paramètres et les réponses aux questions courantes, consultez la rubrique de référence du module pour le module [Importer les données][import-data].
+> Cet article fournit des informations générales sur le module [Importer les données][import-data]. Pour plus d’informations sur les types de données auxquelles vous pouvez accéder, les formats, les paramètres et les réponses aux questions courantes, consultez la rubrique de référence pour le module [Importer les données][import-data].
 > 
 > 
 
 <!-- -->
-
-[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 ## <a name="introduction"></a>Introduction
 Vous pouvez accéder aux données d’Azure Machine Learning Studio à partir d’une des nombreuses sources de données en ligne pendant que votre expérience s’exécute à l’aide du module [Importer les données][import-data] :
@@ -82,6 +83,6 @@ Le module **Importer les données** d’Azure Machine Learning prend en charge l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

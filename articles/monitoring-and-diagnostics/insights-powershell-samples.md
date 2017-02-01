@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
+ms.date: 12/08/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fea73e15543b2d0284c94118e01415870b5396ff
+ms.sourcegitcommit: aba17fb9f7a07b4d67092875a119ab463da5d273
+ms.openlocfilehash: ffd85e1df173fdbc392339cd169281c1ae3fbb5d
 
 
 ---
@@ -29,7 +29,7 @@ Cet article vous présente des exemples de commandes PowerShell qui vous aideron
 > 
 
 ## <a name="set-up-powershell"></a>Configurer PowerShell
-Si vous ne l’avez déjà fait, configurez PowerShell pour s’exécuter sur votre ordinateur. Pour plus d’informations, consultez la rubrique [Comment installer et configurer PowerShell](../powershell-install-configure.md) .
+Si vous ne l’avez déjà fait, configurez PowerShell pour s’exécuter sur votre ordinateur. Pour plus d’informations, consultez la rubrique [Comment installer et configurer PowerShell](/powershell/azureps-cmdlets-docs) .
 
 ## <a name="examples-in-this-article"></a>Exemples de cet article
 Les exemples de cet article montrent comment utiliser les applets de commande Azure Monitor. Vous pouvez également consulter la liste complète des applets de commande PowerShell Azure Monitor dans la rubrique [Applets de commande Azure Monitor (Insights)](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).
@@ -54,7 +54,7 @@ Set-AzureRmContext -SubscriptionId <subscriptionid>
 ```
 
 
-## <a name="retrieve-audit-logs-for-a-subscription"></a>Récupérer les journaux d'audit d’un abonnement
+## <a name="retrieve-activity-log-for-a-subscription"></a>Récupérer le journal d’activité d’un abonnement
 Utilisez l’applet de commande `Get-AzureRmLog` .  Voici quelques exemples courants.
 
 Obtenir les entrées de journal à partir de cette date/heure :
@@ -190,7 +190,7 @@ L'applet de commande Add alert met également à jour la règle, s'il existe une
 
 ### <a name="alert-on-activity-log-event"></a>Alerte d’événement de journal d’activité
 > [!NOTE]
-> Cette fonctionnalité est encore en version préliminaire.
+> Cette fonctionnalité est en version préliminaire et sera supprimée à l’avenir (elle est en cours de remplacement).
 > 
 > 
 
@@ -356,7 +356,7 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 ```
 
 ## <a name="configure-diagnostics-logs"></a>Configuration des journaux de diagnostic
-De nombreux services Azure fournissent des journaux supplémentaires ainsi qu’une télémétrie, notamment les groupes de sécurité réseau Azure, les équilibreurs de charge logiciels, le coffre de clés, les services Azure Search et les applications logiques. Et ils peuvent être configurés pour enregistrer les données dans votre compte de stockage Azure. Cette opération ne peut être effectuée qu’au niveau d'une ressource, et le compte de stockage doit être présent dans la même région que la ressource cible où les paramètres de diagnostic sont configurés.
+De nombreux services Azure fournissent des journaux et des télémétries supplémentaires qui peuvent être configurés pour enregistrer des données dans votre compte de stockage Azure, les envoyer à Event Hubs et/ou les envoyer à un espace de travail Log Analytics OMS. Cette opération ne peut être effectuée qu’au niveau d’une ressource, et le compte de stockage ou l’Event Hub doit être présent dans la même région que la ressource cible où les paramètres de diagnostic sont configurés.
 
 ### <a name="get-diagnostic-setting"></a>Obtenir le paramètre de diagnostic
 ```PowerShell
@@ -387,8 +387,21 @@ Activer un paramètre diagnostic avec conservation pour une catégorie de journa
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
+Activer le paramètre de diagnostic pour Event Hubs
+
+```PowerShell
+Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Enable $true
+```
+
+Activer le paramètre de diagnostic pour OMS
+
+```PowerShell
+Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId 76d785fd-d1ce-4f50-8ca3-858fc819ca0f -Enabled $true
+
+```
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Dec16_HO2-->
 
 

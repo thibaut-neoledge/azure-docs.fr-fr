@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/12/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 5eb4b01718b47bf7dd2adfcb60b6ddfbe01d5ab6
+ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
+ms.openlocfilehash: d46c87480fd198bf4f09e48f4d2ea838a350190c
 
 
 ---
@@ -25,8 +25,6 @@ ms.openlocfilehash: 5eb4b01718b47bf7dd2adfcb60b6ddfbe01d5ab6
 > [!div class="op_single_selector"]
 > * [portail Azure](application-gateway-create-multisite-portal.md)
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-> 
-> 
 
 L’hébergement de plusieurs sites vous permet de déployer plusieurs applications web sur la même passerelle Application Gateway. Il s’appuie sur la présence de l’en-tête de l’hôte dans la requête HTTP entrante pour déterminer l’écouteur qui doit recevoir le trafic. L’écouteur dirige ensuite le trafic vers le pool principal approprié tel que configuré dans la définition des règles de la passerelle. Dans les applications web SSL, la passerelle Application Gateway s’appuie sur l’extension d’indication du nom du serveur (SNI) pour choisir l’écouteur approprié au trafic web. Une utilisation courante de l’hébergement de plusieurs sites consiste à équilibrer la charge des demandes pour différents domaines Web entre différents pools de serveurs principaux. De même, plusieurs sous-domaines du même domaine racine pourraient également être hébergés sur la même passerelle Application Gateway.
 
@@ -84,7 +82,7 @@ Get-AzureRmSubscription
 Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 ```
 
 ### <a name="step-4"></a>Étape 4
@@ -107,8 +105,6 @@ Dans l’exemple ci-dessus, nous avons créé un groupe de ressources appelé **
 
 > [!NOTE]
 > Si vous devez configurer une sonde personnalisée pour votre passerelle Application Gateway, consultez [Création d’une passerelle Application Gateway avec des sondes personnalisées à l’aide de PowerShell](application-gateway-create-probe-ps.md). Consultez les informations sur les [sondes personnalisées et l’analyse du fonctionnement](application-gateway-probe-overview.md).
-> 
-> 
 
 ## <a name="create-a-virtual-network-and-subnets"></a>Créer un réseau virtuel et des sous-réseaux
 
@@ -158,7 +154,7 @@ Une adresse IP est affectée à la passerelle Application Gateway au démarrage
 
 ## <a name="create-application-gateway-configuration"></a>Créer une configuration de passerelle Application Gateway
 
-Avant de créer la passerelle d’application, vous devez installer tous les éléments de configuration. Les étapes suivantes permettent de créer les éléments de configuration nécessaires à une ressource Application Gateway.
+Avant de créer la passerelle Application Gateway, vous devez installer tous les éléments de configuration. Les étapes suivantes permettent de créer les éléments de configuration nécessaires à une ressource Application Gateway.
 
 ### <a name="step-1"></a>Étape 1
 
@@ -177,9 +173,9 @@ $pool1 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIP
 $pool2 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool02 -BackendIPAddresses 10.0.1.103, 10.0.1.104, 10.0.1.105
 ```
 
-Dans cet exemple, il existe deux pools principaux pour acheminer le trafic réseau selon le site demandé. Un pool reçoit le trafic du site « contoso.com » et l’autre le trafic du site « fabrikam.com ». Vous devez remplacer les adresses IP précédentes pour ajouter vos propres points de terminaison d’adresse IP d’application. À la place des adresses IP internes, vous pouvez également utiliser des adresses IP publiques, un nom de domaine complet ou une carte réseau d’une machine virtuelle pour les instances de backend. Utilisez le paramètre « -BackendFQDNs » dans PowerShell pour spécifier les noms de domaine complets au lieu des adresses IP.
+Dans cet exemple, il existe deux pools principaux pour acheminer le trafic réseau selon le site demandé. Un pool reçoit le trafic du site « contoso.com » et l’autre le trafic du site « fabrikam.com ». Vous devez remplacer les adresses IP précédentes pour ajouter vos propres points de terminaison d’adresse IP d’application. À la place des adresses IP internes, vous pouvez également utiliser des adresses IP publiques, un nom de domaine complet ou une carte réseau d’une machine virtuelle pour les instances de backend. Utilisez le paramètre « -BackendFQDNs » pour spécifier les noms de domaine complets au lieu des adresses IP dans PowerShell.
 
-### <a name="step-3"></a>Étape 3
+### <a name="step-3"></a>Étape 3 :
 
 Configurez les paramètres de passerelle Application Gateway **poolsetting01** et **poolsetting02** pour le trafic réseau à charge équilibrée dans le pool principal. Dans cet exemple, vous configurez différents paramètres pour les pools principaux. Chaque pool principal peut avoir son propre paramètre de pool principal.
 
@@ -254,7 +250,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 
 ## <a name="get-application-gateway-dns-name"></a>Obtenir le nom DNS d’une passerelle Application Gateway
 
-Une fois la passerelle créée, l’étape suivante consiste à configurer le serveur frontal pour la communication. Lorsque vous utilisez une adresse IP publique, la passerelle Application Gateway requiert un nom DNS attribué dynamiquement, ce qui n’est pas convivial. Pour s’assurer que les utilisateurs finaux peuvent atteindre la passerelle Application Gateway, un enregistrement CNAME peut être utilisé pour pointer vers le point de terminaison public de la passerelle Application Gateway. [Configuration d’un nom de domaine personnalisé pour Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Pour ce faire, récupérez les détails de la passerelle Application Gateway et de son nom IP/DNS associé à l’aide de l’élément PublicIPAddress attaché à la passerelle Application Gateway. Le nom DNS de la passerelle Application Gateway doit être utilisé pour créer un enregistrement CNAME qui pointe les deux applications web sur ce nom DNS. L’utilisation de A-records n’est pas recommandée étant donné que l’adresse IP virtuelle peut changer lors du redémarrage de la passerelle Application Gateway.
+Une fois la passerelle créée, l’étape suivante consiste à configurer le serveur frontal pour la communication. Lorsque vous utilisez une adresse IP publique, la passerelle Application Gateway requiert un nom DNS attribué dynamiquement, ce qui n’est pas convivial. Pour s’assurer que les utilisateurs finaux peuvent atteindre la passerelle d’application, un enregistrement CNAME peut être utilisé pour pointer vers le point de terminaison public de la passerelle d’application. [Configuration d’un nom de domaine personnalisé pour Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Pour ce faire, récupérez les détails de la passerelle Application Gateway et de son nom IP/DNS associé à l’aide de l’élément PublicIPAddress attaché à la passerelle Application Gateway. Le nom DNS de la passerelle Application Gateway doit être utilisé pour créer un enregistrement CNAME qui pointe les deux applications web sur ce nom DNS. L’utilisation de A-records n’est pas recommandée étant donné que l’adresse IP virtuelle peut changer lors du redémarrage de la passerelle Application Gateway.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
@@ -289,6 +285,6 @@ Découvrez comment protéger vos sites web grâce au [Pare-feu d’applications 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
-ms.author: cenkdin;juliako
+ms.date: 12/07/2016
+ms.author: cenkd;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7d312fe973f0de2a17c9203ebcd6b8bae1cb14b0
+ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
+ms.openlocfilehash: 7f775813920af8b8a7ffac45e5227df6ba3e6622
 
 
 ---
@@ -32,11 +32,11 @@ Le diagramme ci-dessous illustre l'architecture de haut niveau du service de dif
 1. L'encodeur en direct transmet les flux en direct dans des canaux créés et approvisionnés via le Kit de développement logiciel (SDK) Microsoft Azure Media Services.
 2. Les canaux, les programmes et le point de terminaison de diffusion en continu dans Microsoft Azure Media Services gèrent toutes les fonctionnalités de diffusion en continu en direct, notamment l'ingestion, le formatage, le DVR cloud, la sécurité, l'extensibilité et la redondance.
 3. Les clients peuvent éventuellement choisir de déployer une couche CDN entre le point de terminaison de diffusion en continu et les points de terminaison client.
-4. Les points de terminaison client diffusent à partir du point de terminaison de diffusion en continu à l'aide des protocoles de diffusion en continu adaptative HTTP (par exemple, Smooth Streaming, DASH, HDS ou HLS).
+4. Les points de terminaison client diffusent à partir du point de terminaison de streaming à l’aide des protocoles de diffusion en continu adaptative HTTP (par exemple, Smooth Streaming, DASH ou HLS).
 
 ![image1][image1]
 
-## <a name="3-bit-stream-format-iso-14496-12-fragmented-mp4"></a>3. Format de flux binaire – MP4 fragmenté ISO 14496-12
+## <a name="3-bit-stream-format--iso-14496-12-fragmented-mp4"></a>3. Format de flux binaire – MP4 fragmenté ISO 14496-12
 Le format câble utilisé pour l’ingestion de la diffusion en continu en direct décrite dans ce document repose sur la norme [ISO 14496-12]. Reportez-vous à [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx) pour obtenir une explication détaillée du format MP4 fragmenté et des extensions de fichiers vidéo à la demande et d'ingestion de diffusion en continu en direct.
 
 ### <a name="live-ingest-format-definitions"></a>Définitions de format de réception en temps réel
@@ -51,7 +51,7 @@ Ci-dessous figure la liste des définitions de formats spéciaux qui s'appliquen
 7. La durée du fragment MP4 DOIT être comprise entre environ 2 et 6 secondes.
 8. Les horodatages et index du fragment MP4 (TrackFragmentExtendedHeaderBox fragment_absolute_time et fragment_index) DOIVENT normalement arriver dans l’ordre croissant.  Bien qu'Azure Media Services ne duplique pas les fragments, il est capable, de façon très limitée, de réorganiser les fragments en fonction de la chronologie du média.
 
-## <a name="4-protocol-format-http"></a>4. Format de protocole – HTTP
+## <a name="4-protocol-format--http"></a>4. Format de protocole – HTTP
 L'ingestion en direct basée sur le format MP4 fragmenté ISO pour Microsoft Azure Media Services utilise une longue requête HTTP POST standard pour transmettre des données multimédias encodées empaquetées au format MP4 fragmenté au service. Chaque requête HTTP POST envoie un flux binaire (« Stream ») MP4 fragmenté en commençant par les zones d’en-tête (zones « ftyp », « Live Server Manifest Box » et « moov ») et en continuant avec une séquence de fragments (zones « moof » et « mdat »). Reportez-vous à la section 9.2 dans [1] pour connaître la syntaxe d’URL de la requête HTTP POST. Voici un exemple d'URL POST : 
 
     http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
@@ -184,16 +184,16 @@ Voici une implémentation recommandée pour les pistes audio redondantes :
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png
-[Image2]: ./media/media-services-fmp4-live-ingest-overview/media-services-image2.png
-[Image3]: ./media/media-services-fmp4-live-ingest-overview/media-services-image3.png
-[Image4]: ./media/media-services-fmp4-live-ingest-overview/media-services-image4.png
-[Image5]: ./media/media-services-fmp4-live-ingest-overview/media-services-image5.png
-[Image6]: ./media/media-services-fmp4-live-ingest-overview/media-services-image6.png
-[Image7]: ./media/media-services-fmp4-live-ingest-overview/media-services-image7.png
+[image2]: ./media/media-services-fmp4-live-ingest-overview/media-services-image2.png
+[image3]: ./media/media-services-fmp4-live-ingest-overview/media-services-image3.png
+[image4]: ./media/media-services-fmp4-live-ingest-overview/media-services-image4.png
+[image5]: ./media/media-services-fmp4-live-ingest-overview/media-services-image5.png
+[image6]: ./media/media-services-fmp4-live-ingest-overview/media-services-image6.png
+[image7]: ./media/media-services-fmp4-live-ingest-overview/media-services-image7.png
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

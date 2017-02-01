@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 07/30/2016
+ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e7e92ee0331f87755846314a39a0f1ab41f85121
+ms.sourcegitcommit: 0440827a5f5f82a43a88d601a6d090436b81df8e
+ms.openlocfilehash: bb06e93608f7914b0f8c9b971cc285a849056345
 
 
 ---
@@ -177,6 +177,6 @@ L'instrumentalisation d'exécutables Azure dans l'émulateur de calcul n'est pas
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

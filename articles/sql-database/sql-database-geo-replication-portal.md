@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: d0b29822-714f-4633-a5ab-fb1a09d43ced
 ms.service: sql-database
-ms.custom: business continuity; how to
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 11/22/2016
 ms.author: sashan;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: afcdae9ae0224e12ad874b389dad9882d9269fdf
-ms.openlocfilehash: e3d4b3f7a628a058e7b761788a3f63a57228f39c
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 9faff06ee1856ca6490add759acd3c5f36719853
 
 
 ---
@@ -51,7 +51,7 @@ Les étapes suivantes créent une nouvelle base de données secondaire dans un p
 
 Pour ajouter une base de données secondaire, vous devez être le propriétaire ou copropriétaire de l’abonnement.
 
-La base de données secondaire a le même nom que la base de données primaire et, par défaut, le même niveau de service. La base de données secondaire peut être une base de données unique ou une base de données élastique. Pour en savoir plus, consultez [Niveaux de service](sql-database-service-tiers.md).
+La base de données secondaire a le même nom que la base de données primaire et, par défaut, le même niveau de service. La base de données secondaire peut être une base de données autonome ou une base de données dans un pool élastique. Pour en savoir plus, consultez [Niveaux de service](sql-database-service-tiers.md).
 Une fois la base de données secondaire créée et amorcée, une réplication des données de la base de données primaire vers la base de données secondaire commence.
 
 > [!NOTE]
@@ -67,7 +67,7 @@ Une fois la base de données secondaire créée et amorcée, une réplication de
 3. Sélectionnez ou configurez le serveur et le niveau tarifaire pour la base de données secondaire.
    
     ![Configuration de la base de données secondaire](./media/sql-database-geo-replication-portal/create-secondary.png)
-4. Si vous le souhaitez, vous pouvez ajouter une base de données secondaire à un pool de base de données élastique. Pour créer la base de données secondaire dans un pool, cliquez sur **Pool de base de données élastique**, puis sélectionnez un pool sur le serveur cible. Un pool doit déjà exister sur le serveur cible. Ce workflow ne crée pas un pool.
+4. Si vous le souhaitez, vous pouvez ajouter une base de données secondaire à un pool données élastique. Pour créer la base de données secondaire dans un pool, cliquez sur **Pool élastique**, puis sélectionnez un pool sur le serveur cible. Un pool doit déjà exister sur le serveur cible. Ce workflow ne crée pas un pool.
 5. Cliquez sur **créer** pour ajouter la base de données secondaire.
 6. La base de données secondaire est créée et le processus d’amorçage commence.
    
@@ -94,6 +94,6 @@ Cette opération arrête définitivement la réplication vers la base de donnée
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 
