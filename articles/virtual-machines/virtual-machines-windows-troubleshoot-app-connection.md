@@ -1,5 +1,5 @@
 ---
-title: "Résolution des problèmes d’accès aux applications sur une machine virtuelle Windows | Microsoft Docs"
+title: "Résolution des problèmes d’accès aux applications sur une machine virtuelle dans Azure | Microsoft Docs"
 description: "Si vous ne pouvez pas accéder à une application exécutée sur une machine virtuelle Azure, procédez comme suit pour isoler la source du problème."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/27/2016
+ms.date: 12/20/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dce0cf9f48954edc46bb4788fa04904443e6acf1
+ms.sourcegitcommit: 8835427415e8e01e851796eaf323bce7d1918c8c
+ms.openlocfilehash: 871544dfceb1ad76acf48cc727768919d188e201
 
 
 ---
@@ -27,6 +27,6 @@ ms.openlocfilehash: dce0cf9f48954edc46bb4788fa04904443e6acf1
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

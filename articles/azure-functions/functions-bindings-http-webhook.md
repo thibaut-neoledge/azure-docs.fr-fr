@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: mahender
 translationtype: Human Translation
-ms.sourcegitcommit: 412640c0c53ca85dbdc234783ba94afaa807a22a
-ms.openlocfilehash: f1e4ecfd91e161f71115bed31cd41684ed514b5a
+ms.sourcegitcommit: 29df0e2198be05a64b6a90f1adf30a0c3b218d93
+ms.openlocfilehash: b40fa2d511910668438ba33291d16202dec8c8a8
 
 
 ---
@@ -211,10 +211,10 @@ HttpTriggers peut tirer parti des clés pour renforcer la sécurité. Un HttpTri
 Les clés sont stockées dans votre Function App dans Azure, et chiffrées au repos. Pour afficher vos clés, créez des clés, ou restaurez des clés avec de nouvelles valeurs, accédez à l’une de vos fonctions au sein du portail, puis sélectionnez « Gérer ». 
 
 Il existe deux types de clés :
-- **Clés d’administration** : ces clés sont partagées par toutes les fonctions au sein de la Function App. Utilisées en tant que clés API, elle permettent d’accéder à toute fonction au sein de la Function App.
+- **Clés d’hôte** : ces clés sont partagées par toutes les fonctions au sein de la Function App. Utilisées en tant que clés API, elle permettent d’accéder à toute fonction au sein de la Function App.
 - **Clés de fonction** : ces clés s’appliquent uniquement aux fonctions spécifiques sous lesquelles elles sont définies. Utilisées en tant que clés API, elle permettent d’accéder uniquement à ces fonctions.
 
-Chaque clé est nommée pour référence et il existe une clé par défaut (nommée « default ») au niveau fonction et administration. Le **clé principale** est une clé d’administration par défaut nommée « _master » qui est définie pour chaque Function App et qui ne peut pas être révoquée. Elle fournit un accès administratif aux API de runtime. L’utilisation de `"authLevel": "admin"` dans le JSON de liaison nécessite que cette clé soit présentée à la demande. Une autre clé entraînerait un échec d’autorisation.
+Chaque clé est nommée pour référence et il existe une clé par défaut (nommée « default ») au niveau fonction et hôte. Le **clé principale** est une clé d’hôte par défaut nommée « _master » qui est définie pour chaque Function App et qui ne peut pas être révoquée. Elle fournit un accès administratif aux API de runtime. L’utilisation de `"authLevel": "admin"` dans le JSON de liaison nécessite que cette clé soit présentée à la demande. Une autre clé entraînerait un échec d’autorisation.
 
 > [!NOTE]
 > En raison des autorisations élevées qu’accorde la clé principale, vous ne devez pas partager celle-ci avec des tiers, ou la distribuer dans des applications clientes natives. Faites preuve de prudence lors du choix du niveau d’autorisation administrateur.
@@ -226,7 +226,7 @@ Par défaut, un HttpTrigger requiert une clé API dans la requête HTTP. Par con
 
     https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>
 
-Cette clé peut être incluse dans une variable de chaîne de requête nommée `code` ou dans un en-tête HTTP `x-functions-key`. La valeur de la clé peut être toute clé de fonction définie pour la fonction, ou toute clé d’administration.
+Cette clé peut être incluse dans une variable de chaîne de requête nommée `code` ou dans un en-tête HTTP `x-functions-key`. La valeur de la clé peut être toute clé de fonction définie pour la fonction, ou toute clé d’hôte.
 
 Vous pouvez autoriser des demandes sans clé ou spécifier que la clé principale doit être utilisée en modifiant la propriété `authLevel` dans le JSON de liaison (voir [Déclencheur HTTP](#httptrigger)).
 
@@ -237,7 +237,7 @@ Une autorisation de webhook est gérée par le composant récepteur de webhook, 
 - **En-tête de demande** : le fournisseur transmet le nom de clé dans l’en-tête `x-functions-clientid`.
 
 > [!NOTE]
-> Les clés de fonction prennent le pas sur les clés d’administration. Si les deux clés portent le même nom, la clé de fonction est utilisée.
+> Les clés de fonction prennent le pas sur les clés d’hôte. Si les deux clés portent le même nom, la clé de fonction est utilisée.
 > 
 > 
 
@@ -439,6 +439,6 @@ module.exports = function (context, data) {
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -4,7 +4,7 @@ description: "Fournit des informations sur la résolution de certains problèmes
 services: 
 documentationcenter: 
 author: genlin
-manager: mbaldwin
+manager: jlian
 editor: 
 tags: billing
 ms.assetid: d1545298-99db-4941-8e97-f24a06bb7cb6
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 12/2/2016
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1ef20a830c96b0f0d5e85186f757441f256746f5
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 030b41eaa405ff70081a4c15cabded08a1b0b07a
 
 
 ---
@@ -36,7 +36,7 @@ Si la page de votre navigateur Internet se bloque, essayez chacune des étapes s
   B.    Accédez au [Portail Azure](https://portal.azure.com), puis connectez-vous.
 
 ## <a name="error-message-no-subscriptions-found"></a>Message d’erreur « Aucun abonnement trouvé »
-Si votre compte ne dispose pas des autorisations suffisantes, un message d’erreur **Aucun abonnement trouvé** peut s’afficher. Seul un administrateur de compte peut accéder au [Centre des comptes](https://account.windowsazure.com/), pas les administrateurs de service (SA) ni les coadministrateurs (CA).
+Si votre compte ne dispose pas des autorisations suffisantes, un message d’erreur **Aucun abonnement trouvé** peut s’afficher. Assurez-vous de vous connecter avec le bon identifiant administrateur. L’administrateur de compte peut uniquement accéder au [centre des comptes](https://account.windowsazure.com/Subscriptions). Les administrateurs de Service (SA) et coadministrateurs (CA) ont uniquement accès au [portail Azure](https://portal.azure.com) ou au portail Azure Classic.
 
 **Scénario 1 : Le message d’erreur s’affiche sur le [portail Azure](https://portal.azure.com)**
 
@@ -66,6 +66,6 @@ Si vous avez besoin d’aide, [contactez le support technique](http://go.microso
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

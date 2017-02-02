@@ -17,8 +17,8 @@ ms.workload: NA
 ms.date: 11/22/2016
 ms.author: carlrab; sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 92a2cca71380ac609e900d223908eda1a40be635
-ms.openlocfilehash: 17de9fd999b904b66c4e9d574fb4754069ae133a
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 8b13faf1f6cdac355cc4d22b825cc2362a50e8f9
 
 
 ---
@@ -69,6 +69,14 @@ Une fois que le serveur Azure SQL Database est inscrit dans le coffre, le stocka
 
 Dans le panneau du serveur Azure SQL Database, vous pouvez configurer la durée de rétention à long terme et, si nécessaire, créer un coffre Azure Recovery Services.
 
+- Pour configurer la rétention à long terme des sauvegardes automatisées dans un coffre Azure Recovery Services, consultez la page [Configurer la rétention des sauvegardes à long terme](sql-database-configure-long-term-retention.md).
+- Pour récupérer une base de données à partir d’une sauvegarde avec rétention à long terme, consultez la page [Récupérer à partir d’une sauvegarde avec rétention à long terme](sql-database-restore-from-long-term-retention.md).
+- Pour afficher les sauvegardes du coffre Azure Recovery Services, consultez la page [Afficher les sauvegardes avec rétention à long terme](sql-database-view-backups-in-vault.md).
+
+> [!TIP]
+> Pour obtenir un didacticiel, consultez la page [Prise en main des fonctionnalités de sauvegarde et de restauration pour la protection et la récupération des données](sql-database-get-started-backup-recovery.md).
+>
+
 ## <a name="configuring-long-term-retention-using-powershell"></a>Configuration de la rétention à long terme à l’aide de PowerShell
 
 Procédez comme suit pour configurer la rétention à long terme à l’aide de PowerShell.
@@ -102,7 +110,7 @@ Procédez comme suit pour configurer la rétention à long terme à l’aide de 
    #for your database you can select any policy created in the vault with which your server is registered
    Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName 'RG1' –ServerName 'Server1' -DatabaseName 'DB1' -State 'enabled' -ResourceId $policy.Id
    ```
-5. Répertoriez le serveur associé au coffre. Chaque serveur est associé à un conteneur spécifique dans le coffre. Vous pouvez répertorier les serveurs inscrits en exécutant les commandes suivantes.
+5. Répertoriez le serveur associé au coffre. Chaque serveur est associé à un conteneur spécifique dans le coffre. Vous pouvez lister les serveurs inscrits en exécutant les commandes suivantes :
    
    ```
    #each server has an associated container in the vault
@@ -193,26 +201,26 @@ Pour supprimer manuellement des sauvegardes du coffre :
 ## <a name="long-term-retention-faq"></a>Forum aux questions sur la rétention à long terme :
 
 1. Q : Puis-je supprimer manuellement des sauvegardes spécifiques du coffre ?
-   R : Pas à ce stade. Le coffre nettoiera automatiquement les sauvegardes une fois la période de rétention expirée.
+   R : Pas à ce stade. Le coffre nettoie automatiquement les sauvegardes une fois la période de rétention expirée.
 2. Q : Puis-je enregistrer mon serveur pour stocker des sauvegardes dans plus d’un coffre ?
-   R : Non, aujourd'hui vous pouvez stocker des sauvegardes dans 1 coffre à la fois.
+   R : Non, à ce jour vous ne pouvez stocker des sauvegardes que dans un coffre à la fois.
 3. Q : Puis-je avoir un serveur et un coffre dans différents abonnements ?
    R : Non. Le coffre et le serveur doivent se trouver dans le même abonnement et dans le même groupe de ressources.
 4. Q : Puis-je utiliser un coffre que j’ai créé dans une région différente de celle de mon serveur ?
    R : Non, le coffre et le serveur doivent se trouver dans la même région afin de réduire les délais de copie et d’éviter les frais de trafic.
-5. Q : Combien de bases de données puis-je stocker dans 1 coffre ?
+5. Q : Combien de bases de données puis-je stocker dans un coffre ?
    R : Nous prenons actuellement en charge jusqu'à 1 000 de bases de données par coffre. 
 6. Q : Combien de coffres puis-je créer par abonnement ? R : Vous pouvez créer 25 coffres par abonnement.
 7. Q : Combien de bases de données puis-je configurer par jour par coffre ? A : Vous ne pouvez configurer que 200 bases de données par jour par coffre.
-8. Q : La rétention à long terme fonctionne-t-elle avec des pools de base de données élastiques ?
+8. Q : La rétention à long terme fonctionne-t-elle avec des pools élastiques ?
    R. : Oui. Une base de données dans le pool peut être configurée avec la stratégie de rétention.
 9. Q : Puis-je choisir l’heure de création de la sauvegarde ?
    R : Non, SQL Database contrôle la planification des sauvegardes afin de limiter l’impact sur les performances de vos bases de données.
-10. Q : J’ai activé TDE pour ma base de données. Pourrai-je restaurer depuis ce coffre ? R : Oui, TDE est pris en charge. Même si la base de données d’origine n’existe plus, vous pouvez restaurer la base de données depuis le coffre.
-11. Q : Que se passe-t-il avec les sauvegardes dans le coffre si mon abonnement est interrompu ? A : Si votre abonnement est suspendu, nous conservons les bases de données et les sauvegardes existantes, mais les nouvelles sauvegardes ne sont pas copiées dans le coffre. Une fois l’abonnement réactivé, le service copie à nouveau les sauvegardes dans le coffre. Vous pouvez effectuer des restaurations depuis votre coffre à l’aide de sauvegardes copiées avant la suspension de l’abonnement. 
-12. Q : Puis-je obtenir un accès aux fichiers de sauvegarde SQL Database afin de les télécharger / restaurer sur le serveur SQL ?
-   R : Non, pas pour l’instant.
-13. Q : Est-il possible d’avoir plusieurs planifications (quotidienne, hebdomadaire, mensuelle, annuelle) au sein d’une stratégie de rétention SQL.
+10. Q : J’ai activé TDE pour ma base de données. Puis-je utiliser TDE avec le coffre ? R : Oui, TDE est pris en charge. Même si la base de données d’origine n’existe plus, vous pouvez restaurer la base de données depuis le coffre.
+11. Q : Que se passe-t-il avec les sauvegardes dans le coffre si mon abonnement est interrompu ? R : Si votre abonnement est suspendu, nous conservons les bases de données et les sauvegardes existantes, mais les nouvelles sauvegardes ne sont pas copiées dans le coffre. Une fois l’abonnement réactivé, le service copie à nouveau les sauvegardes dans le coffre. Vous pouvez effectuer des restaurations à partir de votre coffre à l’aide de sauvegardes copiées avant la suspension de l’abonnement. 
+12. Q : Puis-je obtenir un accès aux fichiers de sauvegarde SQL Database afin de les télécharger / restaurer sur SQL Server ?
+   R : Non, pas actuellement.
+13. Q : Est-il possible d’avoir plusieurs planifications (quotidienne, hebdomadaire, mensuelle, annuelle) au sein d’une stratégie de rétention SQL ?
    R : Non, cette fonctionnalité est actuellement uniquement disponible pour les sauvegardes de machines virtuelles.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -221,6 +229,6 @@ Les sauvegardes de base de données sont une partie essentielle de toute straté
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

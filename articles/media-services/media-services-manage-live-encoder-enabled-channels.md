@@ -1,6 +1,6 @@
 ---
 title: "Comment effectuer une diffusion de vidéo en flux continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples | Microsoft Docs"
-description: "Cette rubrique décrit comment configurer un canal qui reçoit un flux dynamique à débit binaire unique à partir d’un encodeur local, puis effectue un encodage en temps réel en flux à débit binaire adaptatif avec Media Services. Le flux peut ensuite être distribué aux applications de lecture clientes via un ou plusieurs points de terminaison de diffusion en continu à l’aide d’un des protocoles de diffusion en continu adaptatifs suivants : HLS, Smooth Stream, MPEG DASH et HDS."
+description: "Cette rubrique décrit comment configurer un canal qui reçoit un flux dynamique à débit binaire unique à partir d’un encodeur local, puis effectue un encodage en temps réel en flux à débit binaire adaptatif avec Media Services. Le flux peut ensuite être distribué aux applications de lecture clientes via un ou plusieurs points de terminaison de streaming à l’aide d’un des protocoles de diffusion en continu adaptatifs suivants : HLS, Smooth Stream, MPEG DASH."
 services: media-services
 documentationcenter: 
 author: anilmur
@@ -12,14 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 12/11/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 42dc5d5019bfb6a4740b16c8db149718c0cf072a
+ms.sourcegitcommit: f6ce639dd0ee8386d3bd9ff48f5a05cb392d7979
+ms.openlocfilehash: 82662d0c52262ca2febc54e45a4fd497fe9cf264
 
 
 ---
+
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Comment effectuer une diffusion de vidéo en flux continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples.
 ## <a name="overview"></a>Vue d'ensemble
 Dans Azure Media Services (AMS), un **canal** représente un pipeline de traitement du contenu vidéo en flux continu. Un **canal** reçoit des flux d’entrée live de l’une des deux manières suivantes :
@@ -65,7 +66,7 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 | État du canal | Indicateurs de l’interface utilisateur du portail | Existe-t-il une facturation ? |
 | --- | --- | --- |
 | Démarrage en cours |Démarrage en cours |Aucun (état transitoire) |
-| Exécution en cours |Prêt (pas de programmes en cours d’exécution)<br/>ou<br/> Diffusion en continu (au moins un programme en cours d'exécution) |OUI |
+| Exécution en cours |Prêt (pas de programmes en cours d’exécution)<br/>ou<br/>Diffusion en continu (au moins un programme en cours d'exécution) |OUI |
 | En cours d’arrêt |En cours d’arrêt |Aucun (état transitoire) |
 | Arrêté |Arrêté |Non |
 
@@ -125,7 +126,7 @@ Ci-après figurent les étapes générales impliquées dans la création d’app
 Si le **Type d’encodeur** est défini sur **Standard**, les options valides sont les suivantes :
 
 * **RTP** (MPEG-TS) : flux de transport MPEG-2 via RTP.  
-*  **RTMP**
+* **RTMP**
 * **MP4 fragmenté** (Smooth Streaming) à débit binaire unique
 
 #### <a name="rtp-mpeg-ts---mpeg-2-transport-stream-over-rtp"></a>RTP (MPEG-TS) : flux de transport MPEG-2 via RTP.
@@ -316,7 +317,7 @@ facultatif. Signale à l’encodeur en direct de basculer vers l’image de l’
 
 L’image utilisée sera celle qui est spécifiée par la propriété ID de ressource d’ardoise par défaut au moment de la création du canal. L’ardoise est étirée pour s’ajuster à la taille de l’image de l’écran. 
 
-## <a name="insert-slate-images"></a>Insérer des images d’ardoise
+## <a name="insert-slate--images"></a>Insérer des images d’ardoise
 L’encodeur dynamique dans le canal peut être informé de basculer vers une image d’ardoise. Il peut également être informé de mettre fin à une ardoise en cours. 
 
 L’encodeur dynamique peut être configuré pour basculer vers une image d’ardoise et masquer le signal vidéo entrant dans certaines situations, par exemple, pendant une pause publicitaire. Si une telle ardoise n’est pas configurée, la vidéo d’entrée n’est pas masquée pendant cette annonce publicitaire.
@@ -328,9 +329,12 @@ Durée (en secondes) de l’affichage de l’ardoise. Pour que l’affichage de 
 S’il est défini sur true, ce paramètre configure l’encodeur dynamique pour insérer une image d’ardoise pendant une pause publicitaire. La valeur par défaut est true. 
 
 ### <a name="a-iddefaultslateadefault-slate-asset-id"></a><a id="default_slate"></a>ID de ressource d'ardoise par défaut
+
 facultatif. Spécifie l’ID de la ressource Media Services qui contient l’image d’ardoise. La valeur par défaut est Null. 
 
-**Remarque**: avant de créer le canal, l’image d’ardoise avec les contraintes suivantes doit être chargée en tant que ressource dédiée (aucun autre fichier ne doit exister dans cette ressource). 
+>
+>[!NOTE] 
+>Avant de créer le canal, l’image d’ardoise avec les contraintes suivantes doit être chargée en tant que ressource dédiée (aucun autre fichier ne doit exister dans cette ressource). 
 
 * Résolution maximale de 1920 x 1080
 * Taille maximale de 3 Mo.
@@ -434,6 +438,6 @@ Consultez les parcours d’apprentissage de Media Services.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 12/20/2016
 ms.author: johnkem; magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 61a54b3cb170b7961a4900d2c353bea48ae83d64
+ms.sourcegitcommit: 142aa206431d05505c7990c5e5b07b3766fb0a37
+ms.openlocfilehash: 0b5458c64226007b058bcd185b3880f72cf9613c
 
 
 ---
@@ -28,16 +28,18 @@ Les **journaux de diagnostic Azure** sont des journaux émis par une ressource q
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>Ce que vous pouvez faire avec les journaux de diagnostic
 Voici ce que vous pouvez faire avec les journaux de diagnostic :
 
-* Enregistrez-les dans un **compte de stockage** pour l’audit ou l’inspection manuelle. Vous pouvez spécifier la durée de rétention (en jours) à l’aide des **paramètres de diagnostic**.
+* Enregistrez-les dans un [**compte de stockage**](monitoring-archive-diagnostic-logs.md) pour l’audit ou l’inspection manuelle. Vous pouvez spécifier la durée de rétention (en jours) à l’aide des **paramètres de diagnostic**.
 * [Diffusez-les en streaming sur **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) pour qu’un service tiers ou une solution d’analyse personnalisée (comme PowerBI) les ingère.
 * Analysez-les avec [OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
 
-## <a name="diagnostic-settings"></a>paramètres de diagnostic
+Il n’est pas nécessaire que l’espace de noms du compte de stockage ou du hub d’événements se trouve dans le même abonnement que la ressource générant des journaux, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
+
+## <a name="diagnostic-settings"></a>Paramètres de diagnostic
 Les journaux de diagnostic pour les ressources non liées au calcul sont configurés à l’aide des paramètres de diagnostic. **Paramètres de diagnostic** pour un contrôle de ressource :
 
 * L’emplacement où les journaux de diagnostic sont envoyés (compte de stockage, Event Hubs et/ou OMS Log Analytics).
 * Les catégories de journal qui sont envoyées.
-* La durée de rétention de chaque catégorie de journal dans un compte de stockage ; une durée de rétention de zéro jour signifie que les journaux sont conservés indéfiniment. Dans le cas contraire, cette valeur peut être comprise entre 1 et 2147483647. Si des stratégies de rétention sont définies, mais que le stockage des journaux dans un compte de stockage est désactivé (par exemple si seules les options Event Hubs ou OMS sont sélectionnées), les stratégies de rétention n’ont aucun effet.
+* La durée de rétention de chaque catégorie de journal dans un compte de stockage ; une durée de rétention de zéro jour signifie que les journaux sont conservés indéfiniment. Dans le cas contraire, cette valeur peut être comprise entre 1 et 2147483647. Si des stratégies de rétention sont définies, mais que le stockage des journaux dans un compte de stockage est désactivé (par exemple si seules les options Event Hubs ou OMS sont sélectionnées), les stratégies de rétention n’ont aucun effet. Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’avant-hier seront supprimés.
 
 Ces paramètres sont facilement configurés via le panneau Diagnostics pour une ressource dans le portail Azure, via les commandes d’interface de ligne de commande et Azure PowerShell ou via [l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
@@ -91,14 +93,13 @@ L’ID de règle Service Bus est une chaîne au format : `{service bus resource 
 
 Pour activer l’envoi des journaux de diagnostic à un espace de travail Log Analytics, utilisez cette commande :
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [log analytics workspace id] -Enabled $true
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 
-> [!NOTE]
-> Le paramètre WorkspaceId n’est pas disponible dans la version d’octobre. Il sera disponible dans la version de novembre.
-> 
-> 
+Vous pouvez obtenir l’ID de ressource de votre espace de travail Log Analytics à l’aide de la commande suivante :
 
-Vous pouvez obtenir votre ID d’espace de travail de journal Log Analytics dans le portail Azure.
+```powershell
+(Get-AzureRmOperationalInsightsWorkspace).ResourceId
+```
 
 Vous pouvez combiner ces paramètres pour activer plusieurs options de sortie.
 
@@ -115,18 +116,11 @@ Pour activer la diffusion en continu des journaux de diagnostic vers un Event Hu
 
     azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
 
-L’identifiant de règle Service Bus est une chaîne au format : `{service bus resource ID}/authorizationrules/{key name}`.
+L’ID de règle Service Bus est une chaîne au format : `{service bus resource ID}/authorizationrules/{key name}`.
 
 Pour activer l’envoi des journaux de diagnostic à un espace de travail Log Analytics, utilisez cette commande :
 
-    azure insights diagnostic set --resourceId <resourceId> --workspaceId <workspaceId> --enabled true
-
-> [!NOTE]
-> Le paramètre workspaceId n’est pas disponible dans la version d’octobre. Il sera disponible dans la version de novembre.
-> 
-> 
-
-Vous pouvez obtenir votre ID d’espace de travail de journal Log Analytics dans le portail Azure.
+    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
 
 Vous pouvez combiner ces paramètres pour activer plusieurs options de sortie.
 
@@ -160,7 +154,7 @@ Le schéma pour les journaux de diagnostic varie en fonction de la ressource et 
 
 | de diffusion en continu | Schéma et documentation |
 | --- | --- |
-| Équilibrage de charge Azure |[Analyse des journaux de l’équilibreur de charge Azure (version préliminaire)](../load-balancer/load-balancer-monitor-log.md) |
+| Équilibreur de charge |[Analyse des journaux de l’équilibreur de charge Azure (version préliminaire)](../load-balancer/load-balancer-monitor-log.md) |
 | Groupes de sécurité réseau |[Analyse de journaux pour les groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Passerelles d’application |[Journalisation des diagnostics pour Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Key Vault |[Journalisation d’Azure Key Vault](../key-vault/key-vault-logging.md) |
@@ -175,41 +169,42 @@ Le schéma pour les journaux de diagnostic varie en fonction de la ressource et 
 | Stream Analytics |Aucun schéma disponible. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Catégories de journaux prises en charge par type de ressource
-| Type de ressource | Catégorie | Nom d’affichage de la catégorie |
-| --- | --- | --- |
-| Microsoft.Automation/automationAccounts |JobLogs |Journaux de travail |
-| Microsoft.Automation/automationAccounts |JobStreams |Flux de travail |
-| Microsoft.Batch/batchAccounts |ServiceLog |Journaux de service |
-| Microsoft.DataLakeAnalytics/accounts |Audit |Journaux d’audit |
-| Microsoft.DataLakeAnalytics/accounts |Requêtes |Journaux de requête |
-| Microsoft.DataLakeStore/accounts |Audit |Journaux d’audit |
-| Microsoft.DataLakeStore/accounts |Requêtes |Journaux de requête |
-| Microsoft.EventHub/namespaces |ArchiveLogs |Journaux d’archivage |
-| Microsoft.EventHub/namespaces |OperationalLogs |Journaux des opérations |
-| Microsoft.KeyVault/vaults |AuditEvent |Journaux d’audit |
-| Microsoft.Logic/workflows |WorkflowRuntime |Événements de diagnostic de runtime de workflow |
-| Microsoft.Network/networksecuritygroups |NetworkSecurityGroupEvent |Événement de groupe de sécurité réseau |
-| Microsoft.Network/networksecuritygroups |NetworkSecurityGroupRuleCounter |Compteur de règle de groupe de sécurité réseau |
-| Microsoft.Network/networksecuritygroups |NetworkSecurityGroupFlowEvent |Événement de flux de règle de groupe de sécurité réseau |
-| Microsoft.Network/loadBalancers |LoadBalancerAlertEvent |Événements d’alerte d’équilibrage de charge |
-| Microsoft.Network/loadBalancers |LoadBalancerProbeHealthStatus |État d’intégrité de la sonde d’équilibrage de charge |
-| Microsoft.Network/applicationGateways |ApplicationGatewayAccessLog |Journal d’accès à la passerelle d’application |
-| Microsoft.Network/applicationGateways |ApplicationGatewayPerformanceLog |Journal de performance de la passerelle d’application |
-| Microsoft.Network/applicationGateways |ApplicationGatewayFirewallLog |Journal de pare-feu de la passerelle d’application |
-| Microsoft.Search/searchServices |OperationLogs |Journaux des opérations |
-| Microsoft.ServerManagement/nodes |RequestLogs |Journaux de requête |
-| Microsoft.ServiceBus/namespaces |OperationalLogs |Journaux des opérations |
-| Microsoft.StreamAnalytics/streamingjobs |Exécution |Exécution |
-| Microsoft.StreamAnalytics/streamingjobs |Création |Création |
+|Type de ressource|Catégorie|Nom d’affichage de la catégorie|
+|---|---|---|
+|Microsoft.Automation/automationAccounts|JobLogs|Journaux de travail|
+|Microsoft.Automation/automationAccounts|JobStreams|Flux de travail|
+|Microsoft.Batch/batchAccounts|ServiceLog|Journaux de service|
+|Microsoft.DataLakeAnalytics/accounts|Audit|Journaux d’audit|
+|Microsoft.DataLakeAnalytics/accounts|Requêtes|Journaux de requête|
+|Microsoft.DataLakeStore/accounts|Audit|Journaux d’audit|
+|Microsoft.DataLakeStore/accounts|Requêtes|Journaux de requête|
+|Microsoft.EventHub/namespaces|ArchiveLogs|Journaux d’archivage|
+|Microsoft.EventHub/namespaces|OperationalLogs|Journaux des opérations|
+|Microsoft.KeyVault/vaults|AuditEvent|Journaux d’audit|
+|Microsoft.Logic/workflows|WorkflowRuntime|Événements de diagnostic de runtime de workflow|
+|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Suivi des événements de compte d’intégration|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Événement de groupe de sécurité réseau|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Compteur de règle de groupe de sécurité réseau|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Événement de flux de règle de groupe de sécurité réseau|
+|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Événements d’alerte d’équilibrage de charge|
+|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|État d’intégrité de la sonde d’équilibrage de charge|
+|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Journal d’accès à la passerelle d’application|
+|Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Journal de performance de la passerelle d’application|
+|Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Journal de pare-feu de la passerelle d’application|
+|Microsoft.Search/searchServices|OperationLogs|Journaux des opérations|
+|Microsoft.ServerManagement/nodes|RequestLogs|Journaux de requête|
+|Microsoft.ServiceBus/namespaces|OperationalLogs|Journaux des opérations|
+|Microsoft.StreamAnalytics/streamingjobs|Exécution|Exécution|
+|Microsoft.StreamAnalytics/streamingjobs|Création|Création|
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Diffuser en streaming les journaux de diagnostic sur **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Modification des paramètres de diagnostic via l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Analyser les journaux avec OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
+* [Analyser les journaux avec OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

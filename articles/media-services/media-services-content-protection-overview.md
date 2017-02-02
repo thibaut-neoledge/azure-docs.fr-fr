@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 576d3a1c242c74715e7a6dc33ec0a4adebcc9959
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: 9d3718cf80e023f4c5b9c523375b77083a9d7be7
 
 
 ---
@@ -37,7 +37,7 @@ Cette rubrique explique les [concepts et la terminologie](media-services-content
 ## <a name="dynamic-encryption"></a>Chiffrement dynamique
 Microsoft Azure Media Services vous permet de transmettre du contenu chiffré de manière dynamique avec le chiffrement de clé en clair AES ou DRM : Microsoft PlayReady, Google Widevine et Apple FairPlay.
 
-Actuellement, vous pouvez chiffrer les formats de diffusion en continu suivants : HLS, MPEG DASH et Smooth Streaming. Vous ne pouvez pas chiffrer le format de diffusion en continu HDS ni les téléchargements progressifs.
+Actuellement, vous pouvez chiffrer les formats de diffusion en continu suivants : HLS, MPEG DASH et Smooth Streaming. Vous ne pouvez pas chiffrer les téléchargements progressifs.
 
 Si vous souhaitez que Media Services chiffre un élément multimédia, vous devez associer une clé de chiffrement (CommonEncryption ou EnvelopeEncryption) à votre élément multimédia et configurer des stratégies d’autorisation pour la clé.
 
@@ -119,6 +119,6 @@ Les rubriques suivantes montrent comment protéger le contenu stocké et diffuse
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

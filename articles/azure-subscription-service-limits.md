@@ -13,23 +13,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 12/19/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: c98484a754943ad0ea5b1098a9a6c06cbf5f8814
+ms.sourcegitcommit: 18c8997d8ee77c9c3005aa765a64ae82dce8c70c
+ms.openlocfilehash: fc519c242b2676e20c1b19bfb2b5edae73b0b926
 
 
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
-## <a name="overview"></a>Vue d'ensemble
-Ce document présente quelques-unes des limites Microsoft Azure les plus communes. À l’heure actuelle, notez que ce document ne couvre pas tous les services Azure. Dans le temps, ces limites seront étendues et mises à jour pour couvrir une plus grande partie de la plateforme.
+Ce document répertorie quelques-unes des limites de Microsoft Azure les plus courantes, parfois appelées des quotas. Ce document ne couvre pas actuellement tous les services Azure. Ces limites seront étendues et mises à jour dans des prochaines versions pour couvrir une plus grande partie de la plateforme.
 
 Pour en savoir plus sur la tarification Azure, consultez [Tarification Azure](https://azure.microsoft.com/pricing/) . Vous pouvez y estimer vos coûts à l’aide de la [Calculatrice de tarification](https://azure.microsoft.com/pricing/calculator/) ou en consultant la page de détails sur la tarification d’un service (par exemple, les [machines virtuelles Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)).
 
 > [!NOTE]
-> Si vous souhaitez élever la limite au-dessus de la **Limite par défaut**, vous pouvez [ouvrir gratuitement un incident auprès du service client](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Les limites ne peuvent pas être supérieures à la valeur **Limite maximale** dans les tableaux ci-dessous. Si aucune colonne **Limite maximale** n'est présente, la ressource spécifiée ne possède pas de limites ajustables.
+> Si vous souhaitez élever la limite ou le quota au-dessus de la **Limite par défaut**, [ouvrez gratuitement un incident auprès du service client](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Les limites ne peuvent pas être supérieures à la valeur **Limite maximale** indiquée dans les tableaux suivants. Si aucune colonne **Limite maximale** n'est présente, la ressource spécifiée ne possède pas de limites ajustables. 
 > 
+> Les abonnements d’essai gratuit ne permettent pas de bénéficier d’augmentations de la limite ou du quota. Si vous disposez d’un abonnement d’essai gratuit, vous pouvez le mettre à niveau vers un abonnement avec [paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) . Pour en savoir plus, référez-vous à la rubrique [Mise à niveau de la version d’évaluation gratuite d’Azure vers le paiement à l’utilisation](billing-upgrade-azure-subscription.md).
 > 
 
 ## <a name="limits-and-the-azure-resource-manager"></a>Limites et Azure Resource Manager
@@ -170,9 +170,7 @@ Le tableau suivant indique les limites d’Azure BizTalk Services.
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 ### <a name="documentdb-limits"></a>Limites de DocumentDB
-[!INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
-
-Les quotas marqués d'un astérisque (*) [peuvent être ajustés en contactant le support Azure](documentdb/documentdb-increase-limits.md).
+DocumentDB est une base de données à l’échelle mondiale dans laquelle le débit et le stockage peuvent être mis à l’échelle en pour gérer ce que votre application requiert. Si vous avez des questions sur l’échelle fournie par DocumentDB, envoyez un e-mail à askdocdb@microsoft.com.
 
 ### <a name="mobile-engagement-limits"></a>Limites Mobile Engagement
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
@@ -276,6 +274,6 @@ Pour connaître les limites de la base de données SQL, consultez [Limites de re
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

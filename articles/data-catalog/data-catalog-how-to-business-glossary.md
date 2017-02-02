@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -38,8 +38,8 @@ Le glossaire métier de Data Catalog permet aux organisations de rassembler les 
 
 > [!NOTE]
 > La fonctionnalité décrite dans cet article est uniquement disponible dans l’édition Standard d’Azure Data Catalog. L’édition gratuite ne propose pas de fonctionnalités de balisage géré ni de glossaire métier.
-> 
-> 
+>
+>
 
 ## <a name="glossary-availability-and-privileges"></a>Disponibilité du glossaire et privilèges
 *Le glossaire métier est disponible dans l’édition Standard d’Azure Data Catalog. L’édition gratuite de Data Catalog n’intègre pas de glossaire.*
@@ -74,8 +74,8 @@ Dès lors que des termes de glossaire sont définis dans le catalogue, le balisa
 
 > [!NOTE]
 > La balise utilisateur est le seul type de balise pris en charge dans l’édition gratuite de Data Catalog.
-> 
-> 
+>
+>
 
 ### <a name="hover-behavior-on-tags"></a>Comportement du pointage sur les balises
 Dans le portail Data Catalog, les deux types de balise se distinguent l’un de l’autre tant sur le plan visuel que sur le plan du comportement du pointage. Quand l’utilisateur pointe sur une balise utilisateur, il peut voir le texte de la balise et l’identité du ou des utilisateurs ayant ajouté la balise. Quand l’utilisateur pointe sur une balise de glossaire, il obtient aussi la définition du terme de glossaire, ainsi qu’un lien permettant d’ouvrir le glossaire métier pour y consulter la définition complète du terme.
@@ -88,7 +88,6 @@ Le glossaire métier d’Azure Data Catalog et le balisage géré qu’il autori
 
 ## <a name="see-also"></a>Voir aussi
 * [Documentation de l’API REST pour les opérations de glossaire métier](https://msdn.microsoft.com/library/mt708855.aspx)
-
 
 
 

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 1/30/2017
 ms.author: shlo
 translationtype: Human Translation
 ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
@@ -213,7 +213,7 @@ Si vous avez besoin d’un jeu de données tous les mois à une date et une heur
     "availability": {
       "frequency": "Month",
       "interval": 1,
-      "offset": "3.08:10:00",
+      "offset": "3.08:00:00",
       "style": "StartOfInterval"
     }
   }
@@ -365,6 +365,7 @@ Vous pouvez créer des jeux de données étendus jusqu’à un pipeline à l’a
     }
 }
 ```
+
 
 
 <!--HONumber=Nov16_HO3-->

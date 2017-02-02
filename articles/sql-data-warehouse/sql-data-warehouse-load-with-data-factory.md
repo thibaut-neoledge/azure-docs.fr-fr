@@ -16,23 +16,23 @@ ms.topic: article
 ms.date: 11/21/2016
 ms.author: jingwang;kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: b46ac604c10a2cb014991f3707fc3fc3b300f772
-ms.openlocfilehash: 5b045ed236771919ea3f644a6b2351d54c75549b
+ms.sourcegitcommit: 5c8b3ef69cd2bc663d6ee744c2351da9c22adb94
+ms.openlocfilehash: 24b9e5c2f423f7ef8bb29ab18359318f93c1d88c
 
 
 ---
 
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>Chargement de données dans SQL Data Warehouse avec Data Factory
 
-Ce didacticiel charge les données dans Azure SQL Data Warehouse à l’aide d’Azure Data Factory et utilise une base de données SQL Server comme source de données. Lorsque vous avez terminé, vous disposez de vos données dans SQL Data Warehouse.
+Vous pouvez utiliser Azure Data Factory pour charger des données dans Azure SQL Data Warehouse à partir d’un des [magasins de données sources pris en charge](../data-factory/data-factory-data-movement-activities.md#supported-data-stores-and-formats). Par exemple, vous pouvez charger des données dans un entrepôt de données SQL à partir d’une base de données SQL Azure ou d’une base de données Oracle à l’aide de Data Factory. Le didacticiel de cet article vous montre comment charger des données dans un entrepôt de données SQL à partir d’une base de données SQL Server locale.
 
 **Durée estimée** : ce didacticiel dure environ 10 à 15 minutes une fois les conditions préalables remplies.
 
 ## <a name="prerequisites"></a>Composants requis
 
-- Ce didacticiel suppose que vous compreniez les notions de base relatives à l’utilisation de Transact-SQL pour créer des tables et des schémas.  
+- Une base de données SQL Server avec des tables qui contiennent les données à copier dans l’entrepôt de données SQL.  
 
-- Vous avez besoin d’un compte de stockage Azure. Vous pouvez [ouvrir un compte Azure gratuit](/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de l’abonnement à Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+- Vous avez besoin d’un compte de stockage Azure. Vous pouvez [ouvrir un compte Azure gratuit](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de l’abonnement à Visual Studio](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
 
 - Vous avez besoin d’un SQL Data Warehouse en ligne. Si vous n’en possédez pas encore, découvrez comment [créer un SQL Data Warehouse](sql-data-warehouse-get-started-provision.md). Les performances se trouvent améliorées si le compte de stockage et l’entrepôt de données se situent dans la même région Azure.
 
@@ -44,10 +44,10 @@ Ce didacticiel charge les données dans Azure SQL Data Warehouse à l’aide d�
 3. Dans le panneau **Propriétés**, cliquez sur **Charger les données > Azure Data Factory**.
 
     ![Lancer l’Assistant Charger des données](media/sql-data-warehouse-load-with-data-factory/launch-load-data-wizard.png)
+4. Si vous n’avez pas de fabrique de données dans votre abonnement Azure, une boîte de dialogue **Nouvelle fabrique de données** apparaît dans un onglet distinct du navigateur. Renseignez les informations demandées et cliquez sur **Créer**. Une fois la fabrique de données créée, la boîte de dialogue **Nouvelle fabrique de données** se ferme et la boîte de dialogue **Sélectionner une fabrique de données** apparaît.
 
-4. Une boîte de dialogue **Nouvelle fabrique de données**. Renseignez les informations demandées, ou choisissez une fabrique de données existante. Cliquez sur **Create**.
-
-5. Dans la boîte de dialogue **Sélectionner une fabrique de données**, l’option **charger les données** est sélectionnée par défaut. Cliquez sur **Suivant** pour terminer la création de la fabrique de données. 
+    Si vous avez déjà une ou plusieurs fabriques de données dans l’abonnement Azure, la boîte de dialogue **Sélectionner une fabrique de données** s’affiche. Dans cette boîte de dialogue, vous pouvez sélectionner une fabrique de données existante ou cliquer sur **Créer une fabrique de données** pour en créer une nouvelle. 
+5. Dans la boîte de dialogue **Sélectionner une fabrique de données**, l’option **charger les données** est sélectionnée par défaut. Cliquez sur **Suivant** pour commencer à créer une tâche de chargement de données. 
 
 ## <a name="configure-the-data-factory-properties"></a>Configurer les propriétés de la fabrique de données
 Une fois la fabrique de données créée, l’étape suivante consiste à configurer la planification de chargement des données. 
@@ -75,16 +75,22 @@ Maintenant, il convient d’indiquer la base de données SQL Server locale à pa
     - **Type d’authentification** : choisissez le type d’authentification que vous utilisez.
     - **Nom d’utilisateur** et **mot de passe** : entrez le nom d’utilisateur et le mot de passe pour un utilisateur autorisé à copier les données.
 
-4. Le dernier champ vous demande le nom de la passerelle. Cliquez sur le lien **Créer une passerelle** pour créer une passerelle de gestion des données. La passerelle est un agent client que vous devez installer dans votre environnement local pour permettre la copie des données entre les magasins de données locaux et cloud. 
+4. Le dernier champ vous demande le nom de la passerelle. Si le magasin de données source est sur site ou dans une machine virtuelle Azure IaaS, la passerelle est requise. Si vous utilisez une fabrique de données existante qui dispose déjà d’une passerelle, vous pouvez réutiliser la passerelle en la sélectionnant dans la liste déroulante. Cliquez sur le lien **Créer une passerelle** pour créer une passerelle de gestion des données.  
+
+    > [!NOTE]
+    > Une passerelle a une relation 1-1 avec une fabrique de données. Elle ne peut pas être utilisée à partir d’une autre fabrique de données, mais elle peut être utilisée par plusieurs tâches de chargement de données au sein de la même fabrique de données. Une passerelle peut être utilisée pour se connecter à différents magasins de données lors de l’exécution de tâches de chargement de données.
+    > 
+    > Pour obtenir des informations détaillées sur la passerelle, consultez l’article [Passerelle de gestion des données](../data-factory/data-factory-data-management-gateway.md). 
 
 5. Une boîte de dialogue **Créer une passerelle** s’affiche. Dans le champ Nom, entrez **GatewayForDWLoading**, puis cliquez sur **Créer**.
 
 6. Une boîte de dialogue **Configurer la passerelle** s’affiche.  
     ![Lancer le programme d’installation express](media/sql-data-warehouse-load-with-data-factory/launch-express-setup.png)
 
-7. Cliquez sur **Lancer le programme d’installation Express sur cet ordinateur** pour télécharger, installer et enregistrer la passerelle sur votre ordinateur actuel. La progression s’affiche dans une fenêtre contextuelle.
+7. Cliquez sur **Lancer le programme d’installation Express sur cet ordinateur** pour télécharger, installer et inscrire la passerelle de gestion des données sur votre ordinateur actuel (celui qui vous utilisez pour accéder au portail). Si l’ordinateur ne parvient pas à se connecter au magasin de données, vous pouvez [télécharger et installer manuellement la passerelle](https://www.microsoft.com/download/details.aspx?id=39717) sur un ordinateur en mesure de se connecter au magasin de données, puis utiliser la clé pour l’inscrire. La progression s’affiche dans une fenêtre contextuelle.
 
-    Le programme d’installation express fonctionne en mode natif avec Microsoft Edge et Internet Explorer. Si vous utilisez Google Chrome, vous devez tout d’abord installer l’extension ClickOnce à partir du Chrome Web Store. Sinon, vous pouvez télécharger et installer manuellement la passerelle, puis l’utiliser pour effectuer l’enregistrement.
+    > [!NOTE]
+    > Le programme d’installation express fonctionne en mode natif avec Microsoft Edge et Internet Explorer. Si vous utilisez Google Chrome, vous devez tout d’abord installer l’extension ClickOnce à partir du Chrome Web Store. 
 
 8. Attendez la fin du programme d’installation de la passerelle. Une fois la passerelle enregistrée et en ligne, la fenêtre contextuelle se ferme et la nouvelle passerelle s’affiche dans le champ prévu à cet effet. Cliquez sur **Suivant**.
 
@@ -154,14 +160,21 @@ Une fois le déploiement terminé, une option **Déploiement** apparaît dans le
 
 Pour migrer votre base de données vers SQL Data Warehouse, consultez [Vue d’ensemble de la migration](sql-data-warehouse-overview-migrate.md).
 
-Pour en savoir plus sur les fonctionnalités de copie Azure Data Factory, consultez [Introduction to Azure Data Factory](../data-factory/data-factory-introduction.md) (Présentation d’Azure Data Factory) et [Move data by using Copy Activity](../data-factory/data-factory-data-movement-activities.md) (Déplacer des données à l’aide de l’activité de copie).
+Pour en savoir plus sur Azure Data Factory et ses capacités de déplacement de données, consultez les articles suivants : 
 
-Pour explorer vos données dans SQL Data Warehouse, consultez [Connect to SQL Data Warehouse with Visual Studio and SSDT](sql-data-warehouse-query-visual-studio.md) (Se connecter à SQL Data Warehouse avec Visual Studio et SSDT) et [Données visuelles avec Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md).
+- [Présentation du service Azure Data Factory](../data-factory/data-factory-introduction.md)
+- [Déplacer des données à l’aide de l’activité de copie](../data-factory/data-factory-data-movement-activities.md)
+- [Déplacer des données vers et depuis Azure SQL Data Warehouse à l’aide d’Azure Data Factory](../data-factory/data-factory-azure-sql-data-warehouse-connector.md)
+
+Pour explorer vos données dans SQL Data Warehouse, consultez les articles suivants : 
+
+- [Se connecter à SQL Data Warehouse avec Visual Studio et SSDT](sql-data-warehouse-query-visual-studio.md) 
+- [Données visuelles avec Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 
 <!-- Azure references -->
 [portail Azure]: https://portal.azure.com 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

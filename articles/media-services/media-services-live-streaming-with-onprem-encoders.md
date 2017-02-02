@@ -1,6 +1,6 @@
 ---
 title: "Vidéo en flux continu avec des encodeurs locaux qui créent des flux à vitesses de transmission multiples | Microsoft Docs"
-description: "Cette rubrique explique comment configurer un canal qui reçoit un flux dynamique à débit binaire multiple en provenance d’un encodeur local. Le flux peut ensuite être distribué aux applications de lecture clientes via un ou plusieurs points de terminaison de diffusion en continu à l’aide d’un des protocoles de diffusion en continu adaptatifs suivants : HLS, Smooth Stream, MPEG DASH et HDS."
+description: "Cette rubrique explique comment configurer un canal qui reçoit un flux dynamique à débit binaire multiple en provenance d’un encodeur local. Le flux peut ensuite être distribué aux applications de lecture clientes via un ou plusieurs points de terminaison de streaming à l’aide d’un des protocoles de diffusion en continu adaptatifs suivants : HLS, Smooth Stream, MPEG DASH."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 10/12/2016
-ms.author: cenkdin;juliako
+ms.author: cenkd;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: e41af7a8d2c5c0a0e8813aedb7aa86b58abcf873
+ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
+ms.openlocfilehash: d3a3204ee7690d501722031dea3f35bf55bfec00
 
 
 ---
@@ -253,6 +253,6 @@ Choisissez **Portail**, **.NET**, **API REST** pour voir comment créer et gére
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

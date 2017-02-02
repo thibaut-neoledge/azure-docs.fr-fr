@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -54,8 +54,8 @@ L’outil d’inscription des sources de données d’ **Azure Data Catalog** pe
 
 > [!NOTE]
 > Les tableaux volumineux comportant un grand nombre de colonnes peuvent contenir moins de 20 enregistrements inclus dans leur aperçu.
-> 
-> 
+>
+>
 
 ## <a name="including-data-profiles"></a>Inclusion de profils de données
 Tout comme l’inclusion d’aperçus peut fournir un contexte précieux aux utilisateurs recherchant des sources de données dans **Azure Data Catalog**, l’inclusion d’un profil de données peut aussi faciliter la compréhension des sources de données découvertes.
@@ -71,8 +71,8 @@ Ces statistiques sont ensuite copiées dans le catalogue avec les métadonnées 
 
 > [!NOTE]
 > Les colonnes de texte et de date n’incluent pas de statistiques de valeurs moyennes ou d’écart type dans leur profil de données.
-> 
-> 
+>
+>
 
 ## <a name="updating-registrations"></a>Mise à jour des inscriptions
 L’inscription d’une source de données rend celle-ci détectable dans **Azure Data Catalog** à l’aide des métadonnées et de l’aperçu facultatif extraits lors de l’inscription. Si la source de données doit être mise à jour dans le catalogue (par exemple, si le schéma d'un objet a changé, ou si les tables initialement exclues doivent être incluses, ou si un utilisateur souhaite mettre à jour les données incluses dans les aperçus), l'outil d'inscription des sources de données peut être réexécuté.
@@ -84,7 +84,6 @@ L’inscription d’une source de données auprès d’ **Azure Data Catalog**
 
 ## <a name="see-also"></a>Voir aussi
 * [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) pour des informations détaillées sur l’inscription de sources de données.
-
 
 
 

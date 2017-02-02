@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -77,15 +77,15 @@ Les propriétés spécifiques diffèrent selon la source de données, mais en g�
 
 > [!IMPORTANT]
 > L’inscription de ressources de données auprès d’Azure Data Catalog n’a pas pour effet de déplacer ou de copier vos données dans le cloud. L’inscription de ressources à partir d'une source de données copie les métadonnées des ressources vers Azure, mais les données restent dans l'emplacement de la source de données existante. La seule exception à cette règle est quand un utilisateur décide de charger des enregistrements ou un profil de données de la version préliminaire lors de l’inscription de ressources. Lors de l’inclusion d’une version préliminaire, jusqu’à 20 enregistrements sont copiés à partir de chaque ressource et stockés sous forme d’instantané dans Azure Data Catalog. Lorsque vous incluez un profil de données, les informations d’agrégation (telles que la taille des tables, les valeurs Null en pourcentage par colonne et les valeurs minimales, maximales et moyennes pour les colonnes) sont calculées et incluses dans les métadonnées stockées dans le catalogue.
-> 
-> 
+>
+>
 
 <br/>
 
 > [!NOTE]
 > Pour les sources de données telles que SQL Server Analysis Services qui ont une propriété **Description** de première classe, l’application de publication Azure Data Catalog extrait la valeur de cette propriété. Pour les bases de données relationnelles SQL Server, qui ne possèdent pas de propriété **Description** de première classe, l’application de publication Azure Data Catalog extrait la valeur de la propriété étendue ms_description pour les objets et les colonnes. Pour plus d’informations, consultez la page TechNet [Utilisation de propriétés étendues sur les objets de base de données](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
-> 
-> 
+>
+>
 
 ## <a name="q-how-long-should-it-take-for-newly-registered-assets-to-appear-in-azure-data-catalog"></a>Q : Combien de temps faut-il pour que les ressources nouvellement inscrites apparaissent dans Azure Data Catalog ?
 Après avoir inscrit des ressources auprès d’Azure Data Catalog, il peut s’écouler un délai de 5 à 10 secondes avant qu’elles apparaissent dans le portail Azure Data Catalog.
@@ -127,7 +127,6 @@ R : Pour mettre à jour les métadonnées pour les ressources de données qui s
 
 ## <a name="q-my-question-isnt-answered-here--what-should-i-do"></a>Q : Je n’ai pas trouvé de réponse à ma question ici. Que dois-je faire ?
 Rendez-vous sur le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Les questions qui y sont posées se retrouveront ici.
-
 
 
 

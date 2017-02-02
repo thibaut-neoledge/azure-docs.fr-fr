@@ -4,7 +4,7 @@ description: "Découvrez comment créer une passerelle Application Gateway à l�
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 54dffe95-d802-4f86-9e2e-293f49bd1e06
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 12/12/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 919b0b945f463bdf840faa6b244e1ba0c12c7cc3
-ms.openlocfilehash: dedb4064f7c42f4e2f8d55c623168a7faf9a3d27
+ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
+ms.openlocfilehash: f7036e8e629e78c5346688556a5aa5794bde3955
 
 
 ---
@@ -29,8 +29,6 @@ ms.openlocfilehash: dedb4064f7c42f4e2f8d55c623168a7faf9a3d27
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Modèle Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [Interface de ligne de commande Azure](application-gateway-create-gateway-cli.md)
-> 
-> 
 
 La passerelle Azure Application Gateway est un équilibreur de charge de couche 7. Elle assure l’exécution des requêtes HTTP de basculement et de routage des performances entre serveurs locaux ou dans le cloud. Application Gateway offre de nombreuses fonctionnalités de contrôleur de livraison d’applications (ADC) : équilibrage de charge HTTP, affinité de session basée sur les cookies, déchargement SSL (Secure Sockets Layer), sondes d’intégrité personnalisées, prise en charge de plusieurs sites, etc. Pour obtenir une liste complète des fonctionnalités prises en charge, consultez [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md)
 
@@ -126,7 +124,7 @@ Attribuez ensuite un nom convivial à l’adresse IP publique et cliquez sur **O
 
 Le dernier paramètre à configurer lors de la création d’une passerelle Application Gateway est la configuration de l’écouteur.  Si **http** est utilisé, il n’y a rien d’autre à configurer. Vous pouvez alors cliquer sur **OK**. Une configuration supplémentaire est requise pour utiliser **https**.
 
-Un certificat est requis pour utiliser **https**. La clé privée du certificat est nécessaire. Un export .pfx du certificat doit donc être fourni, ainsi que le mot de passer.
+Un certificat est requis pour utiliser **https**. La clé privée du certificat est nécessaire. Un export .pfx du certificat doit donc être fourni, ainsi que le mot de passe.
 
 ### <a name="step-10"></a>Étape 10
 
@@ -151,9 +149,9 @@ Ces étapes permettent de créer une passerelle Application Gateway de base avec
 
 ## <a name="add-servers-to-backend-pools"></a>Ajouter des serveurs aux pools principaux
 
-Une fois la passerelle Application Gateway créée, il reste à y ajouter les systèmes qui hébergeront l’application dont la charge doit être équilibrée. Les adresses IP ou les valeurs FQDN de ces serveurs sont ajoutées aux pools d’adresses principaux.
+Une fois la passerelle Application Gateway créée, il reste à y ajouter les systèmes qui hébergent l’application dont la charge doit être équilibrée. Les adresses IP ou les valeurs FQDN de ces serveurs sont ajoutées aux pools d’adresses principaux.
 
-### <a name="step-1"></a>Étape 1
+### <a name="step-1"></a>Étape 1 :
 
 Cliquez sur la passerelle Application Gateway que vous avez créée, cliquez sur **Pools principaux**, puis sélectionnez le pool principal actuel.
 
@@ -165,11 +163,11 @@ Ajoutez les adresses IP ou les valeurs FQDN dans les zones de texte et cliquez s
 
 ![Ajouter des valeurs aux pools principaux Application Gateway][12]
 
-Cela enregistre les valeurs dans le pool principal. Une fois la passerelle Application Gateway mise à jour, le trafic qui y accède est acheminé vers les adresses principales ajoutées à cette étape.
+Cette opération enregistre les valeurs dans le pool principal. Une fois la passerelle Application Gateway mise à jour, le trafic qui y accède est acheminé vers les adresses principales ajoutées à cette étape.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce scénario crée une passerelle d’application par défaut. Les étapes suivantes consistent à configurer la passerelle Application Gateway en modifiant les paramètres et en ajustant les règles de la passerelle. Vous trouverez ces étapes dans les articles suivants.
+Ce scénario crée une passerelle d’application par défaut. Les étapes suivantes consistent à configurer la passerelle Application Gateway en modifiant les paramètres et en ajustant les règles de la passerelle. Vous trouverez ces étapes dans les articles suivants :
 
 Apprenez à créer des sondes d’intégrité personnalisées en vous rendant sur [Créer une sonde d’intégrité personnalisée](application-gateway-create-probe-portal.md)
 
@@ -194,6 +192,6 @@ Découvrez comment protéger vos applications grâce au [Pare-feu d’applicatio
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

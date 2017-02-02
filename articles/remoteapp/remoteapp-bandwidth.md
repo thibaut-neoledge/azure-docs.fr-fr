@@ -1,24 +1,27 @@
-
 ---
-title: Estimation de l’utilisation de la bande passante réseau Azure RemoteApp | Microsoft Docs
+title: "Estimation de l’utilisation de la bande passante réseau Azure RemoteApp | Microsoft Docs"
 description: Obtenir des informations sur les besoins en bande passante pour vos applications et collections Azure RemoteApp.
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: 3127f4c7-f532-46c3-ba9b-649f647abec1
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
+ms.openlocfilehash: 045410664ec70c846abbf32a36dcc8f70ac471be
+
 
 ---
-# Estimation de l’utilisation de la bande passante réseau Azure RemoteApp
+# <a name="estimate-azure-remoteapp-network-bandwidth-usage"></a>Estimation de l’utilisation de la bande passante réseau Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -34,11 +37,16 @@ Avant d’aller plus loin, notez que nous partons du principe que le protocole R
 * [Test de votre bande passante réseau avec quelques scénarios courants](remoteapp-bandwidthtests.md)
 * [Instructions rapides si vous n’avez pas le temps ou la possibilité d’exécuter le test](remoteapp-bandwidthguidelines.md)
 
-## Quels sont les éléments que nous n’avons pas inclus ?
+## <a name="what-are-we-not-including"></a>Quels sont les éléments que nous n’avons pas inclus ?
 Lorsque vous examinez les tests proposés et nos recommandations globales (et il est vrai, génériques), n’oubliez pas qu’il existe plusieurs facteurs que nous n’avons pas pris en compte. Par exemple, les complications de l’expérience utilisateur dues à la nature asymétrique de la bande passante de chargement par rapport à la bande passante de téléchargement. La nature asymétrique de la plupart des réseaux Wi-Fi aura un impact supplémentaire sur les performances et la perception de l’expérience utilisateur. Pour les scénarios interactifs, le trafic en aval peut avoir une priorité inférieure au trafic en amont, ce qui peut augmenter le nombre de trames vidéos ou audio perdues, et par conséquent avoir un impact sur la perception de l’utilisateur de l’expérience de la diffusion en continu. Vous pouvez exécuter vos propres tests pour déterminer ce qui est adapté à votre cas d’utilisation spécifique et votre réseau.
 
 Bien que nous abordions le thème de la redirection de périphériques, nous n’avons pas pris en compte l’impact de la bande passante du trafic réseau provoqué par les périphériques connectés, tels que les périphériques de stockage, les imprimantes, les scanneurs, les caméras web et d’autres périphériques USB. En général, l’effet de ces périphériques augmente de façon temporaire les besoins en bande passante et disparaît lorsque la tâche est terminée. Mais dans le cas d’une utilisation fréquente, la demande en bande passante pourrait être relativement importante.
 
 Nous ne parlons pas non plus de la façon dont un utilisateur peut affecter d’autres utilisateurs au sein du même réseau. Par exemple, un utilisateur consommant une vidéo 4K sur un réseau 100 Mbits/s peut avoir un impact significatif sur les autres utilisateurs de ce même réseau essayant d’effectuer la même tâche. Malheureusement, il est de plus en plus difficile de déterminer l’impact de l’utilisation simultanée pour donner une recommandation commune ou complète sur les performances du système en cas d’agrégation. Tout ce que nous pouvons dire est que la technologie de protocole sous-jacente utilisera au mieux la bande passante réseau disponible, mais elle a ses limites.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

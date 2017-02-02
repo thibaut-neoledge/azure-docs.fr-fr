@@ -15,7 +15,7 @@ ms.topic: article
 ms.date: 07/30/2016
 ms.author: dastrock; vittorib
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
 ms.openlocfilehash: 52a4c326c7618b9a31df539c8b0eb0ced44ce609
 
 
@@ -47,7 +47,7 @@ Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.
 * copier l' **ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
 * ajouter la plateforme **Mobile** pour votre application ;
 
-## <a name="install-configure-msal"></a>Installation et configuration de la bibliothèque MSAL
+## <a name="install--configure-msal"></a>Installation et configuration de la bibliothèque MSAL
 Maintenant que vous disposez d’une application enregistrée auprès de Microsoft, vous pouvez installer la bibliothèque MSAL et écrire votre code associé aux identités.  Pour permettre à la bibliothèque MSAL de communiquer avec le point de terminaison v2.0, vous devez lui fournir des informations sur l’enregistrement de votre application.
 
 * Commencez par ajouter la bibliothèque MSAL au projet TodoListClient à l’aide de la console du gestionnaire de package.
@@ -239,7 +239,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 ```
 
 ## <a name="run"></a>Exécuter
-Félicitations ! You now have a working .NET WPF app that has the ability to authenticate users & securely call Web APIs using OAuth 2.0.  Run your both projects, and sign in with either a personal Microsoft account or a work or school account.  Add tasks to that user's To-Do list.  Sign out, and sign back in as another user to view their To-Do list.  Fermez l’application et exécutez-la de nouveau.  Remarquez à quel point la session de l’utilisateur reste intacte (cela s’explique par le fait que l’application cache des jetons dans un fichier local).
+Félicitations ! Vous disposez désormais d’une application .NET WPF fonctionnelle, capable d’authentifier les utilisateurs et d’appeler des API web en toute sécurité via OAuth 2.0.  Exécutez vos projets et connectez-vous avec un compte Microsoft personnel ou un compte professionnel ou scolaire.  Ajoutez des tâches à la liste de tâches de cet utilisateur.  Déconnectez-vous et reconnectez-vous à l'aide du compte d'un autre utilisateur pour afficher sa liste de tâches.   Fermez l’application et exécutez-la de nouveau.  Remarquez à quel point la session de l’utilisateur reste intacte (cela s’explique par le fait que l’application cache des jetons dans un fichier local).
 
 La bibliothèque MSAL permet d’intégrer facilement des fonctionnalités d’identité courantes à votre application à l’aide de vos comptes personnels et professionnels.  Elle effectue les tâches ingrates pour vous : gestion du cache, prise en charge du protocole OAuth, présentation d’une interface utilisateur de connexion à l’utilisateur, actualisation des jetons expirés et bien plus encore.  La seule chose que vous devez vraiment connaître est un appel unique d’API : `app.AcquireTokenAsync(...)`.
 
@@ -254,7 +254,7 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées.  Par exemple 
 
 Pour obtenir des ressources supplémentaires, consultez :  
 
-* [Guide du développeur 2.0 >>](active-directory-appmodel-v2-overview.md)
+* [Guide du développeur&2;.0 >>](active-directory-appmodel-v2-overview.md)
 * [Balise « msal » StackOverflow >>](http://stackoverflow.com/questions/tagged/msal)
 
 ## <a name="get-security-updates-for-our-products"></a>Obtenir les mises à jour de sécurité de nos produits

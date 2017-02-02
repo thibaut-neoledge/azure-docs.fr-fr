@@ -65,8 +65,8 @@ Pour créer la machine virtuelle locale contenant un cluster Service Fabric à 5
   
    Cette étape sert à télécharger l’image de machine virtuelle préconfigurée, à la démarrer en local, puis à configurer un cluster Service Fabric dans celle-ci. Cette opération peut prendre plusieurs minutes. Si la configuration est correcte, un message s’affiche indiquant que le cluster est en train de démarrer.
    
-
     ![La configuration du cluster démarre après l’approvisionnement de la machine virtuelle][cluster-setup-script]
+    
 5. Vérifiez que le cluster a été configuré correctement en accédant à Service Fabric Explorer à l’adresse http://192.168.50.50:19080/Explorer (en supposant que vous avez conservé l’adresse IP du réseau privé par défaut).
 
     ![Service Fabric Explorer affiché depuis le Mac hôte][sfx-mac]

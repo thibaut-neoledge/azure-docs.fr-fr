@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: a425de26cacc9525d0dc9a6842b5060f8c37a462
+ms.sourcegitcommit: c5e80c3cd3caac07e250d296c61fb3813e0000dd
+ms.openlocfilehash: 2c19472c93d097f29692af18063404f3bf28b6bd
 
 
 ---
-# <a name="designing-your-network-infrastructure-for-disaster-recovery"></a>Conception de votre infrastructure réseau pour la récupération d’urgence
+# <a name="designing-your-network-for-disaster-recovery"></a>Conception de votre réseau pour la récupération d’urgence
 Cet article s’adresse aux professionnels de l’informatique, chargés de l’architecture, de l’implémentation et de la prise en charge de l’infrastructure BCDR (continuité des activités et récupération d’urgence), et qui souhaitent tirer parti de Microsoft Azure Site Recovery (ASR) pour prendre en charge et améliorer leurs services BCDR. Ce document traite de considérations pratiques pour le déploiement de serveur System Center Virtual Machine Manager, et des avantages et inconvénients des sous-réseaux étirés et du basculement de sous-réseau. Il indique également comment structurer la récupération d’urgence sur les sites virtuels dans Microsoft Azure.
 
 ## <a name="overview"></a>Vue d’ensemble
@@ -83,9 +83,8 @@ Si votre site secondaire est local et si vous utilisez un serveur VMM pour le g�
 
 ![Conserver l’adresse IP](./media/site-recovery-network-design/network-design4.png)
 
-Figure 5
 
-La figure 5 montre les paramètres TCP/IP de basculement de la machine virtuelle de réplication (sur la console Hyper-V). Ces paramètres sont renseignés juste avant le démarrage de la machine virtuelle après un basculement.
+L’image ci-dessus montre les paramètres TCP/IP de basculement de la machine virtuelle de réplication (sur la console Hyper-V). Ces paramètres sont renseignés juste avant le démarrage de la machine virtuelle après un basculement.
 
 Si cette même adresse IP n’est pas disponible, ASR alloue une autre adresse IP disponible à partir du pool d’adresses IP défini.
 
@@ -137,15 +136,13 @@ Examinons le scénario dans lequel vous prévoyez d’utiliser différentes adre
 
 ![Autre adresse IP - avant le basculement](./media/site-recovery-network-design/network-design10.png)
 
-Figure 11
 
-Figure 11, certaines applications sont hébergées dans le sous-réseau 192.168.1.0/24 sur le site principal, et elles sont configurées pour arriver sur le site de récupération dans le sous-réseau 172.16.1.0/24 après un basculement. Les itinéraires du réseau/des connexions VPN ont été correctement configurés pour que les trois sites puissent accéder l’un à l'autre.
+Dans l’image ci-dessus, certaines applications sont hébergées dans le sous-réseau 192.168.1.0/24 sur le site principal, et elles sont configurées pour arriver sur le site de récupération dans le sous-réseau 172.16.1.0/24 après un basculement. Les itinéraires du réseau/des connexions VPN ont été correctement configurés pour que les trois sites puissent accéder l’un à l'autre.
 
-Comme illustré figure 12, après leur basculement, les applications sont restaurées dans le sous-réseau de récupération. Dans ce cas, nous ne sommes pas contraints de basculer tout le sous-réseau en même temps. Aucune modification n’est nécessaire pour reconfigurer les itinéraires du réseau ou du réseau privé virtuel. Un basculement et certaines mises à jour DNS garantissent le maintien de l’accessibilité des applications. Si le système DNS est configuré pour autoriser des mises à jour dynamiques, les machines virtuelles peuvent alors s’inscrire à l’aide de la nouvelle adresse IP une fois qu’elles démarrent après un basculement.
+Comme illustré sur l’image ci-dessous, après leur basculement, les applications sont restaurées dans le sous-réseau de récupération. Dans ce cas, nous ne sommes pas contraints de basculer tout le sous-réseau en même temps. Aucune modification n’est nécessaire pour reconfigurer les itinéraires du réseau ou du réseau privé virtuel. Un basculement et certaines mises à jour DNS garantissent le maintien de l’accessibilité des applications. Si le système DNS est configuré pour autoriser des mises à jour dynamiques, les machines virtuelles peuvent alors s’inscrire à l’aide de la nouvelle adresse IP une fois qu’elles démarrent après un basculement.
 
 ![Autre adresse IP - après le basculement](./media/site-recovery-network-design/network-design11.png)
 
-Figure 12
 
 Après le basculement, il est possible que la machine virtuelle de réplication possède une adresse IP différente de celle de la machine virtuelle principale. Les machines virtuelles mettront à jour le serveur DNS qu'elles utilisent après leur démarrage. Les entrées DNS doivent généralement être modifiées ou supprimées du réseau, et es entrées mises en cache dans les tables de réseau doivent être mises à jour ou supprimées. Il n’est donc pas rare d’avoir des temps d'arrêt pendant que ces modifications ont lieu. Ce problème peut être atténué par :
 
@@ -162,7 +159,7 @@ Après le basculement, il est possible que la machine virtuelle de réplication 
         $newrecord.RecordData[0].IPv4Address  =  $IP
         Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
-### <a name="changing-the-ip-addresses-dr-to-azure"></a>Modification des adresses IP : Récupération d’urgence dans Azure
+### <a name="changing-the-ip-addresses--dr-to-azure"></a>Modification des adresses IP : Récupération d’urgence dans Azure
 Le billet de blog [Networking Infrastructure Setup for Microsoft Azure as a Disaster Recovery Site](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) (Configuration de l’infrastructure de réseau de Microsoft Azure comme site de récupération d’urgence) explique comment configurer l’infrastructure de réseau d’Azure sans que la conservation des adresses IP soit nécessaire. Il commence par décrire l’application, examine la configuration de la mise en réseau localement et sur Azure, puis conclut par la procédure à suivre pour exécuter un test de basculement et un basculement planifié.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -170,6 +167,6 @@ Le billet de blog [Networking Infrastructure Setup for Microsoft Azure as a Disa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

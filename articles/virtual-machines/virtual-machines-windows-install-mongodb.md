@@ -1,5 +1,5 @@
 ---
-title: "Installation de MongoDB sur une machine virtuelle Windows | Microsoft Docs"
+title: Installation de MongoDB sur une machine virtuelle Windows | Microsoft Docs
 description: "Apprenez à installer MongoDB sur une machine virtuelle Azure fonctionnant sous Windows Server 2012 R2 créée avec le modèle de déploiement Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 12/20/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 6f171df26ba58d01b1ad81e7ff33f9ce47f34c4c
+ms.sourcegitcommit: 370bcf5189c855185f11277518e0cbd5377993ab
+ms.openlocfilehash: 0772376d2d858b32dfdd06b64d61003388268361
 
 
 ---
@@ -47,7 +47,7 @@ Pour commencer à installer et à configurer MongoDB, [connectez-vous à votre m
      
      ![Configuration des paramètres de sécurité Internet Explorer](./media/virtual-machines-windows-install-mongodb/configure-internet-explorer-security.png)
 4. Accédez à la page [MongoDB - Téléchargements](http://www.mongodb.org/downloads) (http://www.mongodb.org/downloads).
-5. Par défaut, vous devez sélectionner l’édition **Community Server** et la dernière stable mise à jour pour Windows Server 2008 R2 64 bits et versions ultérieures. Pour télécharger le programme d’installation, cliquez sur **TÉLÉCHARGER (msi)**.
+5. Si nécessaire, sélectionnez l’édition **Community Server** et la dernière version stable mise à jour pour Windows Server 2008 R2 64 bits et versions ultérieures. Pour télécharger le programme d’installation, cliquez sur **TÉLÉCHARGER (msi)**.
    
     ![Téléchargez le programme d’installation de MongoDB](./media/virtual-machines-windows-install-mongodb/download-mongodb.png)
    
@@ -167,6 +167,6 @@ Dans ce didacticiel, vous avez appris à installer et à configurer MongoDB sur 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 
