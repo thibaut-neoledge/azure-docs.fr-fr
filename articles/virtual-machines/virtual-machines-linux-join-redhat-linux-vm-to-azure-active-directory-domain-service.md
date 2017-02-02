@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/17/2016
+ms.date: 12/14/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 4e764e0d115c787f78593116f29c89e7c1e0e527
-ms.openlocfilehash: 0c596b630c44ff68a01c7dbd3173c192fafac125
+ms.sourcegitcommit: 847a5391cadb00c68e5ee5e12066fe910fd8a259
+ms.openlocfilehash: 017c17dc15596ce05400500d709287b7ce52611e
 
 
 ---
@@ -33,7 +33,7 @@ Cet article explique comment joindre une machine virtuelle Red Hat Enterprise Li
 
 ## <a name="quick-commands"></a>Commandes rapides
 
-Remplacez les exemples par vos propres paramètres.
+_Remplacez les exemples par vos propres paramètres._
 
 ### <a name="switch-the-azure-cli-to-classic-deployment-mode"></a>Basculer l’interface de ligne de commande Azure en mode de déploiement classique
 
@@ -53,16 +53,17 @@ azure vm image list | grep "Red Hat"
 azure vm create myVM \
 -o a879bbefc56a43abb0ce65052aac09f3__RHEL_7_2_Standard_Azure_RHUI-20161026220742 \
 -g ahmet \
--p P@ssw0rd! \
+-p myPassword \
+-e 22 \
+-t "~/.ssh/id_rsa.pub" \
 -z "Small" \
--e \
 -l "West US"
 ```
 
 ### <a name="ssh-to-the-vm"></a>Utiliser une clé SSH sur la machine virtuelle
 
 ```bash
-ssh -i ~/.ssh/id_rsa ahmet@
+ssh -i ~/.ssh/id_rsa ahmet@myVM
 ```
 
 ### <a name="update-yum-packages"></a>Mettre à jour des packages YUM
@@ -107,12 +108,12 @@ ssh -l ahmet@mydomain.com mydomain.cloudapp.net
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Infrastructure RHUI (Red Hat Update Infrastructure) pour machines virtuelles Red Hat Enterprise Linux à la demande dans Azure](virtual-machines-linux-update-infrastructure-redhat?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Configuration de Key Vault pour des machines virtuelles dans Azure Resource Manager](virtual-machines-linux-key-vault-setup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](virtual-machines-linux-cli-deploy-templates?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Infrastructure RHUI (Red Hat Update Infrastructure) pour machines virtuelles Red Hat Enterprise Linux à la demande dans Azure](virtual-machines-linux-update-infrastructure-redhat.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Configuration de Key Vault pour des machines virtuelles dans Azure Resource Manager](virtual-machines-linux-key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

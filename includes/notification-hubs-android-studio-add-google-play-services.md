@@ -3,7 +3,7 @@
    
     Notez le chemin du Kit de développement logiciel (SDK). Vous l’utiliserez à une étape suivante. 
    
-       ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+    ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
 3. Ouvrez le fichier **build.gradle** dans le répertoire de l’application.
    
     ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)

@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 3fdb050d1d6746313b2dffb089d56b71908335d2
-ms.openlocfilehash: 585e493b2642b3ba798977528f7564674a44d738
+ms.sourcegitcommit: 2fb91689d6fbce5d90aba32b0acd65bcb4bd709d
+ms.openlocfilehash: c852187847b69627d2f27c25fbe2ee8d8d1cf49d
 
 
 ---
@@ -28,7 +28,7 @@ Chaque ressource d’Application Insights est facturée comme un service distinc
 
 Il existe deux plans de tarification. Le plan par défaut est nommé De base. Vous pouvez opter pour le plan Entreprise, facturé à la journée, qui donne accès à certaines fonctionnalités supplémentaires telles que [l’exportation continue](app-insights-export-telemetry.md).
 
-[Consultez le plan de tarification][pricing].
+[Voir le plan de tarification][pricing].
 
 ## <a name="review-pricing-plan-for-your-application-insights-resource"></a>Examen du plan de tarification pour votre ressource Application Insights
 Ouvrez le panneau Fonctionnalités + Tarification dans la ressource Application Insights de votre application.
@@ -107,6 +107,32 @@ Pour découvrir le taux d’échantillonnage réel, indépendamment de l’endro
 
 Pour chaque enregistrement conservé, `itemCount` indique le nombre d’enregistrements d’origine qu’il représente, soit 1 + le nombre d’enregistrements précédents ignorés. 
 
+## <a name="which-pricing-plan-should-i-choose"></a>Quel plan de tarification dois-je choisir ?
+
+Sauf si vous avez besoin des fonctionnalités avancées offertes par le plan Entreprise, le plan de base est plus simple et légèrement plus économique. Vous obtenez un quota gratuit de données par application et par mois, puis un coût pour chaque Go de télémétrie supplémentaire envoyé par votre application. 
+
+## <a name="nodes-in-the-enterprise-plan"></a>Nœuds dans le plan Entreprise
+
+Si vous choisissez le plan de tarification Enterprise, une partie de votre facture est calculée à partir du nombre de nœuds qui envoient des données à Application Insights.
+
+Un nœud est un serveur qui héberge votre application. Cela peut correspondre à une machine virtuelle, une instance PaaS ou un ordinateur. 
+
+Les stations de travail de développeur qui exécutent votre application pendant le débogage ne sont pas incluses dans le nombre de nœuds. Les applications clientes qui s’exécutent dans des navigateurs ou sur appareils mobiles ne sont pas incluses.
+
+Les nœuds sont comptabilisés toutes les heures. Bien que les prix de nœud sont présentés par mois, les prix effectifs sont calculés par heure, afin que la facturation soit plus légère pour un nœud qui envoie des données de télémétrie seulement quelques heures par mois.
+
+Si votre application se met à l’échelle avec des charges différentes pour utiliser plus ou moins d’instances de serveur, les frais du plan Entreprise d’Application Insights évolueront en conséquence.
+
+Les nœuds peuvent être partagés entre applications. Par exemple, si vous avez trois applications s’exécutant sur deux machines virtuelles, et que les ressources Application Insights pour ces applications se trouvent dans le même abonnement et dans le plan Entreprise, le nombre de nœuds trouvés dans cet abonnement est de deux.
+
+Le quota de données de 200 Mo par nœud par jour est mis en commun entre les nœuds du même abonnement. Si vous avez deux nœuds qui hébergent des applications dans le plan Entreprise et qu’ils envoient des données pendant 16 et 20 heures par jour, alors l’allocation de données pour ce jour est ((16+20)/24) * 200 = 300 Mo. Si, à la fin de la journée, vos applications du plan Entreprise ont envoyé plus de 300 Mo, l’excédent sera facturé au tarif par Go.
+
+Le quota du plan Entreprise n’est pas partagé entre les applications pour lesquelles vous avez choisi l’option de tarification De base.
+
+## <a name="transition-from-the-old-pricing-tiers"></a>Transition depuis les anciens niveaux de tarification
+
+Les applications existantes peuvent continuer à utiliser les anciens niveaux de tarification jusqu’en février 2017. À ce moment, la plupart des applications seront automatiquement déplacées vers le plan de base. Celles qui utilisent l’exportation continue ou le connecteur pour OMS Log Analytics seront déplacées vers le plan d’entreprise.
+
 
 ## <a name="limits-summary"></a>Synthèse des limites
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
@@ -125,6 +151,6 @@ Pour chaque enregistrement conservé, `itemCount` indique le nombre d’enregist
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

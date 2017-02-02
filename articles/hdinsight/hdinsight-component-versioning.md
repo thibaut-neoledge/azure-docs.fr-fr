@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 12/13/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 764270f66a512efe5341361925845f671ea2b815
+ms.sourcegitcommit: 1761ee404e355d41170a5684a1a0ca6d2629f1e3
+ms.openlocfilehash: 5b6819a583f5161854be0f71bbc5164afd57d6f9
 
 
 ---
@@ -43,8 +43,8 @@ Le tableau suivant répertorie le type de cluster HDInsight et la matrice de sup
 | --- | --- | --- |
 | Hadoop |Oui |Oui (HDInsight 3.5 uniquement) |
 | Spark |Oui |Non |
-| HBase |Oui |Non |
-| Storm |Oui |Non |
+| HBase |OUI |Non |
+| Storm |OUI |Non |
 | Hive interactif (version préliminaire) |Oui |Non |
 | R Server (version préliminaire) |Oui |Non |
 
@@ -79,7 +79,7 @@ Azure HDInsight prend en charge plusieurs versions de cluster Hadoop qui peuvent
 
 **Obtention d’informations sur les versions actuelles des composants**
 
-Les versions de composant associées aux versions de cluster HDInsight sont susceptibles de changer dans les futures mises à jour de HDInsight. Pour déterminer quels sont les composants disponibles et vérifier quelles versions sont utilisées pour un cluster, vous pouvez utiliser l’API REST Ambari. La commande **GetComponentInformation** permet de récupérer des informations sur un composant du service. Pour des détails, consultez la [documentation Ambari][ambari-docs]. Vous pouvez également obtenir ces informations en vous connectant à un cluster à l’aide du Bureau à distance et en examinant directement le contenu du répertoire "C:\apps\dist\".
+Les versions de composant associées aux versions de cluster HDInsight sont susceptibles de changer dans les futures mises à jour de HDInsight. Pour déterminer quels sont les composants disponibles et vérifier quelles versions sont utilisées pour un cluster, vous pouvez utiliser l’API REST Ambari. La commande **GetComponentInformation** permet de récupérer des informations sur un composant du service. Pour plus d’informations, consultez la page [Documentation Ambari][ambari-docs]. Vous pouvez également obtenir ces informations en vous connectant à un cluster à l’aide du Bureau à distance et en examinant directement le contenu du répertoire "C:\apps\dist\".
 
 **Notes de publication**
 
@@ -102,7 +102,8 @@ Le tableau suivant répertorie les versions de HDInsight actuellement disponible
 | HDI 2,1 |HDP 1,3 |Windows Server 2012 R2 |Oui |10/28/2013 |Non |05/12/2014 |05/31/2015 |
 | HDI 1.6 |HDP 1.1 | |Non |10/28/2013 |Non |04/26/2014 |05/31/2015 |
 
-**Déploiement des clusters autres que les clusters par défaut**
+##<a name="hdi-version-32-and-33-nearing-deprecation-date"></a>HDI 3.2 et 3.3 approchent de leur date d’obsolescence
+La prise en charge du cluster HDI 3.2 a expiré le 01/03/2016 et il sera déconseillé le 01/04/2017. La prise en charge du cluster HDI 3.3 a expiré le 27/06/2016 et il sera déconseillé le 31/07/2017. Si vous avez un cluster HDI 3.2 ou 3.3, mettez-le rapidement à niveau en passant à HDI 3.5 (dernière version). 
 
 ### <a name="the-service-level-agreement-for-hdinsight-cluster-versions"></a>Contrat de niveau de service pour les versions de cluster HDInsight
 Le contrat de niveau de service est défini en termes de « fenêtre de support ». Une fenêtre de support désigne la durée pendant laquelle une version de cluster HDInsight est prise en charge par le support technique et le service clientèle Microsoft. Un cluster HDInsight est en dehors de la fenêtre de support si la **Date d'expiration du support** correspondant à la version de ce cluster est postérieure à la date actuelle. Le tableau ci-dessus contient une liste des versions de cluster HDInsight prises en charge. La date d'expiration du support pour une version donnée de HDInsight (lorsqu'une version X+1 plus récente est disponible) est calculée comme suit, la date la plus tardive prévalant :  
@@ -117,6 +118,17 @@ La **Date d’obsolescence** est la date après laquelle la version du cluster n
 > 
 > 
 
+##<a name="hdinsight-deprecation-on-windows"></a>Obsolescence de HDInsight sous Windows
+À partir de HDI version 3.4, nous avons sorti HDInsight uniquement sur le système d’exploitation Linux. Certaines des offres HDInsight sont disponibles pour Linux uniquement : Apache Ranger, applications HDInsight, Azure Data Lake Store en tant que FS principal, etc. Ceci présente plusieurs avantages pour les clients :
+
+* Nous pouvons mettre les technologies Big Data open source plus rapidement sur le marché avec le service HDInsight.
+* Il existe une communauté et un écosystème de support importants.
+* La communauté open source est active dans les développements pour Hadoop et les nouvelles technologies de Big Data. 
+* Le service HDInsight peut se concentrer davantage sur la technologie open source de Big Data. 
+
+Pour assurer la poursuite des investissements dans les technologies de Big Data open source, les futures versions de HDInsight seront disponibles uniquement sur le système d’exploitation Linux. Il y aura plus de versions de HDInsight sur le système d’exploitation Windows. La dernière version de HDInsight sous Windows est HDI 3.3. La prise en charge de HDI 3.3 a expiré le 27/06/2016 et il sera déconseillé le 31/07/2017. Consultez [cet article](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) pour effectuer la migration d’un cluster HDInsight Windows vers un cluster Linux.
+
+
 ## <a name="hortonworks-release-notes-associated-with-hdinsight-versions"></a>Notes de publication de Hortonworks associées aux versions de HDInsight
 * Le cluster HDInsight version 3.4 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 2.4](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html). Il s’agit du cluster Hadoop **par défaut** créé lors de l’utilisation du portail.
 * Le cluster HDInsight version 3.3 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 2.3](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html).
@@ -126,8 +138,8 @@ La **Date d’obsolescence** est la date après laquelle la version du cluster n
 * Le cluster HDInsight version 3.2 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 2.2][hdp-2-2].  
   
   * Notes de publication pour les composants spécifiques d’Apache - [Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112), [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
-* Le cluster HDInsight version 3.1 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. Les clusters HDInsight 3.1 créés avant le 07/11/2014 étaient basés sur la plateforme [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
-* Le cluster HDInsight version 3.0 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 2.0][hdp-2-0-8].
+* Le cluster HDInsight version 3.1 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. Les clusters HDInsight 3.1 créés avant le 07/11/2014 étaient basés sur [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
+* Le cluster HDInsight version 3.0 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 2.0][hdp-2-0-8].
 * Le cluster HDInsight version 2.1 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 1.3][hdp-1-3-0].
 * Le cluster HDInsight version 1.6 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 1.1][hdp-1-1-0].
 
@@ -155,6 +167,6 @@ La **Date d’obsolescence** est la date après laquelle la version du cluster n
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

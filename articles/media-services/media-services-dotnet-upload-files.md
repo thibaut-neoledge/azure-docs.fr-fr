@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 98c7e7e4d14a52787ef76d17c38a08d8f11a21e2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 82e28b06fad6e4461c399e4f878bef8ecfd28247
 
 
 ---
@@ -305,13 +305,13 @@ L’exemple suivant appelle la fonction UploadFile et spécifie le chiffrement d
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Étape suivante
-Maintenant que vous avez chargé un élément multimédia dans Media Services, consultez la rubrique [Obtention d’un processeur multimédia][Obtention d’un processeur multimédia].
+Après avoir chargé un élément multimédia dans Media Services, consultez la rubrique [Obtention d’un processeur multimédia][How to Get a Media Processor].
 
-[Obtention d’un processeur multimédia]: media-services-get-media-processor.md
-
-
+[How to Get a Media Processor]: media-services-get-media-processor.md
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+<!--HONumber=Dec16_HO2-->
 
 

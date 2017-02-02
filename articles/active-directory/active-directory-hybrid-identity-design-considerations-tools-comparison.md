@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/08/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2fb248f3e71b248ce0b5ae02ebeff291bbd28dce
+ms.sourcegitcommit: facdbff229eaf5ee20d98214c62c8b2b46acc0fd
+ms.openlocfilehash: 80617b203bf5efa4cd6bed590ea937b2e68db9e1
 
 
 ---
@@ -57,7 +57,7 @@ PP = Version préliminaire publique
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Écriture différée des appareils |● | |● | | |
 | Écriture différée des attributs (pour un déploiement hybride Exchange) |● |● |● |● |● |
-| Écriture différée des objets utilisateurs et groupes |● | | | | |
+| Écriture différée des objets groupes |● | | | | |
 | Écriture différée des mots de passe (à partir de la réinitialisation de mot de passe libre-service et de la modification de mot de passe) |● |● | | | |
 
 ## <a name="authentication-feature-support"></a>Prise en charge des fonctionnalités d’authentification
@@ -95,6 +95,6 @@ En savoir plus sur l’ [intégration de vos identités locales avec Azure Activ
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

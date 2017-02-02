@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/18/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2689c8db4beb07d42da836795f9d85b53ed8f076
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: dcf0ff5c4d6ebb7d0aea0b9518cbbe66c9f0a649
 
 
 ---
@@ -173,7 +173,7 @@ Utilisez les procédures suivantes pour retirer un module de contrôleur défect
 1. Saisissez le verrou du module entre le pouce et l’index.
 2. Pressez doucement le pouce et l’index pour libérer le verrou du contrôleur.
    
-    ![ Libération du verrou du contrôleur](./media/storsimple-controller-replacement/IC741047.png)
+    ![Libération du verrou du contrôleur](./media/storsimple-controller-replacement/IC741047.png)
    
     **Figure 2** Libération du verrou du contrôleur
 3. Utilisez le verrou comme une poignée pour faire glisser le contrôleur hors du châssis.
@@ -250,6 +250,6 @@ En savoir plus sur le [remplacement des composants matériels StorSimple](storsi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

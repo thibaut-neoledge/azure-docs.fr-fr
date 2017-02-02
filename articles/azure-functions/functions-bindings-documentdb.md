@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/10/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: 3c406de579e3f09b521b60861230106c952f4357
+ms.sourcegitcommit: c9e736f7ce5330823f3890c669da40e2bb1ecf43
+ms.openlocfilehash: 13b69118c6732ed872bec11e880737db3b8fa3c5
 
 
 ---
@@ -159,6 +159,24 @@ Cette section vous montre comment utiliser la liaison de sortie DocumentDB dans 
 
 Si vous écrivez dans le paramètre de sortie de votre fonction, par défaut, un nouveau document est généré dans votre base de données avec un GUID généré automatiquement en tant qu’ID de document. Vous pouvez spécifier l’ID du document de sortie en spécifiant la propriété JSON `id` dans le paramètre de sortie. Si un document avec cet ID existe déjà, le document de sortie le remplace. 
 
+Vous pouvez écrire à l’élément de sortie à l’aide d’un des types suivants :
+
+* N’importe quel [objet](https://msdn.microsoft.com/library/system.object.aspx) : utile pour la sérialisation JSON.
+  Si vous déclarez un type de sortie personnalisée (par exemple, `out FooType paramName`), Azure Functions tente de sérialiser un objet en JSON. Si le paramètre de sortie est Null quand la fonction s’arrête, le runtime Functions crée un objet blob comme objet Null.
+* Chaîne : (`out string paramName`) utile pour les données d’objet blob de texte. Le runtime Functions crée un objet blob uniquement si le paramètre de chaîne n’est pas Null quand la fonction s’arrête.
+
+Dans les fonctions C#, vous pouvez également définir une sortie vers les types suivants :
+
+* `TextWriter`
+* `Stream`
+* `CloudBlobStream`
+* `ICloudBlob`
+* `CloudBlockBlob` 
+* `CloudPageBlob` 
+
+Pour générer plusieurs documents, vous pouvez également vous lier à `ICollector<T>` ou `IAsyncCollector<T>` où `T` est un des types pris en charge.
+
+
 <a name="outputsample"></a>
 
 ## <a name="output-sample"></a>Exemple de sortie
@@ -290,6 +308,7 @@ module.exports = function (context) {
 ```
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Dec16_HO1-->
 
 

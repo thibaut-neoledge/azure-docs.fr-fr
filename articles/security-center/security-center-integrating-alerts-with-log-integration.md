@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2016
+ms.date: 12/09/2016
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: f6436e7682c6fd9fdfb1c787a6040f5aa67ac8fa
-ms.openlocfilehash: 1d4506b59ebf13c1bdb7cebcc035a0230d79062d
+ms.sourcegitcommit: f946ef41f0fc5ab39351d85c37ed24715b92b882
+ms.openlocfilehash: cd58f24c356e6d1ec0ebe77b1c336ee8370a4a9a
 
 
 ---
@@ -28,8 +28,8 @@ L’intégration des journaux Azure fonctionne avec HP ArcSight, Splunk, IBM QRa
 ## <a name="what-logs-can-i-integrate"></a>Quels journaux puis-je intégrer ?
 Azure génère une journalisation complète pour chaque service. Ces journaux sont classés de la façon suivante :
 
-* **Journaux de contrôle/gestion** , qui vous offrent une visibilité sur les opérations CREATE, UPDATE et DELETE d’Azure Resource Manager.
-* **Journaux des plans de données** , qui vous offrent une visibilité sur les événements déclenchés lors de l’utilisation d’une ressource Azure. Il s’agit par exemple du journal des événements Windows : les journaux de sécurité et des applications dans une machine virtuelle.
+* **Journaux de contrôle/gestion**, qui vous offrent une visibilité sur les opérations CREATE, UPDATE et DELETE d’Azure Resource Manager.
+* **Journaux des plans de données**, qui vous offrent une visibilité sur les événements déclenchés lors de l’utilisation d’une ressource Azure. Il s’agit par exemple du journal des événements Windows : les journaux de sécurité et des applications dans une machine virtuelle.
 
 L’intégration des journaux Azure prend actuellement en charge l’intégration de :
 
@@ -66,7 +66,7 @@ Le service d’intégration des journaux Azure collecte les données de télém�
 3. Exécutez la commande **azlog authorize<SubscriptionID>** pour affecter un accès en lecture à l’abonnement au principal du service créé à l’étape 2. Si vous ne spécifiez pas de **SubscriptionID**, le principal du service se voit affecter le rôle Lecteur pour tous les abonnements auxquels vous avez accès.
 
    > [!NOTE]
-   > Des avertissements peuvent s’afficher si vous exécutez la commande **authorize** immédiatement après la commande **createazureid**, car il y a un temps de latence entre la création du compte Azure AD et sa disponibilité pour utilisation. Si vous patientez environ 10 secondes après l’exécution de la commande **createazureid** avant d’exécuter la commande **authorize**, vous ne devriez pas voir ces avertissements.
+   > Des avertissements peuvent s’afficher si vous exécutez la commande **authorize** immédiatement après la commande **createazureid**. Il existe un temps de latence entre la création du compte Azure AD et la disponibilité du compte pour une utilisation. Si vous patientez environ 10 secondes après l’exécution de la commande **createazureid** avant d’exécuter la commande **authorize**, vous ne devriez pas voir ces avertissements.
    >
    >
 4. Vérifiez que les fichiers JSON de journaux d’audit sont présents dans les dossiers suivants :
@@ -95,6 +95,6 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

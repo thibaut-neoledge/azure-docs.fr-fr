@@ -4,7 +4,7 @@ description: "Connectez vos appareils gérés par OMS et les ordinateurs contrô
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dc6cdf1630407d1c4439d89aca5a8254bb806eba
-ms.openlocfilehash: 41382ba85fee1c3f5b1570748cd3d5b0641b9593
+ms.sourcegitcommit: a3d79c2df96c21d1af77c8ea1f53a2cc4e28343e
+ms.openlocfilehash: 30b1a9144e06db92ba12030dfe37a83e79d62857
 
 
 ---
@@ -29,7 +29,7 @@ Par exemple, les serveurs de votre entreprise ou grande organisation peuvent êt
 
 Au lieu que chaque agent individuel envoie des données directement à OMS, ce qui nécessite une connexion directe à Internet, toutes les données de l’agent sont envoyées via un seul ordinateur connecté à Internet. Cet ordinateur se trouve à l’endroit où vous installez et utilisez la passerelle. Dans ce scénario, vous pouvez installer des agents sur tous les ordinateurs sur lesquels vous souhaitez collecter des données. La passerelle transfère ensuite directement les données des agents à OMS. Elle n’analyse aucune des données transférées.
 
-Pour surveiller la passerelle OMS et analyser les performances ou les données d’événement du serveur sur lequel elle est installée, vous devez installer l’agent OMS sur l’ordinateur sur lequel la passerelle est également installée.
+Vous devez installer l’agent OMS sur l’ordinateur sur lequel la passerelle est également installée. Cela vous permet de surveiller la passerelle OMS et d'analyser les données des performances ou des événements pour le serveur sur lequel il est installé. En outre, l’agent permet à la passerelle OMS d’identifier les points de terminaison de service dont il a besoin pour communiquer.
 
 La passerelle doit avoir accès à Internet pour charger des données sur OMS. Chaque agent doit également disposer d’une connexion réseau avec sa passerelle, afin que les agents puissent automatiquement transférer des données vers la passerelle et recevoir des données de cette dernière. Pour de meilleurs résultats, n'installez pas la passerelle sur un ordinateur qui est également un contrôleur de domaine.
 
@@ -41,26 +41,72 @@ Voici un schéma illustrant le flux de données entre Operations Manager et OMS.
 
 ![schéma Operations Manager](./media/log-analytics-oms-gateway/scom-mgt-server.png)
 
+## <a name="language-availability"></a>Langues disponibles
+
+La passerelle OMS est disponible dans les langues suivantes :
+
+- Chinois (simplifié)
+- Chinois (traditionnel)
+- Tchèque
+- Néerlandais
+- Français
+- Français
+- Allemand
+- Hongrois
+- Italien
+- Japonais
+- Coréen
+- Polonais
+- Portugais (Brésil)
+- Portugais (Portugal)
+- Russe
+- Espagnol (international)
+
+## <a name="download-the-oms-gateway"></a>Télécharger la passerelle OMS
+
+Il existe trois méthodes d'obtenir le fichier de configuration de la passerelle OMS.
+
+### <a name="microsoft-download-center"></a>Centre de téléchargement Microsoft
+
+- Téléchargez la dernière version de la passerelle OMS sur le [Centre de téléchargement de Microsoft](http://download.microsoft.com/download/2/5/C/25CF992A-0347-4765-BD7D-D45D5B27F92C/OMS%20Gateway.msi).
+
+### <a name="oms-portal"></a>Portail OMS
+
+1.  Connectez-vous à votre espace de travail OMS.
+2.  Sélectionnez **Paramètres** > **Sources connectées** > **Serveurs Windows**.
+3.  Cliquez sur **Télécharger la passerelle OMS**.
+
+
+### <a name="azure-portal"></a>Portail Azure
+
+1. Accédez au [Portail Azure](https://portal.azure.com) , connectez-vous, parcourez la liste des services, puis sélectionnez **Log Analytics**.
+2. Sélectionnez un espace de travail.
+3. Dans le panneau de votre espace de travail, sous **Général**, cliquez sur **Démarrage rapide**.
+4. Sous **Choisir une source de données pour se connecter à l’espace de travail**, cliquez sur **Ordinateurs**.
+4. Dans le panneau **Agent direct**, cliquez sur **Télécharger la passerelle OMS**.  
+    ![télécharger la passerelle OMS](./media/log-analytics-oms-gateway/download-gateway.png)
+
+
 ## <a name="install-the-oms-gateway"></a>Installer la passerelle OMS
 Lorsque vous installez cette passerelle, elle remplace les versions de passerelles précédentes (redirecteur Log Analytics).
 
 Configuration requise : .Net Framework 4.5, Windows Server 2012 R2 SP1 et versions ultérieures
 
-1. Téléchargez la dernière version de la passerelle OMS sur le [Centre de téléchargement de Microsoft](http://download.microsoft.com/download/2/5/C/25CF992A-0347-4765-BD7D-D45D5B27F92C/OMS%20Gateway.msi).
-2. Pour démarrer l’installation, double-cliquez sur **OMS Gateway.msi**.
-3. Sur la page d'accueil, cliquez sur **Suivant**.  
+
+1. Pour démarrer l’installation, double-cliquez sur **OMS Gateway.msi**.
+2. Sur la page d'accueil, cliquez sur **Suivant**.  
     ![Assistant d’installation de la passerelle](./media/log-analytics-oms-gateway/gateway-wizard01.png)
-4. Dans la page du contrat de licence, sélectionnez **J’accepte les termes du contrat de licence** pour accepter le CLUF, puis cliquez sur **Suivant**.
-5. Sur la page relative au port et à l’adresse proxy :
+3. Dans la page du contrat de licence, sélectionnez **J’accepte les termes du contrat de licence** pour accepter le CLUF, puis cliquez sur **Suivant**.
+4. Sur la page relative au port et à l’adresse proxy :
    1. Saisissez le numéro de port TCP à utiliser pour la passerelle. Le programme d’installation ouvre ce port à partir du pare-feu Windows. La valeur par défaut est 8080.
       Les numéros de port valides sont compris entre 1 et 65535. Si la valeur saisie n’est pas comprise dans cette plage, un message d’erreur s’affiche.
    2. Éventuellement, si le serveur sur lequel la passerelle est installée doit utiliser un proxy, saisissez l’adresse proxy à laquelle la passerelle doit se connecter. Par exemple, `http://myorgname.corp.contoso.com:80` Si vide, la passerelle essaie de se connecter à Internet directement. Dans le cas contraire, la passerelle se connecte au proxy. Si votre serveur proxy requiert une authentification, tapez votre nom d'utilisateur et votre mot de passe.
        ![Configuration du proxy de l’assistant d’installation de la passerelle](./media/log-analytics-oms-gateway/gateway-wizard02.png)  
    3. Cliquez sur **Suivant**
-6. Si vous n’avez pas activé les mises à jour Microsoft, la page des mises à jour Microsoft s’affiche, et vous pouvez choisir d’activer les mises à jour. Effectuez une sélection, puis cliquez sur **Suivant**. Sinon, passez à l’étape suivante.
-7. Dans la page dossier de Destination, conservez le dossier par défaut **%ProgramFiles%\OMS Gateway** ou entrez l’emplacement où vous voulez installer la passerelle, puis cliquez sur **Suivant**.
-8. Dans la page Prêt pour l’installation, cliquez sur **Installer**. Un contrôle de compte utilisateur peut apparaître et demander une autorisation d’installation. Dans ce cas, cliquez sur **Oui**.
-9. Une fois l’installation terminée, cliquez sur **Terminer**. Vous pouvez vérifier que le service est en cours d’exécution en ouvrant le composant logiciel enfichable services.msc et en vérifiant que **Passerelle OMS** apparaît dans la liste des services.  
+5. Si vous n’avez pas activé les mises à jour Microsoft, la page des mises à jour Microsoft s’affiche, et vous pouvez choisir d’activer les mises à jour. Effectuez une sélection, puis cliquez sur **Suivant**. Sinon, passez à l’étape suivante.
+6. Dans la page dossier de Destination, conservez le dossier par défaut **%ProgramFiles%\OMS Gateway** ou entrez l’emplacement où vous voulez installer la passerelle, puis cliquez sur **Suivant**.
+7. Dans la page Prêt pour l’installation, cliquez sur **Installer**. Un contrôle de compte utilisateur peut apparaître et demander une autorisation d’installation. Dans ce cas, cliquez sur **Oui**.
+8. Une fois l’installation terminée, cliquez sur **Terminer**. Vous pouvez vérifier que le service est en cours d’exécution en ouvrant le composant logiciel enfichable services.msc et en vérifiant que **Passerelle OMS** apparaît dans la liste des services.  
     ![Services – Passerelle OMS](./media/log-analytics-oms-gateway/gateway-service.png)
 
 ## <a name="install-an-agent-on-devices"></a>Installer un agent sur des appareils
@@ -184,7 +230,7 @@ Si vous obtenez une erreur à l’étape 3, cela signifie que le module n’a p
 | `Get-OMSGatewayAllowedClientCertificate` | |Récupère les objets de certificat client actuellement autorisés (uniquement les objets configurés localement, pas les objets autorisés téléchargés automatiquement) |`Get-OMSGatewayAllowedClientCertificate` |
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
-Nous vous recommandons d’installer l’agent OMS sur les ordinateurs sur lesquels la passerelle est installée. Vous pouvez ensuite utiliser l’agent pour collecter les événements consignés par la passerelle.
+Vous devez installer l’agent OMS sur les ordinateurs sur lesquels la passerelle est installée. Vous pouvez ensuite utiliser l’agent pour collecter les événements consignés par la passerelle.
 
 ![Observateur d’événements – Journal de la passerelle OMS](./media/log-analytics-oms-gateway/event-viewer.png)
 
@@ -234,6 +280,6 @@ Vous pouvez également laisser des commentaires sur OMS ou Log Analytics sur le 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

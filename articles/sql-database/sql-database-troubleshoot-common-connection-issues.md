@@ -4,7 +4,7 @@ description: "Opérations servant à identifier et résoudre les erreurs de conn
 services: sql-database
 documentationcenter: 
 author: dalechen
-manager: cshepard
+manager: felixwu
 editor: 
 ms.assetid: ac463d1c-aec8-443d-b66e-fa5eadcccfa8
 ms.service: sql-database
@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 08/31/2016
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: 7e443a350e5f3597e9d59fe934c28bd8cd93be26
-ms.openlocfilehash: 8ccf72046e95b12316685d1de9632e18f0943948
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 48ccd940efb75427461c3a8018aa6b31f46a626e
 
 
 ---
@@ -77,7 +77,7 @@ Le tableau suivant répertorie les rubriques de problèmes de connexion qui s’
 | 4 |[Résoudre les problèmes de connectivité à la base de données SQL Microsoft Azure](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database) |Cet outil permet d’identifier votre problème et de résoudre les erreurs de connexion. |
 | 5 |[Résoudre l’erreur « La base de données &lt;x&gt; sur le serveur &lt;y&gt; n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. »](sql-database-troubleshoot-connection.md) |Explique comment identifier et résoudre une erreur 40613 : « La base de données &lt;x&gt; sur le serveur &lt;y&gt; n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. » |
 | 6 |[Codes d’erreur SQL pour les applications clientes SQL Database : erreur de connexion à la base de données et autres problèmes](sql-database-develop-error-messages.md) |Fournit des informations sur les codes d’erreur SQL pour les applications clientes de base de données SQL, tels que les erreurs de connexion de base de données courantes, les problèmes de copie de base de données et les erreurs générales. |
-| 7 |[Guide des performances de base de données SQL Azure pour les bases de données uniques](sql-database-performance-guidance.md) |Vous aide à déterminer le niveau de service adapté à votre application. Fournit également des recommandations pour le paramétrage de votre application afin de tirer le meilleur parti de votre base de données SQL Azure. |
+| 7 |[Guide des performances Azure SQL Database pour les bases de données autonomes](sql-database-performance-guidance.md) |Vous aide à déterminer le niveau de service adapté à votre application. Fournit également des recommandations pour le paramétrage de votre application afin de tirer le meilleur parti de votre base de données SQL Azure. |
 | 8 |[Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md) |Fournit des liens vers des exemples de code pour diverses technologies que vous pouvez utiliser pour vous connecter à et interagir avec une base de données SQL Azure. |
 | 9 |Page Mise à niveau vers la base de données SQL Azure v12 ([Portail Azure](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) |Fournit des instructions sur la mise à niveau des serveurs et bases de données SQL Azure V11 existants vers la base de données SQL Azure V12 avec le portail Azure ou PowerShell. |
 
@@ -97,6 +97,6 @@ Le tableau suivant répertorie les rubriques de problèmes de connexion qui s’
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

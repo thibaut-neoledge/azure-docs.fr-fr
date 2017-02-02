@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -55,8 +55,8 @@ Lorsque vous sélectionnez plusieurs ressources de données dans le portail Data
 
 > [!NOTE]
 > Les balises et les experts peuvent également être fournis lors de l’inscription des ressources de données à l’aide de l’outil d’inscription des sources de données de Data Catalog.
-> 
-> 
+>
+>
 
 Si vous sélectionnez plusieurs tables et vues, seules les colonnes communes à toutes les ressources de données sélectionnées seront affichées dans le portail Data Catalog. Cela permet aux utilisateurs de fournir des balises et des descriptions pour toutes les colonnes portant le même nom pour l’ensemble des ressources sélectionnées.
 
@@ -68,7 +68,6 @@ L’inscription d’une source de données avec Data Catalog favorise la détect
 
 ## <a name="see-also"></a>Voir aussi
 * [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) décrivant la procédure pas à pas d’annotation des sources de données.
-
 
 
 

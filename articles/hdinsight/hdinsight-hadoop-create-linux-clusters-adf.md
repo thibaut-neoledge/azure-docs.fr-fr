@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/06/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 5566e80f7d105944be6e10915b3b6ee2852c05e2
+ms.sourcegitcommit: 060bcf7cfac365e93b988cda0f402df6ba605dfc
+ms.openlocfilehash: 4dcc519e74cf1a5fbc7be3ddbd506fcbc25ed882
 
 
 ---
@@ -57,13 +57,14 @@ Il existe de nombreux avantages à l’utilisation de HDInsight avec Data Factor
 >
 >
 
-## <a name="prerequisites"></a>Configuration requise :
+## <a name="prerequisites"></a>Composants requis
+
 Avant de commencer à suivre les instructions de cet article, vous devez disposer des éléments suivants :
 
 * [Abonnement Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Interface de ligne de commande Azure ou Azure PowerShell.
 
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ## <a name="prepare-storage-account"></a>Préparer le compte de stockage
 Vous pouvez utiliser jusqu’à trois comptes de stockage dans ce scénario :
@@ -106,7 +107,7 @@ Pour simplifier ce didacticiel, vous utilisez un seul compte de stockage pour ce
     azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted"
     azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted"
 
-Le nom du conteneur est *adfgetstarted*.  Gardez-le tel quel. Dans le cas contraire, vous devez mettre à jour le modèle Resource Management.
+Le nom du conteneur est *adfgetstarted*.  Gardez-le tel quel. Dans le cas contraire, vous devez mettre à jour le modèle Resource Manager.
 
 Si vous avez besoin d’aide avec ce script d’interface de ligne de commande, consultez [Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage](../storage/storage-azure-cli.md).
 
@@ -197,9 +198,9 @@ Si vous avez besoin d’aide avec ce script PowerShell, consultez [Utilisation d
 7. Ouvrez le dossier et vérifiez les fichiers des deux dossiers.
 
 ## <a name="create-data-factory"></a>Créer une fabrique de données
-Avec le compte de stockage, les données d’entrée et le script HiveQL préparé, vous êtes prêt à créer une fabrique de données Azure. Il existe plusieurs méthodes pour créer la fabrique de données. Vous utilisez le portail Azure pour appeler un modèle Resource Management personnalisé dans ce didacticiel. Vous pouvez également appeler le modèle Resource Management depuis [l’interface de ligne de commande Azure](../resource-group-template-deploy-cli.md) et [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell). Pour les autres méthodes de création de fabriques de données, consultez la page [Didacticiel : créer votre première fabrique de données](../data-factory/data-factory-build-your-first-pipeline.md).
+Avec le compte de stockage, les données d’entrée et le script HiveQL préparé, vous êtes prêt à créer une fabrique de données Azure. Il existe plusieurs méthodes pour créer la fabrique de données. Vous utilisez le portail Azure pour appeler un modèle Resource Manager personnalisé dans ce didacticiel. Vous pouvez également appeler le modèle Resource Manager depuis l’[interface de ligne de commande Azure](../resource-group-template-deploy-cli.md) et [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy). Pour les autres méthodes de création de fabriques de données, consultez la page [Didacticiel : créer votre première fabrique de données](../data-factory/data-factory-build-your-first-pipeline.md).
 
-Le modèle Resource Management de niveau supérieur contient :
+Le modèle Resource Manager de niveau supérieur contient :
 
     {
         "contentVersion": "1.0.0.0",
@@ -327,9 +328,9 @@ La ressource *hdinsight-hive-on-demand* contient quatre ressources :
 
 **Pour créer une fabrique de données**
 
-1. Cliquez sur l’image suivante pour vous connecter à Azure et ouvrir le modèle Resource Management dans le portail Azure. Le modèle se trouve dans https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json.
+1. Cliquez sur l’image suivante pour vous connecter à Azure et ouvrir le modèle Resource Manager dans le portail Azure. Le modèle se trouve dans https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="./media/hdinsight-hadoop-create-linux-clusters-adf/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Entrez **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** et **STORAGEACCOUNTKEY** pour le compte créé dans la dernière section, puis cliquez sur **OK**. Le nom Data Factory doit être globalement unique.
 3. Dans **Groupe de ressources**, sélectionnez le même groupe de ressources que celui que vous avez utilisé dans la dernière section.
 4. Cliquez sur **Conditions juridiques**, puis cliquez sur **Créer**.
@@ -340,7 +341,7 @@ La ressource *hdinsight-hive-on-demand* contient quatre ressources :
 
     ![Diagramme du pipeline d’activité Hive à la demande HDInsight avec Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-pipeline-diagram.png)
 
-    Les noms sont définis dans le modèle Resource Management.
+    Les noms sont définis dans le modèle Resource Manager.
 9. Double-cliquez sur **AzureBlobOutput**.
 10. Dans **Tranches récemment mises à jour**, une tranche doit s’afficher. Si l’état est **En cours**, attendez jusqu’à ce qu’il passe à **Prêt**.
 
@@ -351,7 +352,7 @@ La ressource *hdinsight-hive-on-demand* contient quatre ressources :
    * adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx : il s’agit du conteneur par défaut pour le cluster HDInsight. Le nom du conteneur par défaut suit le modèle :  « adf<yourdatafactoryname>-nomduservicelié-horodatage ».
    * adfjobs : il s’agit du conteneur des journaux de tâche ADF.
 
-     Le résultat de la fabrique de données est stocké dans afgetstarted, que vous avez configuré dans le modèle Resource Management.
+     Le résultat de la fabrique de données est stocké dans afgetstarted, que vous avez configuré dans le modèle Resource Manager.
 2. Cliquez sur **adfgetstarted**.
 3. Double-cliquez sur **partitioneddata**. Un dossier **year = 2014** s’affiche, car tous les journaux web datent de l’année 2014.
 
@@ -377,7 +378,7 @@ Avec le service lié HDInsight à la demande, un cluster HDInsight est créé à
 
 Au cas où vous ne souhaitez pas supprimer le compte de stockage en même temps que le groupe de ressources, vous pouvez envisager l’architecture suivante en séparant les données d’entreprise du compte de stockage par défaut. Dans ce cas, vous avez un groupe de ressources pour le compte de stockage avec les données d’entreprise et un autre groupe de ressources pour le compte de stockage par défaut et la fabrique de données.  La suppression du deuxième groupe de ressources n’a aucune incidence sur le compte de stockage de données d’entreprise.  Pour ce faire :
 
-* Ajoutez le code suivant au groupe de ressources de niveau supérieur avec la ressource Microsoft.DataFactory/datafactories dans votre modèle Resource Management. Cela crée un nouveau compte de stockage :
+* Ajoutez le code suivant au groupe de ressources de niveau supérieur avec la ressource Microsoft.DataFactory/datafactories dans votre modèle Resource Manager. Cela crée un nouveau compte de stockage :
 
         {
             "name": "[parameters('defaultStorageAccountName')]",
@@ -443,6 +444,6 @@ Dans cet article, vous avez appris comment utiliser Azure Data Factory pour cré
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -57,8 +57,8 @@ Un profil de données d’Azure Data Catalog est un instantané de métadonné
 
 > [!NOTE]
 > L’extraction d’un profil de données peut être une opération coûteuse pour les grandes tables et vues, et peut augmenter considérablement le temps nécessaire pour inscrire une source de données.
-> 
-> 
+>
+>
 
 ## <a name="user-perspective"></a>Point de vue de l’utilisateur
 Dans Azure Data Catalog, tout utilisateur peut fournir des métadonnées descriptives pour une ressource de données inscrite. Chaque utilisateur a un point de vue différent sur les données et leurs utilisations. L'administrateur responsable d'un serveur peut, par exemple, fournir les détails de son contrat de niveau de service (SLA) ou de sa sauvegarde Windows ; un administrateur de données peut fournir des liens vers la documentation des processus d’entreprise que les données prennent en charge ; et un analyste peut fournir aux autres analystes une description des informations les plus pertinentes, qui peuvent être utiles aux utilisateurs qui ont besoin de découvrir et de comprendre les données.
@@ -73,8 +73,8 @@ Un propriétaire est un utilisateur qui dispose de privilèges supplémentaires 
 
 > [!NOTE]
 > La propriété et la gestion sont uniquement disponibles dans l'édition Standard d’Azure Data Catalog.
-> 
-> 
+>
+>
 
 ## <a name="registration"></a>Inscription
 L'inscription représente le fait d’extraire des métadonnées de ressources de données à partir d'une source de données et de les copier dans le service Azure Data Catalog. Les ressources de données qui ont été inscrites peuvent ensuite être annotées et découvertes.
@@ -82,7 +82,6 @@ L'inscription représente le fait d’extraire des métadonnées de ressources d
 ## <a name="see-also"></a>Voir aussi
 * [Présentation d’Azure Data Catalog](data-catalog-what-is-data-catalog.md)  : cet article fournit une vue d’ensemble du service Azure Data Catalog, de sa valeur ajoutée et des scénarios pris en charge.
 * [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) : cet article fournit un didacticiel de bout en bout qui vous indique comment utiliser Azure Data Catalog pour découvrir des sources de données.  
-
 
 
 

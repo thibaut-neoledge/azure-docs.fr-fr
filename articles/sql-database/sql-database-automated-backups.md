@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 11/02/2016
 ms.author: sashan;carlrab;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: a5b69625272b96fc9e42b9b7e57b5401351d8d6e
-ms.openlocfilehash: 9e58a144be039db609ad1400246ef2de05c1b84d
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: f6bb6e1c81cafe5f0e5c43c99ab15a0483742868
 
 
 ---
@@ -42,15 +42,15 @@ The Feature Topic is a one-pager (ok, sometimes longer) that explains a capabili
 It is a "learning" topic, not an action topic.
 
 DO explain this:
-    • Definition of the feature terminology.  i.e., What is a database backup?
-    • Characteristics and capabilities of the feature. (How the feature works)
-    • Common uses with links to overview topics that recommend when to use the feature.
-    • Reference specifications (Limitations and Restrictions, Permissions, General Remarks, etc.)
-    • Next Steps with links to related overviews, features, and tasks.
+    � Definition of the feature terminology.  i.e., What is a database backup?
+    � Characteristics and capabilities of the feature. (How the feature works)
+    � Common uses with links to overview topics that recommend when to use the feature.
+    � Reference specifications (Limitations and Restrictions, Permissions, General Remarks, etc.)
+    � Next Steps with links to related overviews, features, and tasks.
 
 DON'T explain this:
-    • How to steps for using the feature (Tasks)
-    • How to solve business problems that incorporate the feature (Overviews)
+    � How to steps for using the feature (Tasks)
+    � How to solve business problems that incorporate the feature (Overviews)
 
 GUIDELINES for the H1 
 
@@ -58,7 +58,7 @@ GUIDELINES for the H1
 
     To help people understand this is a learning topic and not an action topic, start the title with "Learn about ... "
 
-    Heading must use an industry standard term. If your feature is a proprietary name like "Elastic database pools", use a synonym. For example:    "Learn about elastic database pools for multi-tenant databases". In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
+    Heading must use an industry standard term. If your feature is a proprietary name like "elastic pools", use a synonym. For example:    "Learn about elastic pools for multi-tenant databases". In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
 
 GUIDELINES for introduction
 
@@ -118,6 +118,10 @@ Vous pouvez utiliser ces sauvegardes aux fins suivantes :
 * Restaurer une base de données à partir d’une sauvegarde spécifique stockée dans le coffre Azure Recovery Services. Ceci vous permet de restaurer une ancienne version de la base de données pour répondre à une demande de conformité ou exécuter une ancienne version de l’application. Consultez [Rétention à long terme](sql-database-long-term-retention.md).
 * Pour effectuer une restauration, consultez [Restauration de la base de données à partir de la sauvegarde](sql-database-recovery-using-backups.md).
 
+> [!TIP]
+> Pour obtenir un didacticiel, consultez [Prise en main des fonctionnalités de sauvegarde et de restauration pour la protection et la récupération des données](sql-database-get-started-backup-recovery.md)
+>
+
 <!----------------- 
     Explains first component of the backup feature
 ------------------>
@@ -168,7 +172,11 @@ Si vous supprimez une base de données, SQL Database conserve les sauvegardes de
 ## <a name="how-to-extend-the-backup-retention-period"></a>Comment étendre la période de rétention de la sauvegarde ?
 Si votre application nécessite que les sauvegardes soient disponibles pendant une période de temps plus longue, vous pouvez étendre la période de rétention intégrée en configurant la stratégie de rétention de sauvegarde à long terme pour les bases de données individuelles (stratégie LTR). Cela vous permet d’étendre la période de rétention intégrée de 35 jours à 10 ans. Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
 
-Une fois que vous ajoutez la stratégie LTR à une base de données à l’aide de l’API ou du portail Azure, les sauvegardes de base de données complètes hebdomadaires sont copiées automatiquement dans votre propre coffre de service Sauvegarde Azure. Si votre base de données est chiffrée à l’aide de TDE, les sauvegardes sont automatiquement chiffrées au repos.  Le coffre des services supprime automatiquement vos sauvegardes ayant expiré en fonction de leur horodatage et de la stratégie LTR.  Vous n’avez pas besoin de gérer la planification des sauvegardes, ni de vous préoccuper du nettoyage des anciens fichiers. L’API de restauration prend en charge les sauvegardes stockées dans le coffre tant que celui-ci se trouve dans le même abonnement que votre base de données SQL. Vous pouvez utiliser le portail ou PowerShell pour accéder à ces sauvegardes.
+Une fois que vous ajoutez la stratégie LTR à une base de données à l’aide de l’API ou du portail Azure, les sauvegardes de base de données complètes hebdomadaires sont copiées automatiquement dans votre propre coffre de service Sauvegarde Azure. Si votre base de données est chiffrée à l’aide de TDE, les sauvegardes sont automatiquement chiffrées au repos.  Le coffre des services supprime automatiquement vos sauvegardes ayant expiré en fonction de leur horodatage et de la stratégie LTR.  Vous n’avez pas besoin de gérer la planification des sauvegardes, ni de vous préoccuper du nettoyage des anciens fichiers. L’API de restauration prend en charge les sauvegardes stockées dans le coffre tant que celui-ci se trouve dans le même abonnement que votre base de données SQL. Vous pouvez utiliser le portail Azure ou PowerShell pour accéder à ces sauvegardes.
+
+> [!TIP]
+> Pour obtenir un didacticiel, consultez [Prise en main des fonctionnalités de sauvegarde et de restauration pour la protection et la récupération des données](sql-database-get-started-backup-recovery.md)
+>
 
 <!-------------------
 OPTIONAL section
@@ -214,11 +222,14 @@ GUIDELINES for Next Steps
 --------------------->
 
 ## <a name="next-steps"></a>Étapes suivantes
-Les sauvegardes de base de données sont une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elles protègent vos données des corruptions et des suppressions accidentelles. Pour en savoir plus sur les autres solutions de continuité des activités Azure SQL Database, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
+
+- Les sauvegardes de base de données sont une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elles protègent vos données des corruptions et des suppressions accidentelles. Pour en savoir plus sur les autres solutions de continuité des activités Azure SQL Database, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
+- Pour une restauration dans le temps, consultez [Restaurer une base de données à un instant donné](sql-database-point-in-time-restore.md).
+- Pour visualiser le point de restauration le plus ancien à partir des sauvegardes d’une base de données générées par le service, consultez [Afficher le point de restauration le plus ancien](sql-database-view-oldest-restore-point.md)
+- Pour configurer la rétention à long terme des sauvegardes automatisées dans un coffre Azure Recovery Services, consultez [Configurer la rétention des sauvegardes à long terme](sql-database-configure-long-term-retention.md)
 
 
 
-
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Création de votre IoT Hub et inscription de Raspberry Pi 3 | Microsoft Docs"
-description: "Créez un groupe de ressources, créez un Azure IoT Hub et inscrivez Pi dans IoT Hub à l’aide de l’interface de ligne de commande Azure."
+title: "Création de votre IoT Hub Azure et inscription de Raspberry Pi 3 | Microsoft Docs"
+description: "Créez un groupe de ressources, créez un Azure IoT Hub et inscrivez Pi dans le registre d’identité IoT Hub à l’aide de l’interface de ligne de commande Azure."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: d93b7b67ee0727f45c3f4b93459b013b16805bf6
-ms.openlocfilehash: fcfb90a385a68e863b3c1d3d0fa3bb24fe778291
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 1f22ab6a97427f3be521c69e308386ad0b1b286b
 
 
 ---
@@ -65,7 +65,7 @@ Azure IoT Hub vous permet de connecter, surveiller et gérer des millions de res
 4. Créer un groupe de ressources nommé iot-sample dans la région ouest des États-Unis en exécutant la commande suivante :
 
    ```bash
-   az resource group create --name iot-sample --location westus
+   az group create --name iot-sample --location westus
    ```
 
    `westus` est l’emplacement où vous créez votre groupe de ressources. Si vous souhaitez utiliser un autre emplacement, vous pouvez exécuter `az account list-locations -o table` pour voir tous les emplacements pris en charge par Azure.
@@ -103,6 +103,6 @@ Vous avez créé un IoT Hub et enregistré Pi sous une identité d’appareil da
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

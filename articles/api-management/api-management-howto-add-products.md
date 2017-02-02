@@ -1,30 +1,34 @@
 ---
-title: Création et publication d'un produit dans Gestion des API Azure
-description: Apprenez à créer et à publier des produits dans Gestion des API Azure.
+title: "Création et publication d&quot;un produit dans Gestion des API Azure"
+description: "Apprenez à créer et à publier des produits dans Gestion des API Azure."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 31de55cb-9384-490b-a2f2-6dfcf83da764
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
+translationtype: Human Translation
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 1568bbba999018e26493654e0286a6b8d93f3ae7
+
 
 ---
-# Création et publication d'un produit dans Gestion des API Azure
+# <a name="how-to-create-and-publish-a-product-in-azure-api-management"></a>Création et publication d'un produit dans Gestion des API Azure
 Dans Gestion des API Azure, un produit contient une ou plusieurs API, ainsi qu’un quota et des conditions d’utilisation. Une fois le produit publié, les développeurs peuvent s'y abonner et commencer à utiliser ses API. Cette rubrique constitue un guide pour créer un produit, ajouter une API et le publier pour les développeurs.
 
 ## <a name="create-product"> </a>Création d’un produit
-Les opérations sont ajoutées et configurées dans une API sur le portail des éditeurs. Pour accéder au portail de publication, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API.
+Les opérations sont ajoutées et configurées dans une API sur le portail des éditeurs. Pour accéder au portail des éditeurs, cliquez sur **Portail des éditeurs** dans le portail Azure de votre service Gestion des API.
 
 ![Portail des éditeurs][api-management-management-console]
 
-> Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][Création d'une instance de service Gestion des API] dans le didacticiel [Prise en main de Gestion des API Azure][Prise en main de Gestion des API Azure].
+> Si vous n’avez pas encore créé une instance de service Gestion des API, consultez la page de [création d’une instance de service Gestion des API][Create an API Management service instance] dans le didacticiel de [prise en main de Gestion des API Azure][Get started with Azure API Management].
 > 
 > 
 
@@ -34,32 +38,32 @@ Cliquez sur **Produits** dans le menu à gauche pour afficher la page **Produits
 
 ![New product][api-management-add-new-product]
 
-Entrez un nom décrivant le produit dans le champ **Nom**, ainsi qu'une description du produit dans le champ **Description**.
+Entrez un nom décrivant le produit dans le champ **Nom**, ainsi qu’une description du produit dans le champ **Description**.
 
 Les produits de Gestion des API peuvent être **Ouverts** ou **Protégés**. Les produits protégés doivent faire l’objet d’un abonnement avant de pouvoir être utilisés, alors que les produits ouverts peuvent être utilisés sans abonnement. Cochez la case **Demander une approbation d’abonnement** pour créer un produit protégé qui requiert un abonnement. Il s’agit du paramètre par défaut.
 
-Cochez **Demander une approbation d'abonnement** si vous souhaitez qu'un administrateur révise et accepte ou refuse les tentatives d'abonnement à ce produit. Si la case n'est pas cochée, les tentatives d'abonnement seront automatiquement approuvées. Pour plus d'informations sur les abonnements, consultez la section [Affichage des abonnés à un produit][Affichage des abonnés à un produit].
+Cochez **Demander une approbation d'abonnement** si vous souhaitez qu'un administrateur révise et accepte ou refuse les tentatives d'abonnement à ce produit. Si la case n'est pas cochée, les tentatives d'abonnement seront automatiquement approuvées. Pour plus d’informations sur les abonnements, consultez la section [Affichage des abonnés à un produit][View subscribers to a product].
 
-Pour autoriser les comptes de développeur à s’abonner plusieurs fois au produit, cochez la case **Autoriser plusieurs abonnements**. Si cette case n’est pas cochée, chaque compte de développeur ne peut s’abonner qu’une seule fois pour le produit.
+Pour autoriser les comptes de développeur à s’abonner plusieurs fois au produit, cochez la case **Autoriser plusieurs abonnements** . Si cette case n’est pas cochée, chaque compte de développeur ne peut s’abonner qu’une seule fois pour le produit.
 
 ![Abonnements multiples illimités][api-management-unlimited-multiple-subscriptions]
 
 Pour limiter le nombre d’abonnements simultanés, cochez la case **Limiter le nombre d’abonnements simultanés à** et entrez le nombre limite d’abonnements. Dans l’exemple suivant, les abonnements simultanés sont limités à quatre par compte de développeur.
 
-![Quatre abonnements multiples][api-management-four-multiple-subscriptions]
+![Quatre abonnements multiples][api-management-four-multiple-subscriptions]
 
 Une fois que toutes les nouvelles options du produit sont configurées, cliquez sur **Enregistrer** pour créer ce dernier.
 
 ![Produits][api-management-products-page]
 
-> Par défaut, les nouveaux produits ne sont pas publiés et ne sont visibles que pour les utilisateurs du groupe **Administrateurs**.
+> Par défaut, les nouveaux produits ne sont pas publiés et ne sont visibles que pour les utilisateurs du groupe **Administrateurs** .
 > 
 > 
 
-Pour configurer un produit, cliquez sur son nom dans l'onglet **Produits**.
+Pour configurer un produit, cliquez sur son nom dans l'onglet **Produits** .
 
 ## <a name="add-apis"> </a>Ajout d’API à un produit
-La page **Produits** contient quatre liens de configuration : **Résumé**, **Paramètres**, **visibilité**, et **Abonnés**. L’onglet **Résumé** est celui dans lequel vous pouvez ajouter des API et publier un produit, ou en annuler la publication.
+La page **Produits** contient quatre liens de configuration : **Résumé**, **Paramètres**, **Visibilité** et **Abonnés**. L’onglet **Résumé** est celui dans lequel vous pouvez ajouter des API et publier un produit, ou en annuler la publication.
 
 ![Résumé][api-management-new-product-summary]
 
@@ -70,7 +74,7 @@ Avant de publier votre produit, vous devez ajouter une ou plusieurs API. Pour ce
 Sélectionnez les API voulues, puis cliquez sur **Enregistrer**.
 
 ## <a name="add-description"> </a>Ajout d’informations descriptives à un produit
-L'onglet **Paramètres** vous permet d'ajouter des informations détaillées sur le produit, comme son objectif, les API auxquelles il permet l'accès, ainsi que d'autres informations utiles. Le contenu est destiné aux développeurs qui appelleront l'API. Il peut être sous forme de texte brut ou au format HTML.
+L’onglet **Paramètres** vous permet d’ajouter des informations détaillées sur le produit, comme son objectif, les API auxquelles il permet l’accès, ainsi que d’autres informations utiles. Le contenu est destiné aux développeurs qui appelleront l'API. Il peut être sous forme de texte brut ou au format HTML.
 
 ![Product settings][api-management-product-settings]
 
@@ -83,7 +87,7 @@ Pour autoriser les comptes de développeur à s’abonner plusieurs fois au prod
 Vous pouvez si vous le souhaitez remplir le champ **Conditions d'utilisation** qui décrit les conditions d'utilisation que les abonnés doivent accepter pour pouvoir utiliser le produit.
 
 ## <a name="publish-product"> </a>Publication d’un produit
-Avant de pouvoir appeler les API dans un produit, ce produit doit être publié. Dans l'onglet **Résumé** du produit, cliquez sur **Publier**, puis sur **Oui, publier** pour confirmer. Pour rendre privé un produit préalablement publié, cliquez sur **Annuler la publication**.
+Avant de pouvoir appeler les API dans un produit, ce produit doit être publié. Dans l’onglet **Résumé** du produit, cliquez sur **Publier**, puis sur **Oui, publier** pour confirmer. Pour rendre privé un produit préalablement publié, cliquez sur **Annuler la publication**.
 
 ![Publish product][api-management-publish-product]
 
@@ -94,7 +98,7 @@ L'onglet **Visibilité** vous permet de choisir quels rôles sont en mesure de v
 
 Pour activer ou désactiver la visibilité d'un produit pour les développeurs d'un groupe, cochez ou décochez la case à côté du groupe, puis cliquez sur **Enregistrer**.
 
-> Pour plus d'informations, consultez la page [Création et utilisation de groupes pour gérer les comptes de développeurs dans Gestion des API Azure][Création et utilisation de groupes pour gérer les comptes de développeurs dans Gestion des API Azure].
+> Pour plus d’informations, consultez la page [Création et utilisation de groupes pour gérer les comptes de développeurs dans Gestion des API Azure][How to create and use groups to manage developer accounts in Azure API Management].
 > 
 > 
 
@@ -104,7 +108,7 @@ L’onglet **Abonnés** présente la liste des développeurs qui se sont abonné
 ![Développeurs][api-management-developer-list]
 
 ## <a name="next-steps"> </a>Étapes suivantes
-Une fois les API souhaitées ajoutées et le produit publié, les développeurs peuvent s'abonner au produit et commencer à appeler les API. Pour suivre le didacticiel présentant comment configurer ces éléments, ainsi que certains paramètres de produit avancés, consultez la page [Création et configuration de paramètres de produit avancés dans Gestion des API Azure][Création et configuration de paramètres de produit avancés dans Gestion des API Azure].
+Une fois les API souhaitées ajoutées et le produit publié, les développeurs peuvent s'abonner au produit et commencer à appeler les API. Pour suivre le didacticiel présentant comment configurer ces éléments, ainsi que certains paramètres de produit avancés, consultez la page [Création et configuration de paramètres de produit avancés dans Gestion des API Azure][How create and configure advanced product settings in Azure API Management].
 
 Pour plus d’informations sur l’utilisation des produits, consultez la vidéo suivante.
 
@@ -117,7 +121,7 @@ Pour plus d’informations sur l’utilisation des produits, consultez la vidéo
 [Add descriptive information to a product]: #add-description
 [Publish a product]: #publish-product
 [Make a product visible to developers]: #make-visible
-[Affichage des abonnés à un produit]: #view-subscribers
+[View subscribers to a product]: #view-subscribers
 [Next steps]: #next-steps
 
 [api-management-management-console]: ./media/api-management-howto-add-products/api-management-management-console.png
@@ -142,10 +146,14 @@ Pour plus d’informations sur l’utilisation des produits, consultez la vidéo
 
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to create and publish a product]: api-management-howto-add-products.md
-[Prise en main de Gestion des API Azure]: api-management-get-started.md
-[Création d'une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [Next steps]: #next-steps
-[Création et utilisation de groupes pour gérer les comptes de développeurs dans Gestion des API Azure]: api-management-howto-create-groups.md
-[Création et configuration de paramètres de produit avancés dans Gestion des API Azure]: api-management-howto-product-with-rules.md
+[How to create and use groups to manage developer accounts in Azure API Management]: api-management-howto-create-groups.md
+[How create and configure advanced product settings in Azure API Management]: api-management-howto-product-with-rules.md 
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Dec16_HO3-->
+
+

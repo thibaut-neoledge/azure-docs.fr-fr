@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2016
+ms.date: 12/12/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 3098845eb6cf39eff7cb7b0c26c9e715c1688142
-ms.openlocfilehash: fa74439938fc97a06e8a8f767f5928721dd5affe
+ms.sourcegitcommit: e2e59da29897a40f0fe538d6fe8063ae5edbaccd
+ms.openlocfilehash: 4dd4e54f3e2514570ff5cbffcb926f274491cb65
 
 
 ---
@@ -47,18 +47,22 @@ Les erreurs de déploiement retournent le code **DeploymentFailed**. Toutefois, 
 
 Les codes d’erreur suivants sont décrits dans cette rubrique :
 
-* [InvalidTemplate](#invalidtemplate)
-* [NotFound et ResourceNotFound](#notfound-and-resourcenotfound)
-* [ParentResourceNotFound](#parentresourcenotfound)
-* [StorageAccountAlreadyExists et StorageAccountAlreadyTaken](#storageaccountalreadyexists-and-storageaccountalreadytaken)
 * [AccountNameInvalid](#accountnameinvalid)
-* [BadRequest](#badrequest)
-* [NoRegisteredProviderFound](#noregisteredproviderfound)
-* [QuotaExceeded et OperationNotAllowed](#quotaexceeded-and-operationnotallowed)
-* [InvalidContentLink](#invalidcontentlink)
-* [RequestDisallowedByPolicy](#requestdisallowedbypolicy)
 * [Échec de l’autorisation](#authorization-failed)
+* [BadRequest](#badrequest)
+* [InvalidContentLink](#invalidcontentlink)
+* [InvalidTemplate](#invalidtemplate)
+* [MissingSubscriptionRegistration](#noregisteredproviderfound)
+* [NotFound](#notfound)
+* [NoRegisteredProviderFound](#noregisteredproviderfound)
+* [OperationNotAllowed](#quotaexceeded)
+* [ParentResourceNotFound](#parentresourcenotfound)
+* [QuotaExceeded](#quotaexceeded)
+* [RequestDisallowedByPolicy](#requestdisallowedbypolicy)
+* [ResourceNotFound](#notfound)
 * [SkuNotAvailable](#skunotavailable)
+* [StorageAccountAlreadyExists](#storagenamenotunique)
+* [StorageAccountAlreadyTaken](#storagenamenotunique)
 
 ### <a name="invalidtemplate"></a>InvalidTemplate
 Cette erreur peut résulter de différents types d’erreurs.
@@ -142,6 +146,7 @@ Cette erreur peut résulter de différents types d’erreurs.
 
    Vérifiez les valeurs autorisées dans le modèle et fournissez-en une pendant le déploiement.
 
+<a id="notfound" />
 ### <a name="notfound-and-resourcenotfound"></a>NotFound et ResourceNotFound
 Lorsque votre modèle inclut le nom d’une ressource qui ne peut pas être résolue, vous recevez une erreur similaire à la suivante :
 
@@ -195,6 +200,7 @@ Toutefois, si vous ne spécifiez pas de dépendance sur la ressource parent, la 
         "[variables('databaseServerName')]"
     ]
 
+<a id="storagenamenotunique" />
 ### <a name="storageaccountalreadyexists-and-storageaccountalreadytaken"></a>StorageAccountAlreadyExists et StorageAccountAlreadyTaken
 Pour les comptes de stockage, vous devez fournir un nom pour la ressource qui est unique dans Azure. Si vous ne fournissez pas un nom unique, une erreur de ce type s’affiche :
 
@@ -215,20 +221,38 @@ Vous voyez l’erreur **AccountNameInvalid** lorsque vous tentez de donner à un
 
 L’état BadRequest peut survenir lorsque vous spécifiez une valeur de propriété non valide. Par exemple, si vous indiquez une valeur de référence (SKU) incorrecte pour un compte de stockage, le déploiement échoue. 
 
-### <a name="noregisteredproviderfound"></a>NoRegisteredProviderFound
+<a id="noregisteredproviderfound" />
+### <a name="noregisteredproviderfound-and-missingsubscriptionregistration"></a>NoRegisteredProviderFound et MissingSubscriptionRegistration
 Lorsque vous déployez une ressource, vous pouvez recevoir le message et le code d’erreur suivants :
 
     Code: NoRegisteredProviderFound
     Message: No registered resource provider found for location {ocation}
     and API version {api-version} for type {resource-type}.
 
-Cette erreur apparaît pour l’une des trois raisons suivantes :
+Vous pouvez sinon recevoir un message similaire indiquant :
 
-1. L’emplacement n’est pas pris en charge pour le type de ressource.
+    Code: MissingSubscriptionRegistration
+    Message: The subscription is not registered to use namespace {resource-provider-namespace}
+
+Ces erreurs apparaissent pour l’une des trois raisons suivantes :
+
+1. Le fournisseur de ressources n’a pas été inscrit pour votre abonnement.
 2. La version de l’API n’est pas prise en charge pour le type de ressource.
-3. Le fournisseur de ressources n’a pas été inscrit pour votre abonnement.
+3. L’emplacement n’est pas pris en charge pour le type de ressource.
 
 Le message d’erreur doit fournir des suggestions pour les emplacements et les versions d’API pris en charge. Vous pouvez changer votre modèle en l’une des valeurs suggérées. La plupart des fournisseurs sont inscrits automatiquement par le portail Azure ou l’interface de ligne de commande que vous utilisez, mais pas tous. Si vous n’avez pas déjà utilisé un fournisseur de ressources spécifique, vous devrez peut-être inscrire ce dernier. Vous pouvez en savoir plus sur les fournisseurs de ressources via PowerShell ou l’interface de ligne de commande Azure.
+
+**Portail**
+
+Vous pouvez voir l’état de l’inscription et inscrire un espace de noms de fournisseur de ressources par le biais du portail.
+
+1. Sur votre abonnement, sélectionnez **Fournisseurs de ressources**.
+
+   ![sélectionner Fournisseurs de ressources](./media/resource-manager-common-deployment-errors/select-resource-provider.png)
+
+2. Passez en revue la liste des fournisseurs de ressources et, si nécessaire, sélectionnez le lien **Inscrire** pour inscrire le fournisseur de ressources du type que vous voulez déployer.
+
+   ![répertorier les fournisseurs de ressources](./media/resource-manager-common-deployment-errors/list-resource-providers.png)
 
 **PowerShell**
 
@@ -262,6 +286,7 @@ Pour afficher les emplacements et les versions d’API pris en charge pour un fo
 
     azure provider show -n Microsoft.Compute --json > compute.json
 
+<a id="quotaexceeded" />
 ### <a name="quotaexceeded-and-operationnotallowed"></a>QuotaExceeded et OperationNotAllowed
 Vous pouvez rencontrer des problèmes quand un déploiement dépasse un quota qui peut concerner entre autres les groupes de ressources, les abonnements ou les comptes. Par exemple, votre abonnement peut être configuré pour limiter le nombre de cœurs dans une région. Si vous tentez de déployer une machine virtuelle avec plus de cœurs que la quantité autorisée, vous recevez une erreur indiquant que le quota a été dépassé.
 Pour obtenir des informations complètes sur les quotas, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
@@ -433,6 +458,28 @@ Dans certains cas, le moyen le plus simple pour résoudre les problèmes de votr
 
 Si vous rencontrez des erreurs de déploiement que vous pensez liées à une mauvaise définition des dépendances, vous pouvez tester votre modèle en le divisant en modèles plus simples. Commencez par créer un modèle déployant une seule ressource (comme un serveur SQL Server). Lorsque vous êtes sûr que cette ressource est correctement définie, ajoutez une ressource qui en dépend (par exemple une base de données SQL). Une fois ces deux ressources correctement définies, ajoutez les autres ressources dépendantes (telles que les stratégies d’audit). Supprimez le groupe de ressources entre chaque déploiement de test afin de tester correctement les dépendances. 
 
+### <a name="check-deployment-sequence"></a>Vérifier la séquence de déploiement
+
+De nombreuses erreurs de déploiement se produisent lorsque des ressources sont déployées selon une séquence inattendue. Ces erreurs surviennent lorsque les dépendances ne sont pas définies correctement. Une ressource tente d’utiliser la valeur d’une autre ressource, mais cette autre ressource n’existe pas encore. Pour afficher l’ordre des opérations de déploiement :
+
+1. Sélectionnez l’historique de déploiement de votre groupe de ressources.
+
+   ![sélectionner l’historique de déploiement](./media/resource-manager-common-deployment-errors/select-deployment.png)
+
+2. Sélectionnez un déploiement dans l’historique, puis sélectionnez **Événements**.
+
+   ![sélectionner les événements de déploiement](./media/resource-manager-common-deployment-errors/select-deployment-events.png)
+
+3. Examinez la séquence d’événements de chaque ressource. Faites attention à l’état de chaque opération. Par exemple, l’image suivante montre trois comptes de stockage déployés en parallèle. Remarquez que les trois comptes de stockage sont démarrés en même temps.
+
+   ![déploiement en parallèle](./media/resource-manager-common-deployment-errors/deployment-events-parallel.png)
+
+   L’image suivante montre trois comptes de stockage non déployés en parallèle. Le deuxième compte de stockage est marqué comme dépendant du premier compte de stockage, et le troisième dépend du deuxième compte de stockage. Par conséquent, le premier compte de stockage est démarré, accepté et terminé avant que le suivant ne démarre.
+
+   ![déploiement séquentiel](./media/resource-manager-common-deployment-errors/deployment-events-sequence.png)
+
+Examinez vos événements de déploiement pour déterminer si une ressource est démarrée plus tôt que prévu. Dans ce cas, vérifiez les dépendances de cette ressource.
+
 ## <a name="troubleshooting-other-services"></a>Résolution des problèmes d’autres services
 Si les codes d’erreur de déploiement précédents ne vous permettent pas de résoudre votre problème, vous pouvez rechercher des conseils de dépannage plus détaillés pour le service Azure présentant une erreur.
 
@@ -455,7 +502,6 @@ Le tableau suivant répertorie les rubriques de dépannage des autres services A
 | --- | --- |
 | Automation |[Conseils de dépannage pour les erreurs courantes dans Azure Automation](../automation/automation-troubleshooting-automation-errors.md) |
 | Azure Stack |[Dépannage de Microsoft Azure Stack](../azure-stack/azure-stack-troubleshooting.md) |
-| Azure Stack |[Web Apps et Azure Stack](../azure-stack/azure-stack-webapps-troubleshoot-known-issues.md) |
 | Data Factory |[Résolution des problèmes liés à Data Factory](../data-factory/data-factory-troubleshoot.md) |
 | Service Fabric |[Résoudre les problèmes courants rencontrés pendant le déploiement de services dans Azure Service Fabric](../service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) |
 | Site Recovery |[Surveiller et résoudre les problèmes de protection pour les machines virtuelles et les serveurs physiques](../site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
@@ -470,6 +516,6 @@ Le tableau suivant répertorie les rubriques de dépannage des autres services A
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

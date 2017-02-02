@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 126fd84259c604785cdd5db0543f78539c1db9c7
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: b69c8e918bb0380a10b1505fbf9792e284149de0
 
 
 ---
@@ -28,10 +28,10 @@ Les API et leurs opérations peuvent être importées dans les formats suivants.
 * WADL
 * Swagger
 
-Ce guide vous présente comment créer une API et importer des opérations en une seule fois. Pour plus d’informations sur la création manuelle d’une API et l’ajout d’opérations, consultez les rubriques [Création d’API][Création d’API] et [Ajout d'opérations à une API][Ajout d'opérations à une API].
+Ce guide vous présente comment créer une API et importer des opérations en une seule fois. Pour plus d’informations sur la création manuelle d’une API et l’ajout d’opérations, consultez les rubriques [Création d’API][How to create APIs] et [Ajout d’opérations à une API][How to add operations to an API].
 
 ## <a name="import-api"> </a>Importation d’une API
-Les API sont créées et configurées dans le portail des éditeurs. Pour accéder au portail des éditeurs, cliquez sur **Portail des éditeurs** dans le portail Azure de votre service Gestion des API. Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d’une instance du service API Management][Création d’une instance du service API Management] dans le didacticiel [Prise en main de Gestion des API Azure][Prise en main de Gestion des API Azure].
+Les API sont créées et configurées dans le portail des éditeurs. Pour accéder au portail des éditeurs, cliquez sur **Portail des éditeurs** dans le portail Azure de votre service Gestion des API. Si vous n’avez pas encore créé une instance de service Gestion des API, consultez la page de [création d’une instance de service Gestion des API][Create an API Management service instance] dans le didacticiel de [prise en main de Gestion des API Azure][Get started with Azure API Management].
 
 ![Portail des éditeurs][api-management-management-console]
 
@@ -73,8 +73,8 @@ Les API peuvent être exportées avec WADL ou Swagger. Sélectionnez le format s
 ## <a name="next-steps"> </a>Étapes suivantes
 Une fois l'API créée et les opérations importées, vous pouvez vérifier et configurer les paramètres complémentaires, ajouter l'API à un produit et la publier pour la mettre à disposition des développeurs. Pour plus d'informations, consultez les guides suivants :
 
-* [Configuration des paramètres de l’API][Configuration des paramètres de l’API]
-* [Création et publication d'un produit][Création et publication d'un produit]
+* [Configuration des paramètres de l’API][How to configure API settings]
+* [Création et publication d’un produit][How to create and publish a product]
 
 [api-management-management-console]: ./media/api-management-howto-import-api/api-management-management-console.png
 [api-management-import-apis]: ./media/api-management-howto-import-api/api-management-api-import-apis.png
@@ -82,21 +82,21 @@ Une fois l'API créée et les opérations importées, vous pouvez vérifier et c
 [api-management-export-api]: ./media/api-management-howto-import-api/api-management-export-api.png
 [api-management-export-api-format]: ./media/api-management-howto-import-api/api-management-export-api-format.png
 
-[Importation d’une API]: #import-api
-[Exportation d’une API]: #export-api
-[Configuration des paramètres de l’API]: #configure-api-settings
-[Étapes suivantes]: #next-steps
+[Import an API]: #import-api
+[Export an API]: #export-api
+[Configure API settings]: #configure-api-settings
+[Next steps]: #next-steps
 
-[Prise en main de Gestion des API Azure]: api-management-get-started.md
-[Création d’une instance du service API Management]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[Ajout d'opérations à une API]: api-management-howto-add-operations.md
-[Création et publication d'un produit]: api-management-howto-add-products.md
-[Création d’API]: api-management-howto-create-apis.md
-[Configuration des paramètres de l’API]: api-management-howto-create-apis.md#configure-api-settings
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to create APIs]: api-management-howto-create-apis.md
+[How to configure API settings]: api-management-howto-create-apis.md#configure-api-settings
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 
