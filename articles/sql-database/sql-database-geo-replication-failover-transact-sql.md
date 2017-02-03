@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: 5eb2d256-025d-4f5a-99d4-17f702b37f14
 ms.service: sql-database
-ms.custom: business continuity; how to
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 08/29/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1c471d2218433d5b10bab658814709f78a29d94d
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 473d6195acf7867c3dd1348ff8644d0c3a26f986
 
 
 ---
@@ -93,12 +93,12 @@ Utilisez les étapes suivantes pour lancer un basculement non planifié.
 * Pour en savoir plus sur la reprise après un sinistre à l’aide de la géoréplication active, notamment les étapes de pré/post-récupération et la simulation d’une récupération d’urgence, consultez [Récupération d’urgence](sql-database-disaster-recovery.md)
 * Consultez le billet de blog publié par Sasha Nosov concernant la géoréplication active : [Coup de projecteur sur les nouvelles fonctionnalités de géoréplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 * Pour plus d’informations sur la conception d’applications cloud afin d’utiliser la géoréplication active, consultez [Conception d’applications cloud pour la continuité d’activité à l’aide de la géoréplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-* Pour plus d’informations sur l’utilisation de la géoréplication active avec des pools de bases de données élastiques, consultez [Stratégies de récupération d’urgence pour les applications utilisant le pool élastique de base de données SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+* Pour plus d’informations sur la géo-réplication active avec des pools élastiques, consultez [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 * Pour une vue d’ensemble de la continuité des activités, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
