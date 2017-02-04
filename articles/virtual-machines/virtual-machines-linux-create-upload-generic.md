@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
+ms.date: 02/02/2017
 ms.author: szark
 translationtype: Human Translation
 ms.sourcegitcommit: 8ba7633f7d5c4bf9e7160b27f5d5552676653d55
@@ -143,6 +143,7 @@ L' [Agent Linux Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure
 * Dans certains cas, l'agent Linux Azure n'est pas compatible avec NetworkManager. Dans la plupart des cas, NetworkManager, configuré dans les packages RPM/Deb fournis avec les distributions, entre en conflit avec le package waagent, ce qui entraîne la désinstallation de NetworkManager lors de l'installation du package de l'agent Linux.
 
 ## <a name="general-linux-system-requirements"></a>Configuration générale requise Linux
+
 * Modifiez la ligne de démarrage du noyau dans GRUB ou GRUB2 afin d'y inclure les paramètres suivants. Ceci permet également d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d'Azure :
   
         console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
@@ -153,13 +154,14 @@ L' [Agent Linux Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure
   
         rhgb quiet crashkernel=auto
   
-    Le démarrage graphique et transparent n'est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série.
-  
-    L’option `crashkernel` peut éventuellement être conservée. Notez cependant que ce paramètre réduit la quantité de mémoire disponible dans la machine virtuelle de 128 Mo ou plus, ce qui peut être problématique sur les machines virtuelles de petite taille.
+    Le démarrage graphique et transparent n'est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série. L’option `crashkernel` peut éventuellement être conservée. Notez cependant que ce paramètre réduit la quantité de mémoire disponible dans la machine virtuelle de 128 Mo ou plus, ce qui peut être problématique sur les machines virtuelles de petite taille.
+
 * Installation de l'agent Linux Azure
   
     L'agent Linux Azure est requis pour approvisionner une image Linux sur Azure.  De nombreuses distributions fournissent cet agent sous forme de package RPM ou Deb (ce package est généralement nommé WALinuxAgent ou walinuxagent).  Il est également possible d'installer manuellement cet agent en suivant les instructions du [Guide de l'agent Linux](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
 * Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu.  C'est généralement le cas par défaut.
+
 * Ne créez pas d'espace swap sur le disque du système d'exploitation.
   
     L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
@@ -169,6 +171,7 @@ L' [Agent Linux Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure
         ResourceDisk.MountPoint=/mnt/resource
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
 * Enfin, exécutez la commande suivante pour annuler l'approvisionnement de la machine virtuelle :
   
         # sudo waagent -force -deprovision
@@ -179,6 +182,7 @@ L' [Agent Linux Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure
   > Sur Virtualbox, vous pouvez voir l’erreur suivante après l’exécution de « waagent -force -deprovision » : `[Errno 5] Input/output error`. Ce message d’erreur n’est pas critique et peut être ignoré.
   > 
   > 
+
 * Vous devez ensuite arrêter la machine virtuelle et télécharger le disque dur virtuel dans Azure.
 
 
