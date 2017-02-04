@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 12/09/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c95e39904a84fab021d625835bdf9686b2323c52
+ms.sourcegitcommit: aaa162df8a6cd60cb174242e6a353439f2da58b4
+ms.openlocfilehash: eb3a0ad811a4286df1bac963904bd9154c0ccfa3
 
 
 ---
@@ -24,10 +24,10 @@ ms.openlocfilehash: c95e39904a84fab021d625835bdf9686b2323c52
 Dans cet article, nous vous expliquons comment vous pouvez utiliser le portail Azure, les applets de commande PowerShell ou l’interface de ligne de commande multiplateforme pour archiver votre [**journal d’activité Azure dans un compte de stockage**](monitoring-overview-activity-logs.md). Cette option est utile si vous souhaitez conserver votre journal d’activité pendant une période supérieure à 90 jours (en disposant d’un contrôle total sur la stratégie de rétention) à des fins d’audit, d’analyse statique ou de sauvegarde. Si vous devez conserver vos événements pendant 90 jours ou moins, il est inutile de configurer l’archivage sur un compte de stockage, puisque les événements du journal d’activité sont conservés dans la plateforme Azure pendant 90 jours sans que l’archivage ne soit activé.
 
 ## <a name="prerequisites"></a>Conditions préalables
-Avant de commencer, vous devez [créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) sur lequel vous pouvez archiver votre journal d’activité. Nous vous recommandons vivement de ne pas utiliser un compte de stockage existant sur lequel sont stockées d’autres données de non-analyse, afin de pouvoir mieux contrôler l’accès aux données d’analyse. En revanche, si vous archivez également des journaux de diagnostic et des métriques sur un compte de stockage, il peut être judicieux d’utiliser ce compte pour votre journal d’activité afin de regrouper toutes vos données d’analyse au même emplacement. Le compte de stockage que vous utilisez doit être un compte de stockage à usage général, et non un compte de stockage Blob.
+Avant de commencer, vous devez [créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) sur lequel vous pouvez archiver votre journal d’activité. Nous vous recommandons vivement de ne pas utiliser un compte de stockage existant sur lequel sont stockées d’autres données de non-analyse, afin de pouvoir mieux contrôler l’accès aux données d’analyse. En revanche, si vous archivez également des journaux de diagnostic et des métriques sur un compte de stockage, il peut être judicieux d’utiliser ce compte pour votre journal d’activité afin de regrouper toutes vos données d’analyse au même emplacement. Le compte de stockage que vous utilisez doit être un compte de stockage à usage général, et non un compte de stockage Blob. Il n’est pas nécessaire que le compte de stockage se trouve dans le même abonnement que l’abonnement générant des journaux, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
 
 ## <a name="log-profile"></a>Profil de journal
-Pour archiver le journal d’activité à l’aide de l’une des méthodes ci-dessous, définissez le **profil journal** pour un abonnement. Le profil de journal définit le type d’événements qui sont stockés ou diffusés et les types de sortie : compte de stockage et/ou hub d’événements. Il définit également la stratégie de rétention (nombre de jours de conservation) pour les événements stockés dans un compte de stockage. Si la stratégie de rétention est définie sur zéro, les événements sont stockés indéfiniment. Elle peut également être définie sur n’importe quelle valeur comprise entre 1 et 2147483647. [Vous trouverez plus d’informations sur les profils de journal ici](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles).
+Pour archiver le journal d’activité à l’aide de l’une des méthodes ci-dessous, définissez le **profil journal** pour un abonnement. Le profil de journal définit le type d’événements qui sont stockés ou diffusés et les types de sortie : compte de stockage et/ou hub d’événements. Il définit également la stratégie de rétention (nombre de jours de conservation) pour les événements stockés dans un compte de stockage. Si la stratégie de rétention est définie sur zéro, les événements sont stockés indéfiniment. Elle peut également être définie sur n’importe quelle valeur comprise entre 1 et 2147483647. Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’avant-hier seront supprimés. [Vous trouverez plus d’informations sur les profils de journal ici](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles). 
 
 ## <a name="archive-the-activity-log-using-the-portal"></a>Archiver le journal d’activité à l’aide du portail
 1. Dans le portail, cliquez sur le lien **Journal d’activité** dans le volet de navigation de gauche. Si vous ne voyez pas de lien pour le journal d’activité, cliquez d’abord sur le lien **More Services** (Plus de services).
@@ -80,7 +80,7 @@ Voici un exemple de nom d’objet blob :
 > 
 > 
 
-Chaque objet blob PT1H.json contient un objet blob d’événements JSON qui se sont produits pendant l’heure spécifiée dans l’URL de l’objet blob (par exemple, h = 12). Pendant l’heure en cours, les événements sont ajoutés au fichier PT1H.json à mesure qu’ils se produisent. La valeur de minute (m = 00) est toujours 00, étant donné que les événements du journal d’activité sont répartis en différents objets blob par heure.
+Chaque objet blob PT1H.json contient un objet blob d’événements JSON qui se sont produits pendant l’heure spécifiée dans l’URL de l’objet blob (par exemple, h =&12;). Pendant l’heure en cours, les événements sont ajoutés au fichier PT1H.json à mesure qu’ils se produisent. La valeur de minute (m = 00) est toujours 00, étant donné que les événements du journal d’activité sont répartis en différents objets blob par heure.
 
 Dans le fichier PT1H.json, chaque événement est stocké dans le tableau « enregistrements », au format suivant :
 
@@ -171,6 +171,6 @@ Dans le fichier PT1H.json, chaque événement est stocké dans le tableau « enr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
