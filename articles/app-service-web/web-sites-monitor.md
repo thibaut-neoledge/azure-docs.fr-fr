@@ -1,12 +1,12 @@
 ---
-title: Surveiller les applications dans Azure App Service
-description: Découvrez comment surveiller les applications dans Azure App Service à l’aide du Portail Azure.
+title: Analyser les application dans Azure App Service | Microsoft Docs
+description: "Découvrez comment surveiller les applications dans Azure App Service à l’aide du Portail Azure."
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: btardif
 manager: wpickett
-editor: mollybos
-
+editor: 
+ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,49 +14,56 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: byvinyal
+translationtype: Human Translation
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: d779170030b61540de2c0459e574a72cdc77f342
+
 
 ---
-# Surveillance des applications dans Azure App Service
-[App Service](http://go.microsoft.com/fwlink/?LinkId=529714) fournit des fonctionnalités de surveillance intégrées dans le [Portail Azure](https://portal.azure.com). Ces fonctionnalités comprennent notamment la possibilité d’examiner les **quotas** et les **métriques** d’une application et du plan App Service, la configuration **d’alertes**, et même une **mise à l’échelle** automatique en fonction de ces métriques.
+# <a name="how-to-monitor-apps-in-azure-app-service"></a>Surveillance des applications dans Azure App Service
+[App Service](http://go.microsoft.com/fwlink/?LinkId=529714) fournit des fonctionnalités de surveillance intégrées dans le [Portail Azure](https://portal.azure.com).
+Ces fonctionnalités comprennent notamment la possibilité d’examiner les **quotas** et les **métriques** d’une application et du plan App Service, la configuration **d’alertes**, et même une **mise à l’échelle** automatique en fonction de ces métriques.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Présentation des quotas et des métriques
-### Quotas
+## <a name="understanding-quotas-and-metrics"></a>Présentation des quotas et des métriques
+### <a name="quotas"></a>Quotas
 Les applications hébergées dans App Service sont soumises à certaines *limites* concernant les ressources qu’elles peuvent utiliser. Ces limites sont définies par le **plan App Service** associé à l’application.
 
 Si l’application est hébergée dans un plan **Gratuit** ou **Partagé**, les limites relatives aux ressources utilisables par l’application sont définies sous la forme de **quotas**.
 
 Si l’application est hébergée dans un plan **De base**, **Standard** ou **Premium**, les limites applicables aux ressources que l’application peut utiliser sont définies par la **taille** (Petite, Moyenne, Grande) et par le **nombre d’instances** (1, 2, 3, ...) du **plan App Service**.
 
-Les **quotas** des applications **gratuites** ou **partagées** sont les suivants :
+Les **quotas** des applications **gratuites** ou **partagées** sont les suivants :
 
-* **CPU(short)** (Temps processeur (court))
+* **CPU(short)**
   * Quantité d’UC autorisée pour cette application sur un intervalle de 3 minutes. Ce quota se réinitialise toutes les 3 minutes.
-* **CPU(Day)** (Temps processeur (jour))
+* **CPU(Day)**
   * Quantité totale d’UC autorisée pour cette application sur une journée. Ce quota se réinitialise toutes les 24 heures à minuit en temps universel coordonné.
 * **Mémoire**
   * Quantité totale de mémoire autorisée pour cette application.
 * **Bande passante**
-  * Quantité totale de bande passante sortante autorisée pour cette application sur une journée. Ce quota se réinitialise toutes les 24 heures à minuit en temps universel coordonné.
+  * Quantité totale de bande passante sortante autorisée pour cette application sur une journée.
+    Ce quota se réinitialise toutes les 24 heures à minuit en temps universel coordonné.
 * **Système de fichiers**
   * Quantité totale de stockage autorisée.
 
 Le seul quota applicable aux applications hébergées sur les plans **De base**, **Standard** et **Premium** est **Système de fichiers**.
 
-Pour plus d’informations sur les quotas, limites et fonctionnalités spécifiques disponibles pour les différentes références (SKU) App Service, consultez [Limites du service d’abonnement Azure](../azure-subscription-service-limits.md#app-service-limits).
+Pour plus d’informations sur les quotas, limites et fonctionnalités spécifiques disponibles pour les différentes références (SKU) App Service, consultez [Limites du service d’abonnement Azure](../azure-subscription-service-limits.md#app-service-limits)
 
-#### Application de quotas
-Si l’utilisation d’une application dépasse le quota **CPU (short)** (Temps processeur (jour)), **CPU (Day)** (Temps processeur (jour)) ou **Bande passante**, l’application sera arrêtée jusqu’à la réinitialisation du quota. Pendant ce laps de temps, toutes les requêtes entrantes donneront lieu à une erreur **HTTP 403**. ![][http403]
+#### <a name="quota-enforcement"></a>Application de quotas
+Si l’utilisation d’une application dépasse le quota **CPU (short)** (Temps processeur (jour)), **CPU (Day)** (Temps processeur (jour)) ou **Bande passante**, l’application sera arrêtée jusqu’à la réinitialisation du quota. Pendant ce laps de temps, toutes les requêtes entrantes donneront lieu à une erreur **HTTP 403**.
+![][http403]
 
 Si le quota **Mémoire** d’une application est dépassé, l’application sera redémarrée.
 
-En cas de dépassement du quota **Système de fichiers**, toute opération d’écriture échouera, y compris l’écriture dans les journaux.
+En cas de dépassement du quota **Système de fichiers** , toute opération d’écriture échouera, y compris l’écriture dans les journaux.
 
 Vous pouvez augmenter ou supprimer les quotas de votre application en procédant à la mise à niveau de votre plan App Service.
 
-### Mesures
-Les **métriques** fournissent des informations sur le comportement de l’application ou du plan App Service.
+### <a name="metrics"></a>Mesures
+**Mesures** fournissent des informations sur le comportement de l’application ou du plan App Service.
 
 Pour une **application**, les métriques disponibles sont les suivantes :
 
@@ -98,7 +105,7 @@ Pour un **plan App Service**, les métriques disponibles sont les suivantes :
 > 
 > 
 
-* **Pourcentage UC**
+* **Pourcentage UC**
   * Utilisation moyenne de l’UC dans toutes les instances du plan.
 * **Pourcentage de mémoire**
   * Utilisation moyenne de la mémoire dans toutes les instances du plan.
@@ -111,46 +118,49 @@ Pour un **plan App Service**, les métriques disponibles sont les suivantes :
 * **Longueur de la file d’attente HTTP**
   * Nombre moyen de requêtes HTTP qui devaient se trouver dans la file d’attente avant d’être exécutées. Une longueur de file d’attente HTTP élevée ou croissante est le symptôme d’un plan surchargé.
 
-### Temps processeur et pourcentage UC
+### <a name="cpu-time-vs-cpu-percentage"></a>Temps processeur et pourcentage UC
 <!-- To do: Fix Anchor (#CPU-time-vs.-CPU-percentage) -->
 
-2 métriques reflètent l’utilisation de l’UC : **Temps processeur** et **Pourcentage UC**.
+2 métriques reflètent l’utilisation de l’UC : **Temps processeur** et**Pourcentage UC**.
 
-La métrique **Temps processeur** est utile pour les applications hébergées dans un plan **Gratuit** ou **Partagé**, car l’un des quotas de ces applications est défini en minutes d’UC utilisées par l’application.
+La métrique **Temps processeur** est utile pour les applications hébergées dans un plan **Gratuit** ou**Partagé**, car l’un des quotas de ces applications est défini en minutes d’UC utilisées par l’application.
 
 D’un autre côté, la métrique **Pourcentage UC** est utile pour les applications hébergées dans les plans **De base**, **Standard** et **Premium**, car le nombre d’instances de ces applications peut être augmenté, et cette métrique est une bonne indication de l’utilisation globale dans toutes les instances.
 
-## Granularité des métriques et stratégie de rétention
+## <a name="metrics-granularity-and-retention-policy"></a>Granularité des métriques et stratégie de rétention
 Les métriques d’une application et d’un plan App Service sont journalisées et agrégées par le service avec les granularités et les stratégies de rétention suivantes :
 
-* Les métriques de granularité **Minute** sont conservées **48 heures**
-* Les métriques de granularité **Hour** sont conservées **30 jours**
-* Les métriques de granularité **Day** sont conservées **90 jours**
+* Les métriques de granularité **Minute** sont conservées **48 heures**
+* Les métriques de granularité **Hour** sont conservées **30 jours**
+* Les métriques de granularité **Day** sont conservées **90 jours**
 
-## Surveillance des quotas et des métriques dans le Portail Azure
-Vous pouvez examiner l’état des différents **quotas** et **métriques** affectant une application dans le [Portail Azure](https://portal.azure.com).
+## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Surveillance des quotas et des métriques dans le Portail Azure
+Vous pouvez examiner l’état des différents **quotas** et **métriques** en affectant une application dans le [Portail Azure](https://portal.azure.com).
 
-![][quotas] Les **quotas** sont accessibles sous Paramètres > **Quotas**. L’expérience utilisateur vous permet de consulter : (1) le nom du quota, (2) son intervalle de réinitialisation, (3) sa limite actuelle et (4) sa valeur actuelle.
+![][quotas]
+Les **quotas** sont accessibles sous Paramètres > **Quotas**. L’expérience utilisateur vous permet de consulter : (1) le nom du quota, (2) son intervalle de réinitialisation, (3) sa limite actuelle et (4) sa valeur actuelle.
 
-![][metrics] Les **métriques** sont directement accessibles à partir du panneau de ressources. Vous pouvez également personnaliser le graphique en : (1) **cliquant sur** ce dernier, puis en sélectionnant (2) **Modifier le graphique**. À ce stade, vous pouvez modifier (3) **l’intervalle de temps**, (4) le **type de graphique** et (5) les **métriques** à afficher.
+![][metrics]
+Les **mesures** sont directement accessibles à partir du panneau de ressources. Vous pouvez également personnaliser le graphique en : (1) **cliquant** sur ce dernier, puis en sélectionnant (2) **Modifier le graphique**.
+À ce stade, vous pouvez modifier (3) **l’intervalle de temps**, (4) le **type de graphique** et (5) les **métriques** à afficher.  
 
-Pour plus d’informations sur les métriques, voir [Surveiller les mesures de qualité du service](../azure-portal/insights-how-to-customize-monitoring.md).
+Pour plus d’informations sur les métriques, voir [Surveiller les mesures de qualité du service](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
-## Alertes et mise à l’échelle automatique
-Les métriques d’une application ou d’un plan App Service peuvent être raccordées aux alertes. Pour plus d’informations, voir [Réception de notifications d’alerte](../azure-portal/insights-receive-alert-notifications.md).
+## <a name="alerts-and-autoscale"></a>Alertes et mise à l’échelle automatique
+Les métriques d’une application ou d’un plan App Service peuvent être raccordées aux alertes. Pour plus d’informations, voir [Réception de notifications d’alerte](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
-Les applications App Service hébergées dans les plans App Service De base, Standard ou Premium prennent en charge la **mise à l’échelle automatique**. Cette fonctionnalité vous permet de configurer des règles qui surveillent les métriques du plan App Service et qui peuvent augmenter ou diminuer le nombre d’instances en fournissant les ressources supplémentaires requises ou en allégeant les coûts lorsque l’application est surapprovisionnée. Pour plus d’informations sur la mise à l’échelle automatique, voir [Mise à l’échelle](../azure-portal/insights-how-to-scale.md) et [Meilleures pratiques pour la mise à l’échelle automatique d’Azure Insights](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+Les applications App Service hébergées dans les plans App Service De base, Standard ou Premium prennent en charge la **mise à l’échelle automatique**. Cette fonctionnalité vous permet de configurer des règles qui surveillent les métriques du plan App Service et qui peuvent augmenter ou diminuer le nombre d’instances en fournissant les ressources supplémentaires requises ou en allégeant les coûts lorsque l’application est surapprovisionnée. Pour plus d’informations sur la mise à l’échelle automatique, voir [Mise à l’échelle](../monitoring-and-diagnostics/insights-how-to-scale.md) et [Meilleures pratiques pour la mise à l’échelle automatique d’Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-best-practices.md).
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
 
-## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+## <a name="whats-changed"></a>Changements apportés
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-[fzilla]: http://go.microsoft.com/fwlink/?LinkId=247914
-[vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
+[fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
+[vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169
 
 
 
@@ -159,4 +169,8 @@ Les applications App Service hébergées dans les plans App Service De base, Sta
 [quotas]: ./media/web-sites-monitor/quotas.png
 [metrics]: ./media/web-sites-monitor/metrics.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

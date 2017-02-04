@@ -1,13 +1,13 @@
 ---
 title: Ajouter le connecteur Informix dans vos applications logiques | Microsoft Docs
-description: Vue d’ensemble du connecteur Informix avec les paramètres d’API REST
-services: ''
-documentationcenter: ''
+description: "Vue d’ensemble du connecteur Informix avec les paramètres d’API REST"
+services: 
+documentationcenter: 
 author: gplarsen
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: ca2393f0-3073-4dc2-8438-747f5bc59689
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen
+translationtype: Human Translation
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 614400a8787fdd2081fa8e981c0fc6b6dd794a58
+
 
 ---
 # <a name="get-started-with-the-informix-connector"></a>Prise en main du connecteur Informix
@@ -36,7 +40,7 @@ Le connecteur prend en charge les opérations de base de données suivantes :
 
 Cette rubrique décrit comment utiliser le connecteur dans une application logique pour traiter les opérations de base de données.
 
-Pour plus d’informations sur Logic Apps, voir [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour plus d’informations sur Logic Apps, voir [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="available-actions"></a>Actions disponibles
 Ce connecteur prend en charge les actions d’application logique suivantes :
@@ -305,8 +309,8 @@ Récupère les lignes d’une table Informix.
 | Nom de la propriété | Display Name | Description |
 | --- | --- | --- |
 | table* |Nom de la table |Nom de la table Informix |
-| $skip |Nombre à ignorer |Nombre d’entrées à ignorer (valeur par défaut : 0) |
-| $top |Nombre maximal à récupérer |Nombre maximal d’entrées à récupérer (valeur par défaut : 256) |
+| $skip |Nombre à ignorer |Nombre d’entrées à ignorer (valeur par défaut : 0) |
+| $top |Nombre maximal à récupérer |Nombre maximal d’entrées à récupérer (valeur par défaut : 256) |
 | $filter |Requête de filtre |Requête filter ODATA pour limiter le nombre d’entrées |
 | $orderby |Trier par |Requête orderBy ODATA pour spécifier l’ordre des entrées |
 
@@ -400,8 +404,11 @@ Ce connecteur prend en charge les versions IBM Informix ci-après en cas de conf
 * IBM Informix 11.7
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md). Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).
+[Créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO3-->
 
 

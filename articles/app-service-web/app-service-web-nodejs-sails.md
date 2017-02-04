@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: 395a13718d221ecbebcf967c7eac6f4e3c429ea7
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 2bc84ce01918878abbef1faf539561a4fec4c2e9
 
 
 ---
@@ -26,10 +26,10 @@ Ce didacticiel vous montre comment déployer une application Sails.js dans Azure
 Vous y gagnerez des compétences utiles telles que :
 
 * la configuration d’une application Sails.js s’exécutant dans App Service ;
-* le déploiement d’une application App Service à partir de la ligne de commande ;
+* le déploiement d’une application dans App Service à partir de la ligne de commande ;
 * la lecture de journaux stderr et stdout pour résoudre les éventuels problèmes de déploiement ;
 * le stockage de variables d’environnement en dehors du contrôle de code source ;
-* les variables d’environnement Azure Access à partir de votre application ;
+* l’accès aux variables d’environnement Azure à partir de votre application ;
 * la connexion à une base de données (MongoDB).
 
 Vous devriez avec une bonne connaissance de Sails.js. Ce didacticiel n’est pas destiné à résoudre les problèmes liés à l’exécution de Sail.js en général.
@@ -49,7 +49,7 @@ Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l
 * Un compte Microsoft Azure Si vous n’avez pas de compte, vous pouvez [vous inscrire pour un essai gratuit](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Vous pouvez [essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751) sans compte Azure. Créez une application de base et expérimentez-la pendant une heure, sans carte de paiement et sans engagement.
+> Vous pouvez [essayer App Service](https://azure.microsoft.com/try/app-service/) sans compte Azure. Créez une application de base et expérimentez-la pendant une heure, sans carte de paiement et sans engagement.
 > 
 > 
 
@@ -277,6 +277,6 @@ Pour vous connecter à une base de données dans Azure, créez la base de donné
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

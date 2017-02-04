@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9a739af2c9f6adaec58bfd7b339c370fae113641
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: 6b7c73576e09af3d1b3c886efa88044846e91494
 
 
 ---
@@ -36,7 +36,7 @@ Cette rubrique décrit comment utiliser le connecteur de stockage d’objet blob
 > 
 > 
 
-Pour plus d’informations sur Logic Apps, voir [Qu’est-ce qu’une application logique ?](../app-service-logic/app-service-logic-what-are-logic-apps.md) et [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour plus d’informations sur Logic Apps, voir [Qu’est-ce qu’une application logique ?](../logic-apps/logic-apps-what-are-logic-apps.md) et [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-azure-blob-storage"></a>Connexion au stockage d’objets blob Azure
 Pour que votre application logique puisse accéder à un service, vous devez d’abord créer une *connexion* à celui-ci. Une connexion permet d’assurer la connectivité entre une application logique et un autre service. Par exemple, pour vous connecter à un compte de stockage, commencez par créer une *connexion* de stockage des objets blob. Pour créer une connexion, entrez les informations d’identification que vous utilisez généralement pour accéder au service auquel vous souhaitez vous connecter. Ainsi, dans le cas d’Azure Storage, entrez les informations d’identification de votre compte de stockage pour créer la connexion. 
@@ -47,7 +47,7 @@ Pour que votre application logique puisse accéder à un service, vous devez d�
 > 
 
 ## <a name="use-a-trigger"></a>Utilisation d’un déclencheur
-Ce connecteur ne possède aucun déclencheur. Utilisez d’autres déclencheurs pour démarrer l’application logique, notamment un déclencheur de périodicité, un déclencheur Webhook HTTP, des déclencheurs disponibles avec d’autres connecteurs, etc. [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) vous fournit un exemple.
+Ce connecteur ne possède aucun déclencheur. Utilisez d’autres déclencheurs pour démarrer l’application logique, notamment un déclencheur de périodicité, un déclencheur Webhook HTTP, des déclencheurs disponibles avec d’autres connecteurs, etc. [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md) vous fournit un exemple.
 
 ## <a name="use-an-action"></a>Utilisation d’une action
 Une action est une opération effectuée par le flux de travail défini dans une application logique.
@@ -301,11 +301,11 @@ Lorsque vous exécutez des appels de diverses actions, vous pouvez obtenir certa
 | default |L’opération a échoué. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md). Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).
+[Créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

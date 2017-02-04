@@ -16,20 +16,23 @@ ms.workload: big-data
 ms.date: 10/21/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: a9d45c12da106f8175a37e6e963b78d50f93f0ad
+ms.sourcegitcommit: ede2e4ec5f3414d1c8a17f4c120011eba0d9a6ca
+ms.openlocfilehash: 14dcb8fe12bb516bc27b27f94992801d935811c8
 
 
 ---
 # <a name="create-windows-based-hadoop-clusters-in-hdinsight"></a>Création de clusters Hadoop basés sur Windows dans HDInsight
+
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 Un cluster Hadoop se compose de plusieurs machines virtuelles (nœuds) utilisées dans le processus de distribution des tâches sur le cluster. Azure isole les détails de l’implémentation de l’installation et la configuration des nœuds individuels afin de fournir les informations de configuration générales. Cet article aborde ces paramètres de configuration.
 
-> [!NOTE]
-> Les informations de ce document sont propres aux clusters Azure HDInsight sous Windows. Pour plus d’informations sur les clusters Linux, voir [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-> 
-> 
+Les informations de ce document sont propres aux clusters Azure HDInsight sous Windows. Pour plus d’informations sur les clusters Linux, voir [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+
+> [!IMPORTANT]
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
+
 
 ## <a name="access-control-requirements"></a>Exigences de contrôle d’accès
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
@@ -174,20 +177,20 @@ Dans le modèle de déploiement classique, certaines tailles de machines virtuel
 ### <a name="standard-tier-d-series"></a>Niveau standard : série D
 | Taille | Cœurs d’unité centrale | Mémoire | Cartes réseau (max) | Bande passante taille du disque | Bande passante disques de données (1 023 Go chacun) | Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque) |
 | --- | --- | --- | --- | --- | --- | --- |
-| D3 standard |4 |14 Go |4 |Temporaire (SSD) = 200 Go |8 |8 x 500 |
-| D4 standard |8 |28 Go |8 |Temporaire (SSD) = 400 Go |16 |16 x 500 |
-| D12 standard |4 |28 Go |4 |Temporaire (SSD) = 200 Go |8 |8 x 500 |
-| D13 standard |8 |56 Go |8 |Temporaire (SSD) = 400 Go |16 |16 x 500 |
-| D14 standard |16 |112 Go |8 |Temporaire (SSD) = 800 Go |32 |32 x 500 |
+| D3 standard |4 |14 Go |4 |Temporaire (SSD) =&200; Go |8 |8 x 500 |
+| D4 standard |8 |28 Go |8 |Temporaire (SSD) =&400; Go |16 |16 x 500 |
+| D12 standard |4 |28 Go |4 |Temporaire (SSD) =&200; Go |8 |8 x 500 |
+| D13 standard |8 |56 Go |8 |Temporaire (SSD) =&400; Go |16 |16 x 500 |
+| D14 standard |16 |112 Go |8 |Temporaire (SSD) =&800; Go |32 |32 x 500 |
 
 ### <a name="standard-tier-dv2-series"></a>Niveau standard : série Dv2
 | Taille | Cœurs d’unité centrale | Mémoire | Cartes réseau (max) | Bande passante taille du disque | Bande passante disques de données (1 023 Go chacun) | Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D3_v2 |4 |14 Go |4 |Temporaire (SSD) = 200 Go |8 |8 x 500 |
-| Standard_D4_v2 |8 |28 Go |8 |Temporaire (SSD) = 400 Go |16 |16 x 500 |
-| Standard_D12_v2 |4 |28 Go |4 |Temporaire (SSD) = 200 Go |8 |8 x 500 |
-| Standard_D13_v2 |8 |56 Go |8 |Temporaire (SSD) = 400 Go |16 |16 x 500 |
-| Standard_D14_v2 |16 |112 Go |8 |Temporaire (SSD) = 800 Go |32 |32 x 500 |
+| Standard_D3_v2 |4 |14 Go |4 |Temporaire (SSD) =&200; Go |8 |8 x 500 |
+| Standard_D4_v2 |8 |28 Go |8 |Temporaire (SSD) =&400; Go |16 |16 x 500 |
+| Standard_D12_v2 |4 |28 Go |4 |Temporaire (SSD) =&200; Go |8 |8 x 500 |
+| Standard_D13_v2 |8 |56 Go |8 |Temporaire (SSD) =&400; Go |16 |16 x 500 |
+| Standard_D14_v2 |16 |112 Go |8 |Temporaire (SSD) =&800; Go |32 |32 x 500 |
 
 Pour connaître les points à prendre en considération pour le déploiement quand vous planifiez l’utilisation de ces ressources, consultez [Tailles des machines virtuelles dans Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Pour plus d’informations sur la tarification des différentes tailles, consultez [Tarification de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
 
@@ -200,11 +203,11 @@ La facturation démarre une fois le cluster créé et ne s’arrête que lorsque
 
 | Taille | Cœurs d’unité centrale | Mémoire | Cartes réseau (max) | Bande passante taille du disque | Bande passante disques de données (1 023 Go chacun) | Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D3_v2 |4 |14 Go |4 |Temporaire (SSD) = 200 Go |8 |8 x 500 |
-| Standard_D4_v2 |8 |28 Go |8 |Temporaire (SSD) = 400 Go |16 |16 x 500 |
-| Standard_D12_v2 |4 |28 Go |4 |Temporaire (SSD) = 200 Go |8 |8 x 500 |
-| Standard_D13_v2 |8 |56 Go |8 |Temporaire (SSD) = 400 Go |16 |16 x 500 |
-| Standard_D14_v2 |16 |112 Go |8 |Temporaire (SSD) = 800 Go |32 |32 x 500 |
+| Standard_D3_v2 |4 |14 Go |4 |Temporaire (SSD) =&200; Go |8 |8 x 500 |
+| Standard_D4_v2 |8 |28 Go |8 |Temporaire (SSD) =&400; Go |16 |16 x 500 |
+| Standard_D12_v2 |4 |28 Go |4 |Temporaire (SSD) =&200; Go |8 |8 x 500 |
+| Standard_D13_v2 |8 |56 Go |8 |Temporaire (SSD) =&400; Go |16 |16 x 500 |
+| Standard_D14_v2 |16 |112 Go |8 |Temporaire (SSD) =&800; Go |32 |32 x 500 |
 
 Pour connaître les points à prendre en considération pour le déploiement quand vous planifiez l’utilisation de ces ressources, consultez [Tailles des machines virtuelles dans Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Pour plus d’informations sur la tarification des différentes tailles, consultez [Tarification de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).  
 
@@ -297,6 +300,6 @@ Grâce à cet article, vous avez acquis les informations de base sur la créatio
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

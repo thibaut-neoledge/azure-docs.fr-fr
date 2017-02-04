@@ -1,13 +1,13 @@
 ---
 title: GitHub | Microsoft Docs
-description: Créez des applications logiques avec Azure App Service. GitHub est un servie d’hébergement de dépôt Git sur le web. Il offre toutes les fonctionnalités distribuées de contrôle de révision et de gestion du code source (SCM) de Git, ainsi que ses propres fonctionnalités.
+description: "Créez des applications logiques avec Azure App Service. GitHub est un servie d’hébergement de dépôt Git sur le web. Il offre toutes les fonctionnalités distribuées de contrôle de révision et de gestion du code source (SCM) de Git, ainsi que ses propres fonctionnalités."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 8f873e6c-f4c0-4c2e-a5bd-2e953efe5e2b
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -15,32 +15,36 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 6f336db8c8719b99420b353dca82e36a0d837769
+
 
 ---
-# Prise en main du connecteur GitHub
+# <a name="get-started-with-the-github-connector"></a>Prise en main du connecteur GitHub
 GitHub est un servie d’hébergement de dépôt Git sur le web. Il offre toutes les fonctionnalités distribuées de contrôle de révision et de gestion du code source (SCM) de Git, ainsi que ses propres fonctionnalités.
 
 > [!NOTE]
-> Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
+> Cette version de l’article s’applique à la version de schéma 2015-08-01-preview des applications logiques. 
 > 
 > 
 
-Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## Déclencheurs et actions
-Le connecteur GitHub peut être utilisé en tant qu’action ; il possède un ou plusieurs déclencheurs. Tous les connecteurs prennent en charge les données aux formats JSON et XML.
+## <a name="triggers-and-actions"></a>Déclencheurs et actions
+Le connecteur GitHub peut être utilisé en tant qu’action ; il possède un ou plusieurs déclencheurs. Tous les connecteurs prennent en charge les données aux formats JSON et XML. 
 
  Le connecteur GitHub met à votre disposition les actions et/ou les déclencheurs ci-après.
 
-### Actions de GitHub
-Vous pouvez effectuer les actions suivantes :
+### <a name="github-actions"></a>Actions de GitHub
+Vous pouvez effectuer les actions suivantes :
 
 | Action | Description |
 | --- | --- |
 | [CreateIssue](connectors-create-api-github.md#createissue) |Crée un problème |
 
-### Déclencheurs de GitHub
-Vous pouvez écouter les événements suivants :
+### <a name="github-triggers"></a>Déclencheurs de GitHub
+Vous pouvez écouter les événements suivants :
 
 | Déclencheur | Description |
 | --- | --- |
@@ -48,37 +52,37 @@ Vous pouvez écouter les événements suivants :
 | Lorsqu’un problème est fermé |Un problème est fermé |
 | Lorsqu’un problème est assigné |Un problème est assigné |
 
-## Créer une connexion à GitHub
-Pour créer des applications logiques avec GitHub, vous devez d’abord créer une **connexion**, puis fournir les détails pour les propriétés suivantes :
+## <a name="create-a-connection-to-github"></a>Créer une connexion à GitHub
+Pour créer des applications logiques avec GitHub, vous devez d’abord créer une **connexion**, puis fournir les détails pour les propriétés suivantes : 
 
 | Propriété | Requis | Description |
 | --- | --- | --- |
 | Jeton |Oui |Fournir des informations d’identification GitHub |
 
-Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les actions et écouter les déclencheurs décrits dans cet article.
+Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les actions et écouter les déclencheurs décrits dans cet article. 
 
-> [!INCLUDE [Procédure de création d’une connexion à GitHub](../../includes/connectors-create-api-github.md)]
+> [!INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
 > 
 > [!TIP]
-> Vous pouvez utiliser cette connexion dans d’autres applications logiques.
+> Vous pouvez utiliser cette connexion dans d'autres applications logiques.
 > 
 > 
 
-## Référence pour GitHub
-S’applique à la version : 1.0
+## <a name="reference-for-github"></a>Référence pour GitHub
+S’applique à la version : 1.0
 
-## CreateIssue
-Créer un problème : crée un problème
+## <a name="createissue"></a>CreateIssue
+Créer un problème : crée un problème 
 
-```POST: /repos/{repositoryOwner}/{repositoryName}/issues```
+```POST: /repos/{repositoryOwner}/{repositoryName}/issues``` 
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| repositoryOwner |string |yes |path |(aucun) |Propriétaire du dépôt |
-| repositoryName |string |yes |path |(aucun) |Nom du dépôt |
+| repositoryOwner |string |Oui |path |(aucun) |Propriétaire du dépôt |
+| repositoryName |string |Oui |path |(aucun) |Nom du dépôt |
 | issueBasicDetails | |yes |body |(aucun) |Publication des détails |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |OK |
@@ -89,14 +93,14 @@ Créer un problème : crée un problème
 | 500 |Erreur interne du serveur. Une erreur inconnue s’est produite. |
 | default |L’opération a échoué. |
 
-## IssueOpened
-Lorsqu’un problème est ouvert : un problème est ouvert
+## <a name="issueopened"></a>IssueOpened
+Lorsqu’un problème est ouvert : un problème est ouvert 
 
-```GET: /trigger/issueOpened```
+```GET: /trigger/issueOpened``` 
 
 Il n’existe aucun paramètre pour cet appel
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |OK |
@@ -107,14 +111,14 @@ Il n’existe aucun paramètre pour cet appel
 | 500 |Erreur interne du serveur. Une erreur inconnue s’est produite. |
 | default |L’opération a échoué. |
 
-## IssueClosed
-Lorsqu’un problème est fermé : un problème est fermé
+## <a name="issueclosed"></a>IssueClosed
+Lorsqu’un problème est fermé : un problème est fermé 
 
-```GET: /trigger/issueClosed```
+```GET: /trigger/issueClosed``` 
 
 Il n’existe aucun paramètre pour cet appel
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |OK |
@@ -125,14 +129,14 @@ Il n’existe aucun paramètre pour cet appel
 | 500 |Erreur interne du serveur. Une erreur inconnue s’est produite. |
 | default |L’opération a échoué. |
 
-## IssueAssigned
-Lorsqu’un problème est assigné : un problème est assigné
+## <a name="issueassigned"></a>IssueAssigned
+Lorsqu’un problème est assigné : un problème est assigné 
 
-```GET: /trigger/issueAssigned```
+```GET: /trigger/issueAssigned``` 
 
 Il n’existe aucun paramètre pour cet appel
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |OK |
@@ -143,15 +147,15 @@ Il n’existe aucun paramètre pour cet appel
 | 500 |Erreur interne du serveur. Une erreur inconnue s’est produite. |
 | default |L’opération a échoué. |
 
-## Définitions d’objet
-### IssueBasicDetailsModel
+## <a name="object-definitions"></a>Définitions d’objet
+### <a name="issuebasicdetailsmodel"></a>IssueBasicDetailsModel
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
 | title |string |Oui |
 | body |string |Oui |
 | assignee |string |Oui |
 
-### IssueDetailsModel
+### <a name="issuedetailsmodel"></a>IssueDetailsModel
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
 | title |string |Oui |
@@ -159,10 +163,15 @@ Il n’existe aucun paramètre pour cet appel
 | assignee |string |Oui |
 | number |string |Non |
 | state |string |Non |
-| created\_at |string |Non |
-| repository\_url |string |Non |
+| created_at |string |Non |
+| repository_url |string |Non |
 
-## Étapes suivantes
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## <a name="next-steps"></a>Étapes suivantes
+[Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Jan17_HO3-->
+
+

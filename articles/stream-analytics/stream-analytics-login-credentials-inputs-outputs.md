@@ -1,20 +1,24 @@
 ---
-title: 'Stream Analytics : inverser les informations d''identification de connexion pour les entrées et sorties | Microsoft Docs'
-description: Découvrez comment mettre à jour les informations d’identification pour les entrées et les sorties Stream Analytics.
-keywords: informations d’identification
+title: "Stream Analytics : inverser les informations d&quot;identification de connexion pour les entrées et sorties | Microsoft Docs"
+description: "Découvrez comment mettre à jour les informations d’identification pour les entrées et les sorties Stream Analytics."
+keywords: "informations d’identification"
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 42ae83e1-cd33-49bb-a455-a39a7c151ea4
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
+ms.openlocfilehash: 8963764915bf918fd701e067832c88ea1a84b8d7
+
 
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-in-stream-analytics-jobs"></a>Rotation des informations d'identification pour les entrées et les sorties dans des travaux Stream Analytics
@@ -23,163 +27,165 @@ Actuellement, Azure Stream Analytics n’autorise pas le remplacement des inform
 
 Bien qu’Azure Stream Analytics ne prenne pas en charge la reprise d’une tâche à partir de la dernière sortie, nous souhaitons partager l’ensemble du processus pour réduire le délai entre l’arrêt et le démarrage de la tâche et pour procéder à la rotation des informations d’identification.
 
-## <a name="part-1---prepare-the-new-set-of-credentials:"></a>Partie 1 – Préparation du nouveau jeu d’informations d’identification :
-Cette partie concerne les entrées/sorties suivantes :
+## <a name="part-1---prepare-the-new-set-of-credentials"></a>Partie 1 – Préparation du nouveau jeu d’informations d’identification :
+Cette partie concerne les entrées/sorties suivantes :
 
 * Stockage d’objets blob
 * Hubs d'événements
 * Base de données SQL
 * Stockage de tables
 
-Pour les autres entrées/sorties, passez à la partie 2.
+Pour les autres entrées/sorties, passez à la partie 2.
 
-### <a name="blob-storage/table-storage"></a>Stockage d’objets blob/de tables
-1. Dans le portail de gestion Azure, accédez à l’extension Stockage :   
+### <a name="blob-storagetable-storage"></a>Stockage d’objets blob/de tables
+1. Dans le portail de gestion Azure, accédez à l’extension Stockage :   
    ![graphic1][graphic1]
-2. Recherchez le stockage utilisé par votre travail et accédez-y :   
+2. Recherchez le stockage utilisé par votre travail et accédez-y :   
    ![graphic2][graphic2]
-3. Cliquez sur la commande Gérer les clés d’accès :   
+3. Cliquez sur la commande Gérer les clés d’accès :   
    ![graphic3][graphic3]
 4. Entre la clé d’accès primaire et la clé d’accès secondaire, **choisissez celle qui n’est pas utilisée par votre travail**.
-5. Appuyez sur Régénérer :   
+5. Appuyez sur Régénérer :   
    ![graphic4][graphic4]
-6. Copiez la clé qui vient d’être générée :   
+6. Copiez la clé qui vient d’être générée :   
    ![graphic5][graphic5]
-7. Passez à la partie 2.
+7. Passez à la partie 2.
 
 ### <a name="event-hubs"></a>Hubs d'événements
-1. Dans le portail de gestion Azure, accédez à l’extension Service Bus :   
+1. Dans le portail de gestion Azure, accédez à l’extension Service Bus :   
    ![graphic6][graphic6]
-2. Recherchez l’espace de noms Service Bus utilisé par votre travail et accédez-y :   
+2. Recherchez l’espace de noms Service Bus utilisé par votre travail et accédez-y :   
    ![graphic7][graphic7]
-3. Si votre travail utilise une stratégie d’accès partagé sur l’espace de noms Service Bus, passez à l’étape 6  
-4. Accédez à l’onglet Hubs d’événements :   
+3. Si votre travail utilise une stratégie d’accès partagé sur l’espace de noms Service Bus, passez à l’étape 6  
+4. Accédez à l’onglet Hubs d’événements :   
    ![graphic8][graphic8]
-5. Recherchez le hub d’événements utilisé par votre travail et accédez-y :   
+5. Recherchez le hub d’événements utilisé par votre travail et accédez-y :   
    ![graphic9][graphic9]
-6. Cliquez sur l’onglet Configurer :   
+6. Cliquez sur l’onglet Configurer :   
    ![graphic10][graphic10]
-7. Dans la liste déroulante Nom de la stratégie, recherchez la stratégie d’accès partagé utilisée par votre travail :   
+7. Dans la liste déroulante Nom de la stratégie, recherchez la stratégie d’accès partagé utilisée par votre travail :   
    ![graphic11][graphic11]
 8. Entre la clé primaire et la clé secondaire, **choisissez celle qui n’est pas utilisée par votre travail**.  
-9. Appuyez sur Régénérer :   
+9. Appuyez sur Régénérer :   
    ![graphic12][graphic12]
-10. Copiez la clé qui vient d’être générée :   
-    ![graphic13][graphic13]
-11. Passez à la partie 2.  
+10. Copiez la clé qui vient d’être générée :   
+   ![graphic13][graphic13]
+11. Passez à la partie 2.  
 
 ### <a name="sql-database"></a>Base de données SQL
 > [!NOTE]
-> Remarque : vous devez vous connecter au service Base de données SQL. Nous allons montrer comment procéder à l’aide de l’expérience de gestion sur le portail de gestion Azure, mais vous pouvez également choisir d’utiliser un outil côté client tel que SQL Server Management Studio.
-> 
+> Remarque : vous devez vous connecter au service Base de données SQL. Nous allons montrer comment procéder à l’aide de l’expérience de gestion sur le portail de gestion Azure, mais vous pouvez également choisir d’utiliser un outil côté client tel que SQL Server Management Studio.
+>
 > 
 
-1. Dans le portail de gestion Azure, accédez à l’extension SQL Database :   
+1. Dans le portail de gestion Azure, accédez à l’extension SQL Database :   
    ![graphic14][graphic14]
-2. Recherchez la SQL Database utilisée par votre travail et **cliquez sur le lien du serveur** sur la même ligne :  
+2. Recherchez la SQL Database utilisée par votre travail et **cliquez sur le lien du serveur** sur la même ligne :  
    ![graphic15][graphic15]
-3. Cliquez sur la commande Gérer :   
+3. Cliquez sur la commande Gérer :   
    ![graphic16][graphic16]
-4. Tapez Base de données principale :   
+4. Tapez Base de données principale :   
    ![graphic17][graphic17]
-5. Tapez votre nom d’utilisateur, votre mot de passe, puis cliquez sur Ouvrir une session :   
+5. Tapez votre nom d’utilisateur, votre mot de passe, puis cliquez sur Ouvrir une session :   
    ![graphic18][graphic18]
-6. Cliquez sur Nouvelle requête :   
+6. Cliquez sur Nouvelle requête :   
    ![graphic19][graphic19]
-7. Entrez la requête suivante en remplaçant <login_name> par votre nom d’utilisateur et <enterStrongPasswordHere> par votre nouveau mot de passe :  
+7. Entrez la requête suivante en remplaçant <login_name> par votre nom d’utilisateur et <enterStrongPasswordHere> par votre nouveau mot de passe :  
    `CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'`
-8. Cliquez sur Exécuter :   
+8. Cliquez sur Exécuter :   
    ![graphic20][graphic20]
-9. Revenez à l’étape 2 et, cette fois, cliquez sur la base de données :   
+9. Revenez à l’étape 2 et, cette fois, cliquez sur la base de données :   
    ![graphic21][graphic21]
-10. Cliquez sur la commande Gérer :   
-    ![graphic22][graphic22]
-11. Tapez votre nom d’utilisateur, votre mot de passe, puis cliquez sur Ouvrir une session :   
-    ![graphic23][graphic23]
-12. Cliquez sur Nouvelle requête :   
-    ![graphic24][graphic24]
-13. Entrez la requête suivante en remplaçant <user_name> par le nom avec lequel vous souhaitez identifier cette connexion dans le contexte de cette base de données (vous pouvez fournir la même valeur que celle attribuée à <login_name>, par exemple) et en remplaçant <login_name> par votre nouveau nom d’utilisateur :  
-    `CREATE USER <user_name> FROM LOGIN <login_name>`
-14. Cliquez sur Exécuter :   
-    ![graphic25][graphic25]
+10. Cliquez sur la commande Gérer :   
+   ![graphic22][graphic22]
+11. Tapez votre nom d’utilisateur, votre mot de passe, puis cliquez sur Ouvrir une session :   
+   ![graphic23][graphic23]
+12. Cliquez sur Nouvelle requête :   
+   ![graphic24][graphic24]
+13. Entrez la requête suivante en remplaçant <user_name> par le nom avec lequel vous souhaitez identifier cette connexion dans le contexte de cette base de données (vous pouvez fournir la même valeur que celle attribuée à <login_name>, par exemple) et en remplaçant <login_name> par votre nouveau nom d’utilisateur :  
+   `CREATE USER <user_name> FROM LOGIN <login_name>`
+14. Cliquez sur Exécuter :   
+   ![graphic25][graphic25]
 15. Vous devez maintenant fournir à votre nouvel utilisateur les mêmes rôles et privilèges que ceux de l’utilisateur d’origine.
-16. Passez à la partie 2.
+16. Passez à la partie 2.
 
-## <a name="part-2:-stopping-the-stream-analytics-job"></a>Partie 2 – Arrêt du travail Stream Analytics
-1. Dans le portail de gestion Azure, accédez à l’extension Stream Analytics :   
+## <a name="part-2-stopping-the-stream-analytics-job"></a>Partie 2 – Arrêt du travail Stream Analytics
+1. Dans le portail de gestion Azure, accédez à l’extension Stream Analytics :   
    ![graphic26][graphic26]
-2. Recherchez votre travail et accédez-y :   
+2. Recherchez votre travail et accédez-y :   
    ![graphic27][graphic27]
 3. Accédez à l’onglet Entrées ou à l’onglet Sorties selon que vous remplacez les informations d’identification d’une entrée ou d’une sortie.  
    ![graphic28][graphic28]
-4. Cliquez sur la commande d’arrêt et vérifiez que le travail s’est arrêté :   
+4. Cliquez sur la commande d’arrêt et vérifiez que le travail s’est arrêté :   
    ![graphic29][graphic29] Attendez que le travail s’arrête.
-5. Recherchez l’entrée/la sortie pour laquelle vous souhaitez remplacer les informations d’identification et accédez-y :   
+5. Recherchez l’entrée/la sortie pour laquelle vous souhaitez remplacer les informations d’identification et accédez-y :   
    ![graphic30][graphic30]
-6. Passez à la partie 3.
+6. Passez à la partie 3.
 
-## <a name="part-3:-editing-the-credentials-on-the-stream-analytics-job"></a>Partie 3 – Modification des informations d’identification pour le travail Stream Analytics
-### <a name="blob-storage/table-storage"></a>Stockage d’objets blob/de tables
-1. Recherchez le champ Clé du compte de stockage et collez la clé qui vient d’être générée dans ce dernier :   
+## <a name="part-3-editing-the-credentials-on-the-stream-analytics-job"></a>Partie 3 – Modification des informations d’identification pour le travail Stream Analytics
+### <a name="blob-storagetable-storage"></a>Stockage d’objets blob/de tables
+1. Recherchez le champ Clé du compte de stockage et collez la clé qui vient d’être générée dans ce dernier :   
    ![graphic31][graphic31]
-2. Cliquez sur la commande Enregistrer et confirmez l’enregistrement de vos modifications :   
+2. Cliquez sur la commande Enregistrer et confirmez l’enregistrement de vos modifications :   
    ![graphic32][graphic32]
-3. Un test de connexion démarre automatiquement lorsque vous enregistrez vos modifications ; assurez-vous qu’il a réussi.
-4. Passez à la partie 4.
+3. Un test de connexion démarre automatiquement lorsque vous enregistrez vos modifications ; assurez-vous qu’il a réussi.
+4. Passez à la partie 4.
 
 ### <a name="event-hubs"></a>Hubs d'événements
-1. Recherchez le champ Clé de la stratégie du hub d’événements et collez votre nouvelle clé dans ce dernier :   
+1. Recherchez le champ Clé de la stratégie du hub d’événements et collez votre nouvelle clé dans ce dernier :   
    ![graphic33][graphic33]
-2. Cliquez sur la commande Enregistrer et confirmez l’enregistrement de vos modifications :   
+2. Cliquez sur la commande Enregistrer et confirmez l’enregistrement de vos modifications :   
    ![graphic34][graphic34]
-3. Un test de connexion démarre automatiquement lorsque vous enregistrez vos modifications ; assurez-vous qu’il a réussi.
-4. Passez à la partie 4.
+3. Un test de connexion démarre automatiquement lorsque vous enregistrez vos modifications ; assurez-vous qu’il a réussi.
+4. Passez à la partie 4.
 
 ### <a name="power-bi"></a>Power BI
-1. Cliquez sur Renouveler l’autorisation :  
-2. ![graphic35][graphic35]
-3. Le message de confirmation suivant s’affiche.  
-4. ![graphic36][graphic36]
-5. Cliquez sur la commande Enregistrer et confirmez l’enregistrement de vos modifications :   
+1. Cliquez sur Renouveler l’autorisation :  
+
+   ![graphic35][graphic35]
+2. Le message de confirmation suivant s’affiche.  
+
+   ![graphic36][graphic36]
+3. Cliquez sur la commande Enregistrer et confirmez l’enregistrement de vos modifications :   
    ![graphic37][graphic37]
-6. Un test de connexion démarre automatiquement lorsque vous enregistrez vos modifications ; assurez-vous qu’il a réussi.
-7. Passez à la partie 4.
+4. Un test de connexion démarre automatiquement lorsque vous enregistrez vos modifications ; assurez-vous qu’il a réussi.
+5. Passez à la partie 4.
 
 ### <a name="sql-database"></a>Base de données SQL
-1. Recherchez les champs Nom d’utilisateur et Mot de passe, et collez votre jeu d’informations d’identification nouvellement créé dans ces derniers :   
+1. Recherchez les champs Nom d’utilisateur et Mot de passe, et collez votre jeu d’informations d’identification nouvellement créé dans ces derniers :   
    ![graphic38][graphic38]
-2. Cliquez sur la commande Enregistrer et confirmez l’enregistrement de vos modifications :   
+2. Cliquez sur la commande Enregistrer et confirmez l’enregistrement de vos modifications :   
    ![graphic39][graphic39]
-3. Un test de connexion démarre automatiquement lorsque vous enregistrez vos modifications ; assurez-vous qu’il a réussi.  
-4. Passez à la partie 4.
+3. Un test de connexion démarre automatiquement lorsque vous enregistrez vos modifications ; assurez-vous qu’il a réussi.  
+4. Passez à la partie 4.
 
-## <a name="part-4:-starting-your-job-from-last-stopped-time"></a>Partie 4 – Démarrage de votre travail à partir de l’heure du dernier arrêt
-1. Naviguez en dehors de l’entrée/sortie :   
+## <a name="part-4-starting-your-job-from-last-stopped-time"></a>Partie 4 – Démarrage de votre travail à partir de l’heure du dernier arrêt
+1. Naviguez en dehors de l’entrée/sortie :   
    ![graphic40][graphic40]
-2. Cliquez sur la commande Démarrer :   
+2. Cliquez sur la commande Démarrer :   
    ![graphic41][graphic41]
-3. Sélectionnez l’heure du dernier arrêt et cliquez sur OK :   
+3. Sélectionnez l’heure du dernier arrêt et cliquez sur OK :   
    ![graphic42][graphic42]
-4. Passez à la partie 5.  
+4. Passez à la partie 5.  
 
-## <a name="part-5:-removing-the-old-set-of-credentials"></a>Partie 5 – Suppression de l’ancien jeu d’informations d’identification
-Cette partie concerne les entrées/sorties suivantes :
+## <a name="part-5-removing-the-old-set-of-credentials"></a>Partie 5 – Suppression de l’ancien jeu d’informations d’identification
+Cette partie concerne les entrées/sorties suivantes :
 
 * Stockage d’objets blob
 * Hubs d'événements
 * Base de données SQL
 * Stockage de tables
 
-### <a name="blob-storage/table-storage"></a>Stockage d’objets blob/de tables
-Répétez la partie 1 pour la clé d’accès qui était précédemment utilisée par votre travail afin de renouveler la clé d’accès maintenant inutilisée.
+### <a name="blob-storagetable-storage"></a>Stockage d’objets blob/de tables
+Répétez la partie 1 pour la clé d’accès qui était précédemment utilisée par votre travail afin de renouveler la clé d’accès maintenant inutilisée.
 
 ### <a name="event-hubs"></a>Hubs d'événements
-Répétez la partie 1 pour la clé qui était précédemment utilisée par votre travail afin de renouveler la clé maintenant inutilisée.
+Répétez la partie 1 pour la clé qui était précédemment utilisée par votre travail afin de renouveler la clé maintenant inutilisée.
 
 ### <a name="sql-database"></a>Base de données SQL
-1. Revenez à la fenêtre de requête de la partie 1, étape 7, puis entrez la requête suivante, en remplaçant <previous_login_name> par le nom d’utilisateur qui était précédemment utilisé par votre travail :  
+1. Revenez à la fenêtre de requête de la partie 1, étape 7, puis entrez la requête suivante, en remplaçant <previous_login_name> par le nom d’utilisateur qui était précédemment utilisé par votre travail :  
    `DROP LOGIN <previous_login_name>`  
-2. Cliquez sur Exécuter :   
+2. Cliquez sur Exécuter :   
    ![graphic43][graphic43]  
 
 Le message de confirmation suivant s’affiche. 
@@ -243,6 +249,6 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

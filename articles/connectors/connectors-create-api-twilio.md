@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 09/19/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0999d96b4819d6bf03faa843750c5c4b19649774
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 6770aa8387fe3d381fd9c566ca0c38c88a4b1e55
 
 
 ---
@@ -34,7 +34,7 @@ Avec Twilio, vous pouvez :
 * Créer votre flux d'activité en fonction des données que vous obtenez de Twilio. 
 * Utiliser des actions pour obtenir un message, répertorier les messages, et plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand vous recevez un nouveau message Twilio, vous pouvez prendre ce message et l’utiliser comme flux de travail Service Bus. 
 
-Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Déclencheurs et actions
 Le connecteur Twilio inclut les actions suivantes. Il n'y a aucun déclencheur. 
@@ -238,11 +238,11 @@ Envoyez un message à un numéro de téléphone portable.
 | end_date |string |no |
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

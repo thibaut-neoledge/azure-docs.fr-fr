@@ -1,13 +1,13 @@
 ---
 title: OneDrive Entreprise | Microsoft Docs
-description: Créez des applications logiques avec Azure App Service. Connectez-vous à OneDrive Entreprise pour gérer vos fichiers. Vous pouvez effectuer diverses actions, comme charger, mettre à jour, obtenir et supprimer des fichiers.
+description: "Créez des applications logiques avec Azure App Service. Connectez-vous à OneDrive Entreprise pour gérer vos fichiers. Vous pouvez effectuer diverses actions, comme charger, mettre à jour, obtenir et supprimer des fichiers."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: cf9484e9-7a20-4de0-93c8-0fa132221f2b
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -15,25 +15,29 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 992b4b7bab8878355cbe936b75768e67b086286e
+
 
 ---
-# Prise en main du connecteur OneDrive Entreprise
+# <a name="get-started-with-the-onedrive-for-business-connector"></a>Prise en main du connecteur OneDrive Entreprise
 Connectez-vous à OneDrive Entreprise pour gérer vos fichiers. Vous pouvez effectuer diverses actions, comme charger, mettre à jour, obtenir et supprimer des fichiers.
 
 > [!NOTE]
-> Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
+> Cette version de l’article s’applique à la version de schéma 2015-08-01-preview des applications logiques.
 > 
 > 
 
-Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## Déclencheurs et actions
-Le connecteur OneDrive Entreprise peut être utilisé en tant qu’action ; il possède un ou plusieurs déclencheurs. Tous les connecteurs prennent en charge les données aux formats JSON et XML.
+## <a name="triggers-and-actions"></a>Déclencheurs et actions
+Le connecteur OneDrive Entreprise peut être utilisé en tant qu’action ; il possède un ou plusieurs déclencheurs. Tous les connecteurs prennent en charge les données aux formats JSON et XML.
 
  Le connecteur OneDrive Entreprise met à votre disposition les actions et/ou les déclencheurs ci-après.
 
-### Actions de OneDrive Entreprise
-Vous pouvez effectuer les actions suivantes :
+### <a name="onedrive-for-business-actions"></a>Actions de OneDrive Entreprise
+Vous pouvez effectuer les actions suivantes :
 
 | Action | Description |
 | --- | --- |
@@ -49,16 +53,16 @@ Vous pouvez effectuer les actions suivantes :
 | [ListRootFolder](connectors-create-api-onedriveforbusiness.md#listrootfolder) |Répertorie les fichiers dans le dossier racine OneDrive Entreprise |
 | [ExtractFolderV2](connectors-create-api-onedriveforbusiness.md#extractfolderv2) |Extrait un dossier dans OneDrive Entreprise |
 
-### Déclencheurs de OneDrive Entreprise
-Vous pouvez écouter les événements suivants :
+### <a name="onedrive-for-business-triggers"></a>Déclencheurs de OneDrive Entreprise
+Vous pouvez écouter les événements suivants :
 
 | Déclencheur | Description |
 | --- | --- |
 | Quand un fichier est créé |Déclenche un flux quand un fichier est créé dans un dossier OneDrive Entreprise |
 | Quand un fichier est modifié |Déclenche un flux quand un fichier est modifié dans un dossier OneDrive Entreprise |
 
-## Créer une connexion à OneDrive Entreprise
-Pour créer des applications logiques avec OneDrive Entreprise, vous devez d’abord créer une **connexion**, puis fournir les détails pour les propriétés suivantes :
+## <a name="create-a-connection-to-onedrive-for-business"></a>Créer une connexion à OneDrive Entreprise
+Pour créer des applications logiques avec OneDrive Entreprise, vous devez d’abord créer une **connexion**, puis fournir les détails pour les propriétés suivantes :
 
 | Propriété | Requis | Description |
 | --- | --- | --- |
@@ -66,63 +70,63 @@ Pour créer des applications logiques avec OneDrive Entreprise, vous devez d’a
 
 Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les actions et écouter les déclencheurs décrits dans cet article.
 
-> [!INCLUDE [Procédure de création d’une connexion à OneDrive Entreprise](../../includes/connectors-create-api-onedriveforbusiness.md)]
+> [!INCLUDE [Steps to create a connection to OneDrive for Business](../../includes/connectors-create-api-onedriveforbusiness.md)]
 > 
 > [!TIP]
-> Vous pouvez utiliser cette connexion dans d’autres applications logiques.
+> Vous pouvez utiliser cette connexion dans d'autres applications logiques.
 > 
 > 
 
-## Référence pour OneDrive Entreprise
+## <a name="reference-for-onedrive-for-business"></a>Référence pour OneDrive Entreprise
 S’applique à la version 1.0.
 
-## GetFileMetadata
+## <a name="getfilemetadata"></a>GetFileMetadata
 Obtenir les métadonnées d’un fichier à l’aide de l’identifiant : récupère les métadonnées d’un fichier dans OneDrive Entreprise à l’aide de l’identifiant
 
 ```GET: /datasets/default/files/{id}```
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| id |string |yes |path |(aucun) |Spécifier le fichier |
+| id |string |Oui |path |(aucun) |Spécifier le fichier |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |OK |
 | default |L’opération a échoué. |
 
-## UpdateFile
+## <a name="updatefile"></a>UpdateFile
 Mettre à jour le fichier : met à jour un fichier dans OneDrive Entreprise
 
 ```PUT: /datasets/default/files/{id}```
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| id |string |yes |path |(aucun) |Spécifier le fichier à mettre à jour |
-| body | |yes |body |(aucun) |Contenu du fichier à mettre à jour dans OneDrive Entreprise |
+| id |string |Oui |path |(aucun) |Spécifier le fichier à mettre à jour |
+| body | |Oui |body |(aucun) |Contenu du fichier à mettre à jour dans OneDrive Entreprise |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |OK |
 | default |L’opération a échoué. |
 
-## DeleteFile
+## <a name="deletefile"></a>DeleteFile
 Supprimer un fichier : supprime un fichier de OneDrive Entreprise
 
 ```DELETE: /datasets/default/files/{id}```
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| id |string |yes |path |(aucun) |Spécifier le fichier à supprimer |
+| id |string |Oui |path |(aucun) |Spécifier le fichier à supprimer |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |OK |
 | default |L’opération a échoué. |
 
-## GetFileMetadataByPath
+## <a name="getfilemetadatabypath"></a>GetFileMetadataByPath
 Obtenir les métadonnées d’un fichier à l’aide du chemin : récupère les métadonnées d’un fichier dans OneDrive Entreprise à l’aide du chemin
 
 ```GET: /datasets/default/GetFileByPath```
@@ -131,13 +135,13 @@ Obtenir les métadonnées d’un fichier à l’aide du chemin : récupère les 
 | --- | --- | --- | --- | --- | --- |
 | path |string |yes |query |(aucun) |Chemin unique du fichier dans OneDrive Entreprise |
 
-#### Réponse
-| Name | Description |
+#### <a name="response"></a>Réponse
+| Nom | Description |
 | --- | --- |
 | 200 |OK |
 | default |L’opération a échoué. |
 
-## GetFileContentByPath
+## <a name="getfilecontentbypath"></a>GetFileContentByPath
 Obtenir le contenu d’un fichier à l’aide du chemin : récupère le contenu d’un fichier dans OneDrive Entreprise à l’aide du chemin
 
 ```GET: /datasets/default/GetFileContentByPath```
@@ -146,28 +150,28 @@ Obtenir le contenu d’un fichier à l’aide du chemin : récupère le contenu 
 | --- | --- | --- | --- | --- | --- |
 | path |string |yes |query |(aucun) |Chemin unique du fichier dans OneDrive Entreprise |
 
-#### Réponse
-| Name | Description |
+#### <a name="response"></a>Réponse
+| Nom | Description |
 | --- | --- |
 | 200 |OK |
 | default |L’opération a échoué. |
 
-## GetFileContent
+## <a name="getfilecontent"></a>GetFileContent
 Obtenir le contenu d’un fichier à l’aide de l’identifiant : récupère le contenu d’un fichier dans OneDrive Entreprise à l’aide de l’identifiant
 
 ```GET: /datasets/default/files/{id}/content```
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| id |string |yes |path |(aucun) |Spécifier le fichier |
+| id |string |Oui |path |(aucun) |Spécifier le fichier |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |OK |
 | default |L’opération a échoué. |
 
-## CreateFile
+## <a name="createfile"></a>CreateFile
 Créer un fichier : charge un fichier sur OneDrive Entreprise
 
 ```POST: /datasets/default/files```
@@ -176,15 +180,15 @@ Créer un fichier : charge un fichier sur OneDrive Entreprise
 | --- | --- | --- | --- | --- | --- |
 | folderPath |string |yes |query |(aucun) |Chemin du dossier OneDrive Entreprise sur lequel charger le fichier |
 | name |string |yes |query |(aucun) |Nom du fichier à créer dans OneDrive Entreprise |
-| body | |yes |body |(aucun) |Contenu du fichier à charger sur OneDrive Entreprise |
+| body | |Oui |body |(aucun) |Contenu du fichier à charger sur OneDrive Entreprise |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |OK |
 | default |L’opération a échoué. |
 
-## CopyFile
+## <a name="copyfile"></a>CopyFile
 Copier un fichier : copie un fichier dans OneDrive Entreprise
 
 ```POST: /datasets/default/copyFile```
@@ -193,15 +197,15 @@ Copier un fichier : copie un fichier dans OneDrive Entreprise
 | --- | --- | --- | --- | --- | --- |
 | source |string |yes |query |(aucun) |URL du fichier source |
 | destination |string |yes |query |(aucun) |Chemin de destination du fichier dans OneDrive Entreprise, y compris le nom de fichier cible |
-| overwrite |booléenne |no |query |false |Remplace le fichier de destination si la valeur est « true » |
+| overwrite |booléenne |no |query |false |Remplace le fichier de destination si la valeur est « true » |
 
-#### Réponse
+#### <a name="response"></a>Response
 | Nom | Description |
 | --- | --- |
 | 200 |OK |
 | default |L’opération a échoué. |
 
-## OnNewFile
+## <a name="onnewfile"></a>OnNewFile
 Quand un fichier est créé : déclenche un flux quand un fichier est créé dans un dossier OneDrive Entreprise
 
 ```GET: /datasets/default/triggers/onnewfile```
@@ -210,13 +214,13 @@ Quand un fichier est créé : déclenche un flux quand un fichier est créé dan
 | --- | --- | --- | --- | --- | --- |
 | folderId |string |yes |query |(aucun) |Spécifier un dossier |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |OK |
 | default |L’opération a échoué. |
 
-## OnUpdatedFile
+## <a name="onupdatedfile"></a>OnUpdatedFile
 Quand un fichier est modifié : déclenche un flux quand un fichier est modifié dans un dossier OneDrive Entreprise
 
 ```GET: /datasets/default/triggers/onupdatedfile```
@@ -225,65 +229,65 @@ Quand un fichier est modifié : déclenche un flux quand un fichier est modifié
 | --- | --- | --- | --- | --- | --- |
 | folderId |string |yes |query |(aucun) |Spécifier un dossier |
 
-#### Réponse
-| Name | Description |
+#### <a name="response"></a>Réponse
+| Nom | Description |
 | --- | --- |
 | 200 |OK |
 | default |L’opération a échoué. |
 
-## ListFolder
+## <a name="listfolder"></a>ListFolder
 Répertorier les fichiers dans un dossier : répertorie les fichiers dans un dossier OneDrive Entreprise
 
 ```GET: /datasets/default/folders/{id}```
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| id |string |yes |path |(aucun) |Spécifier le dossier |
+| id |string |Oui |path |(aucun) |Spécifier le dossier |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |OK |
 | default |L’opération a échoué. |
 
-## ListRootFolder
+## <a name="listrootfolder"></a>ListRootFolder
 Répertorier le dossier racine : répertorie les fichiers dans le dossier racine OneDrive Entreprise
 
 ```GET: /datasets/default/folders```
 
 Il n’existe aucun paramètre pour cet appel
 
-#### Réponse
-| Name | Description |
+#### <a name="response"></a>Réponse
+| Nom | Description |
 | --- | --- |
 | 200 |OK |
 | default |L’opération a échoué. |
 
-## ExtractFolderV2
+## <a name="extractfolderv2"></a>ExtractFolderV2
 Extraire un dossier : extrait un dossier dans OneDrive Entreprise
 
 ```POST: /datasets/default/extractFolderV2```
 
-| Name | Type de données | Requis | Emplacement | Valeur par défaut | Description |
+| Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
 | source |string |yes |query |(aucun) |Chemin du fichier d'archive |
 | destination |string |yes |query |(aucun) |Chemin dans OneDrive Entreprise indiquant où extraire le contenu de l’archive |
-| overwrite |booléenne |no |query |false |Remplace les fichiers de destination si la valeur est « true » |
+| overwrite |booléenne |no |query |false |Remplace les fichiers de destination si la valeur est « true » |
 
-#### Réponse
-| Name | Description |
+#### <a name="response"></a>Response
+| Nom | Description |
 | --- | --- |
 | 200 |OK |
 | default |L’opération a échoué. |
 
-## Définitions d’objet
-### DataSetsMetadata
+## <a name="object-definitions"></a>Définitions d'objet
+### <a name="datasetsmetadata"></a>DataSetsMetadata
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
 | tabular |non défini |Non |
 | objet blob |non défini |Non |
 
-### TabularDataSetsMetadata
+### <a name="tabulardatasetsmetadata"></a>TabularDataSetsMetadata
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
 | source |string |Non |
@@ -292,17 +296,17 @@ Extraire un dossier : extrait un dossier dans OneDrive Entreprise
 | tableDisplayName |string |Non |
 | tablePluralName |string |Non |
 
-### BlobDataSetsMetadata
+### <a name="blobdatasetsmetadata"></a>BlobDataSetsMetadata
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
 | source |string |Non |
 | displayName |string |Non |
 | urlEncoding |string |Non |
 
-### BlobMetadata
+### <a name="blobmetadata"></a>BlobMetadata
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
-| ID |string |Non |
+| id |string |Non |
 | Nom |string |Non |
 | DisplayName |string |Non |
 | Chemin |string |Non |
@@ -313,12 +317,13 @@ Extraire un dossier : extrait un dossier dans OneDrive Entreprise
 | ETag |string |Non |
 | FileLocator |string |Non |
 
-### Object
-| Nom de la propriété | Type de données | Requis |
-| --- | --- | --- |
-|  | | |
+### <a name="object"></a>Object
+## <a name="next-steps"></a>Étapes suivantes
+[Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md)
 
-## Étapes suivantes
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 5aaf6bcd-3839-49b5-8c77-cbdf786e359b
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.date: 10/24/2016
 ms.author: sstein; sashan
@@ -15,8 +16,8 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3e6152f6539962653a582ba4921af82e4447fd76
+ms.sourcegitcommit: 3686f262a0a3fc01abd179aef337c272e97c0b3c
+ms.openlocfilehash: b12bf1a08780c6888f518a800aea1065fd1283c5
 
 
 ---
@@ -29,7 +30,7 @@ ms.openlocfilehash: 3e6152f6539962653a582ba4921af82e4447fd76
 > 
 > 
 
-Vous pouvez utiliser les [sauvegardes automatisées de base de données SQL](sql-database-automated-backups.md) Azure pour créer une copie de votre base de données SQL. La copie de la base de données utilise la même technologie que la fonctionnalité de géoréplication. Mais contrairement à la géoréplication, elle met fin au lien de réplication dès la fin de la phase d’amorçage. Ainsi, la base de données de copie est un instantané de la base de données source au moment de la demande de la copie.  
+Vous pouvez utiliser la fonction Azure [géo-réplication Active](sql-database-geo-replication-overview.md) pour créer une copie de votre base de données SQL. Mais contrairement à la géoréplication, elle met fin au lien de réplication dès la fin de la phase d’amorçage. Ainsi, la base de données de copie est un instantané de la base de données source au moment de la demande de la copie.  
 Vous pouvez créer la copie de la base de données sur le même serveur ou sur un autre serveur. Le niveau de service et le niveau de performances (niveau tarifaire) de la copie de base de données sont, par défaut, les mêmes que ceux de la base de données source. Quand vous utilisez l’API, vous pouvez sélectionner un autre niveau de performances dans le même niveau de service (édition). Une fois la copie terminée, la copie devient une base de données indépendante et entièrement fonctionnelle. À ce stade, vous pouvez la mettre à niveau ou la rétrograder vers n’importe quelle édition. Les connexions, les utilisateurs et les autorisations peuvent être gérés indépendamment.  
 
 Lorsque vous copiez une base de données sur le même serveur logique, les mêmes connexions peuvent être utilisées sur les deux bases de données. L'élément principal de sécurité que vous utilisez pour copier la base de données devient le propriétaire de la base de données (DBO) sur la nouvelle base de données. Tous les utilisateurs de la base de données, leurs autorisations et leurs identificateurs de sécurité (SID) sont copiés vers la copie de base de données.  
@@ -57,6 +58,6 @@ Pour copier une base de données SQL, vous avez besoin des éléments suivants :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 
