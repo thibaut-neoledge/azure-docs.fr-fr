@@ -40,7 +40,7 @@ Les types d’applications suivants ne sont actuellement pas pris en charge dans
 ### <a name="single-page-applications-javascript"></a>Applications à page unique (JavaScript)
 Plusieurs applications modernes présentent une application frontale à page unique (SPA) écrite principalement en JavaScript, utilisant bien souvent une infrastructure d’application à page unique comme AngularJS, Ember.js, Durandal, etc. Ce flux n’est pas encore disponible dans Azure AD B2C.
 
-### <a name="daemons-server-side-applications"></a>Démons / applications côté serveur
+### <a name="daemons--server-side-applications"></a>Démons / applications côté serveur
 Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans la présence d’un utilisateur doivent également disposer d’un moyen d’accès aux ressources sécurisées, comme les API Web. Ces applications peuvent s’authentifier et obtenir des jetons à l’aide de l’identité d’application (plutôt qu’avec l’identité déléguée d’un consommateur), avec le [flux des informations d’identification du client OAuth 2.0](active-directory-b2c-reference-protocols.md). Ce flux n’est pas encore disponible dans Azure AD B2C. Cela signifie que les applications peuvent uniquement obtenir les jetons après qu’un flux de connexion interactif de consommateur s’est produit.
 
 ### <a name="standalone-web-apis"></a>API Web autonome
