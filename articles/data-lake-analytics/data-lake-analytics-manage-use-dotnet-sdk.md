@@ -1,12 +1,12 @@
 ---
-title: Gestion d’Azure Data Lake Analytics à l’aide du Kit de développement logiciel (SDK) Azure .NET | Microsoft Docs
-description: 'Apprenez à gérer des travaux Data Lake Analytics, des sources de données, des utilisateurs. '
+title: "Gestion d’Azure Data Lake Analytics à l’aide du SDK Azure .NET | Microsoft Docs"
+description: "Apprenez à gérer des travaux Data Lake Analytics, des sources de données, des utilisateurs. "
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: mumian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/23/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 63ce27657ecf1c89f5d3dfc163ee655bc15ce0b7
+
 
 ---
-# <a name="manage-azure-data-lake-analytics-using-azure-.net-sdk"></a>Gestion d’Azure Data Lake Analytics à l’aide du Kit de développement logiciel (SDK) Azure .NET
+# <a name="manage-azure-data-lake-analytics-using-azure-net-sdk"></a>Gestion d’Azure Data Lake Analytics à l’aide du Kit de développement logiciel (SDK) Azure .NET
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Apprenez à gérer des comptes Azure Data Lake Analytics, des sources de données, des utilisateurs et des travaux à l’aide du Kit de développement logiciel (SDK) Azure .NET. Pour afficher les rubriques de gestion à l’aide d’autres outils, cliquez sur l’onglet de sélection ci-dessus.
 
 **Configuration requise**
 
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
+Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -32,7 +36,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 
 ## <a name="connect-to-azure-data-lake-analytics"></a>Se connecter à Azure Data Lake Analytics
-Les packages Nuget suivants doivent être installés :
+Les packages Nuget suivants doivent être installés :
 
     Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
     Install-Package Microsoft.Azure.Common 
@@ -164,7 +168,7 @@ L’extrait de code suivant supprime un compte Data Lake Analytics :
 <!-- ################################ -->
 <!-- ################################ -->
 ## <a name="manage-account-data-sources"></a>Gestion des sources de données du compte
-Data Lake Analytics prend actuellement en charge les sources de données suivantes :
+Data Lake Analytics prend actuellement en charge les sources de données suivantes :
 
 * [Azure Data Lake Storage](../data-lake-store/data-lake-store-overview.md)
 * [Azure Storage](../storage/storage-introduction.md)
@@ -178,9 +182,9 @@ Consultez la page Rechercher un compte dans cet article pour rechercher le compt
 
 
 ## <a name="use-azure-resource-manager-groups"></a>Utilisation des groupes Azure Resource Manager
-Les applications sont généralement constituées de nombreux composants, par exemple une application web, base de données, serveur de base de données, stockage et services tiers. Azure Resource Manager vous permet de manipuler les ressources de votre application sous la forme d’un groupe, nommé groupe de ressources Azure. Vous pouvez déployer, mettre à jour, surveiller ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Vous pouvez clarifier la facturation pour votre organisation en visualisant les coûts cumulés pour l’ensemble du groupe. Pour plus d'informations, consultez [Présentation d'Azure Resource Manager](../resource-group-overview.md). 
+Les applications sont généralement constituées de nombreux composants, par exemple une application web, base de données, serveur de base de données, stockage et services tiers. Azure Resource Manager vous permet de manipuler les ressources de votre application sous la forme d’un groupe, nommé groupe de ressources Azure. Vous pouvez déployer, mettre à jour, surveiller ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Vous pouvez clarifier la facturation pour votre organisation en visualisant les coûts cumulés pour l’ensemble du groupe. Pour plus d'informations, consultez [Présentation d'Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
 
-Un service Data Lake Analytics peut inclure les composants suivants :
+Un service Data Lake Analytics peut inclure les composants suivants :
 
 * Compte Azure Data Lake Analytics
 * Compte Azure Data Lake Storage par défaut requis
@@ -200,6 +204,9 @@ Le groupe Resource Management peut cependant se trouver dans un autre centre de 
 * [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md)
 * [Surveiller et résoudre les problèmes des tâches Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,18 +1,22 @@
 ---
-title: Utilisation d’Analytics, le puissant outil de recherche d’Application Insights | Microsoft Docs
-description: 'Utilisation d’Analytics, le puissant outil de recherche de diagnostic d’Application Insights. '
+title: "Utilisation d’Analytics, le puissant outil de recherche d’Application Insights | Microsoft Docs"
+description: "Utilisation d’Analytics, le puissant outil de recherche de diagnostic d’Application Insights. "
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: danhadari
 manager: douge
-
+ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
-ms.author: danha
+ms.date: 11/16/2016
+ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
+ms.openlocfilehash: f9c02c11c6f0143f8da7a329f23033120f31ba59
+
 
 ---
 # <a name="using-analytics-in-application-insights"></a>Utilisation d’Analytics dans Application Insights
@@ -34,17 +38,20 @@ Vous pouvez cependant consulter [ici une présentation approfondie](app-insights
 ### <a name="write-a-query"></a>Écrivez votre requête.
 ![Affichage du schéma](./media/app-insights-analytics-using/150.png)
 
-Commencez par les noms des tables répertoriées sur la gauche (ou les opérateurs [range](app-insights-analytics-reference.md#range-operator) ou [union](app-insights-analytics-reference.md#union-operator)). Utilisez `|` pour créer un pipeline [d’opérateurs](app-insights-analytics-reference.md#queries-and-operators). IntelliSense vous indique les opérateurs et certains éléments d’expression que vous pouvez utiliser.
+Commencez par les noms des tables répertoriées sur la gauche (ou les opérateurs [range](app-insights-analytics-reference.md#range-operator) ou [union](app-insights-analytics-reference.md#union-operator)). Utilisez `|` pour créer un pipeline [d’opérateurs](app-insights-analytics-reference.md#queries-and-operators). 
 
-Consultez la [vue d’ensemble du langage d’Analytics](app-insights-analytics-tour.md) et les [informations de référence sur le langage](app-insights-analytics-reference.md).
+IntelliSense vous indique les opérateurs et les éléments d’expression que vous pouvez utiliser. Cliquez sur l’icône d’informations (ou appuyez sur CTRL + espace) pour obtenir une description plus détaillée et des exemples d’utilisation de chaque élément.
+
+Consultez la [visite guidée du langage d’Analytics](app-insights-analytics-tour.md) et les [informations de référence sur le langage](app-insights-analytics-reference.md).
 
 ### <a name="run-a-query"></a>Exécution d’une requête
 ![Exécution d’une requête](./media/app-insights-analytics-using/130.png)
 
 1. Vous pouvez utiliser des sauts de ligne uniques dans une requête.
 2. Placez le curseur à l’intérieur ou à la fin de la requête à exécuter.
+3. Vérifiez l'intervalle de temps de votre requête. (Vous pouvez le modifier ou le remplacer en incluant votre propre clause [`where...timestamp...`](app-insights-analytics-tour.md#time-range) dans la requête.)
 3. Cliquez sur Accéder pour exécuter la requête.
-4. N’insérez pas de lignes vides dans votre requête. Vous pouvez conserver plusieurs requêtes séparées dans un onglet de requête en les séparant par des lignes vides. Seule la requête pointée par le curseur est exécutée.
+4. N’insérez pas de lignes vides dans votre requête. Vous pouvez conserver plusieurs requêtes séparées dans un onglet de requête en les séparant par des lignes vides. Seule la requête sur laquelle le curseur est placé s’exécute.
 
 ### <a name="save-a-query"></a>Enregistrement d’une requête
 ![Enregistrement d’une requête](./media/app-insights-analytics-using/140.png)
@@ -84,15 +91,28 @@ Pour trier par plusieurs colonnes, utilisez le regroupement. Tout d’abord, act
 
 ![Groupe](./media/app-insights-analytics-using/060.png)
 
-### <a name="missing-some-results?"></a>Certains résultats manquent ?
-Il existe une limite d’environ 10 000 lignes pour les résultats retournés à partir du portail. Un avertissement s’affiche si vous dépassez la limite. Dans ce cas, le tri des résultats de la table ne vous indique pas toujours tous les premiers ou derniers résultats réels. 
+### <a name="missing-some-results"></a>Certains résultats manquent ?
 
-Il est recommandé d’éviter d’atteindre la limite. Utilisez des opérateurs tels que :
+Si vous pensez que vous ne voyez pas tous les résultats escomptés, il existe deux raisons possibles.
 
-* [where timestamp > ago(3d)](app-insights-analytics-reference.md#where-operator)
-* [top 100 by timestamp](app-insights-analytics-reference.md#top-operator) 
-* [take 100](app-insights-analytics-reference.md#take-operator)
-* [summarize ](app-insights-analytics-reference.md#summarize-operator) 
+* **Filtre d'intervalle de temps**. Par défaut, vous verrez seulement les résultats des dernières 24 heures. Un filtre automatique limite l'intervalle des résultats récupérés à partir des tables source. 
+
+    Toutefois, vous pouvez modifier ce filtre d'intervalle à l’aide du menu déroulant.
+
+    Ou vous pouvez remplacer l'intervalle automatique en incluant votre propre [clause `where  ... timestamp ...`](app-insights-analytics-reference.md#where-operator) dans la requête. Par exemple :
+
+    `requests | where timestamp > ago('2d')`
+
+* **Limite de résultats**. Il existe une limite d’environ 10 000 lignes pour les résultats retournés à partir du portail. Un avertissement s’affiche si vous dépassez la limite. Dans ce cas, le tri des résultats de la table ne vous indique pas toujours tous les premiers ou derniers résultats réels. 
+
+    Il est recommandé d’éviter d’atteindre la limite. Utilisez le filtre d'intervalle de temps, ou utiliser des opérateurs tels que :
+
+  * [top 100 by timestamp](app-insights-analytics-reference.md#top-operator) 
+  * [take 100](app-insights-analytics-reference.md#take-operator)
+  * [summarize ](app-insights-analytics-reference.md#summarize-operator) 
+  * [where timestamp > ago(3d)](app-insights-analytics-reference.md#where-operator)
+
+(Vous voulez plus de 10 000 lignes ? Utilisez plutôt l'[exportation continue](app-insights-export-telemetry.md). Analytics est conçu pour l'analyse plutôt que pour la récupération de données brutes.)
 
 ## <a name="diagrams"></a>Diagrammes
 Sélectionnez le type de diagramme de votre choix :
@@ -112,13 +132,16 @@ Cela signifie que, lorsque vous créez un tableau de bord pour vous aider à sur
 
 Vous pouvez épingler une table au tableau de bord, si elle comporte au maximum quatre colonnes. Seules les sept premières lignes sont affichées.
 
-#### <a name="dashboard-refresh"></a>Actualisation du tableau de bord
-Le graphique épinglé au tableau de bord est actualisé automatiquement lorsque vous réexécutez la requête environ toutes les demi-heures.
+### <a name="dashboard-refresh"></a>Actualisation du tableau de bord
+Le graphique épinglé au tableau de bord est actualisé automatiquement lorsque vous réexécutez la requête environ toutes les deux heures.
 
-#### <a name="automatic-simplifications"></a>Simplifications automatiques
-Dans certains cas, des simplifications sont appliquées à un graphique lorsque vous l’épinglez à un tableau de bord.
+### <a name="automatic-simplifications"></a>Simplifications automatiques
 
-Lorsque vous épinglez un graphique qui affiche un grand nombre d’emplacements discrets (généralement un graphique à barres), les emplacements les moins remplis sont automatiquement regroupés en un seul emplacement « autres ». Par exemple, cette requête :
+Certaines simplifications sont appliquées à un graphique lorsque vous l’épinglez à un tableau de bord.
+
+**Restriction de temps :** les requêtes sont automatiquement limitées aux 14 derniers jours. L’effet est le même que si votre requête inclut `where timestamp > ago(14d)`.
+
+**Restriction du nombre d'emplacements :** si vous utilisez un graphique comportant un grand nombre d’emplacements discrets (généralement un graphique à barres), les emplacements les moins remplis sont automatiquement regroupés en un seul emplacement « autres ». Par exemple, cette requête :
 
     requests | summarize count_search = count() by client_CountryOrRegion
 
@@ -134,23 +157,66 @@ mais lorsque vous l’épinglez à un tableau de bord, elle ressemble à ceci :
 Une fois votre requête exécutée, vous pouvez télécharger un fichier .csv. Cliquez sur **Exporter vers Excel**.
 
 ## <a name="export-to-power-bi"></a>Exporter vers Power BI
-1. Placez le curseur dans une requête et choisissez **Exporter vers Power BI**.
-   
-    ![](./media/app-insights-analytics-using/240.png)
-   
-    Cette option vous permet de télécharger un fichier de script M.
-2. Copiez le script de langage M dans l’éditeur de requêtes avancé de Power BI Desktop.
-   
-   * Ouvrez le fichier exporté.
-   * Dans Power BI Desktop, sélectionnez **Obtenir des données, Requête vide, Éditeur avancé** et collez le script de langage M.
-     
-     ![](./media/app-insights-analytics-using/250.png)
-3. Modifiez si besoin les informations d’identification avant de générer votre rapport.
-   
-    ![](./media/app-insights-analytics-using/260.png)
+Placez le curseur dans une requête et choisissez **Exporter vers Power BI**.
+
+![Exportation depuis Log Analytics vers Power BI](./media/app-insights-analytics-using/240.png)
+
+Vous exécutez la requête dans Power BI. Vous pouvez la définir pour qu’elle s’actualise selon une planification.
+
+Avec Power BI, vous pouvez créer des tableaux de bord qui rassemblent les données issues d’un large éventail de sources.
+
+[En savoir plus sur l’exportation vers Power BI](app-insights-export-power-bi.md)
+
+
+## <a name="automation"></a>Automatisation
+
+Vous pouvez exécuter des requêtes Analytics via l'[API REST d’accès aux données](https://dev.applicationinsights.io/), par exemple à l’aide de PowerShell.
+
+
+
+## <a name="import-data"></a>Importer des données
+
+Vous pouvez importer des données à partir d’un fichier CSV. Une utilisation typique consiste à importer des données statiques que vous pouvez joindre à des tables à partir de vos données de télémétrie. 
+
+Par exemple, si des utilisateurs authentifiés sont identifiés dans vos données de télémétrie par un alias ou un ID masqué, vous pouvez importer une table qui mappe les alias aux noms réels. En associant les données de télémétrie de la requête, vous pouvez identifier les utilisateurs par leurs noms réels dans les rapports Analytics.
+
+### <a name="define-your-data-schema"></a>Définir votre schéma de données
+
+1. Cliquez sur **Paramètres** (en haut à gauche), puis sur **Sources de données**. 
+2. Ajoutez une source de données, en suivant les instructions. Vous êtes invité à fournir un échantillon de données contenant au moins dix lignes. Vous corrigez ensuite le schéma.
+
+Cette opération définit une source de données, que pouvez ensuite utiliser pour importer des tables individuelles.
+
+### <a name="import-a-table"></a>Importer une table
+
+1. Ouvrez votre définition de source de données à partir de la liste.
+2. Cliquez sur « Télécharger » et suivez les instructions pour télécharger la table. Cette opération implique un appel à une API REST, et par conséquent, il est facile de l'automatiser. 
+
+Votre table est désormais disponible pour une utilisation dans des requêtes Analytics. Elle apparaîtra dans Analytics 
+
+### <a name="use-the-table"></a>Utiliser le tableau
+
+Supposons que votre définition de source de données s'appelle `usermap` et comporte deux champs, `realName` et `user_AuthenticatedId`. La table `requests` possède également un champ nommé `user_AuthenticatedId`, et il est donc facile de les joindre :
+
+```AIQL
+
+    requests
+    | where notempty(user_AuthenticatedId) | take 10
+    | join kind=leftouter ( usermap ) on user_AuthenticatedId 
+```
+La table de requêtes ainsi obtenue comporte une colonne supplémentaire, `realName`.
+
+### <a name="import-from-logstash"></a>Importer à partir de LogStash
+
+Si vous utilisez [LogStash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html), vous pouvez utiliser Analytics pour interroger vos journaux. Utilisez le [plug-in qui dirige les données vers Analytics](https://github.com/Microsoft/logstash-output-application-insights). 
+
+
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

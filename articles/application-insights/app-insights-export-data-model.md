@@ -1,11 +1,11 @@
 ---
-title: Modèle de données Application Insights
-description: Décrit les propriétés exportées à partir de l’exportation continue dans JSON et utilisées comme filtres.
+title: "Modèle de données Application Insights"
+description: "Décrit les propriétés exportées à partir de l’exportation continue dans JSON et utilisées comme filtres."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,12 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: e4576409641db73ad8920a1eec2eea1e3580109f
+ms.openlocfilehash: fc8a3efd079d84aea4cac63de401d46347f9e3d7
+
 
 ---
-# Modèle d’exportation de données Application Insights
-Cette table répertorie les propriétés de télémétrie envoyées à partir des Kits de développement logiciel (SDK) [Application Insights](app-insights-overview.md) au portail. Vous verrez ces propriétés dans les données issues d’une [exportation continue](app-insights-export-telemetry.md). Elles apparaissent également dans les filtres de propriétés, dans [Metrics Explorer](app-insights-metrics-explorer.md) et dans [Recherche de diagnostic](app-insights-diagnostic-search.md).
+# <a name="application-insights-export-data-model"></a>Modèle d’exportation de données Application Insights
+Cette table répertorie les propriétés de télémétrie envoyées à partir des Kits SDK [Application Insights](app-insights-overview.md) au portail.
+Vous verrez ces propriétés dans les données issues d’une [exportation continue](app-insights-export-telemetry.md).
+Elles apparaissent également dans les filtres de propriétés, dans [Metrics Explorer](app-insights-metrics-explorer.md) et dans [Recherche de diagnostic](app-insights-diagnostic-search.md).
 
-Points à noter :
+Points à noter :
 
 * `[0]` dans ces tables désigne un point dans le chemin d’accès au niveau duquel vous devez insérer un index ; il ne s’agit pas toujours de 0.
 * Les durées sont énoncées en dixièmes de microsecondes, donc 10000000 = 1 seconde.
@@ -26,19 +32,19 @@ Points à noter :
 
 Plusieurs [exemples](app-insights-export-telemetry.md#code-samples) illustrent comment les utiliser.
 
-## Exemple
+## <a name="example"></a>Exemple
     // A server report about an HTTP request
     {
-    "request": [ 
+    "request": [
       {
         "urlData": { // derived from 'url'
           "host": "contoso.org",
           "base": "/",
-          "hashTag": "" 
+          "hashTag": ""
         },
         "responseCode": 200, // Sent to client
         "success": true, // Default == responseCode<400
-        // Request id becomes the operation id of child events 
+        // Request id becomes the operation id of child events
         "id": "fCOhCdCnZ9I=",  
         "name": "GET Home/Index",
         "count": 1, // 100% / sampling rate
@@ -71,14 +77,14 @@ Plusieurs [exemples](app-insights-export-telemetry.md#code-samples) illustrent c
         "continent": "North America",
         "country": "United States",
         // last octagon is anonymized to 0 at portal:
-        "clientip": "168.62.177.0", 
+        "clientip": "168.62.177.0",
         "province": "",
         "city": ""
       },
       "data": {
         "isSynthetic": true, // we identified source as a bot
         // percentage of generated data sent to portal:
-        "samplingRate": 100.0, 
+        "samplingRate": 100.0,
         "eventTime": "2016-03-21T10:05:45.7334717Z" // UTC
       },
       "user": {
@@ -106,7 +112,7 @@ Plusieurs [exemples](app-insights-export-telemetry.md#code-samples) illustrent c
     }
   }
 
-## Context
+## <a name="context"></a>Context
 Tous les types de données de télémétrie sont accompagnés d’une section de contexte. Tous ces champs ne sont pas transmis avec tous les points de données.
 
 | Chemin | Type | Remarques |
@@ -115,7 +121,7 @@ Tous les types de données de télémétrie sont accompagnés d’une section de
 | context.custom.metrics [0] |objet [ ] |Paires clé-valeur définies par le paramètre des mesures personnalisées et par TrackMetrics. Longueur maximale de clé 100, les valeurs peuvent être numériques. |
 | context.data.eventTime |string |UTC |
 | context.data.isSynthetic |booléenne |Requête transmise par un robot ou un test web. |
-| context.data.samplingRate |number |Pourcentage de télémétrie générée par le Kit de développement logiciel qui est envoyé vers le portail. Plage 0.0-100.0. |
+| context.data.samplingRate |number |Pourcentage de télémétrie générée par le Kit SDK qui est envoyé vers le portail. Plage 0.0-100.0. |
 | context.device |objet |Appareil client |
 | context.device.browser |string |IE, Chrome, ... |
 | context.device.browserVersion |string |Chrome 48.0, ... |
@@ -148,24 +154,24 @@ Tous les types de données de télémétrie sont accompagnés d’une section de
 | internal.data.documentVersion |string | |
 | internal.data.id |string | |
 
-## Événements
+## <a name="events"></a>Événements
 Événements personnalisés générés par [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event).
 
 | Chemin | Type | Remarques |
 | --- | --- | --- |
-| event [0] count |integer |100 / (taux d’[échantillonnage](app-insights-sampling.md)). Par exemple 4 =&gt; 25%. |
-| event [0] name |string |Nom de l’événement. Longueur maximale 250. |
+| event [0] count |integer |100 / (taux d’[échantillonnage](app-insights-sampling.md) ). Par exemple, 4 =&gt; 25 %. |
+| event [0] name |string |Nom de l’événement.  Longueur maximale 250. |
 | event [0] url |string | |
 | event [0] urlData.base |string | |
 | event [0] urlData.host |string | |
 
-## Exceptions
+## <a name="exceptions"></a>Exceptions
 Signale des [exceptions](app-insights-asp-net-exceptions.md) sur le serveur et dans le navigateur.
 
 | Chemin | Type | Remarques |
 | --- | --- | --- |
 | basicException [0] assembly |string | |
-| basicException [0] count |integer |100 / (taux d’[échantillonnage](app-insights-sampling.md)). Par exemple 4 =&gt; 25%. |
+| basicException [0] count |integer |100 / (taux d’[échantillonnage](app-insights-sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | basicException [0] exceptionGroup |string | |
 | basicException [0] exceptionType |string | |
 | basicException [0] failedUserCodeMethod |string | |
@@ -188,7 +194,7 @@ Signale des [exceptions](app-insights-asp-net-exceptions.md) sur le serveur et d
 | basicException [0] stack |string |Longueur maximale 10 000 |
 | basicException [0] typeName |string | |
 
-## Messages de suivi
+## <a name="trace-messages"></a>Messages de suivi
 Envoyé par [TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) et par les [adaptateurs de journalisation](app-insights-asp-net-trace-logs.md).
 
 | Chemin | Type | Remarques |
@@ -198,7 +204,7 @@ Envoyé par [TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) 
 | message [0] raw |string |Le message du fichier journal, longueur maximale 10k. |
 | message [0] severityLevel |string | |
 
-## Dépendance distante
+## <a name="remote-dependency"></a>Dépendance distante
 Envoyé par TrackDependency. Utilisé pour consigner les performances et l’utilisation des [appels aux dépendances](app-insights-asp-net-dependencies.md) dans le serveur, et des appels AJAX dans le navigateur.
 
 | Chemin | Type | Remarques |
@@ -206,7 +212,7 @@ Envoyé par TrackDependency. Utilisé pour consigner les performances et l’uti
 | remoteDependency [0] async |booléenne | |
 | remoteDependency [0] baseName |string | |
 | remoteDependency [0] commandName |string |Par exemple, « home/index » |
-| remoteDependency [0] count |integer |100 / (taux d’[échantillonnage](app-insights-sampling.md)). Par exemple 4 =&gt; 25%. |
+| remoteDependency [0] count |integer |100 / (taux d’[échantillonnage](app-insights-sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | remoteDependency [0] dependencyTypeName |string |HTTP, SQL, ... |
 | remoteDependency [0] durationMetric.value |number |Délai de l’appel à la fin de la réponse par la dépendance |
 | remoteDependency [0] id |string | |
@@ -219,15 +225,15 @@ Envoyé par TrackDependency. Utilisé pour consigner les performances et l’uti
 | remoteDependency [0] urlData.hashTag |string | |
 | remoteDependency [0] urlData.host |string |Longueur maximale 200 |
 
-## Demandes
+## <a name="requests"></a>Demandes
 Envoyées par [TrackRequest](app-insights-api-custom-events-metrics.md#track-request). Les modules standard les utilisent pour consigner le temps de réponse du serveur, mesuré sur le serveur.
 
 | Chemin | Type | Remarques |
 | --- | --- | --- |
-| request [0] count |integer |100 / (taux d’[échantillonnage](app-insights-sampling.md)). Par exemple : 4 =&gt; 25%. |
+| request [0] count |integer |100 / (taux d’[échantillonnage](app-insights-sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | request [0] durationMetric.value |number |Délai entre l’arrivée de la requête et la réponse. 1e7 = 1s |
 | request [0] id |string |ID d’opération |
-| request [0] name |string |GET/POST + base d’URL Longueur maximale 250 |
+| request [0] name |string |GET/POST + base d’URL  Longueur maximale 250 |
 | request [0] responseCode |integer |Réponse HTTP envoyée au client |
 | request [0] success |booléenne |Par défaut == (responseCode &lt; 400) |
 | request [0] url |string |Sans hôte |
@@ -235,7 +241,7 @@ Envoyées par [TrackRequest](app-insights-api-custom-events-metrics.md#track-req
 | request [0] urlData.hashTag |string | |
 | request [0] urlData.host |string | |
 
-## Performances d’affichage de la page
+## <a name="page-view-performance"></a>Performances d’affichage de la page
 Envoyées par le navigateur. Mesure le temps de traitement d’une page, du lancement de la requête par l’utilisateur à l’affichage complet (sans les appels asynchrones AJAX).
 
 Les valeurs de contexte représentent la version de système d’exploitation et de navigateur du client.
@@ -254,27 +260,27 @@ Les valeurs de contexte représentent la version de système d’exploitation et
 | clientPerformance [0] urlData.host |string | |
 | clientPerformance [0] urlData.protocol |string | |
 
-## Affichages de pages
-Envoyé par trackPageView() ou [stopTrackPage](app-insights-api-custom-events-metrics.md#page-view)
+## <a name="page-views"></a>Affichages de pages
+Envoyé par trackPageView() ou [stopTrackPage](app-insights-api-custom-events-metrics.md#page-views)
 
 | Chemin | Type | Remarques |
 | --- | --- | --- |
-| view [0] count |integer |100 / (taux d’[échantillonnage](app-insights-sampling.md)). Par exemple 4 =&gt; 25%. |
+| view [0] count |integer |100 / (taux d’[échantillonnage](app-insights-sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | view [0] durationMetric.value |integer |Valeur éventuellement définie dans trackPageView() ou par startTrackPage() - stopTrackPage(). Pas identique aux valeurs clientPerformance. |
-| view [0] name |string |Titre de la page. Longueur maximale 250 |
+| view [0] name |string |Titre de la page.  Longueur maximale 250 |
 | view [0] url |string | |
 | view [0] urlData.base |string | |
 | view [0] urlData.hashTag |string | |
 | view [0] urlData.host |string | |
 
-## Availability
+## <a name="availability"></a>Availability
 Consigne les [tests web de disponibilité](app-insights-monitor-web-app-availability.md).
 
 | Chemin | Type | Remarques |
 | --- | --- | --- |
-| availability [0] availabilityMetric.name |string |availability |
-| availability [0] availabilityMetric.value |number |1\.0 ou 0.0 |
-| availability [0] count |integer |100 / (taux d’[échantillonnage](app-insights-sampling.md)). Par exemple 4 =&gt; 25%. |
+| availability [0] availabilityMetric.name |string |Availability |
+| availability [0] availabilityMetric.value |number |1.0 ou 0.0 |
+| availability [0] count |integer |100 / (taux d’[échantillonnage](app-insights-sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | availability [0] dataSizeMetric.name |string | |
 | availability [0] dataSizeMetric.value |integer | |
 | availability [0] durationMetric.name |string | |
@@ -286,12 +292,12 @@ Consigne les [tests web de disponibilité](app-insights-monitor-web-app-availabi
 | availability [0] testRunId |string | |
 | availability [0] testTimestamp |string | |
 
-## Mesures
+## <a name="metrics"></a>Mesures
 Généré par TrackMetric().
 
 La valeur de la métrique se trouve dans context.custom.metrics[0]
 
-Par exemple :
+Par exemple :
 
     {
      "metric": [ ],
@@ -316,8 +322,8 @@ Par exemple :
          } ] }
     }
 
-## À propos des valeurs de mesure
-Les valeurs de mesure, dans les rapports de mesure et ailleurs, sont consignées avec une structure d’objet standard. Par exemple :
+## <a name="about-metric-values"></a>À propos des valeurs de mesure
+Les valeurs de mesure, dans les rapports de mesure et ailleurs, sont consignées avec une structure d’objet standard. Par exemple :
 
       "durationMetric": {
         "name": "contoso.org",
@@ -330,20 +336,24 @@ Les valeurs de mesure, dans les rapports de mesure et ailleurs, sont consignées
         "sampledValue": 468.71603053650279
       }
 
-Actuellement (cela peut changer à l’avenir), dans l’ensemble des valeurs consignées des modules standard du Kit de développement logiciel (SDK), `count==1` et uniquement les champs `name` et `value` sont utiles. Le seul cas où la situation serait différente serait une configuration où vous écririez vos propres appels TrackMetric, dans lesquels vous définiriez les autres paramètres.
+Actuellement (cela peut changer à l’avenir), dans l’ensemble des valeurs consignées des modules standard du SDK, `count==1` et uniquement les champs `name` et `value` sont utiles. Le seul cas où la situation serait différente serait une configuration où vous écririez vos propres appels TrackMetric, dans lesquels vous définiriez les autres paramètres.
 
-Les autres champs ont vocation à autoriser l’agrégation des mesures dans le Kit de développement logiciel, afin de réduire le trafic dans le portail. Par exemple, vous pouvez décider d’accumuler un nombre défini de valeurs successives avant d’envoyer chaque rapport de mesure. Vous calculeriez ensuite la valeur minimale, la valeur maximale, l’écart standard et la valeur agrégée (somme ou moyenne) et définir le décompte sur le nombre de valeurs représentées par le rapport.
+Les autres champs ont vocation à autoriser l’agrégation des mesures dans le Kit SDK afin de réduire le trafic dans le portail. Par exemple, vous pouvez décider d’accumuler un nombre défini de valeurs successives avant d’envoyer chaque rapport de mesure. Vous calculeriez ensuite la valeur minimale, la valeur maximale, l’écart standard et la valeur agrégée (somme ou moyenne) et définir le décompte sur le nombre de valeurs représentées par le rapport.
 
 Dans les tableaux ci-dessus, nous avons volontairement omis les champs rarement utilisés count, min, max, stdDev et sampledValue.
 
-Au lieu de pré-agréger les mesures, vous pouvez utiliser l’[échantillonnage](app-insights-sampling.md) si vous avez besoin de réduire le volume de télémétrie.
+Au lieu de pré-agréger les mesures, vous pouvez utiliser l’ [échantillonnage](app-insights-sampling.md) si vous avez besoin de réduire le volume de télémétrie.
 
-### Durées
+### <a name="durations"></a>Durées
 Sauf mention contraire, les durées sont indiquées en dixièmes de microseconde. Ainsi, 10000000.0 représente 1s.
 
-## Voir aussi
-* [Application Insights](app-insights-overview.md) 
+## <a name="see-also"></a>Voir aussi
+* [Application Insights](app-insights-overview.md)
 * [Exportation continue](app-insights-export-telemetry.md)
 * [Exemples de code](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

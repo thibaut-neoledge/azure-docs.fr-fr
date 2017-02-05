@@ -1,25 +1,30 @@
 ---
-title: 'Guide de démarrage rapide : API Machine Learning Text Analytics | Microsoft Docs'
-description: Azure Machine Learning Text Analytics - Guide de démarrage rapide
+title: "Guide de démarrage rapide : API d’analyse de texte Machine Learning | Microsoft Docs"
+description: "Azure Machine Learning Text Analytics - Guide de démarrage rapide"
 services: cognitive-services
-documentationcenter: ''
+documentationcenter: 
 author: onewth
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: e8b9e98c-40e7-4425-ae16-d1eaa7d2f837
 ms.service: cognitive-services
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2016
+ms.date: 10/04/2016
 ms.author: onewth
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 663b99c2491bebf49f950605152604b040ade070
+
 
 ---
-# Prise en main des API Text Analytics pour détecter le sentiment, les expressions clés et la langue
+# <a name="getting-started-with-the-text-analytics-apis-to-detect-sentiment-key-phrases-topics-and-language"></a>Prise en main des API Text Analytics pour détecter le sentiment, les expressions clés et la langue
 <a name="HOLTop"></a>
 
-Ce document décrit comment intégrer votre service ou application pour utiliser les [API Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711). Ces API vous permettent de détecter le sentiment, les expressions clés, les rubriques et le langage de votre texte. [Cliquez ici pour voir une démonstration interactive de l’expérience.](//go.microsoft.com/fwlink/?LinkID=759712)
+Ce document décrit comment intégrer votre service ou application pour utiliser les [API Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711).
+Ces API vous permettent de détecter le sentiment, les expressions clés, les rubriques et le langage de votre texte. [Cliquez ici pour voir une démonstration interactive de l’expérience.](//go.microsoft.com/fwlink/?LinkID=759712)
 
 Consultez les [définitions des API](//go.microsoft.com/fwlink/?LinkID=759346) pour obtenir des informations techniques sur les API.
 
@@ -32,34 +37,34 @@ Ce guide concerne la version 2 des API. Pour plus d’informations sur la versio
 * **Rubriques** : Quels sont les sujets abordés dans un ensemble d’articles ?
 * **Langue** : Dans quelle langue le texte est-il écrit ?
 
-Notez que cette API facture 1 transaction par document soumis. Par exemple, si vous demandez le sentiment pour 1 000 documents en un seul appel, 1 000 transactions sont déduites.
+Notez que cette API facture 1 transaction par document soumis. Par exemple, si vous demandez le sentiment pour 1 000 documents en un seul appel, 1 000 transactions sont déduites.
 
 <a name="Overview"></a>
 
-## Présentation générale
+## <a name="general-overview"></a>Présentation générale
 Ce document est un guide pas à pas. Notre objectif est de vous guider à travers les étapes nécessaires pour effectuer l’apprentissage d’un modèle et de vous indiquer les ressources qui vous permettront d’implémenter ce modèle dans votre environnement de production. Cet exercice prend environ 30 minutes.
 
 Pour effectuer les tâches ci-dessous, vous devez utiliser un éditeur et appeler les points de terminaison RESTful dans la langue de votre choix.
 
 C’est parti !
 
-## Tâche 1 : Inscription aux API Text Analytics
+## <a name="task-1---signing-up-for-the-text-analytics-apis"></a>Tâche 1 : Inscription aux API Text Analytics
 Au cours de cette tâche, vous allez vous inscrire au service Text Analytics.
 
-1. Accédez à **Cognitive Services** dans le [portail Azure](//go.microsoft.com/fwlink/?LinkId=761108) et assurez-vous que le type d’API **Text Analytics** est sélectionné.
-2. Sélectionnez un plan. Vous pouvez sélectionner le **niveau gratuit pour 5 000 transactions/mois**. Étant donné qu’il s’agit d’un plan gratuit, son utilisation ne vous sera pas facturée. Vous devrez vous connecter à votre abonnement Azure.
+1. Accédez à **Cognitive Services** dans le [Portail Azure](//go.microsoft.com/fwlink/?LinkId=761108) et assurez-vous que le type d’API **Analyse de texte** est sélectionné.
+2. Sélectionnez un plan. Vous pouvez sélectionner le **niveau gratuit pour 5 000 transactions/mois**. Étant donné qu’il s’agit d’un plan gratuit, son utilisation ne vous sera pas facturée. Vous devrez vous connecter à votre abonnement Azure. 
 3. Renseignez les autres champs et créez votre compte.
 4. Une fois que vous êtes inscrit au service Text Analytics, recherchez votre **clé API**. Notez la clé primaire, car vous en aurez besoin pour utiliser les services d’API.
 
-## Tâche 2 : Détecter le sentiment, les expressions clés et les langues
-Vous pouvez facilement détecter le sentiment, les expressions clés et les langues de votre texte. Vous obtenez par programmation les mêmes résultats que ceux présentés dans la [démonstration de l’expérience](//go.microsoft.com/fwlink/?LinkID=759712).
+## <a name="task-2---detect-sentiment-key-phrases-and-languages"></a>Tâche 2 : Détecter le sentiment, les expressions clés et les langues
+Vous pouvez facilement détecter le sentiment, les expressions clés et les langues de votre texte. Vous obtenez par programmation les mêmes résultats que ceux présentés dans la [démonstration de l’expérience](//go.microsoft.com/fwlink/?LinkID=759712) .
 
 > [!TIP]
 > Pour l’analyse de sentiment, nous vous recommandons de fractionner le texte en phrases. Cela vous permettra généralement d’obtenir des prédictions de sentiment plus précises.
 > 
 > 
 
-Notez que les langues prises en charge sont les suivantes :
+Notez que les langues prises en charge sont les suivantes :
 
 | Fonctionnalité | Codes des langues prises en charge |
 |:--- |:--- |
@@ -71,7 +76,7 @@ Notez que les langues prises en charge sont les suivantes :
         Ocp-Apim-Subscription-Key: <your API key>
         Content-Type: application/json
         Accept: application/json
-2. Ensuite, mettez vos lignes d’entrée au format JSON. Le format est le même pour la détection du sentiment, des expressions clés et de la langue. Chaque ID doit être unique. Il correspond à l’ID renvoyé par le système. La taille maximale par document envoyé est de 10 Ko et la taille totale maximale de l’entrée envoyée est de 1 Mo. Vous ne pouvez pas envoyer plus de 1 000 documents dans un seul appel. Il existe une limitation du débit définie sur 100 appels par minute. Il est donc recommandé d’envoyer de grandes quantités de documents en un seul appel. La langue est un paramètre optionnel qui doit être spécifié si vous analysez du texte dans une langue autre que l’anglais. Vous trouverez ci-dessous un exemple d’entrée, où le paramètre facultatif `language` pour l’analyse des sentiments ou l’extraction d’expressions clés est inclus :
+2. Ensuite, mettez vos lignes d’entrée au format JSON. Le format est le même pour la détection du sentiment, des expressions clés et de la langue. Chaque ID doit être unique. Il correspond à l’ID renvoyé par le système. La taille maximale par document envoyé est de 10 Ko et la taille totale maximale de l’entrée envoyée est de 1 Mo. Vous ne pouvez pas envoyer plus de 1 000 documents dans un seul appel. Il existe une limitation du débit définie sur 100 appels par minute. Il est donc recommandé d’envoyer de grandes quantités de documents en un seul appel. La langue est un paramètre optionnel qui doit être spécifié si vous analysez du texte dans une langue autre que l’anglais. Vous trouverez ci-dessous un exemple d’entrée, où le paramètre facultatif `language` pour l’analyse des sentiments ou l’extraction d’expressions clés est inclus :
    
         {
             "documents": [
@@ -152,14 +157,14 @@ Notez que les langues prises en charge sont les suivantes :
             ]
         }
 
-## Tâche 3 : Détecter les rubriques dans un corpus de texte
+## <a name="task-3---detect-topics-in-a-corpus-of-text"></a>Tâche 3 : Détecter les rubriques dans un corpus de texte
 Il s’agit d’une API lancée récemment, qui renvoie les premières rubriques détectées pour une liste d’enregistrements texte soumis. Une rubrique est identifiée par une expression clé, représentée par un ou plusieurs mots associés. L'API est conçue pour fonctionner correctement avec un texte court écrit par un humain, par exemple des évaluations et des commentaires d’utilisateurs.
 
-Cette API nécessite l’envoi **d’au moins 100 enregistrements texte**, mais elle est conçue pour détecter des rubriques parmi des centaines de milliers d’enregistrements. Les enregistrements de langue non anglaise ou contenant moins de 3 mots sont ignorés et ne sont donc pas affectés à des rubriques. Pour la détection des rubriques, la taille maximale par document envoyé est de 30 Ko et la taille totale maximale de l’entrée envoyée est de 30 Mo. La détection de sujets a un débit limité à 5 soumissions toutes les 5 minutes.
+Cette API nécessite l’envoi **d’au moins 100 enregistrements texte** , mais elle est conçue pour détecter des rubriques parmi des centaines de milliers d’enregistrements. Les enregistrements de langue non anglaise ou contenant moins de 3 mots sont ignorés et ne sont donc pas affectés à des rubriques. Pour la détection des rubriques, la taille maximale par document envoyé est de 30 Ko et la taille totale maximale de l’entrée envoyée est de 30 Mo. La détection de sujets a un débit limité à 5 soumissions toutes les 5 minutes.
 
 Vous pouvez utiliser deux paramètres d’entrée **facultatifs** supplémentaires pour améliorer la qualité des résultats :
 
-* **Mots exclus.** Ces mots et leurs formes dérivées proches (par exemple, les pluriels) sont exclus de l’ensemble du pipeline de détection des rubriques. Utilisez ce paramètre pour les mots courants (« problème », « erreur » et « utilisateur » sont des exemples pertinents de mots à exclure pour les plaintes des utilisateurs concernant les logiciels). Chaque chaîne doit contenir un seul mot.
+* **Mots exclus.**   Ces mots et leurs formes dérivées proches (par exemple, les pluriels) sont exclus de l’ensemble du pipeline de détection des rubriques. Utilisez ce paramètre pour les mots courants (« problème », « erreur » et « utilisateur » sont des exemples pertinents de mots à exclure pour les plaintes des utilisateurs concernant les logiciels). Chaque chaîne doit contenir un seul mot.
 * **Expressions exclues**. Ces expressions sont exclues de la liste des rubriques renvoyées. Utilisez ce paramètre pour exclure les rubriques génériques que vous ne souhaitez pas voir apparaître dans les résultats. « Microsoft » et « Azure » sont des exemples pertinents de rubriques à exclure. Les chaînes peuvent contenir plusieurs mots.
 
 Suivez ces étapes pour détecter les rubriques dans votre texte.
@@ -191,7 +196,7 @@ Suivez ces étapes pour détecter les rubriques dans votre texte.
 3. La réponse renvoyée est un en-tête `operation-location` dont la valeur est l’URL à interroger pour obtenir les rubriques :
    
         'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
-4. Interrogez régulièrement le `operation-location` retourné à l’aide d’une demande **GET**. Nous vous recommandons de l’interroger toutes les minutes.
+4. Interrogez régulièrement le `operation-location` retourné à l’aide d’une demande **GET** . Nous vous recommandons de l’interroger toutes les minutes.
    
         GET https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>
 5. Le point de terminaison retourne une réponse contenant `{"status": "notstarted"}` avant le traitement, `{"status": "running"}` pendant le traitement et `{"status": "succeeded"}` avec le résultat à la fin du traitement. Vous pouvez ensuite utiliser le résultat qui s’affiche dans le format suivant (notez que cet exemple n’inclut pas certains détails, tels que les dates et le format d’erreur) :
@@ -272,9 +277,14 @@ Les explications concernant chaque partie de la réponse sont les suivantes :
 | id |Identificateur unique de document d’entrée auquel l’erreur fait référence. |
 | message |Message d’erreur. |
 
-## Étapes suivantes
-Félicitations ! Vous avez terminé l’analyse des données de votre texte. Vous pouvez maintenant examiner les résultats à l’aide d’un outil tel que [Power BI](//powerbi.microsoft.com) pour visualiser vos données et automatiser vos analyses pour avoir une vue en temps réel des données de votre texte.
+## <a name="next-steps"></a>Étapes suivantes
+Félicitations ! Vous avez terminé l’analyse des données de votre texte. Vous pouvez maintenant examiner les résultats à l’aide d’un outil tel que [Power BI](//powerbi.microsoft.com) pour visualiser vos données et automatiser vos analyses pour avoir une vue en temps réel des données de votre texte.
 
-Pour voir comment des fonctionnalités d’analyse de texte, telles que des sentiments, peuvent être utilisées en tant que composant d’un bot, consultez l’exemple [Robot émotionnel](http://docs.botframework.com/fr-FR/bot-intelligence/language/#example-emotional-bot) sur le site Bot Framework (Infrastructure de robot).
+Pour voir comment des fonctionnalités d’analyse de texte, telles que des sentiments, peuvent être utilisées en tant que composant d’un bot, consultez l’exemple [Robot émotionnel](http://docs.botframework.com/en-us/bot-intelligence/language/#example-emotional-bot) sur le site Bot Framework (Infrastructure de robot).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

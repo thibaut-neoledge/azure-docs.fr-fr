@@ -1,13 +1,13 @@
 ---
-title: Ajout de l’action HTTP dans des applications logiques | Microsoft Docs
-description: Vue d’ensemble de l’action HTTP et de ses propriétés
-services: ''
-documentationcenter: ''
+title: "Ajout de l’action HTTP dans des applications logiques | Microsoft Docs"
+description: "Vue d’ensemble de l’action HTTP et de ses propriétés"
+services: 
+documentationcenter: 
 author: jeffhollan
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,19 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 522624ccb14d295359ff5585e1b46b618b45c305
+
 
 ---
-# Prise en main de l’action HTTP
+# <a name="get-started-with-the-http-action"></a>Prise en main de l’action HTTP
 Avec l’action HTTP, vous pouvez étendre les workflows pour votre organisation et communiquer avec n’importe quel point de terminaison par le biais de HTTP.
 
-Vous pouvez :
+Vous pouvez :
 
 * Créez des workflows d’application logique qui s’activent (se déclenchent) lors d’une défaillance d’un site Web que vous gérez.
 * Communiquez avec n’importe quel point de terminaison par le biais de HTTP afin d’étendre vos workflows à d’autres services.
 
 Pour commencer à utiliser l’action HTTP dans une application logique, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Utilisation du déclencheur HTTP
+## <a name="use-the-http-trigger"></a>Utilisation du déclencheur HTTP
 Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs](connectors-overview.md).
 
 Voici un exemple de séquence de configuration du déclencheur HTTP dans le concepteur d’application logique.
@@ -39,7 +43,7 @@ Voici un exemple de séquence de configuration du déclencheur HTTP dans le conc
 
 ![Déclencheur HTTP](./media/connectors-native-http/using-trigger.png)
 
-### Fonctionnement du déclencheur HTTP
+### <a name="how-the-http-trigger-works"></a>Fonctionnement du déclencheur HTTP
 Le déclencheur HTTP effectue un appel sur un point de terminaison HTTP selon un intervalle récurrent. Par défaut, tout code de réponse HTTP inférieur à 300 entraîne l’exécution d’une application logique. Vous pouvez ajouter une condition en mode Code qui évalue l’appel HTTP afin de déterminer si l’application logique doit se déclencher. Voici un exemple de déclencheur HTTP qui se déclenche chaque fois que le code d’état renvoyé est supérieur ou égal à `400`.
 
 ```javascript
@@ -65,12 +69,12 @@ Le déclencheur HTTP effectue un appel sur un point de terminaison HTTP selon un
 }
 ```
 
-Consultez [MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx#HTTP-trigger) pour obtenir des informations complètes sur les paramètres du déclencheur HTTP.
+Consultez [MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx#HTTP-trigger)pour obtenir des informations complètes sur les paramètres du déclencheur HTTP.
 
-## Utilisation de l’action HTTP
+## <a name="use-the-http-action"></a>Utilisation de l’action HTTP
 Une action est une opération effectuée par le flux de travail défini dans une application logique. [Apprenez-en davantage sur les actions](connectors-overview.md).
 
-1. Sélectionnez le bouton **Nouvelle étape**.
+1. Sélectionnez le bouton **Nouvelle étape** .
 2. Choisissez **Ajouter une action**.
 3. Dans la zone de recherche Action , **http** pour répertorier l’action HTTP.
    
@@ -80,54 +84,56 @@ Une action est une opération effectuée par le flux de travail défini dans une
     ![Exécution de l’action HTTP](./media/connectors-native-http/using-action-2.png)
 5. Cliquez en haut à gauche de la barre d’outils pour enregistrer. Votre application logique est maintenant en mode d’enregistrement et de publication (activation).
 
-## Déclencheur HTTP
+## <a name="http-trigger"></a>Déclencheur HTTP
 Voici les détails du déclencheur que ce connecteur prend en charge. Le connecteur HTTP possède un déclencheur.
 
 | Déclencheur | Description |
 | --- | --- |
-| HTTP |Exécute un appel HTTP et renvoie le contenu de la réponse. |
+| http |Exécute un appel HTTP et renvoie le contenu de la réponse. |
 
-## Action HTTP
+## <a name="http-action"></a>Action HTTP
 Voici les détails de l’action que ce connecteur prend en charge. Le connecteur HTTP n’a qu’une seule action possible.
 
 | Action | Description |
 | --- | --- |
-| HTTP |Exécute un appel HTTP et renvoie le contenu de la réponse. |
+| http |Exécute un appel HTTP et renvoie le contenu de la réponse. |
 
-## Détails HTTP
+## <a name="http-details"></a>Détails HTTP
 Les tableaux suivants décrivent les champs de saisie obligatoires et facultatifs pour l’action, ainsi que les détails des résultats correspondants associés à son utilisation.
 
-#### Demande HTTP
-Vous trouverez ci-dessous les champs de saisie de l’action permettant de générer une demande HTTP sortante. Le symbole * désigne est un champ obligatoire.
+#### <a name="http-request"></a>Demande HTTP
+Vous trouverez ci-dessous les champs de saisie de l’action permettant de générer une demande HTTP sortante.
+Le symbole * désigne est un champ obligatoire.
 
 | Nom complet | Nom de la propriété | Description |
 | --- | --- | --- |
 | Method (Méthode)* |statique |Verbe HTTP à utiliser |
 | URI* |URI |URI de la requête HTTP |
-| En-têtes |headers |Un objet JSON d’en-têtes HTTP à inclure |
-| Corps |body |Le texte de la requête HTTP |
-| Authentification |authentication |Détails contenus dans la section [Authentification](#authentication) |
+| En-têtes |En-têtes |Un objet JSON d’en-têtes HTTP à inclure |
+| Corps |Corps |Le texte de la requête HTTP |
+| Authentification |Authentification |Détails contenus dans la section [Authentification](#authentication) |
 
 <br>
 
-#### Détails des résultats
+#### <a name="output-details"></a>Détails des résultats
 Vous trouverez ci-dessous les détails de sortie correspondant à la requête HTTP.
 
 | Nom de la propriété | Type de données | Description |
 | --- | --- | --- |
-| En-têtes |objet |En-têtes de réponse |
+| headers |objet |En-têtes de réponse |
 | Corps |objet |Objet Réponse |
 | Code d’état |int |Code d'état HTTP |
 
-## Authentification
-La fonction Logic Apps d’Azure App Service vous permet d’utiliser différents types d’authentification sur vos points de terminaison HTTP. Vous pouvez utiliser cette authentification avec les connecteurs **HTTP**, **[HTTP + Swagger](connectors-native-http-swagger.md)** et **[HTTP Webhook](connectors-native-webhook.md)** Les types d’authentification suivants sont configurables :
+## <a name="authentication"></a>Authentification
+La fonction Logic Apps d’Azure App Service vous permet d’utiliser différents types d’authentification sur vos points de terminaison HTTP. Vous pouvez utiliser cette authentification avec les connecteurs **HTTP**, **[HTTP + Swagger](connectors-native-http-swagger.md)** et **[HTTP Webhook](connectors-native-webhook.md)**. Les types d’authentification suivants sont configurables :
 
 * [Authentification de base](#basic-authentication)
 * [Authentification par certificat client](#client-certificate-authentication)
 * [Authentification OAuth Azure Active Directory (Azure AD)](#azure-active-directory-oauth-authentication)
 
-#### Authentification de base
-L’objet d’authentification suivant est obligatoire pour l’authentification de base. Le symbole * désigne est un champ obligatoire.
+#### <a name="basic-authentication"></a>Authentification de base
+L’objet d’authentification suivant est obligatoire pour l’authentification de base.
+Le symbole * désigne est un champ obligatoire.
 
 | Nom de la propriété | Type de données | Description |
 | --- | --- | --- |
@@ -140,7 +146,7 @@ L’objet d’authentification suivant est obligatoire pour l’authentification
 > 
 > 
 
-Vous créez donc un objet comme celui-ci dans le champ d’authentification :
+Vous créez donc un objet comme celui-ci dans le champ d’authentification :
 
 ```javascript
 {
@@ -150,7 +156,7 @@ Vous créez donc un objet comme celui-ci dans le champ d’authentification :
 }
 ```
 
-#### Authentification par certificat client
+#### <a name="client-certificate-authentication"></a>Authentification par certificat client
 L’objet d’authentification suivant est requis pour l’authentification du certificat client. Le symbole * désigne est un champ obligatoire.
 
 | Nom de la propriété | Type de données | Description |
@@ -164,7 +170,7 @@ L’objet d’authentification suivant est requis pour l’authentification du c
 > 
 > 
 
-Par exemple :
+Par exemple :
 
 ```javascript
 {
@@ -174,7 +180,7 @@ Par exemple :
 }
 ```
 
-#### Authentification OAuth Azure AD
+#### <a name="azure-ad-oauth-authentication"></a>Authentification OAuth Azure AD
 L’objet d’authentification suivant est obligatoire pour l’authentification OAuth Azure AD. Le symbole * désigne est un champ obligatoire.
 
 | Nom de la propriété | Type de données | Description |
@@ -190,7 +196,7 @@ L’objet d’authentification suivant est obligatoire pour l’authentification
 > 
 > 
 
-Par exemple :
+Par exemple :
 
 ```javascript
 {
@@ -202,7 +208,12 @@ Par exemple :
 }
 ```
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Essayez maintenant la plateforme et [créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
