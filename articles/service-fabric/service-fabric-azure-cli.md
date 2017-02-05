@@ -1,12 +1,12 @@
 ---
-title: Interaction avec les clusters Service Fabric à l’aide de l’interface de ligne de commande | Microsoft Docs
-description: Comment utiliser l’interface de ligne de commande Azure pour interagir avec un cluster Service Fabric
+title: "Interaction avec les clusters Service Fabric à l’aide de l’interface de ligne de commande | Microsoft Docs"
+description: "Comment utiliser l’interface de ligne de commande Azure pour interagir avec un cluster Service Fabric"
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: c3ec8ff3-3b78-420c-a7ea-0c5e443fb10e
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/24/2016
 ms.author: subramar
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: caf6dd414bd8f8180c90835dd9744dcd98f7709c
+
 
 ---
 # <a name="using-the-azure-cli-to-interact-with-a-service-fabric-cluster"></a>À l’aide de l’interface de ligne de commande Azure pour interagir avec un cluster Service Fabric
@@ -56,7 +60,7 @@ Les commandes suivantes se connectent au cluster et vous montrent les nœuds du 
  azure servicefabric node show
 ```
 
-Pour utiliser des paramètres nommés et trouver à quoi ils correspondent, vous pouvez taper --aide après une commande. Par exemple :
+Pour utiliser des paramètres nommés et trouver à quoi ils correspondent, vous pouvez taper --aide après une commande. Par exemple :
 
 ```sh
  azure servicefabric node show --help
@@ -77,7 +81,8 @@ Remplacez la balise PublicIPorFQDN avec l’IP réelle ou le nom de domaine comp
 
 Vous pouvez utiliser PowerShell ou l’interface de ligne de commende pour interagir avec votre cluster Service Fabric Linux créé via le portail Azure. 
 
-**Attention :** ces clusters ne sont pas sécurisés, par conséquent, vous pouvez ouvrir votre boîtier unique en ajoutant l’adresse IP publique dans le manifeste de cluster.
+> [!WARNING]
+> Ces clusters ne sont pas sécurisés, par conséquent, vous pouvez ouvrir votre boîtier unique en ajoutant l’adresse IP publique dans le manifeste de cluster.
 
 ## <a name="using-the-azure-cli-to-connect-to-a-service-fabric-cluster"></a>À l’aide de l’interface de ligne de commande Azure pour se connecter à un cluster Service Fabric
 Les commandes de l’interface de ligne de commande Azure ci-après expliquent comment se connecter à un cluster sécurisé. Les détails du certificat doivent correspondre à un certificat sur les nœuds du cluster.
@@ -145,9 +150,27 @@ Vous pouvez désormais démarrer la mise à niveau de l’application avec la co
 
 Vous pouvez contrôler la mise à niveau de l’application à l’aide de SFX. Dans quelques minutes, l’application aura été mise à jour.  Vous pouvez également essayer une application mise à jour avec une erreur et vérifiez la fonctionnalité de restauration automatique dans Service Fabric.
 
+## <a name="converting-from-pfx-to-pem-and-vice-versa"></a>Conversion de PFX vers PEM et vice versa
+
+Vous devrez peut-être installer un certificat sur votre ordinateur local (avec Windows ou Linux) pour accéder aux clusters sécurisés dans un environnement différent. Par exemple, lorsque vous accédez à un cluster Linux sécurisé à partir d’un ordinateur Windows et vice versa, vous devrez convertir votre certificat du format PFX vers PEM et vice versa. 
+
+Pour convertir un fichier PEM en fichier PFX, utilisez la commande suivante :
+
+```bash
+openssl pkcs12 -export -out certificate.pfx -inkey mycert.pem -in mycert.pem -certfile mycert.pem
+```
+
+Pour convertir un fichier PFX en fichier PEM, utilisez la commande suivante :
+
+```bash
+openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
+```
+
+Reportez-vous à la [documentation OpenSSL](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html) pour plus d’informations.
+
 ## <a name="troubleshooting"></a>Résolution de problèmes
 ### <a name="copying-of-the-application-package-does-not-succeed"></a>Échec de la copie du package d’application
-Vérifiez si `openssh` est installé. Par défaut, cet élément n’est pas installé sur le bureau Ubuntu. Installez-le en utilisant la commande suivante :
+Vérifiez si `openssh` est installé. Par défaut, cet élément n’est pas installé sur le bureau Ubuntu. Installez-le en utilisant la commande suivante :
 
 ```
  sudo apt-get install openssh-server openssh-client**
@@ -172,9 +195,14 @@ Si le problème persiste, essayez d’augmenter le nombre de sessions ssh en ex�
 ```
 L’utilisation des clés pour l’authentification ssh (par opposition aux mots de passe) n’étant pas encore prise en charge (puisque la plate-forme utilise ssh pour copier les packages), utilisez plutôt l’authentification par mot de passe.
 
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 Configurez l’environnement de développement et déployez une application Service Fabric vers un cluster Linux.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: a67f2e77d3bc7da35a03b68d7f32fd3a2a42bfcd
-ms.openlocfilehash: 1caf56d1d86d885673f4b40725777f302984dc1f
+ms.sourcegitcommit: 9b32c0d9c3bc19a187873eebd6ab21036ee06db8
+ms.openlocfilehash: 1acc98f9688ced2e1cf177a881b28ce98c0bff9e
 
 
 ---
-# <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>Déplacer des données vers et depuis le stockage d’objets blob Azure à l’aide d’AzCopy
+# <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>Déplacer des données vers et depuis Stockage Blob Azure à l’aide d’AzCopy
 AzCopy est un utilitaire de ligne de commande conçu pour charger, télécharger et copier des données vers et à partir d'un stockage de fichiers, d'objets blob et de tables Microsoft Azure.
 
 Pour obtenir des instructions sur l’installation d’AzCopy et des informations supplémentaires sur son utilisation avec la plateforme Azure, consultez [Prise en maint de l’utilitaire de ligne de commande AzCopy](../storage/storage-use-azcopy.md).
@@ -92,6 +92,6 @@ Pour transférer des objets blob entre des conteneurs Azure, utilisez la command
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 
