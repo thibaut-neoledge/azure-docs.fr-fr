@@ -21,7 +21,7 @@ ms.openlocfilehash: 9d4ba4eff1c9768a11c18cbf531b252d767bc9f2
 
 
 ---
-# <a name="azure-government-monitoring-management"></a>Surveillance et gestion d’Azure Government
+# <a name="azure-government-monitoring--management"></a>Surveillance et gestion d’Azure Government
 Cet article décrit les variantes et considérations relatives aux services de surveillance et de gestion pour l’environnement Azure Government.
 
 ## <a name="automation"></a>Automatisation

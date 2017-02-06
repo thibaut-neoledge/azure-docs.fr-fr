@@ -1,11 +1,11 @@
 ---
-title: Analyse des performances et de l’utilisation pour les applications de bureau Windows
-description: Analysez l’utilisation et les performances de votre application de bureau Windows avec HockeyApp et Application Insights.
+title: "Analyse des performances et de l’utilisation pour les applications de bureau Windows"
+description: "Analysez l’utilisation et les performances de votre application de bureau Windows avec HockeyApp et Application Insights."
 services: application-insights
 documentationcenter: windows
 author: alancameronwills
 manager: douge
-
+ms.assetid: 19040746-3315-47e7-8c60-4b3000d2ddc4
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,12 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
+ms.openlocfilehash: 6f87eaf58c9c8dcd301a6ac245119621244a1c27
+
 
 ---
-# Analyse des performances et de l’utilisation dans les applications de bureau Windows
-*Application Insights est à l'état de version préliminaire.*
+# <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Analyse des performances et de l’utilisation dans les applications de bureau Windows
 
-[Visual Studio Application Insights](app-insights-overview.md) et [HockeyApp](https://hockeyapp.net) vous permettent d’analyser vos applications déployées en termes d’utilisation et de performances.
+
+[Azure Application Insights](app-insights-overview.md) et [HockeyApp](https://hockeyapp.net) vous permettent d’analyser vos applications déployées en termes d’utilisation et de performances.
 
 > [!IMPORTANT]
 > Nous vous recommandons [HockeyApp](https://hockeyapp.net) pour distribuer et surveiller des applications de bureau et pour périphérique. Avec HockeyApp, vous pouvez gérer la distribution, le test direct et les commentaires des utilisateurs, de même que surveiller l’utilisation et les rapports d’incident. Vous pouvez également [exporter et interroger vos données de télémétrie avec Analytics](app-insights-hockeyapp-bridge-app.md).
@@ -27,23 +31,23 @@ ms.author: awills
 > 
 > 
 
-## Pour envoyer la télémétrie à Application Insights à partir d’une application Windows
-1. Dans le [portail Azure](https://portal.azure.com), [créez une ressource Application Insights](app-insights-create-new-resource.md). Choisissez ASP.NET comme type d’application.
-2. Copiez la clé d'instrumentation. Recherchez la clé dans la liste déroulante Essentials de la nouvelle ressource que vous venez de créer.
+## <a name="to-send-telemetry-to-application-insights-from-a-windows-application"></a>Pour envoyer la télémétrie à Application Insights à partir d’une application Windows
+1. Dans le [portail Azure](https://portal.azure.com), [créez une ressource Application Insights](app-insights-create-new-resource.md). Choisissez ASP.NET comme type d’application.
+2. Copiez la clé d'instrumentation. Recherchez la clé dans la liste déroulante Essentials de la nouvelle ressource que vous venez de créer. 
 3. Dans Visual Studio, modifiez les packages NuGet de votre projet d’application et ajoutez Microsoft.ApplicationInsights.WindowsServer. (Ou choisissez Microsoft.ApplicationInsights si vous souhaitez simplement l’API nue, sans modules de collecte de télémétrie standard.)
 4. Définissez la clé d’instrumentation dans votre code :
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *votre clé* `";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "` *votre clé* `";` 
    
     ou dans ApplicationInsights.config (si vous avez installé l’un des packages de télémétrie standard) :
    
-    `<InstrumentationKey>` *votre clé* `</InstrumentationKey>`
+    `<InstrumentationKey>`*votre clé*`</InstrumentationKey>` 
    
     Si vous utilisez ApplicationInsights.config, assurez-vous que ses propriétés dans l’Explorateur de solutions sont définies sur **Build Action = Content, Copy to Output Directory = Copy**.
 5. [Utilisez l’API](app-insights-api-custom-events-metrics.md) pour envoyer les données de télémétrie.
 6. Exécutez votre application et consultez la télémétrie dans la ressource que vous avez créée dans le portail Azure.
 
-## <a name="telemetry"></a>Exemple de code
+## <a name="a-nametelemetryaexample-code"></a><a name="telemetry"></a>Exemple de code
 ```C#
 
     public partial class Form1 : Form
@@ -80,10 +84,15 @@ ms.author: awills
 
 ```
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Création d’un tableau de bord](app-insights-dashboards.md)
 * [Recherche de diagnostic](app-insights-diagnostic-search.md)
 * [Exploration des mesures](app-insights-metrics-explorer.md)
 * [Écriture de requêtes Analytics](app-insights-analytics.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

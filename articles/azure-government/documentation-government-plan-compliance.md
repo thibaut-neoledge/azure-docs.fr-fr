@@ -22,7 +22,7 @@ ms.openlocfilehash: e26f1c182869dee58b0ab26da1aa65f99ba8faaa
 
 ---
 # <a name="azure-government-compliance"></a>Conformité d’Azure Government
-## <a name="blueprint-customer-responsibilities-matrix-streamlining-ato-processes"></a>Matrice des responsabilités de client Blueprint : simplification des processus ATO
+## <a name="blueprint-customer-responsibilities-matrix--streamlining-ato-processes"></a>Matrice des responsabilités de client Blueprint : simplification des processus ATO
 Le programme Azure Blueprint permet aux clients d’accéder à de la documentation afin de faciliter les processus d’autorisation d’opérer (ATO) spécifiques de leur agence ou système. Cet article fournit une étude plus approfondie de la matrice des responsabilités de client (CRM) Azure Blueprint et explique comment le personnel de sécurité peut tirer parti de ce document.
 
 La CRM Azure Blueprint est conçu à des fins utilitaires. Son format de feuille de calcul définit UNIQUEMENT les exigences de contrôle que le client créant dans Azure doit implémenter en matière de sécurité.

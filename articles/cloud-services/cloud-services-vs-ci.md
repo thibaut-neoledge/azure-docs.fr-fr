@@ -47,7 +47,7 @@ L’extension des diagnostics des services cloud nécessite un stockage Azure po
 * Sélectionnez un compte de stockage à partir de la boîte de dialogue ouverte en cliquant sur « ... » . Notez que la chaîne de connexion de stockage générée n’a pas la clé de compte de stockage.
 * Par exemple : DefaultEndpointsProtocol=https;AccountName=contosostorage;AccountKey=$(*clouddiagstrg.key*)
 
-### <a name="4-debugging-the-project"></a>4.    Débogage du projet
+### <a name="4----debugging-the-project"></a>4.    Débogage du projet
 * F5 pour lancer le débogage dans Visual Studio. Tout doit fonctionner comme avant.
   ![Démarrer le débogage local][3]
 
@@ -67,11 +67,11 @@ L’extension des diagnostics des services cloud nécessite un stockage Azure po
 
 ## <a name="build-and-publish-a-cloud-services-project-using-visual-studio-online-task-templates"></a>Créer et publier un projet de service cloud à l’aide des modèles de tâches en ligne Visual Studio
 * Les étapes suivantes expliquent comment configurer l’intégration continue pour un projet de service cloud à l’aide des tâches en ligne Visual Studio :
-  ### <a name="1-obtain-a-vso-account"></a>1.    Obtenir un compte VSO
+  ### <a name="1----obtain-a-vso-account"></a>1.    Obtenir un compte VSO
 * [Créer un compte Visual Studio Online][Créer un compte Visual Studio Online] si vous n’en avez pas encore
 * [Créer un projet d’équipe][Créer un projet d’équipe] dans votre compte Visual Studio Online
 
-### <a name="2-setup-source-control-in-visual-studio"></a>2.    Configurer le contrôle de code source dans Visual Studio
+### <a name="2----setup-source-control-in-visual-studio"></a>2.    Configurer le contrôle de code source dans Visual Studio
 * Connectez-vous à un projet d’équipe
 
 ![Connectez-vous à un projet d’équipe][5]
@@ -88,7 +88,7 @@ L’extension des diagnostics des services cloud nécessite un stockage Azure po
 
 ![Archivez le projet dans le contrôle de code source][9]
 
-### <a name="3-configure-build-process"></a>3.    Configurer le processus de génération
+### <a name="3----configure-build-process"></a>3.    Configurer le processus de génération
 * Accédez à votre projet d’équipe et ajoutez un nouveau modèle de processus de génération
 
 ![Ajoutez une nouvelle génération][10]
@@ -125,7 +125,7 @@ L’extension des diagnostics des services cloud nécessite un stockage Azure po
 
 ![Résultat de la génération][19]
 
-### <a name="4-configure-release-process"></a>4.    Configurez un processus de publication
+### <a name="4----configure-release-process"></a>4.    Configurez un processus de publication
 * Créez une nouvelle version
 
 ![Créez une nouvelle version][20]
