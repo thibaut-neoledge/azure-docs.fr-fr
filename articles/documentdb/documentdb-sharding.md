@@ -159,6 +159,6 @@ Vous pouvez associer PartitionResolvers en implémentant votre propre IPartition
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

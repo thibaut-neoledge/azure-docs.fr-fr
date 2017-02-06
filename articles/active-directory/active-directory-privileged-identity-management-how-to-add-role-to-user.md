@@ -3,7 +3,7 @@ title: "Ajouter ou supprimer un rôle d’utilisateur | Microsoft Docs"
 description: "Découvrez comment ajouter des rôles privilégiés avec l’application Azure Active Directory Privileged Identity Management."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 6a47ced8-cf34-4ce8-bea2-e4fc548cfe22
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
-ms.author: kgremban
+ms.date: 02/03/2017
+ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 5dde6b98f72306d6fe78f3c12377d3ce2ec5ddea
@@ -32,8 +32,6 @@ Pour ajouter ou supprimer un utilisateur dans un rôle à l’aide de Privileged
 
 > [!NOTE]
 > Si vous n’avez pas encore activé PIM dans le portail Azure, accédez à [Prise en main d’Azure AD PIM](active-directory-privileged-identity-management-getting-started.md) pour plus d’informations.
-> 
-> 
 
 Si vous souhaitez donner l’accès à PIM à un autre utilisateur, consultez [Comment accorder l’accès à PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md)pour plus d’informations sur les rôles qu’exige PIM.
 
@@ -49,8 +47,6 @@ Si vous souhaitez donner l’accès à PIM à un autre utilisateur, consultez [C
 > [!NOTE]
 > Les nouveaux utilisateurs d’un rôle sont uniquement éligibles pour le rôle par défaut. Si vous souhaitez conserver le rôle, cliquez sur l’utilisateur dans la liste. Les informations de l’utilisateur s’affichent dans un nouveau panneau. Sélectionnez **Rendre permanent** dans le menu des informations utilisateur.  
 > Si un utilisateur ne peut pas inscrire pour authentification multifacteur (MFA) Azure ou utilise un compte Microsoft (généralement @outlook.com),), vous devez le rendre permanent dans tous ses rôles. Les administrateurs éligibles sont invités à s’inscrire à MFA lors de l’activation.
-> 
-> 
 
 Maintenant que l’utilisateur est éligible à un rôle, indiquez-lui qu’il peut l’activer en suivant les instructions dans [Comment activer ou désactiver un rôle](active-directory-privileged-identity-management-how-to-activate-role.md).
 
@@ -66,7 +62,6 @@ Suivez ces étapes pour supprimer un utilisateur spécifique d’un rôle :
 
 Si vous ne savez pas quels utilisateurs ont toujours besoin de leurs attributions de rôles, vous pouvez [démarrer une révision de l’accès pour le rôle](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

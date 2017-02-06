@@ -48,7 +48,7 @@ Pour les machines virtuelles créées dans le modèle de déploiement classique,
 
 Vous devrez indiquer le réseau auquel vous voulez que la machine virtuelle appartienne au moment de la création de celle-ci. Vous ne pouvez pas joindre une machine virtuelle existante à un réseau virtuel. Toutefois, vous pouvez contourner ce problème en détachant le disque dur virtuel (VHD) d’une machine virtuelle existante, puis l’utiliser pour créer une machine virtuelle avec la configuration réseau de votre choix.
 
-## <a name="how-can-i-access-my-virtual-machine"></a>Comment puis-je accéder à ma machine virtuelle ?
+## <a name="how-can-i-access--my-virtual-machine"></a>Comment puis-je accéder à ma machine virtuelle ?
 Vous devez vous connecter à la machine virtuelle, en utilisant Connexion Bureau à distance pour une machine virtuelle Windows ou une connexion Secure Shell (SSH) pour une machine virtuelle Linux. Pour obtenir des instructions, consultez les liens suivants :
 
 * [Connexion à une machine virtuelle exécutant Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 2 connexions simultanées maximum sont prises en charge, sauf si le serveur est configuré en tant qu’hôte de session Services Bureau à distance.  
@@ -131,6 +131,6 @@ Pour assurer la redondance, placez au moins deux machines virtuelles configurée
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

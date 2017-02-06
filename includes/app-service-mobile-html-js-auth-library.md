@@ -80,6 +80,6 @@ fetch(url, { headers: headers })
 L’extraction est disponible sous forme de [package npm](https://www.npmjs.com/package/whatwg-fetch) ou de téléchargement par navigateur à partir de [CDNJS](https://cdnjs.com/libraries/fetch). Vous pouvez également utiliser jQuery ou une autre API AJAX pour extraire les informations.  Les données sont reçues sous la forme d’un objet JSON.
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

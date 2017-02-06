@@ -8,6 +8,6 @@ Votre service est désormais configuré et prêt à fonctionner avec les notific
 [1]: ./media/app-service-mobile-apns-configure-push/mobile-push-notification-hub.png
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

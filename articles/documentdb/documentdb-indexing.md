@@ -60,6 +60,6 @@ L’indexation de DocumentDB vous permet de prendre en charge une architecture m
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

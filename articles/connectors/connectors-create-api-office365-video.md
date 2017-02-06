@@ -208,6 +208,6 @@ Obtenir le jeton du porteur pour accéder au déchiffrage de la vidéo.
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

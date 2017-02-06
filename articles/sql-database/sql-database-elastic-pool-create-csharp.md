@@ -315,6 +315,6 @@ Le script PowerShell suivant crée l’application Active Directory (AD) et le p
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

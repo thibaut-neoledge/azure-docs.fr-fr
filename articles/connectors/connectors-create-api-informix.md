@@ -409,6 +409,6 @@ Ce connecteur prend en charge les versions IBM Informix ci-après en cas de conf
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

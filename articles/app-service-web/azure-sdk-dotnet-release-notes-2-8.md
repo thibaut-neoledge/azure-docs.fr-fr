@@ -91,6 +91,6 @@ Pour les autres mises à jour, consultez [Billet d’annonce du Kit de développ
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

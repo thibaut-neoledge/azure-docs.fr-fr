@@ -359,6 +359,6 @@ Azure App Service facilite le test en production des applications destinées aux
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 
