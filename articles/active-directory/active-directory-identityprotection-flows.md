@@ -6,18 +6,17 @@ keywords: "azure active directory identity protection, cloud app discovery, gest
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d264d63aeeff584fca96595f1d2f2d5a2f7ba792
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e81ef1d182108114305291273227ce2ac4dacf3f
 
 
 ---
@@ -58,13 +57,13 @@ Les administrateurs peuvent :
 
 1. Dans la première étape, l’utilisateur reçoit une notification concernant la nécessité d’inscrire le compte à l’authentification multifacteur. 
    
-    ![Correction](./media/active-directory-identityprotection-flows/140.png "Remediation")
+    ![Correction](./media/active-directory-identityprotection-flows/140.png "Correction")
 2. Pour configurer l’authentification multifacteur, vous devez indiquer au système comment vous souhaitez être contacté.
    
-    ![Correction](./media/active-directory-identityprotection-flows/141.png "Remediation")
+    ![Correction](./media/active-directory-identityprotection-flows/141.png "Correction")
 3. Le système vous envoie un défi et vous devez y répondre.
    
-    ![Correction](./media/active-directory-identityprotection-flows/142.png "Remediation")
+    ![Correction](./media/active-directory-identityprotection-flows/142.png "Correction")
 
 ## <a name="risky-sign-in-recovery"></a>Récupération de connexion à risque
 Lorsqu’un administrateur a configuré une stratégie pour les risques à la connexion, les utilisateurs affectés sont avertis quand ils tentent de se connecter. 
@@ -73,15 +72,15 @@ Lorsqu’un administrateur a configuré une stratégie pour les risques à la co
 
 1. L’utilisateur est informé que quelque chose d’inhabituel a été détecté concernant sa connexion, par exemple en cas de connexion depuis un nouvel emplacement, un nouvel appareil ou une nouvelle application. 
    
-    ![Correction](./media/active-directory-identityprotection-flows/120.png "Remediation")
+    ![Correction](./media/active-directory-identityprotection-flows/120.png "Correction")
 2. L’utilisateur doit prouver son identité en répondant à une question de sécurité. Si l’utilisateur est inscrit à l’authentification multifacteur, il doit saisir un code de sécurité envoyé sur son téléphone. Comme il s’agit simplement d’une connexion à risque et non pas d’un compte compromis, l’utilisateur ne doit pas changer le mot de passe dans ce flux. 
    
-    ![Correction](./media/active-directory-identityprotection-flows/121.png "Remediation")
+    ![Correction](./media/active-directory-identityprotection-flows/121.png "Correction")
 
 ## <a name="risky-sign-in-blocked"></a>Connexion à risque bloquée
 Les administrateurs peuvent également choisir de définir une stratégie en matière de risque à la connexion pour bloquer les utilisateurs lors de la connexion selon le niveau de risque. Pour débloquer leur accès, les utilisateurs finaux doivent contacter un administrateur ou leur support technique, ou ils peuvent essayer de se connecter depuis un emplacement ou un appareil connu. Il n’a pas la possibilité de récupérer lui-même son compte en résolvant l’authentification multifacteur dans ce cas précis.
 
-![Correction](./media/active-directory-identityprotection-flows/200.png "Remediation")
+![Correction](./media/active-directory-identityprotection-flows/200.png "Correction")
 
 ## <a name="compromised-account-recovery"></a>Récupération de compte compromis
 Lorsqu’une stratégie de sécurité en matière de risque des utilisateurs a été configurée, les utilisateurs dont le niveau de risque correspond à celui spécifié dans la stratégie (et qui sont donc considérés comme compromis) doivent passer par le flux de récupération de compte compromis avant de pouvoir se connecter. 
@@ -90,24 +89,24 @@ Lorsqu’une stratégie de sécurité en matière de risque des utilisateurs a �
 
 1. L’utilisateur est informé que la sécurité de son compte est menacée en raison d’activités suspectes ou de la divulgation de ses informations d’identification.
    
-    ![Correction](./media/active-directory-identityprotection-flows/101.png "Remediation")
+    ![Correction](./media/active-directory-identityprotection-flows/101.png "Correction")
 2. L’utilisateur doit prouver son identité en répondant à une question de sécurité. Si l’utilisateur est inscrit à l’authentification multifacteur, il peut récupérer lui-même son compte compromis. Il devra saisir un code de sécurité envoyé sur son téléphone. 
    
-   ![Correction](./media/active-directory-identityprotection-flows/110.png "Remediation")
+   ![Correction](./media/active-directory-identityprotection-flows/110.png "Correction")
 3. Enfin, l’utilisateur est obligé de changer son mot de passe, car il se peut que quelqu’un d’autre ait eu accès à son compte. 
    Vous trouverez ci-dessous des captures d’écran de cette expérience.
    
-   ![Correction](./media/active-directory-identityprotection-flows/111.png "Remediation")
+   ![Correction](./media/active-directory-identityprotection-flows/111.png "Correction")
 
 ## <a name="compromised-account-blocked"></a>Compte compromis bloqué
 Pour débloquer un compte bloqué par une stratégie de sécurité en matière de risque des utilisateurs, l’utilisateur doit contacter un administrateur ou son support technique. Il n’a pas la possibilité de récupérer lui-même son compte en résolvant l’authentification multifacteur dans ce cas précis.
 
-![Correction](./media/active-directory-identityprotection-flows/104.png "Remediation")
+![Correction](./media/active-directory-identityprotection-flows/104.png "Correction")
 
 ## <a name="reset-password"></a>Réinitialiser le mot de passe
 Si des utilisateurs compromis voient leur connexion bloquée, un administrateur peut générer un mot de passe temporaire pour eux. Les utilisateurs devront changer leur mot de passe la prochaine fois qu’ils se connecteront.
 
-![Correction](./media/active-directory-identityprotection-flows/160.png "Remediation")
+![Correction](./media/active-directory-identityprotection-flows/160.png "Correction")
 
 ## <a name="see-also"></a>Voir aussi
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
@@ -115,6 +114,6 @@ Si des utilisateurs compromis voient leur connexion bloquée, un administrateur 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

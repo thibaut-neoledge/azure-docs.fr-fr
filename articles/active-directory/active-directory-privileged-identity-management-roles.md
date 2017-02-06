@@ -92,6 +92,6 @@ L’accès à Microsoft Online Services peut nécessiter l’affectation d’une
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

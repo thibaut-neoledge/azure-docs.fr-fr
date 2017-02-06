@@ -70,6 +70,6 @@ Cette alerte se déclenche si un utilisateur reste un certain temps sans activer
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -73,6 +73,6 @@ Les fonctionnalités Azure AD qui permettent le partage de compte sont les suiva
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

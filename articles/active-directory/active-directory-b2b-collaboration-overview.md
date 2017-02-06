@@ -57,6 +57,6 @@ Consultez les autres articles sur la collaboration B2B d’Azure AD.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

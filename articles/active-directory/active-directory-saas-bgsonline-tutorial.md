@@ -231,6 +231,6 @@ Quand vous cliquez sur la vignette BGS Online dans le volet d’accès, vous dev
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

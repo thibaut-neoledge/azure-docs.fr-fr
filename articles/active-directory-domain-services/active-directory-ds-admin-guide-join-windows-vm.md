@@ -90,7 +90,7 @@ Pour joindre la machine virtuelle Windows Server au domaine géré par les servi
     ![Spécifier les informations d’identification pour la jonction au domaine](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 6. Vous pouvez spécifier les informations d’identification de l’une des manières suivantes :
    
-   * Format UPN : spécifiez le suffixe UPN du compte d’utilisateur, tel qu’il est configuré dans Azure AD. Dans cet exemple, le suffixe UPN de l’utilisateur « bob » est « bob@domainservicespreview.onmicrosoft.com ».
+   * Format UPN : spécifiez le suffixe UPN du compte d’utilisateur, tel qu’il est configuré dans Azure AD. Dans cet exemple, le suffixe UPN de l’utilisateur « bob » est 'bob@domainservicespreview.onmicrosoft.com'.
    * Format SAMAccountName : vous pouvez spécifier le nom du compte au format SAMAccountName. Dans cet exemple, l’utilisateur « bob » doit saisir « CONTOSO100\bob ».
      
      > [!NOTE]
@@ -128,6 +128,6 @@ Reportez-vous à la procédure suivante si vous rencontrez des problèmes concer
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

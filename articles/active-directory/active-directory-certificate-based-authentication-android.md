@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
+ms.date: 01/10/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d73b4ad270f868b3ec1d99c142f35688a80abbe1
+ms.sourcegitcommit: ce9474f2926a856673efbab5103a308d31001343
+ms.openlocfilehash: ed1c66f72b09a14a14c6ecd0bf39cd92f2bd22b8
 
 
 ---
-# <a name="get-started-with-certificate-based-authentication-on-android---public-preview"></a>Prise en main de l’authentification par certificat sur Android - Version préliminaire publique
+# <a name="get-started-with-certificate-based-authentication-on-android"></a>Prise en main de l’authentification par certificat sur Android
 > [!div class="op_single_selector"]
 > * [iOS](active-directory-certificate-based-authentication-ios.md)
 > * [Android](active-directory-certificate-based-authentication-android.md)
@@ -50,7 +50,7 @@ Pour tous les scénarios de cette rubrique, les tâches suivantes sont requises�
 | Applications | Support |
 | --- | --- |
 | Word / Excel / PowerPoint |![Vérification][1] |
-| OneNote |Bientôt disponible |
+| OneNote |![Vérification][1] |
 | OneDrive |![Vérification][1] |
 | Outlook |![Vérification][1] |
 | Yammer |![Vérification][1] |
@@ -70,9 +70,14 @@ Pour qu’Azure Active Directory révoque un certificat client, le jeton ADFS do
 
 Azure Active Directory ajoute ces déclarations au jeton d’actualisation si elles sont disponibles dans le jeton ADFS (ou n’importe quel autre jeton SAML). Lorsque le jeton d’actualisation doit être validé, ces informations sont utilisées pour vérifier la révocation. 
 
-La meilleure pratique consiste à mettre à jour les pages d’erreur ADFS avec des instructions sur l’obtention d’un certificat utilisateur. 
-
+La meilleure pratique consiste à mettre à jour les pages d’erreur ADFS avec des instructions sur l’obtention d’un certificat utilisateur.  
 Pour plus d’informations, consultez [Personnalisation des pages de connexion AD FS](https://technet.microsoft.com/library/dn280950.aspx).  
+
+Certaines applications Office (avec l’authentification moderne activée) envoient « *prompt=login* » à Azure AD dans leur demande. Par défaut, Azure AD traduit cela dans la demande aux services ADFS en « *wauth=usernamepassworduri* » (demande aux services ADFS d’effectuer l’authentification U/P) et « *wfresh=0* » (demande aux services ADFS d’ignorer l’état d’authentification unique et d’effectuer une nouvelle authentification). Si vous souhaitez activer l’authentification par certificat pour ces applications, vous devez modifier le comportement par défaut d’Azure AD. Définissez simplement « *PromptLoginBehavior* » dans vos paramètres de domaine fédéré sur « *Désactivé* ». Vous pouvez utiliser l’applet de commande [MSOLDomainFederationSettings](https://docs.microsoft.com/en-us/powershell/msonline/v1/set-msoldomainfederationsettings) pour effectuer cette tâche :
+
+`Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
+
+
 
 ### <a name="exchange-activesync-clients-support"></a>Prise en charge des clients Exchange ActiveSync
 Certaines applications Exchange ActiveSync sur Android 5.0 (Lollipop) ou version ultérieure sont prises en charge. Pour déterminer si votre application de messagerie prend en charge cette fonctionnalité, contactez le développeur de votre application. 
@@ -113,9 +118,9 @@ Vous trouverez ci-dessous des exemples d’ajout, de suppression ou de modificat
 
 ### <a name="configuring-your-azure-ad-tenant-for-certificate-based-authentication"></a>Configuration de votre client Azure AD pour l’authentification par certificat
 1. Démarrez Windows PowerShell avec les privilèges administrateur. 
-2. Installez le module Azure AD. Vous devez installer la version [1.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) ou une version ultérieure.  
+2. Installez le module Azure AD. Vous devez installer la version [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) ou une version supérieure.  
    
-        Install-Module -Name AzureADPreview –RequiredVersion 1.1.143.0 
+        Install-Module -Name AzureAD –RequiredVersion 2.0.0.33 
 3. Connectez-vous à votre client cible : 
    
         Connect-AzureAD 
@@ -208,6 +213,6 @@ La date que vous définissez doit être dans le futur. Si la date n’est pas da
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

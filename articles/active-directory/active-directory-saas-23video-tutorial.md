@@ -262,6 +262,6 @@ Lorsque vous cliquez sur la vignette 23 Video dans le panneau d’accès, vous 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

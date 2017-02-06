@@ -255,6 +255,6 @@ Prise en charge de l’application Blackboard Learn Lorsque vous cliquez sur la 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

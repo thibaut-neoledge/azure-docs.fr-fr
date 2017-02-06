@@ -1,13 +1,12 @@
-
 ---
-title: 'Considérations relatives à la conception d''identités hybrides Azure Active Directory : déterminer les exigences de réponse aux incidents | Microsoft Docs'
-description: Déterminer les fonctionnalités de surveillance et de création de rapports pour la solution d'identité hybride pouvant être exploitées par les services informatiques pour prendre des mesures permettant d'identifier et d'atténuer les menaces.
-documentationcenter: ''
+title: "Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les exigences de réponse aux incidents | Microsoft Docs"
+description: "Déterminer les fonctionnalités de surveillance et de création de rapports pour la solution d&quot;identité hybride pouvant être exploitées par les services informatiques pour prendre des mesures permettant d&quot;identifier et d&quot;atténuer les menaces."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a3d2a459-599b-4b67-8e51-7369ee25082d
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,10 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: bc8e3b76aad18e8d7a73de8bc12e6527e415035d
+
 
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Déterminer les exigences de réponse aux incidents pour votre solution d'identité hybride
-Les organisations de taille moyenne ou grande auront probablement mis en place une [réponse aux incidents de sécurité](https://technet.microsoft.com/library/cc700825.aspx) pour aider les services informatiques à agir en fonction du niveau de l'incident. Le système de gestion des identités est un composant important du processus de réponse aux incidents. Il peut en effet être utilisé pour aider à identifier l'auteur d’une action spécifique dirigée contre la cible. La solution d'identité hybride doit être en mesure de fournir des capacités de surveillance et de création de rapports pouvant être exploitées par les services informatiques pour prendre des mesures permettant d'identifier et d'atténuer la menace. Un plan de réponse aux incidents typique devra comprendre les phases suivantes :
+Les organisations de taille moyenne ou grande auront probablement mis en place une [réponse aux incidents de sécurité](https://technet.microsoft.com/library/cc700825.aspx) pour aider les services informatiques à agir en fonction du niveau de l'incident. Le système de gestion des identités est un composant important du processus de réponse aux incidents. Il peut en effet être utilisé pour aider à identifier l'auteur d’une action spécifique dirigée contre la cible. La solution d'identité hybride doit être en mesure de fournir des capacités de surveillance et de création de rapports pouvant être exploitées par les services informatiques pour prendre des mesures permettant d'identifier et d'atténuer la menace. Un plan de réponse aux incidents typique devra comprendre les phases suivantes :
 
 1. Évaluation initiale.
 2. Communication de l'incident.
@@ -38,15 +41,15 @@ Souvent, le système d'identité peut également être une aide pendant la phase
 
 Le système de gestion d'identité doit aider les administrateurs informatiques à identifier et signaler ces activités suspectes. Il est généralement possible de satisfaire à ces exigences techniques en surveillant tous les systèmes et en disposant d'une fonctionnalité de création de rapports pouvant mettre en évidence les menaces potentielles. Utilisez les questions ci-dessous pour vous aider à concevoir votre solution d'identité hybride en tenant compte des exigences de réponse aux incidents :
 
-* Votre entreprise a-t-elle mis en place une réponse aux incidents de sécurité ?
+* Votre entreprise a-t-elle mis en place une réponse aux incidents de sécurité ?
   * Si oui, le système de gestion d'identité actuel est-il utilisé dans le cadre du processus ?
-* Votre entreprise a-t-elle besoin d'identifier des tentatives de connexion suspectes d'utilisateurs sur différents appareils ?
+* Votre entreprise a-t-elle besoin d'identifier des tentatives de connexion suspectes d'utilisateurs sur différents appareils ?
 * Votre entreprise a-t-elle besoin de détecter une compromission potentielle d'informations d'identification utilisateur ?
 * Votre entreprise a-t-elle besoin d'auditer l'accès et l'action de l'utilisateur ?
 * Votre entreprise a-t-elle besoin de savoir quand un utilisateur réinitialise son mot de passe ?
 
 ## <a name="policy-enforcement"></a>Application de stratégies
-Pendant la phase de réduction des risques et de contrôle des dommages, il est important de réduire rapidement les effets réels et potentiels d'une attaque. La mesure que vous prendrez à ce stade peut faire la différence entre un dommage mineur et majeur. La réponse exacte dépendra de votre organisation et de la nature de l'attaque subie. S'il ressort de l'évaluation initiale qu'un compte a été compromis, vous devrez appliquer une stratégie pour bloquer ce compte. Ce n'est qu'un exemple d'utilisation du système de gestion d'identité. Utilisez les questions ci-dessous pour vous aider à concevoir votre solution d'identité hybride en tenant compte de la manière dont les stratégies seront appliquées pour réagir à un incident en cours :
+Pendant la phase de réduction des risques et de contrôle des dommages, il est important de réduire rapidement les effets réels et potentiels d'une attaque. La mesure que vous prendrez à ce stade peut faire la différence entre un dommage mineur et majeur. La réponse exacte dépendra de votre organisation et de la nature de l'attaque subie. S'il ressort de l'évaluation initiale qu'un compte a été compromis, vous devrez appliquer une stratégie pour bloquer ce compte. Ce n'est qu'un exemple d'utilisation du système de gestion d'identité. Utilisez les questions ci-dessous pour vous aider à concevoir votre solution d'identité hybride en tenant compte de la manière dont les stratégies seront appliquées pour réagir à un incident en cours :
 
 * Votre entreprise a-t-elle mis en place des stratégies pour empêcher les utilisateurs d'accéder au réseau si nécessaire ?
   * Si oui, la solution actuelle pourra-t-elle être intégrée dans le système de gestion d'identité hybride que vous vous apprêtez à adopter ?
@@ -63,6 +66,9 @@ Pendant la phase de réduction des risques et de contrôle des dommages, il est 
 ## <a name="see-also"></a>Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

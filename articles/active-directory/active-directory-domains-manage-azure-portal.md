@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/12/2016
 ms.author: curtand;jeffsta
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2751b3bdc890fee15d1976de961c2032b9ced2e5
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9dd64868be0899ebfc6414e0dc9e6e62d864e88e
 
 
 ---
@@ -39,7 +39,7 @@ Lors de la création du répertoire, le nom de domaine initial, par exemple « c
 Vous pouvez modifier le nom de domaine principal de votre répertoire en n’importe quel domaine personnalisé vérifié qui n’est pas fédéré. La modification du domaine principal de votre répertoire ne changera pas les noms des utilisateurs existants.
 
 ## <a name="add-custom-domain-names-to-your-azure-ad"></a>Ajouter des noms de domaine personnalisés à Azure AD
-Vous pouvez ajouter jusqu’à 900 noms de domaine personnalisés à chaque répertoire Azure AD. Le processus permettant [d’ajouter un nom de domaine personnalisé supplémentaire](active-directory-domains-add-azure-portal.md) est le même pour le premier nom de domaine personnalisé.
+Vous pouvez ajouter jusqu’à 900 noms de domaine personnalisés à chaque répertoire Azure AD. Le processus permettant d’ [ajouter un nom de domaine personnalisé supplémentaire](active-directory-domains-add-azure-portal.md) est le même pour le premier nom de domaine personnalisé.
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Ajouter des sous-domaines d’un domaine personnalisé
 Si vous souhaitez ajouter un nom de domaine de troisième niveau, tel que « europe.contoso.com » à votre répertoire, vous devez tout d’abord ajouter et vérifier le domaine de second niveau, tel que contoso.com. Le sous-domaine est automatiquement vérifié par Azure AD. Pour voir que le sous-domaine que vous venez d’ajouter a été vérifié, actualisez la page dans le navigateur qui répertorie les domaines.
@@ -70,6 +70,6 @@ La plupart des tâches de gestion des noms de domaine dans Azure Active Director
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 
