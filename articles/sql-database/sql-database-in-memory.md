@@ -8,22 +8,25 @@ manager: jhubbard
 editor: 
 ms.assetid: 250ef341-90e5-492f-b075-b4750d237c05
 ms.service: sql-database
-ms.custom: db development; monitor and tune
+ms.custom: development
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 12/07/2016
 ms.author: jodebrui
 translationtype: Human Translation
-ms.sourcegitcommit: 0179a926dcee9b225edc4e7cc1c7af675a537ea4
-ms.openlocfilehash: a0dbf879a7d37235c54947c59d4cda2d5bbe6feb
+ms.sourcegitcommit: c3a0976b342e1351d166e294586af988e18ce009
+ms.openlocfilehash: 31ac054ec82b4ba66eee1e81fcf5f0cfeaf92e43
 
 ---
 
 # <a name="optimize-performance-using-in-memory-technologies-in-sql-database"></a>Optimisation des performances à l’aide de technologies en mémoire dans SQL Database
 
-Les technologies en mémoire dans SQL Database peuvent vous aider à optimiser les performances avec des transactions (OLTP), des analyses (OLAP), ainsi qu’avec des charges de travail mixtes (HTAP), tout en réduisant le coût. En fonction de la charge de travail, elles peuvent vous permettre d’améliorer jusqu'à 30 fois les performances pour le traitement de transactions et jusqu'à 100 fois les performances pour les requêtes d’analyse par rapport aux tables et index traditionnels. En raison l’optimisation du traitement des requêtes et des transactions, les technologies en mémoire peuvent également réduire les coûts : en général, vous n’avez pas besoin de mettre à niveau le niveau tarifaire de la base de données pour réaliser des gains de performances, et, dans certains cas, vous pouvez même réduire le niveau tarifaire tout en profitant des améliorations des performances liées aux technologies en mémoire. 
+Les technologies en mémoire dans SQL Database peuvent vous aider à optimiser les performances avec des transactions (OLTP), des analyses (OLAP), ainsi qu’avec des charges de travail mixtes (HTAP). En raison l’optimisation du traitement des requêtes et des transactions, les technologies en mémoire peuvent également réduire les coûts : en général, vous n’avez pas besoin de mettre à niveau le niveau tarifaire de la base de données pour réaliser des gains de performances, et, dans certains cas, vous pouvez même réduire le niveau tarifaire tout en profitant des améliorations des performances liées aux technologies en mémoire. 
+
+- [Quorum Business Solutions a réussi à doubler sa charge de travail tout en améliorant les DTU (c'est-à-dire, la consommation de ressources) à 70 %](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database), en tirant parti de l’OLTP In-Memory. 
+- La vidéo suivante montre une amélioration significative de la consommation de ressources avec un exemple de charge de travail : [OLTP In-Memory dans une Azure SQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB)
 
 Les technologies en mémoire sont disponibles dans toutes les bases de données du niveau Premium, notamment les bases de données dans des pools élastiques Premium. 
 
@@ -46,7 +49,8 @@ Cette rubrique décrit les aspects des index OLTP et Columnstore en mémoire sp�
 
 Vous trouverez des informations détaillées sur les technologies aux emplacements suivants :
 
-- [OLTP en mémoire](http://msdn.microsoft.com/library/dn133186.aspx)
+- [Présentation de l’OLTP In-Memory et scénarios d’utilisation](https://msdn.microsoft.com/library/mt774593.aspx), avec notamment des références à des études de cas client et des informations de prise en main
+- [Documentation pour l’OLTP In-Memory](http://msdn.microsoft.com/library/dn133186.aspx)
 - [Description des index columnstore](https://msdn.microsoft.com/library/gg492088.aspx)
 - Traitement hybride transactionnel et analytique, également appelé [analytique opérationnelle en temps réel](https://msdn.microsoft.com/library/dn817827.aspx)
 
@@ -56,6 +60,7 @@ Vous trouverez ici des notions fondamentales sur l’OLTP en mémoire :
 
 Vidéos détaillées sur les technologies :
 
+- [OLTP In-Memory dans Azure DQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB), avec notamment une démonstration des avantages de performances et les étapes à suivre pour reproduire ces résultats vous-même
 - [Vidéos sur l’OLTP en mémoire : qu’est-ce-que c’est, et comment l’utiliser](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/03/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
 - [Index Columntore : vidéos d’analyse en mémoire (c'est-à-dire les index columnstore) depuis Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
 
@@ -526,6 +531,6 @@ Dans une base de données ayant le niveau tarifaire P2, vous pouvez attendre une
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 
