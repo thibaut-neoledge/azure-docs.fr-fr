@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 12df9144e3b308fb7efa43a3e8cd5ed8e9eb0378
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 716d2d95b5d68dbb7fdd2ef50d220a8c8c2c9f5e
 
 
 ---
@@ -43,7 +43,7 @@ Il existe plusieurs façons d’obtenir un jeton. Comme les API sont généralem
 ### <a name="one-time-setup-using-script"></a>Installation unique (à l'aide d’un script)
 Vous devez suivre l’ensemble des instructions ci-dessous pour effectuer l’installation à l’aide d’un script PowerShell qui prend le temps minimal pour l’installation, mais utilise les valeurs par défaut les plus autorisées. Si vous le souhaitez, vous pouvez également suivre les instructions de l’ [installation manuelle](mobile-engagement-api-authentication-manual.md) pour effectuer cette opération directement à partir du portail Azure et affiner la configuration. 
 
-1. Récupérez la dernière version d’Azure PowerShell [ici](http://aka.ms/webpi-azps). Consultez ce [lien](../powershell-install-configure.md)pour obtenir des instructions de téléchargement.  
+1. Récupérez la dernière version d’Azure PowerShell [ici](http://aka.ms/webpi-azps). Consultez ce [lien](/powershell/azureps-cmdlets-docs)pour obtenir des instructions de téléchargement.  
 2. Une fois Azure PowerShell installé, utilisez les commandes suivantes pour vérifier que le **module Azure** est installé :
    
     a. Vérifiez que le module Azure PowerShell est disponible dans la liste des modules disponibles. 
@@ -154,6 +154,6 @@ Maintenant que vous avez un jeton valide, vous êtes prêt à passer les appels 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

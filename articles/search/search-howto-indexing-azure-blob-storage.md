@@ -12,16 +12,16 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/24/2016
+ms.date: 11/30/2016
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 2b62ddb83b35194b9fcd23c60773085a9551b172
-ms.openlocfilehash: 041b47ed2aba11d45ed6ae02dadb73916046dd78
+ms.sourcegitcommit: 976470e7b28a355cbfa4c5c8d380744eb1366787
+ms.openlocfilehash: f8711ba45339be7ffbeac1ab28823df43db23046
 
 ---
 
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexation de documents dans Azure Blob Storage avec Azure Search
-Cet article explique comment utiliser Azure Search pour indexer des documents (tels que des fichiers PDF, des documents Microsoft Office et plusieurs autres formats courants) stockés dans le stockage d’objets blob Azure. Le nouvel indexeur d’objets blob Azure Search rend ce processus rapide et transparent.
+Cet article explique comment utiliser Azure Search pour indexer des documents (tels que des fichiers PDF, des documents Microsoft Office et plusieurs autres formats courants) stockés dans le stockage d’objets blob Azure. Tout d’abord, il présente les concepts de base de la définition et de la configuration d’un indexeur d’objets blob. Ensuite, il offre une exploration plus approfondie des comportements et des scénarios que vous êtes susceptible de rencontrer. 
 
 ## <a name="supported-document-formats"></a>Formats de document pris en charge
 L’indexeur d’objets blob peut extraire du texte à partir des formats de document suivants :
@@ -45,17 +45,15 @@ L’indexeur d’objets blob peut extraire du texte à partir des formats de doc
 Vous pouvez configurer un indexeur de Stockage Blob Azure avec les outils suivants :
 
 * [portail Azure](https://ms.portal.azure.com)
-* [API REST](https://msdn.microsoft.com/library/azure/dn946891.aspx) de la Recherche Azure
-* [Version 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) du Kit de développement logiciel (SDK) .NET de la Recherche Azure
+* [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) de la Recherche Azure
+* [Kit de développement logiciel .NET (SDK)](https://aka.ms/search-sdk) de la Recherche Azure
 
 > [!NOTE]
 > Certaines fonctionnalités (par exemple, les mappages de champs) ne sont pas encore disponibles dans le portail et doivent être utilisées par l’intermédiaire de programmes.
 >
 >
 
-Dans cet article, nous allons configurer un indexeur à l’aide de l’API REST. Tout d’abord, nous allons créer une source de données, puis créer un index et enfin configurer l’indexeur.
-
-Ensuite, nous aborderons les détails sur la manière dont l’indexeur d’objets blob analyse des objets blob, comment choisir les objets blob à indexer, comment traiter les objets blob de types de contenu non pris en charge et les paramètres de configuration disponibles. 
+Ici, nous vous présentons le flux à l’aide de l’API REST. 
 
 ### <a name="step-1-create-a-data-source"></a>Étape 1 : Création d’une source de données
 Une source de données spécifie les données à indexer, les informations d’identification nécessaires pour accéder aux données et les stratégies qui identifient efficacement les changements dans les données (telles que des lignes modifiées ou supprimées). Une source de données peut être utilisée par plusieurs indexeurs dans le même service de recherche.
@@ -67,7 +65,7 @@ Pour l’indexation des objets blob, la source de données doit avoir les propri
 * **credentials** fournit la chaîne de connexion du compte de stockage en tant que paramètre `credentials.connectionString`. Vous pouvez obtenir la chaîne de connexion à partir du Portail Azure en accédant au panneau du compte de stockage souhaité > **Paramètres** > **Clés** et utiliser la valeur « Chaîne de connexion principale » ou « Chaîne de connexion secondaire ».
 * **container** spécifie un conteneur dans votre compte de stockage. Par défaut, tous les objets blob du conteneur sont récupérables. Si vous souhaitez indexer uniquement les objets blob dans un répertoire virtuel particulier, vous pouvez spécifier ce répertoire à l’aide du paramètre facultatif **query**.
 
-L’exemple suivant illustre une définition de source de données :
+Pour créer une source de données :
 
     POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
@@ -80,12 +78,12 @@ L’exemple suivant illustre une définition de source de données :
         "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
     }   
 
-Pour plus d’informations sur l’API Créer une source de données, consultez [Créer une source de données](https://msdn.microsoft.com/library/azure/dn946876.aspx).
+Pour plus d’informations sur l’API Créer une source de données, consultez [Créer une source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
 ### <a name="step-2-create-an-index"></a>Étape 2 : Création d’un index
-L’index spécifie les champs d’un document, les attributs et d’autres constructions qui façonnent l’expérience de recherche.  
+L’index spécifie les champs d’un document, les attributs et d’autres constructions qui façonnent l’expérience de recherche.
 
-Pour l’indexation des objets blob, assurez-vous que l’index contient un champ `content` cherchable pour stocker l’objet blob.
+Voici comment créer un index avec un champ `content` pouvant faire l'objet d'une recherche afin de stocker le texte extrait d'objets blob :   
 
     POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
     Content-Type: application/json
@@ -99,10 +97,12 @@ Pour l’indexation des objets blob, assurez-vous que l’index contient un cham
           ]
     }
 
-Pour plus d’informations sur l’API Créer un index, consultez [Créer un index](https://msdn.microsoft.com/library/dn798941.aspx)
+Pour plus d’informations sur la création d’index, consultez [Création d'un index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 
 ### <a name="step-3-create-an-indexer"></a>Étape 3 : Création d’un indexeur
-Un indexeur connecte des sources de données à des index de recherche cibles et fournit des informations de planification pour vous permettre d’automatiser l’actualisation des données. Une fois la source de données et l’index créés, il est relativement simple de créer un indexeur qui référence la source de données et un index cible. Par exemple :
+Un indexeur connecte une source de données à un index de recherche cible et fournit une planification afin d’automatiser l’actualisation des données. 
+
+Une fois l'index et la source de données créés, vous êtes prêt à créer l’indexeur :
 
     POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
@@ -117,7 +117,7 @@ Un indexeur connecte des sources de données à des index de recherche cibles et
 
 Cet indexeur s’exécutera toutes les deux heures (intervalle de planification défini sur « PT2H »). Pour exécuter un indexeur toutes les 30 minutes, définissez l’intervalle sur « PT30M ». Le plus court intervalle pris en charge est de 5 minutes. La planification est facultative : en cas d’omission, un indexeur ne s’exécute qu’une seule fois lorsqu’il est créé. Toutefois, vous pouvez à tout moment exécuter un indexeur à la demande.   
 
-Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](https://msdn.microsoft.com/library/azure/dn946899.aspx).
+Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 ## <a name="how-azure-search-indexes-blobs"></a>Comment Azure Search indexe les objets blob
 
@@ -147,13 +147,14 @@ Vous n’avez pas besoin de définir les champs relatifs à chacune des proprié
 >
 >
 
-### <a name="picking-the-document-key-field-and-dealing-with-different-field-names"></a>Sélection du champ de clé de document et gestion des différences de nom de champ
+<a name="DocumentKeys"></a>
+### <a name="defining-document-keys-and-field-mappings"></a>Définition des clés de document et des mappages de champs
 Dans Azure Search, la clé de document identifie un document de manière unique. Chaque index de recherche doit comporter exactement un champ de clé de type Edm.String. Ce champ de clé est nécessaire pour chaque document ajouté à l’index (il constitue en fait le seul champ obligatoire).  
 
 Vous devez déterminer avec soin le champ extrait que vous souhaitez mapper sur le champ de clé de votre index. Les candidats sont les suivants :
 
 * **metadata\_storage\_name** : ce champ pourrait se révéler un choix commode, mais notez que (1) les noms ne sont pas forcément uniques, car vous pouvez disposer d’objets blob portant le même nom dans différents dossiers, et (2) le nom peut contenir des caractères qui ne sont pas valides dans les clés de document, comme des tirets. Vous pouvez gérer les caractères non valides en utilisant la [fonction de mappage de champs](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`. Dans ce cas, pensez à encoder les clés de documents lorsque vous les transmettez dans des appels d’API, comme l’API Lookup. (Par exemple, dans .NET, vous pouvez utiliser la [méthode UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) à cet effet).
-* **metadata\_storage\_path** : l’utilisation du chemin d’accès complet garantit l’unicité, mais le chemin d’accès contient invariablement des caractères `/` qui ne sont [pas valides dans une clé de document](https://msdn.microsoft.com/library/azure/dn857353.aspx).  Comme ci-dessus, vous avez la possibilité d’encoder les clés à l’aide de la [fonction](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`.
+* **metadata\_storage\_path** : l’utilisation du chemin d’accès complet garantit l’unicité, mais le chemin d’accès contient invariablement des caractères `/` qui ne sont [pas valides dans une clé de document](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Comme ci-dessus, vous avez la possibilité d’encoder les clés à l’aide de la [fonction](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`.
 * Si aucune des solutions ci-dessus n’est adaptée à votre cas, vous pouvez ajouter une propriété de métadonnées personnalisée aux objets blob. Toutefois, cette approche contraint votre processus de chargement d’objets blob à ajouter cette propriété de métadonnées à tous les objets blob. Étant donné que la clé est une propriété obligatoire, tous les objets blob dépourvus de cette propriété ne seront pas indexés.
 
 > [!IMPORTANT]
@@ -344,6 +345,6 @@ Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou d
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

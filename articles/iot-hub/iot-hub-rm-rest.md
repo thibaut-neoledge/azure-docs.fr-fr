@@ -1,6 +1,6 @@
 ---
-title: "Création d’un IoT Hub à l’aide de l’API REST du fournisseur de ressources | Microsoft Docs"
-description: "Suivez ce didacticiel pour commencer à utiliser l’API REST du fournisseur de ressources pour créer un IoT Hub."
+title: "Création d’un IoT Hub Azure à l’aide de l’API REST du fournisseur de ressources | Microsoft Docs"
+description: "Utilisation de l’API REST du fournisseur de ressources pour créer un IoT Hub."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 44d73863ebe968a025654f501a820bdf0f9b3c49
+ms.sourcegitcommit: 2abfeebeac222f4371b0945e1aeb6fcf8e51595d
+ms.openlocfilehash: 826e359ebeaf9af4df3c3b1559549a57e8228f72
 
 
 ---
-# <a name="tutorial-create-an-iot-hub-using-a-c-program-and-the-resource-provider-rest-api"></a>Didacticiel : Création d’un IoT Hub à l’aide d’un programme C# et de l’API REST du fournisseur de ressources
+# <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Création d’un IoT Hub à l’aide de l’API REST du fournisseur de ressources (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Introduction
@@ -35,7 +35,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Microsoft Visual Studio 2015.
 * Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.
-* [Microsoft Azure PowerShell 1.0][lnk-powershell-install] ou une version ultérieure.
+* [Azure PowerShell 1.0][lnk-powershell-install] ou version ultérieure.
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -136,7 +136,7 @@ Utilisez [l’API REST du fournisseur de ressources IoT Hub][lnk-rest-api] pour 
 6. Ajoutez le code suivant à la fin de la méthode **CreateIoTHub** pour récupérer les clés de l’IoT Hub que vous avez créé et les imprimer sur la console :
    
     ```
-    var listKeysUri = string.Format("https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Devices/IotHubs/{2}/IoTHubKeys/listkeys?api-version=2015-08-15-preview", subscriptionId, rgName, iotHubName);
+    var listKeysUri = string.Format("https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Devices/IotHubs/{2}/IoTHubKeys/listkeys?api-version=2016-02-03", subscriptionId, rgName, iotHubName);
     var keysresults = client.PostAsync(listKeysUri, null).Result;
    
     Console.WriteLine("Keys: {0}", keysresults.Content.ReadAsStringAsync().Result);
@@ -164,7 +164,7 @@ Vous pouvez maintenant terminer l’application en appelant la méthode **Create
 Maintenant que vous avez déployé un IoT Hub à l’aide de l’API REST du fournisseur de ressources, vous pouvez aller encore plus loin :
 
 * Découvrez les capacités de [l’API REST du fournisseur de ressources IoT Hub][lnk-rest-api].
-* Pour plus d’informations sur les capacités d’Azure Resource Manager, lisez l’article [Présentation d’Azure Resource Manager][lnk-azure-rm-overview].
+* Pour plus d’informations sur les capacités d’Azure Resource Manager, voir [Vue d’ensemble d’Azure Resource Manager][lnk-azure-rm-overview].
 
 Pour en savoir plus sur le développement pour IoT Hub, consultez les pages suivantes :
 
@@ -173,13 +173,13 @@ Pour en savoir plus sur le développement pour IoT Hub, consultez les pages suiv
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Simulation d’un appareil avec le Kit de développement logiciel (SDK) de passerelle IoT][lnk-gateway]
+* [Simulation d’un appareil avec le Kit de développement logiciel (SDK) de la passerelle IoT][lnk-gateway]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: ../powershell-install-configure.md
+[lnk-powershell-install]: /powershell/azureps-cmdlets-docs
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 
@@ -190,6 +190,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 
