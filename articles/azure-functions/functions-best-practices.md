@@ -26,7 +26,7 @@ ms.openlocfilehash: 04a5e190a69b1a1a4d0fe6c49c16ddb15593ba38
 
 ##<a name="overview"></a>Vue d'ensemble
 
-Cet article fournit un ensemble de bonnes pratiques à prendre en compte durant l’implémentation des applications de fonction. Gardez à l’esprit que votre application de fonction Azure est un service d’application Azure. Ainsi, pensez à suivre ces bonnes pratiques.  
+Cet article fournit un ensemble de bonnes pratiques à prendre en compte durant l’implémentation des applications de fonction. Gardez à l’esprit que votre application de fonction Azure est un service d’application Azure. Ainsi, pensez à suivre ces bonnes pratiques.
 
 
 ## <a name="avoid-large-long-running-functions"></a>Éviter les fonctions volumineuses dont l’exécution prend beaucoup de longtemps
