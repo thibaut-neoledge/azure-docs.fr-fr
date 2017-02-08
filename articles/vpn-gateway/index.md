@@ -1,14 +1,13 @@
 ---
 layout: LandingPage
-description: "Apprenez à configurer les passerelles de réseau privé virtuel (VPN) pour gérer le trafic entre les réseaux virtuels du cloud et en local, ou entre des réseaux virtuels sur le cloud."
 translationtype: Human Translation
-ms.sourcegitcommit: a826f96cd679bb26b8a6cf9bb6bf55e93ba4e346
-ms.openlocfilehash: 99843baf9989378aa3d4ff6325a399dae0b632b6
+ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
+ms.openlocfilehash: ff8e5a68ada52f93c1f50e73a1a7857273d7f9c3
 
 ---
 #<a name="vpn-gateway-documentation"></a>Documentation de la passerelle VPN
 
-Apprenez à configurer la Passerelle VPN, une passerelle de réseau privé virtuel. La documentation vous montre comment envoyer du trafic réseau entre des réseaux virtuels Azure et des emplacements locaux ou d’autres réseaux virtuels Azure.
+Le service Passerelle VPN Azure est une passerelle de réseau privé virtuel utilisée pour faire circuler le trafic réseau entre des réseaux virtuels Azure et des emplacements locaux, ainsi qu’entre des réseaux virtuels au sein d’Azure (réseau virtuel à réseau virtuel).  
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -163,6 +162,6 @@ Télécharger la documentation Passerelle VPN Azure </div>
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

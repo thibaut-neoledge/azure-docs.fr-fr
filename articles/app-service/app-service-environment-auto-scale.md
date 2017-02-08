@@ -237,6 +237,6 @@ Pour ce scénario, Frank sait que le taux d’erreur augmente après que les ser
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

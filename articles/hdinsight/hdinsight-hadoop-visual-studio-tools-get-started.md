@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -232,7 +232,7 @@ Cette vue peut être utilisée pour obtenir des informations structurées et vis
 ## <a name="run-pig-scripts"></a>Exécuter des scripts Pig
 Data Lake Tools pour Visual Studio prennent en charge la création et la soumission de scripts Pig aux clusters HDInsight. Les utilisateurs peuvent créer un projet Pig à partir d’un modèle, puis soumettre le script à des clusters HDInsight.
 
-## <a name="feedbacks-known-issues"></a>Commentaires et problèmes connus
+## <a name="feedbacks--known-issues"></a>Commentaires et problèmes connus
 * Actuellement, les résultats HiveServer2 sont affichés en mode texte pur, ce qui n'est pas idéal. Nous y travaillons actuellement.
 * Actuellement, si les résultats sont lancés avec des valeurs NULL, ils ne sont pas affichés. Nous avons résolu ce problème. Si vous êtes bloqué sur ce problème, n'hésitez pas à nous envoyer un e-mail ou à contacter l'équipe du support technique.
 * Le script HQL créé par Visual Studio est encodé selon le paramètre de région locale de l’utilisateur. Il peut ne pas s’exécuter correctement si l’utilisateur charge le script dans le cluster sous forme binaire.

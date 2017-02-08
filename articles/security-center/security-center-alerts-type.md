@@ -4,7 +4,7 @@ description: "Ce document vous aide à comprendre les types d’alertes de sécu
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
 ms.service: security-center
@@ -12,7 +12,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -25,8 +25,8 @@ Ce document vous aide à comprendre les différents types d’alertes de sécuri
 
 > [!NOTE]
 > Pour activer la détection avancée, effectuez une mise à niveau vers Azure Security Center Standard. Une version d’évaluation gratuite de 90 jours est disponible. Pour mettre à niveau, sous [Stratégie de sécurité](security-center-policies.md), sélectionnez Niveau tarifaire. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/) .
-> 
-> 
+>
+>
 
 ## <a name="what-type-of-alerts-are-available"></a>Quels types d’alertes sont disponibles ?
 Azure Security Center fournit différentes alertes qui s’alignent sur les étapes de cyberchaîne de destruction. La figure ci-dessous fournit des exemples de différentes alertes en lien avec certaines de ces étapes.
@@ -65,8 +65,8 @@ Azure Security Center peut utiliser l’analyse comportementale pour identifier 
 
 > [!NOTE]
 > Pour plus d’informations sur le fonctionnement des fonctionnalités de détection de Security Center, consultez [Fonctionnalités de détection d’Azure Security Center](security-center-detection-capabilities.md).
-> 
-> 
+>
+>
 
 ### <a name="crash-analysis"></a>Analyse des incidents
 L’analyse de la mémoire de vidage sur incident est une méthode utilisée pour détecter les programmes malveillants sophistiqués capables d’échapper aux solutions de sécurité traditionnelles. Différentes formes de programmes malveillants tentent de réduire le risque de détection par des produits antivirus en n’écrivant jamais sur le disque ou en chiffrant les composants logiciels écrits sur le disque. Ainsi, les programmes malveillants sont difficiles à l’aide des logiciels anti-programmes malveillants traditionnels. Toutefois, ces programmes malveillants peuvent être détectés à l’aide de l’analyse de mémoire, car le programme malveillant laisse des traces en mémoire pour pouvoir fonctionner.
@@ -88,7 +88,7 @@ Cette alerte fournit le champ supplémentaire suivant :
 
 Voici un exemple de ce type d’alerte :
 
-![Alerte de shellcode](./media/security-center-alerts-type/security-center-alerts-type-fig2.png) 
+![Alerte de shellcode](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)
 
 ### <a name="module-hijacking-discovered"></a>Détournement de module détecté
 Windows s’appuie sur des bibliothèques de liens dynamiques (DLL) pour exploiter les fonctionnalités système courantes. Un détournement de DLL se produit lorsqu’un programme malveillant modifie l’ordre de chargement des DLL pour charger des charges utiles malveillantes dans la mémoire, où du code arbitraire peut être exécuté. Cette alerte indique que l’analyse de vidage sur incident a détecté qu’un module portant le même nom est chargé à partir de deux chemins d’accès différents, l’un de ces chemins correspondant à un emplacement de fichier binaire système Windows courant.
@@ -104,7 +104,7 @@ En plus des champs communs décrits dans la section « Shellcode détecté » ci
 
 Voici un exemple de ce type d’alerte :
 
-![Alerte de détournement de module](./media/security-center-alerts-type/security-center-alerts-type-fig3.png) 
+![Alerte de détournement de module](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)
 
 ### <a name="masquerading-windows-module-detected"></a>Usurpation d’identité de module Windows détectée
 Les programmes malveillants peuvent utiliser des noms courants de fichiers binaires système (par exemple, SVCHOST.EXE) ou de modules (par exemple, NTDLL.DLL) Windows pour « se fondre » et cacher la nature malveillante des logiciels aux administrateurs système. Cette alerte indique que l’analyse de vidage sur incident a détecté que le fichier de vidage sur incident contient des modules qui utilisent des noms de modules système Windows, mais ne remplissent pas les autres critères typiques des modules Windows. L’analyse de la copie sur disque du module d’usurpation d’identité peut fournir des informations supplémentaires quant à la nature légitime ou malveillante de ce dernier. L’analyse peut inclure les opérations suivantes :
@@ -123,7 +123,7 @@ Cette alerte extrait et affiche également certains champs de l’en-tête PE du
 
 Voici un exemple de ce type d’alerte :
 
-![Alerte d’usurpation d’identité Windows](./media/security-center-alerts-type/security-center-alerts-type-fig4.png) 
+![Alerte d’usurpation d’identité Windows](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)
 
 ### <a name="modified-system-binary-discovered"></a>Fichier binaire système modifié détecté
 Les programmes malveillants peuvent modifier des fichiers binaires système de base pour accéder de façon dissimulée aux données ou persister subrepticement sur un système compromis. Cette alerte indique que l’analyse de vidage sur incident a détecté que des fichiers binaires de base du système d’exploitation Windows ont été modifiés dans la mémoire ou sur le disque.
@@ -136,7 +136,7 @@ En plus des champs communs décrits dans la section « Shellcode détecté » ci
 
 Voici un exemple de ce type d’alerte :
 
-![Alerte de fichier binaire système](./media/security-center-alerts-type/security-center-alerts-type-fig5.png) 
+![Alerte de fichier binaire système](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)
 
 ### <a name="suspicious-process-executed"></a>Processus suspect exécuté
 Azure Security Center identifie le processus suspect en cours d’exécution dans la machine virtuelle cible et déclenche une alerte. La détection ne recherche pas un nom spécifique, mais son paramètre. Ainsi, même si la personne malveillante renomme le fichier exécutable, Azure Security Center est toujours en mesure de le détecter.
@@ -158,7 +158,7 @@ La détection des menaces sur le réseau assurée par Azure Security Center fonc
 ### <a name="suspicious-outgoing-traffic-detected"></a>Trafic sortant suspect détecté
 Les périphériques réseau peuvent être détectés et profilés de la même façon que les autres types de systèmes. Les pirates commencent généralement par l’analyse des ports / le balayage des ports. L’exemple ci-dessous présente un trafic SSH suspect d’une machine virtuelle pouvant être en train de procéder à une attaque de force brute SSH ou à une attaque par balayage des ports contre une ressource externe.
 
-![Alerte de trafic sortant suspect](./media/security-center-alerts-type/security-center-alerts-type-fig8.png) 
+![Alerte de trafic sortant suspect](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
 
 Cette alerte fournit des informations qui vous permettent d’identifier la ressource qui a été utilisée pour lancer ce type d’attaque, l’ordinateur compromis, l’heure de détection, le protocole et le port qui a été utilisé. Ce panneau vous donne également une liste des étapes de résolution pouvant être utilisées pour résoudre ce problème.
 
@@ -169,7 +169,10 @@ En exploitant les flux des informations sur les menaces de Microsoft, Azure Secu
 
 Cette alerte fournit des informations qui vous permettent d’identifier la ressource qui a été utilisée pour lancer ce type d’attaque, la ressource attaquée, l’adresse IP de la victime, l’adresse IP de l’attaquant et l’heure de détection.
 
-[AZURE.NOTE] Les adresses IP dynamiques ont été supprimés de cette capture d’écran à des fins de confidentialité.
+> [!NOTE]
+> Les adresses IP dynamiques ont été supprimés de cette capture d’écran à des fins de confidentialité.
+>
+>
 
 ### <a name="possible-outgoing-denial-of-service-attack-detected"></a>Attaque potentielle par déni de service sortant détectée
 Un trafic réseau anormal provenant d’une machine virtuelle peut amener Azure Security Center à déclencher un type d’attaque potentielle par déni de service.
@@ -184,8 +187,8 @@ Dans Security Center, l’analyse des ressources se concentre sur les services P
 ### <a name="potential-sql-injection"></a>Injection potentielle de code SQL
 Une attaque par injection de code SQL est une attaque dans laquelle un code malveillant est inséré dans les chaînes transmises ultérieurement à une instance de SQL Server pour analyse et exécution. Toute procédure qui construit des instructions SQL doit être analysée pour rechercher les vulnérabilités d’injection, car SQL Server exécutera toutes les requêtes syntaxiquement valides qu’il reçoit. La fonctionnalité de détection des menaces SQL utilise l’apprentissage machine, l’analyse comportementale et la détection d’anomalie pour déterminer les événements suspects pouvant survenir dans les bases de données SQL Azure. Par exemple :
 
-* Tentative d’accès à la base de données par un ancien employé 
-* Attaques par injection de code SQL 
+* Tentative d’accès à la base de données par un ancien employé
+* Attaques par injection de code SQL
 * Accès inhabituel à la base de données de production par un utilisateur à son domicile
 
 ![Alerte d’injection potentielle de code SQL](./media/security-center-alerts-type/security-center-alerts-type-fig11.png)
@@ -210,7 +213,6 @@ Ce document vous a présenté les différents types d’alertes de sécurité da
 * [Guide des opérations et de planification du Centre de sécurité Azure](security-center-planning-and-operations-guide.md)
 * [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service.
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
-
 
 
 

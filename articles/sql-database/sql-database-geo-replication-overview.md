@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/26/2016
-ms.author: sashan;carlrab
+ms.author: sashan
 translationtype: Human Translation
 ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
 ms.openlocfilehash: e580886bae72aee3bb3569299a831529ef18821c

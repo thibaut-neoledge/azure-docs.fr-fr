@@ -114,7 +114,7 @@ Le serveur DNS fourni par Azure est un serveur DNS mutualisé proposé par Micro
 > 
 > 
 
-### <a name="can-i-override-my-dns-settings-on-a-per-vm-service-basis"></a>Puis-je remplacer mes paramètres DNS sur la base machine virtuelle/service ?
+### <a name="can-i-override-my-dns-settings-on-a-per-vm--service-basis"></a>Puis-je remplacer mes paramètres DNS sur la base machine virtuelle/service ?
 Oui. Vous pouvez configurer des serveurs DNS sur une base de service cloud pour remplacer les paramètres de réseau par défaut. Toutefois, nous vous recommandons d’utiliser autant que possible le DNS à l’échelle du réseau.
 
 ### <a name="can-i-bring-my-own-dns-suffix"></a>Puis-je afficher mon propre suffixe DNS ?

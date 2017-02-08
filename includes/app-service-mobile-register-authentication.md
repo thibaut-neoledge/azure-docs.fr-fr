@@ -14,6 +14,6 @@ Commencez par inscrire votre application auprès d’un site de fournisseur d’
 [Azure portal]: https://portal.azure.com/
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 11/28/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8a971b0dc1f216deaa93045857d6220d0fcbf8c1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ebbd4166bc3f76c91823ee17b8b9c460feb9e194
 
 
 ---
@@ -85,6 +85,8 @@ Le module complémentaire Splunk pour les services cloud de Microsoft est [dispo
 [Consultez la documentation.][splunk-doc]
 
 ## <a name="sumo-logic"></a>Sumo Logic
+Sumo Logic est un service cloud natif sécurisé d'analyse des données de l'ordinateur, qui fournit en permanence et en temps réel des informations à partir de données structurées, semi-structurées et non structurées sur l’ensemble du cycle de vie et de la pile de l'application. Plus de 1 000 clients dans le monde entier s'appuient sur les analyses et les informations fournies par Sumo Logic pour créer, exécuter et sécuriser leurs applications modernes et leurs infrastructures de cloud. Avec Sumo Logic, les clients bénéficient des avantages d'un modèle de service mutualisé qui accélère leur migration vers une innovation continue, augmentant ainsi leur avantage concurrentiel, leur valeur commerciale et leur croissance.
+
 [En savoir plus.][sumologic-doc]
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -103,7 +105,7 @@ Le module complémentaire Splunk pour les services cloud de Microsoft est [dispo
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
 [splunk-anchor]: #splunk-add-on-for-microsoft-cloud-services "Splunk"
-[sumologic-anchor]: #sumologic "Sumo Logic"
+[sumologic-anchor]: #sumo-logic "Sumo Logic"
 
 <!--Icon references-->
 [alertlogic-logo]: ./media/partner-logos/alertlogic.png
@@ -123,18 +125,18 @@ Le module complémentaire Splunk pour les services cloud de Microsoft est [dispo
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "Documentation AlertLogic."
 [appdynamics-doc]: https://docs.appdynamics.com/display/PRO42/Register+for+AppDynamics+for+Windows+Azure "Documentation AppDynamics."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
-[cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "Présentation de CloudMonix."
-[cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Présentation de Cloudyn."
-[datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Documentation DataDog."
-[dynatrace-doc]: https://blog.ruxit.com/ruxit-monitoring-azure-web-apps/ "Documentation Dynatrace."
-[newrelic-doc]: https://newrelic.com/azure "Documentation NewRelic."
-[opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "Documentation OpsGenie."
-[pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "Documentation PagerDuty."
-[splunk-doc]: http://docs.splunk.com/Documentation/AddOns/released/MSCloudServices/About "Documentation Splunk."
-[sumologic-doc]: https://www.sumologic.com/azure "Documentation SumoLogic."
+[cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "Introduction de CloudMonix."
+[cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Introduction de Cloudyn."
+[datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Documentation de DataDog."
+[dynatrace-doc]: https://blog.ruxit.com/ruxit-monitoring-azure-web-apps/ "Documentation de Dynatrace."
+[newrelic-doc]: https://newrelic.com/azure "Documentation de NewRelic."
+[opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "Documentation d’OpsGenie."
+[pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "Documentation de PagerDuty."
+[splunk-doc]: http://docs.splunk.com/Documentation/AddOns/released/MSCloudServices/About "Documentation de Splunk."
+[sumologic-doc]: https://www.sumologic.com/azure "Documentation de SumoLogic."
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

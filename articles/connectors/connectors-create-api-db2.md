@@ -1,13 +1,13 @@
 ---
-title: Ajouter le connecteur DB2 dans vos applications logiques | Microsoft Docs
-description: Vue d’ensemble du connecteur DB2 avec les paramètres d’API REST
-services: ''
-documentationcenter: ''
+title: "Ajouter le connecteur DB2 dans vos applications logiques | Microsoft Docs"
+description: "Vue d’ensemble du connecteur DB2 avec les paramètres d’API REST"
+services: 
+documentationcenter: 
 author: gplarsen
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 1c6b010c-beee-496d-943a-a99e168c99aa
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen
+translationtype: Human Translation
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: bba03cfb21e8eebdbf67152de9c6e2da6f22f5a2
+
 
 ---
 # <a name="get-started-with-the-db2-connector"></a>Prise en main du connecteur DB2
@@ -36,7 +40,7 @@ Le connecteur DB2 prend en charge les opérations de bases de données suivantes
 
 Cette rubrique décrit comment utiliser le connecteur dans une application logique pour traiter les opérations de base de données.
 
-Pour plus d’informations sur Logic Apps, voir [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour plus d’informations sur Logic Apps, voir [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="available-actions"></a>Actions disponibles
 Le connecteur DB2 prend en charge les actions d’applications logiques suivantes :
@@ -170,7 +174,7 @@ Vous pouvez définir une action d’application logique pour qu’elle ajoute un
 3. Dans le déclencheur **Périodicité**, sélectionnez **Modifier**, sélectionnez la liste déroulante **Fréquence** et sélectionnez **Jour**, puis sélectionnez **Intervalle** et tapez **7**. 
 4. Sélectionnez **+ Nouvelle étape**, puis sélectionnez **Ajouter une action**.
 5. Dans la liste **actions**, tapez **db2** dans la zone de modification **Search for more actions** (Rechercher d’autres actions), puis sélectionnez **DB2 - Insert row (Preview)** (DB2 - Insérer une ligne (version préliminaire)).
-6. Dans l’action **Get rows (Preview)** (Obtenir les lignes (version préliminaire)), sélectionnez **Modifier la connexion**. 
+6. Dans l’action **DB2 - Insert row (Preview)** (DB2 - Insérer une ligne (version préliminaire)), sélectionnez **Modifier la connexion**. 
 7. Dans le volet de configuration **Connexions** , sélectionnez une connexion. Par exemple, sélectionnez **hisdemo2**.
    
     ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
@@ -225,7 +229,7 @@ Vous pouvez définir une action d’application logique pour qu’elle modifie u
 3. Dans le déclencheur **Périodicité**, sélectionnez **Modifier**, sélectionnez la liste déroulante **Fréquence** et sélectionnez **Jour**, puis sélectionnez **Intervalle** et tapez **7**. 
 4. Sélectionnez **+ Nouvelle étape**, puis sélectionnez **Ajouter une action**.
 5. Dans la liste **actions**, tapez **db2** dans la zone de modification **Search for more actions** (Rechercher d’autres actions), puis sélectionnez **DB2 - Update row (Preview)** (DB2 - Mettre à jour une ligne (version préliminaire)).
-6. Dans l’action **Get rows (Preview)** (Obtenir les lignes (version préliminaire)), sélectionnez **Modifier la connexion**. 
+6. Dans l’action **DB2 - Update row (Preview)** (DB2 - Mettre à jour une ligne (version préliminaire)), sélectionnez **Modifier la connexion**. 
 7. Dans le volet de configuration **Connexions** , sélectionnez une connexion existante. Par exemple, sélectionnez **hisdemo2**.
    
     ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
@@ -252,7 +256,7 @@ Vous pouvez définir une action d’application logique pour qu’elle supprime 
 3. Dans le déclencheur **Périodicité**, sélectionnez **Modifier**, sélectionnez la liste déroulante **Fréquence** et sélectionnez **Jour**, puis sélectionnez **Intervalle** et tapez **7**. 
 4. Sélectionnez **+ Nouvelle étape**, puis sélectionnez **Ajouter une action**.
 5. Dans la liste **actions**, sélectionnez **db2** dans la zone de modification **Search for more actions** (Rechercher d’autres actions), puis sélectionnez **DB2 - Delete row (Preview)** (DB2 - Supprimer une ligne (version préliminaire)).
-6. Dans l’action **Get rows (Preview)** (Obtenir les lignes (version préliminaire)), sélectionnez **Modifier la connexion**. 
+6. Dans l’action **DB2 - Delete row (Preview)** (DB2 - Supprimer une ligne (version préliminaire)), sélectionnez **Modifier la connexion**. 
 7. Dans le volet de configuration **Connexions** , sélectionnez une connexion existante. Par exemple, sélectionnez **hisdemo2**.
    
     ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
@@ -305,8 +309,8 @@ Récupère les lignes d’une table DB2.
 | Nom de la propriété | Display Name | Description |
 | --- | --- | --- |
 | table* |Nom de la table |Nom de la table DB2 |
-| $skip |Nombre à ignorer |Nombre d’entrées à ignorer (valeur par défaut : 0) |
-| $top |Nombre maximal à récupérer |Nombre maximal d’entrées à récupérer (valeur par défaut : 256) |
+| $skip |Nombre à ignorer |Nombre d’entrées à ignorer (valeur par défaut : 0) |
+| $top |Nombre maximal à récupérer |Nombre maximal d’entrées à récupérer (valeur par défaut : 256) |
 | $filter |Requête de filtre |Requête filter ODATA pour limiter le nombre d’entrées |
 | $orderby |Trier par |Requête orderBy ODATA pour spécifier l’ordre des entrées |
 
@@ -405,8 +409,11 @@ Ce connecteur prend en charge les plateformes et versions IBM DB2 suivantes, ain
 * IBM DB2 pour LUW 10.5
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md). Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).
+[Créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Feb17_HO1-->
 
 

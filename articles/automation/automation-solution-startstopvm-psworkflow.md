@@ -1,28 +1,34 @@
 ---
-title: Démarrage et arrêt des machines virtuelles avec Azure Automation - Workflow PowerShell | Microsoft Docs
-description: Version graphique du scénario Azure Automation incluant des runbooks pour démarrer et arrêter des machines virtuelles classiques.
+title: "Démarrage et arrêt des machines virtuelles avec Azure Automation - Workflow PowerShell | Microsoft Docs"
+description: "Version graphique du scénario Azure Automation incluant des runbooks pour démarrer et arrêter des machines virtuelles classiques."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: mgoedtel
 manager: jwhit
 editor: tysonn
-
+ms.assetid: d380bd43-d45d-45af-a5b2-78e7f66263c3
 ms.service: automation
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/06/2016
-ms.author: bwren
+ms.author: magoedte;bwren
+redirect_url: https://docs.microsoft.com/azure/automation/automation-solution-vm-management
+redirect_document_id: FALSE
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 820ef7238593cd99d41cc3fe5d1d7a29699397fc
 
 ---
-# <a name="azure-automation-scenario---starting-and-stopping-virtual-machines"></a>Scénario Azure Automation : démarrage et arrêt de machines virtuelles
-Ce scénario Azure Automation inclut des runbooks pour démarrer et arrêter des machines virtuelles classiques.  Vous pouvez utiliser ce scénario dans les cas suivants :  
 
-* Utiliser les runbooks sans modification dans votre propre environnement. 
+# <a name="azure-automation-scenario---starting-and-stopping-virtual-machines"></a>Scénario Azure Automation : démarrage et arrêt de machines virtuelles
+Ce scénario Azure Automation inclut des runbooks pour démarrer et arrêter des machines virtuelles classiques.  Vous pouvez utiliser ce scénario dans les cas suivants :  
+
+* Utiliser les runbooks sans modification dans votre propre environnement.
 * Modifier les runbooks pour exécuter une fonctionnalité personnalisée.  
-* Appeler les runbooks à partir d’un autre runbook dans le cadre d’une solution globale. 
-* Utiliser les runbooks comme didacticiels pour apprendre les concepts de création de runbook. 
+* Appeler les runbooks à partir d’un autre runbook dans le cadre d’une solution globale.
+* Utiliser les runbooks comme didacticiels pour apprendre les concepts de création de runbook.
 
 > [!div class="op_single_selector"]
 > * [Graphique](automation-solution-startstopvm-graphical.md)
@@ -41,13 +47,13 @@ Ce scénario se compose de deux runbooks Workflow PowerShell que vous pouvez té
 | Stop-AzureVMs |[Arrêter les machines virtuelles Azure classiques](https://gallery.technet.microsoft.com/Stop-Azure-Classic-VMs-7a4ae43e) |Workflow PowerShell |Arrête toutes les machines virtuelles d’un compte Automation ou toutes les machines virtuelles portant un nom de service particulier. |
 
 ## <a name="installing-and-configuring-the-scenario"></a>Installation et configuration du scénario
-### <a name="1.-install-the-runbooks"></a>1. Installation des runbooks
+### <a name="1-install-the-runbooks"></a>1. Installation des runbooks
 Après avoir téléchargé les runbooks, vous pouvez les importer à l’aide de la procédure décrite dans [Importation d’un runbook](http://msdn.microsoft.com/library/dn643637.aspx#ImportRunbook).
 
-### <a name="2.-review-the-description-and-requirements"></a>2. Examen de la description et des conditions requises
-Les runbooks incluent du texte d’aide commenté qui comprend une description et les ressources requises.  Vous pouvez également obtenir les mêmes informations à partir de cet article. 
+### <a name="2-review-the-description-and-requirements"></a>2. Examen de la description et des conditions requises
+Les runbooks incluent du texte d’aide commenté qui comprend une description et les ressources requises.  Vous pouvez également obtenir les mêmes informations à partir de cet article.
 
-### <a name="3.-configure-assets"></a>3. Configuration des ressources
+### <a name="3-configure-assets"></a>3. Configuration des ressources
 Les runbooks requièrent les ressources suivantes que vous devez créer et remplir avec les valeurs appropriées.
 
 | Type de ressource | Nom de la ressource | Description |
@@ -85,7 +91,7 @@ Les Runbooks [généreront un message](automation-runbook-output-and-messages.md
 | Stop-AzureVMs |Demande d’arrêt de la machine virtuelle envoyée avec succès |MyVM arrêtée |
 | Stop-AzureVMs |Échec de la demande d’arrêt de la machine virtuelle |Échec de l’arrêt de MyVM |
 
-Par exemple, l’extrait de code suivant d’un runbook tente de démarrer toutes les machines virtuelles portant le nom de service *MyServiceName*.  Si l’une des demandes de démarrage échoue, des mesures peuvent être prises. 
+Par exemple, l’extrait de code suivant d’un runbook tente de démarrer toutes les machines virtuelles portant le nom de service *MyServiceName*.  Si l’une des demandes de démarrage échoue, des mesures peuvent être prises.
 
     $results = Start-AzureVMs -ServiceName "MyServiceName"
     foreach ($result in $results) {
@@ -103,13 +109,13 @@ Voici une analyse détaillée des runbooks de ce scénario.  Vous pouvez utilise
 
 ### <a name="parameters"></a>Paramètres
     param (
-        [Parameter(Mandatory=$false)] 
+        [Parameter(Mandatory=$false)]
         [String]  $AzureCredentialAssetName = 'AzureCredential',
 
         [Parameter(Mandatory=$false)]
         [String] $AzureSubscriptionIdAssetName = 'AzureSubscriptionId',
 
-        [Parameter(Mandatory=$false)] 
+        [Parameter(Mandatory=$false)]
         [String] $ServiceName
     )
 
@@ -128,7 +134,7 @@ Cette ligne déclare que la sortie du runbook est une chaîne.  Cette pratique n
     $SubId = Get-AutomationVariable -Name $AzureSubscriptionIdAssetName
     $null = Select-AzureSubscription -SubscriptionId $SubId -ErrorAction Stop
 
-Les lignes suivantes définissent les [informations d’identification](automation-configuring.md#configuring-authentication-to-azure-resources) et l’abonnement Azure qui seront utilisés pour le reste du runbook.
+Les lignes suivantes définissent les [informations d’identification](automation-credentials.md) et l’abonnement Azure qui seront utilisés pour le reste du runbook.
 Tout d’abord, nous utilisons **Get-AutomationPSCredential** pour obtenir la ressource qui détient les informations d’identification avec accès pour démarrer et arrêter des machines virtuelles dans l’abonnement Azure. **Add-AzureAccount** utilise ensuite cette ressource pour définir les informations d’identification.  La sortie est affectée à une variable factice de sorte qu’elle n’est pas incluse dans la sortie de runbook.  
 
 La ressource variable avec l’ID d’abonnement est ensuite récupérée avec **Get-AutomationVariable** et l’abonnement est défini avec **Select-AzureSubscription**.
@@ -136,18 +142,18 @@ La ressource variable avec l’ID d’abonnement est ensuite récupérée avec *
 ### <a name="get-vms"></a>Obtention de machines virtuelles
     # If there is a specific cloud service, then get all VMs in the service,
     # otherwise get all VMs in the subscription.
-    if ($ServiceName) 
-    { 
+    if ($ServiceName)
+    {
         $VMs = Get-AzureVM -ServiceName $ServiceName
     }
-    else 
-    { 
+    else
+    {
         $VMs = Get-AzureVM
     }
 
 **Get-AzureVM** est utilisée pour récupérer les machines virtuelles avec lesquelles le runbook va fonctionner.  Si une valeur est fournie dans la variable d’entrée **ServiceName** , alors seules les machines virtuelles portant ce nom de service sont récupérées.  Si **ServiceName** est vide, toutes les machines virtuelles sont récupérées.
 
-### <a name="start/stop-virtual-machines-and-send-output"></a>Démarrage/arrêt des machines virtuelles et envoi de sorties
+### <a name="startstop-virtual-machines-and-send-output"></a>Démarrage/arrêt des machines virtuelles et envoi de sorties
     # Start each of the stopped VMs
     foreach ($VM in $VMs)
     {
@@ -177,9 +183,12 @@ La ressource variable avec l’ID d’abonnement est ensuite récupérée avec *
 Les lignes suivantes passent en revue chaque machine virtuelle.  Premièrement, l’état d’alimentation **PowerState** de chaque machine virtuelle est vérifié pour voir si elle est déjà en cours d’exécution ou arrêtée, selon le runbook.  Si elle est déjà dans l’état cible, un message est envoyé à la sortie et le runbook s’arrête.  Si ce n’est pas le cas, les commandes **Start-AzureVM** ou **Stop-AzureVM** sont utilisées pour tenter de démarrer ou d’arrêter la machine virtuelle avec le résultat de la demande stocké dans une variable.  Ensuite, un message est envoyé à la sortie indiquant si la demande de démarrage ou d’arrêter a été envoyée avec succès.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur l’utilisation de runbooks enfants, consultez la rubrique [Runbooks enfants dans Azure Automation](automation-child-runbooks.md) 
+* Pour en savoir plus sur l’utilisation de runbooks enfants, consultez la rubrique [Runbooks enfants dans Azure Automation](automation-child-runbooks.md)
 * Pour en savoir plus sur les messages de sortie pendant l’exécution d’un runbook et la journalisation pour le dépannage, consultez la rubrique [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

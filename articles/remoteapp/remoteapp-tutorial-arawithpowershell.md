@@ -15,8 +15,8 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dcd220da143b518bf28cc1169ab68d20256c07ba
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 4f2b61e7c97beb7556bffca89c3608aaee831ddc
 
 
 ---
@@ -36,7 +36,7 @@ Consultez [l’aide sur les applets de commande Azure RemoteApp](https://msdn.mi
 
 ## <a name="configure-azure-cmdlets-to-use-your-subscription"></a>Configuration des applets de commande Azure pour utiliser votre abonnement
 - - -
-Suivez [ce guide](../powershell-install-configure.md) pour apprendre à utiliser les applets de commande sur votre abonnement Azure.
+Suivez [ce guide](/powershell/azureps-cmdlets-docs) pour apprendre à utiliser les applets de commande sur votre abonnement Azure.
 
 Vous pouvez utiliser ces étapes pour démarrer rapidement :
 
@@ -118,6 +118,6 @@ Autres applets de commande RemoteApp :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -41,7 +41,7 @@ Les développeurs d’applications en tirent profit en atteignant leurs clients 
 ## <a name="open-apis-and-ease-of-integration"></a>API ouvertes et facilité d’intégration
 En fournissant des API ouvertes et des Kits de développement logiciel (SDK) qui facilitent l'intégration, vous pouvez tirer parti des données provenant de votre CRM, CMS ou autres systèmes principaux existants. Vous pouvez ainsi mieux cibler votre public et protéger vos investissements.
 
-## <a name="data-protection-privacy-across-the-globe"></a>Protection et confidentialité des données dans le monde entier
+## <a name="data-protection--privacy-across-the-globe"></a>Protection et confidentialité des données dans le monde entier
 Depuis longtemps, Microsoft fait preuve d'un engagement réel vis-à-vis de la confidentialité, partie intégrante du cycle de vie des produits et des services. Nous nous efforçons de rendre nos pratiques de confidentialité transparentes, de proposer aux clients des choix pertinents en termes de confidentialité et de gérer de façon responsable les données que nous stockons. Comme pour tous les services Azure, Mobile Engagement ne partage pas ou ne vend pas les informations dérivées de la propriété des clients. Mobile Engagement est disponible dans le monde entier, permettant ainsi d'appliquer les lois relatives à la confidentialité des données spécifiques à une région ou un pays.
 
 ### <a name="next-steps"></a>Étapes suivantes :

@@ -1,13 +1,13 @@
 ---
-title: Gestion des ressources de données | Microsoft Docs
-description: Article de procédure expliquant comment contrôler la visibilité et la propriété des ressources de données inscrites dans Azure Data Catalog.
+title: "Gestion des ressources de données | Microsoft Docs"
+description: "Article de procédure expliquant comment contrôler la visibilité et la propriété des ressources de données inscrites dans Azure Data Catalog."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 10/04/2016
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 49d939205c85bad8bf7422ef4d9fa02501bb8df7
+
 
 ---
 # <a name="how-to-manage-data-assets"></a>Gestion des ressources de données
@@ -70,6 +74,9 @@ Les administrateurs de Data Catalog sont implicitement copropriétaires de toute
 ## <a name="summary"></a>Résumé
 Data Catalog repose sur un modèle de découverte de données et de métadonnées basé sur la notion de crowdsourcing, qui permet à tous les utilisateurs du catalogue de collaborer et découvrir des ressources. L’édition Standard de Data Catalog intègre des fonctionnalités de possession et de gestion permettant de restreindre la visibilité et l’utilisation de ressources de données spécifiques.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

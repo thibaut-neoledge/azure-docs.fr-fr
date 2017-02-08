@@ -3,8 +3,8 @@ title: "Utilisation du stockage Tables à partir de Python | Microsoft Docs"
 description: "Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure, un magasin de données NoSQL."
 services: storage
 documentationcenter: python
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: 7ddb9f3e-4e6d-4103-96e6-f0351d69a17b
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: ef3e8f3292d1bef16de33c94f586841bd19ae6d0
-ms.openlocfilehash: 098c5007b76c876b6d797deca91d9c954dcd76f4
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 98b02e8faa21e6d0e04d2f2c70bee6b8b018c010
 
 
 ---
@@ -34,106 +34,134 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l’uti
 
 ## <a name="create-a-table"></a>Création d’une table
 L'objet **TableService** permet d'utiliser les services de Table. Le code suivant permet de créer un objet **TargetService** . Ajoutez ce code vers le début de tout fichier Python dans lequel vous souhaitez accéder à Azure Storage par programme :
-```python
-    from azure.storage.table import TableService, Entity
-```
-Le code suivant crée un objet **TableService** en utilisant le nom et la clé du compte de stockage.  Remplacez « myaccount » et « mykey » par le nom et la clé réels de votre compte.
-```python
-    table_service = TableService(account_name='myaccount', account_key='mykey')
 
-    table_service.create_table('tasktable')
+```python
+from azure.storage.table import TableService, Entity
 ```
+
+Le code suivant crée un objet **TableService** en utilisant le nom et la clé du compte de stockage.  Remplacez « myaccount » et « mykey » par le nom et la clé réels de votre compte.
+
+```python
+table_service = TableService(account_name='myaccount', account_key='mykey')
+
+table_service.create_table('tasktable')
+```
+
 ## <a name="add-an-entity-to-a-table"></a>Ajout d’une entité à une table
 Pour ajouter une entité, commencez par créer un dictionnaire ou une entité définissant les noms et valeurs des propriétés de votre entité. Notez que pour chaque entité, vous devez spécifier les clés **PartitionKey** et **RowKey**. Elles permettent d’identifier vos entités de manière univoque. Vous pouvez interroger ces valeurs beaucoup plus vite que d’autres propriétés. Le système utilise **PartitionKey** pour distribuer automatiquement les entités de la table sur plusieurs nœuds de stockage.
 Les entités partageant la même clé **PartitionKey** sont stockées sur le même nœud. **RowKey** identifie de manière univoque l’entité dans sa partition.
 
 Pour ajouter une entité à votre table, transmettez l’objet dictionnaire à la méthode **insert\_entity**.
+
 ```python
-    task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the trash', 'priority' : 200}
-    table_service.insert_entity('tasktable', task)
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the trash', 'priority' : 200}
+table_service.insert_entity('tasktable', task)
 ```
+
 Vous pouvez également transmettre une instance de la classe **Entity** à la méthode **insert\_entity**.
+
 ```python
-    task = Entity()
-    task.PartitionKey = 'tasksSeattle'
-    task.RowKey = '2'
-    task.description = 'Wash the car'
-    task.priority = 100
-    table_service.insert_entity('tasktable', task)
+task = Entity()
+task.PartitionKey = 'tasksSeattle'
+task.RowKey = '2'
+task.description = 'Wash the car'
+task.priority = 100
+table_service.insert_entity('tasktable', task)
 ```
+
 ## <a name="update-an-entity"></a>Mise à jour d'une entité
 Ce code montre comment remplacer l'ancienne version d'une entité existante par une version mise à jour.
+
 ```python
-    task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the garbage', 'priority' : 250}
-    table_service.update_entity('tasktable', 'tasksSeattle', '1', task, content_type='application/atom+xml')
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the garbage', 'priority' : 250}
+table_service.update_entity('tasktable', 'tasksSeattle', '1', task, content_type='application/atom+xml')
 ```
+
 Si l'entité à remplacer n'existe pas, l'opération de mise à jour échoue. Pour stocker une entité, utilisez **insert\_or\_replace_entity**.
 Dans l'exemple suivant, le premier appel remplace l'entité existante. Le deuxième appel insère une nouvelle entité, car il n’existe aucune entité ayant les clés **PartitionKey** et **RowKey** spécifiées.
-```python
-    task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the garbage again', 'priority' : 250}
-    table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '1', task, content_type='application/atom+xml')
 
-    task = {'PartitionKey': 'tasksSeattle', 'RowKey': '3', 'description' : 'Buy detergent', 'priority' : 300}
-    table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '1', task, content_type='application/atom+xml')
+```python
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the garbage again', 'priority' : 250}
+table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '1', task, content_type='application/atom+xml')
+
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '3', 'description' : 'Buy detergent', 'priority' : 300}
+table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '1', task, content_type='application/atom+xml')
 ```
+
 ## <a name="change-a-group-of-entities"></a>Modification d’un groupe d’entités
 Il est parfois intéressant de soumettre un lot d'opérations simultanément pour assurer un traitement atomique par le serveur. Pour cela, utilisez la classe **TableBatch** . Lorsque vous devez soumettre le lot, appelez **commit\_batch**. Notez que toutes les entités doivent se trouver dans la même partition pour pouvoir être modifiées par lot. L'exemple ci-dessous permet d'ajouter deux entités dans un lot.
-```python
-    from azure.storage.table import TableBatch
-    batch = TableBatch()
-    task10 = {'PartitionKey': 'tasksSeattle', 'RowKey': '10', 'description' : 'Go grocery shopping', 'priority' : 400}
-    task11 = {'PartitionKey': 'tasksSeattle', 'RowKey': '11', 'description' : 'Clean the bathroom', 'priority' : 100}
-    batch.insert_entity(task10)
-    batch.insert_entity(task11)
-    table_service.commit_batch('tasktable', batch)
-```
-Les lots peuvent également être utilisés avec la syntaxe du gestionnaire de contexte :
-```python
-    task12 = {'PartitionKey': 'tasksSeattle', 'RowKey': '12', 'description' : 'Go grocery shopping', 'priority' : 400}
-    task13 = {'PartitionKey': 'tasksSeattle', 'RowKey': '13', 'description' : 'Clean the bathroom', 'priority' : 100}
 
-    with table_service.batch('tasktable') as batch:
-        batch.insert_entity(task12)
-        batch.insert_entity(task13)
+```python
+from azure.storage.table import TableBatch
+batch = TableBatch()
+task10 = {'PartitionKey': 'tasksSeattle', 'RowKey': '10', 'description' : 'Go grocery shopping', 'priority' : 400}
+task11 = {'PartitionKey': 'tasksSeattle', 'RowKey': '11', 'description' : 'Clean the bathroom', 'priority' : 100}
+batch.insert_entity(task10)
+batch.insert_entity(task11)
+table_service.commit_batch('tasktable', batch)
+```
+
+Les lots peuvent également être utilisés avec la syntaxe du gestionnaire de contexte :
+
+```python
+task12 = {'PartitionKey': 'tasksSeattle', 'RowKey': '12', 'description' : 'Go grocery shopping', 'priority' : 400}
+task13 = {'PartitionKey': 'tasksSeattle', 'RowKey': '13', 'description' : 'Clean the bathroom', 'priority' : 100}
+
+with table_service.batch('tasktable') as batch:
+    batch.insert_entity(task12)
+    batch.insert_entity(task13)
 ```
 
 ## <a name="query-for-an-entity"></a>Interrogation d’une entité
 Pour interroger une entité dans une table, utilisez la méthode **get\_entity** en spécifiant les clés **PartitionKey** et **RowKey**.
+
 ```python
-    task = table_service.get_entity('tasktable', 'tasksSeattle', '1')
+task = table_service.get_entity('tasktable', 'tasksSeattle', '1')
+print(task.description)
+print(task.priority)
+```
+
+## <a name="query-a-set-of-entities"></a>Interrogation d’un ensemble d’entités
+Cet exemple recherche toutes les tâches dans Seattle avec la clé **PartitionKey**.
+
+```python
+tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'")
+for task in tasks:
     print(task.description)
     print(task.priority)
 ```
-## <a name="query-a-set-of-entities"></a>Interrogation d’un ensemble d’entités
-Cet exemple recherche toutes les tâches dans Seattle avec la clé **PartitionKey**.
-```python
-    tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'")
-    for task in tasks:
-        print(task.description)
-        print(task.priority)
-```
+
 ## <a name="query-a-subset-of-entity-properties"></a>Interrogation d’un sous-ensemble de propriétés d’entité
 Vous pouvez utiliser une requête de table pour extraire uniquement quelques propriétés d’une entité.
 Cette technique, nommée *projection*, réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. Utilisez le paramètre **select** et transmettez le nom des propriétés à soumettre au client.
 
 La requête contenue dans le code suivant ne renvoie que la description des entités de la table.
 
-[AZURE.NOTE] L’extrait suivant ne fonctionne que sur le service de stockage cloud. L’émulateur de stockage ne le prend pas en charge.
+> [!NOTE]
+> L’extrait suivant ne fonctionne qu’avec Stockage Azure. L’émulateur de stockage ne le prend pas en charge.
+>
+>
+
 ```python
-    tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'", select='description')
-    for task in tasks:
-        print(task.description)
+tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'", select='description')
+for task in tasks:
+    print(task.description)
 ```
+
 ## <a name="delete-an-entity"></a>Suppression d’une entité
 Vous pouvez supprimer une entité en utilisant ses clés de partition et de ligne.
+
 ```python
-    table_service.delete_entity('tasktable', 'tasksSeattle', '1')
+table_service.delete_entity('tasktable', 'tasksSeattle', '1')
 ```
+
 ## <a name="delete-a-table"></a>Suppression d’une table
 Le code suivant permet de supprimer une table d'un compte de stockage.
+
 ```python
-    table_service.delete_table('tasktable')
+table_service.delete_table('tasktable')
 ```
+
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous connaissez les bases du stockage de tables, consultez les liens suivants pour en savoir plus.
 
@@ -147,6 +175,6 @@ Maintenant que vous connaissez les bases du stockage de tables, consultez les li
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

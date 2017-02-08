@@ -1,28 +1,32 @@
 ---
-title: Comment découvrir des sources de données | Microsoft Docs
-description: Article de procédure relatif à la détection de ressources de données inscrites avec Azure Data Catalog et abordant notamment la recherche, le filtrage et l’utilisation de la mise en surbrillance des correspondances dans le portail Azure Data Catalog.
+title: "Comment découvrir des sources de données | Microsoft Docs"
+description: "Article de procédure relatif à la détection de ressources de données inscrites avec Azure Data Catalog et abordant notamment la recherche, le filtrage et l’utilisation de la mise en surbrillance des correspondances dans le portail Azure Data Catalog."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: f72ae3a3-6573-4710-89a7-f13555e1968c
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0c90aff38ebe33e8c26f9e46db7e61786ea9a7dd
+
 
 ---
 # <a name="how-to-discover-data-sources"></a>Détection de sources de données
 ## <a name="introduction"></a>Introduction
-**Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. En d'autres termes, **Microsoft Azure Data Catalog** vise essentiellement à aider les utilisateurs à détecter, comprendre et utiliser des sources de données et permet aux organisations de mieux exploiter leurs données. Une fois qu’une source de données a été inscrite auprès **d’Azure Data Catalog**, ses métadonnées sont indexées par le service. Les utilisateurs peuvent ainsi effectuer des recherches facilement pour découvrir les données dont ils ont besoin.
+**Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. En d'autres termes, **Microsoft Azure Data Catalog** vise essentiellement à aider les utilisateurs à détecter, comprendre et utiliser des sources de données et permet aux organisations de mieux exploiter leurs données. Une fois qu’une source de données a été inscrite auprès **d’Azure Data Catalog**, ses métadonnées sont indexées par le service. Les utilisateurs peuvent ainsi effectuer des recherches facilement pour découvrir les données dont ils ont besoin.
 
 ## <a name="searching-and-filtering"></a>Recherche et filtrage
-Dans **Azure Data Catalog** , la détection utilise deux mécanismes principaux : la recherche et le filtrage.
+Dans **Azure Data Catalog** , la détection utilise deux mécanismes principaux : la recherche et le filtrage.
 
 La recherche est conçue pour être intuitive et puissante. Par défaut, les termes de recherche sont comparés à toutes les propriétés du catalogue, y compris les annotations fournies par les utilisateurs.
 
@@ -31,7 +35,7 @@ Le filtrage est conçu pour compléter la recherche. Les utilisateurs peuvent s�
 En combinant recherche et filtrage, les utilisateurs peuvent parcourir rapidement les sources de données qui ont été inscrites avec **Azure Data Catalog** pour détecter celles dont ils ont besoin.
 
 ## <a name="search-syntax"></a>Syntaxe de recherche
-La recherche en texte libre par défaut est simple et intuitive. Cependant, les utilisateurs peuvent également utiliser la syntaxe de recherche **d’Azure Data Catalog** pour mieux contrôler les résultats de recherche. La recherche avec **Azure Data Catalog** prend en charge les techniques suivantes :
+La recherche en texte libre par défaut est simple et intuitive. Cependant, les utilisateurs peuvent également utiliser la syntaxe de recherche **d’Azure Data Catalog** pour mieux contrôler les résultats de recherche. La recherche avec **Azure Data Catalog** prend en charge les techniques suivantes :
 
 | Technique | Utilisation | Exemple |
 | --- | --- | --- |
@@ -48,8 +52,8 @@ Lorsque vous affichez les résultats de la recherche, les propriétés affichée
 
 > [!NOTE]
 > Les utilisateurs peuvent désactiver la mise en surbrillance des correspondances à l’aide du commutateur de mise en surbrillance du portail **Azure Data Catalog** .
-> 
-> 
+>
+>
 
 Lorsque vous affichez les résultats de la recherche, la raison pour laquelle une ressource de données spécifique est incluse n’est pas toujours évidente, même lorsque la mise en surbrillance des correspondances est activée. Étant donné que toutes les propriétés font l’objet de la recherche par défaut, une ressource de données peut être retournée en cas de détection d’une correspondance avec une propriété figurant dans une colonne. Et dans la mesure où plusieurs utilisateurs peuvent annoter des ressources de données inscrites avec leurs propres balises et descriptions, les métadonnées ne peuvent pas toutes s’afficher dans la liste des résultats de la recherche.
 
@@ -58,11 +62,13 @@ Dans l’affichage en mosaïque par défaut, chaque vignette affichée dans les 
  ![Mise en surbrillance des correspondances et résultats de recherche dans le portail Azure Data Catalog](./media/data-catalog-how-to-discover/search-matches.png)
 
 ## <a name="summary"></a>Résumé
-L’inscription d’une source de données auprès d’ **Azure Data Catalog** facilite la découverte et la compréhension, et consiste à copier les métadonnées descriptives et structurelles de la source de données dans le service Catalog. Une fois qu’une source de données a été inscrite, les utilisateurs peuvent la détecter grâce au filtrage et à la recherche, à partir du portail **Azure Data Catalog**.
+L’inscription d’une source de données auprès d’ **Azure Data Catalog** facilite la découverte et la compréhension, et consiste à copier les métadonnées descriptives et structurelles de la source de données dans le service Catalog. Une fois qu’une source de données a été inscrite, les utilisateurs peuvent la détecter grâce au filtrage et à la recherche, à partir du portail **Azure Data Catalog**.
 
 ## <a name="see-also"></a>Voir aussi
-* [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) pour des informations détaillées sur la découverte de sources de données.
+* [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) pour des informations détaillées sur la découverte de sources de données.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

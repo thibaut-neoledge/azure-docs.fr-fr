@@ -99,6 +99,6 @@ Utilisez la procédure ci-dessous correspondant à votre type de projet de serve
 3. Quand vous modifiez le fichier sur votre ordinateur local, republiez le projet serveur.
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

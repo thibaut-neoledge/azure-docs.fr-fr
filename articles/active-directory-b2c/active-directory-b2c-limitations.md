@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2016
+ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b12985be3822bb605004fc70490f6cf9cb803ec7
+ms.sourcegitcommit: 3ff8fba42e6455b33103c931da731b0affa8a0fb
+ms.openlocfilehash: b5fbd15729da2674b34a227861e65b89548dad39
 
 
 ---
@@ -34,13 +34,13 @@ Par défaut, le nombre d’utilisateurs dans un client B2C est limité à 50 000
 ## <a name="branding-issues-on-verification-email"></a>Problèmes de marque sur le courrier électronique de vérification
 Le message de vérification par défaut contient la marque « Microsoft ». Nous allons la supprimer dans un futur proche. Pour le moment, vous pouvez la supprimer en utilisant la [fonctionnalité de personnalisation de la société](../active-directory/active-directory-add-company-branding.md).
 
+## <a name="branding-issues-on-local-account-sign-in-page-in-a-sign-in-policy"></a>Problèmes de personnalisation sur la page de connexion à un compte local dans une stratégie d’authentification
+La page de connexion à un compte local dans une stratégie de connexion peut être personnalisée en utilisant uniquement la [fonctionnalité de personnalisation de société](../active-directory/active-directory-add-company-branding.md), et non par la fonctionnalité de personnalisation de l’interface utilisateur de page décrite [ici](active-directory-b2c-reference-ui-customization.md). En outre, aucune étiquette ni aucun espace réservé ne sont disponibles dans les champs de nom d’utilisateur et de mot de passe. Pour résoudre ce problème, nous vous recommandons d’utiliser à la place la « stratégie d’inscription ou de connexion » entièrement personnalisable. Si vous souhaitez personnaliser entièrement la page de connexion à un compte local dans une stratégie de connexion, votez pour la fonctionnalité sur [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/13062033-b2c-fully-customizable-sign-in-page).
+
 ## <a name="restrictions-on-applications"></a>Restrictions sur les applications
 Les types d’applications suivants ne sont actuellement pas pris en charge dans Azure AD B2C. Pour obtenir une description des types d’applications pris en charge, consultez [Azure AD B2C : types d’applications](active-directory-b2c-apps.md).
 
-### <a name="single-page-applications-javascript"></a>Applications à page unique (JavaScript)
-Plusieurs applications modernes présentent une application frontale à page unique (SPA) écrite principalement en JavaScript, utilisant bien souvent une infrastructure d’application à page unique comme AngularJS, Ember.js, Durandal, etc. Ce flux n’est pas encore disponible dans Azure AD B2C.
-
-### <a name="daemons-server-side-applications"></a>Démons / applications côté serveur
+### <a name="daemons--server-side-applications"></a>Démons / applications côté serveur
 Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans la présence d’un utilisateur doivent également disposer d’un moyen d’accès aux ressources sécurisées, comme les API Web. Ces applications peuvent s’authentifier et obtenir des jetons à l’aide de l’identité d’application (plutôt qu’avec l’identité déléguée d’un consommateur), avec le [flux des informations d’identification du client OAuth 2.0](active-directory-b2c-reference-protocols.md). Ce flux n’est pas encore disponible dans Azure AD B2C. Cela signifie que les applications peuvent uniquement obtenir les jetons après qu’un flux de connexion interactif de consommateur s’est produit.
 
 ### <a name="standalone-web-apis"></a>API Web autonome
@@ -96,6 +96,6 @@ Les requêtes envoyées aux stratégies de connexion (avec l’authentification 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

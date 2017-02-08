@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/26/2016
 ms.author: yushwang
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 397928e851524fb43d3ffa114b45024b0158a410
+ms.sourcegitcommit: b8b663d802fde83f3435f2d97ceb51d5b5c802bb
+ms.openlocfilehash: ef17c0226528fef35c0317cebbaa14b7bbe28b1d
 
 
 ---
@@ -172,7 +172,7 @@ Quelques points à noter concernant les paramètres de la passerelle de réseau 
 * Si le protocole BGP est activé, le préfixe à déclarer pour la passerelle de réseau local est l’adresse d’hôte de l’adresse IP de votre homologue BGP sur votre périphérique VPN. Dans ce cas, il s’agit d’un préfixe /32 de « 10.52.255.253/32 ».
 * À titre de rappel, vous devez utiliser différents ASN BGP entre vos réseaux locaux et le réseau virtuel Azure. S’ils sont identiques, vous devez modifier l’ASN de votre réseau si votre périphérique VPN local utilise déjà cet ASN pour s’homologuer avec d’autres voisins BGP.
 
-#### <a name="2-create-the-local-network-gateway-for-site5"></a>2. Créer la passerelle de réseau local pour le site 5
+#### <a name="2-create-the-local-network-gateway-for-site5"></a>2. Créer la passerelle de réseau local pour le site&5;
 Avant de continuer, assurez-vous que vous êtes toujours connecté à l’abonnement 1. Créez le groupe de ressources s’il n’est pas encore créé.
 
     New-AzureRmResourceGroup       -Name $RG5 -Location $Location5
@@ -227,14 +227,15 @@ Créer la connexion de TestVNet1 à Site5_2 avec « EnableBGP » défini sur $
 #### <a name="3-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3. Paramètres VPN et BGP pour votre deuxième périphérique VPN local
 De même, ci-dessous figurent les paramètres vous allez entrer pour le deuxième périphérique VPN :
 
-    - Site5 ASN            : 65050
-    - Site5 BGP IP         : 10.52.255.254
-    - Préfixes à annoncer : (par exemple) 10.51.0.0/16 et 10.52.0.0/16
-    - Azure VNet ASN       : 65010
-    - Azure VNet BGP IP 1  : 10.12.255.4 pour le tunnel vers 40.112.190.5
-    - Azure VNet BGP IP 2  : 10.12.255.5 pour le tunnel vers 138.91.156.129
-    - Itinéraires statiques : Destination 10.12.255.4/32, sauter l’interface du tunnel VPN pour 40.112.190.5 Destination 10.12.255.5/32, sauter l’interface du tunnel VPN pour 138.91.156.129
-    - Sauts multiples eBGP : vérifiez que l’option « sauts multiples » pour eBGP est activée sur votre appareil, si nécessaire
+      - Site5 ASN            : 65050
+      - Site5 BGP IP         : 10.52.255.254
+      - Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
+      - Azure VNet ASN       : 65010
+      - Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
+      - Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
+      - Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
+                             Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
+      - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 
 Une fois la connexion (les tunnels) établie, vous disposez d’appareils VPN à double redondance et de tunnels reliant votre réseau local et Azure :
 
@@ -381,6 +382,6 @@ Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à v
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

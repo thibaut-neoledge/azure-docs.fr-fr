@@ -133,7 +133,7 @@ Enfin, vous devez informer le Kit de développement logiciel (SDK) Engagement lo
     }
 
 > [!NOTE]
-> La méthode ci-dessus est introduite dans iOS 7. Si vous ciblez iOS < 7, assurez-vous d'implémenter la méthode `application:didReceiveRemoteNotification:` dans votre délégué d'application et d'appeler `applicationDidReceiveRemoteNotification` sur EngagementAgent en transmettant nil au lieu de l'argument `handler` :
+> La méthode ci-dessus est introduite dans iOS 7. Si vous ciblez iOS <&7;, assurez-vous d'implémenter la méthode `application:didReceiveRemoteNotification:` dans votre délégué d'application et d'appeler `applicationDidReceiveRemoteNotification` sur EngagementAgent en transmettant nil au lieu de l'argument `handler` :
 > 
 > 
 

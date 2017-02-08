@@ -16,7 +16,7 @@ ms.workload: azure-government
 ms.date: 10/11/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: 3137314175db45e7f3fd73468700f9853916efd4
+ms.sourcegitcommit: d626fc00e829de43c8b00a1aa7194f6770806919
 ms.openlocfilehash: 5c7a704ced55ecb53871f8e9416d539c897077df
 
 

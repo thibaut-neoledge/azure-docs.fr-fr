@@ -7,6 +7,6 @@
 Votre serveur principal est désormais configuré pour utiliser WNS afin d’envoyer des notifications Push.
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

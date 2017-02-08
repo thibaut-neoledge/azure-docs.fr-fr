@@ -3,8 +3,8 @@ title: "Utilisation des signatures d’accès partagé (SAP) | Microsoft Docs"
 description: "Découvrez comment déléguer l’accès aux ressources de stockage Azure, notamment les objets blob, les files d’attente, les tables et les fichiers, à l’aide de signatures d’accès partagé (SAP)."
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: 46fd99d7-36b3-4283-81e3-f214b29f1152
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf65af15bc3b71baf92aec93eb1a599b9f931c2
-ms.openlocfilehash: 81364b9ef2e310c9050a85e9d0dd11fe9a2d03a9
+ms.sourcegitcommit: 12ce6b6bccf3ea2aa2945ddd775716f29cf01e1f
+ms.openlocfilehash: c027b8ecbf2941f39056bb696dbcb9c7100cdc6c
 
 
 ---
@@ -27,7 +27,7 @@ Une signature d’accès partagé (SAP) constitue un moyen efficace pour octroye
 Pour obtenir d’autres exemples de code utilisant la SAP, consultez la page [Azure Blob Storage Samples for .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) (Exemples de stockage Blob Azure pour .NET). Pour d’autres exemples, consultez la bibliothèque [Exemples de code Azure](https://azure.microsoft.com/documentation/samples/?service=storage). Vous pouvez télécharger des exemples d’application et les exécuter ou parcourir le code sur GitHub.
 
 ## <a name="what-is-a-shared-access-signature"></a>Présentation de la signature d’accès partagé
-Une signature d'accès partagé fournit un accès délégué aux ressources de votre compte de stockage. Avec une signature d’accès partagé, vous pouvez accorder aux clients l’accès aux ressources dans votre compte de stockage sans partager les clés de votre compte. C’est l’aspect essentiel de l’utilisation des signatures d’accès partagé dans vos applications &mdash; une SAP est un moyen sécurisé de partager vos ressources de stockage sans compromettre vos clés de compte.
+Une signature d'accès partagé fournit un accès délégué aux ressources de votre compte de stockage. Avec une signature d’accès partagé, vous pouvez accorder aux clients l’accès aux ressources dans votre compte de stockage sans partager les clés de votre compte. C’est tout l’intérêt d’utiliser des signatures d’accès partagé dans vos applications &mdash; une SAP est un moyen sécurisé de partager vos ressources de stockage sans compromettre vos clés de compte.
 
 [!INCLUDE [storage-account-key-note-include](../../includes/storage-account-key-note-include.md)]
 
@@ -62,13 +62,13 @@ En outre, vous devez utiliser une SAP pour authentifier l’objet source d’une
 ## <a name="types-of-shared-access-signatures"></a>Types de signatures d’accès partagé
 La version 2015-04-05 d’Azure Storage introduit un nouveau type de signature d’accès partagé : la SAP de compte. Vous pouvez maintenant créer deux types de signatures d’accès partagé différents :
 
-* **SAP de compte.**  La SAP de compte délègue l’accès aux ressources d’un ou plusieurs des services de stockage. Toutes les opérations disponibles via une SAP de service sont également disponibles via une SAP de compte. En outre, avec la SAP de compte, vous pouvez déléguer l’accès à des opérations qui s’appliquent à un service donné, telles que **Get/Set Service Properties** et **Get Service Stats**. Vous pouvez également déléguer l'accès aux opérations de lecture, d’écriture et de suppression sur les conteneurs d'objets blob, les tables, les files d'attente et les partages de fichiers qui ne sont pas autorisées avec une SAP de service. Pour obtenir des informations détaillées sur la construction du jeton de SAP de compte, consultez la page [Construction d’une SAP de compte](https://msdn.microsoft.com/library/mt584140.aspx) .
+* **SAP de compte.** La SAP de compte délègue l’accès aux ressources d’un ou plusieurs des services de stockage. Toutes les opérations disponibles via une SAP de service sont également disponibles via une SAP de compte. En outre, avec la SAP de compte, vous pouvez déléguer l’accès à des opérations qui s’appliquent à un service donné, telles que **Get/Set Service Properties** et **Get Service Stats**. Vous pouvez également déléguer l'accès aux opérations de lecture, d’écriture et de suppression sur les conteneurs d'objets blob, les tables, les files d'attente et les partages de fichiers qui ne sont pas autorisées avec une SAP de service. Pour obtenir des informations détaillées sur la construction du jeton SAP de compte, consultez la page [Construction d’une SAP de compte](https://msdn.microsoft.com/library/mt584140.aspx).
 * **SAP de service.** Une SAP de service délègue l’accès à une ressource d’un seul des services de stockage : le service blob, de file d’attente, de table ou de fichiers. Pour obtenir des informations détaillées sur la construction du jeton de SAP de service, consultez les pages [Construction d’une SAP de service](https://msdn.microsoft.com/library/dn140255.aspx) et [Exemples de SAP de service](https://msdn.microsoft.com/library/dn140256.aspx).
 
 ## <a name="how-a-shared-access-signature-works"></a>Fonctionnement d’une signature d’accès partagé
 Une signature d’accès partagé est un URI signé qui désigne une ou plusieurs ressources de stockage et inclut un jeton qui contient un ensemble spécial de paramètres de requête. Le jeton indique comment le client peut accéder aux ressources. L’un des paramètres de requête, la signature, est construit à partir des paramètres de signature d’accès partagé et signé avec la clé du compte. Cette signature est utilisée par Azure Storage pour authentifier la signature d'accès partagé.
 
-Voici un exemple d’URI de SAP, montrant l’URI de la ressource et le jeton de la SAP : 
+Voici un exemple d’URI de SAP, montrant l’URI de la ressource et le jeton de la SAP :
 
 ![sas-storage-uri][sas-storage-uri]
 
@@ -82,22 +82,22 @@ Les jetons de SAP de compte et de SAP de service incluent des paramètres commun
 ### <a name="parameters-common-to-account-sas-and-service-sas-tokens"></a>Paramètres communs aux jetons de SAP de compte et de SAP de service
 * **Version de l’API.** Paramètre facultatif qui spécifie la version du service de stockage à utiliser pour exécuter la demande.
 * **Version du service.** Paramètre obligatoire qui spécifie la version du service de stockage à utiliser pour authentifier la demande.
-* **Heure de début.**  Il s'agit de l'heure à laquelle la signature d'accès partagé devient valide. L'heure de début pour une signature d'accès partagé est facultative ; si elle est omise, la signature d'accès partagé prend effet immédiatement. Doit être exprimée en heure UTC (Coordinated Universal Time), par un indicateur UTC spécial (« Z »), par exemple 1994-11-05T13:15:30Z.
-* **Heure d’expiration.**  Il s'agit de l'heure à laquelle la signature d'accès partagé cesse d'être valide. Les meilleures pratiques recommandent soit de spécifier une heure d’expiration pour une signature d’accès partagé, soit de l’associer à une stratégie d’accès stockée. Doit être exprimée en heure UTC (Coordinated Universal Time), par un indicateur UTC spécial (« Z »), par exemple 1994-11-05T13:15:30Z (voir détails ci-dessous).
-* **Autorisations.**  Les autorisations spécifiées sur la signature d'accès partagé indiquent quelles opérations le client peut exécuter avec cette dernière sur la ressource de stockage. Les autorisations disponibles ne sont pas les mêmes pour une SAP de compte et une SAP de service.
+* **Heure de début.** Il s'agit de l'heure à laquelle la signature d'accès partagé devient valide. L'heure de début pour une signature d'accès partagé est facultative ; si elle est omise, la signature d'accès partagé prend effet immédiatement. Doit être exprimée en heure UTC (Coordinated Universal Time), par un indicateur UTC spécial (« Z »), par exemple 1994-11-05T13:15:30Z.
+* **Heure d’expiration.** Il s'agit de l'heure à laquelle la signature d'accès partagé cesse d'être valide. Les meilleures pratiques recommandent soit de spécifier une heure d’expiration pour une signature d’accès partagé, soit de l’associer à une stratégie d’accès stockée. Doit être exprimée en heure UTC (Coordinated Universal Time), par un indicateur UTC spécial (« Z »), par exemple 1994-11-05T13:15:30Z (voir détails ci-dessous).
+* **Autorisations.** Les autorisations spécifiées sur la signature d'accès partagé indiquent quelles opérations le client peut exécuter avec cette dernière sur la ressource de stockage. Les autorisations disponibles ne sont pas les mêmes pour une SAP de compte et une SAP de service.
 * **IP.** Paramètre facultatif qui spécifie une adresse IP ou une plage d’adresses IP en dehors d’Azure en provenance de laquelle accepter les demandes (consultez la section [État de configuration d’une session de routage](../expressroute/expressroute-workflows.md#routing-session-configuration-state) pour ExpressRoute).
-* **Protocole.**  Paramètre facultatif qui spécifie le protocole autorisé pour une demande. Les valeurs possibles sont HTTPS et HTTP à la fois (https,http), qui est la valeur par défaut, ou HTTPS uniquement (https). Notez que HTTP uniquement n’est pas une valeur autorisée.
-* **Signature.**  La signature est construite à partir des autres paramètres spécifiés pour le jeton, puis chiffrée. Elle est utilisée pour authentifier la SAP.
+* **Protocole.** Paramètre facultatif qui spécifie le protocole autorisé pour une demande. Les valeurs possibles sont HTTPS et HTTP à la fois (https,http), qui est la valeur par défaut, ou HTTPS uniquement (https). Notez que HTTP uniquement n’est pas une valeur autorisée.
+* **Signature.** La signature est construite à partir des autres paramètres spécifiés pour le jeton, puis chiffrée. Elle est utilisée pour authentifier la SAP.
 
 ### <a name="parameters-for-an-account-sas-token"></a>Paramètres d’un jeton de compte SAP
-* **Service ou services.**  Une SAP de compte peut déléguer l’accès à un ou plusieurs des services de stockage. Par exemple, vous pouvez créer une SAP de compte qui délègue l’accès au service BLOB et au service de fichiers. Vous pouvez également créer une SAP qui délègue l’accès à l’ensemble des quatre services (BLOB, File d’attente, Table et fichiers).
-* **Types de ressources de stockage.**  Une SAP de compte s’applique à une ou plusieurs classes de ressources de stockage plutôt qu’à une ressource spécifique. Vous pouvez créer une SAP de compte pour déléguer l’accès à :
+* **Service ou services.** Une SAP de compte peut déléguer l’accès à un ou plusieurs des services de stockage. Par exemple, vous pouvez créer une SAP de compte qui délègue l’accès au service BLOB et au service de fichiers. Vous pouvez également créer une SAP qui délègue l’accès à l’ensemble des quatre services (BLOB, File d’attente, Table et fichiers).
+* **Types de ressources de stockage.** Une SAP de compte s’applique à une ou plusieurs classes de ressources de stockage plutôt qu’à une ressource spécifique. Vous pouvez créer une SAP de compte pour déléguer l’accès à :
   * Des API au niveau de service, qui sont appelées sur la ressource du compte de stockage. Exemples : **Get/Set Service Properties**, **Get Service Stats** et **List Containers/Queues/Tables/Shares**.
   * Des API au niveau du conteneur, qui sont appelés sur les objets de conteneur pour chaque service : conteneurs d’objets blob, files d’attente, tables et partages de fichiers. Exemples : **Create/Delete Container**, **Create/Delete Queue**, **Create/Delete Table**, **Create/Delete Share** et **List Blobs/Files and Directories**.
   * Des API au niveau de l’objet, qui sont appelées sur les objets blob, les messages de file d’attente, les entités de table et les fichiers. Exemples : **Put Blob**, **Query Entity**, **Get Messages** et **Create File**.
 
 ### <a name="parameters-for-a-service-sas-token"></a>Paramètres d’un jeton de SAP de service
-* **Ressource de stockage.**  Les ressources de stockage dont vous pouvez déléguer l’accès à l’aide d’une SAP de service incluent :
+* **Ressource de stockage.** Les ressources de stockage dont vous pouvez déléguer l’accès à l’aide d’une SAP de service incluent :
   * Conteneurs et objets blob
   * Partages de fichiers et fichiers
   * Files d’attente
@@ -159,13 +159,15 @@ Un client qui est en possession d’une SAP peut l’utiliser pour authentifier 
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../includes/storage-use-sas-in-connection-string-include.md)]
 
 ### <a name="using-a-sas-in-a-constructor-or-method"></a>Utilisation d’une SAP dans un constructeur ou une méthode
-De nombreuses surcharges de méthode et constructeurs de bibliothèque cliente de stockage proposent un paramètre SAP.  
+Plusieurs surcharges de méthodes et constructeurs de bibliothèques clientes du Stockage Azure offrent un paramètre SAP, afin de vous permettre d’authentifier une demande au service avec une SAP.
 
 Ici, par exemple, un URI de SAP est utilisé pour créer une référence à un objet blob de blocs. La SAP fournit uniquement les informations d’identification nécessaires à la demande. La référence à l’objet blob de bloc est ensuite utilisée pour une opération d’écriture :
 
 ```csharp
-string sasUri = 
-    "https://storagesample.blob.core.windows.net/sample-container/sampleBlob.txt?sv=2015-07-08&sr=b&sig=39Up9JzHkxhUIhFEjEH9594DJxe7w6cIRCg0V6lCGSo%3D&se=2016-10-18T21%3A51%3A37Z&sp=rcw"
+string sasUri = "https://storagesample.blob.core.windows.net/sample-container/" +
+    "sampleBlob.txt?sv=2015-07-08&sr=b&sig=39Up9JzHkxhUIhFEjEH9594DJxe7w6cIRCg0V6lCGSo%3D" +
+    "&se=2016-10-18T21%3A51%3A37Z&sp=rcw";
+
 CloudBlockBlob blob = new CloudBlockBlob(new Uri(sasUri));
 
 // Create operation: Upload a blob with the specified name to the container.
@@ -204,20 +206,20 @@ catch (StorageException e)
 Lorsque vous utilisez des signatures d'accès partagé dans vos applications, vous devez être conscient de deux risques potentiels :
 
 * Si une signature d'accès partagé est divulguée, toute personne qui se la procure peut s'en servir et votre compte de stockage court donc le risque d'être compromis.
-* Si une signature d'accès partagé fournie à une application cliente expire et que l'application est incapable d'en récupérer une nouvelle à partir de votre service, la fonctionnalité de votre application risque d'être entravée.  
+* Si une signature d'accès partagé fournie à une application cliente expire et que l'application est incapable d'en récupérer une nouvelle à partir de votre service, la fonctionnalité de votre application risque d'être entravée.
 
 Les recommandations suivantes relatives à l'utilisation des signatures d'accès partagé vous aideront à limiter ces risques :
 
 1. **Utilisez toujours HTTPS** pour créer ou distribuer une signature d'accès partagé.  Si une signature d'accès partagé est transmise sur HTTP et interceptée, un pirate qui lance une attaque de type « attaque de l'intercepteur » (man-in-the-middle) peut lire la signature et s'en servir exactement comme l'utilisateur concerné aurait pu le faire, d'où le risque que les données sensibles soient compromises ou que les données soient altérées par l'utilisateur malveillant.
-2. **Référencez si possible les stratégies d'accès stockées.**  Celles-ci vous donnent la possibilité de révoquer les autorisations sans avoir à régénérer les clés de compte de stockage.  Définissez l’expiration pour ces dernières de telle sorte que l’échéance soit très éloignée dans le temps (voire infinie) et veillez à ce qu’elle soit régulièrement mise à jour et repoussée dans le futur.
-3. **Utilisez des heures d'expiration avec une échéance à court terme sur une signature d'accès partagé ad hoc.**  De cette manière, même si une signature d'accès partagé est compromise à votre insu, elle ne sera viable que pendant une courte durée. Cette pratique est particulièrement importante si vous ne pouvez pas référencer une stratégie d'accès stockée. Elle permet également de limiter la quantité de données pouvant être écrite dans un objet blob en limitant le temps disponible pour le téléchargement vers ce dernier.
-4. **Faites en sorte que les clients renouvellent automatiquement la signature d'accès partagé si nécessaire.**  Les clients doivent renouveler la signature d'accès partagé bien avant l'heure d'expiration prévue afin de laisser suffisamment de temps pour de nouvelles tentatives, si le service qui fournit la signature est indisponible.  Si votre signature d'accès partagé doit être utilisée pour un petit nombre d'opérations immédiates de courte durée, censées être terminées avant l'heure d'expiration indiquée, cela ne sera peut-être pas nécessaire, car il n'est pas prévu que la signature d'accès partagé soit renouvelée.  Toutefois, si vous avez un client qui effectue régulièrement des demandes par le biais de signatures d'accès partagé, le risque d'expiration est à prendre en compte.  La principale considération consiste à trouver un équilibre entre la nécessité que la signature d'accès partagé ait une durée de vie limitée (comme indiqué plus haut) et la nécessité de veiller à ce que le client demande le renouvellement suffisamment tôt pour éviter une interruption due à une expiration de la signature avant le renouvellement effectif.
+2. **Référencez si possible les stratégies d'accès stockées.** Celles-ci vous donnent la possibilité de révoquer les autorisations sans avoir à régénérer les clés de compte de stockage.  Définissez l'expiration pour ces dernières de telle sorte que l'échéance soit très éloignée dans le temps (voire infinie) et veillez à ce qu'elle soit régulièrement mise à jour et repoussée dans le futur.
+3. **Utilisez des heures d'expiration avec une échéance à court terme sur une signature d'accès partagé ad hoc.** De cette manière, même si une signature d'accès partagé est compromise à votre insu, elle ne sera viable que pendant une courte durée. Cette pratique est particulièrement importante si vous ne pouvez pas référencer une stratégie d'accès stockée. Elle permet également de limiter la quantité de données pouvant être écrite dans un objet blob en limitant le temps disponible pour le téléchargement vers ce dernier.
+4. **Faites en sorte que les clients renouvellent automatiquement la signature d'accès partagé si nécessaire.** Les clients doivent renouveler la signature d’accès partagé bien avant l’heure d’expiration afin de laisser suffisamment de temps pour de nouvelles tentatives, si le service qui fournit la signature est indisponible.  Si votre signature d’accès partagé doit être utilisée pour un petit nombre d’opérations immédiates de courte durée, censées être terminées avant l’heure d’expiration, cela ne sera peut-être pas nécessaire, car il n’est pas prévu que la signature d’accès partagé soit renouvelée.  Toutefois, si vous avez un client qui effectue régulièrement des demandes par le biais de signatures d'accès partagé, le risque d'expiration est à prendre en compte.  La principale considération consiste à trouver un équilibre entre la nécessité que la signature d'accès partagé ait une durée de vie limitée (comme indiqué plus haut) et la nécessité de veiller à ce que le client demande le renouvellement suffisamment tôt pour éviter une interruption due à une expiration de la signature avant le renouvellement effectif.
 5. **Faites attention à la date de début de la signature d’accès partagé.** Si vous définissez la date de début d’une signature d’accès partagé sur **maintenant**, en raison du décalage d’horloge (différences constatées dans l’heure actuelle sur des machines différentes), des défaillances peuvent être observées par intermittence pendant les premières minutes.  En règle générale, définissez une heure de début située au moins 15 minutes avant l'heure courante ; ou ne la définissez pas du tout, et elle sera alors valide immédiatement dans tous les cas.  Cela vaut également d'une manière générale pour l'heure d'expiration. Souvenez-vous que vous pouvez observer jusqu'à 15 minutes de décalage d'horloge (dans l'une ou l'autre direction) sur une demande.  Notez que pour les clients qui utilisent une version de REST antérieure à la version 2012-02-12, la durée maximale pour une signature d'accès partagé qui ne renvoie pas à une stratégie d'accès stockée est d'1 heure et que toutes les stratégies spécifiant une période plus longue échoueront.
-6. **Soyez précis quant à la ressource pour laquelle vous voulez configurer l'accès.**  Une meilleure pratique courante en matière de sécurité consiste à fournir à l'utilisateur les privilèges minimaux requis.  Si un utilisateur a besoin d'un accès en lecture à une seule entité, accordez-lui un accès en lecture à cette seule entité, plutôt qu'un accès en lecture/écriture/suppression à toutes les entités.  Cela permet également d'atténuer la menace d'une signature d'accès partagé compromise, dans la mesure où son pouvoir serait moindre entre les mains d'une personne malveillante.
-7. **Sachez que toute utilisation de votre compte sera facturée, y compris pour les signatures d'accès partagé.**  Si vous fournissez un accès en écriture à un objet blob, un utilisateur peut choisir de charger un objet blob de 200 Go.  Si vous lui avez également accordé un accès en lecture, il peut choisir de le télécharger 10 fois, et vous devrez alors acquitter des frais de sortie pour l'équivalent de 2 To.  Accordez des autorisations limitées pour atténuer les risques liés aux utilisateurs malveillants.  Utilisez des signatures d'accès partagé à durée de vie limitée pour atténuer cette menace (mais pensez au décalage d'horloge pour l'heure de fin).
-8. **Validez les données écrites avec une signature d'accès partagé.**  Lorsqu'une application cliente écrit des données dans votre compte de stockage, n'oubliez pas que ces données peuvent être une source de problèmes. Si votre application exige que ces données soient validées ou autorisées avant de pouvoir être utilisées, vous devez effectuer cette validation après l'écriture des données et avant qu'elles ne soient utilisées par votre application. Cette pratique assure également une protection contre l'écriture de données endommagées ou malveillantes dans votre compte, soit par un utilisateur qui a acquis correctement la signature d'accès partagé, soit par un utilisateur qui exploite sa divulgation.
-9. **N'utilisez pas toujours une signature d'accès partagé.**  Parfois, les risques associés à une opération particulière sur votre compte de stockage l'emportent sur les avantages offerts par la signature d'accès partagé.  Pour ces opérations, créez un service de niveau intermédiaire qui écrit dans votre compte de stockage après avoir effectué la validation des règles métier, l'authentification et un audit. Parfois aussi, il est plus simple de gérer l'accès par d'autres moyens. Par exemple, si vous voulez que tous les objets blob dans un conteneur soient publiquement lisibles, vous pouvez rendre le conteneur public, au lieu de fournir une signature d'accès partagé à chaque client.
-10. **Utilisez Storage Analytics pour surveiller votre application.**  Vous pouvez utiliser la journalisation et les mesures pour observer tout pic dans les échecs d’authentification dus à une interruption du service de votre fournisseur de signatures d’accès partagé ou à la suppression par inadvertance d’une stratégie d’accès stockée. Pour plus d'informations, consultez le [blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) .
+6. **Soyez précis quant à la ressource pour laquelle vous voulez configurer l'accès.** Une meilleure pratique courante en matière de sécurité consiste à fournir à l'utilisateur les privilèges minimaux requis.  Si un utilisateur a besoin d'un accès en lecture à une seule entité, accordez-lui un accès en lecture à cette seule entité, plutôt qu'un accès en lecture/écriture/suppression à toutes les entités.  Cela permet également d'atténuer la menace d'une signature d'accès partagé compromise, dans la mesure où son pouvoir serait moindre entre les mains d'une personne malveillante.
+7. **Sachez que toute utilisation de votre compte sera facturée, y compris pour les signatures d'accès partagé.** Si vous fournissez un accès en écriture à un objet blob, un utilisateur peut choisir de charger un objet blob de 200 Go.  Si vous lui avez également accordé un accès en lecture, il peut choisir de le télécharger 10 fois, et vous devrez alors acquitter des frais de sortie pour l’équivalent de 2 To.  Accordez des autorisations limitées pour atténuer les risques liés aux utilisateurs malveillants.  Utilisez des signatures d'accès partagé à durée de vie limitée pour atténuer cette menace (mais pensez au décalage d'horloge pour l'heure de fin).
+8. **Validez les données écrites avec une signature d'accès partagé.** Lorsqu'une application cliente écrit des données dans votre compte de stockage, n'oubliez pas que ces données peuvent être une source de problèmes. Si votre application exige que ces données soient validées ou autorisées avant de pouvoir être utilisées, vous devez effectuer cette validation après l'écriture des données et avant qu'elles ne soient utilisées par votre application. Cette pratique assure également une protection contre l'écriture de données endommagées ou malveillantes dans votre compte, soit par un utilisateur qui a acquis correctement la signature d'accès partagé, soit par un utilisateur qui exploite sa divulgation.
+9. **N'utilisez pas toujours une signature d'accès partagé.** Parfois, les risques associés à une opération particulière sur votre compte de stockage l'emportent sur les avantages offerts par la signature d'accès partagé.  Pour ces opérations, créez un service de niveau intermédiaire qui écrit dans votre compte de stockage après avoir effectué la validation des règles métier, l'authentification et un audit. Parfois aussi, il est plus simple de gérer l'accès par d'autres moyens. Par exemple, si vous voulez que tous les objets blob dans un conteneur soient publiquement lisibles, vous pouvez rendre le conteneur public, au lieu de fournir une signature d'accès partagé à chaque client.
+10. **Utilisez Storage Analytics pour surveiller votre application.** Vous pouvez utiliser la journalisation et les mesures pour observer tout pic dans les échecs d’authentification dus à une interruption du service de votre fournisseur de signatures d’accès partagé ou à la suppression par inadvertance d’une stratégie d’accès stockée. Pour plus d'informations, consultez le [blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) .
 
 ## <a name="sas-examples"></a>Exemples de SAP
 Vous trouverez ci-dessous des exemples des deux types de signatures d’accès partagé, SAP de compte et SAP de service.
@@ -306,7 +308,7 @@ private static async Task CreateSharedAccessPolicyAsync(CloudBlobContainer conta
     // The access policy provides create, write, read, list, and delete permissions.
     SharedAccessBlobPolicy sharedPolicy = new SharedAccessBlobPolicy()
     {
-        // When the start time for the SAS is omitted, the start time is assumed to be the time when the storage service receives the request. 
+        // When the start time for the SAS is omitted, the start time is assumed to be the time when the storage service receives the request.
         // Omitting the start time for a SAS that is effective immediately helps to avoid clock skew.
         SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
         Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.List |
@@ -333,11 +335,11 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     // If no stored policy is specified, create a new access policy and define its constraints.
     if (storedPolicyName == null)
     {
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and 
-        // to construct a shared access policy that is saved to the container's shared access policies. 
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocPolicy = new SharedAccessBlobPolicy()
         {
-            // When the start time for the SAS is omitted, the start time is assumed to be the time when the storage service receives the request. 
+            // When the start time for the SAS is omitted, the start time is assumed to be the time when the storage service receives the request.
             // Omitting the start time for a SAS that is effective immediately helps to avoid clock skew.
             SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
             Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.List
@@ -380,11 +382,11 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
     if (policyName == null)
     {
         // Create a new access policy and define its constraints.
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and 
-        // to construct a shared access policy that is saved to the container's shared access policies. 
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocSAS = new SharedAccessBlobPolicy()
         {
-            // When the start time for the SAS is omitted, the start time is assumed to be the time when the storage service receives the request. 
+            // When the start time for the SAS is omitted, the start time is assumed to be the time when the storage service receives the request.
             // Omitting the start time for a SAS that is effective immediately helps to avoid clock skew.
             SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
             Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Create
@@ -427,6 +429,6 @@ Les signatures d'accès partagé sont utiles pour fournir des autorisations d'ac
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

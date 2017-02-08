@@ -1,32 +1,36 @@
 ---
-title: Utilisation des sources de données « Big Data » | Microsoft Docs
-description: Article de procédure expliquant comment utiliser Azure Data Catalog avec des sources de données « volumineuses », notamment le Stockage Blob Azure, Azure Data Lake et les fichiers Hadoop HDFS.
+title: "Utilisation des sources de données « Big Data » | Microsoft Docs"
+description: "Article de procédure expliquant comment utiliser Azure Data Catalog avec des sources de données « volumineuses », notamment le Stockage Blob Azure, Azure Data Lake et les fichiers Hadoop HDFS."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 626d1568-0780-4726-bad1-9c5000c6b31a
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8cf7ea7ca69753c12469dff9dc352d616c276ddd
+
 
 ---
 # <a name="how-to-work-with-big-data-sources-in-azure-data-catalog"></a>Utilisation des sources de données volumineuses dans Azure Data Catalog
 ## <a name="introduction"></a>Introduction
-**Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. En d’autres termes, **Azure Data Catalog** vise essentiellement à aider les utilisateurs à détecter, comprendre et utiliser des sources de données et permet aux organisations de mieux exploiter leurs données, et notamment les données volumineuses.
+**Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. En d’autres termes, **Azure Data Catalog** vise essentiellement à aider les utilisateurs à détecter, comprendre et utiliser des sources de données et permet aux organisations de mieux exploiter leurs données, et notamment les données volumineuses.
 
 **Azure Data Catalog** prend en charge l’inscription d’objets et de répertoire de Stockage d’objets blob Azure ainsi que des fichiers et des répertoires HDFS Hadoop. La nature des sources de données semi-structurées offre une grande souplesse, mais cela signifie également que les utilisateurs doivent prévoir l’organisation de leurs sources de données afin de tirer le meilleur partir de leur enregistrement auprès de **Azure Data Catalog**.
 
 ## <a name="directories-as-logical-data-sets"></a>Répertoires sous forme de jeux de données logiques
 Un modèle répandu d’organisation de source de données volumineuses consiste à traiter des répertoires sous forme de jeux de données logique. Des répertoires de niveau supérieur sont utilisés pour définir un jeu de données, les sous-dossiers définissent des partitions, et les fichiers qu’ils contiennent stockent les données elles-mêmes.
 
-Voici quelques exemples de ce modèle :
+Voici quelques exemples de ce modèle :
 
     \vehicle_maintenance_events
         \2013
@@ -46,9 +50,9 @@ Dans cet exemple, vehicle_maintenance_events et location_tracking_events représ
 Dans ce modèle, l’enregistrement des fichiers individuels auprès d’ **Azure Data Catalog** ne sert sans doute à rien. Au lieu de cela, inscrivez-vous dans les répertoires qui représentent les jeux de données significatifs pour les utilisateurs travaillant avec les données.
 
 ## <a name="reference-data-files"></a>Référence de fichiers de données
-Un modèle complémentaire consiste à stocker des jeux de données de référence sous forme de fichiers individuels. Ces ensembles de données peuvent être considérés comme le côté « émergé » des données volumineuses et sont souvent comparables aux dimensions d’un modèle de données analytiques. Les fichiers de données de référence contiennent des enregistrements utilisés pour offrir un contexte aux lots de fichiers de données stockées ailleurs dans le magasin de données volumineuses.
+Un modèle complémentaire consiste à stocker des jeux de données de référence sous forme de fichiers individuels. Ces ensembles de données peuvent être considérés comme le côté « émergé » des données volumineuses et sont souvent comparables aux dimensions d’un modèle de données analytiques. Les fichiers de données de référence contiennent des enregistrements utilisés pour offrir un contexte aux lots de fichiers de données stockées ailleurs dans le magasin de données volumineuses.
 
-Voici quelques exemples de ce modèle :
+Voici quelques exemples de ce modèle :
 
     \vehicles.csv
     \maintenance_facilities.csv
@@ -64,6 +68,8 @@ Les modèles décrits ci-dessus représentent deux organisations de magasin de d
 ## <a name="summary"></a>Résumé
 L’inscription des sources de données auprès de **Azure Data Catalog** les facilite leur détection et leur compréhension. En enregistrant et en annotant les fichiers et les répertoires de données volumineuses qui représentent les jeux de données logiques, vous pouvez aider les utilisateurs à trouver et à utiliser les sources de données volumineuses dont ils ont besoin.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,26 +1,30 @@
 ---
-title: 'Application Machine Learning : service de détection des anomalies | Microsoft Docs'
-description: L’API de détection des anomalies est un exemple d’API généré avec Microsoft Azure Machine Learning. Elle détecte des anomalies dans les données de séries chronologiques présentant des valeurs numériques qui sont réparties uniformément dans le temps.
+title: "Application Machine Learning : service de détection des anomalies | Microsoft Docs"
+description: "L’API de détection des anomalies est un exemple d’API généré avec Microsoft Azure Machine Learning. Elle détecte des anomalies dans les données de séries chronologiques présentant des valeurs numériques qui sont réparties uniformément dans le temps."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: alokkirpal
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
 ms.devlang: na
-ms.topic: reference
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 10/11/2016
-ms.author: alokkirpal
+ms.author: alok
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cbcd469f39b42d741d73f9d96daf17d011b7ebc7
+
 
 ---
-# <a name="machine-learning-anomaly-detection-service#"></a>Service de détection des anomalies Machine Learning
-## <a name="overview"></a>Vue d'ensemble
+# <a name="machine-learning-anomaly-detection-service"></a>Service de détection des anomalies Machine Learning
+## <a name="overview"></a>Vue d’ensemble
 L’[API de détection des anomalies](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) est un exemple d’API généré avec Microsoft Azure Machine Learning. Elle détecte des anomalies dans les données de séries chronologiques présentant des valeurs numériques qui sont réparties uniformément dans le temps. 
 
-Cette API peut détecter les types suivants de schémas anormaux dans les données de séries chronologiques :
+Cette API peut détecter les types suivants de schémas anormaux dans les données de séries chronologiques :
 
 * **Tendances positives et négatives :**par exemple, pendant l’analyse de l’utilisation de la mémoire de l’infrastructure informatique, une tendance à la hausse peut être digne d’intérêt, car elle est susceptible d’être le signe d’une fuite de mémoire.
 * **Changements de la plage de valeurs dynamiques :**par exemple, pendant l’analyse des exceptions déclenchées par un service cloud, tout changement de la plage de valeurs dynamiques peut indiquer une instabilité de l’intégrité du service.
@@ -36,7 +40,7 @@ L’offre de détection des anomalies inclut des outils utiles pour bien commenc
 > [!NOTE]
 > Essayez la **solution IT Anomaly Insights** basée sur [cette API](https://datamarket.azure.com/dataset/aml_labs/anomalydetection).
 > 
-> Pour déployer cette solution de bout en bout dans votre abonnement Azure <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank"> **ici >**</a>.
+> Pour déployer cette solution de bout en bout dans votre abonnement Azure <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank"> **ici >**</a>
 > 
 > 
 
@@ -139,10 +143,10 @@ La réponse à cette requête se présente ainsi :
         "odata.metadata": "https://api.datamarket.azure.com/data.ashx/aml_labs/anomalydetection/v2/$metadata#AnomalyDetection.FrontEndService.Models.AnomalyDetectionResult",
         "ADOutput": "{
             "ColumnNames":["Time","OriginalData","ProcessedData","TSpike","ZSpike","PScore","PAlert","RPScore","RPAlert","TScore","TAlert"],
-            "ColumnTypes":["DateTime","Double","Double","Double","Double","Double","Int32","Double","Int32","Double","Int32"],
-            "Values":[
+              "ColumnTypes":["DateTime","Double","Double","Double","Double","Double","Int32","Double","Int32","Double","Int32"],
+              "Values":[
                 ["9/21/201411: 20: 00AM","10","10","0","0","-1.30229513613974","0","-1.30229513613974","0","-1.173800281031","0"]
-            ]
+              ]
         }"
     }
 
@@ -151,14 +155,14 @@ L’API de détection des anomalies prend en charge les détecteurs de 3 grandes
 
 | Catégorie de détecteurs | Détecteur | Description | Paramètres d’entrée | Sorties |
 | --- | --- | --- | --- | --- |
-| Détecteurs de pics |Détecteurs TSpike |Détecter des pics et des creux en fonction de l’écart des valeurs par rapport aux premier et troisième quartiles |*tspikedetector.Sensitivity :* prend une valeur d’entier dans la plage de 1 à 10. Par défaut : 3. Des valeurs supérieures interceptent plus de valeurs extrêmes, rendant la détection moins sensible |TSpike : valeurs binaires (1 si un pic/creux est détecté, 0 dans le cas contraire) |
-| Détecteur ZSpike |Détecter des pics et des creux en fonction de l’écart des points de données par rapport à leur moyenne |*zspikedetector.Sensitivity :* prend une valeur d’entier dans la plage de 1 à 10. Par défaut : 3. Des valeurs supérieures interceptent plus de valeurs extrêmes, rendant la détection moins sensible |ZSpike : valeurs binaires (1 si un pic/creux est détecté, 0 dans le cas contraire) | |
+| Détecteurs de pics |Détecteurs TSpike |Détecter des pics et des creux en fonction de l’écart des valeurs par rapport aux premier et troisième quartiles |*tspikedetector.Sensitivity :* prend une valeur d’entier dans la plage de 1 à 10. Par défaut : 3. Des valeurs supérieures interceptent plus de valeurs extrêmes, rendant la détection moins sensible |TSpike : valeurs binaires (1 si un pic/creux est détecté, 0 dans le cas contraire) |
+| Détecteur ZSpike |Détecter des pics et des creux en fonction de l’écart des points de données par rapport à leur moyenne |*zspikedetector.sensitivity :* prend une valeur d’entier dans la plage de 1 à 10. Par défaut : 3. Des valeurs supérieures interceptent plus de valeurs extrêmes, rendant la détection moins sensible |ZSpike : valeurs binaires (1 si un pic/creux est détecté, 0 dans le cas contraire) | |
 | Détecteur de tendances lentes |Détecteur de tendances lentes |Détecter les tendances positives lentes suivant la sensibilité définie |*trenddetector.sensitivity :* seuil pour le résultat du détecteur (par défaut : 3.25, une valeur comprise entre 3.25 et 5 est raisonnable ; plus la valeur est élevée, moins la sensibilité est importante) |TScore : nombre flottant représentant le résultat d’anomalies pour une tendance |
 | Détecteurs de changements de niveau |Détecteur de changements de niveau unidirectionnels |Détecter les changements de niveau vers le haut suivant la sensibilité définie |*upleveldetector.sensitivity :* seuil pour le résultat du détecteur (par défaut : 3.25, une valeur comprise entre 3.25 et 5 est raisonnable ; plus la valeur est élevée, moins la sensibilité est importante) |PScore : nombre flottant représentant le résultat d’anomalies pour un changement de niveau vers le haut |
 | Détecteur de changements de niveau bidirectionnels |Détecter les changements de niveau vers le haut et vers le bas suivant la sensibilité définie |*bileveldetector.sensitivity :* seuil pour le résultat du détecteur (par défaut : 3.25, une valeur comprise entre 3.25 et 5 est raisonnable ; plus la valeur est élevée, moins la sensibilité est importante) |RPScore : nombre flottant représentant le résultat d’anomalies pour un changement de niveau vers le haut et vers le bas | |
 
 ### <a name="parameters"></a>Paramètres
-Le tableau ci-dessous contient des informations plus détaillées sur ces paramètres d’entrée :
+Le tableau ci-dessous contient des informations plus détaillées sur ces paramètres d’entrée :
 
 | Paramètres d’entrée | Description | Paramètre par défaut | Type | Plage valide | Plage suggérée |
 | --- | --- | --- | --- | --- | --- |
@@ -167,7 +171,7 @@ Le tableau ci-dessous contient des informations plus détaillées sur ces param�
 | preprocess.replaceMissing |Valeurs utilisées pour imputer les données manquantes |lkv (dernière valeur connue) |enumerated |zero, lkv, mean |N/A |
 | detectors.historyWindow |Historique (en nombre de points de données) utilisé pour le calcul du résultat d’anomalies |500 |integer |10-2000 |Dépend des séries chronologiques |
 | upleveldetector.sensitivity |Sensibilité du détecteur de changements de niveau vers le haut |3.25 |double |Aucun |3.25-5 (plus la valeur est élevée, moins la sensibilité est importante) |
-| bileveldetector.sensitivity |Sensibilité du détecteur de changements de niveau bidirectionnels |3.25 |double |Aucun |3.25-5 (plus la valeur est élevée, moins la sensibilité est importante) |
+| bileveldetector.sensitivity |Sensibilité du détecteur de changements de niveau bidirectionnels. |3.25 |double |Aucun |3.25-5 (plus la valeur est élevée, moins la sensibilité est importante) |
 | trenddetector.sensitivity |Sensibilité du détecteur de tendances positives |3.25 |double |Aucun |3.25-5 (plus la valeur est élevée, moins la sensibilité est importante) |
 | tspikedetector.sensitivity |Sensibilité du détecteur TSpike |3 |integer |1-10 |3-5 (plus la valeur est élevée, moins la sensibilité est importante) |
 | zspikedetector.sensitivity |Sensibilité du détecteur ZSpike |3 |integer |1-10 |3-5 (plus la valeur est élevée, moins la sensibilité est importante) |
@@ -183,13 +187,13 @@ L’API exécute tous les détecteurs sur vos données de séries chronologiques
 | --- | --- |
 | Time |Horodatages issus des données brutes ou des données agrégées (et/ou) imputées si l’imputation des données agrégées (et/ou) manquantes est appliquée. |
 | OriginalData |Valeurs issues des données brutes ou des données agrégées (et/ou) imputées si l’imputation des données agrégées (et/ou) manquantes est appliquée. |
-| ProcessedData |Soit :  <ul><li>série chronologique ajustée de façon saisonnière si un caractère saisonnier important a été détectée et si l’option deseason est sélectionnée ;</li><li>série chronologique redressée et ajustée de façon saisonnière si un caractère saisonnier important a été détectée et si l’option deseasontrend est sélectionnée ;</li><li>autrement, identique à OriginalData.</li> |
+| ProcessedData |Soit :  <ul><li>série chronologique ajustée de façon saisonnière si un caractère saisonnier important a été détectée et si l’option deseason est sélectionnée ;</li><li>série chronologique redressée et ajustée de façon saisonnière si un caractère saisonnier important a été détectée et si l’option deseasontrend est sélectionnée ;</li><li>autrement, identique à OriginalData.</li> |
 | TSpike |Indicateur binaire signalant si un pic est détecté par le détecteur TSpike |
 | ZSpike |Indicateur binaire signalant si un pic est détecté par le détecteur ZSpike |
 | Pscore |Nombre flottant représentant le résultat d’anomalies pour un changement de niveau vers le haut |
 | Palert |Valeur de 1/0 indiquant s’il y a une anomalie de changement de niveau vers le haut en fonction de la sensibilité d’entrée |
 | RPScore |Nombre flottant représentant le résultat d’anomalies pour un changement de niveau bidirectionnel |
-| RPAlert |Valeur de 1/0 indiquant s’il y a une anomalie de changement de niveau vers le haut en fonction de la sensibilité d’entrée |
+| RPAlert |Valeur de 1/0 indiquant s’il y a une anomalie de changement de niveau bidirectionnel vers le haut en fonction de la sensibilité d’entrée |
 | TScore |Nombre flottant représentant le résultat d’anomalies pour une tendance positive |
 | TAlert |Valeur de 1/0 indiquant s’il y a une anomalie de tendance positive en fonction de la sensibilité d’entrée |
 
@@ -204,6 +208,6 @@ Cette sortie peut être analysée à l’aide d’un [analyseur simple](https://
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

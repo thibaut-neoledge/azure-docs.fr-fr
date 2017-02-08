@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 02/07/2017
 ms.author: genli
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -56,13 +56,13 @@ Pour résoudre ces problèmes, vous devez identifier le disque dur virtuel qui a
 ### <a name="step-1-identify-the-problem-vhd-and-the-associated-vm"></a>Étape 1 : Identifier le problème de disque dur virtuel et la machine virtuelle associée
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le menu **Hub**, sélectionnez **Toutes les ressources**. Accédez au compte de stockage que vous souhaitez supprimer, puis sélectionnez **Blobs** > **vhds**.
-   
+
     ![Capture d’écran du portail, où le compte de stockage et le conteneur « vhds » apparaissent en surbrillance](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/opencontainer.png)
 3. Vérifiez les propriétés de chaque disque dur virtuel du conteneur. Recherchez le disque dur virtuel à l’état **Loué**. Ensuite, déterminez quelle machine virtuelle utilise le disque dur virtuel. En règle générale, vous pouvez déterminer les machines virtuelles que contient le disque dur virtuel en vérifiant le nom de ce dernier :
-   
+
    * Généralement, les disques de système d’exploitation respectent la convention d’affectation de noms suivante : NomMachineVirtuelleAAAAMMJJHHMMSS.vhd
    * Généralement, les disques de données respectent la convention d’affectation de noms suivante : NomMachineVirtuelle-AAAAMMJJ-HHMMSS.vhd
-     
+
      ![Capture d’écran de l’info de conteneur dans le portail, avec le nom de la machine Virtuelle, l’état de « Verrouillé » et l’état du bail de « Loué » mis en surbrillance](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/locatevm.png)
 
 ### <a name="step-2-remove-the-lease-from-the-vhd"></a>Étape 2 : Supprimer le bail du disque dur virtuel
@@ -96,7 +96,6 @@ Un bail est un verrou qui peut être utilisé pour contrôler l’accès à un o
 ## <a name="next-steps"></a>Étapes suivantes
 * [Suppression d'un compte de stockage](storage-create-storage-account.md#delete-a-storage-account)
 * [How to break the locked lease of blob storage in Microsoft Azure (PowerShell) (Interruption du bail verrouillé du stockage d’objets blob dans Microsoft Azure (PowerShell))](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
-
 
 
 

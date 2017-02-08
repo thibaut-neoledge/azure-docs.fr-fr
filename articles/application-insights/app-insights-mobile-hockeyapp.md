@@ -1,11 +1,11 @@
 ---
-title: Performance monitoring for mobile web apps with Developer Analytics | Microsoft Docs
-description: Application performance and usage monitoring for mobile app developers. , desktop, web service, and backend apps with HockeyApp and Application Insights.
+title: "Analyse des performances des applications web mobiles avec Developer Analytics | Microsoft Docs"
+description: "Analyse de l’utilisation et des performances des applications pour les développeurs d’applications mobiles. Applications de bureau, de service web et principales avec HockeyApp et Application Insights."
 author: alancameronwills
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 manager: douge
-
+ms.assetid: 93e0f108-9605-4d8b-8fce-512bfe8c3f0f
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,50 +13,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
+ms.openlocfilehash: 4d394ff22e57d162c5adf39c492ca76f3d1f9d3a
+
 
 ---
-# <a name="mobile-analytics-with-hockeyapp-and-application-insights"></a>Mobile Analytics with HockeyApp and Application Insights
-Monitor the performance and usage of your beta-test and deployed mobile and desktop apps with [HockeyApp](https://hockeyapp.net/). Monitor the supporting web service and backend apps with [Visual Studio Application Insights](app-insights-overview.md). Analyze data from both the client and server apps in Analytics, and display the charts alongside each other in an Azure dashboard.
+# <a name="mobile-analytics-with-hockeyapp-and-application-insights"></a>Analyse mobile avec Application Insights et HockeyApp
+Analysez les performances et l’utilisation de vos applications de test bêta et de vos applications mobiles et de bureau déployées avec [HockeyApp](https://hockeyapp.net/). Analysez les applications principales et de service web avec [Azure Application Insights](app-insights-overview.md). Analysez les données des applications clientes et serveur dans Analytics, et affichez les graphiques les uns à côté des autres dans un tableau de bord Azure.
 
-Microsoft Developer Analytics offers two solutions for application performance monitoring:
+Microsoft Developer Analytics propose deux solutions pour l’analyse des performances d’applications :
 
-* **HockeyApp for mobile** and desktop apps.
-  * Distribute test versions to selected users.
-  * Crash analysis.
-  * Custom telemetry for usage analysis.
-* **Application Insights for web sites** and services, and backend applications.
-  * Performance and usage metrics and alerts.
-  * Exception reporting and diagnostic tracing.
-  * Diagnostic search with filtering and related telemetry links.
+* **HockeyApp** pour les applications mobiles et de bureau :
+  * distribution des versions de test aux utilisateurs sélectionnés ;
+  * analyse des incidents ;
+  * données de télémétrie personnalisées pour l’analyse de l’utilisation.
+* **Application Insights** pour les applications principales, de sites web et de services web :
+  * alertes et métriques de performances et d’utilisation ;
+  * rapports d’exceptions et suivi de diagnostic ;
+  * recherche de diagnostic avec des filtres et des liens de télémétrie associés.
 
-Both solutions offer:
+Les deux solutions proposent :
 
-* Powerful **[analytic query language](app-insights-analytics.md)** for diagnostics and analysis.
-* **[Export data](app-insights-export-telemetry.md)** to your own storage.
-* **Integrated dashboard** display of analytic charts and tables.
+* un puissant **[langage de requête analytique](app-insights-analytics.md)** pour les diagnostics et l’analyse ;
+* **[l’exportation des données](app-insights-export-telemetry.md)** vers votre système de stockage ;
+* un affichage de graphiques et de tableaux analytiques dans le **tableau de bord intégré**.
 
-## <a name="monitor-your-app-components"></a>Monitor your app components
-Follow the instructions in these pages to install the SDK in your code and start tracking your app.
+## <a name="monitor-your-app-components"></a>Analyser les composants de votre application
+Suivez les instructions contenues dans ces pages pour installer le Kit de développement logiciel (SDK) dans votre code et commencer le suivi de votre application.
 
-### <a name="web-apps---application-insights"></a>Web apps - Application Insights
-* [ASP.NET web app](app-insights-asp-net.md) 
-* [Java web app](app-insights-java-get-started.md)
-* [Node.js web app](https://github.com/Microsoft/ApplicationInsights-node.js)
+### <a name="web-apps---application-insights"></a>Applications web - Application Insights
+* [Application web ASP.NET](app-insights-asp-net.md) 
+* [Applications web Java](app-insights-java-get-started.md)
+* [Application web Node.js](https://github.com/Microsoft/ApplicationInsights-node.js)
 * [Azure Cloud Services](app-insights-cloudservices.md)
 
-### <a name="mobile-apps---hockeyapp"></a>Mobile apps - HockeyApp
-* [iOS app](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-ios)
-* [Mac OS X app](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x)
-* [Android app](https://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk)
-* [Universal Windows app](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp)
-* [Windows Phone 8 and 8.1 app](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81)
-* [Windows Presentation Foundation app](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps)
+### <a name="mobile-apps---hockeyapp"></a>Applications mobiles - HockeyApp
+* [Application iOS](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-ios)
+* [Application Mac OS X](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x)
+* [Application Android](https://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk)
+* [Application Windows universelle](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp)
+* [Application Windows Phone 8 et 8.1](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81)
+* [Application Windows Presentation Foundation](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps)
 
-For Windows desktop apps, we recommend HockeyApp. But you can also [send telemetry from a Windows app to Application Insights](app-insights-windows-desktop.md). You might want to do that to experiment with Application Insights.
+Pour les applications de bureau Windows, nous vous recommandons HockeyApp, mais vous pouvez également [envoyer les données de télémétrie à Application Insights à partir d’une application Windows](app-insights-windows-desktop.md). Vous souhaiterez peut-être en faire l’expérience avec Application Insights.
 
-## <a name="analytics-and-export-for-hockeyapp-telemetry"></a>Analytics and Export for HockeyApp telemetry
-You can investigate HockeyApp custom and log telemetry using the Analytics and Continuous Export features of Application Insights by [setting up a bridge](app-insights-hockeyapp-bridge-app.md).
+## <a name="analytics-and-export-for-hockeyapp-telemetry"></a>Analyse et exportation de données de télémétrie HockeyApp
+Vous pouvez examiner les données de télémétrie personnalisées et de journalisation HockeyApp à l’aide des fonctionnalités Analyse et Exportation continue d’Application Insights en [configurant un pont](app-insights-hockeyapp-bridge-app.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

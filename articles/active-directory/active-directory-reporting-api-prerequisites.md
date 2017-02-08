@@ -62,7 +62,7 @@ Pour configurer votre annuaire et lui permettre d’accéder à l’API de créa
    
     b. Sélectionnez **Application Web et/ou API Web**.
    
-    c. Cliquez sur **Suivant**.
+    c. Cliquez sur **Next**.
 7. Dans la boîte de dialogue **Propriétés de l’application** , effectuez les opérations suivantes : 
    
     ![Inscription de l’application](./media/active-directory-reporting-api-prerequisites/06.png) 
@@ -168,6 +168,6 @@ Pour obtenir la clé secrète client de l’application, vous devez créer une n
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -1,28 +1,31 @@
 ---
-title: "Vue d’ensemble de l’analyse dans Microsoft Azure | Microsoft Docs"
-description: "Vue d’ensemble de haut niveau de l’analyse et des diagnostics dans Microsoft Azure, y compris les alertes, les webhooks, l’échelle automatique et autres."
+title: "Vue d’ensemble d’Azure Monitoring | Microsoft Docs"
+description: "Présentation générale de la fonction Azure Monitor dans Microsoft Azure, y compris les alertes, les webhooks, l’échelle automatique et autres."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
 ms.service: monitoring-and-diagnostics
-l: 
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 01/07/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4a9e92330081bcf56b7e3755597f76d3530a823d
+ms.sourcegitcommit: c0d101266fecf04a84b5717c1b81cefed90cab40
+ms.openlocfilehash: 2d16a04bb261552dc9eb86bde301d4285dbf4434
 
 
 ---
+
 # <a name="overview-of-monitoring-in-microsoft-azure"></a>Vue d’ensemble de l’analyse dans Microsoft Azure
 Cet article fournit une vue d’ensemble conceptuelle de la surveillance des ressources Azure. Il propose des références vers des informations sur des types de ressources spécifiques.  Pour obtenir des informations générales sur l’analyse de votre application depuis une autre plate-forme qu’Azure, consultez [Guide de surveillance et de diagnostic](../best-practices-monitoring.md).
+
+La vidéo de procédure pas à pas d’Azure Monitor est disponible à l’adresse  
+[Découvrir Microsoft Azure Monitoring et Diagnostics](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). Une vidéo supplémentaire décrivant un scénario dans lequel vous pouvez utiliser Azure Monitor est disponible sur [Découvrir Microsoft Azure Monitoring et Diagnostic](https://channel9.msdn.com/events/Ignite/2016/BRK2234).  
 
 Les applications cloud sont complexes, et se composent de nombreux éléments mobiles. L’analyse fournit des données visant à garantir que votre application reste opérationnelle et soit exécutée en toute intégrité. Elle vous permet également de parer à des problèmes potentiels ou de résoudre des problèmes déjà survenus. En outre, vous pouvez utiliser les données d’analyse pour obtenir des informations détaillées sur votre application. Ces connaissances peuvent vous aider à améliorer les performances de l’application ou sa facilité de gestion, ou à automatiser des actions qui exigeraient normalement une intervention manuelle.
 
@@ -131,7 +134,7 @@ Azure propose des offres pour l’analyse de vos services, depuis les infrastruc
 
 * [Azure Monitor](http://aka.ms/azmondocs) – offre des services de visualisation, requête, routage, alertes, mise à l’échelle et automatisation pour les données de l’infrastructure Azure (journal d’activité) et pour chaque ressource Azure (journaux de diagnostic). Cet article fait partie de la documentation Azure Monitor. Le nom Azure Monitor a été publié le 25 septembre lors de l’Ignite 2016.  Le nom précédent était « Azure Insights ».  
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) – fournit une détection et des diagnostics approfondis et bien intégrés par-dessus les données d’Azure Monitoring pour les problèmes survenant au niveau de la couche d’application de votre service. Il s’agit de la plateforme de diagnostic par défaut pour App Service Web Apps.  Vous pouvez y acheminer les données provenant d’autres services.  
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), composant [d’Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) – fournit une solution de gestion informatique globale aussi bien pour les infrastructures sur site que pour les solutions tierces basées sur le cloud (comme AWS) en plus des ressources Azure.  Les données d’Azure Monitor peuvent être acheminées directement dans Log Analytics afin de voir les mesures et journaux pour l’ensemble de votre environnement en un seul endroit.     
+* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), composant [d’Operations Management Suite](https://www.microsoft.com/oms/) – fournit une solution de gestion informatique globale aussi bien pour les infrastructures sur site que pour les solutions tierces basées sur le cloud (comme AWS) en plus des ressources Azure.  Les données d’Azure Monitor peuvent être acheminées directement dans Log Analytics afin de voir les mesures et journaux pour l’ensemble de votre environnement en un seul endroit.     
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur
@@ -141,11 +144,10 @@ En savoir plus sur
 * [Azure Diagnostic](../azure-diagnostics.md) si vous tentez de diagnostiquer des problèmes dans votre application Cloud Service, Virtual Machine ou Service Fabric.
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) si vous essayez de diagnostiquer des problèmes dans votre application web App Service.
 * [Résolution des problèmes du stockage Azure](../storage/storage-e2e-troubleshooting.md) lorsque vous utilisez le stockage d’objets blob, de tables ou de files d’attente
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) et [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)
+* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) et [Operations Management Suite](https://www.microsoft.com/oms/)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

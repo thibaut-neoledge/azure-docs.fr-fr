@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1f9877f6bbf57da525ad988a6f6dafa6822a7503
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 2e4af1c9369a97d518d027dc4679b9f01ca53d4c
 
 
 ---
@@ -34,7 +34,7 @@ Avec Office 365 Users, vous pouvez :
 * Créer votre flux d’activité en fonction des données que vous obtenez d’Office 365 Users. 
 * Utilisez des actions qui permettent d’obtenir les collaborateurs, le profil utilisateur d’un responsable, et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d'autres actions. Vous pouvez, par exemple, obtenir les collaborateurs d’une personne, puis prendre ces informations et mettre à jour une base de données SQL Azure. 
 
-Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Déclencheurs et actions
 Le connecteur Office 365 Users met à votre disposition les actions ci-après. Il n'y a aucun déclencheur.
@@ -173,7 +173,7 @@ Extrait les résultats de la recherche des profils utilisateur.
 | mobilePhone |string |no |
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
 
 Revenir à la [liste des API](apis-list.md).
 
@@ -187,6 +187,6 @@ Revenir à la [liste des API](apis-list.md).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Service Fabric Cluster Resource Manager - Groupes d’applications | Microsoft Docs
-description: Vue d’ensemble de la fonctionnalité de groupe d’applications dans Service Fabric Cluster Resource Manager
+title: "Service Fabric Cluster Resource Manager - Groupes d’applications | Microsoft Docs"
+description: "Vue d’ensemble de la fonctionnalité de groupe d’applications dans Service Fabric Cluster Resource Manager"
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
 ms.service: Service-Fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/19/2016
 ms.author: masnider
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4be5a8bca1816446d846357896b1be27821fe47b
+
 
 ---
-# Présentation des groupes d’applications
+# <a name="introduction-to-application-groups"></a>Présentation des groupes d’applications
 Service Fabric Cluster Resource Manager gère habituellement les ressources de cluster en répartissant la charge (représentée par les métriques) uniformément dans le cluster. Service Fabric gère également la capacité des nœuds du cluster et le cluster dans son ensemble via la notion de capacité. Ceci est idéal pour divers types de charges de travail, mais les modèles qui utilisent beaucoup d’instances d’application Service Fabric différentes imposent parfois des conditions supplémentaires. Parmi les exigences supplémentaires courantes :
 
 * Possibilité de réserver de la capacité pour les services d’une instance d’application sur un certain nombre de nœuds
@@ -25,12 +29,12 @@ Service Fabric Cluster Resource Manager gère habituellement les ressources de c
 
 Afin de répondre à ces exigences, nous avons développé la prise en charge de ce que nous appelons des groupes d’applications.
 
-## Gestion de la capacité d’application
+## <a name="managing-application-capacity"></a>Gestion de la capacité d’application
 La capacité d’application peut être utilisée pour limiter le nombre de nœuds couverts par une application, ainsi que la charge totale des mesures des instances d’applications sur les nœuds individuels. Elle peut également servir à réserver des ressources du cluster pour l’application.
 
 La capacité des nouvelles applications peut être définie lors de leur création. Elle peut également être mise à jour pour les applications existantes qui ont été créées sans indication de la capacité d’application.
 
-### Limitation du nombre maximal de nœuds
+### <a name="limiting-the-maximum-number-of-nodes"></a>Limitation du nombre maximal de nœuds
 Le cas d’utilisation le plus simple de la capacité d’application est lorsqu’une instanciation d’application doit être limitée à un certain nombre de nœuds au maximum. Si aucune capacité d’application n’est spécifiée, Service Fabric Cluster Resource Manager instanciera des réplicas selon les règles normales (équilibrage ou défragmentation), ce qui signifie généralement que ses services seront répartis sur tous les nœuds disponibles dans le cluster, ou, si la défragmentation est activée, sur un certain nombre de nœuds (arbitraire mais plus petit).
 
 L’illustration suivante montre le placement potentiel d’une instance d’application sans nombre maximal de nœuds défini, puis la même application avec un nombre maximal de nœuds défini. Notez qu’il n’y a aucune garantie concernant le regroupement des réplicas ou des instances des services.
@@ -69,7 +73,7 @@ appMetric.TotalApplicationCapacity = 1000;
 adUpdate.Metrics.Add(appMetric);
 ```
 
-## Mesures, charge et capacité d’application
+## <a name="application-metrics-load-and-capacity"></a>Mesures, charge et capacité d’application
 Les groupes d’applications vous permettent également de définir les mesures associées à une instance d’application donnée, ainsi que la capacité de l’application par rapport à ces mesures. Par exemple, vous pouvez indiquer qu’il est possible de créer autant de services que nécessaire dans
 
 Pour chaque mesure, deux valeurs peuvent être définies pour décrire la capacité de l’instance d’application concernée :
@@ -77,10 +81,10 @@ Pour chaque mesure, deux valeurs peuvent être définies pour décrire la capaci
 * Capacité totale de l’application : représente la capacité totale de l’application pour une mesure donnée. Service Fabric Cluster Resource Manager tente de limiter le nombre total de charges de mesure des services de cette application à la valeur spécifiée ; en outre, si les services de l’application utilisent déjà la charge à hauteur de cette limite, Service Fabric Cluster Resource Manager interdira la création de nouveaux services et partitions, car elle entraînerait le dépassement de cette limite par la charge totale.
 * Capacité maximale du nœud : indique la charge totale maximale pour les réplicas des services des applications sur un seul nœud. Si la charge totale sur le nœud dépasse cette capacité, Service Fabric Cluster Resource Manager tente de déplacer des réplicas vers d’autres nœuds afin de respecter la contrainte de capacité.
 
-## Capacité réservée
-Les groupes d’applications sont également couramment utilisés pour s’assurer que les ressources au sein du cluster sont réservées à une instance d’application donnée, même si l’instance d’application ne renferme pas encore de services, ou s’ils ne consomment pas encore les ressources. Voyons comment cela fonctionne.
+## <a name="reserving-capacity"></a>Capacité réservée
+Les groupes d’applications sont également couramment utilisés pour s’assurer que les ressources au sein du cluster sont réservées à une instance d’application donnée, même si l’instance d’application ne renferme pas encore de services, ou s’ils ne consomment pas encore les ressources. Voyons comment cela fonctionne.  
 
-### Spécification d’un nombre minimal de nœuds et réservation de ressources
+### <a name="specifying-a-minimum-number-of-nodes-and-resource-reservation"></a>Spécification d’un nombre minimal de nœuds et réservation de ressources
 La réservation de ressources pour une instance d’application implique de spécifier deux paramètres supplémentaires : *MinimumNodes* et *NodeReservationCapacity*
 
 * MinimumNodes : tout comme vous pouvez définir un nombre maximal de nœuds cible sur lesquels les services d’une application peuvent s’exécuter, vous pouvez également indiquer le nombre minimal de nœuds sur lesquels une application doit s’exécuter. Ce paramètre définit précisément le nombre minimal de nœuds sur lesquels les ressources doivent être réservées, ce qui garantit la capacité au sein du cluster lors de la création de l’instance d’application.
@@ -96,7 +100,7 @@ Dans l’exemple de droite, imaginons que l’application a été créée avec u
 
 Lorsqu’une application est créée avec une réservation, Cluster Resource Manager réserve de la capacité à une valeur égale au produit MinimumNodes * NodeReservationCapacity dans le cluster, mais il ne réservera pas de capacité sur des nœuds spécifiques tant que les réplicas des services de l’application ne seront pas créés et placés. Cela offre de la flexibilité, étant donné que les nœuds sont choisis pour les nouveaux réplicas uniquement lorsqu’ils sont créés. La capacité est réservée sur un nœud spécifique lorsqu’au moins un réplica est placé dessus.
 
-## Obtention des informations sur la charge d’application
+## <a name="obtaining-the-application-load-information"></a>Obtention des informations sur la charge d’application
 Pour chaque application pour laquelle une capacité d’application a été définie, vous pouvez obtenir les informations sur la charge totale signalée par les réplicas de ses services. Pour ce faire, Service Fabric fournit des requêtes PowerShell et API gérée.
 
 Par exemple, la charge peut être récupérée à l’aide de l’applet de commande PowerShell suivant :
@@ -113,8 +117,8 @@ Le résultat de cette requête contient les informations de base sur la capacit�
 * Charge de l’application : la charge totale des réplicas enfants de cette application.
 * Capacité d’application : la valeur maximale autorisée pour la charge de l’application.
 
-## Suppression de la capacité d’application
-Une fois les paramètres de capacité d’application définis pour une application, vous pouvez les supprimer à l’aide d’API de mise à jour de l’application ou d’applets de commande PowerShell. Par exemple :
+## <a name="removing-application-capacity"></a>Suppression de la capacité d’application
+Une fois les paramètres de capacité d’application définis pour une application, vous pouvez les supprimer à l’aide d’API de mise à jour de l’application ou d’applets de commande PowerShell. Par exemple :
 
 ``` posh
 Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicationCapacity
@@ -123,8 +127,10 @@ Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicat
 
 Cette commande supprime tous les paramètres de capacité de l’application. Service Fabric Cluster Resource Manager se met alors à traiter cette application comme toute autre application du cluster pour laquelle ces paramètres ne sont pas définis. L’effet de la commande est immédiat et Cluster Resource Manager supprime tous les paramètres de capacité de cette application ; pour les spécifier de nouveau, il est nécessaire d’appeler l’API de mise à jour de l’application en utilisant les paramètres appropriés.
 
-## Restrictions sur la capacité d’application
-Il existe plusieurs restrictions à respecter concernant les paramètres de capacité d’application. En cas d’erreurs de validation, la création ou la mise à jour de l’application est rejetée avec une erreur. Tous les paramètres entiers doivent être des nombres positifs. En outre, pour les paramètres individuels, les restrictions sont les suivantes :
+## <a name="restrictions-on-application-capacity"></a>Restrictions sur la capacité d’application
+Il existe plusieurs restrictions à respecter concernant les paramètres de capacité d’application. En cas d’erreurs de validation, la création ou la mise à jour de l’application est rejetée avec une erreur.
+Tous les paramètres entiers doivent être des nombres positifs.
+En outre, pour les paramètres individuels, les restrictions sont les suivantes :
 
 * La valeur du paramètre MinimumNodes ne doit jamais être supérieure à celle du paramètre MaximumNodes.
 * Si les capacités d’une mesure de charge sont définies, elles doivent respecter les règles suivantes :
@@ -153,18 +159,22 @@ Le client ne dispose pas de suffisamment de contexte relatif à l’application.
 
 Ces restrictions sont mises en place pour que Cluster Resource Manager soit en mesure de placer au mieux les réplicas des services d’applications.
 
-## Cas dans lesquels la capacité d’application ne doit pas être utilisée
+## <a name="how-not-to-use-application-capacity"></a>Cas dans lesquels la capacité d’application ne doit pas être utilisée
 * N’utilisez pas la capacité d’application pour contraindre l’application à un sous-ensemble de nœuds : bien que Service Fabric garantisse que le nombre maximal de nœuds est respecté pour chaque application pour laquelle une capacité d’application a été définie, les utilisateurs ne peuvent pas décider sur quels nœuds elles sont instanciées. Il est pour cela possible d’utiliser des contraintes de placement pour les services.
 * N’utilisez pas la capacité d’application pour vous assurer que deux services d’une même application sont toujours placés en parallèle. Utilisez pour cela des relations d’affinité entre les services. Les affinités peuvent être limitées aux services qui doivent être regroupés.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur les autres options disponibles pour la configuration des services, consultez la rubrique sur les autres configurations de Cluster Resource Manager disponibles [En savoir plus sur la configuration des services](service-fabric-cluster-resource-manager-configure-services.md)
-* Pour en savoir plus sur la façon dont Cluster Resource Manager gère et équilibre la charge du cluster, consultez l’article sur l’[équilibrage de la charge](service-fabric-cluster-resource-manager-balancing.md)
+* Pour en savoir plus sur la façon dont Cluster Resource Manager gère et équilibre la charge du cluster, consultez l’article sur l’ [équilibrage de la charge](service-fabric-cluster-resource-manager-balancing.md)
 * Commencez au début et [obtenez une présentation de Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
 * Pour plus d’informations sur le fonctionnement des mesures en général, consultez les informations sur les [mesures de charge Service Fabric](service-fabric-cluster-resource-manager-metrics.md)
 * Cluster Resource Manager comporte de nombreuses options permettant de décrire le cluster. Pour en savoir plus sur celles-ci, consultez cet article sur la [description d’un cluster Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 
-[Image1]: ./media/service-fabric-cluster-resource-manager-application-groups/application-groups-max-nodes.png
-[Image2]: ./media/service-fabric-cluster-resource-manager-application-groups/application-groups-reserved-capacity.png
+[Image1]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-max-nodes.png
+[Image2]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-reserved-capacity.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

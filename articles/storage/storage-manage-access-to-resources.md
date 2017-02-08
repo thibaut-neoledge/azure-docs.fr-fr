@@ -3,8 +3,8 @@ title: "Gestion de l’accès en lecture anonyme aux conteneurs et aux objets bl
 description: "Découvrez comment autoriser l’accès anonyme aux conteneurs et aux objets Blob et comment utiliser un programme pour y accéder."
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: a2cffee6-3224-4f2a-8183-66ca23b2d2d7
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c43677749a80506221a5992d215eddab48cd69c8
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 4fe41c3aabf5e6d9ae899cea0b9f9b6c9c305cf0
 
 
 ---
@@ -48,7 +48,7 @@ Pour définir les autorisations du conteneur à partir du [portail Azure](https:
 2. Dans la liste, sélectionnez le nom du conteneur. Cliquer sur le nom expose les objets blob dans le conteneur choisi
 3. Sélectionnez **Stratégie d’accès** dans la barre d’outils.
 4. Dans le champ **Type d’accès** , sélectionnez le niveau d’autorisation de votre choix, comme illustré dans la capture d’écran ci-dessous.
-   
+
     ![Boîte de dialogue Modifier les métadonnées du conteneur](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 ### <a name="setting-container-permissions-programmatically-using-net"></a>Définition des autorisations du conteneur par un programme à l’aide de .NET
@@ -156,6 +156,6 @@ Le tableau suivant indique les opérations pouvant être appelées par les utili
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

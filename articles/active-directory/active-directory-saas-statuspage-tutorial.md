@@ -1,12 +1,12 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec StatusPage | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et StatusPage.
+title: "Didacticiel : intégration d’Azure Active Directory à StatusPage | Microsoft Docs"
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et StatusPage."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f6ee8bb3-df43-4c0d-bf84-89f18deac4b9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,21 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: accfb64dfe167de9c6481954e00af6c8f732ab1d
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-statuspage"></a>Didacticiel : Intégration d’Azure Active Directory à StatusPage
+# <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Didacticiel : Intégration d’Azure Active Directory à StatusPage
 L’objectif de ce didacticiel est de vous montrer comment intégrer StatusPage dans Azure AD (Azure Active Directory).
 
 L’intégration de StatusPage dans Azure AD vous offre les avantages suivants : 
 
-* Dans Azure AD, vous pouvez contrôler qui a accès à StatusPage. 
-* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à StatusPage (par le biais de l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
+* Dans Azure AD, vous pouvez contrôler qui a accès à StatusPage. 
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à StatusPage (par le biais de l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Composants requis
-Pour configurer l’intégration d’Azure AD avec StatusPage, vous avez besoin des éléments suivants :
+Pour configurer l’intégration d’Azure AD avec StatusPage, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD
 * Un abonnement StatusPage pour lequel l’authentification unique est activée
@@ -38,7 +42,7 @@ Pour configurer l’intégration d’Azure AD avec StatusPage, vous avez besoin 
 > 
 > 
 
-Vous devez en outre suivre les recommandations ci-dessous :
+Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
 * Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/). 
@@ -52,9 +56,9 @@ Le scénario décrit dans ce didacticiel se compose des deux sections principale
 2. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-statuspage-from-the-gallery"></a>Ajout de StatusPage à partir de la galerie
-Pour configurer l’intégration de StatusPage avec Azure AD, vous devez ajouter StatusPage à partir de la galerie à votre liste d’applications SaaS gérées.
+Pour configurer l’intégration de StatusPage avec Azure AD, vous devez ajouter StatusPage à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter StatusPage à partir de la galerie, procédez comme suit :**
+**Pour ajouter StatusPage à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
    
@@ -77,24 +81,24 @@ Pour configurer l’intégration de StatusPage avec Azure AD, vous devez ajouter
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_02.png)
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec StatusPage au moyen d’un utilisateur de test appelé « Britta Simon ».
+L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec StatusPage au moyen d’un utilisateur de test appelé « Britta Simon ».
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur StatusPage équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur StatusPage associé doit être établie.
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur StatusPage équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur StatusPage associé doit être établie.
 
-Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans StatusPage.
+Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans StatusPage.
 
-Pour configurer et tester l’authentification unique Azure AD avec StatusPage, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec StatusPage, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test StatusPage](#creating-a-statuspage-test-user)** pour avoir un équivalent de Britta Simon dans StatusPage qui soit lié à la représentation Azure AD associée.
+3. **[Création d’un utilisateur de test StatusPage](#creating-a-statuspage-test-user)** pour avoir un équivalent de Britta Simon dans StatusPage qui soit lié à la représentation Azure AD associée.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application StatusPage. 
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application StatusPage. 
 
-**Pour configurer l’authentification unique Azure AD avec StatusPage, procédez comme suit :**
+**Pour configurer l’authentification unique Azure AD avec StatusPage, procédez comme suit :**
 
 1. Dans le portail Azure Classic, puis sur la page d’intégration d’application **StatusPage**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
@@ -102,7 +106,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
 2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à StatusPage**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_03.png) 
-3. Sur la page **Configurer les paramètres d’application** , procédez comme suit :
+3. Sur la page **Configurer les paramètres d’application** , procédez comme suit :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_04.png) 
    
@@ -153,7 +157,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ![Créer un utilisateur Azure AD][20]
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
    
@@ -173,7 +177,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    
     b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
    
-    c. Cliquez sur **Suivant**.
+    c. Cliquez sur **Next**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit : 
    
    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-statuspage-tutorial/create_aaduser_06.png) 
@@ -185,7 +189,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
    
    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   e. Cliquez sur **Suivant**.
+   e. Cliquez sur **Next**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-statuspage-tutorial/create_aaduser_07.png) 
@@ -199,9 +203,9 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ### <a name="creating-a-statuspage-test-user"></a>Création d’un utilisateur de test StatusPage
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans StatusPage.
-StatusPage prend en charge l’approvisionnement juste-à-temps. Vous l’avez déjà activé dans [Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on).
+StatusPage prend en charge l’approvisionnement juste-à-temps. Vous l’avez déjà activé dans [Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on).
 
-**Pour créer un utilisateur appelé Britta Simon dans StatusPage, procédez comme suit :**
+**Pour créer un utilisateur appelé Britta Simon dans StatusPage, procédez comme suit :**
 
 1. Connectez-vous à votre site d’entreprise StatusPage en tant qu’administrateur.
 2. Dans le menu situé en haut, cliquez sur **Manage Account**.
@@ -222,7 +226,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ![Affecter des utilisateurs][200] 
 
-**Pour attribuer Britta Simon à StatusPage, procédez comme suit :**
+**Pour attribuer Britta Simon à StatusPage, procédez comme suit :**
 
 1. Pour ouvrir la vue des applications dans le portail Azure Classic, cliquez dans la vue de répertoire sur **Applications** dans le menu du haut.
    
@@ -239,13 +243,13 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
     ![Affecter des utilisateurs][205]
 
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette StatusPage dans le volet d’accès, vous devez être connecté automatiquement à votre application StatusPage.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 
@@ -273,6 +277,6 @@ Lorsque vous cliquez sur la vignette StatusPage dans le volet d’accès, vous d
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
