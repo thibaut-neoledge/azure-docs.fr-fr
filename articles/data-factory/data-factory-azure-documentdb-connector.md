@@ -1,43 +1,50 @@
 ---
-title: Déplacer des données vers/depuis DocumentDB | Microsoft Docs
-description: Découvrez comment déplacer des données depuis et vers la collection Azure DocumentDB à l’aide d’Azure Data Factory.
+title: "Déplacer des données vers/à partir de DocumentDB | Microsoft Docs"
+description: "Découvrez comment déplacer des données depuis et vers la collection Azure DocumentDB à l’aide d’Azure Data Factory."
 services: data-factory, documentdb
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: c9297b71-1bb4-4b29-ba3c-4cf1f5575fac
 ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/02/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: a86d5fb7c0215293e281a52d0f805053bb7b7c11
+ms.openlocfilehash: 935de6643bbfdc8674836a33ce0dfe77df0e2d1e
+
 
 ---
 # <a name="move-data-to-and-from-documentdb-using-azure-data-factory"></a>Déplacer des données vers et depuis DocumentDB à l’aide d’Azure Data Factory
 Cet article explique comment vous pouvez utiliser l’activité de copie dans Azure Data Factory pour déplacer des données vers Azure DocumentDB à partir d’un magasin de données et vice versa. Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de magasins de données prises en charge.
 
-Les exemples suivants indiquent comment copier des données vers et depuis Azure DocumentDB et Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores) , via l’activité de copie d’Azure Data Factory.  
+Les exemples suivants indiquent comment copier des données vers et depuis Azure DocumentDB et Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** à partir de n’importe quelle source, vers n’importe quel récepteur pris en charge. Pour plus d’informations, consultez la section « Banques de données et formats pris en charge » dans [Déplacer des données à l’aide de l’activité de copie](data-factory-data-movement-activities.md).  
 
 > [!NOTE]
 > La passerelle de gestion des données version 2.1 et versions supérieures prend en charge la copie de données à partir de magasins de données sur site/Azure IaaS vers Azure DocumentDB et vice versa.
-> 
-> 
+>
+>
 
-## <a name="sample:-copy-data-from-documentdb-to-azure-blob"></a>Exemple : copie de données à partir de DocumentDB vers un objet Blob Azure
+## <a name="supported-versions"></a>Versions prises en charge
+Ce connecteur DocumentDB prend en charge la copie de données vers/à partir d’une collection partitionnée et d’une collection à partition unique DocumentDB. [DocDB pour MongoDB](../documentdb/documentdb-protocol-mongodb.md) n’est pas pris en charge.
+
+## <a name="sample-copy-data-from-documentdb-to-azure-blob"></a>Exemple : copie de données à partir de DocumentDB vers un objet Blob Azure
 L’exemple ci-dessous présente les éléments suivants :
 
 1. Un service lié de type [DocumentDb](#azure-documentdb-linked-service-properties).
-2. Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
-3. Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [DocumentDbCollection](#azure-documentdb-dataset-type-properties). 
+2. Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md).
+3. Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [DocumentDbCollection](#azure-documentdb-dataset-type-properties).
 4. Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 5. Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [DocumentDbCollectionSource](#azure-documentdb-copy-activity-type-properties) et [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 L'exemple copie des données dans DocumentDB Azure vers un objet Blob Azure. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
-**Service lié DocumentDB Azure :**
+**Service lié DocumentDB Azure :**
 
     {
       "name": "DocumentDbLinkedService",
@@ -61,11 +68,11 @@ L'exemple copie des données dans DocumentDB Azure vers un objet Blob Azure. Les
       }
     }
 
-**Jeu de données d'entrée Document DB Azure :**
+**Jeu de données d'entrée Document DB Azure :**
 
 L’exemple suppose que vous avez une collection nommée **Person** dans une base de données Azure DocumentDB.
 
-La définition de « external » : « true » et la spécification de la stratégie externalData informent le service Azure Data Factory qu'il s'agit d'une table qui est externe à la Data Factory et non produite par une activité dans la Data Factory.
+La définition de « external » : « true » et la spécification de la stratégie externalData informent le service Azure Data Factory qu'il s'agit d'une table qui est externe à la Data Factory et non produite par une activité dans la Data Factory.
 
     {
       "name": "PersonDocumentDbTable",
@@ -84,7 +91,7 @@ La définition de « external » : « true » et la spécification de la straté
     }
 
 
-**Jeu de données de sortie Azure Blob :**
+**Jeu de données de sortie Azure Blob :**
 
 Les données sont copiées vers un nouvel objet blob toutes les heures. Le chemin d'accès à l'objet blob reflète la valeur date-heure spécifique avec une granularité horaire.
 
@@ -108,7 +115,7 @@ Les données sont copiées vers un nouvel objet blob toutes les heures. Le chemi
       }
     }
 
-Exemple de document JSON dans la collection Person dans une base de données DocumentDB : 
+Exemple de document JSON dans la collection Person dans une base de données DocumentDB :
 
     {
       "PersonId": 2,
@@ -119,9 +126,13 @@ Exemple de document JSON dans la collection Person dans une base de données Doc
       }
     }
 
-DocumentDB prend en charge l'interrogation de documents à l'aide d'une syntaxe similaire à SQL sur des documents JSON hiérarchiques. 
+DocumentDB prend en charge l'interrogation de documents à l'aide d'une syntaxe similaire à SQL sur des documents JSON hiérarchiques.
 
-Exemple : SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person
+Exemple : 
+
+```sql
+SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person
+```
 
 Le pipeline suivant copie les données depuis la collection Person dans la base de données DocumentDB vers un objet blob Azure. Dans le cadre de l'activité de copie, les jeux de données d'entrée et de sortie ont été spécifiés.  
 
@@ -165,18 +176,18 @@ Le pipeline suivant copie les données depuis la collection Person dans la base 
       }
     }
 
-## <a name="sample:-copy-data-from-azure-blob-to-azure-documentdb"></a>Exemple : copie de données depuis un objet Blob Azure vers DocumentDB Azure
+## <a name="sample-copy-data-from-azure-blob-to-azure-documentdb"></a>Exemple : copie de données depuis un objet Blob Azure vers DocumentDB Azure
 L’exemple ci-dessous présente les éléments suivants :
 
 1. Un service lié de type [DocumentDb](#azure-documentdb-linked-service-properties).
-2. Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+2. Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md).
 3. un [jeu de données](data-factory-create-datasets.md) d'entrée de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4. Un [jeu de données](data-factory-create-datasets.md) de sortie de type [DocumentDbCollection](#azure-documentdb-dataset-type-properties). 
+4. Un [jeu de données](data-factory-create-datasets.md) de sortie de type [DocumentDbCollection](#azure-documentdb-dataset-type-properties).
 5. Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) et [DocumentDbCollectionSink](#azure-documentdb-copy-activity-type-properties).
 
 L'exemple copie des données depuis un objet Blob Azure vers DocumentDB Azure. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
-**Service lié Azure Blob Storage :**
+**Service lié Azure Blob Storage :**
 
     {
       "name": "StorageLinkedService",
@@ -188,7 +199,7 @@ L'exemple copie des données depuis un objet Blob Azure vers DocumentDB Azure. L
       }
     }
 
-**Service lié DocumentDB Azure :**
+**Service lié DocumentDB Azure :**
 
     {
       "name": "DocumentDbLinkedService",
@@ -242,9 +253,9 @@ L'exemple copie des données depuis un objet Blob Azure vers DocumentDB Azure. L
       }
     }
 
-**Jeu de données de sortie DocumentDB Azure :**
+**Jeu de données de sortie DocumentDB Azure :**
 
-L'exemple copie des données vers une collection nommée « Person ».
+L'exemple copie des données vers une collection nommée « Person ».
 
     {
       "name": "PersonDocumentDbTableOut",
@@ -279,7 +290,7 @@ L'exemple copie des données vers une collection nommée « Person ».
       }
     }
 
-Le pipeline suivant copie les données depuis un objet Blob Azure vers la collection Person dans DocumentDB. Dans le cadre de l'activité de copie, les jeux de données d'entrée et de sortie ont été spécifiés. 
+Le pipeline suivant copie les données depuis un objet Blob Azure vers la collection Person dans DocumentDB. Dans le cadre de l'activité de copie, les jeux de données d'entrée et de sortie ont été spécifiés.
 
     {
       "name": "BlobToDocDbPipeline",
@@ -323,11 +334,11 @@ Le pipeline suivant copie les données depuis un objet Blob Azure vers la collec
       }
     }
 
-Si l'entré de l'objet blob d'exemple est 
+Si l'entré de l'objet blob d'exemple est
 
     1,John,,Doe
 
-Alors, la sortie JSON dans DocumentDB sera :
+Alors, la sortie JSON dans DocumentDB sera :
 
     {
       "Id": 1,
@@ -339,14 +350,14 @@ Alors, la sortie JSON dans DocumentDB sera :
       "id": "a5e8595c-62ec-4554-a118-3940f4ff70b6"
     }
 
-DocumentDB est une banque NoSQL pour les documents JSON, où les structures imbriquées sont autorisées. Azure Data Factory permet à l’utilisateur de désigner la hiérarchie via **nestingSeparator**, qui est « . » dans cet exemple. Avec le séparateur, l'activité de copie générera l'objet « Name » avec trois éléments enfants First, Middle et Last, en fonction de « Name.First », « Name.Middle » et « Name.Last » dans la définition de la table.
+DocumentDB est une banque NoSQL pour les documents JSON, où les structures imbriquées sont autorisées. Azure Data Factory permet à l’utilisateur de désigner la hiérarchie via **nestingSeparator**, qui est « . » dans cet exemple. Avec le séparateur, l'activité de copie générera l'objet « Name » avec trois éléments enfants First, Middle et Last, en fonction de « Name.First », « Name.Middle » et « Name.Last » dans la définition de la table.
 
 ## <a name="azure-documentdb-linked-service-properties"></a>Propriétés du service lié DocumentDB Azure
-Le tableau suivant fournit la description des éléments JSON spécifiques au service lié DocumentDB Azure. 
+Le tableau suivant fournit la description des éléments JSON spécifiques au service lié DocumentDB Azure.
 
 | **Propriété** | **Description** | **Obligatoire** |
 | --- | --- | --- |
-| type |La propriété de type doit être définie sur : **DocumentDb** |Oui |
+| type |La propriété de type doit être définie sur : **DocumentDb** |Oui |
 | connectionString |Spécifier les informations requises pour se connecter à la base de données DocumentDB Azure. |Oui |
 
 ## <a name="azure-documentdb-dataset-type-properties"></a>Propriétés de type du jeu de données DocumentDB Azure
@@ -358,7 +369,7 @@ La section typeProperties est différente pour chaque type de jeu de données et
 | --- | --- | --- |
 | collectionName |Nom de la collection de documents DocumentDB. |Oui |
 
-Exemple :
+Exemple :
 
     {
       "name": "PersonDocumentDbTable",
@@ -377,7 +388,7 @@ Exemple :
     }
 
 ### <a name="schema-by-data-factory"></a>Schéma par Data Factory
-Pour les magasins de données sans schéma comme DocumentDB, le service Data Factory déduit le schéma de l’une des manières suivantes :  
+Pour les magasins de données sans schéma comme DocumentDB, le service Data Factory déduit le schéma de l’une des manières suivantes :  
 
 1. Si vous spécifiez la structure des données à l’aide de la propriété **structure** dans la définition du jeu de données, le service Data Factory respecte cette structure en tant que schéma. Dans ce cas, si une ligne ne contient pas de valeur pour une colonne, une valeur null est fournie pour celle-ci.
 2. Si vous ne spécifiez pas la structure des données à l’aide de la propriété **structure** dans la définition du jeu de données, le service Data Factory déduit le schéma à l’aide de la première ligne dans les données. Dans ce cas, si la première ligne ne contient pas le schéma complet, certaines colonnes ne seront pas incluses dans le résultat de l’opération de copie.
@@ -387,50 +398,61 @@ Par conséquent, pour les sources de données sans schéma, la meilleure pratiqu
 ## <a name="azure-documentdb-copy-activity-type-properties"></a>Propriétés de type de l'activité de copie DocumentDB Azure
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d’entrée et de sortie et la stratégie sont disponibles pour tous les types d’activités.
 
-**Remarque :** l’activité de copie accepte uniquement une entrée et produit une seule sortie.
+**Remarque :** l’activité de copie accepte uniquement une entrée et produit une seule sortie.
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-Dans le cas d’une activité de copie, quand la source est de type **DocumentDbCollectionSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
+Dans le cas d’une activité de copie, quand la source est de type **DocumentDbCollectionSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 | **Propriété** | **Description** | **Valeurs autorisées** | **Obligatoire** |
 | --- | --- | --- | --- |
-| query |Spécifier la requête pour lire les données. |Chaîne de requête prise en charge par DocumentDB. <br/><br/>Exemple : `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Non <br/><br/>Si non spécifié, l’instruction SQL exécutée : `select <columns defined in structure> from mycollection` |
-| nestingSeparator |Caractère spécial pour indiquer que le document est imbriqué. |Tout caractère. <br/><br/>DocumentDB est une banque NoSQL pour les documents JSON, où les structures imbriquées sont autorisées. Azure Data Factory permet à l'utilisateur de désigner la hiérarchie via nestingSeparator, qui est « . » dans les exemples ci-dessus. Avec le séparateur, l'activité de copie générera l'objet « Name » avec trois éléments enfants First, Middle et Last, en fonction de « Name.First », « Name.Middle » et « Name.Last » dans la définition de la table. |Non |
+| query |Spécifier la requête pour lire les données. |Chaîne de requête prise en charge par DocumentDB. <br/><br/>Exemple : `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Non <br/><br/>Si non spécifié, l’instruction SQL exécutée : `select <columns defined in structure> from mycollection` |
+| nestingSeparator |Caractère spécial pour indiquer que le document est imbriqué. |Tout caractère. <br/><br/>DocumentDB est une banque NoSQL pour les documents JSON, où les structures imbriquées sont autorisées. Azure Data Factory permet à l'utilisateur de désigner la hiérarchie via nestingSeparator, qui est « . » dans les exemples ci-dessus. Avec le séparateur, l'activité de copie générera l'objet « Name » avec trois éléments enfants First, Middle et Last, en fonction de « Name.First », « Name.Middle » et « Name.Last » dans la définition de la table. |Non |
 
-**DocumentDbCollectionSink** prend en charge les propriétés suivantes :
+**DocumentDbCollectionSink** prend en charge les propriétés suivantes :
 
 | **Propriété** | **Description** | **Valeurs autorisées** | **Obligatoire** |
 | --- | --- | --- | --- |
-| nestingSeparator |Caractère spécial dans le nom de colonne source pour indiquer que le document imbriqué est nécessaire. <br/><br/>Par exemple, ci-dessus : `Name.First` dans la table de sortie produit la structure JSON suivante dans le document DocumentDB :<br/><br/>"Name": {<br/>  "First": "John"<br/>}, |Caractère utilisé pour séparer les niveaux d’imbrication.<br/><br/>La valeur par défaut est `.` (point). |Caractère utilisé pour séparer les niveaux d’imbrication. <br/><br/>La valeur par défaut est `.` (point). |
-| writeBatchSize |Nombre de requêtes parallèles auprès du service DocumentDB pour créer des documents.<br/><br/>Vous pouvez optimiser les performances lors de la copie des données à partir de DocumentDB à l’aide de cette propriété. Vous pouvez vous attendre à de meilleures performances lorsque vous augmentez writeBatchSize car davantage de requêtes parallèles à DocumentDB sont envoyées. Toutefois, vous devez éviter les limitations qui peuvent déclencher le message d’erreur : « Le taux de demandes est élevé ».<br/><br/>Une limitation dépend de divers facteurs, dont la taille des documents, le nombre de termes qu’ils contiennent, la stratégie d’indexation de la collection cible, etc. Pour les opérations de copie, vous pouvez utiliser une meilleure collection (par exemple, S3) pour que le débit disponible soit maximal (2 500 unités de requêtes par seconde). |Integer |Non (valeur par défaut : 10000) |
+| nestingSeparator |Caractère spécial dans le nom de colonne source pour indiquer que le document imbriqué est nécessaire. <br/><br/>Par exemple, ci-dessus : `Name.First` dans la table de sortie produit la structure JSON suivante dans le document DocumentDB :<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Caractère utilisé pour séparer les niveaux d’imbrication.<br/><br/>La valeur par défaut est `.` (point). |Caractère utilisé pour séparer les niveaux d’imbrication. <br/><br/>La valeur par défaut est `.` (point). |
+| writeBatchSize |Nombre de requêtes parallèles auprès du service DocumentDB pour créer des documents.<br/><br/>Vous pouvez optimiser les performances lors de la copie des données à partir de DocumentDB à l’aide de cette propriété. Vous pouvez vous attendre à de meilleures performances lorsque vous augmentez writeBatchSize car davantage de requêtes parallèles à DocumentDB sont envoyées. Toutefois, vous devez éviter les limitations qui peuvent déclencher le message d’erreur : « Le taux de demandes est élevé ».<br/><br/>Une limitation dépend de divers facteurs, dont la taille des documents, le nombre de termes qu’ils contiennent, la stratégie d’indexation de la collection cible, etc. Pour les opérations de copie, vous pouvez utiliser une meilleure collection (par exemple, S3) pour que le débit disponible soit maximal (2 500 unités de requêtes par seconde). |Entier  |Non (valeur par défaut : 5) |
 | writeBatchTimeout |Temps d'attente pour que l'opération soit terminée avant d'expirer. |intervalle de temps<br/><br/>  Exemple : « 00:30:00 » (30 minutes). |Non |
 
+## <a name="importexport-json-documents"></a>Importation/exportation de documents JSON
+À l’aide de ce connecteur DocumentDB, vous pouvez facilement :
+
+* Importer des documents JSON à partir de différentes sources dans DocumentDB, y compris Blob Azure, Azure Data Lake, un système de fichiers local ou d’autres banques basées sur fichier prises en charge par Azure Data Factory
+* Exporter des documents JSON à partir d’une collection DocumentDB vers différentes banques basées sur fichier
+* Migrer des données entre deux collections DocumentDB en l’état
+
+Pour obtenir une copie de ce type, indépendante du schéma, ne spécifiez pas la section « structure » dans le jeu de données d’entrée ni la propriété « nestingSeparator » dans la source/le récepteur DocumentDB dans l’activité de copie. Consultez la section relative à la spécification du format dans la rubrique consacrée aux informations de configuration du format JSON pour le connecteur basé sur fichier correspondant.
+
 ## <a name="appendix"></a>Annexe
-1. **Question :** 
-    l’activité de copie prend-elle en charge la mise à jour d’enregistrements existants ?
-   
-    **Réponse :** 
+1. **Question :**
+    l’activité de copie prend-elle en charge la mise à jour d’enregistrements existants ?
+
+    **Réponse :**
     non.
-2. **Question :** 
-    comment une nouvelle tentative de copie vers DocumentDB gère-t-elle les enregistrements déjà copiés ?
-   
-    **Réponse :** 
-    si les enregistrements ont un champ « ID » et que l'opération de copie tente d'insérer un enregistrement avec le même ID, l'opération de copie génère une erreur.  
-3. **Question :**
-    Data Factory prend-il en charge le [partitionnement de données basé sur un intervalle ou sur le hachage](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/) ? 
-   
+2. **Question :**
+    comment une nouvelle tentative de copie vers DocumentDB gère-t-elle les enregistrements déjà copiés ?
+
     **Réponse :**
-    non. 
-4. **Question :**
-    puis-je indiquer plusieurs collections DocumentDB pour une table ?
-   
-    **Réponse :**
+    si les enregistrements ont un champ « ID » et que l'opération de copie tente d'insérer un enregistrement avec le même ID, l'opération de copie génère une erreur.  
+3. **Question :**
+    Data Factory prend-il en charge le [partitionnement de données basé sur un intervalle ou sur le hachage](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/) ?
+
+    **Réponse :**
+    non.
+4. **Question :**
+    puis-je indiquer plusieurs collections DocumentDB pour une table ?
+
+    **Réponse :**
     non. Il n’est possible d’indiquer qu’une collection pour le moment.
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

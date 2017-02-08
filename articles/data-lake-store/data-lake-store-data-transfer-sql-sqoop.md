@@ -146,6 +146,6 @@ Pour optimiser les performances de votre tâche Sqoop pour copier des données v
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

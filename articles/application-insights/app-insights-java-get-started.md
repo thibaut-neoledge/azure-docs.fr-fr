@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc4561516490b9b285220e7ae688bf97384fe6e
-ms.openlocfilehash: c900840e419c06b70e3a2f53a6aa8314145324fe
+ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
+ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 
 
 ---
@@ -55,8 +55,6 @@ Si votre projet est déjà configuré pour être assemblé avec Maven, fusionnez
 
 Actualisez ensuite les dépendances du projet pour télécharger les fichiers binaires.
 
-```XML
-
     <repositories>
        <repository>
           <id>central</id>
@@ -73,7 +71,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
         <version>[1.0,)</version>
       </dependency>
     </dependencies>
-```
+
 
 * *Des erreurs de validation de build ou de somme de contrôle ?* Essayez d’utiliser une version spécifique, telle que : `<version>1.0.n</version>`. Vous trouverez la version la plus récente dans les [notes de publication du Kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou dans nos [artefacts Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Besoin de mettre à jour vers un nouveau Kit de développement logiciel (SDK) ?*  Actualisez les dépendances de votre projet.
@@ -83,8 +81,6 @@ Si votre projet est déjà configuré pour être assemblé avec Gradle, fusionne
 
 Actualisez ensuite les dépendances du projet pour télécharger les fichiers binaires.
 
-```JSON
-
     repositories {
       mavenCentral()
     }
@@ -93,7 +89,6 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
       compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
       // or applicationinsights-core for bare API
     }
-```
 
 * *Erreurs de validation de build ou de somme de contrôle ? Essayez d’utiliser une version spécifique, telle que :* `version:'1.0.n'`. *Vous trouverez la version la plus récente dans les [notes de publication du kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Pour effecteur la mise à jour vers un nouveau kit de développement logiciel (SDK)*
@@ -119,8 +114,6 @@ Ajouter manuellement le Kit de développement logiciel :
 Ajoutez ApplicationInsights.xml dans le dossier de ressources de votre projet, ou vérifiez qu’il est ajouté au chemin de la classe du déploiement de votre projet. Copiez-y le code XML suivant.
 
 Remplacez la clé d'instrumentation que avez obtenue sur le portail Azure.
-
-```XML
 
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
@@ -151,7 +144,6 @@ Remplacez la clé d'instrumentation que avez obtenue sur le portail Azure.
 
       </TelemetryInitializers>
     </ApplicationInsights>
-```
 
 
 * La clé d'instrumentation est envoyée avec chaque élément de télémétrie et indique à Application Insights de l'afficher dans votre ressource.
@@ -168,10 +160,8 @@ Le kit de développement logiciel (SDK) d’Application Insights recherche la cl
 
 Vous pouvez également [définir la clé dans le code](app-insights-api-custom-events-metrics.md#ikey):
 
-```Java
-
     telemetryClient.InstrumentationKey = "...";
-```
+
 
 ## <a name="4-add-an-http-filter"></a>4. Ajouter un filtre HTTP
 La dernière étape de la configuration permet au composant de demande HTTP de consigner toutes les demandes web. (Non requis si vous voulez juste l'API seule.)
@@ -179,8 +169,6 @@ La dernière étape de la configuration permet au composant de demande HTTP de c
 Recherchez et ouvrez le fichier web.xml dans votre projet et fusionnez le code suivant sous le nœud de l'application web, où vos filtres d'application sont configurés.
 
 Pour obtenir des résultats plus précis, le filtre doit être mappé avant tous les autres filtres.
-
-```XML
 
     <filter>
       <filter-name>ApplicationInsightsWebFilter</filter-name>
@@ -192,12 +180,9 @@ Pour obtenir des résultats plus précis, le filtre doit être mappé avant tous
        <filter-name>ApplicationInsightsWebFilter</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>
-```
 
 #### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>Si vous utilisez Spring Web MVC 3.1 ou une version ultérieure
 Modifiez ces éléments dans *-servlet.xml pour inclure le package Application Insights :
-
-```XML
 
     <context:component-scan base-package=" com.springapp.mvc, com.microsoft.applicationinsights.web.spring"/>
 
@@ -207,18 +192,14 @@ Modifiez ces éléments dans *-servlet.xml pour inclure le package Application I
             <bean class="com.microsoft.applicationinsights.web.spring.RequestNameHandlerInterceptorAdapter" />
         </mvc:interceptor>
     </mvc:interceptors>
-```
 
 #### <a name="if-youre-using-struts-2"></a>Si vous utilisez Struts 2
 Ajoutez cet élément au fichier de configuration Struts (généralement struts.xml ou struts-default.xml) :
-
-```XML
 
      <interceptors>
        <interceptor name="ApplicationInsightsRequestNameInterceptor" class="com.microsoft.applicationinsights.web.struts.RequestNameInterceptor" />
      </interceptors>
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
-```
 
 (Si vous avez défini des intercepteurs dans une pile par défaut, l'intercepteur peut simplement être ajouté à cette pile).
 
@@ -252,7 +233,7 @@ Lorsque vous affichez les propriétés d’une demande, vous voyez les événeme
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Analytics : un puissant langage de requête
-En accumulant toujours plus de données, vous pouvez exécuter des requêtes à la fois pour agréger les données et pour rechercher des instances individuelles.  [Analytics](app-insights-analytics.md) est un outil puissant qui permet non seulement de comprendre les performances et l’utilisation, mais également d’effectuer des diagnostics.
+En accumulant toujours plus de données, vous pouvez exécuter des requêtes à la fois pour agréger les données et pour rechercher des instances individuelles. [Analytics]() est un outil puissant qui permet non seulement de comprendre les performances et l’utilisation, mais également d’effectuer des diagnostics.
 
 ![Exemple d’Analytics](./media/app-insights-java-get-started/025.png)
 
@@ -294,25 +275,20 @@ Ouvrez **Paramètres**, **Serveurs** afin d’afficher une gamme de compteurs de
 ### <a name="customize-performance-counter-collection"></a>Personnaliser la collecte des compteurs de performances
 Pour désactiver la collecte du jeu standard de compteurs de performances, ajoutez le code suivant sous le nœud racine du fichier ApplicationInsights.xml :
 
-```XML
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
     </PerformanceCounters>
-```
 
 ### <a name="collect-additional-performance-counters"></a>Collecter des compteurs de performances supplémentaires
 Vous pouvez spécifier d'autres compteurs de performances à collecter.
 
 #### <a name="jmx-counters-exposed-by-the-java-virtual-machine"></a>Compteurs JMX (exposés par la machine virtuelle Java)
-
-```XML
     <PerformanceCounters>
       <Jmx>
         <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
         <Add objectName="java.lang:type=Memory" attribute="HeapMemoryUsage.used" displayName="Heap Memory Usage-used" type="composite"/>
       </Jmx>
     </PerformanceCounters>
-```
 
 * `displayName` : nom affiché sur le portail Application Insights.
 * `objectName` : nom de l'objet JMX.
@@ -325,14 +301,12 @@ Vous pouvez spécifier d'autres compteurs de performances à collecter.
 #### <a name="windows-performance-counters"></a>Compteurs de performances Windows
 Chaque [compteur de performances Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) est un membre d'une catégorie (de la même façon qu'un champ est un membre d'une classe). Les catégories peuvent être globales ou peuvent avoir des instances numérotées ou nommées.
 
-```XML
     <PerformanceCounters>
       <Windows>
         <Add displayName="Process User Time" categoryName="Process" counterName="%User Time" instanceName="__SELF__" />
         <Add displayName="Bytes Printed per Second" categoryName="Print Queue" counterName="Bytes Printed/sec" instanceName="Fax" />
       </Windows>
     </PerformanceCounters>
-```
 
 * displayName : nom affiché sur le portail Application Insights.
 * categoryName : catégorie du compteur de performances (objet de performances) à laquelle ce compteur de performances est associé.
@@ -381,7 +355,7 @@ Vous obtenez des graphiques du temps de réponse, ainsi que des notifications pa
 * Ajoutez [la surveillance à vos pages web](app-insights-javascript.md) pour surveiller le temps de chargement des pages, les appels AJAX et les exceptions du navigateur.
 * Écrivez [télémétrie personnalisée](app-insights-api-custom-events-metrics.md) pour suivre l’utilisation sur le navigateur ou le serveur.
 * Créez des [tableaux de bord](app-insights-dashboards.md) pour rassembler les graphiques essentiels pour la surveillance de votre système.
-* Utilisez [Analytics](app-insights-analytics.md) pour des requêtes puissantes sur les données de télémétrie de votre application
+* [Analytics](app-insights-analytics.md) pour des requêtes puissantes sur vos données de télémétrie
 * Pour plus d’informations, consultez le [Centre pour développeurs Java](/develop/java/).
 
 <!--Link references-->
@@ -397,6 +371,6 @@ Vous obtenez des graphiques du temps de réponse, ainsi que des notifications pa
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 

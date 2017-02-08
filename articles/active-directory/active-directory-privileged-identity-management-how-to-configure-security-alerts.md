@@ -3,7 +3,7 @@ title: "Configuration des alertes de sécurité | Microsoft Docs"
 description: "Découvrez comment configurer des alertes de sécurité pour l’extension Azure Privileged Identity Management."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 4e0c911a-36c6-42a0-8f79-a01c03d2d04f
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/02/2016
-ms.author: kgremban
+ms.date: 02/03/2017
+ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: dd8987a05c71643b49e0ac9e3c8ae43d47743225
@@ -59,7 +59,6 @@ Cette alerte se déclenche si un utilisateur reste un certain temps sans activer
 
 * **Nombre de jours**: spécifiez, de 0 à 100, le nombre de jours pendant lesquels un utilisateur peut rester sans activer un rôle.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
@@ -70,6 +69,6 @@ Cette alerte se déclenche si un utilisateur reste un certain temps sans activer
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

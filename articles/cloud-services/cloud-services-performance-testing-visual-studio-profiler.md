@@ -177,6 +177,6 @@ L'instrumentalisation d'exécutables Azure dans l'émulateur de calcul n'est pas
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

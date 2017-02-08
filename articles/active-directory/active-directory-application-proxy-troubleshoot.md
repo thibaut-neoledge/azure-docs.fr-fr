@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 12/01/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 654acd092f9e8469d7014e1ff15cb7d812918e8b
-
+ms.sourcegitcommit: 1eada96773b1d9c6adb9326c9100da7cde8abf77
+ms.openlocfilehash: e3143d787104ffbba9fb0c3806b187382d9d5c5b
 
 ---
+
+
 # <a name="troubleshoot-application-proxy"></a>Résoudre les problèmes du proxy d’application
 Si des erreurs se produisent dans l’accès à une application publiée ou dans la publication d’applications, vérifiez les options suivantes pour voir si le proxy d’application Microsoft Azure Active Directory fonctionne correctement :
 
@@ -53,7 +54,7 @@ Si l’inscription échoue au cours de l’installation de l’assistant Connect
 | Échec de l’inscription du connecteur : assurez-vous que vous avez activé le proxy d’application dans le portail de gestion Azure, et que vous avez entré correctement votre nom d’utilisateur et votre mot de passe Active Directory. Erreur : « Une ou plusieurs erreurs se sont produites. » |Si la fenêtre d’inscription s’ouvre puis ferme immédiatement sans vous permettre de vous connecter, vous recevrez probablement cette erreur. Cette erreur se produit quand il existe une erreur réseau sur votre système. |Assurez-vous qu’il est possible de se connecter à partir d’un navigateur à un site web public et que les ports sont ouverts comme spécifié dans les [conditions préalables du proxy d’application](active-directory-application-proxy-enable.md). |
 | Échec de l’inscription du connecteur : assurez-vous que votre ordinateur est connecté à Internet. Erreur : « Il n’existait pas de point de terminaison à l’écoute sur `https://connector.msappproxy.net :9090/register/RegisterConnector` pouvant accepter le message. Ceci est souvent dû à une adresse ou une action SOAP incorrecte. S’il est présent, voir l’élément InnerException pour plus d’informations. » |Si vous vous connectez en utilisant votre nom d’utilisateur et votre mot de passe Azure AD, mais que vous recevez ensuite cette erreur, la raison peut en être que tous les ports au-dessus de 8081 sont bloqués. |Assurez-vous que les ports nécessaires sont ouverts. Pour plus d’informations, consultez [Conditions préalables pour le proxy d’application](active-directory-application-proxy-enable.md). |
 | L’erreur est présentée en clair dans la fenêtre d’inscription. Impossible de continuer. Seule la fermeture de la fenêtre est possible. |Vous avez entré un nom d’utilisateur ou un mot de passe incorrect. |Réessayez. |
-| Échec de l’inscription du connecteur : assurez-vous que vous avez activé le proxy d’application dans le portail de gestion Azure, et que vous avez entré correctement votre nom d’utilisateur et votre mot de passe Active Directory. Erreur : « AADSTS50059 : pas d’informations d’identification de locataire trouvées dans la demande ou déduite des informations d’identification fournies. Échec de la recherche selon l’URI du principal du service. |Vous essayez de vous connecter en utilisant un compte Microsoft mais pas un domaine qui fait partie de l’ID d’organisation de l’annuaire auquel vous tentez d’accéder. |Assurez-vous que l’administrateur fait partie du même nom de domaine que le domaine du locataire. Par exemple, si le domaine Azure AD est contoso.com, l’administrateur doit être admin@contoso.com. |
+| Échec de l’inscription du connecteur : assurez-vous que vous avez activé le proxy d’application dans le portail de gestion Azure, et que vous avez entré correctement votre nom d’utilisateur et votre mot de passe Active Directory. Erreur : « AADSTS50059 : pas d’informations d’identification de locataire trouvées dans la demande ou déduites des informations d’identification fournies. Échec de la recherche selon l’URI du principal du service. |Vous essayez de vous connecter en utilisant un compte Microsoft mais pas un domaine qui fait partie de l’ID d’organisation de l’annuaire auquel vous tentez d’accéder. |Assurez-vous que l’administrateur fait partie du même nom de domaine que le domaine du locataire. Par exemple, si le domaine Azure AD est contoso.com, l’administrateur doit être admin@contoso.com. |
 | Impossible de récupérer la stratégie d’exécution actuelle pour l’exécution de scripts PowerShell. |En cas d’échec de l’installation du connecteur, vérifiez que la stratégie d’exécution de PowerShell n’est pas désactivée. |Ouvrez l’Éditeur de stratégie de groupe. Accédez à **Configuration ordinateur** > **Modèles d’administration** > **Composants Windows** > **Windows PowerShell** et double-cliquez sur **Activer l’exécution des scripts**. Cette option peut être définie sur **Non configuré** ou **Activé**. Si elle est définie sur **Activé**, vérifiez que sous Options, la stratégie d’exécution est définie sur **Autoriser les scripts locaux et les scripts signés distants** ou sur **Autoriser tous les scripts**. |
 | Échec du téléchargement de la configuration par le connecteur. |Le certificat client du connecteur, qui est utilisé pour l’authentification, est expiré. Ceci peut également se produire si le connecteur est installé derrière un proxy. Dans ce cas, le connecteur ne peut pas accéder à Internet et ne sera pas en mesure de fournir des applications aux utilisateurs distants. |Renouvelez l’approbation manuellement à l’aide de l’applet de commande `Register-AppProxyConnector` dans Windows PowerShell. Si votre connecteur est derrière un proxy, il est nécessaire d’octroyer l’accès à Internet aux comptes du connecteur « services réseau » et « système local ». Ceci peut être effectué en leur accordant l’accès au proxy ou en les configurant pour qu’ils ignorent le proxy. |
 | Échec de l’inscription du connecteur : vous devez être un administrateur global de votre Active Directory pour inscrire le connecteur. Erreur : « La demande d’inscription a été refusée. » |L’alias avec lequel vous essayez de vous connecter n’est pas un administrateur sur ce domaine. Votre connecteur est toujours installé pour l’annuaire qui détient le domaine de l’utilisateur. |Assurez-vous que l’administrateur que vous voulez utiliser pour vous connecter dispose des autorisations globales sur le locataire Azure AD. |
@@ -86,6 +87,6 @@ Pour les dernières nouvelles et mises à jour, consultez le site [Application P
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

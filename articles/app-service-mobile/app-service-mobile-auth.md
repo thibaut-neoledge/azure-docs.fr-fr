@@ -21,7 +21,7 @@ ms.openlocfilehash: 8b676aee5353d0e5d85224950a537b3fe31f2f29
 
 ---
 # <a name="authentication-and-authorization-in-azure-mobile-apps"></a>Authentification et autorisation dans Azure Mobile Apps
-## <a name="what-is-app-service-authentication-authorization"></a>Qu’est-ce que l’authentification/autorisation App Service ?
+## <a name="what-is-app-service-authentication--authorization"></a>Qu’est-ce que l’authentification/autorisation App Service ?
 > [!NOTE]
 > Cette rubrique sera migrée vers une rubrique d’ [authentification/autorisation App Service](../app-service/app-service-authentication-overview.md) consolidée, qui couvre les applications web, mobile et les API Apps.
 > 

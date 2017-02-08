@@ -181,7 +181,7 @@ En plus de la télémétrie fournie par le Kit de développement logiciel (SDK) 
 
 [Découvrez comment envoyer les journaux et la télémétrie personnalisée à Application Insights][trace].
 
-## <a name="a-namequestionsaq-a"></a><a name="questions"></a>Questions et réponses
+## <a name="a-namequestionsaq--a"></a><a name="questions"></a>Questions et réponses
 ### <a name="a-namelimitsahow-much-data-is-retained"></a><a name="limits"></a>Quelle est la quantité de données conservée ?
 Jusqu'à 500 événements par seconde pour chaque application. Les événements sont conservés pendant sept jours.
 

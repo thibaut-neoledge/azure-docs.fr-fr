@@ -3,7 +3,7 @@ title: "Comment créer une collection cloud d’Azure RemoteApp | Microsoft Docs
 description: "Découvrez comment créer un déploiement d&quot;Azure RemoteApp qui enregistre les données dans le cloud Azure."
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 editor: 
 ms.assetid: 4d7c6956-7e4a-4a41-b7f2-7e5832bf01e3
@@ -12,11 +12,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 21d6cabf44d2a2b63b158f1ebd567cc8945e0333
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 59619d78959f9fcc3144a30af883021a8f5f3044
 
 
 ---
@@ -94,7 +94,7 @@ Maintenant que vous avez créé votre collection, vous devez ajouter les utilisa
    
    **Remarques :** 
    
-   Vérifiez que vous utilisez le format “user@domain.com”.
+   Assurez-vous d’utiliser le format *user@domain.com*.
    
    Si vous utilisez Office 365 ProPlus dans votre collection, vous devez utiliser les identités Active Directory de vos utilisateurs. Cela permet de valider la licence. 
 3. Une fois les utilisateurs validés, cliquez sur **Enregistrer**.
@@ -108,6 +108,6 @@ Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Mettre à jour un microprogramme | Microsoft Docs"
-description: "Ce didacticiel montre comment effectuer une mise à jour de microprogramme"
+title: "Mise à jour d’un microprogramme d’appareil avec Azure IoT Hub (Node) | Microsoft Docs"
+description: "Guide d’utilisation de la gestion des appareils sur Azure IoT Hub pour lancer une mise à jour du microprogramme d’un appareil. Vous utilisez les SDK Azure IoT pour Node.js afin d’implémenter une application d’appareil simulé et une application de service qui déclenche la mise à jour du microprogramme."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 632b9b38808e033b1fee2676b353f2649c4a282c
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: fdc8dca46f5bd0feb8e6ce24af32327be4c8ebb6
 
 
 ---
-# <a name="tutorial-how-to-do-a-firmware-update"></a>Didacticiel : Mettre à jour un microprogramme
+# <a name="use-device-management-to-initiate-a-device-firmware-update-node"></a>Utilisation de la gestion des appareils pour lancer une mise à jour du microprogramme d’un appareil (Node)
 ## <a name="introduction"></a>Introduction
 Dans le didacticiel [Prise en main de la gestion d’appareils][lnk-dm-getstarted], vous avez vu comment utiliser les primitives de [représentation d’appareil physique][lnk-devtwin] et de [méthodes directives][lnk-c2dmethod] pour redémarrer à distance un appareil. Ce didacticiel utilise les mêmes primitives IoT Hub, fournit des conseils, et montre comment effectuer une mise à jour du microprogramme simulée de bout en bout.  Ce modèle est utilisé dans l’implémentation de la mise à jour du microprogramme de l’exemple d’appareil Intel Edison.
 
 Ce didacticiel vous explique les procédures suivantes :
 
-* Créer une application console qui appelle une méthode directe firmwareUpdate sur l’application d’appareil simulé via votre IoT Hub.
+* Créez une application console Node.js qui appelle une méthode directe firmwareUpdate sur l’application d’appareil simulé via votre IoT Hub.
 * Créer une application d’appareil simulé qui implémente une méthode directe firmwareUpdate qui passe par un processus en plusieurs étapes consistant à attendre avant de télécharger l’image du microprogramme, à télécharger celle-ci, puis finalement à l’appliquer.  Tout au long du processus, l’appareil utilise les propriétés signalées pour mettre à jour la progression.
 
 À la fin de ce didacticiel, vous disposerez de deux applications console Node.js :
@@ -47,18 +47,18 @@ Pour créer votre IoT Hub et obtenir votre chaîne de connexion, procédez de la
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Création d’une application de périphérique simulé
-Dans cette section, vous allez :
+Dans cette section, vous allez :
 
 * Créer une application console Node.js qui répond à une méthode directe appelée par le cloud
 * Déclencher une mise à jour du microprogramme simulé
-* Utiliser les propriétés signalées pour activer les requêtes sur la représentation d’appareil afin d’identifier les appareils et l’heure de leur dernière mise à jour de microprogrammee
+* Utiliser les propriétés signalées pour activer les requêtes sur la représentation d’appareil afin d’identifier les appareils et l’heure de leur dernière mise à jour de microprogramme
 
 1. Créez un dossier vide nommé **simulateddevice**.  Dans le dossier **simulateddevice**, créez un fichier package.json en utilisant la commande suivante à l’invite de commandes.  Acceptez toutes les valeurs par défaut :
    
     ```
     npm init
     ```
-2. À l’invite de commandes, dans le dossier **manageddevice**, exécutez la commande suivante pour installer les packages Kit de développement logiciel (SDK) pour appareils **azure-iot-device** et **azure-iot-device-mqtt** :
+2. À l’invite de commandes, dans le dossier **manageddevice**, exécutez la commande suivante pour installer les packages Kit de développement logiciel (SDK) pour appareils **azure-iot-device** et **azure-iot-device-mqtt** :
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -72,7 +72,7 @@ Dans cette section, vous allez :
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Ajoutez une variable **connectionString** et utilisez-la pour créer un client d’appareil.  
+5. Ajoutez une variable **connectionString** et utilisez-la pour créer une instance de **Client**.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
@@ -262,7 +262,7 @@ Dans cette section, vous allez :
 ## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Déclencher une mise à jour du microprogramme à distance sur l’appareil à l’aide d’une méthode directe
 Dans cette section, vous créez une application console Node.js qui lance une mise à jour du microprogramme à distance sur un appareil à l’aide d’une méthode directe, et utilise des requêtes de la représentation d’appareil pour obtenir régulièrement l’état de la mise à jour du microprogramme active sur cet appareil.
 
-1. Créez un dossier vide nommé **triggerfwupdateondevice**.  Dans le dossier **triggerfwupdateondevice**, créez un fichier package.json en utilisant la commande suivante à l’invite de commandes.  Acceptez toutes les valeurs par défaut :
+1. Créez un dossier vide nommé **triggerfwupdateondevice**.  Dans le dossier **triggerfwupdateondevice**, créez un fichier package.json à l’aide de la commande ci-dessous, à l’invite de commandes.  Acceptez toutes les valeurs par défaut :
    
     ```
     npm init
@@ -359,12 +359,12 @@ Pour savoir comment étendre votre solution IoT et planifier des appels de méth
 [lnk-dm-getstarted]: iot-hub-node-node-device-management-get-started.md
 [lnk-tutorial-jobs]: iot-hub-node-node-schedule-jobs.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

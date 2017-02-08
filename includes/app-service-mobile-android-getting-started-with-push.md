@@ -96,6 +96,6 @@
     L'application est mise à jour et prend en charge les notifications Push.
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Ajout du déclencheur de périodicité dans des applications logiques | Microsoft Docs
-description: Vue d’ensemble du déclencheur de périodicité et de son utilisation avec une application logique Azure.
-services: ''
-documentationcenter: ''
+title: "Ajout du déclencheur de périodicité dans des applications logiques | Microsoft Docs"
+description: "Vue d’ensemble du déclencheur de périodicité et de son utilisation avec une application logique Azure."
+services: 
+documentationcenter: 
 author: jeffhollan
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,19 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: fe558958c316c8dba42163e277ae01451f712e5a
+
 
 ---
-# Prise en main du déclencheur de périodicité
+# <a name="get-started-with-the-recurrence-trigger"></a>Prise en main du déclencheur de périodicité
 En utilisant le déclencheur de périodicité, vous pouvez créer des workflows puissants dans le cloud.
 
-Vous pouvez par exemple afficher :
+Vous pouvez par exemple afficher :
 
 * Planifier un workflow pour l’exécution quotidienne d’une procédure SQL stockée.
 * Envoyer par e-mail un résumé de tous les tweets de la semaine écoulée sur la base d’un hashtag spécifique.
 
-Pour commencer à utiliser le déclencheur de périodicité dans une application logique, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour commencer à utiliser le déclencheur de périodicité dans une application logique, consultez [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## Utilisation d’un déclencheur de périodicité
+## <a name="use-a-recurrence-trigger"></a>Utilisation d’un déclencheur de périodicité
 Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs](connectors-overview.md).
 
 Voici un exemple de séquence de configuration d’un déclencheur de périodicité dans une application logique :
@@ -39,10 +43,11 @@ L’application logique est exécutée après l’écoulement de chaque interval
 
 ![Déclencheur HTTP](./media/connectors-native-recurrence/using-trigger.png)
 
-## Détails du déclencheur
+## <a name="trigger-details"></a>Détails du déclencheur
 Le déclencheur de périodicité a les propriétés suivantes qui peuvent être configurées.
 
-Il déclenche une application logique après un intervalle de temps spécifié. A * désigne est un champ obligatoire.
+Il déclenche une application logique après un intervalle de temps spécifié.
+A * désigne est un champ obligatoire.
 
 | Nom complet | Nom de la propriété | Description |
 | --- | --- | --- |
@@ -53,7 +58,12 @@ Il déclenche une application logique après un intervalle de temps spécifié. 
 
 <br>
 
-## Étapes suivantes
-Essayez maintenant la plateforme et [créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
+## <a name="next-steps"></a>Étapes suivantes
+Essayez maintenant la plateforme et [créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Feb17_HO1-->
+
+

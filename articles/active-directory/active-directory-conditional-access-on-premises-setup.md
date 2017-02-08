@@ -238,6 +238,6 @@ Désormais, lorsque les utilisateurs accèdent à votre application à partir d'
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

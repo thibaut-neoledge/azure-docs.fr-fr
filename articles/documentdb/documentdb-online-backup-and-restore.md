@@ -1,20 +1,24 @@
 ---
 title: Sauvegarde et restauration en ligne avec DocumentDB | Microsoft Docs
-description: Découvrez comment sauvegarder et restaurer automatiquement des bases de données NoSQL avec Azure DocumentDB.
+description: "Découvrez comment sauvegarder et restaurer automatiquement des bases de données NoSQL avec Azure DocumentDB."
 keywords: sauvegarde et restauration, sauvegarde en ligne
 services: documentdb
-documentationcenter: ''
+documentationcenter: 
 author: RahulPrasad16
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 98eade4a-7ef4-4667-b167-6603ecd80b79
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/23/2016
+ms.date: 01/04/2017
 ms.author: raprasa
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 23f6049bc0df133966911b2352b044cdbc777b36
+
 
 ---
 # <a name="automatic-online-backup-and-restore-with-documentdb"></a>Sauvegarde et restauration en ligne automatiques avec DocumentDB
@@ -33,7 +37,7 @@ L’image suivante illustre le degré élevé de redondance avec DocumentDB.
 
 ![Degré élevé de redondance avec DocumentDB](./media/documentdb-online-backup-and-restore/azure-documentdb-nosql-database-global-distribution.png)
 
-## <a name="full,-automatic,-online-backups"></a>Sauvegardes complètes, automatiques, en ligne
+## <a name="full-automatic-online-backups"></a>Sauvegardes complètes, automatiques, en ligne
 Oups, j’ai supprimé ma collection ou une base de données ! Avec DocumentDB, vos données, ainsi que les sauvegardes de vos données sont rendues hautement redondantes et résilientes aux sinistres régionaux. Actuellement, ces sauvegardes automatisées sont effectuées environ toutes les quatre heures. 
 
 Les sauvegardes sont effectuées sans affecter les performances ou la disponibilité de vos opérations de base de données. DocumentDB effectue la sauvegarde en arrière-plan sans consommer les RU approvisionnées ni affecter les performances et sans affecter la disponibilité de votre base de données NoSQL. 
@@ -55,6 +59,9 @@ Pour répliquer votre base de données NoSQL dans plusieurs centres de données,
 
 Pour contacter le support technique Azure, [émettez un ticket à partir du Portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

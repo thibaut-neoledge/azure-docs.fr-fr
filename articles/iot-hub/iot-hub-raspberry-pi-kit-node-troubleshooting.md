@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: e94ed55941521cf7b8b2dac77cf54835ca8f2829
+ms.sourcegitcommit: c0ddd7e68accf28ee65ba70ea992acd413da6f5b
+ms.openlocfilehash: 6a617da5135a362a0d6a0670c55242d64b1bdd85
 
 
 ---
@@ -130,11 +130,11 @@ L’[Explorateur d’appareils](https://github.com/Azure/azure-iot-sdks/blob/mas
 Configurez la chaîne de connexion de votre IoT Hub dans cet outil pour utiliser toutes ses fonctionnalités.
 
 ### <a name="iothub-explorer"></a>iothub-explorer
-[iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) est un exemple d’outil d’interface de ligne de commande multiplateforme destiné à la gestion d’appareils clients. Cet outil permet de gérer les appareils dans le registre des identités, de surveiller les messages appareil-à-cloud et d’envoyer des commandes cloud-à-appareil.
+[iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) est un exemple d’outil d’interface de ligne de commande multiplateforme destiné à la gestion des appareils. Cet outil permet de gérer les appareils dans le registre des identités, de surveiller les messages appareil-à-cloud et d’envoyer des messages cloud-à-appareil.
 
 Pour installer la dernière version (préliminaire) de l’outil iothub-explorer, dans votre environnement de ligne de commande, exécutez la commande suivante :
 
-```
+```bash
 npm install -g iothub-explorer@latest
 ```
 
@@ -153,6 +153,6 @@ Une expérience complète de l’interface de ligne de commande vous permet de c
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

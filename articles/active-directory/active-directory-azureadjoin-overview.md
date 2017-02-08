@@ -67,6 +67,6 @@ Azure AD Join a les caractéristiques suivantes :
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

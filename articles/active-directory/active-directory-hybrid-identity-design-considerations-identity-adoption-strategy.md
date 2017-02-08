@@ -216,6 +216,6 @@ Multi-Factor Authentication est disponible par défaut pour les administrateurs 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,59 +1,63 @@
 ---
-title: Déboguer votre modèle dans Azure Machine Learning | Microsoft Docs
-description: Décrit la procédure de débogage de votre modèle dans Azure Machine Learning.
+title: "Déboguer votre modèle dans Azure Machine Learning | Microsoft Docs"
+description: "Décrit la procédure de débogage de votre modèle dans Azure Machine Learning."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 629dc45e-ac1e-4b7d-b120-08813dc448be
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 12/12/2016
 ms.author: bradsev;garye
+translationtype: Human Translation
+ms.sourcegitcommit: 8c2fb72de830a699c96f3593e9f07a871614267b
+ms.openlocfilehash: 58e6cc28a624b0d873e3eabeba971cc8e909267a
+
 
 ---
-# Déboguer votre modèle dans Azure Machine Learning
-Cet article explique comment déboguer vos modèles dans Microsoft Azure Machine Learning. Plus précisément, il décrit les raisons possibles pour lesquelles l’exécution d’un modèle peut donner lieu à l’un des deux scénarios d’échec suivants :
+# <a name="debug-your-model-in-azure-machine-learning"></a>Déboguer votre modèle dans Azure Machine Learning
+Cet article explique comment déboguer vos modèles dans Microsoft Azure Machine Learning. Plus précisément, il décrit les raisons possibles pour lesquelles l’exécution d’un modèle peut donner lieu à l’un des deux échecs suivants :
 
-* le module [Former le modèle][train-model] génère une erreur ;
-* le module [Noter le modèle][score-model] produit des résultats incorrects ;
+* le module [Former le modèle][train-model] génère une erreur ; 
+* le module [Noter le modèle][score-model] produit des résultats incorrects ; 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Le module Former le modèle génère une erreur
+## <a name="train-model-module-produces-an-error"></a>le module Former le modèle génère une erreur ;
 ![image1](./media/machine-learning-debug-models/train_model-1.png)
 
-le module [Former le modèle][train-model] attend les 2 entrées suivantes :
+le module [Former le modèle][train-model] attend les deux entrées suivantes :
 
-1. type de modèle de classification/régression issu de la collection de modèles fournie par Azure Machine Learning ;
+1. type de modèle de classification/régression issu de la collection de modèles fournie par Azure Machine Learning ;
 2. données d’apprentissage avec une colonne Étiquette spécifiée. La colonne Étiquette spécifie la variable à prédire. Les autres colonnes incluses sont supposées être des fonctionnalités.
 
-Ce module génère une erreur dans les cas suivants :
+Ce module génère une erreur dans les cas suivants :
 
-1. La colonne Étiquette est spécifiée de manière incorrecte, car plusieurs colonnes sont sélectionnées en tant qu’étiquette, ou un index de colonne incorrect a été sélectionné. Par exemple, le second cas s’applique si un index de colonne de 30 a été utilisé avec un jeu de données d’entrée qui ne comportait que 25 colonnes.
+1. La colonne Étiquette est spécifiée de manière incorrecte, car plusieurs colonnes sont sélectionnées en tant qu’étiquette, ou un index de colonne incorrect a été sélectionné. Par exemple, le second cas s’applique si un index de colonne de 30 a été utilisé avec un jeu de données d’entrée qui ne comportait que 25 colonnes.
 2. Le jeu de données ne contient aucune colonne Fonctionnalité. Par exemple, si le jeu de données d’entrée ne comporte qu’une seule colonne, identifiée en tant que colonne Étiquette, il n’existe aucune fonctionnalité avec laquelle générer le modèle. Dans ce cas, le module [Former le modèle][train-model] génère une erreur.
 3. Le jeu de données d’entrée (Fonctionnalités ou Étiquette) contient une valeur Infini.
 
-## Le module Noter le modèle produit des résultats incorrects
+## <a name="score-model-module-does-not-produce-correct-results"></a>Le module Noter le modèle produit des résultats incorrects
 ![image2](./media/machine-learning-debug-models/train_test-2.png)
 
-Dans un graphique d’apprentissage/de test classique pour un apprentissage supervisé, le module [Fractionner les données][split] divise le jeu de données en deux parties : la partie utilisée pour effectuer l’apprentissage du modèle et la partie réservée pour noter l’efficacité du comportement du modèle formé vis-à-vis des données sur lesquelles il n’a pas été formé. Le modèle formé est ensuite utilisé pour noter les données de test, après quoi les résultats sont évalués afin de déterminer la précision du modèle.
+Dans un graphique d’apprentissage/de test classique pour un apprentissage supervisé, le module [Fractionner les données][split] divise le jeu de données en deux parties : la partie utilisée pour effectuer l’apprentissage du modèle et la partie réservée pour noter l’efficacité du comportement du modèle formé vis-à-vis des données sur lesquelles il n’a pas été formé. Le modèle formé est ensuite utilisé pour noter les données de test, après quoi les résultats sont évalués afin de déterminer la précision du modèle.
 
-Le module [Noter le modèle][score-model] nécessite deux entrées :
+Le module [Noter le modèle][score-model] nécessite deux entrées :
 
-1. une sortie du modèle formé à partir du module [Former le modèle][train-model] ;
-2. un jeu de données de notation sur lequel le modèle n’a pas été formé.
+1. une sortie du modèle formé à partir du module [Former le modèle][train-model]
+2. un jeu de données de notation différent du jeu de données utilisé pour former le modèle
 
-Même si l’expérience réussit, il est possible que le module [Noter le modèle][score-model] produise des résultats incorrects. Plusieurs scénarios peuvent donner lieu aux situations suivantes :
+Même si l’expérience réussit, il est possible que le module [Noter le modèle][score-model] produise des résultats incorrects. Plusieurs scénarios peuvent donner lieu aux situations suivantes :
 
-1. Si l’étiquette spécifiée est catégorielle et qu’un modèle de régression est formé sur les données, le module [Noter le modèle][score-model] produit une sortie incorrecte. Ceci est dû au fait que la régression requiert une variable dépendante continue. Dans ce cas, il est plus judicieux d’utiliser un modèle de classification.
+1. Si l’étiquette spécifiée est catégorielle et qu’un modèle de régression est formé sur les données, le module [Noter le modèle][score-model] produit une sortie incorrecte. Ceci est dû au fait que la régression requiert une variable dépendante continue. Dans ce cas, il est plus judicieux d’utiliser un modèle de classification. 
 2. De la même façon, si un modèle de classification est formé sur un jeu de données comportant des nombres à virgule flottante dans la colonne Étiquette, il peut produire des résultats indésirables. Ceci s’explique par le fait que la classification requiert une variable dépendante discontinue qui autorise uniquement les valeurs couvrant un ensemble de classes fini et généralement plutôt restreint.
 3. Si le jeu de données de notation ne contient pas toutes les fonctionnalités utilisées pour effectuer l’apprentissage du modèle, le module [Noter le modèle][score-model] génère une erreur.
-4. Le module [Noter le modèle][score-model] ne produit aucune sortie correspondant à une ligne du jeu de données de notation qui présente une valeur manquante ou infinie pour l’une de ses fonctionnalités.
+4. Si une ligne du jeu de données de notation présente une valeur manquante ou infinie pour l’une de ses fonctionnalités, le module [Noter le modèle][score-model] ne produit aucune sortie correspondant à cette ligne.
 5. Le module [Noter le modèle][score-model] peut produire des sorties identiques pour toutes les lignes du jeu de données de notation. Ceci peut notamment se produire lors d’une tentative de classification à l’aide de forêts d’arbres de décision si le nombre minimal d’échantillons par nœud terminal est défini comme étant supérieur au nombre d’exemples d’apprentissage disponibles.
 
 <!-- Module References -->
@@ -62,4 +66,8 @@ Même si l’expérience réussit, il est possible que le module [Noter le modè
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

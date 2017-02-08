@@ -1,11 +1,11 @@
 ---
 title: 'Didacticiel : Configuration de Workday pour la synchronisation entrante | Microsoft Docs'
-description: Découvrez comment utiliser Workday en tant que source de données d'identité pour Azure Active Directory.
+description: "Découvrez comment utiliser Workday en tant que source de données d&quot;identité pour Azure Active Directory."
 services: active-directory
 author: MarkusVi
 documentationcenter: na
 manager: femila
-
+ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,17 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a7bf2a8d093b5d314fdd08f5012f0517a45e3579
+
 
 ---
-# <a name="tutorial:-configuring-workday-for-inbound-synchronization"></a>Didacticiel : Configuration de Workday pour la synchronisation entrante
+# <a name="tutorial-configuring-workday-for-inbound-synchronization"></a>Didacticiel : Configuration de Workday pour la synchronisation entrante
 L’objectif de ce didacticiel consiste à vous présenter les opérations à effectuer dans Workday et Azure AD pour importer des utilisateurs de Workday à Azure AD. 
 
-Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 * Un abonnement Azure AD Premium valide
 * Un locataire dans Workday
 
-Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
+Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
 1. Activation de l’intégration d’application pour Workday 
 2. Création d’un utilisateur système d’intégration  
@@ -36,7 +40,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 ## <a name="enabling-the-application-integration-for-workday"></a>Activation de l’intégration d’application pour Workday
 Cette section décrit l’activation de l’intégration d’applications pour Workday.
 
-### <a name="steps:"></a>Étapes :
+### <a name="steps"></a>Étapes :
 1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-workday-inbound-tutorial/IC700993.png "Active Directory")
@@ -54,8 +58,8 @@ Cette section décrit l’activation de l’intégration d’applications pour W
    
     ![Galerie d’applications](./media/active-directory-saas-workday-inbound-tutorial/IC701022.png "Application gallery")
 
-## <a name="creating-an-integration-system-user"></a>Création d’un utilisateur système d’intégration
-### <a name="steps:"></a>Étapes :
+## <a name="creating-an-integration-system-user"></a>Création d’un utilisateur système d’intégration 
+### <a name="steps"></a>Étapes :
 1. Dans **Workday Workbench**, entrez Create user dans la zone de recherche, puis cliquez sur **Create Integration System User**. 
    
     ![Créer un utilisateur](./media/active-directory-saas-workday-inbound-tutorial/IC750979.png "Create user")
@@ -66,7 +70,7 @@ Cette section décrit l’activation de l’intégration d’applications pour W
 ## <a name="creating-a-security-group"></a>Création d’un groupe de sécurité
 Pour le scénario de ce didacticiel, vous devez créer un groupe de sécurité système d’intégration sans contrainte et lui affecter l’utilisateur.
 
-### <a name="steps:"></a>Étapes :
+### <a name="steps"></a>Étapes :
 1. Entrez create security group dans la zone de recherche, puis cliquez sur **Create Security Group**. 
    
     ![Créer un groupe de sécurité](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "CreateSecurity Group")
@@ -75,7 +79,7 @@ Pour le scénario de ce didacticiel, vous devez créer un groupe de sécurité s
     ![Créer un groupe de sécurité](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "CreateSecurity Group")
 
 ## <a name="assigning-the-integration-system-user-to-the-security-group"></a>Affectation de l’utilisateur système d’intégration au groupe de sécurité
-### <a name="steps:"></a>Étapes :
+### <a name="steps"></a>Étapes :
 1. Entrez edit security group dans la zone de recherche, puis cliquez sur **Edit Security Group**. 
    
     ![Edit Security Group](./media/active-directory-saas-workday-inbound-tutorial/IC750983.png "Edit Security Group")
@@ -87,7 +91,7 @@ Pour le scénario de ce didacticiel, vous devez créer un groupe de sécurité s
     ![Groupe de sécurité système](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "System Security Group")  
 
 ## <a name="configuring-security-group-options"></a>Configuration des options du groupe de sécurité
-À cette étape, vous accordez au nouveau groupe de sécurité des autorisations pour les opérations **Get** et **Put** sur les objets sécurisés par les stratégies de sécurité de domaine suivantes :
+À cette étape, vous accordez au nouveau groupe de sécurité des autorisations pour les opérations **Get** et **Put** sur les objets sécurisés par les stratégies de sécurité de domaine suivantes :
 
 * External Account Provisioning
 * Worker Data: Public Worker Reports
@@ -95,7 +99,7 @@ Pour le scénario de ce didacticiel, vous devez créer un groupe de sécurité s
 * Worker Data: Current Staffing Information
 * Worker Data: Business Title on Worker Profile
 
-### <a name="steps:"></a>Étapes :
+### <a name="steps"></a>Étapes :
 1. Entrez les stratégies de sécurité de domaine dans la zone de recherche, puis cliquez sur le lien, Domain Security Policies for Functional Area.  
    
     ![Stratégies de sécurité de domaine](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "Domain Security Policies")  
@@ -108,10 +112,10 @@ Pour le scénario de ce didacticiel, vous devez créer un groupe de sécurité s
 4. Cliquez sur **Edit Permissions**, puis, sur la page de dialogue **Edit Permissions**, ajoutez le nouveau groupe de sécurité à la liste des groupes de sécurité avec autorisations d’intégration **Get** et **Put**. 
    
     ![Modifier une autorisation](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "Edit Permission")  
-5. Répétez l’étape 1 ci-dessus pour revenir à l’écran de sélection des zones fonctionnelles. Cette fois, recherchez staffing, sélectionnez la zone fonctionnelle Staffing, puis cliquez sur **OK**.
+5. Répétez l’étape 1 ci-dessus pour revenir à l’écran de sélection des zones fonctionnelles. Cette fois, recherchez staffing, sélectionnez la zone fonctionnelle Staffing, puis cliquez sur **OK**.
    
     ![Stratégies de sécurité de domaine](./media/active-directory-saas-workday-inbound-tutorial/IC750990.png "Domain Security Policies")  
-6. Dans la liste des stratégies de sécurité de la zone fonctionnelle Staffing, développez Worker Data: Staffing, et répétez l’étape 4 ci-dessus pour chacune des stratégies de sécurité restantes :
+6. Dans la liste des stratégies de sécurité de la zone fonctionnelle Staffing, développez Worker Data: Staffing, et répétez l’étape 4 ci-dessus pour chacune des stratégies de sécurité restantes :
    
    * Worker Data: Public Worker Reports
    * Worker Data: All Positions
@@ -127,7 +131,7 @@ Pour le scénario de ce didacticiel, vous devez créer un groupe de sécurité s
 
 
 ## <a name="activating-security-policy-changes"></a>Activation des modifications de stratégie de sécurité
-### <a name="steps:"></a>Étapes :
+### <a name="steps"></a>Étapes :
 1. Entrez activate dans la zone de recherche, puis cliquez sur le lien Activate Pending Security Policy Changes. 
    
     ![Activer](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "Activate") 
@@ -141,9 +145,9 @@ Pour le scénario de ce didacticiel, vous devez créer un groupe de sécurité s
 ## <a name="configuring-user-import-in-azure-ad"></a>Configuration de l’importation d’utilisateurs dans Azure AD
 Cette section décrit la configuration d’Azure AD pour importer des utilisateurs à partir de Workday.
 
-### <a name="steps:"></a>Étapes :
+### <a name="steps"></a>Étapes :
 1. Sur la page d’intégration d’application **Workday**, cliquez sur **Configurer l’importation d’utilisateurs** pour ouvrir la boîte de dialogue **Configurer l’approvisionnement**.
-2. Sur la page **Paramètres et informations d’identification administrateur**, procédez comme suit, puis cliquez sur **Suivant** : 
+2. Sur la page **Paramètres et informations d’identification administrateur**, procédez comme suit, puis cliquez sur **Suivant** : 
    
     ![Paramètres et informations d’identification d’administrateur](./media/active-directory-saas-workday-inbound-tutorial/IC750995.png "Settings and admin credentials")  
    
@@ -166,8 +170,11 @@ Vous pouvez maintenant accéder à la section **Utilisateurs** et vérifier si v
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

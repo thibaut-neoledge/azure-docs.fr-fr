@@ -2,69 +2,75 @@
 title: Suite de distribution binomiale | Microsoft Docs
 description: Suite de distribution binomiale
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: ireiter
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 6d102d57-8f20-4ab3-be31-02fcfe4d15ed
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2016
+ms.date: 10/04/2016
 ms.author: ireiter
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3f274408b370466af4eb9bd6e2ecbce32ce03857
+
 
 ---
-# Suite de distribution binomiale
-La suite de distribution binomiale correspond à un ensemble d’exemples de services web ([Générateur binomial](https://datamarket.azure.com/dataset/aml_labs/bdg5), [Calculatrice de probabilité](https://datamarket.azure.com/dataset/aml_labs/bdp4), [Calculatrice de quantile](https://datamarket.azure.com/dataset/aml_labs/bdq5)) qui facilite la génération et la gestion des distributions binomiales. Les services permettent de générer une séquence de distribution binomiale de n'importe quelle longueur, de calculer les quantiles à partir d'une probabilité donnée et de calculer la probabilité à partir d'un quantile donné. Chacun des services émet des résultats différents selon le service sélectionné (voir la description ci-dessous). La suite de distribution binomiale repose sur les fonctions R qbinom, rbinom et pbinom qui sont incluses dans le package de statistiques R.
+# <a name="binomial-distribution-suite"></a>Suite de distribution binomiale
+La suite de distribution binomiale correspond à un ensemble d’exemples de services web ([Générateur binomial](https://datamarket.azure.com/dataset/aml_labs/bdg5), [Calculatrice de probabilité](https://datamarket.azure.com/dataset/aml_labs/bdp4), [Calculatrice de quantile](https://datamarket.azure.com/dataset/aml_labs/bdq5)) qui facilite la génération et la gestion des distributions binomiales. Les services permettent de générer une séquence de distribution binomiale de n'importe quelle longueur, de calculer les quantiles à partir d'une probabilité donnée et de calculer la probabilité à partir d'un quantile donné. Chacun des services émet des résultats différents selon le service sélectionné (voir la description ci-dessous). La suite de distribution binomiale repose sur les fonctions R qbinom, rbinom et pbinom qui sont incluses dans le package de statistiques R. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-> Les utilisateurs peuvent potentiellement accéder à ces services web directement via Marketplace ou par le biais d’une application mobile, d’un site web ou même d’un ordinateur local, par exemple. Mais l’objectif du service web est également de servir d’exemple d’utilisation d’Azure Machine Learning pour créer des services web avec le code R. Avec seulement quelques lignes de code R et quelques clics dans Azure Machine Learning Studio, vous pouvez créer une expérience avec le code R et la publier en tant que service web. Le service web peut ensuite être publié sur Azure Marketplace afin que des utilisateurs et des appareils du monde entier puissent y accéder (aucune configuration de l’infrastructure par le créateur du service web n’est requise).
+> Les utilisateurs peuvent potentiellement accéder à ces services web directement via Marketplace ou par le biais d’une application mobile, d’un site web ou même d’un ordinateur local, par exemple. Mais l’objectif du service web est également de servir d’exemple d’utilisation d’Azure Machine Learning pour créer des services web avec le code R. Avec seulement quelques lignes de code R et quelques clics dans Azure Machine Learning Studio, vous pouvez créer une expérience avec le code R et la publier en tant que service web. Le service web peut ensuite être publié sur Azure Marketplace afin que des utilisateurs et des appareils du monde entier puissent y accéder (aucune configuration de l’infrastructure par le créateur du service web n’est requise).
 > 
 > 
 
-## Utilisation du service web
-La suite de distribution binomiale inclut les 3 services suivants.
+## <a name="consumption-of-web-service"></a>Utilisation du service web
+La suite de distribution binomiale inclut les 3 services suivants.
 
-### Calculatrice de quantile pour la distribution binomiale
-Ce service accepte 4 arguments d'une distribution normale et calcule le quantile associé. Les arguments d'entrée sont les suivants :
+### <a name="binomial-distribution-quantile-calculator"></a>Calculatrice de quantile pour la distribution binomiale
+Ce service accepte 4 arguments d'une distribution normale et calcule le quantile associé.
+Les arguments d'entrée sont les suivants :
 
-* p : probabilité unique agrégée de plusieurs essais
-* size : nombre d’essais
-* prob : probabilité de réussite d’un essai
-* side : L pour la partie inférieure de la distribution, U pour la partie supérieure de la distribution
+* p : probabilité unique agrégée de plusieurs essais  
+* size : nombre d’essais
+* prob : probabilité de réussite d’un essai
+* side : L pour la partie inférieure de la distribution, U pour la partie supérieure de la distribution 
 
 La sortie du service correspond au quantile calculé qui est associé à la probabilité donnée.
 
-### Calculatrice de probabilité de distribution binomiale
-Ce service accepte 4 arguments d'une distribution binomiale et calcule la probabilité associée. Les arguments d'entrée sont les suivants :
+### <a name="binomial-distribution-probability-calculator"></a>Calculatrice de probabilité de distribution binomiale
+Ce service accepte 4 arguments d'une distribution binomiale et calcule la probabilité associée.
+Les arguments d'entrée sont les suivants :
 
-* q : quantile unique d’un événement avec une distribution binomiale
-* size : nombre d’essais
-* prob : probabilité de réussite d’un essai
-* side : L pour la partie inférieure de la distribution, U pour la partie supérieure de la distribution ou E qui est égal à un nombre unique de succès
+* q : quantile unique d’un événement avec une distribution binomiale 
+* size : nombre d’essais
+* prob : probabilité de réussite d’un essai
+* side : L pour la partie inférieure de la distribution, U pour la partie supérieure de la distribution ou E qui est égal à un nombre unique de succès
 
 La sortie du service correspond à la probabilité calculée qui est associée au quantile donné.
 
-### Générateur de distribution binomiale
-Ce service accepte 3 arguments d'une distribution binomiale et génère une séquence aléatoire de nombres qui sont distribués selon une loi binomiale. Les arguments suivants doivent lui être fournis au sein de la demande :
+### <a name="binomial-distribution-generator"></a>Générateur de distribution binomiale
+Ce service accepte 3 arguments d'une distribution binomiale et génère une séquence aléatoire de nombres qui sont distribués selon une loi binomiale. Les arguments suivants doivent lui être fournis au sein de la demande :
 
-* n : nombre d’observations
-* size : nombre d’essais
-* prob : probabilité de réussite
+* n : nombre d’observations 
+* size : nombre d’essais
+* prob : probabilité de réussite
 
-La sortie du service est une séquence de longueur n avec une distribution binomiale basée sur les arguments size et prob.
+La sortie du service est une séquence de longueur n avec une distribution binomiale basée sur les arguments size et prob.
 
-> Étant hébergé sur Azure Marketplace, ce service est un service OData. Il peut être appelé à l’aide des méthodes POST ou GET.
+> Étant hébergé sur Azure Marketplace, ce service est un service OData. Il peut être appelé à l’aide des méthodes POST ou GET. 
 > 
 > 
 
-Il existe plusieurs façons d’utiliser le service de manière automatique (exemple d’applications : [Générateur](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionGenerator.aspx), [Calculatrice de probabilité](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionProbabilityCalculator.aspx), [Calculatrice de quantile](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionQuantileCalculator)).
+Il existe plusieurs façons d’utiliser le service de manière automatique (exemple d’applications : [Générateur](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionGenerator.aspx), [Calculatrice de probabilité](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionProbabilityCalculator.aspx), [Calculatrice de quantile](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionQuantileCalculator)). 
 
-### Début du code C# pour l'utilisation du service web :
-### Calculatrice de quantile pour la distribution binomiale
+### <a name="starting-c-code-for-web-service-consumption"></a>Début du code C# pour l'utilisation du service web :
+### <a name="binomial-distribution-quantile-calculator"></a>Calculatrice de quantile pour la distribution binomiale
     public class Input
     {
             public string p;
@@ -94,7 +100,7 @@ Il existe plusieurs façons d’utiliser le service de manière automatique (exe
             var scoreResult = result.ReadAsStringAsync().Result;
     }
 
-### Calculatrice de probabilité de distribution binomiale
+### <a name="binomial-distribution-probability-calculator"></a>Calculatrice de probabilité de distribution binomiale
     public class Input
     {
             public string q;
@@ -125,7 +131,7 @@ Il existe plusieurs façons d’utiliser le service de manière automatique (exe
     }
 
 
-### Générateur de distribution binomiale
+### <a name="binomial-distribution-generator"></a>Générateur de distribution binomiale
     public class Input
     {
             public string n;
@@ -158,19 +164,19 @@ Il existe plusieurs façons d’utiliser le service de manière automatique (exe
 
 
 
-## Création du service web
-> Ce service web a été créé à l’aide d’Azure Machine Learning. Pour un essai gratuit, ainsi que des vidéos de présentation relatives à la création d’expériences et à la [publication de services web](machine-learning-publish-a-machine-learning-web-service.md), consultez la page [azure.com/ml](http://azure.com/ml). Voici une capture d'écran de l'expérience qui a créé le service web et l'exemple de code pour chacun des modules dans l'expérience.
+## <a name="creation-of-web-service"></a>Création du service web
+> Ce service web a été créé à l’aide d’Azure Machine Learning. Pour un essai gratuit, ainsi que des vidéos de présentation relatives à la création d’expériences et à la [publication de services web](machine-learning-publish-a-machine-learning-web-service.md), consultez [azure.com/ml](http://azure.com/ml). Voici une capture d'écran de l'expérience qui a créé le service web et l'exemple de code pour chacun des modules dans l'expérience.
 > 
 > 
 
-### Calculatrice de quantile pour la distribution binomiale
+### <a name="binomial-distribution-quantile-calculator"></a>Calculatrice de quantile pour la distribution binomiale
 ![Create workspace][4]
 
-#### Module 1 :
+#### <a name="module-1"></a>Module 1 :
     #data schema with example data (replaced with data from web service)
     data.set=data.frame(p=0.1,size=10,prob=.5,side='L');
     maml.mapOutputPort("data.set"); #send data to output port
-#### Module 2 :
+#### <a name="module-2"></a>Module 2 :
     dataset1 <- maml.mapInputPort(1) # class: data.frame
     param = dataset1
     if (param$p < 0 ) {
@@ -209,16 +215,16 @@ Il existe plusieurs façons d’utiliser le service de manière automatique (exe
     maml.mapOutputPort("output");
 
 
-### Calculatrice de probabilité de distribution binomiale
+### <a name="binomial-distribution-probability-calculator"></a>Calculatrice de probabilité de distribution binomiale
 ![Create workspace][5]
 
-#### Module 1 :
+#### <a name="module-1"></a>Module 1 :
     #data schema with example data (replaced with data from web service)
     data.set=data.frame(q=5,size=10,prob=.5,side='L');
     maml.mapOutputPort("data.set"); #send data to output port
 
 
-#### Module 2 :
+#### <a name="module-2"></a>Module 2 :
     dataset1 <- maml.mapInputPort(1) # class: data.frame
     param = dataset1
     prob = pbinom(param$q,size=param$size,prob=param$prob)
@@ -244,15 +250,15 @@ Il existe plusieurs façons d’utiliser le service de manière automatique (exe
     # Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
-### Générateur de distribution binomiale
+### <a name="binomial-distribution-generator"></a>Générateur de distribution binomiale
 ![Create workspace][6]
 
-#### Module 1 :
+#### <a name="module-1"></a>Module 1 :
     #data schema with example data (replaced with data from web service)
     data.set=data.frame(n=50,size=10,p=.5);
     maml.mapOutputPort("data.set"); #send data to output port
 
-#### Module 2 :
+#### <a name="module-2"></a>Module 2 :
     dataset1 <- maml.mapInputPort(1) # class: data.frame
     param = dataset1
     dist = rbinom(param$n,param$size,param$p)
@@ -262,10 +268,10 @@ Il existe plusieurs façons d’utiliser le service de manière automatique (exe
     # Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
-## Limitations
+## <a name="limitations"></a>Limitations
 Il s’agit d’exemples très simples en rapport avec la distribution binomiale. Comme illustré dans l'exemple de code ci-dessus, l'interception des erreurs est mise œuvre de façon limitée.
 
-## Forum Aux Questions
+## <a name="faq"></a>Forum Aux Questions
 Pour les questions fréquemment posées relatives à l’utilisation du service web ou à la publication sur Azure Marketplace, consultez [ce lien](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_1.png
@@ -281,4 +287,8 @@ Pour les questions fréquemment posées relatives à l’utilisation du service 
 [6]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_6.png
 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

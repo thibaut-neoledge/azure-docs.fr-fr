@@ -111,7 +111,7 @@ Connectez-vous à une machine virtuelle que vous avez créée à l’aide de plu
 6. Modifiez le fichier *ifcfg-eth0:0* à l’aide de la commande suivante :
 
     ```bash
-    vi ifcfg-eth1
+    vi ifcfg-eth0:0
     ```
 
 7. Donnez à l’appareil le nom approprié figurant dans le fichier, en l’occurrence *eth0:0*, avec la commande suivante :
@@ -131,7 +131,7 @@ Connectez-vous à une machine virtuelle que vous avez créée à l’aide de plu
 
     ```bash
     /etc/init.d/network restart
-    Ipconfig
+    ifconfig
     ```
 
     Vous devez voir l’adresse IP que vous avez ajoutée à la liste, dans le cas présent *eth0:0*.

@@ -9,6 +9,6 @@ Votre service est désormais configuré pour fonctionner avec Firebase Cloud Mes
 <!-- images -->
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

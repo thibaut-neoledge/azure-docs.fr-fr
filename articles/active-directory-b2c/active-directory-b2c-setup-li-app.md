@@ -54,6 +54,6 @@ Pour utiliser LinkedIn en tant que fournisseur d’identité dans Azure Active D
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

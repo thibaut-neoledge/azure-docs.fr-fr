@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 12/09/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4ff5fb57cba6dea1bee9d2e2d25f6fcf8354ce79
+ms.sourcegitcommit: c9063fcc59d83cb2a6a159cf3a69234417138a5c
+ms.openlocfilehash: 5cadc3ea77ba13d40876c7bc11d2aa1d6abe6b87
 
 
 ---
@@ -54,6 +54,8 @@ Vous pouvez activer la diffusion en continu des journaux de diagnostic par progr
 > 
 > 
 
+Il n’est pas nécessaire que l’espace de noms de Service Bus ou du hub d’événements se trouve dans le même abonnement que la ressource générant des journaux, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
+
 ### <a name="via-powershell-cmdlets"></a>Via les applets de commande PowerShell
 Pour activer la diffusion en continu via les [applets de commande Azure PowerShell](insights-powershell-samples.md), vous pouvez utiliser l’applet de commande `Set-AzureRmDiagnosticSetting` avec ces paramètres :
 
@@ -77,7 +79,7 @@ Pour activer la diffusion en continu via le portail Azure, accédez aux paramèt
 
 ![Exporter vers Event Hubs dans le portail](./media/monitoring-stream-diagnostic-logs-to-event-hubs/portal-export.png)
 
-Sélectionnez un espace de noms Service Bus pour le configurer. L’espace de noms sélectionné sera l’espace où le client Event Hubs sera créé (si c’est la première fois que vous diffusez en continu des journaux de diagnostic) ou vers lequel le client Event Hubs diffusera les journaux (si des ressources diffusent déjà cette catégorie de journal vers cet espace de noms). La stratégie définit les autorisations dont dispose le mécanisme de diffusion en continu. À l’heure actuelle, la diffusion vers les clients Event Hubs requiert des autorisations de gestion, de lecture et d’envoi. Vous pouvez créer ou modifier les stratégies d’accès partagé de l’espace de noms Service Bus dans le portail Azure Classic sous l’onglet « Configurer » pour votre espace de noms Service Bus. Pour mettre à jour l’un de ces paramètres de diagnostic, le client doit avoir l’autorisation ListKey sur la règle d’autorisation Service Bus.
+Sélectionnez un espace de noms Service Bus pour le configurer. L’espace de noms sélectionné sera l’espace où le client Event Hubs sera créé (si c’est la première fois que vous diffusez en continu des journaux de diagnostic) ou vers lequel le client Event Hubs diffusera les journaux (si des ressources diffusent déjà cette catégorie de journal vers cet espace de noms). La stratégie définit les autorisations dont dispose le mécanisme de diffusion en continu. À l’heure actuelle, la diffusion vers les clients Event Hubs requiert des autorisations de gestion, d’envoi et d’écoute. Vous pouvez créer ou modifier les stratégies d’accès partagé de l’espace de noms Service Bus dans le portail Azure Classic sous l’onglet « Configurer » pour votre espace de noms Service Bus. Pour mettre à jour l’un de ces paramètres de diagnostic, le client doit avoir l’autorisation ListKey sur la règle d’autorisation Service Bus.
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Comment utiliser les données de journal d’Event Hubs ?
 Voici des exemples de données de sortie provenant d’Event Hubs :
@@ -155,6 +157,9 @@ Voici des exemples de données de sortie provenant d’Event Hubs :
 
 Une liste de tous les fournisseurs de ressources qui prennent en charge la diffusion en continu vers Event Hubs est disponible [ici](monitoring-overview-of-diagnostic-logs.md).
 
+## <a name="stream-data-from-compute-resources"></a>Diffusion de données à partir des ressources de calcul
+Vous pouvez également transmettre en continu des journaux de diagnostic à partir des ressources de calcul à l’aide de l’agent Windows Azure Diagnostics. [Consultez cet article](../event-hubs/event-hubs-streaming-azure-diags-data.md) pour découvrir comment configurer cela.
+
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur les journaux de diagnostic Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Prise en main des hubs d’événements](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
@@ -162,6 +167,6 @@ Une liste de tous les fournisseurs de ressources qui prennent en charge la diffu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

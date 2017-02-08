@@ -1,13 +1,13 @@
 ---
-title: 'Modèle de conception de DocumentDB : applications de réseaux sociaux | Microsoft Docs'
-description: En savoir plus sur un modèle de conception pour les réseaux sociaux en utilisant la souplesse du stockage de DocumentDB et d’autres services Azure.
-keywords: applications de réseaux sociaux
+title: "Modèle de conception de DocumentDB : applications de réseaux sociaux | Microsoft Docs"
+description: "En savoir plus sur un modèle de conception pour les réseaux sociaux en utilisant la souplesse du stockage de DocumentDB et d’autres services Azure."
+keywords: "applications de réseaux sociaux"
 services: documentdb
 author: ealsur
 manager: jhubbard
-editor: ''
-documentationcenter: ''
-
+editor: 
+documentationcenter: 
+ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: mimig
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6c9e285834707b668086ceab7fdde582f0cd87cc
+
 
 ---
 # <a name="going-social-with-documentdb"></a>Réseaux sociaux avec DocumentDB
@@ -34,7 +38,7 @@ Une structure de données tout à fait normalisée et agréable... qui n’est p
 
 Ne vous méprenez pas, j’utilise des bases de données SQL depuis très longtemps, elles sont parfaites, mais comme tout modèle, pratique et plateforme logicielle, elles ne sont pas adaptées à tous les scénarios.
 
-Pourquoi SQL n’est-il pas le meilleur choix dans ce scénario ? Examinons la structure d’une publication unique. Si je voulais afficher celle-ci dans un site web ou une application, je devrais faire une requête avec… 8 jointures de tables... Pour une seule publication ! À présent, imaginez un flux de publications qui se chargent et s’affichent de façon dynamique, et vous verrez peut-être où je veux en venir.
+Pourquoi SQL n’est-il pas le meilleur choix dans ce scénario ? Examinons la structure d’une publication unique. Si je voulais afficher celle-ci dans un site web ou une application, je devrais faire une requête avec… 8 jointures de tables... Pour une seule publication ! À présent, imaginez un flux de publications qui se chargent et s’affichent de façon dynamique, et vous verrez peut-être où je veux en venir.
 
 Nous pourrions, bien sûr, utiliser une instance SQL volumineuse avec suffisamment de puissance pour résoudre des milliers de requêtes avec ces nombreuses jointures pour présenter notre contenu, mais pourquoi procéder ainsi alors qu’une solution plus simple existe ?
 
@@ -104,7 +108,7 @@ Les flux de commentaires peuvent être créés à l’aide des processus d’arr
 
 Les points et les J’aime attribués à une publication peuvent être traités de manière différée à l’aide de cette même technique pour créer un environnement cohérent.
 
-Cela est plus compliqué pour les abonnés. DocumentDB possède une limite de taille de document de 512 Ko, vous pouvez donc envisager de stocker les abonnés en tant que document avec cette structure :
+Cela est plus compliqué pour les abonnés. DocumentDB possède une limite de taille de document de 512 Ko, vous pouvez donc envisager de stocker les abonnés en tant que document avec cette structure :
 
     {
         "id":"234d-sd23-rrf2-552d",
@@ -119,7 +123,7 @@ Cela est plus compliqué pour les abonnés. DocumentDB possède une limite de ta
 
 Cela peut fonctionner pour un utilisateur avec quelques milliers d’abonnés, mais si des célébrités rejoignent nos rangs, cette opération atteindra forcément la limite de taille du document.
 
-Pour résoudre ce problème, nous pouvons utiliser une approche mixte. Dans le cadre du document Statistiques de l’utilisateur, nous pouvons stocker le nombre d’abonnés :
+Pour résoudre ce problème, nous pouvons utiliser une approche mixte. Dans le cadre du document Statistiques de l’utilisateur, nous pouvons stocker le nombre d’abonnés :
 
     {
         "id":"234d-sd23-rrf2-552d",
@@ -129,9 +133,9 @@ Pour résoudre ce problème, nous pouvons utiliser une approche mixte. Dans le c
         "totalPoints":11342
     }
 
-Et le graphique réel d’abonnés peut être stocké dans les Tables de stockage Azure à l’aide d’une [Extension](https://github.com/richorama/AzureStorageExtensions#azuregraphstore) qui permet le stockage et la récupération simples, de type « A-suit-B ». De cette façon, nous pouvons déléguer le processus d’extraction de la liste exacte des abonnés (lorsque nous en avons besoin) aux Tables de stockage Azure, mais pour une recherche rapide de chiffres, nous utilisons DocumentDB.
+Et le graphique réel d’abonnés peut être stocké dans les Tables de stockage Azure à l’aide d’une [Extension](https://github.com/richorama/AzureStorageExtensions#azuregraphstore) qui permet le stockage et la récupération simples, de type « A-suit-B ». De cette façon, nous pouvons déléguer le processus d’extraction de la liste exacte des abonnés (lorsque nous en avons besoin) aux Tables de stockage Azure, mais pour une recherche rapide de chiffres, nous utilisons DocumentDB.
 
-## <a name="the-“ladder”-pattern-and-data-duplication"></a>Duplication des données et modèle « Échelle »
+## <a name="the-ladder-pattern-and-data-duplication"></a>Duplication des données et modèle « Échelle »
 Comme vous l’avez peut-être remarqué dans le document JSON qui fait référence à une publication, il existe plusieurs occurrences d’un utilisateur. Et vous auriez raison. Cela signifie que les informations qui représentent un utilisateur peuvent être présentes à plusieurs endroits, en raison de la dénormalisation.
 
 Pour obtenir des requêtes plus rapides, nous engendrons la duplication des données. Le problème de cet effet secondaire est que si les données d’un utilisateur changent, nous devrons trouver toutes les activités auxquelles il a participé et les mettre toutes à jour. Cela ne semble pas très pratique, n’est-ce pas ?
@@ -175,7 +179,7 @@ Pourquoi fractionner l’utilisateur et même stocker ces informations dans des 
         "twitterHandle":"@john"
     }
 
-Et une publication ressemblerait à ce qui suit :
+Et une publication ressemblerait à ce qui suit :
 
     {
         "id":"1234-asd3-54ts-199a",
@@ -209,7 +213,7 @@ Mais, que pouvons-nous apprendre ? Quelques exemples simples incluent l’ [anal
 
 Maintenant que j’ai votre attention, vous pensez sans doute qu’il vous faut un doctorat en sciences mathématiques pour extraire ces modèles et ces informations de fichiers et de bases de données simples, mais vous avez tort.
 
-[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), composant de [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), est un service cloud entièrement géré qui vous permet de créer des workflows à l’aide d’algorithmes dans une simple interface de type glisser-déposer, de coder vos propres algorithmes en [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) ou d’utiliser certaines des API déjà créées et prêtes à l’utilisation, comme : [Analyse de texte](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Modérateur de contenu](https://www.microsoft.com/moderator) ou [Recommandations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), composant de [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), est un service cloud entièrement géré qui vous permet de créer des workflows à l’aide d’algorithmes dans une simple interface de type glisser-déposer, de coder vos propres algorithmes en [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) ou d’utiliser certaines des API déjà créées et prêtes à l’utilisation, comme : [Analyse de texte](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Modérateur de contenu](https://www.microsoft.com/moderator) ou [Recommandations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
 Pour réaliser l’un de ces scénarios d’apprentissage, nous pouvons utiliser [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) pour ingérer les informations de différentes sources et utiliser [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) pour traiter les informations et générer une sortie qui peut être traitée par Azure Machine Learning.
 
@@ -227,6 +231,9 @@ En savoir plus sur la modélisation des données avec l’article [Modélisation
 
 Ou apprenez-en plus sur DocumentDB en suivant le [parcours d’apprentissage de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Configurer le protocole LDAPS (LDAP sécurisé) dans les services de domaine Azure AD | Microsoft Docs
-description: Configurer le protocole LDAPS (LDAP sécurisé) pour un domaine géré par les services de domaine Azure AD
+title: "Configurer le protocole LDAPS (LDAP sécurisé) dans les services de domaine Azure AD | Microsoft Docs"
+description: "Configurer le protocole LDAPS (LDAP sécurisé) pour un domaine géré par les services de domaine Azure AD"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 53cf596d1c1df77872696f2a55363cf3a83d5efe
+
 
 ---
-# <a name="configure-secure-ldap-(ldaps)-for-an-azure-ad-domain-services-managed-domain"></a>Configurer le protocole LDAPS (LDAP sécurisé) pour un domaine géré par les services de domaine Azure AD
+# <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurer le protocole LDAPS (LDAP sécurisé) pour un domaine géré par les services de domaine Azure AD
 Cet article explique comment activer le protocole LDAPS pour votre domaine géré par les services de domaine Azure Active Directory. Le protocole LDAP sécurisé est également appelé « protocole LDAP sur SSL (Secure Sockets Layer) / TLS (Transport Layer Security) ».
 
 ## <a name="before-you-begin"></a>Avant de commencer
@@ -44,12 +48,12 @@ Obtenez un certificat valide, en suivant les instructions ci-dessous, avant d’
 <br>
 
 ## <a name="task-1---obtain-a-certificate-for-secure-ldap"></a>Tâche 1: obtenir un certificat pour le protocole LDAP sécurisé
-La première tâche consiste à obtenir un certificat à utiliser pour l’accès du protocole LDAP sécurisé au domaine géré. Deux options s'offrent à vous :
+La première tâche consiste à obtenir un certificat à utiliser pour l’accès du protocole LDAP sécurisé au domaine géré. Deux options s'offrent à vous :
 
 * Obtenez un certificat d’une autorité de certification. Il peut s’agir de l’autorité de certification d’entreprise de votre organisation ou d’une autorité de certification publique.
 * Vous pouvez créer un certificat auto-signé.
 
-### <a name="option-a-(recommended)---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Option A (recommandée) : obtention d’un certificat LDAP sécurisé auprès d’une autorité de certification
+### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Option A (recommandée) : obtention d’un certificat LDAP sécurisé auprès d’une autorité de certification
 Si votre organisation déploie une infrastructure à clé publique (PKI) d’entreprise, vous devez obtenir un certificat de l’autorité de certification d’entreprise pour votre organisation. Si votre organisation obtient ses certificats auprès d’une autorité de certification publique, vous devez obtenir le certificat LDAP sécurisé auprès de cette dernière.
 
 Quand vous demandez un certificat, assurez-vous de suivre les exigences détaillées dans la section [Configuration requise pour le certificat LDAP sécurisé](#requirements-for-the-secure-ldap-certificate).
@@ -79,7 +83,7 @@ Dans l’exemple ci-dessus, remplacez « contoso100.com » par le nom de domaine
 
 Le nouveau certificat auto-signé est placé dans le magasin de certificats de l’ordinateur local.
 
-## <a name="task-2---export-the-secure-ldap-certificate-to-a-.pfx-file"></a>Tâche 2 : exporter le certificat du protocole LDAP sécurisé vers un fichier .PFX
+## <a name="task-2---export-the-secure-ldap-certificate-to-a-pfx-file"></a>Tâche 2 : exporter le certificat du protocole LDAP sécurisé vers un fichier .PFX
 Avant de commencer cette tâche, assurez-vous que vous avez obtenu le certificat LDAP sécurisé auprès de votre autorité de certification d’entreprise ou d’une autorité de certification publique, ou que vous avez créé un certificat auto-signé.
 
 Procédez comme suit pour exporter le certificat LDAP sécurisé vers un fichier .PFX.
@@ -225,6 +229,9 @@ Et voilà, vous êtes maintenant prêt à vous connecter au domaine géré à l�
 ## <a name="related-content"></a>Contenu connexe
 * [Administrer un domaine géré par les services de domaine Azure Active Directory](active-directory-ds-admin-guide-administer-domain.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

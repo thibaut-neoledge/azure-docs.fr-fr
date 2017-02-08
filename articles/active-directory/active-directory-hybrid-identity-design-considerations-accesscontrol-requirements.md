@@ -1,13 +1,12 @@
-
 ---
-title: 'Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les exigences en matière de contrôle d’accès | Microsoft Docs'
-description: Couvre les piliers de l'identité et l'identification des conditions d'accès aux ressources pour les utilisateurs dans un environnement hybride.
-documentationcenter: ''
+title: "Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les exigences en matière de contrôle d’accès | Microsoft Docs"
+description: "Couvre les piliers de l&quot;identité et l&quot;identification des conditions d&quot;accès aux ressources pour les utilisateurs dans un environnement hybride."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: e3b3b984-0d15-4654-93be-a396324b9f5e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,10 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: 032467e0885d574a7b0f4a1c043e1800e5cc4071
+
 
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Déterminer les besoins de contrôle d'accès pour votre solution d'identité hybride
-Lorsqu'une organisation conçoit sa solution d'identité hybride, elle peut également profiter de cette opportunité pour passer en revue les exigences d'accès pour les ressources qu'elle envisage de mettre à la disposition des utilisateurs. L'accès aux données couvre les quatre piliers suivants de l'identité :
+Lorsqu'une organisation conçoit sa solution d'identité hybride, elle peut également profiter de cette opportunité pour passer en revue les exigences d'accès pour les ressources qu'elle envisage de mettre à la disposition des utilisateurs. L'accès aux données couvre les quatre piliers suivants de l'identité :
 
 * Administration
 * Authentification
@@ -38,7 +41,7 @@ Il existe différents scénarios d'authentification et d'autorisation aux exigen
 * Votre organisation authentifiera et autorisera-t-elle uniquement des utilisateurs se trouvant sur son système de gestion d'identité ?
   * Existe-t-il des plans pour les scénarios B2B ?
   * Si oui, savez-vous déjà quels protocoles (SAML, OAuth, Kerberos, jetons ou certificats) seront utilisés pour connecter les deux entreprises ?
-* La solution d'identité hybride que vous vous apprêtez à adopter prend-elle en charge ces protocoles ?
+* La solution d'identité hybride que vous vous apprêtez à adopter prend-elle en charge ces protocoles ?
 
 Un autre point important à prendre en compte est l'endroit où se trouvera le référentiel d'authentification qui sera utilisé par les utilisateurs et les partenaires et le modèle d'administration à utiliser. Examinez les deux options principales suivantes :
 
@@ -48,19 +51,19 @@ Un autre point important à prendre en compte est l'endroit où se trouvera le r
 Le modèle adopté par votre organisation variera en fonction de ses besoins métiers. Veuillez répondre aux questions suivantes pour identifier où le système de gestion d'identité se trouvera et quel mode d'administration devra être utilisé :
 
 * Votre entreprise dispose-t-elle actuellement d'une gestion des identités locale ?
-  * Si oui, prévoit-elle de la conserver ?
+  * Si oui, prévoit-elle de la conserver ?
   * Existe-t-il des exigences réglementaires et de conformité auxquelles votre organisation doit satisfaire qui déterminent où doit résider le système de gestion d'identité ?
-* Votre organisation utilise-t-elle l'authentification unique pour les applications locales ou dans le cloud ?
+* Votre organisation utilise-t-elle l'authentification unique pour les applications locales ou dans le cloud ?
   * Si oui, l'adoption d'un modèle d'identité hybride affecte-t-elle ce processus ?
 
 ## <a name="access-control"></a>Contrôle d’accès
-Bien que l'authentification et l'autorisation soient des éléments essentiels pour activer l'accès aux données d'entreprise grâce à la validation de l'utilisateur, il est également important de contrôler le niveau d'accès de ces utilisateurs, ainsi que le niveau d'accès des administrateurs aux ressources qu'ils gèrent. Votre solution d'identité hybride doit être en mesure de fournir un accès granulaire aux ressources, la délégation et le contrôle d'accès basé sur les rôles. Assurez-vous que les questions suivantes sur le contrôle d'accès ont fait l'objet d'une réponse :
+Bien que l'authentification et l'autorisation soient des éléments essentiels pour activer l'accès aux données d'entreprise grâce à la validation de l'utilisateur, il est également important de contrôler le niveau d'accès de ces utilisateurs, ainsi que le niveau d'accès des administrateurs aux ressources qu'ils gèrent. Votre solution d'identité hybride doit être en mesure de fournir un accès granulaire aux ressources, la délégation et le contrôle d'accès basé sur les rôles. Assurez-vous que les questions suivantes sur le contrôle d'accès ont fait l'objet d'une réponse :
 
 * Votre entreprise a-t-elle plus d'un utilisateur avec des privilèges élevés pour gérer votre système d'identité ?
   * Si oui, chaque utilisateur a-t-il besoin du même niveau d'accès ?
 * Votre entreprise devrait-elle déléguer l'accès aux utilisateurs pour gérer des ressources spécifiques ?
   * Si oui, à quelle fréquence ?
-* Votre entreprise devrait-elle intégrer les fonctionnalités de contrôle d'accès entre les ressources locales site et de cloud ?
+* Votre entreprise devrait-elle intégrer les fonctionnalités de contrôle d'accès entre les ressources locales site et de cloud ?
 * Votre entreprise devrait-elle limiter l'accès aux ressources sous certaines conditions ?
 * Votre entreprise aurait-elle une application qui nécessite un accès avec contrôle personnalisé à certaines ressources ?
   * Si oui, où se trouvent ces applications (locales ou dans le cloud) ?
@@ -77,6 +80,9 @@ Bien que l'authentification et l'autorisation soient des éléments essentiels p
 ## <a name="see-also"></a>Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

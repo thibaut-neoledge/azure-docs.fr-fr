@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1e8ff1a27941984ae3fcd16dc8648cd8dc9b5e7c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f3c20ee0d5abb40d7650eeaa722e87142275448d
 
 
 ---
@@ -40,7 +40,7 @@ Vous pouvez sélectionner tous les projets que vous souhaitez voir apparaître d
 
 Vous pouvez également rechercher un projet et afficher le nom, la description, le propriétaire et vos autorisations de rôle pour n'importe quel projet dont votre application fait partie.
 
-Pour plus d’informations, consultez [Documentation sur l’interface utilisateur - Accueil][Lien 13].
+Pour plus d’informations, consultez [Documentation sur l’interface utilisateur - Accueil][Link 13]
 
   ![settings3][48]
 
@@ -52,7 +52,7 @@ Après avoir fourni des informations d'identification ou des certificats pour au
 ### <a name="apple-push-notification-service-apns"></a>Service de notifications Push Apple (APNS)
 Pour activer Native Push à l'aide du Service de notifications Push Apple (APNS), vous devez enregistrer votre certificat. Vous devrez spécifier le type de certificat, soit de développement (DEV), soit de production (PROD). Vous allez ensuite devoir charger votre certificat et définir son mot de passe.
 
-Pour plus d’informations, consultez [Documentation du Kit de développement logiciel (SDK) - iOS - Préparation de votre application pour les notifications Push Apple][Lien 5]
+Pour plus d’informations, consultez [Documentation du Kit de développement logiciel (SDK) - iOS - Préparation de votre application pour les notifications Push Apple][Link 5]
 
 ![settings4][49]
 
@@ -66,7 +66,7 @@ Pour activer le Push Native à l'aide de GCM, vous devez suivre les instructions
 
 Pour plus d'informations, consultez les pages suivantes : 
 
-* [Documentation du Kit de développement logiciel Android - Intégrer GCM][Lien 5]
+* [Documentation du Kit de développement logiciel (SDK) Android - Intégrer GCM][Link 5]
 * [Guide de développement Google GCM](http://developer.android.com/guide/google/gcm/gs.html)
 
 ### <a name="amazon-device-messaging-for-android-adm"></a>Amazon Device Messaging pour Android (ADM)
@@ -74,7 +74,7 @@ Pour activer Native Push avec Amazon Device Messaging (ADM), vous devez fournir
 
 Pour plus d'informations, consultez les pages suivantes : 
 
-* [Documentation du Kit de développement logiciel Android - Intégrer ADM][Lien 5]
+* [Documentation du Kit de développement logiciel (SDK) Android - Intégrer ADM][Link 5]
 * [Documentation pour les développeurs Amazon ADM](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
 
 ![settings6][51]
@@ -91,8 +91,8 @@ Vous pouvez afficher la vitesse de transmission actuelle de votre application et
 ![settings12][57]
 
 ## <a name="see-also"></a>Voir aussi
-* [Concepts][Lien 6]
-* [Guide de résolution des problèmes - Service][Lien 24]
+* [Concepts][Link 6]
+* [Service de guide de résolution des problèmes][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -155,43 +155,43 @@ Vous pouvez afficher la vitesse de transmission actuelle de votre application et
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Lien 1]: mobile-engagement-user-interface.md
-[Lien 2]: mobile-engagement-troubleshooting-guide.md
-[Lien 3]: mobile-engagement-how-tos.md
-[Lien 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Lien 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Lien 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Lien 7]: https://account.windowsazure.com/PreviewFeatures
-[Lien 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Lien 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Lien 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Lien 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Lien 12]: mobile-engagement-user-interface-navigation.md
-[Lien 13]: mobile-engagement-user-interface-home.md
-[Lien 14]: mobile-engagement-user-interface-my-account.md
-[Lien 15]: mobile-engagement-user-interface-analytics.md
-[Lien 16]: mobile-engagement-user-interface-monitor.md
-[Lien 17]: mobile-engagement-user-interface-reach.md
-[Lien 18]: mobile-engagement-user-interface-segments.md
-[Lien 19]: mobile-engagement-user-interface-dashboard.md
-[Lien 20]: mobile-engagement-user-interface-settings.md
-[Lien 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Lien 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Lien 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Lien 24]: mobile-engagement-troubleshooting-guide-service.md
-[Lien 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Lien 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Lien 27]: ../mobile-engagement-how-tos-first-push.md
-[Lien 28]: ../mobile-engagement-how-tos-test-campaign.md
-[Lien 29]: ../mobile-engagement-how-tos-personalize-push.md
-[Lien 30]: ../mobile-engagement-how-tos-differentiate-push.md
-[Lien 31]: ../mobile-engagement-how-tos-schedule-campaign.md
-[Lien 32]: ../mobile-engagement-how-tos-text-view.md
-[Lien 33]: ../mobile-engagement-how-tos-web-view.md
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: ../mobile-engagement-how-tos-first-push.md
+[Link 28]: ../mobile-engagement-how-tos-test-campaign.md
+[Link 29]: ../mobile-engagement-how-tos-personalize-push.md
+[Link 30]: ../mobile-engagement-how-tos-differentiate-push.md
+[Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
+[Link 32]: ../mobile-engagement-how-tos-text-view.md
+[Link 33]: ../mobile-engagement-how-tos-web-view.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

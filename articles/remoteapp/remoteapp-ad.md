@@ -28,7 +28,7 @@ ms.openlocfilehash: 816305fb3ace5bfc7cf50bac5e42fde83e9697d3
 Si vous souhaitez fédérer une collection hybride RemoteApp Azure ou une collection cloud à l’aide d’AD Connect, vous devez procéder ainsi.
 
 ### <a name="connect-azure-ad-and-active-directory"></a>Connexion à Azure AD et Active Directory
-Si vous souhaitez connecter votre locataire Azure AD et vos environnements Active Directory locaux, utilisez AD Connect. Il vous faudra simplement [cliquer 4 fois](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/) pour connecter les deux annuaires.
+Si vous souhaitez connecter votre locataire Azure AD et vos environnements Active Directory locaux, utilisez AD Connect. Il vous faudra simplement [cliquer&4; fois](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/) pour connecter les deux annuaires.
 
 Remarque : la synchronisation d’annuaires est requise pour les collections hybride.
 

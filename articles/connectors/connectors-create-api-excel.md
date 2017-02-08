@@ -1,13 +1,13 @@
 ---
 title: Ajouter le connecteur Excel | Microsoft Docs
-description: Vue d’ensemble du connecteur Excel avec les paramètres d’API REST
-services: ''
-documentationcenter: ''
+description: "Vue d’ensemble du connecteur Excel avec les paramètres d’API REST"
+services: 
+documentationcenter: 
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 03af8652-9223-4348-9490-602872a680f0
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,13 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 5c585b988cc1989288e1e5953d1bdab6b5281707
+ms.openlocfilehash: aa8b95bd92d6bed60ba20ffd28e53d26930d7a31
+
 
 ---
-# Prise en main du connecteur Excel
-Il n’y a actuellement pas de connecteur Excel dans Logic Apps.
+# <a name="get-started-with-the-excel-connector"></a>Prise en main du connecteur Excel
+Il n’y a actuellement pas de connecteur Excel dans Logic Apps. 
 
-## Pour utiliser des données Excel
-Vous pouvez stocker des données Excel dans un fichier de valeurs séparées par des virgules (CSV) dans un dossier de stockage, tel que [OneDrive](connectors-create-api-onedrive.md). Vous pouvez également utiliser ce fichier CSV avec le [connecteur de fichier plat](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md).
+## <a name="to-use-excel-data"></a>Pour utiliser des données Excel
+Vous pouvez stocker des données Excel dans un fichier de valeurs séparées par des virgules (CSV) dans un dossier de stockage, tel que [OneDrive](connectors-create-api-onedrive.md). Vous pouvez également utiliser ce fichier CSV avec le [connecteur de fichier plat](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
 
 <!---
 
@@ -208,9 +212,13 @@ Applies to version: 1.0.
 
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)  
 
 
 -->
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Feb17_HO1-->
+
+

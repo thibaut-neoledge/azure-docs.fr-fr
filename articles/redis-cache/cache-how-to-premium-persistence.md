@@ -116,6 +116,6 @@ Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Pre
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

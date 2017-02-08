@@ -1,6 +1,6 @@
 ---
-title: "Surveillance des opérations IoT Hub"
-description: "Vue d’ensemble de la surveillance des opérations Azure IoT Hub, qui vous permet de surveiller l’état des opérations sur votre IoT Hub en temps réel."
+title: "Surveillance des opérations Azure IoT Hub | Microsoft Docs"
+description: "Guide pratique d’utilisation des opérations d’Azure IoT Hub pour la surveillance des opérations IoT Hub afin de surveiller l’état des opérations sur votre hub IoT en temps réel."
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -15,19 +15,19 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: ce514e19370d2b42fb16b4e96b66f212d5fa999c
-ms.openlocfilehash: 3c1ae13409c11ec49810209dd155e934b34c3a9b
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: f6f894157a31641b1d0294e84795563c727caaac
 
 
 ---
-# <a name="introduction-to-operations-monitoring"></a>Introduction à la surveillance des opérations
+# <a name="operations-monitoring"></a>Surveillance des opérations
 La surveillance des opérations IoT Hub vous permet de surveiller l’état des opérations sur votre hub IoT en temps réel. IoT Hub effectue le suivi des événements entre différentes catégories d’opérations. Vous pouvez opter pour l’envoi des événements d’une ou plusieurs catégories à un point de terminaison de votre IoT Hub en vue de leur traitement. Vous pouvez surveiller les données des erreurs ou configurer un traitement plus complexe basé sur des modèles de données.
 
 IoT Hub surveille cinq catégories d’événements :
 
 * Opérations d’identité des appareils
 * Télémétrie d’appareil
-* Commandes cloud-à-appareil
+* Messages Cloud vers appareil
 * Connexions
 * Chargements de fichiers
 
@@ -81,7 +81,7 @@ La catégorie de télémétrie d’appareil effectue le suivi des erreurs qui se
     }
 
 ### <a name="cloud-to-device-commands"></a>Commandes cloud-à-appareil
-La catégorie de commandes cloud-à-appareil effectue le suivi des erreurs qui se produisent au niveau du hub IoT et qui sont liées au pipeline de commandes de l’appareil. Cette catégorie inclut notamment les erreurs concernant l’envoi de commandes (telles qu’un expéditeur non autorisé), la réception des commandes (telles que le dépassement du nombre de remises) et la réception des commentaires de commande (telles que des commentaires arrivés à expiration). Cette catégorie n’intercepte pas d’erreurs dans le cas d’un appareil qui gère mal une commande correctement remise.
+La catégorie de commandes cloud-à-appareil effectue le suivi des erreurs qui se produisent au niveau du hub IoT et qui sont liées au pipeline de messages cloud-à-appareil. Cette catégorie inclut notamment les erreurs concernant l’envoi de messages cloud-à-appareil (telles qu’un expéditeur non autorisé), la réception des messages cloud-à-appareil (telles que le dépassement du nombre de remises) et la réception des commentaires de message cloud-à-appareil (telles que des commentaires arrivés à expiration). Cette catégorie n’intercepte pas d’erreurs dans le cas d’un appareil qui gère mal un message cloud-à-appareil si le message a été correctement remis.
 
     {
          "messageSizeInBytes": 1234,
@@ -147,8 +147,8 @@ Notez que cette catégorie ne peut pas détecter les erreurs qui surviennent dir
 ## <a name="next-steps"></a>Étapes suivantes
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Guide du développeur][lnk-devguide]
-* [Simulation d’un appareil avec le Kit de développement logiciel (SDK) de passerelle IoT][lnk-gateway]
+* [Guide du développeur d’IoT Hub][lnk-devguide]
+* [Simulation d’un appareil avec le Kit de développement logiciel (SDK) de la passerelle IoT][lnk-gateway]
 
 <!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png
@@ -164,6 +164,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

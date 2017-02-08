@@ -1,9 +1,9 @@
 > [!div class="op_single_selector"]
-> [Azure Portal](../articles/virtual-network/virtual-network-deploy-static-pip-arm-portal.md)
-> [PowerShell](../articles/virtual-network/virtual-network-deploy-static-pip-arm-ps.md)
-> [Azure CLI](../articles/virtual-network/virtual-network-deploy-static-pip-arm-cli.md)
-> [Template](../articles/virtual-network/virtual-network-deploy-static-pip-arm-template.md)
-> 
-> 
+- [Portail Azure](../articles/virtual-network/virtual-network-deploy-static-pip-arm-portal.md)
+- [PowerShell](../articles/virtual-network/virtual-network-deploy-static-pip-arm-ps.md)
+- [Interface de ligne de commande Azure](../articles/virtual-network/virtual-network-deploy-static-pip-arm-cli.md)
+- [Modèle](../articles/virtual-network/virtual-network-deploy-static-pip-arm-template.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!--HONumber=Nov16_HO3-->
+
+

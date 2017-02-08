@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/06/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f61d23fec6badb8dd53379d183b177e4c19e5711
+ms.sourcegitcommit: e8b484ec7eff26919d4fb3869baf9f358c2522cb
+ms.openlocfilehash: 6e5d96ff9754954eb745f14c8248609775bbf290
 
 
 ---
@@ -27,11 +27,11 @@ ms.openlocfilehash: f61d23fec6badb8dd53379d183b177e4c19e5711
 > 
 
 ## <a name="introduction"></a>Introduction
-Les administrateurs et les développeurs utilisent cette fonctionnalité pour spécifier les durées de vie des jetons émis par Azure AD. Les durées de vie des jetons peuvent être configurées pour toutes les applications d’un client, pour une application mutualisée ou pour un principal du service spécifique d’un client.
+Les administrateurs et les développeurs utilisent cette fonctionnalité pour spécifier les durées de vie des jetons émis par Azure AD. Les durées de vie des jetons peuvent être configurées pour toutes les applications d’une organisation, pour une application mutualisée (plusieurs organisations) ou pour un principal du service spécifique d’une organisation.
 
-Dans Azure AD, un objet de stratégie représente un ensemble de règles appliquées sur des applications individuelles ou sur toutes les applications d’un client.  Chaque type de stratégie comporte une structure unique avec un ensemble de propriétés qui sont ensuite appliquées aux objets auxquels elles sont affectées.
+Dans Azure AD, un objet de stratégie représente un ensemble de règles appliquées sur des applications individuelles ou sur toutes les applications d’une organisation.  Chaque type de stratégie comporte une structure unique avec un ensemble de propriétés qui sont ensuite appliquées aux objets auxquels elles sont affectées.
 
-Une stratégie peut être désignée par défaut pour un client. Cette stratégie est alors appliquée sur les applications qui résident dans ce client tant qu’elle n’est pas remplacée par une stratégie pourvue d’une priorité plus élevée. Les stratégies peuvent être également affectées à des applications spécifiques. L’ordre de priorité varie par type de stratégie.
+Une stratégie peut être désignée par défaut pour une organisation. Cette stratégie est alors appliquée sur les applications qui résident dans cette organisation tant qu’elle n’est pas remplacée par une stratégie pourvue d’une priorité plus élevée. Les stratégies peuvent être également affectées à des applications spécifiques. L’ordre de priorité varie par type de stratégie.
 
 Les stratégies de durée de vie des jetons peuvent être configurées pour les jetons d’actualisation, les jetons d’accès, les jetons de session et les jetons d’ID.
 
@@ -82,12 +82,12 @@ Une stratégie de durée de vie des jetons est un type d’objet de stratégie q
 | Âge maximal de jeton d’actualisation (émis pour les clients confidentiels) |Jetons d’actualisation (émis pour les clients confidentiels) |Jusqu’à révocation |
 
 ### <a name="priority-and-evaluation-of-policies"></a>Priorité et évaluation des stratégies
-Les stratégies de durée de vie des jetons peuvent être créées et affectées à des applications, clients et principaux du service spécifiques. Il est donc possible d’appliquer plusieurs stratégies à une application spécifique. La stratégie de durée de vie du jeton appliquée suit les règles ci-dessous :
+Les stratégies de durée de vie des jetons peuvent être créées et affectées à des applications, organisations et principaux du service spécifiques. Il est donc possible d’appliquer plusieurs stratégies à une application spécifique. La stratégie de durée de vie du jeton appliquée suit les règles ci-dessous :
 
 * Si une stratégie est explicitement affectée au principal du service, elle est appliquée. 
-* Si aucune stratégie n’est explicitement affectée au principal du service, une stratégie explicitement affectée au client parent du principal du service est appliquée. 
-* Si aucune stratégie n’est explicitement affectée au principal du service ou au client, la stratégie affectée à l’application est appliquée. 
-* Si aucune stratégie n’a été affectée au principal du service, au client ou à l’objet d’application, les valeurs par défaut sont appliquées (voir le tableau ci-dessus).
+* Si aucune stratégie n’est explicitement affectée au principal du service, une stratégie explicitement affectée à l’organisation parente du principal du service est appliquée. 
+* Si aucune stratégie n’est explicitement affectée au principal du service ou à l’organisation, la stratégie affectée à l’application est appliquée. 
+* Si aucune stratégie n’a été affectée au principal du service, à l’organisation ou à l’objet d’application, les valeurs par défaut sont appliquées (voir le tableau ci-dessus).
 
 Pour plus d’informations sur la relation existant entre les objets de principal du service et d’application dans Azure AD, voir [Objets application et principal du service dans Azure Active Directory](active-directory-application-objects.md).
 
@@ -98,16 +98,16 @@ La validité d’un jeton est évaluée lors de son utilisation. C’est la stra
 > 
 > Un utilisateur souhaite accéder aux 2 applications web 2, A et B. 
 > 
-> * Les deux applications résident dans le même client parent. 
-> * La stratégie 1 de durée de vie des jetons pourvue d’une propriété Âge maximal de jeton de session de 8 heures est définie comme valeur par défaut du client parent.
+> * Les deux applications résident dans la même organisation parente. 
+> * La stratégie 1 de durée de vie des jetons pourvue d’une propriété Âge maximal de jeton de session de 8 heures est définie comme valeur par défaut de l’organisation parente.
 > * L’application web A est une application web d’utilisation régulière, qui n’est liée à aucune stratégie. 
 > * L’application web B est utilisée pour les processus très sensibles, et son principal du service est lié à la stratégie 2 de durée de vie des jetons pourvue d’une propriété Âge maximal de jeton de session de 30 minutes.
 > 
 > À 12 h 00, l’utilisateur ouvre une nouvelle session de navigateur et tente d’accéder à l’application web A. Il est redirigé vers Azure AD et doit se connecter. Cette action dépose un cookie avec un jeton de session dans le navigateur. L’utilisateur est redirigé vers l’application A avec un jeton d’ID qui lui permet d’accéder à l’application.
 > 
-> À 12 h 15, l’utilisateur essaie alors d’accéder à l’application web B. Le navigateur le redirige vers Azure AD qui détecte le cookie de session. Le principal du service de l’application web B est lié à la stratégie 2, mais fait également partie du client parent avec la stratégie par défaut 1. La stratégie 2 est appliquée puisque les stratégies liées aux principaux du service ont une priorité supérieure à celle des stratégies par défaut du client. Comme le jeton de session a été initialement émis au cours des 30 dernières minutes, il est considéré comme valide. L’utilisateur est redirigé vers l’application web B avec un jeton d’ID qui lui octroie un accès.
+> À 12 h 15, l’utilisateur essaie alors d’accéder à l’application web B. Le navigateur le redirige vers Azure AD qui détecte le cookie de session. Le principal du service de l’application web B est lié à la stratégie 2, mais fait également partie de l’organisation parente avec la stratégie par défaut 1. La stratégie 2 est appliquée puisque les stratégies liées aux principaux du service ont une priorité supérieure à celle des stratégies par défaut de l’organisation. Comme le jeton de session a été initialement émis au cours des 30 dernières minutes, il est considéré comme valide. L’utilisateur est redirigé vers l’application web B avec un jeton d’ID qui lui octroie un accès.
 > 
-> À 13 h 00 l’utilisateur tente d’accéder à l’application web A. Il est redirigé vers Azure AD. L’application web A n’est liée à aucune stratégie, mais comme elle réside dans un client avec la stratégie 1 par défaut, cette stratégie est appliquée. Le cookie de session qui a été initialement émis au cours des 8 dernières heures est détecté, et l’utilisateur est redirigé en mode silencieux vers application web A avec un nouveau jeton d’ID sans devoir s’authentifier.
+> À 13 h 00 l’utilisateur tente d’accéder à l’application web A. Il est redirigé vers Azure AD. L’application web A n’est liée à aucune stratégie, mais comme elle réside dans une organisation avec la stratégie 1 par défaut, cette stratégie est appliquée. Le cookie de session qui a été initialement émis au cours des 8 dernières heures est détecté, et l’utilisateur est redirigé en mode silencieux vers application web A avec un nouveau jeton d’ID sans devoir s’authentifier.
 > 
 > L’utilisateur essaie immédiatement d’accéder à l’application web B. Il est redirigé vers Azure AD. Comme auparavant, la stratégie 2 est appliquée. Comme le jeton a été émis il y a plus de 30 minutes, l’utilisateur est invité à entrer de nouveau ses informations d’identification, et une nouvelle session ainsi qu’un nouveau jeton d’ID sont émis. L’utilisateur peut ensuite accéder à l’application web B.
 > 
@@ -169,7 +169,7 @@ En réduisant l’âge maximal, vous obligez les utilisateurs à s’authentifie
 En réduisant l’âge maximal, vous obligez les utilisateurs à s’authentifier plus souvent. Étant donné que l’authentification à facteur unique est considérée comme moins sécurisée qu’une authentification multifacteur, il est recommandé de définir cette stratégie sur une valeur supérieure ou égale à celle de la stratégie Âge maximal de jeton de session à facteur unique.
 
 ## <a name="sample-token-lifetime-policies"></a>Exemples de stratégie de durée de vie des jetons
-La possibilité de créer et de gérer les durées de vie des jetons pour les applications, les principaux du service et votre client global expose toutes sortes de nouveaux scénarios possibles dans Azure AD.  Nous allons vous guider dans quelques scénarios courants de stratégie qui vous aideront à imposer de nouvelles règles pour les éléments suivants :
+La possibilité de créer et de gérer les durées de vie des jetons pour les applications, les principaux du service et votre organisation globale expose toutes sortes de nouveaux scénarios possibles dans Azure AD.  Nous allons vous guider dans quelques scénarios courants de stratégie qui vous aideront à imposer de nouvelles règles pour les éléments suivants :
 
 * Durées de vie de jeton
 * Délais d’inactivité maximale des jetons
@@ -177,26 +177,26 @@ La possibilité de créer et de gérer les durées de vie des jetons pour les ap
 
 Nous allons explorer quelques scénarios :
 
-* Gestion de la stratégie par défaut d’un client
+* Gestion de la stratégie par défaut d’une organisation
 * Création d’une stratégie de connexion web
 * Création d’une stratégie pour les applications natives appelant une API web
 * Gestion d’une stratégie avancée 
 
 ### <a name="prerequisites"></a>Composants requis
-Dans les exemples de scénarios, nous allons créer, mettre à jour, lier et supprimer des stratégies sur les applications, les principaux du service et votre client global.  Si vous débutez avec Azure AD, découvrez [cet article](active-directory-howto-tenant.md) pour vous aider à vous familiariser avant de passer à ces exemples.  
+Dans les exemples de scénarios, nous allons créer, mettre à jour, lier et supprimer des stratégies sur les applications, les principaux du service et votre organisation globale.  Si vous débutez avec Azure AD, découvrez [cet article](active-directory-howto-tenant.md) pour vous aider à vous familiariser avant de passer à ces exemples.  
 
 1. Pour commencer, téléchargez la dernière [version d’évaluation des applets de commande Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview). 
 2. Une fois que vous disposez des applets de commande Azure AD PowerShell, exécutez la commande Connect pour vous connecter à votre compte d’administrateur Azure AD. Vous devez procéder ainsi à chaque fois que vous démarrez une nouvelle session.
    
      Connect-AzureAD -Confirm
-3. Exécutez la commande ci-dessous pour afficher toutes les stratégies qui ont été créées dans votre client.  Cette commande doit être utilisée après la plupart des opérations dans les scénarios suivants.  Elle vous aide également à obtenir **l’ID d’objet** de vos stratégies. 
+3. Exécutez la commande suivante pour afficher toutes les stratégies qui ont été créées dans votre organisation.  Cette commande doit être utilisée après la plupart des opérations dans les scénarios suivants.  Elle vous aide également à obtenir **l’ID d’objet** de vos stratégies. 
    
      Get-AzureADPolicy
 
-### <a name="sample-managing-a-tenants-default-policy"></a>Exemple : gestion de la stratégie par défaut d’un client
-Dans cet exemple, nous allons créer une stratégie qui permet aux utilisateurs de se connecter moins fréquemment dans votre client tout entier. 
+### <a name="sample-managing-a-organizations-default-policy"></a>Exemple : gestion de la stratégie par défaut d’une organisation
+Dans cet exemple, nous allons créer une stratégie qui permet aux utilisateurs de se connecter moins fréquemment dans votre organisation entière. 
 
-Pour ce faire, nous allons créer une stratégie de durée de vie des jetons pour les jetons d’actualisation à facteur unique, qui sera appliquée à votre client. Cette stratégie est appliquée à toutes les applications de votre client et à chaque principal du service pour lequel aucune stratégie n’est déjà définie. 
+Pour ce faire, nous allons créer une stratégie de durée de vie des jetons pour les jetons d’actualisation à facteur unique, qui sera appliquée à votre organisation. Cette stratégie est appliquée à toutes les applications de votre organisation et à chaque principal du service pour lequel aucune stratégie n’est déjà définie. 
 
 1. **Créez une stratégie de durée de vie des jetons.** 
 
@@ -212,7 +212,7 @@ Définissez le jeton d’actualisation à facteur unique sur Jusqu’à révocat
 
 Exécutez ensuite la commande ci-dessous pour créer cette stratégie. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1, `"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName TenantDefaultPolicyScenario -IsTenantDefault $true -Type TokenLifetimePolicy
+    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1, `"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName OrganizationDefaultPolicyScenario -IsOrganizationDefault $true -Type TokenLifetimePolicy
 
 Pour afficher votre nouvelle stratégie et obtenir son ID d’objet, exécutez la commande ci-après.
 
@@ -221,7 +221,7 @@ Pour afficher votre nouvelle stratégie et obtenir son ID d’objet, exécutez l
 
 Vous pensez que la première stratégie n’est pas aussi stricte qu’il le faut pour votre service, et souhaitez que vos jetons d’actualisation à facteur unique arrivent à expiration dans 2 jours. Exécutez la commande ci-dessous. 
 
-    Set-AzureADPolicy -ObjectId <ObjectID FROM GET COMMAND> -DisplayName TenantDefaultPolicyUpdatedScenario -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"2.00:00:00`"}}")
+    Set-AzureADPolicy -ObjectId <ObjectID FROM GET COMMAND> -DisplayName OrganizationDefaultPolicyUpdatedScenario -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"2.00:00:00`"}}")
 
 &nbsp;&nbsp;3. **Vous avez terminé !** 
 
@@ -232,14 +232,14 @@ Dans cet exemple, nous allons créer une stratégie qui nécessitera que vos uti
 
 Cette stratégie de connexion web définit la durée de vie des jetons d’accès/ID et l’âge maximal de jeton de session à facteur unique sur 2 heures.
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"AccessTokenLifetime`":`"02:00:00`",`"MaxAgeSessionSingleFactor`":`"02:00:00`"}}") -DisplayName WebPolicyScenario -IsTenantDefault $false -Type TokenLifetimePolicy
+    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"AccessTokenLifetime`":`"02:00:00`",`"MaxAgeSessionSingleFactor`":`"02:00:00`"}}") -DisplayName WebPolicyScenario -IsOrganizationDefault $false -Type TokenLifetimePolicy
 
 Pour afficher votre nouvelle stratégie et obtenir son ID d’objet, exécutez la commande ci-après.
 
     Get-AzureADPolicy
 &nbsp;&nbsp;2.    **Affectez la stratégie au principal du service.**
 
-Nous allons lier cette nouvelle stratégie à un principal du service.  Vous devrez également accéder à **l’ID d’objet** du principal du service. Vous pouvez interroger [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) ou accéder à notre [outil Afficheur Graph](https://graphexplorer.cloudapp.net/) et vous connecter à votre compte Azure AD pour voir tous les principaux du service de votre client. 
+Nous allons lier cette nouvelle stratégie à un principal du service.  Vous devrez également accéder à **l’ID d’objet** du principal du service. Vous pouvez interroger [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) ou accéder à notre [outil Afficheur Graph](https://graphexplorer.cloudapp.net/) et vous connecter à votre compte Azure AD pour voir tous les principaux du service de votre organisation. 
 
 Une fois que vous disposez de **l’ID d’objet**, exécutez la commande ci-dessous.
 
@@ -249,18 +249,13 @@ Une fois que vous disposez de **l’ID d’objet**, exécutez la commande ci-des
  
 
 ### <a name="sample-creating-a-policy-for-native-apps-calling-a-web-api"></a>Exemple : création d’une stratégie pour les applications natives appelant une API web
-> [!NOTE]
-> La liaison des stratégies aux applications est désactivée pour le moment.  Nous nous efforçons de l’activer sous peu.  Cette page sera mise à jour dès que la fonctionnalité sera disponible.
-> 
-> 
-
 Dans cet exemple, nous allons créer une stratégie qui nécessitera que les utilisateurs s’authentifient moins souvent et prolonger la période pendant laquelle ils peuvent être inactifs sans devoir s’authentifier de nouveau. La stratégie sera appliquée à l’API web. De cette façon, lorsque l’application native la demandera en tant que ressource, cette stratégie sera appliquée.
 
 1. **Créez une stratégie de durée de vie des jetons.** 
 
 Cette commande crée une stratégie stricte pour une API web. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"30.00:00:00`",`"MaxAgeMultiFactor`":`"until-revoked`",`"MaxAgeSingleFactor`":`"180.00:00:00`"}}") -DisplayName WebApiDefaultPolicyScenario -IsTenantDefault $false -Type TokenLifetimePolicy
+    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"30.00:00:00`",`"MaxAgeMultiFactor`":`"until-revoked`",`"MaxAgeSingleFactor`":`"180.00:00:00`"}}") -DisplayName WebApiDefaultPolicyScenario -IsOrganizationDefault $false -Type TokenLifetimePolicy
 
 Pour afficher votre nouvelle stratégie et obtenir son ID d’objet, exécutez la commande ci-après.
 
@@ -281,33 +276,33 @@ Dans cet exemple, nous allons créer quelques stratégies pour montrer le foncti
 
 1. **Créez une stratégie de durée de vie des jetons.**
 
-Pour l’instant, c’est plutôt simple. Nous avons créé une stratégie par défaut de client qui définit la durée de vie des jetons d’actualisation à facteur unique sur 30 jours. 
+Pour l’instant, c’est plutôt simple. Nous avons créé une stratégie par défaut d’organisation qui définit la durée de vie des jetons d’actualisation à facteur unique sur 30 jours. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"30.00:00:00`"}}") -DisplayName ComplexPolicyScenario -IsTenantDefault $true -Type TokenLifetimePolicy
+    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"30.00:00:00`"}}") -DisplayName ComplexPolicyScenario -IsOrganizationDefault $true -Type TokenLifetimePolicy
 Pour afficher votre nouvelle stratégie et obtenir son ID d’objet, exécutez la commande ci-après.
 
     Get-AzureADPolicy
 
 &nbsp;&nbsp;2.    **Affectez la stratégie à un principal du service.**
 
-À présent, nous disposons d’une stratégie sur tout le client.  Supposons que nous souhaitions conserver cette stratégie de 30 jours pour un principal du service spécifique, mais que nous changions la stratégie par défaut de client pour qu’elle soit la limite supérieure du paramètre « Jusqu’à révocation ». 
+À présent, nous disposons d’une stratégie sur toute l’organisation.  Supposons que nous souhaitions conserver cette stratégie de 30 jours pour un principal du service spécifique, mais que nous changions la stratégie par défaut d’organisation pour qu’elle soit la limite supérieure du paramètre « Jusqu’à révocation ». 
 
-Nous allons commencer par lier cette nouvelle stratégie à notre principal du service.  Vous devrez également accéder à **l’ID d’objet** du principal du service. Vous pouvez interroger [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) ou accéder à notre [outil Afficheur Graph](https://graphexplorer.cloudapp.net/) et vous connecter à votre compte Azure AD pour voir tous les principaux du service de votre client. 
+Nous allons commencer par lier cette nouvelle stratégie à notre principal du service.  Vous devrez également accéder à **l’ID d’objet** du principal du service. Vous pouvez interroger [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) ou accéder à notre [outil Afficheur Graph](https://graphexplorer.cloudapp.net/) et vous connecter à votre compte Azure AD pour voir tous les principaux du service de votre organisation. 
 
 Une fois que vous disposez de **l’ID d’objet**, exécutez la commande ci-dessous.
 
     Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
 
-&nbsp;&nbsp;3.    **Définissez l’indicateur IsTenantDefault sur false à l’aide de la commande ci-dessous**. 
+&nbsp;&nbsp;3.    **Définissez l’indicateur IsOrganizationDefault sur false à l’aide de la commande ci-dessous**. 
 
-    Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName ComplexPolicyScenario -IsTenantDefault $false
-&nbsp;&nbsp;4.    **Créez une stratégie par défaut de client.**
+    Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName ComplexPolicyScenario -IsOrganizationDefault $false
+&nbsp;&nbsp;4.    **Créer une stratégie par défaut d’organisation**
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName ComplexPolicyScenarioTwo -IsTenantDefault $true -Type TokenLifetimePolicy
+    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName ComplexPolicyScenarioTwo -IsOrganizationDefault $true -Type TokenLifetimePolicy
 
 &nbsp;&nbsp;5.     **Vous avez terminé.** 
 
-À présent, la stratégie d’origine est liée à votre principal du service, et la nouvelle stratégie est définie comme stratégie par défaut de votre client.  Il est important de se rappeler que les stratégies appliquées aux principaux de service ont priorité sur les stratégies par défaut de client. 
+À présent, la stratégie d’origine est liée à votre principal du service, et la nouvelle stratégie est définie comme stratégie par défaut de votre organisation.  Il est important de se rappeler que les stratégies appliquées aux principaux de service ont priorité sur les stratégies par défaut d’organisation. 
 
 ## <a name="cmdlet-reference"></a>Informations de référence sur les applets de commande
 ### <a name="manage-policies"></a>Gérer les stratégies
@@ -316,13 +311,13 @@ Les applets de commande suivantes permettent de gérer les stratégies.</br></br
 #### <a name="new-azureadpolicy"></a>New-AzureADPolicy
 Permet de créer une stratégie.
 
-    New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsTenantDefault <boolean> -Type <Policy Type> 
+    New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type> 
 
 | Paramètres | Description | Exemple |
 | --- | --- | --- |
 | -Definition |Tableau de champs de chaîne JSON qui contient toutes les règles de la stratégie. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
 | -DisplayName |Chaîne du nom de la stratégie |-DisplayName MyTokenPolicy |
-| -IsTenantDefault |Si la valeur true définit la stratégie comme stratégie par défaut du client, la valeur false n’a aucun effet. |-IsTenantDefault $true |
+| -IsOrganizationDefault |Si la valeur true définit la stratégie comme stratégie par défaut de l’organisation la valeur false n’a aucun effet |-IsOrganizationDefault $true |
 | -Type |Type de stratégie. Pour les durées de vie des jetons, utilisez toujours « TokenLifetimePolicy ». |-Type TokenLifetimePolicy |
 | -AlternativeIdentifier [Optional] |Définit un autre ID pour la stratégie. |-AlternativeIdentifier myAltId |
 
@@ -360,7 +355,7 @@ Met à jour une stratégie existante.
 | -ObjectId |ID d’objet de la stratégie que vous souhaitez obtenir. |-ObjectId &lt;ObjectID of Policy&gt; |
 | -DisplayName |Chaîne du nom de la stratégie |-DisplayName MyTokenPolicy |
 | -Definition [Optional] |Tableau de champs de chaîne JSON qui contient toutes les règles de la stratégie. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
-| -IsTenantDefault [Optional] |Si la valeur true définit la stratégie comme stratégie par défaut du client, la valeur false n’a aucun effet. |-IsTenantDefault $true |
+| -IsOrganizationDefault [en option] |Si la valeur true définit la stratégie comme stratégie par défaut de l’organisation la valeur false n’a aucun effet |-IsOrganizationDefault $true |
 | -Type [Optional] |Type de stratégie. Pour les durées de vie des jetons, utilisez toujours « TokenLifetimePolicy ». |-Type TokenLifetimePolicy |
 | -AlternativeIdentifier [Optional] |Définit un autre ID pour la stratégie. |-AlternativeIdentifier myAltId |
 
@@ -454,6 +449,6 @@ Supprime la stratégie du principal du service spécifié.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

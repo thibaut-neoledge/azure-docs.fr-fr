@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 12/13/2016
 ms.author: yijichen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 22a44e1c47748a54950d9ad732a04c08bbcefd87
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c8d02cdd50c7f44991aeabee1999a81ec18bf59c
 
 
 ---
@@ -88,7 +88,7 @@ Il existe plusieurs façons d’utiliser le service de manière automatique (un 
 > 
 > 
 
-Dans Azure Machine Learning, une nouvelle expérience vide a été créée. Des exemples de données d’entrée ont été téléchargés avec un schéma de données prédéfini. Le module [Exécuter le script R][execute-r-script], qui est lié au schéma de données, génère le modèle de prévision ARIMA à l’aide des fonctions « auto.arima » et « forecast » de R. 
+Dans Azure Machine Learning, une nouvelle expérience vide a été créée. Des exemples de données d’entrée ont été téléchargés avec un schéma de données prédéfini. Le module [Exécuter le script R][execute-r-script], qui est lié au schéma de données, génère le modèle de prévision ARIMA à l’aide des fonctions « auto.arima » et « forecast » de R. 
 
 ### <a name="experiment-flow"></a>Flux de l’expérience :
 ![Create workspace][2]
@@ -142,6 +142,6 @@ Pour les Questions fréquemment posées relatives à l'utilisation du service we
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
