@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 11/15/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 658671199cf3454428cc7102566093f7c2b42ae8
+ms.sourcegitcommit: 408a5fb25ef7b285a76e8f5b65890dc625574437
+ms.openlocfilehash: fba738575ee9a60cc930adfb68b7c34323bbe747
 
 
 ---
@@ -58,8 +58,8 @@ Regardez les vidéos suivantes pour vous familiariser avec Data Lake Store.
    * **Emplacement**: sélectionnez l'emplacement où vous souhaitez créer le compte Data Lake Store.
    * **Paramètres de chiffrement**. Vous pouvez choisir si vous souhaitez ou non chiffrer votre compte Data Lake Store. Si vous choisissez de le chiffrer, vous pouvez également spécifier comment gérer la clé de chiffrement principale que vous souhaitez utiliser pour chiffrer les données de votre compte.
      
-     * (Par défaut) Sélectionnez **Ne pas activer le chiffrement** dans la liste déroulante pour désactiver le chiffrement.
-     * (Facultatif) Sélectionnez **Utiliser les clés gérées par Azure Data Lake** si vous souhaitez qu’Azure Data Lake Store gère vos clés de chiffrement.
+     * (Facultatif) Sélectionnez **Ne pas activer le chiffrement** dans la liste déroulante pour désactiver le chiffrement.
+     * (Par défaut) Sélectionnez **Utiliser les clés gérées par Azure Data Lake** si vous souhaitez qu’Azure Data Lake Store gère vos clés de chiffrement.
        
          ![Chiffrement Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Data Lake Store encryption")
      * (Facultatif) Sélectionnez **Choisir les clés dans Azure Key Vault** si vous souhaitez utiliser vos propres clés présentes dans votre coffre Azure Key Vault. Avec cette option, vous pouvez également créer un compte et des clés Key Vault si ce n’est pas déjà fait.
@@ -136,6 +136,6 @@ Pour supprimer un compte Azure Data Lake Store, cliquez sur **Supprimer**dans le
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

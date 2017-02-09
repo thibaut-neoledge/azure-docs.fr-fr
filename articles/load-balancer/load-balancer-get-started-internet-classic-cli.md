@@ -31,7 +31,7 @@ ms.openlocfilehash: 337399d1f832830665be92a97a8458b7a959845b
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
-> Avant d’utiliser des ressources Azure, il est important de comprendre qu’Azure dispose actuellement de deux modèles de déploiement : Azure Resource Manager et classique. Veillez à bien comprendre les [modèles et outils de déploiement](../azure-classic-rm.md) avant d’utiliser une ressource Azure. Pour consulter la documentation relative aux différents outils, cliquez sur les onglets situés en haut de cet article. Cet article traite du modèle de déploiement classique. Vous pouvez également [découvrir comment créer un équilibreur de charge accessible sur Internet à l’aide d’Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+> Avant d’utiliser des ressources Azure, il est important de comprendre qu’Azure dispose actuellement de deux modèles de déploiement : Azure Resource Manager et classique. Veillez à bien comprendre les [modèles et outils de déploiement](../azure-classic-rm.md) avant d’utiliser une ressource Azure. Pour consulter la documentation relative aux différents outils, cliquez sur les onglets situés en haut de cet article. Cet article traite du modèle de déploiement classique. Vous pouvez également [découvrir comment créer un équilibreur de charge accessible sur Internet à l’aide d’Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -46,32 +46,32 @@ Ce guide indique comment créer un équilibreur de charge Internet selon le scé
     azure config mode asm
     ```
 
-    Sortie attendue :
+    Sortie attendue :
 
         info:    New mode is asm
 
 ## <a name="create-endpoint-and-load-balancer-set"></a>Création d'un point de terminaison et d'un jeu d'équilibrage de charge
 
-Le scénario suppose que les machines virtuelles « web1 » et « web2 » ont été créées.
-Ce guide crée un ensemble d’équilibreurs de charge à l’aide du port 80 comme port public et du port 80 comme port local. Un port de sonde est également configuré sur le port 80 et le jeu d’équilibreur de charge est nommé « lbset ».
+Le scénario suppose que les machines virtuelles « web1 » et « web2 » ont été créées.
+Ce guide crée un ensemble d’équilibreurs de charge à l’aide du port 80 comme port public et du port 80 comme port local. Un port de sonde est également configuré sur le port 80 et le jeu d’équilibreur de charge est nommé « lbset ».
 
-### <a name="step-1"></a>Étape 1
+### <a name="step-1"></a>Étape 1
 
-Créez le premier point de terminaison et le jeu d’équilibreur de charge avec `azure network vm endpoint create` pour la machine virtuelle « web1 ».
+Créez le premier point de terminaison et le jeu d’équilibreur de charge avec `azure network vm endpoint create` pour la machine virtuelle « web1 ».
 
 ```azurecli
 azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## <a name="step-2"></a>Étape 2
+## <a name="step-2"></a>Étape 2
 
-Ajoutez une deuxième machine virtuelle « web2 » pour le jeu d'équilibrage de charge.
+Ajoutez une deuxième machine virtuelle « web2 » pour le jeu d'équilibrage de charge.
 
 ```azurecli
 azure vm endpoint create web2 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## <a name="step-3"></a>Étape 3 :
+## <a name="step-3"></a>Étape 3 :
 
 Vérifiez la configuration de l’équilibreur de charge à l’aide de `azure vm show` .
 
@@ -79,7 +79,7 @@ Vérifiez la configuration de l’équilibreur de charge à l’aide de `azure v
 azure vm show web1
 ```
 
-La sortie se présente comme suit :
+La sortie se présente comme suit :
 
     data:    DNSName "contoso.cloudapp.net"
     data:    Location "East US"
@@ -135,7 +135,7 @@ azure vm endpoint create web1 54580 -k 3389
 
 Vous devez supprimer le point de terminaison associé à l'équilibreur de charge de la machine virtuelle. Une fois le point de terminaison supprimé, la machine virtuelle n'appartient plus au jeu d'équilibrage de charge.
 
-À l'aide de l'exemple ci-dessus, vous pouvez supprimer le point de terminaison créé pour la machine virtuelle « web1 » de l'équilibreur de charge « lbset » à l'aide de la commande `azure vm endpoint delete`.
+À l'aide de l'exemple ci-dessus, vous pouvez supprimer le point de terminaison créé pour la machine virtuelle « web1 » de l'équilibreur de charge « lbset » à l'aide de la commande `azure vm endpoint delete`.
 
 ```azurecli
 azure vm endpoint delete web1 tcp-80-80

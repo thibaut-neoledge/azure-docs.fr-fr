@@ -133,7 +133,7 @@ Suivez ces étapes :
     $inboundNATRule2= New-AzureRmLoadBalancerInboundNatRuleConfig -Name RDP2 -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
     ```
 
-2. Créer une sonde d’intégrité. Il existe deux façons de configurer une sonde :
+2. Créer une sonde d’intégrité. Il existe deux façons de configurer une sonde :
 
     Sonde HTTP
 
@@ -186,7 +186,7 @@ Créez des interfaces réseau (ou modifiez des interfaces existantes), puis asso
 
         $backendnic1
 
-    Sortie attendue :
+    Sortie attendue :
 
         Name                 : lb-nic1-be
         ResourceGroupName    : NRP-RG

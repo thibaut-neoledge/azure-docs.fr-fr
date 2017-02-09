@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1d78bdb6cbb9870298b050207fd1fa9c5e71d674
+ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
+ms.openlocfilehash: 4e1d4851356950075a4803bed76e309d0b593809
 
 
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Créer et modifier le routage le routage pour un circuit ExpressRoute
 > [!div class="op_single_selector"]
-> [Portail Azure - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
-> [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
-> [PowerShell - Classique](expressroute-howto-routing-classic.md)
+> * [Portail Azure - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
+> * [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
+> * [PowerShell - Classique](expressroute-howto-routing-classic.md)
 > 
 > 
 
@@ -190,6 +190,6 @@ Ensuite, [liez un réseau virtuel à un circuit ExpressRoute](expressroute-howto
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Prise en main d’Azure Data Lake Analytics à l’aide du kit de développement logiciel (SDK) .NET | Microsoft Docs"
-description: "Apprenez à utiliser le kit de développement .NET pour créer les comptes Data Lake Store, créez des travaux Analytique Data Lake et envoyez des travaux rédigés en U-SQL. "
+description: "Apprenez à utiliser le kit de développement (SDK) .NET pour créer les comptes Data Lake Analytics, créez des travaux Analytique Data Lake et envoyez des travaux rédigés en U-SQL. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 10/26/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60deb681b1090444f5c178fb0c9b0458ea83f73d
+ms.sourcegitcommit: 8e092e30c9c4186e4687efeacf9ea1f6b4bf431c
+ms.openlocfilehash: f617d997bc34d39f7635a87c4e5c88b1ebdc0ff8
 
 
 ---
@@ -196,7 +196,6 @@ Vous devez utiliser des chemins d’accès absolus pour accéder aux fichiers da
                     Console.WriteLine(nextAction);
             }
 
-
             // List all Data Lake Analytics accounts within the subscription
             public static List<DataLakeAnalyticsAccount> ListADLAAccounts()
             {
@@ -217,6 +216,7 @@ Vous devez utiliser des chemins d’accès absolus pour accéder aux fichiers da
 
                 return accounts;
             }
+
             public static Guid SubmitJobByPath(string scriptPath, string jobName)
             {
                 var script = File.ReadAllText(scriptPath);
@@ -241,10 +241,10 @@ Vous devez utiliser des chemins d’accès absolus pour accéder aux fichiers da
           }
         }
 
-1. Appuyez sur **F5** pour exécuter l'application. La sortie se présente comme suit :
+5. Appuyez sur **F5** pour exécuter l'application. La sortie se présente comme suit :
    
     ![Sortie de la tâche Azure Data Lake Analytics dans le SDK .NET U-SQL](./media/data-lake-analytics-get-started-net-sdk/data-lake-analytics-dotnet-job-output.png)
-2. Vérifiez le fichier de sortie.  Le chemin et le nom de fichier par défaut sont c:\Temp\SearchLog-from-Data-Lake.csv.
+6. Vérifiez le fichier de sortie.  Le chemin et le nom de fichier par défaut sont c:\Temp\SearchLog-from-Data-Lake.csv.
 
 ## <a name="see-also"></a>Voir aussi
 * Pour afficher le même didacticiel en utilisant d’autres outils, cliquez sur les sélecteurs d’onglet en haut de la page.
@@ -257,6 +257,6 @@ Vous devez utiliser des chemins d’accès absolus pour accéder aux fichiers da
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

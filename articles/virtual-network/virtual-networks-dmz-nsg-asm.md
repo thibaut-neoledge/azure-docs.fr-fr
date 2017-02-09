@@ -1,12 +1,12 @@
 ---
-title: Exemple de zone DMZ – Génération d’une zone DMZ Simple avec des groupes de sécurité réseau | Microsoft Docs
-description: Générer une zone DMZ avec des groupes de sécurité réseau (NSG)
+title: "Exemple de zone DMZ – Créer une zone DMZ simple avec des groupes de sécurité réseau | Microsoft Docs"
+description: "Générer une zone DMZ avec des groupes de sécurité réseau (NSG)"
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-
+editor: 
+ms.assetid: f8622b1d-c07d-4ea6-b41c-4ae98d998fff
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,71 +14,75 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 683adb57d22934f3a4785ded24a0d956c4f1d0dc
+
 
 ---
-# Exemple 1 : Créer une zone DMZ simple à l’aide de groupes de sécurité réseau
-[Revenir à la page Meilleures pratiques relatives aux limites de sécurité][HOME]
+# <a name="example-1--build-a-simple-dmz-with-nsgs"></a>Exemple 1 : Créer une zone DMZ simple à l’aide de groupes de sécurité réseau
+[Revenir à la page des bonnes pratiques concernant les limites de sécurité][Accueil]
 
-Cet exemple crée une zone DMZ simple avec quatre serveurs Windows et les groupes de sécurité réseau. Vous y découvrirez également comment chacune des commandes concernées fournit une meilleure connaissance de chaque opération. Il comporte également une section Scénario de trafic (Traffic Scenario) qui explique en détail et étape par étape l’évolution du trafic à travers les couches de défense dans la zone DMZ. Enfin, dans la section de référence se trouve l’intégralité du code et des instructions permettant d’élaborer l’environnement destiné à tester et à expérimenter différents scénarios.
+Cet exemple crée une zone DMZ simple avec quatre serveurs Windows et les groupes de sécurité réseau. Vous y découvrirez également comment chacune des commandes concernées fournit une meilleure connaissance de chaque opération. Il comporte également une section Scénario de trafic (Traffic Scenario) qui explique en détail et étape par étape l’évolution du trafic à travers les couches de défense dans la zone DMZ. Enfin, dans la section de référence se trouve l’intégralité du code et des instructions permettant d’élaborer l’environnement destiné à tester et à expérimenter différents scénarios. 
 
 ![Réseau de périmètre entrant avec groupe de sécurité réseau][1]
 
-## Description de l’environnement
-Dans cet exemple, il existe un abonnement qui contient les éléments suivants :
+## <a name="environment-description"></a>Description de l’environnement
+Dans cet exemple, il existe un abonnement qui contient les éléments suivants :
 
-* deux services cloud : « FrontEnd001 », « BackEnd001 »,
-* Un réseau virtuel « CorpNetwork » avec deux sous-réseaux « FrontEnd » et « BackEnd »
+* deux services cloud : « FrontEnd001 », « BackEnd001 »,
+* Un réseau virtuel « CorpNetwork » avec deux sous-réseaux « FrontEnd » et « BackEnd »
 * un groupe de sécurité réseau est appliqué aux deux sous-réseaux,
 * un serveur Windows Server représentant un serveur web d’application (« IIS01 »),
-* Deux serveurs Windows Server qui représentent les serveurs principaux d’applications (« AppVM01 », « AppVM02 »)
+* Deux serveurs Windows Server qui représentent les serveurs principaux d’applications (« AppVM01 », « AppVM02 »)
 * Un serveur Windows Server qui représente un serveur DNS (« DNS01 »),
 
-Dans la section Références ci-dessous figure un script PowerShell qui générera une grande partie l’environnement décrit ci-dessus. La création de machines virtuelles et de réseaux virtuels, bien qu’effectuée par l’exemple de script, ne figure pas en détail dans ce document.
+Dans la section Références ci-dessous figure un script PowerShell qui générera une grande partie l’environnement décrit ci-dessus. La création de machines virtuelles et de réseaux virtuels, bien qu’effectuée par l’exemple de script, ne figure pas en détail dans ce document. 
 
-Pour créer l’environnement :
+Pour créer l’environnement :
 
 1. Enregistrer le fichier XML de configuration réseau contenu dans la section Références (mis à jour avec les noms, l’emplacement et les adresses IP correspondant à un scénario donné)
 2. Mettre à jour les variables de l’utilisateur dans le script pour qu’elles correspondent à l’environnement dans lequel le script est exécuté (abonnements, noms de service, etc.)
 3. Exécuter le script dans PowerShell
 
-**Remarque** : la région indiquée dans le script PowerShell doit correspondre à la région indiquée dans le fichier xml de configuration réseau.
+**Remarque**: la région indiquée dans le script PowerShell doit correspondre à la région indiquée dans le fichier xml de configuration réseau.
 
 Une fois que le script s’exécute correctement, d’autres opérations peuvent être effectuées. Dans la section Références, il existe deux scripts servant à configurer le serveur web et le serveur d’application avec une application web simple permettant le test avec cette configuration réseau de périmètre DMZ.
 
 Les sections suivantes fournissent une description détaillée des groupes de sécurité réseau et de leur fonctionnement pour cet exemple, grâce à l’examen des lignes clés du script PowerShell.
 
-## Groupes de sécurité réseau (NSG)
-Dans cet exemple, un groupe NSG est créé, puis chargé avec six règles.
+## <a name="network-security-groups-nsg"></a>Groupes de sécurité réseau (NSG)
+Dans cet exemple, un groupe NSG est créé, puis chargé avec six règles. 
 
 > [!TIP]
 > En règle générale, vous devez d’abord créer les règles d’« autorisation » spécifiques, puis les règles de « refus » plus générales. La priorité établit les règles évaluées en premier. Une fois qu’il a été déterminé que le trafic répond à une règle spécifique, aucune autre règle n’est évaluée. Les règles du groupe de sécurité réseau peuvent s’appliquer dans le sens entrant ou sortant (du point de vue du sous-réseau).
 > 
 > 
 
-Les règles qui suivent sont générées de façon déclarative pour le trafic entrant :
+Les règles qui suivent sont générées de façon déclarative pour le trafic entrant :
 
-1. Le trafic DNS interne (port 53) est autorisé
-2. Le trafic RDP (port 3389) à partir d’Internet vers n’importe quelle machine virtuelle est autorisé.
-3. Le trafic HTTP (port 80) à partir d’Internet vers le serveur web (IIS01) est autorisé.
+1. Le trafic DNS interne (port 53) est autorisé
+2. Le trafic RDP (port 3389) à partir d’Internet vers n’importe quelle machine virtuelle est autorisé.
+3. Le trafic HTTP (port 80) à partir d’Internet vers le serveur web (IIS01) est autorisé.
 4. Tout trafic (tous les ports) en provenance d’IIS01 vers AppVM1 est autorisé.
 5. Tout trafic (tous les ports) en provenance d’Internet vers l’ensemble du réseau virtuel (les deux sous-réseaux) est refusé.
 6. Tout trafic (tous les ports) en provenance du sous-réseau frontal vers le sous-réseau principal est refusé.
 
-Lorsque ces règles sont associées à chacun des sous-réseaux, si une requête HTTP entrante arrive en provenance d’Internet à destination du serveur web, les règles 3 (autorisation) et 5 (refus) s’appliquent. Cependant, comme la règle 3 a une priorité plus élevée, elle seule s’applique, et la règle 5 n’entre pas en jeu. La requête HTTP est donc autorisée à accéder au serveur web. Si le même trafic tentait d’atteindre le serveur DNS01, la règle 5 (Refus) serait la première à s’appliquer et le trafic ne serait pas autorisé à franchir le serveur. La règle 6 (Refus) bloque la communication du sous-réseau frontal vers le sous-réseau principal (excepté le trafic autorisé dans les règles 1 et 4), ce qui protège le réseau principal en cas d’attaque d’une personne mal intentionnée sur l’application web sur le serveur frontal. Cette personne aurait alors un accès limité au réseau principal « protégé » (uniquement les ressources exposées sur le serveur AppVM01).
+Lorsque ces règles sont associées à chacun des sous-réseaux, si une requête HTTP entrante arrive en provenance d’Internet à destination du serveur web, les règles 3 (autorisation) et 5 (refus) s’appliquent. Cependant, comme la règle 3 a une priorité plus élevée, elle seule s’applique, et la règle 5 n’entre pas en jeu. La requête HTTP est donc autorisée à accéder au serveur web. Si le même trafic tentait d’atteindre le serveur DNS01, la règle 5 (Refus) serait la première à s’appliquer et le trafic ne serait pas autorisé à franchir le serveur. La règle 6 (Refus) bloque la communication du sous-réseau frontal vers le sous-réseau principal (excepté le trafic autorisé dans les règles 1 et 4), ce qui protège le réseau principal en cas d’attaque d’une personne mal intentionnée sur l’application web sur le serveur frontal. Cette personne aurait alors un accès limité au réseau principal « protégé » (uniquement les ressources exposées sur le serveur AppVM01).
 
-Il existe une règle par défaut qui autorise le trafic sortant vers Internet. Pour cet exemple, nous allons autoriser le trafic sortant sans modifier les règles de trafic sortant. Pour verrouiller le trafic dans les deux sens, l’itinéraire défini par l’utilisateur est requis. Cette opération est expliquée dans l’exemple 3 ci-dessous.
+Il existe une règle par défaut qui autorise le trafic sortant vers Internet. Pour cet exemple, nous allons autoriser le trafic sortant sans modifier les règles de trafic sortant. Pour verrouiller le trafic dans les deux sens, l’itinéraire défini par l’utilisateur est requis. Cette opération est expliquée dans l’exemple 3 ci-dessous.
 
-Chaque règle est abordée plus en détail par la suite (**Remarque** : tous les éléments de la liste ci-dessous commençant par un signe dollar (par exemple : $NSGName) sont des variables définies par l’utilisateur à partir du script de la section Références de ce document) :
+Chaque règle est abordée plus en détail par la suite (**Remarque**: tous les éléments de la liste ci-dessous commençant par un signe dollar (par exemple : $NSGName) sont des variables définies par l’utilisateur à partir du script de la section Références de ce document) :
 
-1. Tout d’abord, un groupe de sécurité réseau doit être généré. Il contiendra les règles :
+1. Tout d’abord, un groupe de sécurité réseau doit être généré. Il contiendra les règles :
    
         New-AzureNetworkSecurityGroup -Name $NSGName `
             -Location $DeploymentLocation `
             -Label "Security group for $VNetName subnets in $DeploymentLocation"
-2. La première règle de cet exemple va autoriser le trafic DNS entre tous les réseaux internes au serveur DNS sur le sous-réseau du serveur principal. La règle comporte certains paramètres importants :
+2. La première règle de cet exemple va autoriser le trafic DNS entre tous les réseaux internes au serveur DNS sur le sous-réseau du serveur principal. La règle comporte certains paramètres importants :
    
    * « Type » désigne la direction sur laquelle le trafic de cette règle s’applique, du point de vue du sous-réseau ou de la machine virtuelle (selon l’emplacement auquel le groupe de sécurité réseau est lié). Donc si le Type est « Entrant » et si le trafic entre dans le sous-réseau, la règle s’applique et le trafic quittant le sous-réseau n’est pas concerné.
-   * « Priorité » définit l’ordre dans lequel le flux de trafic est évalué. Plus le numéro de priorité est faible, plus la priorité de la règle est élevée. Dès qu’une règle s’applique à un flux de trafic spécifique, aucune autre règle n’est traitée. Donc si une règle de priorité 1 autorise le trafic et une règle de priorité 2 le refuse, si les deux règles s’appliquent, alors le trafic est autorisé à circuler (dans la mesure où la règle 1 a une priorité plus élevée et est appliquée, aucune autre règle n’est prise en compte).
+   * « Priorité » définit l’ordre dans lequel le flux de trafic est évalué. Plus le numéro de priorité est faible, plus la priorité de la règle est élevée. Dès qu’une règle s’applique à un flux de trafic spécifique, aucune autre règle n’est traitée. Donc si une règle de priorité 1 autorise le trafic et une règle de priorité 2 le refuse, si les deux règles s’appliquent, alors le trafic est autorisé à circuler (dans la mesure où la règle 1 a une priorité plus élevée et est appliquée, aucune autre règle n’est prise en compte).
    * « Action » indique si le trafic concerné par cette règle est bloqué ou autorisé.
      
          Get-AzureNetworkSecurityGroup -Name $NSGName | `
@@ -88,7 +92,7 @@ Chaque règle est abordée plus en détail par la suite (**Remarque** : tous les
              -DestinationAddressPrefix $VMIP[4] `
              -DestinationPortRange '53' `
              -Protocol *
-3. Cette règle autorise le trafic RDP à circuler depuis Internet vers le port RDP de n’importe quel serveur du réseau virtuel. Cette règle utilise deux types spéciaux de préfixes d’adresses ; « VIRTUAL\_NETWORK » et « INTERNET ». Il s’agit d’un moyen simple de traiter une catégorie plus importante de préfixes d’adresses.
+3. Cette règle autorise le trafic RDP à circuler depuis Internet vers le port RDP de n’importe quel serveur du réseau virtuel. Cette règle utilise deux types spéciaux de préfixes d’adresses ; « VIRTUAL_NETWORK » et « INTERNET ». Il s’agit d’un moyen simple de traiter une catégorie plus importante de préfixes d’adresses.
    
      Get-AzureNetworkSecurityGroup -Name $NSGName | `
    
@@ -108,7 +112,7 @@ Chaque règle est abordée plus en détail par la suite (**Remarque** : tous les
          -DestinationAddressPrefix $VMIP[0] `
          -DestinationPortRange '*' `
          -Protocol *
-5. Cette règle autorise le trafic à passer du serveur IIS01 au serveur AppVM01. Une autre règle bloque tout autre trafic du serveur frontal vers le serveur principal. Pour améliorer cette règle, si le port est connu, il doit être ajouté. Par exemple, si le serveur IIS accède uniquement au serveur SQL Server sur AppVM01, la plage de ports de destination doit passer de « * » (tout) à 1433 (le port SQL), ce qui réduit la surface vulnérable sur AppVM01 au cas où l’application web serait compromise.
+5. Cette règle autorise le trafic à passer du serveur IIS01 au serveur AppVM01. Une autre règle bloque tout autre trafic du serveur frontal vers le serveur principal. Pour améliorer cette règle, si le port est connu, il doit être ajouté. Par exemple, si le serveur IIS accède uniquement au serveur SQL Server sur AppVM01, la plage de ports de destination doit passer de « * » (tout) à 1433 (le port SQL), ce qui réduit la surface vulnérable sur AppVM01 au cas où l’application web serait compromise.
    
      Get-AzureNetworkSecurityGroup -Name $NSGName | `
    
@@ -116,9 +120,8 @@ Chaque règle est abordée plus en détail par la suite (**Remarque** : tous les
          -Type Inbound -Priority 130 -Action Allow `
      -SourceAddressPrefix $VMIP[1] -SourcePortRange '*' `
      -DestinationAddressPrefix $VMIP[2] `
-     -DestinationPortRange '*' `
-     -Protocol *
-6. Cette règle refuse le trafic en provenance d’Internet vers des serveurs sur le réseau. Associée avec la règle de priorité 110 et 120, elle permet uniquement au trafic Internet entrant d’accéder au pare-feu et aux ports RDP d’autres serveurs et bloque tout le reste.
+     -DestinationPortRange '*' `   -Protocol *
+6. Cette règle refuse le trafic en provenance d’Internet vers des serveurs sur le réseau. Associée avec la règle de priorité 110 et 120, elle permet uniquement au trafic Internet entrant d’accéder au pare-feu et aux ports RDP d’autres serveurs et bloque tout le reste. 
    
      Get-AzureNetworkSecurityGroup -Name $NSGName | `
    
@@ -141,23 +144,23 @@ Chaque règle est abordée plus en détail par la suite (**Remarque** : tous les
          -DestinationPortRange '*' `
          -Protocol * 
 
-## Scénarios de trafic
-#### (*Autorisé*) web vers serveur web
+## <a name="traffic-scenarios"></a>Scénarios de trafic
+#### <a name="allowed-web-to-web-server"></a>(*Autorisé*) web vers serveur web
 1. Un utilisateur Internet demande une page HTTP en provenance de FrontEnd001.CloudApp.Net (service cloud face à Internet)
 2. Le service Cloud transfère le trafic via un point de terminaison ouvert sur le port 80 vers IIS01 (serveur web)
-3. Le sous-réseau du serveur frontal commence le traitement des règles de trafic entrant :
-   1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
-   2. La règle NSG 2 (RDP) ne s’applique pas. Passer à la règle suivante.
-   3. La règle NSG 3 (Internet pour IIS01) s’applique, le trafic est autorisé, arrêter le traitement.
+3. Le sous-réseau du serveur frontal commence le traitement des règles de trafic entrant :
+   1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
+   2. La règle NSG 2 (RDP) ne s’applique pas, passer à la règle suivante
+   3. La règle NSG 3 (Internet pour IIS01) s’applique, le trafic est autorisé, arrêter le traitement.
 4. Le trafic parvient à l’adresse IP interne du serveur web IIS01 (10.0.1.5).
 5. IIS01 écoute le trafic web, reçoit cette requête et commence à traiter la demande.
 6. IIS01 demande des informations au serveur SQL Server sur AppVM01
-7. Aucune règle sur le trafic sortant sur le sous-réseau du serveur frontal. Le trafic est autorisé.
+7. Aucune règle sortante sur le sous-réseau du serveur frontal, le trafic est autorisé
 8. Le sous-réseau du serveur principal commence le traitement de la règle de trafic entrant :
-   1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
-   2. La règle NSG 2 (RDP) ne s’applique pas, passer à la règle suivante
-   3. La règle NSG 3 (Internet vers le pare-feu) ne s’applique pas, passer à la règle suivante
-   4. La règle NSG 4 (IIS01 vers AppVM01) s’applique, le trafic est autorisé, arrêter le traitement des règles
+   1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
+   2. La règle NSG 2 (RDP) ne s’applique pas, passer à la règle suivante
+   3. La règle NSG 3 (Internet vers le pare-feu) ne s’applique pas, passer à la règle suivante
+   4. La règle NSG 4 (IIS01 vers AppVM01) s’applique, le trafic est autorisé, arrêter le traitement des règles
 9. AppVM01 reçoit la requête SQL et répond
 10. Comme il n’existe aucune règle sur le trafic sortant sur le sous-réseau du serveur principal, la réponse est autorisée.
 11. Le sous-réseau du serveur frontal commence le traitement de la règle de trafic entrant :
@@ -166,24 +169,24 @@ Chaque règle est abordée plus en détail par la suite (**Remarque** : tous les
 12. Le serveur IIS reçoit la réponse SQL, complète la réponse HTTP et l’envoie au demandeur
 13. Comme il n’existe aucune règle sur le trafic sortant sur le sous-réseau du serveur frontal, la réponse est autorisée, et l’utilisateur Internet reçoit la page web demandée.
 
-#### RDP (*Autorisé*) RDP vers le serveur principal
+#### <a name="allowed-rdp-to-backend"></a>RDP (*Autorisé*) RDP vers le serveur principal
 1. L’administrateur du serveur sur Internet demande une session RDP AppVM01 sur BackEnd001.CloudApp.Net:xxxxx, où xxxxx est le numéro de port attribué de façon aléatoire au trafic RDP vers AppVM01 (le port attribué se trouve sur le portail Azure ou via PowerShell)
-2. Le sous-réseau du serveur principal entame le traitement du réseau entrant :
-   1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
-   2. La règle NSG 2 (RDP) s’applique, le trafic est autorisé, arrêter le traitement des règles
+2. Le sous-réseau du serveur principal entame le traitement du réseau entrant :
+   1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
+   2. La règle NSG 2 (RDP) s’applique, le trafic est autorisé, arrêter le traitement des règles
 3. En l’absence de réseau sortant, les règles par défaut s’appliquent et le retour de trafic est autorisé
 4. La session RDP est activée
 5. AppVM01 demande le mot de passe utilisateur
 
-#### (*Autorisé*) recherche DNS du serveur web sur le serveur DNS
+#### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(*Autorisé*) recherche DNS du serveur web sur le serveur DNS
 1. Le serveur Web Server IIS01 a besoin d’un flux de données sur www.data.gov, mais doit résoudre l’adresse.
 2. La configuration réseau du réseau virtuel définit DNS01 (10.0.2.4 sur le sous-réseau du serveur principal) comme serveur DNS principal, IIS01 envoie la requête DNS à DNS01
 3. Aucune règle sortante sur le sous-réseau du serveur frontal, le trafic est autorisé
-4. Le sous-réseau du serveur principal entame le traitement du réseau entrant :
-   1. La règle NSG 1 (DNS) s’applique, le trafic est autorisé, arrêter le traitement des règles
+4. Le sous-réseau du serveur principal entame le traitement du réseau entrant :
+   1. La règle NSG 1 (DNS) s’applique, le trafic est autorisé, arrêter le traitement des règles
 5. Le serveur DNS reçoit la demande
 6. Le serveur DNS n’a pas d’adresse en cache et demande à un serveur DNS racine sur Internet.
-7. Aucune règle sur le trafic sortant sur le sous-réseau du serveur principal. Le trafic est autorisé.
+7. Aucune règle sortante sur le sous-réseau du serveur principal, le trafic est autorisé
 8. Un serveur Internet DNS répond, car cette session a été initialisée en interne, la réponse est autorisée
 9. Le serveur DNS met en cache la réponse et répond à la demande initiale à IIS01
 10. Aucune règle sortante sur le sous-réseau du serveur principal, le trafic est autorisé
@@ -192,58 +195,59 @@ Chaque règle est abordée plus en détail par la suite (**Remarque** : tous les
     2. La règle système par défaut autorisant le trafic entre sous-réseaux autorise le trafic, le trafic est donc autorisé
 12. IIS01 reçoit la réponse de la part de DNS01
 
-#### (*Autorisé*) fichier d’accès de serveur web sur AppVM01
+#### <a name="allowed-web-server-access-file-on-appvm01"></a>(*Autorisé*) fichier d’accès de serveur web sur AppVM01
 1. IIS01 demande un fichier sur AppVM01
 2. Aucune règle sortante sur le sous-réseau du serveur frontal, le trafic est autorisé
 3. Le sous-réseau du serveur principal commence le traitement de la règle de trafic entrant :
-   1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
-   2. La règle NSG 2 (RDP) ne s’applique pas. Passer à la règle suivante.
-   3. La règle NSG 3 (Internet vers le IIS01) ne s’applique pas. Passer à la règle suivante.
-   4. La règle NSG 4 (IIS01 vers AppVM01) s’applique, le trafic est autorisé, arrêter le traitement des règles.
+   1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
+   2. La règle NSG 2 (RDP) ne s’applique pas. Passer à la règle suivante.
+   3. La règle NSG 3 (Internet vers le IIS01) ne s’applique pas. Passer à la règle suivante.
+   4. La règle NSG 4 (IIS01 vers AppVM01) s’applique, le trafic est autorisé, arrêter le traitement des règles.
 4. AppVM01 reçoit la demande et répond avec un fichier (en supposant que l’accès est autorisé)
-5. Comme il n’existe aucune règle sortante sur le sous-réseau du serveur principal, la réponse est autorisée
+5. Comme il n’existe aucune règle sur le trafic sortant sur le sous-réseau du serveur principal, la réponse est autorisée.
 6. Le sous-réseau du serveur frontal commence le traitement de la règle de trafic entrant :
    1. Aucune règle NSG ne s’applique au trafic entrant en provenance du sous-réseau du serveur principal vers le sous-réseau du serveur frontal, par conséquent aucune des règles NSG ne s’applique
    2. La règle du système par défaut autorisant le trafic entre sous-réseaux autorise le trafic, le trafic est donc autorisé.
 7. Le serveur IIS reçoit la demande.
 
-#### (*Refusé*) Web vers le serveur principal.
+#### <a name="denied-web-to-backend-server"></a>(*Refusé*) Web vers le serveur principal.
 1. L’utilisateur Internet tente d’accéder à un fichier sur AppVM01 via le service BackEnd001.CloudApp.Net.
 2. Comme il n’y a aucun point de terminaison ouvert pour le partage de fichiers, il ne passe pas le service cloud et n’atteint pas le serveur
 3. Si les points de terminaison ont été ouverts pour une raison quelconque, la règle NSG 5 (Internet vers le réseau virtuel) bloque le trafic.
 
-#### (*Autorisé*) recherche DNS web sur le serveur DNS.
+#### <a name="denied-web-dns-lookup-on-dns-server"></a>(*Autorisé*) recherche DNS web sur le serveur DNS.
 1. L’utilisateur Internet tente de rechercher un enregistrement DNS interne sur DNS01 par le biais du service BackEnd001.CloudApp.Net.
 2. Comme aucun point de terminaison n’est ouvert pour DNS, il ne passe pas le service Cloud et n’atteint pas le serveur
-3. Si les points de terminaison ont été ouverts pour une raison quelconque, la règle NSG 5 (Internet vers réseau virtuel) bloque ce trafic (Remarque : cette règle 1 (DNS) ne s’applique pas pour deux raisons : tout d’abord l’adresse source est sur Internet, et cette règle s’applique uniquement lorsque la source locale est le réseau virtuel local, et s’il s’agit d’une règle d’autorisation, le trafic n’est jamais refusé)
+3. Si les points de terminaison ont été ouverts pour une raison quelconque, la règle NSG 5 (Internet vers réseau virtuel) bloque ce trafic (Remarque : cette règle 1 (DNS) ne s’applique pas pour deux raisons : tout d’abord l’adresse source est sur Internet, et cette règle s’applique uniquement lorsque la source locale est le réseau virtuel local, et s’il s’agit d’une règle d’autorisation, le trafic n’est jamais refusé)
 
-#### (*Refusé*) Accès web vers SQL via le pare-feu
+#### <a name="denied-web-to-sql-access-through-firewall"></a>(*Refusé*) Accès web vers SQL via le pare-feu
 1. Un utilisateur Internet demande des données SQL de FrontEnd001.CloudApp.Net (Service cloud face à Internet)
 2. Comme aucun point de terminaison n’est ouvert pour SQL, la demande ne franchit pas le service cloud et n’atteint pas le pare-feu
-3. Si des points de terminaison étaient ouverts pour une raison quelconque, le sous-réseau frontal commence le traitement des règles entrantes :
-   1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
-   2. La règle NSG 2 (RDP) ne s’applique pas. Passer à la règle suivante.
-   3. La règle NSG 3 (Internet pour IIS01) s’applique, le trafic est autorisé, arrêter le traitement.
+3. Si des points de terminaison étaient ouverts pour une raison quelconque, le sous-réseau frontal commence le traitement des règles entrantes :
+   1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
+   2. La règle NSG 2 (RDP) ne s’applique pas, passer à la règle suivante
+   3. La règle NSG 3 (Internet pour IIS01) s’applique, le trafic est autorisé, arrêter le traitement.
 4. Le trafic parvient à l’adresse IP de IIS01 (10.0.1.5).
 5. IIS01 n’est pas à l’écoute sur le port 1433, donc aucune réponse à la demande
 
-## Conclusion
+## <a name="conclusion"></a>Conclusion
 Il s’agit d’un moyen relativement simple et direct d’isoler le sous-réseau du serveur principal du trafic entrant.
 
-Vous trouverez d’autres exemples et une vue d’ensemble des limites de sécurité réseau [ici][HOME].
+Vous trouverez d’autres exemples et une vue d’ensemble des limites de sécurité réseau [ici][Accueil].
 
-## Références
-### Script principal et configuration réseau
-Enregistrez le Script complet dans un fichier de script PowerShell. Enregistrez la configuration réseau dans un fichier nommé « NetworkConf1.xml ». Modifiez les variables définies par l’utilisateur selon vos besoins. Exécutez le script, puis suivez les instructions d’installation de règle pare-feu figurant à la section 1 de l’exemple ci-dessus.
+## <a name="references"></a>Références
+### <a name="main-script-and-network-config"></a>Script principal et configuration réseau
+Enregistrez le Script complet dans un fichier de script PowerShell. Enregistrez la configuration réseau dans un fichier nommé « NetworkConf1.xml ».
+Modifiez les variables définies par l’utilisateur selon vos besoins. Exécutez le script, puis suivez les instructions d’installation de règle pare-feu figurant à la section 1 de l’exemple ci-dessus.
 
-#### Script complet
-Ce script, en fonction des variables définies par l’utilisateur, exécutera les actions suivantes :
+#### <a name="full-script"></a>Script complet
+Ce script, en fonction des variables définies par l’utilisateur, exécutera les actions suivantes :
 
 1. Connexion à un abonnement Azure
 2. Création d’un nouveau compte de stockage
 3. Création d’un nouveau réseau virtuel et de deux sous-réseaux, comme indiqué dans le fichier de configuration du réseau
-4. Génération de 4 machines virtuelles Windows Server
-5. Configurez un groupe de sécurité réseau, notamment :
+4. Génération de 4 machines virtuelles Windows Server
+5. Configurez un groupe de sécurité réseau, notamment :
    * Création d’un groupe de sécurité réseau
    * Ajout de règles à ce dernier
    * La liaison du groupe de sécurité réseaux au sous-réseaux appropriés
@@ -511,7 +515,7 @@ Ce script PowerShell doit être exécuté localement sur un PC ou un serveur con
       Write-Host
 
 
-#### Fichier de configuration réseau
+#### <a name="network-config-file"></a>Fichier de configuration réseau
 Enregistrer ce fichier XML avec l’emplacement mis à jour et ajouter le lien vers ce fichier à la variable $NetworkConfigFile dans le script ci-dessus.
 
     <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
@@ -544,14 +548,19 @@ Enregistrer ce fichier XML avec l’emplacement mis à jour et ajouter le lien v
       </VirtualNetworkConfiguration>
     </NetworkConfiguration>
 
-#### Exemples de scripts d’application
-Si vous souhaitez installer un exemple de script d’application et d’autres exemples de réseau de périmètre DMZ, vous en trouverez un à l’adresse suivante : [Exemple de script d’application][SampleApp]
+#### <a name="sample-application-scripts"></a>Exemples de scripts d’application
+Si vous voulez pour cela installer un exemple d’application et d’autres exemples de zone DMZ, vous en trouverez un à l’adresse suivante : [Exemple de script d’application][SampleApp]
 
 <!--Image References-->
-[1]: ./media/virtual-networks-dmz-nsg-asm/example1design.png "Réseau de périmètre entrant avec groupe de sécurité réseau"
+[1]: ./media/virtual-networks-dmz-nsg-asm/example1design.png "Zone DMZ entrante avec groupe de sécurité réseau"
 
 <!--Link References-->
-[HOME]: ../best-practices-network-security.md
+[Accueil]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

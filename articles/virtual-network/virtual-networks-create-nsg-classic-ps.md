@@ -1,13 +1,13 @@
 ---
-title: Création de groupes de sécurité réseau en mode classique à l’aide de PowerShell | Microsoft Docs
-description: Découvrez comment créer et déployer des groupes de sécurité réseau en mode classique à l'aide de PowerShell
+title: "Guide pratique pour créer des groupes de sécurité réseau en mode classique à l’aide de PowerShell | Microsoft Docs"
+description: "Découvrez comment créer et déployer des groupes de sécurité réseau en mode classique à l&quot;aide de PowerShell"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 86810b0d-0240-46a2-8548-fca22daa56f3
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bbd1bcba9a56f4cee01101b333c11823d9bd30a0
+
 
 ---
-# Procédure de création des groupes de sécurité réseau (classique) dans PowerShell
+# <a name="how-to-create-nsgs-classic-in-powershell"></a>Procédure de création des groupes de sécurité réseau (classique) dans PowerShell
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -30,8 +34,8 @@ Cet article traite du modèle de déploiement classique. Vous pouvez également 
 
 Les exemples de commandes PowerShell ci-dessous supposent qu’un environnement simple a déjà été créé conformément au scénario décrit ci-dessous. Si vous souhaitez exécuter les commandes telles qu’elles sont présentées dans ce document, commencez par créer l’environnement de test décrit dans [Création d’un réseau virtuel](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
-## Création du groupe de sécurité réseau pour le sous-réseau frontal
-Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le scénario ci-dessus, suivez les étapes ci-dessous :
+## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Création du groupe de sécurité réseau pour le sous-réseau frontal
+Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le scénario ci-dessus, suivez les étapes ci-dessous :
 
 1. Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 2. Création d’un groupe de sécurité réseau nommé **NSG-FrontEnd**.
@@ -39,12 +43,12 @@ Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le sc�
         New-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" -Location uswest `
             -Label "Front end subnet NSG"
    
-    Sortie attendue :
+    Sortie attendue :
    
         Name         Location   Label               
         ----         --------   -----               
         NSG-FrontEnd West US     Front end subnet NSG
-3. Créer une règle de sécurité autorisant l'accès à partir d'Internet vers le port 3389.
+3. Créer une règle de sécurité autorisant l'accès à partir d'Internet vers le port 3389.
    
         Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
         | Set-AzureNetworkSecurityRule -Name rdp-rule `
@@ -52,7 +56,7 @@ Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le sc�
             -SourceAddressPrefix Internet  -SourcePortRange '*' `
             -DestinationAddressPrefix '*' -DestinationPortRange '3389'
    
-    Sortie attendue :
+    Sortie attendue :
    
         Name     : NSG-FrontEnd
         Location : Central US
@@ -80,7 +84,7 @@ Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le sc�
                    OUTBOUND                                                                                                      
                    DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *
 
-1. Créer une règle de sécurité autorisant l'accès à partir d'Internet vers le port 80.
+1. Créer une règle de sécurité autorisant l'accès à partir d'Internet vers le port 80.
    
         Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
         | Set-AzureNetworkSecurityRule -Name web-rule `
@@ -88,7 +92,7 @@ Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le sc�
             -SourceAddressPrefix Internet  -SourcePortRange '*' `
             -DestinationAddressPrefix '*' -DestinationPortRange '80'
    
-    Sortie attendue :
+    Sortie attendue :
 
         Name     : NSG-FrontEnd
         Location : Central US
@@ -118,18 +122,18 @@ Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le sc�
                    OUTBOUND                                                                                                      
                    DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
 
-## Création du groupe de sécurité réseau pour le sous-réseau principal
+## <a name="how-to-create-the-nsg-for-the-back-end-subnet"></a>Création du groupe de sécurité réseau pour le sous-réseau principal
 1. Création d’un groupe de sécurité réseau nommé **NSG-BackEnd**.
    
         New-AzureNetworkSecurityGroup -Name "NSG-BackEnd" -Location uswest `
             -Label "Back end subnet NSG"
    
-    Sortie attendue :
+    Sortie attendue :
    
         Name        Location   Label              
         ----        --------   -----              
         NSG-BackEnd West US    Back end subnet NSG
-2. Créer une règle de sécurité permettant l’accès depuis le sous-réseau frontal vers le port 1433 (port par défaut utilisé par SQL Server).
+2. Créer une règle de sécurité permettant l’accès depuis le sous-réseau frontal vers le port 1433 (port par défaut utilisé par SQL Server).
    
         Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
         | Set-AzureNetworkSecurityRule -Name rdp-rule `
@@ -137,7 +141,7 @@ Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le sc�
             -SourceAddressPrefix 192.168.1.0/24  -SourcePortRange '*' `
             -DestinationAddressPrefix '*' -DestinationPortRange '1433'
    
-    Sortie attendue :
+    Sortie attendue :
    
         Name     : NSG-BackEnd
         Location : Central US
@@ -173,7 +177,7 @@ Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le sc�
             -SourceAddressPrefix '*'  -SourcePortRange '*' `
             -DestinationAddressPrefix Internet -DestinationPortRange '*'
    
-    Sortie attendue :
+    Sortie attendue :
    
         Name     : NSG-BackEnd
         Location : Central US
@@ -202,4 +206,8 @@ Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le sc�
                    OUTBOUND                                                                                                      
                    DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
