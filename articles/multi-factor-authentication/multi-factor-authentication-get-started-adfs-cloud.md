@@ -100,6 +100,6 @@ Et voilà ! À ce stade, les utilisateurs fédérés d'Office 365 doivent pouv
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

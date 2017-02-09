@@ -123,6 +123,6 @@ Une fois la zone DNS créée, [créez des jeux d’enregistrements et des enregi
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

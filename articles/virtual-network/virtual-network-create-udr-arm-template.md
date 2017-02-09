@@ -45,7 +45,7 @@ La section ci-dessous illustre la définition du routage défini par l’utilisa
     "name": "[parameters('frontEndRouteTableName')]",
     "location": "[resourceGroup().location]",
     "tags": {
-      "displayName": "UDR - FrontEnd"   
+      "displayName": "UDR - FrontEnd"    
     },
     "properties": {
       "routes": [
@@ -409,6 +409,6 @@ Pour déployer le modèle ARM à l’aide d’Azure CLI, procédez comme suit :
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

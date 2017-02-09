@@ -130,6 +130,6 @@ Pour plus d’informations sur les architectures de solution IoT, consultez le d
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

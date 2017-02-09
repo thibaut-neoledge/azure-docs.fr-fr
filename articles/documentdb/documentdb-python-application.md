@@ -413,6 +413,6 @@ Pour d’autres didacticiels Python Flask, consultez [The Flask Mega-Tutorial, P
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 
