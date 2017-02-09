@@ -213,6 +213,6 @@ Dans cette section, vous reconnectez l'application au serveur principal mobile, 
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 
