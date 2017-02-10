@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/25/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
@@ -72,7 +72,6 @@ data:    Provisioning State:  Succeeded
 data:    Tags: null
 data:
 info:    group create command OK
-
 ```
 
 L’interface CLI Azure vous renvoie à l’invite après quelques secondes, mais l’hôte Docker est toujours en cours de création et de configuration par l’extension Azure Docker VM. Le déploiement prend quelques minutes. Vous pouvez afficher des détails sur l’état de l’hôte Docker à l’aide de la commande `azure vm show`.
