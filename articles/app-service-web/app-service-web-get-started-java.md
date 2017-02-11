@@ -1,5 +1,5 @@
 ---
-title: "Déployer votre première application web Java dans Azure en 5 minutes | Microsoft Docs"
+title: "Déployer votre première application web Java dans Azure en 5 minutes (CLI 2.0 version préliminaire) | Microsoft Docs"
 description: "Découvrez la facilité avec laquelle vous pouvez exécuter des applications web dans App Service en déployant un exemple d’application. Commencez le développement rapidement et visualisez les résultats immédiatement."
 services: app-service\web
 documentationcenter: 
@@ -12,15 +12,26 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 90c1099f7970fc490ca01f2d815679f967c46187
+ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
+ms.openlocfilehash: e15a67ee0568c52f5fb81110b0ad6d2c53ec8fae
 
 
 ---
-# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes"></a>Déployer votre première application web Java dans Azure en 5 minutes
+# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Déployer votre première application web Java dans Azure en 5 minutes (CLI 2.0 version préliminaire)
+
+> [!div class="op_single_selector"]
+> * [Premier site HTML](app-service-web-get-started-html-cli-nodejs.md)
+> * [Première application .NET](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [Première application  PHP](app-service-web-get-started-php-cli-nodejs.md)
+> * [Première application Node.js](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [Première application Python](app-service-web-get-started-python-cli-nodejs.md)
+> * [Première application Java](app-service-web-get-started-java.md)
+> 
+> 
+
 Dans ce didacticiel, vous découvrirez comment déployer une application web Java simple dans [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 App Service permet de créer des applications web, des[back-ends d’applications mobiles](/documentation/learning-paths/appservice-mobileapps/) et des [applications API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
@@ -73,7 +84,7 @@ Vous allez :
     ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
 2. Dans **Version de Java**, sélectionnez **Java 8**, puis cliquez sur **Enregistrer**.
    
-    ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
+    ![](./media/app-service-web-get-started-languages/set-java.png)
    
     Lorsque vous recevez la notification **Les paramètres de l’application web ont été mis à jour**, accédez à http://*&lt;appname>*.azurewebsites.net pour voir le servlet JSP par défaut à l’œuvre.
 3. De retour dans le panneau de l’application web, accédez au menu **Options de déploiement** ou recherchez-le, puis cliquez dessus.
@@ -120,6 +131,6 @@ Ou faites-en plus avec votre première application web. Par exemple :
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,13 +1,26 @@
 ---
+title: "Documentation sur la passerelle VPN, didacticiels et référence API | Microsoft Docs"
+description: "Apprenez à configurer les passerelles de réseau privé virtuel (VPN) pour gérer le trafic entre les réseaux virtuels du cloud et en local, ou entre des réseaux virtuels sur le cloud."
+services: vpn-gateway
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: vpn-gateway
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: ff8e5a68ada52f93c1f50e73a1a7857273d7f9c3
+ms.sourcegitcommit: 2e7486833ae23cdfed037aa1afb930997586a158
+ms.openlocfilehash: e3179c060380c07dde9058597b0d77861d14d848
+
 
 ---
-#<a name="vpn-gateway-documentation"></a>Documentation de la passerelle VPN
+# <a name="vpn-gateway-documentation"></a>Documentation de la passerelle VPN
 
-Le service Passerelle VPN Azure est une passerelle de réseau privé virtuel utilisée pour faire circuler le trafic réseau entre des réseaux virtuels Azure et des emplacements locaux, ainsi qu’entre des réseaux virtuels au sein d’Azure (réseau virtuel à réseau virtuel).  
+Apprenez à configurer la Passerelle VPN, une passerelle de réseau privé virtuel. La documentation vous montre comment envoyer du trafic réseau entre des réseaux virtuels Azure et des emplacements locaux ou d’autres réseaux virtuels Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -131,7 +144,7 @@ Le service Passerelle VPN Azure est une passerelle de réseau privé virtuel uti
                     <div class="cardText">
                         <h3>Ligne de commande</h3>
                         <p><a href="https://msdn.microsoft.com/library/mt163510(v=azure.300)">PowerShell (Resource Manager)</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/mt270335(v=azure.300)">PowerShell (Classic)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt270335(v=azure.300)">PowerShell (classique)</a></p>
                     </div>
                 </div>
             </div>
@@ -144,7 +157,7 @@ Le service Passerelle VPN Azure est une passerelle de réseau privé virtuel uti
                     <div class="cardText">
                         <h3>REST</h3>
                         <p><a href="https://msdn.microsoft.com/library/mt163859">REST (Resource Manager)</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/jj154113">REST (Classic)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/jj154113">REST (classique)</a></p>
                     </div>
                 </div>
             </div>
@@ -152,16 +165,10 @@ Le service Passerelle VPN Azure est une passerelle de réseau privé virtuel uti
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/vpn-gateway.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation Passerelle VPN Azure </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

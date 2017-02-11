@@ -1,9 +1,12 @@
 ---
 layout: LandingPage
 description: "Documents, vidéos et exemples de modèle pour Machine Learning, un service cloud destiné aux développeurs et aux scientifiques des données qui utilisent des analyses prédictives dans leurs applications."
+author: garyericson
+ms.date: 01/18/2017
+ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 12f9d75f252d8b05fdcded9d3fb6c12e4c2a304e
-ms.openlocfilehash: d51cb36ce676ac6d2e7c7b3313db75308d4cca3b
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3247e45c44f63c529c84de5dd31eadc5a9552952
 
 ---
 #<a name="azure-machine-learning-documentation"></a>Documentation Azure Machine Learning
@@ -95,8 +98,8 @@ Découvrez comment les scientifiques des données et les développeurs utilisent
                 <div class="card">
                     <div class="cardText">
                         <h3>Ligne de commande</h3>
-                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell</a></p>
-                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">Module PowerShell pour Machine Learning</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning">PowerShell (nouveau)</a></p>
+                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell (classique)</a></p>
                     </div>
                 </div>
             </div>
@@ -108,7 +111,7 @@ Découvrez comment les scientifiques des données et les développeurs utilisent
                 <div class="card">
                     <div class="cardText">
                         <h3>Langues</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Référence sur les algorithmes et les modules</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Algorithmes &amp; référence sur les modules</a></p>
                    </div>
                 </div>
             </div>
@@ -120,7 +123,7 @@ Découvrez comment les scientifiques des données et les développeurs utilisent
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/machinelearning">Référence sur les API REST</a></p>
+                        <p><a href="/rest/api/machinelearning">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>
@@ -128,13 +131,7 @@ Découvrez comment les scientifiques des données et les développeurs utilisent
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/machine-learning.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation Machine Learning </div>
-    </a>
-</div>
+
 
 
 

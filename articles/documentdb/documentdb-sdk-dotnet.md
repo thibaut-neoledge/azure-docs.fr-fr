@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 12/09/2016
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: 5e182811adc29ae00d40355bb4813c30eb0b904c
-ms.openlocfilehash: 1a4a2ed7cd2b8cfe3ed328c696cd6ba4d2cc03bc
+ms.sourcegitcommit: efd154811ebbcf2170ffb001344a954be72b1d92
+ms.openlocfilehash: 93b4c7003b4b5461d34a357967b2c089a189c854
 
 
 ---
@@ -50,10 +50,14 @@ ms.openlocfilehash: 1a4a2ed7cd2b8cfe3ed328c696cd6ba4d2cc03bc
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
-> [!IMPORTANT]
-> À partir de la version 1.9.2, vous pouvez recevoir une System.NotSupportedException lors de l’interrogation de collections partitionnées. Pour éviter cette erreur, assurez-vous que vous disposez d’un processus hôte de 64 bits. Pour ce faire, désactivez l’option « Préférer 32 bits » pour les projets de l’exécutable dans la fenêtre des propriétés du projet, dans l’onglet Générer.
-> 
-> 
+
+### <a name="a-name11101110httpswwwnugetorgpackagesmicrosoftazuredocumentdb1110"></a><a name="1.11.0"/>[1.11.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.0)
+* Prise en charge de nouvelles classes et méthodes pour traiter le [flux de modification](documentdb-change-feed.md) de documents dans une collection.
+* Prise en charge de la continuité des requêtes sur plusieurs partitions et de quelques améliorations des performances pour les requêtes entre partitions.
+* Ajout des méthodes CreateDatabaseIfNotExistsAsync et CreateDocumentCollectionIfNotExistsAsync.
+* Prise en charge de LINQ pour les fonctions système : IsDefined, IsNull et IsPrimitive.
+* Correction du placement automatique des assemblys Microsoft.Azure.Documents.ServiceInterop.dll et DocumentDB.Spatial.Sql.dll dans le dossier bin de l’application lorsque le package NuGet est utilisé avec des projets qui disposent des outils project.json.
+* Prise en charge de l’émission de traces ETW de côté client qui pourraient être utiles dans les scénarios de débogage.
 
 ### <a name="a-name11001100httpswwwnugetorgpackagesmicrosoftazuredocumentdb1100"></a><a name="1.10.0"/>[1.10.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.10.0)
 * Ajout de la prise en charge de la connectivité directe pour les collections partitionnées.
@@ -195,6 +199,7 @@ Toute requête à DocumentDB utilisant un Kit SDK supprimé est rejetée par le 
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.11.0](#1.11.0) |8 décembre 2016 |--- |
 | [1.10.0](#1.10.0) |27 septembre 2016 |--- |
 | [1.9.5](#1.9.5) |1er septembre 2016 |--- |
 | [1.9.4](#1.9.4) |24 août 2016 |--- |
@@ -231,6 +236,6 @@ Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azur
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

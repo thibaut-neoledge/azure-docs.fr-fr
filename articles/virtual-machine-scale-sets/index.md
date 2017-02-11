@@ -1,9 +1,20 @@
 ---
 layout: LandingPage
 description: "Apprenez à utiliser Virtual Machine Scale Sets pour créer des machines virtuelles Windows ou Linux prenant en charge la mise à l’échelle automatique dans le cadre de solutions de calculs volumineux, de solutions Big Data et de solutions en conteneur."
+title: "Documentation pour les groupes de machines virtuelles identiques Azure, didacticiels et référence API | Microsoft Docs"
+services: virtual-machine-scale-sets
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machine-scale-sets
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 7fefef291643ba0c640ba3520e7e40d50391220a
-ms.openlocfilehash: a35dcbfa56c03ca264d4c7a7f779672dc6ae7526
+ms.sourcegitcommit: 7b2af8e58e050100b1778d977dabe25538b84cfe
+ms.openlocfilehash: 3bb6307cee24c80cbf8d621a49d2304d9b9b5c99
 
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Documentation sur les groupes de machines virtuelles identiques
@@ -91,7 +102,7 @@ Découvrez comment utiliser Virtual Machine Scale Sets pour déployer et gérer 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/compute/">Référence sur les API REST</a></p>
+                        <p><a href="/rest/api/compute/">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>
@@ -99,16 +110,10 @@ Découvrez comment utiliser Virtual Machine Scale Sets pour déployer et gérer 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machine-scale-sets.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation sur les groupes de machines virtuelles identiques </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Templates
-description: This topic explains Templates for Azure notification hubs.
+title: "Modèles"
+description: "Cette rubrique décrit les modèles pour les hubs de notification Azure."
 services: notification-hubs
 documentationcenter: .net
 author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
@@ -14,25 +14,29 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d47f493d0ec80318805303c8192477d7002533eb
+
 
 ---
-# <a name="templates"></a>Templates
-## <a name="overview"></a>Overview
-Templates enable a client application to specify the exact format of the notifications it wants to receive. Using templates, an app can realize several different benefits, including the following :
+# <a name="templates"></a>Modèles
+## <a name="overview"></a>Vue d’ensemble
+Les modèles permettent à une application cliente de spécifier le format exact des notifications que celle-ci souhaite recevoir. Une application peut utiliser des modèles pour en tirer plusieurs avantages, notamment les suivants :
 
-* A platform-agnostic backend
-* Personalized notifications
-* Client-version independence
-* Easy localization
+* Un serveur principal non spécifique à une plateforme
+* Des notifications personnalisées
+* Indépendance vis-à-vis de la version du client
+* Localisation facile
 
-This section provides two in-depth examples of how to use templates to send platform-agnostic notifications targeting all your devices across platforms, and to personalize broadcast notification to each device.
+Cette section fournit deux exemples détaillés de la manière d’utiliser des modèles pour envoyer des notifications non spécifiques à une plateforme ciblant tous vos appareils sur des plateformes, et pour personnaliser la notification à diffusion générale pour chaque appareil.
 
-## <a name="using-templates-cross-platform"></a>Using templates cross-platform
-The standard way to send push notifications is to send, for each notification that is to be sent, a specific payload to platform notification services (WNS, APNS). For example, to send an alert to APNS, the payload is a Json object of the following form:
+## <a name="using-templates-cross-platform"></a>Utilisation des modèles entre plateformes
+La méthode classique d’envoi de notifications Push est d’envoyer, pour chaque notification à envoyer, une charge utile spécifique aux services de notification de plateforme (WNS, APNS). Par exemple, pour envoyer une alerte aux APNS, la charge utile est un objet JSON au format suivant :
 
     {"aps": {"alert" : "Hello!" }}
 
-To send a similar toast message on a Windows Store application, the XML payload is as follows:
+Pour envoyer un message toast similaire à une application Windows Store, la charge utile XML est la suivante :
 
     <toast>
       <visual>
@@ -42,21 +46,21 @@ To send a similar toast message on a Windows Store application, the XML payload 
       </visual>
     </toast>
 
-You can create similar payloads for MPNS (Windows Phone) and GCM (Android) platforms.
+Vous pouvez créer des charges utiles similaires pour les plateformes MPNS (Windows Phone) et GCM (Android).
 
-This requirement forces the app backend to produce different payloads for each platform, and effectively makes the backend responsible for part of the presentation layer of the app. Some concerns include localization and graphical layouts (especially for Windows Store apps that include notifications for various types of tiles).
+Cette condition force le serveur principal de l’application à générer différentes charges utiles pour chaque plateforme, et rend en partie le serveur principal responsable de la couche présentation de l’application. Certaines préoccupations concernent les présentations graphiques et la localisation (en particulier pour les applications Windows Store qui incluent des notifications pour divers types de mosaïques).
 
-The Notification Hubs template feature enables a client app to create special registrations, called template registrations, which include, in addition to the set of tags, a template. The Notification Hubs template feature enables a client app to associate devices with templates whether you are working with Installations (preferred) or Registrations. Given the preceding payload examples, the only platform-independent information is the actual alert message (Hello!). A template is a set of instructions for the Notification Hub on how to format a platform-independent message for the registration of that specific client app. In the preceding example, the platform independent message is a single property: **message = Hello!**.
+La fonctionnalité de modèle Notification Hubs permet à une application cliente de créer des inscriptions spéciales, appelées inscriptions de modèles, qui incluent, en plus de l’ensemble de balises, un modèle. La fonctionnalité de modèle Notification Hubs permet à une application cliente d’associer des appareils à des modèles, que vous travailliez avec des installations (recommandé) ou des inscriptions. Dans les exemples de charge utile précédents, les seules informations non spécifiques à la plateforme sont le message d’alerte réel (Hello!). Un modèle est un ensemble d’instructions destiné au hub de notification concernant la mise en forme d’un message non spécifique à une plateforme pour l’inscription de cette application cliente spécifique. Dans l’exemple précédent, le message non spécifique à une plateforme est une propriété unique : **message = Hello!**.
 
-The following picture illustrates the above process:
+L’image suivante illustre le processus décrit ci-dessus :
 
 ![](./media/notification-hubs-templates/notification-hubs-hello.png)
 
-The template for the iOS client app registration is as follows:
+Le modèle pour l’inscription d’une application cliente iOS est le suivant :
 
     {"aps": {"alert": "$(message)"}}
 
-The corresponding template for the Windows Store client app is:
+Le modèle correspondant de l’application cliente Windows Store est :
 
     <toast>
         <visual>
@@ -66,16 +70,16 @@ The corresponding template for the Windows Store client app is:
         </visual>
     </toast>
 
-Notice that the actual message is substituted for the expression $(message). This expression instructs the Notification Hub, whenever it sends a message to this particular registration, to build a message that follows it and switches in the common value.
+Notez que le message réel est remplacé par l’expression $(message). Cette expression indique au hub de notification de créer un message qui respecte ce modèle et insère la valeur courante chaque fois qu’il envoie un message à cette inscription particulière.
 
-If you are working with Installation model, the installation “templates” key holds a JSON of multiple templates. If you are working with Registration model, the client application can create multiple registrations in order to use multiple templates; for example, a template for alert messages and a template for tile updates. Client applications can also mix native registrations (registrations with no template) and template registrations.
+Si vous travaillez avec le modèle Installation, la clé « templates » de l’installation conserve un objet JSON de plusieurs modèles. Si vous travaillez avec le modèle Inscription, l’application cliente peut créer plusieurs inscriptions afin d’utiliser plusieurs modèles ; par exemple, un modèle pour les messages d’alerte et un modèle pour les mises à jour des mosaïques. Les applications clientes peuvent également combiner inscriptions natives (inscriptions sans modèle) et inscriptions avec modèle.
 
-The Notification Hub sends one notification for each template without considering whether they belong to the same client app. This behavior can be used to translate platform-independent notifications into more notifications. For example, the same platform independent message to the Notification Hub can be seamlessly translated in a toast alert and a tile update, without requiring the backend to be aware of it. Note that some platforms (for example, iOS) might collapse multiple notifications to the same device if they are sent in a short period of time.
+Le hub de notification envoie une notification pour chaque modèle, sans tenir compte de leur appartenance, ou non, à la même application cliente. Ce comportement permet de convertir les notifications non spécifiques à une plateforme en plusieurs notifications. Par exemple, le même message non spécifique à une plateforme envoyé au hub de notification peut être converti de façon transparente en une alerte toast et une mise à jour de mosaïque, sans que le serveur principal n’en soit nécessairement averti. Notez bien que certaines plateformes (par exemple, iOS) peuvent regrouper plusieurs notifications sur le même appareil si elles sont envoyées sur une durée très courte.
 
-## <a name="using-templates-for-personalization"></a>Using templates for personalization
-Another advantage to using templates is the ability to use Notification Hubs to perform per-registration personalization of notifications. For example, consider a weather app that displays a tile with the weather conditions at a specific location. A user can choose between Celsius or Fahrenheit degrees, and a single or five-day forecast. Using templates, each client app installation can register for the format required (1-day Celsius, 1-day Fahrenheit, 5-days Celsius, 5-days Fahrenheit), and have the backend send a single message that contains all the information required to fill those templates (for example, a five-day forecast with Celsius and Fahrenheit degrees).
+## <a name="using-templates-for-personalization"></a>Utilisation des modèles à des fins de personnalisation
+Un autre avantage de l’utilisation des modèles est la possibilité d’utiliser les hubs de notification pour effectuer une personnalisation de notifications en fonction de l’inscription. Par exemple, prenez une application météo qui affiche une mosaïque contenant les conditions climatiques à un emplacement spécifique. Un utilisateur peut choisir entre les degrés Celsius ou Fahrenheit, et une prévision à un jour ou sur les cinq prochains jours. Grâce aux modèles, chaque installation d’application cliente peut s’inscrire au format approprié (Celsius sur 1 jour, Fahrenheit sur 1 jour, Celsius sur 5 jours, Fahrenheit sur 5 jours) et faire appel au serveur principal pour envoyer un message unique contenant toutes les informations nécessaires pour compléter ces modèles (par exemple, une prévision sur cinq jours en degrés Celsius et Fahrenheit).
 
-The template for the one-day forecast with Celsius temperatures is as follows:
+Le modèle pour la prévision sur un jour avec les températures en degrés Celsius est comme suit :
 
     <tile>
       <visual>
@@ -87,7 +91,7 @@ The template for the one-day forecast with Celsius temperatures is as follows:
       </visual>
     </tile>
 
-The message sent to the Notification Hub contains all the following properties:
+Le message envoyé au hub de notification contient les propriétés suivantes :
 
 <table border="1">
 
@@ -98,33 +102,33 @@ The message sent to the Notification Hub contains all the following properties:
 <tr><td>day1_tempF</td><td>day2_tempF</td><td>day3_tempF</td><td>day4_tempF</td><td>day5_tempF</td></tr>
 </table><br/>
 
-By using this pattern, the backend only sends a single message without having to store specific personalization options for the app users. The following picture illustrates this scenario:
+En utilisant ce modèle, le serveur principal envoie uniquement un message sans avoir à stocker des options de personnalisation spécifiques pour les utilisateurs de l’application. L’image suivante illustre ce scénario :
 
 ![](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
 
-## <a name="how-to-register-templates"></a>How to register templates
-To register with templates using the Installation model (preferred), or the Registration model, see [Registration Management](notification-hubs-push-notification-registration-management.md).
+## <a name="how-to-register-templates"></a>Inscription des modèles
+Pour vous inscrire auprès de modèles à l’aide du modèle Installation (recommandé) ou du modèle Inscription, consultez [Gestion des inscriptions](notification-hubs-push-notification-registration-management.md).
 
-## <a name="template-expression-language"></a>Template expression language
-Templates are limited to XML or JSON document formats. Also, you can only place expressions in particular places; for example, node attributes or values for XML, string property values for JSON.
+## <a name="template-expression-language"></a>Langage d’expression de modèle
+Les modèles sont limités aux formats de documents XML ou JSON. Vous pouvez également placer des expressions à des endroits particuliers ; par exemple, des attributs de nœud ou des valeurs pour XML, des valeurs de propriété de chaîne pour JSON.
 
-The following table shows the language allowed in templates:
+Le tableau suivant indique le langage autorisé dans les modèles :
 
 | Expression | Description |
 | --- | --- |
-| $(prop) |Reference to an event property with the given name. Property names are not case-sensitive. This expression resolves into the property’s text value or into an empty string if the property is not present. |
-| $(prop, n) |As above, but the text is explicitly clipped at n characters, for example $(title, 20) clips the contents of the title property at 20 characters. |
-| .(prop, n) |As above, but the text is suffixed with three dots as it is clipped. The total size of the clipped string and the suffix does not exceed n characters. .(title, 20) with an input property of “This is the title line” results in **This is the title...** |
-| %(prop) |Similar to $(name) except that the output is URI-encoded. |
-| #(prop) |Used in JSON templates (for example, for iOS and Android templates).<br><br>This function works exactly the same as $(prop) previously specified, except when used in JSON templates (for example, Apple templates). In this case, if this function is not surrounded by “{‘,’}” (for example, ‘myJsonProperty’ : ‘#(name)’), and it evaluates to a number in Javascript format, for example, regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*))(\.&#91;0-9&#93;+)?((e&#124;E)(+&#124;-)?&#91;0-9&#93;+)?, then the output JSON is a number.<br><br>For example, ‘badge : ‘#(name)’ becomes ‘badge’ : 40 (and not ‘40‘). |
-| ‘text’ or “text” |A literal. Literals contain arbitrary text enclosed in single or double quotes. |
-| expr1 + expr2 |The concatenation operator joining two expressions into a single string. |
+| $(prop) |Référence à une propriété d’événement avec le nom donné. Les noms de propriétés ne respectent pas la casse. Cette expression se résout en valeur texte de la propriété ou en une chaîne vide si la propriété n’est pas présente. |
+| $(prop, n) |Comme ci-dessus, mais le texte est explicitement coupé à n caractères ; par exemple, $(title, 20) coupe le contenu de la propriété de titre à 20 caractères. |
+| .(prop, n) |Comme ci-dessus, mais le texte est suivi de trois points lorsqu’il est coupé. La taille totale de la chaîne coupée et du suffixe ne dépasse pas n caractères. .(title, 20) avec une propriété d’entrée de « Ceci est la ligne du titre » donne **Ceci est la ligne...** |
+| %(prop) |Similaire à $(name), sauf que la sortie est codée URI. |
+| #(prop) |Utilisé dans les modèles JSON (par exemple, pour les modèles iOS et Android).<br><br>Cette fonction agit exactement comme l’expression $(prop) spécifiée précédemment, sauf lorsqu’elle est utilisée dans les modèles JSON (par exemple, les modèles Apple). Dans ce cas, si cette fonction n’est pas placée entre « {’,’} » (par exemple, ’myJsonProperty’ : ’#(name)’), et qu’elle renvoie un nombre au format JavaScript, par exemple, regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*))(\.&#91;0-9&#93;+)?((e&#124;E)(+&#124;-)?&#91;0-9&#93;+)?, la sortie JSON est alors un nombre.<br><br>Par exemple, 'badge : '#(name)' devient 'badge' : 40 (et non '40'). |
+| ‘text’ ou « text » |Un littéral. Les littéraux contiennent du texte arbitraire placé entre guillemets simples ou doubles. |
+| expr1 + expr2 |L’opérateur de concaténation joint deux expressions en une seule chaîne. |
 
-The expressions can be any of the preceding forms.
+Les expressions peuvent avoir n’importe laquelle des formes précédentes.
 
-When using concatenation, the entire expression must be surrounded with {}. For example, {$(prop) + ‘ - ’ + $(prop2)}. |
+Lors de l’utilisation de la concaténation, l’expression toute entière doit être placée entre {}. Par exemple, {$(prop) + ' - ' + $(prop2)}. |
 
-For example, the following is not a valid XML template:
+Par exemple, le modèle suivant n’est pas un modèle XML valide :
 
     <tile>
       <visual>
@@ -135,7 +139,7 @@ For example, the following is not a valid XML template:
     </tile>
 
 
-As explained above, when using concatenation, expressions must be wrapped in curly brackets. For example:
+Comme expliqué ci-dessus, lors de l’utilisation de la concaténation, les expressions doivent être placées entre accolades. Par exemple :
 
     <tile>
       <visual>
@@ -148,6 +152,6 @@ As explained above, when using concatenation, expressions must be wrapped in cur
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

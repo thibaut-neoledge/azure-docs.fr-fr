@@ -251,7 +251,7 @@ Pour configurer correctement certaines fonctionnalités (telles que la configura
 
 <a name="session_affinity_properties"></a> 
 
-### <a name="load-balancing-session-affinity-aka-sticky-sessions-properties"></a>Propriétés d’équilibre de charge/affinité de session (appelées « sessions temporaires »)
+### <a name="load-balancing--session-affinity-aka-sticky-sessions-properties"></a>Propriétés d’équilibre de charge/affinité de session (appelées « sessions temporaires »)
 Ouvrez le menu contextuel du rôle dans le volet Explorateur de projets Eclipse, cliquez sur **Azure**, puis sur **Équilibrage de la charge**. Dans cette boîte de dialogue, vous avez la possibilité d’activer ou de désactiver l’affinité de session, comme indiqué dans l’image suivante.
 
 ![][ic719492]

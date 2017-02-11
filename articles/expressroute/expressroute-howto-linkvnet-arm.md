@@ -1,13 +1,13 @@
 ---
-title: Lier un réseau virtuel à un circuit ExpressRoute avec PowerShell | Microsoft Docs
-description: Ce document explique comment lier des réseaux virtuels à des circuits ExpressRoute à l’aide du modèle de déploiement Resource Manager et de PowerShell.
+title: "Lier un réseau virtuel à un circuit ExpressRoute avec PowerShell | Microsoft Docs"
+description: "Ce document explique comment lier des réseaux virtuels à des circuits ExpressRoute à l’aide du modèle de déploiement Resource Manager et de PowerShell."
 services: expressroute
 documentationcenter: na
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: daacb6e5-705a-456f-9a03-c4fc3f8c1f7e
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 99d5facce236b82ea84c708edf5e934a0d69919c
+ms.openlocfilehash: e362ef6d35316df0410ae84933df27639ab8c562
+
 
 ---
 # <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>Lier un réseau virtuel à un circuit ExpressRoute
@@ -40,7 +44,7 @@ Cet article vous aide à lier des réseaux virtuels à des circuits Azure Expres
   * Vérifiez que l’homologation privée Azure est être configurée, et que l’homologation BGP entre votre réseau et Microsoft est être opérationnelle pour pouvoir activer la connectivité de bout en bout.
   * Vérifiez qu’un réseau virtuel et une passerelle de réseau virtuel ont été créés et entièrement approvisionnés. Suivez les instructions pour créer une [passerelle VPN](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), mais assurez-vous d’utiliser `-GatewayType ExpressRoute`.
 
-Vous pouvez lier jusqu’à 10 réseaux virtuels à un circuit ExpressRoute standard. Tous les réseaux virtuels doivent figurer dans la même région géopolitique lors de l’utilisation d’un circuit ExpressRoute standard. 
+Vous pouvez lier jusqu’à 10 réseaux virtuels à un circuit ExpressRoute standard. Tous les réseaux virtuels doivent figurer dans la même région géopolitique lors de l’utilisation d’un circuit ExpressRoute standard. 
 
 Vous pouvez lier des réseaux virtuels à l'extérieur de la zone géopolitique du circuit ExpressRoute ou lier un plus grand nombre de réseaux virtuels à votre circuit ExpressRoute si vous avez activé le module complémentaire Premium d’ExpressRoute. Pour plus d’informations sur le module complémentaire Premium, consultez le [FAQ](expressroute-faqs.md) .
 
@@ -69,7 +73,9 @@ Le *propriétaire du circuit* est l’utilisateur avec pouvoir autorisé de la r
 Le *propriétaire du circuit* a le pouvoir de modifier et de révoquer les autorisations à tout moment. La révocation d’une autorisation entraîne la suppression de toutes les connexions de l’abonnement dont l’accès a été révoqué.
 
 ### <a name="circuit-owner-operations"></a>Opérations du propriétaire du circuit
-#### <a name="creating-an-authorization"></a>Création d’une autorisation
+
+**Création d’une autorisation**
+
 Le propriétaire du circuit crée une autorisation. Cela entraîne la création d'une clé d'autorisation qui peut être utilisée par un utilisateur du circuit pour se connecter à ses passerelles de réseau virtuel vers un circuit ExpressRoute. Une autorisation n’est valide que pour une seule connexion.
 
 L’extrait de code d’applet de commande ci-dessous montre comment créer une autorisation :
@@ -93,14 +99,16 @@ La réponse contient la clé d’autorisation et le statut :
 
 
 
-#### <a name="reviewing-authorizations"></a>Vérification des autorisations
+**Vérification des autorisations**
+
 Le propriétaire du circuit peut vérifier toutes les autorisations émises sur un circuit donné en exécutant l’applet de commande suivante :
 
     $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
     $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 
 
-#### <a name="adding-authorizations"></a>Ajout d'autorisations
+**Ajout d’autorisations**
+
 Le propriétaire du circuit peut ajouter des autorisations à l’aide de l’applet de commande suivante :
 
     $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
@@ -111,32 +119,39 @@ Le propriétaire du circuit peut ajouter des autorisations à l’aide de l’ap
     $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 
 
-#### <a name="deleting-authorizations"></a>Suppression des autorisations
+**Suppression des autorisations**
+
 Le propriétaire du circuit peut révoquer/supprimer les autorisations accordées à l’utilisateur en exécutant l’applet de commande suivante :
 
     Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit    
 
-### <a name="circuit-user-operations"></a>Opérations de l’utilisateur du circuit
+**Opérations de l’utilisateur du circuit**
+
 L'utilisateur du circuit a besoin de l'ID de l'homologue et une clé d'autorisation du propriétaire du circuit. La clé d'autorisation est un GUID.
 
 L’ID de l’homologue peut être consulté avec la commande suivante.
 
     Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 
-#### <a name="redeeming-connection-authorizations"></a>Utilisation des autorisations de connexion
+**Utilisation des autorisations de connexion**
+
 L’utilisateur du circuit peut exécuter l’applet de commande suivante pour échanger une autorisation de lien :
 
-    $id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"  
+    $id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"    
     $gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
     $connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 
-#### <a name="releasing-connection-authorizations"></a>Libération des autorisations de connexion
+**Libération des autorisations de connexion**
+
 Vous pouvez libérer une autorisation en supprimant la connexion qui lie le circuit ExpressRoute et le réseau virtuel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

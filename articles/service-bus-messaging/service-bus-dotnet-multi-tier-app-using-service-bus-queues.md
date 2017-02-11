@@ -1,5 +1,5 @@
 ---
-title: Application multiniveau .NET | Microsoft Docs
+title: "Application multiniveau .NET utilisant les files d’attente Azure Service Bus | Microsoft Docs"
 description: "Un didacticiel .NET qui vous permet de développer dans Azure une application multiniveau qui utilise les files d’attente de Service Bus pour communiquer entre les différents niveaux."
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 09/01/2016
+ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
+ms.sourcegitcommit: cab2edc0d065dc8d5ac20ed41ccd0eed7a664895
+ms.openlocfilehash: 8d0730d50330b9093734adb1c503dd975606b7c3
 
 
 ---
@@ -33,7 +33,7 @@ Vous allez apprendre les opérations suivantes :
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-Dans ce didacticiel, vous allez générer et exécuter l'application multiniveau dans un service cloud Azure. Le composant frontal sera un rôle Web ASP.NET MVC et le composant principal sera un rôle de travail qui utilise une file d’attente Service Bus. Vous pouvez créer la même application multiniveau avec le composant frontal comme projet web déployé sur un site web Azure au lieu d’un service cloud. Pour obtenir des instructions sur les différences à appliquer sur le composant frontal d’un site web Azure, voir [Étapes suivantes](#nextsteps). Vous pouvez également essayer le didacticiel [Application hybride .NET locale/dans le cloud](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
+Dans ce didacticiel, vous allez générer et exécuter l'application multiniveau dans un service cloud Azure. Le composant frontal est un rôle web ASP.NET MVC et le composant principal est un rôle de travail qui utilise une file d’attente Service Bus. Vous pouvez créer la même application multiniveau avec le composant frontal comme projet web déployé sur un site web Azure au lieu d’un service cloud. Pour obtenir des instructions sur les différences à appliquer sur le composant frontal d’un site web Azure, voir [Étapes suivantes](#nextsteps). Vous pouvez également essayer le didacticiel [Application hybride .NET locale/dans le cloud](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
 Les captures d’écran suivantes présentent l’application terminée :
 
@@ -57,15 +57,6 @@ Ce mécanisme de communication présente plusieurs avantages par rapport à la m
   ![][2]
 
 Les sections qui suivent présentent le code de mise en œuvre de cette architecture.
-
-## <a name="set-up-the-development-environment"></a>Configuration de l’environnement de développement
-Avant de commencer à développer votre application Azure, procurez-vous les outils et configurez votre environnement de développement.
-
-1. Installez Microsoft Azure SDK pour .NET à la page [Obtenir des outils et le SDK][Obtenir des outils et le SDK].
-2. Cliquez sur **Installer le Kit de développement logiciel (SDK)** correspondant à votre version de Visual Studio. Les étapes de ce didacticiel utilisent Visual Studio 2015.
-3. Lorsque vous êtes invité à exécuter ou à enregistrer le programme d’installation, cliquez sur **Exécuter**.
-4. Dans **Web Platform Installer**, cliquez sur **Installer**, puis poursuivez l’installation.
-5. Une fois l’installation terminée, vous disposez de tous les éléments nécessaires pour commencer le développement de l’application. Le Kit de développement logiciel (SDK) comprend des outils qui vous permettent de facilement développer des applications Azure dans Visual Studio. Si Visual Studio n’est pas installé, le Kit de développement logiciel (SDK) installe Visual Studio Express gratuitement.
 
 ## <a name="create-a-namespace"></a>Créer un espace de noms
 L’étape suivante consiste à créer l’espace de noms de service et à obtenir une clé de signature d’accès partagé (SAP). Un espace de noms fournit une limite d’application pour chaque application exposée via Service Bus. Le système génère automatiquement une clé SAP lors de la création d’un espace de noms. La combinaison de l’espace de noms et de la clé SAP fournit à Service Bus des informations d’identification permettant d’authentifier l’accès à une application.
@@ -109,7 +100,7 @@ Dans cette section, vous créez les différentes pages affichées par votre appl
 
 1. Dans le fichier OnlineOrder.cs dans Visual Studio, remplacez la définition d'espace de noms existante par le code suivant :
    
-   ```
+   ```csharp
    namespace FrontendWebRole.Models
    {
        public class OnlineOrder
@@ -121,14 +112,14 @@ Dans cette section, vous créez les différentes pages affichées par votre appl
    ```
 2. Dans l’**Explorateur de solutions**, double-cliquez sur **Controllers\HomeController.cs**. Ajoutez les instructions **using** suivantes au début du fichier pour inclure les espaces de noms pour le modèle que vous venez de créer, ainsi que Service Bus.
    
-   ```
+   ```csharp
    using FrontendWebRole.Models;
    using Microsoft.ServiceBus.Messaging;
    using Microsoft.ServiceBus;
    ```
 3. Également dans le fichier HomeController.cs dans Visual Studio, remplacez la définition d'espace de noms existante par le code suivant. Ce code contient des méthodes pour gérer l’envoi d’éléments dans la file d’attente.
    
-   ```
+   ```csharp
    namespace FrontendWebRole.Controllers
    {
        public class HomeController : Controller
@@ -193,7 +184,7 @@ Dans cette section, vous créez les différentes pages affichées par votre appl
     ![][28]
 11. Enfin, modifiez la page d'envoi pour inclure des informations sur la file d'attente. Dans **l’Explorateur de solutions**, double-cliquez sur le fichier **Views\Home\Submit.cshtml** pour l’ouvrir dans l’éditeur de Visual Studio. Ajoutez la ligne suivante après `<h2>Submit</h2>`. À ce stade, `ViewBag.MessageCount` est vide. Vous le remplirez plus tard.
     
-    ```
+    ```html
     <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
     ```
 12. Vous avez maintenant implémenté votre interface utilisateur. Vous pouvez appuyer sur **F5** pour exécuter votre application et vérifier qu’elle apparaît bien comme vous le souhaitez.
@@ -207,7 +198,7 @@ Maintenant, ajoutez le code pour envoyer des éléments dans une file d’attent
 2. Donnez le nom **QueueConnector.cs** à la classe. Cliquez sur **Ajouter** pour créer la classe.
 3. Maintenant, ajoutez le code qui encapsule les informations de connexion et initialise la connexion à une file d’attente Service Bus. Remplacez tout le contenu de QueueConnector.cs par le code suivant, puis saisissez des valeurs pour `your Service Bus namespace` (nom de votre espace de noms) et `yourKey` qui correspond à la **clé primaire** précédemment obtenue à partir du portail Azure.
    
-   ```
+   ```csharp
    using System;
    using System.Collections.Generic;
    using System.Linq;
@@ -269,13 +260,13 @@ Maintenant, ajoutez le code pour envoyer des éléments dans une file d’attent
 4. Ensuite, assurez-vous que votre méthode **Initialize** est bien appelée. Dans l’**Explorateur de solutions**, double-cliquez sur **Global.asax\Global.asax.cs**.
 5. Ajoutez la ligne de code suivante à la fin de la méthode **Application_Start**.
    
-   ```
+   ```csharp
    FrontendWebRole.QueueConnector.Initialize();
    ```
 6. Enfin, mettez à jour le code web que vous avez créé précédemment, pour envoyer des éléments dans la file d'attente. Dans l’**Explorateur de solutions**, double-cliquez sur **Controllers\HomeController.cs**.
 7. Mettez à jour la méthode `Submit()` (la surcharge qui n’accepte aucun paramètre) comme suit pour obtenir le nombre de messages dans la file d’attente.
    
-   ```
+   ```csharp
    public ActionResult Submit()
    {
        // Get a NamespaceManager which allows you to perform management and
@@ -291,7 +282,7 @@ Maintenant, ajoutez le code pour envoyer des éléments dans une file d’attent
    ```
 8. Mettez à jour la méthode `Submit(OnlineOrder order)` (la surcharge qui accepte un paramètre) comme suit pour envoyer des informations de commande à la file d’attente.
    
-   ```
+   ```csharp
    public ActionResult Submit(OnlineOrder order)
    {
        if (ModelState.IsValid)
@@ -334,18 +325,18 @@ Vous allez maintenant créer le rôle de travail qui traite les commandes envoy�
 10. Accédez au sous-dossier **FrontendWebRole\Models**, puis double-cliquez sur **OnlineOrder.cs** pour l’ajouter à ce projet.
 11. Dans**WorkerRole.cs**, remplacez la valeur de variable **QueueName** `"ProcessingQueue"` par `"OrdersQueue"`, comme dans le code suivant.
     
-    ```
+    ```csharp
     // The name of your queue.
     const string QueueName = "OrdersQueue";
     ```
 12. Ajoutez l’instruction d’utilisation suivante au début du fichier WorkerRole.cs.
     
-    ```
+    ```csharp
     using FrontendWebRole.Models;
     ```
 13. Dans l’appel `OnMessage()` de la fonction `Run()`, remplacez le contenu de la clause `try` par le code suivant.
     
-    ```
+    ```csharp
     Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
     // View the message as an OnlineOrder.
     OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
@@ -361,30 +352,17 @@ Vous allez maintenant créer le rôle de travail qui traite les commandes envoy�
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur Service Bus, consultez les ressources suivantes :  
 
-* [Azure Service Bus][sbmsdn]  
-* [Page de service Service Bus][sbwacom]  
-* [Utilisation des files d’attente Service Bus][sbwacomqhowto]  
+* [Azure Service Bus][sbmsdn]  
+* [Page du service Service Bus][sbacom]  
+* [Utilisation des files d’attente Service Bus][sbacomqhowto]  
 
 Pour en savoir plus sur les scénarios à plusieurs niveaux, voir :  
 
-* [Application ASP.NET multiniveau avec tables, files d’attente et objets blob de stockage Azure][mutitierstorage]  
+* [Application multiniveau .NET avec tables, files d’attente et objets blob de stockage][mutitierstorage]  
 
 [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
 [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-[Obtenir des outils et le SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
-
-
-[GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
-[Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx
-[NamespaceMananger]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
-
-[QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
-
-[TopicClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx
-
-[EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
-
 [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
 [10]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
 [11]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
@@ -404,12 +382,12 @@ Pour en savoir plus sur les scénarios à plusieurs niveaux, voir :
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
 [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
-[sbwacom]: /documentation/services/service-bus/  
-[sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
+[sbacom]: https://azure.microsoft.com/services/service-bus/  
+[sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

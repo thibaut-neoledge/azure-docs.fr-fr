@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/11/2016
 ms.author: juliako;mingfeiy
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1735370b7365a1b865f816a6e6120bd53237f126
+ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
+ms.openlocfilehash: a1a292716a501adbc048ef68b9f567865ef991b2
 
 
 ---
@@ -39,9 +39,9 @@ Vous pouvez appliquer des stratégies différentes à la même ressource. Par ex
 
 Si vous souhaitez remettre une ressource à chiffrement de stockage, vous devez configurer la stratégie de remise de la ressource. Avant de pouvoir diffuser votre ressource en continu, le serveur de diffusion supprime le chiffrement de stockage et transmet en continu votre contenu à l’aide de la stratégie de remise spécifiée. Par exemple, pour remettre votre ressource chiffrée avec la clé de chiffrement d'enveloppe AES (Advanced Encryption Standard), définissez le type de stratégie sur **DynamicEnvelopeEncryption**. Pour supprimer le chiffrement de stockage et diffuser la ressource en clair, définissez le type de stratégie sur **NoDynamicEncryption**. Vous trouverez des exemples qui montrent comment configurer ces types de stratégie ci-dessous.
 
-Selon la configuration de la stratégie de remise de ressources, vous pourrez empaqueter dynamiquement, chiffrer dynamiquement et diffuser les protocoles de diffusion en continu suivants : Smooth Streaming, HLS, MPEG DASH et HDS.
+Selon la configuration de la stratégie de remise de ressources, vous pourrez empaqueter dynamiquement, chiffrer dynamiquement et diffuser les protocoles de diffusion en continu suivants : Smooth Streaming, HLS et MPEG DASH.
 
-La liste suivante présente les formats utilisés pour diffuser en continu lisse, TLS, DASH et HDS.
+La liste suivante présente les formats utilisés pour diffuser en continu Smooth, HLS, DASH et DASH.
 
 Smooth Streaming :
 
@@ -55,11 +55,6 @@ MPEG DASH
 
 {nom du point de terminaison de diffusion en continu-nom du compte media services}.streaming.mediaservices.windows.net/{ID_de_localisateur}/{nom_de_fichier}.ISM/Manifest(format=mpd-time-csf)
 
-HDS
-
-{nom du point de terminaison de diffusion en continu-nom du compte media services}.streaming.mediaservices.windows.net/{ID_de_localisateur}/{nom_de_fichier}.ISM/Manifest(format=f4m-f4f)
-
-Pour savoir comment publier une ressource et générer une URL de diffusion en continu, consultez [Générer une URL de diffusion en continu](media-services-deliver-streaming-content.md).
 
 ## <a name="considerations"></a>Considérations
 * Vous ne pouvez pas supprimer une stratégie AssetDeliveryPolicy associée à un élément multimédia alors qu’un localisateur (de diffusion en continuer) OnDemand existe pour cet élément. Il est recommandé de retirer la stratégie de l’élément multimédia avant de la supprimer.
@@ -68,36 +63,50 @@ Pour savoir comment publier une ressource et générer une URL de diffusion en c
 * Si vous avez un élément multimédia avec un localisateur de streaming existant, vous ne pouvez pas lier une nouvelle stratégie à l’élément multimédia. Vous pouvez soit supprimer le lien d’une stratégie existante de l’élément multimédia, soit mettre à jour une stratégie de distribution associée à l’élément multimédia.  Vous devez d’abord supprimer le localisateur de streaming, ajuster les stratégies, puis recréer le localisateur de streaming.  Vous pouvez utiliser le même ID de localisateur (locatorId) lorsque vous recréez le localisateur de streaming. Toutefois, vous devez vérifier que cela ne crée pas de problèmes pour les clients étant donné que le contenu peut être mis en cache par l’origine ou un réseau de distribution de contenu en aval.
 
 ## <a name="clear-asset-delivery-policy"></a>Stratégie de remise de ressources
+
 La méthode **ConfigureClearAssetDeliveryPolicy** qui suit indique de ne pas appliquer le chiffrement dynamique et de distribuer le flux via un des protocoles suivants : MPEG DASH, HLS et Smooth Streaming. Vous souhaiterez peut-être appliquer cette stratégie à vos ressources de stockage chiffrées.
 
 Pour plus d'informations sur les valeurs que vous pouvez spécifier au moment de la création d'une AssetDeliveryPolicy, consultez la section [Types utilisés au moment de la définition d'AssetDeliveryPolicy](#types) .
 
-static public void ConfigureClearAssetDeliveryPolicy(IAsset asset) { IAssetDeliveryPolicy policy = _context.AssetDeliveryPolicies.Create("Clear Policy", AssetDeliveryPolicyType.NoDynamicEncryption, AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
-
-asset.DeliveryPolicies.Add(policy); }
+    static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
+    {
+        IAssetDeliveryPolicy policy =
+        _context.AssetDeliveryPolicies.Create("Clear Policy",
+        AssetDeliveryPolicyType.NoDynamicEncryption,
+        AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
+        
+        asset.DeliveryPolicies.Add(policy);
+    }
 
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>Stratégie de remise de ressources DynamicCommonEncryption
+
 La méthode **CreateAssetDeliveryPolicy** suivante crée l’**AssetDeliveryPolicy** configurée pour appliquer le chiffrement dynamique courant (**DynamicCommonEncryption**) à un protocole Smooth Streaming (les autres protocoles ne peuvent pas être diffusés en continu). La méthode accepte deux paramètres : **Asset** (l'élément multimédia auquel vous souhaitez appliquer la stratégie de remise) et **IContentKey** (la clé de contenu de type **CommonEncryption**. Pour plus d'informations, consultez [Création d'une clé de contenu](media-services-dotnet-create-contentkey.md#common_contentkey)).
 
 Pour plus d'informations sur les valeurs que vous pouvez spécifier au moment de la création d'une AssetDeliveryPolicy, consultez la section [Types utilisés au moment de la définition d'AssetDeliveryPolicy](#types) .
 
-static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key) { Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
-
-Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration = new Dictionary<AssetDeliveryPolicyConfigurationKey, string> { {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()}, };
-
-        var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
-                "AssetDeliveryPolicy",
-            AssetDeliveryPolicyType.DynamicCommonEncryption,
-            AssetDeliveryProtocol.SmoothStreaming,
-            assetDeliveryPolicyConfiguration);
-
-        // Add AssetDelivery Policy to the asset
-        asset.DeliveryPolicies.Add(assetDeliveryPolicy);
-
-        Console.WriteLine();
-        Console.WriteLine("Adding Asset Delivery Policy: " +
-            assetDeliveryPolicy.AssetDeliveryPolicyType);
-    }
+    static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
+    {
+        Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
+        
+        Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+            {
+                {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
+            };
+    
+            var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
+                    "AssetDeliveryPolicy",
+                AssetDeliveryPolicyType.DynamicCommonEncryption,
+                AssetDeliveryProtocol.SmoothStreaming,
+                assetDeliveryPolicyConfiguration);
+    
+            // Add AssetDelivery Policy to the asset
+            asset.DeliveryPolicies.Add(assetDeliveryPolicy);
+    
+            Console.WriteLine();
+            Console.WriteLine("Adding Asset Delivery Policy: " +
+                assetDeliveryPolicy.AssetDeliveryPolicyType);
+     }
 
 Azure Media Services vous permet également d’ajouter un chiffrement Widevine. L'exemple suivant montre l’ajout de PlayReady et Widevine à la stratégie de remise de ressources.
 
@@ -214,11 +223,6 @@ Pour plus d'informations sur les valeurs que vous pouvez spécifier au moment de
         /// Apple HTTP Live Streaming protocol.
         /// </summary>
         HLS = 0x4,
-
-        /// <summary>
-        /// Adobe HTTP Dynamic Streaming (HDS)
-        /// </summary>
-        Hds = 0x8,
 
         /// <summary>
         /// Include all protocols.
@@ -344,6 +348,6 @@ Pour plus d'informations sur les valeurs que vous pouvez spécifier au moment de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

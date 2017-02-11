@@ -1,5 +1,5 @@
 ---
-title: " Création d’un compte Azure Media Services avec le portail Azure | Microsoft Docs"
+title: " Création d’un compte Azure Media Services avec le portail Azure | Microsoft Docss"
 description: "Ce didacticiel vous guide à travers les étapes de création d’un compte Azure Media Services à l’aide du portail Azure."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 312231f395f19fde98431c24b71ce7cec3061eaf
-ms.openlocfilehash: 4a1d5d706cbfb5c42a36fd03033aa361ef3d4d11
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 01c1297a6b107f91d8e6e73f17d76499d67849de
 
 
 ---
@@ -54,10 +54,10 @@ Cette section montre comment créer un compte AMS.
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Cliquez sur **+Nouveau** > **Web + Mobile** > **Media Services**.
    
-    ![Media Services Créer](./media/media-services-portal-vod-get-started/media-services-new1.png)
+    ![Media Services Créer](./media/media-services-create-account/media-services-new1.png)
 3. Dans **CREATE MEDIA SERVICES ACCOUNT** (CRÉER UN COMPTE MEDIA SERVICES), entrez les valeurs requises.
    
-    ![Media Services Créer](./media/media-services-portal-vod-get-started/media-services-new3.png)
+    ![Media Services Créer](./media/media-services-create-account/media-services-new3.png)
    
    1. Dans **Nom du compte**, entrez le nom du nouveau compte AMS. Un nom de compte Media Services se compose de chiffres ou de lettres en minuscules, sans espaces. Sa longueur est comprise entre 3 et 24 caractères.
    2. Dans Abonnement, sélectionnez l’un des abonnements Azure auxquels vous avez accès.
@@ -69,9 +69,12 @@ Cette section montre comment créer un compte AMS.
    6. Sélectionnez **Épingler au tableau de bord** pour voir la progression du déploiement du compte.
 4. Cliquez sur **Créer** en bas du formulaire.
    
-    Une fois créé, le compte prend l’état **En cours d’exécution**. 
+    Une fois le compte créé avec succès, passez en revue les chargements de page. Dans la table de point de terminaison de diffusion en continu, le compte aura un point de terminaison de diffusion en continu par défaut dans l’état **Arrêté**. 
+
+    >[!NOTE]
+    >Une fois votre compte AMS créé, un point de terminaison de diffusion continue **par défaut** est ajouté à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamique, le point de terminaison de diffusion en continu à partir duquel vous souhaitez diffuser du contenu doit se trouver dans l’état **En cours d’exécution**. 
    
-    ![Media Services Paramètres](./media/media-services-portal-vod-get-started/media-services-settings.png)
+    ![Media Services Paramètres](./media/media-services-create-account/media-services-settings.png)
    
     Pour gérer votre compte AMS (par exemple, charger des vidéos, encoder des éléments multimédias ou surveiller la progression de tâches), utilisez la fenêtre **Paramètres** .
 
@@ -86,7 +89,7 @@ Vous avez besoin du nom de compte et des informations de clé primaire pour acc�
     La fenêtre **Gérer les clés** affiche le nom du compte ainsi que les clés primaires et secondaires. 
 3. Cliquez sur le bouton de copie pour copier les valeurs.
    
-    ![Media Services Clés](./media/media-services-portal-vod-get-started/media-services-keys.png)
+    ![Media Services Clés](./media/media-services-create-account/media-services-keys.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez maintenant télécharger des fichiers dans votre compte AMS. Pour plus d’informations, consultez la section [Téléchargement de fichiers dans un compte Media Services à l’aide du portail Azure](media-services-portal-upload-files.md).
@@ -100,6 +103,6 @@ Vous pouvez maintenant télécharger des fichiers dans votre compte AMS. Pour pl
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

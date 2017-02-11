@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 07/19/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 38416deeb583c78bca9ded2e514bf3ddff716c52
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 071cc504cc4111e20391af86ffdc7819644ec434
 
 
 ---
@@ -55,11 +55,11 @@ En cliquant sur **Vue d’ensemble** ou sur la vignette **Performances**, vous a
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Guide des performances de base de données SQL Azure pour les bases de données uniques](sql-database-performance-guidance.md)
-* [Quand utiliser un pool de base de données élastique ?](sql-database-elastic-pool-guidance.md)
+* [Quand utiliser un pool élastique ?](sql-database-elastic-pool-guidance.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 10/28/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b1446cd8892e14988ff428eaa03233f8e9aefb8a
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 3ad64861bc4c3b0a938c75990fc516ef634943ef
 
 
 ---
@@ -27,7 +27,7 @@ Cet article explique comment utiliser le [portail Azure](https://portal.azure.co
 Les conditions requises sont :
 
 * [un compte Azure](https://azure.microsoft.com/pricing/free-trial/)
-* [des fichiers de clés SSH publiques et privées](virtual-machines-linux-mac-create-ssh-keys.md)
+* [des fichiers de clés SSH publiques et privées](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="sign-in"></a>de connexion
 Connectez-vous au portail Azure avec les identifiants de votre compte Azure, puis cliquez sur **+ Nouveau** dans le coin supérieur gauche :
@@ -80,7 +80,7 @@ Ouvrez le menu Adresses IP publiques sous les paramètres de carte réseau
 ## <a name="ssh-to-the-vm"></a>Utiliser une clé SSH sur la machine virtuelle
 Connectez-vous avec SSH à l’adresse IP publique à l’aide de votre clé publique SSH.  À partir d’une station de travail Mac ou Linux, vous pouvez vous connecter avec SSH directement à partir du terminal. Si vous utilisez une station de travail Windows, vous devez utiliser PuTTY, MobaXTerm ou Cygwin pour vous connecter avec SSH à Linux.  Si vous ne l’avez pas encore fait, voici un document qui prépare votre station de travail Windows pour la connexion avec SSH à Linux.
 
-[Comment utiliser les clés SSH avec Windows sur Azure](virtual-machines-linux-ssh-from-windows.md)
+[Comment utiliser les clés SSH avec Windows sur Azure](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```
 ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
@@ -89,9 +89,9 @@ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
 ## <a name="next-steps"></a>Étapes suivantes
 Vous venez de créer rapidement une machine virtuelle Linux à des fins de test ou de démonstration. Pour créer une machine virtuelle Linux personnalisée en fonction de votre infrastructure, vous pouvez lire un des articles ci-dessous.
 
-* [Création d'une machine virtuelle Linux sur Azure à l’aide de modèles](virtual-machines-linux-cli-deploy-templates.md)
-* [Création d’une machine virtuelle Linux sécurisée par SSH dans Azure à l’aide de modèles](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-* [Création d'une machine virtuelle Linux à l’aide de l'interface de ligne de commande Azure (CLI)](virtual-machines-linux-create-cli-complete.md)
+* [Création d'une machine virtuelle Linux sur Azure à l’aide de modèles](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Création d’une machine virtuelle Linux sécurisée par SSH dans Azure à l’aide de modèles](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Création d'une machine virtuelle Linux à l’aide de l'interface de ligne de commande Azure (CLI)](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 
 

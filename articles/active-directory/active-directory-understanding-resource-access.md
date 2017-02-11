@@ -1,12 +1,12 @@
 ---
-title: Présentation de l’accès aux ressources dans Azure | Microsoft Docs
-description: Cette rubrique explique les concepts relatifs à l'utilisation des administrateurs des abonnements pour contrôler l'accès aux ressources dans l’ensemble du portail Azure.
+title: "Présentation de l’accès aux ressources dans Azure | Microsoft Docs"
+description: "Cette rubrique explique les concepts relatifs à l&quot;utilisation des administrateurs des abonnements pour contrôler l&quot;accès aux ressources dans l’ensemble du portail Azure."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: markusvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 04c89fb831036af37ba381d13d45526327125540
+
 
 ---
 # <a name="understanding-resource-access-in-azure"></a>Présentation de l'accès aux ressources dans Azure
@@ -22,9 +26,9 @@ ms.author: markusvi
 > 
 > 
 
-En octobre 2013, le portail Azure Classic et les API Service Management ont été intégrés à Azure Active Directory afin de préparer le terrain pour améliorer l’expérience utilisateur en matière de gestion de l’accès aux ressources Microsoft Azure. Azure Active Directory fournit déjà des fonctionnalités importantes telles que la gestion des utilisateurs, la synchronisation locale de répertoires, l'authentification multifacteur et le contrôle de l’accès aux applications. Naturellement, elles doivent également être mises à disposition pour la gestion générale des ressources Azure.
+En octobre 2013, le portail Azure Classic et les API Service Management ont été intégrés à Azure Active Directory afin de préparer le terrain pour améliorer l’expérience utilisateur en matière de gestion de l’accès aux ressources Microsoft Azure. Azure Active Directory fournit déjà des fonctionnalités importantes telles que la gestion des utilisateurs, la synchronisation locale de répertoires, l'authentification multifacteur et le contrôle de l’accès aux applications. Naturellement, elles doivent également être mises à disposition pour la gestion générale des ressources Azure.
 
-Le contrôle des accès dans Azure s’envisage d’abord dans une perspective de facturation. Le propriétaire d'un compte Azure accessible par le biais du [Centre des comptes Azure](https://account.windowsazure.com/subscriptions) est l'administrateur de compte. Les abonnements sont un conteneur de facturation, mais ils constituent également une limite de sécurité : chaque abonnement a un administrateur de service qui peut ajouter, supprimer et modifier des ressources Azure dans cet abonnement à l’aide du [portail Azure Classic](https://manage.windowsazure.com/). L'administrateur de sécurité par défaut d'un nouvel abonnement est l'administrateur de compte, mais ce dernier peut modifier l'administrateur de sécurité dans le centre des comptes Azure.
+Le contrôle des accès dans Azure s’envisage d’abord dans une perspective de facturation. Le propriétaire d'un compte Azure accessible par le biais du [Centre des comptes Azure](https://account.windowsazure.com/subscriptions) est l'administrateur de compte. Les abonnements sont un conteneur de facturation, mais ils constituent également une limite de sécurité : chaque abonnement a un administrateur de service qui peut ajouter, supprimer et modifier des ressources Azure dans cet abonnement à l’aide du [portail Azure Classic](https://manage.windowsazure.com/). L'administrateur de sécurité par défaut d'un nouvel abonnement est l'administrateur de compte, mais ce dernier peut modifier l'administrateur de sécurité dans le centre des comptes Azure.
 
 <br><br>![Comptes Azure][1]
 
@@ -41,14 +45,14 @@ Fonctionnalité dans le portail Azure Classic permettant aux administrateurs de 
 
 <br><br>![Flux de connexion utilisateur simple][3]
 
-Dans le cas le plus simple, une organisation (par exemple Contoso) applique la facturation et le contrôle des accès au même ensemble d'abonnements. Autrement dit, le répertoire est associé à des abonnements appartenant à un seul compte Azure. Une fois correctement connectés au portail Azure Classic, les utilisateurs voient deux collections de ressources (représentées en orange dans l’illustration précédente) :
+Dans le cas le plus simple, une organisation (par exemple Contoso) applique la facturation et le contrôle des accès au même ensemble d'abonnements. Autrement dit, le répertoire est associé à des abonnements appartenant à un seul compte Azure. Une fois correctement connectés au portail Azure Classic, les utilisateurs voient deux collections de ressources (représentées en orange dans l’illustration précédente) :
 
 * Répertoires où leur compte d'utilisateur existe (source ou ajouté comme principal étranger). Notez que le répertoire utilisé pour la connexion n'est pas approprié pour ce calcul. Ainsi, vos répertoires seront toujours affichés, où que vous soyez connecté.
 * Ressources qui font partie des abonnements associés au répertoire utilisé pour la connexion ET auxquelles l'utilisateur peut accéder (qu’ils soient administrateurs de service ou co-administrateurs).
 
 <br><br>![Utilisateur avec plusieurs abonnements et répertoires][4]
 
-Les utilisateurs disposant d’abonnements sur plusieurs répertoires ont la possibilité de basculer le contexte actuel du portail Azure Classic à l’aide du filtre d’abonnement. En arrière-plan, il en résulte une connexion distincte à un répertoire différent, mais cela est effectué en toute transparence à l'aide de l’authentification unique.
+Les utilisateurs disposant d’abonnements sur plusieurs répertoires ont la possibilité de basculer le contexte actuel du portail Azure Classic à l’aide du filtre d’abonnement. En arrière-plan, il en résulte une connexion distincte à un répertoire différent, mais cela est effectué en toute transparence à l'aide de l’authentification unique.
 
 Les opérations telles que le déplacement de ressources entre des abonnements peuvent être plus difficiles en raison de cet affichage unique des répertoires des abonnements. Pour effectuer le transfert de ressources, il peut être nécessaire de d’abord utiliser la commande **Modifier l’annuaire** commande de la page Abonnements sous **Paramètres** pour associer les abonnements au même annuaire.
 
@@ -65,6 +69,6 @@ Les opérations telles que le déplacement de ressources entre des abonnements p
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

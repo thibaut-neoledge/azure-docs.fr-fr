@@ -1,12 +1,12 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec SAP Cloud pour le client | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SAP Cloud pour le client.
+title: "Didacticiel : Intégration d’Azure Active Directory à SAP Cloud pour le client | Microsoft Docs"
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et SAP Cloud pour le client."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 90154dab-eba2-4563-bcf0-f2acc797ea97
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,20 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b4fc3598489ae11a85a0e7259a2236446cffd6b0
+
 
 ---
-# Didacticiel : Intégration d’Azure Active Directory avec SAP Cloud pour le client
+# <a name="tutorial-azure-active-directory-integration-with-sap-cloud-for-customer"></a>Didacticiel : Intégration d’Azure Active Directory avec SAP Cloud pour le client
 Dans ce didacticiel, vous allez apprendre à intégrer SAP Cloud pour le client à Azure Active Directory (Azure AD).
 
 L’intégration de SAP Cloud pour le client à Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à SAP Cloud pour le client.
 * Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à SAP Cloud pour le client (via l’authentification unique) avec leurs comptes Azure AD.
-* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
+* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## Composants requis
+## <a name="prerequisites"></a>Composants requis
 Pour configurer l’intégration d’Azure AD avec SAP Cloud pour le client, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD
@@ -38,20 +42,20 @@ Pour configurer l’intégration d’Azure AD avec SAP Cloud pour le client, vou
 > 
 > 
 
-Vous devez en outre suivre les recommandations ci-dessous :
+Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
 * Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
-## Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test.
+## <a name="scenario-description"></a>Description du scénario
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test.
 
 Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de SAP Cloud pour le client à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
-## Ajout de SAP Cloud pour le client à partir de la galerie
+## <a name="adding-sap-cloud-for-customer-from-the-gallery"></a>Ajout de SAP Cloud pour le client à partir de la galerie
 Pour configurer l’intégration de SAP Cloud pour le client à Azure AD, vous devez ajouter SAP Cloud pour le client depuis la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter SAP Cloud pour le client à partir de la galerie, procédez comme suit :**
@@ -59,7 +63,7 @@ Pour configurer l’intégration de SAP Cloud pour le client à Azure AD, vous d
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
    
     ![Active Directory][1]
-2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
    
     ![Applications][2]
@@ -76,52 +80,53 @@ Pour configurer l’intégration de SAP Cloud pour le client à Azure AD, vous d
    
     ![Active Directory](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_02.png)
 
-## Configuration et test de l’authentification unique Azure AD
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
 Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec SAP Cloud pour le client, en tirant parti d’un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur SAP Cloud pour le client équivalent dans Azure AD. En d’autres termes, un lien entre un utilisateur Azure AD et l’utilisateur SAP Cloud pour le client associé doit être établi.
 
 Pour configurer et tester l’authentification unique Azure AD avec SAP Cloud pour le client, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test SAP Cloud pour le client](#creating-an-sap-business-bydesign-test-user)** pour avoir un équivalent de Britta Simon dans SAP Cloud pour le client lié à la représentation Azure AD associée.
-4. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### Configuration de l’authentification unique Azure AD
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure Classic et configurer l’authentification unique dans votre application SAP Cloud pour le client.
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure Classic et configurer l’authentification unique dans votre application SAP Cloud pour le client. 
 
 **Pour configurer l’authentification unique Azure AD avec SAP Cloud pour le client, procédez comme suit :**
 
 1. Dans le portail Azure Classic, dans la page d’intégration d’application **SAP Cloud pour le client**, cliquez sur **Attributs** dans le menu situé en haut.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_80.png)
+    ![Configurer l’authentification unique](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_80.png) 
 2. Dans la liste des attributs du jeton SAML, sélectionnez l’attribut nameidentifier, puis cliquez sur **Modifier**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_84.png)
-3. Dans la boîte de dialogue **Modifier un attribut utilisateur**, procédez comme suit :
+    ![Configurer l’authentification unique](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_84.png) 
+3. Dans la boîte de dialogue **Modifier un attribut utilisateur** , procédez comme suit :
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_85.png)
+    ![Configurer l’authentification unique](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_85.png) 
 
-    a. À partir de la liste **Valeur d’attribut**, sélectionnez la fonction **ExtractMailPrefix()**.
+    a. Dans la liste **Valeur d’attribut**, sélectionnez la fonction **ExtractMailPrefix()**.
 
-    b. Dans la liste **Courrier**, sélectionnez l’attribut utilisateur que vous souhaitez utiliser pour votre implémentation. Par exemple, si vous souhaitez utiliser EmployeeID comme identificateur d’utilisateur unique et que vous avez stocké la valeur d’attribut dans ExtensionAttribute2, sélectionnez user.extensionattribute2.
+    b. Dans la liste **Courrier** , sélectionnez l’attribut utilisateur que vous souhaitez utiliser pour votre implémentation. 
+    Par exemple, si vous souhaitez utiliser EmployeeID comme identificateur d’utilisateur unique et que vous avez stocké la valeur d’attribut dans ExtensionAttribute2, sélectionnez user.extensionattribute2. 
 
-    c. Cliquez sur **Terminé**.
+    c. Cliquez sur **Terminé**. 
 
 
-1. Dans le portail Azure Classic, sur la page d’intégration d’application **SAP Cloud pour le client**, cliquez sur **Configurer l’authentification unique**.
+1. Dans le portail Azure Classic, dans la page d’intégration d’application **SAP Cloud pour le client**, cliquez sur **Configurer l’authentification unique**.
    
-    ![Configurer l’authentification unique][6]
-2. Dans la page **How would you like users to sign on to SAP Cloud for Customer** (Comment voulez-vous que les utilisateurs se connectent à SAP Cloud pour le client), sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
+    ![Configurer l’authentification unique][6] 
+2. Dans la page**Comment voulez-vous que les utilisateurs se connectent à SAP Cloud pour le client**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_03.png)
-3. Sur la page **Configurer les paramètres d’application**, procédez comme suit :
+    ![Configurer l’authentification unique](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_03.png) 
+3. Sur la page **Configurer les paramètres d’application** , procédez comme suit :
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_04.png)
+    ![Configurer l’authentification unique](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_04.png) 
    
-    a. Dans la zone de texte **URL d’authentification**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application SAP Cloud pour le client, au format suivant : `https://<server name>.crm.ondemand.com`
+    a. Dans la zone de texte **URL d’authentification**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application SAP Cloud pour le client, au format suivant : `https://<server name>.crm.ondemand.com`
    
     b. Cliquez sur **Suivant**
 4. Dans la page **Configure single sign-on at SAP Cloud for Customer** (Configurer l’authentification unique sur SAP Cloud pour le client), procédez comme suit :
@@ -135,7 +140,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
    
     a. Connectez-vous au portail SAP Cloud pour le client avec des droits d’administrateur.
    
-    b. Accédez à **Application and User Management Common Task** (Tâche courante d’application et de gestion des utilisateurs) et cliquez sur l’onglet **Fournisseur d’identité**.
+    b. Accédez à **Application and User Management Common Task** (Tâche courante d’application et de gestion des utilisateurs) et cliquez sur l’onglet **Identity Provider** (Fournisseur d’identité).
    
     c. Cliquez sur **New Identity Provider** (Nouveau fournisseur d’identité) et sélectionnez le fichier XML de métadonnées que vous avez téléchargé à partir du portail Azure Classic. En important les métadonnées, le système charge automatiquement le certificat de signature ainsi que le certificat de chiffrement requis.
    
@@ -143,7 +148,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
    
     d. Azure AD nécessite l’URL Assertion Consumer Service dans la requête SAML ; cochez donc la case **Include Assertion Consumer Service URL** (Inclure l’URL Assertion Consumer Service).
    
-    e. Cliquez sur **Activate Single Sign-On** (Activer l’authentification unique).
+    e. Cliquez sur **Activate Single Sign-On**(Activer l’authentification unique).
    
     f. Enregistrez vos modifications.
    
@@ -151,19 +156,20 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
    
     ![Configurer l’authentification unique](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_52.png)
    
-    h. Copiez **l’URL SSO** et collez-la dans la zone de texte **Azure AD Sign On URL** (URL d’authentification Azure AD).
+    h. Copiez l’**URL SSO** et collez-la dans la zone de texte **Azure AD Sign On URL** (URL d’authentification Azure AD).
    
     ![Configurer l’authentification unique](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_53.png)
    
-    i. Précisez si l’employé peut choisir manuellement entre l’authentification à l’aide d’un ID d’utilisateur/mot de passe ou l’authentification unique en cliquant sur **Manual Identity Provider Selection** (Sélection manuelle du fournisseur d’identité).
+    i. Précisez si l’employé peut choisir manuellement entre l’authentification à l’aide d’un ID d’utilisateur/mot de passe ou l’authentification unique en cliquant sur **Manual Identity Provider Selection**(Sélection manuelle du fournisseur d’identité).
    
-    j. Dans la section **URL SSO**, spécifiez l’URL devant être utilisée par vos employés pour se connecter au système. Dans la liste **URL Sent to Employee** (URL envoyée à l’employé), vous pouvez choisir entre les options suivantes :
+    j. Dans la section **URL SSO** , spécifiez l’URL devant être utilisée par vos employés pour se connecter au système. 
+    Dans la liste **URL Sent to Employee** (URL envoyée à l’employé), vous pouvez choisir entre les options suivantes :
    
-    **Non-SSO URL** (URL non SSO)
+    **Non-SSO URL**
    
     Le système envoie uniquement l’URL du système normale à l’employé. L’employé ne peut pas se connecter à l’aide de l’authentification unique ; il doit donc utiliser un mot de passe ou un certificat.
    
-    **URL SSO**
+    **URL SSO** 
    
     Le système envoie uniquement l’URL SSO à l’employé. L’employé peut se connecter à l’aide de l’authentification unique. La demande d’authentification est redirigée via l’IdP.
    
@@ -175,39 +181,39 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
     ![Authentification unique Azure AD][10]
-7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.
+7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
    
    ![Authentification unique Azure AD][11]
 
-### Création d’un utilisateur de test Azure AD
+### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.
 
 ![Créer un utilisateur Azure AD][20]
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_09.png)
-2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
-3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**.
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_09.png) 
+2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_03.png)
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_03.png) 
 4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_04.png)
-5. Sur la page **Parlez-nous de cet utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_05.png)
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_04.png) 
+5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit :  ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_05.png) 
    
     a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
    
     b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
    
     c. Cliquez sur **Next**.
-6. Sur la page **Profil utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_06.png)
+6. Sur la page de boîte de dialogue **Profil utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_06.png) 
    
-   a. Dans la zone de texte **Prénom**, entrez **Britta**.
+   a. Dans la zone de texte **First Name**, tapez **Britta**.  
    
-   b. Dans la zone de texte **Nom**, tapez **Simon**.
+   b. Dans la zone de texte **Last Name**, tapez **Simon**.
    
    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
    
@@ -216,36 +222,36 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
    e. Cliquez sur **Next**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_07.png)
-8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_07.png) 
+8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_08.png)
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_08.png) 
    
     a. Notez la valeur du **Nouveau mot de passe**.
    
-    b. Cliquez sur **Terminé**.
+    b. Cliquez sur **Terminé**.   
 
-### Créer un utilisateur de test pour SAP Cloud pour le client
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans SAP Cloud pour le client. Travaillez avec l’équipe du support technique SAP Cloud pour le client pour ajouter des utilisateurs à la plateforme SAP Cloud pour le client.
+### <a name="creating-an-sap-cloud-for-customer-test-user"></a>Créer un utilisateur de test pour SAP Cloud pour le client
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans SAP Cloud pour le client. Travaillez avec l’équipe du support technique SAP Cloud pour le client pour ajouter des utilisateurs à la plateforme SAP Cloud pour le client. 
 
 > [!NOTE]
 > Assurez-vous que la valeur NameID correspond au champ de nom d’utilisateur dans la plateforme SAP Cloud pour le client.
 > 
 > 
 
-### Affectation de l’utilisateur de test Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à SAP Cloud pour le client.
 
-![Affecter des utilisateurs][200]
+![Affecter des utilisateurs][200] 
 
 **Pour affecter Britta Simon à SAP Cloud pour le client, procédez comme suit :**
 
 1. Pour ouvrir l’affichage des applications dans le portail Classic, dans l’affichage de l’annuaire, cliquez sur l’option **Applications** figurant dans le menu du haut.
    
-    ![Affecter des utilisateurs][201]
+    ![Affecter des utilisateurs][201] 
 2. Dans la liste des applications, sélectionnez **Cloud SAP pour le client**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_50.png)
+    ![Configurer l’authentification unique](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_50.png) 
 3. Dans le menu situé en haut, cliquez sur **Utilisateurs**.
    
     ![Affecter des utilisateurs][203]
@@ -254,14 +260,14 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
    
     ![Affecter des utilisateurs][205]
 
-### Test de l’authentification unique
+### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette SAP Cloud pour le client dans le volet d’accès, vous devez être connecté automatiquement à votre application SAP Cloud pour le client.
 
-## Ressources supplémentaires
+## <a name="additional-resources"></a>Ressources supplémentaires
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 
@@ -281,4 +287,8 @@ Lorsque vous cliquez sur la vignette SAP Cloud pour le client dans le volet d’
 [204]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

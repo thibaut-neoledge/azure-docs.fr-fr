@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/07/2016
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 5e6a61011e201dad2220d2851212ac04bed1342c
+ms.sourcegitcommit: 4521a236bfc13e6aca7e13e7400c11d353bc3a66
+ms.openlocfilehash: 9c385adfa3da73bef2d05352049d1f71aa5c5847
 
 
 ---
@@ -49,7 +49,7 @@ L’exemple contient les entités de fabrique de données suivantes :
 
 L'exemple copie toutes les heures les données provenant de l’interrogation d'une source OData vers un objet blob Azure. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
-**Service lié OData** : cet exemple utilise l’authentification de base. Consultez la section [Service lié OData](#odata-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
+**Service lié OData**. Cet exemple utilise l’authentification anonyme. Consultez la section [Service lié OData](#odata-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
 
     {
         "name": "ODataLinkedService",
@@ -332,6 +332,6 @@ Consultez l’article [Guide sur les performances et le réglage de l’activit�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

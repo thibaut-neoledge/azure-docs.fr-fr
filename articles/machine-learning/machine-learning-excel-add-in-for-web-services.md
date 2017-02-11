@@ -1,33 +1,37 @@
 ---
-title: Complément Excel pour les services web Machine Learning | Microsoft Docs
-description: Comment utiliser les services web Azure Machine Learning directement dans Excel sans écrire de code.
+title: "Complément Excel pour les services web Machine Learning | Microsoft Docs"
+description: "Comment utiliser les services web Azure Machine Learning directement dans Excel sans écrire de code."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: tedway
 manager: jhubbard
 editor: cgronlun
-tags: ''
-
+tags: 
+ms.assetid: 9618079d-502f-4974-a3e2-8f924042a23f
 ms.service: machine-learning
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/05/2016
+ms.date: 11/15/2016
 ms.author: tedway;garye
+translationtype: Human Translation
+ms.sourcegitcommit: 97f5972dcda1c70cd56c00cc8153d3fba5491404
+ms.openlocfilehash: b1039dbddc4e42f890254ec98e7cbe45347c5b4c
+
 
 ---
-# <a name="excel-add-in-for-azure-machine-learning-web-services"></a>Complément Excel pour les services web Machine Learning
-Excel permet d’appeler facilement des services web, directement sans écrire du code.
+# <a name="excel-add-in-for-azure-machine-learning-web-services"></a>Complément Excel pour les services web Machine Learning
+Excel permet d’appeler facilement des services web, directement sans écrire du code.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Procédure d’utilisation d’un service web existant dans un classeur
 1. Ouvrez l’ [exemple de fichier Excel](http://aka.ms/amlexcel-sample-2), qui contient le complément Excel et les données concernant les passagers sur le Titanic.
-2. Choisissez le service web en cliquant dessus. Dans cet exemple, nous allosn utiliser « Titanic Survivor Predictor (Excel Add-in Sample) [Score] ».
+2. Choisissez le service web en cliquant dessus. Dans cet exemple, nous allosn utiliser « Titanic Survivor Predictor (Excel Add-in Sample) [Score] ».
    
     ![Sélectionner un service web][01]
 3. Vous accéderez alors à la section **Prédire** .  Ce classeur contient déjà des exemples de données mais, pour un classeur vide, vous pouvez également sélectionner une cellule dans Excel et cliquer sur **Utiliser les exemples de données**.
 4. Sélectionnez les données avec les en-têtes et cliquez sur l'icône de plage de données d'entrée.  Assurez-vous que la case « Mes données ont des en-têtes » est activée.
-5. Sous **Sortie**, entrez le numéro de la cellule dans laquelle vous souhaitez insérer le résultat, en l’occurrence, « H1 ».
+5. Sous **Sortie**, entrez le numéro de la cellule dans laquelle vous souhaitez insérer le résultat, en l’occurrence, « H1 ».
 6. Cliquez sur **Prédire**.
    
     ![Section Prédire][02]
@@ -39,7 +43,7 @@ Obtenez la clé API de votre service web. L’emplacement à partir duquel vous 
 
 **Utiliser un service web classique** 
 
-1. Dans Machine Learning Studio, cliquez sur la section **SERVICES WEB** dans le volet de gauche, puis sélectionnez le service web.
+1. Dans Machine Learning Studio, cliquez sur la section **SERVICES WEB** dans le volet de gauche, puis sélectionnez le service web.
    
     ![Studio - Sélectionner un service web][04]
 2. Copiez la clé API du service web.
@@ -66,13 +70,13 @@ Obtenez la clé API de votre service web. L’emplacement à partir duquel vous 
 4. Dans Excel, accédez à la section **Services web** (si vous vous trouvez dans la section **Prédire**, cliquez sur la flèche Précédent pour accéder à la liste des services web).
    
     ![Accéder à la sélection du service web][03]
-5. Cliquez sur **Ajouter un service web**.
+5. Cliquez sur **Ajouter un service web**.
 6. Collez l’URL dans la zone de texte du complément Excel intitulée **URL**.
 7. Collez l’API/Clé primaire dans la zone de texte intitulée **Clé API**.
 8. Cliquez sur **Add**.
    
     ![URL et clé API pour un service web classique.][06]
-9. Pour utiliser le service web, suivez les instructions de la section « Procédure d’utilisation d’un service web existant » ci-dessus.
+9. Pour utiliser le service web, suivez les instructions de la section « Procédure d’utilisation d’un service web existant » ci-dessus.
 
 ## <a name="sharing-your-workbook"></a>Partage de votre classeur
 Si vous enregistrez votre classeur, la clé API/primaire pour les services web que vous avez ajoutés est également enregistrée. Cela signifie que vous devez uniquement partager le classeur avec des personnes de confiance.
@@ -88,6 +92,6 @@ Posez les questions que vous voulez dans la section de commentaire suivante ou d
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

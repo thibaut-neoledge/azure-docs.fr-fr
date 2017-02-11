@@ -1,12 +1,12 @@
 ---
-title: Retrain a New Web service using the Machine Learning Management PowerShell cmdlets (Reformer un nouveau service web à l’aide des applets de commande PowerShell de gestion Machine Learning) | Microsoft Docs
-description: Apprenez à reformer un modèle par programme et à mettre à jour le service web pour utiliser le modèle reformé dans Azure Machine Learning à l’aide des applets de commande PowerShell de gestion Machine Learning.
+title: "Reformer un nouveau service web à l’aide des applets de commande PowerShell de gestion Machine Learning | Microsoft Docs"
+description: "Apprenez à reformer un modèle par programme et à mettre à jour le service web pour utiliser le modèle reformé dans Azure Machine Learning à l’aide des applets de commande PowerShell de gestion Machine Learning."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: raymondlaghaeian
-editor: ''
-
+editor: 
+ms.assetid: 3953a398-6174-4d2d-8bbd-e55cf1639415
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,13 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f6747a80773cd76b0821edfd2ebcd6af84bed233
+
 
 ---
-# <a name="retrain-a-new-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Retrain a New Web service using the Machine Learning Management PowerShell cmdlets (Reformer un nouveau service web à l’aide des applets de commande PowerShell de gestion Machine Learning)
-Lorsque vous reformez un nouveau service web, vous mettez à jour la définition de service web prédictif pour référencer le nouveau modèle formé.  
+# <a name="retrain-a-new-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Reformer un nouveau service web à l’aide des applets de commande PowerShell de gestion Machine Learning
+Quand vous reformez un nouveau service web, vous mettez à jour la définition de service web prédictif pour référencer le nouveau modèle formé.  
 
 ## <a name="prerequisites"></a>Composants requis
-Vous devez avoir configuré une expérience d’apprentissage et une expérimentation prédictive comme indiqué dans Reformer des modèles de Machine Learning par programmation. Pour plus d’informations sur la création des expériences prédictive et de formation, voir [Reformation des modèles Machine Learning par programme](machine-learning-retrain-models-programmatically.md).
+Vous devez avoir configuré une expérience de formation et une expérimentation prédictive comme indiqué dans [Reformer des modèles Machine Learning par programme](machine-learning-retrain-models-programmatically.md). 
+
+> [!IMPORTANT]
+> L’expérience prédictive doit être déployée comme un service web Machine Learning basé sur Azure Resource Manager (nouveau). 
+> 
+> 
+
+Pour plus d’informations sur le déploiement de services web, consultez [Déployer un service web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 Ce processus requiert l’installation des applets de commande Azure Machine Learning. Pour obtenir des informations sur l’installation des applets de commande Machine Learning, consultez la référence [Azure Machine Learning Cmdlets](https://msdn.microsoft.com/library/azure/mt767952.aspx) (Applets de commande Azure Machine Learning) sur MSDN.
 
@@ -42,7 +53,7 @@ Voici les étapes à suivre :
 Vous devez tout d’abord vous connecter à votre compte Azure à partir de l’environnement PowerShell à l’aide de l’applet de commande [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) .
 
 ## <a name="get-the-web-service-definition"></a>Obtenir la définition du service web
-Ensuite, obtenez le service web en appelant l’applet de commande [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) . La définition du service web est une représentation interne du modèle formé du service web et n’est pas directement modifiable. Vérifiez que vous récupérez la définition du service web pour votre expérience prédictive et non pour votre expérience de formation.
+Ensuite, obtenez le service web en appelant l’applet de commande [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) . La définition du service web est une représentation interne du modèle formé du service web, qui n’est pas directement modifiable. Vérifiez que vous récupérez la définition du service web pour votre expérience prédictive et non pour votre expérience de formation.
 
     $wsd = Get-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
@@ -65,7 +76,7 @@ Pour modifier la définition du modèle formé de manière à utiliser le modèl
 
     Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
 
-## <a name="update-the-reference-to-the-ilearner-blob-in-the-json."></a>Mettez à jour la référence sur l’objet blob ilearner dans le JSON.
+## <a name="update-the-reference-to-the-ilearner-blob-in-the-json"></a>Mettez à jour la référence sur l’objet blob ilearner dans le JSON.
 Dans les ressources, recherchez le [modèle formé], mettez à jour la valeur *uri* dans le nœud *locationInfo* avec l’URI de l’objet blob ilearner. L’URI est générée en combinant les valeurs *BaseLocation* et *RelativeLocation* de la sortie de l’appel de reformation BES.
 
      "asset3": {
@@ -98,6 +109,9 @@ Enfin, vous utilisez l’applet de commande [Update-AzureRmMlWebService](https:/
 * Nouvel apprentissage périodique d’un modèle avec de nouvelles données.
 * Distribution d’un modèle auprès des clients dans le but de leur permettre d’effectuer à nouveau l’apprentissage du modèle avec leurs propres données.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

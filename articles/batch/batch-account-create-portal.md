@@ -12,11 +12,11 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/19/2016
+ms.date: 09/21/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 6f05aa3f06c8ec86d58cafd406c2752ddb2eecc1
-ms.openlocfilehash: cf5b560028f3f80e3ba46ef96ae7a157dad7847d
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 8875c5e91a2a1ae848ebf725ca00bd43ec667dce
 
 
 ---
@@ -38,16 +38,15 @@ Découvrez comment créer un compte Azure Batch dans le [Portail Azure][azure_po
    
     ![Création d’un compte Batch][account_portal]
    
-    a. **Nom de compte** : le nom de votre compte Batch. Le nom que vous choisissez doit être unique dans la région Azure dans laquelle le compte est créé (voir **Emplacement** ci-dessous). Le nom de compte peut contenir uniquement des caractères minuscules ou des chiffres et doit comporter 3 à 24 caractères.
+    a. **Nom de compte**: nom unique de votre compte Batch. Ce nom doit être unique dans la région Azure où le compte est créé (voir *Emplacement* ci-dessous). Il peut contenir uniquement des caractères minuscules, des chiffres et doit comporter 3 à 24 caractères.
    
-    b. **Abonnement** : l’abonnement dans lequel créer le compte Batch. Si vous n’avez qu’un seul abonnement, il est sélectionné par défaut.
+    b. **Abonnement**: abonnement dans lequel créer le compte Batch. Si vous n’avez qu’un seul abonnement, il est sélectionné par défaut.
    
-    c. **Groupe de ressources** : sélectionnez un groupe de ressources pour votre nouveau compte Batch (vous pouvez également en créer un).
+    c. **Groupe de ressources**: groupe de ressources de votre nouveau compte Batch (vous pouvez également en créer un).
    
-    d. **Emplacement** : la région Azure dans laquelle créer le compte Batch. Seules les régions prises en charge par votre abonnement et votre groupe de ressources sont affichées.
+    d. **Emplacement**: région Azure dans laquelle créer le compte Batch. Seules les régions prises en charge par votre abonnement et votre groupe de ressources sont affichées.
    
-    e. **Compte de stockage** (facultatif) : compte de stockage Azure à usage général à associer à votre nouveau compte Batch. Pour plus d’informations, consultez la section [Compte Azure Storage lié](#linked-azure-storage-account) ci-dessous.
-
+    e. **Compte de stockage** (facultatif) : compte de stockage à **usage général** à associer (lier) à votre nouveau compte Batch. Pour plus d’informations, consultez la section [Compte Azure Storage lié](#linked-azure-storage-account) ci-dessous.
 4. Cliquez sur **Créer** pour créer le compte.
    
    Le portail indique qu’il procède au **déploiement** du compte. À la fin du processus, le message **Déploiements réussis** s’affiche dans les *Notifications*.
@@ -57,37 +56,34 @@ Une fois le compte créé, vous pouvez ouvrir le **Panneau du compte Batch** pou
 
 ![Panneau de compte Batch dans le portail Azure][account_blade]
 
-* **URL de compte Batch** : lorsque vous développez une application avec des [API Batch](batch-technical-overview.md#batch-development-apis), vous avez besoin d’une URL de compte pour accéder aux ressources de votre Batch. Une URL de compte Batch a le format suivant :
+* **Batch account URL (URL du compte Batch)**: les applications créées avec les [API de développement Batch](batch-technical-overview.md#batch-development-apis) ont besoin d’une URL de compte pour gérer les ressources et exécuter des tâches dans le compte. Une URL de compte Batch a le format suivant :
   
     `https://<account_name>.<region>.batch.azure.com`
 
 ![URL de compte Batch dans le portail][account_url]
 
-* **Clés d’accès** : pour authentifier l’accès à votre compte Batch à partir de votre application, vous avez besoin d’une clé d’accès. Pour afficher ou régénérer les clés d’accès de votre compte Batch, entrez `keys` dans la zone **Recherche** du menu de gauche dans le volet du compte Batch, puis sélectionnez **Clés**.
+* **Clés d’accès**: vos applications doivent également avoir une clé d’accès pour utiliser des ressources dans votre compte Batch. Pour afficher ou régénérer les clés d’accès de votre compte Batch, entrez `keys` dans la zone **Recherche** du menu de gauche dans le volet du compte Batch, puis sélectionnez **Clés**.
   
     ![Clés de compte Batch dans le portail Azure][account_keys]
 
-[!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
+## <a name="pricing"></a>Tarification
+Les comptes Batch ne sont proposés qu’au « niveau gratuit », ce qui signifie que ce compte ne vous est pas facturé. En revanche, vous êtes facturé pour les ressources de calcul Azure que vos solutions Batch consomment, ainsi que pour les ressources utilisées par d’autres services pendant l’exécution de vos charges de travail. Par exemple, vous êtes facturé pour les nœuds de calcul dans vos pools et pour les données que vous stockez dans Azure Storage comme entrées ou sorties de vos tâches. De même, si vous utilisez la fonctionnalité des [packages d’application](batch-application-packages.md) , vous êtes facturé pour les ressources Azure Storage utilisées pour stocker les versions de vos packages d’application. Pour plus d’informations, consultez la page de [tarification du service Batch][batch_pricing].
 
 ## <a name="linked-azure-storage-account"></a>Compte Azure Storage lié
+Comme nous l’avons déjà vu, vous pouvez (si vous le souhaitez) lier un compte de stockage **à usage général** à votre compte Batch. La fonctionnalité des [packages d’application](batch-application-packages.md) de Batch utilise le stockage blob dans un compte de stockage général lié, comme la bibliothèque [Batch File Conventions .NET](batch-task-output.md). Ces fonctionnalités facultatives vous aideront à déployer les applications exécutées par vos tâches Batch et à conserver les données qu’elles produisent.
 
-Comme nous l’avons déjà vu, vous pouvez éventuellement lier un compte de stockage à usage général à votre compte Batch. La fonctionnalité de [packages d’application](batch-application-packages.md) de Batch utilise le stockage Azure Blob Azure comme la bibliothèque [Batch File Conventions .NET](batch-task-output.md). Ces fonctionnalités facultatives vous aident à déployer les applications exécutées par vos tâches Batch et à conserver les données qu’elles produisent.
-
-Nous vous recommandons de créer un compte de stockage dédié à votre compte Batch.
+Le service Batch ne prend actuellement en charge *que* le type de compte de stockage à **usage général**, comme décrit à l’étape 5, [Création d’un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) dans [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md). Quand vous liez un compte Azure Storage à votre compte Batch, liez *uniquement* un compte de stockage **à usage général** .
 
 ![Création d’un compte de stockage « à usage général »][storage_account]
 
-> [!NOTE] 
-> Azure Batch prend actuellement en charge uniquement le type de compte de stockage à usage général. Ce type de compte est décrit à l’étape 5, [Créez un compte de stockage] (../storage/storage-create-storage-account.md#create-a-storage-account), dans [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
->
->
+Nous vous recommandons de créer un compte de stockage dédié à votre compte Batch.
 
 > [!WARNING]
 > Soyez prudent lorsque vous régénérez les clés d’accès d’un compte de stockage lié. Ne régénérez qu’une clé du compte de stockage et cliquez sur **Synchroniser les clés** dans le panneau du compte de stockage lié. Attendez cinq minutes que les clés se propagent aux nœuds de calcul de vos pools, puis régénérez et synchronisez l’autre clé si nécessaire. Si vous régénérez les deux clés en même temps, les nœuds de calcul ne pourront pas les synchroniser, car elles perdront l’accès au compte de stockage.
 > 
 > 
 
-![Régénération de clés de compte de stockage][4]
+  ![Régénération de clés de compte de stockage][4]
 
 ## <a name="batch-service-quotas-and-limits"></a>Quotas et limites du service Batch
 Sachez qu’à l’image de votre abonnement Azure et d’autres services Azure, certains [quotas et limites](batch-quota-limit.md) s’appliquent aux comptes Batch. Les quotas actuels d’un compte Batch sont indiqués dans les **propriétés**du compte sur le portail.
@@ -96,9 +92,9 @@ Sachez qu’à l’image de votre abonnement Azure et d’autres services Azure,
 
 Gardez ces quotas à l’esprit lorsque vous concevez et mettez à l’échelle vos charges de travail Batch. Par exemple, si votre pool n’atteint pas le nombre de nœuds de calcul que vous avez spécifiés, il se peut que vous ayez atteint le quota limite de votre compte Batch.
 
-Le quota pour les comptes Batch est défini par région par abonnement. Vous pouvez donc avoir plusieurs comptes Batch par défaut, tant qu’ils sont dans différentes régions. Vous pouvez exécuter plusieurs charges de travail Batch dans un compte Batch ou répartir vos charges de travail entre plusieurs comptes Batch se trouvant dans le même abonnement mais dans différentes régions Azure.
+Notez également que vous n’êtes pas limité à un compte Batch par abonnement Azure. Vous pouvez exécuter plusieurs charges de travail Batch dans un compte Batch ou répartir vos charges de travail entre plusieurs comptes Batch dans le même abonnement mais dans différentes régions Azure.
 
-De plus, il est possible de relever la plupart de ces quotas simplement en envoyant une demande de support produit gratuit dans le portail Azure. Pour plus d’informations sur les demandes d’augmentation de quotas, consultez [Quotas et limites pour le service Azure Batch](batch-quota-limit.md) .
+Il est possible de relever la plupart de ces quotas simplement en envoyant une demande de support produit gratuite dans le portail Azure. Pour plus d’informations sur les demandes d’augmentation de quotas, consultez [Quotas et limites pour le service Azure Batch](batch-quota-limit.md) .
 
 ## <a name="other-batch-account-management-options"></a>Autres options de gestion de comptes Batch
 Vous pouvez créer et gérer des comptes Batch à l’aide du portail Azure, mais aussi avec les éléments suivants :
@@ -128,6 +124,6 @@ Vous pouvez créer et gérer des comptes Batch à l’aide du portail Azure, mai
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

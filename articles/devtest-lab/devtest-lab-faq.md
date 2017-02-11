@@ -36,7 +36,7 @@ Cet article répond aux questions les plus fréquemment posées sur Azure DevTes
 * [Quels sont les différents niveaux de sécurité dans Azure DevTest Labs ?](#what-are-the-different-security-levels-in-azure-devtest-labs) 
 * [Comment puis-je créer un rôle pour permettre aux utilisateurs d’effectuer une tâche spécifique ?](#how-do-i-create-a-role-to-allow-users-to-perform-a-specific-task) 
 
-## <a name="cicd-integration-automation"></a>Automatisation et intégration CI/CD
+## <a name="cicd-integration--automation"></a>Automatisation et intégration CI/CD
 * [Azure DevTest Labs est-il intégré à ma chaîne d’outils CI/CD ?](#does-azure-devtest-labs-integrate-with-my-cicd-toolchain) 
 
 ## <a name="virtual-machines"></a>Machines virtuelles

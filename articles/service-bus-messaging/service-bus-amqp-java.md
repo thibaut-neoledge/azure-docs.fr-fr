@@ -1,41 +1,45 @@
 ---
-title: Service Bus et Java avec AMQP 1.0 | Microsoft Docs
-description: Utilisation de Service Bus à partir de Java avec AMQP
-services: service-bus
+title: "Service Bus et Java avec AMQP 1.0 | Microsoft Docs"
+description: "Utilisation de Service Bus à partir de Java avec AMQP"
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 1848f58d-1b40-43e0-89c4-ab14ba34c032
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: eb41df70551bc327473caea4fab95cd269bc0175
+
 
 ---
-# <a name="use-service-bus-from-java-with-amqp-1.0"></a>utilisation de Service Bus à partir de Java avec AMQP 1.0
+# <a name="use-service-bus-from-java-with-amqp-10"></a>utilisation de Service Bus à partir de Java avec AMQP 1.0
 [!INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
-Java Message Service (JMS) est une API standard pour travailler avec un middleware orienté messages sur la plateforme Java. Microsoft Azure Service Bus a été testé avec la bibliothèque cliente JMS basée sur AMQP 1.0, développée par le projet Apache Qpid. Cette bibliothèque prend en charge l’API JMS 1.1 complète et peut être utilisée avec n’importe quel service de messagerie compatible AMQP 1.0. Ce scénario est également pris en charge dans [Service Bus pour Windows Server](https://msdn.microsoft.com/library/dn282144.aspx) (Service Bus local). Pour plus d’informations, consultez [AMQP dans Service Bus pour Windows Server][].
+Java Message Service (JMS) est une API standard pour travailler avec un middleware orienté messages sur la plateforme Java. Microsoft Azure Service Bus a été testé avec la bibliothèque cliente JMS basée sur AMQP 1.0, développée par le projet Apache Qpid. Cette bibliothèque prend en charge l’API JMS 1.1 complète et peut être utilisée avec n’importe quel service de messagerie compatible AMQP 1.0. Ce scénario est également pris en charge dans [Service Bus pour Windows Server](https://msdn.microsoft.com/library/dn282144.aspx) (Service Bus local). Pour plus d’informations, consultez [AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server][AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server].
 
-## <a name="download-the-apache-qpid-amqp-1.0-jms-client-library"></a>Téléchargement de la bibliothèque cliente JMS AMQP 1.0 Apache Qpid
+## <a name="download-the-apache-qpid-amqp-10-jms-client-library"></a>Téléchargement de la bibliothèque cliente JMS AMQP 1.0 Apache Qpid
 Pour plus d’informations sur le téléchargement de la dernière version de la bibliothèque cliente AMQP 1.0 JMS Apache Qpid, accédez à [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
 
-Vous devez ajouter les quatre fichiers JAR suivants de l’archive de distribution Apache Qpid JMS AMQP 1.0 au CLASSPATH Java lors de la création et de l’exécution des applications JMS avec Service Bus :
+Vous devez ajouter les quatre fichiers JAR suivants de l’archive de distribution Apache Qpid JMS AMQP 1.0 au CLASSPATH Java lors de la création et de l’exécution des applications JMS avec Service Bus :
 
 * geronimo-jms\_1.1\_spec-[version].jar
 * qpid-amqp-1-0-client-[version].jar
 * qpid-amqp-1-0-client-jms-[version].jar
 * qpid-amqp-1-0-common-[version].jar
 
-## <a name="work-with-service-bus-queues,-topics,-and-subscriptions-from-jms"></a>Utilisation des files d'attente, rubriques et abonnements Service Bus à partir de JMS
-### <a name="java-naming-and-directory-interface-(jndi)"></a>JNDI (Java Naming and Directory Interface)
-JMS utilise l’interface JNDI (Java Naming and Directory Interface) pour créer une séparation entre les noms logiques et les noms physiques. Deux types d’objets JMS sont résolus à l’aide de JNDI : **ConnectionFactory** et **Destination**. JNDI utilise un modèle de fournisseur auquel vous pouvez connecter différents services d’annuaire afin de gérer les tâches de résolution de noms. La bibliothèque AMQP 1.0 JMS Apache Qpid est dotée d’un simple fournisseur JNDI fondé sur un fichier de propriétés qui est configuré à l’aide d’un fichier texte.
+## <a name="work-with-service-bus-queues-topics-and-subscriptions-from-jms"></a>Utilisation des files d'attente, rubriques et abonnements Service Bus à partir de JMS
+### <a name="java-naming-and-directory-interface-jndi"></a>JNDI (Java Naming and Directory Interface)
+JMS utilise l’interface JNDI (Java Naming and Directory Interface) pour créer une séparation entre les noms logiques et les noms physiques. Deux types d’objets JMS sont résolus à l’aide de JNDI : **ConnectionFactory** et **Destination**. JNDI utilise un modèle de fournisseur auquel vous pouvez connecter différents services d’annuaire afin de gérer les tâches de résolution de noms. La bibliothèque AMQP 1.0 JMS Apache Qpid est dotée d’un simple fournisseur JNDI fondé sur un fichier de propriétés qui est configuré à l’aide d’un fichier texte.
 
-Le fournisseur JNDI du fichier de propriétés Qpid est configuré à l’aide d’un fichier de propriétés au format suivant :
+Le fournisseur JNDI du fichier de propriétés Qpid est configuré à l’aide d’un fichier de propriétés au format suivant :
 
 ```
 # servicebus.properties – sample JNDI configuration
@@ -58,20 +62,20 @@ L’entrée utilisée pour définir une **ConnectionFactory** dans le fournisseu
 connectionfactory.[jndi_name] = [ConnectionURL]
 ```
 
-Où `[jndi\_name]` et `[ConnectionURL]` ont les significations suivantes :
+Où `[jndi\_name]` et `[ConnectionURL]` ont les significations suivantes :
 
 | Nom | Signification |  |  |  |  |
 | --- | --- | --- | --- | --- | --- |
 | `[jndi\_name]` |Nom logique de la fabrique de connexion. Ce nom est résolu dans l’application Java à l’aide de la méthode `IntialContext.lookup()` JNDI. | | | | |
 | `[ConnectionURL]` |URL qui fournit à la bibliothèque JMS les informations nécessaires au service Broker AMQP. | | | | |
 
-Le format de l’URL de connexion est le suivant :
+Le format de l’URL de connexion est le suivant :
 
 ```
 amqps://[username]:[password]@[namespace].servicebus.windows.net
 ```
 
-Où `[namespace]`, `[username]` et `[password]` ont les significations suivantes :
+Où `[namespace]`, `[username]` et `[password]` ont les significations suivantes :
 
 | Nom | Signification |  |  |  |  |
 | --- | --- | --- | --- | --- | --- |
@@ -84,12 +88,12 @@ Où `[namespace]`, `[username]` et `[password]` ont les significations suivantes
 > 
 > 
 
-Par exemple, si les informations obtenues auprès du portail sont les suivantes :
+Par exemple, si les informations obtenues auprès du portail sont les suivantes :
 
-| Espace de noms : | test.servicebus.windows.net |
+| Espace de noms : | test.servicebus.windows.net |
 | --- | --- |
-| Nom de l'émetteur : |RootManageSharedAccessKey |
-| Clé de l'émetteur : |abcdefg |
+| Nom de l'émetteur : |RootManageSharedAccessKey |
+| Clé de l'émetteur : |abcdefg |
 
 Pour définir ensuite un objet **ConnectionFactory** nommé `SBCONNECTIONFACTORY`, la chaîne de configuration se présente de la manière suivante :
 
@@ -98,28 +102,28 @@ connectionfactory.SBCONNECTIONFACTORY = amqps://RootManageSharedAccessKey:abcdef
 ```
 
 #### <a name="configure-destinations"></a>Configurer des destinations
-L’entrée qui définit une destination dans le fournisseur JNDI de fichier de propriétés Qpid est au format suivant :
+L’entrée qui définit une destination dans le fournisseur JNDI de fichier de propriétés Qpid est au format suivant :
 
 ```
 queue.[jndi_name] = [physical_name]
 topic.[jndi_name] = [physical_name]
 ```
 
-Où `[jndi\_name]` et `[physical\_name]` ont les significations suivantes :
+Où `[jndi\_name]` et `[physical\_name]` ont les significations suivantes :
 
 | Nom | Signification |
 | --- | --- |
 | `[jndi\_name]` |Nom logique de la destination. Ce nom est résolu dans l’application Java à l’aide de la méthode `IntialContext.lookup()` JNDI. |
 | `[physical\name]` |Nome de l’entité Service Bus vers laquelle l’application envoie ou reçoit des messages. |
 
-Notez les points suivants :
+Notez les points suivants :
 
 * La valeur `[physical\name]` peut être une file d’attente ou une rubrique Service Bus.
 * lors de la réception d’un abonnement à une rubrique Service Bus, le nom physique spécifié dans JNDI doit être le nom de la rubrique. Le nom de l’abonnement est fourni lors de la création de l’abonnement durable dans le code d’application JMS.
-* Il est également possible de traiter un abonnement à une rubrique Service Bus comme une file d’attente JMS. Cette approche présente plusieurs avantages : le même code de récepteur peut être utilisé pour les files d’attente et les abonnements à une rubrique, et toutes les informations d’adresse (noms de rubrique et d’abonnement) sont externalisées dans le fichier de propriétés.
-* Pour traiter un abonnement à une rubrique Service Bus comme file d’attente JMS, l’entrée dans le fichier de propriétés doit être au format : `queue.[jndi\_name] = [topic\_name]/Subscriptions/[subscription\_name]`.|
+* Il est également possible de traiter un abonnement à une rubrique Service Bus comme une file d’attente JMS. Cette approche présente plusieurs avantages : le même code de récepteur peut être utilisé pour les files d’attente et les abonnements à une rubrique, et toutes les informations d’adresse (noms de rubrique et d’abonnement) sont externalisées dans le fichier de propriétés.
+* Pour traiter un abonnement à une rubrique Service Bus comme file d’attente JMS, l’entrée dans le fichier de propriétés doit être au format : `queue.[jndi\_name] = [topic\_name]/Subscriptions/[subscription\_name]`.|
 
-Pour définir une destination JMS logique nommée « TOPIC » qui mappe sur une rubrique Service Bus nommée « topic1 », l’entrée dans le fichier de propriétés se présenterait de la façon suivante :
+Pour définir une destination JMS logique nommée « TOPIC » qui mappe sur une rubrique Service Bus nommée « topic1 », l’entrée dans le fichier de propriétés se présenterait de la façon suivante :
 
 ```
 topic.TOPIC = topic1
@@ -166,19 +170,19 @@ Message message = messageConsumer.receive();
 ```
 
 ### <a name="guidelines-for-building-robust-applications"></a>Instructions pour la création d’applications robustes
-La spécification JMS définit comment le contrat d’exception des méthodes API et du code d’application doit être écrit pour gérer ces exceptions. Voici d’autres éléments à prendre en considération concernant la gestion des exceptions :
+La spécification JMS définit comment le contrat d’exception des méthodes API et du code d’application doit être écrit pour gérer ces exceptions. Voici d’autres éléments à prendre en considération concernant la gestion des exceptions :
 
 * Enregistrez un **ExceptionListener** avec la connexion JMS à l’aide de **connection.setExceptionListener**. Cela permet à un client d’être averti d’un problème de façon asynchrone. Cette notification est particulièrement importante pour les connexions qui utilisent uniquement des messages, car elles n’ont aucun autre moyen de savoir que leur connexion a échoué. **L’ExceptionListener** est appelé si un problème survient avec la connexion AMQP sous-jacente, la session ou le lien. Dans ce cas, le programme d’application doit recréer les objets **JMS Connection**, **Session**, **MessageProducer** et **MessageConsumer** à partir de zéro.
-* Pour vérifier qu’un message a été envoyé avec succès d’une entité **MessageProducer** à une entité Service Bus, assurez-vous que l’application a été configurée avec le jeu de propriétés système **qpid.sync\_publish**. Pour ce faire, démarrez le programme avec l’option **-Dqpid.sync\_publish=true** de la machine virtuelle Java définie sur la ligne de commande lors du démarrage de l’application. Le paramétrage de cette option configure la bibliothèque pour ne pas retourner depuis l’appel d’envoi jusqu’à la réception de la confirmation que le message a été accepté par Service Bus. Si un problème se produit pendant l’opération d’envoi, une exception **JMSException** est générée. Il existe deux causes possibles : 
+* Pour vérifier qu’un message a été envoyé avec succès d’une entité **MessageProducer** à une entité Service Bus, assurez-vous que l’application a été configurée avec le jeu de propriétés système **qpid.sync\_publish**. Pour ce faire, démarrez le programme avec l’option **-Dqpid.sync\_publish=true** de la machine virtuelle Java définie sur la ligne de commande lors du démarrage de l’application. Le paramétrage de cette option configure la bibliothèque pour ne pas retourner depuis l’appel d’envoi jusqu’à la réception de la confirmation que le message a été accepté par Service Bus. Si un problème se produit pendant l’opération d’envoi, une exception **JMSException** est générée. Il existe deux causes possibles : 
   
   1. Si le problème est dû au rejet par Service Bus d’un message particulier envoyé, une exception **MessageRejectedException** est générée. Cette erreur est temporaire ou liée à un problème avec le message. La procédure recommandée consiste à effectuer plusieurs tentatives pour réessayer l’opération avec une logique de temporisation. Si le problème persiste, le message doit être abandonné avec une erreur consignée localement. Il n’est pas nécessaire de recréer les objets **JMS Connection**, **Session** ou **MessageProducer** dans cette situation. 
   2. Si le problème est dû à la fermeture du lien AMQP par Service Bus, une exception **InvalidDestinationException** est générée. Cela peut être dû à un problème temporaire ou à la suppression d’une entité de message. Dans les deux cas, les objets **JMS Connection**, **Session** et **MessageProducer** doivent être recréés. Si la condition d’erreur était temporaire, cette opération finit par réussir. Si l’entité a été supprimée, l’échec est permanent.
 
-## <a name="messaging-between-.net-and-jms"></a>Messagerie entre .NET et JMS
+## <a name="messaging-between-net-and-jms"></a>Messagerie entre .NET et JMS
 ### <a name="message-bodies"></a>Corps de message
 JMS définit cinq types de messages différents : **BytesMessage**, **MapMessage**, **ObjectMessage**, **StreamMessage** et **TextMessage**. L’API .NET Service Bus possède un seul type de message : [BrokeredMessage][BrokeredMessage].
 
-#### <a name="jms-to-service-bus-.net-api"></a>API .NET JMS à Service Bus
+#### <a name="jms-to-service-bus-net-api"></a>API .NET JMS à Service Bus
 Les sections suivantes montrent comment utiliser les messages de chacun des types de messages JMS à partir de .NET. Aucun exemple **ObjectMessage** n’a été inclus, car le corps d’un objet **ObjectMessage** contient un objet sérialisable dans le langage de programmation Java, qui n’est pas interprétable par une application .NET.
 
 ##### <a name="bytesmessage"></a>BytesMessage
@@ -233,7 +237,7 @@ Le code suivant montre comment utiliser le corps d’un objet **TextMessage** à
 Console.WriteLine("Text: " + message.GetBody<String>());
 ```
 
-#### <a name="service-bus-.net-apis-to-jms"></a>API .NET Service Bus à JMS
+#### <a name="service-bus-net-apis-to-jms"></a>API .NET Service Bus à JMS
 Les sections suivantes montrent comment une application .NET peut créer un message qui est reçu dans JMS dans chacun des différents types de messages JMS. Aucun exemple **ObjectMessage** n’a été inclus, car le corps d’un objet **ObjectMessage** contient un objet sérialisable dans le langage de programmation Java, qui n’est pas interprétable par une application .NET.
 
 ##### <a name="bytesmessage"></a>BytesMessage
@@ -264,7 +268,7 @@ message = new BrokeredMessage("this is a text string");
 ```
 
 ### <a name="application-properties"></a>Propriétés de l’application
-#### <a name="jms-to-service-bus-.net-apis"></a>API .NET JMS à Service Bus
+#### <a name="jms-to-service-bus-net-apis"></a>API .NET JMS à Service Bus
 Les messages JMS prennent en charge les propriétés d’application de types suivants : **boolean**, **byte**, **short**, **int**, **long**, **float**, **double** et **String**. Le code Java suivant montre comment définir les propriétés d’un message à l’aide de chacun de ces types de propriété.
 
 ```
@@ -301,7 +305,7 @@ Le tableau suivant montre comment les types de propriétés JMS mappent sur les 
 | Boolean |valeur booléenne |
 | String |string |
 
-Le type [BrokeredMessage][BrokeredMessage] prend en charge les propriétés d’application de types suivants : **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset** et **TimeSpan**. Le code .NET suivant montre comment définir les propriétés d’un objet [BrokeredMessage][BrokeredMessage] à l’aide de chacun de ces types de propriété.
+Le type [BrokeredMessage][BrokeredMessage] prend en charge les propriétés d’application de types suivants : **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset** et **TimeSpan**. Le code .NET suivant montre comment définir les propriétés d’un objet [BrokeredMessage][BrokeredMessage] à l’aide de chacun de ces types de propriétés.
 
 ```
 message.Properties["TestByte"] = (byte)128;
@@ -364,7 +368,7 @@ Le tableau suivant montre comment les types de propriétés .NET mappent sur les
 ### <a name="standard-headers"></a>En-têtes standard
 Les tableaux suivants montrent comment les en-têtes standard JMS et les propriétés standard [BrokeredMessage][BrokeredMessage] sont mappés à l’aide d’AMQP 1.0.
 
-#### <a name="jms-to-service-bus-.net-apis"></a>API .NET JMS à Service Bus
+#### <a name="jms-to-service-bus-net-apis"></a>API .NET JMS à Service Bus
 | JMS | .NET Service Bus | Remarques |
 | --- | --- | --- |
 | JMSCorrelationID |Message.CorrelationID |- |
@@ -378,7 +382,7 @@ Les tableaux suivants montrent comment les en-têtes standard JMS et les propri�
 | JMSTimestamp |Message.EnqueuedTimeUtc |Conversion |
 | JMSType |Message.Properties[“jms-type”] |- |
 
-#### <a name="service-bus-.net-apis-to-jms"></a>API .NET Service Bus à JMS
+#### <a name="service-bus-net-apis-to-jms"></a>API .NET Service Bus à JMS
 | .NET Service Bus | JMS | Remarques |
 | --- | --- | --- |
 | ContentType |- |Actuellement non disponible |
@@ -394,7 +398,7 @@ Les tableaux suivants montrent comment les en-têtes standard JMS et les propri�
 | À |JMSDestination |- |
 
 ## <a name="unsupported-features-and-restrictions"></a>Fonctionnalités non prises en charge et restrictions
-Les restrictions suivantes existent pour l’utilisation de JMS sur AMQP 1.0 avec Service Bus :
+Les restrictions suivantes existent pour l’utilisation de JMS sur AMQP 1.0 avec Service Bus :
 
 * Un seul objet **MessageProducer** ou **MessageConsumer** est autorisé par session. Si vous souhaitez créer plusieurs objets **MessageProducer** ou **MessageConsumer** dans une application, créez des sessions dédiées pour chacun d’eux.
 * Les abonnements aux rubriques volatiles ne sont actuellement pas pris en charge.
@@ -404,7 +408,7 @@ Les restrictions suivantes existent pour l’utilisation de JMS sur AMQP 1.0 ave
 * Les transactions distribuées ne sont pas prises en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Prêt à en savoir plus ? Visitez les liens suivants :
+Prêt à en savoir plus ? Visitez les liens suivants :
 
 * [Vue d’ensemble du protocole AMQP de Service Bus]
 * [AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server]
@@ -417,6 +421,6 @@ Prêt à en savoir plus ? Visitez les liens suivants :
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

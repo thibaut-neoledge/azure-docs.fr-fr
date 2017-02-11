@@ -1,12 +1,12 @@
 ---
-title: Exploration et modélisation de données avec Spark | Microsoft Docs
-description: Présente les fonctionnalités de modélisation et d’exploration de données du kit d’outils Spark MLlib.
+title: "Exploration et modélisation de données avec Spark | Microsoft Docs"
+description: "Présente les fonctionnalités de modélisation et d’exploration de données du kit d’outils Spark MLlib."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: b989b918-5ba5-4696-b8d0-76ae510a23f4
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: deguhath;bradsev;gokuma
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b3d594fe60204c3e6e595d0f20a47510b1785847
+
 
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Exploration et modélisation des données avec Spark
@@ -24,7 +28,7 @@ Cette procédure utilise HDInsight Spark pour effectuer l’exploration des donn
 * La **classification binaire** consiste à prédire si le trajet va faire l’objet d’un pourboire. 
 * La tâche de **régression** consiste à prédire le montant du pourboire en fonction d’autres critères. 
 
-Les modèles que nous utilisons incluent une régression logistique, une régression linéaire, des forêts aléatoires et des arbres GBT (Gradient Boosted Tree) :
+Les modèles que nous utilisons incluent une régression logistique, une régression linéaire, des forêts aléatoires et des arbres GBT (Gradient Boosted Tree) :
 
 * [régression linéaire avec SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) est un modèle de régression linéaire qui utilise la méthode SGD (Stochastic Gradient Descent), l’optimisation et la mise à l’échelle des caractéristiques pour prédire le montant des pourboires payés. 
 * [régression logistique avec LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) , ou régression « logit », est un modèle de régression qui s’utilise quand la variable dépendante est catégorielle, pour la classification des données. LBFGS est un algorithme d’optimisation de Quasi-Newton qui correspond approximativement à l’algorithme BFGS (Broyden–Fletcher–Goldfarb–Shanno) avec une quantité limitée de mémoire informatique et qui est largement utilisé dans l’apprentissage automatique (Machine Learning).
@@ -34,7 +38,7 @@ Les modèles que nous utilisons incluent une régression logistique, une régres
 Les étapes de modélisation contiennent également du code montrant comment former, évaluer et enregistrer chaque type de modèle. Python a été utilisé pour coder la solution et montrer les tracés correspondants.   
 
 > [!NOTE]
-> Bien que la boîte à outils Spark MLlib soit conçue pour des jeux de données volumineux, nous utilisons ici par souci de commodité un échantillon relativement petit (environ 30 Mo sur 170 000 lignes, soit 0,1 % du jeu de données NYC d’origine). L’exercice présenté ici fonctionne efficacement (en environ 10 minutes) sur un cluster HDInsight à 2 nœuds de travail. Le même code permet de traiter des jeux de données plus volumineux, avec quelques modifications mineures concernant la mise en cache des données dans la mémoire ou l’adaptation de la taille du cluster.
+> Bien que la boîte à outils Spark MLlib soit conçue pour des jeux de données volumineux, nous utilisons ici par souci de commodité un échantillon relativement petit (environ 30 Mo sur 170 000 lignes, soit 0,1 % du jeu de données NYC d’origine). L’exercice présenté ici fonctionne efficacement (en environ 10 minutes) sur un cluster HDInsight à 2 nœuds de travail. Le même code permet de traiter des jeux de données plus volumineux, avec quelques modifications mineures concernant la mise en cache des données dans la mémoire ou l’adaptation de la taille du cluster.
 > 
 > 
 
@@ -43,13 +47,13 @@ Vous avez besoin d’un compte Azure et d’un cluster Spark HDInsight. Vous ave
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="setup:-storage-locations,-libraries,-and-the-preset-spark-context"></a>Configuration : emplacements de stockage, bibliothèques et contexte Spark prédéfini
+## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>Configuration : emplacements de stockage, bibliothèques et contexte Spark prédéfini
 Spark peut lire et écrire dans Azure Blob Storage (également appelé WASB). Donc, vos données stockées dedans sont exploitables par Spark et les résultats peuvent être stockés à nouveau dans WASB.
 
 Pour enregistrer les modèles ou les fichiers dans WASB, le chemin d’accès doit être correctement spécifié. Le conteneur par défaut associé au cluster Spark peut être référencé à l’aide d’un chemin commençant par wasb///. Les autres emplacements sont référencés par wasb://.
 
 ### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>Définir les chemins d’accès aux emplacements de stockage dans WASB
-L’exemple de code suivant spécifie l’emplacement des données à lire et le chemin d’accès au répertoire de stockage dans lequel la sortie du modèle est enregistrée :
+L’exemple de code suivant spécifie l’emplacement des données à lire et le chemin d’accès au répertoire de stockage dans lequel la sortie du modèle est enregistrée :
 
     # SET PATHS TO FILE LOCATIONS: DATA AND MODEL STORAGE
 
@@ -62,7 +66,7 @@ L’exemple de code suivant spécifie l’emplacement des données à lire et le
 
 
 ### <a name="import-libraries"></a>Importer les bibliothèques
-Le programme d’installation nécessite également l’importation des bibliothèques nécessaires. Définir le contexte Spark et importer les bibliothèques nécessaires avec le code suivant :
+Le programme d’installation nécessite également l’importation des bibliothèques nécessaires. Définir le contexte Spark et importer les bibliothèques nécessaires avec le code suivant :
 
     # IMPORT LIBRARIES
     import pyspark
@@ -81,7 +85,7 @@ Le programme d’installation nécessite également l’importation des biblioth
 
 
 ### <a name="preset-spark-context-and-pyspark-magics"></a>Contexte Spark prédéfini et commandes magiques PySpark
-Les noyaux PySpark fournis avec les blocs-notes Jupyter comprennent un contexte prédéfini. Vous n’avez donc pas besoin de définir explicitement les contextes Spark ou Hive avant de commencer à utiliser l’application que vous développez. Ces contextes sont disponibles pour vous par défaut. Ces contextes sont les suivants :
+Les noyaux PySpark fournis avec les blocs-notes Jupyter comprennent un contexte prédéfini. Vous n’avez donc pas besoin de définir explicitement les contextes Spark ou Hive avant de commencer à utiliser l’application que vous développez. Ces contextes sont disponibles pour vous par défaut. Ces contextes sont les suivants :
 
 * sc : pour Spark 
 * sqlContext : pour Hive
@@ -91,7 +95,7 @@ Le noyau PySpark fournit certaines « commandes magiques » prédéfinies, qui s
 * **%%local** Indique que le code des lignes suivantes doit être exécuté localement. Le code doit être du code Python valide.
 * **%%sql -o <variable name>** Exécute une requête Hive sur sqlContext. Si le paramètre -o est transmis, le résultat de la requête est conservé dans le contexte Python %%local en tant que tableau de données Pandas.
 
-Pour plus d’informations sur les noyaux pour blocs-notes Jupyter et sur les « commandes magiques » qu’ils fournissent, voir [Noyaux disponibles pour les blocs-notes Jupyter avec les clusters HDInsight Spark Linux sur HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Pour plus d’informations sur les noyaux pour blocs-notes Jupyter et sur les « commandes magiques » qu’ils fournissent, voir [Noyaux disponibles pour les blocs-notes Jupyter avec les clusters HDInsight Spark Linux sur HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
 ## <a name="data-ingestion-from-public-blob"></a>Ingestion de données à partir d’un objet blob public
 La première étape du processus de science des données consiste à ingérer les données à analyser à partir des sources où elles résident, dans votre environnement de modélisation et d’exploration de données. Dans cette procédure, cet environnement est Spark. Cette section contient le code permettant d’effectuer une série de tâches :
@@ -166,7 +170,7 @@ Voici le code pour l’ingestion de données.
 
 Durée d’exécution de la cellule ci-dessus : 51,72 seconde
 
-## <a name="data-exploration-&-visualization"></a>Exploration et visualisation de données
+## <a name="data-exploration--visualization"></a>Exploration et visualisation de données
 Une fois les données intégrées dans Spark, l’étape suivante du processus de science des données consiste à mieux comprendre les données par l’exploration et la visualisation. Dans cette section, nous examinons les données des taxis à l’aide de requêtes SQL, et traçons les variables cibles et les caractéristiques prospectives à vérifier visuellement. Plus précisément, nous traçons la fréquence des nombres de passagers dans les trajets en taxi, la fréquence des montants des pourboires et la variation des pourboires par type et par montant.
 
 ### <a name="plot-a-histogram-of-passenger-count-frequencies-in-the-sample-of-taxi-trips"></a>Tracer un histogramme des fréquences de nombres de passagers dans l’échantillon des courses de taxi
@@ -225,7 +229,7 @@ Voici le code qui permet de tracer les nombres de trajets par passager.
 
 Vous pouvez sélectionner différents types de visualisations (tables, secteurs, lignes, zones ou barres) à l’aide des boutons de menu **Type** dans le notebook. Le graphique à barres est illustré ici.
 
-### <a name="plot-a-histogram-of-tip-amounts-and-how-tip-amount-varies-by-passenger-count-and-fare-amounts."></a>Tracez un histogramme du montant des pourboires et montrez comment le montant du pourboire varie selon le nombre de passagers et le montant des trajets.
+### <a name="plot-a-histogram-of-tip-amounts-and-how-tip-amount-varies-by-passenger-count-and-fare-amounts"></a>Tracez un histogramme du montant des pourboires et montrez comment le montant du pourboire varie selon le nombre de passagers et le montant des trajets.
 Utilisez une requête SQL pour échantillonner les données.
 
     #PLOT HISTOGRAM OF TIP AMOUNTS AND VARIATION BY PASSENGER COUNT AND PAYMENT TYPE
@@ -281,7 +285,7 @@ Cette cellule de code utilise la requête SQL pour créer trois graphiques de do
 
 ![Montant du pourboire par montant de la course](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-by-fare-amount.png)
 
-## <a name="feature-engineering,-transformation-and-data-preparation-for-modeling"></a>Conception des caractéristiques, transformation et préparation des données à modéliser
+## <a name="feature-engineering-transformation-and-data-preparation-for-modeling"></a>Conception des caractéristiques, transformation et préparation des données à modéliser
 Cette section décrit et fournit le code des procédures servant à préparer les données à utiliser dans la modélisation ML. Elle montre comment effectuer les opérations suivantes :
 
 * Créer une caractéristique en regroupant les heures dans des périodes de trafic
@@ -546,7 +550,7 @@ Cette section montre comment utiliser trois modèles de tâche de classification
 * Modèle de forêts aléatoires
 * Arbres GBT (Gradient Boosting Tree)
 
-Chaque section de code générateur de modèle est divisée en étapes : 
+Chaque section de code générateur de modèle est divisée en étapes : 
 
 1. **formation du modèle** avec un jeu de paramètres
 2. **Évaluation de modèle** sur un jeu de données de test avec mesures
@@ -804,7 +808,7 @@ Cette section montre comment utiliser trois modèles pour la tâche de régressi
 * Forêts aléatoires
 * Arbres GBT (Gradient Boosting Tree)
 
-Ces modèles sont décrits dans l’introduction. Chaque section de code générateur de modèle est divisée en étapes : 
+Ces modèles sont décrits dans l’introduction. Chaque section de code générateur de modèle est divisée en étapes : 
 
 1. **formation du modèle** avec un jeu de paramètres
 2. **Évaluation de modèle** sur un jeu de données de test avec mesures
@@ -1054,13 +1058,16 @@ BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassificatio
 
 BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-05-0317_06_51.737282"
 
-## <a name="what's-next?"></a>Et ensuite ?
+## <a name="whats-next"></a>Et ensuite ?
 Maintenant que vous avez créé des modèles de régression et de classification avec la bibliothèque MlLib Spark, vous êtes prêt à apprendre à noter et évaluer ces modèles. Le bloc-notes avancé d’exploration et de modélisation des données approfondit la validation croisée, le balayage hyperparamétrique et l’évaluation du modèle. 
 
 **Consommation de modèles :** pour apprendre à noter et évaluer les modèles de classification et de régression créés dans cette rubrique, consultez [Noter et évaluer des modèles Machine Learning intégrés Spark](machine-learning-data-science-spark-model-consumption.md).
 
 **Validation croisée et balayage hyperparamétrique**: consultez [Exploration et modélisation avancées des données avec Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) pour savoir comment effectuer la formation des modèles à l’aide de la validation croisée et du balayage hyperparamétrique
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

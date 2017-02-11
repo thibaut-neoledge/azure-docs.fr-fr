@@ -1,31 +1,35 @@
 ---
-title: Limites et valeurs par défaut de Scheduler
-description: Limites et valeurs par défaut de Scheduler
+title: "Limites et valeurs par défaut de Scheduler"
+description: "Limites et valeurs par défaut de Scheduler"
 services: scheduler
 documentationcenter: .NET
-author: krisragh
-manager: dwrede
-editor: ''
-
+author: derek1ee
+manager: kevinlam1
+editor: 
+ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: krisragh
+ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: db6b1c196cb468f41c7a7ce34758de346b522abb
+
 
 ---
-# Limites et valeurs par défaut de Scheduler
-## Limitations, valeurs par défaut, limites et quotas de Scheduler
+# <a name="scheduler-limits-and-defaults"></a>Limites et valeurs par défaut de Scheduler
+## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>Limitations, valeurs par défaut, limites et quotas de Scheduler
 [!INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
-## L'en-tête x-ms-request-id
-Chaque requête adressée au service de Scheduler retourne un en-tête de réponse nommé **x-ms-request-id**. Cet en-tête contient une valeur opaque qui identifie de façon unique la requête.
+## <a name="the-x-ms-request-id-header"></a>L'en-tête x-ms-request-id
+Chaque requête adressée au service de Scheduler retourne un en-tête de réponse nommé**x-ms-request-id**. Cet en-tête contient une valeur opaque qui identifie de façon unique la requête.
 
 Si une requête échoue constamment et que vous avez vérifié qu'elle est formulée correctement, vous pouvez utiliser cette valeur pour signaler l'erreur à Microsoft. Dans votre rapport, incluez la valeur de x-ms-request-id, l’heure approximative de la requête, l’identificateur de l’abonnement, la collection de travaux et/ou la tâche et le type d’opération tenté par la requête.
 
-## Voir aussi
+## <a name="see-also"></a>Voir aussi
  [Présentation d'Azure Scheduler](scheduler-intro.md)
 
  [Concepts, terminologie et hiérarchie d’entités d’Azure Scheduler](scheduler-concepts-terms.md)
@@ -42,4 +46,9 @@ Si une requête échoue constamment et que vous avez vérifié qu'elle est formu
 
  [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

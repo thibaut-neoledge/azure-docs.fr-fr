@@ -1,0 +1,79 @@
+---
+title: "Aperçu de l’utilisation des lecteurs pour un travail d’exportation | Microsoft Docs"
+description: "Découvrez comment afficher un aperçu de la liste d’objets blob que vous avez sélectionnés pour un travail d’exportation dans le service Azure Import-Export."
+author: renashahmsft
+manager: aungoo
+editor: tysonn
+services: storage
+documentationcenter: 
+ms.assetid: 7707d744-7ec7-4de8-ac9b-93a18608dc9a
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/25/2015
+ms.author: renash
+translationtype: Human Translation
+ms.sourcegitcommit: 78abb839badf99c6251673ee9914955df8c950bc
+ms.openlocfilehash: d8ea4cb51c9609b8fa9ed5ee50762f981da68e20
+
+
+---
+
+# <a name="previewing-drive-usage-for-an-export-job"></a>Aperçu de l’utilisation des lecteurs pour un travail d’exportation
+Avant de créer un travail d’exportation, vous devez choisir un ensemble d’objets blob à exporter. Le service Microsoft Azure Import/Export vous permet d’utiliser une liste de chemins d’accès ou de préfixes d’objets blob pour représenter les objets blob que vous avez sélectionnés.  
+  
+ Ensuite, vous devez déterminer le nombre de lecteurs à envoyer. L’outil Microsoft Azure Import/Export offre la commande `PreviewExport` permettant d’afficher un aperçu de l’utilisation du disque pour les objets blob que vous avez sélectionnés, en fonction de la taille des disques que vous voulez utiliser. Vous pouvez spécifier les paramètres suivants :  
+  
+|Option de ligne de commande|Description|  
+|--------------------------|-----------------|  
+|**/logdir:**<LogDirectory\>|facultatif. Répertoire contenant les journaux. Les fichiers journaux détaillés seront créés dans ce répertoire. Si aucun répertoire de journaux n’est spécifié, le répertoire courant est utilisé comme répertoire de journaux.|  
+|**/sn:**<StorageAccountName\>|Obligatoire. Nom du compte de stockage du travail d’exportation.|  
+|**/sk:**<StorageAccountKey\>|Obligatoire si et seulement si aucune SAP de conteneur n’est spécifiée. Clé du compte de stockage du travail d’exportation.|  
+|**/csas:**<ContainerSas\>|Obligatoire si et seulement si aucune clé du compte de stockage n’est spécifiée. SAP du conteneur pour lister les objets blob à exporter dans le travail d’exportation.|  
+|**/ExportBlobListFile:**<ExportBlobListFile\>|Obligatoire. Chemin d’accès au fichier XML contenant la liste des chemins d’accès ou des préfixes de chemin d’accès aux objets blob à exporter. Format du fichier utilisé dans l’élément `BlobListBlobPath` dans l’opération [Put Job](/rest/api/storageservices/importexport/Put-Job) de l’API REST du service Import/Export.|  
+|**/DriveSize:**<DriveSize\>|Obligatoire. Taille des disques à utiliser pour un travail d’exportation, *par exemple* 500 Go ou 1,5 To.|  
+  
+L’exemple suivant illustre la commande `PreviewExport` :  
+  
+```  
+WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB    
+```  
+  
+Le fichier de liste d’objets blob à exporter peut contenir des noms et des préfixes d’objets blob, comme l’illustre ce code :  
+  
+```xml 
+<?xml version="1.0" encoding="utf-8"?>  
+<BlobList>  
+<BlobPath>pictures/animals/koala.jpg</BlobPath>  
+<BlobPathPrefix>/vhds/</BlobPathPrefix>  
+<BlobPathPrefix>/movies/</BlobPathPrefix>  
+</BlobList>  
+```
+
+L’outil Azure Import/Export liste tous les objets blob à exporter et calcule leur répartition sur des lecteurs de la taille spécifiée, en prenant en compte les éventuelles surcharges nécessaires, puis évalue le nombre de disques requis pour contenir les objets blob et les informations sur l’utilisation des lecteurs.  
+  
+Voici un exemple de sortie, les journaux d’information étant omis :  
+  
+```  
+Number of unique blob paths/prefixes:   3  
+Number of duplicate blob paths/prefixes:        0  
+Number of nonexistent blob paths/prefixes:      1  
+  
+Drive size:     500.00 GB  
+Number of blobs that can be exported:   6  
+Number of blobs that cannot be exported:        2  
+Number of drives needed:        3  
+        Drive #1:       blobs = 1, occupied space = 454.74 GB  
+        Drive #2:       blobs = 3, occupied space = 441.37 GB  
+        Drive #3:       blobs = 2, occupied space = 131.28 GB    
+```  
+  
+## <a name="see-also"></a>Voir aussi  
+[Référence sur l’outil Azure Import-Export](storage-import-export-tool-how-to-v1.md)
+
+
+<!--HONumber=Dec16_HO2-->
+
+

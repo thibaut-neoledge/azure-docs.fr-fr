@@ -1,19 +1,23 @@
 ---
 title: Comment installer Apache Qpid Proton-C sur une machine virtuelle Linux | Microsoft Docs
-description: Comment créer une machine virtuelle CentOS Linux à l'aide de machines virtuelles Azure et comment générer et installer la bibliothèque Apache Qpid Proton-C.
-services: service-bus
+description: "Comment créer une machine virtuelle CentOS Linux à l&quot;aide de machines virtuelles Azure et comment générer et installer la bibliothèque Apache Qpid Proton-C."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 3158d69f-c409-494d-9a6c-32613c1a3c74
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 226703f9b4a4b295231ecd48d719638321ae55ef
+
 
 ---
 # <a name="install-apache-qpid-proton-c-on-an-azure-linux-vm"></a>Installation d’Apache Qpid Proton-C sur une machine virtuelle Linux Azure
@@ -21,7 +25,7 @@ ms.author: sethm
 
 Cette section montre comment créer une machine virtuelle Linux CentOS à l'aide de machines virtuelles Azure et comment télécharger, créer et installer la bibliothèque Apache Qpid Proton-C avec des liaisons de langage Python et PHP. Après avoir effectué ces étapes, vous pourrez exécuter les exemples Python et PHP inclus dans ce guide.
 
-La première étape s’effectue à l’aide du [portail Azure Classic][portail Azure Classic]. La capture d'écran suivante montre comment créer une machine virtuelle CentOS nommée « scott-centos » :
+La première étape s’effectue à l’aide du [Portail Azure Classic][Portail Azure Classic]. La capture d'écran suivante montre comment créer une machine virtuelle CentOS nommée « scott-centos » :
 
 ![Proton sur une machine virtuelle Linux Azure][0]
 
@@ -29,7 +33,7 @@ Après l’approvisionnement, le portail affiche les informations suivantes :
 
 ![Proton sur une machine virtuelle Linux Azure][1]
 
-Pour vous connecter à l'ordinateur, vous devez connaître le port de point de terminaison pour SSH. Vous pouvez obtenir cette valeur auprès du [portail Azure Classic][portail Azure Classic] en sélectionnant la machine virtuelle nouvellement créée puis en cliquant sur l’onglet **Points de terminaison**. La capture d'écran suivante montre que le port SSH public pour cet ordinateur est 57146.
+Pour vous connecter à l'ordinateur, vous devez connaître le port de point de terminaison pour SSH. Vous pouvez obtenir cette valeur auprès du [Portail Azure Classic][Portail Azure Classic] en sélectionnant la machine virtuelle nouvellement créée puis en cliquant sur l’onglet **Points de terminaison**. La capture d'écran suivante montre que le port SSH public pour cet ordinateur est 57146.
 
 ![Proton sur une machine virtuelle Linux Azure][2]
 
@@ -84,37 +88,37 @@ Pour les applications Python et PHP, cet exemple utilise les bibliothèques clie
    
    mkdir build cd build
    
-   # Set the install prefix. You may need to adjust depending on your      
-   # system.       
+   # Set the install prefix. You may need to adjust depending on your        
+   # system.        
    cmake -DCMAKE\_INSTALL\_PREFIX=/usr ..
    
-   # Omit the docs target if you do not wish to build or install       
+   # Omit the docs target if you do not wish to build or install        
    # documentation.        
    make all docs
    
-   # Note that this step will require root privileges.     
+   # Note that this step will require root privileges.        
    make install
    ```
 
 Une fois ces étapes effectuées, Proton est installé sur l'ordinateur et prêt à être utilisé.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Prêt à en savoir plus ? Consultez le lien suivant :
+Prêt à en savoir plus ? Consultez le lien suivant :
 
-* [Vue d’ensemble du protocole AMQP de Service Bus][Vue d’ensemble du protocole AMQP de Service Bus]
+* [Vue d’ensemble d’AMQP de Service Bus][Vue d’ensemble d’AMQP de Service Bus]
 
-[Vue d’ensemble du protocole AMQP de Service Bus]: service-bus-amqp-overview.md
+[Vue d’ensemble d’AMQP de Service Bus]: service-bus-amqp-overview.md
 [0]: ./media/service-bus-amqp-apache/amqp-apache-1.png
 [1]: ./media/service-bus-amqp-apache/amqp-apache-2.png
 [2]: ./media/service-bus-amqp-apache/amqp-apache-3.png
 [3]: ./media/service-bus-amqp-apache/amqp-apache-4.png
 
-[Portail Azure Classic]: http://manage.windowsazure.com
+[Portail Azure Classic]: http://manage.windowsazure.com
 
 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

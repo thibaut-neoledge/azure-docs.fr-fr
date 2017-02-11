@@ -1,20 +1,24 @@
 ---
-title: Ajout d’une passerelle de réseau virtuel à un réseau virtuel pour ExpressRoute à l’aide de Resource Manager et de PowerShell | Microsoft Docs
-description: Cet article vous explique comment ajouter une passerelle de réseau virtuel à un réseau virtuel Resource Manager déjà créé pour ExpressRoute
+title: "Ajout d’une passerelle de réseau virtuel à un réseau virtuel pour ExpressRoute à l’aide de Resource Manager et de PowerShell | Microsoft Docs"
+description: "Cet article vous explique comment ajouter une passerelle de réseau virtuel à un réseau virtuel Resource Manager déjà créé pour ExpressRoute"
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 63e0bd60-abad-4963-8e27-3aa973e0d968
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 11/21/2016
 ms.author: charwen
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 61817e1bd5b4af9aa9e3fda2043acc1036b7268a
+
 
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-resource-manager-and-powershell"></a>Configurer une passerelle de réseau virtuel pour ExpressRoute avec Resource Manager et PowerShell
@@ -38,6 +42,9 @@ Vérifiez que vous avez installé les applets de commande Azure PowerShell néce
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois que vous avez créé la passerelle de réseau virtuel, vous pouvez lier votre réseau virtuel à un circuit ExpressRoute. Consultez [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

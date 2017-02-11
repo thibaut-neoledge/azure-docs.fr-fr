@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7ae1803a299a5fb569ea0ca8a1ce68c33df1a769
+ms.sourcegitcommit: d0b8e8ec88c39ce18ddfd6405faa7c11ab73f878
+ms.openlocfilehash: 673ce33f0f0836c3df3854b0e6368a6215ee6f5f
 
 
 ---
@@ -29,6 +29,7 @@ Ce flux de communications est rendu possible par l’utilisation, par Microsoft�
 * entre deux sous-réseaux d’un réseau virtuel ;
 * entre les machines virtuelles et Internet ;
 * entre deux réseaux virtuels via une passerelle VPN ;
+* entre deux réseaux virtuels par le biais de VNet Peering (chaînage de services) ;
 * entre un réseau virtuel et votre réseau local via une passerelle VPN.
 
 La figure ci-dessous représente une configuration simple avec un réseau virtuel, deux sous-réseaux et quelques machines virtuelles, avec les itinéraires système qui prennent en charge le trafic IP.
@@ -111,6 +112,6 @@ La machine virtuelle d’appliance virtuelle doit être capable de recevoir le t
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

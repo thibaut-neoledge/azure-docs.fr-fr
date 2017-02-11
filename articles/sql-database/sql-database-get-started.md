@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel sur la base de données SQL : création d’un serveur, d’une règle de pare-feu de niveau serveur, d’un exemple de base de données, d’une règle de pare-feu de niveau base de données et connexion à SQL Server Management Studio | Documents Microsoft"
-description: "Découvrez comment configurer un serveur logique SQL Database, une règle de pare-feu de serveur, une base de données SQL et des exemples de données. Apprenez également à vous connecter avec les outils clients, à configurer des utilisateurs et à définir une règle de pare-feu de base de données."
+title: "Portail Azure : Prise en main d’Azure SQL Database | Microsoft Docs"
+description: "Découvrez comment créer un serveur logique SQL Database, une règle de pare-feu de niveau serveur et des bases de données à l’aide du portail Azure. Vous apprendrez également à interroger des bases de données à l’aide de SQL Server Management Studio."
 keywords: "didacticiel sur la base de données sql, créer une base de données sql"
 services: sql-database
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: c2252fc81f97019391ca2ba957f8402c4e97a9c2
-ms.openlocfilehash: f9b17c1cc77918fb1989b94b5bb359a697ceea7c
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: 8eb4b280104cc4f05b9ed25985d0c336f15b6d0f
 
 
 ---
-# <a name="get-started-with-azure-sql-database-servers-databases-and-firewall-rules-by-using-the-azure-portal-and-sql-server-management-studio"></a>Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide du portail Azure et de SQL Server Management Studio
+# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-the-azure-portal-and-sql-server-management-studio"></a>Didacticiel SQL Database : Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide du portail Azure et de SQL Server Management Studio
 
 Ce didacticiel de mise en route vous montre comment utiliser le portail Azure pour :
 
@@ -306,6 +306,6 @@ Maintenant que vous avez terminé ce didacticiel, vous souhaiterez peut-être ex
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -31,7 +31,7 @@ Les images Linux présentes dans la galerie Azure ou Marketplace sont fournies p
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="supported-distributions-versions"></a>Distributions et versions prises en charge
+## <a name="supported-distributions--versions"></a>Distributions et versions prises en charge
 Le tableau suivant répertorie les distributions et les version Linux prises en charge sur Microsoft Azure. Reportez-vous également à [Prise en charge d’images Linux dans Microsoft Azure](https://support.microsoft.com/en-us/kb/2941892) pour plus d’informations.
 
 Les pilotes LIS (Linux Integration Services) pour Hyper-V et Azure sont des modules noyau que Microsoft distribue directement au noyau Linux en amont.  Les pilotes LIS sont intégrés au noyau de distribution par défaut, ou les distributions basées sur RHEL/CentOS sont disponibles au téléchargement [ici](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409).  Pour plus d’informations sur les pilotes LIS, consultez [cet article](virtual-machines-linux-create-upload-generic.md#linux-kernel-requirements) .

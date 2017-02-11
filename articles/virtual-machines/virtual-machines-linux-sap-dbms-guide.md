@@ -22,7 +22,7 @@ ms.openlocfilehash: 38360e3146ff412996234525008d9d32ce18a16b
 
 
 ---
-# <a name="sap-netweaver-on-azure-virtual-machines-vms-dbms-deployment-guide"></a>SAP NetWeaver sur les machines virtuelles Azure – Guide de déploiement SGBD
+# <a name="sap-netweaver-on-azure-virtual-machines-vms--dbms-deployment-guide"></a>SAP NetWeaver sur les machines virtuelles Azure – Guide de déploiement SGBD
 [767598]:https://service.sap.com/sap/support/notes/767598
 [773830]:https://service.sap.com/sap/support/notes/773830
 [826037]:https://service.sap.com/sap/support/notes/826037
@@ -572,7 +572,7 @@ Nous recommandons d’effectuer une compression de base de données avant le cha
 
 La compression de bases de données fonctionne aussi bien dans une machine virtuelle Azure qu’en local. Pour en savoir plus sur la compression d’une base de données SQL Server SAP existante, voir le document suivant : <https://blogs.msdn.com/b/saponsqlserver/archive/2010/10/08/compressing-an-sap-database-using-report-msscompress.aspx>
 
-### <a name="sql-server-2014-storing-database-files-directly-on-azure-blog-storage"></a>SQL Server 2014 : placement de fichiers de base de données directement sur le stockage d’objets blob Azure
+### <a name="sql-server-2014--storing-database-files-directly-on-azure-blog-storage"></a>SQL Server 2014 : placement de fichiers de base de données directement sur le stockage d’objets blob Azure
 SQL Server 2014 permet de stocker les fichiers de base de données directement sur le magasin d’objets blob Azure, sans qu’il soit nécessaire d’utiliser un disque VHD pour « envelopper » ces fichiers. En particulier, lorsque vous utilisez des types de machine virtuelle Azure Storage standard ou plus petits, certains scénarios sont possibles, selon lesquels vous pouvez dépasser les limites en matière d’E/S par seconde qui seraient appliquées par un nombre limité de disques VHD pouvant être montés sur certains types de machine virtuelle de taille plus réduite. Toutefois, ce genre de scénario fonctionne dans le cas des bases de données utilisateur, mais non pour les bases de données système SQL Server. Il peut également être appliqué aux fichiers journaux et données de SQL Server. Si vous souhaitez déployer une base de données SQL Server SAP de cette manière plutôt que de recourir à des disques VHD pour « l’envelopper », tenez compte des remarques suivantes :
 
 * Le compte de stockage utilisé doit se trouver dans la même région Azure que celui qui permet de déployer la machine virtuelle sur laquelle SQL Server s’exécute.
@@ -1111,7 +1111,7 @@ Tant que le quota actuel d’E/S par seconde par disque satisfait aux exigences,
 
 Si des E/S par seconde supplémentaires sont requises, il est vivement recommandé d’utiliser des pools de stockage Windows (fonction uniquement disponible dans Windows Server 2012 et versions ultérieures) ou l’entrelacement de Windows pour Windows 2008 R2, afin de créer une unité logique volumineuse sur plusieurs disques durs virtuels montés. Voir également le chapitre [RAID logiciel][dbms-guide-2.2] de ce document. Cette approche simplifie les tâches administratives pour gérer l’espace disque et évite les tâches de distribution manuelle des fichiers sur plusieurs disques durs virtuels montés.
 
-#### <a name="backup-restore"></a>Sauvegarde / restauration
+#### <a name="backup--restore"></a>Sauvegarde / restauration
 Pour la fonctionnalité de sauvegarde / restauration, les outils SAP BR*Tools for Oracle sont pris en charge de la même manière que sur les systèmes d’exploitation Windows Server et Hyper-V standard. Oracle Recovery Manager (RMAN) est également pris en charge pour les sauvegardes sur disque et les restaurations à partir du disque.
 
 #### <a name="high-availability"></a>Haute disponibilité
@@ -1270,7 +1270,7 @@ Ici, deux options s’offrent à vous :
 ![Possibilité d’installer SAP Cache Server en local][dbms-guide-figure-900]
 <a name="642f746c-e4d4-489d-bf63-73e80177a0a8"></a>
 
-#### <a name="backup-restore"></a>Sauvegarde / restauration
+#### <a name="backup--restore"></a>Sauvegarde / restauration
 Si vous configurez SAP Content Server pour stocker des fichiers dans la base de données SAP MaxDB, la procédure de sauvegarde/restauration et les considérations sur les performances sont déjà décrites dans les chapitres SAP MaxDB [Sauvegarde et restauration][dbms-guide-8.4.2] et [Considérations sur les performances de sauvegarde et de restauration][dbms-guide-8.4.3]. 
 
 Si vous configurez SAP Content Server pour stocker les fichiers dans le système de fichiers, l’une des options consiste à exécuter manuellement la sauvegarde/restauration de l’ensemble de la structure de fichiers dans laquelle se trouvent les documents. Comme pour la sauvegarde/restauration SAP MaxDB, il est recommandé de disposer d’un volume de disque dédié aux fins de sauvegarde. 

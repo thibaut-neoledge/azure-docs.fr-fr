@@ -14,69 +14,69 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/23/2016
+ms.date: 12/08/2016
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: c32e13892c44042aa598f43f8c66ec4922e5ca20
+ms.sourcegitcommit: 5147842c73f573cac144b8588d288ad1529705d2
+ms.openlocfilehash: 0e7e134240f332f0c9756011e6ead9a3469175ac
 
 
 ---
-# <a name="using-sap-on-windows-virtual-machines-vms"></a>Utilisation de SAP sur des machines virtuelles Windows
-[767598]:https://service.sap.com/sap/support/notes/767598
-[773830]:https://service.sap.com/sap/support/notes/773830
-[826037]:https://service.sap.com/sap/support/notes/826037
-[965908]:https://service.sap.com/sap/support/notes/965908
-[1031096]:https://service.sap.com/sap/support/notes/1031096
-[1139904]:https://service.sap.com/sap/support/notes/1139904
-[1173395]:https://service.sap.com/sap/support/notes/1173395
-[1245200]:https://service.sap.com/sap/support/notes/1245200
-[1409604]:https://service.sap.com/sap/support/notes/1409604
-[1558958]:https://service.sap.com/sap/support/notes/1558958
-[1585981]:https://service.sap.com/sap/support/notes/1585981
-[1588316]:https://service.sap.com/sap/support/notes/1588316
-[1590719]:https://service.sap.com/sap/support/notes/1590719
-[1597355]:https://service.sap.com/sap/support/notes/1597355
-[1605680]:https://service.sap.com/sap/support/notes/1605680
-[1619720]:https://service.sap.com/sap/support/notes/1619720
-[1619726]:https://service.sap.com/sap/support/notes/1619726
-[1619967]:https://service.sap.com/sap/support/notes/1619967
-[1750510]:https://service.sap.com/sap/support/notes/1750510
-[1752266]:https://service.sap.com/sap/support/notes/1752266
-[1757924]:https://service.sap.com/sap/support/notes/1757924
-[1757928]:https://service.sap.com/sap/support/notes/1757928
-[1758182]:https://service.sap.com/sap/support/notes/1758182
-[1758496]:https://service.sap.com/sap/support/notes/1758496
-[1772688]:https://service.sap.com/sap/support/notes/1772688
-[1814258]:https://service.sap.com/sap/support/notes/1814258
-[1882376]:https://service.sap.com/sap/support/notes/1882376
-[1909114]:https://service.sap.com/sap/support/notes/1909114
-[1922555]:https://service.sap.com/sap/support/notes/1922555
-[1928533]:https://service.sap.com/sap/support/notes/1928533
-[1941500]:https://service.sap.com/sap/support/notes/1941500
-[1956005]:https://service.sap.com/sap/support/notes/1956005
-[1973241]:https://service.sap.com/sap/support/notes/1973241
-[1984787]:https://service.sap.com/sap/support/notes/1984787
-[1999351]:https://service.sap.com/sap/support/notes/1999351
-[2002167]:https://service.sap.com/sap/support/notes/2002167
-[2015553]:https://service.sap.com/sap/support/notes/2015553
-[2039619]:https://service.sap.com/sap/support/notes/2039619
-[2121797]:https://service.sap.com/sap/support/notes/2121797
-[2134316]:https://service.sap.com/sap/support/notes/2134316
-[2178632]:https://service.sap.com/sap/support/notes/2178632
-[2191498]:https://service.sap.com/sap/support/notes/2191498
-[2233094]:https://service.sap.com/sap/support/notes/2233094
-[2243692]:https://service.sap.com/sap/support/notes/2243692
+# <a name="using-sap-on-azure-virtual-machines-vms"></a>Utilisation de SAP sur des machines virtuelles Azure
+[767598]:https://launchpad.support.sap.com/#/notes/767598
+[773830]:https://launchpad.support.sap.com/#/notes/773830
+[826037]:https://launchpad.support.sap.com/#/notes/826037
+[965908]:https://launchpad.support.sap.com/#/notes/965908
+[1031096]:https://launchpad.support.sap.com/#/notes/1031096
+[1139904]:https://launchpad.support.sap.com/#/notes/1139904
+[1173395]:https://launchpad.support.sap.com/#/notes/1173395
+[1245200]:https://launchpad.support.sap.com/#/notes/1245200
+[1409604]:https://launchpad.support.sap.com/#/notes/1409604
+[1558958]:https://launchpad.support.sap.com/#/notes/1558958
+[1585981]:https://launchpad.support.sap.com/#/notes/1585981
+[1588316]:https://launchpad.support.sap.com/#/notes/1588316
+[1590719]:https://launchpad.support.sap.com/#/notes/1590719
+[1597355]:https://launchpad.support.sap.com/#/notes/1597355
+[1605680]:https://launchpad.support.sap.com/#/notes/1605680
+[1619720]:https://launchpad.support.sap.com/#/notes/1619720
+[1619726]:https://launchpad.support.sap.com/#/notes/1619726
+[1619967]:https://launchpad.support.sap.com/#/notes/1619967
+[1750510]:https://launchpad.support.sap.com/#/notes/1750510
+[1752266]:https://launchpad.support.sap.com/#/notes/1752266
+[1757924]:https://launchpad.support.sap.com/#/notes/1757924
+[1757928]:https://launchpad.support.sap.com/#/notes/1757928
+[1758182]:https://launchpad.support.sap.com/#/notes/1758182
+[1758496]:https://launchpad.support.sap.com/#/notes/1758496
+[1772688]:https://launchpad.support.sap.com/#/notes/1772688
+[1814258]:https://launchpad.support.sap.com/#/notes/1814258
+[1882376]:https://launchpad.support.sap.com/#/notes/1882376
+[1909114]:https://launchpad.support.sap.com/#/notes/1909114
+[1922555]:https://launchpad.support.sap.com/#/notes/1922555
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[1941500]:https://launchpad.support.sap.com/#/notes/1941500
+[1956005]:https://launchpad.support.sap.com/#/notes/1956005
+[1973241]:https://launchpad.support.sap.com/#/notes/1973241
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2039619]:https://launchpad.support.sap.com/#/notes/2039619
+[2121797]:https://launchpad.support.sap.com/#/notes/2121797
+[2134316]:https://launchpad.support.sap.com/#/notes/2134316
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2233094]:https://launchpad.support.sap.com/#/notes/2233094
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [azure-cli]:../xplat-cli-install.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:../powershell-install-configure.md
+[azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-subscription-service-limits]:../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../azure-subscription-service-limits.md#subscription
 
-[dbms-guide]:virtual-machines-windows-sap-dbms-guide.md (SAP NetWeaver sur machines virtuelles Windows – Guide de déploiement SGBD) [dbms-guide-2.1]:virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Mise en cache pour les machines virtuelles et les disques durs virtuels) [dbms-guide-2.2]:virtual-machines-windows-sap-dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 (RAID logiciel) [dbms-guide-2.3]:virtual-machines-windows-sap-dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 (Stockage Microsoft Azure) [dbms-guide-2]:virtual-machines-windows-sap-dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64 (Structure d’un déploiement SGBDR) [dbms-guide-3]:virtual-machines-windows-sap-dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3 (Haute disponibilité et récupération d’urgence avec les machines virtuelles Azure) [dbms-guide-5.5.1]:virtual-machines-windows-sap-dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 (SQL Server 2012 SP1 CU4 et versions ultérieures) [dbms-guide-5.5.2]:virtual-machines-windows-sap-dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b (SQL Server 2012 SP1 CU3 et versions antérieures) [dbms-guide-5.6]:virtual-machines-windows-sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 (Utilisation d’images SQL Server issues de Microsoft Azure Marketplace) [dbms-guide-5.8]:virtual-machines-windows-sap-dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30 (Résumé – SQL Server général pour SAP sur Azure) [dbms-guide-5]:virtual-machines-windows-sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 (Caractéristiques de SGBDR SQL Server) [dbms-guide-8.4.1]:virtual-machines-windows-sap-dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 (Configuration du stockage) [dbms-guide-8.4.2]:virtual-machines-windows-sap-dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d (Sauvegarde et restauration) [dbms-guide-8.4.3]:virtual-machines-windows-sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c (Considérations sur les performances de sauvegarde et de restauration) [dbms-guide-8.4.4]:virtual-machines-windows-sap-dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818 (Autres) [dbms-guide-900-sap-cache-server-on-premises]:virtual-machines-windows-sap-dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
+[dbms-guide]:virtual-machines-windows-sap-dbms-guide.md (SAP NetWeaver sur les machines virtuelles Azure – Guide de déploiement SGBD) [dbms-guide-2.1]:virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Mise en cache pour les machines virtuelles et les disques durs virtuels) [dbms-guide-2.2]:virtual-machines-windows-sap-dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 (RAID logiciel) [dbms-guide-2.3]:virtual-machines-windows-sap-dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 (Stockage Microsoft Azure) [dbms-guide-2]:virtual-machines-windows-sap-dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64 (Structure d’un déploiement SGBDR) [dbms-guide-3]:virtual-machines-windows-sap-dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3 (Haute disponibilité et récupération d’urgence avec les machines virtuelles Azure) [dbms-guide-5.5.1]:virtual-machines-windows-sap-dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 (SQL Server 2012 SP1 CU4 et versions ultérieures) [dbms-guide-5.5.2]:virtual-machines-windows-sap-dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b (SQL Server 2012 SP1 CU3 et versions antérieures) [dbms-guide-5.6]:virtual-machines-windows-sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 (Utilisation d’images SQL Server issues de Microsoft Azure Marketplace) [dbms-guide-5.8]:virtual-machines-windows-sap-dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30 (Résumé - SQL Server général pour SAP sur Azure) [dbms-guide-5]:virtual-machines-windows-sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 (Caractéristiques de SGBDR SQL Server) [dbms-guide-8.4.1]:virtual-machines-windows-sap-dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 (Configuration du stockage) [dbms-guide-8.4.2]:virtual-machines-windows-sap-dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d (Sauvegarde et restauration) [dbms-guide-8.4.3]:virtual-machines-windows-sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c (Considérations sur les performances de sauvegarde et de restauration) [dbms-guide-8.4.4]:virtual-machines-windows-sap-dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818 (Autres) [dbms-guide-900-sap-cache-server-on-premises]:virtual-machines-windows-sap-dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
 
 [dbms-guide-figure-100]:./media/virtual-machines-shared-sap-dbms-guide/100_storage_account_types.png
 [dbms-guide-figure-200]:./media/virtual-machines-shared-sap-dbms-guide/200-ha-set-for-dbms-ha.png
@@ -88,7 +88,7 @@ ms.openlocfilehash: c32e13892c44042aa598f43f8c66ec4922e5ca20
 [dbms-guide-figure-800]:./media/virtual-machines-shared-sap-dbms-guide/800-azure-vm-sap-content-server.png
 [dbms-guide-figure-900]:./media/virtual-machines-shared-sap-dbms-guide/900-sap-cache-server-on-premises.png
 
-[deployment-guide]:virtual-machines-windows-sap-deployment-guide.md (SAP NetWeaver sur machines virtuelles Windows – Guide de déploiement) [deployment-guide-2.2]:virtual-machines-windows-sap-deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 (Ressources SAP) [deployment-guide-3.1.2]:virtual-machines-windows-sap-deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab (Déploiement d’une machine virtuelle avec une image personnalisée) [deployment-guide-3.2]:virtual-machines-windows-sap-deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 (Scénario 1 : Déploiement d’une machine virtuelle provenant d’Azure Marketplace pour SAP) [deployment-guide-3.3]:virtual-machines-windows-sap-deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 (Scénario 2 : Déploiement d’une machine virtuelle avec une image personnalisée pour SAP) [deployment-guide-3.4]:virtual-machines-windows-sap-deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1 (Scénario 3 : Déplacement d’une machine virtuelle locale à l’aide d’un disque dur virtuel Azure non généralisé avec SAP) [deployment-guide-3]:virtual-machines-windows-sap-deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e (Scénarios de déploiement de machines virtuelles pour SAP sur Microsoft Azure) [deployment-guide-4.1]:virtual-machines-windows-sap-deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (Déploiement d’applets de commande Azure PowerShell) [deployment-guide-4.2]:virtual-machines-windows-sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e (Téléchargement et importation d’applets de commande PowerShell appropriées pour SAP) [deployment-guide-4.3]:virtual-machines-windows-sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc (Joindre une machine virtuelle au domaine local – Windows uniquement) [deployment-guide-4.4.2]:virtual-machines-windows-sap-deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 (Linux) [deployment-guide-4.4]:virtual-machines-windows-sap-deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (Télécharger, installer et activer l’agent de machine virtuelle Azure) [deployment-guide-4.5.1]:virtual-machines-windows-sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 (Azure PowerShell) [deployment-guide-4.5.2]:virtual-machines-windows-sap-deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f (Interface de ligne de commande Azure) [deployment-guide-4.5]:virtual-machines-windows-sap-deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (Configurer l’extension d’analyse Azure améliorée pour SAP) [deployment-guide-5.1]:virtual-machines-windows-sap-deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (Vérification de la disponibilité de l’analyse Azure améliorée pour SAP) [deployment-guide-5.2]:virtual-machines-windows-sap-deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Contrôle d’intégrité de la configuration de l’infrastructure d’analyse Azure) [deployment-guide-5.3]:virtual-machines-windows-sap-deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (Étapes supplémentaires de la résolution des problèmes de l’infrastructure d’analyse Azure pour SAP)
+[deployment-guide]:virtual-machines-windows-sap-deployment-guide.md (SAP NetWeaver sur les machines virtuelles Azure – Guide de déploiement) [deployment-guide-2.2]:virtual-machines-windows-sap-deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 (Ressources SAP) [deployment-guide-3.1.2]:virtual-machines-windows-sap-deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab (Déploiement d’une machine virtuelle avec une image personnalisée) [deployment-guide-3.2]:virtual-machines-windows-sap-deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 (Scénario 1 : Déploiement d’une machine virtuelle issue d’Azure Marketplace pour SAP) [deployment-guide-3.3]:virtual-machines-windows-sap-deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 (Scénario 2 : Déploiement d’une machine virtuelle avec une image personnalisée pour SAP) [deployment-guide-3.4]:virtual-machines-windows-sap-deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1 (Scénario 3 : Déplacement d’une machine virtuelle d’un emplacement sur site à l’aide d’un disque dur virtuel Azure non généralisé avec SAP) [deployment-guide-3]:virtual-machines-windows-sap-deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e (Scénarios de déploiement de machines virtuelles pour SAP sur Microsoft Azure) [deployment-guide-4.1]:virtual-machines-windows-sap-deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (Déploiement d’applets de commande Azure PowerShell) [deployment-guide-4.2]:virtual-machines-windows-sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e (Téléchargement et importation d’applets de commande PowerShell appropriées pour SAP) [deployment-guide-4.3]:virtual-machines-windows-sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc (Joindre une machine virtuelle au domaine local - Windows uniquement) [deployment-guide-4.4.2]:virtual-machines-windows-sap-deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 (Linux) [deployment-guide-4.4]:virtual-machines-windows-sap-deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (Télécharger, installer et activer l’agent de machine virtuelle Azure) [deployment-guide-4.5.1]:virtual-machines-windows-sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 (Azure PowerShell) [deployment-guide-4.5.2]:virtual-machines-windows-sap-deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f (Interface de ligne de commande Azure) [deployment-guide-4.5]:virtual-machines-windows-sap-deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (Configurer l’extension d’analyse Azure améliorée pour SAP) [deployment-guide-5.1]:virtual-machines-windows-sap-deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (Vérification de la disponibilité de l’analyse Azure améliorée pour SAP) [deployment-guide-5.2]:virtual-machines-windows-sap-deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Contrôle d’intégrité de la configuration de l’infrastructure d’analyse Azure) [deployment-guide-5.3]:virtual-machines-windows-sap-deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (Étapes supplémentaires de la résolution des problèmes de l’infrastructure d’analyse Azure pour SAP)
 
 [deployment-guide-configure-monitoring-scenario-1]:virtual-machines-windows-sap-deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b (Configure Monitoring)
 [deployment-guide-configure-proxy]:virtual-machines-windows-sap-deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d (Configure Proxy)
@@ -116,9 +116,9 @@ ms.openlocfilehash: c32e13892c44042aa598f43f8c66ec4922e5ca20
 [deployment-guide-install-vm-agent-windows]:virtual-machines-windows-sap-deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
 [deployment-guide-troubleshooting-chapter]:virtual-machines-windows-sap-deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b (Checks and Troubleshooting for End-to-End Monitoring Setup for SAP on Azure)
 
-[deploy-template-cli]:../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows
-[deploy-template-portal]:../resource-group-template-deploy.md#deploy-with-the-preview-portal
-[deploy-template-powershell]:../resource-group-template-deploy.md#deploy-with-powershell
+[deploy-template-cli]:../azure-resource-manager/resource-group-template-deploy-cli.md
+[deploy-template-portal]:../azure-resource-manager/resource-group-template-deploy-portal.md
+[deploy-template-powershell]:../azure-resource-manager/resource-group-template-deploy.md
 
 [dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
 
@@ -145,7 +145,7 @@ ms.openlocfilehash: c32e13892c44042aa598f43f8c66ec4922e5ca20
 
 [msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
 
-[planning-guide]:virtual-machines-windows-sap-planning-guide.md (SAP NetWeaver sur machines virtuelles Windows – Guide de planification et d’implémentation) [planning-guide-1.2]:virtual-machines-windows-sap-planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Resources) [planning-guide-11.4.1]:virtual-machines-windows-sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 (Haute disponibilité pour les serveurs d’applications SAP) [planning-guide-11.5]:virtual-machines-windows-sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f (Utilisation du démarrage automatique pour les instances SAP) [planning-guide-2.1]:virtual-machines-windows-sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 (Cloud uniquement : déploiement de machines virtuelles dans Azure sans dépendances du réseau local du client) [planning-guide-2.2]:virtual-machines-windows-sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 (Intersite : déploiement d’une ou plusieurs machines virtuelles SAP dans Azure, dans lequel une intégration complète au réseau local est nécessaire) [planning-guide-3.1]:virtual-machines-windows-sap-planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a (Régions Azure) [planning-guide-3.2.1]:virtual-machines-windows-sap-planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 (Domaines d’erreur) [planning-guide-3.2.2]:virtual-machines-windows-sap-planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 (Domaines de mise à niveau) [planning-guide-3.2.3]:virtual-machines-windows-sap-planning-guide.md#18810088-f9be-4c97-958a-27996255c665 (Groupes à haute disponibilité Azure) [planning-guide-3.2]:virtual-machines-windows-sap-planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 (Concept de la machine virtuelle Microsoft Azure) [planning-guide-3.3.2]:virtual-machines-windows-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Stockage Premium Azure) [planning-guide-5.1.1]:virtual-machines-windows-sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 (Déplacement d’une machine virtuelle locale vers Azure avec un disque non généralisé) [planning-guide-5.1.2]:virtual-machines-windows-sap-planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c (Déploiement d’une machine virtuelle avec une image spécifique du client) [planning-guide-5.2.1]:virtual-machines-windows-sap-planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef (Préparation du déplacement d’une machine virtuelle locale vers Azure avec un disque non généralisé) [planning-guide-5.2.2]:virtual-machines-windows-sap-planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3 (Préparation du déploiement d’une machine virtuelle avec une image spécifique du client pour SAP) [planning-guide-5.2]:virtual-machines-windows-sap-planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7 (Préparation de machines virtuelles avec SAP pour Azure) [planning-guide-5.3.1]:virtual-machines-windows-sap-planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79 (Différence entre un disque Azure et une image Azure) [planning-guide-5.3.2]:virtual-machines-windows-sap-planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a (Chargement d’un disque dur virtuel local vers Azure) [planning-guide-5.4.2]:virtual-machines-windows-sap-planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 (Copie de disques entre comptes Azure Storage) [planning-guide-5.5.1]:virtual-machines-windows-sap-planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 (Structure de machine virtuelle/disque dur virtuel pour les déploiements SAP) [planning-guide-5.5.3]:virtual-machines-windows-sap-planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d (Paramétrage du montage automatique pour les disques attachés) [planning-guide-7.1]:virtual-machines-windows-sap-planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 (Machine virtuelle unique avec scénario de démonstration/formation SAP NetWeaver) [planning-guide-7]:virtual-machines-windows-sap-planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 (Concepts de déploiement cloud uniquement d’instances SAP) [planning-guide-9.1]:virtual-machines-windows-sap-planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Solution de surveillance Azure pour SAP) [planning-guide-azure-premium-storage]:virtual-machines-windows-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Stockage Premium Azure)
+[planning-guide]:virtual-machines-windows-sap-planning-guide.md (SAP NetWeaver sur les machines virtuelles Azure – Guide de planification et d’implémentation) [planning-guide-1.2]:virtual-machines-windows-sap-planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Ressources) [planning-guide-11.4.1]:virtual-machines-windows-sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 (Haute disponibilité pour les serveurs d’applications SAP) [planning-guide-11.5]:virtual-machines-windows-sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f (Utilisation du démarrage automatique pour les instances SAP) [planning-guide-2.1]:virtual-machines-windows-sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 (Cloud uniquement : déploiement de machines virtuelles dans Azure sans dépendances du réseau local du client) [planning-guide-2.2]:virtual-machines-windows-sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 (Intersite : déploiement d’une ou plusieurs machines virtuelles SAP dans Azure, dans lequel une intégration complète au réseau local est nécessaire) [planning-guide-3.1]:virtual-machines-windows-sap-planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a (Régions Azure) [planning-guide-3.2.1]:virtual-machines-windows-sap-planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 (Domaines d’erreur) [planning-guide-3.2.2]:virtual-machines-windows-sap-planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 (Domaines de mise à niveau) [planning-guide-3.2.3]:virtual-machines-windows-sap-planning-guide.md#18810088-f9be-4c97-958a-27996255c665 (Groupes à haute disponibilité Azure) [planning-guide-3.2]:virtual-machines-windows-sap-planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 (Concept de la machine virtuelle Microsoft Azure) [planning-guide-3.3.2]:virtual-machines-windows-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Stockage Premium Azure) [planning-guide-5.1.1]:virtual-machines-windows-sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 (Déplacement d’une machine virtuelle locale vers Azure avec un disque non généralisé) [planning-guide-5.1.2]:virtual-machines-windows-sap-planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c (Déploiement d’une machine virtuelle avec une image spécifique au client) [planning-guide-5.2.1]:virtual-machines-windows-sap-planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef (Préparation du déplacement d’une machine virtuelle locale vers Azure avec un disque non généralisé) [planning-guide-5.2.2]:virtual-machines-windows-sap-planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3 (Préparation du déploiement d’une machine virtuelle avec une image spécifique du client pour SAP) [planning-guide-5.2]:virtual-machines-windows-sap-planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7 (Préparation de machines virtuelles avec SAP pour Azure) [planning-guide-5.3.1]:virtual-machines-windows-sap-planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79 (Différence entre un disque Azure et une image Azure) [planning-guide-5.3.2]:virtual-machines-windows-sap-planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a (Chargement d’un disque dur virtuel local vers Azure) [planning-guide-5.4.2]:virtual-machines-windows-sap-planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 (Copie de disques entre comptes de stockage Azure) [planning-guide-5.5.1]:virtual-machines-windows-sap-planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 (Structure de machine virtuelle/disque dur virtuel pour les déploiements SAP) [planning-guide-5.5.3]:virtual-machines-windows-sap-planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d (Paramétrage du montage automatique pour les disques attachés) [planning-guide-7.1]:virtual-machines-windows-sap-planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 (Machine virtuelle unique avec scénario de démonstration/formation SAP NetWeaver) [planning-guide-7]:virtual-machines-windows-sap-planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 (Concepts de déploiement cloud uniquement d’instances SAP) [planning-guide-9.1]:virtual-machines-windows-sap-planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Solution de surveillance Azure pour SAP) [planning-guide-azure-premium-storage]:virtual-machines-windows-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Stockage Premium Azure)
 
 [planning-guide-figure-100]:./media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:./media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
@@ -173,9 +173,9 @@ ms.openlocfilehash: c32e13892c44042aa598f43f8c66ec4922e5ca20
 [planning-guide-microsoft-azure-networking]:virtual-machines-windows-sap-planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd (Microsoft Azure Networking)
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:virtual-machines-windows-sap-planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Storage: Microsoft Azure Storage and Data Disks)
 
-[powershell-install-configure]:../powershell-install-configure.md
-[resource-group-authoring-templates]:../resource-group-authoring-templates.md
-[resource-group-overview]:../resource-group-overview.md
+[powershell-install-configure]:/powershell/azureps-cmdlets-docs
+[resource-group-authoring-templates]:../azure-resource-manager/resource-group-authoring-templates.md
+[resource-group-overview]:../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../virtual-network/resource-groups-networking.md
 [sap-pam]:https://support.sap.com/pam (SAP Product Availability Matrix)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -196,7 +196,7 @@ ms.openlocfilehash: c32e13892c44042aa598f43f8c66ec4922e5ca20
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:virtual-machines-linux-attach-disk-portal.md
 [virtual-machines-windows-attach-disk-portal]:virtual-machines-windows-attach-disk-portal.md
-[virtual-machines-azure-resource-manager-architecture]:../resource-manager-deployment-model.md
+[virtual-machines-azure-resource-manager-architecture]:../azure-resource-manager/resource-manager-deployment-model.md
 [virtual-machines-azurerm-versus-azuresm]:virtual-machines-windows-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:virtual-machines-linux-cli-deploy-templates.md (Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI)
@@ -244,7 +244,7 @@ ms.openlocfilehash: c32e13892c44042aa598f43f8c66ec4922e5ca20
 [vpn-gateway-site-to-site-create]:../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
 [vpn-gateway-vpn-faq]:../vpn-gateway/vpn-gateway-vpn-faq.md
 [xplat-cli]:../xplat-cli-install.md
-[xplat-cli-azure-resource-manager]:../xplat-cli-azure-resource-manager.md
+[xplat-cli-azure-resource-manager]:../azure-resource-manager/xplat-cli-azure-resource-manager.md
 
 En choisissant Microsoft Azure comme partenaire SAP prêt pour le cloud, vous êtes en mesure d’exécuter en toute fiabilité vos charges de travail SAP critiques sur une plateforme d’entreprise scalable, conforme et qui a fait ses preuves.  Bénéficiez de la scalabilité, de la flexibilité et des économies de coût offertes par Azure. Avec le partenariat étendu entre Microsoft et SAP, vous pouvez exécuter les applications SAP dans des environnements de développement/test et de production dans Azure en bénéficiant d’une prise en charge complète. De SAP NetWeaver à SAP S4/HANA, de Linux à Windows, de SAP HANA à SQL, nous sommes là pour vous. 
 
@@ -265,12 +265,10 @@ Microsoft Azure est certifié pour les produits SAP suivants, avec un support co
 
 | Produit SAP | SE invité | SGBDR | Types de machine virtuelle |
 | --- | --- | --- | --- |
-| SAP Business Suite Software |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle, DB2, SAP ASE |A5 à A11, D11 à D14, DS11 à DS14, GS1 à GS5 |
-| SAP Business All-in-One |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle, DB2, SAP ASE |A5 à A11, D11 à D14, DS11 à DS14, GS1 à GS5 |
+| SAP Business Suite Software |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (Windows uniquement), DB2, SAP ASE |A5 à A11, D11 à D14, DS11 à DS14, GS1 à GS5 |
+| SAP Business All-in-One |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (Windows uniquement), DB2, SAP ASE |A5 à A11, D11 à D14, DS11 à DS14, GS1 à GS5 |
 | SAP BusinessObjects BI |Windows |N/A |A5 à A11, D11 à D14, DS11 à DS14, GS1 à GS5 |
-| SAP NetWeaver |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle, DB2, SAP ASE |A5 à A11, D11 à D14, DS11 à DS14, GS1 à GS5 |
-
-[!INCLUDE [windows-warning](../../includes/virtual-machines-linux-sap-warning.md)]
+| SAP NetWeaver |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (Windows uniquement), DB2, SAP ASE |A5 à A11, D11 à D14, DS11 à DS14, GS1 à GS5 |
 
 ## <a name="getting-started-with-sap-hana-on-azure"></a>Prise en main de SAP HANA sur Azure
 Titre : Guide de démarrage rapide pour l’installation manuelle de SAP HANA sur des machines virtuelles Azure
@@ -300,7 +298,7 @@ Mise à jour : septembre 2016
 [Ce guide est disponible ici](virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="a-name3da0389e-708b-4e82-b2a2-e92f132df89caplanning-and-implementation"></a><a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Planification et implémentation
-Titre : SAP NetWeaver sur machines virtuelles Windows – Guide de planification et d’implémentation
+Titre : SAP NetWeaver sur les machines virtuelles Azure – Guide de planification et d’implémentation
 
 Résumé : commencez par étudier ce document si vous envisagez d’exécuter SAP NetWeaver sur Azure Virtual Machines. Ce guide de planification et d’implémentation vous aidera à évaluer si un système existant ou planifié, basé sur SAP NetWeaver peut être déployé dans un environnement Azure Virtual Machines. Il comprend plusieurs scénarios de déploiement de SAP NetWeaver et inclut des configurations SAP spécifiques d’Azure. Il répertorie et décrit toutes les informations de configuration de SAP/Azure dont vous avez besoin pour exécuter dans un environnement SAP hybride. Il traite décrit également les mesures à prendre pour assurer une haute disponibilité des systèmes basés sur SAP NetWeaver déployés dans une infrastructure IaaS.
 
@@ -309,16 +307,16 @@ Mise à jour : août 2016
 [Ce guide est disponible ici][planning-guide]
 
 ## <a name="a-name6aadadd2-76b5-46d8-8713-e8d63630e955adeployment"></a><a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Déploiement
-Titre : SAP NetWeaver sur machines virtuelles Windows – Guide de déploiement
+Titre : SAP NetWeaver sur les machines virtuelles Azure – Guide de déploiement
 
 Résumé : ce document décrit la procédure de déploiement du logiciel SAP NetWeaver sur des machines virtuelles dans Azure. Ce document aborde trois scénarios de déploiement spécifiques, en mettant l’accent sur l’activation des extensions d’analyse Azure pour SAP, et inclut des conseils de dépannage concernant ces dernières. Ce document suppose que vous avez lu le guide de planification et d’implémentation.
 
-Mise à jour : août 2016
+Mise à jour : décembre 2016
 
 [Ce guide est disponible ici][deployment-guide]
 
 ## <a name="a-name1343ffe1-8021-4ce6-a08d-3a1553a4db82adbms-deployment-guide"></a><a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>Guide de déploiement SGBD
-Titre : SAP NetWeaver sur machines virtuelles Windows – Guide de déploiement SGBD
+Titre : SAP NetWeaver sur les machines virtuelles Azure – Guide de déploiement SGBD
 
 Résumé : ce document porte sur les éléments à prendre en compte pour la planification et l’implémentation des systèmes de gestion de base de données qui doivent s’exécuter conjointement avec SAP. La première partie répertorie et présente les considérations générales. Les parties suivantes du document concernent des déploiements de SGBD différents dans Azure pris en charge par SAP. Les autres SGBD présentés sont SQL Server, SAP ASE et Oracle. Ces sections présentent les éléments à prendre en compte lors de l’exécution de systèmes SAP sur Azure avec ces systèmes de gestion de base de données. D’autres sections présentent les méthodes de sauvegarde et de haute disponibilité prises en charge par les différents systèmes de gestion de base de données sur Azure dans le cadre d’une utilisation avec des applications SAP.
 
@@ -327,17 +325,17 @@ Mise à jour : août 2016
 [Ce guide est disponible ici][dbms-guide]
 
 ## <a name="a-name63dab028-2c4f-4636-8f99-90bbb264eabaahigh-availability-deployment-guide"></a><a name="63dab028-2c4f-4636-8f99-90bbb264eaba"></a>Guide de déploiement haute disponibilité
-Titre : SAP NetWeaver sur machines virtuelles Windows – Guide de déploiement haute disponibilité
+Titre : SAP NetWeaver sur machines virtuelles Azure – Guide de déploiement haute disponibilité
 
 Résumé : Ce document décrit comment les composants de points de défaillance uniques SAP, comme SAP ASCS/SCS et SGBD, peuvent être protégés dans Azure. Les composants des serveurs d’applications, SGBD et SAP ASCS/SCS sont essentiels pour les fonctionnalités des systèmes SAP NetWeaver, par exemple les systèmes SAP NetWeaver ABAP, SAP NetWeaver Java, SAP NetWeaver ABAP+Java. Par conséquent des fonctionnalités de haute disponibilité doivent donc être mises en place pour s’assurer que ces composants peuvent supporter une défaillance de serveur ou de machine virtuelle, comme c’est le cas des configurations de cluster Windows pour les environnements complets et Hyper-V.
 
-Mise à jour : août 2016
+Mise à jour : décembre 2016
 
 [Ce guide est disponible ici][ha-guide]
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,14 +1,14 @@
 ---
-title: Création d’un groupe à haute disponibilité pour les machines virtuelles | Microsoft Docs
-description: Apprenez à créer un groupe à haute disponibilité pour vos machines virtuelles à l’aide du portail Azure ou de PowerShell en utilisant le modèle de déploiement Resource Manager.
-keywords: groupe à haute disponibilité
+title: "Créer un groupe à haute disponibilité pour les machines virtuelles | Microsoft Docs"
+description: "Apprenez à créer un groupe à haute disponibilité pour vos machines virtuelles à l’aide du portail Azure ou de PowerShell en utilisant le modèle de déploiement Resource Manager."
+keywords: "groupe à haute disponibilité"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: a3db8659-ace8-4e78-8b8c-1e75c04c042c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,12 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 19f22b9e38e472b56fc9abecc6c14b63b521a58b
+
 
 ---
 # <a name="create-an-availability-set"></a>Créer un groupe à haute disponibilité
 Lors de l’utilisation du portail, si vous souhaitez que votre machine virtuelle fasse partie d’un groupe à haute disponibilité, vous devez créer celui-ci avant.
 
-Pour plus d’informations sur la création et l’utilisation des groupes à haute disponibilité, consultez la page [Gestion de la disponibilité des machines virtuelles](virtual-machines-windows-manage-availability.md).
+Pour plus d’informations sur la création et l’utilisation des groupes à haute disponibilité, consultez la page [Gestion de la disponibilité des machines virtuelles](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="use-the-portal-to-create-an-availability-set-before-creating-your-vms"></a>Utilisation du portail pour créer un groupe à haute disponibilité avant la création des machines virtuelles
 1. Dans le menu Hub, cliquez sur **Parcourir** et sélectionnez **Groupes à haute disponibilité**.
@@ -61,8 +65,11 @@ Pour plus d’informations, consultez [New-AzureRmAvailabilitySet](https://msdn.
 * Lorsque vous créez une machine virtuelle, si le groupe à haute disponibilité que vous voulez utiliser n’est pas dans la liste déroulante du portail, elle a peut-être été créée dans un autre groupe de ressources. Si vous ne connaissez pas le groupe de ressources pour votre groupe à haute disponibilité, cliquez sur Parcourir > Groupes à haute disponibilité dans le menu Hub pour afficher la liste de vos groupes à haute disponibilité et les groupes de ressources auxquels ils appartiennent.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Ajout de stockage supplémentaire à votre machine virtuelle en ajoutant un [disque de données](virtual-machines-windows-attach-disk-portal.md)supplémentaire.
+Ajout de stockage supplémentaire à votre machine virtuelle en ajoutant un [disque de données](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)supplémentaire.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/26/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f01cd8d3a68776dd12d2930def1641411e6a4994
-ms.openlocfilehash: a9f77a58cdb13c357b6c3734bd9e3efa4ff5087b
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: e7ac4b87370b5a9fa3a063ba02a1171e6830e075
 
 
 ---
@@ -42,22 +42,10 @@ Cliquez sur l’image pour l’afficher en plein écran.
 
 <a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
-Vous pouvez afficher l’ensemble du modèle [ici](https://media.windows.net/API/$metadata?api-version=2.14).  
+Vous pouvez afficher l’ensemble du modèle [ici](https://media.windows.net/API/$metadata?api-version=2.15).  
 
-## <a name="what-youll-learn"></a>Ce que vous allez apprendre
 
-Ce didacticiel montre comment effectuer les tâches suivantes :
-
-1. Création d'un compte Media Services (avec le portail Azure).
-2. Configurer un point de terminaison de diffusion en continu (à l’aide du portail Azure).
-3. Créer et configurer un projet Visual Studio
-4. Se connecter au compte Media Services.
-5. Créer un nouvel élément et charger un fichier vidéo.
-6. Encoder le fichier source en un ensemble de fichiers MP4 à débit adaptatif.
-7. Publier les éléments et obtenir les URL de diffusion et de téléchargement progressif
-8. Testez en lisant votre contenu.
-
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 Les éléments suivants sont requis pour suivre le didacticiel.
 
 * Pour suivre ce didacticiel, vous avez besoin d'un compte Azure.
@@ -88,39 +76,31 @@ Cette section montre comment créer un compte AMS.
    6. Sélectionnez **Épingler au tableau de bord** pour voir la progression du déploiement du compte.
 4. Cliquez sur **Créer** en bas du formulaire.
 
-    Une fois créé, le compte prend l’état **En cours d’exécution**.
+    Une fois le compte créé, passez en revue les chargements de page. Dans la table de points de terminaison de streaming, le compte aura un point de terminaison de streaming par défaut à l’état **Arrêté**.
+
+    >[!NOTE]
+    >Une fois votre compte AMS créé, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**. 
 
     ![Media Services Paramètres](./media/media-services-portal-vod-get-started/media-services-settings.png)
 
     Pour gérer votre compte AMS (par exemple, charger des vidéos, encoder des éléments multimédias ou surveiller la progression de tâches), utilisez la fenêtre **Paramètres** .
 
-## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Configurer les points de terminaison de diffusion en continu à l’aide du portail Azure
-Lorsque vous utilisez Azure Media Services, la diffusion à vos clients de vidéos en continu à débit binaire adaptatif constitue l’un des scénarios les plus courants. Media Services prend en charge les technologies de streaming à débit adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming et MPEG DASH.
+## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Démarrer les points de terminaison de streaming à l’aide du portail Azure
 
-Media Services assure l’empaquetage dynamique, qui vous permet de distribuer juste-à-temps un contenu encodé en MP4 à débit adaptatif dans un format de diffusion en continu pris en charge par Media Services (MPEG DASH, HLS, Smooth Streaming), sans qu’il vous soit nécessaire de stocker des versions pré-empaquetées de chacun de ces formats.
+Lorsque vous utilisez Azure Media Services, la diffusion de vidéos en continu à débit binaire adaptatif constitue l’un des scénarios les plus courants. Media Services assure l’empaquetage dynamique, qui vous permet de distribuer juste-à-temps un contenu encodé en MP4 à débit adaptatif dans un format de diffusion en continu pris en charge par Media Services (MPEG DASH, HLS, Smooth Streaming), sans qu’il vous soit nécessaire de stocker des versions pré-empaquetées de chacun de ces formats.
 
-Pour tirer parti de l’empaquetage dynamique, vous devez effectuer les opérations suivantes :
+>[!NOTE]
+>Une fois votre compte AMS créé, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**. 
 
-* Encoder votre fichier mezzanine (source) dans un ensemble de fichiers MP4 à débit adaptatif (les étapes de codage sont décrites plus loin dans ce didacticiel).  
-* Créez au moins une unité de diffusion pour le *point de terminaison de diffusion en continu* à partir duquel vous envisagez de distribuer votre contenu. La procédure ci-dessous explique comment modifier le nombre d’unités de diffusion en continu.
+Pour démarrer le point de terminaison de streaming, procédez comme suit :
 
-L’empaquetage dynamique vous permet de ne stocker et payer les fichiers que dans un seul format de stockage. Ensuite, Media Services crée et fournit la réponse appropriée en fonction des demandes des clients.
+1. Dans la fenêtre Paramètres, cliquez sur Points de terminaison de streaming. 
+2. Cliquez sur le point de terminaison de diffusion en continu par défaut. 
 
-Pour créer et modifier le nombre d’unités réservées de diffusion en continu, procédez comme suit :
+    La fenêtre DEFAULT STREAMING ENDPOINT DETAILS (DÉTAILS DU POINT DE TERMINAISON DE STREAMING PAR DÉFAUT) s’affiche.
 
-1. Dans la fenêtre **Paramètres**, cliquez sur **Points de terminaison de diffusion en continu**.
-2. Cliquez sur le point de terminaison de diffusion en continu par défaut.
-
-    La fenêtre **DEFAULT STREAMING ENDPOINT DETAILS** (DÉTAILS DU POINT DE TERMINAISON DE DIFFUSION EN CONTINU PAR DÉFAUT) s’affiche.
-3. Pour spécifier le nombre d’unités de diffusion en continu, faites glisser le curseur **Unités de diffusion en continu** .
-
-    ![Unités de diffusion en continu](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
-4. Cliquez sur le bouton **Enregistrer** pour enregistrer vos modifications.
-
-   > [!NOTE]
-   > L’allocation de nouvelles unités peut prendre environ 20 minutes.
-   >
-   >
+3. Cliquez sur l’icône de démarrage.
+4. Cliquez sur le bouton Enregistrer pour enregistrer vos modifications.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Créer et configurer un projet Visual Studio
 
@@ -258,15 +238,12 @@ Après avoir reçu des éléments multimédias dans Media Services, vous pouvez 
 
 Comme mentionné précédemment, lorsque vous travaillez avec Azure Media Services, un des scénarios les plus courants est la diffusion de contenu à débit adaptatif à vos clients. Media Services peut empaqueter de façon dynamique un ensemble de fichiers MP4 à débit adaptatif dans l’un des formats suivants : HTTP Live Streaming (HLS), Smooth Streaming et MPEG DASH.
 
-Pour tirer parti de l’empaquetage dynamique, vous devez effectuer les opérations suivantes :
-
-* Coder ou transcoder vos fichiers votre fichier mezzanine (source) en un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif.  
-* Obtenir au moins une unité de diffusion pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu.
+Pour tirer parti de l’empaquetage dynamique, vous devez encoder ou transcoder votre fichier mezzanine (source) en un ensemble de fichiers MP4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif.  
 
 Le code suivant vous explique comment effectuer envoyer une tâche d'encodage. Le travail contient une tâche qui spécifie le fichier mezzanine à transcoder en un ensemble de MP4 à débit adaptatif à l’aide de **Media Encoder Standard**. Le code envoie la tâche et attend qu'elle soit terminée.
 
-Une fois votre tâche de codage terminée, vous pourrez publier vos ressources, puis diffuser en continu ou télécharger les fichiers MP4.
-
+Une fois la tâche terminée, vous pourrez diffuser votre élément multimédia ou télécharger progressivement les fichiers MP4 qui ont été créés après le transcodage.
+ 
 Ajoutez la méthode suivante à la classe Program.
 
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
@@ -467,6 +444,6 @@ L’exemple de code suivant contient le code que vous avez créé dans ce didact
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

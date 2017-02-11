@@ -1,19 +1,23 @@
 ---
-title: API REST d’alerte Log Analytics
-description: L’API REST d’alerte Log Analytics vous permet de créer et de gérer des alertes dans Operations Management Suite (OMS).  Cet article fournit des détails sur l’API et plusieurs exemples pour effectuer différentes opérations.
+title: "API REST d’alerte Log Analytics"
+description: "L’API REST d’alerte Log Analytics vous permet de créer et de gérer des alertes dans Operations Management Suite (OMS).  Cet article fournit des détails sur l’API et plusieurs exemples pour effectuer différentes opérations."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 628ad256-7181-4a0d-9e68-4ed60c0f3f04
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 11/18/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 53a7be4d213f3f4c6d01b95355543fc9cd55717f
+
 
 ---
 # <a name="log-analytics-alert-rest-api"></a>API REST d’alerte Log Analytics
@@ -47,25 +51,30 @@ Utilisez la méthode Get avec un ID de planification pour extraire une planifica
 
 Voici un exemple de réponse pour une planification.
 
-    {
+```json
+{
+    "value": [{
         "id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace/savedSearches/0f0f4853-17f8-4ed1-9a03-8e888b0d16ec/schedules/a17b53ef-bd70-4ca4-9ead-83b00f2024a8",
         "etag": "W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\"",
         "properties": {
-        "Interval": 15,
-        "QueryTimeSpan": 15
-    }
+            "Interval": 15,
+            "QueryTimeSpan": 15
+        }
+    }]
+}
+```
 
 ### <a name="creating-a-schedule"></a>Création d'une planification
 Utilisez la méthode Put avec un ID de planification unique pour créer une planification.  Notez que deux planifications ne peuvent pas avoir le même ID, même si elles sont associées à d’autres recherches enregistrées.  Quand vous créez une planification dans la console OMS, un GUID est créé pour l’ID de la planification.
 
-    $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
+    $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
 ### <a name="editing-a-schedule"></a>Modification d’une planification
 Utilisez la méthode Put avec un ID de planification existant pour la même recherche enregistrée afin de modifier cette planification.  Le corps de la demande doit inclure l’ETag de la planification.
 
-    $scheduleJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\""','properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
+      $scheduleJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\""','properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' } }"
+      armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
 
 ### <a name="deleting-schedules"></a>Suppression de planifications
@@ -122,7 +131,7 @@ Les propriétés des seuils sont décrites dans le tableau suivant.
 
 | Propriété | Description |
 |:--- |:--- |
-| Opérateur |Opérateur de comparaison de seuil. <br> gt = supérieur à <br>  lt = inférieur à |
+| Opérateur  |Opérateur de comparaison de seuil. <br> gt = supérieur à <br>  lt = inférieur à |
 | Valeur |Valeur du seuil. |
 
 Par exemple, considérez une requête d’événement avec Interval défini sur 15 minutes, QueryTimeSpan sur 30 minutes et Threshold sur une valeur supérieure à 10. Dans ce cas, la requête est exécutée toutes les 15 minutes et une alerte se déclenche si la requête retourne 10 événements créés en l’espace de 30 minutes.
@@ -183,12 +192,12 @@ Voici un exemple de réponse pour une action de notification par courrier élect
 Utilisez la méthode Put avec un ID d’action unique pour créer une action de messagerie pour une planification.  L’exemple suivant crée une notification par courrier électronique avec un seuil afin que l’e-mail soit envoyé quand les résultats de la recherche enregistrée dépassent le seuil.
 
     $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $ emailJson
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
 
 Utilisez la méthode Put avec un ID d’action existant pour modifier une action de messagerie pour une planification.  Le corps de la demande doit inclure l’ETag de l’action.
 
     $emailJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $ emailJson
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
 
 #### <a name="remediation-actions"></a>Actions de correction
 Les corrections démarrent un runbook dans Azure Automation qui essaie de corriger le problème identifié par l’alerte.  Vous devez créer un webhook pour le runbook utilisé dans une action de correction, puis spécifier l’URI dans la propriété WebhookUri.  Quand vous créez cette action à l’aide de la console OMS, un webhook est automatiquement créé pour le runbook.
@@ -306,6 +315,9 @@ Utilisez la méthode Put avec un ID d’action existant pour modifier une action
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez l’ [API REST pour effectuer des recherches de journaux](log-analytics-log-search-api.md) dans Log Analytics.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

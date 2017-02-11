@@ -1,14 +1,13 @@
 ---
 layout: LandingPage
-description: "Apprenez à déployer un contrôleur de remise d’applications cloud. La documentation montre comment configurer le routage et l’équilibrage des charges au niveau de l’application pour un site web frontal."
 translationtype: Human Translation
-ms.sourcegitcommit: 8f9b8cee583b9bc12df14bf5161cab1952e3e022
-ms.openlocfilehash: 5e7843adfb31fcfc56986cce44fc5d59ee558d58
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: e81571dc2d0d52f8b04c7ff99a76d92c784c259e
 
 ---
 #<a name="application-gateway-documentation"></a>Documentation Application Gateway
 
-Apprenez à déployer Application Gateway, un contrôleur de remise d’applications sous forme de service. Des didacticiels, des références d’API et d’autres documents vous montrent comment configurer des services d’équilibrage de charge et de routage au niveau de l’application qui vous permettent de créer un serveur frontal web évolutif et hautement disponible.
+Le service Azure Application Gateway fournit Application Deliver Controller (ADC) sous forme de service.  Il permet aux clients d’optimiser la productivité de la batterie de serveurs web en déchargeant une terminaison SSL nécessitant de nombreuses ressources processeur vers la passerelle d’application.  Il s’agit d’une appliance virtuelle dédiée pour votre application qui combine extensibilité et haute disponibilité et fournit un ensemble complet de fonctionnalités de diagnostics et de journalisation pour une meilleure facilité de gestion.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -161,6 +160,6 @@ Télécharger la documentation Application Gateway </div>
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

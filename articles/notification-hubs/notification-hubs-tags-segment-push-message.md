@@ -1,12 +1,12 @@
 ---
-title: Routing and Tag Expressions
-description: This topic explains routing and tag expressions for Azure notification hubs.
+title: Routage et expressions de balise
+description: Cette rubrique explique les expressions de balise et de routage pour Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
 author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0fffb3bb-8ed8-4e0f-89e8-0de24a47f644
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
@@ -14,30 +14,34 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3a5f06b7e9600c34ef690e025a0a2079f71f843e
+
 
 ---
-# <a name="routing-and-tag-expressions"></a>Routing and tag expressions
-## <a name="overview"></a>Overview
-Tag expressions enable you to target specific sets of devices, or more specifically registrations, when sending a push notification through Notification Hubs.
+# <a name="routing-and-tag-expressions"></a>Routage et expressions de balise
+## <a name="overview"></a>Vue d'ensemble
+Les expressions de balise vous permettent de cibler des ensembles spécifiques d'appareils, ou plus précisément d'inscriptions, lors de l'envoi d'une notification push via Notification Hubs.
 
-## <a name="targeting-specific-registrations"></a>Targeting specific registrations
-The only way to target specific notification registrations is to associate tags with them, then target those tags. As discussed in [Registration Management](notification-hubs-push-notification-registration-management.md), in order to receive push notifications an app has to register a device handle on a notification hub. Once a registration is created on a notification hub, the application backend can send push notifications to it.
-The application backend can choose the registrations to target with a specific notification in the following ways:
+## <a name="targeting-specific-registrations"></a>Ciblage d'inscriptions spécifiques
+La seule façon de cibler des inscriptions de notification spécifiques consiste à les associer à des balises, puis à cibler ces balises. Comme indiqué dans la rubrique [Gestion des inscriptions](notification-hubs-push-notification-registration-management.md), pour recevoir des notifications push, une application doit inscrire un appareil sur un concentrateur de notification. Lorsqu’une inscription est créée sur un concentrateur de notification, le serveur principal d'application peut envoyer des notifications push.
+Le serveur principal d'application peut choisir les inscriptions à cibler avec une notification spécifique en procédant ainsi :
 
-1. **Broadcast**: all registrations in the notification hub receive the notification.
-2. **Tag**: all registrations that contain the specified tag receive the notification.
-3. **Tag expression**: all registrations whose set of tags match the specified expression receive the notification.
+1. **Diffusion**: toutes les inscriptions dans le concentrateur de notification reçoivent la notification.
+2. **Balise**: toutes les inscriptions qui contiennent la balise spécifiée reçoivent la notification.
+3. **Expression de balise**: toutes les inscriptions dont le jeu de balises correspond à l'expression spécifiée reçoivent la notification.
 
-## <a name="tags"></a>Tags
-A tag can be any string, up to 120 characters, containing alphanumeric and the following non-alphanumeric characters: ‘_’, ‘@’, ‘#’, ‘.’, ‘:’, ‘-’. The following example shows an application from which you can receive toast notifications about specific music groups. In this scenario, a simple way to route notifications is to label registrations with tags that represent the different bands, as in the following picture.
+## <a name="tags"></a>Balises
+Une balise peut représenter n’importe quelle chaîne de 120 caractères maximum, contenant des caractères alphanumériques ainsi que les caractères non alphanumériques suivants : ‘_’, ‘@’, ‘#’, ‘.’, ‘:’, ‘-’. L'exemple suivant montre une application à partir de laquelle vous pouvez recevoir des notifications toast concernant des groupes musicaux spécifiques. Dans ce scénario, une méthode simple pour acheminer des notifications consiste à étiqueter les inscriptions avec des balises représentant les différents groupes de musique, comme dans l'image suivante.
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
 
-In this picture, the message tagged **Beatles** reaches only the tablet that registered with the tag **Beatles**.
+Dans cette illustration, le message étiqueté **Beatles** est uniquement envoyé à la tablette inscrite avec la balise **Beatles**.
 
-For more information about creating registrations for tags, see [Registration Management](notification-hubs-push-notification-registration-management.md).
+Pour plus d'informations sur la création d’inscriptions pour des balises, consultez [Gestion des inscriptions](notification-hubs-push-notification-registration-management.md).
 
-You can send notifications to tags using the send notifications methods of the `Microsoft.Azure.NotificationHubs.NotificationHubClient` class in the [Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) SDK. You can also use Node.js, or the Push Notifications REST APIs.  Here's an example using the SDK.
+Vous pouvez envoyer des notifications à des balises à l'aide des méthodes d’envoi de notifications de la classe `Microsoft.Azure.NotificationHubs.NotificationHubClient` dans le Kit de développement logiciel (SDK) [Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) . Vous pouvez également utiliser Node.js ou les API REST Notifications Push.  Voici un exemple utilisant le Kit de développement logiciel (SDK).
 
     Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
 
@@ -54,40 +58,40 @@ You can send notifications to tags using the send notifications methods of the `
 
 
 
-Tags do not have to be pre-provisioned and can refer to multiple app-specific concepts. For example, users of this example application can comment on bands and want to receive toasts, not only for the comments on their favorite bands, but also for all comments from their friends, regardless of the band on which they are commenting. The following picture shows an example of this scenario:
+Les balises n'ont pas besoin d'être provisionnées et peuvent référencer plusieurs concepts propres à l'application. Par exemple, les utilisateurs de cet exemple d'application peuvent publier des commentaires sur les groupes et recevoir des notifications toast non seulement concernant les commentaires sur leurs groupes favoris, mais également pour tous les commentaires de leurs amis, quel que soit le groupe qu’ils commentent. L'illustration suivante montre un exemple de ce scénario :
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags2.png)
 
-In this picture, Alice is interested in updates for the Beatles, and Bob is interested in updates for the Wailers. Bob is also interested in Charlie’s comments, and Charlie is in interested in the Wailers. When a notification is sent for Charlie’s comment on the Beatles, both Alice and Bob receive it.
+Dans cette image, Alice s'intéresse à l’actualité des Beatles, et Bob à celle des Wailers. Bob est également intéressée par les commentaires de Charlie, et Charlie s'intéresse aux Wailers. Lorsqu'une notification est envoyée concernant un commentaire de Charlie sur les Beatles, Alice et Bob la reçoivent.
 
-While you can encode multiple concerns in tags (for example, “band_Beatles” or “follows_Charlie”), tags are simple strings and not properties with values. A registration is matched only on the presence or absence of a specific tag.
+Même s’il est possible d’encoder plusieurs paramètres (par exemple, « band_Beatles » ou « follows_Charlie »), les balises sont des chaînes simples et non des propriétés avec des valeurs. Un enregistrement est mis en correspondance uniquement en présence ou en absence d'une balise spécifique.
 
-For a full step-by-step tutorial on how to use tags for sending to interest groups, see [Breaking News](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
+Pour obtenir un didacticiel complet et détaillé sur la façon d'utiliser des balises pour l'envoi à des groupes d'intérêt, consultez la rubrique [Dernières nouvelles](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
 
-## <a name="using-tags-to-target-users"></a>Using tags to target users
-Another way to use tags is to identify all the devices of a particular user. Registrations can be tagged with a tag that contains a user id, as in the following picture:
+## <a name="using-tags-to-target-users"></a>Utilisation de balises pour cibler des utilisateurs
+Une autre façon d'utiliser des balises consiste à identifier tous les appareils d'un utilisateur particulier. Les inscriptions peuvent être étiquetées avec une balise contenant un ID utilisateur, comme dans l'illustration suivante :
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags3.png)
 
-In this picture, the message tagged uid:Alice reaches all registrations tagged uid:Alice; hence, all of Alice’s devices.
+Dans cette illustration, le message étiqueté uid:Alice atteint toutes les inscriptions marquées uid:Alice et, par conséquent, tous les appareils d'Alice.
 
-## <a name="tag-expressions"></a>Tag expressions
-There are cases in which a notification has to target a set of registrations that is identified not by a single tag, but by a Boolean expression on tags.
+## <a name="tag-expressions"></a>Expressions de balise
+Dans certains cas, une notification doit cibler un jeu d'inscriptions identifié non pas par une balise unique, mais par une expression booléenne sur des balises.
 
-Consider a sports application that sends a reminder to everyone in Boston about a game between the Red Sox and Cardinals. If the client app registers tags about interest in teams and location, then the notification should be targeted to everyone in Boston who is interested in either the Red Sox or the Cardinals. This condition can be expressed with the following Boolean expression:
+Examinons une application de sports qui envoie un rappel à tous les abonnés habitant Boston qu’un match opposera les Red Sox aux Cardinals. Si l'application cliente inscrit des balises spécifiques à ces équipes et à ce lieu, la notification doit être ciblée pour tous les abonnés de Boston qui s’intéressent aux Red Sox ou aux Cardinals. Cette condition peut être exprimée avec l'expression booléenne suivante :
 
     (follows_RedSox || follows_Cardinals) && location_Boston
 
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags4.png)
 
-Tag expressions can contain all Boolean operators, such as AND (&&), OR (||), and NOT (!). They can also contain parentheses. Tag expressions are limited to 20 tags if they contain only ORs; otherwise they are limited to 6 tags.
+Les expressions de balise peuvent contenir tous les opérateurs booléens, notamment AND (&&), OR (||) et NOT (!). Elles peuvent également contenir des parenthèses. Les expressions de balise sont limitées à 20 balises si elles contiennent uniquement des opérateurs OR ; sinon, elles sont limitées à 6 balises.
 
-Here's an example for sending notifications with tag expressions using the SDK.
+Voici un exemple d’envoi de notifications effectué avec des expressions de balise et le Kit de développement logiciel (SDK).
 
     Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
 
-    String userTag = "(location_Boston && !follows_Cardinals)"; 
+    String userTag = "(location_Boston && !follows_Cardinals)";    
 
     // Windows 8.1 / Windows Phone 8.1
     var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
@@ -101,6 +105,6 @@ Here's an example for sending notifications with tag expressions using the SDK.
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

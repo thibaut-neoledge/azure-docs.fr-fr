@@ -101,7 +101,7 @@ Si vous voulez mettre à jour votre profil d’éditeur, vous pouvez le faire pa
 4. Ajoutez l'adresse e-mail du coadministrateur que vous voulez ajouter ou supprimer.
 5. Sélectionnez **Enregistrer**.
 
-## <a name="next-steps-other-support-queries"></a>Étapes suivantes : autres demandes de support
+## <a name="next-steps--other-support-queries"></a>Étapes suivantes : autres demandes de support
 Pour les problèmes suivants, envoyez une demande de support sur le site [https://portal.azure.com](https://portal.azure.com):
 
 * Comment signaler une erreur de facturation ?

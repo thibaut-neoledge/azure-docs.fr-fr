@@ -3,8 +3,8 @@ title: "Utilisation du stockage d’objets blob à partir de Ruby | Microsoft Do
 description: "Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets)."
 services: storage
 documentationcenter: ruby
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: e2fe4c45-27b0-4d15-b3fb-e7eb574db717
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: b6eb8c68402a18a66f9d227a1a835bcee81f73cc
-ms.openlocfilehash: 78d07dbcd11692fc29518a29c64507940971bc6a
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: cc42e6629c256d1fe6e5b082c88ebb2497484318
 
 
 ---
@@ -51,7 +51,7 @@ Pour utiliser Azure Storage, vous devez télécharger et utiliser le package Azu
 require "azure"
 ```
 
-## <a name="setup-an-azure-storage-connection"></a>Configuration d'une connexion Azure Storage
+## <a name="set-up-an-azure-storage-connection"></a>Configuration d’une connexion Stockage Azure
 Le module Azure lit les variables d’environnement **AZURE\_STORAGE\_ACCOUNT** et **AZURE\_STORAGE\_ACCESS_KEY** pour obtenir les informations nécessaires à la connexion à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte avant d'utiliser **Azure::Blob::BlobService** avec le code suivant :
 
 ```ruby
@@ -64,15 +64,15 @@ Pour obtenir ces valeurs à partir d’un compte de stockage classique ou Resour
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez au compte de stockage que vous souhaitez utiliser.
 3. Dans le panneau Paramètres à droite, cliquez sur **Clés d’accès**.
-4. Dans le panneau Clés d’accès qui apparaît, la clé d’accès 1 et la clé d’accès 2 sont affichées. Vous pouvez utiliser les deux. 
-5. Cliquez sur l'icône de copie pour copier la clé dans le Presse-papiers. 
+4. Dans le panneau Clés d’accès qui apparaît, la clé d’accès 1 et la clé d’accès 2 sont affichées. Vous pouvez utiliser les deux.
+5. Cliquez sur l'icône de copie pour copier la clé dans le Presse-papiers.
 
 Pour obtenir ces valeurs à partir d’un compte de stockage classique sur le portail Azure Classic :
 
 1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2. Accédez au compte de stockage que vous souhaitez utiliser.
 3. Cliquez sur **GÉRER LES CLÉS D’ACCÈS** en bas du volet de navigation.
-4. Dans la boîte de dialogue contextuelle, vous voyez le nom du compte de stockage et la clé d'accès primaire ou secondaire. Vous pouvez utiliser soit la clé d'accès primaire, soit la clé d'accès secondaire. 
+4. Dans la boîte de dialogue contextuelle, vous voyez le nom du compte de stockage et la clé d’accès primaire ou secondaire. Vous pouvez utiliser soit la clé d'accès primaire, soit la clé d'accès secondaire.
 5. Cliquez sur l'icône de copie pour copier la clé dans le Presse-papiers.
 
 ## <a name="create-a-container"></a>Créer un conteneur
@@ -80,7 +80,7 @@ Pour obtenir ces valeurs à partir d’un compte de stockage classique sur le po
 
 L'objet **Azure::Blob::BlobService** permet d'utiliser des conteneurs et des objets blob. Pour créer un conteneur, utilisez la méthode **create\_container()**.
 
-L’exemple de code suivant crée un conteneur ou imprime l'erreur le cas échéant.
+L’exemple de code suivant crée un conteneur ou imprime l’erreur le cas échéant.
 
 ```ruby
 azure_blob_service = Azure::Blob::BlobService.new
@@ -168,6 +168,6 @@ Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

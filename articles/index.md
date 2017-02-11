@@ -4,8 +4,8 @@ hide_bc: true
 title: Documentation Microsoft Azure | Microsoft Docs
 description: "Découvrez comment créer et gérer des applications performantes à l’aide des services cloud Microsoft Azure. Accédez à la documentation associée, à des exemples de code, à des didacticiels et bien plus encore."
 translationtype: Human Translation
-ms.sourcegitcommit: b6c08febd8c95c1aa6a2af4563ed4fdee8ee022f
-ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
+ms.sourcegitcommit: 87041c127fb3381480b162c3a3648bfd46dbaaf7
+ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
 
 ---
 <div id="main" class="v2">
@@ -264,12 +264,12 @@ ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
                                                 <p>CDN</p>
                                             </a>
                                         </li>
-                                        <!-- <li>
+                                        <li>
                                         <a href="/azure/traffic-manager/">
                                                 <img src="media/index/TrafficManager.svg" alt="" />
                                                 <p>Traffic Manager</p>
                                             </a>
-                                        </li> -->
+                                        </li>
                                         <li>
                                             <a href="/azure/expressroute/">
                                                 <img src="media/index/ExpressRoute.svg" alt="" />
@@ -499,12 +499,6 @@ ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
                                                 <p>Scheduler</p>
                                             </a>
                                         </li>
-                                        <!-- <li>
-                                            <a href="/azure/traffic-manager/">
-                                                <img src="media/index/TrafficManager.svg" alt="" />
-                                                <p>Traffic Manager</p>
-                                            </a>
-                                        </li> -->
                                         <li>
                                             <a href="/azure/monitoring-and-diagnostics/">
                                                 <img src="media/index/AzureMonitoring.svg" alt="" />
@@ -637,6 +631,21 @@ ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
                                             <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data Factory</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Autres Clouds</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/azure-government/">
+                                                <img src="media/index/azure-government.svg" alt="" />
+                                                <p>Azure US Government</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-stack/">
+                                                <img src="media/index/azure-stack.svg" alt="" />
+                                                <p>Azure Stack</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -956,7 +965,7 @@ ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
                                     </div>
                                 </a>
                             </li>
-                            <!-- <li>
+                            <li>
                                 <a href="/azure/traffic-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -968,13 +977,13 @@ ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Traffic Manager</h3>
-                                                    <p>Route incoming traffic for high performance and availability</p>
+                                                    <p>Routez le trafic entrant assurant des performances et une disponibilité élevées</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li> -->
+                            </li>
                             <li>
                                 <a href="/azure/expressroute/">
                                     <div class="cardSize">
@@ -1628,7 +1637,7 @@ ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
                         <a href="#iot">Internet des objets</a>
                         <ul id="iot" class="cardsA">
                             <li>
-                                <a href="https://azure.microsoft.com/en-us/develop/iot/">
+                                <a href="https://azure.microsoft.com/develop/iot/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2042,7 +2051,7 @@ ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
                         <a href="#devtools">Outils de développement</a>
                         <ul id="devtools" class="cardsA">
                             <li>
-                                <a href="https://www.visualstudio.com/en-us/docs/overview">
+                                <a href="https://www.visualstudio.com/docs/overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2255,25 +2264,6 @@ ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
                                     </div>
                                 </a>
                             </li>
-                            <!-- <li>
-                                <a href="/azure/traffic-manager/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/TrafficManager.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Traffic Manager</h3>
-                                                    <p>Route incoming traffic for high performance and availability</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li> -->
                             <li>
                                 <a href="/azure/monitoring-and-diagnostics/">
                                     <div class="cardSize">
@@ -2351,7 +2341,50 @@ ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
                                 </a>
                             </li>
                         </ul>
-                    </li>                    
+                    </li>
+                    <li>
+                        <a href="#other">Autres Clouds</a>
+                        <ul id="other" class="cardsA">
+                            <li>
+                                <a href="/azure/azure-government/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-government.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Microsoft Azure US Government</h3>
+                                                    <p>Créer et héberger des applications pour les missions du gouvernement américain dans une instance dédiée d’Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-stack/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-stack.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Microsoft Azure Stack</h3>
+                                                    <p>Fournir des services Azure à partir de votre propre centre de données avec cette nouvelle plateforme de Cloud hybride</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -2716,7 +2749,7 @@ ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
                                                     <a href="http://storageexplorer.com/">Explorateur de stockage</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/">Prise en main</a>
+                                                    <a href="https://azure.microsoft.com/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/">Prise en main</a>
                                                 </p>
                                                 <p>
                                                      <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">Téléchargement pour Linux</a>
@@ -2876,6 +2909,6 @@ ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/06/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: f0112aafb4930e475b2cb8bf399110e480381b95
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: a094f6dccd93712c2effef60fdac0cea1a68bcb1
 
 
 ---
@@ -28,24 +28,24 @@ Il vous faudra environ 20 minutes pour effectuer les étapes décrites dans cet 
 
 > [!IMPORTANT]
 > Si vous souhaitez que votre machine virtuelle fasse partie d’un groupe à haute disponibilité, ajoutez-la au groupe lors de sa création. Il n’existe actuellement aucun moyen d’ajouter une machine virtuelle dans un groupe à haute disponibilité, une fois celle-ci créée.
-> 
-> 
+>
+>
 
 ## <a name="step-1-create-the-template-file"></a>Étape 1 : création du fichier de modèle
-Vous pouvez créer votre propre modèle à l’aide des informations figurant dans [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md). Vous pouvez également déployer des modèles qui ont été créés pour vous à partir des [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/).
+Vous pouvez créer votre propre modèle à l’aide des informations figurant dans [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Vous pouvez également déployer des modèles qui ont été créés pour vous à partir des [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/).
 
 1. Ouvrez votre éditeur de texte et ajoutez l’élément de schéma requis ainsi que l’élément contentVersion requis :
 
-  ```json  
+  ```json
   {
     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
   }
   ```
 
-2. Les [paramètres](../resource-group-authoring-templates.md#parameters) ne sont pas toujours nécessaires, mais ils offrent un moyen d’entrer des valeurs lors du déploiement du modèle. Ajoutez l’élément parameters et ses éléments enfants après l’élément contentVersion :
+2. Les [paramètres](../azure-resource-manager/resource-group-authoring-templates.md#parameters) ne sont pas toujours nécessaires, mais ils offrent un moyen d’entrer des valeurs lors du déploiement du modèle. Ajoutez l’élément parameters et ses éléments enfants après l’élément contentVersion :
 
-  ```json   
+  ```json
   {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
@@ -56,9 +56,9 @@ Vous pouvez créer votre propre modèle à l’aide des informations figurant da
   }
   ```
 
-3. [variables](../resource-group-authoring-templates.md#variables) peuvent être utilisées dans un modèle pour spécifier des valeurs qui changent fréquemment ou qui doivent être créées à partir d’une combinaison de valeurs de paramètres. Ajoutez l’élément variables après la section parameters :
+3. [variables](../azure-resource-manager/resource-group-authoring-templates.md#variables) peuvent être utilisées dans un modèle pour spécifier des valeurs qui changent fréquemment ou qui doivent être créées à partir d’une combinaison de valeurs de paramètres. Ajoutez l’élément variables après la section parameters :
 
-  ```json   
+  ```json
   {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
@@ -68,12 +68,12 @@ Vous pouvez créer votre propre modèle à l’aide des informations figurant da
     },
     "variables": {
       "vnetID":"[resourceId('Microsoft.Network/virtualNetworks','myvn1')]",
-      "subnetRef": "[concat(variables('vnetID'),'/subnets/mysn1')]"  
+      "subnetRef": "[concat(variables('vnetID'),'/subnets/mysn1')]"
     },
   }
   ```
 
-4. [ressources](../resource-group-authoring-templates.md#resources) telles que la machine virtuelle, le réseau virtuel et le compte de stockage sont ensuite définis dans le modèle. Ajoutez la section resources après la section variables :
+4. [ressources](../azure-resource-manager/resource-group-authoring-templates.md#resources) telles que la machine virtuelle, le réseau virtuel et le compte de stockage sont ensuite définis dans le modèle. Ajoutez la section resources après la section variables :
 
   ```json
   {
@@ -181,9 +181,9 @@ Vous pouvez créer votre propre modèle à l’aide des informations figurant da
       } ]
     }
   ```
-    
+
   > [!NOTE]
-  > Cet article crée une machine virtuelle exécutant une version du système d’exploitation Windows Server. Pour en savoir plus sur la sélection d’autres images, consultez [Parcourir et sélectionner des images de machine virtuelle Azure avec Windows PowerShell et l’interface CLI Azure](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
+  > Cet article crée une machine virtuelle exécutant une version du système d’exploitation Windows Server. Pour en savoir plus sur la sélection d’autres images, consultez [Parcourir et sélectionner des images de machine virtuelle Azure avec Windows PowerShell et l’interface CLI Azure](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 5. Enregistrez le fichier de modèle sous le nom *VirtualMachineTemplate.json*.
 
@@ -192,7 +192,7 @@ Pour spécifier des valeurs pour les paramètres de ressource qui ont été déf
 
 1. Dans l’éditeur de texte, copiez ce contenu JSON dans un nouveau fichier appelé *Parameters.json* :
 
-  ```json 
+  ```json
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
           "contentVersion": "1.0.0.0",
@@ -202,37 +202,37 @@ Pour spécifier des valeurs pour les paramètres de ressource qui ont été déf
           }
         }
   ```
-   
+
    > [!NOTE]
    > En savoir plus sur les [conditions requises pour les noms d’utilisateur et les mots de passe](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
-   > 
-   > 
+   >
+   >
 2. Enregistrez le fichier de paramètres.
 
 ## <a name="step-3-install-azure-powershell"></a>Étape 3 : installation d’Azure PowerShell
-Pour plus d’informations sur l’installation de la version la plus récente d’Azure PowerShell, la sélection de votre abonnement et la connexion à votre compte, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+Pour plus d’informations sur l’installation de la version la plus récente d’Azure PowerShell, la sélection de votre abonnement et la connexion à votre compte, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="step-4-create-a-resource-group"></a>Étape 4 : création d’un groupe de ressources
 Toutes les ressources doivent être déployées dans un [groupe de ressources](../azure-resource-manager/resource-group-overview.md).
 
 1. Obtenez la liste des emplacements disponibles où créer des ressources.
-   
-  ```powershell   
+
+  ```powershell
   Get-AzureRmLocation | sort DisplayName | Select DisplayName
   ```
 2. Remplacez la valeur de **$locName** par un emplacement de la liste, par exemple **États-Unis du Centre**. Créez la variable.
 
-  ```powershell   
+  ```powershell
   $locName = "location name"
   ```
 
 3. Remplacez la valeur de **$rgName** par le nom du nouveau groupe de ressources. Créez la variable et le groupe de ressources.
 
-  ```powershell   
+  ```powershell
   $rgName = "resource group name"
   New-AzureRmResourceGroup -Name $rgName -Location $locName
   ```
-   
+
   Un résultat comme l’exemple suivant devrait s’afficher :
 
   ```powershell
@@ -244,7 +244,7 @@ Toutes les ressources doivent être déployées dans un [groupe de ressources](.
   ```
 
 ## <a name="step-5-create-the-resources-with-the-template-and-parameters"></a>Étape 5 : création des ressources avec le modèle et les paramètres
-Remplacez la valeur de **$templateFile** par le chemin d’accès et le nom du fichier de modèle. Remplacez la valeur de **$parameterFile** par le chemin d’accès et le nom du fichier de paramètres. Créez les variables, puis déployez le modèle. 
+Remplacez la valeur de **$templateFile** par le chemin d’accès et le nom du fichier de modèle. Remplacez la valeur de **$parameterFile** par le chemin d’accès et le nom du fichier de paramètres. Créez les variables, puis déployez le modèle.
 
 ```powershell
 $templateFile = "template file"
@@ -273,8 +273,8 @@ Outputs           :
 
 > [!NOTE]
 > Vous pouvez également déployer des modèles et des paramètres à partir d'un compte de stockage Azure. Pour en savoir plus, consultez la rubrique [Utilisation d’Azure PowerShell avec Azure Storage](../storage/storage-powershell-guide-full.md).
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Si vous rencontrez des problèmes de déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources avec le portail Azure](../resource-manager-troubleshoot-deployments-portal.md).
@@ -283,6 +283,6 @@ Outputs           :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

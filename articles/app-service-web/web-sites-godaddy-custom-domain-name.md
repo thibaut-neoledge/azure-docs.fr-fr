@@ -1,12 +1,12 @@
 ---
-title: Configurer un nom de domaine personnalisé dans Azure App Service (GoDaddy)
-description: Apprenez à utiliser un nom de domaine à partir de GoDaddy avec Azure Web Apps
+title: "Configurer un nom de domaine personnalisé dans Azure App Service (GoDaddy)"
+description: "Apprenez à utiliser un nom de domaine à partir de GoDaddy avec Azure Web Apps"
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: erikre
 manager: wpickett
 editor: jimbe
-
+ms.assetid: 33233e30-5846-488f-83f3-b32e5c114564
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dc3ee1f4d3205b40397d5f82959a78316def5f45
+
 
 ---
-# <a name="configure-a-custom-domain-name-in-azure-app-service-(purchased-directly-from-godaddy)"></a>Configurer un nom de domaine personnalisé dans Azure App Service (acheté directement sur GoDaddy)
+# <a name="configure-a-custom-domain-name-in-azure-app-service-purchased-directly-from-godaddy"></a>Configurer un nom de domaine personnalisé dans Azure App Service (acheté directement sur GoDaddy)
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 [!INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
 
-Si vous avez acheté un domaine via Azure App Service Web Apps, reportez-vous à l’étape finale de l’article [Acheter un domaine pour Web Apps](custom-dns-web-site-buydomains-web-app.md).
+Si vous avez acheté un domaine via Azure App Service Web Apps, reportez-vous à l’étape finale de l’article [Acheter un domaine pour Web Apps](custom-dns-web-site-buydomains-web-app.md).
 
 Cet article explique comment utiliser un nom de domaine personnalisé acheté directement auprès de [GoDaddy](https://godaddy.com) avec [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
@@ -35,7 +39,7 @@ Cet article explique comment utiliser un nom de domaine personnalisé acheté di
 <a name="bkmk_configurecname"></a>
 
 ## <a name="add-a-dns-record-for-your-custom-domain"></a>Ajout d'un enregistrement DNS pour votre domaine personnalisé
-Pour associer votre domaine personnalisé à une application web dans App Service, vous devez ajouter une nouvelle entrée pour ce domaine dans la table DNS en utilisant les outils fournis par GoDaddy. Pour trouver les outils DNS pour GoDaddy.com, procédez comme suit.
+Pour associer votre domaine personnalisé à une application web dans App Service, vous devez ajouter une nouvelle entrée pour ce domaine dans la table DNS en utilisant les outils fournis par GoDaddy. Pour trouver les outils DNS pour GoDaddy.com, procédez comme suit.
 
 1. Connectez-vous à votre compte GoDaddy.com et sélectionnez **My Account**, puis **Manage my domains**. Enfin dans le menu déroulant, sélectionnez le nom de domaine à utiliser avec votre application web Azure, puis sélectionnez **Manage DNS**.
    
@@ -77,13 +81,16 @@ Pour associer votre domaine personnalisé à une application web dans App Servic
 [!INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
 
-## <a name="what's-changed"></a>Changements apportés
+## <a name="whats-changed"></a>Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

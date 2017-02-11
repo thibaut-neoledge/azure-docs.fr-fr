@@ -110,7 +110,7 @@ Une fois ces étapes terminées, il vous suffit de remplacer les anciennes réf�
         </engagement:EngagementPage>
 4. Notez que les autres ressources, comme les images Capptain, ont aussi été renommées afin d'utiliser « Engagement ».
 
-### <a name="application-id-sdk-key"></a>ID de l'application / clé SDK
+### <a name="application-id--sdk-key"></a>ID de l'application / clé SDK
 Engagement utilise une chaîne de connexion. Il est inutile de spécifier un ID d'application et une clé SDK avec Mobile Engagement. Il suffit de spécifier une chaîne de connexion. Vous pouvez la configurer dans votre fichier EngagementConfiguration.
 
 La configuration d'Engagement peut être définie dans le fichier `Resources\EngagementConfiguration.xml` de votre projet.

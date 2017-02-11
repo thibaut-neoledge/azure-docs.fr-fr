@@ -24,7 +24,9 @@
 ### Se connecter par programme
 #### [.NET](media-services-dotnet-connect-programmatically.md)
 #### [REST](media-services-rest-connect-programmatically.md)
-### [Gérer les points de terminaison de streaming dans le portail](media-services-portal-manage-streaming-endpoints.md)
+### [Gérer les points de terminaison de streaming](media-services-streaming-endpoints-overview.md)
+#### [Portail](media-services-portal-manage-streaming-endpoints.md)
+#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### [Guide pratique pour mettre à jour Media Services après la substitution de clés d’accès de stockage](media-services-roll-storage-access-keys.md)
 ### [Quotas et limitations](media-services-quotas-and-limitations.md)
 
@@ -92,6 +94,9 @@
 
 ## [Diffuser en direct](media-services-manage-channels-overview.md)
 ### [Encodeurs locaux](media-services-live-streaming-with-onprem-encoders.md)
+#### [Portail](media-services-portal-live-passthrough-get-started.md)
+#### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Streaming en direct à l’aide d’un encodeur cloud](media-services-manage-live-encoder-enabled-channels.md)
 ### Didacticiels sur les encodeurs cloud
 #### [Portail](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -207,6 +212,6 @@
 ## [Vidéos](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

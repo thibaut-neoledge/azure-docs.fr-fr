@@ -4,9 +4,9 @@
 > 
 > 
 
-Cette procédure pas à pas de [l’exemple de chargement d’un appareil simulé sur le cloud] montre comment utiliser le [Kit SDK de passerelle Microsoft Azure IoT][lnk-sdk] pour envoyer la télémétrie appareil-vers-cloud à IoT Hub à partir d’appareils simulés.
+Cette procédure pas à pas de [l’exemple de chargement d’un appareil simulé sur le cloud] montre comment utiliser le [Kit SDK de passerelle Azure IoT][lnk-sdk] pour envoyer la télémétrie appareil-vers-cloud à IoT Hub à partir d’appareils simulés.
 
-Cette procédure pas à pas inclut les étapes suivantes :
+Cette procédure pas à pas inclut les étapes suivantes :
 
 1. **Architecture**: informations architecturales importantes concernant l'exemple de chargement d’un appareil simulé sur le cloud.
 2. **Créer et exécuter**: les étapes requises pour créer et exécuter l'exemple.
@@ -27,7 +27,7 @@ Le diagramme suivant montre les principaux composants de l'exemple, notamment le
 ![][1]
 
 > [!NOTE]
-> Les modules ne s’échangent pas directement les messages. Les modules publient des messages vers un répartiteur interne qui remet les messages aux autres modules à l’aide d’un mécanisme d’abonnement comme indiqué dans le diagramme ci-dessous. Pour plus d’informations, consultez la rubrique [Prise en main du Kit de développement logiciel (SDK) de passerelle][lnk-gw-getstarted].
+> Les modules ne s’échangent pas directement les messages. Les modules publient des messages vers un répartiteur interne qui remet les messages aux autres modules à l’aide d’un mécanisme d’abonnement comme indiqué dans le diagramme ci-dessous. Pour plus d’informations, consultez la rubrique [Prise en main du Kit de développement logiciel (SDK) de passerelle IoT][lnk-gw-getstarted].
 > 
 > 
 
@@ -46,7 +46,7 @@ Ce module est le point de départ pour transférer des données depuis des péri
 > 
 > 
 
-### <a name="mac-ltgt-iot-hub-id-module"></a>MAC &lt;-&gt; IoT Hub ID module
+### <a name="mac-lt-gt-iot-hub-id-module"></a>MAC &lt;-&gt; IoT Hub ID module
 Ce module recherche les messages qui incluent une propriété contenant l'adresse MAC, ajoutée par le module d'ingestion de protocole, de l’appareil simulé. Si le module détecte une telle propriété, il ajoute une autre propriété avec une clé d’appareil IoT Hub au message, puis rend le message disponible au module suivant dans la chaîne. Voici comment l'exemple associe les identités des appareils IoT Hub aux appareils simulés. Le développeur configure manuellement le mappage entre les adresses MAC et les identités IoT Hub dans le cadre de la configuration du module. 
 
 > [!NOTE]
@@ -55,7 +55,7 @@ Ce module recherche les messages qui incluent une propriété contenant l'adress
 > 
 
 ### <a name="iot-hub-communication-module"></a>Module de communication IoT Hub
-Ce module reçoit les messages dont l’identité d’appareil IoT Hub est attribuée par le module précédent puis envoie le contenu du message vers IoT Hub à l'aide du protocole HTTPS. HTTPS est un des trois protocoles compris par IoT Hub.
+Ce module reçoit les messages dont l’identité d’appareil IoT Hub est attribuée par le module précédent puis envoie le contenu du message vers IoT Hub à l'aide du protocole HTTP. HTTP est un des trois protocoles compris par IoT Hub.
 
 Au lieu d'ouvrir une connexion vers IoT Hub pour chaque appareil simulé, ce module ouvre une connexion HTTP à partir de la passerelle vers IoT Hub et multiplexe des connexions à partir de tous les appareils simulés sur cette connexion. Cela permet à une passerelle unique de connecter de nombreux autres appareils, simulés ou non, comme si une connexion unique était ouverte pour chaque appareil.
 
@@ -66,10 +66,10 @@ Au lieu d'ouvrir une connexion vers IoT Hub pour chaque appareil simulé, ce mod
 [2]: media/iot-hub-gateway-sdk-simulated-selector/image2.png
 
 <!-- Links -->
-[Exemple de chargement d’un appareil simulé sur le cloud]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/sample_simulated_device_cloud_upload.md
+[l’exemple de chargement d’un appareil simulé sur le cloud]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/sample_simulated_device_cloud_upload.md
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

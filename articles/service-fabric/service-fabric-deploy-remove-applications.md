@@ -1,31 +1,35 @@
 ---
-title: Déploiement d’applications Service Fabric | Microsoft Docs
-description: Comment déployer et supprimer des applications dans Service Fabric
+title: "Déploiement d’applications Service Fabric | Microsoft Docs"
+description: "Comment déployer et supprimer des applications dans Service Fabric"
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/25/2016
+ms.date: 11/14/2016
 ms.author: ryanwi
+translationtype: Human Translation
+ms.sourcegitcommit: 4dea75987df0cf05126564d2c7e20d59b842dc1c
+ms.openlocfilehash: a9aa385d8c18600c50797a76e5a67754c695fdf8
+
 
 ---
-# Déployer et supprimer des applications avec PowerShell
+# <a name="deploy-and-remove-applications-using-powershell"></a>Déployer et supprimer des applications avec PowerShell
 > [!div class="op_single_selector"]
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
-> * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+> * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 > 
 > 
 
 <br/>
 
-Une fois qu’un [type d’application a été packagé][10], il est prêt à être déployé dans un cluster Azure Service Fabric. Le déploiement implique les trois étapes suivantes :
+Une fois qu’un [type d’application a été packagé][10], il est prêt à être déployé dans un cluster Azure Service Fabric. Le déploiement implique les trois étapes suivantes :
 
 1. Télécharger le package d'application
 2. Enregistrer le type d’application
@@ -36,16 +40,16 @@ Une fois qu’un [type d’application a été packagé][10], il est prêt à ê
 > 
 > 
 
-## Télécharger le package d'application
-Quand vous chargez le package d’application, celui-ci est placé dans un dossier accessible aux composants internes de Service Fabric. Vous pouvez utiliser PowerShell pour effectuer le chargement. Avant d’exécuter des commandes PowerShell dans le cadre de cet article, commencez toujours par vous connecter au cluster Service Fabric à l’aide de la commande [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
+## <a name="upload-the-application-package"></a>Télécharger le package d'application
+Quand vous chargez le package d’application, celui-ci est placé dans un dossier accessible aux composants internes de Service Fabric. Vous pouvez utiliser PowerShell pour effectuer le chargement. Avant d’exécuter des commandes PowerShell dans le cadre de cet article, commencez toujours par vous connecter au cluster Service Fabric à l’aide de la commande [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/servicefabric/vlatest/connect-servicefabriccluster).
 
-Supposons que vous ayez un dossier nommé *MonTypeApplication* qui contienne le manifeste de l’application, les manifestes de service et les packages de code/configuration/données. La commande [Copy-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/mt125905.aspx) charge le package dans le magasin d’images du cluster. L’applet de commande **Get-ImageStoreConnectionStringFromClusterManifest**, qui fait partie du module PowerShell du SDK de Service Fabric, sert à obtenir la chaîne de connexion au magasin d’images. Pour importer le module du Kit de développement logiciel (SDK), exécutez :
+Supposons que vous ayez un dossier nommé *MonTypeApplication* qui contienne le manifeste de l’application, les manifestes de service et les packages de code/configuration/données. La commande [Copy-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) charge le package dans le magasin d’images du cluster. L’applet de commande **Get-ImageStoreConnectionStringFromClusterManifest** , qui fait partie du module PowerShell du SDK de Service Fabric, sert à obtenir la chaîne de connexion au magasin d’images.  Pour importer le module du Kit de développement logiciel (SDK), exécutez :
 
 ```
 Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
 ```
 
-Vous pouvez copier un package d’application de *C:\\users\\ryanwi\\Documents\\Visual Studio 2015\\Projects\\MyApplication\\myapplication\\pkg\\debug* vers *C:\\temp\\MyApplicationType* (renommez « MyApplicationType » le répertoire « debug »). L’exemple suivant charge le package :
+Vous pouvez copier un package d’application de *C:\users\ryanwi\Documents\Visual Studio 2015\Projects\MyApplication\myapplication\pkg\debug* vers *c:\temp\MyApplicationType* (renommez « MyApplicationType » le répertoire « debug »). L’exemple suivant charge le package :
 
 ~~~
 PS C:\temp> dir
@@ -78,7 +82,7 @@ C:\TEMP\MyApplicationType
     │   │  System.Fabric.dll
     │   │  System.Fabric.Strings.dll
     │   │
-    │   └───fr-FR
+    │   └───en-us
     |         Microsoft.ServiceFabric.Internal.Strings.resources.dll
     |         System.Fabric.Strings.resources.dll
     |
@@ -94,8 +98,8 @@ Copy application package succeeded
 PS D:\temp>
 ~~~
 
-## Enregistrer le package d'application
-L’enregistrement du package d’application a pour effet de rendre disponibles le type et la version de l’application déclarés dans le manifeste d’application. Le système lit le package téléchargé à l’étape précédente, vérifie le package (équivaut à exécuter [Test-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/mt125950.aspx) localement), traite le contenu du package et copie le package traité dans un emplacement système interne.
+## <a name="register-the-application-package"></a>Enregistrer le package d'application
+L’enregistrement du package d’application a pour effet de rendre disponibles le type et la version de l’application déclarés dans le manifeste d’application. Le système lit le package téléchargé à l’étape précédente, vérifie le package (équivaut à exécuter [Test-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) localement), traite le contenu du package et copie le package traité dans un emplacement système interne.
 
 ~~~
 PS D:\temp> Register-ServiceFabricApplicationType MyApplicationType
@@ -110,12 +114,12 @@ DefaultParameters      : {}
 PS D:\temp>
 ~~~
 
-La commande [Register-ServiceFabricApplicationType](https://msdn.microsoft.com/library/mt125958.aspx) ne retourne un résultat que lorsque le package d’application a été correctement copié par le système. La durée de l'opération dépend du contenu du package d'application. Si nécessaire, le paramètre **-TimeoutSec** peut être utilisé pour fournir un délai d’attente plus long. (le délai d’attente par défaut est de 60 secondes).
+La commande [Register-ServiceFabricApplicationType](https://docs.microsoft.com/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) ne retourne un résultat que lorsque le package d’application a été correctement copié par le système. La durée de l'opération dépend du contenu du package d'application. Si nécessaire, le paramètre **-TimeoutSec** peut être utilisé pour fournir un délai d’attente plus long. (le délai d’attente par défaut est de 60 secondes).
 
-La commande [Get-ServiceFabricApplicationType](https://msdn.microsoft.com/library/mt125871.aspx) répertorie toutes les versions de types d’applications correctement inscrites.
+La commande [Get-ServiceFabricApplicationType](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricapplicationtype) répertorie toutes les versions de types d’applications correctement inscrites.
 
-## Création de l'application
-Vous pouvez instancier une application à l’aide de n’importe quelle version de type d’application correctement inscrite via la commande [New-ServiceFabricApplication](https://msdn.microsoft.com/library/mt125913.aspx). Le nom de chaque application doit commencer par le schéma *fabric:* et être unique pour chaque instance d'application. Les éventuels services par défaut définis dans le manifeste d’application du type d’application cible sont créés lors de cette étape.
+## <a name="create-the-application"></a>Création de l'application
+Vous pouvez instancier une application à l’aide de n’importe quelle version de type d’application correctement inscrite via la commande [New-ServiceFabricApplication](https://docs.microsoft.com/powershell/servicefabric/vlatest/new-servicefabricapplication). Le nom de chaque application doit commencer par le schéma *fabric:* et être unique pour chaque instance d'application. Les éventuels services par défaut définis dans le manifeste d’application du type d’application cible sont créés lors de cette étape.
 
 ~~~
 PS D:\temp> New-ServiceFabricApplication fabric:/MyApp MyApplicationType AppManifestVersion1
@@ -147,14 +151,14 @@ HealthState            : Ok
 PS D:\temp>
 ~~~
 
-La commande [Get-ServiceFabricApplication](https://msdn.microsoft.com/library/mt163515.aspx) répertorie toutes les instances d’applications qui ont été correctement créées, ainsi que leur état global.
+La commande [Get-ServiceFabricApplication](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricapplication) répertorie toutes les instances d’applications qui ont été correctement créées, ainsi que leur état global.
 
-La commande [Get-ServiceFabricService](https://msdn.microsoft.com/library/mt125889.aspx) répertorie toutes les instances de service qui ont été correctement créées dans une instance d'application donnée. Les services par défaut (le cas échéant) sont répertoriés ici.
+La commande [Get-ServiceFabricService](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricservice) répertorie toutes les instances de service qui ont été correctement créées dans une instance d’application donnée. Les services par défaut (le cas échéant) sont répertoriés ici.
 
 Plusieurs instances d'application peuvent être créées pour une version donnée d'un type d'application enregistré. Chaque instance de l’application s’exécute en isolement, avec ses propres répertoire de travail et processus.
 
-## Supprimer une application
-Quand une instance d’application n’est plus utile, elle peut être définitivement supprimée à l’aide de la commande [Remove-ServiceFabricApplication](https://msdn.microsoft.com/library/mt125914.aspx). Cette commande supprime automatiquement tous les services qui appartiennent à l’application, et supprime définitivement tous les états de service. Cette opération ne peut pas être annulée et l’état de l’application ne peut pas être récupéré.
+## <a name="remove-an-application"></a>Supprimer une application
+Quand une instance d’application n’est plus utile, elle peut être définitivement supprimée à l’aide de la commande [Remove-ServiceFabricApplication](https://docs.microsoft.com/powershell/servicefabric/vlatest/remove-servicefabricapplication). Cette commande supprime automatiquement tous les services qui appartiennent à l’application, et supprime définitivement tous les états de service. Cette opération ne peut pas être annulée et l’état de l’application ne peut pas être récupéré.
 
 ~~~
 PS D:\temp> Remove-ServiceFabricApplication fabric:/MyApp
@@ -168,7 +172,7 @@ PS D:\temp> Get-ServiceFabricApplication
 PS D:\temp>
 ~~~
 
-Quand une version donnée d’un type d’application n’est plus utile, vous devez la désinscrire à l’aide de la commande [Unregister-ServiceFabricApplicationType](https://msdn.microsoft.com/library/mt125885.aspx). La désinscription des types inutilisés libère l’espace de stockage utilisé par le contenu du package d’application de ce type dans le magasin d’images. Vous pouvez désinscrire un type d’application s’il ne contient aucune instance d’application et s’il n’est référencé par aucune mise à niveau d’application en attente.
+Quand une version donnée d’un type d’application n’est plus utile, vous devez la désinscrire à l’aide de la commande [Unregister-ServiceFabricApplicationType](https://docs.microsoft.com/powershell/servicefabric/vlatest/unregister-servicefabricapplicationtype). La désinscription des types inutilisés libère l’espace de stockage utilisé par le contenu du package d’application de ce type dans le magasin d’images. Vous pouvez désinscrire un type d’application s’il ne contient aucune instance d’application et s’il n’est référencé par aucune mise à niveau d’application en attente.
 
 ~~~
 PS D:\temp> Get-ServiceFabricApplicationType
@@ -201,9 +205,9 @@ DefaultParameters      : {}
 PS D:\temp>
 ~~~
 
-## Résolution de problèmes
-### Copy-ServiceFabricApplicationPackage demande un ImageStoreConnectionString
-L'environnement du SDK Service Fabric doit déjà être configuré avec les valeurs par défaut correctes. Toutefois, si besoin, l’ImageStoreConnectionString de toutes les commandes doit correspondre à celui utilisé par le cluster Service Fabric. Il se trouve dans le manifeste de cluster récupéré à l’aide de la commande [Get-ServiceFabricClusterManifest](https://msdn.microsoft.com/library/mt126024.aspx) :
+## <a name="troubleshooting"></a>Résolution de problèmes
+### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage demande un ImageStoreConnectionString
+L'environnement du SDK Service Fabric doit déjà être configuré avec les valeurs par défaut correctes. Toutefois, si besoin, l’ImageStoreConnectionString de toutes les commandes doit correspondre à celui utilisé par le cluster Service Fabric. Il se trouve dans le manifeste de cluster récupéré à l’aide de la commande [Get-ServiceFabricClusterManifest](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest) :
 
 ~~~
 PS D:\temp> Copy-ServiceFabricApplicationPackage .\MyApplicationType
@@ -229,7 +233,7 @@ Copy application package succeeded
 PS D:\temp>
 ~~~
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
 
 [Présentation de l’intégrité de Service Fabric](service-fabric-health-introduction.md)
@@ -242,4 +246,8 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

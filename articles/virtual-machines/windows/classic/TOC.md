@@ -51,8 +51,6 @@
 ### [Gérer les extensions de machine virtuelle](../../virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Extension de script personnalisé pour les machines virtuelles](../../virtual-machines-windows-classic-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Injection de données personnalisées dans une machine virtuelle Azure](../../virtual-machines-windows-classic-inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-### [Sauvegarde automatisée pour SQL Server](../../virtual-machines-windows-classic-sql-automated-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-### [Mise à jour corrective automatisée pour SQL Server](../../virtual-machines-windows-classic-sql-automated-patching.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## Planification
 ### [À propos des images](../../virtual-machines-windows-classic-about-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
@@ -78,20 +76,7 @@
 ####[Remarques diverses concernant les images](../../virtual-machines-windows-classic-oracle-considerations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ####[Liste des images de machine virtuelle Oracle](../../virtual-machines-windows-classic-oracle-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [SAP](../../virtual-machines-windows-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-### [SQL Server](../../virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[Décisionnel SQL Server](../../virtual-machines-windows-classic-ps-sql-bi.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[Approvisionner une machine virtuelle SQL Server à l’aide d’Azure PowerShell (Classic)](../../virtual-machines-windows-classic-ps-sql-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[Configuration de groupes de disponibilité Always On dans Azure VM - Classic](../../virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[Configurer des groupes de disponibilité Always On dans une machine virtuelle Azure avec PowerShell](../../virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[Configurer un écouteur externe pour des groupes de disponibilité Always On dans Azure](../../virtual-machines-windows-classic-ps-sql-ext-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-####[Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure](../../virtual-machines-windows-classic-ps-sql-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-####[Configurer Azure Key Vault Integration (Intégration du coffre de clés Azure) pour SQL Server sur des machines virtuelles Azure (classiques)](../../virtual-machines-windows-classic-ps-sql-keyvault.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[Utiliser PowerShell pour créer une machine virtuelle Azure avec un serveur de rapports en mode natif](../../virtual-machines-windows-classic-ps-sql-report.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[Connexion à une machine virtuelle SQL Server dans Azure (déploiement classique)](../../virtual-machines-windows-classic-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[Étendre des groupes de disponibilité Always On locaux à Azure](../../virtual-machines-windows-classic-sql-onprem-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[Extension Agent SQL Server pour machines virtuelles SQL Server (Classic)](../../virtual-machines-windows-classic-sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[Utilisation du stockage Premium Azure avec SQL Server sur des machines virtuelles](../../virtual-machines-windows-classic-sql-server-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[Utilisation de ReportViewer sur un site web hébergé dans Azure](../../virtual-machines-windows-classic-sql-server-reportviewer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+### [SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 ### [Tomcat](../../virtual-machines-windows-classic-java-run-tomcat-app-server.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## Résolution des problèmes
@@ -119,6 +104,6 @@
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

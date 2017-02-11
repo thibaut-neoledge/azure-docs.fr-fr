@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Découvrez comment utiliser Azure StorSimple, une solution de stockage intégrée qui gère les tâches de stockage entre les appareils locaux et le stockage cloud Azure."
 translationtype: Human Translation
-ms.sourcegitcommit: 24d70182b209126a71c6a9846136d4d31ab3b7ce
-ms.openlocfilehash: 4eb0e15f1030b4b1e987edc4fc2fa64e302b5851
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c3523cfef54f6084326b913d548449f4a9b646a9
 
 ---
 #<a name="storsimple-documentation"></a>Documentation StorSimple
@@ -138,13 +138,7 @@ Découvrez comment utiliser Azure StorSimple, une solution de stockage intégré
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storsimple.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation StorSimple </div>
-    </a>
-</div>
+
 
 
 

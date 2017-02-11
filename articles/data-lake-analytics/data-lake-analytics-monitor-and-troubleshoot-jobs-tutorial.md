@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: e266bf691f91381e6eed8138acd5baef44d88b57
+ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
+ms.openlocfilehash: 1915201480f57c5f132e13bb5ce4283fbea975fe
 
 
 ---
@@ -59,7 +59,7 @@ Maintenant, vous allez créer un travail U-SQL avec un nom de fichier erroné.
             TO "/output/SearchLog-from-adls.csv"
         USING Outputters.Csv();
 
-    Le fichier source défini dans le script est **/Samples/Data/SearchLog.tsv1**, où il doit être **/Samples/Data/SearchLog.tsv**.
+    Le fichier source défini dans le script est **/Samples/Data/SearchLog.tsv1**, alors qu’il devrait s’agir de **/Samples/Data/SearchLog.tsv**.
 5. Cliquez sur **Soumettre le travail** en haut. Un nouveau volet Détails du travail s’ouvre. Dans la barre de titre, l’état du travail est affiché. L’achèvement prend quelques minutes. Vous pouvez cliquer sur **Actualiser** pour obtenir l’état le plus récent.
 6. Attendez que l’état du travail passe à **Échec**.  Si le travail est **Réussi**, c’est parce que vous n’avez pas supprimé le dossier /Samples. Consultez la section **Configuration requise** au début du didacticiel.
 
@@ -105,6 +105,6 @@ Dans la dernière section, vous avez envoyé un travail et ce dernier a échoué
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

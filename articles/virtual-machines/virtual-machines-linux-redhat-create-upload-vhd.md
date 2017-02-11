@@ -257,9 +257,9 @@ Cette section repose sur l’hypothèse que vous avez déjà installé une image
     Assurez-vous que la taille de l’image RAW est alignée sur 1 Mo. Dans le cas contraire, arrondissez la taille pour l’aligner sur 1 Mo :
 
     # <a name="mb10241024"></a>MB=$((1024*1024))
-    # <a name="sizeqemu-img-info--f-raw---output-json-rhel-67raw-"></a>size=$(qemu-img info -f raw --output json "rhel-6.7.raw" | \
+    # <a name="sizeqemu-img-info--f-raw---output-json-rhel-67raw--"></a>size=$(qemu-img info -f raw --output json "rhel-6.7.raw" | \
                gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-    # <a name="roundedsizesizemb-1mb"></a>rounded_size=$((($size/$MB + 1)*$MB))
+    # <a name="roundedsizesizemb--1mb"></a>rounded_size=$((($size/$MB + 1)*$MB))
     # <a name="qemu-img-resize-rhel-67raw-roundedsize"></a>qemu-img resize rhel-6.7.raw $rounded_size
     Convertissez le disque brut en VHD à taille fixe :
 
@@ -357,9 +357,9 @@ Cette section repose sur l’hypothèse que vous avez déjà installé une image
     Assurez-vous que la taille de l’image RAW est alignée sur 1 Mo. Dans le cas contraire, arrondissez la taille pour l’aligner sur 1 Mo :
 
     # <a name="mb10241024"></a>MB=$((1024*1024))
-    # <a name="sizeqemu-img-info--f-raw---output-json-rhel-71raw-"></a>size=$(qemu-img info -f raw --output json "rhel-7.1.raw" | \
+    # <a name="sizeqemu-img-info--f-raw---output-json-rhel-71raw--"></a>size=$(qemu-img info -f raw --output json "rhel-7.1.raw" | \
                gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-    # <a name="roundedsizesizemb-1mb"></a>rounded_size=$((($size/$MB + 1)*$MB))
+    # <a name="roundedsizesizemb--1mb"></a>rounded_size=$((($size/$MB + 1)*$MB))
     # <a name="qemu-img-resize-rhel-71raw-roundedsize"></a>qemu-img resize rhel-7.1.raw $rounded_size
     Convertissez le disque brut en VHD à taille fixe :
 
@@ -446,9 +446,9 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
     Assurez-vous que la taille de l’image RAW est alignée sur 1 Mo. Dans le cas contraire, arrondissez la taille pour l’aligner sur 1 Mo :
 
     # <a name="mb10241024"></a>MB=$((1024*1024))
-    # <a name="sizeqemu-img-info--f-raw---output-json-rhel-67raw-"></a>size=$(qemu-img info -f raw --output json "rhel-6.7.raw" | \
+    # <a name="sizeqemu-img-info--f-raw---output-json-rhel-67raw--"></a>size=$(qemu-img info -f raw --output json "rhel-6.7.raw" | \
              gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-    # <a name="roundedsizesizemb-1mb"></a>rounded_size=$((($size/$MB + 1)*$MB))
+    # <a name="roundedsizesizemb--1mb"></a>rounded_size=$((($size/$MB + 1)*$MB))
     # <a name="qemu-img-resize-rhel-67raw-roundedsize"></a>qemu-img resize rhel-6.7.raw $rounded_size
     Convertissez le disque brut en VHD à taille fixe :
 
@@ -518,9 +518,9 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
     Assurez-vous que la taille de l’image RAW est alignée sur 1 Mo. Dans le cas contraire, arrondissez la taille pour l’aligner sur 1 Mo :
 
     # <a name="mb10241024"></a>MB=$((1024*1024))
-    # <a name="sizeqemu-img-info--f-raw---output-json-rhel-71raw-"></a>size=$(qemu-img info -f raw --output json "rhel-7.1.raw" | \
+    # <a name="sizeqemu-img-info--f-raw---output-json-rhel-71raw--"></a>size=$(qemu-img info -f raw --output json "rhel-7.1.raw" | \
               gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-    # <a name="roundedsizesizemb-1mb"></a>rounded_size=$((($size/$MB + 1)*$MB))
+    # <a name="roundedsizesizemb--1mb"></a>rounded_size=$((($size/$MB + 1)*$MB))
     # <a name="qemu-img-resize-rhel-71raw-roundedsize"></a>qemu-img resize rhel-7.1.raw $rounded_size
     Convertissez le disque brut en VHD à taille fixe :
 

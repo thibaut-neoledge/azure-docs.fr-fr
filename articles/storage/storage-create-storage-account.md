@@ -4,7 +4,7 @@ description: "Créez un compte de stockage, gérez vos clés d’accès au compt
 services: storage
 documentationcenter: 
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 87c37da0-6cc6-4d88-a330-ef2896a1531d
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d5b24b28f82c53b880e025dc43169aaad49e8434
+ms.sourcegitcommit: a762a0e4753b73b11b2c903fa97c67176199b8d9
+ms.openlocfilehash: 5a1845ac32d2e7454a94d6678521b5e74561933a
 
 
 ---
@@ -59,7 +59,7 @@ Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec vo
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le menu Hub, sélectionnez **Nouveau** -> **Données et stockage** -> **Compte de stockage**.
+2. Dans le menu Hub, sélectionnez **Nouveau** -> **Stockage** -> **Compte de stockage**.
 3. Entrez un nom pour votre compte de stockage. Pour plus d’informations sur l’utilisation du nom de compte de stockage pour adresser les objets que vous stockez dans Azure Storage, consultez [Points de terminaison d’un compte de stockage](#storage-account-endpoints) .
    
    > [!NOTE]
@@ -68,7 +68,7 @@ Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec vo
    > Le nom de votre compte de stockage doit être unique dans Azure. Le portail Azure indique si le nom du compte de stockage sélectionné est déjà utilisé.
    > 
    > 
-4. Sélectionnez le modèle de déploiement à utiliser : **Resource Manager** ou **Classique**. **Resource Manager** est le modèle de déploiement recommandé. Pour plus d’informations, consultez [Présentation du déploiement de Resource Manager et du déploiement classique](../resource-manager-deployment-model.md).
+4. Sélectionnez le modèle de déploiement à utiliser : **Resource Manager** ou **Classique**. **Resource Manager** est le modèle de déploiement recommandé. Pour plus d’informations, consultez [Présentation du déploiement de Resource Manager et du déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md).
    
    > [!NOTE]
    > Les comptes de stockage d’objets blob peuvent être créés uniquement avec le modèle de déploiement Resource Manager.
@@ -162,6 +162,6 @@ Pour plus d’informations, voir la [documentation sur les machines virtuelles A
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

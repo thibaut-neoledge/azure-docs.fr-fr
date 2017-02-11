@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/18/2016
+ms.date: 12/07/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 8b9a3b853adcbdfd2a5d4113489e8fcad26d9f59
+ms.sourcegitcommit: b60f957cce6225894f656b20d32604f55b418311
+ms.openlocfilehash: aa37f2113ac3aceda99c9987eacff2424e9b4434
 
 
 ---
@@ -34,12 +34,13 @@ Actuellement, Azure HDInsight propose cinq types de clusters, chacun avec un ens
 
 | Type de cluster | Fonctionnalités |
 | --- | --- |
-| Hadoop |Requête et analyse (tâches de traitement par lots) |
-| HBase |Stockage des données NoSQL |
-| Storm |Traitement d’événements en temps réel |
-| Spark |Traitement en mémoire, requêtes interactives, traitement du flux de traitement micro-batch |
+| [Hadoop](hdinsight-hadoop-introduction.md) |Requête et analyse (tâches de traitement par lots) |
+| [HBase](hdinsight-hbase-overview.md) |Stockage des données NoSQL |
+| [Storm](hdinsight-storm-overview.md) |Traitement d’événements en temps réel |
+| [Spark](hdinsight-apache-spark-overview.md) |Traitement en mémoire, requêtes interactives, traitement du flux de traitement micro-batch |
 | [Hive interactif (version préliminaire)](hdinsight-hadoop-use-interactive-hive.md) |Mise en cache pour les requêtes Hive interactives et plus rapides |
-| R Server sur Spark (version préliminaire) |Une large gamme de statistiques Big Data, la modélisation prédictive, ainsi que des fonctionnalités Machine Learning. |
+| [R Server sur Spark (version préliminaire)](hdinsight-hadoop-r-server-overview.md) |Une large gamme de statistiques Big Data, la modélisation prédictive, ainsi que des fonctionnalités Machine Learning. |
+| [Kafka (version préliminaire)](hdinsight-apache-kafka-introduction.md) | Plateforme de diffusion en continu distribuée qui permet de générer des pipelines de données et des applications de diffusion en continu en temps réel |
 
 Chaque type de cluster possède son propre nombre de nœuds dans le cluster, sa terminologie pour les nœuds du cluster et la taille de machine virtuelle par défaut pour chaque type de nœud. Dans le tableau suivant, les chiffres entre parenthèses correspondent au nombre de nœuds de chaque type.
 
@@ -77,7 +78,8 @@ Le tableau suivant répertorie les tailles de machine virtuelle par défaut pour
   | Edge : tailles de machine virtuelle par défaut | | | | |Windows : D12 ; Linux : D4 |
   | Edge : tailles de machine virtuelle recommandées | | | | |Windows : D12, D13, D14 ; Linux : D4, D12, D13, D14 |
 
-Veuillez noter que le nœud principal est appelé *Nimbus* pour le type de cluster Storm. Le nœud de travail est appelé *Région* pour le type de cluster HBase et *Superviseur* pour le type de cluster Storm.
+> [!NOTE]
+> Head est appelé *Nimbus* pour le type de cluster Storm. Le nœud de travail est appelé *Région* pour le type de cluster HBase et *Superviseur* pour le type de cluster Storm.
 
 > [!IMPORTANT]
 > Si vous envisagez d’avoir plus de 32 nœuds de travail lors de la création du cluster ou en faisant évoluer le cluster après sa création, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
@@ -91,7 +93,7 @@ Vous pouvez ajouter d’autres composants, tels que Hue ou R, à ces types de ba
 > 
 > 
 
-Si votre solution nécessite des technologies qui sont réparties sur plusieurs types de cluster HDInsight, vous devez créer un réseau virtuel Azure et créer les types de cluster requis dans le réseau virtuel. Cela permet aux clusters, et au code déployé sur ces clusters, de communiquer directement entre eux.
+Si votre solution nécessite des technologies qui sont réparties sur plusieurs types de cluster HDInsight, vous devez créer un réseau virtuel Azure et créer les types de cluster requis dans le réseau virtuel. Cette configuration permet aux clusters, et au code déployé sur ces clusters, de communiquer directement entre eux.
 
 Pour plus d’informations sur l’utilisation du réseau virtuel Azure avec HDInsight, consultez [Étendre HDInsight à l’aide de réseaux virtuels Azure](hdinsight-extend-hadoop-virtual-network.md).
 
@@ -218,20 +220,20 @@ Dans le modèle de déploiement classique, certaines tailles de machines virtuel
 #### <a name="standard-tier-d-series"></a>Niveau standard : série D
 | Taille | Cœurs d’unité centrale | Mémoire | Cartes réseau (max) | Bande passante taille du disque | Bande passante disques de données (1 023 Go chacun) | Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque) |
 | --- | --- | --- | --- | --- | --- | --- |
-| D3 standard |4 |14 Go |4 |Temporaire (SSD) = 200 Go |8 |8 x 500 |
-| D4 standard |8 |28 Go |8 |Temporaire (SSD) = 400 Go |16 |16 x 500 |
-| D12 standard |4 |28 Go |4 |Temporaire (SSD) = 200 Go |8 |8 x 500 |
-| D13 standard |8 |56 Go |8 |Temporaire (SSD) = 400 Go |16 |16 x 500 |
-| D14 standard |16 |112 Go |8 |Temporaire (SSD) = 800 Go |32 |32 x 500 |
+| D3 standard |4 |14 Go |4 |Temporaire (SSD) =&200; Go |8 |8 x 500 |
+| D4 standard |8 |28 Go |8 |Temporaire (SSD) =&400; Go |16 |16 x 500 |
+| D12 standard |4 |28 Go |4 |Temporaire (SSD) =&200; Go |8 |8 x 500 |
+| D13 standard |8 |56 Go |8 |Temporaire (SSD) =&400; Go |16 |16 x 500 |
+| D14 standard |16 |112 Go |8 |Temporaire (SSD) =&800; Go |32 |32 x 500 |
 
 #### <a name="standard-tier-dv2-series"></a>Niveau standard : série Dv2
 | Taille | Cœurs d’unité centrale | Mémoire | Cartes réseau (max) | Bande passante taille du disque | Bande passante disques de données (1 023 Go chacun) | Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D3_v2 |4 |14 Go |4 |Temporaire (SSD) = 200 Go |8 |8 x 500 |
-| Standard_D4_v2 |8 |28 Go |8 |Temporaire (SSD) = 400 Go |16 |16 x 500 |
-| Standard_D12_v2 |4 |28 Go |4 |Temporaire (SSD) = 200 Go |8 |8 x 500 |
-| Standard_D13_v2 |8 |56 Go |8 |Temporaire (SSD) = 400 Go |16 |16 x 500 |
-| Standard_D14_v2 |16 |112 Go |8 |Temporaire (SSD) = 800 Go |32 |32 x 500 |
+| Standard_D3_v2 |4 |14 Go |4 |Temporaire (SSD) =&200; Go |8 |8 x 500 |
+| Standard_D4_v2 |8 |28 Go |8 |Temporaire (SSD) =&400; Go |16 |16 x 500 |
+| Standard_D12_v2 |4 |28 Go |4 |Temporaire (SSD) =&200; Go |8 |8 x 500 |
+| Standard_D13_v2 |8 |56 Go |8 |Temporaire (SSD) =&400; Go |16 |16 x 500 |
+| Standard_D14_v2 |16 |112 Go |8 |Temporaire (SSD) =&800; Go |32 |32 x 500 |
 
 Pour connaître les points à prendre en considération pour le déploiement quand vous planifiez l’utilisation de ces ressources, consultez [Tailles des machines virtuelles dans Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Pour plus d’informations sur la tarification des différentes tailles, consultez [Tarification de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
 
@@ -339,6 +341,6 @@ Grâce à cet article, vous avez acquis les informations de base sur la créatio
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

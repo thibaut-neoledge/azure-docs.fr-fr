@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 10/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: 79819619ff7f25ba1097fe12f2da7453a1fcb4f1
+ms.sourcegitcommit: ee9ebc23ce805bb4665669077a4d3fddf4c43e32
+ms.openlocfilehash: a190b1990a4ae4e7ad52cc1a7e802c8002522917
 
 
 ---
@@ -28,7 +28,7 @@ Vous pouvez instrumenter une application web dynamique avec Azure Application In
 
 Vous avez le choix entre trois façons d’appliquer Application Insights à vos applications web .NET :
 
-* **En cours de création :** [ajoutez le kit de développement logiciel (SDK) Application Insights][greenbrown] au code de votre application web.
+* **En cours de création :** [ajoutez le Kit de développement logiciel (SDK) Application Insights][greenbrown] au code de votre application web.
 * **En cours d’exécution :** instrumentez votre application web sur le serveur, comme décrit ci-dessous, sans régénérer ni redéployer le code.
 * **Les deux :** intégrez le Kit de développement logiciel (SDK) à votre code d’application web et appliquez également les extensions à l’exécution. Profitez des avantages des deux options.
 
@@ -39,7 +39,7 @@ Voici un résumé de ce que vous apporte chaque méthode :
 | Requêtes et exceptions |Oui |Oui |
 | [Exceptions plus détaillées](app-insights-asp-net-exceptions.md) | |Oui |
 | [Diagnostics de dépendance](app-insights-asp-net-dependencies.md) |Sur .NET 4.6 +, mais moins détaillé |Oui, tous les détails : codes de résultat, texte de commande SQL, verbe HTTP|
-| [Compteurs de performances système](app-insights-performance-counters.md) | |IIS ou service cloud Azure, pas d’application web Azure |
+| [Compteurs de performances système](app-insights-performance-counters.md) |Oui |Oui |
 | [API pour la télémétrie personnalisée][api] |Oui | |
 | [Intégration des journaux de suivi](app-insights-asp-net-trace-logs.md) |Oui | |
 | [Mode Page et données utilisateur](app-insights-javascript.md) |Oui | |
@@ -55,29 +55,23 @@ Cette opération nécessite un abonnement [Microsoft Azure](http://azure.com) .
 
 ### <a name="if-your-app-is-hosted-on-your-iis-server"></a>Si votre application est hébergée sur votre serveur IIS
 1. Sur votre serveur web IIS, connectez-vous avec vos informations d’identification d’administrateur.
-2. Téléchargez et exécutez le [programme d’installation Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
-3. Dans l'Assistant Installation, connectez-vous à Microsoft Azure.
-
-    ![Connectez-vous à Azure avec les informations d’identification de votre compte Microsoft.](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
-
-    *Erreurs de connexion Consultez la rubrique [Résolution des problèmes](#troubleshooting).*
-4. Sélectionnez l’application web installée ou le site web à surveiller, puis configurez la ressource dans laquelle vous voulez afficher les résultats dans le portail Application Insights.
+2. Téléchargez et exécutez le [programme d’installation Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).  
+3. Sélectionnez l’application web installée ou le site web à surveiller, puis configurez la ressource dans laquelle vous voulez afficher les résultats dans le portail Application Insights. Vous devez être connecté à Microsoft Azure.
 
     ![Choisissez une application et une ressource.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
-    Il est probable que vous choisirez de configurer une nouvelle ressource et un nouveau [groupe de ressources][rôles].
+    Il est probable que vous choisirez de configurer une nouvelle ressource et un nouveau [groupe de ressources][roles].
 
-    Vous pouvez aussi utiliser une ressource existante si vous avez déjà configuré des [tests web] [availability] pour votre site ou une [surveillance du client web][client].
-5. Redémarrez IIS.
+    Vous pouvez aussi utiliser une ressource existante si vous avez déjà configuré des [tests web][availability] pour votre site ou une [surveillance du client web][client].
+4. Redémarrez IIS.
 
     ![Cliquez sur Redémarrer en haut de la boîte de dialogue.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-restart.png)
 
     Votre service web sera interrompu pendant une courte période.
-6. Notez que ApplicationInsights.config est inséré dans les applications web que voulez surveiller.
+5. Notez que ApplicationInsights.config est inséré dans les applications web que voulez surveiller.
 
     ![Recherchez le fichier .config et les fichiers de code de l’application web.](./media/app-insights-monitor-performance-live-website-now/appinsights-034-aiconfig.png)
-
-   web.config a également été légèrement modifié.
+   
 
 #### <a name="want-to-reconfigure-later"></a>Vous voulez (re)configurer plus tard ?
 Lorsque l'Assistant est terminé, vous pouvez reconfigurer l'agent à tout moment. Vous pouvez également reconfigurer si vous avez installé l'agent et avez rencontré des problèmes lors de la configuration initiale.
@@ -105,7 +99,7 @@ Pour segmenter le graphique par appels à des dépendances différentes, procéd
 ![Dépendance](./media/app-insights-monitor-performance-live-website-now/23-dep.png)
 
 ## <a name="performance-counters"></a>Compteurs de performances
-(Ne concerne pas les applications web Azure.) Cliquez sur Serveurs sur le panneau de présentation pour voir les graphiques des compteurs de performance de serveur telles que l’utilisation de la mémoire et l’occupation du processeur.
+Cliquez sur Serveurs sur le panneau de présentation pour voir les graphiques des compteurs de performance de serveur telles que l’utilisation de la mémoire et l’occupation du processeur.
 
 Si vous disposez de plusieurs instances de serveur, vous pouvez être amené à modifier les graphiques à regrouper par instance de rôle.
 
@@ -119,7 +113,7 @@ Vous pouvez également changer l’ensemble des compteurs de performances qui so
 Vous pouvez accéder aux exceptions spécifiques (des sept derniers jours) et obtenir les arborescences des appels de procédure et des données de contexte.
 
 ## <a name="sampling"></a>Échantillonnage
-Si votre application envoie des données en grand nombre et si vous utilisez le kit de développement logiciel Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l’échantillonnage.](app-insights-sampling.md)
+Si votre application envoie des données en grand nombre et si vous utilisez le Kit SDK Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l’échantillonnage.](app-insights-sampling.md)
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
 ### <a name="connection-errors"></a>Erreurs de connexion
@@ -137,7 +131,7 @@ Vous devez ouvrir [certains ports sortants](app-insights-ip-addresses.md#outgoin
   * Dans le Gestionnaire des services Internet, sélectionnez votre pool d’applications, ouvrez **Paramètres avancés** puis, sous **Modèle de processus**, notez l’identité.
   * Dans le panneau de configuration relatif à la gestion de l’ordinateur, ajoutez cette identité au groupe Utilisateurs de l’Analyseur de performances.
 * Si les services MMA/SCOM sont installés sur votre serveur, certaines versions peuvent entrer en conflit. Désinstallez à la fois SCOM et Moniteur d’état, puis réinstallez des versions les plus récentes.
-* Consultez [Résolution des problèmes][qna].
+* Consultez la rubrique [Résolution des problèmes][qna].
 
 ## <a name="system-requirements"></a>Configuration requise
 Prise en charge du système d’exploitation pour Application Insights Status Monitor sur le serveur :
@@ -146,10 +140,11 @@ Prise en charge du système d’exploitation pour Application Insights Status Mo
 * Windows Server 2008 R2
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
-avec dernier Service Pack et .NET Framework 4.0 et 4.5
+avec le dernier Service Pack et .NET Framework 4.5
 
-Windows 7, 8 et 8.1 côté client, avec également .NET Framework 4.0 et 4.5
+Windows 7, 8, 8.1 et 10 côté client, avec également .NET Framework 4.5
 
 Prise en charge d’IIS : IIS 7, 7.5, 8, 8.5 (IIS requis)
 
@@ -214,10 +209,10 @@ Identifiez les applications qui sont surveillées :
 * Télécharge la version la plus récente du Kit de développement logiciel (SDK) Application Insights sur le serveur.
 
 ## <a name="a-namenextanext-steps"></a><a name="next"></a>Étapes suivantes
-* [Créez des tests web] [availability] pour vous assurer que votre site reste actif.
+* [Créez des tests web][availability] pour vous assurer que votre site reste actif.
 * [Recherchez les événements et les journaux][diagnostic] pour diagnostiquer les problèmes.
-* [Ajoutez la télémétrie de client web][utilisation] pour afficher les exceptions à partir du code de la page web et vous permettre d’insérer un suivi des appels.
-* [Ajoutez le kit de développement logiciel (SDK) Application Insights à votre code de service web] [greenbrown] afin de pouvoir insérer un suivi des appels et des appels de journaux dans le code du serveur.
+* [Ajoutez la télémétrie de client web][usage] pour afficher les exceptions à partir du code de la page web et vous permettre d’insérer un suivi des appels.
+* [Ajoutez le Kit de développement logiciel (SDK) Application Insights à votre code de service web][greenbrown] afin de pouvoir insérer un suivi des appels et des appels de journaux dans le code du serveur.
 
 <!--Link references-->
 
@@ -227,11 +222,11 @@ Identifiez les applications qui sont surveillées :
 [diagnostic]: app-insights-diagnostic-search.md
 [greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
-[rôles]: app-insights-resources-roles-access-control.md
-[utilisation]: app-insights-web-track-usage.md
+[roles]: app-insights-resources-roles-access-control.md
+[usage]: app-insights-web-track-usage.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

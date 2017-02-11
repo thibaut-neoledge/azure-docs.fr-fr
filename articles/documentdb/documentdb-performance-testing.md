@@ -1,45 +1,49 @@
 ---
-title: Test des performances et de la mise à l’échelle DocumentDB | Microsoft Docs
-description: Découvrez comment effectuer un test des performances et de la mise à l’échelle avec DocumentDB
+title: "Test des performances et de la mise à l’échelle DocumentDB | Microsoft Docs"
+description: "Découvrez comment effectuer un test des performances et de la mise à l’échelle avec DocumentDB"
 keywords: Tester les performances
 services: documentdb
 author: arramac
 manager: jhubbard
-editor: ''
-documentationcenter: ''
-
+editor: 
+documentationcenter: 
+ms.assetid: f4c96ebd-f53c-427d-a500-3f28fe7b11d0
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2016
+ms.date: 10/27/2016
 ms.author: arramac
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f9acb44fb6b6fac41da4dc05745a68066b0477fb
+
 
 ---
-# Test des performances et de la mise à l’échelle avec Azure DocumentDB
-Le test des performances et de la mise à l’échelle est une étape essentielle du développement d’applications. Pour de nombreuses applications, la couche de base de données a un impact significatif sur les performances et l’évolutivité globales et est, par conséquent, un composant critique du test de performances. [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) a été spécialement conçu pour une mise à l’échelle élastique et des performances prévisibles et, par conséquent, convient parfaitement aux applications nécessitant un niveau de base de données hautes performances.
+# <a name="performance-and-scale-testing-with-azure-documentdb"></a>Test des performances et de la mise à l’échelle avec Azure DocumentDB
+Le test des performances et de la mise à l’échelle est une étape essentielle du développement d’applications. Pour de nombreuses applications, la couche de base de données a un impact significatif sur les performances et l’évolutivité globales et est, par conséquent, un composant critique du test de performances. [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) a été spécialement conçu pour une mise à l’échelle élastique et des performances prévisibles et, par conséquent, convient parfaitement aux applications nécessitant un niveau de base de données hautes performances. 
 
 Cet article est une référence pour les développeurs implémentant des suites de tests de performances pour leurs charges de travail DocumentDB ou évaluant DocumentDB pour des scénarios d’applications hautes performances. Il se concentre principalement sur les tests de performances isolés de la base de données, mais inclut également les meilleures pratiques relatives aux applications de production.
 
-Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
+Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :   
 
-* Où puis-je trouver un exemple d’application cliente .NET pour le test des performances d’Azure DocumentDB ?
+* Où puis-je trouver un exemple d’application cliente .NET pour le test des performances d’Azure DocumentDB ? 
 * Comment atteindre des niveaux de débit élevés avec Azure DocumentDB à partir de mon application cliente ?
 
-Pour commencer avec le code, téléchargez le projet à partir de [DocumentDB Performance Testing Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) (Exemple de test des performances DocumentDB).
+Pour commencer avec le code, téléchargez le projet à partir de [DocumentDB Performance Testing Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)(Exemple de test des performances DocumentDB). 
 
 > [!NOTE]
 > L’objectif de cette application est d’illustrer les bonnes pratiques pour optimiser les performances à partir de DocumentDB avec un petit nombre d’ordinateurs clients. Elle n’a pas pour but de démontrer la capacité maximale du service, qui peut s’ajuster sans limite.
 > 
 > 
 
-Si vous recherchez des options de configuration côté client pour améliorer les performances de DocumentDB, consultez la page [DocumentDB performance tips](documentdb-performance-tips.md) (Conseils relatifs aux performances de DocumentDB).
+Si vous recherchez des options de configuration côté client pour améliorer les performances de DocumentDB, consultez la page [DocumentDB performance tips](documentdb-performance-tips.md)(Conseils relatifs aux performances de DocumentDB).
 
-## Exécution de l’application de test des performances
+## <a name="run-the-performance-testing-application"></a>Exécution de l’application de test des performances
 La manière la plus rapide de commencer consiste à compiler et exécuter l’exemple de code .NET ci-dessous, comme décrit dans la procédure ci-dessous. Vous pouvez également examiner le code source et implémenter des configurations similaires dans vos propres applications clientes.
 
-**Étape 1 :** téléchargez le projet à partir des [Exemple de test des performances DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) ou répliquez le référentiel Github.
+**Étape 1 :** téléchargez le projet à partir de [Exemple de test des performances DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)ou répliquez le référentiel Github.
 
 **Étape 2 :** modifiez les paramètres pour EndpointUrl, AuthorizationKey, CollectionThroughput et DocumentTemplate (facultatif) dans App.config.
 
@@ -98,7 +102,7 @@ La manière la plus rapide de commencer consiste à compiler et exécuter l’ex
 
 Une fois l’application en cours d’exécution, vous pouvez essayer différentes [stratégies d’indexation](documentdb-indexing-policies.md) et [niveaux de cohérence](documentdb-consistency-levels.md) pour comprendre leur impact sur le débit et la latence. Vous pouvez également examiner le code source et implémenter des configurations similaires dans vos propres suites de test ou applications de production.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, nous avons vu comment effectuer des tests de performances et d’évolutivité avec DocumentDB à l’aide d’une application console .NET. Consultez les liens ci-dessous pour plus d’informations sur le fonctionnement de DocumentDB.
 
 * [Exemple de test des performances DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
@@ -109,4 +113,9 @@ Dans cet article, nous avons vu comment effectuer des tests de performances et d
 * [Exemples .NET DocumentDB](https://github.com/Azure/azure-documentdb-net)
 * [Blog de DocumentDB avec des conseils relatifs aux performances](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

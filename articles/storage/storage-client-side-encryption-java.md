@@ -131,7 +131,7 @@ La prise en charge du chiffrement est disponible uniquement dans la bibliothèqu
 > 
 > 
 
-## <a name="client-api-interface"></a>API/Interface cliente
+## <a name="client-api--interface"></a>API/Interface cliente
 Lors de la création d’un objet EncryptionPolicy, les utilisateurs peuvent fournir une clé seulement (implémentation de IKey), un programme de résolution seulement (implémentation de IKeyResolver), ou les deux. IKey est le type de clé de base identifié à l’aide d’un identificateur de clé. Il fournit le programme logique pour l’encapsulage/le désencapsulage. IKeyResolver est utilisé pour résoudre une clé pendant le processus de déchiffrement. Il définit une méthode ResolveKey qui renvoie un IKey avec un identificateur de clé. Les utilisateurs ont ainsi la possibilité de choisir entre plusieurs clés gérées dans plusieurs emplacements.
 
 * Pour le chiffrement, la clé est toujours utilisée et l’absence de clé entraîne une erreur.  

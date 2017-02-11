@@ -153,7 +153,7 @@ Montez le partage à partir d’une ligne de commande non administrateur. Vous p
 
 <a id="slashfails"></a>
 
-## <a name="my-storage-account-contains-and-the-net-use-command-fails"></a>Mon compte de stockage contient « / » et la commande net use échoue
+## <a name="my-storage-account-contains--and-the-net-use-command-fails"></a>Mon compte de stockage contient « / » et la commande net use échoue
 ### <a name="cause"></a>Cause :
 Lorsque la commande **net use** est exécutée dans l’invite de commandes (cmd.exe), elle est analysée à l’aide de l’ajout de « / » en tant qu’option de ligne de commande. Cela provoque l’échec du mappage du lecteur.
 

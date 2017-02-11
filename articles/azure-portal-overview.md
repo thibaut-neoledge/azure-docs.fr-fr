@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7383380ee07f9ee52858038bd4d623be4689a31a
+ms.sourcegitcommit: 6ab02779d65dfc1519b457486678ace5fafc9fb5
+ms.openlocfilehash: 60733f973e7b88389816c1ea7cc15532ba967693
 
 
 ---
@@ -59,16 +59,6 @@ Depuis ce panneau, vous pouvez vous connecter à la machine virtuelle à l'aide 
 5. Choisissez un utilisateur et un rôle.
 
 ![Gestion d'une ressource][ManageResource]
-
-## <a name="how-to-customize-a-resource-blade"></a>Comment personnaliser un panneau de ressource
-Azure préconfigure les panneaux de vos ressources. Toutefois, vous avez la possibilité de configurer les vignettes.  Vous pouvez facilement passer en mode de personnalisation pour ajouter, supprimer, redimensionner ou réorganiser les vignettes. Pour personnaliser un panneau, effectuez les actions suivantes :
-
-1. Accédez à votre ressource.
-2. Cliquez les points de suspension « ... » en haut du panneau que vous voulez personnaliser.
-3. Cliquez sur Ajouter des sections.
-4. Vous pouvez maintenant glisser-déplacer les sections.  
-
-![Personnalisation des panneaux][CustomizeBlades]
 
 ## <a name="how-to-get-help"></a>Comment obtenir de l'aide
 Si vous rencontrez un problème, nous sommes là pour vous.  Le portail comporte une page d'aide qui peut vous aider à trouver la solution appropriée.  En fonction de votre [plan de support](https://azure.microsoft.com/support/plans/), vous pouvez également créer des tickets de support directement depuis le portail.  Après avoir créé un ticket de support, vous pouvez gérer son cycle de vie depuis le portail. Vous pouvez accéder aux pages d'aide en cliquant sur Parcourir -> Aide + support.  

@@ -152,14 +152,10 @@
 ### [Journaux en continu et console](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Résoudre les problèmes à l’aide de Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
-# Référence
-## [Portail Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+# les ressources
+## [portail Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ## [Référence sur App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ## [Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-
-# Rubriques connexes
-
-# les ressources
 ## [Meilleures pratiques App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ## [Liste des ressources WebJob](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
@@ -167,6 +163,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

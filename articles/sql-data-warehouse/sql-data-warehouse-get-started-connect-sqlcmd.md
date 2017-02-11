@@ -1,6 +1,6 @@
 ---
-title: Interroger Azure SQL Data Warehouse (sqlcmd)| Microsoft Docs
-description: "Interrogation d’Azure SQL Data Warehouse à l’aide de l’utilitaire de ligne de commande sqlcmd."
+title: "Se connecter à Azure SQL Data Warehouse sqlcmd | Microsoft Docs"
+description: "Utilisez l’utilitaire de ligne de commande [sqlcmd][sqlcmd] pour établir la connexion et interroger un entrepôt de données Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
@@ -15,12 +15,12 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
+ms.sourcegitcommit: 77474214c6fafe7f591030d30f6a46c66fbc5c09
+ms.openlocfilehash: 1cd3bd8cab4e74da820f844d2ba96243cc6ccdcd
 
 
 ---
-# <a name="query-azure-sql-data-warehouse-sqlcmd"></a>Interroger Azure SQL Data Warehouse (sqlcmd)
+# <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Se connecter à SQL Data Warehouse avec sqlcmd
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -30,7 +30,7 @@ ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
 > 
 > 
 
-Cette procédure pas à pas se sert de l’utilitaire de ligne de commande [sqlcmd][sqlcmd] pour interroger un entrepôt de données Azure SQL Data Warehouse.  
+Utilisez l’utilitaire de ligne de commande [sqlcmd][sqlcmd] pour établir la connexion et interroger un entrepôt de données Azure SQL Data Warehouse.  
 
 ## <a name="1-connect"></a>1. Connecter
 Pour commencer à utiliser [sqlcmd][sqlcmd], ouvrez l’invite de commandes et entrez **sqlcmd** suivi de la chaîne de connexion de votre base de données SQL Data Warehouse. La chaîne de connexion requiert les paramètres suivants :
@@ -100,6 +100,6 @@ Consultez la [documentation sqlcmd][sqlcmd] pour en savoir plus sur les options 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

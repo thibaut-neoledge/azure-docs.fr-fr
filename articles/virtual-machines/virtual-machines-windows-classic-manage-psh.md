@@ -62,7 +62,7 @@ Exécutez cette commande :
     Stop-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 > [!IMPORTANT]
-> Utilisez ce paramètre pour conserver l’adresse IP virtuelle du service cloud s’il s’agit de la dernière machine virtuelle de ce service. <br><br>  Si vous utilisez le paramètre StayProvisioned, vous êtes toujours facturé pour cette machine virtuelle.
+> Utilisez ce paramètre pour conserver l’adresse IP virtuelle du service cloud s’il s’agit de la dernière machine virtuelle de ce service. <br><br> Si vous utilisez le paramètre StayProvisioned, vous êtes toujours facturé pour cette machine virtuelle.
 > 
 > 
 

@@ -1,5 +1,5 @@
 ---
-title: Interroger Azure SQL Data Warehouse (Visual Studio) | Microsoft Docs
+title: "Se connecter à Azure SQL Data Warehouse - VSTS | Microsoft Docs"
 description: Interrogez SQL Data Warehouse avec Visual Studio.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,12 +15,12 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5e97fefdf3cc13f2fd3e060da901e90ef5ef9a29
+ms.sourcegitcommit: 77474214c6fafe7f591030d30f6a46c66fbc5c09
+ms.openlocfilehash: 71a56d0e99308d3f7f514283792a2155a05a7172
 
 
 ---
-# <a name="query-azure-sql-data-warehouse-visual-studio"></a>Interroger Azure SQL Data Warehouse (sqlcmd) (Visual Studio)
+# <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Se connecter à SQL Data Warehouse avec Visual Studio et SSDT
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -85,9 +85,9 @@ Pour configurer votre environnement pour l’authentification Azure Active Direc
 
 <!--Arcticles-->
 [Se connecter à SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
-[Créer un entrepôt de données SQL]: sql-data-warehouse-get-started-provision.md
+[Créer un entrepôt de données SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 [Installation de Visual Studio et/ou SSDT]: sql-data-warehouse-install-visual-studio.md
-[Authentification vers SQL Data Warehouse]: sql-data-warehouse-authentication.md
+[Authentification sur SQL Data Warehouse]: sql-data-warehouse-authentication.md
 [visualiser les données avec Power BI]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
 
 <!--Other-->
@@ -105,6 +105,6 @@ Pour configurer votre environnement pour l’authentification Azure Active Direc
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

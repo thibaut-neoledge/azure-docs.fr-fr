@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 9671e22d6c027c589e229ae2ecbbda71f0bb7e1c
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: 63e822de6ae50be33590048140e06e89526282ee
 
 
 ---
 # <a name="manage-azure-virtual-machines-using-resource-manager-and-powershell"></a>Gestion des machines virtuelles Azure à l’aide de modèles Resource Manager et de PowerShell
 ## <a name="install-azure-powershell"></a>Installation d'Azure Powershell
-Pour plus d’informations sur l’installation de la version la plus récente d’Azure PowerShell, la sélection de votre abonnement et la connexion à votre compte, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+Pour plus d’informations sur l’installation de la version la plus récente d’Azure PowerShell, la sélection de votre abonnement et la connexion à votre compte, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="set-variables"></a>Définition des variables
 Toutes les commandes de l’article nécessitent le nom du groupe de ressources dans lequel se trouve la machine virtuelle et le nom de la machine virtuelle à gérer. Remplacez la valeur de **$rgName** avec le nom du groupe de ressources qui contient la machine virtuelle. Remplacez la valeur de **$vmName** avec le nom de la machine virtuelle. Créez les variables.
@@ -223,6 +223,6 @@ Si vous rencontrez des problèmes avec un déploiement, vous pouvez consulter [R
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

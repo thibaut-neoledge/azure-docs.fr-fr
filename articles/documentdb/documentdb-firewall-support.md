@@ -73,7 +73,7 @@ Une fois votre demande reçue, le contrôle d’accès IP doit être activé dan
 ### <a name="portal-operations"></a>Opérations du portail
 En activant une stratégie de contrôle d’accès IP pour votre compte de base de données DocumentDB, tous les accès à votre compte de base de données DocumentDB à partir d’ordinateurs ne figurant pas sur la liste de plages d’adresses IP autorisées sont bloqués. En vertu de ce modèle, la navigation dans le plan de données à partir du portail sera également bloquée pour assurer l’intégrité du contrôle d’accès. 
 
-### <a name="sdk-rest-api"></a>Kit de développement logiciel (SDK) et API REST
+### <a name="sdk--rest-api"></a>Kit de développement logiciel (SDK) et API REST
 Pour des raisons de sécurité, l’accès via le Kit de développement logiciel (SDK) ou l’API REST à partir d’ordinateurs ne figurant pas dans la liste autorisée renverra une réponse générique 404 Introuvable, ainsi que des détails supplémentaires. Consultez la liste d’adresses IP autorisées configurée pour votre compte de base de données DocumentDB afin de vérifier que la configuration de la stratégie appropriée est appliquée à votre compte de base de données DocumentDB.
 
 ## <a name="next-steps"></a>Étapes suivantes

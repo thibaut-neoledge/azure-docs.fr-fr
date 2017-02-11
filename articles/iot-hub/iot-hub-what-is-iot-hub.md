@@ -42,7 +42,7 @@ Reportez-vous à [Sécurisation de l’Internet des objets de bout en bout][lnk-
 > 
 
 ## <a name="iot-device-connectivity-challenges"></a>Défis liés à la connectivité des appareils IoT
-IoT Hub et les bibliothèques d'appareils vous aident à relever les défis en matière de fiabilité et de sécurisation de la connexion d'appareil au serveur principal de la solution. Les appareils IoT :
+IoT Hub et les bibliothèques d’appareils vous aident à relever les défis en matière de fiabilité et de sécurisation de la connexion d’appareil au serveur principal de la solution. Les appareils IoT :
 
 * sont souvent des systèmes intégrés, qui ne font appel à aucun opérateur humain ;
 * peuvent être situés sur des sites distants avec un accès physique coûteux ;

@@ -1,12 +1,12 @@
 ---
-title: Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell | Microsoft Docs
-description: 'Apprenez à gérer des travaux Data Lake Analytics, des sources de données, des utilisateurs. '
+title: "Gestion d’Azure Data Lake Analytics à l’aide d’Azure PowerShell | Microsoft Docs"
+description: "Apprenez à gérer des travaux Data Lake Analytics, des sources de données, des utilisateurs. "
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,30 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 891461bd5069bd7ea5b3c20f301c9ddd9b2f035e
+
 
 ---
-# Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell
+# <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Apprenez à gérer des comptes Azure Data Lake Analytics, des sources de données, des utilisateurs et des travaux à l'aide d'Azure PowerShell. Pour afficher les rubriques de gestion à l’aide d’autres outils, cliquez sur l’onglet de sélection ci-dessus.
 
 **Configuration requise**
 
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
+Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-* **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 <!-- ################################ -->
 <!-- ################################ -->
 
 
-## Installer Azure PowerShell 1.0 ou versions ultérieures
+## <a name="install-azure-powershell-10-or-greater"></a>Installer Azure PowerShell 1.0 ou versions ultérieures
 Consultez la section Configuration requise de la rubrique [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md#prerequisites).
 
-## Gérer les comptes
-Avant d'exécuter des travaux Data Lake Analytics, vous devez avoir un compte Data Lake Analytics. Contrairement à Azure HDInsight, vous ne payez pas pour un compte Analytics lorsque celui-ci n'exécute aucun travail. Vous payez uniquement lorsqu'il exécute un travail. Pour plus d'informations, consultez [Présentation d'Azure Data Lake Analytics](data-lake-analytics-overview.md).
+## <a name="manage-accounts"></a>Gérer les comptes
+Avant d'exécuter des travaux Data Lake Analytics, vous devez avoir un compte Data Lake Analytics. Contrairement à Azure HDInsight, vous ne payez pas pour un compte Analytics lorsque celui-ci n'exécute aucun travail.  Vous payez uniquement lorsqu'il exécute un travail.  Pour plus d'informations, consultez [Présentation d'Azure Data Lake Analytics](data-lake-analytics-overview.md).  
 
-### Création de comptes
+### <a name="create-accounts"></a>Création de comptes
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeStoreName = "<DataLakeAccountName>"
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
@@ -66,7 +70,7 @@ Avant d'exécuter des travaux Data Lake Analytics, vous devez avoir un compte Da
         -ResourceGroupName $resourceGroupName `
         -Name $dataLakeAnalyticsAccountName  
 
-Vous pouvez également utiliser un modèle Groupe de ressources Azure. Vous trouverez un modèle permettant de créer un compte Data Lake Analytics et le compte Data Lake Store dépendant dans l’[Annexe A](#appendix-a). Enregistrez le modèle dans un fichier de modèle .json, puis utilisez le script PowerShell suivant pour l'appeler :
+Vous pouvez également utiliser un modèle Groupe de ressources Azure. Vous trouverez un modèle permettant de créer un compte Data Lake Analytics et le compte Data Lake Store dépendant dans [l’Annexe A](#appendix-a). Enregistrez le modèle dans un fichier de modèle .json, puis utilisez le script PowerShell suivant pour l'appeler :
 
     $AzureSubscriptionID = "<Your Azure Subscription ID>"
 
@@ -90,12 +94,12 @@ Vous pouvez également utiliser un modèle Groupe de ressources Azure. Vous trou
     New-AzureRmResourceGroupDeployment -Name $DeploymentName -ResourceGroupName $ResourceGroupName -TemplateFile $ARMTemplateFile -TemplateParameterObject $parameters 
 
 
-### Répertorier le compte
+### <a name="list-account"></a>Répertorier le compte
 Répertorier les comptes Data Lake Analytics dans l’abonnement sélectionné
 
     Get-AzureRmDataLakeAnalyticsAccount
 
-La sortie est la suivante :
+La sortie est la suivante :
 
     Id         : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/learn1021rg/providers/Microsoft.DataLakeAnalytics/accounts/learn1021adla
     Location   : eastus2
@@ -116,9 +120,9 @@ Tester l'existence d'un compte Data Lake Analytics spécifique
 
     Test-AzureRmDataLakeAnalyticsAccount -Name $adlAnalyticsAccountName
 
-L'applet de commande renvoie **True** ou **False**.
+L’applet de commande renvoie **True** ou **False**.
 
-### Supprimer les comptes Data Lake Analytics
+### <a name="delete-data-lake-analytics-accounts"></a>Supprimer les comptes Data Lake Analytics
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
@@ -135,21 +139,21 @@ Le fait de supprimer un compte Data Lake Analytics ne supprime pas le compte de 
 
 <!-- ################################ -->
 <!-- ################################ -->
-## Gestion des sources de données du compte
-Data Lake Analytics prend actuellement en charge les sources de données suivantes :
+## <a name="manage-account-data-sources"></a>Gestion des sources de données du compte
+Data Lake Analytics prend actuellement en charge les sources de données suivantes :
 
-* [Azure Data Lake Storage](data-lake-storage-overview.md)
-* [Azure Storage](../storage/storage-introduction.md)
+* [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
+* [Stockage Azure](../storage/storage-introduction.md)
 
-Lorsque vous créez un compte Analytics, vous devez désigner un compte Azure Data Lake Storage comme compte de stockage par défaut. Le compte Data Lake Store par défaut est utilisé pour stocker les métadonnées du travail et les journaux d'audit du travail. Après la création d'un compte Analytics, vous pouvez ajouter des comptes Data Lake Storage et/ou des comptes Azure Storage supplémentaires.
+Lorsque vous créez un compte Analytics, vous devez désigner un compte Azure Data Lake Storage comme compte de stockage par défaut. Le compte Data Lake Store par défaut est utilisé pour stocker les métadonnées du travail et les journaux d'audit du travail. Après la création d'un compte Analytics, vous pouvez ajouter des comptes Data Lake Storage et/ou des comptes Azure Storage supplémentaires. 
 
-### Rechercher le compte Data Lake Store par défaut
+### <a name="find-the-default-data-lake-store-account"></a>Rechercher le compte Data Lake Store par défaut
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
     $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName).Properties.DefaultDataLakeAccount
 
 
-### Ajouter des comptes de stockage d'objets Blob Azure supplémentaires
+### <a name="add-additional-azure-blob-storage-accounts"></a>Ajouter des comptes de stockage d'objets Blob Azure supplémentaires
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
     $AzureStorageAccountName = "<AzureStorageAccountName>"
@@ -157,14 +161,14 @@ Lorsque vous créez un compte Analytics, vous devez désigner un compte Azure Da
 
     Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticAccountName -AzureBlob $AzureStorageAccountName -AccessKey $AzureStorageAccountKey
 
-### Ajouter des comptes Data Lake Store supplémentaires
+### <a name="add-additional-data-lake-store-accounts"></a>Ajouter des comptes Data Lake Store supplémentaires
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
     $AzureDataLakeName = "<DataLakeStoreName>"
 
     Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticAccountName -DataLake $AzureDataLakeName 
 
-### Répertorier les sources de données :
+### <a name="list-data-sources"></a>Répertorier les sources de données :
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
@@ -175,10 +179,10 @@ Lorsque vous créez un compte Analytics, vous devez désigner un compte Azure Da
 
 <!-- ################################ -->
 <!-- ################################ -->
-## Gestion des travaux
-Vous devez disposer d'un compte Data Lake Analytics avant de pouvoir créer un travail. Pour plus d'informations, consultez [Gestion des comptes Data Lake Analytics](#manage-data-lake-analytics-accounts).
+## <a name="manage-jobs"></a>Gestion des travaux
+Vous devez disposer d'un compte Data Lake Analytics avant de pouvoir créer un travail.  Pour plus d'informations, consultez [Gestion des comptes Data Lake Analytics](#manage-data-lake-analytics-accounts).
 
-### Répertorier les travaux
+### <a name="list-jobs"></a>Répertorier les travaux
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
     Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName
@@ -208,11 +212,11 @@ Vous devez disposer d'un compte Data Lake Analytics avant de pouvoir créer un t
     Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
         -SubmittedAfter (Get-Date).AddHours(-1)
 
-### Obtenir les détails du travail
+### <a name="get-job-details"></a>Obtenir les détails du travail
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
     Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -JobID <Job ID>
 
-### Soumettre les travaux
+### <a name="submit-jobs"></a>Soumettre les travaux
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
     #Pass script via path
@@ -226,19 +230,19 @@ Vous devez disposer d'un compte Data Lake Analytics avant de pouvoir créer un t
         -Script $scriptContents
 
 > [!NOTE]
-> La priorité par défaut d'un travail est 1 000 et le degré de parallélisme par défaut d'un travail est 1.
+> La priorité par défaut d'un travail est 1 000 et le degré de parallélisme par défaut d'un travail est 1.
 > 
 > 
 
-### Annuler les travaux
+### <a name="cancel-jobs"></a>Annuler les travaux
     Stop-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
         -JobID $jobID
 
 
-## Gestion des éléments du catalogue
+## <a name="manage-catalog-items"></a>Gestion des éléments du catalogue
 Le catalogue U-SQL est utilisé pour structurer les données et le code afin que les scripts U-SQL puissent les partager. Le catalogue permet les meilleures performances possibles avec les données comprises dans Azure Data Lake. Pour plus d'informations, consultez [Utilisation du catalogue U-SQL](data-lake-analytics-use-u-sql-catalog.md).
 
-### Répertorier les éléments du catalogue
+### <a name="list-catalog-items"></a>Répertorier les éléments du catalogue
     #List databases
     Get-AzureRmDataLakeAnalyticsCatalogItem `
         -Account $adlAnalyticsAccountName `
@@ -252,7 +256,7 @@ Le catalogue U-SQL est utilisé pour structurer les données et le code afin que
         -ItemType Table `
         -Path "master.dbo"
 
-### Obtenir les détails des éléments du catalogue
+### <a name="get-catalog-item-details"></a>Obtenir les détails des éléments du catalogue
     #Get a database
     Get-AzureRmDataLakeAnalyticsCatalogItem `
         -Account $adlAnalyticsAccountName `
@@ -265,19 +269,19 @@ Le catalogue U-SQL est utilisé pour structurer les données et le code afin que
         -ItemType Table `
         -Path "master.dbo.mytable"
 
-### Tester l'existence d'un élément du catalogue
+### <a name="test-existence-of--catalog-item"></a>Tester l’existence d’un élément du catalogue
     Test-AzureRmDataLakeAnalyticsCatalogItem  `
         -Account $adlAnalyticsAccountName `
         -ItemType Database `
         -Path "master"
 
-### Créer la clé secrète du catalogue
+### <a name="create-catalog-secret"></a>Créer la clé secrète du catalogue
     New-AzureRmDataLakeAnalyticsCatalogSecret  `
             -Account $adlAnalyticsAccountName `
             -DatabaseName "master" `
             -Secret (Get-Credential -UserName "username" -Message "Enter the password")
 
-### Modifier la clé secrète du catalogue
+### <a name="modify-catalog-secret"></a>Modifier la clé secrète du catalogue
     Set-AzureRmDataLakeAnalyticsCatalogSecret  `
             -Account $adlAnalyticsAccountName `
             -DatabaseName "master" `
@@ -285,16 +289,16 @@ Le catalogue U-SQL est utilisé pour structurer les données et le code afin que
 
 
 
-### Supprimer la clé secrète du catalogue
+### <a name="delete-catalog-secret"></a>Supprimer la clé secrète du catalogue
     Remove-AzureRmDataLakeAnalyticsCatalogSecret  `
             -Account $adlAnalyticsAccountName `
             -DatabaseName "master"
 
 
-## Utilisation des groupes Azure Resource Manager
-Les applications sont généralement constituées de nombreux composants, par exemple une application web, base de données, serveur de base de données, stockage et services tiers. Azure Resource Manager (ARM) vous permet de manipuler les ressources de votre application sous la forme d’un groupe, nommé groupe de ressources Azure. Vous pouvez déployer, mettre à jour, surveiller ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Vous pouvez clarifier la facturation pour votre organisation en visualisant les coûts cumulés pour l’ensemble du groupe. Pour plus d'informations, consultez [Présentation d'Azure Resource Manager](../resource-group-overview.md).
+## <a name="use-azure-resource-manager-groups"></a>Utilisation des groupes Azure Resource Manager
+Les applications sont généralement constituées de nombreux composants, par exemple une application web, base de données, serveur de base de données, stockage et services tiers. Azure Resource Manager (ARM) vous permet de manipuler les ressources de votre application sous la forme d’un groupe, nommé groupe de ressources Azure. Vous pouvez déployer, mettre à jour, surveiller ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Vous pouvez clarifier la facturation pour votre organisation en visualisant les coûts cumulés pour l’ensemble du groupe. Pour plus d'informations, consultez [Présentation d'Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
 
-Un service Data Lake Analytics peut inclure les composants suivants :
+Un service Data Lake Analytics peut inclure les composants suivants :
 
 * Compte Azure Data Lake Analytics
 * Compte Azure Data Lake Storage par défaut requis
@@ -305,16 +309,17 @@ Vous pouvez créer tous ces composants dans un groupe ARM pour les rendre plus f
 
 ![Compte et stockage Azure Data Lake Analytics](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
 
-Un compte Data Lake Analytics et les compte de stockage dépendants doivent se trouver dans le même centre de données Azure. Le groupe ARM peut cependant se trouver dans un autre centre de données.
+Un compte Data Lake Analytics et les compte de stockage dépendants doivent se trouver dans le même centre de données Azure.
+Le groupe ARM peut cependant se trouver dans un autre centre de données.  
 
-## Voir aussi
+## <a name="see-also"></a>Voir aussi
 * [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Prise en main des analyses Data Lake à l’aide du portail Azure](data-lake-analytics-get-started-portal.md)
 * [Gérer les analyses Azure Data Lake à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md)
 * [Surveiller et résoudre les problèmes des tâches d’analyse Azure Data Lake à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-## Annexe A - Modèle ARM Data Lake Analytics
-Le modèle ARM suivant peut être utilisé pour déployer un compte Data Lake Analytics et son compte Data Lake Store dépendant. Enregistrez-le dans un fichier json, puis utilisez le script PowerShell pour appeler le modèle. Pour plus d'informations, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](../resource-group-template-deploy.md#deploy-with-powershell) et [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
+## <a name="appendix-a---data-lake-analytics-arm-template"></a>Annexe A - Modèle ARM Data Lake Analytics
+Le modèle ARM suivant peut être utilisé pour déployer un compte Data Lake Analytics et son compte Data Lake Store dépendant.  Enregistrez-le dans un fichier json, puis utilisez le script PowerShell pour appeler le modèle. Pour plus d’informations, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](../resource-group-template-deploy.md#deploy-with-powershell) et [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -369,4 +374,9 @@ Le modèle ARM suivant peut être utilisé pour déployer un compte Data Lake An
       }
     }
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

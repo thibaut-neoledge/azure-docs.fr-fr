@@ -1,12 +1,12 @@
 ---
-title: Gestion des recommandations de sécurité dans le Centre de sécurité Azure | Microsoft Docs
-description: Ce document vous montre comment les recommandations du Centre de sécurité Azure peuvent vous aider à protéger vos ressources Azure et à rester en conformité avec les stratégies de sécurité.
+title: "Gestion des recommandations de sécurité dans Azure Security Center | Microsoft Docs"
+description: "Ce document vous montre comment les recommandations du Centre de sécurité Azure peuvent vous aider à protéger vos ressources Azure et à rester en conformité avec les stratégies de sécurité."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: ''
-
+editor: 
+ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -14,50 +14,54 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d5ac3ffa4c3e1a916fb7d81b54ae603ea3658cc5
+
 
 ---
-# Gestion des recommandations de sécurité dans le Centre de sécurité Azure
-Ce document explique comment les recommandations du Centre de sécurité Azure peuvent vous aider à protéger vos ressources Azure.
+# <a name="managing-security-recommendations-in-azure-security-center"></a>Gestion des recommandations de sécurité dans le Centre de sécurité Azure
+Ce document explique comment les recommandations du Centre de sécurité Azure peuvent vous aider à protéger vos ressources Azure.
 
 > [!NOTE]
-> Ce document présente le service à l’aide d’un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
+> Ce document présente le service à l’aide d’un exemple de déploiement.  Il ne s’agit pas d’un guide pas à pas.
 > 
 > 
 
-## Quelles sont les recommandations de sécurité ?
-Le Centre de sécurité analyse l’état de sécurité de vos ressources Azure à intervalles réguliers. Lorsqu’il identifie des failles de sécurité potentielles, il crée des recommandations. Ces recommandations vous guident tout au long du processus de configuration des contrôles nécessaires.
+## <a name="what-are-security-recommendations"></a>Quelles sont les recommandations de sécurité ?
+Le Centre de sécurité analyse l’état de sécurité de vos ressources Azure à intervalles réguliers. Lorsqu’il identifie des failles de sécurité potentielles, il crée des recommandations. Ces recommandations vous guident tout au long du processus de configuration des contrôles nécessaires.
 
-## Mise en œuvre des recommandations de sécurité
-### Définition de recommandations
+## <a name="implementing-security-recommendations"></a>Mise en œuvre des recommandations de sécurité
+### <a name="set-recommendations"></a>Définition de recommandations
 Dans la section [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md), vous apprendrez à :
 
-* configurer des stratégies de sécurité ;
-* activer la collecte des données ;
+* configurer des stratégies de sécurité ;
+* activer la collecte des données ;
 * choisir les recommandations à afficher dans le cadre de votre stratégie de sécurité.
 
-Les recommandations de stratégie actuelles se concentrent sur les mises à jour système, les règles de base, les logiciels anti-programme malveillant, les [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md) pour les sous-réseaux et les interfaces réseau, l’audit des bases de données SQL, le Transparent Data Encryption de bases de données SQL et les pare-feu d’applications web. L’article [Définition de stratégies de sécurité](security-center-policies.md) fournit une description de chacune des recommandations.
+Les recommandations de stratégie actuelles se concentrent sur les mises à jour système, les règles de base, les logiciels anti-programme malveillant, les [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md) pour les sous-réseaux et les interfaces réseau, l’audit des bases de données SQL, le Transparent Data Encryption de bases de données SQL et les pare-feu d’applications web.  [Définition de stratégies de sécurité](security-center-policies.md) fournit une description de chacune des recommandations.
 
-### Suivi des recommandations
-Après la définition d’une stratégie de sécurité, le Centre de sécurité analyse l’état de sécurité de vos ressources pour identifier les vulnérabilités potentielles. La mosaïque **Recommandations** du panneau **Security Center** vous permet de connaître le nombre total de recommandations fournies par Security Center.
+### <a name="monitor-recommendations"></a>Suivi des recommandations
+Après la définition d’une stratégie de sécurité, le Centre de sécurité analyse l’état de sécurité de vos ressources pour identifier les vulnérabilités potentielles. La mosaïque **Recommandations** du panneau **Centre de sécurité** vous permet de connaître le nombre total de recommandations fournies par Azure Security Center.
 
 ![Panneau Recommandations][1]
 
-Pour afficher les détails de chaque recommandation :
+Pour afficher les détails de chaque recommandation :
 
 1. Cliquez sur la **mosaïque Recommandations** dans le panneau **Centre de sécurité**. Le panneau **Recommandations** s’ouvre.
 
-Les recommandations sont affichées dans un tableau où chaque ligne correspond à une recommandation. Les colonnes du tableau sont les suivantes :
+Les recommandations sont affichées dans un tableau où chaque ligne correspond à une recommandation. Les colonnes du tableau sont les suivantes :
 
-* **DESCRIPTION** : explication de la recommandation et de la procédure à suivre pour résoudre le problème.
-* **RESSOURCE** : ressources auxquelles s’appliquent les recommandations.
-* **ÉTAT** : décrit l’état actuel de la recommandation :
-  * **Ouverte** : la recommandation n’a pas encore été prise en compte.
-  * **En cours** : la recommandation est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
-  * **Résolue** : la recommandation a déjà été appliquée (dans ce cas, la ligne est grisée).
-* **GRAVITÉ** : donne le niveau de gravité de chaque recommandation :
+* **DESCRIPTION**: explication de la recommandation et de la procédure à suivre pour résoudre le problème.
+* **RESSOURCE**: ressources auxquelles s’appliquent les recommandations.
+* **ÉTAT**: décrit l’état actuel de la recommandation :
+  * **Ouverte**: la recommandation n’a pas encore été prise en compte.
+  * **En cours**: la recommandation est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
+  * **Résolue**: la recommandation a déjà été appliquée (dans ce cas, la ligne est grisée).
+* **GRAVITÉ**: donne le niveau de gravité de chaque recommandation :
   * **Élevée** : existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle ou groupe de sécurité réseau). Le problème doit être analysé.
-  * **Moyenne** : il existe une vulnérabilité ; des étapes supplémentaires ou non critiques sont requises pour l’éliminer ou pour terminer un processus.
-  * **Faible** : existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite pas une attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
+  * **Moyenne**: il existe une vulnérabilité ; des étapes supplémentaires ou non critiques sont requises pour l’éliminer ou pour terminer un processus.
+  * **Faible**: existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite pas une attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
 
 Utilisez le tableau ci-dessous pour mieux comprendre les recommandations et leurs effets.
 
@@ -72,7 +76,7 @@ Utilisez le tableau ci-dessous pour mieux comprendre les recommandations et leur
 | [Corriger des vulnérabilités du système d’exploitation](security-center-remediate-os-vulnerabilities.md) |Recommande d’aligner les configurations de votre système d’exploitation sur les règles de configuration recommandées, comme le fait de ne pas permettre l’enregistrement des mots de passe. |
 | [Appliquer des mises à jour système](security-center-apply-system-updates.md) |Recommande le déploiement des mises à jour de sécurité du système et des mises à jour critiques manquantes sur les machines virtuelles. |
 | [Redémarrage après des mises à jour système](security-center-apply-system-updates.md#reboot-after-system-updates) |Recommande de redémarrer une machine virtuelle pour terminer le processus de mise à jour du système. |
-| [Ajouter un pare-feu d’applications web](security-center-add-web-application-firewall.md) |Recommande le déploiement d’un pare-feu d’applications web (WAF) pour les points de terminaison web. Vous pouvez protéger plusieurs applications web dans le centre de sécurité en les ajoutant à vos déploiements WAF existants. Les dispositifs WAF (créés à l’aide du modèle de déploiement de Resource Manager) doivent être déployés sur un réseau virtuel distinct. Les dispositifs WAF (créés à l’aide du modèle de déploiement classique) sont limités à l’utilisation d’un groupe de sécurité réseau. Cette prise en charge sera étendue prochainement à un déploiement entièrement personnalisé d’un dispositif WAF (pour les machines virtuelles de type Classique). Le Centre de sécurité recommande d’approvisionner un WAF pour vous défendre contre les attaques ciblant vos applications web sur les machines virtuelles et sur l’environnement App Service (ASE). Pour en savoir plus sur ASE, voir [Documentation sur l’environnement App Service](../app-service/app-service-app-service-environments-readme.md). |
+| [Ajouter un pare-feu d’applications web](security-center-add-web-application-firewall.md) |Recommande le déploiement d’un pare-feu d’applications web (WAF) pour les points de terminaison web. Vous pouvez protéger plusieurs applications web dans le centre de sécurité en les ajoutant à vos déploiements WAF existants. Les dispositifs WAF (créés à l’aide du modèle de déploiement de Resource Manager) doivent être déployés sur un réseau virtuel distinct. Les dispositifs WAF (créés à l’aide du modèle de déploiement classique) sont limités à l’utilisation d’un groupe de sécurité réseau. Cette prise en charge sera étendue prochainement à un déploiement entièrement personnalisé d’un dispositif WAF (pour les machines virtuelles de type Classique). Le Centre de sécurité recommande d’approvisionner un WAF pour vous défendre contre les attaques ciblant vos applications web sur les machines virtuelles et sur l’environnement App Service (ASE). Pour en savoir plus sur ASE, voir [Documentation sur l’environnement App Service](../app-service/app-service-app-service-environments-readme.md). |
 | [Finaliser la protection des applications](security-center-add-web-application-firewall.md#finalize-application-protection) |Pour terminer la configuration d’un pare-feu d’applications web, le trafic doit être redirigé vers l’appliance de pare-feu d’applications web. L’application de cette recommandation permet d’apporter les modifications nécessaires à la configuration. |
 | [Ajouter un pare-feu de nouvelle génération](security-center-add-next-generation-firewall.md) |Recommande l’ajout d’un pare-feu de nouvelle génération d’un partenaire Microsoft afin de renforcer vos protections de sécurité. |
 | [Acheminer le trafic uniquement via un pare-feu de nouvelle génération](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only) |Recommande la configuration de règles de groupe de sécurité réseau qui forcent le trafic entrant de votre machine virtuelle via votre pare-feu de nouvelle génération. |
@@ -80,13 +84,13 @@ Utilisez le tableau ci-dessous pour mieux comprendre les recommandations et leur
 | [Résoudre les alertes d’intégrité Endpoint Protection](security-center-resolve-endpoint-protection-health-alerts.md) |Recommande la résolution des défaillances de protection de point de terminaison. |
 | [Activer des groupes de sécurité réseau sur les sous-réseaux et ou les machines virtuelles](security-center-enable-network-security-groups.md) |Recommande l’activation des groupes de sécurité réseau sur les sous-réseaux ou les machines virtuelles. |
 | [Restreindre l’accès via un point de terminaison accessible sur Internet](security-center-restrict-access-through-internet-facing-endpoints.md) |Recommande la configuration de règles de trafic entrant pour les groupes de sécurité réseau. |
-| [Activer l’audit des serveurs SQL](security-center-enable-auditing-on-sql-servers.md) |Recommande l’activation de l’audit pour les serveurs SQL Azure (service Azure SQL uniquement ; ne comprend pas les serveurs SQL exécutés sur des machines virtuelles). |
-| [Activer l’audit des bases de données SQL](security-center-enable-auditing-on-sql-databases.md) |Recommande l’activation de l’audit pour les bases de données SQL Azure (service Azure SQL uniquement ; ne comprend pas les serveurs SQL exécutés sur des machines virtuelles). |
+| [Activer l’audit des serveurs SQL](security-center-enable-auditing-on-sql-servers.md) |Recommande l’activation de l’audit pour les serveurs SQL Azure (service Azure SQL uniquement ; ne comprend pas les serveurs SQL exécutés sur des machines virtuelles). |
+| [Activer l’audit des bases de données SQL](security-center-enable-auditing-on-sql-databases.md) |Recommande l’activation de l’audit pour les bases de données SQL Azure (service Azure SQL uniquement ; ne comprend pas les serveurs SQL exécutés sur des machines virtuelles). |
 | [Activer le chiffrement transparent des données des bases de données SQL](security-center-enable-transparent-data-encryption.md) |Recommande l’activation du chiffrement pour les bases de données SQL (service Azure SQL uniquement). |
-| [Activer l’agent de machine virtuelle](security-center-enable-vm-agent.md) |Vous permet de connaître les machines virtuelles qui nécessitent l’agent de machine virtuelle. L’agent de machine virtuelle doit être installé sur les machines virtuelles pour approvisionner l’analyse des correctifs, l’analyse des lignes de base et les logiciels anti-programme malveillant. L’agent de machine virtuelle est installé par défaut sur les machines virtuelles déployées depuis Azure Marketplace. L’article [Installer l’agent de machine virtuelle – Deuxième partie](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fournit des informations sur l’installation de l’agent de machine virtuelle. |
-| [Apply disk encryption (Appliquer le chiffrement de disque Azure Disk Encryption)](security-center-apply-disk-encryption.md) |Recommande le chiffrement des disques des machines virtuelles à l’aide d’Azure Disk Encryption (Windows et Linux). Le chiffrement est recommandé pour les systèmes d’exploitation et les volumes de données de votre machine virtuelle. |
+| [Activer l’agent de machine virtuelle](security-center-enable-vm-agent.md) |Vous permet de connaître les machines virtuelles qui nécessitent l’agent de machine virtuelle. L’agent de machine virtuelle doit être installé sur les machines virtuelles pour approvisionner l’analyse des correctifs, l’analyse des lignes de base et les logiciels anti-programme malveillant. L’agent de machine virtuelle est installé par défaut sur les machines virtuelles déployées depuis Azure Marketplace. L’article [Installer l’agent de machine virtuelle – Deuxième partie](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fournit des informations sur l’installation de l’agent de machine virtuelle. |
+| [Apply disk encryption (Appliquer le chiffrement de disque Azure Disk Encryption)](security-center-apply-disk-encryption.md) |Recommande le chiffrement des disques des machines virtuelles à l’aide d’Azure Disk Encryption (Windows et Linux). Le chiffrement est recommandé pour les systèmes d’exploitation et les volumes de données de votre machine virtuelle. |
 | [Fournir des informations de contact de sécurité](security-center-provide-security-contact-details.md) |Vous recommande de fournir des informations de contact de sécurité pour chacun de vos abonnements. Les informations de contact correspondent à une adresse électronique et à un numéro de téléphone. Elles seront utilisées pour vous contacter si notre équipe de sécurité détecte que vos ressources sont compromises. |
-| [Mettre à jour la version du système d’exploitation](security-center-update-os-version.md) |Recommande de mettre à jour la version du système d’exploitation de votre service Cloud vers la version la plus récente disponible pour votre famille de systèmes d’exploitation. Pour en savoir plus sur Cloud Services, consultez [Vue d’ensemble de Cloud Services](../cloud-services/cloud-services-choose-me.md). |
+| [Mettre à jour la version du système d’exploitation](security-center-update-os-version.md) |Recommande de mettre à jour la version du système d’exploitation de votre service Cloud vers la version la plus récente disponible pour votre famille de systèmes d’exploitation.  Pour en savoir plus sur Cloud Services, consultez [Vue d’ensemble de Cloud Services](../cloud-services/cloud-services-choose-me.md). |
 | [Évaluation des vulnérabilités non installée](security-center-vulnerability-assessment-recommendations.md) |Recommande d’installer une solution d’évaluation des vulnérabilités sur votre machine virtuelle. |
 | [Corriger des vulnérabilités](security-center-vulnerability-assessment-recommendations.md#review-recommendation) |Vous permet de voir les vulnérabilités du système et des applications détectées par la solution d’évaluation des vulnérabilités installée sur votre machine virtuelle. |
 
@@ -95,17 +99,17 @@ Vous pouvez filtrer et ignorer les recommandations.
 1. Cliquez sur **Filtrer** dans le panneau **Recommandations**. Le panneau **Filtrer** s’ouvre et vous permet d’afficher uniquement certains états ou niveaux de gravité.
    
     ![Filtrer les recommandations][2]
-2. Si vous déterminez qu’une recommandation n’est pas applicable, vous pouvez l’ignorer pour la faire disparaître. Il existe deux façons d’ignorer une recommandation. L’une consiste à cliquer avec le bouton droit de la souris sur un élément, puis à sélectionner **Ignorer**. L’autre consiste à pointer sur un élément, à cliquer sur les trois points qui apparaissent à droite, puis à sélectionner **Ignorer**. Vous pouvez afficher les recommandations ignorées en cliquant sur **Filtrer**, puis en sélectionnant **Ignoré**.
+2. Si vous déterminez qu’une recommandation n’est pas applicable, vous pouvez l’ignorer pour la faire disparaître. Il existe deux façons d’ignorer une recommandation. L’une consiste à cliquer avec le bouton droit de la souris sur un élément, puis à sélectionner **Ignorer**. L’autre consiste à pointer sur un élément, à cliquer sur les trois points qui apparaissent à droite, puis à sélectionner **Ignorer**. Vous pouvez afficher les recommandations ignorées en cliquant sur **Filtrer**, puis en sélectionnant **Rejeté**.
    
     ![Ignorer une recommandation][3]
 
-### Appliquer les recommandations
+### <a name="apply-recommendations"></a>Appliquer les recommandations
 Après avoir examiné toutes les recommandations, vous pouvez décider d’en appliquer une en priorité. Les recommandations à appliquer en priorité sont celles dont le niveau de gravité est le plus élevé.
 
 Dans le tableau de recommandations ci-dessus, sélectionnez une recommandation et suivez les instructions pour savoir comment appliquer une recommandation.
 
-## Voir aussi
-Ce document vous a présenté les recommandations de sécurité du Centre de sécurité. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
+## <a name="see-also"></a>Voir aussi
+Ce document vous a présenté les recommandations de sécurité du Centre de sécurité. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 * [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
@@ -119,4 +123,8 @@ Ce document vous a présenté les recommandations de sécurité du Centre de sé
 [2]: ./media/security-center-recommendations/filter-recommendations.png
 [3]: ./media/security-center-recommendations/dismiss-recommendations.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

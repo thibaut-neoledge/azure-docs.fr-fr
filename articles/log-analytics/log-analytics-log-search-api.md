@@ -1,12 +1,12 @@
 ---
 title: API REST de recherche de journal Log Analytics | Microsoft Docs
-description: Ce guide fournit un didacticiel de base qui décrit comment utiliser l’API REST de recherche Log Analytics dans Operations Management Suite (OMS). Il propose aussi des exemples qui vous permettent de découvrir comment utiliser les commandes.
+description: "Ce guide fournit un didacticiel de base qui décrit comment utiliser l’API REST de recherche Log Analytics dans Operations Management Suite (OMS). Il propose aussi des exemples qui vous permettent de découvrir comment utiliser les commandes."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: b4e9ebe8-80f0-418e-a855-de7954668df7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 81dd7d9dc799f6f4c0dd54a12409724c182a0349
+
 
 ---
 # <a name="log-analytics-log-search-rest-api"></a>API REST de recherche de journal Log Analytics
@@ -26,19 +30,19 @@ Le Gestionnaire de ressources Azure peut être utilisé via une [Bibliothèque p
 
 ## <a name="basic-log-analytics-search-rest-api-tutorial"></a>Didacticiel de base sur l’API de recherche de journal de Log Analytics
 ### <a name="to-use-the-arm-client"></a>Pour utiliser le client ARM
-1. Installez [Chocolatey](https://chocolatey.org/)(gestionnaire de packages open source pour Windows). Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur, puis exécutez la commande suivante :
+1. Installez [Chocolatey](https://chocolatey.org/)(gestionnaire de packages open source pour Windows). Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur, puis exécutez la commande suivante :
    
     ```
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
     ```
-2. Installez ARMClient en exécutant la commande suivante :
+2. Installez ARMClient en exécutant la commande suivante :
    
     ```
     choco install armclient
     ```
 
 ### <a name="to-perform-a-simple-search-using-the-armclient"></a>Pour effectuer une simple recherche à l'aide d’ARMClient
-1. Connectez-vous à votre compte Microsoft ou OrgID :
+1. Connectez-vous à votre compte Microsoft ou OrgID :
    
     ```
     armclient login
@@ -93,14 +97,14 @@ Le Gestionnaire de ressources Azure peut être utilisé via une [Bibliothèque p
 ## <a name="log-analytics-search-rest-api-reference-examples"></a>Exemples de référence de l’API REST de recherche Log Analytics
 Les exemples suivants vous expliquent comment utiliser l'API de recherche.
 
-### <a name="search---action/read"></a>Recherche - Action/lecture
-**Exemple d’URL :**
+### <a name="search---actionread"></a>Recherche - Action/lecture
+**Exemple d’URL :**
 
 ```
     /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search?api-version=2015-03-20
 ```
 
-**Requête :**
+**Requête :**
 
 ```
     $savedSearchParametersJson =
@@ -128,7 +132,7 @@ Le tableau suivant décrit les propriétés qui sont disponibles
 | start |Le début de la plage horaire à partir de laquelle vous souhaitez obtenir des résultats. |
 | end |La fin de la plage horaire à partir de laquelle vous souhaitez obtenir des résultats. |
 
-**Réponse :**
+**Réponse :**
 
 ```
     {
@@ -179,28 +183,28 @@ Le tableau suivant décrit les propriétés qui sont disponibles
     }
 ```
 
-### <a name="search/{id}---action/read"></a>Recherche/{ID} - Action/lecture
-**Demander le contenu d'une recherche enregistrée :**
+### <a name="searchid---actionread"></a>Recherche/{ID} - Action/lecture
+**Demander le contenu d'une recherche enregistrée :**
 
 ```
     armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2015-03-20
 ```
 
 > [!NOTE]
-> Si la recherche renvoie un état « En attente », une interrogation des résultats mis à jour peut alors être réalisée via cette API. Après 6 minutes, le résultat de la recherche est supprimé du cache et HTTP Gone est retourné. Si la demande de recherche initiale a retourné immédiatement un état « Succès », le résultat n’est pas ajouté au cache, ce qui signifie que cette API retourne HTTP Gone si elle est interrogée. Le contenu d’un résultat HTTP 200 est présenté dans le même format que la demande de recherche initiale. Toutefois, les valeurs sont mises à jour.
+> Si la recherche renvoie un état « En attente », une interrogation des résultats mis à jour peut alors être réalisée via cette API. Après 6 minutes, le résultat de la recherche est supprimé du cache et HTTP Gone est retourné. Si la demande de recherche initiale a retourné immédiatement un état « Succès », le résultat n’est pas ajouté au cache, ce qui signifie que cette API retourne HTTP Gone si elle est interrogée. Le contenu d’un résultat HTTP 200 est présenté dans le même format que la demande de recherche initiale. Toutefois, les valeurs sont mises à jour.
 > 
 > 
 
 ### <a name="saved-searches---rest-only"></a>Recherches enregistrées - REST uniquement
-**Demander la liste des recherches enregistrées :**
+**Demander la liste des recherches enregistrées :**
 
 ```
     armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2015-03-20
 ```
 
-Méthodes prises en charge : GET PUT DELETE
+Méthodes prises en charge : GET PUT DELETE
 
-Méthodes de collection prises en charge : GET
+Méthodes de collection prises en charge : GET
 
 Le tableau suivant décrit les propriétés qui sont disponibles
 
@@ -218,7 +222,7 @@ Le tableau suivant décrit les propriétés qui sont disponibles
 > 
 
 ### <a name="create-saved-searches"></a>Créer des recherches enregistrées
-**Requête :**
+**Requête :**
 
 ```
     $savedSearchParametersJson = "{'properties': { 'Category': 'myCategory', 'DisplayName':'myDisplayName', 'Query':'* | measure Count() by Source', 'Version':'1'  }"
@@ -226,14 +230,14 @@ Le tableau suivant décrit les propriétés qui sont disponibles
 ```
 
 ### <a name="delete-saved-searches"></a>Supprimer les recherches enregistrées
-**Requête :**
+**Requête :**
 
 ```
     armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2015-03-20
 ```
 
 ### <a name="update-saved-searches"></a>Mettre à jour les recherches enregistrées
- **Requête :**
+ **Requête :**
 
 ```
     $savedSearchParametersJson = "{'etag': 'W/`"datetime\'2015-04-16T23%3A35%3A35.3182423Z\'`"', 'properties': { 'Category': 'myCategory', 'DisplayName':'myDisplayName', 'Query':'* | measure Count() by Source', 'Version':'1'  }"
@@ -243,13 +247,13 @@ Le tableau suivant décrit les propriétés qui sont disponibles
 ### <a name="metadata---json-only"></a>Métadonnées - JSON uniquement
 Voici un moyen d'afficher les champs pour tous les types de journaux pour les données collectées dans votre espace de travail. Par exemple, si vous voulez savoir si le type Événement possède un champ nommé Ordinateur, ceci constitue une méthode de recherche et de confirmation.
 
-**Requête de champs :**
+**Requête de champs :**
 
 ```
     armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/schema?api-version=2015-03-20
 ```
 
-**Réponse :**
+**Réponse :**
 
 ```
     {
@@ -287,15 +291,15 @@ Le tableau suivant décrit les propriétés qui sont disponibles
 | name |Nom du champ. |
 | displayName |Nom d'affichage du champ. |
 | type |Type de la valeur du champ. |
-| facetable |Combinaison des propriétés « indexed », « stored » et « facet » actuelles. |
-| display |Propriété « display » actuelle. True si le champ est visible dans la recherche. |
+| facetable |Combinaison des propriétés « indexed », « stored » et « facet » actuelles. |
+| display |Propriété « display » actuelle. True si le champ est visible dans la recherche. |
 | ownerType |Réduit uniquement aux types appartenant aux adresses IP intégrées. |
 
 ## <a name="optional-parameters"></a>Paramètres facultatifs
 Les informations suivantes décrivent les paramètres facultatifs disponibles.
 
 ### <a name="highlighting"></a>Highlighting
-Le paramètre « Highlight » est un paramètre facultatif que vous pouvez utiliser pour demander au sous-système de recherche d'inclure un jeu de marqueurs dans sa réponse.
+Le paramètre « Highlight » est un paramètre facultatif que vous pouvez utiliser pour demander au sous-système de recherche d'inclure un jeu de marqueurs dans sa réponse.
 
 Ces marqueurs indiquent le début et la fin du texte mis en surbrillance qui correspond aux critères fournis dans votre requête de recherche.
 Vous pouvez spécifier les marqueurs de début et de fin qui seront utilisés par la recherche pour encapsuler le terme en surbrillance.
@@ -317,7 +321,7 @@ Vous pouvez spécifier les marqueurs de début et de fin qui seront utilisés pa
     armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2015-03-20 $searchParametersJson
 ```
 
-**Exemple de résultat :**
+**Exemple de résultat :**
 
 ```
     {
@@ -356,7 +360,7 @@ Voici un exemple de réponse pour un groupe d'ordinateurs.
         "Tags": [{
             "Name": "Group",
             "Value": "Computer"
-        }],
+          }],
     "Version": 1
     }
 
@@ -395,6 +399,9 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les [recherches de journaux](log-analytics-log-searches.md) pour générer des requêtes utilisant des champs personnalisés comme critères.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

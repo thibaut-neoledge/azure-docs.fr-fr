@@ -1,19 +1,23 @@
 ---
 title: Transactions Service Bus | Microsoft Docs
-description: Vue d’ensemble des transactions atomiques Azure Service Bus et de la fonctionnalité de transfert
-services: service-bus
+description: "Vue d’ensemble des transactions atomiques Azure Service Bus et de la fonctionnalité de transfert"
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 64449247-1026-44ba-b15a-9610f9385ed8
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: clemensv;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 926eeec8186b8136f41355030e5382911bfc0322
+
 
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Vue d’ensemble du traitement des transactions Service Bus
@@ -36,13 +40,13 @@ Les opérations de réception ne sont pas incluses, car on suppose que l’appli
 
 Le traitement du message (exécution, abandon, lettre morte, report) se produit dans l’étendue du résultat global de la transaction et selon ce résultat.
 
-## <a name="transfers-and-"send-via""></a>Transferts
+## <a name="transfers-and-send-via"></a>Transferts
 Pour activer la remise transactionnelle des données à partir d’une file d’attente à un processeur, puis à une autre file d’attente, Service Bus prend en charge les *transferts*. Dans une opération de transfert, un expéditeur envoie d’abord un message à une « file d’attente de transfert ». Celle-ci déplace immédiatement le message vers la file d’attente de destination prévue à l’aide d’une implémentation de transfert particulièrement fiable (celle sur laquelle repose également la fonctionnalité de transfert automatique). Le message n’est jamais validé dans le journal de la file d’attente de transfert de telle façon qu’il devient visible pour les consommateurs de la file d’attente de transfert.
 
 La puissance de cette fonctionnalité transactionnelle devient évidente lorsque la file d’attente de transfert elle-même est la source des messages d’entrée de l’expéditeur. En d’autres termes, Service Bus peut transférer le message vers la file d’attente de destination « via » la file d’attente de transfert, tout en effectuant une opération d’exécution (ou une opération de report ou de lettre morte) sur le message d’entrée, en une opération atomique. 
 
 ### <a name="see-it-in-code"></a>Apparence dans le code
-Pour configurer ces transferts, vous devez créer un expéditeur de message qui cible la file d’attente de destination via la file d’attente de transfert. Il vous faudra également un destinataire qui extrait les messages de cette même file d’attente. Par exemple :
+Pour configurer ces transferts, vous devez créer un expéditeur de message qui cible la file d’attente de destination via la file d’attente de transfert. Il vous faudra également un destinataire qui extrait les messages de cette même file d’attente. Par exemple :
 
 ```
 var sender = this.messagingFactory.CreateMessageSender(destinationQueue, myQueueName);
@@ -74,8 +78,11 @@ Pour plus d’informations sur les files d’attente de lettres mortes Service B
 * Exemple [Auto-forward](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AutoForward) (Transfert automatique)
 * Exemple [Atomic Transactions with Service Bus](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AtomicTransactions) (Transactions atomiques avec Service Bus)
 * [Comparaison des files d’attente Azure et Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-* [Utilisation des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
+* [Utilisation des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

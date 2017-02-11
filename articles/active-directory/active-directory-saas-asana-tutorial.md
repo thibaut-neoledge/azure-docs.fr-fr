@@ -219,7 +219,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD.
 
-Accédez à la page de connexion à Asana. Dans la zone correspondante, insérez l’adresse de messagerie britta.simon@contoso.com. Laissez la zone du mot de passe vide, puis cliquez sur **Connexion**. Vous êtes redirigé vers la page de connexion à Azure AD. Entrez vos informations d’identification Azure AD. Vous êtes maintenant connecté à Asana.
+Accédez à la page de connexion à Asana. Dans la zone correspondante, insérez l’adresse de messagerie britta.simon@contoso.com. Laissez la zone du mot de passe vide, puis cliquez sur **Log In**. Vous êtes redirigé vers la page de connexion à Azure AD. Entrez vos informations d’identification Azure AD. Vous êtes maintenant connecté à Asana.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)

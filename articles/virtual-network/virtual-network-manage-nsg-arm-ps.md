@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 93e806457de136d773de2c8121b91491c0cf3de1
-ms.openlocfilehash: f25daf68920c6fe54e739104233173b14bc27f84
+ms.sourcegitcommit: 8ecda7d59b3631b07e807ee018017c75b963dac5
+ms.openlocfilehash: 8eaca4e52363e577c015d9d183f200abedbf4d43
 
 
 ---
@@ -379,25 +379,19 @@ Pour associer le groupe de sécurité réseau **NSG-FrontEnd** à la carte rése
 ### <a name="dissociate-an-nsg-from-a-nic"></a>Dissocier un groupe de sécurité réseau d’une carte réseau
 Pour dissocier le groupe de sécurité réseau **NSG-FrontEnd** de la carte réseau **TestNICWeb1**, procédez comme suit :
 
-1. Exécutez la commande suivante pour récupérer le groupe de sécurité réseau existant et le stocker dans une variable :
-
-    ```powershell
-    $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
-    ```
-
-2. Exécutez la commande suivante pour récupérer la carte réseau existante et la stocker dans une variable :
+1. Exécutez la commande suivante pour récupérer la carte réseau existante et la stocker dans une variable :
 
     ```powershell
     $nic = Get-AzureRmNetworkInterface -ResourceGroupName RG-NSG -Name TestNICWeb1
     ```
 
-3. Attribuez à la propriété **NetworkSecurityGroup** de la variable **NIC** la valeur **$null** en exécutant la commande suivante :
+2. Attribuez à la propriété **NetworkSecurityGroup** de la variable **NIC** la valeur **$null** en exécutant la commande suivante :
 
     ```powershell
     $nic.NetworkSecurityGroup = $null
     ```
 
-4. Pour enregistrer les modifications apportées à la carte réseau, exécutez la commande suivante :
+3. Pour enregistrer les modifications apportées à la carte réseau, exécutez la commande suivante :
 
     ```powershell
     Set-AzureRmNetworkInterface -NetworkInterface $nic
@@ -523,6 +517,6 @@ Vous ne pouvez supprimer un groupe de sécurité réseau que s’il n’est asso
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

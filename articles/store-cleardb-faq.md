@@ -34,7 +34,7 @@ Vous disposez de plusieurs options :
 
 ClearDB est un service d’hébergement MySQL qui gère l’infrastructure MySQL pour vous. Quand vous exécutez votre propre cluster ou base de données MySQL sur une machine virtuelle Azure, vous devez configurer le serveur MySQL et le maintenir à jour avec des correctifs.
 
-## <a name="do-i-need-a-credit-card-for-the-web-app-mysql-template-in-the-azure-marketplace"></a>Ai-je besoin d’une carte de crédit pour le modèle Application web + MySQL dans Azure Marketplace ?
+## <a name="do-i-need-a-credit-card-for-the-web-app--mysql-template-in-the-azure-marketplace"></a>Ai-je besoin d’une carte de crédit pour le modèle Application web + MySQL dans Azure Marketplace ?
 Cela dépend du type d’abonnement que vous utilisez. Voici quelques types d’abonnement couramment utilisés :
 
 * [Paiement à l’utilisation](/offers/ms-azr-0003p/) : exige une carte de crédit. Quand vous achetez une base de données MySQL payante, votre carte de crédit est débitée.
@@ -43,7 +43,7 @@ Cela dépend du type d’abonnement que vous utilisez. Voici quelques types d’
 * [Contrat Entreprise](/pricing/enterprise-agreement/) : les clients Contrat Entreprise sont facturés conformément à leur contrat, tous les trimestres, à hauteur de tous leurs achats Azure Marketplace (tiers) sur une facture distincte et cumulée. Vous êtes facturé hors engagement monétaire pour tous les achats Marketplace. Notez que, à ce jour, Azure Store n’est pas disponible pour les clients inscrits en Azerbaïdjan, Croatie, Norvège et à Porto Rico. 
 * [DreamSpark](https://www.dreamspark.com/Product/Product.aspx?productid=99): vous pouvez créer uniquement des bases de données ClearDB GRATUITES pour Web Apps. Aucune limite n’est définie sur le nombre de bases de données MySQL ClearDB gratuites que vous pouvez créer. Notez que les bases de données gratuites ne doivent ne pas être utilisées pour les applications web de production, puisque ce service a été conçu uniquement à des fins d’essai.
 
-## <a name="why-was-i-charged-350-for-a-web-app-mysql-from-the-azure-marketplace"></a>Pourquoi ai-je été facturé 3,50 USD pour une application Web + MySQL dans Azure Marketplace ?
+## <a name="why-was-i-charged-350-for-a-web-app--mysql-from-the-azure-marketplace"></a>Pourquoi ai-je été facturé 3,50 USD pour une application Web + MySQL dans Azure Marketplace ?
 L’option de base de données par défaut est Titan, qui coûte 3,50 USD. Nous n’indiquons pas le coût lors de la création de la base de données et vous pouvez acheter par erreur une base de données que vous ne souhaitiez pas. Nous essayons de trouver un moyen d’améliorer l’expérience, mais en attendant, vous devez vérifier tous vos niveaux tarifaires sélectionnés pour l’application web et la base de données avant de cliquer sur **Créer** et commencer le déploiement des ressources.
 
 ## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>J’exécute MySQL sur ma propre machine virtuelle Azure. Puis-je connecter mon application web Azure à ma base de données ?

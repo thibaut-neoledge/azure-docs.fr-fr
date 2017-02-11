@@ -1,12 +1,12 @@
 ---
 title: Optimiser votre environnement avec la solution Service Fabric dans Log Analytics | Microsoft Docs
-description: Vous pouvez utiliser la solution Service Fabric pour évaluer les risques et l’intégrité de vos applications, microservices, nœuds et clusters Service Fabric.
+description: "Vous pouvez utiliser la solution Service Fabric pour évaluer les risques et l’intégrité de vos applications, microservices, nœuds et clusters Service Fabric."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: niniikhena
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 2047b3fa-96b1-4230-af5d-a4c331d973ce
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e6697c85194e18fcaac0f6d55bf00c3b005f6f00
+
 
 ---
 # <a name="service-fabric-solution-in-log-analytics"></a>Solution Service Fabric dans Log Analytics
@@ -46,7 +50,7 @@ Dans la section **EtwEventSourceProviderConfiguration** du fichier **template.js
 
 Les outils suivants sont utilisés pour exécuter certaines opérations décrites dans cette section :
 
-* Azure PowerShell
+* Azure PowerShell
 * [Operations Management Suite](http://www.microsoft.com/oms)
 
 ### <a name="configure-an-oms-workspace-to-show-the-cluster-logs"></a>Configurer un espace de travail OMS pour afficher les journaux du cluster
@@ -361,7 +365,7 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 
 | plateforme | Agent direct | Agent SCOM | Azure Storage | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Non](./media/log-analytics-malware/oms-bullet-red.png) |![Non](./media/log-analytics-malware/oms-bullet-red.png) |![Oui](./media/log-analytics-malware/oms-bullet-green.png) |![Non](./media/log-analytics-malware/oms-bullet-red.png) |![Non](./media/log-analytics-malware/oms-bullet-red.png) |10 minutes |
+| Windows |![Non](./media/log-analytics-malware/oms-bullet-red.png) |![Non](./media/log-analytics-malware/oms-bullet-red.png) |![Oui](./media/log-analytics-malware/oms-bullet-green.png) |![Non](./media/log-analytics-malware/oms-bullet-red.png) |![Non](./media/log-analytics-malware/oms-bullet-red.png) |10 minutes |
 
 > [!NOTE]
 > Vous pouvez modifier l’étendue de ces événements dans la solution Service Fabric en cliquant sur **Données basées sur les 7 derniers jours** dans la partie supérieure du tableau de bord. Vous pouvez également afficher les événements générés durant les 7 derniers jours, la journée précédente ou les 6 dernières heures. Vous pouvez aussi sélectionner **Personnalisé** pour spécifier une plage de dates personnalisée.
@@ -633,6 +637,9 @@ foreach($storageAccount in $storageAccountsToCheck)
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez [Recherches dans les journaux dans Log Analytics](log-analytics-log-searches.md) pour afficher des données détaillées sur les événements Service Fabric.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

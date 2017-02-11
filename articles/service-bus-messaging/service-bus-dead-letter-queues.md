@@ -1,19 +1,23 @@
 ---
-title: Files d’attente de lettres mortes Service Bus | Microsoft Docs
-description: Vue d’ensemble des files d’attente de lettres mortes Azure Service Bus
-services: service-bus
+title: "Files d’attente de lettres mortes Service Bus | Microsoft Docs"
+description: "Vue d’ensemble des files d’attente de lettres mortes Azure Service Bus"
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 68b2aa38-dba7-491a-9c26-0289bc15d397
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2016
-ms.author: clemensv;sethm
+ms.author: clemensv,sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dfab83bdd505a1a173abc1142da609d31ecbd72a
+
 
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Vue d’ensemble des files d’attente de lettres mortes Service Bus
@@ -83,6 +87,9 @@ Pour plus d’informations sur les files d’attente de lettres mortes Service B
 * [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Comparaison des files d’attente Azure et Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

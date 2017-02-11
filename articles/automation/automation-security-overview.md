@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/29/2016
+ms.date: 11/11/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5cd87c888a5e3407da2bad1bc3f2ef10aa75312b
+ms.sourcegitcommit: dd6b2fa2a1ca003578eaee82ef42741b9b1bf2a4
+ms.openlocfilehash: 432321c66fc991136b0b473abd0880876c31887e
 
 
 ---
@@ -28,7 +28,7 @@ Cet article couvre les différents scénarios d’authentification pris en charg
 ## <a name="automation-account-overview"></a>Présentation du compte Automation
 Lorsque vous démarrez Azure Automation pour la première fois, vous devez créer au moins un compte Automation. Les comptes Automation vous permettent d’isoler vos ressources Automation (Runbooks, ressources, configurations) des ressources contenues dans d’autres comptes Automation. Vous pouvez utiliser des comptes Automation pour séparer les ressources dans des environnements logiques distincts. Par exemple, vous pouvez utiliser un compte pour le développement, un autre pour la production et un autre pour l’environnement local.  Un compte Azure Automation est différent de votre compte Microsoft ou des comptes créés dans votre abonnement Azure.
 
-Les ressources Automation de chaque compte Automation sont associées à une seule région Azure, mais les comptes Automation peuvent gérer des ressources dans n’importe quelle région. L’existence de stratégies qui requièrent l’isolation des données et des ressources dans une région spécifique constitue la raison principale de création de comptes Automation dans différentes régions.
+Les ressources Automation de chaque compte Automation sont associées à une seule région Azure, mais les comptes Automation peuvent gérer toutes les ressources dans votre abonnement. L’existence de stratégies qui requièrent l’isolation des données et des ressources dans une région spécifique constitue la raison principale de création de comptes Automation dans différentes régions.
 
 > [!NOTE]
 > Les comptes Automation et les ressources qu’ils contiennent, créés dans le portail Azure, ne sont pas accessibles dans le portail Azure Classic. Si vous souhaitez gérer ces comptes ou leurs ressources avec Windows PowerShell, vous devez utiliser les modules Azure Resource Manager.
@@ -60,6 +60,6 @@ Le tableau suivant résume les différentes méthodes d’authentification pour 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Comment accéder à PIM | Microsoft Docs
-description: Découvrez comment ajouter des rôles à des utilisateurs avec l’extension Azure Active Directory Privileged Identity Management pour qu’ils puissent gérer PIM.
+title: "Comment accéder à PIM | Microsoft Docs"
+description: "Découvrez comment ajouter des rôles à des utilisateurs avec l’extension Azure Active Directory Privileged Identity Management pour qu’ils puissent gérer PIM."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d4c53b53-2b37-41e6-813c-96ec08a1c897
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/22/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 42273f2e20be65cc794d078fb4c3ba4585d2aa79
+
 
 ---
 # <a name="how-to-give-access-to-manage-azure-ad-privileged-identity-management"></a>Comment donner accès pour gérer Azure AD Privileged Identity Management
@@ -40,7 +44,7 @@ Vérifiez qu’il y a toujours au moins deux utilisateurs dans un rôle d’admi
    * Chaque fois que vous affectez un nouveau rôle à un utilisateur, celui-ci devient automatiquement éligible pour activer le rôle. Si vous souhaitez qu’il conserve le rôle, cliquez sur cet utilisateur dans la liste. Sélectionnez **Rendre permanent** dans le menu des informations utilisateur.
 6. Envoyez à l'utilisateur un lien vers la ressource [Prise en main d'Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md).
 
-## <a name="remove-another-user's-access-rights-for-managing-pim"></a>Supprimez les droits d'accès d'un autre utilisateur pour la gestion de PIM
+## <a name="remove-another-users-access-rights-for-managing-pim"></a>Supprimez les droits d'accès d'un autre utilisateur pour la gestion de PIM
 Avant de supprimer le rôle d’administrateur de rôle privilégié d’un utilisateur, vérifiez toujours que deux utilisateurs y sont toujours affectés.
 
 1. Dans le tableau de bord PIM, cliquez sur le rôle **Administrateur de rôle privilégié**.  La liste des utilisateurs actuels de ce rôle s'affiche.
@@ -59,6 +63,6 @@ Avant de supprimer le rôle d’administrateur de rôle privilégié d’un util
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

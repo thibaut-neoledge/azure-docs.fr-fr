@@ -1,47 +1,51 @@
 ---
-title: Connectez un périphérique à l'aide de C sur Windows | Microsoft Docs
-description: Explique comment connecter un appareil à la solution de surveillance à distance Azure IoT Suite préconfigurée à l’aide d’une application écrite en C et exécutée sous Windows.
-services: ''
+title: "Connexion d’un périphérique à l’aide de C sur Windows | Microsoft Docs"
+description: "Explique comment connecter un appareil à la solution de surveillance à distance Azure IoT Suite préconfigurée à l’aide d’une application écrite en C et exécutée sous Windows."
+services: 
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 34e39a58-2434-482c-b3fa-29438a0c05e8
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2016
+ms.date: 10/05/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: af83b55210d1e31c548b9b178272f7e75be7b98e
+
 
 ---
-# Connexion de votre appareil à la solution préconfigurée de surveillance à distance (Windows)
+# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>Connexion de votre appareil à la solution préconfigurée de surveillance à distance (Windows)
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## Création d’un exemple de solution C sur Windows
-Les étapes suivantes vous montrent comment utiliser Visual Studio pour créer une application cliente simple écrite en C qui communique avec la solution préconfigurée de surveillance à distance.
+## <a name="create-a-c-sample-solution-on-windows"></a>Création d’un exemple de solution C sur Windows
+Les étapes suivantes vous montrent comment utiliser Visual Studio afin de créer une application cliente écrite en C qui communique avec la solution préconfigurée de surveillance à distance.
 
 Créez un projet de démarrage dans Visual Studio 2015 et ajoutez les packages NuGet clients de l’appareil IoT Hub :
 
-1. Dans Visual Studio 2015, créez une nouvelle application console C à l’aide du modèle **Application console Win32** de Visual C++. Nommez le projet **RMDevice**.
-2. Sur la page **Paramètres de l’application** dans l’**Assistant Application Win32**, assurez-vous que l’option **Application console** est sélectionnée et décochez les cases **En-tête précompilé** et **Vérifications SDL (Security Development Lifecycle)**.
-3. Dans l’**Explorateur de solutions**, supprimez les fichiers stdafx.h, targetver.h et stdafx.cpp.
-4. Dans l’**Explorateur de solutions**, renommez le fichier RMDevice.cpp en RMDevice.c.
-5. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet **RMDevice**, puis cliquez sur **Gérer les packages NuGet**. Cliquez sur **Parcourir**, puis recherchez et installez les packages NuGet suivants dans le projet :
+1. Dans Visual Studio 2015, créez une application console C à l’aide du modèle **Application console Win32** de Visual C++. Nommez le projet **RMDevice**.
+2. Sur la page **Paramètres de l’application** dans **l’Assistant Application Win32**, assurez-vous que l’option **Application console** est sélectionnée et décochez les cases **En-tête précompilé** et **Vérifications SDL (Security Development Lifecycle)**.
+3. Dans l’ **Explorateur de solutions**, supprimez les fichiers stdafx.h, targetver.h et stdafx.cpp.
+4. Dans l’ **Explorateur de solutions**, renommez le fichier RMDevice.cpp en RMDevice.c.
+5. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet **RMDevice**, puis cliquez sur **Gérer les packages NuGet**. Cliquez sur **Parcourir**, puis recherchez et installez les packages NuGet suivants dans le projet :
    
    * Microsoft.Azure.IoTHub.Serializer
    * Microsoft.Azure.IoTHub.IoTHubClient
    * Microsoft.Azure.IoTHub.HttpTransport
-6. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet **RMDevice**, puis cliquez sur **Propriétés** pour ouvrir la boîte de dialogue **Pages de propriétés** du projet. Pour plus d’informations, consultez [Setting Visual C++ Project Properties][lnk-c-project-properties] \(Définition des propriétés de projet Visual C++).
-7. Cliquez sur le dossier de **l’éditeur de liens**, puis cliquez sur la page de propriétés **d’Entrée**.
+6. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet **RMDevice**, puis cliquez sur **Propriétés** pour ouvrir la boîte de dialogue **Pages de propriétés** du projet. Pour plus d’informations, consultez [Setting Visual C++ Project Properties (Définition des propriétés de projet Visual C++)][lnk-c-project-properties]. 
+7. Cliquez sur le dossier **Linker**, puis cliquez sur la page de propriétés **d’entrée**.
 8. Ajoutez **crypt32.lib** à la propriété **Dépendances supplémentaires**. Cliquez sur **OK**, puis de nouveau sur **OK** pour enregistrer les valeurs des propriétés du projet.
 
-## Spécification du comportement de l’appareil IoT Hub
-Les bibliothèques clientes IoT Hub utilisent un modèle pour spécifier le format des messages que l’appareil envoie à IoT Hub et les commandes d’IoT Hub auxquelles l’appareil répond.
+## <a name="specify-the-behavior-of-the-iot-hub-device"></a>Spécification du comportement de l’appareil IoT Hub
+Les bibliothèques clientes d’IoT Hub utilisent un modèle pour spécifier le format des messages que l’appareil envoie à IoT Hub et les commandes qu’il reçoit d’IoT Hub.
 
-1. Dans Visual Studio, ouvrez le fichier RMDevice.c. Remplacez les instructions `#include` existantes par ce qui suit :
+1. Dans Visual Studio, ouvrez le fichier RMDevice.c. Remplacez les instructions existantes `#include` par ce qui suit :
    
     ```
     #include "iothubtransporthttp.h"
@@ -52,7 +56,7 @@ Les bibliothèques clientes IoT Hub utilisent un modèle pour spécifier le form
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
     ```
-2. Ajoutez les déclarations de variables suivantes après les instructions `#include`. Remplacez les valeurs d’espace réservé [Id d’appareil] et [Clé d’appareil] par les valeurs de votre appareil provenant du tableau de bord de la solution de surveillance à distance. Utilisez le nom d’hôte IoT Hub du tableau de bord pour remplacer [Nom IoTHub]. Par exemple, si votre nom d’hôte IoT Hub est **contoso.azure-devices.net**, remplacez [Nom Hub IoT] par **contoso** :
+2. Ajoutez les déclarations de variables suivantes après les instructions `#include` . Remplacez les valeurs d’espace réservé [Id d’appareil] et [Clé d’appareil] par les valeurs de votre appareil provenant du tableau de bord de la solution de surveillance à distance. Utilisez le nom d’hôte IoT Hub du tableau de bord pour remplacer [Nom IoTHub]. Par exemple, si votre nom d’hôte IoT Hub est **contoso.azure-devices.net**, remplacez [Nom Hub IoT] par **contoso** :
    
     ```
     static const char* deviceId = "[Device Id]";
@@ -99,10 +103,10 @@ Les bibliothèques clientes IoT Hub utilisent un modèle pour spécifier le form
     END_NAMESPACE(Contoso);
     ```
 
-## Implémentation du comportement de l’appareil
-Vous devez maintenant ajouter le code qui implémente le comportement défini dans le modèle.
+## <a name="implement-the-behavior-of-the-device"></a>Implémentation du comportement de l’appareil
+Ajoutez à présent le code qui implémente le comportement défini dans le modèle.
 
-1. Ajoutez les fonctions suivantes qui s’exécutent lorsque l’appareil reçoit les commandes **SetTemperature** et **SetHumidity** de l’IoT Hub :
+1. Ajoutez les fonctions suivantes qui s’exécutent lorsque l’appareil reçoit les commandes **SetTemperature** et **SetHumidity** d’IoT Hub :
    
     ```
     EXECUTE_COMMAND_RESULT SetTemperature(Thermostat* thermostat, int temperature)
@@ -182,7 +186,7 @@ Vous devez maintenant ajouter le code qui implémente le comportement défini da
       return result;
     }
     ```
-4. Ajoutez la fonction suivante pour la connexion à IoT Hub, l’envoi et la réception de messages, et la déconnexion du Hub. Notez la façon dont l’appareil envoie des métadonnées le concernant, notamment les commandes qu’il prend en charge, à IoT Hub dès qu’il se connecte. Cela permet à la solution de mettre à jour l’état de l’appareil sur **En cours d’exécution** dans le tableau de bord :
+4. Ajoutez la fonction suivante pour la connexion à IoT Hub, l’envoi et la réception de messages, et la déconnexion du Hub. Notez la façon dont l’appareil envoie à IoT Hub les métadonnées le concernant, y compris les commandes qu’il prend en charge, quand il se connecte. Ces métadonnées permettent à la solution de définir l’état de l’appareil sur **En cours d’exécution** sur le tableau de bord :
    
     ```
     void remote_monitoring_run(void)
@@ -336,7 +340,7 @@ Vous devez maintenant ajouter le code qui implémente le comportement défini da
       "Parameters":{"humidity":23}
     }
     ```
-5. Remplacez la fonction **principale** par le code suivant pour appeler la fonction **remote\_monitoring\_run** :
+5. Remplacez la fonction **principale** par le code suivant pour appeler la fonction **remote_monitoring_run** :
    
     ```
     int main()
@@ -345,11 +349,15 @@ Vous devez maintenant ajouter le code qui implémente le comportement défini da
       return 0;
     }
     ```
-6. Cliquez sur **Build**, puis sur **Générer la solution** pour générer l’application de l’appareil.
+6. Cliquez sur **Générer**, puis sur **Générer la solution** pour générer l’application de l’appareil.
 7. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet **RMDevice**, cliquez sur **Déboguer**, puis cliquez sur **Démarrer une nouvelle instance** pour exécuter l’exemple. La console affiche les messages au fur et à mesure que l’application envoie un exemple de télémétrie à IoT Hub et reçoit des commandes.
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
 [lnk-c-project-properties]: https://msdn.microsoft.com/library/669zx6zc.aspx
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

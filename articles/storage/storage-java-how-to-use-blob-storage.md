@@ -3,8 +3,8 @@ title: "Utilisation du stockage d’objets blob Azure à partir de Java | Micros
 description: "Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets)."
 services: storage
 documentationcenter: java
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: 2e223b38-92de-4c2f-9254-346374545d32
 ms.service: storage
@@ -12,28 +12,28 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 3e1994888816047f0097d21072c1ebb4e9277061
-ms.openlocfilehash: d679218de355d6f0f2b43fae9ab1745e13ae0431
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 1dd0736634c23658b8e3fc0f2ff4dbf9740db47f
 
 
 ---
 # <a name="how-to-use-blob-storage-from-java"></a>Utilisation du stockage d'objets blob à partir de Java
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
+[!INCLUDE [storage-check-out-samples-java](../../includes/storage-check-out-samples-java.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
 Le stockage d’objets blob Azure est un service qui stocke des données non structurées dans le cloud en tant qu’objets/blobs. Ce service peut stocker tout type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d’installation d’application. Le stockage d’objets blob est également appelé Blob Storage.
 
-Cet article décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob Microsoft Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure Storage pour Java][Kit de développement logiciel (SDK) Azure Storage pour Java]. Les scénarios traités incluent le **chargement**, l’**énumération**, le **téléchargement** et la **suppression** d’objets blob. Pour plus d'informations sur les objets blob, consultez la section [Étapes suivantes](#Next-Steps) .
+Cet article décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob Microsoft Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Stockage Azure pour Java][Azure Storage SDK for Java]. Les scénarios traités incluent le **chargement**, l’**énumération**, le **téléchargement** et la **suppression** d’objets blob. Pour plus d'informations sur les objets blob, consultez la section [Étapes suivantes](#Next-Steps) .
 
 > [!NOTE]
-> un Kit de développement logiciel (SDK) est disponible pour les développeurs qui utilisent Azure Storage sur des appareils Android. Pour plus d'informations, consultez la page [Kit de développement logiciel (SDK) Azure Storage pour Android][Kit de développement logiciel (SDK) Azure Storage pour Android].
-> 
-> 
+> un Kit de développement logiciel (SDK) est disponible pour les développeurs qui utilisent Azure Storage sur des appareils Android. Pour plus d’informations, consultez la page [Kit de développement logiciel (SDK) Stockage Azure pour Android][Azure Storage SDK for Android].
+>
+>
 
 [!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -42,7 +42,7 @@ Cet article décrit le déroulement de scénarios courants dans le cadre de l’
 ## <a name="create-a-java-application"></a>Création d’une application Java
 Dans cet article, vous allez utiliser des fonctionnalités de stockage qui peuvent être exécutées dans une application Java en local ou dans le code d’un rôle Web ou d’un rôle de travail dans Azure.
 
-Pour ce faire, vous devez installer le Kit de développement Java (JDK) et créer un compte Azure Storage dans votre abonnement Azure. Vous devez ensuite vérifier que votre système de développement répond à la configuration minimale requise et aux dépendances répertoriées dans le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Java][Kit de développement logiciel (SDK) Azure Storage pour Java] sur GitHub. Si tel est le cas, vous pouvez suivre les instructions relatives au téléchargement et à l'installation des bibliothèques Azure Storage pour Java sur votre système à partir du référentiel. Une fois ces tâches effectuées, vous pouvez créer une application Java utilisant les exemples de cet article.
+Pour ce faire, vous devez installer le Kit de développement Java (JDK) et créer un compte Azure Storage dans votre abonnement Azure. Vous devez ensuite vérifier que votre système de développement répond à la configuration minimale requise et aux dépendances répertoriées dans le référentiel [Kit de développement logiciel (SDK) Stockage Azure pour Java][Azure Storage SDK for Java] sur GitHub. Si tel est le cas, vous pouvez suivre les instructions relatives au téléchargement et à l'installation des bibliothèques Azure Storage pour Java sur votre système à partir du référentiel. Une fois ces tâches effectuées, vous pouvez créer une application Java utilisant les exemples de cet article.
 
 ## <a name="configure-your-application-to-access-blob-storage"></a>Configurer votre application pour accéder au stockage d’objets blob
 Ajoutez les instructions d’importation suivantes au début du fichier Java dans lequel vous voulez utiliser des API de stockage Azure pour accéder aux objets blob.
@@ -79,8 +79,8 @@ Un objet **CloudBlobClient** vous permet d’obtenir les objets de référence d
 
 > [!NOTE]
 > D’autres méthodes permettent de créer des objets **CloudStorageAccount**. Pour plus d’informations, consultez la section **CloudStorageAccount** dans la page [Référence du Kit de développement logiciel (SDK) du client Azure Storage].
-> 
-> 
+>
+>
 
 [!INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
@@ -274,22 +274,22 @@ catch (Exception e)
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous connaissez les bases du stockage d’objets blob, consultez les liens suivants pour apprendre à exécuter des tâches de stockage plus complexes.
 
-* [Kit de développement logiciel (SDK) Azure Storage pour Java][Kit de développement logiciel (SDK) Azure Storage pour Java]
+* [Kit de développement logiciel (SDK) Azure Storage pour Java][Azure Storage SDK for Java]
 * [Référence du Kit de développement logiciel (SDK) du client Azure Storage][Référence du Kit de développement logiciel (SDK) du client Azure Storage]
-* [API REST d’Azure Storage][API REST d’Azure Storage]
-* [Blog de l’équipe Azure Storage][Blog de l’équipe Azure Storage]
+* [API REST Stockage Azure][Azure Storage REST API]
+* [Blog de l’équipe Stockage Azure][Azure Storage Team Blog]
 
 Pour plus d’informations, consultez également le [Centre pour développeurs Java](/develop/java/).
 
-[Kit de développement logiciel (SDK) Azure pour Java]: http://go.microsoft.com/fwlink/?LinkID=525671
-[Kit de développement logiciel (SDK) Azure Storage pour Java]: https://github.com/azure/azure-storage-java
-[Kit de développement logiciel (SDK) Azure Storage pour Android]: https://github.com/azure/azure-storage-android
+[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
+[Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
+[Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Référence du Kit de développement logiciel (SDK) du client Azure Storage]: http://dl.windowsazure.com/storage/javadoc/
-[API REST d’Azure Storage]: https://msdn.microsoft.com/library/azure/dd179355.aspx
-[Blog de l’équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
+[Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -49,7 +49,11 @@
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)
 
-# les ressources
+# Ressources
+##  [Référence du moteur de règles](cdn-rules-engine-reference.md)
+### [Expressions conditionnelles du moteur de règles](cdn-rules-engine-reference-conditional-expressions.md)
+### [Conditions de correspondance du moteur de règles](cdn-rules-engine-reference-match-conditions.md)
+### [Fonctionnalités du moteur de règles](cdn-rules-engine-reference-features.md)
 ## [Emplacements POP des CDN Azure](cdn-pop-locations.md)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=cdn)
 ## [Tarification](https://azure.microsoft.com/pricing/details/cdn/)
@@ -58,6 +62,6 @@
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

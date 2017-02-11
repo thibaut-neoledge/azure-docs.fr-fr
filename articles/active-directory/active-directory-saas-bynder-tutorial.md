@@ -1,12 +1,12 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec Bynder | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Bynder.
+title: "Didacticiel : Intégration d’Azure Active Directory à Bynder | Microsoft Docs"
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Bynder."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 4fb0ab26-b3b9-420a-8072-a0be80ea021e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 01ce02974d18d56421f161126e3541ac7d4997fa
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-bynder"></a>Didacticiel : Intégration d’Azure Active Directory avec Bynder
+# <a name="tutorial-azure-active-directory-integration-with-bynder"></a>Didacticiel : Intégration d’Azure Active Directory avec Bynder
 L’objectif de ce didacticiel est de vous montrer comment intégrer Bynder avec Azure AD (Azure Active Directory).
 
 L’intégration de Bynder à Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à Bynder.
 * Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Bynder (via l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
+* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Composants requis
 Pour configurer l’intégration d’Azure AD avec Bynder, vous avez besoin des éléments suivants :
@@ -38,7 +42,7 @@ Pour configurer l’intégration d’Azure AD avec Bynder, vous avez besoin des 
 > 
 > 
 
-Vous devez en outre suivre les recommandations ci-dessous :
+Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
 * Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
@@ -139,7 +143,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ![Créer un utilisateur Azure AD][20]
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
    
@@ -159,7 +163,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    
     b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
    
-    c. Cliquez sur **Suivant**.
+    c. Cliquez sur **Next**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-bynder-tutorial/create_aaduser_06.png)
@@ -172,7 +176,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    
    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
    
-   e. Cliquez sur **Suivant**.
+   e. Cliquez sur **Next**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-bynder-tutorial/create_aaduser_07.png)
@@ -222,7 +226,7 @@ Lorsque vous cliquez sur la vignette Bynder dans le volet d’accès, vous devez
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 
@@ -244,6 +248,6 @@ Lorsque vous cliquez sur la vignette Bynder dans le volet d’accès, vous devez
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

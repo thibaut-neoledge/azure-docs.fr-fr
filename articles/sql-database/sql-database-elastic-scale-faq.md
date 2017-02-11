@@ -1,49 +1,59 @@
 ---
-title: FAQ sur l'infrastructure élastique d'Azure SQL | Microsoft Docs
+title: "FAQ sur l’infrastructure élastique d’Azure SQL | Microsoft Docs"
 description: Frequently Asked Questions about Azure SQL Database Elastic Scale.
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 manager: jhubbard
 author: ddove
-editor: ''
-
+editor: 
+ms.assetid: e60dde9c-bb7b-4f2f-b52c-bdb506d49fcb
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2016
+ms.date: 10/24/2016
 ms.author: ddove
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2420d31c73fcb43e680edf2a95995e4ed4969236
+
 
 ---
-# FAQ sur les outils de bases de données élastiques
-#### Si je possède un locataire unique par partition et aucune clé de partitionnement, comment remplir la clé de partitionnement pour les informations de schéma ?
+# <a name="elastic-database-tools-faq"></a>FAQ sur les outils de bases de données élastiques
+#### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>Si je possède un locataire unique par partition et aucune clé de partitionnement, comment remplir la clé de partitionnement pour les informations de schéma ?
 L’objet d’informations de schéma est utilisé uniquement dans les scénarios de fractionnement/fusion. Si une application ne possède par nature qu’un seul locataire, elle n’a pas besoin de l’outil de fractionnement/fusion, et il n’est donc pas nécessaire de remplir l’objet d’informations de schéma.
 
-#### J’ai configuré une base de données et dispose déjà d’un gestionnaire de cartes de partition, comment enregistrer cette nouvelle base de données en tant que partition ?
-Consultez **[Ajout d’une partition à une application à l’aide de la bibliothèque cliente des bases de données élastiques](sql-database-elastic-scale-add-a-shard.md)**.
+#### <a name="ive-provisioned-a-database-and-i-already-have-a-shard-map-manager-how-do-i-register-this-new-database-as-a-shard"></a>J’ai configuré une base de données et dispose déjà d’un gestionnaire de cartes de partition, comment enregistrer cette nouvelle base de données en tant que partition ?
+Consultez **[Ajout d’une partition à une application à l’aide de la bibliothèque cliente des bases de données élastiques](sql-database-elastic-scale-add-a-shard.md)**. 
 
-#### Combien coûtent les outils de bases de données élastiques ?
+#### <a name="how-much-do-elastic-database-tools-cost"></a>Combien coûtent les outils de bases de données élastiques ?
 L’utilisation de la bibliothèque cliente des bases de données élastiques est gratuite. Les coûts sont uniquement liés à l’utilisation des bases de données Azure SQL pour les partitions et le gestionnaire des mappages de partition, ainsi qu’aux rôles web/de travail configurés pour le service de fractionnement/fusion.
 
-#### Pourquoi mes informations d’identification ne fonctionnent pas quand j’ajoute une partition d’un autre serveur ?
-N’utilisez pas les informations d’identification de type « ID d’utilisateur = nom\_utilisateur@nom\_serveur », à la place utilisez simplement « ID d’utilisateur = nom\_utilisateur ». Par ailleurs, assurez-vous que l’ID de connexion « nom\_utilisateur » dispose d’autorisations sur la partition.
+#### <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>Pourquoi mes informations d’identification ne fonctionnent pas quand j’ajoute une partition d’un autre serveur ?
+N’utilisez pas d’informations d’identification de type ID=username@servername”,« ID d’utilisateur = nom_utilisateur@nom_serveur » ; utilisez simplement « ID d’utilisateur = nom_utilisateur » à la place.  Par ailleurs, assurez-vous que l’ID de connexion « nom_utilisateur » dispose d’autorisations sur la partition.
 
-#### Dois-je créer un gestionnaire de cartes de partition et remplir les partitions chaque fois que je démarre mes applications ?
-Non, la création du gestionnaire de mappages de partitions (par exemple, **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) est une opération unique. Votre application doit appeler **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** au démarrage de l’application. Un seul appel de ce type n’est possible par domaine d’application.
+#### <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>Dois-je créer un gestionnaire de cartes de partition et remplir les partitions chaque fois que je démarre mes applications ?
+Non, la création du gestionnaire de mappages de partitions (par exemple, **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) est une opération unique.  Votre application doit appeler **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** au démarrage de l’application.  Un seul appel de ce type n’est possible par domaine d’application.
 
-#### J’ai des questions sur l’utilisation des outils de bases de données élastique. Où trouver les réponses ?
+#### <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>J’ai des questions sur l’utilisation des outils de bases de données élastique. Où trouver les réponses ?
 Contactez-nous via le [forum Azure SQL Database](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
 
-#### Quand j’obtiens une connexion de base de données à l’aide d’une clé de partitionnement, je peux encore interroger les données pour d’autres clés de partitionnement sur la même partition. Est-ce normal ?
-Les API d’infrastructure élastique vous donnent une connexion à la base de données correspondant à votre clé de partitionnement, mais elles ne permettent pas de filtrer les clés de partitionnement. Ajoutez des clauses **WHERE** à votre requête pour restreindre l’étendue à la clé de partitionnement fournie, si nécessaire.
+#### <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>Quand j’obtiens une connexion de base de données à l’aide d’une clé de partitionnement, je peux encore interroger les données pour d’autres clés de partitionnement sur la même partition.  Est-ce normal ?
+Les API d’infrastructure élastique vous donnent une connexion à la base de données correspondant à votre clé de partitionnement, mais elles ne permettent pas de filtrer les clés de partitionnement.  Ajoutez des clauses **WHERE** à votre requête pour restreindre l’étendue à la clé de partitionnement fournie, si nécessaire.
 
-#### Puis-je utiliser une édition différente d’Azure SQL Database pour chaque partition de mon ensemble de partitions ?
+#### <a name="can-i-use-a-different-azure-database-edition-for-each-shard-in-my-shard-set"></a>Puis-je utiliser une édition différente d’Azure SQL Database pour chaque partition de mon ensemble de partitions ?
 Oui, une partition est une base de données individuelle, par conséquent, une partition peut utiliser une édition Premium alors qu’une autre utilise une édition Standard. Par ailleurs, l’édition d’une partition peut monter ou descendre en puissance plusieurs fois pendant la durée de vie de la partition.
 
-#### Le service de fractionnement/fusion configure-t-il (ou supprime-t-il) une base de données pendant une opération de fractionnement ou de fusion ?
-Non. Pour les opérations de **fractionnement**, la base de données cible doit exister avec le schéma approprié et être enregistrée dans le gestionnaire de mappages de partition. Pour les opérations de **fusion**, vous devez supprimer la partition à partir du gestionnaire de mappages de partition, puis supprimer la base de données.
+#### <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>Le service de fractionnement/fusion configure-t-il (ou supprime-t-il) une base de données pendant une opération de fractionnement ou de fusion ?
+Non. Pour les opérations de **fractionnement** , la base de données cible doit exister avec le schéma approprié et être enregistrée dans le gestionnaire de mappages de partition.  Pour les opérations de **fusion** , vous devez supprimer la partition à partir du gestionnaire de mappages de partition, puis supprimer la base de données.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

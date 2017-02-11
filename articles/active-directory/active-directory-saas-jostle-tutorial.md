@@ -1,33 +1,37 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Jostle | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Jostle.
+title: "Didacticiel : Intégration d’Azure Active Directory à Jostle | Microsoft Docs"
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Jostle."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 9ca4ca1f-8f68-4225-81a6-1666b486d6a8
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
+ms.date: 10/14/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 725b7aaf79f9410cd1b0d9c2b9c4d6f913f9dacd
+
 
 ---
-# Didacticiel : Intégration d’Azure Active Directory à Jostle
+# <a name="tutorial-azure-active-directory-integration-with-jostle"></a>Didacticiel : Intégration d’Azure Active Directory à Jostle
 Dans ce didacticiel, vous allez apprendre à intégrer Jostle à Azure Active Directory (Azure AD).
 
 L’intégration de Jostle à Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à Jostle.
 * Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Jostle (via l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
+* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## Configuration requise
+## <a name="prerequisites"></a>Composants requis
 Pour configurer l’intégration d’Azure AD à Jostle, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD
@@ -38,26 +42,26 @@ Pour configurer l’intégration d’Azure AD à Jostle, vous avez besoin des é
 > 
 > 
 
-Vous devez en outre suivre les recommandations ci-dessous :
+Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
 * Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
-## Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+## <a name="scenario-description"></a>Description du scénario
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Jostle à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
-## Ajout de Jostle à partir de la galerie
+## <a name="adding-jostle-from-the-gallery"></a>Ajout de Jostle à partir de la galerie
 Pour configurer l’intégration de Jostle à Azure AD, vous devez ajouter Jostle à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter Jostle à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
    
     ![Active Directory][1]
-2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
    
     ![Applications][2]
@@ -74,20 +78,21 @@ Pour configurer l’intégration de Jostle à Azure AD, vous devez ajouter Jostl
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_02.png)
 
-## Configuration et test de l’authentification unique Azure AD
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
 Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Jostle avec un utilisateur de test appelé « Britta Simon ».
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Jostle équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur Jostle associé doit être établie. Pour ce faire, affectez la valeur du champ **nom d’utilisateur** d’Azure AD comme valeur du champ **Username (Nom d’utilisateur** dans Jostle.
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Jostle équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur Jostle associé doit être établie.
+Pour ce faire, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **Nom d’utilisateur** dans Jostle.
 
 Pour configurer et tester l’authentification unique Azure AD avec Jostle, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Jostle](#creating-a-jostle-test-user)** pour avoir un équivalent de Britta Simon dans Jostle lié à la représentation Azure AD associée.
-4. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### Configuration de l’authentification unique Azure AD
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application Jostle.
 
 **Pour configurer l’authentification unique Azure AD avec Jostle, procédez comme suit :**
@@ -95,13 +100,13 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
 1. Dans le menu situé en haut, cliquez sur **Démarrage rapide**.
    
     ![Configurer l’authentification unique][6]
-2. Dans le portail Classic, dans la page d’intégration d’application **Jostle**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+2. Dans le portail classique, sur la page d’intégration d’applications **Jostle**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
-    ![Configurer l’authentification unique][7]
-3. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Jostle**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
+    ![Configurer l’authentification unique][7] 
+3. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Jostle**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_06.png)
-4. Sur la page **Configurer les paramètres d’application**, procédez comme suit :
+4. Sur la page **Configurer les paramètres d’application** , procédez comme suit : 
    
     ![Configurer l’authentification unique](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_07.png)
 
@@ -109,99 +114,99 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
 
     b. Cliquez sur **Next**.
 
-1. Dans la page **Configurer l’authentification unique sur Jostle**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
+1. Sur la page **Configurer l’authentification unique sur Jostle**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_08.png)
 2. Pour que l’authentification unique soit configurée pour votre application, contactez votre responsable de compte Jostle ou le support technique Jostle. Ils vous aideront à configurer l’authentification unique à l’aide du canal approprié. Notez que vous devez envoyer un courrier électronique en y joignant le fichier de métadonnées téléchargé à l’adresse <mailto:support@jostle.me>.
 3. Dans le portail Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
     ![Authentification unique Azure AD][10]
-4. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.
+4. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
    
     ![Authentification unique Azure AD][11]
 
-### Création d’un utilisateur de test Azure AD
+### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Classic.
 
 ![Créer un utilisateur Azure AD][20]
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-jostle-tutorial/create_aaduser_09.png)
-2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
-3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**.
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-jostle-tutorial/create_aaduser_09.png) 
+2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-jostle-tutorial/create_aaduser_03.png)
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-jostle-tutorial/create_aaduser_03.png) 
 4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-jostle-tutorial/create_aaduser_04.png)
-5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit :
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-jostle-tutorial/create_aaduser_04.png) 
+5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-jostle-tutorial/create_aaduser_05.png)
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-jostle-tutorial/create_aaduser_05.png) 
    
     a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
    
     b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
    
     c. Cliquez sur **Next**.
-6. Dans la page de boîte de dialogue **Profil utilisateur**, procédez comme suit :
+6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
-   ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-jostle-tutorial/create_aaduser_06.png)
+   ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-jostle-tutorial/create_aaduser_06.png) 
    
-   a. Dans la zone de texte **Prénom**, entrez **Britta**.
+   a. Dans la zone de texte **First Name**, tapez **Britta**.  
    
-   b. Dans la zone de texte **Nom**, tapez **Simon**.
+   b. Dans la zone de texte **Last Name**, tapez **Simon**.
    
    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
    
    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
    
    e. Cliquez sur **Next**.
-7. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
+7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-jostle-tutorial/create_aaduser_07.png)
-8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-jostle-tutorial/create_aaduser_07.png) 
+8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-jostle-tutorial/create_aaduser_08.png)
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-jostle-tutorial/create_aaduser_08.png) 
    
     a. Notez la valeur du **Nouveau mot de passe**.
    
-    b. Cliquez sur **Terminé**.
+    b. Cliquez sur **Terminé**.   
 
-### Création d’un utilisateur de test Jostle
+### <a name="creating-a-jostle-test-user"></a>Création d’un utilisateur de test Jostle
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Jostle. Si vous ne savez pas comment ajouter Britta Simon dans Jostle, collaborez avec l’équipe de support Jostle pour ajouter l’utilisateur de test et activer l’authentification unique. Contactez-la à <mailto:support@jostle.me>.
 
-### Affectation de l’utilisateur de test Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Jostle.
 
-![Affecter des utilisateurs][200]
+![Affecter des utilisateurs][200] 
 
 **Pour affecter Britta Simon à Jostle, procédez comme suit :**
 
 1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue des répertoires, cliquez sur l’option **Applications** dans le menu supérieur.
    
-    ![Affecter des utilisateurs][201]
+    ![Affecter des utilisateurs][201] 
 2. Dans la liste des applications, sélectionnez **Jostle**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_50.png)
+    ![Configurer l’authentification unique](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_50.png) 
 3. Dans le menu situé en haut, cliquez sur **Utilisateurs**.
    
-    ![Affecter des utilisateurs][203]
+    ![Affecter des utilisateurs][203] 
 4. Dans la liste Tous les utilisateurs, sélectionnez **Britta Simon**.
 5. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
    
     ![Affecter des utilisateurs][205]
 
-### Test de l’authentification unique
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Si vous cliquez sur la mosaïque Jostle dans le volet d’accès, vous devez vous connecter automatiquement à votre application Jostle.
 
-## Ressources supplémentaires
+## <a name="additional-resources"></a>Ressources supplémentaires
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 
@@ -213,7 +218,7 @@ Si vous cliquez sur la mosaïque Jostle dans le volet d’accès, vous devez vou
 
 [5]: ./media/active-directory-saas-jostle-tutorial/tutorial_general_05.png
 [6]: ./media/active-directory-saas-jostle-tutorial/tutorial_general_06.png
-[7]: ./media/active-directory-saas-jostle-tutorial/tutorial_general_050.png
+[7]:  ./media/active-directory-saas-jostle-tutorial/tutorial_general_050.png
 [10]: ./media/active-directory-saas-jostle-tutorial/tutorial_general_060.png
 [11]: ./media/active-directory-saas-jostle-tutorial/tutorial_general_070.png
 [20]: ./media/active-directory-saas-jostle-tutorial/tutorial_general_100.png
@@ -224,4 +229,8 @@ Si vous cliquez sur la mosaïque Jostle dans le volet d’accès, vous devez vou
 [204]: ./media/active-directory-saas-jostle-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-jostle-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

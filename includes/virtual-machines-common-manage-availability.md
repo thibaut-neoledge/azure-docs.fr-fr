@@ -9,7 +9,6 @@ Pour réduire l'effet des interruptions de service dues à un ou plusieurs de ce
 * [Configuration de plusieurs machines virtuelles dans un groupe à haute disponibilité pour assurer la redondance]
 * [Configuration de chaque couche application dans des groupes à haute disponibilité séparés]
 * [Combinaison de l’équilibrage de charge et des groupes à haute disponibilité]
-* [Utilisation de plusieurs comptes de stockage pour chaque groupe à haute disponibilité]
 
 ## <a name="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy"></a>Configuration de plusieurs machines virtuelles dans un groupe à haute disponibilité pour assurer la redondance
 Pour assurer la redondance de votre application, nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité. Cette configuration assure qu'au moins une des machines virtuelles sera disponible pendant un événement de maintenance planifié ou non et répondra au niveau de 99,95 % inscrit dans les contrats de niveau de service Azure. Pour plus d’informations, consultez le [SLA pour Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
@@ -39,22 +38,14 @@ Combinez [l’équilibrage de charge Azure](../articles/load-balancer/load-balan
 
 Si l’équilibrage de charge n’est pas configuré pour équilibrer le trafic entre plusieurs machines virtuelles, tout événement de maintenance planifié affecte l’unique machine virtuelle en charge du trafic, entraînant ainsi une interruption de votre couche Application. Placer plusieurs machines virtuelles de la même couche dans le même équilibrage de charge et groupe à haute disponibilité permet de toujours avoir au moins une instance disponible pour le trafic.
 
-## <a name="use-multiple-storage-accounts-for-each-availability-set"></a>Utilisation de plusieurs comptes de stockage pour chaque groupe à haute disponibilité
-Vous devez suivre les meilleures pratiques concernant les comptes de stockage utilisés par les disques durs virtuels (VHD) sur la machine virtuelle. Chaque disque (VHD) est un objet blob de pages dans un compte de stockage Azure. Il est important de s’assurer de la redondance et de l’isolation entre les comptes de stockage afin de fournir une haute disponibilité aux machines virtuelles au sein du groupe à haute disponibilité.
-
-1. **Conservez tous les disques (système d’exploitation et données) associés à une machine virtuelle dans le même compte de stockage.**
-2. **Les [limites](../articles/storage/storage-scalability-targets.md) du compte de stockage doivent être considérées** lorsque vous ajoutez plusieurs disques durs virtuels à un compte de stockage.
-3. **Utilisez un compte de stockage distinct pour chaque machine virtuelle d’un groupe à haute disponibilité.** Plusieurs machines virtuelles d’un même groupe à haute disponibilité NE doivent PAS partager le même compte de stockage. Il est acceptable pour les machines virtuelles de différents groupes à haute disponibilité de partager des comptes de stockage tant que les meilleures pratiques ci-dessus sont suivies.
-
 <!-- Link references -->
 [Configuration de plusieurs machines virtuelles dans un groupe à haute disponibilité pour assurer la redondance]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
 [Configuration de chaque couche application dans des groupes à haute disponibilité séparés]: #configure-each-application-tier-into-separate-availability-sets
 [Combinaison de l’équilibrage de charge et des groupes à haute disponibilité]: #combine-a-load-balancer-with-availability-sets
-[Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
-[Utilisation de plusieurs comptes de stockage pour chaque groupe à haute disponibilité]: #use-multiple-storage-accounts-for-each-availability-set
+[Éviter les instances uniques de machines virtuelles dans les groupes à haute disponibilité]: #avoid-single-instance-virtual-machines-in-availability-sets
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

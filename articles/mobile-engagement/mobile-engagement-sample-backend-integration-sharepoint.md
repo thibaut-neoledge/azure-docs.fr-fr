@@ -1,12 +1,12 @@
 ---
-title: Azure Mobile Engagement - Intégration au serveur principal
-description: Connexion d’Azure Mobile Engagement avec un serveur principal SharePoint pour créer des campagnes à partir de SharePoint
+title: "Azure Mobile Engagement - Intégration au serveur principal"
+description: "Connexion d’Azure Mobile Engagement avec un serveur principal SharePoint pour créer des campagnes à partir de SharePoint"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 06297b43-579f-46e6-8a58-961a68f9aa09
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
@@ -14,28 +14,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4774f33c821410fb8fbed8d64b94fede36cb0a90
+
 
 ---
-# Azure Mobile Engagement - Intégration dans une API
-Dans un système marketing automatisé, la création et l'activation des campagnes marketing peuvent également être automatiques. À cette fin, Azure Mobile Engagement permet également de créer ces campagnes marketing automatisées à l'aide d’API.
+# <a name="azure-mobile-engagement---api-integration"></a>Azure Mobile Engagement - Intégration dans une API
+Dans un système marketing automatisé, la création et l'activation des campagnes marketing peuvent également être automatiques. À cette fin, Azure Mobile Engagement permet également de créer ces campagnes marketing automatisées à l'aide d’API. 
 
-En général, les clients utilisent l'interface frontale de Mobile Engagement pour créer des annonces/sondages et autres dans le cadre de leurs campagnes marketing. Toutefois, à mesure que les campagnes marketing mûrissent, il est nécessaire d'exploiter les données enfermées dans les systèmes principaux (comme n'importe quel système de CRM ou CMS comme SharePoint) afin qu'un pipeline entièrement automatisé puisse être créé pour générer des campagnes de façon dynamique dans Mobile Engagement en se basant sur les données contenues dans les systèmes principaux.
+En général, les clients utilisent l'interface frontale de Mobile Engagement pour créer des annonces/sondages et autres dans le cadre de leurs campagnes marketing. Toutefois, à mesure que les campagnes marketing mûrissent, il est nécessaire d'exploiter les données enfermées dans les systèmes principaux (comme n'importe quel système de  CRM ou CMS comme SharePoint) afin qu'un pipeline entièrement automatisé puisse être créé pour générer des campagnes de façon dynamique dans Mobile Engagement en se basant sur les données contenues dans les systèmes principaux. 
 
 ![][5]
 
-Ce didacticiel se base sur un scénario dans lequel un utilisateur SharePoint remplit une liste SharePoint de données marketing, dont les éléments sont récupérés par un processus automatisé qui se connecte au système Mobile Engagement à l'aide des API REST disponibles afin de créer une campagne marketing à partir des données SharePoint.
+Ce didacticiel se base sur un scénario dans lequel un utilisateur SharePoint remplit une liste SharePoint de données marketing, dont les éléments sont récupérés par un processus automatisé qui se connecte au système Mobile Engagement à l'aide des API REST disponibles afin de créer une campagne marketing à partir des données SharePoint. 
 
 > [!IMPORTANT]
-> En général, vous pouvez utiliser cet exemple comme point de départ pour comprendre comment appeler les API REST Mobile Engagement, car il détaille les deux principaux aspects de l'appel des API : l’authentification et le passage des paramètres.
+> En général, vous pouvez utiliser cet exemple comme point de départ pour comprendre comment appeler les API REST Mobile Engagement, car il détaille les deux principaux aspects de l'appel des API : l’authentification et le passage des paramètres. 
 > 
 > 
 
-## Intégration de SharePoint
-1. L'exemple de liste SharePoint ressemble à ceci. **Titre**, **Catégorie**, **Titre de notification**, **Message** et **URL** sont utilisés pour créer l'annonce. Une colonne appelée **IsProcessed** est utilisée par l’exemple de processus d'automatisation sous la forme d'un programme de console. Vous pouvez exécuter ce programme de console comme un WebJob Azure de façon à le planifier. Vous pouvez également utiliser directement le flux de travail SharePoint pour programmer la création et l'activation de l'annonce lorsqu'un élément est inséré dans la liste SharePoint. Dans cet exemple, nous utilisons le programme de console qui parcourt les éléments de la liste SharePoint et crée une annonce dans Azure Mobile Engagement pour chacun d'eux avant de définir l’indicateur **IsProcessed** sur true lors de la réussite de la création de l’annonce.
+## <a name="sharepoint-integration"></a>Intégration de SharePoint
+1. L'exemple de liste SharePoint ressemble à ceci. **Titre**, **Catégorie**, **Titre de notification**, **Message** et **URL** sont utilisés pour créer l’annonce. Une colonne appelée **IsProcessed** est utilisée par l’exemple de processus d’automatisation sous la forme d’un programme de console. Vous pouvez exécuter ce programme de console comme un WebJob Azure de façon à le planifier. Vous pouvez également utiliser directement le flux de travail SharePoint pour programmer la création et l'activation de l'annonce lorsqu'un élément est inséré dans la liste SharePoint. Dans cet exemple, nous utilisons le programme de console qui parcourt les éléments de la liste SharePoint et crée une annonce dans Azure Mobile Engagement pour chacun d’eux avant de définir l’indicateur **IsProcessed** sur true lors de la réussite de la création de l’annonce.
    
     ![][1]
 2. Nous utilisons le code de l'exemple *Authentification à distance dans SharePoint Online à l’aide du modèle objet client* [ici](https://code.msdn.microsoft.com/Remote-Authentication-in-b7b6f43c) pour s'authentifier avec la liste SharePoint.
-3. Une fois authentifiés, nous parcourons les éléments de la liste pour trouver les éléments nouvellement créés (pour lesquels **IsProcessed** = false).
+3. Une fois authentifiés, nous parcourons les éléments de la liste pour trouver les éléments nouvellement créés (pour lesquels **IsProcessed** = false). 
    
          static async void CreateCampaignFromSharepoint()
         {
@@ -85,9 +89,9 @@ Ce didacticiel se base sur un scénario dans lequel un utilisateur SharePoint re
             }
         }
 
-## Intégration à Mobile Engagement
-1. Lorsque nous trouvons un élément qui nécessite un traitement, nous extrayons les informations requises pour créer une annonce à partir de l'élément de liste et nous appelons `CreateAzMECampaign` pour le créer, puis `ActivateAzMECampaign` pour l'activer. Il s'agit essentiellement d’appels d'API REST vers le serveur principal de Mobile Engagement.
-2. Les API REST Mobile Engagement requièrent un **en-tête d'autorisation HTTP de schéma d’authentification de base** composé des éléments `ApplicationId` et `ApiKey` obtenus à partir du portail Azure. Assurez-vous d’utiliser la clé de la section **clés api** et *non* celle de la section **clés sdk**.
+## <a name="mobile-engagement-integration"></a>Intégration à Mobile Engagement
+1. Lorsque nous trouvons un élément qui nécessite un traitement, nous extrayons les informations requises pour créer une annonce à partir de l'élément de liste et nous appelons `CreateAzMECampaign` pour le créer, puis `ActivateAzMECampaign` pour l'activer. Il s'agit essentiellement d’appels d'API REST vers le serveur principal de Mobile Engagement. 
+2. Les API REST Mobile Engagement requièrent un **en-tête d’autorisation HTTP de schéma d’authentification de base** composé des éléments `ApplicationId` et `ApiKey` obtenus à partir du portail Azure. Assurez-vous d’utiliser la clé de la section **clés api** et *non* celle de la section **clés sdk**. 
    
    ![][2]
    
@@ -103,7 +107,7 @@ Ce didacticiel se base sur un scénario dans lequel un utilisateur SharePoint re
            string returnValue = System.Convert.ToBase64String(toEncodeAsBytes);
            return returnValue;
        }  
-3. Pour créer la campagne d’annonces, reportez-vous à la [documentation](https://msdn.microsoft.com/library/azure/mt683750.aspx). Vous devez vous assurer de spécifier la campagne `kind` comme *annonce* et [charge](https://msdn.microsoft.com/library/azure/mt683751.aspx) et de la passer comme FormUrlEncodedContent.
+3. Pour créer la campagne d’annonces, reportez-vous à la [documentation](https://msdn.microsoft.com/library/azure/mt683750.aspx). Vous devez vous assurer de spécifier la campagne `kind` comme *annonce* et [charge](https://msdn.microsoft.com/library/azure/mt683751.aspx) et de la passer comme FormUrlEncodedContent. 
    
         static async Task<int> CreateAzMECampaign(string campaignName, string notificationTitle, 
             string notificationMessage, string notificationCategory, string actionURL)
@@ -151,7 +155,7 @@ Ce didacticiel se base sur un scénario dans lequel un utilisateur SharePoint re
 4. Une fois l'annonce créée, vous devriez voir apparaître une chose similaire sur le portail Mobile Engagement (notez que State=Draft et Activated = N/A).
    
     ![][3]
-5. `CreateAzMECampaign` crée une campagne d’annonces et retourne son ID à l'appelant. `ActivateAzMECampaign` requiert cet ID comme paramètre pour activer la campagne.
+5. `CreateAzMECampaign` crée une campagne d’annonces et retourne son ID à l'appelant. `ActivateAzMECampaign` requiert cet ID comme paramètre pour activer la campagne. 
    
         static async Task<bool> ActivateAzMECampaign(int campaignId)
         {
@@ -182,13 +186,13 @@ Ce didacticiel se base sur un scénario dans lequel un utilisateur SharePoint re
                 }
             }
         }
-6. Une fois l'annonce activée, vous devriez voir apparaître une chose similaire sur le portail Mobile Engagement :
+6. Une fois l'annonce activée, vous devriez voir apparaître une chose similaire sur le portail Mobile Engagement :
    
     ![][4]
-7. Dès que la campagne est activée, tous les appareils répondant aux critères de la campagne reçoivent des notifications.
-8. Vous remarquerez également que l'élément de liste marqué avec IsProcessed = false reçoit la valeur True une fois la campagne d'annonce créée.
+7. Dès que la campagne est activée, tous les appareils répondant aux critères de la campagne reçoivent des notifications. 
+8. Vous remarquerez également que l'élément de liste marqué avec IsProcessed = false reçoit la valeur True une fois la campagne d'annonce créée.  
 
-Cet exemple permet de créer une campagne d’annonces simple en spécifiant principalement les propriétés obligatoires. Vous pouvez la personnaliser à votre guise à partir du portail en utilisant les informations indiquées [ici](https://msdn.microsoft.com/library/azure/mt683751.aspx).
+Cet exemple permet de créer une campagne d’annonces simple en spécifiant principalement les propriétés obligatoires. Vous pouvez la personnaliser à votre guise à partir du portail en utilisant les informations indiquées [ici](https://msdn.microsoft.com/library/azure/mt683751.aspx). 
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-sample-backend-integration-sharepoint/sharepointlist.png
@@ -200,4 +204,8 @@ Cet exemple permet de créer une campagne d’annonces simple en spécifiant pri
 
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

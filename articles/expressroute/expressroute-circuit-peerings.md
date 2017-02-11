@@ -1,12 +1,12 @@
 ---
 title: Circuits ExpressRoute et domaines de routage | Microsoft Docs
-description: Cette page fournit une vue d'ensemble des circuits ExpressRoute et des domaines de routage.
+description: Cette page fournit une vue d&quot;ensemble des circuits ExpressRoute et des domaines de routage.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 6f0c5d8e-cc60-4a04-8641-2c211bda93d9
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bd3b8761c0390d9b1f55423ec3fde0301cf8a20b
+
 
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuits ExpressRoute et domaines de routage
@@ -30,7 +34,7 @@ Un circuit ExpressRoute peut avoir jusqu'à trois homologations indépendantes :
 
 Chaque circuit offre une bande passante fixe (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 10 Gbps) et est mappé à un fournisseur de connectivité et un emplacement d’homologation. La bande passante sélectionnée est partagée par toutes les homologations pour le circuit. 
 
-### <a name="quotas,-limits,-and-limitations"></a>Quotas, limites et limitations
+### <a name="quotas-limits-and-limitations"></a>Quotas, limites et limitations
 Des limites et quotas par défaut s'appliquent à chaque circuit ExpressRoute. Consultez la page [Limites, quotas et contraintes applicables à l’abonnement et au service Azure](../azure-subscription-service-limits.md) pour obtenir des informations actualisées sur les quotas.
 
 ## <a name="expressroute-routing-domains"></a>Domaines de routage ExpressRoute
@@ -44,7 +48,7 @@ Les services de calcul Azure, à savoir les machines virtuelles (IaaS) et les se
 Vous pouvez connecter plusieurs réseaux virtuels au domaine d’homologation privée. Pour plus d’informations sur les limitations, consultez le [Forum Aux Questions](expressroute-faqs.md) . Vous pouvez consulter la page [Limites, quotas et contraintes applicables à l’abonnement et au service Azure](../azure-subscription-service-limits.md) pour obtenir des informations actualisées sur les limites.  Reportez-vous à la page [Routage](expressroute-routing.md) pour plus d'informations sur la configuration du routage.
 
 ### <a name="public-peering"></a>Homologation publique
-Les services tels qu’Azure Storage, les bases de données SQL et Sites web sont proposés sur des adresses IP publiques. En privé, vous pouvez vous connecter à des services hébergés sur des adresses IP publiques (y compris les adresses IP virtuelles de vos services cloud) via le domaine de routage d’homologation publique. Vous pouvez connecter le domaine d’homologation publique à votre zone DMZ et vous connecter à tous les services Azure sur leurs adresses IP publiques à partir de votre réseau étendu, sans avoir à vous connecter via Internet. 
+Les services tels qu’Azure Storage, les bases de données SQL et Sites web sont proposés sur des adresses IP publiques. En privé, vous pouvez vous connecter à des services hébergés sur des adresses IP publiques (y compris les adresses IP virtuelles de vos services cloud) via le domaine de routage d’homologation publique. Vous pouvez connecter le domaine d’homologation publique à votre zone DMZ et vous connecter à tous les services Azure sur leurs adresses IP publiques à partir de votre réseau étendu, sans avoir à vous connecter via Internet. 
 
 La connectivité est toujours initiée de votre réseau étendu vers les services Microsoft Azure. Ces derniers ne sont pas en mesure d’initier des connexions à votre réseau via ce domaine de routage. Une fois l’homologation publique activée, vous êtes en mesure de vous connecter à tous les services Azure. Nous ne vous permettons pas de sélectionner les services pour lesquels nous publions les itinéraires. Vous pouvez consulter la liste des préfixes que nous publions via cette homologation à la page [Plages d’adresses IP des centres de données Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=41653) . La page est actualisée chaque semaine.
 
@@ -55,7 +59,7 @@ Pour plus d’informations sur les services pris en charge via le domaine de rou
 ### <a name="microsoft-peering"></a>Homologation Microsoft
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-La connectivité à toutes les autres services en ligne Microsoft (tels qu’Office 365) a lieu via l’homologation Microsoft. Nous activons la connectivité bidirectionnelle entre votre réseau étendu et les services cloud Microsoft via le domaine de routage d’homologation Microsoft. Vous devez vous connecter aux services cloud Microsoft uniquement via des adresses IP publiques qui sont détenues par vous ou votre fournisseur de connectivité. Vous devez également respecter toutes les règles définies. Pour plus d’informations, voir la page [Conditions préalables d’ExpressRoute](expressroute-prerequisites.md).
+La connectivité à toutes les autres services en ligne Microsoft (tels qu’Office 365) a lieu via l’homologation Microsoft. Nous activons la connectivité bidirectionnelle entre votre réseau étendu et les services cloud Microsoft via le domaine de routage d’homologation Microsoft. Vous devez vous connecter aux services cloud Microsoft uniquement via des adresses IP publiques qui sont détenues par vous ou votre fournisseur de connectivité. Vous devez également respecter toutes les règles définies. Pour plus d’informations, voir la page [Conditions préalables d’ExpressRoute](expressroute-prerequisites.md).
 
 Pour plus d’informations sur les services pris en charge, les coûts et les détails de configuration, consultez le [Forum Aux Questions](expressroute-faqs.md) . Pour plus d’informations sur la liste des fournisseurs de connectivité offrant une prise en charge de l’homologation Microsoft, consultez la page [Emplacements ExpressRoute](expressroute-locations.md)
 
@@ -64,15 +68,15 @@ Le tableau ci-dessous compare les trois domaines de routage.
 
 |  | **Homologation privée** | **Homologation publique** | **Homologation Microsoft** |
 | --- | --- | --- | --- |
-| **Nb max. de préfixes pris en charge par homologation** |4 000 par défaut, 10 000 avec ExpressRoute Premium |200 |200 |
-| **Plages d’adresses IP prises en charge** |Toute adresse IPv4 valide au sein de votre réseau étendu. |Adresses IPv4 publiques détenues par vous ou par votre fournisseur de connectivité. |Adresses IPv4 publiques détenues par vous ou par votre fournisseur de connectivité. |
+| **Nb max. de préfixes pris en charge par homologation** |4 000 par défaut, 10 000 avec ExpressRoute Premium |200 |200 |
+| **Plages d’adresses IP prises en charge** |Toute adresse IPv4 valide au sein de votre réseau étendu. |Adresses IPv4 publiques détenues par vous ou par votre fournisseur de connectivité. |Adresses IPv4 publiques détenues par vous ou par votre fournisseur de connectivité. |
 | **Exigences en matière de numéros AS** |Numéros AS publics et privés Vous devez être propriétaire du numéro AS public si vous choisissez d’en utiliser un. |Numéros AS publics et privés Cependant, vous devez prouver la propriété des adresses IP publiques. |Numéros AS publics et privés Cependant, vous devez prouver la propriété des adresses IP publiques. |
-| **Adresses IP de l’interface de routage** |RFC1918 et adresses IP publiques |Adresses IP publiques enregistrées auprès de vous dans les registres de routage. |Adresses IP publiques enregistrées auprès de vous dans les registres de routage. |
+| **Adresses IP de l’interface de routage** |RFC1918 et adresses IP publiques |Adresses IP publiques enregistrées auprès de vous dans les registres de routage. |Adresses IP publiques enregistrées auprès de vous dans les registres de routage. |
 | **Prise en charge du hachage MD5** |Oui |Oui |Oui |
 
 Vous pouvez choisir d’activer un ou plusieurs domaines de routage dans le cadre de leur circuit ExpressRoute. Vous pouvez choisir de placer tous les domaines de routage sur le même VPN si vous souhaitez les combiner dans un domaine de routage unique. Vous pouvez également les placer dans différents domaines de routage comme indiqué dans le schéma. Nous vous recommandons de connecter l’homologation privée directement à votre réseau principal, et les homologations publiques et Microsoft à votre zone DMZ.
 
-Si vous choisissez d’avoir les trois sessions d’homologation, vous devez disposer de trois paires de sessions BGP (une paire pour chaque type d’homologation). Les paires de session BGP fournissent un lien hautement disponible. Si vous vous connectez via des fournisseurs de couche 2, il vous incombe de configurer et de gérer le routage. Pour en savoir plus, passez en revue les [workflows](expressroute-workflows.md) d’ExpressRoute.
+Si vous choisissez d’avoir les trois sessions d’homologation, vous devez disposer de trois paires de sessions BGP (une paire pour chaque type d’homologation). Les paires de session BGP fournissent un lien hautement disponible. Si vous vous connectez via des fournisseurs de couche 2, il vous incombe de configurer et de gérer le routage. Pour en savoir plus, passez en revue les [workflows](expressroute-workflows.md) d’ExpressRoute.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Recherchez un fournisseur de services. Consultez la rubrique [Emplacements et fournisseurs de services ExpressRoute](expressroute-locations.md).
@@ -82,6 +86,9 @@ Si vous choisissez d’avoir les trois sessions d’homologation, vous devez dis
   * [Configuration d’un routage (homologations de circuit)](expressroute-howto-routing-classic.md)
   * [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Intégration du SDK Android d'Azure Mobile Engagement
-description: Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement
+title: "Intégration du SDK Android d&quot;Azure Mobile Engagement"
+description: "Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 9ec3fab3-35ec-458e-bf41-6cdd69e3fa44
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,29 +14,33 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fd8ba95ee1fb2703926fb35cdb49e6a503637a7d
+
 
 ---
-# Comment intégrer le module de couverture Engagement sur Android
+# <a name="how-to-integrate-engagement-reach-on-android"></a>Comment intégrer le module de couverture Engagement sur Android
 > [!IMPORTANT]
-> Vous devez suivre la procédure d'intégration décrite dans le document « Comment intégrer Engagement sur Android » avant de suivre ce guide.
+> Vous devez suivre la procédure d'intégration décrite dans le document « Comment intégrer Engagement sur Android » avant de suivre ce guide.
 > 
 > 
 
-## Intégration standard
-Le SDK du module de couverture nécessite la **bibliothèque de prise en charge Android (v4)**.
+## <a name="standard-integration"></a>Intégration standard
+Le SDK du module de couverture nécessite la **bibliothèque de prise en charge Android (v4)**.
 
-Le moyen le plus rapide d'ajouter la bibliothèque à votre projet dans **Eclipse** est le suivant : `Right click on your project -> Android Tools -> Add Support Library...`.
+Le moyen le plus rapide d’ajouter la bibliothèque à votre projet dans **Eclipse** est le suivant : `Right click on your project -> Android Tools -> Add Support Library...`.
 
 Si vous n'utilisez pas Eclipse, vous pouvez lire les instructions disponibles [ici].
 
-Copiez les fichiers de ressources du module de couverture du SDK dans votre projet :
+Copiez les fichiers de ressources du module de couverture du SDK dans votre projet :
 
 * Copiez les fichiers qui se trouvent dans le dossier `res/layout` fourni avec le SDK dans le dossier `res/layout` de votre application.
 * Copiez les fichiers qui se trouvent dans le dossier `res/drawable` fourni avec le SDK dans le dossier `res/drawable` de votre application.
 
-Modifiez le fichier `AndroidManifest.xml` :
+Modifiez le fichier `AndroidManifest.xml` :
 
-* Ajoutez la section suivante (entre les balises `<application>` et `</application>`) :
+* Ajoutez la section suivante (entre les balises `<application>` et `</application>`) :
   
           <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
             <intent-filter>
@@ -82,7 +86,7 @@ Modifiez le fichier `AndroidManifest.xml` :
 * Vous avez besoin de cette autorisation pour afficher de nouveau les notifications système qui n'étaient pas activées au moment du démarrage (sinon elles seront conservées sur disque, mais ne s'afficheront plus).
   
           <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-* Spécifiez une icône utilisée pour les notifications (les notifications dans l'application et les notifications système) en copiant et en modifiant la section suivante (entre les balises `<application>` et `</application>`) :
+* Spécifiez une icône utilisée pour les notifications (les notifications dans l'application et les notifications système) en copiant et en modifiant la section suivante (entre les balises `<application>` et `</application>`) :
   
           <meta-data android:name="engagement:reach:notification:icon" android:value="<name_of_icon_WITHOUT_file_extension_and_WITHOUT_'@drawable/'>" />
 
@@ -91,39 +95,39 @@ Modifiez le fichier `AndroidManifest.xml` :
 > 
 > 
 
-* Si vous créez des campagnes avec notifications système qui utilisent BigPicture, vous devez ajouter les autorisations suivantes (après la balise `</application>`) si elles sont absentes :
+* Si vous créez des campagnes avec notifications système qui utilisent BigPicture, vous devez ajouter les autorisations suivantes (après la balise `</application>` ) si elles sont absentes :
   
           <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
           <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
   
   * Sur Android M et si votre application cible un niveau d’API Android 23 ou supérieur, l’autorisation ``WRITE_EXTERNAL_STORAGE`` nécessite l’approbation de l’utilisateur. Veuillez lire [cette section](mobile-engagement-android-integrate-engagement.md#android-m-permissions).
-* Pour les notifications système, vous pouvez également spécifier dans la couverture campagne si l'appareil doit sonner et/ou vibrer. Pour que cela fonctionne, vous devez déclarer l'autorisation suivante (après la balise `</application>`) :
+* Pour les notifications système, vous pouvez également spécifier dans la couverture campagne si l'appareil doit sonner et/ou vibrer. Pour que cela fonctionne, vous devez déclarer l'autorisation suivante (après la balise `</application>` ) :
   
           <uses-permission android:name="android.permission.VIBRATE" />
   
   Sans cette autorisation, Android empêche les notifications système de s'afficher si vous avez activé l'option Sonner ou Vibrer dans le gestionnaire de couverture campagne.
-* Si vous avez créé votre application à l'aide de **ProGuard** et si vous obtenez des erreurs liées à la bibliothèque de prise en charge Android ou au fichier .jar d'Engagement, ajoutez les lignes suivantes à votre fichier `proguard.cfg` :
+* Si vous avez créé votre application à l’aide de **ProGuard** et que vous obtenez des erreurs liées à la bibliothèque de support Android ou au fichier .jar d’Engagement, ajoutez les lignes suivantes à votre fichier `proguard.cfg` :
   
           -dontwarn android.**
           -keep class android.support.v4.** { *; }
 
-## Native Push
-Maintenant que vous avez configuré le module Reach, vous devez configurer Native Push pour être en mesure de recevoir les campagnes sur l’appareil.
+## <a name="native-push"></a>Native Push
+Maintenant que vous avez configuré le module Reach, vous devez configurer Native Push pour être en mesure de recevoir les campagnes sur l’appareil.
 
-Nous prenons en charge les deux services sur Android :
+Nous prenons en charge les deux services sur Android :
 
-* Appareils Google Play : utilisez [Google Cloud Messaging] en suivant le guide [Comment intégrer GCM à Mobile Engagement](mobile-engagement-android-gcm-integrate.md).
-* Appareils Amazon : utilisez [Amazon Device Messaging] en suivant le guide [Comment intégrer ADM à Mobile Engagement](mobile-engagement-android-adm-integrate.md).
+* Appareils Google Play : utilisez [Google Cloud Messaging] en suivant le guide [Comment intégrer GCM à Mobile Engagement](mobile-engagement-android-gcm-integrate.md).
+* Appareils Amazon : utilisez [Amazon Device Messaging] en suivant le guide [Comment intégrer ADM à Mobile Engagement](mobile-engagement-android-adm-integrate.md).
 
-Si vous voulez cibler à la fois des appareils Amazon et Google Play, il est possible d'avoir tout ce qu'il faut pour le développement au sein d'un fichier AndroidManifest.xml/APK. Quand vous soumettez votre application à Amazon, celle-ci peut être rejetée si elle contient du code GCM.
+Si vous voulez cibler à la fois des appareils Amazon et Google Play, il est possible d'avoir tout ce qu'il faut pour le développement au sein d'un fichier AndroidManifest.xml/APK. Quand vous soumettez votre application à Amazon, celle-ci peut être rejetée si elle contient du code GCM.
 
-Dans ce cas, vous devrez utiliser plusieurs fichiers APK.
+Dans ce cas, vous devrez utiliser plusieurs fichiers APK.
 
 **Votre application est maintenant prête à recevoir et afficher des couvertures campagnes.**
 
-## Comment gérer les Push de données
-### Intégration
-Si vous voulez que votre application puisse recevoir des Push de données de couverture, vous devez créer une sous-classe de `com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver` et la référencer dans le fichier `AndroidManifest.xml` (entre les balises `<application>` et/ou `</application>`) :
+## <a name="how-to-handle-data-push"></a>Comment gérer les Push de données
+### <a name="integration"></a>Intégration
+Si vous voulez que votre application puisse recevoir des Push de données de couverture, vous devez créer une sous-classe de `com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver` et la référencer dans le fichier `AndroidManifest.xml` (entre les balises `<application>` et/ou `</application>`) :
 
             <receiver android:name="<your_sub_class_of_com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver>"
               android:exported="false">
@@ -132,7 +136,7 @@ Si vous voulez que votre application puisse recevoir des Push de données de cou
               </intent-filter>
             </receiver>
 
-Ensuite, vous pouvez remplacer les rappels `onDataPushStringReceived` et `onDataPushBase64Received`. Voici un exemple :
+Ensuite, vous pouvez remplacer les rappels `onDataPushStringReceived` et `onDataPushBase64Received`. Voici un exemple :
 
             public class MyDataPushReceiver extends EngagementReachDataPushReceiver
             {
@@ -152,34 +156,34 @@ Ensuite, vous pouvez remplacer les rappels `onDataPushStringReceived` et `onData
               }
             }
 
-### Catégorie
+### <a name="category"></a>Catégorie
 Le paramètre de catégorie est facultatif lorsque vous créez une campagne d'envoi de données (push) et vous permet de filtrer les envois de données. Ce paramètre est utile si vous possédez plusieurs récepteurs de diffusion qui gèrent différents types de Push de données, ou si vous voulez envoyer différents types de données `Base64` et identifier leur type avant de les analyser.
 
-### Paramètre de retour des rappels
-Voici quelques indications qui vous aideront à gérer correctement le paramètre de retour de `onDataPushStringReceived` et de `onDataPushBase64Received` :
+### <a name="callbacks-return-parameter"></a>Paramètre de retour des rappels
+Voici quelques indications qui vous aideront à gérer correctement le paramètre de retour de `onDataPushStringReceived` et de `onDataPushBase64Received` :
 
 * Un récepteur de diffusion doit retourner `null` dans le rappel s'il ne sait pas comment gérer un Push de données. Vous devez utiliser la catégorie pour déterminer si votre récepteur de diffusion doit gérer ou non le Push de données.
 * L'un des récepteurs de diffusion doit retourner `true` dans le rappel s'il accepte le Push de données.
 * L'un des récepteurs de diffusion doit retourner `false` dans le rappel s'il reconnaît le Push de données, mais l'ignore pour une raison quelconque. Par exemple, `false` est retourné quand les données reçues ne sont pas valides.
 * Si un récepteur de diffusion retourne `true` alors que l'autre retourne `false` pour le même Push de données, cela signifie que le comportement n'est pas défini, ce qui est à éviter absolument.
 
-Le type de retour est utilisé uniquement pour les statistiques de couverture :
+Le type de retour est utilisé uniquement pour les statistiques de couverture :
 
 * `Replied` est incrémenté si l'un des récepteurs de diffusion a retourné `true` ou `false`.
 * `Actioned` est incrémenté uniquement si l'un des récepteurs de diffusion a retourné `true`.
 
-## Personnalisation des campagnes marketing
+## <a name="how-to-customize-campaigns"></a>Personnalisation des campagnes marketing
 Pour personnaliser des campagnes, vous pouvez modifier les dispositions fournies dans le SDK du module couverture.
 
 Vous devez conserver tous les identificateurs utilisés dans les dispositions et conserver les types de vues qui utilisent un identificateur, en particulier pour le texte et les images. Certaines vues sont uniquement utilisées pour masquer ou afficher des zones. Il est donc possible de modifier leur type. Vérifiez le code source si vous voulez modifier le type d'une vue dans les dispositions fournies.
 
-### Notifications
-Il existe deux types de notifications : les notifications système et les notifications dans l'application qui utilisent des fichiers de disposition différents.
+### <a name="notifications"></a>Notifications
+Il existe deux types de notifications : les notifications système et les notifications dans l'application qui utilisent des fichiers de disposition différents.
 
-#### Notifications système
+#### <a name="system-notifications"></a>Notifications système
 Pour personnaliser les notifications système, vous devez utiliser les **catégories**. Vous pouvez accéder aux [catégories](#categories).
 
-#### Notifications dans l'application
+#### <a name="in-app-notifications"></a>Notifications dans l'application
 Par défaut, une notification dans l'application est une vue qui est ajoutée dynamiquement à l'interface utilisateur de l'activité en cours grâce à la méthode Android `addContentView()`. Il s'agit d'une superposition de notification. Les superpositions de notification permettent une intégration rapide, car elles ne nécessitent pas la modification de la disposition de votre application.
 
 Pour modifier l'apparence de vos superpositions de notification, vous pouvez simplement modifier le fichier `engagement_notification_area.xml` selon vos besoins.
@@ -189,12 +193,12 @@ Pour modifier l'apparence de vos superpositions de notification, vous pouvez sim
 > 
 > 
 
-##### Inclure une disposition de notification dans une disposition d'activité
+##### <a name="include-notification-layout-as-part-of-an-activity-layout"></a>Inclure une disposition de notification dans une disposition d'activité
 Les superpositions sont idéales pour une intégration rapide, mais peuvent être gênantes ou avoir des effets indésirables dans certains cas. Le système de superposition peut être personnalisé au niveau de l'activité, ce qui permet d'éviter les effets indésirables pour les activités spéciales.
 
-Vous pouvez inclure notre disposition de notification dans votre disposition existante grâce à l'instruction Android **include**. Voici un exemple de disposition modifiée `ListActivity` contenant uniquement `ListView`.
+Vous pouvez inclure notre disposition de notification dans votre disposition existante grâce à l'instruction Android **include** . Voici un exemple de disposition modifiée `ListActivity` contenant uniquement `ListView`.
 
-**Avant l'intégration d'Engagement :**
+**Avant l'intégration d'Engagement :**
 
             <?xml version="1.0" encoding="utf-8"?>
             <ListView
@@ -203,7 +207,7 @@ Vous pouvez inclure notre disposition de notification dans votre disposition exi
               android:layout_width="fill_parent"
               android:layout_height="fill_parent" />
 
-**Après l'intégration d'Engagement :**
+**Après l'intégration d'Engagement :**
 
             <?xml version="1.0" encoding="utf-8"?>
             <LinearLayout
@@ -231,24 +235,24 @@ Le SDK du module de couverture d'Engagement détecte automatiquement que la disp
 > 
 > 
 
-##### Désactivation des notifications d'application par activité
-Si vous ne voulez pas que la superposition soit ajoutée à votre activité, et si vous ne voulez pas inclure la disposition de notification dans votre propre disposition, vous pouvez désactiver la superposition pour cette activité dans `AndroidManifest.xml` en ajoutant une section `meta-data`, comme dans l'exemple suivant :
+##### <a name="disabling-application-notification-per-activity"></a>Désactivation des notifications d'application par activité
+Si vous ne voulez pas que la superposition soit ajoutée à votre activité, et si vous ne voulez pas inclure la disposition de notification dans votre propre disposition, vous pouvez désactiver la superposition pour cette activité dans `AndroidManifest.xml` en ajoutant une section `meta-data`, comme dans l'exemple suivant :
 
             <activity android:name="SplashScreenActivity">
               <meta-data android:name="engagement:notification:overlay" android:value="false"/>
             </activity>
 
-#### <a name="categories"></a> Catégories
+#### <a name="a-namecategoriesa-categories"></a><a name="categories"></a> Catégories
 Quand vous modifiez les dispositions fournies, vous modifiez l'apparence de toutes vos notifications. Les catégories permettent de définir diverses recherches ciblées (et éventuellement des comportements) pour les notifications. Une catégorie peut être spécifiée lorsque vous créez une campagne Reach. N'oubliez pas que les catégories vous permettent également de personnaliser les annonces et les sondages, décrits plus avant dans ce document.
 
 Pour inscrire un gestionnaire de catégories pour vos notifications, vous devez ajouter un appel quand l'application est initialisée.
 
 > [!IMPORTANT]
-> Lisez l’avertissement concernant l’attribut android:process \<android-sdk-engagement-process\> dans la rubrique « Comment intégrer Engagement sur Android » avant de continuer.
+> Lisez l’avertissement concernant l’attribut android:process \<android-sdk-engagement-process\> dans la rubrique « Comment intégrer Engagement sur Android » avant de continuer.
 > 
 > 
 
-L'exemple suivant suppose que vous avez pris en compte l'avertissement précédent et que vous utilisez une sous-classe de `EngagementApplication` :
+L'exemple suivant suppose que vous avez pris en compte l'avertissement précédent et que vous utilisez une sous-classe de `EngagementApplication`:
 
             public class MyApplication extends EngagementApplication
             {
@@ -261,13 +265,13 @@ L'exemple suivant suppose que vous avez pris en compte l'avertissement précéde
               }
             }
 
-L'objet `MyNotifier` est l'implémentation du gestionnaire de catégories des notifications. Il s'agit soit d'une implémentation de l'interface `EngagementNotifier`, soit d’une sous-classe de l'implémentation par défaut : `EngagementDefaultNotifier`.
+L'objet `MyNotifier` est l'implémentation du gestionnaire de catégories des notifications. Il s'agit soit d'une implémentation de l'interface `EngagementNotifier`, soit d’une sous-classe de l'implémentation par défaut : `EngagementDefaultNotifier`.
 
-Notez que le même notificateur peut gérer plusieurs catégories. Vous pouvez les inscrire de la façon suivante :
+Notez que le même notificateur peut gérer plusieurs catégories. Vous pouvez les inscrire de la façon suivante :
 
             reachAgent.registerNotifier(new MyNotifier(this), "myCategory", "myAnotherCategory");
 
-Pour remplacer l'implémentation de catégorie par défaut, vous pouvez inscrire votre implémentation comme dans l'exemple suivant :
+Pour remplacer l'implémentation de catégorie par défaut, vous pouvez inscrire votre implémentation comme dans l'exemple suivant :
 
             public class MyApplication extends EngagementApplication
             {
@@ -286,8 +290,8 @@ Elle est passée en tant que paramètre `String` ou indirectement dans un objet 
 
 Vous pouvez modifier la plupart des processus de création de notifications en redéfinissant des méthodes dans `EngagementDefaultNotifier`. Pour une personnalisation avancée, vous pouvez consulter la documentation technique et le code source.
 
-##### Notifications dans l'application
-Si vous voulez simplement utiliser d'autres dispositions pour une catégorie spécifique, vous pouvez implémenter ceci, comme dans l'exemple suivant :
+##### <a name="in-app-notifications"></a>Notifications dans l'application
+Si vous voulez simplement utiliser d'autres dispositions pour une catégorie spécifique, vous pouvez implémenter ceci, comme dans l'exemple suivant :
 
             public class MyNotifier extends EngagementDefaultNotifier
             {
@@ -316,7 +320,7 @@ Si vous voulez simplement utiliser d'autres dispositions pour une catégorie sp�
               }
             }
 
-**Exemple de `my_notification_overlay.xml` :**
+**Exemple de `my_notification_overlay.xml` :**
 
             <?xml version="1.0" encoding="utf-8"?>
             <RelativeLayout
@@ -331,7 +335,7 @@ Si vous voulez simplement utiliser d'autres dispositions pour une catégorie sp�
 
 Comme vous pouvez le voir, l'identificateur de la vue de superposition est différent de l'identificateur standard. Il est important que chaque disposition utilise un identificateur unique pour les superpositions.
 
-**Exemple de `my_notification_area.xml` :**
+**Exemple de `my_notification_area.xml` :**
 
             <?xml version="1.0" encoding="utf-8"?>
             <merge
@@ -415,12 +419,12 @@ Comme vous pouvez le voir, l'identificateur de vue de zone de notification est d
 
 Cet exemple simple de catégorie permet d'afficher les notifications d'application en haut de l'écran. Nous n'avons pas changé les identificateurs standard utilisés dans la zone de notification.
 
-Si vous souhaitez les modifier, vous devez redéfinir la méthode `EngagementDefaultNotifier.prepareInAppArea`. Il est recommandé de consulter la documentation technique et le code source de `EngagementNotifier` et `EngagementDefaultNotifier` pour une personnalisation avancée.
+Si vous souhaitez les modifier, vous devez redéfinir la méthode `EngagementDefaultNotifier.prepareInAppArea` . Il est recommandé de consulter la documentation technique et le code source de `EngagementNotifier` et `EngagementDefaultNotifier` pour une personnalisation avancée.
 
-##### Notifications système
+##### <a name="system-notifications"></a>Notifications système
 En étendant `EngagementDefaultNotifier`, vous pouvez remplacer `onNotificationPrepared` pour modifier la notification préparée par l'implémentation par défaut.
 
-Par exemple :
+Par exemple :
 
             @Override
             protected boolean onNotificationPrepared(Notification notification, EngagementReachInteractiveContent content)
@@ -431,11 +435,11 @@ Par exemple :
               return true;
             }
 
-Cet exemple montre une notification système pour un contenu affiché sous la forme d'un événement en cours quand la catégorie « en cours » est utilisée.
+Cet exemple montre une notification système pour un contenu affiché sous la forme d'un événement en cours quand la catégorie « en cours » est utilisée.
 
 Si vous voulez créer l'objet `Notification` à partir de zéro, vous pouvez retourner `false` à la méthode et appeler `notify` sur `NotificationManager`. Dans ce cas, il est important de conserver un `contentIntent`, un `deleteIntent` et l'identificateur de notification utilisé par `EngagementReachReceiver`.
 
-Voici un exemple correct d'une telle implémentation :
+Voici un exemple correct d'une telle implémentation :
 
             @Override
             protected boolean onNotificationPrepared(Notification notification, EngagementReachInteractiveContent content) throws RuntimeException
@@ -462,10 +466,10 @@ Voici un exemple correct d'une telle implémentation :
               return false;
             }
 
-##### Annonces avec notifications uniquement
+##### <a name="notification-only-announcements"></a>Annonces avec notifications uniquement
 La gestion des clics sur les annonces avec notifications uniquement peut être personnalisée en remplaçant `EngagementDefaultNotifier.onNotifAnnouncementIntentPrepared` pour modifier le `Intent` préparé. Cette méthode permet de paramétrer les indicateurs facilement.
 
-Par exemple, pour ajouter l'indicateur `SINGLE_TOP` :
+Par exemple, pour ajouter l'indicateur `SINGLE_TOP` :
 
             @Override
             protected Intent onNotifAnnouncementIntentPrepared(EngagementNotifAnnouncement notifAnnouncement,
@@ -479,14 +483,14 @@ Pour les utilisateurs d'Engagement hérités, notez que les notifications systè
 
 Vous pouvez également implémenter `EngagementNotifier.executeNotifAnnouncementAction` à partir de zéro.
 
-##### Cycle de vie des notifications
-Lorsque vous utilisez la catégorie par défaut, certaines méthodes de cycle de vie sont appelées sur l'objet `EngagementReachInteractiveContent` pour communiquer les statistiques et mettre à jour l'état de la campagne :
+##### <a name="notification-life-cycle"></a>Cycle de vie des notifications
+Lorsque vous utilisez la catégorie par défaut, certaines méthodes de cycle de vie sont appelées sur l'objet `EngagementReachInteractiveContent` pour communiquer les statistiques et mettre à jour l'état de la campagne :
 
 * Lorsque la notification est affichée dans l'application ou placée dans la barre d'état, la méthode `displayNotification` est appelée (ce qui fournit les statistiques) par `EngagementReachAgent` si `handleNotification` retourne `true`.
 * Si la notification est rejetée, la méthode `exitNotification` est appelée, les statistiques sont signalées et les campagnes suivantes peuvent alors être traitées.
 * Si l'utilisateur clique sur la notification, `actionNotification` est appelé, les statistiques sont obtenues et l'intention correspondante est lancée.
 
-Si votre implémentation de `EngagementNotifier` contourne le comportement par défaut, vous devez appeler ces méthodes de cycle de vie vous-même. Les exemples suivants illustrent certains cas dans lesquels le comportement par défaut est ignoré :
+Si votre implémentation de `EngagementNotifier` contourne le comportement par défaut, vous devez appeler ces méthodes de cycle de vie vous-même. Les exemples suivants illustrent certains cas dans lesquels le comportement par défaut est ignoré :
 
 * Vous n'étendez pas `EngagementDefaultNotifier`, par exemple, vous avez implémenté la gestion des catégories à partir de zéro.
 * Pour les notifications système, vous avez remplacé `onNotificationPrepared` et vous avez modifié `contentIntent` ou `deleteIntent` dans l'objet `Notification`.
@@ -497,19 +501,19 @@ Si votre implémentation de `EngagementNotifier` contourne le comportement par d
 > 
 > 
 
-### Annonces et sondages
-#### Mises en forme
+### <a name="announcements-and-polls"></a>Annonces et sondages
+#### <a name="layouts"></a>Mises en forme
 Vous pouvez modifier les fichiers `engagement_text_announcement.xml`, `engagement_web_announcement.xml` et `engagement_poll.xml` pour personnaliser les annonces de texte, les annonces web et les sondages.
 
 Ces fichiers partagent deux dispositions pour la zone de titre et la zone de bouton. La disposition du titre est `engagement_content_title.xml` et utilise le fichier dessinable éponyme pour l'arrière-plan. La disposition des boutons d'action et de sortie est `engagement_button_bar.xml` et utilise le fichier dessinable éponyme pour l'arrière-plan.
 
 Dans un sondage, la disposition des questions et des choix de réponses est agrandie dynamiquement grâce à plusieurs utilisations du fichier de disposition `engagement_question.xml` pour les questions et du fichier `engagement_choice.xml` pour les choix de réponses.
 
-#### Catégories
-##### Autres dispositions
+#### <a name="categories"></a>Catégories
+##### <a name="alternate-layouts"></a>Autres dispositions
 Telles que les notifications, catégorie de la campagne peut être utilisée pour que les autres dispositions pour vos annonces et les sondages.
 
-Par exemple, pour créer une catégorie pour une annonce de texte, vous pouvez étendre `EngagementTextAnnouncementActivity` et référencer le fichier `AndroidManifest.xml` :
+Par exemple, pour créer une catégorie pour une annonce de texte, vous pouvez étendre `EngagementTextAnnouncementActivity` et référencer le fichier `AndroidManifest.xml` :
 
             <activity android:name="com.your_company.MyCustomTextAnnouncementActivity">
               <intent-filter>
@@ -523,7 +527,7 @@ Notez que la catégorie du filtre d'intention est utilisée pour faire la diffé
 
 Le SDK du module de couverture utilise le système d'intentions pour résoudre l'activité appropriée pour une catégorie spécifique. En cas d'échec de la résolution, la catégorie par défaut est rétablie.
 
-Vous devez ensuite implémenter `MyCustomTextAnnouncementActivity`. Si vous voulez simplement modifier la disposition (mais conserver les mêmes identificateurs de vue), il vous suffit de définir la classe comme dans l'exemple suivant :
+Vous devez ensuite implémenter `MyCustomTextAnnouncementActivity`. Si vous voulez simplement modifier la disposition (mais conserver les mêmes identificateurs de vue), il vous suffit de définir la classe comme dans l'exemple suivant :
 
             public class MyCustomTextAnnouncementActivity extends EngagementTextAnnouncementActivity
             {
@@ -538,7 +542,7 @@ Pour remplacer la catégorie par défaut des annonces de texte, remplacez simple
 
 Les annonces web et les sondages peuvent être personnalisés de la même manière.
 
-Pour les annonces du web, vous pouvez étendre `EngagementWebAnnouncementActivity` et déclarer votre activité dans `AndroidManifest.xml`, comme dans l'exemple suivant :
+Pour les annonces du web, vous pouvez étendre `EngagementWebAnnouncementActivity` et déclarer votre activité dans `AndroidManifest.xml`, comme dans l'exemple suivant :
 
             <activity android:name="com.your_company.MyCustomWebAnnouncementActivity">
               <intent-filter>
@@ -548,7 +552,7 @@ Pour les annonces du web, vous pouvez étendre `EngagementWebAnnouncementActivit
               </intent-filter>
             </activity>
 
-Pour les sondages, vous pouvez étendre `EngagementPollActivity` et déclarer votre activité dans `AndroidManifest.xml`, comme dans l'exemple suivant :
+Pour les sondages, vous pouvez étendre `EngagementPollActivity` et déclarer votre activité dans `AndroidManifest.xml`, comme dans l'exemple suivant :
 
             <activity android:name="com.your_company.MyCustomPollActivity">
               <intent-filter>
@@ -557,14 +561,14 @@ Pour les sondages, vous pouvez étendre `EngagementPollActivity` et déclarer vo
               </intent-filter>
             </activity>
 
-##### Implémentation à partir de zéro
+##### <a name="implementation-from-scratch"></a>Implémentation à partir de zéro
 Vous pouvez implémenter des catégories pour vos activités d'annonce (et de sondage) sans étendre l'une des classes `Engagement*Activity` fournies par le SDK du module de couverture. Cela se révèle utile, par exemple, si vous voulez définir une disposition qui n'utilise pas les mêmes vues que les dispositions standard.
 
 Comme pour la personnalisation de notification avancée, il est recommandé d'examiner le code source de l'implémentation standard.
 
-Voici quelques points à garder à l'esprit : le module de couverture lancera l'activité avec une intention spécifique (correspondant au filtre d'intention), plus un paramètre supplémentaire qui est l'identificateur de contenu.
+Voici quelques points à garder à l'esprit : le module de couverture lancera l'activité avec une intention spécifique (correspondant au filtre d'intention), plus un paramètre supplémentaire qui est l'identificateur de contenu.
 
-Pour récupérer l'objet de contenu qui contient les champs que vous avez spécifiés lors de la création de la campagne sur le site web, vous pouvez effectuer ceci :
+Pour récupérer l'objet de contenu qui contient les champs que vous avez spécifiés lors de la création de la campagne sur le site web, vous pouvez effectuer ceci :
 
             public class MyCustomTextAnnouncement extends EngagementActivity
             {
@@ -591,7 +595,7 @@ Pour récupérer l'objet de contenu qui contient les champs que vous avez spéci
               }
             }
 
-Pour les statistiques, vous devez signaler le contenu qui s'affiche dans l'événement `onResume` :
+Pour les statistiques, vous devez signaler le contenu qui s'affiche dans l'événement `onResume` :
 
             @Override
             protected void onResume()
@@ -607,7 +611,7 @@ Si vous n'appelez pas `actionContent` ou `exitContent`, les statistiques ne sero
 
 Quand vous apportez des modifications concernant l'orientation ou d'autres modifications de configuration, il peut être difficile de déterminer si l'activité passe en arrière-plan ou non. L'implémentation standard garantit que le contenu est signalé comme fermé si l'utilisateur quitte l'activité (en appuyant sur `HOME` ou `BACK`), mais pas si l'orientation est modifiée.
 
-Voici la partie la plus intéressante de l'implémentation :
+Voici la partie la plus intéressante de l'implémentation :
 
             @Override
             protected void onUserLeaveHint()
@@ -631,8 +635,12 @@ Voici la partie la plus intéressante de l'implémentation :
 
 Comme vous pouvez le voir, si vous avez appelé `actionContent(this)` puis terminé l'activité, `exitContent(this)` peut être appelé sans que cela n'ait d'impact.
 
-[ici]: http://developer.android.com/tools/extras/support-library.html#Downloading
-[Google Cloud Messaging]: http://developer.android.com/guide/google/gcm/index.html
-[Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
+[ici]:http://developer.android.com/tools/extras/support-library.html#Downloading
+[Google Cloud Messaging]:http://developer.android.com/guide/google/gcm/index.html
+[Amazon Device Messaging]:https://developer.amazon.com/sdk/adm.html
 
-<!----HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

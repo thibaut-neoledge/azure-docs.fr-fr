@@ -3,7 +3,7 @@ title: Configuration de votre cluster autonome | Microsoft Docs
 description: "Cet article explique comment configurer votre cluster Service Fabric autonome ou privé."
 services: service-fabric
 documentationcenter: .net
-author: dsk-2015
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: 0c5ec720-8f70-40bd-9f86-cd07b84a219d
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2016
-ms.author: dkshir
+ms.date: 12/12/2016
+ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b19d1ed96cf8e294cb105fa62f8623b28e3cc7fc
+ms.sourcegitcommit: 4fb6ef56d694aff967840ab26b75b66a2e799cc1
+ms.openlocfilehash: 977de9160be63a91b5926daa45528e5ee205e448
 
 
 ---
@@ -36,7 +36,7 @@ Cette section couvre les configurations spécifiques à de larges clusters, comm
 
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
-    "apiVersion": "2015-01-01-alpha",
+    "apiVersion": "2016-09-26",
 
 Vous pouvez attribuer un nom convivial à votre cluster Service Fabric en lui assignant la variable **name** . **clusterConfigurationVersion** est le numéro de version de votre cluster, que vous devez augmenter chaque fois que vous mettez à niveau votre cluster Service Fabric. Il est cependant recommandé de conserver la valeur par défaut attribuée à **apiVersion** .
 
@@ -132,6 +132,7 @@ La section **nodeTypes** décrit le type des nœuds de votre cluster. Au moins u
         "leaseDriverEndpointPort": "19002"
         "serviceConnectionEndpointPort": "19003",
         "httpGatewayEndpointPort": "19080",
+        "reverseProxyEndpointPort": "19081",
         "applicationPorts": {
             "startPort": "20575",
             "endPort": "20605"
@@ -171,11 +172,11 @@ La section **fabricSettings** vous permet de définir les répertoires racine de
 Nous vous recommandons d’utiliser un lecteur autre que celui du système d’exploitation pour FabricDataRoot et FabricLogRoot pour plus de fiabilité en cas de défaillance du système d’exploitation. Notez que si vous personnalisez uniquement la racine des données, la racine du journal sera placée un niveau en dessous de la racine des données.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Une fois que vous disposez d’un fichier ClusterConfig.JSON complètement configuré selon votre cluster autonome, vous pouvez déployer votre cluster en suivant les instructions de l’article [Créer et gérer un cluster exécuté sur Windows Server](service-fabric-cluster-creation-for-windows-server.md) puis passer à l’étape [Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+Une fois que vous disposez d’un fichier ClusterConfig.JSON complètement configuré selon votre cluster autonome, vous pouvez déployer votre cluster en suivant les instructions de l’article [Créer un cluster Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md), puis passez à l’étape [Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

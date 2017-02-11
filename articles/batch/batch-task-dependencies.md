@@ -3,7 +3,7 @@ title: "Dépendances de tâches dans Azure Batch | Microsoft Docs"
 description: "Créez des tâches qui dépendent de l’exécution d’autres tâches pour le traitement de charges de travail de type MapReduce ou Big Data dans Azure Batch."
 services: batch
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 09/28/2016
-ms.author: marsma
+ms.date: 01/05/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c16850788a4c22c964037f28bf955e570551142d
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 5883417c6f7a0ce45c9c34ac2d37e5c1bea95ab1
 
 
 ---
@@ -169,6 +169,6 @@ Pour découvrir les différentes méthodes de préparation des nœuds à l’ex�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

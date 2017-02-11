@@ -1,12 +1,12 @@
 ---
-title: Composants matériels de StorSimple et leur état | Microsoft Docs
-description: Découvrez comment surveiller les composants matériels de votre appareil StorSimple via le service StorSimple Manager.
+title: "Composants matériels de StorSimple et leur état | Microsoft Docs"
+description: "Découvrez comment surveiller les composants matériels de votre appareil StorSimple via le service StorSimple Manager."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 0d56a2ba-daf0-45ad-9610-8b8712dd5750
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,21 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0544cb9aaf9ec03c16cc07f2974b6b8d90b3c61d
+
 
 ---
-# Utiliser le service StorSimple Manager pour surveiller les composants et l’état du matériel
-## Vue d'ensemble
-Cet article décrit les différents composants physiques et logiques de votre appareil StorSimple local. Il explique également comment surveiller l'état des composants de l’appareil à l'aide de la page **Maintenance** du service StorSimple Manager.
+# <a name="use-the-storsimple-manager-service-to-monitor-hardware-components-and-status"></a>Utiliser le service StorSimple Manager pour surveiller les composants et l’état du matériel
+## <a name="overview"></a>Vue d'ensemble
+Cet article décrit les différents composants physiques et logiques de votre appareil StorSimple local. Il explique également comment surveiller l'état des composants de l’appareil à l'aide de la page **Maintenance** du service StorSimple Manager. 
 
-La page **Maintenance** affiche l'état du matériel de tous les composants de l’appareil StorSimple.
+La page **Maintenance** affiche l'état du matériel de tous les composants de l’appareil StorSimple. 
 
 La liste des composants pour 8100 présente trois sections :
 
 * **Composants partagés** – Ceux-ci ne font pas partie des contrôleurs, tels que les disques, le boîtier, les composants PCM et la température PCM, la tension de ligne et les capteurs de courant de ligne.
 * **Composants du contrôleur 0** – Il s’agit des composants qui résident sur le contrôleur 0, tels que le contrôleur, le connecteur et l’expander SAS, les capteurs de température de contrôleur et les différentes interfaces réseau.
-* **Composants du contrôleur 1**– Il s’agit des composants qui constituent le contrôleur 1, similaires à ceux détaillés pour le contrôleur 0.
+* **Composants du contrôleur 1** – Il s’agit des composants qui constituent le contrôleur 1, similaires à ceux détaillés pour le contrôleur 0.
 
-Un appareil 8600 présente des composants supplémentaires qui correspondent au boîtier EBOD (Extended Bunch of Disks). La liste des composants se divise en cinq sections. Trois de ces sections contiennent les composants du boîtier principal et sont identiques à celles décrites pour le modèle 8100. Il y a deux sections supplémentaires relatives au boîtier EBOD :
+Un appareil 8600 présente des composants supplémentaires qui correspondent au boîtier EBOD (Extended Bunch of Disks). La liste des composants se divise en cinq sections. Trois de ces sections contiennent les composants du boîtier principal et sont identiques à celles décrites pour le modèle 8100. Il y a deux sections supplémentaires relatives au boîtier EBOD :
 
 * **Composants partagés du boîtier EBOD** – Composants présents dans les boîtiers EBOD et PCM qui ne font pas partie du contrôleur EBOD.
 * **Composants du contrôleur 0 du boîtier EBOD** – Il s’agit des composants qui résident dans le boîtier EBOD 0, tels que le contrôleur EBOD, le connecteur et l’expander SAS, et les capteurs de température de contrôleur.
@@ -39,10 +43,10 @@ Un appareil 8600 présente des composants supplémentaires qui correspondent au 
 > 
 > 
 
-## Surveillance de l'état du matériel
+## <a name="monitor-the-hardware-status"></a>Surveillance de l'état du matériel
 Procédez comme suit pour afficher l'état du matériel d'un composant d’appareil :
 
-1. Accédez à**Appareils** et sélectionnez un appareil StorSimple. Accédez au menu de niveau appareil, puis cliquez sur **Maintenance**.
+1. Accédez à **Appareils**et sélectionnez un appareil StorSimple. Accédez au menu de niveau appareil, puis cliquez sur **Maintenance**. 
 2. Recherchez la section **État du matériel** et faites un choix parmi les composants disponibles (comme décrit ci-dessus). Cliquez simplement sur la flèche en regard de l'étiquette du composant pour développer la liste et afficher l'état des différents composants de l’appareil. Consultez la [liste détaillée des composants du boîtier principal](#component-list-for-primary-enclosure-of-storsimple-device) et la [liste détaillée des composants détaillées du boîtier EBOD](#component-list-for-ebod-enclosure-of-storsimple-device).
 3. Utilisez le codage couleur suivant pour interpréter l'état du composant :
    
@@ -50,9 +54,9 @@ Procédez comme suit pour afficher l'état du matériel d'un composant d’appar
    * **Jaune** – Composant en état d’**avertissement**.
    * **Point d'exclamation rouge** – Composant présentant un **échec** ou **nécessitant une attention**.
    * **Blanc avec texte noir** – Composant absent.
-4. Si vous rencontrez un composant dont l'état n'est pas **sain**, contactez le Support technique de Microsoft. Si les alertes sont activées sur votre appareil, vous recevrez un message d'alerte. Si vous devez remplacer un composant matériel défaillant, consultez la rubrique [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
+4. Si vous rencontrez un composant dont l'état n'est pas **sain** , contactez le Support technique de Microsoft. Si les alertes sont activées sur votre appareil, vous recevrez un message d'alerte. Si vous devez remplacer un composant matériel défaillant, consultez la rubrique [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-## Liste des composants du boîtier principal de l'appareil StorSimple
+## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Liste des composants du boîtier principal de l'appareil StorSimple
 Le tableau suivant présente les composants physiques et logiques contenus dans le boîtier principal de votre appareil StorSimple local.
 
 | Composant | Module | Type | Lieu | Unité remplaçable sur site (FRU) ? | Description |
@@ -83,7 +87,7 @@ Le tableau suivant présente les composants physiques et logiques contenus dans 
 | Pool de stockage SSD |N/A |Opérateurs logiques |Partagé |N/A |Affiche l'état du pool de stockage logique créé à partir de SSD de périphérique. |
 | Contrôleur [0-1] [état] |E/S |Physique |Controller |Oui |Affiche l'état du contrôleur, et s'il est en mode actif ou attente au sein du châssis. |
 | Capteurs de température du contrôleur |E/S |Physique |Controller |Non |L’état de plusieurs capteurs de température, tels que les capteurs du module E/S, de température du processeur, ainsi que les capteurs DIMM et PCIe, est affiché et indique si la température se situe dans la plage de tolérance. |
-| Expander SAS |E/S |Physique |Controller |Non |Indique l'état de l'expandeur SAS (serial attached SCSI), qui est utilisé pour connecter le stockage intégré au contrôleur. |
+| ﻿Expander SAS |E/S |Physique |Controller |Non |Indique l'état de l'expandeur SAS (serial attached SCSI), qui est utilisé pour connecter le stockage intégré au contrôleur. |
 | Connecteur SAS [0-1] |E/S |Physique |Controller |Non |Indique l'état de chaque connecteur SAS utilisé pour connecter le stockage intégré à l’expander SAS. |
 | Interconnexion de plan médian SBB |E/S |Physique |Controller |Non |Indique l'état du connecteur de plan médian, qui est utilisé pour connecter chaque contrôleur au plan médian. |
 | Cœur de processeur |E/S |Physique |Controller |Non |Indique l'état des cœurs de processeurs dans chaque contrôleur. |
@@ -93,7 +97,7 @@ Le tableau suivant présente les composants physiques et logiques contenus dans 
 | Ethernet |E/S |Physique |Controller |Non |Indique l'état de chacune des interfaces réseau, autrement dit, des ports de gestion et de données fournis sur le contrôleur. |
 | NVRAM |E/S |Physique |Controller |Non |Indique l'état de la mémoire NVRAM, une mémoire vive non volatile avec batterie de secours qui sert à conserver des informations d’application critiques en cas de panne d'alimentation. |
 
-## Liste des composants du boîtier EBOD de l'appareil StorSimple
+## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>Liste des composants du boîtier EBOD de l'appareil StorSimple
 Le tableau suivant présente les composants physiques et logiques contenus dans le boîtier EBOD de votre appareil StorSimple local.
 
 | Composant | Module | Type | Lieu | FRU ? | Description |
@@ -112,17 +116,22 @@ Le tableau suivant présente les composants physiques et logiques contenus dans 
 | Stockage local [HDD] |N/A |Opérateurs logiques |Partagé |N/A |Affiche l'état du pool de stockage logique créé à partir de disques durs de périphérique. |
 | Contrôleur [0-1] [état] |E/S |Physique |Controller |Oui |Affiche l'état des contrôleurs du module EBOD. |
 | Capteurs de température dans EBOD |E/S |Physique |Controller |Non |L’état de plusieurs capteurs de température de chaque contrôleur s’affiche et indique si la température mesurée se trouve dans la plage de tolérance. |
-| Expander SAS |E/S |Physique |Controller |Non |Indique l'état de l'expandeur SAS, qui est utilisé pour connecter le stockage intégré au contrôleur. |
+| ﻿Expander SAS |E/S |Physique |Controller |Non |Indique l'état de l'expandeur SAS, qui est utilisé pour connecter le stockage intégré au contrôleur. |
 | Connecteur SAS [0-2] |E/S |Physique |Controller |Non |Indique l'état de chaque connecteur SAS utilisé pour connecter le stockage intégré à l’expander SAS. |
 | Interconnexion de plan médian SBB |E/S |Physique |Controller |Non |Indique l'état du connecteur de plan médian, qui est utilisé pour connecter chaque contrôleur au plan médian. |
 | Puissance électronique du boîtier |E/S |Physique |Controller |Non |Indique l'état du système d'alimentation utilisé par le boîtier. |
 | Diagnostic électronique du boîtier |E/S |Physique |Controller |Non |Indique l'état des sous-systèmes de diagnostic fournis par le contrôleur. |
 | Connexion au contrôleur de périphérique |E/S |Physique |Controller |Non |Indique l'état de la connexion entre le module E/S du module EBOD et le contrôleur de périphérique. |
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour utiliser le service StorSimple Manager pour gérer votre appareil, consultez [Utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
-* Si vous devez résoudre les problèmes d’un composant de l’appareil dont l’état est détérioré ou en échec, consultez [Indicateurs de surveillance StorSimple](storsimple-monitoring-indicators.md).
+* Si vous devez résoudre les problèmes d’un composant de l’appareil dont l’état est détérioré ou en échec, consultez [Indicateurs de surveillance StorSimple](storsimple-monitoring-indicators.md). 
 * Pour remplacer un composant matériel défectueux, consultez [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 * Si les problèmes persistent, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

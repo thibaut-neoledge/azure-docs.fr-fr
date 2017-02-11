@@ -50,7 +50,7 @@ Dans votre ressource Application Insights, recherchez la vignette de disponibili
 * **L’URL** doit être visible à partir de l’Internet public. Elle peut inclure une chaîne de requête, par exemple pour vous permettre de tester un peu votre base de données. Si l’URL correspond à une redirection, nous allons la suivre, jusqu’à 10 redirections.
 * **Analyser les requêtes dépendantes**: les images, scripts, fichiers de style et autres ressources de la page sont demandés dans le cadre du test, et le temps de réponse enregistré inclut ces durées. Le test échoue si toutes ces ressources ne peuvent pas être téléchargées avec succès dans le délai imparti pour l’ensemble du test.
 * **Autoriser de nouvelles tentatives**: une nouvelle tentative de test sera effectuée après un court intervalle en cas d’échec du test. L’échec est signalé uniquement après trois tentatives infructueuses. Les tests suivants sont ensuite effectués selon la fréquence de test habituelle. La nouvelle tentative est temporairement suspendue jusqu’à la réussite de la tentative suivante. Cette règle est appliquée indépendamment à chaque emplacement de test. (Nous recommandons ce paramètre. En moyenne, environ 80 % des échecs disparaissent lors de la nouvelle tentative.)
-* **Fréquence de test**: définit la fréquence selon laquelle le test est exécuté à partir de chaque emplacement de test. Avec une fréquence de 5 minutes et 5 emplacements de test, votre site sera testé en moyenne une fois par minute.
+* **Fréquence de test**: définit la fréquence selon laquelle le test est exécuté à partir de chaque emplacement de test. Avec une fréquence de&5; minutes et&5; emplacements de test, votre site sera testé en moyenne une fois par minute.
 * **emplacements de test** sont les lieux d’où nos serveurs envoient des requêtes web à votre URL. Choisissez-en plusieurs de façon à distinguer les problèmes de votre site web des problèmes de réseau. Vous pouvez sélectionner jusqu’à 16 emplacements.
 * **Critères de réussite**:
 
@@ -100,7 +100,7 @@ Cliquez sur le résultat pour l’évaluer dans le portail et savoir pourquoi il
 
 Vous pouvez aussi télécharger le fichier de résultats et l’examiner dans Visual Studio.
 
-*Le résultat semble correct, mais une erreur est signalée ?*  Vérifiez toutes les images, les scripts, les feuilles de style et tout autre fichier chargé par la page. Si l’un d’eux échoue, le test signale une erreur, même si la page html principale se charge correctement.
+*Le résultat semble correct, mais une erreur est signalée ?* Vérifiez toutes les images, les scripts, les feuilles de style et tout autre fichier chargé par la page. Si l’un d’eux échoue, le test signale une erreur, même si la page html principale se charge correctement.
 
 ### <a name="open-the-server-request-and-exceptions"></a>Ouvrir la demande et les exceptions du serveur
 
@@ -178,7 +178,7 @@ Les plug-ins de test web vous permettent de paramétrer les heures.
 
     ![Choisissez Ajouter un plug-in de test web et sélectionnez un type.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
 
-    Dans cet exemple, nous allons utiliser deux instances du plug-in Date Time. Une instance est pour « il y a 15 minutes » et l’autre pour « maintenant ».
+    Dans cet exemple, nous allons utiliser deux instances du plug-in Date Time. Une instance est pour « il y a&15; minutes » et l’autre pour « maintenant ».
 2. Ouvrez les propriétés de chaque plug-in. Donnez-lui un nom et configurez-le de manière à utiliser l’heure actuelle. Pour l'un d'eux, définissez Ajouter des minutes = -15.
 
     ![Définissez le nom, utilisez l’heure actuelle et ajouter des minutes.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-parameters.png)

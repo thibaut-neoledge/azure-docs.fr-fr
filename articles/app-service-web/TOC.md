@@ -7,12 +7,13 @@
 # Prise en main
 
 ## Web Apps
-### [.NET](web-sites-dotnet-get-started.md)
-### [Node.JS](app-service-web-nodejs-get-started.md)
-### [Python](web-sites-python-ptvs-django-mysql.md)
-### [Java](web-sites-java-get-started.md)
+### [HTML](app-service-web-get-started-html.md)
+### [.NET](app-service-web-get-started-dotnet.md)
+### [Node.JS](app-service-web-get-started-nodejs.md)
+### [Python](app-service-web-get-started-python.md)
+### [Java](app-service-web-get-started-java.md)
 ### [Application Marketplace](web-sites-php-web-site-gallery.md)
-### [PHP](app-service-web-php-get-started.md)   
+### [PHP](app-service-web-get-started-php.md)   
 
 ## API Apps
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
@@ -60,11 +61,12 @@
 ### [Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-get-started.md)
 
 ### Applications ASP.NET
-#### [Déployer votre première application web .NET dans Azure en 5 minutes](app-service-web-get-started-dotnet.md)
+#### [Créer une application ASP.NET dans Azure à l’aide de Visual Studio](web-sites-dotnet-get-started.md)
 #### [Créer un service REST à l’aide de l’API web ASP.NET](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
 #### [Création d’une application Web ASP.NET 5 dans Visual Studio Code](web-sites-create-web-app-using-vscode.md)
 
 ### Applications Node.js
+#### [Développement de Node.js pour App Service](app-service-web-nodejs-get-started.md)
 #### [Créer une application web Node.js](web-sites-nodejs-develop-deploy-mac.md)
 #### [Créer une application de conversation instantanée Node.js avec Socket.IO](web-sites-nodejs-chat-app-socketio.md)
 #### [Utilisation de io.js avec Web Apps](web-sites-nodejs-iojs.md)
@@ -72,14 +74,13 @@
 #### [Génération et déploiement à l’aide de WebMatrix](web-sites-nodejs-use-webmatrix.md)
 
 ### Applications PHP
-#### [Déployer votre première application web PHP dans Azure en 5 minutes](app-service-web-get-started-php.md)
+#### [Développer des applications PHP pour App Service](app-service-web-php-get-started.md) 
 #### [Créer une application web PHP-SQL et la déployer avec Git](web-sites-php-sql-database-deploy-use-git.md)
 #### [Créer une application web WordPress dans Azure App Service](web-sites-php-web-site-gallery.md)
 #### [Création et connexion à une base de données MySQL dans Azure](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [WordPress d’entreprise sur Azure App Service](web-sites-php-enterprise-wordpress.md)
 
 ### Applications Java
-#### [Déployer votre première application web Java dans Azure en 5 minutes](web-sites-java-get-started.md)
 #### Créer une application Hello World
 ##### [Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
 ##### [IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
@@ -98,7 +99,7 @@
 #### [Django et MySQL sur Azure avec Python Tools 2.2 pour Visual Studio](web-sites-python-ptvs-django-mysql.md)
 #### [Django et SQL Database sur Azure avec Python Tools 2.2 pour Visual Studio](web-sites-python-ptvs-django-sql.md)
 
-### [Déployer votre première application web de base dans Azure en 5 minutes](app-service-web-get-started-html.md)
+### [Déployer votre première application web de base dans Azure en&5; minutes](app-service-web-get-started-html.md)
 ### [Prise en main de la fonction de test en production pour Web Apps](app-service-web-test-in-production-get-start.md)
 
 ### [Travaux web](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
@@ -254,11 +255,11 @@
 
 # Rubriques connexes
 ## [Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET](azure-sdk-dotnet-release-notes.md)
-### [Version 2.9](azure-sdk-dotnet-release-notes-2-9.md)
-### [Versions 2.8.X](azure-sdk-dotnet-release-notes-2-8.md)
-### [Versions 2.7.X](azure-sdk-dotnet-release-notes-2-7.md)
-### [Version 2.6](azure-sdk-dotnet-release-notes-2-6.md)
-### [Version 2.5.1](../app-service/app-service-release-notes.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+### [Version&2;.9](azure-sdk-dotnet-release-notes-2-9.md)
+### [Versions&2;.8.X](azure-sdk-dotnet-release-notes-2-8.md)
+### [Versions&2;.7.X](azure-sdk-dotnet-release-notes-2-7.md)
+### [Version&2;.6](azure-sdk-dotnet-release-notes-2-6.md)
+### [Version&2;.5.1](../app-service/app-service-release-notes.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 
 # les ressources
 ## [meilleures pratiques](app-service-best-practices.md)

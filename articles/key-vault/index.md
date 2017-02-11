@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Apprenez à utiliser Key Vault pour créer et gérer des clés d’accès et de chiffrement pour vos ressources, applications et solutions cloud. Didacticiels, références d’API et autres."
 translationtype: Human Translation
-ms.sourcegitcommit: 017bbfb8485a7e449157e4ddb05149b5e1cc393f
-ms.openlocfilehash: ae529bdad36eeddb959ac4b0ad5c9ccffc3ac30a
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 0c53b569e45569fd7a7c56142d66fbab8d8b0a05
 
 ---
 # <a name="key-vault-documentation"></a>Documentation Key Vault
@@ -128,7 +128,7 @@ Apprenez à utiliser Key Vault pour protéger et gérer les clés de chiffrement
                         <h3>Langues</h3>
                         <p><a href="/dotnet/api/microsoft.azure.keyvault">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.keyvault">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest">Node.js</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest">Node.JS</a></p>
                         <p><a href="/java/api/com.microsoft.azure.keyvault">Java</a></p>
                     </div>
                 </div>
@@ -151,13 +151,6 @@ Apprenez à utiliser Key Vault pour protéger et gérer les clés de chiffrement
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/key-vault.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation Key Vault </div>
-    </a>
-</div>
 
 
 

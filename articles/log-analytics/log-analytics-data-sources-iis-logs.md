@@ -1,12 +1,12 @@
 ---
 title: Journaux IIS dans Log Analytics | Microsoft Docs
-description: Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Log Analytics.  Cet article décrit comment configurer la collecte des journaux IIS et des détails des enregistrements qu'ils créent dans le référentiel OMS.
+description: "Internet Information Services (IIS) enregistre l&quot;activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Log Analytics.  Cet article décrit comment configurer la collecte des journaux IIS et des détails des enregistrements qu&quot;ils créent dans le référentiel OMS."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: cec5ff0a-01f5-4262-b2e8-e3db7b7467d2
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 920b5feee8e94af5b98e8dffc127da4085bac597
+
 
 ---
 # <a name="iis-logs-in-log-analytics"></a>Journaux IIS dans Log Analytics
@@ -32,10 +36,10 @@ Configurez les journaux IIS dans Log Analytics à partir du [menu Données dans 
 Quand vous activez la collecte de journaux IIS, nous vous recommandons de configurer le paramètre de substitution de journal IIS sur chaque serveur.
 
 ## <a name="data-collection"></a>Collecte des données
-Log Analytics collecte les entrées du journal IIS de chaque source connectée toutes les 15 minutes environ.  L’agent enregistre sa position dans chaque journal des événements à partir duquel il collecte.  Si l’agent est mis hors connexion, Log Analytics collecte les événements à partir de la position où il s’était arrêté, même si ces événements ont été créés lorsque l’agent était hors connexion.
+Log Analytics collecte les entrées du journal IIS de chaque source connectée toutes les 15 minutes environ.  L’agent enregistre sa position dans chaque journal des événements à partir duquel il collecte.  Si l’agent est mis hors connexion, Log Analytics collecte les événements à partir de la position où il s’était arrêté, même si ces événements ont été créés lorsque l’agent était hors connexion.
 
 ## <a name="iis-log-record-properties"></a>Propriétés d’enregistrement de journal IIS
-Les enregistrements de journal IIS sont de type **W3CIISLog** et leurs propriétés sont décrites dans le tableau suivant :
+Les enregistrements de journal IIS sont de type **W3CIISLog** et leurs propriétés sont décrites dans le tableau suivant :
 
 | Propriété | Description |
 |:--- |:--- |
@@ -54,7 +58,7 @@ Les enregistrements de journal IIS sont de type **W3CIISLog** et leurs propriét
 | scStatus |Code d'état HTTP. |
 | scSubStatus |Code d'erreur du sous-état. |
 | scWin32Status |Code d’état Windows. |
-| sIP |Adresse IP du serveur web. |
+| sIP |Adresse IP du serveur web. |
 | SourceSystem |OpsMgr |
 | sPort |Port sur le serveur auquel client est connecté. |
 | sSiteName |Nom du site IIS. |
@@ -77,6 +81,9 @@ Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extra
 * Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.
 * Configurez les alertes dans Log Analytics pour être informé de façon proactive des conditions importantes rencontrées dans les journaux IIS.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Ouverture de ports et de points de terminaison sur une machine virtuelle Linux | Microsoft Docs
-description: "Découvrez comment ouvrir un port / créer un point de terminaison sur votre machine virtuelle Linux à l’aide du modèle de déploiement Azure Resource Manager et de l’interface de ligne de commande Azure"
+title: Ouverture de ports et de points de terminaison sur une machine virtuelle Linux dans Azure | Microsoft Docs
+description: "Découvrez comment ouvrir un port / créer un point de terminaison sur votre machine virtuelle Linux à l’aide du modèle de déploiement Azure Resource Manager et de l’interface de ligne de commande 2.0 Azure (version préliminaire)"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -12,55 +12,59 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 12/8/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5dd20630580f09049c88ffd9107f7fa8e8e43816
-ms.openlocfilehash: 0e5e7b2c0637db3d20cbe2e6f00a23cb9d7fb51f
+ms.sourcegitcommit: e4512dd4d818b1c7bea7e858a397728ce48a5362
+ms.openlocfilehash: 40f399c339e31d9d008230449d7f559ae01afba3
 
 
 ---
 # <a name="opening-ports-and-endpoints-to-a-linux-vm-in-azure"></a>Ouverture de ports et de points de terminaison sur une machine virtuelle Linux dans Azure
-Pour ouvrir un port ou créer un point de terminaison sur une machine virtuelle dans Azure, créez un filtre réseau sur un sous-réseau ou une interface réseau de machine virtuelle. Vous placez ces filtres, qui contrôlent le trafic entrant et sortant, dans un groupe de sécurité réseau associé à la ressource qui reçoit le trafic. Nous allons utiliser un exemple courant de trafic web sur le port 80.
+Pour ouvrir un port ou créer un point de terminaison sur une machine virtuelle dans Azure, créez un filtre réseau sur un sous-réseau ou une interface réseau de machine virtuelle. Vous placez ces filtres, qui contrôlent le trafic entrant et sortant, dans un groupe de sécurité réseau associé à la ressource qui reçoit le trafic. Nous allons utiliser un exemple courant de trafic web sur le port 80. Cet article vous montre comment ouvrir un port sur une machine virtuelle à l’aide de l’interface de ligne de commande 2.0 Azure (version préliminaire).
+
+
+## <a name="cli-versions-to-complete-the-task"></a>Versions de l’interface de ligne de commande permettant d’effectuer la tâche
+Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
+
+- [Azure CLI 1.0](virtual-machines-linux-nsg-quickstart-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager
+- [Azure CLI 2.0 (version préliminaire)](#quick-commands) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager (cet article)
+
 
 ## <a name="quick-commands"></a>Commandes rapides
-Pour créer un groupe de sécurité réseau et des règles, vous devez installer[l’interface de ligne de commande Azure](../xplat-cli-install.md) et utiliser le mode Resource Manager :
-
-```azurecli
-azure config mode arm
-```
+Pour créer un groupe de sécurité réseau et des règles, [l’interface de ligne de commande 2.0 Azure (version préliminaire)](/cli/azure/install-az-cli2) la plus récente doit être installée et connectée à un compte Azure à l’aide de la commande [az login](/cli/azure/#login).
 
 Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Exemples de noms de paramètre : `myResourceGroup`, `myNetworkSecurityGroup` et `myVnet`.
 
-Créez votre groupe de sécurité réseau en entrant votre nom et votre emplacement en conséquence. L’exemple suivant crée un groupe de sécurité réseau nommé `myNetworkSecurityGroup` à l’emplacement `WestUS` :
+Créez le groupe de sécurité réseau avec la commande [az network nsg create](/cli/azure/network/nsg#create). L’exemple suivant crée un groupe de sécurité réseau nommé `myNetworkSecurityGroup` à l’emplacement `westus` :
 
 ```azurecli
-azure network nsg create --resource-group myResourceGroup --location westus \
+az network nsg create --resource-group myResourceGroup --location westus \
     --name myNetworkSecurityGroup
 ```
 
-Ajoutez une règle pour autoriser le trafic HTTP sur votre serveur Web (ou ajustez une règle en fonction de votre propre scénario, notamment l’accès SSH ou la connectivité de base de données). L’exemple suivant crée une règle nommée `myNetworkSecurityGroupRule` pour autoriser le trafic TCP sur le port 80 :
+Ajoutez une règle avec la commande [az network nsg rule create](/cli/azure/network/nsg/rule#create) pour autoriser le trafic HTTP sur votre serveur Web (ou adaptez en fonction de votre propre scénario, notamment l’accès SSH ou la connectivité de base de données). L’exemple suivant crée une règle nommée `myNetworkSecurityGroupRule` pour autoriser le trafic TCP sur le port 80 :
 
 ```azurecli
-azure network nsg rule create --resource-group myResourceGroup \
+az network nsg rule create --resource-group myResourceGroup \
     --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
     --protocol tcp --direction inbound --priority 1000 \
-    --destination-port-range 80 --access allow
+    --source-address-prefix '*' --source-port-range '*' \
+    --destination-address-prefix '*' --destination-port-range 80 --access allow
 ```
 
-Associez un groupe de sécurité réseau associé à l’interface réseau (NIC) de vos machines virtuelles. L’exemple suivant associe une carte réseau existante nommée `myNic` au groupe de sécurité réseau nommé `myNetworkSecurityGroup` :
+Associez le groupe de sécurité réseau à l’interface réseau (NIC) de votre machine virtuelle avec la commande [az network nic update](/cli/azure/network/nic#update). L’exemple suivant associe une carte réseau existante nommée `myNic` au groupe de sécurité réseau nommé `myNetworkSecurityGroup` :
 
 ```azurecli
-azure network nic set --resource-group myResourceGroup \
-    --network-security-group-name myNetworkSecurityGroup --name myNic
+az network nic update --resource-group myResourceGroup --name myNic \
+    --network-security-group myNetworkSecurityGroup
 ```
 
-Vous pouvez également associer votre groupe de sécurité réseau à un sous-réseau de réseau virtuel et non uniquement à l’interface réseau d’une seule machine virtuelle. L’exemple suivant associe un sous-réseau existant nommé `mySubnet` dans le réseau virtuel `myVnet` au groupe de sécurité réseau nommé `myNetworkSecurityGroup` :
+Vous pouvez également associer votre groupe de sécurité réseau à un sous-réseau de réseau virtuel avec la commande [az network vnet subnet update](/cli/azure/network/vnet/subnet#update) et non uniquement à l’interface réseau d’une seule machine virtuelle. L’exemple suivant associe un sous-réseau existant nommé `mySubnet` dans le réseau virtuel `myVnet` au groupe de sécurité réseau nommé `myNetworkSecurityGroup` :
 
 ```azurecli
-azure network vnet subnet set --resource-group myResourceGroup \
-    --network-security-group-name myNetworkSecurityGroup \
-    --vnet-name myVnet --name mySubnet
+az network vnet subnet update --resource-group myResourceGroup \
+    --vnet-name myVnet --name mySubnet --network-security-group myNetworkSecurityGroup
 ```
 
 ## <a name="more-information-on-network-security-groups"></a>En savoir plus sur les groupes de sécurité réseau
@@ -80,6 +84,6 @@ Dans cet exemple, vous avez créé une règle simple pour autoriser le trafic HT
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

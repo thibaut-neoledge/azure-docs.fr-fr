@@ -35,7 +35,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 
-![Scénario](./media/active-directory-saas-aha-tutorial/IC798944.png "Scénario")
+![Scénario](./media/active-directory-saas-aha-tutorial/IC798944.png "Scenario")
 
 ## <a name="enabling-the-application-integration-for-aha"></a>Activation de l’intégration d’application pour Aha!
 Cette section décrit l’activation de l’intégration d’application pour Aha!.
@@ -50,13 +50,13 @@ Cette section décrit l’activation de l’intégration d’application pour Ah
    ![Applications](./media/active-directory-saas-aha-tutorial/IC700994.png "Applications")
 4. Cliquez sur **Ajouter** en bas de la page.
    
-   ![Ajouter une application](./media/active-directory-saas-aha-tutorial/IC749321.png "Ajouter une application")
+   ![Ajouter une application](./media/active-directory-saas-aha-tutorial/IC749321.png "Add application")
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
    
-   ![Ajouter une application à partir de la galerie](./media/active-directory-saas-aha-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
+   ![Ajouter une application à partir de la galerie](./media/active-directory-saas-aha-tutorial/IC749322.png "Add an application from gallerry")
 6. Dans la **zone de recherche**, tapez **Aha!**.
    
-   ![Galerie d’applications](./media/active-directory-saas-aha-tutorial/IC798945.png "Galerie d’applications")
+   ![Galerie d’applications](./media/active-directory-saas-aha-tutorial/IC798945.png "Application Gallery")
 7. Dans le volet de résultats, sélectionnez **Aha!**, puis cliquez sur **Terminer** pour ajouter l’application.
    
    ![Aha!](./media/active-directory-saas-aha-tutorial/IC802746.png "Aha!")
@@ -68,40 +68,40 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
 1. Sur la page d’intégration d’applications **Aha!** Dans la page d’intégration d’applications, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-aha-tutorial/IC798946.png "Configurer l’authentification unique")
+   ![Configurer l’authentification unique](./media/active-directory-saas-aha-tutorial/IC798946.png "Configure Single Sign-On")
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Aha! ?**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-aha-tutorial/IC798947.png "Configurer l’authentification unique")
+   ![Configurer l’authentification unique](./media/active-directory-saas-aha-tutorial/IC798947.png "Configure Single Sign-On")
 3. Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion Aha!**, tapez l’URL dont se servent vos utilisateurs pour se connecter à votre application Application (par exemple : « *https://company.aha.io/session/new* »), puis cliquez sur **Suivant**.
    
-   ![Configurer l’URL de l’application](./media/active-directory-saas-aha-tutorial/IC798948.png "Configurer l’URL de l’application")
+   ![Configurer l’URL de l’application](./media/active-directory-saas-aha-tutorial/IC798948.png "Configure App URL")
 4. Dans la page **Configurer l’authentification unique sur Aha!**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier de métadonnées localement sur votre ordinateur.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-aha-tutorial/IC798949.png "Configurer l’authentification unique")
+   ![Configurer l’authentification unique](./media/active-directory-saas-aha-tutorial/IC798949.png "Configure Single Sign-On")
 5. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Aha! en tant qu’administrateur.
 6. Dans le menu situé en haut, cliquez sur **Settings**.
    
-   ![Paramètres](./media/active-directory-saas-aha-tutorial/IC798950.png "Paramètres")
+   ![Settings](./media/active-directory-saas-aha-tutorial/IC798950.png "Settings")
 7. Cliquez sur **Account**.
    
-   ![Profil](./media/active-directory-saas-aha-tutorial/IC798951.png "Profil")
+   ![Profil](./media/active-directory-saas-aha-tutorial/IC798951.png "Profile")
 8. Cliquez sur **Security and single sign-on**.
    
-   ![Sécurité et authentification unique](./media/active-directory-saas-aha-tutorial/IC798952.png "Sécurité et authentification unique")
+   ![Security and single sign-on](./media/active-directory-saas-aha-tutorial/IC798952.png "Security and single sign-on")
 9. Dans la section **Single Sign-On**, pour **Identity Provider**, sélectionnez **SAML2.0**.
    
-   ![Sécurité et authentification unique](./media/active-directory-saas-aha-tutorial/IC798953.png "Sécurité et authentification unique")
+   ![Security and single sign-on](./media/active-directory-saas-aha-tutorial/IC798953.png "Security and single sign-on")
 10. Dans la page de configuration **Single Sign on** , procédez comme suit :
     
-    ![Authentification unique](./media/active-directory-saas-aha-tutorial/IC798954.png "Authentification unique")
+    ![Single Sign on](./media/active-directory-saas-aha-tutorial/IC798954.png "Single Sign-On")
     
     1. Dans la zone de texte **Name** , tapez le nom de votre configuration.
     2. Pour **Configure using**, sélectionnez **Metadata File**.
     3. Pour charger le fichier de métadonnées téléchargé, cliquez sur **Browse**.
     4. Cliquez sur **Mettre à jour**.
-11. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+11. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-aha-tutorial/IC798955.png "Configurer l’authentification unique")
+    ![Configurer l’authentification unique](./media/active-directory-saas-aha-tutorial/IC798955.png "Configure Single Sign-On")
     
     ## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
 
@@ -123,10 +123,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 1. Dans le portail Azure Classic, créez un compte de test.
 2. Dans la page d’intégration d’application **Aha!**, cliquez sur **Affecter des utilisateurs**.
    
-   ![Affecter des utilisateurs](./media/active-directory-saas-aha-tutorial/IC798956.png "Affecter des utilisateurs")
+   ![Affecter des utilisateurs](./media/active-directory-saas-aha-tutorial/IC798956.png "Assign Users")
 3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
    
-   ![Oui](./media/active-directory-saas-aha-tutorial/IC767830.png "Oui")
+   ![Oui](./media/active-directory-saas-aha-tutorial/IC767830.png "Yes")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 

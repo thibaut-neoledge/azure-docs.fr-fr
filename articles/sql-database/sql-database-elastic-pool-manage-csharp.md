@@ -1,6 +1,6 @@
 ---
-title: "Surveiller et gérer un pool de base de données élastique avec C# | Microsoft Docs"
-description: "Utilisez les techniques de développement de bases de données C# pour gérer un pool de bases de données élastique Azure SQL Database."
+title: "Surveiller et gérer un pool élastique avec C# | Microsoft Docs"
+description: "Utilisez les techniques de développement de bases de données C# pour gérer un pool élastique Azure SQL Database."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: f6e6ff3b-6b60-43c1-afe9-575991e38237
 ms.service: sql-database
-ms.custom: sharded databases pool; how to
+ms.custom: multiple databases
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: csharp
@@ -16,12 +16,12 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 62e13424d8dd652bc20c5746f81df7958963c43a
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: a6d5b0ccb1b160be4f8f3c09814202634759c8c6
 
 
 ---
-# <a name="monitor-and-manage-an-elastic-database-pool-with-cx23"></a>Surveiller et gérer un pool de bases de données élastique avec C&#x23;
+# <a name="monitor-and-manage-an-elastic-pool-with-cx23"></a>Surveiller et gérer un pool élastique avec C&#x23;
 > [!div class="op_single_selector"]
 > * [Portail Azure](sql-database-elastic-pool-manage-portal.md)
 > * [PowerShell](sql-database-elastic-pool-manage-powershell.md)
@@ -30,16 +30,16 @@ ms.openlocfilehash: 62e13424d8dd652bc20c5746f81df7958963c43a
 > 
 > 
 
-Découvrez comment gérer un [pool de bases de données élastique](sql-database-elastic-pool.md) à l’aide de C&#x23;. 
+Découvrez comment gérer un [pool élastique](sql-database-elastic-pool.md) à l’aide de C&#x23;. 
 
 > [!NOTE]
-> Nombre des nouvelles fonctionnalités de SQL Database ne sont prises en charge que si vous utilisez le [modèle de déploiement Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), c’est pourquoi vous devez toujours utiliser la toute dernière **bibliothèque de base de données SQL Azure pour .NET ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Les anciennes [bibliothèques basées sur des modèles de déploiement classique](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) sont prises en charge pour la compatibilité ascendante uniquement, donc nous vous recommandons d’utiliser les bibliothèques Resource Manager plus récentes.
+> Nombre des nouvelles fonctionnalités de SQL Database ne sont prises en charge que si vous utilisez le [modèle de déploiement Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), c’est pourquoi vous devez toujours utiliser la toute dernière **bibliothèque de base de données SQL Azure pour .NET. ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [Package NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Les anciennes [bibliothèques basées sur des modèles de déploiement classique](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) sont prises en charge pour la compatibilité ascendante uniquement, donc nous vous recommandons d’utiliser les bibliothèques Resource Manager plus récentes.
 > 
 > 
 
 Pour effectuer les étapes de cet article, vous avez besoin des éléments suivants :
 
-* Un pool élastique (le pool que vous voulez gérer). Pour créer un pool, voir [Créer un pool de bases de données élastiques avec C#](sql-database-elastic-pool-create-csharp.md).
+* Un pool élastique (le pool que vous voulez gérer). Pour créer un pool, consultez la rubrique [Créer un pool élastiques avec C#](sql-database-elastic-pool-create-csharp.md).
 * Visual Studio. Pour obtenir une copie gratuite de Visual Studio, consultez la page [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) .
 
 ## <a name="move-a-database-into-an-elastic-pool"></a>Déplacer une base de données dans un pool élastique
@@ -107,13 +107,13 @@ Récupérez les propriétés du pool existantes. Modifiez les valeurs et exécut
 * [Codes d’erreur SQL pour les applications clientes SQL Database : erreur de connexion à la base de données et autres problèmes](sql-database-develop-error-messages.md).
 * [Base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 * [API de gestion des ressources Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-* [Créer un pool de base de données élastique avec C#](sql-database-elastic-pool-create-csharp.md)
-* [Quand utiliser un pool de base de données élastique ?](sql-database-elastic-pool-guidance.md)
+* [Créer un pool élastique avec C#](sql-database-elastic-pool-create-csharp.md)
+* [Quand utiliser un pool élastique ?](sql-database-elastic-pool-guidance.md)
 * Consultez [Montée en charge avec la base de données SQL Azure](sql-database-elastic-scale-introduction.md): utilisez les outils de base de données élastique pour monter en charge, déplacer des données, exécuter des requêtes ou créer des transactions.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8e5b098c7cd1de5b06809787ac61393e45d17eab
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: edb4ba7a855583cd00051cb4f4edae3a13cdd496
 
 
 ---
@@ -38,9 +38,9 @@ Vous pouvez appliquer des stratégies différentes à la même ressource. Par ex
 
 Si vous souhaitez remettre une ressource à chiffrement de stockage, vous devez configurer la stratégie de remise de la ressource. Avant de pouvoir diffuser votre ressource en continu, le serveur de diffusion supprime le chiffrement de stockage et transmet en continu votre contenu à l’aide de la stratégie de remise spécifiée. Par exemple, pour remettre votre ressource chiffrée avec la clé de chiffrement d'enveloppe AES (Advanced Encryption Standard), définissez le type de stratégie sur **DynamicEnvelopeEncryption**. Pour supprimer le chiffrement de stockage et diffuser la ressource en clair, définissez le type de stratégie sur **NoDynamicEncryption**. Vous trouverez des exemples qui montrent comment configurer ces types de stratégie ci-dessous.
 
-Selon la configuration de la stratégie de remise de ressources, vous pourrez empaqueter dynamiquement, chiffrer dynamiquement et diffuser les protocoles de diffusion en continu suivants : Smooth Streaming, HLS, MPEG DASH et HDS.
+Selon la configuration de la stratégie de remise de ressources, vous pourrez empaqueter dynamiquement, chiffrer dynamiquement et diffuser les protocoles de diffusion en continu suivants : Smooth Streaming, HLS et MPEG DASH.
 
-La liste suivante présente les formats utilisés pour diffuser en continu lisse, TLS, DASH et HDS.
+La liste suivante présente les formats utilisés pour diffuser en continu Smooth, HLS et DASH.
 
 Smooth Streaming :
 
@@ -54,9 +54,6 @@ MPEG DASH
 
 {nom du point de terminaison de diffusion en continu-nom du compte media services}.streaming.mediaservices.windows.net/{ID_de_localisateur}/{nom_de_fichier}.ISM/Manifest(format=mpd-time-csf)
 
-HDS
-
-{nom du point de terminaison de diffusion en continu-nom du compte media services}.streaming.mediaservices.windows.net/{ID_de_localisateur}/{nom_de_fichier}.ISM/Manifest(format=f4m-f4f)
 
 Pour savoir comment publier une ressource et générer une URL de diffusion en continu, consultez [Générer une URL de diffusion en continu](media-services-deliver-streaming-content.md).
 
@@ -306,11 +303,6 @@ Consultez la rubrique [Liaison d’un élément multimédia à la stratégie de 
         HLS = 0x4,
 
         /// <summary>
-        /// Adobe HTTP Dynamic Streaming (HDS)
-        /// </summary>
-        Hds = 0x8,
-
-        /// <summary>
         /// Include all protocols.
         /// </summary>
         All = 0xFFFF
@@ -441,6 +433,6 @@ Consultez la rubrique [Liaison d’un élément multimédia à la stratégie de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
