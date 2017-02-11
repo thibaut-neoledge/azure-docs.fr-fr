@@ -167,6 +167,6 @@ Le billet de blog [Networking Infrastructure Setup for Microsoft Azure as a Disa
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

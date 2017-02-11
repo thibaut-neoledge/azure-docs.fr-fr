@@ -282,6 +282,6 @@ Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-up
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

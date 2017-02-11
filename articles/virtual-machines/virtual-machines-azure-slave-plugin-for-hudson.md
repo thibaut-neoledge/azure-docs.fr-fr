@@ -200,6 +200,6 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

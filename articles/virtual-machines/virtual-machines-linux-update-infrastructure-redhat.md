@@ -216,6 +216,6 @@ Pour créer une machine virtuelle Red Hat Enterprise Linux à partir d’une ima
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

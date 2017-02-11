@@ -70,6 +70,6 @@ La plupart des tâches de gestion des noms de domaine dans Azure Active Director
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

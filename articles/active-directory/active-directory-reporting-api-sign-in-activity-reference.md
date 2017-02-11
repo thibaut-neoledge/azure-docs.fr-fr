@@ -184,6 +184,6 @@ Il existe deux options pour loginStatus : 0 - Réussite, 1 - Échec
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

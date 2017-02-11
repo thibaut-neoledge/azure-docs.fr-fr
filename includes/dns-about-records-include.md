@@ -23,6 +23,6 @@ Par exemple, supposons que vous avez déjà créé un enregistrement A nommé «
 
 Les types d’enregistrements SOA et CNAME font exception. Comme les normes DNS n’autorisent pas que plusieurs enregistrements portent le même nom pour ces types, ces jeux d’enregistrements ne peuvent contenir qu’un seul enregistrement.
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

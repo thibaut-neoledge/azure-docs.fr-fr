@@ -70,6 +70,6 @@ Lors de la planification de votre solution d'identité hybride, veillez à ce qu
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

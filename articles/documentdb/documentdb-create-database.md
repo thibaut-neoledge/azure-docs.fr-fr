@@ -24,6 +24,6 @@ Une fois que chaque collection contient des documents, vous pouvez utiliser [Doc
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

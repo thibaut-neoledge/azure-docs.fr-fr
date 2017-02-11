@@ -148,6 +148,6 @@ Pour plus d’informations sur le service Azure App Service Web Apps, visitez le
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

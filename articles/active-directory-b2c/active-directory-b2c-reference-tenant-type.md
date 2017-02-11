@@ -68,6 +68,6 @@ Les clients B2C sont actuellement indisponibles dans les pays ou régions suivan
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

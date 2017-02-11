@@ -86,6 +86,6 @@ Avec les services de domaine Azure AD, vous pouvez bénéficier des avantages su
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -37,6 +37,6 @@ Azure DNS ne prend actuellement pas en charge l'achat de noms de domaine. Si vou
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -179,6 +179,6 @@ Cet article vous a expliqué comment déployer des WebJobs à l'aide de Visual S
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

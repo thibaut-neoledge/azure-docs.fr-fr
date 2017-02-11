@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2016
+ms.date: 01/25/2017
 ms.author: DavidBosland
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -26,19 +26,19 @@ Le 15 mars 2016, nous allons rendre « l'offre incitative revendeurs » des fo
 Pour afficher ou modifier votre statut « d'offre incitative revendeurs », procédez comme suit :
 
 1. Connectez-vous à votre [compte de publication Microsoft Azure](https://publish.windowsazure.com/workspace)
-   
+
    ![Écran d'accueil de profil][1]
 2. Cliquez sur **Éditeurs**
-   
+
    ![Écran d'accueil de profil - lien éditeurs][2]
 3. Consultez les informations de votre profil sur les fournisseurs de services cloud.  Le statut par défaut du **bouton oui ou non** à « l'offre incitative revendeurs » est « Oui ».
-   
+
    ![Profil - Éditeurs][3]
 4. Pour modifier votre statut « offre incitative revendeurs », accédez à votre profil de publication, puis sélectionnez et enregistrez votre choix :
-   
+
    * Sélectionnez **Oui** pour choisir d'accorder la remise de 20 % aux fournisseurs de services Cloud qui revendent les applications et services que vous avez répertoriés dans Azure Marketplace.  Ou sélectionnez **Non** pour désactiver ce programme d'offre incitative.  Dans les deux cas, l'éditeur reçoit le même revenu.
    * Une fois votre sélection effectuée, assurez-vous de cliquer sur **Enregistrer** dans le coin supérieur droit.
-   
+
    ![Profil - Éditeurs - modifier les zones][4]
 
 [1]: ./media/marketplace-publishing-csp-incentive/profile-stock.png

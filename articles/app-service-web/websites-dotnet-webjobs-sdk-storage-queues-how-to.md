@@ -581,6 +581,6 @@ Ce guide fournit des exemples de code qui indiquent comment gérer des scénario
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

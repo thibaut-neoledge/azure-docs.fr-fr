@@ -154,6 +154,6 @@ Cet article vous a présenté différentes méthodes pour créer un cluster HDIn
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 02/01/2017
 ms.author: v-jeana; hascipio; v-dabosl
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -29,7 +29,7 @@ Tous les éditeurs de services de développement facturés à l’utilisation et
 
 * **E-mail de bienvenue :** en tant que nouvel éditeur, vous recevez un e-mail de bienvenue pour vous indiquer que vous allez commencer à recevoir les rapports mensuels contenant les informations du vendeur.
 * **Rapports de ventes mensuels :** si vos offres génèrent de l’utilisation, vous recevez un deuxième e-mail contenant vos rapports et des instructions sur la façon d’accéder à votre mot de passe :
-  
+
   * Si vous proposez une référence de machine virtuelle ou de services de développement facturés à l’utilisation qui génère de l’utilisation, votre rapport mensuel contient les détails relatifs aux commandes, à l’utilisation, aux marchés et des informations sur les clients pour vos offres.
   * Les rapports sont verrouillés par un mot de passe que seuls vous et Microsoft connaissez et ce, afin de protéger les données de vos clients.
   * Microsoft n’envoie pas de rapport si aucune de vos offres ne génère d’utilisation au cours du mois.

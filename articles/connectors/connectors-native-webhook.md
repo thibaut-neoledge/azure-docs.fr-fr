@@ -154,6 +154,6 @@ Essayez la plateforme et [créez une application logique](../logic-apps/logic-ap
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

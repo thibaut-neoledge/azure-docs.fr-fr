@@ -250,6 +250,6 @@ En savoir plus sur le [remplacement des composants matériels StorSimple](storsi
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

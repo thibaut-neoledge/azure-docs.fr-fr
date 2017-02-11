@@ -138,6 +138,6 @@ Les questions sur la Recherche Azure et les scénarios mutualisés peuvent être
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -66,6 +66,6 @@ Vous pouvez consulter et gérer les connexions dans Azure en cliquant sur **Parc
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

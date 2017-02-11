@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -35,23 +35,23 @@ Vous pouvez télécharger le module contenant les applets de commande utilisées
 Les étapes suivantes permettent de créer des paramètres au niveau du répertoire qui s’appliquent à tous les groupes Office du répertoire.
 
 1. Si vous ne savez pas quel objet SettingsTemplate utiliser, cette applet de commande renvoie la liste des modèles de paramètres :
-   
+
     `Get-MsolAllSettingTemplate`
-   
+
     ![Liste des modèles de paramètres](./media/active-directory-accessmanagement-groups-settings-cmdlets/list-of-templates.png)
 2. Pour ajouter une URL d’instructions d’utilisation, vous devez d’abord obtenir l’objet SettingsTemplate qui définit la valeur de l’URL d’instructions d’utilisation ; autrement dit, le modèle Group.Unified :
-   
+
     `$template = Get-MsolSettingTemplate –TemplateId 62375ab9-6b52-47ed-826b-58e47e0e304b`
 3. Ensuite, créez un nouvel objet Settings basé sur ce modèle :
-   
+
     `$setting = $template.CreateSettingsObject()`
 4. Puis mettez à jour la valeur des instructions d’utilisation :
-   
+
     `$setting["UsageGuidelinesUrl"] = "<https://guideline.com>"`
 5. Enfin, appliquez les paramètres :
-   
+
     `New-MsolSettings –SettingsObject $setting`
-   
+
     ![Ajouter une URL d’instructions d’utilisation](./media/active-directory-accessmanagement-groups-settings-cmdlets/add-usage-guideline-url.png)
 
 Voici les paramètres définis dans l’objet SettingsTemplate Group.Unified.
@@ -67,31 +67,31 @@ Voici les paramètres définis dans l’objet SettingsTemplate Group.Unified.
 Les étapes suivantes permettent de lire les paramètres au niveau du répertoire qui s’appliquent à tous les groupes Office du répertoire.
 
 1. Lisez tous les paramètres du répertoire existant :
-   
+
     `Get-MsolAllSettings`
 2. Lisez tous les paramètres d’un groupe spécifique :
-   
+
     `Get-MsolAllSettings -TargetType Groups -TargetObjectId <groupObjectId>`
 3. Lisez les paramètres d’un répertoire spécifique, à l’aide du GUID SettingId :
-   
+
     `Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
-   
+
     ![GUID de l’ID de paramètres](./media/active-directory-accessmanagement-groups-settings-cmdlets/settings-id-guid.png)
 
 ## <a name="update-settings-at-the-directory-level"></a>Mettre à jour des paramètres au niveau du répertoire
 Les étapes suivantes permettent de mettre à jour les paramètres au niveau du répertoire qui s’appliquent à tous les groupes Office du répertoire.
 
 1. Obtenez l’objet Settings existant :
-   
+
     `$setting = Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
 2. Obtenez la valeur que vous souhaitez mettre à jour :
-   
+
     `$value = $Setting.GetSettingsValue()`
 3. Mettez à jour la valeur :
-   
+
     `$value["AllowToAddGuests"] = "false"`
 4. Mettez à jour le paramètre :
-   
+
     `Set-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c –SettingsValue $value`
 
 ## <a name="remove-settings-at-the-directory-level"></a>Supprimer des paramètres au niveau du répertoire
@@ -122,7 +122,6 @@ Pour des instructions supplémentaires fournies par le responsable de programme 
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
-
 
 
 

@@ -150,6 +150,6 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

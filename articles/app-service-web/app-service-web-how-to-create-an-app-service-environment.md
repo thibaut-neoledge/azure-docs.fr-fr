@@ -94,6 +94,6 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 
