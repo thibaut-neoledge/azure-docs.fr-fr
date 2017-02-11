@@ -9,7 +9,7 @@
 ### [Calcul des scores de test d’évaluation](../virtual-machines-linux-compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Régions et disponibilité](../virtual-machines-linux-regions-and-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Disponibilité des machines virtuelles](../virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Centre de sécurité](../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Centre de sécurité](../../security-center/security-center-linux-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Gestionnaire de ressources](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Modèles de déploiement](../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Groupes de machines virtuelles identiques (VMSS)](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -20,7 +20,9 @@
 ## [Créer une machine virtuelle à l’aide du portail](../virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Créer des clés SSH sur Linux et Mac](../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Copier des fichiers sur une machine virtuelle Linux](../virtual-machines-linux-copy-files-to-linux-vm-using-scp.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Différentes méthodes pour créer une machine virtuelle](../virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## Différentes méthodes pour créer une machine virtuelle
+### [Azure CLI 1.0](../virtual-machines-linux-creation-choices-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Azure CLI 2.0 (version préliminaire)](../virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Installation de l’interface de ligne de commande Azure](../../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## Créer une machine virtuelle avec l’interface de ligne de commande Azure
 ### [Azure CLI 1.0](../virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -114,13 +116,13 @@
 ### [Gérer l’accès](../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Appliquer des stratégies aux machines virtuelles](../virtual-machines-linux-policy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Configuration d’Azure Key Vault](../virtual-machines-linux-key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Sauvegarder à l’aide de Recovery Services](../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Guide de récupération d’urgence](../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Sauvegarder à l’aide de Recovery Services](../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Guide de récupération d’urgence](../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Gérer les machines virtuelles à l’aide de l’interface de ligne de commande](../virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Utiliser un ID unique pour votre machine virtuelle](../virtual-machines-linux-unique-vm-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Infrastructure de mise à jour Red Hat Enterprise Linux](../virtual-machines-linux-update-infrastructure-redhat.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Mettre à jour l’agent Linux Azure](../virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Présentation de FreeBSD sur Azure](../virtual-machines/virtual-machines-freebsd-intro-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Présentation de FreeBSD sur Azure](../virtual-machines-freebsd-intro-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## [Automatisation](../virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Extension de script personnalisé](../virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -199,6 +201,6 @@
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 
