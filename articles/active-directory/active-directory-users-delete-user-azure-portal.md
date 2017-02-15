@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -26,14 +26,14 @@ Cet article explique comment supprimer un utilisateur d’un répertoire dans la
 ## <a name="to-delete-a-user"></a>Pour supprimer un utilisateur
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 2. Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
-   
+
    ![Ouvrir la gestion des utilisateurs](./media/active-directory-users-delete-user-azure-portal/create-users-user-management.png)
 3. Dans le panneau **Utilisateurs et groupes**, sélectionnez **Utilisateurs**.
-   
+
    ![Ouverture du panneau Utilisateurs](./media/active-directory-users-delete-user-azure-portal/create-users-open-users-blade.png)
 4. Sur le panneau **Utilisateurs et groupes - Utilisateurs -** , sélectionnez un utilisateur dans la liste.
 5. Dans le panneau de l’utilisateur sélectionné, sélectionnez **Vue d’ensemble**, puis, dans la barre de commandes, sélectionnez **Supprimer**.
-   
+
     ![Sélection de la commande Supprimer](./media/active-directory-users-delete-user-azure-portal/create-users-delete-command.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -42,7 +42,6 @@ Cet article explique comment supprimer un utilisateur d’un répertoire dans la
 * [Attribuer des rôles d’administrateur à un utilisateur dans la préversion d’Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * [Ajouter ou modifier les informations de profil pour un utilisateur dans la préversion d’Azure Active Directory](active-directory-users-work-info-azure-portal.md)
 * [Supprimer un utilisateur d’un répertoire dans la version préliminaire d’Azure Active Directory](active-directory-users-profile-azure-portal.md)
-
 
 
 
