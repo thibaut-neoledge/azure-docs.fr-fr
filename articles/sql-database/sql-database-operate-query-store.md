@@ -1,43 +1,48 @@
 ---
-title: Utilisation du magasin de requêtes dans la base de données SQL Azure
-description: Découvrez comment utiliser le magasin de requêtes dans la base de données SQL Azure
-keywords: ''
+title: "Utilisation du magasin de requêtes dans la base de données SQL Azure"
+description: "Découvrez comment utiliser le magasin de requêtes dans la base de données SQL Azure"
+keywords: 
 services: sql-database
-documentationcenter: ''
-author: CarlRabeler
+documentationcenter: 
+author: bonova
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 0cccf6bd-1327-44f7-a6f9-8eff0c210463
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: sqldb-performance
 ms.workload: data-management
-ms.date: 08/16/2016
-ms.author: carlrab
+ms.date: 11/08/2016
+ms.author: bonova
+translationtype: Human Translation
+ms.sourcegitcommit: 46d33a7b2dbaeb447452d8c94e897e59ec915dcc
+ms.openlocfilehash: 104a2d91ee9ca657fcc431d947d6a4be5d57a056
+
 
 ---
-# Utilisation du magasin de requêtes dans la base de données SQL Azure
-Le magasin de requêtes dans Azure est une fonctionnalité de base de données entièrement gérée qui recueille et présente des informations historiques détaillées sur toutes les requêtes. Le magasin de requêtes peut être comparé à l’enregistreur de données de vol d’un avion, qui simplifie considérablement le dépannage des problèmes de performances des requêtes à la fois pour les clients cloud et pour les clients locaux. Cet article présente certains aspects de l’utilisation du magasin de requêtes dans Azure. À l’aide des données de requête collectées au préalable, vous pouvez diagnostiquer et résoudre rapidement les problèmes de performances, ce qui vous permet de consacrer davantage de temps à vos activités.
+# <a name="operating-the-query-store-in-azure-sql-database"></a>Utilisation du magasin de requêtes dans la base de données SQL Azure
+Le magasin de requêtes dans Azure est une fonctionnalité de base de données entièrement gérée qui recueille et présente des informations historiques détaillées sur toutes les requêtes. Le magasin de requêtes peut être comparé à l’enregistreur de données de vol d’un avion, qui simplifie considérablement le dépannage des problèmes de performances des requêtes à la fois pour les clients cloud et pour les clients locaux. Cet article présente certains aspects de l’utilisation du magasin de requêtes dans Azure. À l’aide des données de requête collectées au préalable, vous pouvez diagnostiquer et résoudre rapidement les problèmes de performances, ce qui vous permet de consacrer davantage de temps à vos activités. 
 
 Le magasin de requêtes est [disponible dans le monde entier](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) via la base de données SQL Azure depuis novembre 2015. Le magasin de requêtes constitue la base de l’analyse des performances et de l’ajustement des fonctionnalités, comme [SQL Database Advisor et le tableau de bord des performances](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Au moment de la publication de cet article, le magasin de requêtes est en cours d’exécution sur plus de 200 000 bases de données utilisateur dans Azure, et recueille les informations liées aux requêtes depuis plusieurs mois sans interruption.
 
 > [!IMPORTANT]
-> Microsoft met actuellement en place le magasin de requêtes pour toutes les bases de données SQL Azure (existantes et nouvelles).
+> Microsoft met actuellement en place le magasin de requêtes pour toutes les bases de données SQL Azure (existantes et nouvelles). 
 > 
 > 
 
-## Configuration optimale du magasin de requêtes
-Cette section décrit les paramètres optimaux de configuration par défaut, conçus pour garantir un fonctionnement fiable du magasin de requêtes et des fonctionnalités liées, comme [SQL Database Advisor et le tableau de bord des performances](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). La configuration par défaut est optimisée pour la collecte des données en continu, c’est-à-dire pour passer le moins de temps possible aux états OFF/READ\_ONLY.
+## <a name="optimal-query-store-configuration"></a>Configuration optimale du magasin de requêtes
+Cette section décrit les paramètres optimaux de configuration par défaut, conçus pour garantir un fonctionnement fiable du magasin de requêtes et des fonctionnalités liées, comme [SQL Database Advisor et le tableau de bord des performances](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). La configuration par défaut est optimisée pour la collecte des données en continu, c’est-à-dire pour passer le moins de temps possible aux états OFF/READ_ONLY.
 
 | Configuration | Description | Default | Commentaire |
 | --- | --- | --- | --- |
-| MAX\_STORAGE\_SIZE\_MB |Spécifie la limite d’espace de données que le magasin de requêtes peut inclure dans une base de données client |100 |Appliqué aux nouvelles bases de données |
-| INTERVAL\_LENGTH\_MINUTES |Définit la durée pendant laquelle les statistiques d’exécution collectées pour les plans de requête sont agrégées et rendues persistantes. Chaque plan de requête actif dispose au maximum d’une ligne pour une période définie avec cette configuration |60 |Appliqué aux nouvelles bases de données |
-| STALE\_QUERY\_THRESHOLD\_DAYS |Stratégie de nettoyage basée sur la durée, et qui contrôle la période de rétention des statistiques d’exécution persistantes et des requêtes inactives |30 |Appliqué aux nouvelles bases de données et aux bases de données ayant la valeur par défaut précédente (367) |
-| SIZE\_BASED\_CLEANUP\_MODE |Indique si un nettoyage automatique des données a lieu lorsque la taille des données du magasin de requêtes approche de la limite |AUTO |Appliqué à toutes les bases de données |
-| QUERY\_CAPTURE\_MODE |Indique si toutes les requêtes sont suivies, ou seulement un sous-ensemble de requêtes |AUTO |Appliqué à toutes les bases de données |
-| FLUSH\_INTERVAL\_SECONDS |Indique la durée maximale pendant laquelle les statistiques d’exécution capturées sont conservées dans la mémoire, avant le vidage sur disque |900 |Appliqué aux nouvelles bases de données |
+| MAX_STORAGE_SIZE_MB |Spécifie la limite d’espace de données que le magasin de requêtes peut inclure dans une base de données client |100 |Appliqué aux nouvelles bases de données |
+| INTERVAL_LENGTH_MINUTES |Définit la durée pendant laquelle les statistiques d’exécution collectées pour les plans de requête sont agrégées et rendues persistantes. Chaque plan de requête actif dispose au maximum d’une ligne pour une période définie avec cette configuration |60 |Appliqué aux nouvelles bases de données |
+| STALE_QUERY_THRESHOLD_DAYS |Stratégie de nettoyage basée sur la durée, et qui contrôle la période de rétention des statistiques d’exécution persistantes et des requêtes inactives |30 |Appliqué aux nouvelles bases de données et aux bases de données ayant la valeur par défaut précédente (367) |
+| SIZE_BASED_CLEANUP_MODE |Indique si un nettoyage automatique des données a lieu lorsque la taille des données du magasin de requêtes approche de la limite |AUTO |Appliqué à toutes les bases de données |
+| QUERY_CAPTURE_MODE |Indique si toutes les requêtes sont suivies, ou seulement un sous-ensemble de requêtes |AUTO |Appliqué à toutes les bases de données |
+| FLUSH_INTERVAL_SECONDS |Indique la durée maximale pendant laquelle les statistiques d’exécution capturées sont conservées dans la mémoire, avant le vidage sur disque |900 |Appliqué aux nouvelles bases de données |
 |  | | | |
 
 > [!IMPORTANT]
@@ -47,15 +52,20 @@ Cette section décrit les paramètres optimaux de configuration par défaut, con
 
 Si vous souhaitez conserver vos paramètres personnalisés, utilisez [ALTER DATABASE avec les options du magasin de requêtes](https://msdn.microsoft.com/library/bb522682.aspx) pour rétablir la configuration à l’état précédent. Découvrez les [meilleures pratiques liées au magasin de requêtes](https://msdn.microsoft.com/library/mt604821.aspx) pour savoir comment choisir des paramètres de configuration optimaux.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Informations sur les performances des bases de données SQL](sql-database-performance.md)
 
-## Ressources supplémentaires
+## <a name="additional-resources"></a>Ressources supplémentaires
 Pour plus d’informations, consultez les articles suivants :
 
-* [Un enregistreur de données pour votre base de données](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database)
+* [Un enregistreur de données pour votre base de données](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
 * [Analyse des performances à l’aide du magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx)
 * [Scénarios d’utilisation du magasin de requêtes](https://msdn.microsoft.com/library/mt614796.aspx)
-* [Analyse des performances à l’aide du magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx)
+* [Analyse des performances à l’aide du magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx) 
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

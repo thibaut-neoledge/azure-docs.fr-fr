@@ -11,12 +11,14 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/12/2016
+ms.topic: deprecated
+ms.date: 01/18/2017
 ms.author: zhangya;bradsev
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: machine-learning-data-science-create-features
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1d29f416fe7d5ef3f74cf64122a84acc4a4535da
+ms.sourcegitcommit: ba61d00f277af579c87a130336ead9879b82a6de
+ms.openlocfilehash: c6b88355df430e78594fc1283c9df01ad6e27e20
 
 
 ---
@@ -52,7 +54,7 @@ Quelles sont les caractéristiques qui doivent être créées pour améliorer le
 En débutant avec Azure Machine Learning, il est plus facile de comprendre correctement le processus avec des exemples fournis dans Machine Learning Studio. Deux exemples sont présentés ici :
 
 * Un exemple de régression ([Prédiction du nombre de locations de vélo](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4)) dans une expérimentation supervisée, où les valeurs cibles sont connues
-* Un exemple de classification d’exploration de texte utilisant le [hachage de caractéristiques][feature-hashing]
+* un exemple de classification d'exploration de texte utilisant le [hachage de caractéristiques][feature-hashing]
 
 ### <a name="example-1-adding-temporal-features-for-a-regression-model"></a>Exemple 1 : ajout de caractéristiques temporelles pour un modèle de régression
 Nous allons utiliser l’exemple de « prévision de la demande de vélos » dans Azure Machine Learning Studio afin de démontrer comment concevoir des caractéristiques pour une tâche de régression. L’objectif de cette expérimentation est de prédire la demande de vélos, autrement dit le nombre de locations de vélo pour un mois, un jour ou une heure spécifique. Le **jeu de données de location de vélo UCI** est utilisé en tant que données brutes d’entrée.
@@ -103,11 +105,11 @@ Bien que la sélection des caractéristiques ait pour objet de réduire le nombr
 
 L’une des méthodes de sélection de caractéristiques de catégorie largement appliquée dans un contexte supervisé est la sélection de caractéristiques par filtrage. En évaluant la corrélation entre chaque caractéristique et l'attribut cible, ces méthodes appliquent une mesure statistique pour attribuer un score à chaque caractéristique. Les caractéristiques sont ensuite classées suivant le score, que vous pouvez utiliser pour définir le seuil de conservation ou d’élimination d’une caractéristique spécifique. Parmi les exemples de mesures statistiques utilisées dans ces méthodes, on peut noter la corrélation de Pearson, des informations mutuelles et le test de la loi du Khi-deux.
 
-Azure Machine Learning Studio fournit des modules pour la sélection des caractéristiques. Comme indiqué dans la figure suivante, ces modules comprennent une [sélection de caractéristiques par filtrage][filter-based-feature-selection] et une [analyse discriminante linéaire de Fisher][fisher-linear-discriminant-analysis].
+Azure Machine Learning Studio fournit des modules pour la sélection des caractéristiques. Comme indiqué dans la figure suivante, ces modules comprennent une [sélection de caractéristiques basée sur les filtres][filter-based-feature-selection] et une [analyse discriminante linéaire de Fisher][fisher-linear-discriminant-analysis].
 
 ![Exemple de sélection de caractéristiques](./media/machine-learning-feature-selection-and-engineering/feature-Selection.png)
 
-Par exemple, utilisez le module de [sélection de caractéristiques par filtrage][filter-based-feature-selection] avec l’exemple d’exploration de texte décrit précédemment. Supposons que vous voulez créer un modèle de régression après avoir créé un ensemble de 256 caractéristiques via le module de [hachage de caractéristiques][feature-hashing] et que la variable de réponse est **Col1** et représente une critique de livre notée de 1 à 5. Définissez **Feature scoring method** (Méthode de notation des caractéristiques) sur **Pearson Correlation** (Corrélation de Pearson), **Target column** (Colonne cible) sur **Col1** et **Number of desired features** (Nombre de caractéristiques souhaitées) sur **50**. Le module de [sélection de caractéristiques par filtrage][filter-based-feature-selection] produit ensuite un jeu de données contenant 50 caractéristiques avec l’attribut cible **Col1**. La figure suivante montre le flux de cette expérimentation et les paramètres d’entrée.
+Par exemple, utilisez le module de [sélection de caractéristiques par filtrage][filter-based-feature-selection] avec l’exemple d’exploration de texte décrit précédemment. Supposons que vous voulez créer un modèle de régression après avoir créé un ensemble de 256 caractéristiques via le module de [hachage de caractéristiques][feature-hashing] et que la variable de réponse est **Col1** et représente une critique de livre notée de 1 à 5. Définissez **Feature scoring method** (Méthode de notation des caractéristiques) sur **Pearson Correlation** (Corrélation de Pearson), **Target column** (Colonne cible) sur **Col1** et **Number of desired features** (Nombre de caractéristiques souhaitées) sur **50**. Le module de [sélection de caractéristiques basée sur les filtres][filter-based-feature-selection] produit ensuite un jeu de données contenant 50 caractéristiques avec l’attribut cible **Col1**. La figure suivante montre le flux de cette expérimentation et les paramètres d’entrée.
 
 ![Exemple de sélection de caractéristiques](./media/machine-learning-feature-selection-and-engineering/feature-Selection1.png)
 
@@ -119,7 +121,7 @@ La figure suivante indique les scores correspondants aux caractéristiques séle
 
 ![Scores des caractéristiques sélectionnées](./media/machine-learning-feature-selection-and-engineering/feature-Selection3.png)
 
-En appliquant ce module de [sélection de caractéristiques par filtrage][filter-based-feature-selection], 50 des 256 caractéristiques sont sélectionnées, car elles présentent la corrélation la plus importante avec la variable cible **Col1** selon la méthode de notation **corrélation de Pearson**.
+En appliquant ce module de [sélection de caractéristiques basée sur les filtres][filter-based-feature-selection], 50 des 256 caractéristiques sont sélectionnées, car elles présentent les fonctionnalités corrélées les plus importantes avec la variable cible **Col1** selon la méthode de notation **corrélation de Pearson**.
 
 ## <a name="conclusion"></a>Conclusion
 L’ingénierie de caractéristiques et la sélection de caractéristiques sont deux étapes couramment effectuées pour préparer les données d’apprentissage durant la création d’un modèle d’apprentissage automatique. En général, l’ingénierie de caractéristiques s’applique d’abord à la génération de caractéristiques supplémentaires. L’étape de sélection de caractéristiques est alors effectuée pour éliminer les caractéristiques inutiles, redondantes ou fortement corrélées.
@@ -134,6 +136,6 @@ Il n’est pas toujours nécessaire d’effectuer l’ingénierie de caractéris
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: b2d7ba14c7cbc5c082a5f962559936e1a60827f2
-ms.openlocfilehash: fd018ed25e5c309a85bb2078d00f2bb0b504e5d2
+ms.sourcegitcommit: 45b3c231f28b810c5fe1361cee1c896c58b52993
+ms.openlocfilehash: ae966cd39f8763e038acb5e992f388b8c0ad28ef
 
 
 ---
@@ -150,8 +150,9 @@ Si votre fournisseur de connectivité ne se trouve pas dans la liste des section
 | **Fournisseur de connectivité** | **Microsoft Exchange** | **Emplacements** |
 | --- | --- | --- |
 | **[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |Singapour |
-| **[Arteria-Net](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Tokyo |
+| **[Arteria Networks Corporation](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Tokyo |
 | **[Alaska Communications](http://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Seattle |
+| **[Eurofiber](https://eurofiber.nl/microsoft-azure/)** | Equinix | Amsterdam |
 | **[Exponential E](http://www.exponential-e.com/services/connectivity-services/cloud-connect-exchange)** | Equinix | Londres |
 | **[HSO](http://www.hso.co.uk/products/cloud-direct)** |Equinix | Londres, Slough |
 | **[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure)** |Equinix |New York, Washington DC |
@@ -173,6 +174,8 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 | **[Avanade Inc.](http://www.avanade.com/)** |Asie, Europe, États-Unis |
 | **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** |Europe |
 | **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** |FR |
+| **[IT Consultancy](http://itconsult.com.au/microsoft-expressroute)** | Australie |
+| **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Europe (Allemagne) |
 | **[Nelite](http://nelite.com/)** |Europe |
 | **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** |Asie |
 | **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** |FR |
@@ -188,6 +191,6 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

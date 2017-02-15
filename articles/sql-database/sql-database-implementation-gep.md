@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: ae8bcb10-c251-4bac-b666-10a253918583
 ms.service: sql-database
-ms.custom: app development case study; app development
+ms.custom: app development case study
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/08/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: da2e3e4f9a33860141d94352fd2e657b14b0d03d
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 7137d38e4e9fef7dfaa309ad81cfed94d547a393
 
 
 ---
@@ -65,7 +65,7 @@ Au cœur de l’application SMART by GEP se trouvent les instances d’Azure SQL
 
 En utilisant Azure SQL Database, GEP dispose automatiquement de plus de fonctionnalités de récupération d’urgence qu’il ne lui aurait été possible d’en concevoir en local à bas coût, en raison des fonctionnalités de tolérance aux pannes intégrées à Azure SQL Database. GEP utilise la fonctionnalité de géo-réplication active d’Azure SQL Database, couplée avec plusieurs réplicas secondaires actifs, accessibles en lecture et en ligne (groupes de disponibilité AlwaysOn) dans différentes régions géographiques, pour former des paires à haute disponibilité. La réplication des données de SMART by GEP sur plusieurs régions signifie que, en cas de sinistre sur l’ensemble de la région, GEP peut facilement récupérer les données des clients avec un objectif de point de récupération (RPO) et un objectif de délai de récupération (RTO) minimaux.
 
-Chaque client de SMART by GEP a deux instances Azure SQL Database : l’une pour le traitement transactionnel en ligne (OLTP) et l’autre pour l’analyse (par exemple, l’analyse des rapports et des dépenses des clients). Les pools de base de données élastiques Azure SQL Database permettent à GEP de gérer facilement des milliers de bases de données à travers le monde pour traiter des demandes imprévisibles de ressources de bases de données. Les pools élastiques fournissent à GEP un moyen de veiller à ce que les bases de données clients soient capables d’évoluer selon les besoins, sans approvisionnement excessif ou insuffisant, tout en lui permettant de contrôler les coûts. En outre, étant donné qu’il s’agit d’un service PaaS, la société obtient toutes les nouvelles fonctionnalités d’Azure SQL Database grâce à des mises à niveau automatiques.
+Chaque client de SMART by GEP a deux instances Azure SQL Database : l’une pour le traitement transactionnel en ligne (OLTP) et l’autre pour l’analyse (par exemple, l’analyse des rapports et des dépenses des clients). Les pools élastiques Azure SQL Database permettent à GEP de gérer facilement des milliers de bases de données à travers le monde pour traiter des demandes imprévisibles de ressources de bases de données. Les pools élastiques fournissent à GEP un moyen de veiller à ce que les bases de données clients soient capables d’évoluer selon les besoins, sans approvisionnement excessif ou insuffisant, tout en lui permettant de contrôler les coûts. En outre, étant donné qu’il s’agit d’un service PaaS, la société obtient toutes les nouvelles fonctionnalités d’Azure SQL Database grâce à des mises à niveau automatiques.
 
 ## <a name="unstructured-and-semi-structured-data"></a>Données non structurées et semi-structurées
 Toutefois, certaines données clients SMART by GEP requièrent un stockage structuré de façon moins rigide. Pour ce type de données, GEP utilise le Stockage Blob Azure, le Stockage Table Azure et le Cache Redis Azure. Le Stockage Blob Azure héberge toutes les pièces jointes que les utilisateurs de SMART by GEP chargent dans l’application. C’est également là que SMART by GEP stocke le contenu statique, notamment les feuilles de style en cascade (CSS) et les fichiers JavaScript.
@@ -107,6 +107,6 @@ Depuis la migration des centres de données locaux vers Azure et la création in
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

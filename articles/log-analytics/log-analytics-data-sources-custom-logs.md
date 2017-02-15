@@ -1,12 +1,12 @@
 ---
-title: Journaux personnalisés dans Log Analytics | Microsoft Docs
-description: Log Analytics peut collecter des événements dans des fichiers texte sur des ordinateurs Windows et Linux.  Cet article décrit comment définir un nouveau journal personnalisé et les détails des enregistrements qu’il crée dans le référentiel OMS.
+title: "Journaux personnalisés dans Log Analytics | Microsoft Docs"
+description: "Log Analytics peut collecter des événements dans des fichiers texte sur des ordinateurs Windows et Linux.  Cet article décrit comment définir un nouveau journal personnalisé et les détails des enregistrements qu’il crée dans le référentiel OMS."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 25c63021160e5259bc72a4f7bbfc248b7ac717aa
+
 
 ---
 # <a name="custom-logs-in-log-analytics"></a>Journaux personnalisés dans Log Analytics
@@ -33,7 +37,7 @@ Les fichiers journaux à collecter doivent correspondre aux critères suivants.
 ## <a name="defining-a-custom-log"></a>Définition d’un journal personnalisé
 Utilisez la procédure suivante pour définir un fichier journal personnalisé.  Rendez-vous à la fin de cet article pour une procédure détaillée d’ajout d’un journal personnalisé.
 
-### <a name="step-1.-open-the-custom-log-wizard"></a>Étape 1. Ouvrir l’Assistant Journal personnalisé
+### <a name="step-1-open-the-custom-log-wizard"></a>Étape 1. Ouvrir l’Assistant Journal personnalisé
 L’Assistant Journal personnalisé s’exécute dans le portail OMS et vous permet de définir un nouveau journal personnalisé de collecte.
 
 1. Dans le portail OMS, accédez à **Paramètres**.
@@ -41,7 +45,7 @@ L’Assistant Journal personnalisé s’exécute dans le portail OMS et vous per
 3. Par défaut, toutes les modifications de configuration sont automatiquement transmises à l’ensemble des agents.  Pour les agents Linux, un fichier de configuration est envoyé au collecteur de données Fluentd.  Si vous souhaitez modifier ce fichier manuellement sur chaque agent Linux, décochez la case *Appliquer la configuration ci-dessous à mes machines Linux*.
 4. Cliquez sur **Ajouter+** pour ouvrir l’Assistant Journal personnalisé.
 
-### <a name="step-2.-upload-and-parse-a-sample-log"></a>Étape 2. Télécharger et analyser un exemple de journal
+### <a name="step-2-upload-and-parse-a-sample-log"></a>Étape 2. Télécharger et analyser un exemple de journal
 Commencez par télécharger un exemple du journal personnalisé.  L’assistant analyse et affiche les entrées de ce fichier afin que vous les validiez.  Log Analytics utilise le délimiteur que vous spécifiez pour identifier chaque enregistrement.
 
 **Nouvelle ligne** .  Si la ligne commence par un horodatage dans un des formats disponibles, vous pouvez spécifier un délimiteur **Horodatage** prenant en charge les entrées qui s’étendent sur plusieurs lignes. 
@@ -59,7 +63,7 @@ Si un délimiteur Horodatage est utilisé, la propriété TimeGenerated de chaqu
 4. Remplacez le délimiteur utilisé pour identifier un nouvel enregistrement par celui qui identifie au mieux les enregistrements de votre fichier journal.
 5. Cliquez sur **Next**.
 
-### <a name="step-3.-add-log-collection-paths"></a>Étape 3. Ajouter des chemins de collecte de journaux
+### <a name="step-3-add-log-collection-paths"></a>Étape 3. Ajouter des chemins de collecte de journaux
 Vous devez définir un ou plusieurs chemins indiquant à l’agent où trouver le journal personnalisé.  Vous pouvez soit fournir le chemin d’accès et le nom du fichier journal, soit indiquer un chemin d’accès avec un caractère générique pour le nom.  Ce mécanisme prend en charge les applications qui créent un fichier par jour ou lorsqu’un fichier atteint une certaine taille.  Vous pouvez également fournir plusieurs chemins d’accès pour un fichier journal.
 
 Par exemple, une application peut créer un fichier journal chaque jour avec la date dans le nom, comme dans log20100316.txt. Par exemple, ce modèle peut être *log\*.txt* et s’appliquer à un fichier journal conforme à la convention de dénomination de l’application.
@@ -77,14 +81,14 @@ Le tableau suivant fournit des exemples de modèles valides pour différents fic
 2. Tapez le chemin d’accès et cliquez sur le bouton **+** .
 3. Répétez la procédure pour les chemins d’accès supplémentaires.
 
-### <a name="step-4.-provide-a-name-and-description-for-the-log"></a>Étape 4. Indiquer le nom et la description du journal
+### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Étape 4. Indiquer le nom et la description du journal
 Le nom que vous spécifiez sera utilisé pour le type de journal, comme indiqué ci-dessus.  Il se termine toujours par _CL pour le distinguer d’un journal personnalisé.
 
 1. Indiquez le nom du journal.  Le suffixe **\_CL** est ajouté automatiquement.
 2. Si vous le souhaitez, renseignez le champ **Description**.
 3. Cliquez sur **Suivant** pour enregistrer la définition du journal personnalisé.
 
-### <a name="step-5.-validate-that-the-custom-logs-are-being-collected"></a>Étape 5. Vérifier que les journaux personnalisés sont collectés
+### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Étape 5. Vérifier que les journaux personnalisés sont collectés
 Il faut parfois une heure pour que les données initiales d’un nouveau journal personnalisé apparaissent dans Log Analytics.  La collecte des entrées commence par les journaux situés à l’emplacement spécifié, à partir du moment où vous avez défini le journal personnalisé.  Log Analytics ne conserve pas les entrées que vous avez téléchargées lors de la création du journal personnalisé, mais celles figurant dans les fichiers journaux qu’il trouve.
 
 Lorsque Log Analytics commence la collecte du journal personnalisé, ses enregistrements sont accessibles en effectuant une recherche de journal.  Utilisez le nom que vous avez donné au journal personnalisé, comme le **Type** dans votre requête.
@@ -94,7 +98,7 @@ Lorsque Log Analytics commence la collecte du journal personnalisé, ses enregis
 > 
 > 
 
-### <a name="step-6.-parse-the-custom-log-entries"></a>Étape 6. Analyser les entrées du journal personnalisé
+### <a name="step-6-parse-the-custom-log-entries"></a>Étape 6. Analyser les entrées du journal personnalisé
 L’entrée de journal est stockée dans une propriété unique appelée **RawData**.  Vous souhaiterez certainement séparer les différents éléments d’information de chaque entrée dans des propriétés séparées dans l’enregistrement.  Pour ce faire, utilisez la fonction [Champs personnalisés](log-analytics-custom-fields.md) de Log Analytics.
 
 La procédure détaillée pour analyser l’entrée de journal personnalisé n’est pas décrite ici.  Pour plus d’informations sur cette procédure, consultez la documentation sur [Champs personnalisés](log-analytics-custom-fields.md) .
@@ -170,6 +174,9 @@ Nous utilisons Champs personnalisés pour définir les champs *EventTime*, *Code
 * Utilisez [Champs personnalisés](log-analytics-custom-fields.md) pour analyser les entrées du journal personnalisé dans des champs individuels.
 * En savoir plus sur les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées dans des sources de données et des solutions. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

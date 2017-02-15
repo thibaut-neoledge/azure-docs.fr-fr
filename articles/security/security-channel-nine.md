@@ -1,22 +1,26 @@
 ---
-title: Vidéos sur la sécurité Azure sur Channel 9 | Microsoft Docs
-description: Cet article fournit une liste des présentations de sécurité Azure sur Channel 9. Channel 9 est une communauté qui met en contact ceux qui se cachent derrière nos produits avec ceux qui les utilisent.
+title: "Vidéos traitant de la sécurité sur Channel 9 | Microsoft Docs"
+description: "Cet article fournit une liste des présentations de sécurité Azure sur Channel 9. Channel 9 est une communauté qui met en contact ceux qui se cachent derrière nos produits avec ceux qui les utilisent."
 services: security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
 editor: TomSh
-
+ms.assetid: 9e5e14aa-11d7-4242-8b7e-49fd0e79817a
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/18/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9713d8b952f79f3ea4010a2d504b5174e70ce9ca
+
 
 ---
-# Vidéos traitant de la sécurité Azure sur Channel 9
+# <a name="azure-security-videos-on-channel-9"></a>Vidéos traitant de la sécurité Azure sur Channel 9
 [Channel 9](https://channel9.msdn.com/) est une communauté qui met en avant les personnes derrière nos produits et les met en relation avec les clients.
 
 Les membres de cette communauté pensent que les logiciels sont promis à un bel avenir, et ils en sont enchantés. Channel 9 est une communauté pour ceux qui souhaitent participer à la conversation en cours.
@@ -75,4 +79,8 @@ Azure Active Directory (AD) Privileged Identity Management est une fonctionnalit
 
 Amit Bapat présente Azure Key Vault à Scott. Avec Azure Key Vault, vous pouvez chiffrer des clés et des secrets (tels que les mots de passe) avec des clés stockées dans des modules de sécurité matériels. C’est la gestion des secrets basée sur le cloud et sur le matériel de Microsoft Azure !
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

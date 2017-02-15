@@ -121,6 +121,6 @@ Découvrez plus en détails la [version Update 3](storsimple-update3-release-no
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

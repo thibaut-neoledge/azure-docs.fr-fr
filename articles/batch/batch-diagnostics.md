@@ -3,7 +3,7 @@ title: "Journalisation des diagnostics Azure Batch | Microsoft Docs"
 description: "Enregistrez et analysez les événements du journal de diagnostic pour des ressources de compte Azure Batch telles que des pools et des tâches."
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: e14e611d-12cd-4671-91dc-bc506dc853e5
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 10/12/2016
-ms.author: marsma
+ms.date: 01/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2c66486f9716ed8ac093685b10e9294beb43c381
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: f1aa23d2865ec8401a59b2370c8157d2458c60f7
 
 
 ---
@@ -80,12 +80,12 @@ Actuellement, le service Batch émet les événements du journal de service suiv
 | --- |
 | [Création de pool][pool_create] |
 | [Démarrage de suppression de pool][pool_delete_start] |
-| [Achèvement de suppression de pool][pool_delete_complete] |
-| [Début de redimensionnement de pool][pool_resize_start] |
-| [Achèvement de redimensionnement de pool][pool_resize_complete] |
+| [Fin de suppression de pool][pool_delete_complete] |
+| [Démarrage de redimensionnement de pool][pool_resize_start] |
+| [Fin de redimensionnement de pool][pool_resize_complete] |
 | [Démarrage de tâche][task_start] |
-| [Achèvement de tâche][task_complete] |
-| [Échec de tâche][task_fail] |
+| [Fin de tâche][task_complete] |
+| [Échec de la tâche][task_fail] |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Outre le stockage d’événements du journal de diagnostic dans un compte de Stockage Azure, vous pouvez diffuser des événements de journal de service Batch sur un [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md), puis les envoyer à [Azure Log Analytics](../log-analytics/log-analytics-overview.md).
@@ -108,6 +108,6 @@ Outre le stockage d’événements du journal de diagnostic dans un compte de St
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

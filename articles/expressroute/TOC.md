@@ -45,9 +45,9 @@
 ### [Routage asymétrique](expressroute-asymmetric-routing.md)
 
 ## Résolution des problèmes
+### [Vérification de la connectivité ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 ### [Obtention de tables ARP](expressroute-troubleshooting-arp-resource-manager.md)
 ### [Obtention de tables ARP (classique)](expressroute-troubleshooting-arp-classic.md)
-
 
 # Référence
 ## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
@@ -80,6 +80,6 @@
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

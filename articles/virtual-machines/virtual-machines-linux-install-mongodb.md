@@ -186,6 +186,6 @@ Les modèles Azure Resource Manager utilisent l’extension de script personnali
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

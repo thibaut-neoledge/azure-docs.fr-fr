@@ -107,6 +107,6 @@ Chargez un [certificat d’API de gestion](../azure-api-management-certs.md) dan
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

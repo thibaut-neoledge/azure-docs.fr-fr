@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Apprenez à utiliser IoT Hub pour connecter, surveiller et contrôler des milliards de ressources IoT (Internet of Things, Internet des objets). Didacticiels, références d’API, vidéos et autres documents."
 translationtype: Human Translation
-ms.sourcegitcommit: 771a82342a40b62cbb4b31316f08e474a797ff34
-ms.openlocfilehash: 9dd5f81cacf774eff651597e1a4920466e5c6fa3
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: da0387255c538afd5490f313c10509a1b40e6dd9
 
 ---
 #<a name="iot-hub-documentation"></a>Documentation IoT Hub
@@ -142,9 +142,10 @@ Apprenez à utiliser IoT Hub pour connecter, surveiller et contrôler des millia
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest">API REST (fournisseur de ressources)</a></p>
-                        <p><a href="/rest/api/iothub/device-identities-rest">API REST (identités des appareils)</a></p>
-                        <p><a href="/rest/api/iothub/device-messaging-rest-apis">API REST (messagerie des appareils)</a></p>
+                        <p><a href="/rest/api/iothub/iothubresource">REST (fournisseur de ressources)</a></p>
+                        <p><a href="/rest/api/iothub/deviceapi">REST (identités des appareils)</a></p>
+                        <p><a href="/rest/api/iothub/httpruntime">REST (messagerie des appareils)</a></p>
+                        <p><a href="/rest/api/iothub/jobapi">REST (tâches)</a></p>
                     </div>
                 </div>
             </div>
@@ -152,13 +153,7 @@ Apprenez à utiliser IoT Hub pour connecter, surveiller et contrôler des millia
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation IoT Hub </div>
-    </a>
-</div>
+
 
 
 

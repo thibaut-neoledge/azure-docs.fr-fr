@@ -1,13 +1,13 @@
 ---
-title: Paramètres de stratégie de groupe et de MDM | Microsoft Docs
-description: Fournit des informations sur les paramètres de stratégie de groupe et de gestion des appareils mobiles (MDM) qui doivent être utilisés sur les appareils d’entreprise. Ces stratégies sont appliquées à l’ensemble de l’appareil de l’utilisateur.
+title: "Paramètres de stratégie de groupe et de MDM | Microsoft Docs"
+description: "Fournit des informations sur les paramètres de stratégie de groupe et de gestion des appareils mobiles (MDM) qui doivent être utilisés sur les appareils d’entreprise. Ces stratégies sont appliquées à l’ensemble de l’appareil de l’utilisateur."
 services: active-directory
-keywords: quels sont les paramètres de stratégie de groupe et de MDM pour Enterprise State Roaming, Enterprise State Roaming, cloud windows
-documentationcenter: ''
+keywords: "quels sont les paramètres de stratégie de groupe et de MDM pour Enterprise State Roaming, Enterprise State Roaming, cloud windows"
+documentationcenter: 
 author: femila
 manager: swadhwa
 editor: curtand
-
+ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1b9e0ab4be96bec6deeaf50ec411c37b9379598a
+
 
 ---
 # <a name="group-policy-and-mdm-settings"></a>Paramètres de stratégie de groupe et de gestion des appareils mobiles
@@ -24,7 +28,7 @@ Les entreprises qui souhaitent gérer l’itinérance pour les appareils personn
 Les tableaux suivants décrivent les paramètres de stratégie disponibles.
 
 ## <a name="mdm-settings"></a>Paramètres de MDM
-Les paramètres de stratégie de MDM s’appliquent à Windows 10 et à Windows 10 Mobile.  La prise en charge Windows 10 Mobile existe uniquement pour l’itinérance basée sur compte Microsoft via le compte OneDrive de l’utilisateur.  Veuillez consulter « Appareils et systèmes d’extrémité » pour plus de détails sur les appareils pris en charge pour la synchronisation basée sur Azure AD.
+Les paramètres de stratégie de MDM s’appliquent à Windows 10 et à Windows 10 Mobile.  La prise en charge Windows 10 Mobile existe uniquement pour l’itinérance basée sur compte Microsoft via le compte OneDrive de l’utilisateur.  Veuillez consulter « Appareils et systèmes d’extrémité » pour plus de détails sur les appareils pris en charge pour la synchronisation basée sur Azure AD.
 
 | Nom | Description |
 | --- | --- |
@@ -32,28 +36,31 @@ Les paramètres de stratégie de MDM s’appliquent à Windows 10 et à Windows 
 | Autoriser la synchronisation de mes paramètres |Permet l’itinérance pour les paramètres de Windows et les données d’application. Désactiver cette stratégie désactive la synchronisation, ainsi que les sauvegardes sur les appareils mobiles |
 
 ## <a name="group-policy-settings"></a>Paramètres de stratégie de groupe
-Les paramètres de stratégie de groupe s’appliquent aux appareils Windows 10 joints à un domaine Active Directory. Le tableau inclut également les paramètres hérités qui apparaissent pour gérer les paramètres de synchronisation, mais qui ne fonctionnent pas pour Enterprise State Roaming pour Windows 10, avec la notation « Ne pas utiliser » dans la description.
+Les paramètres de stratégie de groupe s’appliquent aux appareils Windows 10 joints à un domaine Active Directory. Le tableau inclut également les paramètres hérités qui apparaissent pour gérer les paramètres de synchronisation, mais qui ne fonctionnent pas pour Enterprise State Roaming pour Windows 10, avec la notation « Ne pas utiliser » dans la description.
 
 | Nom | Description |
 | --- | --- |
-| Comptes : bloquer les comptes Microsoft |Ce paramètre de stratégie empêche les utilisateurs d’ajouter de nouveaux comptes Microsoft sur l’ordinateur |
+| Comptes : bloquer les comptes Microsoft |Ce paramètre de stratégie empêche les utilisateurs d’ajouter de nouveaux comptes Microsoft sur l’ordinateur |
 | Ne pas synchroniser |Empêche l’itinérance des paramètres Windows et des données d’application des utilisateurs |
 | Ne pas synchroniser les options personnalisées |Désactive la synchronisation du groupe Thèmes |
 | Ne pas synchroniser les paramètres du navigateur |Désactive la synchronisation du groupe Internet Explorer |
 | Ne pas synchroniser les mots de passe |Désactive la synchronisation du groupe Mots de passe |
 | Ne pas synchroniser les autres paramètres Windows |Désactive la synchronisation du groupe Autres paramètres Windows |
-| Ne pas synchroniser la personnalisation du Bureau |N’utilisez pas cette fonction ; aucun effet |
+| Ne pas synchroniser la personnalisation du Bureau |N’utilisez pas cette fonction ; aucun effet |
 | Ne pas synchroniser en cas de connexion limitée |Désactive l’itinérance en cas de connexion limitée, par exemple la 3G mobile |
-| Ne pas synchroniser les applications |N’utilisez pas cette fonction ; aucun effet |
+| Ne pas synchroniser les applications |N’utilisez pas cette fonction ; aucun effet |
 | Ne pas synchroniser les paramètres d’application |Désactive l’itinérance des données d’application |
-| Ne pas synchroniser les paramètres de démarrage |N’utilisez pas cette fonction ; aucun effet |
+| Ne pas synchroniser les paramètres de démarrage |N’utilisez pas cette fonction ; aucun effet |
 
 ## <a name="related-topics"></a>Rubriques connexes
-* [Présentation d’Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
-* [Activer Enterprise State Roaming dans Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
+* [Présentation d’Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
+* [Activer Enterprise State Roaming dans Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
 * [FAQ sur l’itinérance des paramètres et des données](active-directory-windows-enterprise-state-roaming-faqs.md)
-* [Référence des paramètres d’itinérance Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
+* [Référence des paramètres d’itinérance Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

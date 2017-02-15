@@ -382,6 +382,6 @@ Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à v
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

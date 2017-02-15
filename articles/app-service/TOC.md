@@ -145,20 +145,19 @@
 ### [Journaux en continu et console](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Résoudre les problèmes à l’aide de Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-# Référence
+# les ressources
 ## [Portail Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Référence App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [meilleures pratiques](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Ressources WebJobs](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [REST](https://docs.microsoft.com/rest/api/appservice/)
-
-# les ressources
 ## [Tarification](https://azure.microsoft.com/pricing/details/app-service/)  
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=app-service) 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Feb17_HO2-->
 
 

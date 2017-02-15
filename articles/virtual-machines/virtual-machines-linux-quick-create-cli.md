@@ -1,6 +1,6 @@
 ---
-title: "Créer une machine virtuelle Linux à l’aide d’Azure CLI 2.0 (version préliminaire) | Microsoft Azure"
-description: "Créez une machine virtuelle Linux à l’aide d’Azure CLI 2.0 (version préliminaire)."
+title: "Créer une machine virtuelle Linux à l’aide d’Azure CLI 2.0 (version préliminaire) | Microsoft Azure"
+description: "Créez une machine virtuelle Linux à l’aide d’Azure CLI 2.0 (version préliminaire)."
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -15,39 +15,39 @@ ms.workload: infrastructure
 ms.date: 09/26/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 2bd363e3c22f4cf4daf2e0fa352fd4a131d1675f
-ms.openlocfilehash: 89db2c9f388b8a5496a306ba0a152ab57481ea50
+ms.sourcegitcommit: 95b924257c64a115728c66956d5ea38eb8764a35
+ms.openlocfilehash: 70592ac773aced0bfcec5c7418a6dc53555fab33
 
 
 ---
 
-# <a name="create-a-linux-vm-using-the-azure-cli-20-preview"></a>Créer une machine virtuelle Linux à l’aide d’Azure CLI 2.0 (version préliminaire)
-Cet article explique comment déployer rapidement une machine virtuelle Linux sur Azure à l’aide de la commande [az vm create](/cli/azure/vm#create) au moyen d’Azure CLI 2.0 (version préliminaire). 
+# <a name="create-a-linux-vm-using-the-azure-cli-20-preview-azpy"></a>Créer une machine virtuelle Linux à l’aide d’Azure CLI 2.0 version préliminaire (az.py)
+Cet article explique comment déployer rapidement une machine virtuelle Linux sur Azure à l’aide de la commande [az vm create](/cli/azure/vm#create) au moyen d’Azure CLI 2.0 (version préliminaire). 
 
 > [!NOTE] 
-> La version préliminaire d’Azure CLI 2.0 est notre interface de ligne de commande multiplateforme nouvelle génération. Essayez-la et faites-nous part de votre avis sur la [page de projet GitHub](https://github.com/Azure/azure-cli).
+> La version préliminaire d’Azure CLI 2.0 est notre interface de ligne de commande multiplateforme nouvelle génération. [Faites un essai.](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)
 >
-> Le reste de notre documentation utilise la version Azure CLI existante. Pour créer une machine virtuelle à l’aide de la version Azure CLI existante plutôt qu’avec la version préliminaire d’Azure CLI 2.0, consultez l’article [Créer une machine virtuelle Linux à l’aide de l’interface de ligne de commande (CLI) Azure](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Le reste de notre documentation utilise la version Azure CLI existante. Pour créer une machine virtuelle à l’aide de la version Azure CLI 1.0 plutôt qu’avec CLI 2.0 Preview, consultez l’article [Créer une machine virtuelle à l’aide de l’interface de ligne de commande (CLI) Azure](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Pour créer une machine virtuelle, vous devez disposer des éléments suivants : 
+Pour créer une machine virtuelle, vous devez disposer des éléments suivants : 
 
 * un compte Azure ([obtenir une version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/))
-* La version [Azure CLI 2.0 (version préliminaire)](https://github.com/Azure/azure-cli#installation) installée
+* La version [Azure CLI 2.0 (version préliminaire)](/cli/azure/install-az-cli2) installée
 * Une connexion à votre compte Azure (par le biais de la commande [az login](/cli/azure/#login))
 
 (Vous pouvez également déployer rapidement une machine virtuelle Linux à l’aide du [Portail Azure](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
 
-L’exemple ci-après indique comment déployer une machine virtuelle Debian et comment attacher votre clé SSH (Secure Shell) (vos arguments peuvent être différents ; si vous voulez une autre image, vous pouvez en [rechercher une](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)).
+L’exemple ci-après indique comment déployer une machine virtuelle Debian et comment attacher votre clé SSH (Secure Shell) (vos arguments peuvent être différents ; si vous voulez une autre image, vous pouvez en [rechercher une](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Commencez par taper la commande [az resource group create](/cli/azure/resource/group#create) pour créer votre groupe de ressources contenant la totalité de vos ressources déployées :
+Commencez par taper la commande [az group create](/cli/azure/group#create) pour créer votre groupe de ressources contenant la totalité de vos ressources déployées :
 
 ```azurecli
-az resource group create -n myResourceGroup -l westus
+az group create -n myResourceGroup -l westus
 ```
 
-La sortie se présente comme suit (vous pouvez choisir une autre option `--output` si vous le souhaitez) :
+La sortie se présente comme suit (vous pouvez choisir une autre option `--output` si vous le souhaitez) :
 
 ```json
 {
@@ -63,7 +63,7 @@ La sortie se présente comme suit (vous pouvez choisir une autre option `--outpu
 
 ## <a name="create-your-vm-using-the-latest-debian-image"></a>Créer votre machine virtuelle à l’aide de la dernière image Debian
 
-Vous pouvez désormais créer votre machine virtuelle et son environnement. N’oubliez pas de remplacer la valeur `----public-ip-address-dns-name` par une valeur unique ; il est possible que celle ci-dessous soit déjà utilisée.
+Vous pouvez désormais créer votre machine virtuelle et son environnement. N’oubliez pas de remplacer la valeur `----public-ip-address-dns-name` par une valeur unique ; il est possible que celle ci-dessous soit déjà utilisée.
 
 ```azurecli
 az vm create \
@@ -97,7 +97,7 @@ Connectez-vous à votre machine virtuelle à l’aide de l’adresse IP publique
 ssh ops@mydns.westus.cloudapp.azure.com
 ```
 
-Vous devriez obtenir une sortie comparable à ce qui suit, selon la distribution que vous avez choisie :
+Vous devriez obtenir une sortie comparable à ce qui suit, selon la distribution que vous avez choisie :
 
 ```
 The authenticity of host 'mydns.westus.cloudapp.azure.com (40.112.217.29)' can't be established.
@@ -127,6 +127,6 @@ Vous pouvez également [utiliser le pilote Azure `docker-machine` avec plusieurs
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

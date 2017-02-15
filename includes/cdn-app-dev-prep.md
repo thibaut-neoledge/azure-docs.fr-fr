@@ -53,6 +53,6 @@ Si, au lieu d’un principal de service, vous préférez que l’authentificatio
     ![Accès d’utilisateurs individuels](./media/cdn-app-dev-prep/cdn-aad-user-include.png)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

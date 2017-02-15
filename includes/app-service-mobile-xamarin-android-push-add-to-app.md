@@ -1,10 +1,10 @@
-1. Create a new class in the project called `ToDoBroadcastReceiver`.
-2. Add the following using statements to **ToDoBroadcastReceiver** class:
+1. Créez une classe dans le projet appelée `ToDoBroadcastReceiver`.
+2. Ajoutez les instructions using suivantes à la classe **MyBroadcastReceiver.cs** :
    
         using Gcm.Client;
         using Microsoft.WindowsAzure.MobileServices;
         using Newtonsoft.Json.Linq;
-3. Add the following permission requests between the **using** statements and the **namespace** declaration:
+3. Ajoutez les demandes d’autorisation suivantes entre les instructions **using** et la déclaration **namespace** :
    
         [assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
         [assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
@@ -14,7 +14,7 @@
         [assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
         [assembly: UsesPermission(Name = "android.permission.INTERNET")]
         [assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
-4. Replace the existing **ToDoBroadcastReceiver** class definition with the following:
+4. Remplacez la définition existante de la classe **ToDoBroadcastReceiver** par le code suivant :
    
         [BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
         [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, 
@@ -29,8 +29,8 @@
             public static string[] senderIDs = new string[] { "<PROJECT_NUMBER>" };
         }
    
-    In the above code, you must replace *`<PROJECT_NUMBER>`* with the project number assigned by Google when you provisioned your app in the Google developer portal. 
-5. In the ToDoBroadcastReceiver.cs project file, add the following code that defines the **PushHandlerService** class:
+    Dans le code ci-dessus, vous devez remplacer *`<PROJECT_NUMBER>`* par le numéro de projet attribué par Google lorsque vous avez configuré votre application dans le portail des développeurs Google. 
+5. Dans le fichier de projet ToDoBroadcastReceiver.cs, ajoutez le code suivant qui définit la classe **PushHandlerService** :
    
         // The ServiceAttribute must be applied to the class.
         [Service] 
@@ -41,13 +41,13 @@
             public PushHandlerService() : base(ToDoBroadcastReceiver.senderIDs) { }
         }
    
-    Note that this class derives from **GcmServiceBase** and that the **Service** attribute must be applied to this class.
+    Notez que cette classe dérive de **GcmServiceBase** et que l’attribut **Service** doit être appliqué à cette classe.
    
    > [!NOTE]
-   > The **GcmServiceBase** class implements the **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** and **OnError()** methods. You must override these methods in the **PushHandlerService** class.
+   > La classe **GcmServiceBase** implémente les méthodes **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** et **OnError()**. Vous devez substituer ces méthodes dans la classe **PushHandlerService** .
    > 
    > 
-6. Add the following code to the **PushHandlerService** class that overrides the **OnRegistered** event handler. 
+6. Ajoutez le code suivant à la classe **PushHandlerService** qui remplace le gestionnaire d’événements **OnRegistered**. 
    
         protected override void OnRegistered(Context context, string registrationId)
         {
@@ -86,8 +86,8 @@
             }
         }
    
-    This method uses the returned GCM registration ID to register with Azure for push notifications. Tags can only be added to the registration after it is created. For more information, see [How to: Add tags to a device installation to enable push-to-tags](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
-7. Override the **OnMessage** method in **PushHandlerService** with the following code:
+    Cette méthode utilise l’ID d’inscription GCM retourné pour s’inscrire auprès d’Azure pour les notifications push. Les balises peuvent uniquement être ajoutées à l'inscription après sa création. Pour plus d’informations, consultez [Ajouter des balises à l’installation d’un périphérique pour l’envoi de données aux balises](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
+7. Remplacez la méthode **OnMessage** dans **PushHandlerService** par le code suivant :
    
        protected override void OnMessage(Context context, Intent intent)
        {          
@@ -106,7 +106,7 @@
                // Create a new intent to show the notification in the UI. 
                PendingIntent contentIntent = 
                    PendingIntent.GetActivity(context, 0, 
-                   new Intent(this, typeof(ToDoActivity)), 0);           
+                   new Intent(this, typeof(ToDoActivity)), 0);              
    
                // Create the notification using the builder.
                var builder = new Notification.Builder(context);
@@ -122,7 +122,7 @@
    
            }
        }
-8. Override the **OnUnRegistered()** and **OnError()** methods with the following code.
+8. Remplacez les méthodes **OnUnRegistered()** et **OnError()** par le code suivant :
    
        protected override void OnUnRegistered(Context context, string registrationId)
        {
@@ -135,6 +135,8 @@
                string.Format("Error occurred in the notification: {0}.", errorId));
        }
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

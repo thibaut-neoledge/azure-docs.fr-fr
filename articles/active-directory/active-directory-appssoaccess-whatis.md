@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
-ms.author: asmalser
+ms.author: asmalser-msft
 translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: cb41fbd7ca931df52ba8e5304459bb04298a108c
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 81bd7f6187fb12a89c040e1b4f44895d81712ada
 
 
 ---
@@ -207,6 +207,6 @@ Ces liens utilisent les mêmes mécanismes de contrôle d’accès que le pannea
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

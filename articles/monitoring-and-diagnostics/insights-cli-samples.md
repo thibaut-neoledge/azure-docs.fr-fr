@@ -20,7 +20,7 @@ ms.openlocfilehash: 981056249213c53bb8198fd792b815c5d9b091f5
 
 
 ---
-# <a name="azure-monitor-cross-platform-cli-quick-start-samples"></a>Exemple de démarrage rapide de l’interface de ligne de commande (CLI) multiplateforme Azure Monitor
+# <a name="azure-monitor--cross-platform-cli-quick-start-samples"></a>Exemple de démarrage rapide de l’interface de ligne de commande (CLI) multiplateforme Azure Monitor
 Cet article vous montre des exemples de commandes d’interface de ligne de commande (CLI) qui vous permettent d’accéder aux fonctionnalités de surveillance d’Azure Monitor. Azure Monitor permet une mise à l'échelle automatique des services cloud, des machines virtuelles et des applications web, et d’envoyer des notifications d'alerte ou d’appeler des URL web basées sur des valeurs de données de télémétrie configurées.
 
 > [!NOTE]

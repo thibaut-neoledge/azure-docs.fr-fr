@@ -1,5 +1,5 @@
 ---
-title: "Migration de base de données SQL Server vers SQL Database | Microsoft Docs"
+title: "Migration de base de données SQL Server vers Azure SQL Database | Microsoft Docs"
 description: "Découvrez comment migrer une base de données SQL Server locale vers Azure SQL Database dans le cloud. Utilisez les outils de migration de base de données pour tester la compatibilité avant de procéder à la migration de la base de données."
 keywords: "migration de base de données, migration de base de données sql server, outils de migration de base de données, migrer la base de données, migrer la base de données sql"
 services: sql-database
@@ -17,8 +17,8 @@ ms.workload: sqldb-migrate
 ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: 0e3e2d24196158b9bfc737cd0be0b797b636841b
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: 61fb027dfdd5830d87fe4fcfff57f685db71475e
 
 
 ---
@@ -118,6 +118,6 @@ Pour une migration avec un temps d’arrêt minimal, utilisez la [réplication t
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

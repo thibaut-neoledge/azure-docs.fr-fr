@@ -1,13 +1,13 @@
 ---
-title: Cluster Linux RDMA pour exécuter des applications MPI | Microsoft Docs
-description: Créer un cluster Linux de machines virtuelles de taille H16r, H16mr, A8 ou A9 afin d’utiliser le réseau RDMA Azure pour exécuter des applications MPI
+title: "Cluster Linux RDMA pour exécuter des applications MPI | Microsoft Docs"
+description: "Créer un cluster Linux de machines virtuelles de taille H16r, H16mr, A8 ou A9 afin d’utiliser le réseau RDMA Azure pour exécuter des applications MPI"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: dlepow
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 01834bad-c8e6-48a3-b066-7f1719047dd2
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,54 +15,58 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/21/2016
 ms.author: danlep
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 4f8a1187b0e1e114f795530d89334ef57ce74acd
+
 
 ---
-# Configuration d’un cluster Linux RDMA pour exécuter des applications MPI
-Découvrez comment configurer un cluster RDMA Linux dans Azure avec des [machines virtuelles de série H ou de série A nécessitant beaucoup de ressources système](virtual-machines-linux-a8-a9-a10-a11-specs.md) pour exécuter des applications MPI (Message Passing Interface) parallèles. Cet article explique comment préparer une image Linux HPC pour exécuter Intel MPI sur un cluster. Ensuite, vous déployez un cluster de machines virtuelles à l’aide de cette image et d’une des tailles de machine virtuelle Azure prenant en charge RDMA (actuellement H16r, H16mr, A8 ou A9). Utilisez le cluster pour exécuter des applications MPI communiquant efficacement avec un réseau haut débit basé sur la technologie d’accès direct à la mémoire à distance (RDMA) à faible latence.
+# <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Configuration d’un cluster Linux RDMA pour exécuter des applications MPI
+Découvrez comment configurer un cluster RDMA Linux dans Azure avec des [machines virtuelles de série H ou de série A nécessitant beaucoup de ressources système](virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour exécuter des applications MPI (Message Passing Interface) parallèles. Cet article explique comment préparer une image Linux HPC pour exécuter Intel MPI sur un cluster. Ensuite, vous déployez un cluster de machines virtuelles à l’aide de cette image et d’une des tailles de machine virtuelle Azure prenant en charge RDMA (actuellement H16r, H16mr, A8 ou A9). Utilisez le cluster pour exécuter des applications MPI communiquant efficacement avec un réseau haut débit basé sur la technologie d’accès direct à la mémoire à distance (RDMA) à faible latence.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-## Options de déploiement de cluster
+## <a name="cluster-deployment-options"></a>Options de déploiement de cluster
 Voici des méthodes que vous pouvez utiliser pour créer un cluster Linux RDMA avec ou sans planificateur de tâches.
 
-* **Scripts de l’interface de ligne de commande Azure** : comme indiqué plus loin dans cet article, utilisez l’[interface de ligne de commande (CLI) Azure](../xplat-cli-install.md) pour créer un script de déploiement d’un cluster de machines virtuelles prenant en charge RDMA. La CLI en mode Service Management crée les nœuds de cluster en série dans le modèle de déploiement classique. Le déploiement d’un grand nombre de nœuds de calcul peut donc prendre plusieurs minutes. Pour activer la connexion réseau RDMA lorsque vous utilisez le modèle de déploiement classique, déployez les machines virtuelles dans le même service cloud.
+* **Scripts de l’interface de ligne de commande Azure** : comme indiqué plus loin dans cet article, utilisez l’[interface de ligne de commande (CLI) Azure](../xplat-cli-install.md) pour créer un script de déploiement d’un cluster de machines virtuelles prenant en charge RDMA. La CLI en mode Service Management crée les nœuds de cluster en série dans le modèle de déploiement classique. Le déploiement d’un grand nombre de nœuds de calcul peut donc prendre plusieurs minutes. Pour activer la connexion réseau RDMA lorsque vous utilisez le modèle de déploiement classique, déployez les machines virtuelles dans le même service cloud.
 * **Modèles Azure Resource Manager** : vous pouvez utiliser le modèle de déploiement Resource Manager pour déployer un cluster de machines virtuelles prenant en charge RDMA, qui se connecte au réseau RDMA. Vous pouvez [créer votre propre modèle](../resource-group-authoring-templates.md) ou consulter la page [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) pour trouver des modèles fournis par Microsoft ou la communauté, pour déployer la solution de votre choix. Les modèles Resource Manager peuvent fournir un moyen rapide et fiable pour déployer un cluster Linux. Pour activer la connexion réseau RDMA lorsque vous utilisez le modèle de déploiement Resource Manager, déployez les machines virtuelles dans le même groupe à haute disponibilité.
-* **HPC Pack** : créez un cluster Microsoft HPC Pack dans Azure, et ajoutez des nœuds de calcul prenant en charge RDMA, qui exécutent des distributions Linux prises en charge pour accéder au réseau RDMA. Consultez [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
+* **HPC Pack** : créez un cluster Microsoft HPC Pack dans Azure, et ajoutez des nœuds de calcul prenant en charge RDMA, qui exécutent des distributions Linux prises en charge pour accéder au réseau RDMA. Consultez [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-## Exemple d’étapes de déploiement dans un modèle classique
-Les étapes suivantes montrent comment utiliser la CLI Azure pour déployer une machine virtuelle HPC SUSE Linux Enterprise Server (SLES) 12 SP1 à partir de la Place de marché Azure, la personnaliser, et créer une image de machine virtuelle personnalisée. Utilisez ensuite l’image pour créer un script de déploiement d’un cluster de machines virtuelles prenant en charge RDMA.
+## <a name="sample-deployment-steps-in-classic-model"></a>Exemple d’étapes de déploiement dans un modèle classique
+Les étapes suivantes montrent comment utiliser la CLI Azure pour déployer une machine virtuelle HPC SUSE Linux Enterprise Server (SLES) 12 SP1 à partir de la Place de marché Azure, la personnaliser, et créer une image de machine virtuelle personnalisée. Utilisez ensuite l’image pour créer un script de déploiement d’un cluster de machines virtuelles prenant en charge RDMA. 
 
 > [!TIP]
-> Utilisez une procédure similaire pour déployer un cluster de machines virtuelles prenant en charge RDMA sur d’autres images HPC prises en charge dans la Place de marché Azure. Certaines étapes peuvent différer légèrement, comme indiqué. Par exemple, Intel MPI est inclus et configuré uniquement dans quelques-unes de ces images. Et si vous déployez une machine virtuelle SLES 12 HPC au lieu d’une machine virtuelle SLES 12 HPC SP1, vous devez mettre à jour les pilotes RDMA. Pour plus d’informations, voir [À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-linux-a8-a9-a10-a11-specs.md#rdma-driver-updates-for-sles-12).
+> Utilisez une procédure similaire pour déployer un cluster de machines virtuelles prenant en charge RDMA sur d’autres images HPC prises en charge dans la Place de marché Azure. Certaines étapes peuvent différer légèrement, comme indiqué. Par exemple, Intel MPI est inclus et configuré uniquement dans quelques-unes de ces images. Et si vous déployez une machine virtuelle SLES 12 HPC au lieu d’une machine virtuelle SLES 12 HPC SP1, vous devez mettre à jour les pilotes RDMA. Pour plus d’informations, voir [À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-linux-a8-a9-a10-a11-specs.md#rdma-driver-updates-for-sles-12).
 > 
 > 
 
-### Composants requis
+### <a name="prerequisites"></a>Composants requis
 * **Ordinateur client** : vous avez besoin d’un ordinateur client Mac, Linux ou Windows pour communiquer avec Azure. Ces étapes supposent que vous utilisez un client Linux.
-* **Abonnement Azure** : si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/) en quelques minutes. Pour les clusters de grande taille, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat.
-* **Disponibilité de taille de machine virtuelle** : actuellement les tailles d’instance prenant en charge RDMA sont les suivantes : H16r, H16mr, A8 et A9. Pour connaître la disponibilité dans les différentes régions Azure, voir [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/).
-* **Quota de cœurs** : il se peut que vous deviez augmenter le quota de cœurs pour déployer un cluster de machines virtuelles nécessitant beaucoup de ressources système. Par exemple, vous devez avoir au moins 128 cœurs si vous souhaitez déployer 8 machines virtuelles A9, comme indiqué dans cet article. Votre abonnement peut également limiter le nombre de cœurs, que vous pouvez déployer dans certaines familles de taille de machine virtuelle, dont la série H. Pour demander une augmentation de quota, [ouvrez une demande de service clientèle en ligne](../azure-supportability/how-to-create-azure-support-request.md) gratuitement.
-* **Interface de ligne de commande Azure** : [installez](../xplat-cli-install.md) l’interface de ligne de commande (CLI) Azure et [connectez-vous à votre abonnement Azure](../xplat-cli-connect.md) sur l’ordinateur client.
+* **Abonnement Azure** : si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/) en quelques minutes. Pour les clusters de grande taille, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat. 
+* **Disponibilité de taille de machine virtuelle** : actuellement les tailles d’instance prenant en charge RDMA sont les suivantes : H16r, H16mr, A8 et A9. Pour connaître la disponibilité dans les différentes régions Azure, voir [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/) . 
+* **Quota de cœurs** : il se peut que vous deviez augmenter le quota de cœurs pour déployer un cluster de machines virtuelles nécessitant beaucoup de ressources système. Par exemple, vous devez avoir au moins 128 cœurs si vous souhaitez déployer 8 machines virtuelles A9, comme indiqué dans cet article. Votre abonnement peut également limiter le nombre de cœurs, que vous pouvez déployer dans certaines familles de taille de machine virtuelle, dont la série H. Pour demander une augmentation de quota, [ouvrez une demande de service clientèle en ligne](../azure-supportability/how-to-create-azure-support-request.md) gratuitement. 
+* **Interface de ligne de commande Azure : ** - [Installez](../xplat-cli-install.md) l’interface de ligne de commande (CLI) Azure et [connectez-vous à votre abonnement Azure](../xplat-cli-connect.md) sur l’ordinateur client.
 
-### Étape 1. Configurer une machine virtuelle SLES 12 SP1 HPC
-Après la connexion à Azure avec l’interface de ligne de commande Azure, exécutez la commande `azure config list` pour confirmer que la sortie affiche le mode Service Management. Si ce n'est pas le cas, définissez le mode en exécutant la commande suivante :
+### <a name="step-1-provision-a-sles-12-sp1-hpc-vm"></a>Étape 1. Configurer une machine virtuelle SLES 12 SP1 HPC
+Après la connexion à Azure avec l’interface de ligne de commande Azure, exécutez la commande `azure config list` pour confirmer que la sortie affiche le mode Service Management. Si ce n'est pas le cas, définissez le mode en exécutant la commande suivante :
 
     azure config mode asm
 
 
-Tapez la commande suivante pour répertorier tous les abonnements que vous êtes autorisé à utiliser :
+Tapez la commande suivante pour répertorier tous les abonnements que vous êtes autorisé à utiliser :
 
     azure account list
 
-L’abonnement actif actuel est identifié par `Current` avec la valeur `true`. S’il ne s’agit pas de l’abonnement que vous souhaitez utiliser pour créer le cluster, définissez l’ID d’abonnement approprié comme abonnement actif :
+L’abonnement actif actuel est identifié par `Current` avec la valeur `true`. S’il ne s’agit pas de l’abonnement que vous souhaitez utiliser pour créer le cluster, définissez l’ID d’abonnement approprié comme abonnement actif :
 
     azure account set <subscription-Id>
 
-Pour afficher les images de SLES 12 SP1 HPC publiquement disponibles dans Azure, exécutez une commande similaire à celle qui suit, si votre environnement d’interpréteur de commandes prend en charge **grep** :
+Pour afficher les images de SLES 12 SP1 HPC publiquement disponibles dans Azure, exécutez une commande similaire à celle qui suit, si votre environnement d’interpréteur de commandes prend en charge **grep**:
 
     azure vm image list | grep "suse.*hpc"
 
-À présent, configurez une machine virtuelle prenant en charge RDMA avec une image de SLES 12 SP1 HPC en exécutant une commande semblable à la suivante :
+À présent, configurez une machine virtuelle prenant en charge RDMA avec une image de SLES 12 SP1 HPC en exécutant une commande semblable à la suivante :
 
     azure vm create -g <username> -p <password> -c <cloud-service-name> -l <location> -z A9 -n <vm-name> -e 22 b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-v20160824
 
@@ -71,26 +75,26 @@ où
 * La taille (A9 dans cet exemple) est l’une des tailles de machine virtuelle prenant en charge RDMA.
 * Le numéro de port SSH externe (22 dans cet exemple, qui est le SHH par défaut) est un numéro de port valide. Le numéro de port interne SSH est défini sur 22.
 * Un service cloud est créé dans la région Azure spécifiée par l’emplacement. Spécifiez un emplacement dans lequel la taille de machine virtuelle que vous choisissez est disponible.
-* Le nom de l’image de SLES 12 SP1 peut actuellement être `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-v20160824` ou `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-priority-v20160824` pour la prise en charge de la priorité SUSE (des frais supplémentaires s’appliquent).
+* Le nom de l’image de SLES 12 SP1 peut actuellement être `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-v20160824` ou `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-priority-v20160824` pour la prise en charge de la priorité SUSE (des frais supplémentaires s’appliquent).
 
-### Étape 2. Personnalisation de la machine virtuelle
-Après le provisionnement de la machine virtuelle, utilisez SSH pour vous connecter à la machine virtuelle à l’aide de l’adresse IP externe de la machine virtuelle (ou du nom DNS) et du numéro de port externe configuré et personnalisez-la. Pour plus d'informations sur la connexion, consultez [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-mac-create-ssh-keys.md). Exécutez les commandes comme l’utilisateur que vous avez configuré sur la machine virtuelle, à moins qu’un accès racine soit nécessaire pour accomplir une étape.
+### <a name="step-2-customize-the-vm"></a>Étape 2. Personnalisation de la machine virtuelle
+Après le provisionnement de la machine virtuelle, utilisez SSH pour vous connecter à la machine virtuelle à l’aide de l’adresse IP externe de la machine virtuelle (ou du nom DNS) et du numéro de port externe configuré et personnalisez-la. Pour plus d'informations sur la connexion, consultez [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Exécutez les commandes comme l’utilisateur que vous avez configuré sur la machine virtuelle, à moins qu’un accès racine soit nécessaire pour accomplir une étape.
 
 > [!IMPORTANT]
 > Microsoft Azure ne fournit pas d'accès racine aux machines virtuelles Linux. Pour obtenir un accès administratif lorsque vous êtes connecté en tant qu'utilisateur à la machine virtuelle, exécutez les commandes avec `sudo`.
 > 
 > 
 
-* **Mises à jour** : installez les mises à jour à l'aide de **zypper**. Vous pouvez également installer les utilitaires NFS.
+* **Mises à jour** : installez les mises à jour à l'aide de **zypper**. Vous pouvez également installer les utilitaires NFS. 
   
   > [!IMPORTANT]
   > Dans une machine virtuelle SLES 12 SP1 HPC, nous vous recommandons de ne pas appliquer les mises à jour du noyau, qui peuvent provoquer des problèmes avec les pilotes RDMA Linux.
   > 
   > 
-* **Intel MPI** : terminez l’installation d’Intel MPI sur la machine virtuelle SLES 12 SP1 HPC en exécutant la commande suivante :
+* **Intel MPI** : terminez l’installation d’Intel MPI sur la machine virtuelle SLES 12 SP1 HPC en exécutant la commande suivante :
   
         sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
-* **Verrouiller la mémoire** : pour que les codes MPI verrouillent la mémoire disponible pour RDMA, ajoutez ou modifiez les paramètres suivants dans le fichier /etc/security/limits.conf. (Un accès racine est requis pour modifier ce fichier.)
+* **Verrouiller la mémoire** : pour que les codes MPI verrouillent la mémoire disponible pour RDMA, ajoutez ou modifiez les paramètres suivants dans le fichier /etc/security/limits.conf. (Un accès racine est requis pour modifier ce fichier.) 
   
     ```
     <User or group name> hard    memlock <memory required for your application in KB>
@@ -99,25 +103,25 @@ Après le provisionnement de la machine virtuelle, utilisez SSH pour vous connec
     ```
   
   > [!NOTE]
-  > À des fins de test, vous pouvez également définir memlock comme illimité. Par exemple : `<User or group name>    hard    memlock unlimited`. Pour plus d’informations, voir les [meilleures méthodes connues pour définir la taille de mémoire verrouillée](https://software.intel.com/fr-FR/blogs/2014/12/16/best-known-methods-for-setting-locked-memory-size).
+  > À des fins de test, vous pouvez également définir memlock comme illimité. Par exemple : `<User or group name>    hard    memlock unlimited`. Pour plus d’informations, voir les [meilleures méthodes connues pour définir la taille de mémoire verrouillée](https://software.intel.com/en-us/blogs/2014/12/16/best-known-methods-for-setting-locked-memory-size).
   > 
   > 
-* **Clés SSH pour machines virtuelles SLES** : générez des clés SSH pour établir l’approbation de votre compte utilisateur parmi les nœuds de calcul du cluster SLES lors de l’exécution de travaux MPI. (Si vous avez déployé une machine virtuelle HPC basée sur CentOS, ne suivez pas cette étape. Consultez les instructions de la suite de cet article pour définir une confiance SSH sans mot de passe entre les nœuds du cluster une fois que vous avez capturé l’image et déployé le cluster).
+* **Clés SSH pour machines virtuelles SLES** : générez des clés SSH pour établir l’approbation de votre compte utilisateur parmi les nœuds de calcul du cluster SLES lors de l’exécution de travaux MPI. (Si vous avez déployé une machine virtuelle HPC basée sur CentOS, ne suivez pas cette étape. Consultez les instructions de la suite de cet article pour définir une confiance SSH sans mot de passe entre les nœuds du cluster une fois que vous avez capturé l’image et déployé le cluster). 
   
     Exécutez la commande suivante pour créer des clés SSH. Lorsque vous y êtes invité, appuyez sur Entrée pour générer les clés dans l’emplacement par défaut sans définir de phrase secrète.
   
         ssh-keygen
   
-    Ajoutez la clé publique au fichier authorized\_keys pour les clés publiques connues.
+    Ajoutez la clé publique au fichier authorized_keys pour les clés publiques connues.
   
         cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
   
-    Dans l’annuaire ~/.ssh, modifiez ou créez le fichier « config ». Fournissez la plage d’adresses IP du réseau privé que vous prévoyez d’utiliser dans Azure (10.32.0.0/16 dans cet exemple) :
+    Dans l’annuaire ~/.ssh, modifiez ou créez le fichier « config ». Fournissez la plage d’adresses IP du réseau privé que vous prévoyez d’utiliser dans Azure (10.32.0.0/16 dans cet exemple) :
   
         host 10.32.0.*
         StrictHostKeyChecking no
   
-    Vous pouvez également répertorier l'adresse IP du réseau privé de chaque machine virtuelle dans votre cluster comme suit :
+    Vous pouvez également répertorier l'adresse IP du réseau privé de chaque machine virtuelle dans votre cluster comme suit :
   
     ```
     host 10.32.0.1
@@ -129,19 +133,19 @@ Après le provisionnement de la machine virtuelle, utilisez SSH pour vous connec
     ```
   
   > [!NOTE]
-  > La configuration de `StrictHostKeyChecking no` peut créer un risque de sécurité potentiel si une adresse IP ou une plage d’adresses IP spécifiques ne sont pas spécifiées.
+  > La configuration de `StrictHostKeyChecking no` peut créer un risque de sécurité potentiel si une adresse IP ou une plage d’adresses IP spécifiques ne sont pas spécifiées.
   > 
   > 
 * **Applications** : installez les applications dont vous avez besoin sur cette machine virtuelle ou effectuez d'autres personnalisations avant de capturer l'image.
 
-### Étape 3. capture de l’image
+### <a name="step-3-capture-the-image"></a>Étape 3. capture de l’image
 Pour capturer l'image, exécutez d’abord la commande suivante dans la machine virtuelle Linux. Cette commande désaffecte la machine virtuelle, mais conserve les comptes utilisateurs et les clés SSH que vous avez configurés.
 
 ```
 sudo waagent -deprovision
 ```
 
-Puis, depuis votre ordinateur client, exécutez les commandes CLI Azure suivantes pour capturer l’image. Pour plus d’informations, consultez la page [Capture d’une machine virtuelle Linux classique en tant qu’image](virtual-machines-linux-classic-capture-image.md).
+Puis, depuis votre ordinateur client, exécutez les commandes CLI Azure suivantes pour capturer l’image. Pour plus d’informations, consultez la page [Capture d’une machine virtuelle Linux classique en tant qu’image](virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).  
 
 ```
 azure vm shutdown <vm-name>
@@ -152,8 +156,8 @@ azure vm capture -t <vm-name> <image-name>
 
 Après avoir exécuté ces commandes, l'image de machine virtuelle est capturée pour que vous puissiez l'utiliser et la machine virtuelle est supprimée. Vous disposez maintenant d’une image personnalisée prête à être déployée sur un cluster.
 
-### Étape 4. Déploiement d’un cluster avec l'image
-Modifiez le script Bash suivant avec les valeurs appropriées pour votre environnement et exécutez-le à partir de votre ordinateur client. Dans la mesure où Azure déploie les machines virtuelles en série dans le modèle de déploiement Service Management, quelques minutes sont nécessaires pour déployer les 8 machines virtuelles A9 suggérées dans ce script.
+### <a name="step-4-deploy-a-cluster-with-the-image"></a>Étape 4. Déploiement d’un cluster avec l'image
+Modifiez le script Bash suivant avec les valeurs appropriées pour votre environnement et exécutez-le à partir de votre ordinateur client. Dans la mesure où Azure déploie les machines virtuelles en série dans le modèle de déploiement Service Management, quelques minutes sont nécessaires pour déployer les 8 machines virtuelles A9 suggérées dans ce script.
 
 ```
 #!/bin/bash -x
@@ -188,15 +192,15 @@ done
 # Save this script with a name like makecluster.sh and run it in your shell environment to provision your cluster
 ```
 
-## Considérations pour un cluster HPC CentOS
-Si vous souhaitez configurer un cluster basé sur l’une des images HPC basées sur CentOS dans Azure Marketplace au lieu de SLES 12 pour HPC, suivez les étapes générales de la section précédente. Notez les différences suivantes lorsque vous approvisionnez et configurez la machine virtuelle :
+## <a name="considerations-for-a-centos-hpc-cluster"></a>Considérations pour un cluster HPC CentOS
+Si vous souhaitez configurer un cluster basé sur l’une des images HPC basées sur CentOS dans Azure Marketplace au lieu de SLES 12 pour HPC, suivez les étapes générales de la section précédente. Notez les différences suivantes lorsque vous approvisionnez et configurez la machine virtuelle :
 
-1. Intel MPI est déjà installé sur une machine virtuelle approvisionnée à partir d’une image de HPC basée sur CentOS.
+1. Intel MPI est déjà installé sur une machine virtuelle approvisionnée à partir d’une image de HPC basée sur CentOS. 
 2. Les paramètres de verrouillage de mémoire sont déjà ajoutés dans le fichier /etc/security/limits.conf de la machine virtuelle.
-3. Ne générez pas de clés SSH sur la machine virtuelle que vous approvisionnez pour la capture. Au lieu de cela, nous vous recommandons de configurer une authentification basée sur l’utilisateur après le déploiement du cluster. Voir la section suivante.
+3. Ne générez pas de clés SSH sur la machine virtuelle que vous approvisionnez pour la capture. Au lieu de cela, nous vous recommandons de configurer une authentification basée sur l’utilisateur après le déploiement du cluster. Voir la section suivante.  
 
-### Configurer une approbation SSH sans mot de passe sur le cluster
-Sur un cluster HPC basé sur CentOS, deux méthodes permettent d’établir une approbation entre les nœuds de calcul : l’authentification basée sur l’hôte et l’authentification basée sur l’utilisateur. L’authentification basée sur l’hôte n’est pas expliquée dans cet article. Elle doit généralement être configurée à l’aide d’un script d’extension pendant le déploiement. L’authentification basée sur l’utilisateur est pratique pour établir une confiance après le déploiement, et nécessite la génération et le partage de clés SSH entre les nœuds de calcul dans le cluster. Cette méthode est communément appelée connexion SSH sans mot de passe. Elle est requise lors de l’exécution de travaux MPI.
+### <a name="set-up-passwordless-ssh-trust-on-the-cluster"></a>Configurer une approbation SSH sans mot de passe sur le cluster
+Sur un cluster HPC basé sur CentOS, deux méthodes permettent d’établir une approbation entre les nœuds de calcul : l’authentification basée sur l’hôte et l’authentification basée sur l’utilisateur. L’authentification basée sur l’hôte n’est pas expliquée dans cet article. Elle doit généralement être configurée à l’aide d’un script d’extension pendant le déploiement. L’authentification basée sur l’utilisateur est pratique pour établir une confiance après le déploiement, et nécessite la génération et le partage de clés SSH entre les nœuds de calcul dans le cluster. Cette méthode est communément appelée connexion SSH sans mot de passe. Elle est requise lors de l’exécution de travaux MPI. 
 
 Un exemple de script fourni par la communauté est disponible sur [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) pour permettre une authentification utilisateur simple sur un cluster HPC basé sur CentOS. Vous pouvez télécharger et utiliser ce script en procédant comme suit. Vous pouvez également modifier ce script ou utiliser toute autre méthode permettant d’établir une authentification SSH sans mot de passe entre les nœuds de calcul du cluster.
 
@@ -206,24 +210,24 @@ Pour exécuter le script, vous devez connaître le préfixe des adresses IP de v
 
     ifconfig eth0 | grep -w inet | awk '{print $2}'
 
-Ensuite, exécutez le script à l’aide de trois paramètres : le nom d’utilisateur courant utilisé sur les nœuds de calcul, le mot de passe pour cet utilisateur sur les nœuds de calcul et le préfixe de sous-réseau renvoyé par la commande précédente.
+Ensuite, exécutez le script à l’aide de trois paramètres : le nom d’utilisateur courant utilisé sur les nœuds de calcul, le mot de passe pour cet utilisateur sur les nœuds de calcul et le préfixe de sous-réseau renvoyé par la commande précédente.
 
     ./user_authentication.sh <myusername> <mypassword> 10.1.3
 
 Ce script effectue les opérations suivantes :
 
-* Crée sur le nœud hôte un répertoire nommé .ssh, qui est requis pour la connexion sans mot de passe.
-* Crée un fichier de configuration dans le répertoire .ssh, qui indique à la méthode de connexion sans mot de passe d’autoriser la connexion à partir de n’importe quel nœud du cluster.
-* Crée des fichiers contenant les noms et adresses IP de chacun des nœuds du cluster. Ces fichiers sont conservés après l’exécution du script à des fins de référence ultérieure.
-* Crée une paire de clés privée et publique pour chaque nœud du cluster, y compris le nœud hôte, et crée des entrées dans le fichier authorized\_keys.
+* Crée sur le nœud hôte un répertoire nommé .ssh, qui est requis pour la connexion sans mot de passe. 
+* Crée un fichier de configuration dans le répertoire .ssh, qui indique à la méthode de connexion sans mot de passe d’autoriser la connexion à partir de n’importe quel nœud du cluster. 
+* Crée des fichiers contenant les noms et adresses IP de chacun des nœuds du cluster. Ces fichiers sont conservés après l’exécution du script à des fins de référence ultérieure. 
+* Crée une paire de clés privée et publique pour chaque nœud du cluster, y compris le nœud hôte, et crée des entrées dans le fichier authorized_keys.
 
 > [!WARNING]
 > L’exécution de ce script peut créer un risque de sécurité potentiel. Assurez-vous que les informations de clé publique dans ~/.ssh ne sont pas distribuées.
 > 
 > 
 
-## Configurer Intel MPI
-Pour exécuter des applications MPI sur RDMA Azure Linux, vous devez configurer certaines variables d'environnement spécifiques à Intel MPI. Voici un exemple de script bash pour configurer les variables nécessaires à l’exécution d’une application. Modifiez le chemin d’accès à mpivars.sh selon les besoins de votre installation d’Intel MPI.
+## <a name="configure-intel-mpi"></a>Configurer Intel MPI
+Pour exécuter des applications MPI sur RDMA Azure Linux, vous devez configurer certaines variables d'environnement spécifiques à Intel MPI. Voici un exemple de script bash pour configurer les variables nécessaires à l’exécution d’une application. Modifiez le chemin d’accès à mpivars.sh selon les besoins de votre installation d’Intel MPI.
 
 ```
 #!/bin/bash -x
@@ -257,15 +261,15 @@ mpirun -n <number-of-cores> -ppn <core-per-node> -hostfile <hostfilename>  /path
 #end
 ```
 
-Le format du fichier hôte est le suivant. Ajoutez une ligne pour chaque nœud de votre cluster. Spécifiez des adresses IP privées à partir du réseau virtuel défini précédemment, pas des noms DNS. Par exemple, pour deux hôtes avec les adresses IP 10.32.0.1 et 10.32.0.2, le fichier contient les éléments suivants :
+Le format du fichier hôte est le suivant. Ajoutez une ligne pour chaque nœud de votre cluster. Spécifiez des adresses IP privées à partir du réseau virtuel défini précédemment, pas des noms DNS. Par exemple, pour deux hôtes avec les adresses IP 10.32.0.1 et 10.32.0.2, le fichier contient les éléments suivants :
 
 ```
 10.32.0.1:16
 10.32.0.2:16
 ```
 
-## Exécuter MPI sur un cluster à deux nœuds de base
-Si ce n'est pas déjà fait, commencez par configurer l'environnement pour Intel MPI.
+## <a name="run-mpi-on-a-basic-two-node-cluster"></a>Exécuter MPI sur un cluster à deux nœuds de base
+Si ce n'est pas déjà fait, commencez par configurer l'environnement pour Intel MPI. 
 
 ```
 # For a SLES 12 SP1 HPC cluster
@@ -277,27 +281,27 @@ source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
 # source /opt/intel/impi/5.1.3.181/bin64/mpivars.sh
 ```
 
-### Exécution d'une commande MPI simple
+### <a name="run-a-simple-mpi-command"></a>Exécution d'une commande MPI simple
 Exécutez une commande MPI simple sur l'un des nœuds de calcul pour montrer que MPI est installé correctement et peut communiquer entre au moins deux nœuds de calcul. La commande **mpirun** suivante exécute la commande **hostname** sur deux nœuds.
 
 ```
 mpirun -ppn 1 -n 2 -hosts <host1>,<host2> -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 hostname
 ```
-Votre sortie doit répertorier les noms de tous les nœuds que vous avez transmis comme entrée pour `-hosts`. Par exemple, une commande **mpirun** avec deux nœuds renvoie un résultat semblable au suivant :
+Votre sortie doit répertorier les noms de tous les nœuds que vous avez transmis comme entrée pour `-hosts`. Par exemple, une commande **mpirun** avec deux nœuds renvoie un résultat semblable au suivant :
 
 ```
 cluster11
 cluster12
 ```
 
-### Exécution d'un test d'évaluation MPI
+### <a name="run-an-mpi-benchmark"></a>Exécution d'un test d'évaluation MPI
 La commande Intel MPI suivante vérifie la configuration du cluster et sa connexion au réseau RDMA à l’aide d’un banc d’essai pingpong.
 
 ```
 mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
 ```
 
-Sur un cluster opérationnel à deux nœuds, vous devez voir une sortie similaire à ce qui suit. Sur le réseau RDMA Azure, vous devez vous attendre à une latence égale ou inférieure à 3 microsecondes pour les tailles de messages jusqu’à 512 octets.
+Sur un cluster opérationnel à deux nœuds, vous devez voir une sortie similaire à ce qui suit. Sur le réseau RDMA Azure, vous devez vous attendre à une latence égale ou inférieure à 3 microsecondes pour les tailles de messages jusqu’à 512 octets.
 
 ```
 #------------------------------------------------------------
@@ -365,9 +369,14 @@ Sur un cluster opérationnel à deux nœuds, vous devez voir une sortie similair
 
 
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Essayez de déployer et d’exécuter vos applications MPI Linux sur votre cluster Linux.
-* Consultez la [documentation de la bibliothèque Intel MPI](https://software.intel.com/fr-FR/articles/intel-mpi-library-documentation/) pour obtenir des conseils sur Intel MPI.
-* Essayez un [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) pour créer un cluster Intel Lustre en utilisant une image HPC basée sur CentOS. Pour plus de détails, voir ce [billet de blog](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/).
+* Consultez la [documentation de la bibliothèque Intel MPI](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/) pour obtenir des conseils sur Intel MPI.
+* Essayez un [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) pour créer un cluster Intel Lustre en utilisant une image HPC basée sur CentOS. Pour plus de détails, voir ce [billet de blog](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

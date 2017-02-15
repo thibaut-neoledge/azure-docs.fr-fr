@@ -46,7 +46,7 @@ Un autre aspect éventuel à prendre en compte est le nombre maximal d’appels 
 
 Pour plus d’informations sur ce paramètre, voir l’ [article sur la mise à l’échelle pour les services web Machine Learning](../machine-learning/machine-learning-scaling-webservice.md).
 
-## <a name="example-sentiment-analysis"></a>Exemple – Analyse de sentiments
+## <a name="example--sentiment-analysis"></a>Exemple – Analyse de sentiments
 L’exemple suivant inclut un travail Stream Analytics avec la fonction Machine Learning d’analyse de sentiments, comme décrit dans le [didacticiel d’intégration de Machine Learning à Stream Analytics](stream-analytics-machine-learning-integration-tutorial.md).
 
 La requête est une requête simple entièrement partitionnée suivie de la fonction **sentiment** , comme indiqué ci-dessous :

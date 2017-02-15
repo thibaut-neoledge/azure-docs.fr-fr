@@ -15,8 +15,8 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 72e6b97415a0edf18c2ffcc654575dbfcd916c40
+ms.sourcegitcommit: 4fde1a22ac76306e79a68a37e110828da9a2ef13
+ms.openlocfilehash: 3cf2d8b19dd5785317a382dc429feda02d8a2f20
 
 
 ---
@@ -49,9 +49,9 @@ Il existe plusieurs moyens de déclencher une application logique à partir d’
 * [Surveiller les applications logiques](app-service-logic-monitor-your-logic-apps.md)
 
 ## <a name="content-types-conversions-and-transformations"></a>Types de contenu, conversions et transformations
-Le [langage de définition de flux de travail](http://aka.ms/logicappsdocs) Logic Apps contient de nombreuses fonctions permettant de convertir et d’utiliser différents types de contenu.  Le moteur fait aussi tout son possible pour conserver les types de contenu comme flux de données tout au long du flux de travail.
+Le [langage de définition de flux de travail](http://aka.ms/logicappsdocs) Logic Apps contient de nombreuses fonctions permettant de convertir et d’utiliser différents types de contenu. Le moteur fait aussi tout son possible pour conserver les types de contenu comme flux de données tout au long du workflow.
 
-* [Gestion des types de contenu](app-service-logic-content-type.md) comme application/json, application/xml et brut/texte
+* [Gestion des types de contenu](app-service-logic-content-type.md) comme application/json, application/xml et test/plain
 * [Création de définitions de flux de travail](app-service-logic-author-definitions.md)
 * [Référence sur le langage de définition de flux de travail](http://aka.ms/logicappsdocs)
 
@@ -74,6 +74,6 @@ Nous continuerons à ajouter des exemples et des scénarios dans ce document. Ut
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

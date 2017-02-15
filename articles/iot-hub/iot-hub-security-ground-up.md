@@ -41,6 +41,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

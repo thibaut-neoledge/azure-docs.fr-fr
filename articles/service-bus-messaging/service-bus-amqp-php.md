@@ -1,25 +1,29 @@
 ---
-title: Service Bus et PHP avec AMQP 1.0 | Microsoft Docs
-description: Utilisation de Service Bus à partir de PHP avec AMQP.
-services: service-bus
+title: "Service Bus et PHP avec AMQP 1.0 | Microsoft Docs"
+description: "Utilisation de Service Bus à partir de PHP avec AMQP."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: dfb26c2b-41d3-4ed6-936b-b8d2f1dbd470
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 122865f056d6bd7fc8c75665d29753542a83405c
+
 
 ---
-# <a name="using-service-bus-from-php-with-amqp-1.0"></a>Utilisation de Service Bus à partir de PHP avec AMQP 1.0
+# <a name="using-service-bus-from-php-with-amqp-10"></a>Utilisation de Service Bus à partir de PHP avec AMQP 1.0
 [!INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
-Proton-PHP est une liaison de langage PHP à Proton-C. En d’autres termes, Proton-PHP est implémenté comme un wrapper autour d’un moteur implémenté en C.
+Proton-PHP est une liaison de langage PHP à Proton-C. En d’autres termes, Proton-PHP est implémenté comme un wrapper autour d’un moteur implémenté en C.
 
 ## <a name="downloading-the-proton-client-library"></a>Téléchargement d’une bibliothèque cliente Proton
 Vous pouvez télécharger Proton-C et les liaisons associées (y compris PHP) à partir de [http://qpid.apache.org/download.html](http://qpid.apache.org/download.html). Le téléchargement est sous forme de code source. Pour générer le code, suivez les instructions contenues dans le package téléchargé.
@@ -29,7 +33,7 @@ Vous pouvez télécharger Proton-C et les liaisons associées (y compris PHP) à
 > 
 > 
 
-## <a name="working-with-service-bus-queues,-topics,-and-subscriptions-from-php"></a>Utilisation des files d’attente, rubriques et abonnements Service Bus depuis PHP
+## <a name="working-with-service-bus-queues-topics-and-subscriptions-from-php"></a>Utilisation des files d’attente, rubriques et abonnements Service Bus depuis PHP
 Le code suivant montre comment envoyer et recevoir des messages à partir d’une entité de messagerie Service Bus.
 
 ### <a name="sending-messages-using-proton-php"></a>Envoi de messages à l’aide de Proton-PHP
@@ -65,10 +69,10 @@ if($messenger->incoming())
 $messenger->stop();
 ```
 
-## <a name="messaging-between-.net-and-proton-php"></a>Messagerie entre .NET et Proton-PHP
+## <a name="messaging-between-net-and-proton-php"></a>Messagerie entre .NET et Proton-PHP
 ### <a name="application-properties"></a>Propriétés de l’application
-#### <a name="protonphp-to-service-bus-.net-apis"></a>API .NET Proton-PHP à Service Bus
-Les messages Proton-PHP prennent en charge les propriétés d’application de types suivants : **integer**, **double**, **Boolean**, **string** et **object**. Le code PHP suivant montre comment définir les propriétés d’un message à l’aide de chacun de ces types de propriété.
+#### <a name="protonphp-to-service-bus-net-apis"></a>API .NET Proton-PHP à Service Bus
+Les messages Proton-PHP prennent en charge les propriétés d’application de types suivants : **integer**, **double**, **Boolean**, **string** et **object**. Le code PHP suivant montre comment définir les propriétés d’un message à l’aide de chacun de ces types de propriété.
 
 ```
 $message->properties["TestInt"] = 1;    
@@ -110,8 +114,8 @@ Le tableau suivant mappe les types de propriétés PHP sur les types de proprié
 | string |string |
 | objet |Object |
 
-#### <a name="service-bus-.net-apis-to-php"></a>API .NET Service Bus à PHP
-Le type [BrokeredMessage][BrokeredMessage] prend en charge les propriétés d’application de types suivants : **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset** et **TimeSpan**. Le code .NET suivant montre comment définir les propriétés d’un objet [BrokeredMessage][BrokeredMessage] à l’aide de chacun de ces types de propriété.
+#### <a name="service-bus-net-apis-to-php"></a>API .NET Service Bus à PHP
+Le type [BrokeredMessage][BrokeredMessage] prend en charge les propriétés d’application de types suivants : **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset** et **TimeSpan**. Le code .NET suivant montre comment définir les propriétés d’un objet [BrokeredMessage][BrokeredMessage] à l’aide de chacun de ces types de propriétés.
 
 ```
 message.Properties["TestByte"] = (byte)128;
@@ -196,7 +200,7 @@ Les tables suivantes montrent le mappage entre les propriétés de message stand
 | reply\_to\_group\_id |Message.ReplyToSessionId |- |
 | Format |n/a |- |
 
-#### <a name="service-bus-.net-apis-to-proton-php"></a>API .NET Service Bus à Proton-PHP
+#### <a name="service-bus-net-apis-to-proton-php"></a>API .NET Service Bus à Proton-PHP
 | .NET Service Bus | Proton-PHP | Remarques |
 | --- | --- | --- |
 | ContentType |Message-\>content\_type |- |
@@ -212,17 +216,17 @@ Les tables suivantes montrent le mappage entre les propriétés de message stand
 | À |Message-\>address |- |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Prêt à en savoir plus ? Visitez les liens suivants :
+Prêt à en savoir plus ? Visitez les liens suivants :
 
-* [Vue d’ensemble d’AMQP de Service Bus]
-* [AMQP dans Service Bus pour Windows Server]
+* [Vue d’ensemble du protocole AMQP de Service Bus]
+* [AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server]
 
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
-[AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
-[Vue d’ensemble d’AMQP de Service Bus]: service-bus-amqp-overview.md
+[AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+[Vue d’ensemble du protocole AMQP de Service Bus]: service-bus-amqp-overview.md
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

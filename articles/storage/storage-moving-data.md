@@ -1,19 +1,23 @@
 ---
-title: Déplacer des données vers et à partir d’Azure Storage | Microsoft Docs
-description: Cet article fournit une vue d’ensemble des différentes méthodes de déplacement des données vers et à partir d’Azure Storage.
+title: "Transfert de données vers et à partir d’Azure Storage | Microsoft Docs"
+description: "Cet article fournit une vue d’ensemble des différentes méthodes de déplacement des données vers et à partir d’Azure Storage."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: micurd
 manager: jahogg
 editor: tysonn
-
+ms.assetid: 5e3947a9-d99b-4108-9d57-3eb67c03e7ba
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 11/18/2016
 ms.author: micurd
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 26dc2d2269855bcb31bc8f6faf2277ac059b81f5
+
 
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Transfert de données vers et à partir d’Azure Storage
@@ -28,7 +32,7 @@ Consultez [Prise en main d’Azure Blob Storage](storage-dotnet-how-to-use-blobs
 
 En outre, nous proposons la [bibliothèque de déplacement des données Azure Storage](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement) , une bibliothèque conçue pour la copie de données hautes performances vers et depuis Azure. Veuillez vous reporter à la [documentation](https://github.com/Azure/azure-storage-net-data-movement) de la bibliothèque de déplacement des données pour en savoir plus. 
 
-## <a name="quickly-viewing/interacting-with-your-data"></a>Affichage/utilisation rapide de vos données
+## <a name="quickly-viewinginteracting-with-your-data"></a>Affichage/utilisation rapide de vos données
 Si vous cherchez un moyen simple d’afficher vos données Azure Storage tout en ayant la possibilité de charger et télécharger vos données, utilisez un Explorateur de stockage Azure.
 
 Consultez notre liste d’ [Explorateurs du stockage Azure](storage-explorers.md) pour en savoir plus.
@@ -41,7 +45,7 @@ AzCopy est un utilitaire de ligne de commande Windows conçu pour la copie de do
 
 Consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md) pour en savoir plus.
 
-### <a name="azure-powershell"></a>Azure PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 Le module Azure PowerShell fournit des applets de commande pour la gestion des services sur Azure. Il s’agit d’un interpréteur en ligne de commande basé sur les tâches et d’un langage de génération de scripts conçu spécialement pour l’administration de systèmes.
 
 Consultez [Utilisation d’Azure PowerShell avec Azure Storage](storage-powershell-guide-full.md) pour en savoir plus.
@@ -71,6 +75,9 @@ Quand vous disposez d’applications et de charges de travail locales, vous avez
 
 Consultez [Azure Site Recovery](../site-recovery/site-recovery-overview.md) pour en savoir plus.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Scripts personnalisés sur des machines virtuelles Linux | Microsoft Docs
-description: Automatiser les tâches de configuration de machine virtuelle Linux à l’aide de l’extension de script personnalisé
+title: "Scripts personnalisés sur des machines virtuelles Linux | Microsoft Docs"
+description: "Automatiser les tâches de configuration de machine virtuelle Linux à l’aide de l’extension de script personnalisé"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: cf17ab2b-8d7e-4078-b6df-955c6d5071c2
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,36 +15,40 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/22/2016
 ms.author: nepeters
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: bf6c1423ca2f88d7a881c87cf1e7d42302c33a9c
+
 
 ---
-# Utilisation de l’extension de script personnalisé Azure avec des machines virtuelles Linux
+# <a name="using-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Utilisation de l’extension de script personnalisé Azure avec des machines virtuelles Linux
 L’extension de script personnalisé télécharge et exécute des scripts sur des machines virtuelles Azure. Cette extension est utile pour la configuration post-déploiement, l’installation de logiciels ou toute autre tâche de configuration ou de gestion. Des scripts peuvent être téléchargés à partir de Stockage Azure ou de tout autre emplacement Internet accessible, ou fournis lors de l’exécution de l’extension. L’extension de script personnalisé s’intègre aux modèles Azure Resource Manager et peut être exécutée à l’aide de l’interface de ligne de commande Azure, de PowerShell, du portail Azure ou de l’API REST de machine virtuelle Azure.
 
 Ce document explique en détail comment utiliser l’extension de script personnalisé de l’interface de ligne de commande Azure et un modèle Azure Resource Manager, et détaille également les étapes de résolution de problèmes sur les systèmes Linux.
 
-## Configuration de l’extension
+## <a name="extension-configuration"></a>Configuration de l’extension
 La configuration de l’extension de script personnalisé spécifie des éléments tels que l’emplacement du script et la commande à exécuter. Cette configuration peut être stockée dans des fichiers de configuration ou spécifiée sur la ligne de commande ou dans un modèle Azure Resource Manager. Les données sensibles peuvent être stockées dans une configuration protégée qui est chiffrée et déchiffrée uniquement à l’intérieur de la machine virtuelle. La configuration protégée est utile lorsque la commande d’exécution comprend des secrets tels qu’un mot de passe.
 
-### Configuration publique
-Schéma :
+### <a name="public-configuration"></a>Configuration publique
+Schéma :
 
-* **commandToExecute** : (obligatoire, chaîne) script de point d’entrée à exécuter
-* **fileUris** : (facultatif, tableau de chaînes) URL des fichiers à télécharger.
+* **commandToExecute**: (obligatoire, chaîne) script de point d’entrée à exécuter
+* **fileUris**: (facultatif, tableau de chaînes) URL des fichiers à télécharger.
 * **timestamp** : (facultatif, entier) utilisez ce champ uniquement pour déclencher la réexécution du script en modifiant la valeur de ce champ.
 
-```none
+```json
 {
   "fileUris": ["<url>"],
   "commandToExecute": "<command-to-execute>"
 }
 ```
 
-### Configuration protégée
-Schéma :
+### <a name="protected-configuration"></a>Configuration protégée
+Schéma :
 
-* **commandToExecute** : (facultatif, chaîne) script de point d’entrée à exécuter. Utilisez plutôt ce champ si votre commande contient des secrets tels que des mots de passe.
-* **storageAccountName** : (facultatif, chaîne) nom du compte de stockage. Si vous spécifiez des informations d’identification de stockage, tous les fileUris doivent être des URL pour les objets blob Azure.
-* **storageAccountKey** : (facultatif, chaîne) clé d’accès du compte de stockage.
+* **commandToExecute**: (facultatif, chaîne) script de point d’entrée à exécuter. Utilisez plutôt ce champ si votre commande contient des secrets tels que des mots de passe.
+* **storageAccountName**: (facultatif, chaîne) nom du compte de stockage. Si vous spécifiez des informations d’identification de stockage, tous les fileUris doivent être des URL pour les objets blob Azure.
+* **storageAccountKey**: (facultatif, chaîne) clé d’accès du compte de stockage.
 
 ```json
 {
@@ -54,21 +58,24 @@ Schéma :
 }
 ```
 
-## Interface de ligne de commande Azure
+## <a name="azure-cli"></a>Interface de ligne de commande Azure
 Lorsque vous utilisez l’interface de ligne de commande Azure pour exécuter l’extension de script personnalisé, créez un ou plusieurs fichiers de configuration contenant au minimum l’URI du fichier et la commande d’exécution de script.
 
-```none
-azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /scirpt-config.json
+```azurecli
+azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
+  --auto-upgrade-minor-version --public-config-path /script-config.json
 ```
 
 Éventuellement, la commande peut être exécutée à l’aide de l’option `--public-config` et `--private-config`, qui permet de spécifier la configuration lors de l’exécution et sans fichier de configuration distinct.
 
-```none
-azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
+```azurecli
+azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
+  --auto-upgrade-minor-version \
+  --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
-### Exemples d’interface de ligne de commande Azure
-**Exemple 1** : configuration publique avec fichier de script.
+### <a name="azure-cli-examples"></a>Exemples d’interface de ligne de commande Azure
+**Exemple 1** : configuration publique avec fichier de script.
 
 ```json
 {
@@ -77,13 +84,14 @@ azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.E
 }
 ```
 
-Commande d’interface de ligne de commande Azure :
+Commande d’interface de ligne de commande Azure :
 
-```none
-azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /public.json
+```azurecli
+azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
+  --auto-upgrade-minor-version --public-config-path /public.json
 ```
 
-**Exemple 2** : configuration publique sans fichier de script.
+**Exemple 2** : configuration publique sans fichier de script.
 
 ```json
 {
@@ -91,15 +99,16 @@ azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.E
 }
 ```
 
-Commande d’interface de ligne de commande Azure :
+Commande d’interface de ligne de commande Azure :
 
-```none
-azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /public.json
+```azurecli
+azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
+  --auto-upgrade-minor-version --public-config-path /public.json
 ```
 
-**Exemple 3** : un fichier de configuration publique est utilisé pour spécifier l’URI du fichier de script et un fichier de configuration protégée est utilisé pour spécifier la commande à exécuter.
+**Exemple 3** : un fichier de configuration publique est utilisé pour spécifier l’URI du fichier de script et un fichier de configuration protégée est utilisé pour spécifier la commande à exécuter.
 
-Fichier de configuration publique :
+Fichier de configuration publique :
 
 ```json
 {
@@ -107,7 +116,7 @@ Fichier de configuration publique :
 }
 ```
 
-Fichier de configuration protégée :
+Fichier de configuration protégée :  
 
 ```json
 {
@@ -115,17 +124,18 @@ Fichier de configuration protégée :
 }
 ```
 
-Commande d’interface de ligne de commande Azure :
+Commande d’interface de ligne de commande Azure :
 
-```none
-azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path ./public.json --private-config-path ./protected.json
+```azurecli
+azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
+  --auto-upgrade-minor-version --public-config-path ./public.json --private-config-path ./protected.json
 ```
 
-## Modèle Resource Manager
+## <a name="resource-manager-template"></a>Modèle Resource Manager
 L’extension de script personnalisé Azure peut être exécutée au moment du déploiement de la machine virtuelle à l’aide d’un modèle Resource Manager. Pour ce faire, ajoutez un JSON correctement mis en forme au modèle de déploiement.
 
-### Exemples Resource Manager
-**Exemple 1** : configuration publique.
+### <a name="resource-manager-examples"></a>Exemples Resource Manager
+**Exemple 1** : configuration publique.
 
 ```json
 {
@@ -154,7 +164,7 @@ L’extension de script personnalisé Azure peut être exécutée au moment du d
 }
 ```
 
-**Exemple 2** : commande d’exécution dans une configuration protégée.
+**Exemple 2** : commande d’exécution dans une configuration protégée.
 
 ```json
 {
@@ -185,30 +195,30 @@ L’extension de script personnalisé Azure peut être exécutée au moment du d
 }
 ```
 
-Pour obtenir un exemple complet, consultez la démonstration .NET Core du Store musique : [démonstration du Store musique](https://github.com/neilpeterson/nepeters-azure-templates/tree/master/dotnet-core-music-linux-vm-sql-db).
+Pour obtenir un exemple complet, consultez la démonstration .NET Core du Store musique : [démonstration du Store musique](https://github.com/neilpeterson/nepeters-azure-templates/tree/master/dotnet-core-music-linux-vm-sql-db).
 
-## Résolution de problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 Lors de l’exécution de l’extension de script personnalisé, le script est créé ou téléchargé dans un répertoire similaire à l’exemple suivant. La sortie de commande est également enregistrée dans ce répertoire, dans les fichiers `stdout` et `stderr`.
 
-```none
-/var/lib/azure/custom-script/download/0/
+```bash
+/var/lib/waagent/custom-script/download/0/
 ```
 
 L’extension de script Azure génère un journal qui se trouve ici.
 
-```none
+```bash
 /var/log/azure/customscript/handler.log
 ```
 
 L’état d’exécution de l’extension de script personnalisé peut également être récupéré avec l’interface de ligne de commande Azure.
 
-```none
-azure vm extension get <resource-group> <vm-name>
+```azurecli
+azure vm extension get myResourceGroup myVM
 ```
 
-La sortie ressemble au texte suivant :
+La sortie ressemble au texte suivant :
 
-```none
+```azurecli
 info:    Executing command vm extension get
 + Looking up the VM "scripttst001"
 data:    Publisher                   Name                                      Version  State
@@ -218,7 +228,12 @@ data:    Microsoft.OSTCExtensions    Microsoft.Insights.VMDiagnosticsSettings  2
 info:    vm extension get command OK
 ```
 
-## Étapes suivantes
-Pour plus d’informations sur les autres extensions de script de machine virtuelle, consultez [Vue d’ensemble de l’extension de script Azure pour Linux](virtual-machines-linux-extensions-features.md).
+## <a name="next-steps"></a>Étapes suivantes
+Pour plus d’informations sur les autres extensions de script de machine virtuelle, consultez [Vue d’ensemble de l’extension de script Azure pour Linux](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

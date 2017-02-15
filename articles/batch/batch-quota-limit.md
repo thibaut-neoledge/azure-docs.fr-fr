@@ -3,7 +3,7 @@ title: Quotas et limites du service Batch | Microsoft Docs
 description: "En savoir plus sur les contraintes, les limites et les quotas par défaut d’Azure Batch, et comment demander une augmentation de quota"
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
@@ -12,11 +12,11 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2016
-ms.author: marsma
+ms.date: 01/05/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3433ce8b664fb02c5c267ea4b21e678fdc1accfe
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 1a530bf6e9afca9a7cdc1f68e8eefdbf077dc516
 
 
 ---
@@ -93,7 +93,7 @@ Une fois que vous avez envoyé votre demande de support, le support Azure vous c
 ## <a name="related-topics"></a>Rubriques connexes
 * [Création et gestion d’un compte Azure Batch dans le portail Azure](batch-account-create-portal.md)
 * [Vue d'ensemble des fonctionnalités d'Azure Batch](batch-api-basics.md)
-* [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md)
+* [Abonnement Azure et limites, quotas et contraintes de service](../azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
@@ -103,6 +103,6 @@ Une fois que vous avez envoyé votre demande de support, le support Azure vous c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

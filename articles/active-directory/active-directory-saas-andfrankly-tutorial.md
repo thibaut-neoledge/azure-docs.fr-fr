@@ -245,6 +245,6 @@ Le fait de cliquer sur la vignette &frankly dans le volet d’accès vous connec
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Déployer le service StorSimple Manager | Microsoft Docs
-description: Explique comment créer et supprimer le service StorSimple Manager dans le portail Azure Classic et décrit comment gérer la clé d’inscription du service.
+title: "Déployer le service StorSimple Manager | Microsoft Docs"
+description: "Explique comment créer et supprimer le service StorSimple Manager dans le portail Azure Classic et décrit comment gérer la clé d’inscription du service."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: SharS
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: bc1d5650-275c-42ed-bc77-cdb596f85943
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,20 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2016
 ms.author: v-sharos
+translationtype: Human Translation
+ms.sourcegitcommit: 9cf39b922e51dd60b5b2c51cb7030436c60232a5
+ms.openlocfilehash: 51c414bacb825dd51bcd76a06e1f9e0f0c001b93
+
 
 ---
-# Déployer le service StorSimple Manager
-## Vue d’ensemble
-Le service StorSimple Manager s’exécute dans Microsoft Azure et se connecte à plusieurs appareils StorSimple. Après avoir créé le service, vous pouvez l’utiliser pour gérer les appareils à partir du portail Microsoft Azure Classic s’exécutant dans un navigateur. Vous pouvez ainsi surveiller tous les appareils qui sont connectés au service StorSimple Manager à partir d’un emplacement central et unique, ce qui réduit la charge administrative.
+# <a name="deploy-the-storsimple-manager-service"></a>Déployer le service StorSimple Manager
+## <a name="overview"></a>Vue d’ensemble
+Le service StorSimple Manager s’exécute dans Microsoft Azure et se connecte à plusieurs appareils StorSimple. Après avoir créé le service, vous pouvez l’utiliser pour gérer les appareils à partir du portail Microsoft Azure Classic s’exécutant dans un navigateur. Vous pouvez ainsi surveiller tous les appareils qui sont connectés au service StorSimple Manager à partir d’un emplacement central et unique, ce qui réduit la charge administrative.
 
-La page d’accueil StorSimple Manager répertorie tous les services StorSimple Manager que vous pouvez utiliser pour gérer vos dispositifs de stockage StorSimple. Pour chaque service StorSimple Manager, les informations suivantes s’affichent sur la page StorSimple Manager :
+La page d’accueil StorSimple Manager répertorie tous les services StorSimple Manager que vous pouvez utiliser pour gérer vos dispositifs de stockage StorSimple. Pour chaque service StorSimple Manager, les informations suivantes s’affichent sur la page StorSimple Manager :
 
 * **Nom** : le nom affecté à votre service StorSimple Manager lors de sa création. Impossible de modifier le nom du service une fois que le service a été créé.
-* **État** : l’état du service, qui peut être **Actif**, **Création en cours** ou **En ligne**.
+* **État** : l’état du service, qui peut être **Actif**, **Création en cours** ou **En ligne**.
 * **Emplacement** : l’emplacement géographique sur lequel l’appareil StorSimple sera déployé.
 * **Abonnement** : l’abonnement de facturation associé à votre service.
 
-Les tâches courantes qui peuvent être effectuées via la page StorSimple Manager sont les suivantes :
+Les tâches courantes qui peuvent être effectuées via la page StorSimple Manager sont les suivantes :
 
 * Créer un service
 * Supprimer un service
@@ -36,8 +40,8 @@ Les tâches courantes qui peuvent être effectuées via la page StorSimple Manag
 
 Le didacticiel explique comment effectuer chacune de ces tâches.
 
-## Créer un service
-Utilisez l’option **Création rapide** pour créer un service StorSimple Manager si vous souhaitez déployer votre appareil StorSimple. Pour créer un service, vous avez besoin des éléments suivants :
+## <a name="create-a-service"></a>Créer un service
+Utilisez l’option **Création rapide** pour créer un service StorSimple Manager si vous souhaitez déployer votre appareil StorSimple. Pour créer un service, vous avez besoin des éléments suivants :
 
 * Un abonnement avec un contrat Entreprise
 * Un compte de stockage Microsoft Azure actif
@@ -51,20 +55,20 @@ Procédez comme suit pour créer un service.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
 
-## Supprimer un service
+## <a name="delete-a-service"></a>Supprimer un service
 Avant de supprimer un service, assurez-vous qu’aucun appareil connecté ne l’utilise. Si le service est en cours d’utilisation, désactivez les appareils connectés. L’opération de désactivation rompt la connexion entre l’appareil et le service, mais conserve les données de l’appareil dans le cloud.
 
 [AZURE.IMPORTANT] Après qu’un service a été supprimé, l’opération ne peut pas être annulée. Un appareil qui utilisait le service doit être réinitialisé aux paramètres d’usine avant de pouvoir être utilisé avec un autre service. Dans ce scénario, les données locales de l’appareil, ainsi que la configuration, seront perdues.
 
 Pour supprimer un service, procédez comme suit.
 
-### Pour supprimer un service
-1. Dans la page **Service StorSimple Manager**, sélectionnez le service que vous souhaitez supprimer.
+### <a name="to-delete-a-service"></a>Pour supprimer un service
+1. Dans la page **Service StorSimple Manager** , sélectionnez le service que vous souhaitez supprimer.
 2. Cliquez sur **Supprimer** en bas de la page.
 3. Cliquez sur **Oui** dans la notification de confirmation. La suppression du service peut nécessiter quelques minutes.
 
-## Obtenir la clé d’inscription du service
-Une fois que vous avez créé un service, vous devez inscrire votre appareil StorSimple auprès du service. Pour inscrire votre premier appareil StorSimple, vous avez besoin de la clé d’inscription du service. Pour inscrire des appareils supplémentaires avec un service StorSimple existant, vous avez besoin de la clé d’inscription et de la clé de chiffrement des données du service (générée sur le premier appareil lors de l’inscription). Pour plus d’informations sur la clé de chiffrement des données du service, consultez la rubrique [Sécurité StorSimple](storsimple-security.md). Vous pouvez obtenir la clé d’inscription en accédant à **Clé d’inscription** dans la page **Services**.
+## <a name="get-the-service-registration-key"></a>Obtenir la clé d’inscription du service
+Une fois que vous avez créé un service, vous devez inscrire votre appareil StorSimple auprès du service. Pour inscrire votre premier appareil StorSimple, vous avez besoin de la clé d’inscription du service. Pour inscrire des appareils supplémentaires avec un service StorSimple existant, vous avez besoin de la clé d’inscription et de la clé de chiffrement des données du service (générée sur le premier appareil lors de l’inscription). Pour plus d’informations sur la clé de chiffrement des données du service, consultez la rubrique [Sécurité StorSimple](storsimple-security.md). Vous pouvez obtenir la clé d’inscription en accédant à **Clé d’inscription** on the **Services** .
 
 Procédez comme suit pour obtenir la clé d’inscription du service.
 
@@ -72,24 +76,28 @@ Procédez comme suit pour obtenir la clé d’inscription du service.
 
 Conservez la clé d’inscription du service dans un emplacement sûr. Vous aurez besoin de cette clé, ainsi que de la clé de chiffrement des données du service, pour enregistrer des appareils supplémentaires auprès du service. Après avoir obtenu la clé d’inscription du service, vous devez configurer votre appareil via l’interface Windows PowerShell pour StorSimple.
 
-Pour plus d’informations sur l’utilisation de la clé d’inscription, consultez [Étape 3 : configure et inscrire l’appareil via Windows PowerShell pour StorSimple](storsimple-deployment-walkthrough.md#step-2-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+Pour plus d’informations sur l’utilisation de la clé d’inscription, consultez [Étape 3 : configure et inscrire l’appareil via Windows PowerShell pour StorSimple](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
-## Régénérer la clé d’inscription du service
+## <a name="regenerate-the-service-registration-key"></a>Régénérer la clé d’inscription du service
 Vous devez régénérer une clé d’inscription du service si vous êtes amené à effectuer une rotation des clés ou si la liste des administrateurs du service a changé. Lorsque vous régénérez la clé, la nouvelle clé est utilisée uniquement pour l’enregistrement des appareils suivants. Les appareils déjà enregistrés ne sont pas affectés par ce processus.
 
 Procédez comme suit pour régénérer une clé d’inscription du service.
 
-### Pour régénérer la clé d’inscription du service
+### <a name="to-regenerate-the-service-registration-key"></a>Pour régénérer la clé d’inscription du service
 1. Dans la page **Service StorSimple Manager**, cliquez sur **Clé d’inscription**.
 2. Dans la boîte de dialogue **Clé d’inscription du service**, cliquez sur **Régénérer**.
 3. Un message de confirmation s’affiche. Cliquez sur **OK** pour poursuivre la régénération.
 4. Une nouvelle clé d’inscription du service s’affiche.
 5. Copiez cette clé et sauvegardez-la pour enregistrer tout nouvel appareil auprès de ce service.
-6. Cliquez sur l’icône de coche ![Icône en forme de coche](./media/storsimple-manage-service/HCS_CheckIcon.png) pour fermer cette boîte de dialogue.
+6. Cliquez sur l’icône de coche  ![Icône en forme de coche](./media/storsimple-manage-service/HCS_CheckIcon.png)  pour fermer cette boîte de dialogue.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur le [processus de déploiement StorSimple](storsimple-deployment-walkthrough.md).
 * En savoir plus sur la [gestion de votre compte de stockage StorSimple](storsimple-manage-storage-accounts.md).
 * En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

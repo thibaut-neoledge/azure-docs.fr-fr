@@ -1,12 +1,12 @@
 ---
-title: Présentation des rapports de paiement Azure Marketplace | Microsoft Docs
-description: Découvrez comment examiner et recevoir le rapport de paiement Azure Marketplace.
+title: "Présentation des rapports de paiement Azure Marketplace | Microsoft Docs"
+description: "Découvrez comment examiner et recevoir le rapport de paiement Azure Marketplace."
 services: marketplace-publishing
 documentationcenter: na
 author: v-jeana
 manager: lakoch
-editor: ''
-
+editor: 
+ms.assetid: 3e99aefe-abeb-414c-8689-15352d25aefd
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2016
 ms.author: v-jeana; hascipio; v-dabosl
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 76aa5a1d8023b108b4d7bee1dcf1386e14809df9
+
 
 ---
-# Présentation de vos rapports de paiement Azure Marketplace
-## Accéder à vos rapports de paiements et les consulter
-Lors de la transition vers le Centre de développement, certains de vos rapports de paiements peuvent être disponibles dans le Centre de développement sous https://dev.windows.com/fr-FR, alors que d’autres peuvent toujours se trouver sur le Portail de publication sous https://publish.windowsazure.com.
+# <a name="understand-your-azure-marketplace-payout-reports"></a>Présentation de vos rapports de paiement Azure Marketplace
+## <a name="access-and-view-your-payout-reports"></a>Accéder à vos rapports de paiements et les consulter
+Lors de la transition vers le Centre de développement, certains de vos rapports de paiement peuvent être disponibles dans le Centre de développement sous https://dev.windows.com/fr-fr, alors que d’autres peuvent toujours se trouver sur le portail de publication sous https://publish.windowsazure.com.
 
-Le rapport Revenus sera alors disponible dans le **Centre de développement** pour les offres du Marketplace qui sont associées à des paiements modernes. Cela inclut actuellement :
+Le rapport Revenus est alors disponible dans le **Centre de développement** pour les offres du Marketplace qui sont associées à des paiements modernes. Cela inclut actuellement :
 
 * Machines virtuelles
 * Offres B+C
@@ -32,19 +36,19 @@ Le rapport Revenus sera toujours dans le **Portail de publication** pour :
 
 Les rapports sont disponibles pendant 45 jours après la fin du trimestre et sont calculés après tout remboursement.
 
-### Accéder aux rapports de paiement dans le Centre de développement
-1. Accédez au Centre de développement à l’adresse https://dev.windows.com/fr-FR.
-2. Cliquez sur **Dashboard**.
+### <a name="access-payout-reports-in-dev-center"></a>Accéder aux rapports de paiement dans le Centre de développement
+1. Accédez au Centre de développement à l’adresse https://dev.windows.com/fr-fr.
+2. Cliquez sur **Tableau de bord**.
    
     ![LandingPageDashboardHighlight][1]
 3. Cliquez sur **Synthèse des paiements**.
    
     ![DashboardPayoutSummary][2]
 
-## Consulter vos rapports de paiements dans le Centre de développement
+## <a name="view-your-payout-reports-in-dev-center"></a>Consulter vos rapports de paiements dans le Centre de développement
 Le rapport de paiement pour chaque trimestre enregistre toutes les transactions effectuées au cours de ce trimestre.
 
-* La quantité réservée indique tous les paiements cumulés en dehors du cycle de paiement à venir (par exemple, cette quantité est déplacée sur le paiement à venir du mois suivant). Ce montant est généralement de 0 $ (sauf si un client paie à l’avance).
+* La quantité réservée indique tous les paiements cumulés en dehors du cycle de paiement à venir (par exemple, cette quantité est déplacée sur le paiement à venir du mois suivant).  Ce montant est généralement de 0 $ (sauf si un client paie à l’avance).
 * Cliquez sur le lien **Afficher les détails** du paiement à venir ou du paiement le plus récent pour voir les notes concernant ces paiements.
 * Cliquez sur **Relevés de paiement** pour afficher les détails sous les revenus des ventes par application/produit.
 * Cliquez sur le lien **Afficher** pour afficher les relevés individuels.
@@ -54,25 +58,26 @@ Le rapport de paiement pour chaque trimestre enregistre toutes les transactions 
   
     ![PayoutSummaryPaymentStatementsFilterControl][4]
 
-## Afficher vos rapports de paiement dans le portail de publication
+## <a name="view-your-payout-reports-in-publishing-portal"></a>Afficher vos rapports de paiement dans le portail de publication
 Le rapport de paiement pour chaque trimestre enregistre toutes les transactions effectuées au cours de ce trimestre.
 
-1. Accédez au portail de publication à l'adresse https://publish.windowsazure.com.
-2. Dans la section **Publishers**, cliquez sur **Payout Reports**.
+1. Accédez au portail de publication à l’adresse https://publish.windowsazure.com.
+2. Dans la section **Publishers** (Éditeurs), cliquez sur **Payout Reports** (Rapports de paiement).
 3. Un clic sur la liste déroulante affiche tous les rapports de paiement trimestriels disponibles
    
     ![accessingpayoutreport][5]
 
-### Lire vos rapports de paiement
+### <a name="read-your-payout-reports"></a>Lire vos rapports de paiement
 Le rapport de paiement pour chaque trimestre enregistre toutes les transactions effectuées au cours de ce trimestre.
 
-* Si vous recherchez des écritures comptables se rapportant à un trimestre spécifique, sélectionnez le rapport de paiement pour ce trimestre dans la liste déroulante. Par exemple, si vous êtes intéressé par les écritures comptables d'avril à juin 2015, sélectionnez cette plage de dates dans la liste déroulante.
-* Si vous recherchez des détails de paiements se rapportant à un trimestre spécifique, sélectionnez le rapport de paiement pour le trimestre suivant. Par exemple, si vous êtes intéressé par les paiements d'avril à juin 2015, ces montants apparaîtront dans le rapport de paiement suivant, de juillet à septembre 2015. ![readingpayoutreport][6]
+* Si vous recherchez des écritures comptables se rapportant à un trimestre spécifique, sélectionnez le rapport de paiement pour ce trimestre dans la liste déroulante. Par exemple, si vous êtes intéressé par les écritures comptables d'avril à juin 2015, sélectionnez cette plage de dates dans la liste déroulante.
+* Si vous recherchez des détails de paiements se rapportant à un trimestre spécifique, sélectionnez le rapport de paiement pour le trimestre suivant. Par exemple, si vous êtes intéressé par les paiements d'avril à juin 2015, ces montants apparaîtront dans le rapport de paiement suivant, de juillet à septembre 2015.
+  ![readingpayoutreport][6]
 * Le volet de synthèse financière indique les soldes, crédits et débits par catégories.
 * Le volet des écritures comptables indique les transactions individuelles.
 
-## Définitions
-**Volet Financial Summary :**
+## <a name="definitions"></a>Définitions
+**Volet Financial Summary :**
 
 ![financialdefinitions][7]
 
@@ -80,7 +85,7 @@ Le rapport de paiement pour chaque trimestre enregistre toutes les transactions 
 
 ![ledgerdefinitions][8]
 
-## Questions sur les paiements
+## <a name="payout-questions"></a>Questions sur les paiements
 Si vous avez une question concernant vos paiements, contactez notre équipe de support.
 
 ![payoutquestions][9]
@@ -90,8 +95,8 @@ Si vous avez une question concernant vos paiements, contactez notre équipe de s
 3. Sélectionnez **Payout related inquiries**
 4. Cliquez sur **Start request**.
 
-## Étapes suivantes
-Pour les autres requêtes de support, soumettez une demande d’assistance à <https://portal.azure.com>.
+## <a name="next-steps"></a>Étapes suivantes
+Pour les autres requêtes de support, soumettez une demande d’assistance sur <https://portal.azure.com>.
 
 [1]: ./media/marketplace-publishing-report-payout/LandingPage-DashboardHighlight.png
 [2]: ./media/marketplace-publishing-report-payout/Dashboard-PayoutSummary.png
@@ -103,4 +108,8 @@ Pour les autres requêtes de support, soumettez une demande d’assistance à <h
 [8]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [9]: ./media/marketplace-publishing-report-payout/payoutquestions.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Vue d’ensemble du script de déploiement du projet de groupe de ressources Azure | Microsoft Docs
-description: Décrit le fonctionnement du script PowerShell dans le projet de déploiement du groupe de ressources Azure.
+title: "Vue d’ensemble du script de déploiement du projet de groupe de ressources Azure | Microsoft Docs"
+description: "Décrit le fonctionnement du script PowerShell dans le projet de déploiement du groupe de ressources Azure."
 services: visual-studio-online
 documentationcenter: na
 author: tfitzmac
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: fecfb74f-363f-4cc8-9743-36e5ddd879c0
 ms.service: azure-resource-manager
 ms.devlang: multiple
 ms.topic: article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2016
 ms.author: tomfitz
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 078c0116eb1b70dd8d15c49343dce91fbdd96944
+
 
 ---
-# Vue d’ensemble du script de déploiement du projet de groupe de ressources Azure
+# <a name="overview-of-the-azure-resource-group-project-deployment-script"></a>Vue d’ensemble du script de déploiement du projet de groupe de ressources Azure
 Les projets de déploiement de groupe de ressources Azure vous aident à effectuer une copie intermédiaire et à déployer des fichiers et d’autres artefacts sur Azure. Lorsque vous créez un projet de déploiement Azure Resource Manager dans Visual Studio, un script PowerShell nommé **Deploy-AzureResourceGroup.ps1** est ajouté au projet. Cette rubrique fournit des détails sur ce que fait ce script et sur la manière de l’exécuter à la fois au sein et en dehors de Visual Studio.
 
-## Que fait le script ?
+## <a name="what-does-the-script-do"></a>Que fait le script ?
 Le script Deploy-AzureResourceGroup.ps1 effectue deux opérations importantes pour le flux de travail de déploiement.
 
 * Charger tous les fichiers ou artefacts nécessaires au déploiement du modèle
@@ -29,7 +33,7 @@ La première partie du script charge les fichiers et artefacts pour le déploiem
 
 Étant donné que tous les déploiements de modèle n’ont pas besoin d’artefacts supplémentaires à charger, un paramètre booléen appelé *uploadArtifacts* est évalué. Si un artefact doit être chargé, définissez le paramètre booléen *uploadArtifacts* lors de l’appel du script. Notez que le fichier de modèle principal et le fichier de paramètres n’ont pas besoin d’être chargés. Seuls d’autres fichiers, tels que les scripts de configuration, les modèles de déploiement imbriqués et les fichiers d’application, doivent être chargés.
 
-## Description détaillée du script
+## <a name="detailed-script-description"></a>Description détaillée du script
 Voici une description des opérations permises par certaines sections du script Azure PowerShell Deploy-AzureResourceGroup.ps1.
 
 > [!NOTE]
@@ -57,7 +61,7 @@ Voici une description des opérations permises par certaines sections du script 
    
    | Paramètre | Description |
    | --- | --- |
-   | $ResourceGroupLocation |La région ou l’emplacement du centre de données du groupe de ressources, par exemple l’**Ouest des États-Unis** ou l’**Asie de l’Est**. |
+   | $ResourceGroupLocation |La région ou l’emplacement du centre de données du groupe de ressources, par exemple **l’Ouest des États-Unis** ou **l’Asie de l’Est**. |
    | $ResourceGroupName |Le nom du groupe de ressources Azure. |
    | $UploadArtifacts |Une valeur binaire qui indique si les artefacts doivent être chargés sur Azure à partir de votre système. |
    | $StorageAccountName |Le nom de votre compte de stockage Azure où vos artefacts sont chargés. |
@@ -68,10 +72,10 @@ Voici une description des opérations permises par certaines sections du script 
    | $ArtifactStagingDirectory |Le chemin d’accès sur votre système où les artefacts sont chargés localement, y compris le dossier racine du script PowerShell. Ce chemin d’accès peut être absolu ou relatif à l’emplacement du script. |
    | $AzCopyPath |Le chemin d’accès où l’outil AzCopy.exe copie ses fichiers .zip, y compris le dossier racine du script PowerShell. Ce chemin d’accès peut être absolu ou relatif à l’emplacement du script. |
    | $DSCSourceFolder |Le chemin d’accès vers le dossier source DSC (configuration d’état souhaité), y compris le dossier racine du script PowerShell. Ce chemin d’accès peut être absolu ou relatif à l’emplacement du script. Consultez la page [Présentation de l’extension Azure PowerShell DSC (configuration d’état souhaité)](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx), le cas échéant, pour plus d’informations. |
-2. Vérifiez si les artefacts doivent être chargés sur Azure. Si ce n’est pas le cas, passez à l’étape 11. S’ils doivent être chargés, procédez comme suit.
+2. Vérifiez si les artefacts doivent être chargés sur Azure. Si ce n’est pas le cas, passez à l’étape 11. S’ils doivent être chargés, procédez comme suit.
 3. Convertissez les variables avec des chemins d’accès relatifs en chemins d’accès absolus. Par exemple, modifiez un chemin d’accès tel que `..\Tools\AzCopy.exe` en `C:\YourFolder\Tools\AzCopy.exe`. En outre, initialisez les variables *ArtifactsLocationName* et *ArtifactsLocationSasTokenName* sur la valeur null. *ArtifactsLocation* et *SaSToken* peuvent être des paramètres pour le modèle. Si leurs valeurs sont null après lecture dans le fichier de paramètres, le script génère des valeurs à leur intention.
    
-   Les outils Azure utilisent les valeurs de paramètre *\_artifactsLocation* et *\_artifactsLocationSasToken* dans le modèle pour gérer les artefacts. Si le script PowerShell trouve des paramètres avec ces noms, mais que les valeurs de paramètre ne sont pas fournies, le script charge les artefacts et renvoie les valeurs appropriées pour ces paramètres. Ensuite, il les transmet à l’applet de commande via `@OptionsParameters`.
+   Les outils Azure utilisent les valeurs de paramètre *_artifactsLocation* et *_artifactsLocationSasToken* dans le modèle pour gérer les artefacts. Si le script PowerShell trouve des paramètres avec ces noms, mais que les valeurs de paramètre ne sont pas fournies, le script charge les artefacts et renvoie les valeurs appropriées pour ces paramètres. Ensuite, il les transmet à l’applet de commande via `@OptionsParameters`.
    
    | Variable | Description |
    | --- | --- |
@@ -91,7 +95,7 @@ Voici une description des opérations permises par certaines sections du script 
    $OptionalParameters.Add($ArtifactsLocationName, $null)
    $OptionalParameters.Add($ArtifactsLocationSasTokenName, $null)
    ```
-4. Cette section vérifie si le fichier <app name>.parameters.json (également appelé « Fichier de paramètres ») possède un nœud parent nommé **parameters** (dans le bloc `else`). Dans le cas contraire, il n’a pas de nœud parent. Les deux formats sont acceptables.
+4. Cette section vérifie si le fichier <app name>.parameters.json (également appelé « Fichier de paramètres ») possède un nœud parent nommé **parameters** (dans le bloc `else`). Dans le cas contraire, il n’a pas de nœud parent. Les deux formats sont acceptables.
    
    ```
    if ($JsonParameters -eq $null) {
@@ -101,7 +105,7 @@ Voici une description des opérations permises par certaines sections du script 
          $JsonParameters = $JsonContent.parameters
      }
    ```
-5. Effectuez une itération dans la collection de paramètres JSON. Si une valeur de paramètre a été affectée à *\_artifactsLocation* ou *\_artifactsLocationSasToken*, alors définissez la variable *$OptionalParameters* avec ces valeurs. Cela empêche le script de remplacer par inadvertance les valeurs de paramètre que vous fournissez.
+5. Effectuez une itération dans la collection de paramètres JSON. Si une valeur de paramètre a été affectée à *_artifactsLocation* ou *_artifactsLocationSasToken*, alors définissez la variable *$OptionalParameters* avec ces valeurs. Cela empêche le script de remplacer par inadvertance les valeurs de paramètre que vous fournissez.
    
    ```
    $JsonParameters | Get-Member -Type NoteProperty | ForEach-Object {
@@ -147,7 +151,7 @@ Voici une description des opérations permises par certaines sections du script 
    & $AzCopyPath """$ArtifactStagingDirectory""", $ArtifactsLocation, "/DestKey:$StorageAccountKey", "/S", "/Y", "/Z:$env:LocalAppData\Microsoft\Azure\AzCopy\$ResourceGroupName"
    if ($LASTEXITCODE -ne 0) { return }
    ```
-10. Si aucun jeton SAP pour l’emplacement des artefacts n’est fourni dans le fichier de paramètres, créez-en un pour fournir un accès en lecture seule temporaire pour le conteneur de stockage en ligne. Ensuite, transmettez ce jeton SAP à la ligne de commande en tant que paramètre facultatif, « optionalParameter ». Notez que tous les paramètres transmis à la ligne de commande sont prioritaires sur les valeurs fournies dans le fichier de paramètres.
+10. Si aucun jeton SAP pour l’emplacement des artefacts n’est fourni dans le fichier de paramètres, créez-en un pour fournir un accès en lecture seule temporaire pour le conteneur de stockage en ligne. Ensuite, transmettez ce jeton SAP à la ligne de commande en tant que paramètre facultatif, « optionalParameter ». Notez que tous les paramètres transmis à la ligne de commande sont prioritaires sur les valeurs fournies dans le fichier de paramètres.
     
     ```
     # Generate the value for artifacts location SAS token if it is not provided in the parameter file
@@ -178,12 +182,12 @@ Voici une description des opérations permises par certaines sections du script 
          -Force -Verbose
      ```
 
-## Déployer le groupe de ressources
-### Pour déployer le groupe de ressources dans Visual Studio
-1. Dans le menu contextuel du projet de groupe de ressources Azure, choisissez **Déployer** > **Nouveau déploiement**.
+## <a name="deploy-the-resource-group"></a>Déployer le groupe de ressources
+### <a name="to-deploy-the-resource-group-in-visual-studio"></a>Pour déployer le groupe de ressources dans Visual Studio
+1. Dans le menu contextuel du projet de groupe de ressources Azure, choisissez **Déployer** > **New Déployerment**.
    
     ![][0]
-2. Dans la boîte de dialogue **Déployer vers le groupe de ressources**, choisissez un groupe de ressources existant à déployer dans la liste déroulante ou choisissez **&lt;Créer…&gt;** pour créer un groupe de ressources.
+2. Dans la boîte de dialogue **Déployer vers le groupe de ressources**, choisissez un groupe de ressources existant à déployer dans la liste déroulante ou choisissez **&lt;Créer…&gt;**.  pour créer un groupe de ressources.
    
     ![][1]
 3. Si vous y êtes invité, entrez un nom et un emplacement pour le groupe de ressources dans la boîte de dialogue **Créer un groupe de ressources**, puis choisissez le bouton **Créer**.
@@ -203,25 +207,25 @@ Voici une description des opérations permises par certaines sections du script 
    
     Le script de déploiement (Deploy-AzureResourceGroup.ps1) s’exécute et votre modèle (ainsi que tous les artefacts) se déploie sur Azure.
 
-### Pour déployer le groupe de ressources à l’aide de PowerShell
+### <a name="to-deploy-the-resource-group-by-using-powershell"></a>Pour déployer le groupe de ressources à l’aide de PowerShell
 Si vous souhaitez exécuter le script sans utiliser les commandes et l’interface utilisateur de déploiement Visual Studio, dans le menu contextuel pour le script, choisissez **Ouvrir avec PowerShell ISE**.
 
 ![][5]
 
-## Exemples de déploiements de commandes
-### Déployer à l’aide des valeurs par défaut
+## <a name="command-deployment-examples"></a>Exemples de déploiements de commandes
+### <a name="deploy-using-default-values"></a>Déployer à l’aide des valeurs par défaut
 Cet exemple montre comment exécuter le script en utilisant les valeurs de paramètre par défaut. (Étant donné que le paramètre d’emplacement n’a pas de valeur par défaut, vous devez en fournir une.)
 
 `.\Deploy-AzureResourceGroup.ps1 -ResourceGroupLocation eastus`
 
-### Déployer en remplaçant les valeurs par défaut
+### <a name="deploy-overriding-the-default-values"></a>Déployer en remplaçant les valeurs par défaut
 Cet exemple montre comment exécuter le script pour déployer le modèle et les fichiers de paramètres qui diffèrent des valeurs par défaut.
 
 ```
 .\Deploy-AzureResourceGroup.ps1 -ResourceGroupLocation eastus –TemplateFile ..\templates\AnotherTemplate.json –TemplateParametersFile ..\templates\AnotherTemplate.parameters.json
 ```
 
-### Déployer à l’aide d’UploadArtifacts pour la copie intermédiaire
+### <a name="deploy-using-uploadartifacts-for-staging"></a>Déployer à l’aide d’UploadArtifacts pour la copie intermédiaire
 Cet exemple montre comment exécuter le script pour charger des artefacts à partir du dossier de version et déployer les modèles autres que par défaut.
 
 ```
@@ -234,10 +238,10 @@ Cet exemple montre comment exécuter le script dans une tâche Azure PowerShell 
 $(Build.StagingDirectory)/AzureResourceGroup1/Scripts/Deploy-AzureResourceGroup.ps1 -StorageAccountName 'mystorage' -StorageAccountResourceGroupName 'Default-Storage-EastUS' -ResourceGroupName 'myResourceGroup' -ResourceGroupLocation 'eastus' -TemplateFile '..\templates\windowsvirtualmachine.json' -TemplateParametersFile '..\templates\windowsvirtualmachine.parameters.json' -UploadArtifacts -ArtifactStagingDirectory $(Build.StagingDirectory)
 ```
 
-## Étapes suivantes
-En savoir plus sur Azure Resource Manager en consultant [Présentation d’Azure Resource Manager](resource-group-overview.md).
+## <a name="next-steps"></a>Étapes suivantes
+En savoir plus sur Azure Resource Manager en consultant [Présentation d’Azure Resource Manager](azure-resource-manager/resource-group-overview.md).
 
-Pour plus d’exemples d’utilisation de projets de groupe de ressources Azure, consultez [Deploy and manage Azure resources](https://github.com/Microsoft/HealthClinic.biz/wiki/Deploy-and-manage-Azure-resources) (Déployer et gérer des ressources Azure) à partir de la [démonstration](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect pour [HealthClinic.biz](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). Pour plus de démarrages rapides à partir de la démonstration pour HealthClinic.biz, consultez [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts) (Démarrages rapides avec les Outils de développement Azure).
+Pour plus d’exemples d’utilisation de projets de groupe de ressources Azure, consultez [Deploy and manage Azure resources](https://github.com/Microsoft/HealthClinic.biz/wiki/Deploy-and-manage-Azure-resources) (Déployer et gérer des ressources Azure) à partir de la [démonstration](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect pour [HealthClinic.biz](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). Pour d’autres démarrages rapides à partir de la démonstration pour HealthClinic.biz, consultez [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)(Démarrages rapides avec les outils de développement Azure).
 
 [0]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy1c.png
 [1]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy2bc.png
@@ -246,4 +250,8 @@ Pour plus d’exemples d’utilisation de projets de groupe de ressources Azure,
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

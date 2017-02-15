@@ -1,125 +1,175 @@
 ---
-title: Suivi des dépendances dans Application Insights
-description: Analysez l'utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Application Insights.
+title: "Suivi des dépendances dans Application Insights"
+description: "Analysez l&quot;utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Application Insights."
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
 manager: douge
-
+ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2016
+ms.date: 10/28/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: e2e81139152549eaa40d788c80cfdd2388b2d55d
+ms.openlocfilehash: 3b3a203ce261405ee7392561ffbc19c047c0d370
+
 
 ---
-# Configurer Application Insights : suivi des dépendances
-[!INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
-
-Un *dépendance* est un composant externe qui est appelé par votre application. Il s’agit habituellement d’un service appelé à l’aide de HTTP, d’une base de données ou d’un système de fichiers. Visual Studio Application Insights vous permet de voir facilement combien de temps votre application attend les dépendances et la fréquence à laquelle un appel de dépendance échoue.
+# <a name="set-up-application-insights-dependency-tracking"></a>Configurer Application Insights : suivi des dépendances
+Un *dépendance* est un composant externe qui est appelé par votre application. Il s’agit habituellement d’un service appelé à l’aide de HTTP, d’une base de données ou d’un système de fichiers. [Application Insights](app-insights-overview.md) mesure combien de temps votre application attend les dépendances et la fréquence à laquelle un appel de dépendance échoue. Vous pouvez examiner des appels spécifiques et les associer à des demandes et des exceptions.
 
 ![Exemples de graphiques](./media/app-insights-asp-net-dependencies/10-intro.png)
 
-Le moniteur de dépendance prêt à l’emploi signale les appels aux types de dépendances suivants :
+Le moniteur de dépendance prêt à l’emploi signale les appels aux types de dépendances suivants :
 
-* ASP.NET
+* Serveur
   * Bases de données SQL
   * Services web et WCF d’ASP.NET qui utilisent des liaisons HTTP
   * Appels HTTP locaux ou distants
   * Azure DocumentDb, table, stockage d’objets blob et file d’attente
-* Java
-  * Appels effectués vers une base de données par le biais d’un pilote [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), comme MySQL, SQL Server, PostgreSQL ou SQLite.
-* JavaScript dans les pages web : le [SDK de page web](app-insights-javascript.md) enregistre automatiquement les appels Ajax en tant que dépendances.
+* Pages web
+  * Appels AJAX
 
-Vous pouvez écrire vos propres appels de Kit de développement logiciel (SDK) pour surveiller d’autres dépendances à l’aide de l’[API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
+Vous pouvez écrire vos propres appels de SDK pour surveiller d’autres dépendances, à la fois dans le code client et serveur, à l’aide de l’[API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
 
-## Pour configurer la surveillance des dépendances
-Cette opération nécessite un abonnement [Microsoft Azure](http://azure.com).
+## <a name="set-up-dependency-monitoring"></a>Configurer la surveillance des dépendances
+Les informations sur les dépendances partielles sont collectées automatiquement par le [SDK Application Insights](app-insights-asp-net.md). Pour obtenir des données complètes, installez l’agent approprié pour le serveur hôte.
 
-### Si votre application s’exécute sur votre serveur IIS
-Si votre application web s’exécute sur .NET 4.6 ou une version ultérieure, vous pouvez [installer le Kit de développement logiciel (SDK) Application Insights](app-insights-asp-net.md) dans votre application ou installer Application Insights Status Monitor. Vous n’avez pas besoin des deux.
+| Plateforme | Installer |
+| --- | --- |
+| Serveur IIS |[Installez Status Monitor sur votre serveur](app-insights-monitor-performance-live-website-now.md) ou [mettez à niveau votre application avec .NET Framework version 4.6 ou ultérieure](http://go.microsoft.com/fwlink/?LinkId=528259) et installez le [SDK Application Insights](app-insights-asp-net.md) dans votre application. |
+| Application web Azure |Dans le panneau de configuration de votre application web, [ouvrez le panneau Application Insights](app-insights-azure-web-apps.md) et choisissez l’installation si vous y êtes invité. |
+| Service cloud Azure |[Utilisez une tâche de démarrage](app-insights-cloudservices.md) ou [installez le .NET Framework version 4.6 ou ultérieure](../cloud-services/cloud-services-dotnet-install-dotnet.md). |
 
-Sinon, installez Application Insights Status Monitor sur le serveur :
+## <a name="where-to-find-dependency-data"></a>Où trouver des données sur les dépendances
+* [Mise en correspondance d’applications](#application-map) visualise les dépendances entre votre application et les composants voisins.
+* [Les panneaux de performances, de navigateurs et d’échecs](#performance-and-blades) affichent les données sur les dépendances de serveur.
+* [Les panneaux de navigateurs](#ajax-calls) montrent les appels AJAX provenant des navigateurs de vos utilisateurs.
+* [Parcourez les requêtes lentes ou ayant échoué](#diagnose-slow-requests) pour vérifier leurs appels de dépendances.
+* Vous pouvez utiliser [Analytics](#analytics) pour interroger des données de dépendances.
 
-1. Sur votre serveur web IIS, connectez-vous avec vos informations d’identification d’administrateur.
-2. Téléchargez et exécutez le [programme d’installation Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
-3. Dans l'Assistant Installation, connectez-vous à Microsoft Azure.
-   
-    ![Connectez-vous à Azure avec les informations d’identification de votre compte Microsoft.](./media/app-insights-asp-net-dependencies/appinsights-035-signin.png)
-   
-    *Erreurs de connexion Consultez la rubrique [Résolution des problèmes](#troubleshooting).*
-4. Sélectionnez l’application web installée ou le site web à surveiller, puis configurez la ressource dans laquelle vous voulez afficher les résultats dans le portail Application Insights.
-   
-    ![Choisissez une application et une ressource.](./media/app-insights-asp-net-dependencies/appinsights-036-configAIC.png)
-   
-    Il est probable que vous choisirez de configurer une nouvelle ressource et un nouveau [groupe de ressources][roles].
-   
-    Vous pouvez aussi utiliser une ressource existante si vous avez déjà configuré des [tests web][availability] pour votre site ou une [surveillance du client web][client].
-5. Redémarrez IIS.
-   
-    ![Cliquez sur Redémarrer en haut de la boîte de dialogue.](./media/app-insights-asp-net-dependencies/appinsights-036-restart.png)
-   
-    Votre service web sera interrompu pendant une courte période.
-6. Notez que ApplicationInsights.config est inséré dans les applications web que voulez surveiller.
-   
-    ![Recherchez le fichier .config et les fichiers de code de l’application web.](./media/app-insights-asp-net-dependencies/appinsights-034-aiconfig.png)
-   
-   web.config a également été légèrement modifié.
+## <a name="application-map"></a>Mise en correspondance d'applications
+Mise en correspondance d'applications fonctionne comme une aide visuelle pour découvrir les dépendances entre les composants de votre application. Il est généré automatiquement à partir de la télémétrie de votre application. Cet exemple montre les appels AJAX provenant des scripts de navigateur et les appels REST de l’application serveur à deux services externes.
 
-#### Vous voulez (re)configurer plus tard ?
-Lorsque l'Assistant est terminé, vous pouvez reconfigurer l'agent à tout moment. Vous pouvez également reconfigurer si vous avez installé l'agent et avez rencontré des problèmes lors de la configuration initiale.
+![Mise en correspondance d'applications](./media/app-insights-asp-net-dependencies/08.png)
 
-![Click the Application Insights icon on the task bar](./media/app-insights-asp-net-dependencies/appinsights-033-aicRunning.png)
+* **Accédez à partir des zones** aux graphiques de dépendances pertinents et d’autres graphiques.
+* **Épinglez la mise en correspondance** sur le [tableau de bord](app-insights-dashboards.md), où elle sera entièrement opérationnelle.
 
-### Si votre application s’exécute en tant qu’application web Azure
-Dans le panneau de configuration de votre application web Azure, ajoutez l’extension Application Insights.
+[En savoir plus](app-insights-app-map.md).
 
-![Dans votre application web, Paramètres, Extensions, Ajouter, Application Insights](./media/app-insights-asp-net-dependencies/05-extend.png)
+## <a name="performance-and-failure-blades"></a>Panneaux de performances et d’échecs
+Le panneau de performances indique la durée des appels de dépendances effectués par l’application serveur. Il existe un graphique de synthèse et un tableau segmenté par appel.
 
-### S’il s’agit d’un projet services cloud Azure
-[Ajoutez des scripts aux rôles web et de travail](app-insights-cloudservices.md#dependencies). Ou [installez .NET Framework version 4.6 ou ultérieure](../cloud-services/cloud-services-dotnet-install-dotnet.md).
+![Graphiques de dépendances du panneau de performances](./media/app-insights-asp-net-dependencies/dependencies-in-performance-blade.png)
 
-## <a name="diagnosis"></a> Diagnostic des problèmes de performances liés aux dépendances
-Pour évaluer les performances des demandes au niveau de votre serveur, ouvrez le panneau Performances et défilez vers le bas pour accéder à la grille des demandes :
+Parcourez les graphiques de synthèses ou les éléments du tableau pour rechercher les occurrences brutes de ces appels.
+
+![Instances d’appels de dépendances](./media/app-insights-asp-net-dependencies/dependency-call-instance.png)
+
+Le **Nombre d’échecs** est affiché dans le panneau **Échecs**. Un échec est tout code de retour non compris dans la plage 200-399 ou inconnu.
+
+> [!NOTE]
+> **100 % d’échecs ?** Cela signifie probablement que vous obtenez uniquement des données de dépendances partielles. Vous devez [configurer une surveillance des dépendances adaptée à votre plateforme](#set-up-dependency-monitoring).
+>
+>
+
+## <a name="ajax-calls"></a>Appels AJAX
+Le panneau Navigateurs affiche la durée et le taux d’échec des appels AJAX à partir de [JavaScript dans vos pages web](app-insights-javascript.md). Ils sont affichés en tant que dépendances.
+
+## <a name="a-namediagnosisa-diagnose-slow-requests"></a><a name="diagnosis"></a> Diagnostiquer les demandes lentes
+Chaque événement de demande est associé aux appels de dépendances, exceptions et autres événements qui sont suivis pendant que votre application traite la demande. Ainsi, si certaines demandes présentent de médiocres performances, vous pouvez savoir si cela est dû à la lenteur des réponses d’une dépendance.
+
+Prenons un exemple.
+
+### <a name="tracing-from-requests-to-dependencies"></a>Traçage des demandes aux dépendances
+Ouvrez le panneau Performances et examinez la grille des demandes :
 
 ![Liste de demandes avec moyennes et nombres](./media/app-insights-asp-net-dependencies/02-reqs.png)
 
 La durée de la première est très longue. Examinons-la pour en savoir plus.
 
-Cliquez sur cette ligne pour afficher les événements de la demande :
+Cliquez sur cette ligne pour afficher les événements de la demande :
 
 ![Liste des occurrences de demande](./media/app-insights-asp-net-dependencies/03-instances.png)
 
-Cliquez sur n’importe quelle instance présentant une longue durée d’exécution pour l’examiner de plus près.
-
-Faites défiler vers le bas pour atteindre les appels de dépendance à distance liés à cette demande :
+Cliquez sur n’importe quelle instance de longue durée pour l’examiner de plus près, et faites défiler la page jusqu’aux appels de dépendances distantes associés à cette demande :
 
 ![Rechercher des appels de dépendances distantes, identifier une durée anormale](./media/app-insights-asp-net-dependencies/04-dependencies.png)
 
 Il semble que la plupart du temps passé au traitement de cette demande ait été consacré à l’appel d’un service local.
 
-Sélectionnez cette ligne pour obtenir plus d’informations :
+Sélectionnez cette ligne pour obtenir plus d’informations :
 
 ![Cliquez sur cette dépendance distante pour identifier la cause](./media/app-insights-asp-net-dependencies/05-detail.png)
 
-Les informations contenues dans le détail sont suffisantes pour diagnostiquer le problème.
+Il semblerait que ce soit la cause du problème. Maintenant que nous avons identifié le problème, il nous suffit de découvrir pourquoi cet appel est si lent.
 
-Dans un autre cas, aucun appel de dépendance n’est long, mais en basculant en vue chronologie, nous pouvons voir où le délai s’est produit dans notre traitement interne :
+### <a name="request-timeline"></a>Chronologie de demande
+Dans un autre cas, aucun appel de dépendance n’est particulièrement long. Mais en basculant vers la vue chronologique, nous pouvons voir où le délai s’est produit dans notre traitement interne :
 
 ![Rechercher des appels de dépendances distantes, identifier une durée anormale](./media/app-insights-asp-net-dependencies/04-1.png)
 
-## Échecs
-Si des demandes ont échoué, cliquez sur le graphique.
+Il semble y avoir un long délai après le premier appel de dépendance. Nous devons examiner notre code pour savoir pourquoi.
+
+### <a name="profiling-your-live-site"></a>Profilage de votre site dynamique
+
+Vous voulez savoir à quoi tout ce temps a été consacré ? Le profileur d’Application Insights effectue le suivi des appels HTTP vers votre site dynamique et vous indique les fonctions de votre code qui ont pris le plus de temps. Le profileur est actuellement en préversion limitée : vous pouvez [vous inscrire pour l’essayer](https://aka.ms/AIProfilerPreview).
+
+## <a name="failed-requests"></a>Demandes ayant échoué
+Les échecs de demandes peuvent également être associés à des échecs d’appels de dépendances. Là encore, nous pouvons tout parcourir d’un simple clic pour localiser le problème.
 
 ![Cliquez sur le graphique des demandes ayant échoué](./media/app-insights-asp-net-dependencies/06-fail.png)
 
-Cliquez sur un type de demande et une instance de demande pour rechercher un appel à une dépendance distante.
+Accédez à une occurrence d’une demande ayant échoué et examinez les événements associés.
 
 ![Cliquez sur un type de demande, cliquez sur l’instance pour obtenir une vue différente de la même instance, cliquez dessus pour obtenir des informations relatives à l’exception.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
-## Suivi personnalisé des dépendances
+## <a name="analytics"></a>Analyse
+Vous pouvez suivre les dépendances dans le [langage de requête Analytics](app-insights-analytics.md). Voici quelques exemples.
+
+* Rechercher les appels de dépendances ayant échoué :
+
+```
+
+    dependencies | where success != "True" | take 10
+```
+
+* Rechercher les appels AJAX :
+
+```
+
+    dependencies | where client_Type == "Browser" | take 10
+```
+
+* Rechercher les appels de dépendances associés aux demandes :
+
+```
+
+    dependencies
+    | where timestamp > ago(1d) and  client_Type != "Browser"
+    | join (requests | where timestamp > ago(1d))
+      on operation_Id  
+```
+
+
+* Rechercher les appels AJAX associés à des pages consultées :
+
+```
+
+    dependencies
+    | where timestamp > ago(1d) and  client_Type == "Browser"
+    | join (browserTimings | where timestamp > ago(1d))
+      on operation_Id
+```
+
+
+
+## <a name="custom-dependency-tracking"></a>Suivi personnalisé des dépendances
 Le module de suivi des dépendances standard découvre automatiquement les dépendances externes, telles que des bases de données et des API REST. Mais vous souhaiterez peut-être traiter d’autres composants de la même façon.
 
 Vous pouvez écrire du code qui envoie des informations de dépendance, en utilisant la même [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency) que celle utilisée par les modules standard.
@@ -143,31 +193,22 @@ Par exemple, si vous générez votre code avec un assembly que vous n’avez pas
 
 Si vous souhaitez désactiver le module de suivi des dépendances standard, supprimez la référence à DependencyTrackingTelemetryModule dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
-## Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution des problèmes
 *L’indicateur de réussite de la dépendance affiche toujours True ou False.*
 
-* Effectuez une mise à niveau vers la dernière version du Kit de développement logiciel (SDK). Si votre version de .NET est antérieure à 4.6, installez [Status monitor](app-insights-monitor-performance-live-website-now.md).
+*La requête SQL n’est pas affichée en entier.*
 
-## Étapes suivantes
+* Effectuez une mise à niveau vers la dernière version du Kit de développement logiciel (SDK). Si votre version de .NET est inférieur à 4.6 :
+  * Hôte IIS : installez l’[Agent Application Insights](app-insights-monitor-performance-live-website-now.md) sur les serveurs hôtes.
+  * Application web Azure : ouvrez l’onglet Application Insights dans le panneau de configuration de l’application web et installez Application Insights.
+
+## <a name="next-steps"></a>Étapes suivantes
 * [Exceptions](app-insights-asp-net-exceptions.md)
-* [Données utilisateur et de page][client]
-* [Availability](app-insights-monitor-web-app-availability.md)
-
-<!--Link references-->
-
-[api]: app-insights-api-custom-events-metrics.md
-[apikey]: app-insights-api-custom-events-metrics.md#ikey
-[availability]: app-insights-monitor-web-app-availability.md
-[azure]: ../insights-perf-analytics.md
-[client]: app-insights-javascript.md
-[diagnostic]: app-insights-diagnostic-search.md
-[metrics]: app-insights-metrics-explorer.md
-[netlogs]: app-insights-asp-net-trace-logs.md
-[portal]: http://portal.azure.com/
-[qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-asp-net-dependencies.md
-[roles]: app-insights-resources-roles-access-control.md
+* [Données utilisateur et de page](app-insights-javascript.md)
+* [Disponibilité](app-insights-monitor-web-app-availability.md)
 
 
 
-<!---HONumber=AcomDC_0713_2016-->
+<!--HONumber=Nov16_HO3-->
+
+

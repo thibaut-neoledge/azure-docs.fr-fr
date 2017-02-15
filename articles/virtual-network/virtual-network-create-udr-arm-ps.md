@@ -276,6 +276,6 @@ Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

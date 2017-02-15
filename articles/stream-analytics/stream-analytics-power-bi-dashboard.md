@@ -21,7 +21,7 @@ ms.openlocfilehash: c954e85aa61803b4afe82c2e9d30729035ac094f
 
 
 ---
-# <a name="stream-analytics-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics et Power BI : tableau de bord d'analyse en temps réel pour les données de diffusion en continu
+# <a name="stream-analytics--power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics et Power BI : tableau de bord d'analyse en temps réel pour les données de diffusion en continu
 Azure Stream Analytics vous permet de tirer parti de Microsoft Power BI, l’un des principaux outils d’analyse décisionnelle. Découvrez comment utiliser Azure Stream Analytics pour analyser les volumes élevés de données de diffusion en continu et obtenir les résultats dans un tableau de bord d’analyse Power BI en temps réel.
 
 Utilisez [Microsoft Power BI](https://powerbi.com/) pour générer rapidement un tableau de bord dynamique. [Visionnez une vidéo illustrant le scénario](https://www.youtube.com/watch?v=SGUpT-a99MA).

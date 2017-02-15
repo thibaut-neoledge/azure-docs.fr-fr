@@ -14,15 +14,15 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fb80168b38be88ab18952569e6b6f9bcb53d473a
+ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
+ms.openlocfilehash: fd089f0cc5c23dcddb392df55c65907519f59248
 
 
 ---
 # <a name="add-application-insights-sdk-to-monitor-your-nodejs-app"></a>Ajout du Kit de développement logiciel (SDK) Application Insights à votre application Node.js
-*Application Insights est à l'état de version préliminaire.*
 
-[Visual Studio Application Insights](app-insights-overview.md) surveille vos applications en direct pour vous aider à [détecter et diagnostiquer les problèmes de performances et les exceptions](app-insights-detect-triage-diagnose.md), mais aussi [découvrir comment votre application est utilisée](app-insights-overview-usage.md). Il fonctionne pour les applications hébergées sur vos propres serveurs locaux IIS ou sur les machines virtuelles Azure, ainsi que les applications Web Azure.
+
+[Azure Application Insights](app-insights-overview.md) surveille votre application en direct pour vous aider à [détecter et diagnostiquer les problèmes de performances et les exceptions](app-insights-detect-triage-diagnose.md), mais aussi [découvrir comment votre application est utilisée](app-insights-overview-usage.md). Il fonctionne pour les applications hébergées sur vos propres serveurs locaux IIS ou sur les machines virtuelles Azure, ainsi que les applications Web Azure.
 
 Le SDK collecte automatiquement les taux de demandes HTTP entrantes et les réponses, les compteurs de performances (processeur, mémoire, RPS) et les exceptions non prises en charge. Vous pouvez également ajouter des appels personnalisés pour effectuer le suivi des dépendances, mesures ou autres événements.
 
@@ -35,11 +35,11 @@ Ce dont vous avez besoin :
 * Un abonnement à [Microsoft Azure](http://azure.com). Si votre équipe ou votre organisation dispose d’un abonnement Azure, le propriétaire peut vous y ajouter à l’aide de votre [compte Microsoft](http://live.com).
 
 ## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a>Créer une ressource Application Insights
-Connectez-vous au [portail] [Azure] et créez une ressource Application Insights. Dans Azure, un [rôle] de [ressource] correspond à l’instance d'un service. Cette ressource correspond à l’emplacement où les données de télémétrie de votre application sont analysées avant de vous être présentées.
+Connectez-vous au [portail Azure] [portal] et créez une ressource Application Insights. Dans Azure, un [rôle] de [ressource] correspond à l’instance d'un service. Cette ressource correspond à l’emplacement où les données de télémétrie de votre application sont analysées avant de vous être présentées.
 
 ![Cliquez sur Nouveau > Application Insights](./media/app-insights-nodejs/01-new-asp.png)
 
-Comme type d’application, choisissez Autre. Le choix du type d’application définit le contenu par défaut des panneaux de ressource et les propriétés visibles dans les [métriques] [Metrics Explorer].
+Comme type d’application, choisissez Autre. Le choix du type d’application définit le contenu par défaut des panneaux de ressource et les propriétés visibles dans les [Metrics Explorer] [métriques].
 
 #### <a name="copy-the-instrumentation-key"></a>Copie de la clé d'instrumentation
 La clé identifie la ressource. Vous allez bientôt l’installer dans le Kit de développement logiciel (SDK) pour diriger les données vers la ressource.
@@ -95,7 +95,7 @@ Ouvrez ces ports pour le trafic sortant dans le pare-feu de votre serveur :
 Consultez cet article de [résolution des problèmes](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 ## <a name="customized-usage"></a>Utilisation personnalisée
-### <a name="disabling-autocollection"></a>Désactivation de la collecte automatique
+### <a name="disabling-auto-collection"></a>Désactivation de la collecte automatique
 ```javascript
 import appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>")
@@ -192,7 +192,7 @@ server.on("listening", () => {
 <!--Link references-->
 
 [knowUsers]: app-insights-overview-usage.md
-[metrics]: app-insights-metrics-explorer.md
+[métriques]: app-insights-metrics-explorer.md
 [perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
@@ -200,6 +200,6 @@ server.on("listening", () => {
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/24/2016
+ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 217ffc63e07d66de522accc42c246125d01713c8
+ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
+ms.openlocfilehash: 37c9d6808b3282d86583f6305672405775a7f306
 
 
 ---
@@ -40,7 +40,7 @@ Consultez régulièrement cette page pour en savoir plus sur les futures modific
 * [Limites, restrictions et contraintes du service](active-directory-b2c-limitations.md)actuelles.
 * Enfin, [exemple de code](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) utilisant Azure AD B2C et ASP.NET Core.
 
-## <a name="howto-articles"></a>Articles sur les procédures
+## <a name="how-to-articles"></a>Articles sur les procédures
 Découvrez comment utiliser des fonctionnalités spécifiques d’Azure Active Directory B2C :
 
 * Configurer des comptes [Facebook](active-directory-b2c-setup-fb-app.md), [Google+](active-directory-b2c-setup-goog-app.md), [Microsoft](active-directory-b2c-setup-msa-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) et [LinkedIn](active-directory-b2c-setup-li-app.md) à utiliser dans vos applications grand public.
@@ -67,6 +67,6 @@ Nous vous encourageons à activer les notifications d’incidents de sécurité 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

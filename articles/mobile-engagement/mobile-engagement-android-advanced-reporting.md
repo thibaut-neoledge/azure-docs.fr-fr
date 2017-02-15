@@ -1,12 +1,12 @@
 ---
-title: Options de génération de rapports avancés pour le SDK Azure Mobile Engagement pour Android
-description: Décrit comment générer des rapports avancés visant à capturer des analyses pour le SDK Azure Mobile Engagement pour Android
+title: "Options de génération de rapports avancés pour le SDK Azure Mobile Engagement pour Android"
+description: "Décrit comment générer des rapports avancés visant à capturer des analyses pour le SDK Azure Mobile Engagement pour Android"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7da7abd5-19d6-4892-94d8-818e5424b2cd
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,25 +14,29 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2a1445afa2c2fca1a31ad9c012b9c8a917ebf65c
+
 
 ---
-# Génération de rapports avancés avec Engagement sur Android
+# <a name="advanced-reporting-with-engagement-on-android"></a>Génération de rapports avancés avec Engagement sur Android
 > [!div class="op_single_selector"]
 > * [Windows universel](mobile-engagement-windows-store-integrate-engagement.md)
-> * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+> * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 > * [iOS](mobile-engagement-ios-integrate-engagement.md)
 > * [Android](mobile-engagement-android-advanced-reporting.md)
 > 
 > 
 
-Cette rubrique décrit des scénarios de génération de rapports supplémentaires dans votre application Android. Vous pouvez appliquer ces options à l’application créée dans le didacticiel [Prise en main](mobile-engagement-android-get-started.md).
+Cette rubrique décrit des scénarios de génération de rapports supplémentaires dans votre application Android. Vous pouvez appliquer ces options à l’application créée dans le didacticiel [Prise en main](mobile-engagement-android-get-started.md) .
 
-## Conditions préalables
-[!INCLUDE [Conditions préalables](../../includes/mobile-engagement-android-prereqs.md)]
+## <a name="prerequisites"></a>Conditions préalables
+[!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 Le didacticiel que vous avez suivi était délibérément direct et simple, mais vous disposez également d’options avancées.
 
-## Modification de vos classes `Activity`
+## <a name="modifying-your-activity-classes"></a>Modification de vos classes `Activity`
 Dans le didacticiel de [Prise en main](mobile-engagement-android-get-started.md), il vous suffisait de configurer vos sous-classes `*Activity` pour qu’elles héritent des classes `Engagement*Activity` correspondantes. Par exemple, si votre activité héritée étendait `ListActivity`, vous deviez faire en sorte qu’elle étende `EngagementListActivity`.
 
 > [!IMPORTANT]
@@ -42,15 +46,15 @@ Dans le didacticiel de [Prise en main](mobile-engagement-android-get-started.md)
 
 Vous trouverez ces classes dans le dossier `src`. Vous pourrez les copier dans votre projet. Les classes se trouvent également dans **JavaDoc**.
 
-## Méthode alternative : appelez `startActivity()` et `endActivity()` manuellement
+## <a name="alternate-method-call-startactivity-and-endactivity-manually"></a>Méthode alternative : appelez `startActivity()` et `endActivity()` manuellement
 Si vous ne pouvez pas ou ne voulez pas surcharger vos classes `Activity`, vous pouvez démarrer et terminer vos activités en appelant les méthodes d’`EngagementAgent` directement.
 
 > [!IMPORTANT]
-> Le Kit de développement logiciel (SDK) Android n'appelle jamais la méthode `endActivity()`, même quand l'application est fermée (sur Android, les applications ne sont jamais fermées). Il est donc *FORTEMENT* recommandé d'appeler la méthode `startActivity()` dans le rappel `onResume` de *TOUTES* vos activités, et la méthode `endActivity()` dans le rappel `onPause()` de *TOUTES* vos activités. Il s'agit de la seule façon d'empêcher la fuite de sessions. Dans le cas d'une fuite de session, le service Engagement n'est jamais déconnecté du serveur principal d'Engagement (étant donné que le service reste connecté tant qu'une session est en cours).
+> Le Kit de développement logiciel (SDK) Android n'appelle jamais la méthode `endActivity()`, même quand l'application est fermée (sur Android, les applications ne sont jamais fermées). Il est donc *FORTEMENT* recommandé d’appeler la méthode `startActivity()` dans le rappel `onResume` de *TOUTES* vos activités, et la méthode `endActivity()` dans le rappel `onPause()` de *TOUTES* vos activités. Il s'agit de la seule façon d'empêcher la fuite de sessions. Dans le cas d'une fuite de session, le service Engagement n'est jamais déconnecté du serveur principal d'Engagement (étant donné que le service reste connecté tant qu'une session est en cours).
 > 
 > 
 
-Voici un exemple :
+Voici un exemple :
 
     public class MyActivity extends Some3rdPartyActivity
     {
@@ -72,7 +76,7 @@ Voici un exemple :
 
 Cet exemple est similaire à la classe `EngagementActivity` et à ses variantes, dont le code source est fourni dans le dossier `src`.
 
-## Utilisation de Application.onCreate()
+## <a name="using-applicationoncreate"></a>Utilisation de Application.onCreate()
 Tout code que vous placez dans `Application.onCreate()` et dans les autres rappels d’application sera exécuté pour l’ensemble des processus de votre application, notamment le service Engagement. Cela peut avoir des effets indésirables, tels que des allocations de mémoire et des threads inutiles dans le processus Engagement, ou des récepteurs ou services de diffusion en double.
 
 Si vous remplacez `Application.onCreate()`, nous vous recommandons d’ajouter l’extrait de code suivant au début de la fonction `Application.onCreate()` :
@@ -87,19 +91,23 @@ Si vous remplacez `Application.onCreate()`, nous vous recommandons d’ajouter l
 
 Vous pouvez faire la même chose pour `Application.onTerminate()`, `Application.onLowMemory()` et `Application.onConfigurationChanged(...)`.
 
-Vous pouvez également étendre `EngagementApplication` au lieu d'étendre `Application` : le rappel `Application.onCreate()` effectue la vérification du processus et appelle `Application.onApplicationProcessCreate()` uniquement si le processus actuel n'est pas celui qui héberge le service Engagement. Les mêmes règles s'appliquent pour les autres rappels.
+Vous pouvez également étendre `EngagementApplication` au lieu d'étendre `Application` : le rappel `Application.onCreate()` effectue la vérification du processus et appelle `Application.onApplicationProcessCreate()` uniquement si le processus actuel n'est pas celui qui héberge le service Engagement. Les mêmes règles s'appliquent pour les autres rappels.
 
-## Balises dans le fichier AndroidManifest.xml
+## <a name="tags-in-the-androidmanifestxml-file"></a>Balises dans le fichier AndroidManifest.xml
 Dans la balise service du fichier AndroidManifest.xml, l’attribut `android:label` vous permet de choisir le nom du service Engagement tel qu’il apparaîtra aux utilisateurs finaux dans l’écran Services en cours d’exécution de leur téléphone. Nous vous recommandons d’affecter la valeur `"<Your application name>Service"` à cet attribut (par exemple `"AcmeFunGameService"`).
 
 La spécification de l'attribut `android:process` permet au service Engagement d'être exécuté dans le cadre de son propre processus (l'exécution d'Engagement dans le même processus que votre application peut rendre votre thread principal/d'interface utilisateur moins réactif).
 
-## Génération avec ProGuard
-Si vous générez votre package d'application avec ProGuard, vous devez conserver certaines classes. Vous pouvez utiliser l'extrait de configuration suivant :
+## <a name="building-with-proguard"></a>Génération avec ProGuard
+Si vous générez votre package d'application avec ProGuard, vous devez conserver certaines classes. Vous pouvez utiliser l'extrait de configuration suivant :
 
     -keep public class * extends android.os.IInterface
     -keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
     <methods>;
      }
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

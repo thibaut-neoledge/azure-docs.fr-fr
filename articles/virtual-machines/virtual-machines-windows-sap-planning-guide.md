@@ -22,7 +22,7 @@ ms.openlocfilehash: 66c89271ddd3490ef24d93125fb050a1950b7bdf
 
 
 ---
-# <a name="sap-netweaver-on-windows-virtual-machines-vms-planning-and-implementation-guide"></a>SAP NetWeaver sur machines virtuelles Windows – Guide de planification et d’implémentation
+# <a name="sap-netweaver-on-windows-virtual-machines-vms--planning-and-implementation-guide"></a>SAP NetWeaver sur machines virtuelles Windows – Guide de planification et d’implémentation
 [767598]:https://service.sap.com/sap/support/notes/767598
 [773830]:https://service.sap.com/sap/support/notes/773830
 [826037]:https://service.sap.com/sap/support/notes/826037
@@ -660,7 +660,7 @@ Pour plus d’informations, consultez [cet article][vpn-gateway-create-site-to-s
 #### <a name="vnet-to-vnet-connection"></a>Connexion de réseau virtuel à réseau virtuel
 À l’aide d’un VPN multisite, vous devez configurer un réseau virtuel Azure distinct dans chacune des régions. Cependant, très souvent vous avez besoin que les composants logiciels des différentes régions puissent communiquer entre eux. Dans l’idéal, cette communication ne doit pas être acheminée depuis une région Azure vers un site local, ni depuis ce site local vers l’autre région Azure. En bref, Azure vous offre la possibilité de configurer une connexion depuis un réseau virtuel Azure dans une région vers un autre réseau virtuel Azure hébergé dans l’autre région. Cette fonctionnalité est appelée connexion de réseau virtuel à réseau virtuel. Pour plus d’informations sur cette fonctionnalité, consultez : <https://azure.microsoft.com/documentation/articles/vpn-gateway-vnet-vnet-rm-ps/>.
 
-#### <a name="private-connection-to-azure-expressroute"></a>Connexion privée à Azure - ExpressRoute
+#### <a name="private-connection-to-azure--expressroute"></a>Connexion privée à Azure - ExpressRoute
 Microsoft Azure ExpressRoute permet de créer des connexions privées entre des centres de données Azure et l’infrastructure locale du client ou un environnement de colocalisation. ExpressRoute est proposé par divers fournisseurs VPN (commutation de paquets) MPLS ou d’autres fournisseurs de services réseau. Les connexions ExpressRoute ne sont pas établies par le biais de l'Internet public. Les connexions ExpressRoute offrent une sécurité accrue, une plus grande fiabilité via plusieurs circuits parallèles, des vitesses plus rapides et des latences moindres par rapport aux connexions classiques sur Internet.
 
 Vous trouverez plus d’informations sur Azure ExpressRoute et les offres ici : 

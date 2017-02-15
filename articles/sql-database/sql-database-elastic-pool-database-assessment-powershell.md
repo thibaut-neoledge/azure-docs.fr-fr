@@ -1,12 +1,12 @@
 ---
-title: Script PowerShell pour identifier les bases de données uniques adaptées à un pool | Microsoft Docs
-description: Un pool de bases de données élastique est un ensemble de ressources disponibles partagé par un groupe de bases de données élastiques. Ce document fournit un script PowerShell pour vous aider à évaluer la pertinence de l’utilisation d’un pool de bases de données élastique pour un groupe de bases de données.
+title: "Script PowerShell pour identifier les bases de données uniques adaptées à un pool | Microsoft Docs"
+description: "Un pool de bases de données élastique est un ensemble de ressources disponibles partagé par un groupe de bases de données élastiques. Ce document fournit un script PowerShell pour vous aider à évaluer la pertinence de l’utilisation d’un pool de bases de données élastique pour un groupe de bases de données."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: db541e94-abc8-4578-bae0-9b8c8ad0170e
 ms.service: sql-database
 ms.devlang: NA
 ms.date: 09/28/2016
@@ -14,6 +14,10 @@ ms.author: sstein
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 47b4890482752d8954a84c59b333b6607d997da3
+
 
 ---
 # <a name="powershell-script-for-identifying-databases-suitable-for-an-elastic-database-pool"></a>Script PowerShell pour identifier les bases de données adaptées à un pool de bases de données élastique
@@ -30,16 +34,16 @@ Ce script est particulièrement utile pour évaluer les bases de données situé
 Installez les éléments suivants avant d’exécuter le script :
 
 * La dernière version de Microsoft Azure PowerShell. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
-* le [pack de fonctionnalités SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
+* le [pack de fonctionnalités SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
 
 ## <a name="script-details"></a>Détails du script
 Vous pouvez exécuter le script à partir de votre ordinateur local ou d’un ordinateur virtuel sur le cloud. Lorsque vous l’exécutez à partir de votre ordinateur local, vous risquez de subir des frais de sortie de données, car le script a besoin de télécharger des données depuis vos bases de données cibles. Vous trouverez ci-dessous une estimation du volume de données en fonction du nombre de bases de données cibles et de la durée d’exécution du script. Pour les coûts de transfert de données Azure, consultez [Tarification - Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-* 1 base de données par heure = 38 Ko
-* 1 base de données par jour = 900 Ko
-* 1 base de données par semaine = 6 Mo
-* 100 bases de données par jour = 90 Mo
-* 500 bases de données par semaine = 3 Go
+* 1 base de données par heure = 38 Ko
+* 1 base de données par jour = 900 Ko
+* 1 base de données par semaine = 6 Mo
+* 100 bases de données par jour = 90 Mo
+* 500 bases de données par semaine = 3 Go
 
 Ce script ne compile pas d’informations sur les bases de données suivantes :
 
@@ -56,8 +60,8 @@ Après avoir soumis les valeurs du jeu de paramètres initial, vous êtes invit�
 
 Si vous rencontrez les avertissements suivants lors de l'exécution du script, vous pouvez les ignorer :
 
-* AVERTISSEMENT : l'applet de commande Switch-AzureMode est déconseillée.
-* AVERTISSEMENT : impossible d'obtenir des informations sur le service SQL Server. Une tentative de connexion à WMI sur « Microsoft.Azure.Commands.Sql.dll » a échoué avec l'erreur suivante : le serveur RPC n'est pas disponible.
+* AVERTISSEMENT : l'applet de commande Switch-AzureMode est déconseillée.
+* AVERTISSEMENT : impossible d'obtenir des informations sur le service SQL Server. Une tentative de connexion à WMI sur « Microsoft.Azure.Commands.Sql.dll » a échoué avec l'erreur suivante : le serveur RPC n'est pas disponible.
 
 Une fois le script terminé, il génère le nombre d’eDTU estimé nécessaire pour qu’un pool puisse contenir toutes les bases de données candidates sur le serveur cible. Ce nombre d’eDTU estimé permet de créer et de configurer le pool. Une fois le pool créé et les bases de données déplacées dans celui-ci, surveillez-le étroitement pendant quelques jours et ajustez la configuration de ses eDTU en fonction de vos besoins. Consultez [Surveiller, gérer et dimensionner un pool de bases de données élastique](sql-database-elastic-pool-manage-portal.md).
 
@@ -272,6 +276,6 @@ $data | %{'{0}' -f $_[0]}
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

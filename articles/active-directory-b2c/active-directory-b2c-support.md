@@ -1,23 +1,27 @@
 ---
 title: 'Azure Active Directory B2C : Support | Microsoft Docs'
-description: Dépôt de demandes de support pour Azure Active Directory B2C
+description: "Dépôt de demandes de support pour Azure Active Directory B2C"
 services: active-directory-b2c
-documentationcenter: ''
+documentationcenter: 
 author: swkrish
-manager: msmbaldwin
+manager: mbaldwin
 editor: bryanla
-
+ms.assetid: 51922008-6fbd-487c-b2c7-a5db57d154b4
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2016
+ms.date: 12/06/2016
 ms.author: swkrish
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9ee8b98d1643c83b38a33f7256a49b777ca135f0
+
 
 ---
-# Azure Active Directory B2C : dépôt de demandes de support
-Pour déposer des demandes d’assistance pour Azure Active Directory (Azure AD) B2C sur le portail Azure, procédez comme suit :
+# <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C : dépôt de demandes de support
+Pour déposer des demandes d’assistance pour Azure Active Directory (Azure AD) B2C sur le portail Azure, procédez comme suit :
 
 1. [Suivez ces étapes pour accéder au panneau de fonctionnalités B2C sur le portail Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Basculez de votre client B2C vers un autre client auquel un abonnement Azure est associé. En règle générale, ce dernier est le client de vos employés ou le client par défaut créé pour vous lorsque vous avez souscrit un abonnement Azure. Pour en savoir plus, consultez [Association d’un abonnement Azure à Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad).
@@ -32,34 +36,39 @@ Pour déposer des demandes d’assistance pour Azure Active Directory (Azure AD)
 5. Dans le panneau **Fonctions de base**, renseignez ces informations, puis cliquez sur **Suivant**.
    
    * Le **Type de problème** est **Technique**.
-   * Sélectionnez **l’Abonnement** approprié.
+   * Sélectionnez **l’Abonnement**approprié.
    * Le **Service** est **Active Directory**.
-   * Sélectionnez le **Plan de support** approprié. Si vous n’en avez pas, vous pouvez en adopter un [ici](https://azure.microsoft.com/fr-FR/support/plans/).
+   * Sélectionnez le **Plan de support**approprié. Si vous n’en avez pas, vous pouvez en adopter un [ici](https://azure.microsoft.com/en-us/support/plans/).
      
      ![Support - Fonctions de base](./media/active-directory-b2c-support/support-basics.png)
 6. Dans le panneau **Problème**, renseignez ces détails, puis cliquez sur **Suivant**.
    
    * Sélectionnez le niveau de **Gravité** approprié.
    * Le **Type de problème** est **B2C**.
-   * Sélectionnez la **Catégorie** appropriée.
-   * Décrivez votre problème dans le champ **Détails**. Fournissez des détails comme le nom du client B2C, la description du problème, les messages d’erreur, les ID de corrélation (si disponibles), etc.
-   * Dans le champ **Délai d’exécution**, renseignez la date et l’heure (avec le fuseau horaire) de survenue du problème.
+   * Sélectionnez la **Catégorie**appropriée.
+   * Décrivez votre problème dans le champ **Détails** . Fournissez des détails comme le nom du client B2C, la description du problème, les messages d’erreur, les ID de corrélation (si disponibles), etc.
+   * Dans le champ **Délai d’exécution** , renseignez la date et l’heure (avec le fuseau horaire) de survenue du problème.
    * Sous **Téléchargement de fichiers**, chargez l’ensemble des captures et des fichiers nécessaires à la résolution du problème.
      
      ![Support - Problème](./media/active-directory-b2c-support/support-problem.png)
-7. Dans le panneau **Informations de contact**, renseignez vos coordonnées. Cliquez sur **Create**.
+7. Dans le panneau **Informations de contact** , renseignez vos coordonnées. Cliquez sur **Create**.
    
     ![Support - Contact](./media/active-directory-b2c-support/support-contact.png)
 8. Après avoir soumis votre demande d’assistance, vous pouvez la surveiller en cliquant sur **Aide + support** dans le tableau d’accueil, puis sur **Gérer les demandes de support**.
 
-## Problème connu : dépôt d’une demande de support dans le contexte d’un client B2C
-Si vous avez manqué l'étape 2 décrite ci-dessus et essayez de créer une demande de support dans le contexte de votre client B2C, l'erreur suivante s'affiche.
+## <a name="known-issue-filing-a-support-request-in-the-context-of-a-b2c-tenant"></a>Problème connu : dépôt d’une demande de support dans le contexte d’un client B2C
+Si vous avez manqué l'étape 2 décrite ci-dessus et essayez de créer une demande de support dans le contexte de votre client B2C, l'erreur suivante s'affiche.
 
 > [!IMPORTANT]
-> N'essayez pas de souscrire un nouvel abonnement Azure dans votre client B2C.
+> N'essayez pas de souscrire un nouvel abonnement Azure dans votre client B2C.  
 > 
 > 
 
 ![Support - aucun abonnement](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

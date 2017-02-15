@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ed30706426271f63126905614a631961d6e5ddf8
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: d7f3d972755ec326c28fcdb95fd0600dd8ca1a91
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: ed30706426271f63126905614a631961d6e5ddf8
 > 
 > 
 
-Découvrez comment utiliser la [géoréplication](sql-database-geo-replication-overview.md) dans la base de données SQL pour activer les mises à niveau propagées de votre application cloud. Une mise à niveau est une opération qui entraîne une interruption de service ; il est donc recommandé de l’intégrer à votre conception et à votre planification de la continuité des activités. Dans cet article, nous allons examiner deux méthodes différentes permettant d’orchestrer le processus de mise à niveau propagée, avant de présenter les avantages et inconvénients de chaque option. Dans le cadre de cet article, nous allons utiliser une application simple sous la forme d’un site web utilisant une base de données unique comme couche de données. Notre objectif est de mettre à niveau la version 1 de l’application vers la version 2 sans affecter lourdement l’expérience utilisateur. 
+Découvrez comment utiliser la [géoréplication](sql-database-geo-replication-overview.md) dans la base de données SQL pour activer les mises à niveau propagées de votre application cloud. Une mise à niveau est une opération qui entraîne une interruption de service ; il est donc recommandé de l’intégrer à votre conception et à votre planification de la continuité des activités. Dans cet article, nous allons examiner deux méthodes différentes permettant d’orchestrer le processus de mise à niveau propagée, avant de présenter les avantages et inconvénients de chaque option. Dans le cadre de cet article, nous allons utiliser une application simple sous la forme d’un site web utilisant une base de données autonome comme couche de données. Notre objectif est de mettre à niveau la version 1 de l’application vers la version 2 sans affecter lourdement l’expérience utilisateur. 
 
 Lorsque vous évaluez les options de mise à niveau, vous devez tenir compte des facteurs suivants :
 
@@ -155,6 +155,6 @@ Les pages suivantes contiennent des informations sur les opérations spécifique
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

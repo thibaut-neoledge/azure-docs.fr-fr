@@ -116,6 +116,6 @@ Pour contacter l’équipe d’ingénierie d’Azure AD afin de demander une pri
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

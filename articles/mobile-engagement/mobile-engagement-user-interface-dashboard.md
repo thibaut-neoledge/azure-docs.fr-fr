@@ -1,12 +1,12 @@
 ---
-title: Interface utilisateur d'Azure Mobile Engagement - Tableau de bord
-description: En savoir plus sur l’affichage et la gestion des graphiques de données relatifs à votre application à l’aide d’Azure Mobile Engagement
+title: Interface utilisateur d&quot;Azure Mobile Engagement - Tableau de bord
+description: "En savoir plus sur l’affichage et la gestion des graphiques de données relatifs à votre application à l’aide d’Azure Mobile Engagement"
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 72d5965e-8e79-48a3-9e63-0b66b7457d3c
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,24 +14,28 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 835cc39ebe7cc3a6ee8fafdaad6a36ebb301a615
+
 
 ---
-# Affichage et gestion des graphiques de données relatifs à votre application
-La section Tableau de bord de l'interface utilisateur permet aux clients de créer des graphiques personnalisés afin d'optimiser leur temps en fournissant les informations exactes qu'ils souhaitent au lieu de les rechercher dans la section Analyse. Un tableau de bord affiche les tendances de votre application et le nombre d'utilisateurs actifs pour les différentes versions de votre application pendant une période donnée (heure/jour/semaine/mois/personnalisé). Les tendances présentées sont basées sur les 7 derniers jours.
+# <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>Affichage et gestion des graphiques de données relatifs à votre application
+La section Tableau de bord de l'interface utilisateur permet aux clients de créer des graphiques personnalisés afin d'optimiser leur temps en fournissant les informations exactes qu'ils souhaitent au lieu de les rechercher dans la section Analyse. Un tableau de bord affiche les tendances de votre application et le nombre d'utilisateurs actifs pour les différentes versions de votre application pendant une période donnée (heure/jour/semaine/mois/personnalisé). Les tendances présentées sont basées sur les 7 derniers jours.
 
-### Voir aussi
-* [Guide de résolution des problèmes - Analyse][Link 21]
+### <a name="see-also"></a>Voir aussi
+* [Guide de résolution des problèmes - Analytique][Lien 21]
 
-## Tableau de bord
-* Vous pouvez ajouter des graphiques à un tableau de bord vide en choisissant l'action « Envoyer au tableau de bord » dans le menu engrenage de n'importe quel graphique dans la section Analyse de l'interface utilisateur que vous aimeriez voir dans un tableau de bord.
+## <a name="dashboard"></a>Tableau de bord
+* Vous pouvez ajouter des graphiques à un tableau de bord vide en choisissant l'action « Envoyer au tableau de bord » dans le menu engrenage de n'importe quel graphique dans la section Analyse de l'interface utilisateur que vous aimeriez voir dans un tableau de bord.
 
-## + (Ajouter un tableau de bord)
-* Vous pouvez utiliser l'élément de menu de ruban « + » pour créer un nouveau tableau de bord qui s'affichera dans le menu de ruban.
+## <a name="-add-a-dashboard"></a>+ (Ajouter un tableau de bord)
+* Vous pouvez utiliser l'élément de menu de ruban « + » pour créer un nouveau tableau de bord qui s'affichera dans le menu de ruban.
 
-## Menu engrenage :
+## <a name="gear-menu"></a>Menu engrenage :
 * Vous pouvez utiliser le menu engrenage d'un tableau de bord pour supprimer, renommer, partager ou planifier (réception de messages électroniques) votre tableau de bord. Vous pouvez utiliser l'option de planification pour définir la fréquence à laquelle vous souhaitez recevoir votre tableau de bord personnalisé par courrier électronique. Vous pouvez choisir de le recevoir à un rythme quotidien, hebdomadaire ou mensuel. Vous pouvez choisir l'heure de la journée et le jour de la semaine ou du mois auxquels vous souhaitez recevoir le courrier électronique. Votre adresse de messagerie et le fuseau horaire sont basés sur les paramètres que vous avez configurés dans la section Mon compte de l'interface utilisateur.
   
-  ![Tableau de bord 1][34]
+  ![Tableau de bord 1][34]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -94,39 +98,43 @@ La section Tableau de bord de l'interface utilisateur permet aux clients de cré
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: ../mobile-engagement-how-tos-first-push.md
-[Link 28]: ../mobile-engagement-how-tos-test-campaign.md
-[Link 29]: ../mobile-engagement-how-tos-personalize-push.md
-[Link 30]: ../mobile-engagement-how-tos-differentiate-push.md
-[Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
-[Link 32]: ../mobile-engagement-how-tos-text-view.md
-[Link 33]: ../mobile-engagement-how-tos-web-view.md
+[Lien 1]: mobile-engagement-user-interface.md
+[Lien 2]: mobile-engagement-troubleshooting-guide.md
+[Lien 3]: mobile-engagement-how-tos.md
+[Lien 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Lien 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Lien 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Lien 7]: https://account.windowsazure.com/PreviewFeatures
+[Lien 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Lien 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Lien 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Lien 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Lien 12]: mobile-engagement-user-interface-navigation.md
+[Lien 13]: mobile-engagement-user-interface-home.md
+[Lien 14]: mobile-engagement-user-interface-my-account.md
+[Lien 15]: mobile-engagement-user-interface-analytics.md
+[Lien 16]: mobile-engagement-user-interface-monitor.md
+[Lien 17]: mobile-engagement-user-interface-reach.md
+[Lien 18]: mobile-engagement-user-interface-segments.md
+[Lien 19]: mobile-engagement-user-interface-dashboard.md
+[Lien 20]: mobile-engagement-user-interface-settings.md
+[Lien 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Lien 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Lien 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Lien 24]: mobile-engagement-troubleshooting-guide-service.md
+[Lien 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Lien 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Lien 27]: ../mobile-engagement-how-tos-first-push.md
+[Lien 28]: ../mobile-engagement-how-tos-test-campaign.md
+[Lien 29]: ../mobile-engagement-how-tos-personalize-push.md
+[Lien 30]: ../mobile-engagement-how-tos-differentiate-push.md
+[Lien 31]: ../mobile-engagement-how-tos-schedule-campaign.md
+[Lien 32]: ../mobile-engagement-how-tos-text-view.md
+[Lien 33]: ../mobile-engagement-how-tos-web-view.md
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

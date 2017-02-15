@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -27,7 +27,7 @@ Vous pouvez gérer vos applications d’entreprise dans la version préliminaire
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 2. Sélectionnez **Plus de services**, saisissez **Azure Active Directory** dans la zone de texte, puis sélectionnez **Entrée**.
 3. Dans le panneau **Azure Active Directory -** ***NomRépertoire*** (autrement dit, le panneau Azure AD pour le répertoire que vous gérez), sélectionnez **Applications d’entreprise**.
-   
+
     ![Ouverture des applications d’entreprise](./media/active-directory-coreapps-view-azure-portal/open-enterprise-apps.png)
 4. Dans le panneau **Applications d’entreprise**, sélectionnez **Toutes les applications**. À partir de ce panneau, vous pouvez sélectionner les applications à gérer, modifier les colonnes affichées ou filtrer la liste pour trouver l’application souhaitée (par exemple, pour afficher uniquement les applications désactivées).
 
@@ -36,7 +36,6 @@ Vous pouvez gérer vos applications d’entreprise dans la version préliminaire
 * [Supprimer l’affectation d’un utilisateur ou d’un groupe à une application d’entreprise dans la version préliminaire d’Azure Active Directory](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Désactiver les connexions utilisateur pour une application d’entreprise](active-directory-coreapps-disable-app-azure-portal.md)
 * [Modifier le nom ou le logo d’une application d’entreprise dans la version préliminaire d’Azure Active Directory](active-directory-coreapps-change-app-logo-user-azure-portal.md)
-
 
 
 

@@ -336,6 +336,6 @@ Essayez d’exécuter d’autres charges de travail Linux, par exemple :
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,13 +1,25 @@
 ---
 layout: LandingPage
+description: "Découvrez comment créer une machine virtuelle à l’aide de la distribution Linux de votre choix. Des documents présentent différentes façons de créer des modèles de machine virtuelle."
+title: "Machines virtuelles Azure pour documentation Linux, didacticiels et référence API | Microsoft Docs"
+services: virtual-machines-linux
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machines-linux
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: f368f2700bd349e106169d1828af7a148daa5cc2
-ms.openlocfilehash: f87947ed5f072ba4f0927ade1b1d3ec0e1424f3c
+ms.sourcegitcommit: 9bb4fb611c4f936317460040c4fbeff1a01f2c5c
+ms.openlocfilehash: 2728b18011e712d9f23f7645f8c83b053b3cf381
 
 ---
-#<a name="linux-virtual-machine-documentation"></a>Documentation Machine virtuelle Linux
+# <a name="linux-virtual-machine-documentation"></a>Documentation Machine virtuelle Linux
 
-Utilisez les machines virtuelles Azure pour créer et exécuter des machines virtuelles Linux sur l’infrastructure Azure de calcul, de mise en réseau et de stockage.  Effectuez une mise à l’échelle allant jusqu’à plusieurs milliers de machines pour des déploiements à l’échelle d’Internet ou exécutez-en une pendant quelques minutes pour bénéficier d’avantages en termes de vitesse et de cohérence.
+Découvrez comment exécuter des machines virtuelles sur Azure à l’aide de la distribution Linux de votre choix. Des documents, des références d’API et des exemples vous montrent différentes façons de créer et de déployer des modèles de machine virtuelle.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -109,7 +121,7 @@ Utilisez les machines virtuelles Azure pour créer et exécuter des machines vir
                         <h3>Langues</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
                         <p><a href="/java/api">Java</a></p>
-                        <p><a href="https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk">Node.js</a></p>
+                        <p><a href="https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk">Node.JS</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
                     </div>
                 </div>
@@ -122,7 +134,7 @@ Utilisez les machines virtuelles Azure pour créer et exécuter des machines vir
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/compute">Référence sur les API REST</a></p>
+                        <p><a href="/rest/api/compute">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>
@@ -130,16 +142,10 @@ Utilisez les machines virtuelles Azure pour créer et exécuter des machines vir
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/linux.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation Machine virtuelle Linux </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

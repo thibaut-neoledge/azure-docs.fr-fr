@@ -1,7 +1,7 @@
 # Vue d'ensemble
-## [Qu’est-ce que la messagerie Service Bus ?](service-bus-queues-topics-subscriptions.md)
-## [Comparer les files d’attente Azure et Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-## [FAQ](service-bus-faq.md)
+## [Qu’est-ce que la messagerie Service Bus ?](service-bus-messaging-overview.md)
+## [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+## [FORUM AUX QUESTIONS](service-bus-faq.md)
 
 # Prise en main
 ## [Créer un espace de noms](service-bus-create-namespace-portal.md)
@@ -20,61 +20,61 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Générer des signatures d’accès partagé](service-bus-sas-overview.md)
+## [Créer une application Service Bus à plusieurs niveaux](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # Procédure
 ## Planifier et concevoir
+### [Messagerie Premium](service-bus-premium-messaging.md)
+### [Comparer les files d’attente Azure et Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Optimiser les performances](service-bus-performance-improvements.md)
 ### [Messagerie asynchrone et haute disponibilité](service-bus-async-messaging.md)
 ### [Gestion des urgences et des pannes](service-bus-outages-disasters.md)
+### [Chaîner des entités avec le transfert automatique](service-bus-auto-forwarding.md)
 
 ## Développement
+### [Files d’attente, rubriques et abonnements.](service-bus-queues-topics-subscriptions.md)
 ### [Applications qui utilisent des files d’attente](service-bus-create-queues.md)
 ### [Créer des applications qui utilisent des abonnements et rubriques](service-bus-create-topics-subscriptions.md)
-### [Authentification et autorisation](service-bus-authentication-and-authorization.md)
-### [Messagerie Premium](service-bus-premium-messaging.md)
+### [Authentification et autorisation](service-bus-sas.md)
 ### [Files d’attente et rubriques partitionnées](service-bus-partitioning.md)
 ### [Files d’attente de lettres mortes](service-bus-dead-letter-queues.md)
 ### [Traitement des transactions](service-bus-transactions.md)
-### [Guide des développeurs AMQP]
+### AMQP
 #### [.NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
-#### [PHP](service-bus-amqp-php.md)
-#### [Python](service-bus-amqp-python.md)
-#### [Apache](service-bus-amqp-apache.md)
-### [Utiliser AMQP avec l’API .NET](service-bus-dotnet-advanced-message-queuing.md)
-### [Utiliser AMQP avec les files d’attente et rubriques partitionnées](service-bus-partitioned-queues-and-topics-amqp-overview.md)
-### [Espaces de noms associés](service-bus-paired-namespaces.md)
-### [Chaîner des entités avec le transfert automatique](service-bus-auto-forwarding.md)
+#### [Guide du protocole AMQP](service-bus-amqp-protocol-guide.md)
+#### [Opérations basées sur les requêtes-réponses AMQP](service-bus-amqp-request-response.md)
+
 ## Gérer
+### [Bibliothèques de gestion de Service Bus](service-bus-management-libraries.md)
 ### [Utilisation de modèles Azure Resource Manager](service-bus-resource-manager-overview.md)
 ### [Utilisation de PowerShell pour approvisionner des entités](service-bus-powershell-how-to-provision.md)
 
 # Référence
-## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
-## [.NET](/dotnet/api/microsoft.azure.management.servicebus)
-## [Java](/java/api/com.microsoft.azure.servicebus.amqp)
+## .NET
+### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
+### [Microsoft.Azure.Management.ServiceBus](/dotnet/api/microsoft.azure.management.servicebus)
+## [PowerShell](service-bus-powershell-how-to-provision.md)
 ## [REST](/rest/api/servicebus)
-
-# les ressources
-## [Syntaxe SQLFilter](service-bus-messaging-sql-filter.md)
-## [Syntaxe SQLRuleAction](service-bus-messaging-sql-rule-action.md)
-## [Guide du protocole AMQP1.0](service-bus-amqp-protocol-guide.md)
-### [Opérations basées sur les requêtes-réponses AMQP 1.0](service-bus-amqp-request-response.md)
-## [Détails de la tarification](service-bus-pricing-billing.md)
-## [Exemples](service-bus-samples.md)
 ## [Exceptions](service-bus-messaging-exceptions.md)
 ## [Quotas](service-bus-quotas.md)
+## [Syntaxe SQLFilter](service-bus-messaging-sql-filter.md)
+## [Syntaxe SQLRuleAction](service-bus-messaging-sql-rule-action.md)
+
+# Ressources
+## [Détails de la tarification](service-bus-pricing-billing.md)
+## [Exemples](service-bus-samples.md)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Forums MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
 ## [Tarification](https://azure.microsoft.com/pricing/details/service-bus/)
-## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
 ## [Explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=service-bus)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Jan17_HO4-->
 
 

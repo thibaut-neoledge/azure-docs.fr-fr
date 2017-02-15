@@ -1,13 +1,13 @@
 ---
-title: Activation du dump de tas pour les services Hadoop sur HDInsight sur Linux (version préliminaire) | Microsoft Docs
-description: Activez les services Hadoop à partir des clusters HDInsight sur Linux pour le débogage et l’analyse.
+title: "Activation du dump de tas pour les services Hadoop sur HDInsight sur Linux (version préliminaire) | Microsoft Docs"
+description: "Activez les services Hadoop à partir des clusters HDInsight sur Linux pour le débogage et l’analyse."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 8f151adb-f687-41e4-aca0-82b551953725
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4bbd6f0033fd148832e56d0e0abef50c84a8422f
+
 
 ---
-# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight-(preview)"></a>Activation des dump de tas pour les services Hadoop sur HDInsight sur Linux (version préliminaire)
+# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight-preview"></a>Activation des dump de tas pour les services Hadoop sur HDInsight sur Linux (version préliminaire)
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
 Les dumps de tas contiennent un instantané de la mémoire de l’application, y compris des valeurs des variables au moment de la création du dump. Ils sont donc très utiles pour diagnostiquer les problèmes qui se produisent au moment de l’exécution.
@@ -27,8 +31,8 @@ Les dumps de tas contiennent un instantané de la mémoire de l’application, y
 > 
 > 
 
-## <a name="<a-name="whichservices"></a>services"></a><a name="whichServices"></a>Services
-Vous pouvez activer des dumps de tas pour les services suivants :
+## <a name="a-namewhichservicesaservices"></a><a name="whichServices"></a>Services
+Vous pouvez activer des dumps de tas pour les services suivants :
 
 * **hcatalog** - tempelton
 * **hive** - hiveserver2, metastore, derbyserver
@@ -38,7 +42,7 @@ Vous pouvez activer des dumps de tas pour les services suivants :
 
 Vous pouvez également activer les dumps de tas du mappage et réduire les processus exécutés par HDInsight.
 
-## <a name="<a-name="configuration"></a>understanding-heap-dump-configuration"></a><a name="configuration"></a>Présentation de la configuration du dump du tas
+## <a name="a-nameconfigurationaunderstanding-heap-dump-configuration"></a><a name="configuration"></a>Présentation de la configuration du dump du tas
 Les dumps de tas sont activés par la transmission d’options (parfois appelées options ou paramètres) à la machine virtuelle Java au démarrage d’un service. Pour la plupart des services Hadoop, cela peut être accompli en modifiant le script shell utilisé pour démarrer le service.
 
 Dans chaque script, il existe une exportation pour **\*\_OPTS**, qui contient les options transmises à la machine virtuelle Java. Par exemple, dans le script **hadoop-env.sh**, la ligne qui commence par `export HADOOP_NAMENODE_OPTS=` contient les options du service NameNode.
@@ -54,7 +58,7 @@ Les processus de mappage et de réduction sont légèrement différents, car il 
 > 
 
 ### <a name="enable-heap-dumps"></a>Activer les dumps de tas
-L’option suivante active les dumps de tas quand OutOfMemoryError se produit :
+L’option suivante active les dumps de tas quand OutOfMemoryError se produit :
 
     -XX:+HeapDumpOnOutOfMemoryError
 
@@ -66,14 +70,14 @@ Le **+** indique que cette option est activée. La valeur par défaut est désac
 > 
 
 ### <a name="dump-location"></a>Emplacement du dump
-L’emplacement par défaut pour le fichier dump est le répertoire de travail actuel. Vous pouvez contrôler l’endroit de stockage du fichier à l’aide de l’option suivante :
+L’emplacement par défaut pour le fichier dump est le répertoire de travail actuel. Vous pouvez contrôler l’endroit de stockage du fichier à l’aide de l’option suivante :
 
     -XX:HeapDumpPath=/path
 
 Par exemple, l’utilisation de `-XX:HeapDumpPath=/tmp` entraîne le stockage des dumps dans le répertoire /tmp.
 
 ### <a name="scripts"></a>Scripts
-Vous pouvez également déclencher un script quand **OutOfMemoryError** se produit. Par exemple, vous pouvez déclencher une notification pour signaler que l’erreur s’est produite. Cette opération est contrôlée à l’aide de l’option suivante :
+Vous pouvez également déclencher un script quand **OutOfMemoryError** se produit. Par exemple, vous pouvez déclencher une notification pour signaler que l’erreur s’est produite. Cette opération est contrôlée à l’aide de l’option suivante :
 
     -XX:OnOutOfMemoryError=/path/to/script
 
@@ -85,11 +89,11 @@ Vous pouvez également déclencher un script quand **OutOfMemoryError** se produ
 > 
 
 ## <a name="using-ambari"></a>Utilisation d’Ambari
-Pour modifier la configuration d’un service, procédez comme suit :
+Pour modifier la configuration d’un service, procédez comme suit :
 
 1. Ouvrez l’interface utilisateur web Ambari de votre cluster. L’URL sera https://NOMVOTRECLUSTER.azurehdinsight.net.
    
-    Quand vous y êtes invité, authentifiez-vous auprès du site en utilisant le nom du compte HTTP (par défaut : admin) et le mot de passe de votre cluster.
+    Quand vous y êtes invité, authentifiez-vous auprès du site en utilisant le nom du compte HTTP (par défaut : admin) et le mot de passe de votre cluster.
    
    > [!NOTE]
    > Vous pouvez être invité une deuxième fois par Ambari à entrer le nom d’utilisateur et le mot de passe. Dans ce cas, réentrez simplement les mêmes nom de compte et mot de passe.
@@ -127,6 +131,9 @@ Pour modifier la configuration d’un service, procédez comme suit :
    > 
 8. Une fois que les services ont été redémarrés, utilisez le bouton **Actions de service** pour **Désactiver le mode de maintenance**. Ambari reprend la surveillance des alertes du service.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

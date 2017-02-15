@@ -1,13 +1,13 @@
 ---
-title: Résoudre les problèmes de déploiement de machines virtuelles Windows - Classic | Microsoft Docs
-description: Découvrez comment résoudre les problèmes de déploiement Classic lorsque vous créez une machine virtuelle Windows dans Azure.
+title: "Résoudre les problèmes de déploiement de machines virtuelles Windows - Classic | Microsoft Docs"
+description: "Découvrez comment résoudre les problèmes de déploiement Classic lorsque vous créez une machine virtuelle Windows dans Azure."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: JiangChen79
 manager: felixwu
-editor: ''
+editor: 
 tags: top-support-issue
-
+ms.assetid: 9f01d237-ba39-4c32-b72d-18f5f505d43a
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: cjiang
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: b9c1c9aafe892f830ea566a544822550dec34ffa
+
 
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>Résoudre les problèmes de déploiement Classic liés à la création d’une machine virtuelle Windows dans Azure
@@ -23,6 +27,8 @@ ms.author: cjiang
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+
+Pour la version de Resource Manager de cet article, voir [ici](virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -43,9 +49,9 @@ Dans le portail Azure, cliquez sur **Parcourir** > **Machines virtuelles** > *vo
 
 **N<sup>2</sup> :** si le système d’exploitation est de type Windows spécialisé et qu’il est téléchargé avec le paramètre généralisé, vous obtiendrez une erreur d’échec d’approvisionnement, et la machine virtuelle sera bloquée au niveau de l’écran OOBE, car la nouvelle machine virtuelle s’exécute avec le nom d’ordinateur, le nom d’utilisateur et le mot de passe d’origine.
 
-**Résolution :**
+**Résolution :**
 
-Pour corriger ces deux erreurs, chargez le disque dur virtuel d’origine, disponible en mode local, avec le même paramétrage que pour le système d’exploitation (généralisé/spécialisé). Pour effectuer un chargement de type généralisé, n’oubliez pas de commencer par exécuter sysprep. Pour plus d’informations, voir [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure](virtual-machines-windows-classic-createupload-vhd.md) .
+Pour corriger ces deux erreurs, chargez le disque dur virtuel d’origine, disponible en mode local, avec le même paramétrage que pour le système d’exploitation (généralisé/spécialisé). Pour effectuer un chargement de type généralisé, n’oubliez pas de commencer par exécuter sysprep. Pour plus d’informations, voir [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure](virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) .
 
 **Erreurs de capture :**
 
@@ -53,16 +59,16 @@ Pour corriger ces deux erreurs, chargez le disque dur virtuel d’origine, dispo
 
 **N<sup>4</sup> :** si le système d’exploitation est de type Windows spécialisé et qu’il est capturé avec le paramètre généralisé, cela entraîne une erreur d’échec d’approvisionnement, car la nouvelle machine virtuelle s’exécute avec le nom de l’ordinateur, le nom d’utilisateur et le mot de passe d’origine. En outre, la machine virtuelle d’origine n’est pas utilisable tant qu’elle est marquée comme spécialisée.
 
-**Résolution :**
+**Résolution :**
 
-Pour corriger ces deux erreurs, supprimez l’image actuelle du portail, et [effectuez une nouvelle capture à partir des disques durs virtuels en cours](virtual-machines-windows-classic-capture-image.md) , avec le même paramétrage que celui du système d’exploitation (généralisé/spécialisé).
+Pour corriger ces deux erreurs, supprimez l’image actuelle du portail, et [effectuez une nouvelle capture à partir des disques durs virtuels en cours](virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) , avec le même paramétrage que celui du système d’exploitation (généralisé/spécialisé).
 
-## <a name="issue:-custom/-gallery/-marketplace-image;-allocation-failure"></a>Problème : image personnalisée / galerie / marketplace ; échec d’allocation
+## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problème : image personnalisée / galerie / marketplace ; échec d’allocation
 Cette erreur se produit lorsque la nouvelle demande de la machine virtuelle est envoyée à un cluster qui n’a pas d’espace libre pour prendre en charge la demande, ou qui ne peut pas prendre en charge la taille de machine virtuelle demandée. Il n’est pas possible de combiner différentes séries de machines virtuelles dans un même service Cloud. Par conséquent, si vous essayez de créer une machine virtuelle d’une taille que votre service Cloud ne peut pas prendre en charge, la demande de calcul échoue.
 
 Selon les contraintes du service cloud que vous utilisez pour créer la machine virtuelle, vous pouvez rencontrer une erreur provoquée par deux situations distinctes.
 
-**Cause 1 :** le service Cloud est épinglé à un cluster spécifique ou il est lié à un groupe d’affinités, et par conséquent épinglé à un cluster spécifique de par sa conception. Ainsi, les nouvelles demandes de ressources de calcul portant sur ce groupe d’affinités sont tentées dans le cluster hébergeant les ressources existantes. Toutefois, un même cluster peut soit ne pas prendre en charge la taille de la machine virtuelle demandée, soit ne pas avoir suffisamment d’espace, ce qui entraîne une erreur d’allocation. Cela est vrai que les ressources soient créées par le biais d’un nouveau service cloud ou d’un service cloud existant.
+**Cause 1 :** le service Cloud est épinglé à un cluster spécifique ou il est lié à un groupe d’affinités, et par conséquent épinglé à un cluster spécifique de par sa conception. Ainsi, les nouvelles demandes de ressources de calcul portant sur ce groupe d’affinités sont tentées dans le cluster hébergeant les ressources existantes. Toutefois, un même cluster peut soit ne pas prendre en charge la taille de la machine virtuelle demandée, soit ne pas avoir suffisamment d’espace, ce qui entraîne une erreur d’allocation. Cela est vrai que les ressources soient créées par le biais d’un nouveau service cloud ou d’un service cloud existant.
 
 **Résolution 1 :**
 
@@ -75,7 +81,7 @@ Selon les contraintes du service cloud que vous utilisez pour créer la machine 
 > 
 > 
 
-**Cause 2 :** le service Cloud est associé à un réseau virtuel qui est lié à un groupe d’affinités, et par conséquent épinglé à un cluster spécifique de par sa conception. Toutes les nouvelles demandes de ressources de calcul portant sur ce groupe d’affinités sont donc tentées dans le cluster hébergeant les ressources existantes. Toutefois, un même cluster peut soit ne pas prendre en charge la taille de la machine virtuelle demandée, soit ne pas avoir suffisamment d’espace, ce qui entraîne une erreur d’allocation. Cela est vrai que les ressources soient créées par le biais d’un nouveau service cloud ou d’un service cloud existant.
+**Cause 2 :** le service Cloud est associé à un réseau virtuel qui est lié à un groupe d’affinités, et par conséquent épinglé à un cluster spécifique de par sa conception. Toutes les nouvelles demandes de ressources de calcul portant sur ce groupe d’affinités sont donc tentées dans le cluster hébergeant les ressources existantes. Toutefois, un même cluster peut soit ne pas prendre en charge la taille de la machine virtuelle demandée, soit ne pas avoir suffisamment d’espace, ce qui entraîne une erreur d’allocation. Cela est vrai que les ressources soient créées par le biais d’un nouveau service cloud ou d’un service cloud existant.
 
 **Résolution 2 :**
 
@@ -84,8 +90,11 @@ Selon les contraintes du service cloud que vous utilisez pour créer la machine 
 * [Connectez votre réseau virtuel existant](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) au nouveau réseau virtuel. Consultez plus d’informations sur les [réseaux virtuels régionaux](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). Une autre possibilité consiste à [effectuer la migration de votre réseau virtuel basé sur un groupe d’affinités vers un réseau virtuel régional](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), puis à créer la machine virtuelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Si vous rencontrez des problèmes lorsque vous démarrez une machine virtuelle Windows arrêtée ou que vous redimensionnez une machine virtuelle Windows existante dans Azure, consultez [Résoudre les problèmes de déploiement classique liés au redémarrage ou au redimensionnement d’une machine virtuelle Windows existante dans Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md).
+Si vous rencontrez des problèmes lorsque vous démarrez une machine virtuelle Windows arrêtée ou que vous redimensionnez une machine virtuelle Windows existante dans Azure, consultez [Résoudre les problèmes de déploiement classique liés au redémarrage ou au redimensionnement d’une machine virtuelle Windows existante dans Azure](windows/classic/virtual-machines-windows-classic-restart-resize-error-troubleshooting.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
 title: Adresses IP virtuelles multiples pour Azure Load Balancer | Microsoft Docs
-description: Vue d’ensemble des adresses IP virtuelles multiples dans Azure Load Balancer
+description: "Vue d’ensemble des adresses IP virtuelles multiples dans Azure Load Balancer"
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
 manager: narayan
-editor: ''
-
+editor: 
+ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/11/2016
 ms.author: chkuhtz
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 0cedf46bd0b8c352c8a8d87407ed7fbbc58e3b46
 
 ---
+
 # <a name="multiple-vips-for-azure-load-balancer"></a>Adresses IP virtuelles multiples pour Azure Load Balancer
+
 Azure Load Balancer vous permet d’équilibrer la charge des services sur plusieurs ports, plusieurs adresses IP ou les deux. Vous pouvez utiliser les définitions d’équilibrage de charge public et interne pour charger les flux équilibrés sur un ensemble de machines virtuelles.
 
 Cet article décrit les principes de base de cette capacité, les concepts importants et les contraintes. Si vous souhaitez uniquement exposer des services sur une adresse IP, des instructions simplifiées sont disponibles pour les configurations d’équilibreur de charge [publiques](load-balancer-get-started-internet-portal.md) ou [internes](load-balancer-get-started-ilb-arm-portal.md). Les adresses IP virtuelles multiples s’ajoutent à une configuration d’adresse IP virtuelle unique. À l’aide des concepts présentés dans cet article, vous pouvez étendre une configuration simplifiée à tout moment.
@@ -25,7 +30,7 @@ Lorsque vous définissez un équilibrage de charge Azure, une configuration fron
 
 Le tableau suivant contient quelques exemples de configurations frontales :
 
-| Adresse IP virtuelle | Adresse IP | protocol | port |
+| Adresse IP virtuelle | Adresse IP | protocol | port |
 | --- | --- | --- | --- |
 | 1 |65.52.0.1 |TCP |80 |
 | 2 |65.52.0.1 |TCP |*8080* |
@@ -43,12 +48,13 @@ Azure Load Balancer vous permet d’associer les deux types de règle sur la mê
 
 Nous examinons ces scénarios plus en détail en commençant par le comportement par défaut.
 
-## <a name="rule-type-#1:-no-backend-port-reuse"></a>Type de règle nº 1 : pas de réutilisation des ports principaux
+## <a name="rule-type-1-no-backend-port-reuse"></a>Type de règle nº 1 : pas de réutilisation des ports principaux
+
 ![Illustration d’adresses IP multiples](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
 
 Dans ce scénario, les adresses IP virtuelles frontales sont configurées comme suit :
 
-| Adresse IP virtuelle | Adresse IP | protocol | port |
+| Adresse IP virtuelle | Adresse IP | protocol | port |
 | --- | --- | --- | --- |
 | ![Adresse IP virtuelle](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![Adresse IP virtuelle](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -73,7 +79,8 @@ Chaque règle doit produire un flux avec une combinaison unique d’adresse IP d
 
 Les sondes d’intégrité sont toujours dirigées vers l’adresse IP dédiée d’une machine virtuelle. Vous devez vous assurer que votre sonde reflète l’intégrité de la machine virtuelle.
 
-## <a name="rule-type-#2:-backend-port-reuse-by-using-floating-ip"></a>Type de règle nº 2 : réutilisation des ports principaux à l’aide d’une adresse IP flottante
+## <a name="rule-type-2-backend-port-reuse-by-using-floating-ip"></a>Type de règle nº 2 : réutilisation des ports principaux à l’aide d’une adresse IP flottante
+
 Azure Load Balancer offre la possibilité de réutiliser le port frontal sur plusieurs adresses IP virtuelles, quel que soit le type de règle utilisé. En outre, dans certains scénarios d’application, il est préférable ou nécessaire que plusieurs instances d’application utilisent le même port sur une machine virtuelle du pool principal. Des exemples courants de réutilisation de port incluent le clustering pour la haute disponibilité, les appliances réseau virtuelles, ainsi que l’exposition de plusieurs points de terminaison TLS sans nouveau chiffrement.
 
 Si vous souhaitez réutiliser le port principal pour plusieurs règles, vous devez activer la fonctionnalité d’adresse IP flottante dans la définition des règles.
@@ -94,12 +101,10 @@ Pour ce scénario, chaque machine virtuelle du pool principal a trois interfaces
 
 > [!IMPORTANT]
 > La configuration des interfaces logiques est effectuée dans le SE invité. Cette configuration n’est pas exécutée ou gérée par Azure. Sans cette configuration, les règles ne fonctionneront pas. Les définitions de sonde d’intégrité utilisent l’adresse IP dédiée de la machine virtuelle plutôt que l’adresse IP virtuelle logique. Par conséquent, votre service doit fournir les réponses de sonde sur un port de l’adresse IP dédiée qui reflète l’état du service offert sur l’adresse IP virtuelle logique.
-> 
-> 
 
 Prenons pour exemple la même configuration frontale que dans le scénario précédent :
 
-| Adresse IP virtuelle | Adresse IP | protocol | port |
+| Adresse IP virtuelle | Adresse IP | protocol | port |
 | --- | --- | --- | --- |
 | ![Adresse IP virtuelle](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![Adresse IP virtuelle](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -122,14 +127,17 @@ La destination du flux entrant est l’adresse IP virtuelle sur l’interface de
 
 Notez que cet exemple ne modifie pas le port de destination. Bien qu’il s’agisse d’un scénario d’adresse IP flottante, l’équilibrage de charge Azure prend également en charge la définition d’une règle pour réécrire le port de destination principal afin qu’il soit différent du port de destination frontal.
 
-Le type de règle faisant appel à l’adresse IP flottante constitue la base de plusieurs modèles de configuration d’équilibrage de charge. Un exemple disponible actuellement est la configuration [SQL AlwaysOn avec plusieurs écouteurs](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) . Au fil du temps, nous documenterons un plus grand nombre de ces scénarios.
+Le type de règle faisant appel à l’adresse IP flottante constitue la base de plusieurs modèles de configuration d’équilibrage de charge. Un exemple disponible actuellement est la configuration [SQL AlwaysOn avec plusieurs écouteurs](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . Au fil du temps, nous documenterons un plus grand nombre de ces scénarios.
 
 ## <a name="limitations"></a>Limitations
+
 * Les configurations d’adresses IP virtuelles multiples sont uniquement prises en charge avec les machines virtuelles IaaS.
 * Avec la règle d’adresse IP flottante, votre application doit utiliser l’adresse IP dédiée pour les flux sortants. Si votre application se lie à l’adresse IP virtuelle configurée sur l’interface de bouclage du SE invité, SNAT n’est pas disponible pour réécrire le flux sortant et le flux échoue.
 * Les adresses IP publiques ont une incidence sur la facturation. Pour plus d’informations, voir la page [Tarification des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Des limites d’abonnement s’appliquent. Pour plus d’informations, voir les [limites de service](../azure-subscription-service-limits.md#networking-limits) .
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

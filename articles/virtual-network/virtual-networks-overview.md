@@ -1,5 +1,5 @@
 ---
-title: "Présentation du réseau virtuel (VNet) Azure"
+title: "Réseaux virtuels Azure | Microsoft Docs"
 description: "En savoir plus sur les réseaux virtuels dans Azure."
 services: virtual-network
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e08966567a8545c1b37ec856f836b976b5a9ab2a
+ms.sourcegitcommit: 6e96471c4f61e1ebe15c23f87ac646001d8e30ee
+ms.openlocfilehash: 47f149fe38dfd238dc2a38fd02ea50fc9c65e469
 
 
 ---
-# <a name="virtual-network-overview"></a>Présentation du réseau virtuel
+# <a name="virtual-networks"></a>Réseaux virtuels
 Un réseau virtuel Azure (VNet) est une représentation de votre propre réseau dans le cloud.  Il s’agit d’un isolement logique du cloud Azure dédié à votre abonnement. Vous pouvez contrôler complètement les blocs d’adresses IP, les paramètres DNS, les stratégies de sécurité et les tables de routage de ce réseau. Vous pouvez également segmenter votre réseau en plusieurs sous-réseaux et lancer des machines virtuelles IaaS Azure et/ou des [services Cloud (instances de rôle PaaS)](../cloud-services/cloud-services-choose-me.md). En outre, vous pouvez connecter le réseau virtuel à votre réseau local à l’aide des [options de connectivité](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) disponibles dans Azure. En bref, vous pouvez développer votre réseau sur Azure et maîtriser totalement vos blocs d’adresses IP avec les que procurent la mise à l’échelle d’entreprise d’Azure.
 
 Pour mieux comprendre les réseaux virtuels, examinez la figure ci-dessous, qui illustre un réseau local simplifié.
@@ -38,9 +38,8 @@ Notez comment l’infrastructure Azure prend le rôle de routeur, autorisant vot
 > [!NOTE]
 > Il existe deux modes de déploiement dans Azure : classique (également appelé Service Management) et Azure Resource Manager (ARM). Les réseaux virtuels classiques peuvent être ajoutés à un groupe d’affinités ou créés en tant que réseau virtuel régional. Si vous avez un réseau virtuel dans un groupe d’affinités, il est recommandé de [migrer vers un réseau virtuel régional](virtual-networks-migrate-to-regional-vnet.md).
 > 
-> 
 
-## <a name="virtual-network-benefits"></a>Avantages du réseau virtuel
+## <a name="benefits"></a>Avantages
 * **Isolement**. Les réseaux virtuels sont totalement isolés les uns des autres. Cela vous permet de créer des réseaux disjoints pour le développement, le test et la production qui utilisent les mêmes blocs d’adresses CIDR.
 * **Accès à l’Internet public**. Toutes les machines virtuelles IaaS et les instances de rôle PaaS d’un réseau virtuel ont, par défaut, accès à l’Internet public. Vous pouvez contrôler l’accès grâce aux groupes de sécurité réseau (NSG).
 * **Accès aux machines virtuelles dans le réseau virtuel**. Les instances de rôle PaaS et les machines virtuelles IaaS peuvent être démarrées dans le même réseau virtuel et se connecter entre elles avec des adresses IP privées, même si elles se trouvent dans des sous-réseaux différents, et ce, sans avoir recours à la configuration d’une passerelle ou sans utiliser d’adresse IP publique.
@@ -50,8 +49,7 @@ Notez comment l’infrastructure Azure prend le rôle de routeur, autorisant vot
   
   > [!NOTE]
   > Assurez-vous de créer un réseau virtuel avant de déployer des machines virtuelles IaaS ou des instances de rôle PaaS dans votre environnement Azure. Les machines virtuelles sur ARM requièrent un réseau virtuel et, si vous ne spécifiez pas de réseau virtuel existant, Azure crée un réseau virtuel par défaut dont le bloc d’adresses CIDR peut entrer en conflit avec votre réseau local. Ce qui empêche la connexion de votre réseau virtuel à votre réseau local.
-  > 
-  > 
+  >
 
 ## <a name="subnets"></a>Sous-réseaux
 Le sous-réseau est une plage d’adresses IP appartenant au réseau virtuel. Vous pouvez diviser un réseau virtuel en plusieurs sous-réseaux pour l’organisation et la sécurité. Les machines virtuelles et les instances de rôle PaaS déployées sur des sous-réseaux (identiques ou différents) au sein d’un réseau virtuel peuvent communiquer entre elles sans qu’il y ait besoin de configuration supplémentaire. Vous pouvez également configurer des tables d’itinéraire et des groupes de sécurité réseau sur un sous-réseau.
@@ -69,7 +67,7 @@ Les machines virtuelles et les services cloud au sein d’un réseau virtuel peu
 
 Pour en savoir plus sur l’équilibrage de charge dans Azure, visitez [Présentation de l’équilibreur de charge](../load-balancer/load-balancer-overview.md).
 
-## <a name="network-security-group-nsg"></a>Groupe de sécurité réseau
+## <a name="network-security-groups-nsg"></a>Groupes de sécurité réseau (NSG)
 Vous pouvez créer des NSG afin de contrôler l’accès entrant et sortant aux interfaces réseau (cartes réseau), aux machines virtuelles et aux sous-réseaux. Chaque NSG contient une ou plusieurs règles spécifiant si le trafic est accepté ou refusé en fonction de l’adresse IP source, du port source, de l’adresse IP de destination et du port de destination. Pour en savoir plus sur les groupes de sécurité réseau, consultez [Qu’est-ce qu’un groupe de sécurité réseau ?](virtual-networks-nsg.md).
 
 ## <a name="virtual-appliances"></a>Appliances virtuelles
@@ -94,6 +92,6 @@ L’utilisation de réseaux virtuels dans Azure ne génère pas de frais supplé
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

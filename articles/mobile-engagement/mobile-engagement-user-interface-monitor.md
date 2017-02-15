@@ -1,12 +1,12 @@
 ---
-title: Interface utilisateur d'Azure Mobile Engagement - Moniteur
-description: En savoir plus sur la surveillance des données en temps réel de votre application à l’aide d’Azure Mobile Engagement
+title: Interface utilisateur d&quot;Azure Mobile Engagement - Moniteur
+description: "En savoir plus sur la surveillance des données en temps réel de votre application à l’aide d’Azure Mobile Engagement"
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: b91ad89a-b89d-4377-abb0-cc2d16a2836d
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,47 +14,51 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 838079ed1317aca19ee8e5c5721efb0d93dd97e6
+
 
 ---
-# Surveillance des données en temps réel de votre application
-Cet article décrit l’onglet **SURVEILLER** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et à gérer vos applications mobiles. Notez que pour utiliser le portail, vous devez tout d’abord créer un compte **Azure Mobile Engagement**.
+# <a name="how-to-monitor-real-time-data-about-your-application"></a>Surveillance des données en temps réel de votre application
+Cet article décrit l’onglet **SURVEILLER** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et à gérer vos applications mobiles. Notez que pour utiliser le portail, vous devez tout d’abord créer un compte **Azure Mobile Engagement** . 
 
-La section Surveiller de l’interface utilisateur offre des analyses en temps réel et vous permet de définir des alertes lorsque des seuils sont atteints pour la plupart des informations disponibles dans l’historique de la section [Analyse](mobile-engagement-user-interface-analytics.md) de l’interface utilisateur. Consultez la section **Glossaire** de la rubrique [Concepts](http://go.microsoft.com/fwlink/?LinkId=525555) qui présente les définitions des termes et abréviations indiqués dans Analyse et Surveillance, notamment : utilisateur actif, nouvel utilisateur, utilisateur conservé, session, graphique du chemin d’accès utilisateur, mappage des utilisateurs, URL de suivi, tendances, activité, événement, travail, erreur, informations supplémentaires, incident et informations sur l’application.
+La section Surveiller de l’interface utilisateur offre des analyses en temps réel et vous permet de définir des alertes lorsque des seuils sont atteints pour la plupart des informations disponibles dans l’historique de la section [Analyse](mobile-engagement-user-interface-analytics.md) de l’interface utilisateur. Consultez la section **Glossaire** de la rubrique [Concepts](http://go.microsoft.com/fwlink/?LinkId=525555) qui présente les définitions des termes et abréviations indiqués dans Analyse et Surveillance, notamment : utilisateur actif, nouvel utilisateur, utilisateur conservé, session, graphique du chemin d’accès utilisateur, mappage des utilisateurs, URL de suivi, tendances, activité, événement, travail, erreur, informations supplémentaires, incident et informations sur l’application.
 
 > [!NOTE]
 > De nombreuses sections de l’interface utilisateur du portail **Mobile Engagement** contiennent un bouton **AFFICHER L’AIDE**. Appuyez sur ce bouton pour obtenir des informations contextuelles supplémentaires sur une section.
 > 
 > 
 
-## Surveillance - Sessions, travaux, événements, erreurs et incidents
-Vous pouvez afficher le nombre d'utilisateurs actuellement dans une session, les écrans sur lesquels ils se trouvent et les actions spécifiques qu'ils effectuent. Vous pouvez afficher l'activité de l'utilisateur répartie selon les sessions, les tâches, les événements, les erreurs et les incidents. Vous pouvez voir l'information actuelle ainsi que les informations de la dernière heure, du dernier jour ou de la dernière semaine. Vous pouvez voir toutes les informations dans chaque catégorie ou les trier suivant la session, la tâche, l'événement, l'erreur ou l'incident. La surveillance directe est utile lors d'événements tels qu'une campagne Push pour voir si l'action est en légère hausse juste après l'envoi de votre notification Push.
+## <a name="monitor---sessions-jobs-events-errors-and-crashes"></a>Surveillance - Sessions, travaux, événements, erreurs et incidents
+Vous pouvez afficher le nombre d'utilisateurs actuellement dans une session, les écrans sur lesquels ils se trouvent et les actions spécifiques qu'ils effectuent. Vous pouvez afficher l'activité de l'utilisateur répartie selon les sessions, les tâches, les événements, les erreurs et les incidents. Vous pouvez voir l'information actuelle ainsi que les informations de la dernière heure, du dernier jour ou de la dernière semaine. Vous pouvez voir toutes les informations dans chaque catégorie ou les trier suivant la session, la tâche, l'événement, l'erreur ou l'incident.  La surveillance directe est utile lors d'événements tels qu'une campagne Push pour voir si l'action est en légère hausse juste après l'envoi de votre notification Push.
 
-![Moniteur1][14]
+![Moniteur1][14]  
 
-## Résolution des problèmes liés à la section Surveillance - Événements - Détails
-La génération d'un événement dans votre application à partir de votre appareil de test et sa recherche dans Surveillance - Événements - Détails est l'un des moyens les plus faciles pour trouver l'ID de votre appareil pour votre appareil de test et pour confirmer que l'intégration des sections Analyse, Surveillance et Segments par Azure Mobile Engagement fonctionne à partir de votre application. Une fois que vous avez l'ID de l'appareil de votre appareil de test, vous pouvez l'ajouter à vos appareils de test dans « Mon compte - Appareils ». Si vous ne parvenez pas à générer un événement, assurez-vous qu'Azure Mobile Engagement est bien intégré à votre application Android, iOS, Web, Windows ou Windows Phone à l'aide du Kit de développement logiciel (SDK).
+## <a name="troubleshooting-with-monitor---events---details"></a>Résolution des problèmes liés à la section Surveillance - Événements - Détails
+La génération d'un événement dans votre application à partir de votre appareil de test et sa recherche dans Surveillance - Événements - Détails est l'un des moyens les plus faciles pour trouver l'ID de votre appareil pour votre appareil de test et pour confirmer que l'intégration des sections Analyse, Surveillance et Segments par Azure Mobile Engagement fonctionne à partir de votre application. Une fois que vous avez l'ID de l'appareil de votre appareil de test, vous pouvez l'ajouter à vos appareils de test dans « Mon compte - Appareils ». Si vous ne parvenez pas à générer un événement, assurez-vous qu'Azure Mobile Engagement est bien intégré à votre application Android, iOS, Web, Windows ou Windows Phone à l'aide du Kit de développement logiciel (SDK).
 
-Pour plus d’informations, consultez la [documentation du Kit de développement logiciel (SDK)][Link 5].
+Pour plus d’informations, consultez la [documentation du SDK][Lien 5].
 
-![Moniteur2][15]
+![Moniteur2][15]  
 
-## Résolution des problèmes liés à la section Surveillance - Incidents - Détails
+## <a name="troubleshooting-with-monitor---crashes---details"></a>Résolution des problèmes liés à la section Surveillance - Incidents - Détails
 Vous pouvez consulter les informations relatives à l'incident de votre application dans Surveillance - Incidents - Détails pour vous aider à déterminer les raisons de l'incident survenu dans votre application. Nous vous invitons à chercher également des problèmes connus avec chaque version du Kit de développement logiciel (SDK) dans les notes de publication pour chaque version du Kit de développement logiciel (SDK) pour Android, iOS, Web, Windows et Windows Phone.
 
-Pour plus d’informations, consultez la [documentation du Kit de développement logiciel (SDK) et les notes de publication][Link 5].
+Pour plus d’informations, consultez la [documentation du SDK et les notes de publication][Lien 5].
 
 ![Moniteur3][16]
 
-## Analyse - Alertes
-Vous pouvez également indiquer des conditions pour des alertes qui vous seront automatiquement envoyées par courrier électronique ou message instantané. (Tout les services conformes à XMPP tels que Google Talk de Google ou iChat d'Apple sont pris en charge). Les alertes sont basées sur un seuil de détection prédéfini supérieur (>) ou inférieur à (<) un nombre spécifique de sessions, de tâches, d'événements, d'erreurs ou d'incidents par seconde, par minute ou par heure. Les alertes peuvent surveiller toutes les activités d'un type donné ou simplement surveiller l'activité d'une tâche, d'un événement ou d'une erreur spécifique.
+## <a name="monitor---alerts"></a>Analyse - Alertes
+Vous pouvez également indiquer des conditions pour des alertes qui vous seront automatiquement envoyées par courrier électronique ou message instantané. (Tout les services conformes à XMPP tels que Google Talk de Google ou iChat d'Apple sont pris en charge). Les alertes sont basées sur un seuil de détection prédéfini supérieur (>) ou inférieur à (<) un nombre spécifique de sessions, de tâches, d'événements, d'erreurs ou d'incidents par seconde, par minute ou par heure. Les alertes peuvent surveiller toutes les activités d'un type donné ou simplement surveiller l'activité d'une tâche, d'un événement ou d'une erreur spécifique. 
 
 Vous pouvez également indiquer un taux de détection minimum qui correspond au nombre de minutes minimal entre deux notifications pour la même alerte afin de vous assurer que, lorsque l’alerte est déclenchée, vous ne recevez qu’une notification par intervalle spécifié.
 
 ![Moniteur4][17]
 
-## Voir aussi
-* [Concepts][Link 6]
-* [Guide de résolution des problèmes - Service][Link 24]
+## <a name="see-also"></a>Voir aussi
+* [Concepts][Lien 6]
+* [Guide de résolution des problèmes - Service][Lien 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -117,38 +121,42 @@ Vous pouvez également indiquer un taux de détection minimum qui correspond au 
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: ../mobile-engagement-how-tos-first-push.md
-[Link 28]: ../mobile-engagement-how-tos-test-campaign.md
-[Link 29]: ../mobile-engagement-how-tos-personalize-push.md
-[Link 30]: ../mobile-engagement-how-tos-differentiate-push.md
-[Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
-[Link 32]: ../mobile-engagement-how-tos-text-view.md
-[Link 33]: ../mobile-engagement-how-tos-web-view.md
+[Lien 1]: mobile-engagement-user-interface.md
+[Lien 2]: mobile-engagement-troubleshooting-guide.md
+[Lien 3]: mobile-engagement-how-tos.md
+[Lien 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Lien 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Lien 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Lien 7]: https://account.windowsazure.com/PreviewFeatures
+[Lien 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Lien 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Lien 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Lien 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Lien 12]: mobile-engagement-user-interface-navigation.md
+[Lien 13]: mobile-engagement-user-interface-home.md
+[Lien 14]: mobile-engagement-user-interface-my-account.md
+[Lien 15]: mobile-engagement-user-interface-analytics.md
+[Lien 16]: mobile-engagement-user-interface-monitor.md
+[Lien 17]: mobile-engagement-user-interface-reach.md
+[Lien 18]: mobile-engagement-user-interface-segments.md
+[Lien 19]: mobile-engagement-user-interface-dashboard.md
+[Lien 20]: mobile-engagement-user-interface-settings.md
+[Lien 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Lien 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Lien 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Lien 24]: mobile-engagement-troubleshooting-guide-service.md
+[Lien 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Lien 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Lien 27]: ../mobile-engagement-how-tos-first-push.md
+[Lien 28]: ../mobile-engagement-how-tos-test-campaign.md
+[Lien 29]: ../mobile-engagement-how-tos-personalize-push.md
+[Lien 30]: ../mobile-engagement-how-tos-differentiate-push.md
+[Lien 31]: ../mobile-engagement-how-tos-schedule-campaign.md
+[Lien 32]: ../mobile-engagement-how-tos-text-view.md
+[Lien 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,23 +1,27 @@
 ---
-title: Indexation d’objets blob CSV avec l’indexeur d’objets blob Azure Search | Microsoft Docs
-description: Apprendre à indexer les objets blob CSV avec Azure Search
+title: "Indexation d’objets blob CSV avec l’indexeur d’objets blob Recherche Azure | Microsoft Docs"
+description: "Apprendre à indexer les objets blob CSV avec Azure Search"
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: chaosrealm
 manager: pablocas
-editor: ''
-
+editor: 
+ms.assetid: ed3c9cff-1946-4af2-a05a-5e0b3d61eb25
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/12/2016
+ms.date: 12/15/2016
 ms.author: eugenesh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 82c9d68bc3f1650648fac0597f4a329ef053b109
+
 
 ---
-# Indexation d’objets blob CSV avec l’indexeur d’objets blob Azure Search
-Par défaut, l’[indexeur d’objets blob Azure Search](search-howto-indexing-azure-blob-storage.md) analyse les objets blob de texte délimité comme un bloc de texte unique. Toutefois, avec des objets blob contenant des données CSV, vous souhaitez généralement traiter chaque ligne dans l’objet blob comme un document distinct. Par exemple, étant donné le texte délimité suivant :
+# <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexation d’objets blob CSV avec l’indexeur d’objets blob Azure Search
+Par défaut, l’ [indexeur d’objets blob Azure Search](search-howto-indexing-azure-blob-storage.md) analyse les objets blob de texte délimité comme un bloc de texte unique. Toutefois, avec des objets blob contenant des données CSV, vous souhaitez généralement traiter chaque ligne dans l’objet blob comme un document distinct. Par exemple, étant donné le texte délimité suivant : 
 
     id, datePublished, tags
     1, 2016-01-12, "azure-search,azure,cloud" 
@@ -25,15 +29,15 @@ Par défaut, l’[indexeur d’objets blob Azure Search](search-howto-indexing-a
 
 vous pouvez l’analyser dans 2 documents contenant chacun les champs « id », « datePublished » et « tags ».
 
-Dans cet article, vous découvrirez comment analyser les objets blob CSV avec un indexeur d’objet blob Azure Search.
+Dans cet article, vous découvrirez comment analyser les objets blob CSV avec un indexeur d’objet blob Azure Search. 
 
 > [!IMPORTANT]
-> Pour l’instant, cette fonctionnalité n’existe qu’en version préliminaire. Elle est uniquement disponible dans l’API REST utilisant la version **2015-02-28-Preview**. N’oubliez pas que les API d’évaluation sont destinées à être utilisées à des fins de test et d’évaluation, et non dans les environnements de production.
+> Pour l’instant, cette fonctionnalité n’existe qu’en version préliminaire. Elle est uniquement disponible dans l’API REST utilisant la version **2015-02-28-Preview**. N’oubliez pas que les API d’évaluation sont destinées à être utilisées à des fins de test et d’évaluation, et non dans les environnements de production. 
 > 
 > 
 
-## Configuration de l’indexation CSV
-Pour indexer des objets blob CSV, créer ou mettre à jour une définition d’indexeur le mode d’analyse `delimitedText` :
+## <a name="setting-up-csv-indexing"></a>Configuration de l’indexation CSV
+Pour indexer des objets blob CSV, créer ou mettre à jour une définition d’indexeur le mode d’analyse `delimitedText` :  
 
     {
       "name" : "my-csv-indexer",
@@ -43,7 +47,8 @@ Pour indexer des objets blob CSV, créer ou mettre à jour une définition d’i
 
 Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](search-api-indexers-2015-02-28-preview.md#create-indexer).
 
-`firstLineContainsHeaders` Indique que la première ligne (non vide) de chaque objet blob contient des en-têtes. Si les objets blob ne contiennent pas de ligne d’en-tête initiale, les en-têtes doivent être spécifiés dans la configuration de l’indexeur :
+`firstLineContainsHeaders` Indique que la première ligne (non vide) de chaque objet blob contient des en-têtes.
+Si les objets blob ne contiennent pas de ligne d’en-tête initiale, les en-têtes doivent être spécifiés dans la configuration de l’indexeur : 
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
@@ -54,10 +59,10 @@ Actuellement, seul le format UTF-8 est pris en charge. En outre, seule la virgul
 > 
 > 
 
-## Exemples de requête
-En résumé, voici des exemples complets de charges utiles.
+## <a name="request-examples"></a>Exemples de requête
+En résumé, voici des exemples complets de charges utiles. 
 
-Source de données :
+Source de données : 
 
     POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
     Content-Type: application/json
@@ -66,7 +71,7 @@ Source de données :
     {
         "name" : "my-blob-datasource",
         "type" : "azureblob",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "<optional, my-folder>" }
     }   
 
@@ -83,7 +88,12 @@ Indexeur :
       "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } }
     }
 
-## Aidez-nous à améliorer Azure Search
+## <a name="help-us-make-azure-search-better"></a>Aidez-nous à améliorer Azure Search
 Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas à nous contacter sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

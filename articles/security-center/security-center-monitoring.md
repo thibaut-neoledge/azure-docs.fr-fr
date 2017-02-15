@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 01/10/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 7f074883c2330c5814eef415f193e1775caec432
-ms.openlocfilehash: ddb38f99adef288958fd3828cb685912bf35f218
+ms.sourcegitcommit: b0694222548e39718f6626c1b1666584445f8398
+ms.openlocfilehash: 246b322378d581f6f263fd0adb96ef32f6962906
 
 
 ---
@@ -33,7 +33,7 @@ Pour plus d’informations sur la façon d’appliquer des recommandations, cons
 
 La mosaïque **Intégrité de la sécurité des ressources** vous permet de surveiller l’état de sécurité de vos ressources. L’exemple suivant représente des problèmes de niveau de gravité élevé ou moyen, qui nécessitent une attention particulière. Les stratégies de sécurité qui sont activées ont un impact sur les types de contrôles surveillés.
 
-![Mosaïque Intégrité de la sécurité des ressources](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
+![Mosaïque Intégrité de la sécurité des ressources](./media/security-center-monitoring/security-center-monitoring-fig1-new4-2017.png)
 
 Si Azure Security Center identifie une vulnérabilité qui doit être corrigée (par exemple, une machine virtuelle à laquelle il manque des mises à jour de sécurité ou un sous-réseau sans [groupe de sécurité réseau](/virtual-network/virtual-networks-nsg.md)), cette vulnérabilité est identifiée dans ce panneau.
 
@@ -169,7 +169,8 @@ Dans cette topologie, le premier niveau se décompose comme suit : [réseaux vi
 La partie inférieure de ce panneau regroupe les recommandations pour cette machine virtuelle, similaires celles décrites ci-dessus. Vous pouvez cliquer sur une recommandation pour en savoir plus, ou appliquer la configuration ou le contrôle de sécurité nécessaire.
 
 ### <a name="monitor-data"></a>Surveiller des données
-Lorsque vous cliquez sur **Données** dans la mosaïque **Intégrité de la sécurité des ressources**, le panneau **Ressources de données** s’ouvre avec des recommandations pour SQL et le stockage. Il contient également des [recommandations](security-center-sql-service-recommendations.md) pour l’état général de la base de données. Pour plus d’informations sur le chiffrement du stockage, consultez Enable encryption for Azure storage account in Azure Security Center (Activer le chiffrement pour le compte de stockage Azure dans Azure Security Center).
+
+Lorsque vous cliquez sur **SQL & Data (SQL et données)** dans la mosaïque **Intégrité de la sécurité des ressources**, le panneau **Ressources de données** s’ouvre avec des recommandations pour SQL et Stockage. Il contient également des [recommandations](security-center-sql-service-recommendations.md) pour l’état général de la base de données. Pour plus d’informations sur le chiffrement du stockage, consultez [Enable encryption for Azure storage account in Azure Security Center (Activer le chiffrement pour le compte de stockage Azure dans Azure Security Center)](security-center-enable-encryption-for-storage-account.md).
 
 ![Ressources de données](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
 
@@ -217,6 +218,6 @@ Dans cet article, vous avez vu comment utiliser les fonctionnalités de surveill
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

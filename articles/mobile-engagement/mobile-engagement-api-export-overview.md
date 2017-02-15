@@ -1,26 +1,30 @@
 ---
-title: Vue d’ensemble de l'API d’exportation Mobile Engagement
-description: Apprenez les principes de base de l'exportation de vos données brutes générées par les appareils de vos utilisateurs de façon à en tirer parti dans vos propres outils
+title: "Vue d’ensemble de l&quot;API d’exportation Mobile Engagement"
+description: "Apprenez les principes de base de l&quot;exportation de vos données brutes générées par les appareils de vos utilisateurs de façon à en tirer parti dans vos propres outils"
 services: mobile-engagement
 documentationcenter: mobile
 author: kpiteira
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 9380d47b-d7fa-4d4c-888f-97e6482196bb
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 04/26/2016
-ms.author: kpiteira
+ms.author: kapiteir
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9c17a1cb33616ad297d0fad9b8ea674de75bd8fb
+
 
 ---
-# Vue d’ensemble de l'API d’exportation Mobile Engagement
-## Introduction
+# <a name="mobile-engagement-export-api-overview"></a>Vue d’ensemble de l'API d’exportation Mobile Engagement
+## <a name="introduction"></a>Introduction
 Dans ce document, vous allez apprendre les principes de base de l'exportation de vos données brutes générées par les appareils de vos utilisateurs de façon à en tirer parti dans vos propres outils.
 
-## Conditions préalables
+## <a name="pre-requisites"></a>Conditions préalables
 L’exportation des données brutes à partir de Mobile Engagement requiert :
 
 * la possibilité pour la configuration de l'authentification des API d’utiliser les API (consultez [installation manuelle de l'authentification](mobile-engagement-api-authentication-manual.md)),
@@ -32,8 +36,9 @@ L’exportation des données brutes à partir de Mobile Engagement requiert :
 > 
 > 
 
-## Que peut-on exporter ?
-Mobile Engagement permet à ses utilisateurs de collecter de nombreux types de données et, par conséquent, possède plusieurs types d'exportation adaptés à ces différents types de données. Il existe 2 types d'exportation principaux :
+## <a name="what-can-be-exported"></a>Que peut-on exporter ?
+Mobile Engagement permet à ses utilisateurs de collecter de nombreux types de données et, par conséquent, possède plusieurs types d'exportation adaptés à ces différents types de données.
+Il existe 2 types d'exportation principaux :
 
 * Instantané : généralement utilisé pour exporter des données qui représentent un état et pour lesquelles Mobile Engagement n'a pas d'historique. Cela inclut par exemple les balises (app-info), les jetons ou les retours d’expérience de campagnes push. Par conséquent, ces types d'exportation ne sont pas liés à une date.
 * Historique : ce type d'exportation est utilisé pour les données qui s'accumulent au fil du temps, par exemple des événements ou des activités.
@@ -51,8 +56,9 @@ Le tableau ci-dessous décrit de façon exhaustive toutes les exportations possi
 | Historique |Job |Génère une exportation de toutes les tâches de chaque appareil sur une période donnée |
 | Historique |Erreur |Génère une exportation de toutes les erreurs de chaque appareil sur une période donnée |
 
-## Comment cela fonctionne-t-il ?
-Les exportations sont des tâches de longue durée qui peuvent produire des fichiers de données volumineux. Pour cette raison, elles ne peuvent pas être appelées pour retourner immédiatement un fichier à télécharger. Pour exporter des données à partir de Mobile Engagement, vous devrez créer une **Tâche d'exportation** avec l'API, où vous spécifiez généralement :
+## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
+Les exportations sont des tâches de longue durée qui peuvent produire des fichiers de données volumineux. Pour cette raison, elles ne peuvent pas être appelées pour retourner immédiatement un fichier à télécharger.
+Pour exporter des données à partir de Mobile Engagement, vous devrez créer une **Tâche d'exportation** avec l'API, où vous spécifiez généralement :
 
 * le type d'exportation (instantané ou historique),
 * le type de données,
@@ -64,4 +70,9 @@ Une fois la tâche créée, il est possible de vérifier son état pour voir si 
 
 Une fois la tâche RÉUSSIE, le fichier de données qui en résulte est disponible sur le conteneur de stockage fourni.
 
-<!---HONumber=AcomDC_0504_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

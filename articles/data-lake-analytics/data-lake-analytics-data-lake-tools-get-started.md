@@ -352,6 +352,6 @@ Le script PowerShell ci-après prépare un compte Azure Data Lake Analytics et l
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

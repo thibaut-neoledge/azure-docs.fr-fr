@@ -270,6 +270,6 @@ Quand vous cliquez sur la vignette Hosted Graphite dans le volet d’accès, vou
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

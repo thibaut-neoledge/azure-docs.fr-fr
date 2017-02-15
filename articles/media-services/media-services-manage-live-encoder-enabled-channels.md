@@ -192,7 +192,7 @@ Considérations :
 * Profil High 422 (10 bits 4:2:2)
 * Audio MPEG-2 AAC-LC
 * Mono, stéréo, Surround (5.1, 7.1)
-* Fréquence d'échantillonnage 44,1 kHz
+* Fréquence d'échantillonnage&44;,1 kHz
 * Format ADTS style MPEG-2
 * Les encodeurs recommandés sont les suivants :
 * Telestream Wirecast
@@ -220,7 +220,7 @@ Vous pouvez obtenir les URL de réception dès que vous avez créé un canal. P
 Vous avez la possibilité de recevoir un flux dynamique au format MP4 fragmenté (Smooth Streaming) via une connexion SSL. Pour assurer la réception via SSL, veillez à mettre à jour l’URL de réception pour HTTPS.
 
 ### <a name="allowed-ip-addresses"></a>Adresses IP autorisées
-Vous pouvez définir les adresses IP autorisées à publier du contenu vidéo sur ce canal. Les adresses IP autorisées peuvent être spécifiées en tant qu’adresses IP uniques (par exemple, '10.0.0.1'), une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau CIDR (par exemple, 10.0.0.1/22), ou une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau décimal séparé par des points (par exemple, '10.0.0.1(255.255.252.0)').
+Vous pouvez définir les adresses IP autorisées à publier du contenu vidéo sur ce canal. Les adresses IP autorisées peuvent être spécifiées en tant qu’adresses IP uniques (par exemple, '10.0.0.1'), une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau CIDR (par exemple,&10;.0.0.1/22), ou une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau décimal séparé par des points (par exemple, '10.0.0.1(255.255.252.0)').
 
 Si aucune adresse IP n’est spécifiée et qu’il n’existe pas de définition de règle, alors aucune adresse IP n’est autorisée. Pour autoriser toutes les adresses IP, créez une règle et définissez la valeur 0.0.0.0/0.
 
@@ -238,7 +238,7 @@ Une fois que le canal commence à recevoir les données, vous pouvez prévisuali
 > 
 
 ### <a name="allowed-ip-addresses"></a>Adresses IP autorisées
-Vous pouvez définir les adresses IP autorisées à se connecter au point de terminaison d’aperçu. Si aucune adresse IP n’est spécifiée, alors toutes les adresses IP seront autorisées. Les adresses IP autorisées peuvent être spécifiées en tant qu’adresses IP uniques (par exemple, 10.0.0.1), une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau CIDR (par exemple, 10.0.0.1/22), ou une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau décimal séparé par des points (par exemple, 10.0.0.1[255.255.252.0]).
+Vous pouvez définir les adresses IP autorisées à se connecter au point de terminaison d’aperçu. Si aucune adresse IP n’est spécifiée, alors toutes les adresses IP seront autorisées. Les adresses IP autorisées peuvent être spécifiées en tant qu’adresses IP uniques (par exemple,&10;.0.0.1), une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau CIDR (par exemple,&10;.0.0.1/22), ou une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau décimal séparé par des points (par exemple,&10;.0.0.1[255.255.252.0]).
 
 ## <a name="live-encoding-settings"></a>Paramètres d’encodage en temps réel
 Cette section décrit comment les paramètres de l’encodeur dynamique dans le canal peuvent être ajustés, lorsque le paramètre **Type d’encodage** d’un canal est défini sur **Standard**.

@@ -1,5 +1,5 @@
 * [Sécurisation de votre application web avec plusieurs méthodes d'authentification et d'autorisation](../articles/app-service-web/web-sites-authentication-authorization.md)
-  * [Configuration de l'authentification Azure Active Directory pour votre application](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
+  * [Configuration de l'authentification Azure Active Directory pour votre application](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 * [Sécurisation du trafic vers votre application avec l'activation du protocole TLS/SSL (Transport Layer Security) - HTTPS](../articles/app-service-web/web-sites-configure-ssl-certificate.md)
   * [Affectation de force de tout le trafic entrant sur la connexion HTTPS](http://microsoftazurewebsitescheatsheet.info/#force-https)
   * [Activation du protocole HSTS (Strict Transport Security)](http://microsoftazurewebsitescheatsheet.info/#enable-http-strict-transport-security-hsts)
@@ -16,4 +16,8 @@
   * [Configuration du contrôle d'accès pour le trafic réseau entrant pour votre ASE](../articles/app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
   * [Connexion sécurisée aux ressources principales à partir de votre ASE](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure | Microsoft Docs
-description: Découvrez comment définir des rôles personnalisés à l’aide du contrôle d’accès en fonction du rôle Azure pour une gestion plus précise des identités dans votre abonnement Azure.
+title: "Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure | Microsoft Docs"
+description: "Découvrez comment définir des rôles personnalisés à l’aide du contrôle d’accès en fonction du rôle Azure pour une gestion plus précise des identités dans votre abonnement Azure."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: kgremban
-editor: ''
-
+editor: 
+ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,10 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/25/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b5ffc0f9d337c776f2702aa95d991d1b57829f3b
+
 
 ---
-# Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure
-Créez un rôle personnalisé dans le contrôle d’accès en fonction du rôle (RBAC) Azure si aucun des rôles intégrés ne répond à vos besoins d’accès spécifiques. Il est possible de créer des rôles personnalisés à l’aide d’[Azure PowerShell](role-based-access-control-manage-access-powershell.md), de l’[interface de ligne de commande Azure](role-based-access-control-manage-access-azure-cli.md) et de l’[API REST](role-based-access-control-manage-access-rest.md). À l’instar des rôles intégrés, des rôles personnalisés peuvent être affectés à des utilisateurs, des groupes et des applications dans l’étendue des abonnements, des groupes de ressources et des ressources. Les rôles personnalisés sont stockés sur un locataire Azure AD et peuvent être partagés entre tous les abonnements qui utilisent ce locataire comme répertoire Azure AD pour l’abonnement.
+# <a name="custom-roles-in-azure-rbac"></a>Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure
+Créez un rôle personnalisé dans le contrôle d’accès en fonction du rôle (RBAC) Azure si aucun des rôles intégrés ne répond à vos besoins d’accès spécifiques. Il est possible de créer des rôles personnalisés à l’aide [d’Azure PowerShell](role-based-access-control-manage-access-powershell.md), de [l’interface de ligne de commande Azure](role-based-access-control-manage-access-azure-cli.md) et de [l’API REST](role-based-access-control-manage-access-rest.md). À l’instar des rôles intégrés, des rôles personnalisés peuvent être affectés à des utilisateurs, des groupes et des applications dans l’étendue des abonnements, des groupes de ressources et des ressources. Les rôles personnalisés sont stockés sur un locataire Azure AD et peuvent être partagés entre tous les abonnements qui utilisent ce locataire comme répertoire Azure AD pour l’abonnement.
 
 Voici un exemple de rôle personnalisé pour surveiller et redémarrer des machines virtuelles :
 
@@ -49,8 +53,8 @@ Voici un exemple de rôle personnalisé pour surveiller et redémarrer des machi
   ]
 }
 ```
-## Actions
-La propriété **Actions** d’un rôle personnalisé spécifie les opérations Azure auxquelles le rôle accorde l’accès. Il s’agit d’un ensemble de chaînes d’opération qui identifient les opérations sécurisables des fournisseurs de ressources Azure. Les chaînes d’opération contenant des caractères génériques (*) accordent l’accès à toutes les opérations qui correspondent à la chaîne d’opération. Exemple :
+## <a name="actions"></a>Actions
+La propriété **Actions** d’un rôle personnalisé spécifie les opérations Azure auxquelles le rôle accorde l’accès. Il s’agit d’un ensemble de chaînes d’opération qui identifient les opérations sécurisables des fournisseurs de ressources Azure. Les chaînes d’opération contenant des caractères génériques (\*) accordent l’accès à toutes les opérations qui correspondent à la chaîne d’opération. Exemple :
 
 * `*/read` accorde l’accès aux opérations de lecture pour tous les types de ressources de l’ensemble des fournisseurs de ressources Azure.
 * `Microsoft.Network/*/read` accorde l’accès aux opérations de lecture pour tous les types de ressources dans le fournisseur de ressources Microsoft.Network d’Azure.
@@ -73,17 +77,17 @@ azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js
 azure provider operations show "Microsoft.Network/*"
 ```
 
-![Capture d’écran de l’interface de ligne de commande Azure - les opérations du fournisseur azure affichent « Microsoft.Compute/virtualMachines/*/action »](./media/role-based-access-control-configure/1-azure-provider-operations-show.png)
+![Capture d’écran de l’interface de ligne de commande Azure ; les opérations du fournisseur azure affichent « Microsoft.Compute/virtualMachines/\*/action » ](./media/role-based-access-control-configure/1-azure-provider-operations-show.png)
 
-## NotActions
+## <a name="notactions"></a>NotActions
 Utilisez la propriété **NotActions** si l’ensemble des opérations que vous souhaitez autoriser est plus facile à définir en excluant les opérations restreintes. L’accès accordé par un rôle personnalisé est déterminé par l’élimination des opérations **NotActions** des opérations **Actions**.
 
 > [!NOTE]
-> Si un utilisateur se voit attribuer un rôle qui exclut une opération dans **NotActions** et un second rôle qui accorde l’accès à cette même opération, il sera autorisé à effectuer cette opération. **NotActions** n’est pas une règle de refus : il s’agit simplement d’un moyen pratique pour créer un ensemble d’opérations autorisées lorsque des opérations spécifiques doivent être exclues.
+> Si un utilisateur se voit attribuer un rôle qui exclut une opération dans **NotActions**et un second rôle qui accorde l’accès à cette même opération, il sera autorisé à effectuer cette opération. **NotActions** n’est pas une règle de refus : il s’agit simplement d’un moyen pratique pour créer un ensemble d’opérations autorisées lorsque des opérations spécifiques doivent être exclues.
 > 
 > 
 
-## AssignableScopes
+## <a name="assignablescopes"></a>AssignableScopes
 La propriété **AssignableScopes** du rôle personnalisé spécifie les étendues (abonnements, groupes de ressources ou ressources) au sein desquelles le rôle personnalisé peut être affecté. Vous pouvez rendre le rôle personnalisé disponible uniquement dans les abonnements ou les groupes de ressources qui le nécessitent afin de ne pas surcharger l’expérience utilisateur pour le reste des abonnements ou des groupes de ressources.
 
 Voici des exemples d’étendues assignables valides :
@@ -97,19 +101,28 @@ Voici des exemples d’étendues assignables valides :
 > 
 > 
 
-## Contrôle d’accès des rôles personnalisés
+## <a name="custom-roles-access-control"></a>Contrôle d’accès des rôles personnalisés
 La propriété **AssignableScopes** du rôle personnalisé contrôle également les personnes autorisées à afficher, modifier et supprimer le rôle.
 
-* Qui peut créer un rôle personnalisé ? Les propriétaires (et les administrateurs de l’accès utilisateur) d’abonnements, de groupes de ressources et de ressources peuvent créer des rôles personnalisés utilisables au sein de ces étendues. L’utilisateur qui crée le rôle doit être en mesure d’effectuer l’opération `Microsoft.Authorization/roleDefinition/write` dans l’ensemble des étendues **AssignableScopes** du rôle.
-* Qui peut modifier un rôle personnalisé ? Les propriétaires (et les administrateurs de l’accès utilisateur) d’abonnements, de groupes de ressources et de ressources peuvent modifier des rôles personnalisés au sein de ces étendues. Les utilisateurs doivent pouvoir effectuer l’opération `Microsoft.Authorization/roleDefinition/write` dans l’ensemble des étendues **AssignableScopes** d’un rôle personnalisé.
-* Qui peut afficher des rôles personnalisés ? Tous les rôles intégrés dans le contrôle d’accès en fonction du rôle Azure permettent d’afficher les rôles pouvant être affectés. Les utilisateurs qui peuvent effectuer l’opération `Microsoft.Authorization/roleDefinition/read` dans une étendue sont autorisés à afficher les rôles RBAC pouvant être affectés dans cette étendue.
+* Qui peut créer un rôle personnalisé ?
+    Les propriétaires (et les administrateurs de l’accès utilisateur) d’abonnements, de groupes de ressources et de ressources peuvent créer des rôles personnalisés utilisables au sein de ces étendues.
+    L’utilisateur qui crée le rôle doit être en mesure d’effectuer l’opération `Microsoft.Authorization/roleDefinition/write` dans l’ensemble des étendues **AssignableScopes** du rôle.
+* Qui peut modifier un rôle personnalisé ?
+    Les propriétaires (et les administrateurs de l’accès utilisateur) d’abonnements, de groupes de ressources et de ressources peuvent modifier des rôles personnalisés au sein de ces étendues. Les utilisateurs doivent pouvoir effectuer l’opération `Microsoft.Authorization/roleDefinition/write` dans l’ensemble des étendues **AssignableScopes** d’un rôle personnalisé.
+* Qui peut afficher des rôles personnalisés ?
+    Tous les rôles intégrés dans le contrôle d’accès en fonction du rôle Azure permettent d’afficher les rôles pouvant être affectés. Les utilisateurs qui peuvent effectuer l’opération `Microsoft.Authorization/roleDefinition/read` dans une étendue sont autorisés à afficher les rôles RBAC pouvant être affectés dans cette étendue.
 
-## Voir aussi
-* [Utiliser les attributions de rôle pour gérer l’accès à vos ressources Azure Active Directory](role-based-access-control-configure.md) : découvrez le contrôle d’accès en fonction du rôle Azure dans le portail Azure.
+## <a name="see-also"></a>Voir aussi
+* [Utiliser les attributions de rôle pour gérer l’accès à vos ressources Azure Active Directory](role-based-access-control-configure.md): découvrez le contrôle d’accès en fonction du rôle Azure dans le portail Azure.
 * Découvrez comment gérer l’accès avec :
   * [PowerShell](role-based-access-control-manage-access-powershell.md)
   * [Interface de ligne de commande Azure](role-based-access-control-manage-access-azure-cli.md)
   * [API REST](role-based-access-control-manage-access-rest.md)
-* [RBAC : rôles intégrés](role-based-access-built-in-roles.md) : obtenez des informations sur les rôles fournis en standard dans RBAC.
+* [RBAC : rôles intégrés](role-based-access-built-in-roles.md): obtenez des informations sur les rôles fournis en standard dans RBAC.
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

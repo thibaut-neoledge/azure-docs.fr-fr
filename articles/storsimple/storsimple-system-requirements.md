@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/31/2016
+ms.date: 12/13/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e5f0062d630a3b54b6c493f19877606e85f52eaa
+ms.sourcegitcommit: 52f2bf14c60dbb062a6f4aec26403c5064bba036
+ms.openlocfilehash: 3dc513e99ad3ac0f4f18f70666ee299a95ee9294
 
 
 ---
@@ -71,7 +71,7 @@ Votre appareil StorSimple est un appareil verrouillé. Toutefois, les ports doiv
 
 <sup>2</sup> Si plusieurs ports comportent une configuration de passerelle, l’ordre du trafic routé sortant est déterminé par l’ordre de routage des ports décrit dans la section [Routage de port](#routing-metric) ci-dessous.
 
-<sup>3</sup> Les adresses IP fixes du contrôleur sur votre appareil StorSimple doivent être routables et pouvoir se connecter à Internet. Les adresses IP fixes sont utilisées pour traiter les mises à jour apportées à l’appareil. Si les contrôleurs ne peuvent pas se connecter à Internet via les adresses IP fixes, vous ne pouvez pas mettre à jour votre appareil StorSimple.
+<sup>3</sup> Les adresses IP fixes du contrôleur sur votre appareil StorSimple doivent être routables et doivent pouvoir se connecter à Internet directement ou via le proxy web configuré. Les adresses IP fixes sont utilisées pour traiter les mises à jour apportées à l’appareil. Si les contrôleurs ne peuvent pas se connecter à Internet via les adresses IP fixes, vous ne pouvez pas mettre à jour votre appareil StorSimple.
 
 > [!IMPORTANT]
 > Assurez-vous que le pare-feu ne modifie ou ne déchiffre pas le trafic SSL entre l’appareil StorSimple et Azure.
@@ -253,6 +253,6 @@ Lisez attentivement ces meilleures pratiques recommandées pour assurer la haute
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

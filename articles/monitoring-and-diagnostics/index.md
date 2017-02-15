@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Apprenez à utiliser les services de surveillance et de diagnostic pour suivre les performances, préserver la sécurité et identifier des tendances. Références d’API, meilleures pratiques et autres documents."
 translationtype: Human Translation
-ms.sourcegitcommit: edf493f70b08bdf5545127a90d7a13ea49b668c1
-ms.openlocfilehash: 0ee9faf763dbedd4046547764c5ad5ad9e3d2d07
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: e59d88dbd538aad3e21a31fd721361cd9ffd4919
 
 ---
 
@@ -138,7 +138,7 @@ Apprenez à utiliser les services de surveillance et de diagnostic Azure pour su
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/monitor/">Référence sur les API REST</a></p>
+                        <p><a href="/rest/api/monitor/">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>
@@ -146,13 +146,7 @@ Apprenez à utiliser les services de surveillance et de diagnostic Azure pour su
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/monitoring-and-diagnostics.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation Monitoring and Diagnostics </div>
-    </a>
-</div>
+
 
 
 

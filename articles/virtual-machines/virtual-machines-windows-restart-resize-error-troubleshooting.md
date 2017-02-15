@@ -1,64 +1,73 @@
 ---
-title: Problèmes de redémarrage ou de redimensionnement de machines virtuelles | Microsoft Docs
-description: Résoudre les problèmes de déploiement Resource Manager liés au redémarrage ou au redimensionnement d’une machine virtuelle Windows existante dans Azure
+title: "Problèmes de redémarrage ou de redimensionnement de machines virtuelles | Microsoft Docs"
+description: "Résoudre les problèmes de déploiement Resource Manager liés au redémarrage ou au redimensionnement d’une machine virtuelle Windows existante dans Azure"
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: ''
+documentationcenter: 
 author: Deland-Han
 manager: felixwu
-editor: ''
+editor: 
 tags: top-support-issue
-
+ms.assetid: 0756b52d-4f5a-4503-ae45-c00a6a2edcdf
 ms.service: virtual-machines-windows
-ms.topic: article
+ms.topic: support-article
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.workload: required
 ms.date: 09/09/2016
 ms.author: delhan
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 3cdf936cbf621943a7ecb7ed55ddac95d2238c52
+
 
 ---
-# Résoudre les problèmes de déploiement Resource Manager liés au redémarrage ou au redimensionnement d’une machine virtuelle Windows existante dans Azure
+# <a name="troubleshoot-resource-manager-deployment-issues-with-restarting-or-resizing-an-existing-windows-virtual-machine-in-azure"></a>Résoudre les problèmes de déploiement Resource Manager liés au redémarrage ou au redimensionnement d’une machine virtuelle Windows existante dans Azure
 Lorsque vous essayez de démarrer une machine virtuelle Azure arrêtée ou de redimensionner une machine virtuelle Azure existante, l’erreur la plus fréquemment rencontrée est un échec d’allocation. Cette erreur se produit lorsque le cluster ou la région n’ont pas de ressources disponibles ou ne prennent pas en charge la taille de machine virtuelle demandée.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Collecter des journaux d’audit
+## <a name="collect-audit-logs"></a>Collecter des journaux d’audit
 Pour résoudre les problèmes, commencez par collecter les journaux d’audit afin d’identifier l’erreur associée au problème. Les liens suivants contiennent des informations détaillées sur le processus :
 
 [Résolution des problèmes liés aux déploiements de groupes de ressources avec le portail Azure](../resource-manager-troubleshoot-deployments-portal.md)
 
 [Opérations d’audit avec Resource Manager](../resource-group-audit.md)
 
-## Problème : erreur lors du démarrage d’une machine virtuelle arrêtée
+## <a name="issue-error-when-starting-a-stopped-vm"></a>Problème : erreur lors du démarrage d’une machine virtuelle arrêtée
 Vous essayez de démarrer une machine virtuelle arrêtée, mais obtenez un échec d’allocation.
 
-### Cause :
+### <a name="cause"></a>Cause :
 La demande de démarrage de la machine virtuelle arrêtée doit être exécutée sur le cluster d’origine qui héberge le service cloud. Toutefois, le cluster n’a pas d’espace libre pour répondre à la demande.
 
-### Résolution :
+### <a name="resolution"></a>Résolution :
 * Arrêtez toutes les machines virtuelles du groupe à haute disponibilité, puis redémarrez chacune d’elles.
   
   1. Cliquez sur **Groupes de ressources** > *votre groupe de ressources* > **Ressources** > *votre groupe à haute disponibilité* > **Machines virtuelles** > *votre machine virtuelle* > **Arrêter**.
   2. Après l’arrêt de toutes les machines virtuelles, sélectionnez chacune des machines arrêtées et cliquez sur Démarrer.
 * Relancez la demande de redémarrage ultérieurement.
 
-## Problème : erreur lors du redimensionnement d’une machine virtuelle existante
+## <a name="issue-error-when-resizing-an-existing-vm"></a>Problème : erreur lors du redimensionnement d’une machine virtuelle existante
 Vous essayez de redimensionner une machine virtuelle existante, mais obtenez un échec d’allocation.
 
-### Cause :
+### <a name="cause"></a>Cause :
 La demande de redimensionnement de la machine virtuelle doit être exécutée sur le cluster d’origine qui héberge le service cloud. Toutefois, le cluster ne prend pas en charge la taille de machine virtuelle demandée.
 
-### Résolution :
+### <a name="resolution"></a>Résolution :
 * Relancez la demande en utilisant une plus petite taille de machine virtuelle.
 * Si la taille de la machine virtuelle demandée n’est pas modifiable :
   
-  1. Arrêtez toutes les machines virtuelles du groupe à haute disponibilité.
+  1. Arrêtez toutes les machines virtuelles dans le groupe à haute disponibilité.
      
      * Cliquez sur **Groupes de ressources** > *votre groupe de ressources* > **Ressources** > *votre groupe à haute disponibilité* > **Machines virtuelles** > *votre machine virtuelle* > **Arrêter**.
   2. Après l’arrêt de toutes les machines virtuelles, redimensionnez la machine virtuelle souhaitée à une taille supérieure.
   3. Sélectionnez la machine virtuelle redimensionnée, cliquez sur **Démarrer**, puis démarrez chacune des machines virtuelles arrêtées.
 
-## Étapes suivantes
-Si vous rencontrez des problèmes lorsque vous créez une machine virtuelle Windows dans Azure, consultez [Résoudre les problèmes de déploiement liés à la création d’une machine virtuelle Windows dans Azure](virtual-machines-windows-troubleshoot-deployment-new-vm.md).
+## <a name="next-steps"></a>Étapes suivantes
+Si vous rencontrez des problèmes lorsque vous créez une machine virtuelle Windows dans Azure, consultez [Résoudre les problèmes de déploiement liés à la création d’une machine virtuelle Windows dans Azure](virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

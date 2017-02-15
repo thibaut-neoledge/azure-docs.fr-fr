@@ -276,7 +276,7 @@ Sur Package.appxmanifest, `File Type Associations` a été mis à jour à partir
 * capptain\_reach\_content to engagement\_reach\_content
 * capptain\_log\_file to engagement\_log\_file
 
-### <a name="application-id-sdk-key"></a>ID de l'application / clé SDK
+### <a name="application-id--sdk-key"></a>ID de l'application / clé SDK
 Engagement utilise une chaîne de connexion. Il est inutile de spécifier un ID d'application et une clé SDK avec Mobile Engagement. Il suffit de spécifier une chaîne de connexion. Vous pouvez la configurer dans votre fichier EngagementConfiguration.
 
 La configuration d'Engagement peut être définie dans le fichier `Resources\EngagementConfiguration.xml` de votre projet.

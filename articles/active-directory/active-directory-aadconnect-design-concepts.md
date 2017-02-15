@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Connect : principes de conception | Microsoft Docs'
-description: Cette rubrique détaille certains aspects de la conception de l’implémentation
+title: "Azure AD Connect : principes de conception | Microsoft Docs"
+description: "Cette rubrique détaille certains aspects de la conception de l’implémentation"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 4114a6c0-f96a-493c-be74-1153666ce6c9
 ms.service: active-directory
 ms.custom: azure-ad-connect
 ms.devlang: na
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 09/13/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 116ef0786c9c45b549311a59615d06f194093bc2
+
 
 ---
-# <a name="azure-ad-connect:-design-concepts"></a>Principes de conception Azure AD Connect
+# <a name="azure-ad-connect-design-concepts"></a>Principes de conception Azure AD Connect
 L’objectif de cette rubrique est de décrire les principes qui doivent présider à la conception de l’implémentation d’Azure AD Connect. Il s’agit d’une exploration approfondie de certains aspects. Ces concepts sont également décrits brièvement dans d’autres rubriques.
 
 ## <a name="sourceanchor"></a>sourceAnchor
@@ -25,7 +29,7 @@ L’attribut sourceAnchor est défini en tant qu’ *attribut immuable pendant l
 
 Le mot « immuable », signifiant « qui ne peut pas être changé », est important dans cette rubrique. Étant donné que la valeur de cet attribut ne peut pas être changée une fois qu’elle a été définie, il est important de choisir une conception qui prend en charge votre scénario.
 
-L’attribut est utilisé pour les scénarios suivants :
+L’attribut est utilisé pour les scénarios suivants :
 
 * Quand un nouveau serveur de moteur de synchronisation est créé ou recréé après un scénario de récupération d’urgence, cet attribut lie les objets existants dans Azure AD à des objets locaux.
 * Si vous passez d’une identité de cloud uniquement à un modèle d’identité synchronisé, alors cet attribut permet une correspondance exacte et concrète des objets existants dans Azure AD avec des objets locaux.
@@ -34,9 +38,9 @@ L’attribut est utilisé pour les scénarios suivants :
 Cette rubrique traite de sourceAnchor seulement par rapport aux utilisateurs. Les mêmes règles s’appliquent à tous les types d’objets, mais le problème ne se pose généralement que pour des utilisateurs.
 
 ### <a name="selecting-a-good-sourceanchor-attribute"></a>Sélection d’un attribut sourceAnchor approprié
-La valeur de l’attribut doit respecter les règles suivantes :
+La valeur de l’attribut doit respecter les règles suivantes :
 
-* sa longueur doit être inférieure à 60 caractères
+* sa longueur doit être inférieure à 60 caractères
   * les caractères autres que a-z, A-Z ou 0-9 sont codés et comptabilisés comme 3 caractères
 * elle ne doit pas contenir les caractères spéciaux suivants : &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
 * elle doit être globalement unique
@@ -47,7 +51,7 @@ La valeur de l’attribut doit respecter les règles suivantes :
 
 Si le sourceAnchor sélectionné n’est pas de type chaîne, alors Azure AD Connect encode la valeur de l’attribut en base 64 pour garantir qu’aucun caractère spécial n’apparaît. Si vous utilisez un serveur de fédération autre qu’ADFS, assurez-vous que votre serveur a également la capacité d’encoder la valeur de l’attribut en base 64.
 
-L’attribut sourceAnchor respecte la casse. La valeur « JohnDoe » n’est pas le même que « johndoe ». Mais vous ne devez pas avoir deux objets différents avec uniquement une différence de casse.
+L’attribut sourceAnchor respecte la casse. La valeur « JohnDoe » n’est pas le même que « johndoe ». Mais vous ne devez pas avoir deux objets différents avec uniquement une différence de casse.
 
 Si vous avez une seule forêt locale, alors l’attribut que vous devez utiliser est **objectGUID**. C’est également l’attribut utilisé quand vous utilisez la configuration rapide dans Azure AD Connect, ainsi que l’attribut utilisé par DirSync.
 
@@ -60,7 +64,7 @@ Une autre solution consiste à choisir un attribut existant, dont vous êtes sû
 ### <a name="changing-the-sourceanchor-attribute"></a>Changement de l’attribut sourceAnchor
 La valeur de l’attribut sourceAnchor ne peut pas être changée une fois que l’objet a été créé dans Azure AD et que l’identité est synchronisée.
 
-Pour cette raison, les restrictions suivantes s’appliquent à Azure AD Connect :
+Pour cette raison, les restrictions suivantes s’appliquent à Azure AD Connect :
 
 * L’attribut sourceAnchor peut être défini seulement lors de l’installation initiale. Si vous exécutez une nouvelle fois l’Assistant Installation, cette option est en lecture seule. Si vous devez changer ce paramètre, alors vous devez effectuer une désinstallation et une réinstallation.
 * Si vous installez un autre serveur Azure AD Connect, vous devez sélectionner le même attribut sourceAnchor que celui qui a été précédemment utilisé. Si vous avez précédemment utilisé DirSync et que vous passez à Azure AD Connect, vous devez utiliser **objectGUID** , car il s'agit de l’attribut utilisé par DirSync.
@@ -92,6 +96,9 @@ Azure AD Connect détecte si vous exécutez un environnement de domaine non rout
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

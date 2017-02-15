@@ -17,8 +17,9 @@
 ### [Mappage réseau](site-recovery-network-mapping.md)
 ### [Préparer le mappage de stockage entre des sites locaux](site-recovery-storage-mapping.md)
 ## Réplication
-### [Machines virtuelles VMWare et les serveurs vers Azure](site-recovery-vmware-to-azure.md)
-### [Machines virtuelles VMware/serveurs physiques vers un site secondaire](site-recovery-vmware-to-vmware.md)
+### [Serveurs physiques et machines virtuelles VMware dans Azure](site-recovery-vmware-to-azure.md)
+### [Serveurs physiques et machines virtuelles VMware sur un site secondaire](site-recovery-vmware-to-vmware.md)
+### [Machines virtuelles VMware avec prise en charge de l’architecture mutualisée dans Azure à l’aide du programme CSP](site-recovery-multi-tenant-support-vmware-using-csp.md)
 ### [Machines virtuelles Hyper-V dans Azure (sans VMM)](site-recovery-vmm-to-azure.md)
 ### [Machines virtuelles Hyper-V dans Azure (sans VMM)](site-recovery-hyper-v-site-to-azure.md)
 ### [Machines virtuelles Hyper-V vers un site secondaire](site-recovery-vmm-to-vmm.md)
@@ -64,6 +65,6 @@
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

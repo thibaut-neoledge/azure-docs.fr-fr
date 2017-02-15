@@ -1,25 +1,29 @@
 ---
-title: Présentation de la collecte de données de stockage Azure dans Log Analytics | Microsoft Docs
-description: Les ressources Azure peuvent écrire des journaux et des métriques dans un compte de stockage Azure, souvent en utilisant des diagnostics Azure. Log Analytics peut indexer ces données et les rendre détectables.
+title: "Présentation de la collecte de données de stockage Azure dans Log Analytics | Microsoft Docs"
+description: "Les ressources Azure peuvent écrire des journaux et des métriques dans un compte de stockage Azure, souvent en utilisant des diagnostics Azure. Log Analytics peut indexer ces données et les rendre détectables."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 10/31/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2a160030ab51799199fc6df08133f811d4987feb
+
 
 ---
 # <a name="collecting-azure-storage-data-in-log-analytics-overview"></a>Présentation de la collecte de données de stockage Azure dans Log Analytics
 De nombreuses ressources Azure peuvent écrire des journaux et des métriques dans un compte de stockage Azure. Log Analytics peut utiliser ces données et faciliter l’analyse de vos ressources Azure.
 
-Pour écrire dans Stockage Azure, une ressource peut utiliser les diagnostics Azure, ou avoir sa propre manière d’écrire des données. Ces données peuvent être écrites sous différents formats dans l’un des emplacements suivants :
+Pour écrire dans Stockage Azure, une ressource peut utiliser les diagnostics Azure, ou avoir sa propre manière d’écrire des données. Ces données peuvent être écrites sous différents formats dans l’un des emplacements suivants :
 
 * Table Azure
 * Objet blob Azure
@@ -35,12 +39,11 @@ Log Analytics prend en charge les services Azure qui écrivent des données en u
 ![Diagramme du stockage Azure](media/log-analytics-azure-storage/azure-storage-diagram.png)
 
 ## <a name="supported-azure-resources"></a>Ressources Azure prises en charge
-Log Analytics peut collecter des données pour les ressources Azure suivantes :
+Log Analytics peut collecter des données pour les ressources Azure suivantes :
 
 | Type de ressource | Journaux (catégories de diagnostic) | Solution Log Analytics |
 | --- | --- | --- |
 | Application Insights |Availability <br> Événements personnalisés <br> Exceptions <br> Requêtes <br> |Application Insights (version préliminaire) |
-| API Management | |*Aucune* (version préliminaire) |
 | Automatisation <br> Microsoft.Automation/AutomationAccounts |JobLogs <br> JobStreams |AzureAutomation (version préliminaire) |
 | Key Vault <br> Microsoft.KeyVault/vaults |AuditEvent |KeyVault (version préliminaire) |
 | Application Gateway <br> Microsoft.Network/ApplicationGateways |ApplicationGatewayAccessLog <br> ApplicationGatewayPerformanceLog |AzureNetworking (version préliminaire) |
@@ -56,18 +59,16 @@ Log Analytics peut collecter des données pour les ressources Azure suivantes :
 
 Vous pouvez nous aider à hiérarchiser d’autres journaux devant être analysés par OMS en votant sur notre [page de commentaires](http://feedback.azure.com/forums/267889-azure-log-analytics/category/88086-log-management-and-log-collection-policy).
 
-* Voir [Analyser les journaux de diagnostic Azure à l’aide de Log Analytics](log-analytics-azure-storage-json.md) pour en savoir plus sur la manière dont Log Analytics peut lire les journaux des services Azure qui prennent en charge les [journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) :
+* Voir [Analyser les journaux de diagnostic Azure à l’aide de Log Analytics](log-analytics-azure-storage-json.md) pour en savoir plus sur la manière dont Log Analytics peut lire les journaux des services Azure qui prennent en charge les [journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) :
   * coffre de clés Azure
   * Azure Automation
   * Application Gateway
-  * groupes de sécurité réseau ;
-* Voir [Utiliser un Stockage Blob pour IIS et un Stockage Table pour les événements](log-analytics-azure-storage-iis-table.md) pour en savoir plus sur la manière dont Log Analytics peut lire les journaux pour les services Azure qui écrivent des diagnostics dans le Stockage Table ou des journaux IIS écrits dans le Stockage Blob, notamment :
+  * groupes de sécurité réseau ;
+* Voir [Utiliser un Stockage Blob pour IIS et un Stockage Table pour les événements](log-analytics-azure-storage-iis-table.md) pour en savoir plus sur la manière dont Log Analytics peut lire les journaux pour les services Azure qui écrivent des diagnostics dans le Stockage Table ou des journaux IIS écrits dans le Stockage Blob, notamment :
   * Service Fabric
   * Rôles web
   * Rôles de travail
   * Machines virtuelles
-
-Application Insights est disponible en version préliminaire limitée, et utilise une exportation continue vers le Stockage Blob. Pour participer à la version préliminaire privée, contactez l’équipe de votre compte Microsoft ou consultez les détails sur le [site dédié aux commentaires](https://feedback.azure.com/forums/267889-log-analytics/suggestions/6519248-integration-with-app-insights).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Analyser les journaux de diagnostic Azure à l’aide de Log Analytics](log-analytics-azure-storage-json.md) pour lire les journaux des services Azure qui écrivent des diagnostics dans le Stockage Blob au format JSON.
@@ -75,6 +76,9 @@ Application Insights est disponible en version préliminaire limitée, et utilis
 * [Activer les solutions](log-analytics-add-solutions.md) pour fournir des informations sur les données.
 * [Utiliser les requêtes de recherche](log-analytics-log-searches.md) pour analyser les données.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

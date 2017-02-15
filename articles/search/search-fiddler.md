@@ -226,6 +226,6 @@ Consultez [Gérer votre service Search sur Azure](search-manage.md) pour une app
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

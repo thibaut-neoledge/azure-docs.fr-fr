@@ -111,6 +111,6 @@ Si vous avez des questions sur l’intégration des journaux Azure, envoyez un e
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

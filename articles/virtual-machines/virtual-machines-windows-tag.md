@@ -1,13 +1,13 @@
 ---
-title: Balisage d’une machine virtuelle | Microsoft Docs
-description: Découvrez comment baliser une machine virtuelle Windows créée dans Azure à l’aide du modèle de déploiement de Resource Manager.
+title: "Balisage d’une machine virtuelle | Microsoft Docs"
+description: "Découvrez comment baliser une machine virtuelle Windows créée dans Azure à l’aide du modèle de déploiement de Resource Manager."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: mmccrory
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 56d17f45-e4a7-4d84-8022-b40334ae49d2
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,21 +15,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 97efb86f31f75d2214e4169d88b792ab189354ed
+
 
 ---
-# Balisage d’une machine virtuelle Windows dans Azure
-Cet article décrit différentes façons d’ajouter des balises à une machine virtuelle Windows dans Azure à l’aide du modèle de déploiement Resource Manager. Les balises sont des paires clé/valeur définies par l’utilisateur, qui peuvent être placées directement sur une ressource ou sur un groupe de ressources. Azure prend actuellement en charge jusqu’à 15 balises par ressource et par groupe de ressources. Les balises peuvent être placées sur une ressource au moment de la création ou bien ajoutées à une ressource existante. Notez que les balises ne sont prises en charge que pour les ressources créées via le modèle de déploiement Resource Manager. Si vous souhaitez baliser une machine virtuelle Linux, consultez l’article [How to tag a Linux virtual machine in Azure](virtual-machines-linux-tag.md) (Balisage d’une machine virtuelle Linux dans Azure).
+# <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Balisage d’une machine virtuelle Windows dans Azure
+Cet article décrit différentes façons d’ajouter des balises à une machine virtuelle Windows dans Azure à l’aide du modèle de déploiement Resource Manager. Les balises sont des paires clé/valeur définies par l’utilisateur, qui peuvent être placées directement sur une ressource ou sur un groupe de ressources. Azure prend actuellement en charge jusqu’à 15 balises par ressource et par groupe de ressources. Les balises peuvent être placées sur une ressource au moment de la création ou bien ajoutées à une ressource existante. Notez que les balises ne sont prises en charge que pour les ressources créées via le modèle de déploiement Resource Manager. Si vous souhaitez baliser une machine virtuelle Linux, consultez l’article [How to tag a Linux virtual machine in Azure](virtual-machines-linux-tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(Balisage d’une machine virtuelle Linux dans Azure).
 
 [!INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
 
-## Balisage avec PowerShell
+## <a name="tagging-with-powershell"></a>Balisage avec PowerShell
 Pour créer, ajouter et supprimer des balises via PowerShell, vous devez d’abord configurer votre [environnement PowerShell avec Azure Resource Manager][environnement PowerShell avec Azure Resource Manager]. Une fois que vous avez terminé la configuration, vous pouvez placer des balises sur les ressources Calcul, Réseau et Stockage au moment de la création ou après la création de la ressource via PowerShell. Cet article se concentre sur l’affichage et la modification des balises placées sur des machines virtuelles.
 
-Accédez d’abord à une machine virtuelle via l’applet de commande `Get-AzureRmVM`.
+Accédez d’abord à une machine virtuelle via l’applet de commande `Get-AzureRmVM` .
 
         PS C:\> Get-AzureRmVM -ResourceGroupName "MyResourceGroup" -Name "MyTestVM"
 
-Si votre machine virtuelle contient déjà des balises, vous verrez toutes les balises sur votre ressource :
+Si votre machine virtuelle contient déjà des balises, vous verrez toutes les balises sur votre ressource :
 
         Tags : {
                 "Application": "MyApp1",
@@ -38,7 +42,7 @@ Si votre machine virtuelle contient déjà des balises, vous verrez toutes les b
                 "Environment": "Production"
                }
 
-Si vous voulez ajouter des balises via PowerShell, vous pouvez utiliser la commande `Set-AzureRmResource`. Notez que lors de la mise à jour des balises via PowerShell, les balises sont mises à jour comme un tout. Ainsi, si vous ajoutez une balise à une ressource qui a déjà des balises, vous devez inclure toutes les balises que vous voulez placer sur la ressource. Voici un exemple montrant comment ajouter des balises supplémentaires à une ressource via des applets de commande PowerShell.
+Si vous voulez ajouter des balises via PowerShell, vous pouvez utiliser la commande `Set-AzureRmResource` . Notez que lors de la mise à jour des balises via PowerShell, les balises sont mises à jour comme un tout. Ainsi, si vous ajoutez une balise à une ressource qui a déjà des balises, vous devez inclure toutes les balises que vous voulez placer sur la ressource. Voici un exemple montrant comment ajouter des balises supplémentaires à une ressource via des applets de commande PowerShell.
 
 Cette première applet de commande fait pointer toutes les balises placées sur *MyTestVM* vers la variable *$tags*, à l’aide des propriétés `Get-AzureRmResource` et `Tags`.
 
@@ -59,7 +63,7 @@ La deuxième commande affiche les balises pour la variable donnée.
         Value        Production
         Name        Environment
 
-La troisième commande ajoute une balise supplémentaire à la variable *$tags*. Notez l'utilisation de **+=** pour ajouter la nouvelle paire clé/valeur à la liste *$tags*.
+La troisième commande ajoute une balise supplémentaire à la variable *$tags* . Notez l'utilisation de **+=** pour ajouter la nouvelle paire clé/valeur à la liste *$tags* .
 
         PS C:\> $tags += @{Name="Location";Value="MyLocation"}
 
@@ -88,15 +92,19 @@ Pour en savoir plus sur le balisage dans PowerShell, consultez les [applets de c
 
 [!INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
 
-## Étapes suivantes
-* Pour en savoir plus sur le balisage de vos ressources Azure, consultez [Présentation d’Azure Resource Manager][Présentation d’Azure Resource Manager] et [Organisation des ressources Azure à l’aide de balises][Organisation des ressources Azure à l’aide de balises].
-* Pour voir en quoi les balises peuvent vous aider à gérer votre utilisation des ressources Azure, consultez [Comprendre votre facture Azure][Comprendre votre facture Azure] et [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure][Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure].
+## <a name="next-steps"></a>Étapes suivantes
+* Pour en savoir plus sur le balisage de vos ressources Azure, consultez [Présentation d’Azure Resource Manager][Présentation d’Azure Resource Manager] et [Utilisation de balises pour organiser vos ressources Azure][Utilisation de balises pour organiser vos ressources Azure].
+* Pour voir en quoi les balises peuvent vous aider à gérer votre utilisation des ressources Azure, consultez [Comprendre votre facture Azure][Comprendre votre facture Azure] et [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure][Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure].
 
 [environnement PowerShell avec Azure Resource Manager]: ../powershell-azure-resource-manager.md
 [applets de commande des ressources Azure]: https://msdn.microsoft.com/library/azure/dn757692.aspx
-[Présentation d’Azure Resource Manager]: ../resource-group-overview.md
-[Organisation des ressources Azure à l’aide de balises]: ../resource-group-using-tags.md
-[Comprendre votre facture Azure]: ../billing-understand-your-bill.md
-[Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure]: ../billing-usage-rate-card-overview.md
+[Présentation d’Azure Resource Manager]: ../azure-resource-manager/resource-group-overview.md
+[Utilisation de balises pour organiser vos ressources Azure]: ../resource-group-using-tags.md
+[Comprendre votre facture Azure]: ../billing/billing-understand-your-bill.md
+[Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!----HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

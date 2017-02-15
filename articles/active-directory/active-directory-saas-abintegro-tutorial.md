@@ -35,7 +35,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 
-![Scénario](./media/active-directory-saas-abintegro-tutorial/IC790076.png "Scénario")
+![Scénario](./media/active-directory-saas-abintegro-tutorial/IC790076.png "Scenario")
 
 ## <a name="enabling-the-application-integration-for-abintegro"></a>Activation de l’intégration d’application pour Abintegro
 Cette section décrit l’activation de l’intégration d'application pour Abintegro.
@@ -50,16 +50,16 @@ Cette section décrit l’activation de l’intégration d'application pour Abin
    ![Applications](./media/active-directory-saas-abintegro-tutorial/IC700994.png "Applications")
 4. Cliquez sur **Ajouter** en bas de la page.
    
-   ![Ajouter une application](./media/active-directory-saas-abintegro-tutorial/IC749321.png "Ajouter une application")
+   ![Ajouter une application](./media/active-directory-saas-abintegro-tutorial/IC749321.png "Add application")
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
    
-   ![Ajouter une application à partir de la galerie](./media/active-directory-saas-abintegro-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
+   ![Ajouter une application à partir de la galerie](./media/active-directory-saas-abintegro-tutorial/IC749322.png "Add an application from gallerry")
 6. Dans la **zone de recherche**, tapez **abintegro**.
    
-   ![Galerie d’applications](./media/active-directory-saas-abintegro-tutorial/IC790077.png "Galerie d’applications")
+   ![Galerie d’applications](./media/active-directory-saas-abintegro-tutorial/IC790077.png "Application Gallery")
 7. Dans le volet de résultats, sélectionnez **Abintegro**, puis cliquez sur **Terminer** pour ajouter l’application.
    
-   ![Abintegro](./media/active-directory-saas-abintegro-tutorial/IC790078.png "Abintegro")
+   ![abintegro](./media/active-directory-saas-abintegro-tutorial/IC790078.png "Abintegro")
    
    ## <a name="configuring-single-sign-on"></a>Configuration de l'authentification unique
 
@@ -68,25 +68,25 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
 1. Dans le portail Azure Classic, dans la page d’intégration d’application **Abintegro**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-abintegro-tutorial/IC790079.png "Configurer l’authentification unique")
+   ![Configurer l’authentification unique](./media/active-directory-saas-abintegro-tutorial/IC790079.png "Configure Single SignOn")
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Abintegro ?**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-abintegro-tutorial/IC790080.png "Configurer l’authentification unique")
+   ![Configurer l’authentification unique](./media/active-directory-saas-abintegro-tutorial/IC790080.png "Configure Single SignOn")
 3. Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion Abintegro**, tapez l’URL utilisée par vos utilisateurs pour se connecter à Abintegro (par ex., `https://dev.abintegro.com/Shibboleth.sso/Login?entityID=<Issuer>&target=https://dev.abintegro.com/secure/`), puis cliquez sur **Suivant**.
    
-   ![Configurer l’URL de l’application](./media/active-directory-saas-abintegro-tutorial/IC790081.png "Configurer l’URL de l’application")
+   ![Configurer l’URL de l’application](./media/active-directory-saas-abintegro-tutorial/IC790081.png "Configure App URL")
 4. Dans la page **Configurer l’authentification unique sur Abintegro**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier de métadonnées sur votre ordinateur.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-abintegro-tutorial/IC790082.png "Configurer l’authentification unique")
+   ![Configurer l’authentification unique](./media/active-directory-saas-abintegro-tutorial/IC790082.png "Configure Single SignOn")
 5. Envoyez le fichier de métadonnées à l’équipe de support Abintegro.
    
    > [!NOTE]
    > La configuration de l’authentification unique doit être effectuée par l’équipe de support Abintegro. Vous recevez une notification dès qu’elle est terminée.
    > 
    > 
-6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-abintegro-tutorial/IC790083.png "Configurer l’authentification unique")
+   ![Configurer l’authentification unique](./media/active-directory-saas-abintegro-tutorial/IC790083.png "Configure Single SignOn")
    
    ## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
 
@@ -101,10 +101,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 1. Dans le portail Azure Classic, créez un compte de test.
 2. Dans la page d’intégration d’application **Abintegro**, cliquez sur **Affecter des utilisateurs**.
    
-   ![Affecter des utilisateurs](./media/active-directory-saas-abintegro-tutorial/IC790084.png "Affecter des utilisateurs")
+   ![Affecter des utilisateurs](./media/active-directory-saas-abintegro-tutorial/IC790084.png "Assign Users")
 3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
    
-   ![Oui](./media/active-directory-saas-abintegro-tutorial/IC767830.png "Oui")
+   ![Oui](./media/active-directory-saas-abintegro-tutorial/IC767830.png "Yes")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 

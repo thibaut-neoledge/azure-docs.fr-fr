@@ -1,13 +1,13 @@
 ---
 title: Wunderlist | Microsoft Docs
-description: Créez des applications logiques avec Azure App Service. Wunderlist fournit un gestionnaire de tâches et de listes de tâches pour aider les utilisateurs à travailler efficacement. Si vous partagez une liste de courses avec un proche, si vous travaillez sur un projet ou planifiez des vacances, Wunderlist facilite la capture, le partage et le suivi de vos listes de tâches. Wunderlist est instantanément synchronisé entre votre téléphone, votre tablette et votre ordinateur, pour vous permettre d’accéder à toutes vos tâches à partir de n’importe quel endroit.
+description: "Créez des applications logiques avec Azure App Service. Wunderlist fournit un gestionnaire de tâches et de listes de tâches pour aider les utilisateurs à travailler efficacement.  Si vous partagez une liste de courses avec un proche, si vous travaillez sur un projet ou planifiez des vacances, Wunderlist facilite la capture, le partage et le suivi de vos listes de tâches. Wunderlist est instantanément synchronisé entre votre téléphone, votre tablette et votre ordinateur, pour vous permettre d’accéder à toutes vos tâches à partir de n’importe quel endroit."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: e4773ecf-3ad3-44b4-a1b5-ee5f58baeadd
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -15,25 +15,29 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7a528a47373d7e9ae2cdc7d62328ed8e83112863
+
 
 ---
-# Prise en main du connecteur Wunderlist
-Wunderlist fournit un gestionnaire de tâches et de listes de tâches pour aider les utilisateurs à travailler efficacement. Si vous partagez une liste de courses avec un proche, si vous travaillez sur un projet ou planifiez des vacances, Wunderlist facilite la capture, le partage et le suivi de vos listes de tâches. Wunderlist est instantanément synchronisé entre votre téléphone, votre tablette et votre ordinateur, pour vous permettre d’accéder à toutes vos tâches à partir de n’importe quel endroit.
+# <a name="get-started-with-the-wunderlist-connector"></a>Prise en main du connecteur Wunderlist
+Wunderlist fournit un gestionnaire de tâches et de listes de tâches pour aider les utilisateurs à travailler efficacement.  Si vous partagez une liste de courses avec un proche, si vous travaillez sur un projet ou planifiez des vacances, Wunderlist facilite la capture, le partage et le suivi de vos listes de tâches. Wunderlist est instantanément synchronisé entre votre téléphone, votre tablette et votre ordinateur, pour vous permettre d’accéder à toutes vos tâches à partir de n’importe quel endroit.
 
 > [!NOTE]
-> Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
+> Cette version de l’article s’applique à la version de schéma 2015-08-01-preview des applications logiques.
 > 
 > 
 
 Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Déclencheurs et actions
-Le connecteur Wunderlist peut être utilisé en tant qu’action ; il possède un ou plusieurs déclencheurs. Tous les connecteurs prennent en charge les données aux formats JSON et XML.
+## <a name="triggers-and-actions"></a>Déclencheurs et actions
+Le connecteur Wunderlist peut être utilisé en tant qu’action ; il possède un ou plusieurs déclencheurs. Tous les connecteurs prennent en charge les données aux formats JSON et XML.
 
  Le connecteur Wunderlist met à votre disposition les actions et/ou les déclencheurs ci-après.
 
-### Actions de Wunderlist
-Vous pouvez effectuer les actions suivantes :
+### <a name="wunderlist-actions"></a>Actions de Wunderlist
+Vous pouvez effectuer les actions suivantes :
 
 | Action | Description |
 | --- | --- |
@@ -66,8 +70,8 @@ Vous pouvez effectuer les actions suivantes :
 | [UpdateReminder](connectors-create-api-wunderlist.md#updatereminder) |Mettre à jour un rappel spécifique |
 | [DeleteReminder](connectors-create-api-wunderlist.md#deletereminder) |Supprimer un rappel spécifique |
 
-### Déclencheurs de Wunderlist
-Vous pouvez écouter les événements suivants :
+### <a name="wunderlist-triggers"></a>Déclencheurs de Wunderlist
+Vous pouvez écouter les événements suivants :
 
 | Déclencheur | Description |
 | --- | --- |
@@ -75,8 +79,8 @@ Vous pouvez écouter les événements suivants :
 | Quand une nouvelle tâche est créée |Déclenche un nouveau flux lors de la création d’une nouvelle tâche dans la liste |
 | Quand un rappel se produit |Déclenche un nouveau flux lorsqu’un rappel se produit |
 
-## Créer une connexion à Wunderlist
-Pour créer des applications logiques avec Wunderlist, vous devez d’abord créer une **connexion**, puis fournir les détails pour les propriétés suivantes :
+## <a name="create-a-connection-to-wunderlist"></a>Créer une connexion à Wunderlist
+Pour créer des applications logiques avec Wunderlist, vous devez d’abord créer une **connexion**, puis fournir les détails pour les propriétés suivantes :
 
 | Propriété | Requis | Description |
 | --- | --- | --- |
@@ -84,69 +88,65 @@ Pour créer des applications logiques avec Wunderlist, vous devez d’abord cré
 
 Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les actions et écouter les déclencheurs décrits dans cet article.
 
-> [!INCLUDE [Procédure de création d’une connexion à Wunderlist](../../includes/connectors-create-api-wunderlist.md)]
+> [!INCLUDE [Steps to create a connection to Wunderlist](../../includes/connectors-create-api-wunderlist.md)]
 > 
 > [!TIP]
-> Vous pouvez utiliser cette connexion dans d’autres applications logiques.
+> Vous pouvez utiliser cette connexion dans d'autres applications logiques.
 > 
 > 
 
-## Référence pour Wunderlist
+## <a name="reference-for-wunderlist"></a>Référence pour Wunderlist
 S’applique à la version 1.0.
 
-## TriggerTaskDue
+## <a name="triggertaskdue"></a>TriggerTaskDue
 Quand une tâche est arrivée à échéance : déclenche un nouveau flux quand une tâche dans la liste est arrivée à échéance
 
 ```GET: /trigger/tasksdue```
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |yes |query |(aucun) |ID de la liste |
+| list_id |integer |yes |query |(aucun) |ID de la liste |
 
-#### Réponse
-| Name | Description |
+#### <a name="response"></a>Réponse
+| Nom | Description |
 | --- | --- |
 | 200 |L’opération a réussi |
 
-## TriggerTaskNew
+## <a name="triggertasknew"></a>TriggerTaskNew
 Quand une nouvelle tâche est créée : déclenche un nouveau flux lors de la création d’une nouvelle tâche dans la liste
 
 ```GET: /trigger/tasksnew```
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |yes |query |(aucun) |ID de la liste |
+| list_id |integer |yes |query |(aucun) |ID de la liste |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |L’opération a réussi |
 
-## TriggerReminder
+## <a name="triggerreminder"></a>TriggerReminder
 Quand un rappel se produit : déclenche un nouveau flux lorsqu’un rappel se produit
 
 ```GET: /trigger/reminders```
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |yes |query |(aucun) |ID de la liste |
-| task\_id |integer |no |query |(aucun) |ID de la tâche |
+| list_id |integer |yes |query |(aucun) |ID de la liste |
+| task_id |integer |no |query |(aucun) |ID de la tâche |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |L’opération a réussi |
 
-## RetrieveLists
+## <a name="retrievelists"></a>RetrieveLists
 Obtenir des listes : récupérer les listes associées à votre compte.
 
 ```GET: /lists```
 
-| Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
-| --- | --- | --- | --- | --- | --- |
-|  | | | | | |
-
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |L’opération a réussi |
@@ -154,7 +154,7 @@ Obtenir des listes : récupérer les listes associées à votre compte.
 | 500 |Erreur interne du serveur. Une erreur inconnue s’est produite. |
 | default |L’opération a échoué. |
 
-## CreateList
+## <a name="createlist"></a>CreateList
 Créer une liste : créer une liste.
 
 ```POST: /lists```
@@ -163,23 +163,23 @@ Créer une liste : créer une liste.
 | --- | --- | --- | --- | --- | --- |
 | post | |yes |body |(aucun) |Nouvelle liste à créer |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |L’opération a réussi |
 | default |L’opération a échoué. |
 
-## ListTasks
+## <a name="listtasks"></a>ListTasks
 Obtenir des tâches : extraire des tâches d’une liste spécifique.
 
 ```GET: /tasks```
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |yes |query |(aucun) |ID de la liste |
+| list_id |integer |yes |query |(aucun) |ID de la liste |
 | Terminé |booléenne |no |query |(aucun) |Completed |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |L’opération a réussi |
@@ -187,32 +187,32 @@ Obtenir des tâches : extraire des tâches d’une liste spécifique.
 | 500 |Erreur interne du serveur. Une erreur inconnue s’est produite. |
 | default |L’opération a échoué. |
 
-## CreateTask
+## <a name="createtask"></a>CreateTask
 Créer une tâche : créer une tâche
 
 ```POST: /tasks```
 
-| Name | Type de données | Requis | Emplacement | Valeur par défaut | Description |
+| Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
 | post | |yes |body |(aucun) |Nouvelle tâche à créer |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 201 |Date de création |
 
-## ListSubTasks
+## <a name="listsubtasks"></a>ListSubTasks
 Obtenir des sous-tâches : récupérer les sous-tâches d’une liste spécifique ou d’une tâche spécifique.
 
 ```GET: /subtasks```
 
-| Name | Type de données | Requis | Emplacement | Valeur par défaut | Description |
+| Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |yes |query |(aucun) |ID de la liste |
-| task\_id |integer |no |query |(aucun) |ID de la tâche |
+| list_id |integer |yes |query |(aucun) |ID de la liste |
+| task_id |integer |no |query |(aucun) |ID de la tâche |
 | Terminé |booléenne |no |query |(aucun) |Completed |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |L’opération a réussi |
@@ -220,7 +220,7 @@ Obtenir des sous-tâches : récupérer les sous-tâches d’une liste spécifiqu
 | 500 |Erreur interne du serveur. Une erreur inconnue s’est produite. |
 | default |L’opération a échoué. |
 
-## CreateSubTask
+## <a name="createsubtask"></a>CreateSubTask
 Créer une sous-tâche : créer une sous-tâche dans une tâche spécifique
 
 ```POST: /subtasks```
@@ -229,86 +229,86 @@ Créer une sous-tâche : créer une sous-tâche dans une tâche spécifique
 | --- | --- | --- | --- | --- | --- |
 | post | |yes |body |(aucun) |Nouvelle sous-tâche à créer |
 
-#### Réponse
-| Name | Description |
+#### <a name="response"></a>Réponse
+| Nom | Description |
 | --- | --- |
 | 201 |Date de création |
 
-## ListNotes
+## <a name="listnotes"></a>ListNotes
 Obtenir des notes : extraire des notes pour une liste spécifique ou une tâche spécifique.
 
 ```GET: /notes```
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |yes |query |(aucun) |ID de la liste |
-| task\_id |integer |no |query |(aucun) |ID de la tâche |
+| list_id |integer |yes |query |(aucun) |ID de la liste |
+| task_id |integer |no |query |(aucun) |ID de la tâche |
 
-#### Réponse
-| Name | Description |
+#### <a name="response"></a>Réponse
+| Nom | Description |
 | --- | --- |
 | 200 |L’opération a réussi |
 | 400 |Demande incorrecte |
 | 500 |Erreur interne du serveur. Une erreur inconnue s’est produite. |
 | default |L’opération a échoué. |
 
-## CreateNote
+## <a name="createnote"></a>CreateNote
 Créer une note : ajouter une note à une tâche spécifique
 
 ```POST: /notes```
 
-| Name | Type de données | Requis | Emplacement | Valeur par défaut | Description |
+| Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
 | post | |yes |body |(aucun) |Nouvelle note à créer |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 201 |Date de création |
 
-## ListComments
+## <a name="listcomments"></a>ListComments
 Obtenir des commentaires : extraire des commentaires de tâches pour une liste spécifique ou une tâche spécifique.
 
 ```GET: /task_comments```
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |yes |query |(aucun) |ID de la liste |
-| task\_id |integer |no |query |(aucun) |ID de la tâche |
+| list_id |integer |yes |query |(aucun) |ID de la liste |
+| task_id |integer |no |query |(aucun) |ID de la tâche |
 
-#### Réponse
-| Name | Description |
+#### <a name="response"></a>Réponse
+| Nom | Description |
 | --- | --- |
 | 200 |L’opération a réussi |
 | 400 |Demande incorrecte |
 | 500 |Erreur interne du serveur. Une erreur inconnue s’est produite. |
 | default |L’opération a échoué. |
 
-## CreateComment
+## <a name="createcomment"></a>CreateComment
 Ajouter un commentaire à une tâche : ajouter un commentaire à une tâche spécifique
 
 ```POST: /task_comments```
 
-| Name | Type de données | Requis | Emplacement | Valeur par défaut | Description |
+| Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
 | post | |yes |body |(aucun) |Nouveau commentaire à créer |
 
-#### Réponse
-| Name | Description |
+#### <a name="response"></a>Réponse
+| Nom | Description |
 | --- | --- |
 | 201 |Date de création |
 
-## RetrieveReminders
+## <a name="retrievereminders"></a>RetrieveReminders
 Obtenir des rappels : extraire des rappels pour une liste spécifique ou une tâche spécifique.
 
 ```GET: /reminders```
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |yes |query |(aucun) |ID de la liste |
-| task\_id |integer |no |query |(aucun) |ID de la tâche |
+| list_id |integer |yes |query |(aucun) |ID de la liste |
+| task_id |integer |no |query |(aucun) |ID de la tâche |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |L’opération a réussi |
@@ -316,448 +316,453 @@ Obtenir des rappels : extraire des rappels pour une liste spécifique ou une tâ
 | 500 |Erreur interne du serveur. Une erreur inconnue s’est produite. |
 | default |L’opération a échoué. |
 
-## CreateReminder
+## <a name="createreminder"></a>CreateReminder
 Définir un rappel : définir un rappel.
 
 ```POST: /reminders```
 
-| Name | Type de données | Requis | Emplacement | Valeur par défaut | Description |
+| Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
 | post | |yes |body |(aucun) |Nouveau rappel à créer |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |L’opération a réussi |
 | default |L’opération a échoué. |
 
-## RetrieveFiles
+## <a name="retrievefiles"></a>RetrieveFiles
 Obtenir des fichiers : extraire des fichiers pour une liste spécifique ou une tâche spécifique.
 
 ```GET: /files```
 
-| Name | Type de données | Requis | Emplacement | Valeur par défaut | Description |
+| Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |yes |query |(aucun) |ID de la liste |
-| task\_id |integer |no |query |(aucun) |ID de la tâche |
+| list_id |integer |yes |query |(aucun) |ID de la liste |
+| task_id |integer |no |query |(aucun) |ID de la tâche |
 
-#### Réponse
-| Name | Description |
+#### <a name="response"></a>Réponse
+| Nom | Description |
 | --- | --- |
 | 200 |L’opération a réussi |
 | 400 |Demande incorrecte |
 | 500 |Erreur interne du serveur. Une erreur inconnue s’est produite. |
 | default |L’opération a échoué. |
 
-## GetList
+## <a name="getlist"></a>GetList
 Obtenir une liste : extrait une liste spécifique
 
 ```GET: /lists/{id}```
 
-| Name | Type de données | Requis | Emplacement | Valeur par défaut | Description |
+| Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| id |string |yes |path |(aucun) |ID de la liste |
+| id |string |Oui |path |(aucun) |ID de la liste |
 
-#### Réponse
-| Name | Description |
+#### <a name="response"></a>Réponse
+| Nom | Description |
 | --- | --- |
 | 200 |OK |
 
-## DeleteList
+## <a name="deletelist"></a>DeleteList
 Supprimer la liste : supprime une liste
 
 ```DELETE: /lists/{id}```
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| id |integer |yes |path |(aucun) |ID de la liste |
+| id |integer |Oui |path |(aucun) |ID de la liste |
 | revision |integer |yes |query |(aucun) |Revision |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 204 |Pas de contenu |
 
-## UpdateList
+## <a name="updatelist"></a>UpdateList
 Mettre à jour une liste : mettre à jour une liste spécifique
 
 ```PATCH: /lists/{id}```
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| id |integer |yes |path |(aucun) |ID de la liste |
+| id |integer |Oui |path |(aucun) |ID de la liste |
 | post | |yes |body |(aucun) |Détails de la liste |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |OK |
 
-## GetTask
+## <a name="gettask"></a>GetTask
 Obtenir une tâche : extrait une tâche spécifique
 
 ```GET: /tasks/{id}```
 
-| Name | Type de données | Requis | Emplacement | Valeur par défaut | Description |
+| Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |yes |query |(aucun) |ID de la liste |
-| id |integer |yes |path |(aucun) |ID de la tâche |
+| list_id |integer |yes |query |(aucun) |ID de la liste |
+| id |integer |Oui |path |(aucun) |ID de la tâche |
 
-#### Réponse
-| Name | Description |
+#### <a name="response"></a>Réponse
+| Nom | Description |
 | --- | --- |
 | 200 |OK |
 
-## UpdateTask
+## <a name="updatetask"></a>UpdateTask
 Mettre à jour une tâche : met à jour une tâche spécifique
 
 ```PATCH: /tasks/{id}```
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |yes |query |(aucun) |ID de la liste |
-| id |integer |yes |path |(aucun) |ID de la tâche |
+| list_id |integer |yes |query |(aucun) |ID de la liste |
+| id |integer |Oui |path |(aucun) |ID de la tâche |
 | post | |yes |body |(aucun) |Détails de la tâche |
 
-#### Réponse
-| Name | Description |
+#### <a name="response"></a>Réponse
+| Nom | Description |
 | --- | --- |
 | 200 |OK |
 
-## DeleteTask
+## <a name="deletetask"></a>DeleteTask
 Supprimer une tâche : supprime une tâche spécifique
 
 ```DELETE: /tasks/{id}```
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |yes |query |(aucun) |ID de la liste |
-| id |integer |yes |path |(aucun) |ID de la tâche |
+| list_id |integer |yes |query |(aucun) |ID de la liste |
+| id |integer |Oui |path |(aucun) |ID de la tâche |
 | revision |integer |yes |query |(aucun) |Revision |
 
-#### Réponse
-| Name | Description |
+#### <a name="response"></a>Réponse
+| Nom | Description |
 | --- | --- |
 | 204 |Pas de contenu |
 
-## GetSubTask
+## <a name="getsubtask"></a>GetSubTask
 Obtenir une sous-tâche : extrait une sous-tâche spécifique
 
 ```GET: /subtasks/{id}```
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| id |string |yes |path |(aucun) |ID de sous-tâche |
+| id |string |Oui |path |(aucun) |ID de sous-tâche |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |OK |
 
-## UpdateSubTask
+## <a name="updatesubtask"></a>UpdateSubTask
 Mettre à jour une sous-tâche : met à jour une sous-tâche spécifique
 
 ```PATCH: /subtasks/{id}```
 
-| Name | Type de données | Requis | Emplacement | Valeur par défaut | Description |
+| Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| id |integer |yes |path |(aucun) |ID de sous-tâche |
+| id |integer |Oui |path |(aucun) |ID de sous-tâche |
 | post | |yes |body |(aucun) |Détails de la sous-tâche |
 
-#### Réponse
-| Name | Description |
+#### <a name="response"></a>Réponse
+| Nom | Description |
 | --- | --- |
 | 200 |OK |
 
-## DeleteSubTask
+## <a name="deletesubtask"></a>DeleteSubTask
 Supprimer une sous-tâche : supprime une sous-tâche spécifique
 
 ```DELETE: /subtasks/{id}```
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| id |integer |yes |path |(aucun) |ID de sous-tâche |
+| id |integer |Oui |path |(aucun) |ID de sous-tâche |
 | revision |integer |yes |query |(aucun) |Revision |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 204 |Pas de contenu |
 
-## GetNote
+## <a name="getnote"></a>GetNote
 Obtenir une note : récupérer une note spécifique
 
 ```GET: /notes/{id}```
 
-| Name | Type de données | Requis | Emplacement | Valeur par défaut | Description |
+| Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| id |string |yes |path |(aucun) |ID de note |
+| id |string |Oui |path |(aucun) |ID de note |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |OK |
 
-## UpdateNote
+## <a name="updatenote"></a>UpdateNote
 Mettre à jour une note : mettre à jour une note spécifique
 
 ```PATCH: /notes/{id}```
 
-| Name | Type de données | Requis | Emplacement | Valeur par défaut | Description |
+| Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| id |integer |yes |path |(aucun) |ID de note |
+| id |integer |Oui |path |(aucun) |ID de note |
 | post | |yes |body |(aucun) |Détails de la note |
 
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |OK |
 
-## DeleteNote
+## <a name="deletenote"></a>DeleteNote
 Supprimer une note : supprimer une note spécifique
 
 ```DELETE: /notes/{id}```
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| id |integer |yes |path |(aucun) |ID de note |
+| id |integer |Oui |path |(aucun) |ID de note |
 | revision |integer |yes |query |(aucun) |Revision |
 
-#### Réponse
-| Name | Description |
+#### <a name="response"></a>Réponse
+| Nom | Description |
 | --- | --- |
 | 204 |Pas de contenu |
 
-## GetComment
+## <a name="getcomment"></a>GetComment
 Obtenir un commentaire : récupérer un commentaire spécifique
 
 ```GET: /task_comments/{id}```
 
-| Name | Type de données | Requis | Emplacement | Valeur par défaut | Description |
+| Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| id |string |yes |path |(aucun) |ID du commentaire |
+| id |string |Oui |path |(aucun) |ID du commentaire |
 
-#### Réponse
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-
-## UpdateReminder
-Mettre à jour un rappel : mettre à jour un rappel spécifique
-
-```PATCH: /reminders/{id}```
-
-| Name | Type de données | Requis | Emplacement | Valeur par défaut | Description |
-| --- | --- | --- | --- | --- | --- |
-| id |integer |yes |path |(aucun) |ID de rappel |
-| post | |yes |body |(aucun) |Détails du rappel |
-
-#### Réponse
+#### <a name="response"></a>Réponse
 | Nom | Description |
 | --- | --- |
 | 200 |OK |
 
-## DeleteReminder
+## <a name="updatereminder"></a>UpdateReminder
+Mettre à jour un rappel : mettre à jour un rappel spécifique
+
+```PATCH: /reminders/{id}```
+
+| Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
+| --- | --- | --- | --- | --- | --- |
+| id |integer |Oui |path |(aucun) |ID de rappel |
+| post | |yes |body |(aucun) |Détails du rappel |
+
+#### <a name="response"></a>Réponse
+| Nom | Description |
+| --- | --- |
+| 200 |OK |
+
+## <a name="deletereminder"></a>DeleteReminder
 Supprimer un rappel : supprimer un rappel spécifique
 
 ```DELETE: /reminders/{id}```
 
 | Nom | Type de données | Requis | Emplacement | Valeur par défaut | Description |
 | --- | --- | --- | --- | --- | --- |
-| id |integer |yes |path |(aucun) |ID du rappel. |
+| id |integer |Oui |path |(aucun) |ID du rappel. |
 | revision |integer |yes |query |(aucun) |Revision |
 
-#### Réponse
-| Name | Description |
+#### <a name="response"></a>Réponse
+| Nom | Description |
 | --- | --- |
 | 204 |Pas de contenu |
 
-## Définitions d’objet
-### Énumérer
+## <a name="object-definitions"></a>Définitions d’objet
+### <a name="list"></a>Énumérer
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
 | id |integer |Non |
-| created\_at |string |Non |
+| created_at |string |Non |
 | title |string |Non |
-| list\_type |string |Non |
+| list_type |string |Non |
 | type |string |Non |
 | revision |integer |Non |
 
-### CreatedList
+### <a name="createdlist"></a>CreatedList
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
 | id |integer |Non |
-| created\_at |string |Non |
+| created_at |string |Non |
 | title |string |Non |
 | revision |integer |Non |
 | type |string |Non |
 
-### Task
+### <a name="task"></a>Task
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
 | id |integer |Non |
-| assignee\_id |integer |Non |
-| assigner\_id |integer |Non |
-| created\_at |string |Non |
-| created\_by\_id |integer |Non |
-| due\_date |string |Non |
-| list\_id |integer |Non |
+| assignee_id |integer |Non |
+| assigner_id |integer |Non |
+| created_at |string |Non |
+| created_by_id |integer |Non |
+| due_date |string |Non |
+| list_id |integer |Non |
 | revision |integer |Non |
 | starred |booléenne |Non |
 | title |string |Non |
 
-### Subtask
+### <a name="subtask"></a>Subtask
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
 | id |integer |Non |
-| task\_id |integer |Non |
-| created\_at |string |Non |
-| created\_by\_id |integer |Non |
+| task_id |integer |Non |
+| created_at |string |Non |
+| created_by_id |integer |Non |
 | revision |string |Non |
 | title |string |Non |
 
-### Remarque
+### <a name="note"></a>Remarque
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
 | id |integer |Non |
-| task\_id |integer |Non |
+| task_id |integer |Non |
 | Contenu |string |Non |
-| created\_at |string |Non |
-| updated\_at |string |Non |
+| created_at |string |Non |
+| updated_at |string |Non |
 | revision |integer |Non |
 
-### Commentaire
+### <a name="comment"></a>Commentaire
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
 | id |integer |Non |
-| task\_id |integer |Non |
+| task_id |integer |Non |
 | revision |integer |Non |
 | texte |string |Non |
 | type |string |Non |
-| created\_at |string |Non |
+| created_at |string |Non |
 
-### Rappel
+### <a name="reminder"></a>Rappel
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
 | id |integer |Non |
 | date |string |Non |
-| task\_id |integer |Non |
+| task_id |integer |Non |
 | revision |integer |Non |
 | type |string |Non |
-| created\_at |string |Non |
-| updated\_at |string |Non |
+| created_at |string |Non |
+| updated_at |string |Non |
 
-### CreatedReminder
+### <a name="createdreminder"></a>CreatedReminder
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
 | id |integer |Non |
 | date |string |Non |
-| task\_id |integer |Non |
+| task_id |integer |Non |
 | revision |integer |Non |
-| created\_at |string |Non |
-| updated\_at |string |Non |
+| created_at |string |Non |
+| updated_at |string |Non |
 
-### Fichier
+### <a name="file"></a>Fichier
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
 | id |integer |Non |
 | url |string |Non |
-| task\_id |integer |Non |
-| list\_id |integer |Non |
-| user\_id |integer |Non |
-| file\_name |string |Non |
-| content\_type |string |Non |
-| file\_size |integer |Non |
-| local\_created\_at |string |Non |
-| created\_at |string |Non |
-| updated\_at |string |Non |
+| task_id |integer |Non |
+| list_id |integer |Non |
+| user_id |integer |Non |
+| file_name |string |Non |
+| content_type |string |Non |
+| file_size |integer |Non |
+| local_created_at |string |Non |
+| created_at |string |Non |
+| updated_at |string |Non |
 | type |string |Non |
 | revision |integer |Non |
 
-### NewTask
+### <a name="newtask"></a>NewTask
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
-| list\_id |integer |Oui |
+| list_id |integer |Oui |
 | title |string |Oui |
-| assignee\_id |integer |Non |
+| assignee_id |integer |Non |
 | Terminé |booléenne |Non |
-| recurrence\_type |string |Non |
-| recurrence\_count |integer |Non |
-| due\_date |string |Non |
+| recurrence_type |string |Non |
+| recurrence_count |integer |Non |
+| due_date |string |Non |
 | starred |booléenne |Non |
 
-### NewList
+### <a name="newlist"></a>NewList
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
 | title |string |Oui |
 
-### NewSubtask
+### <a name="newsubtask"></a>NewSubtask
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
-| list\_id |integer |Oui |
-| task\_id |integer |Oui |
+| list_id |integer |Oui |
+| task_id |integer |Oui |
 | title |string |Oui |
 | Terminé |booléenne |Non |
 
-### NewNote
+### <a name="newnote"></a>NewNote
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
-| list\_id |integer |Oui |
-| task\_id |integer |Oui |
+| list_id |integer |Oui |
+| task_id |integer |Oui |
 | Contenu |string |Oui |
 
-### NewComment
+### <a name="newcomment"></a>NewComment
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
-| list\_id |integer |Oui |
-| task\_id |integer |Oui |
+| list_id |integer |Oui |
+| task_id |integer |Oui |
 | texte |string |Oui |
 
-### NewReminder
+### <a name="newreminder"></a>NewReminder
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
-| list\_id |integer |Oui |
-| task\_id |integer |Oui |
+| list_id |integer |Oui |
+| task_id |integer |Oui |
 | date |string |Oui |
 
-### UpdateTask
+### <a name="updatetask"></a>UpdateTask
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
 | revision |integer |Non |
 | title |string |Non |
-| assignee\_id |integer |Non |
+| assignee_id |integer |Non |
 | Terminé |booléenne |Non |
-| recurrence\_type |string |Non |
-| recurrence\_count |integer |Non |
-| due\_date |string |Non |
+| recurrence_type |string |Non |
+| recurrence_count |integer |Non |
+| due_date |string |Non |
 | starred |booléenne |Non |
 
-### UpdateList
+### <a name="updatelist"></a>UpdateList
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
 | revision |integer |Non |
 | title |string |Non |
 
-### UpdateSubtask
+### <a name="updatesubtask"></a>UpdateSubtask
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
 | revision |integer |Non |
 | title |string |Non |
 | Terminé |booléenne |Non |
 
-### UpdateNote
+### <a name="updatenote"></a>UpdateNote
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
 | revision |integer |Non |
 | Contenu |string |Non |
 
-### UpdateReminder
+### <a name="updatereminder"></a>UpdateReminder
 | Nom de la propriété | Type de données | Requis |
 | --- | --- | --- |
 | date |string |Non |
 | revision |integer |Non |
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -20,7 +20,7 @@ ms.openlocfilehash: 3750e2875935d2753a819ef8ce540009417d19b5
 
 
 ---
-# <a name="sql-data-warehouse---downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>SQL Data Warehouse : prise en charge des clients de niveau inférieur pour l’audit et le masquage dynamique des données (Dynamic Data Masking)
+# <a name="sql-data-warehouse----downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>SQL Data Warehouse : prise en charge des clients de niveau inférieur pour l’audit et le masquage dynamique des données (Dynamic Data Masking)
 [L’audit](sql-data-warehouse-auditing-overview.md) fonctionne avec les clients SQL qui prennent en charge la redirection TDS.
 
 Tout client qui implémente TDS 7.4 doit également prendre en charge la redirection. Cependant, cette règle comporte deux exceptions : JDBC 4.0, qui ne prend pas complètement en charge la fonctionnalité de redirection et Tedious pour Node.JS, où la redirection n’a pas été implémentée.

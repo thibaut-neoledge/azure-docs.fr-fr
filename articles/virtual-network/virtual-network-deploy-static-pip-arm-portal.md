@@ -1,13 +1,13 @@
 ---
-title: Déployer une machine virtuelle avec une adresse IP publique statique à l'aide du portail Azure dans Resource Manager | Microsoft Docs
-description: Découvrez comment déployer des machines virtuelles avec une adresse IP publique statique à l'aide du portail Azure dans Resource Manager
+title: "Créer une machine virtuelle avec une adresse IP publique statique à partir du portail Azure | Microsoft Docs"
+description: "Apprenez à créer une machine virtuelle avec une adresse IP publique statique via Azure Resource Manager à partir du portail Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: e9546bcc-f300-428f-b94a-056c5bd29035
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,43 +15,58 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 80b452bd96e3a328899ed455b71cf68da8bfde54
+ms.openlocfilehash: c2d0230550249c5f8ca406b61225822b7e19db2e
+
 
 ---
-# Déployer une machine virtuelle avec une adresse IP publique statique à l’aide du portail Azure
-[!INCLUDE [virtual-network-deploy-static-pip-arm-selectors-include.md](../../includes/virtual-network-deploy-static-pip-arm-selectors-include.md)]
+# <a name="create-a-vm-with-a-static-public-ip-using-the-azure-portal"></a>Créer une machine virtuelle avec une adresse IP publique statique à partir du portail Azure
+
+> [!div class="op_single_selector"]
+- [Portail Azure](virtual-network-deploy-static-pip-arm-portal.md)
+- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+- [Interface de ligne de commande Azure](virtual-network-deploy-static-pip-arm-cli.md)
+- [Modèle](virtual-network-deploy-static-pip-arm-template.md)
+- [PowerShell (classique)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
-
-le modèle de déploiement classique.
+> [!NOTE]
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement Resource Manager que Microsoft recommande pour la plupart des nouveaux déploiements à la place du modèle de déploiement classique.
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
-## Créer une machine virtuelle avec une adresse IP publique statique
-Pour créer une machine virtuelle avec une adresse IP publique statique dans le portail Azure, procédez comme suit.
+## <a name="create-a-vm-with-a-static-public-ip"></a>Créer une machine virtuelle avec une adresse IP publique statique
+
+Pour créer une machine virtuelle avec une adresse IP publique statique dans le portail Azure, procédez comme suit :
 
 1. Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et, si nécessaire, connectez-vous avec votre compte Azure.
-2. Dans le coin supérieur gauche du portail, cliquez sur **Nouveau**>>**Calculer**>**Windows Server 2012 R2 Datacenter**.
+2. Dans le coin supérieur gauche du portail, cliquez sur **Nouveau**>>**Compute**>**Windows Server 2012 R2 Datacenter**.
 3. Dans la liste **Sélectionner un modèle de déploiement**, sélectionnez **Resource Manager**, puis cliquez sur **Créer**.
 4. Dans le panneau **De base**, entrez les informations de la machine virtuelle comme indiqué ci-dessous, puis cliquez sur **OK**.
    
     ![Portail Azure - De base](./media/virtual-network-deploy-static-pip-arm-portal/figure1.png)
-5. Dans le panneau **Choisir une taille**, cliquez sur **A1 Standard** comme indiqué ci-dessous, puis cliquez sur **Sélectionner**.
+5. Dans le panneau **Choisir une taille**, cliquez sur **A1 Standard** comme indiqué ci-dessous, puis sur **Sélectionner**.
    
     ![Portail Azure - Choisir une taille](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
-6. Dans le panneau **Paramètres**, cliquez sur **Adresse IP publique**, puis dans le panneau **Créer une adresse IP publique**, sous **Affectation**, cliquez sur **Statique** comme indiqué ci-dessous. Cliquez ensuite sur **OK**.
+6. Dans le panneau **Paramètres**, cliquez sur **Adresse IP publique** puis, dans le panneau **Créer une adresse IP publique**, sous **Affectation**, cliquez sur **Statique** comme indiqué ci-dessous. Cliquez ensuite sur **OK**.
    
-    ![Portail Azure - Créer une adresse IP publique](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
+    ![Portail Azure - Créer une adresse IP publique](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
 7. Dans le panneau **Paramètres**, cliquez sur **OK**.
 8. Passez en revue le panneau **Résumé** (tel qu’illustré ci-dessous), puis cliquez sur **OK**.
    
-    ![Portail Azure - Créer une adresse IP publique](./media/virtual-network-deploy-static-pip-arm-portal/figure4.png)
+    ![Portail Azure - Créer une adresse IP publique](./media/virtual-network-deploy-static-pip-arm-portal/figure4.png)
 9. Notez la nouvelle vignette dans votre tableau de bord.
    
-    ![Portail Azure - Créer une adresse IP publique](./media/virtual-network-deploy-static-pip-arm-portal/figure5.png)
+    ![Portail Azure - Créer une adresse IP publique](./media/virtual-network-deploy-static-pip-arm-portal/figure5.png)
 10. Une fois la machine virtuelle créée, le panneau **Paramètres** apparaît comme dans l’illustration ci-dessous.
     
-    ![Portail Azure - Créer une adresse IP publique](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
+    ![Portail Azure - Créer une adresse IP publique](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

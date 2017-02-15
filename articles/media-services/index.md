@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Apprenez à diffuser en continu des vidéos à la demande ou de qualité télévisuelle avec la plateforme cloud extensible Media Services. Didacticiels, références d’API et autres."
 translationtype: Human Translation
-ms.sourcegitcommit: bc22da83e1683cc8be164e9ff3ed95d2fdc95d27
-ms.openlocfilehash: 7b6ff41479fdfe332148dc2366c7e547af5e98f9
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3e029a72b1918636ede33db1445ce0550d40ede6
 
 ---
 # <a name="media-services-documentation"></a>Documentation Media Services
@@ -167,7 +167,7 @@ Apprenez à diffuser en continu des vidéos de qualité télévisuelle avec la p
                     <div class="cardText">
                         <h3>Ligne de commande</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media">PowerShell (Resource Manager)</a></p>
-                        <p><a href="/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute">PowerShell (Gestion des services)</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute">PowerShell (gestion des services)</a></p>
                     </div>
                 </div>
             </div>
@@ -191,7 +191,7 @@ Apprenez à diffuser en continu des vidéos de qualité télévisuelle avec la p
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/media">Référence sur les API REST</a></p>
+                        <p><a href="/rest/api/media">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>
@@ -199,13 +199,6 @@ Apprenez à diffuser en continu des vidéos de qualité télévisuelle avec la p
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/media-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation Media Services </div>
-    </a>
-</div>
 
 
 

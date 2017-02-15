@@ -12,11 +12,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 08/16/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6d1a948cd9b0b2b8b50ba04579de5455e7a44730
+ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
+ms.openlocfilehash: ac73ab86ba17df9b71a4f07776fef0f4c6e687e8
 
 
 ---
@@ -41,7 +41,7 @@ Installez [redis-py](https://github.com/andymccurdy/redis-py).
 ## <a name="retrieve-the-host-name-and-access-keys"></a>Récupérer les clés d’accès et le nom hôte
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## <a name="enable-the-nonssl-endpoint"></a>Activer le point de terminaison non SSL
+## <a name="enable-the-non-ssl-endpoint"></a>Activer le point de terminaison non SSL
 Certains clients Redis ne prennent pas en charge SSL. Le [port non SSL est désactivé par défaut pour les nouvelles instances Cache Redis Azure](cache-configure.md#access-ports). Le [redis-py](https://github.com/andymccurdy/redis-py) ne prend pas en charge SSL. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
@@ -64,6 +64,6 @@ Remplacez `<name>` par le nom de votre cache, et `key` par votre clé d’accès
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

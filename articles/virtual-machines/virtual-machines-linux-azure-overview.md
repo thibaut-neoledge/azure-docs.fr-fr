@@ -33,7 +33,7 @@ Les ressources Microsoft Azure sont réparties sur plusieurs régions géographi
 ## <a name="availability"></a>Availability
 Afin que votre déploiement puisse bénéficier de notre contrat de niveau de service de 99,95 % pour les machines virtuelles, vous devez déployer au moins deux machines virtuelles exécutant votre charge de travail à l’intérieur d’un groupe à haute disponibilité. Ainsi, vos machines virtuelles sont réparties sur plusieurs domaines d’erreur dans nos centres de données et déployées sur des hôtes ayant des fenêtres de maintenance distinctes. La version complète du [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explique la disponibilité garantie d’Azure dans son ensemble.
 
-## <a name="azure-virtual-machines-instances"></a>Machines virtuelles et instances Azure
+## <a name="azure-virtual-machines--instances"></a>Machines virtuelles et instances Azure
 Microsoft Azure prend en charge un certain nombre de distributions Linux populaires fournies et gérées par plusieurs partenaires.  Vous trouverez des distributions comme Red Hat Enterprise, CentOS, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD et plus encore dans Azure Marketplace. Nous travaillons activement avec différentes communautés Linux pour enrichir davantage la liste des [distributions Linux approuvées par Azure](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Si votre distribution Linux préférée n’est pas présente dans la galerie, vous pouvez « apporter votre propre machine virtuelle Linux » en [créant et chargeant un disque dur virtuel dans Azure](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -1,25 +1,29 @@
 ---
-title: Guide de résolution des problèmes d’ExpressRoute - Obtention de tables ARP | Microsoft Docs
-description: Cette page fournit des instructions sur l’obtention des tables ARP pour un circuit ExpressRoute
+title: "Guide de résolution des problèmes d’ExpressRoute - Obtention de tables ARP | Microsoft Docs"
+description: "Cette page fournit des instructions sur l’obtention des tables ARP pour un circuit ExpressRoute"
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carolz
 editor: tysonn
-
+ms.assetid: 0a6bf1d5-6baf-44dd-87d3-1ebd2fd08bdc
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 10/11/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
+ms.openlocfilehash: e63a0e17d7c3794608130ad0b654c5c903d404a0
+
 
 ---
 # <a name="expressroute-troubleshooting-guide---getting-arp-tables-in-the-resource-manager-deployment-model"></a>Guide de résolution des problèmes d’ExpressRoute - Obtention de tables ARP dans le modèle de déploiement Resource Manager
 > [!div class="op_single_selector"]
-> [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
-> [PowerShell - Classique](expressroute-troubleshooting-arp-classic.md)
+> * [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
+> * [PowerShell - Classique](expressroute-troubleshooting-arp-classic.md)
 > 
 > 
 
@@ -30,7 +34,7 @@ Cet article vous guide tout au long des étapes d’apprentissage des tables ARP
 > 
 > 
 
-## <a name="address-resolution-protocol-(arp)-and-arp-tables"></a>Protocole ARP (Address Resolution Protocol) et tables ARP
+## <a name="address-resolution-protocol-arp-and-arp-tables"></a>Protocole ARP (Address Resolution Protocol) et tables ARP
 Le protocole ARP (Address Resolution Protocol) est un protocole de couche 2 défini dans [RFC 826](https://tools.ietf.org/html/rfc826). ARP est utilisé pour mapper l’adresse Ethernet (adresse MAC) avec une adresse IP.
 
 La table ARP fournit un mappage de l’adresse ipv4 et de l’adresse MAC pour une homologation particulière. La table ARP d’une homologation de circuit ExpressRoute fournit les informations suivantes pour chaque interface (principale et secondaire)
@@ -130,7 +134,7 @@ Un exemple de sortie est affiché ci-dessous pour l’un des chemins d’accès
 ## <a name="how-to-use-this-information"></a>Utilisation de ces informations
 La table ARP d’une homologation peut servir à valider la connectivité et la configuration de la couche 2. Cette section fournit une vue d’ensemble de l’aspect des tables ARP dans différents scénarios.
 
-### <a name="arp-table-when-a-circuit-is-in-operational-state-(expected-state)"></a>Table ARP lorsqu’un circuit est dans un état opérationnel (état attendu)
+### <a name="arp-table-when-a-circuit-is-in-operational-state-expected-state"></a>Table ARP lorsqu’un circuit est dans un état opérationnel (état attendu)
 * La table ARP aura une entrée pour le côté local avec une adresse IP valide et une adresse MAC, ainsi qu’une entrée similaire pour le côté Microsoft. 
 * Le dernier octet de l’adresse IP locale sera toujours un nombre impair.
 * Le dernier octet de l’adresse IP Microsoft sera toujours un nombre pair.
@@ -141,7 +145,7 @@ La table ARP d’une homologation peut servir à valider la connectivité et la 
          10 On-Prem           65.0.0.1 ffff.eeee.dddd
           0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
 
-### <a name="arp-table-when-on-premises-/-connectivity-provider-side-has-problems"></a>Table ARP en cas de problèmes côté fournisseur de connectivité/local
+### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>Table ARP en cas de problèmes côté fournisseur de connectivité/local
 * Une seule entrée apparaîtra dans la table ARP. Cette commande affiche le mappage entre l’adresse MAC et l’adresse IP utilisée côté Microsoft. 
   
        Age InterfaceProperty IpAddress  MacAddress    
@@ -164,6 +168,9 @@ La table ARP d’une homologation peut servir à valider la connectivité et la 
 * Valider le transfert des données en examinant les octets en entrée/sortie
 * Ouvrez un ticket de support auprès du [support Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) si vous rencontrez encore des problèmes.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

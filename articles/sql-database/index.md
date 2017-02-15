@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Découvrez SQL Database, une base de données en tant que service dans le cloud. Des didacticiels, vidéos et autres documents vous montrent comment configurer, vous connecter et gérer une base de données relationnelle."
 translationtype: Human Translation
-ms.sourcegitcommit: e4df0029db106923e3d28f16b3dfe239cae5b032
-ms.openlocfilehash: 4c148d62e435f063810c096069c4020ef78568d8
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 2dfb79cc8f2aa2e2ca63b905666f519e083aa69d
 
 ---
 
@@ -129,7 +129,7 @@ Découvrez comment utiliser SQL Database, une base de données relationnelle en 
                         <h3>Langues</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.JS</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p>
                         <p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p>
@@ -145,7 +145,7 @@ Découvrez comment utiliser SQL Database, une base de données relationnelle en 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/sql/">Référence sur les API REST</a></p>
+                        <p><a href="/rest/api/sql/">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>
@@ -153,13 +153,7 @@ Découvrez comment utiliser SQL Database, une base de données relationnelle en 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-database.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation SQL Database </div>
-    </a>
-</div>
+
 
 
 

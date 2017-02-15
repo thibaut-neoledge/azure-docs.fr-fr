@@ -1,12 +1,12 @@
 ---
-title: Retrain an existing Predictive Web service | Microsoft Docs
-description: Learn how to retrain a model and update the Web service to use the newly trained model in Azure Machine Learning.
+title: "Reformer un service web prédictif | Microsoft Docs"
+description: "Apprenez à reformer un modèle et à mettre à jour le service web pour utiliser le modèle reformé dans Azure Machine Learning."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: raymondl
-editor: ''
-
+editor: 
+ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,98 +14,97 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/06/2016
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e7eecd1387823100af2e44f918450db3301f55fd
+
 
 ---
-# <a name="retrain-an-existing-predictive-web-service"></a>Retrain an existing Predictive Web service
-This document describes the retraining process for the following scenario:
+# <a name="retrain-an-existing-predictive-web-service"></a>Reformer un service web prédictif existant
+Ce document décrit le processus de reformation pour le scénario suivant :
 
-* You have a training experiment and a predictive experiment which you have deployed as an operationalized web service.
-* You have new data that you want your predictive web service to use the new date to perform it's scoring.
+* Vous avez une expérience de formation et une expérience de prévision que vous avez déployées en tant que service web mis en œuvre.
+* Vous disposez de nouvelles données et souhaitez que votre service web prédictif les utilise pour produire des scores.
 
-Starting with your existing Web service and experiments you need to:
+En partant de vos expériences et de votre service web existants, vous devez procédez comme suit :
 
-1. Update the model
-   1. Modify your Training Experiment to allow for Web service inputs and outputs.
-   2. Deploy the Training Experiment as Retraining Web service.
-   3. Use the Training Experiment's Batch Execution Service to retrain the model.
-   4. Use the Machine 
-2. Use the Machine Learning Management PowerShell cmdlets to update the Predictive Experiment
-   1. Sign in to your Azure Resource Manager account.
-   2. Get the Web service definition
-   3. Export the Web Service Definition as JSON
-   4. Update the reference to the ilearner blob in the JSON.
-   5. Import the JSON into a Web Service Definition
-   6. Update the Web service with new Web Service Definition
+1. Mettez le modèle à niveau.
+   1. Modifiez votre expérience de formation de façon à autoriser les entrées et sorties du service web.
+   2. Déployez l’expérience de formation en tant que service web de reformation.
+   3. Utilisez le Service d’exécution de lots (BES, Batch Execution Service) de l’expérience de formation pour reformer le modèle.
+2. Utilisez les applets de commande PowerShell d’Azure Machine Learning pour mettre à jour l’expérience prédictive.
+   1. Connectez-vous à votre compte Azure Resource Manager.
+   2. Obtenez la définition du service web.
+   3. Exportez la définition du service web en tant que JSON.
+   4. Mettez à jour la référence sur l’objet blob ilearner dans le JSON.
+   5. Importez le JSON dans une définition de service web.
+   6. Mettez à jour le service web avec la nouvelle définition de service web.
 
-## <a name="deploy-the-training-experiment"></a>Deploy the Training Experiment
-To be deployed as a Retraining Web service, you must add Web service inputs and outputs to the model.  Connecting a *Web Service Output* module to the experiments *[Train Model][train-model]* module, enables it to produce a new trained model that you can use in your Predictive Experiment. If you have an Evaluate Model module, you can also attach a web service output to get the evaluation results as output.
+## <a name="deploy-the-training-experiment"></a>Déployer l’expérience de formation
+Pour déployer l’expérience de formation en tant que service web de reformation, vous devez ajouter les entrées et sorties du service web au modèle. En connectant un module de *Sortie du service web* au module *[Former le modèle][train-model]* de l’expérience, vous permettez à l’expérience de formation de générer un nouveau modèle formé que vous pouvez utiliser dans votre expérience prédictive. Si vous avez un module *Évaluer le modèle*, vous pouvez également attacher la sortie du service web pour obtenir les résultats d’évaluation en tant que sortie.
 
-To update your Training Experiment:
+Pour mettre à jour votre expérience de formation :
 
-* Connect a *Web Service Input* module to your data input, for example a *Clean Missing Data* module. Typically, you want to ensure that your input data is processed the same way as your original training data.
-* Connect a *Web Service Output* module to the output of your **Train Model** module. 
-* If you have an Evaluate Model module and you want to output the evaluation results, connect a *Web Service Output* module to the output of your **Evaluate Model** module.
+1. Connectez un module d’*Entrée du service web* à votre entrée de données (par exemple, un module *Nettoyer les données manquantes*). En règle générale, vous souhaitez vous assurer que vos données d’entrée sont traitées de la même manière que vos données de formation d’origine.
+2. Connectez un module de *Sortie du service web* à la sortie de votre module *Former le modèle*.
+3. Si vous avez un module *Évaluer le modèle* et souhaitez sortir les résultats d’évaluation, connectez un module de *Sortie du service web* à la sortie de votre module *Évaluer le modèle*.
 
-Run your experiment.
+Exécutez votre expérience.
 
-Next you must deploy the Training Experiment as a web service that produces a trained model and model evaluation results.  
+Ensuite, vous devez déployer l’expérience de formation en tant que service web qui produit un modèle formé et les résultats d’évaluation du modèle.  
 
-At the bottom of the experiment canvas, click **Set Up Web Service** and select **Deploy Web Service [New]**. The Web Service Azure Machine Learning Web Services portal opens to the Deploy Web service page. Type a name for your Web service and choose a payment plan, then click **Deploy**. Only the Batch Execution method can be used for creating Trained Models
+En bas du canevas de l’expérience, cliquez sur **Configurer le service web**, puis sélectionnez **Déployer le service web [nouveau]**. Le portail des services web Azure Machine Learning s’ouvre sur la page **Déployer le service web**. Tapez un nom pour votre service web, choisissez un plan de paiement, puis cliquez sur **Déployer**. Vous pouvez utiliser la méthode Exécution par lot uniquement pour créer des modèles formés.
 
-The resulting workflow should similar to the following:
+## <a name="retrain-the-model-with-new-data-by-using-bes"></a>Reformer le modèle avec les nouvelles données en utilisant le BES
+Pour cet exemple, nous utilisons le langage C# pour créer l’application de reformation. Pour accomplir cette tâche, vous pouvez également utiliser un code Python ou R.
 
-![Resulting workflow after run.][4]
+Pour appeler les API de reformation :
 
-Diagram 1: Resulting workflow after run.
+1. Créez une application console en C# dans Visual Studio (**Nouveau** > **Projet** > **Bureau Windows** > **Application console**).
+2. Connectez-vous au portail des services web Azure Machine Learning.
+3. Cliquez sur le service web que vous utilisez.
+4. Cliquez sur **Consommer**.
+5. En bas de la page **Utiliser**, dans la section **Exemple de code**, cliquez sur **Lot**.
+6. Copiez l’exemple de code C# pour l’exécution par lot et collez-le dans le fichier Program.cs. Assurez-vous que l’espace de noms reste intact.
 
-## <a name="retrain-the-model-with-new-data-using-bes"></a>Retrain the model with new data using BES
-For this example, we are using C# to create the retraining application. You can also use the Python or R sample code to accomplish this task.
+Ajoutez le package NuGet Microsoft.AspNet.WebApi.Client comme indiqué dans les commentaires. Pour ajouter la référence à Microsoft.WindowsAzure.Storage.dll, il se peut que vous deviez au préalable installer la [bibliothèque cliente pour les services de Stockage Azure](https://www.nuget.org/packages/WindowsAzure.Storage).
 
-To call the Retraining APIs:
+La capture d’écran suivante montre la page **Consommer** du portail des services web Azure Machine Learning.
 
-1. Create a C# Console Application in Visual Studio (New->Project->Windows Desktop->Console Application).
-2. Sign in to the Machine Learning Web Service portal.
-3. Click the Web service you are working with.
-4. Click **Consume**.
-5. At the bottom of the Consume page, in the **Sample Code** section, click **Batch**.
-6. Copy the sample C# code for batch execution and paste it into the Program.cs file, making sure the namespace remains intact.
+![Page Consommer][1]
 
-Add the Nuget package Microsoft.AspNet.WebApi.Client as specified in the comments. To add the reference to Microsoft.WindowsAzure.Storage.dll, you might first need to install the client library for Microsoft Azure storage services. For more information, see [Windows Storage Services](https://www.nuget.org/packages/WindowsAzure.Storage).
-
-![Consume page][1]
-
-Diagram 3: Consume page in the Azure Machine Learning Web Services portal
-
-### <a name="update-the-apikey-declaration"></a>Update the apikey declaration
-Locate the **apikey** declaration.
+### <a name="update-the-apikey-declaration"></a>Mettre à jour la déclaration apiKey
+Localisez la déclaration **apikey**:
 
     const string apiKey = "abc123"; // Replace this with the API key for the web service
 
-In the **Basic consumption info** section of the **Consume** page, locate the primary key and copy it to the **apikey** declaration.
+Dans la section des **informations de base sur la consommation** de la page **Utiliser**, recherchez la clé primaire et copiez-la dans la déclaration **apiKey**.
 
-### <a name="update-the-azure-storage-information"></a>Update the Azure Storage information
-The BES sample code uploads a file from a local drive (For example "C:\temp\CensusIpnput.csv") to Azure Storage, processes it, and writes the results back to Azure Storage.  
+### <a name="update-the-azure-storage-information"></a>Mettre à jour les informations Azure Storage
+L’exemple de code BES charge un fichier à partir d’un lecteur local (par exemple, « C:\temp\CensusInput.csv ») vers le Stockage Azure, le traite, réécrit les résultats dans le Stockage Azure.  
 
-To accomplish this task, you must retrieve the Storage account name, key, and container information for your Storage account from the classic Azure portal and the update corresponding values in the code. 
+Pour mettre à jour les informations du Stockage Azure, vous devez récupérer les informations de nom, de clé et de conteneur pour votre compte de stockage à partir du portail Azure Classic, puis mettre à jour les valeurs correspondantes dans le code. Après exécution de votre expérience, le flux de travail obtenu doit être similaire à ce qui suit :
 
-1. Sign in to the classic Azure portal.
-2. In the left navigation column, click **Storage**.
-3. From the list of storage accounts, select one to store the retrained model.
-4. At the bottom of the page, click **Manage Access Keys**.
-5. Copy and save the **Primary Access Key** and close the dialog. 
-6. At the top of the page, click **Containers**.
-7. Select an existing container or create a new one and save the name.
+![Flux de travail obtenu après l’exécution][4]valeurs ng dans le code 
 
-Locate the *StorageAccountName*, *StorageAccountKey*, and *StorageContainerName* declarations and update the values you saved from the Azure portal.
+1. Connectez-vous à la version classique du portail Azure.
+2. Dans la colonne de navigation de gauche, cliquez sur **Stockage**.
+3. Dans la liste des comptes de stockage, sélectionnez-en un pour stocker le modèle reformé.
+4. En bas de la page, cliquez sur **Gérer les clés d’accès**.
+5. Copiez et enregistrez la **clé d’accès primaire** , puis fermez la boîte de dialogue.
+6. En haut de la page, cliquez sur **Conteneurs**.
+7. Sélectionnez un conteneur existant ou créez-en un et enregistrez le nom.
 
-    const string StorageAccountName = "mystorageacct"; // Replace this with your Azure Storage Account name
-    const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage Key
-    const string StorageContainerName = "mycontainer"; // Replace this with your Azure Storage Container name
+Localisez les déclarations *StorageAccountName*, *StorageAccountKey* et *StorageContainerName*, puis mettez à jour les valeurs que vous avez enregistrées à partir du portail Azure Classic.
 
-You also must ensure the input file is available at the location you specify in the code. 
+    const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
+    const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key
+    const string StorageContainerName = "mycontainer"; // Replace this with your Azure Storage container name
 
-### <a name="specify-the-output-location"></a>Specify the output location
-When specifying the output location in the Request Payload, the extension of the file specified in *RelativeLocation* must be specified as ilearner. See the following example.
+Vous devez également vous assurer que le fichier d’entrée est disponible à l’emplacement spécifié dans le code.
+
+### <a name="specify-the-output-location"></a>Spécifier l’emplacement de sortie
+Lorsque vous spécifiez l’emplacement de sortie dans la Charge utile des demandes, l’extension du fichier spécifiée dans *RelativeLocation* doit être spécifiée en tant que valeur `ilearner`. Voir l’exemple suivant :
 
     Outputs = new Dictionary<string, AzureBlobDataReference>() {
         {
@@ -113,59 +112,56 @@ When specifying the output location in the Request Payload, the extension of the
             new AzureBlobDataReference()
             {
                 ConnectionString = storageConnectionString,
-                RelativeLocation = string.Format("{0}/output1results.ilearner", StorageContainerName) /*Replace this with the location you would like to use for your output file, and valid file extension (usually .csv for scoring results, or .ilearner for trained models)*/
+                RelativeLocation = string.Format("{0}/output1results.ilearner", StorageContainerName) /*Replace this with the location you want to use for your output file and a valid file extension (usually .csv for scoring results or .ilearner for trained models)*/
             }
         },
 
+Voici un exemple de sortie de reformation : ![Sortie de reformation][6]
 
-![Retraining output][6]
+## <a name="evaluate-the-retraining-results"></a>Évaluer les résultats de la reformation
+Lorsque vous exécutez l’application, la sortie inclut l’URL et le jeton de signature d’accès partagé (SAP) nécessaires pour accéder aux résultats de l’évaluation.
 
-Diagram 3: Retraining output.
+Vous pouvez consulter les résultats des performances du modèle reformé en combinant les éléments *BaseLocation*, *RelativeLocation* et *SasBlobToken* dans les résultats de sortie de *output2* (comme le montre l’image de sortie de reformation précédente), puis en collant l’URL complète dans la barre d’adresses du navigateur.  
 
-## <a name="evaluate-the-retraining-results"></a>Evaluate the Retraining Results
-When you run the application, the output includes the URL and SAS token necessary to access the evaluation results.
+Examinez les résultats pour déterminer si le modèle de nouveau entraîné est suffisamment performant pour remplacer le modèle existant.
 
-You can see the performance results of the retrained model by combining the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output results for *output2* (as shown in the preceding retraining output image) and pasting the complete URL in the browser address bar.  
+Copiez les éléments *BaseLocation*, *RelativeLocation* et *SasBlobToken* des résultats de sortie.
 
-Examine the results to determine whether the newly trained model performs well enough to replace the existing one.
+## <a name="retrain-the-web-service"></a>Reformer le service web
+Lorsque vous reformez un nouveau service web, vous mettez à jour la définition de service web prédictif pour référencer le nouveau modèle formé. La définition du service web est une représentation interne du modèle formé du service web, qui n’est pas directement modifiable. Vérifiez que vous récupérez la définition du service web pour votre expérience prédictive et non pour votre expérience de formation.
 
-Copy the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output results.
+## <a name="sign-in-to-azure-resource-manager"></a>Se connecter à Azure Resource Manager
+Vous devez tout d’abord vous connecter à votre compte Azure à partir de l’environnement PowerShell à l’aide de l’applet de commande [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx).
 
-## <a name="retrain-the-web-service"></a>Retrain the Web service
-When you retrain a New Web service, you update the predictive Web service definition to reference the new trained model.  
-
-## <a name="sign-in-to-azure-resource-manager"></a>Sign in to Azure Resource Manager
-You must first sign in to your Azure account from within the PowerShell environment using the [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. 
-
-## <a name="get-the-web-service-definition"></a>Get the Web Service Definition
-Next, get the Web Service by calling the [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. The Web Service Definition is an internal representation of the trained model of the Web service and is not directly modifiable. Make sure that you are retrieving the Web Service Definition for your Predictive experiment and not your Training Experiment.
+## <a name="get-the-web-service-definition-object"></a>Obtenir l’objet Définition du service web
+Ensuite, obtenez l’objet Définition du service web en appelant l’applet de commande [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx).
 
     $wsd = Get-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
-To determine the resource group name of an existing web service, run the Get-AzureRmMlWebService cmdlet without any parameters to display the web services in your subscription. Locate the web service, and then look at its web service ID. The name of the resource group is the fourth element in the ID, just after the *resourceGroups* element. In the following example, the resource group name is Default-MachineLearning-SouthCentralUS.
+Pour déterminer le nom du groupe de ressources d’un service web existant, exécutez l’applet de commande Get-AzureRmMlWebService sans paramètres pour afficher les services web dans votre abonnement. Recherchez le service web et examinez son ID de service web. Le nom du groupe de ressources est le quatrième élément de l’ID, juste après l’élément *resourceGroups* . Dans l’exemple suivant, le nom du groupe de ressources est Default-MachineLearning-SouthCentralUS.
 
-    Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph 
-    Id : /subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237 
-    Name : RetrainSamplePre.2016.8.17.0.3.51.237 
-    Location : South Central US 
-    Type : Microsoft.MachineLearning/webServices 
-    Tags : {} 
+    Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph
+    Id : /subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
+    Name : RetrainSamplePre.2016.8.17.0.3.51.237
+    Location : South Central US
+    Type : Microsoft.MachineLearning/webServices
+    Tags : {}
 
-Alternatively, to determine the resource group name of an existing web service, log on to the Microsoft Azure Machine Learning Web Services portal. Select the web service. The resource group name is the fifth element of the URL of the web service, just after the *resourceGroups* element. In the following example, the resource group name is Default-MachineLearning-SouthCentralUS.
+Pour déterminer le nom du groupe de ressources d’un service web existant, vous pouvez également vous connecter au portail des services web Azure Machine Learning. Sélectionnez le service web. Le nom de groupe de ressources est le cinquième élément de l’URL du service web, juste après l’élément *resourceGroups* . Dans l’exemple suivant, le nom du groupe de ressources est Default-MachineLearning-SouthCentralUS.
 
-    https://services.azureml.net/subscriptions/<subcription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237 
+    https://services.azureml.net/subscriptions/<subcription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
 
 
-## <a name="export-the-web-service-definition-as-json"></a>Export the Web Service Definition as JSON
-To modify the definition to the trained model to use the newly Trained Model, you must first use the [Export-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767935.aspx) cmdlet to export it to a JSON format file.
+## <a name="export-the-web-service-definition-object-as-json"></a>Exporter l’objet Définition du service web en tant que JSON
+Pour modifier la définition du modèle formé de manière à utiliser le modèle nouvellement formé, vous devez d’abord utiliser l’applet de commande [Export-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767935.aspx) pour l’exporter vers un fichier au format JSON.
 
     Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
 
-## <a name="update-the-reference-to-the-ilearner-blob"></a>Update the reference to the ilearner blob
-In the assets, locate the [trained model], update the *uri* value in the *locationInfo* node with the URI of the ilearner blob. The URI is generated by combining the *BaseLocation* and the *RelativeLocation* from the output of the BES retraining call.
+## <a name="update-the-reference-to-the-ilearner-blob"></a>Mettre à jour la référence à l’objet blob ilearner
+Dans les ressources, recherchez le [modèle formé], mettez à jour la valeur *uri* dans le nœud *locationInfo* avec l’URI de l’objet blob ilearner. L’URI est générée en combinant les valeurs *BaseLocation* et *RelativeLocation* de la sortie de l’appel de reformation BES.
 
      "asset3": {
-        "name": "Retrain Samp.le [trained model]",
+        "name": "Retrain Sample [trained model]",
         "type": "Resource",
         "locationInfo": {
           "uri": "https://mltestaccount.blob.core.windows.net/azuremlassetscontainer/baca7bca650f46218633552c0bcbba0e.ilearner"
@@ -177,14 +173,14 @@ In the assets, locate the [trained model], update the *uri* value in the *locati
         }
       },
 
-## <a name="import-the-json-into-a-web-service-definition"></a>Import the JSON into a Web Service Definition
-You must use the [Import-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767925.aspx) cmdlet to convert the modified JSON file back into a Web Service Definition that you can use to update the Predicative Experiment.
+## <a name="import-the-json-into-a-web-service-definition-object"></a>Importer le JSON dans un objet Définition du service web
+Vous devez utiliser l’applet de commande [Import-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767925.aspx) pour convertir le fichier JSON modifié en un objet Définition du service web que vous pouvez utiliser pour mettre à jour l’expérience prédictive.
 
     $wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"
 
 
-## <a name="update-the-web-service"></a>Update the Web service
-Finally, you use [Update-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) cmdlet to update the Predictive experiment.
+## <a name="update-the-web-service"></a>Mise à jour du service web
+Enfin, utilisez l’applet de commande [Update-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) pour mettre à jour l’expérience prédictive.
 
     Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -
 
@@ -196,6 +192,7 @@ Finally, you use [Update-AzureRmMlWebService](https://msdn.microsoft.com/library
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

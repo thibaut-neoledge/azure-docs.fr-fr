@@ -509,7 +509,7 @@ Spécifie le mode récursif pour les opérations de copie. En mode récursif, Az
 
 **S’applique à :** objets blob, fichiers
 
-### <a name="blobtypeblock-page-append"></a>/BlobType:"block" | "page" | "append"
+### <a name="blobtypeblock--page--append"></a>/BlobType:"block" | "page" | "append"
 Spécifie si la destination est un objet blob de blocs, un objet blob de pages ou un objet blob d’ajout. Cette option s’applique uniquement lorsque vous téléchargez un objet blob. Sinon, une erreur se produit. Si la destination est un objet blob et si cette option n’est pas spécifiée, AzCopy crée par défaut un objet blob de blocs.
 
 **S’applique à :** objets blob
@@ -657,12 +657,12 @@ Le nombre maximal d’opérations simultanées est égal à 512.
 
 **S’applique à :** objets blob, fichiers, tables
 
-### <a name="sourcetypeblob-table"></a>/SourceType:"Blob" | "Table"
+### <a name="sourcetypeblob--table"></a>/SourceType:"Blob" | "Table"
 Spécifie que la ressource `source` est un objet blob disponible dans l’environnement de développement local, exécuté sur l’émulateur de stockage.
 
 **S’applique à :** objets blob, tables
 
-### <a name="desttypeblob-table"></a>/DestType:"Blob" | "Table"
+### <a name="desttypeblob--table"></a>/DestType:"Blob" | "Table"
 Spécifie que la ressource `destination` est un objet blob disponible dans l’environnement de développement local, exécuté sur l’émulateur de stockage.
 
 **S’applique à :** objets blob, tables
@@ -691,7 +691,7 @@ Si les données de la table sont exportées dans un objet blob et si la taille d
 
 **S’applique à :** tables
 
-### <a name="entityoperationinsertorskip-insertormerge-insertorreplace"></a>/EntityOperation:"InsertOrSkip" | "InsertOrMerge" | "InsertOrReplace"
+### <a name="entityoperationinsertorskip--insertormerge--insertorreplace"></a>/EntityOperation:"InsertOrSkip" | "InsertOrMerge" | "InsertOrReplace"
 Spécifie le comportement pour l’importation des données d’une table.
 
 * InsertOrSkip - Ignore une entité existante ou insère une nouvelle entité si elle n’existe pas dans la table.
@@ -727,7 +727,7 @@ Si vous spécifiez cette option sans valeur, AzCopy définit chaque type de cont
 
 **S’applique à :** objets blob, fichiers
 
-### <a name="payloadformatjson-csv"></a>/PayloadFormat:"JSON" | "CSV"
+### <a name="payloadformatjson--csv"></a>/PayloadFormat:"JSON" | "CSV"
 Spécifie le format du fichier de données de table exporté.
 
 Si cette option n’est pas spécifiée, AzCopy exporte le fichier de données de table au format JSON par défaut.

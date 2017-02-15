@@ -12,10 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: vakarand
+ms.date: 02/06/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
 ms.openlocfilehash: 12c14222be76ad6d31d968f0704159068c85b21c
 
 

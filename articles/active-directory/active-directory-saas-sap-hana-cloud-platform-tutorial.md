@@ -1,11 +1,11 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec SAP HANA Cloud Platform | Microsoft Docs'
-description: Apprenez à utiliser SAP HANA Cloud Platform avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !
+title: "Didacticiel : Intégration d’Azure Active Directory à SAP HANA Cloud Platform | Microsoft Docs"
+description: "Apprenez à utiliser SAP HANA Cloud Platform avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !"
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: bd398225-8bd8-4697-9a44-af6e6679113a
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: dae115c597e3a86c954eafcdd322954774fd55a5
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-sap-hana-cloud-platform"></a>Didacticiel : Intégration d’Azure Active Directory avec SAP HANA Cloud Platform
+# <a name="tutorial-azure-active-directory-integration-with-sap-hana-cloud-platform"></a>Didacticiel : Intégration d’Azure Active Directory avec SAP HANA Cloud Platform
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et SAP HANA Cloud Platform.  
-Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 * Un abonnement Azure valide
 * Un compte SAP HANA Cloud Platform
@@ -29,7 +33,7 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 > 
 > 
 
-Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
+Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
 1. Activation de l’intégration d’application pour SAP HANA Cloud Platform
 2. Configuration de l'authentification unique
@@ -41,7 +45,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 ## <a name="enabling-the-application-integration-for-sap-hana-cloud-platform"></a>Activation de l’intégration d’application pour SAP HANA Cloud Platform
 Cette section décrit l’activation de l’intégration d’application pour SAP HANA Cloud Platform.
 
-### <a name="to-enable-the-application-integration-for-sap-hana-cloud-platform,-perform-the-following-steps:"></a>Pour activer l’intégration d’application pour SAP HANA Cloud Platform, procédez comme suit :
+### <a name="to-enable-the-application-integration-for-sap-hana-cloud-platform-perform-the-following-steps"></a>Pour activer l’intégration d’application pour SAP HANA Cloud Platform, procédez comme suit :
 1. Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC700993.png "Active Directory")
@@ -68,7 +72,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64 sur votre locataire SAP HANA Cloud Platform.  
 Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o)
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Pour configurer l’authentification unique, procédez comme suit :
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
 1. Dans le portail Azure Classic, dans la page d’intégration d’application **SAP HANA Cloud Platform**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
    ![Configurer l’authentification unique](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "Configure single sign-on")
@@ -79,7 +83,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 4. Cliquez sur l’onglet **Trust** .
    
    ![Trust](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790800.png "Trust")
-5. Dans la section de gestion d’approbation, procédez comme suit :
+5. Dans la section de gestion d’approbation, procédez comme suit :
    
    ![Get Metadata](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793930.png "Get Metadata")
    
@@ -100,7 +104,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 7. Dans la page **Configurer l’authentification unique à SAP HANA Cloud Platform**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
    
    ![Configurer l’authentification unique](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790799.png "Configure Single Sign-On")
-8. Sur SAP HANA Cloud Platform Cockpit, dans la section **Local Service Provider** , procédez comme suit :
+8. Sur SAP HANA Cloud Platform Cockpit, dans la section **Local Service Provider** , procédez comme suit :
    
    ![Gestion des approbations](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793931.png "Trust Management")
    
@@ -128,11 +132,11 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
     > 
     > 
 11. Cliquez sur onglet **Attributes** .
-12. Sous l’onglet **Attributes** , procédez comme suit :
+12. Sous l’onglet **Attributes** , procédez comme suit :
     
     ![Attributes](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790804.png "Attributes")
     
-    1. En cliquant sur **Add Assertion-Based Attribute**, ajoutez les attributs basés sur une assertion suivants :
+    1. En cliquant sur **Add Assertion-Based Attribute**, ajoutez les attributs basés sur une assertion suivants :
        
        | Assertion Attribute | Principal Attribute |
        | --- | --- |
@@ -155,7 +159,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 Comme étape facultative, vous pouvez configurer des groupes basés sur une assertion pour votre fournisseur d’identité Azure Active Directory
 
 > [!NOTE]
-> L’utilisation de SAP HANA Cloud Platform vous permet d’attribuer de manière dynamique un ou plusieurs utilisateurs à un ou plusieurs rôles dans vos applications SAP HANA Cloud Platform, en fonction des valeurs des attributs de l’assertion SAML 2.0. Par exemple, si l’assertion contient l’attribut « *contract=temporaire* », vous souhaiterez peut-être que tous les utilisateurs affectés soient ajoutés au groupe « *TEMPORAIRE* ». Le groupe «*TEMPORAIRE*» peut contenir un ou plusieurs rôles d’une ou plusieurs applications déployées dans votre compte SAP HANA Cloud Platform.
+> L’utilisation de SAP HANA Cloud Platform vous permet d’attribuer de manière dynamique un ou plusieurs utilisateurs à un ou plusieurs rôles dans vos applications SAP HANA Cloud Platform, en fonction des valeurs des attributs de l’assertion SAML 2.0. Par exemple, si l’assertion contient l’attribut « *contract=temporaire* », vous souhaiterez peut-être que tous les utilisateurs affectés soient ajoutés au groupe « *TEMPORAIRE* ». Le groupe «*TEMPORAIRE*» peut contenir un ou plusieurs rôles d’une ou plusieurs applications déployées dans votre compte SAP HANA Cloud Platform.
 > 
 > Utilisez des groupes basés sur une assertion si vous souhaitez affecter en masse plusieurs utilisateurs à un ou plusieurs rôles d’applications dans votre compte SAP HANA Cloud Platform. Si vous ne souhaitez attribuer qu’un seul utilisateur ou un petit nombre d’utilisateurs à un ou des rôles spécifiques, nous vous recommandons de les attribuer directement dans l’onglet «**Autorisations**» de SAP HANA Cloud Platform Cockpit.
 > 
@@ -164,9 +168,9 @@ Comme étape facultative, vous pouvez configurer des groupes basés sur une asse
 ## <a name="assigning-a-role-to-a-user"></a>Affectation d’un rôle à un utilisateur
 Pour permettre aux utilisateurs d’Azure AD de se connecter à SAP HANA Cloud Platform, vous devez leur attribuer des rôles dans SAP HANA Cloud Platform.
 
-### <a name="to-assign-a-role-to-a-user,-perform-the-following-steps:"></a>Pour affecter un rôle à un utilisateur, procédez comme suit :
+### <a name="to-assign-a-role-to-a-user-perform-the-following-steps"></a>Pour affecter un rôle à un utilisateur, procédez comme suit :
 1. Connectez-vous à votre cockpit **SAP HANA Cloud Platform** .
-2. Procédez comme suit :
+2. Procédez comme suit :
    
    ![Autorisations](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790805.png "Authorizations")
    
@@ -179,8 +183,8 @@ Pour permettre aux utilisateurs d’Azure AD de se connecter à SAP HANA Cloud P
 ## <a name="assigning-users"></a>Affectation d’utilisateurs
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-### <a name="to-assign-users-to-sap-hana-cloud-platform,-perform-the-following-steps:"></a>Pour affecter des utilisateurs à SAP HANA Cloud Platform, procédez comme suit :
-1. Dans le portail Azure Classic, créez un compte de test.
+### <a name="to-assign-users-to-sap-hana-cloud-platform-perform-the-following-steps"></a>Pour affecter des utilisateurs à SAP HANA Cloud Platform, procédez comme suit :
+1. Dans le portail Azure Classic, créez un compte de test.
 2. Dans la page d’intégration d’application **SAP HANA Cloud Platform**, cliquez sur **Affecter des utilisateurs**.
    
    ![Affecter des utilisateurs](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790806.png "Assign Users")
@@ -190,6 +194,9 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

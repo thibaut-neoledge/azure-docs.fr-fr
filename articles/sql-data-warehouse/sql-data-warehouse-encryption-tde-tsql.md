@@ -1,12 +1,12 @@
 ---
-title: Chiffrement transparent des données dans SQL Data Warehouse (T-SQL)| Microsoft Docs
-description: Chiffrement transparent des données (TDE) dans SQL Data Warehouse (T-SQL)
+title: Transparent Data Encryption dans SQL Data Warehouse (T-SQL)| Microsoft Docs
+description: "Chiffrement transparent des données (TDE) dans SQL Data Warehouse (T-SQL)"
 services: sql-data-warehouse
-documentationcenter: ''
+documentationcenter: 
 author: ronortloff
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 8ccefef3-1308-41ee-b336-5e491d1098ae
 ms.service: sql-data-warehouse
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fb915cd9abb83b10af17046591ce313dcc84fd47
+
 
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Prise en main du chiffrement transparent des données (TDE)
@@ -54,7 +58,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 > 
 
 ## <a name="verifying-encryption"></a>Vérification de chiffrement
-Pour vérifier l’état du chiffrement pour SQL Data Warehouse, procédez comme suit :
+Pour vérifier l’état du chiffrement pour SQL Data Warehouse, procédez comme suit :
 
 1. Connectez-vous à la base de données *master* ou d’instance à l'aide d'identifiants de connexion administrateurs ou membres du rôle **dbmanager** dans la base de données master
 2. Exécutez l'instruction suivante pour chiffrer la base de données.
@@ -84,6 +88,6 @@ Un résultat de ```1``` indique une base de données chiffrée, ```0``` indique 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

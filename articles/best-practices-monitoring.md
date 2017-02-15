@@ -710,6 +710,6 @@ Dans de nombreux cas, les traitements par lots peuvent générer des rapports en
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -132,10 +132,10 @@ La réplication garantit que votre compte de stockage répond aux exigences du [
 
 Lorsque vous créez un compte de stockage, vous pouvez sélectionner une des options de réplication suivantes :
 
-* **Stockage localement redondant (LRS).**  Le stockage localement redondant effectue trois copies de vos données. Le stockage LRS est répliqué trois fois par centre de données et par région. Il protège vos données des défaillances matérielles normales, mais pas des pannes susceptibles de survenir dans un centre de données.
+* **Stockage localement redondant (LRS).** Le stockage localement redondant effectue trois copies de vos données. Le stockage LRS est répliqué trois fois par centre de données et par région. Il protège vos données des défaillances matérielles normales, mais pas des pannes susceptibles de survenir dans un centre de données.
 
     Vous pouvez bénéficier d'une réduction pour le stockage LRS. Pour une durabilité maximale, nous vous recommandons d’utiliser le stockage géo-redondant décrit ci-dessous.
-* **Stockage redondant dans une zone (ZRS).**  Le stockage redondant dans une zone effectue trois copies de vos données. Le stockage ZRS est répliqué trois fois dans deux ou trois installations au sein d’une même région ou dans deux régions distinctes, ce qui confère aux données une durabilité supérieure à celle offerte par le stockage LRS. Le stockage ZRS garantie la durabilité de vos données au sein d'une même région.
+* **Stockage redondant dans une zone (ZRS).** Le stockage redondant dans une zone effectue trois copies de vos données. Le stockage ZRS est répliqué trois fois dans deux ou trois installations au sein d’une même région ou dans deux régions distinctes, ce qui confère aux données une durabilité supérieure à celle offerte par le stockage LRS. Le stockage ZRS garantie la durabilité de vos données au sein d'une même région.
 
     Le stockage ZRS offre un niveau de durabilité supérieur à celui du stockage LRS ; toutefois, pour une durabilité maximale, nous vous recommandons d'utiliser le stockage géo-redondant décrit ci-dessous.
 

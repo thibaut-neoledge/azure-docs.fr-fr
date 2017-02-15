@@ -1,12 +1,12 @@
 ---
-title: Procédures de mise à niveau du SDK web Azure Mobile Engagement | Microsoft Docs
-description: Dernières mises à jour et procédures du Kit de développement logiciel (SDK) web pour Azure Mobile Engagement
+title: "Procédures de mise à niveau du SDK web Azure Mobile Engagement | Microsoft Docs"
+description: "Dernières mises à jour et procédures du Kit de développement logiciel (SDK) web pour Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a20529b4-ec8d-4503-8ae9-09b5f0846d5b
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: web
@@ -14,29 +14,33 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: afa8037dcb7a53042fa606e2c4014b442d4be326
+
 
 ---
-# Procédures de mise à niveau du SDK web Azure Mobile Engagement
+# <a name="azure-mobile-engagement-web-sdk-upgrade-procedures"></a>Procédures de mise à niveau du SDK web Azure Mobile Engagement
 Si vous avez déjà intégré une version antérieure du Kit de développement logiciel (SDK) web Azure Mobile Engagement à votre application web, vous devez considérer les points suivants lorsque vous mettez à niveau le Kit de développement logiciel (SDK).
 
 Si vous avez ignoré plusieurs versions du Kit de développement logiciel (SDK) web Azure Mobile Engagement, vous devrez peut-être effectuer plusieurs procédures pendant le processus de mise à niveau. Par exemple, si vous migrez de la version 1.4.0 vers la version 1.6.0, suivez d’abord les procédures de mise à niveau de 1.4.0 vers 1.5.0. Puis suivez les procédures de mise à niveau de 1.5.0 vers 1.6.0.
 
 Quelle que soit la version à partir de laquelle vous effectuez la mise à niveau, remplacez toute version antérieure du fichier azure-engagement.js par la dernière version de ce fichier.
 
-## Mise à niveau de 1.2.1 vers 2.0.0
+## <a name="upgrade-from-121-to-200"></a>Mise à niveau de 1.2.1 vers 2.0.0
 Cette section décrit comment migrer une intégration du Kit de développement logiciel (SDK) web Mobile Engagement à partir du service Capptain, offert par Capptain SAS, vers une application Azure Mobile Engagement. Si vous migrez à partir d’une version antérieure, consultez le site web de Capptain pour migrer tout d’abord vers 1.2.1, puis appliquez la procédure suivante.
 
 Cette version du Kit de développement logiciel (SDK) web Mobile Engagement ne prend pas en charge Samsung Smart TV, Opera TV, webOS ou la fonctionnalité Reach.
 
 > [!IMPORTANT]
-> Capptain et Azure Mobile Engagement ne représentent pas le même service. La procédure suivante explique uniquement comment migrer l’application cliente. La migration du Kit de développement logiciel (SDK) web Mobile Engagement dans l'application ne migre pas vos données d’un serveur Capptain vers un serveur Mobile Engagement.
+> Capptain et Azure Mobile Engagement ne représentent pas le même service. La procédure suivante explique uniquement comment migrer l’application cliente. La migration du Kit de développement logiciel (SDK) web Mobile Engagement dans l'application ne migre pas vos données d’un serveur Capptain vers un serveur Mobile Engagement.
 > 
 > 
 
-### Fichiers JavaScript
+### <a name="javascript-files"></a>Fichiers JavaScript
 Remplacez le fichier capptain-sdk.js par le fichier azure-engagement.js, puis mettez à jour en conséquence les importations de votre script.
 
-### Supprimer Capptain Reach
+### <a name="remove-capptain-reach"></a>Supprimer Capptain Reach
 Cette version du Kit de développement logiciel (SDK) web Mobile Engagement ne prend pas en charge la fonctionnalité Reach. Si vous avez intégré Capptain Reach à votre application, vous devez la supprimer.
 
 Supprimez l’import CSS Reach de votre page et supprimez le fichier .css associé (capptain-reach.css par défaut).
@@ -73,7 +77,7 @@ Supprimez l’interface utilisateur Reach pour les annonces texte et web ainsi q
       </div>
     </div>
 
-Supprimez l’objet `reach` de la configuration, s’il existe. Voici à quoi cela ressemble :
+Supprimez l’objet `reach` de la configuration, s’il existe. Voici à quoi cela ressemble :
 
     window.capptain = {
       [...]
@@ -84,26 +88,26 @@ Supprimez l’objet `reach` de la configuration, s’il existe. Voici à quoi ce
 
 Supprimez toute autre personnalisation Reach, notamment les catégories.
 
-### Supprimer les API déconseillées
+### <a name="remove-deprecated-apis"></a>Supprimer les API déconseillées
 Certaines API de Capptain sont déconseillées dans le Kit de développement logiciel (SDK) web Mobile Engagement.
 
 Supprimez tous les appels vers les API suivantes : `agent.connect`, `agent.disconnect`, `agent.pause` et `agent.sendMessageToDevice`.
 
 Supprimez toutes les instances des rappels suivants de votre configuration Capptain : `onConnected`, `onDisconnected`, `onDeviceMessageReceived` et `onPushMessageReceived`.
 
-### Configuration
+### <a name="configuration"></a>Configuration
 Mobile Engagement utilise une chaîne de connexion pour configurer les identificateurs du SDK, par exemple l'identificateur d'application.
 
 Remplacez l’ID d’application par votre chaîne de connexion. Notez que l’objet global pour la configuration du Kit de développement logiciel (SDK) passe de `capptain` à `azureEngagement`.
 
-Avant la migration :
+Avant la migration :
 
     window.capptain = {
       appId: ...,
       [...]
     };
 
-Après la migration :
+Après la migration :
 
     window.azureEngagement = {
       connectionString: 'Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}',
@@ -112,9 +116,14 @@ Après la migration :
 
 La chaîne de connexion de votre application est affichée sur le Portail Azure.
 
-### API JavaScript
-L’objet JavaScript global `window.capptain` a été renommé `window.azureEngagement` mais vous pouvez utiliser l’alias `window.engagement` pour les appels d’API. Vous ne pouvez pas utiliser l’alias pour définir la configuration du Kit de développement logiciel (SDK).
+### <a name="javascript-apis"></a>API JavaScript
+L’objet JavaScript global `window.capptain` a été renommé `window.azureEngagement`, mais vous pouvez utiliser l’alias `window.engagement` pour les appels d’API. Vous ne pouvez pas utiliser l’alias pour définir la configuration du Kit de développement logiciel (SDK).
 
 Par exemple : `capptain.deviceId` devient `engagement.deviceId`, `capptain.agent.startActivity` devient `engagement.agent.startActivity`, etc.
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,19 +1,23 @@
 ---
-title: Solution de données de communication dans Log Analytics | Microsoft Docs
-description: Les données de communication sont des données de réseau et de performance centralisées issues d’ordinateurs sur lesquels des agents OMS sont installés, notamment Operations Manager et les agents connectés à Windows. Les données réseau sont associées à vos données de journaux pour vous aider à mettre les données en corrélation.
+title: "Solution de données de communication dans Log Analytics | Microsoft Docs"
+description: "Les données de communication sont des données de réseau et de performance centralisées issues d’ordinateurs sur lesquels des agents OMS sont installés, notamment Operations Manager et les agents connectés à Windows. Les données réseau sont associées à vos données de journaux pour vous aider à mettre les données en corrélation."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
-manager: jwhit
-editor: ''
-
+manager: carmonm
+editor: 
+ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 01/02/2017
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
+ms.openlocfilehash: be00cb9b1e8ba5d9d8368695ca8d448d466e8f47
+
 
 ---
 # <a name="wire-data-solution-in-log-analytics"></a>Solution de données de communication dans Log Analytics
@@ -21,8 +25,8 @@ Les données de communication sont des données de réseau et de performance cen
 
 > [!NOTE]
 > La solution de données de communication ne peut pas être ajoutée aux espaces de travail actuellement. Les clients qui ont déjà activé la solution de communication peuvent continuer à l’utiliser.
-> 
-> 
+>
+>
 
 Par défaut, OMS recueille les données enregistrées dans les journaux concernant le processeur, la mémoire, les disques et les performances réseau à partir des compteurs intégrés à Windows. La collecte des données réseau et autres est effectuée en temps réel pour chaque agent, notamment les sous-réseaux et les protocoles de niveau application utilisés par l’ordinateur. Vous pouvez ajouter d’autres compteurs de performance dans la page Paramètres de l’onglet Journaux.
 
@@ -76,7 +80,7 @@ Configuration requise : Pour utiliser l’exemple suivant, vous devez avoir inst
 2. Dans la liste **Requêtes WireData courantes**, cliquez sur **Quantité de trafic réseau (en octets) par processus** pour afficher la liste des processus retournés.
     ![Requêtes WireData](./media/log-analytics-wire-data/oms-wiredata-01.png)
 3. Si la liste de processus est trop longue pour être entièrement lisible, vous pouvez modifier la requête de recherche comme ceci :
-   
+
     ```
     Type WireData | measure count() by ProcessName | where AggregatedValue <40
     ```
@@ -85,24 +89,26 @@ Configuration requise : Pour utiliser l’exemple suivant, vous devez avoir inst
 4. À l’aide des données retournées dans la liste, cliquez sur un processus nommé. Dans cet exemple, nous avons cliqué sur DancingPigs.exe. Les résultats ci-dessous décrivent le type de trafic réseau, par exemple les communications sortantes sur différents protocoles.
     ![Résultats WireData montrant un processus nommé](./media/log-analytics-wire-data/oms-wiredata-03.png)
 5. La solution de sécurité et d’audit étant installée, vous pouvez rechercher les événements de sécurité qui ont la même valeur de champ ProcessName en modifiant votre requête de recherche avec les opérateurs de requête de recherche IN et DISTINCT. Vous pouvez procéder ainsi quand vos données de communication et les journaux d’autres solutions ont des valeurs du même format. Modifiez votre requête de recherche comme ceci :
-   
+
     ```
     Type=SecurityEvent ProcessName IN {Type:WireData "DancingPigs.exe" | distinct ProcessName}
     ```    
-   
+
     ![résultats de données de communication montrant des données combinées](./media/log-analytics-wire-data/oms-wiredata-04.png)
 6. Dans les résultats ci-dessus, vous constatez que les informations de compte sont visibles. Vous pouvez maintenant affiner votre requête de recherche pour déterminer la fréquence à laquelle le compte (qui affiche les données de sécurité et d’audit) a été utilisé par le processus avec une requête semblable à la suivante :        
-   
+
     ```
     Type=SecurityEvent ProcessName IN {Type:WireData "DancingPigs.exe" | distinct ProcessName} | measure count() by Account
     ```
-   
+
     ![résultats de données de communication montrant des données de compte](./media/log-analytics-wire-data/oms-wiredata-05.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Lancez une recherche dans les journaux](log-analytics-log-searches.md) pour afficher des enregistrements détaillés sur les recherches de données de communication.
 * Consultez le billet de blog de Daniel intitulé [Using Wire Data in Operations Management Suite Log Search](http://blogs.msdn.com/b/dmuscett/archive/2015/09/09/using-wire-data-in-operations-management-suite.aspx) (Utilisation des données de communication dans la recherche de journal Operations Management Suite) pour en savoir plus sur la fréquence de collecte des données et sur la façon de modifier les propriétés de collecte pour les agents Operations Manager.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

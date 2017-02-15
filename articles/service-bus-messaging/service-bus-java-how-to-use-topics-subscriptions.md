@@ -266,6 +266,6 @@ Maintenant que vous connaissez les principes de base des files d’attente Servi
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -118,6 +118,6 @@ Consultez l’article [Fournisseur de caches de sortie ASP.NET pour le Cache Red
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

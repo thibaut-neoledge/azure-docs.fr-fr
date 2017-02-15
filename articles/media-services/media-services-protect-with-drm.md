@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/11/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
-ms.openlocfilehash: 7c2709d472d7512eda927f4f70f82e7f74adca0c
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 3309db6a926c3c2a0ff6340f0ade3d73093f6d6b
 
 
 ---
@@ -41,10 +41,8 @@ Pour tirer parti du chiffrement dynamique, vous devez avoir un élément multim�
 
 Cette rubrique peut être utile aux développeurs travaillant sur des applications qui fournissent un support protégé avec plusieurs DRM comme PlayReady et Widevine. La rubrique vous montre comment configurer le service de distribution des licences PlayReady avec des stratégies d’autorisation, afin que seuls les clients autorisés puissent recevoir les licences PlayReady ou Widevine. Il indique également comment utiliser le chiffrement de cryptage dynamique avec PlayReady ou Widevine DRM sur DASH.
 
-> [!NOTE]
-> Pour utiliser le chiffrement dynamique, vous devez d'abord obtenir au moins une unité d'échelle (également appelée unité de diffusion en continu). Pour plus d'informations, consultez [Mise à l'échelle d'un service de média](media-services-portal-manage-streaming-endpoints.md).
->
->
+>[!NOTE]
+>Une fois votre compte AMS créé, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**. 
 
 ## <a name="download-sample"></a>Charger l’exemple
 Vous pouvez télécharger l’exemple décrit dans cet article à partir d’ [ici](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
@@ -160,8 +158,7 @@ L’exemple suivant illustre la fonctionnalité présentée dans le kit de déve
                 <add key="Audience" value="urn:test"/>
               </appSettings>
         </configuration>
-5. Obtenir au moins une unité de diffusion pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu. Pour plus d’informations, consultez [configurer les points de terminaison de diffusion en continu](media-services-dotnet-get-started.md#configure-streaming-endpoints-using-the-azure-portal).
-6. Remplacez le code dans votre fichier Program.cs par le code présenté dans cette section.
+7. Remplacez le code dans votre fichier Program.cs par le code présenté dans cette section.
 
     Veillez à mettre à jour les variables pour pointer vers les dossiers où se trouvent vos fichiers d'entrée.
 
@@ -623,6 +620,6 @@ Consultez les parcours d’apprentissage de Media Services.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

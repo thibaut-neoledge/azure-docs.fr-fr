@@ -18,6 +18,9 @@
 ### [Gestionnaire de ressources](documentation-government-manage-azure-resource-manager.md)
 ### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [Abonnement](documentation-government-manage-subscriptions.md)
+## Déployer
+### Web + mobile
+#### [Services d’application](documentation-government-howto-deploy-webandmobile.md)
 
 # Référence
 ## [Services](documentation-government-services.md)
@@ -32,8 +35,10 @@
 # les ressources
 ## [Tarification](https://azure.microsoft.com/pricing/)
 ## [Version d’évaluation](https://azuregov.microsoft.com/trial/azuregovtrial)
+## [Blog](https://blogs.msdn.microsoft.com/azuregov/)
+## [Site web Azure Government](https://azure.microsoft.com/overview/clouds/government/)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

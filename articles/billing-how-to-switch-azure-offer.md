@@ -4,7 +4,7 @@ description: "Découvrez comment changer votre abonnement Azure et basculer vers
 services: 
 documentationcenter: 
 author: genlin
-manager: mbaldwin
+manager: jlian
 editor: 
 tags: billing,top-support-issue
 ms.assetid: aae227b3-6d64-4550-a5b6-d359f53f0a59
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 12/6/2016
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c7fdfb6e915269d171f1a9fa1a397faefd8b8a99
+ms.sourcegitcommit: c18614f1c096eb76c6a28a9038dab079e04cd4db
+ms.openlocfilehash: 91ad4b1a661e110f7ce8f0ca4cfc7697d86f6c58
 
 
 ---
@@ -90,9 +90,8 @@ Le jour où vous changez d’offre, une facture est générée pour l’ensemble
 ## <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>Puis-je migrer du modèle de paiement à l’utilisation vers un [fournisseur de solutions cloud](https://partner.microsoft.com/Solutions/cloud-reseller-overview) ou un [Accord Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/) ?
 Nous ne prenons actuellement pas en charge le changement d’offre vers un fournisseur de solutions cloud ou un Accord Entreprise dans le Centre des comptes. Pour inclure votre abonnement actuel dans un contrat Entreprise, demandez à votre administrateur d’inscription d’ajouter votre compte au contrat Entreprise. Vous recevez ensuite un e-mail d’invitation. Quand vous suivez les instructions pour accepter l’invitation, vos abonnements sont automatiquement rattachés au contrat Entreprise. Pour migrer vers un CSP consultez la section [Migration d’un abonnement Azure vers CSP](https://blogs.technet.microsoft.com/hybridcloudbp/2016/08/26/azure-subscription-migration-to-csp/).
 
-## <a name="next-steps"></a>Étapes suivantes
-* Découvrez comment [gérer les rôles d’administrateur](billing-add-change-azure-subscription-administrator.md) pour votre abonnement
-* Effectuez le suivi de votre utilisation en [téléchargeant les données d’utilisation et la facture](billing-download-azure-invoice-daily-usage-date.md)
+## <a name="can-i-migrate-data-and-services-for-my-azure-subscription-to-a-new-subscription"></a>Peut-on migrer des données et des services d’un abonnement Azure vers un nouvel abonnement ?
+Oui. Pour plus d’informations, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un abonnement](./azure-resource-manager/resource-group-move-resources.md).
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 Si vous avez d’autres questions, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
@@ -100,6 +99,6 @@ Si vous avez d’autres questions, veuillez [contacter le support technique](htt
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,46 +1,50 @@
 ---
-title: Créer un espace de noms Service Bus par rubrique et abonnement à l’aide d’un modèle Azure Resource Manager | Microsoft Docs
-description: Créer un espace de noms Service Bus par rubrique et abonnement à l’aide d’un modèle Azure Resource Manager
-services: service-bus
+title: "Créer un espace de noms Service Bus par rubrique et abonnement à l’aide d’un modèle Azure Resource Manager | Microsoft Docs"
+description: "Créer un espace de noms Service Bus par rubrique et abonnement à l’aide d’un modèle Azure Resource Manager"
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: d3d55200-5c60-4b5f-822d-59974cafff0e
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 10/14/2016
 ms.author: sethm;shvija
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d4c3da81e4f809bba252738c783f66a62f116eaa
+
 
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Créer un espace de noms Service Bus par rubrique et abonnement à l’aide d’un modèle Azure Resource Manager
 Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms Service Bus par rubrique et abonnement. Vous allez apprendre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins
 
-Pour en savoir plus sur la création de modèles, consultez la rubrique [Création de modèles Azure Resource Manager][Création de modèles Azure Resource Manager].
+Pour en savoir plus sur la création de modèles, consultez [Création de modèles Azure Resource Manager][Création de modèles Azure Resource Manager].
 
-Pour le modèle complet, consultez le [modèle d'espace de noms Service Bus par rubrique et abonnement][modèle d'espace de noms Service Bus par rubrique et abonnement] .
+Pour accéder au modèle complet, consultez le [modèle d'espace de noms Service Bus par rubrique et abonnement][modèle d'espace de noms Service Bus par rubrique et abonnement].
 
 > [!NOTE]
 > Les modèles Azure Resource Manager suivants sont disponibles au téléchargement et au déploiement.
 > 
-> * [Créer un espace de noms Service Bus avec file d'attente et règle d’autorisation](service-bus-resource-manager-namespace-auth-rule.md)
-> * [Créer un espace de noms Service Bus avec file d’attente](service-bus-resource-manager-namespace-queue.md)
 > * [Création d'un espace de noms Service Bus](service-bus-resource-manager-namespace.md)
-> * [Créer un espace de noms Event Hubs avec un Event Hub et un groupe de consommateurs](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
+> * [Créer un espace de noms Service Bus avec file d’attente](service-bus-resource-manager-namespace-queue.md)
+> * [Créer un espace de noms Service Bus avec file d'attente et règle d’autorisation](service-bus-resource-manager-namespace-auth-rule.md)
+> * [Créer un modèle d’espace de noms Service Bus avec rubrique, abonnement et règle](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Pour connaître les derniers modèles, recherchez Service Bus dans la galerie de [modèles de démarrage rapide Azure][modèles de démarrage rapide Azure] .
+> Pour rechercher les derniers modèles, recherchez « Service Bus » dans la galerie de [modèles de démarrage rapide Azure][modèles de démarrage rapide Azure].
 > 
 > 
 
-## <a name="what-will-you-deploy?"></a>Qu'allez-vous déployer ?
+## <a name="what-will-you-deploy"></a>Qu'allez-vous déployer ?
 Avec ce modèle, vous allez déployer un espace de noms Service Bus par rubrique et abonnement.
 
 Les [rubriques et les abonnements Service Bus](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) fournissent une forme de communication de type un-à-plusieurs dans un modèle de *publication/abonnement*.
 
-Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
+Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
 
 [![Déploiement sur Azure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-and-subscription%2Fazuredeploy.json)
 
@@ -151,6 +155,6 @@ Maintenant que vous avez créé et déployé des ressources à l’aide d’Azur
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

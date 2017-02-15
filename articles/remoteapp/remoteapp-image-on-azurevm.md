@@ -62,6 +62,6 @@ Vous êtes maintenant prêt à créer votre collection, [cloud](remoteapp-create
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

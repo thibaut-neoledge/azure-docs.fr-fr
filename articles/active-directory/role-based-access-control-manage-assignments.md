@@ -1,12 +1,12 @@
 ---
-title: Afficher les affectations d’accès aux ressources Azure | Microsoft Docs
-description: Affichez et gérez toutes les affectations de contrôle d’accès en fonction du rôle des utilisateurs ou groupes sur le Portail Azure
+title: "Afficher les affectations d’accès aux ressources Azure | Microsoft Docs"
+description: "Affichez et gérez toutes les affectations de contrôle d’accès en fonction du rôle des utilisateurs ou groupes sur le Portail Azure"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: jeffsta
-
+ms.assetid: e6f9e657-8ee3-4eec-a21c-78fe1b52a005
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 87fa4373e5496a91d4e808ceb45095a6aea9e884
+
 
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal---public-preview"></a>Afficher les affectations d’accès des utilisateurs et des groupes sur le Portail Azure - Version préliminaire publique
@@ -25,10 +29,10 @@ ms.author: kgremban
 
 Avec le contrôle d’accès en fonction du rôle (RBAC), intégré à la version préliminaire d’Azure Active Directory, vous pouvez gérer l’accès à vos ressources Azure. [Nouveautés de la version préliminaire](active-directory-preview-explainer.md)
 
-Les accès affectés avec le RBAC sont précis car il existe deux façons de restreindre les autorisations :
+Les accès affectés avec le RBAC sont précis car il existe deux façons de restreindre les autorisations :
 
-* **Étendue :** les affectations de rôles RBAC sont limitées à un abonnement, à un groupe de ressources ou à une ressource donnés. Un utilisateur ayant accès à une ressource en particulier ne peut pas accéder aux autres ressources du même abonnement.
-* **Rôle :** au sein de l’affectation d’étendue, l’accès est encore restreint par l’affectation d’un rôle. Les rôles peuvent être de haut niveau, comme propriétaire, ou spécifiques, comme lecteur de machines virtuelles.
+* **Étendue :** les affectations de rôles RBAC sont limitées à un abonnement, à un groupe de ressources ou à une ressource donnés. Un utilisateur ayant accès à une ressource en particulier ne peut pas accéder aux autres ressources du même abonnement.
+* **Rôle :** au sein de l’affectation d’étendue, l’accès est encore restreint par l’affectation d’un rôle. Les rôles peuvent être de haut niveau, comme propriétaire, ou spécifiques, comme lecteur de machines virtuelles.
 
 Les rôles peuvent être affectés au sein de l’abonnement, du groupe de ressources ou de la ressource qui constitue l’étendue de l’affectation. Mais vous pouvez afficher toutes les affectations d’accès d’un groupe ou d’un utilisateur donné en un seul et même endroit.
 
@@ -57,6 +61,9 @@ Sur ce panneau, vous pouvez supprimer les affectations d’accès affectées dir
 * Familiarisez-vous avec le contrôle d’accès en fonction du rôle afin [d’Utiliser les affectations de rôle pour gérer l’accès à vos ressources d’abonnement Azure](role-based-access-control-configure.md)
 * Consultez les [rôles RBAC intégrés](role-based-access-built-in-roles.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

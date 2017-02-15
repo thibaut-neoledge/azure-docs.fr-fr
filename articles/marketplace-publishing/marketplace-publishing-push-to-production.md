@@ -88,6 +88,6 @@ Une fois l'offre publiée, testez les scénarios de clients pour valider le fonc
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

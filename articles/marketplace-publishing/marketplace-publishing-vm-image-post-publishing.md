@@ -223,7 +223,7 @@ Vous pouvez ajouter une nouvelle référence (SKU) à votre offre en direct en s
 ## <a name="4-how-to-change-the-data-disk-count-for-a-listed-sku"></a>4. Comment modifier le nombre de disques de données pour une référence (SKU) répertoriée
 Vous ne pouvez pas incrémenter/décrémenter le nombre de disques de données d’une référence répertoriée. Vous devez dans ce cas créer une nouvelle référence. Reportez-vous à la section [3. Comment ajouter une nouvelle référence (SKU) sous une offre en direct](#3-how-to-add-a-new-sku-under-a-live-offer) pour obtenir une aide précise.
 
-## <a name="5-how-to-delete-a-listed-offer-from-the-azure-marketplace"></a>5.    Comment supprimer une offre répertoriée d’Azure Marketplace
+## <a name="5----how-to-delete-a-listed-offer-from-the-azure-marketplace"></a>5.    Comment supprimer une offre répertoriée d’Azure Marketplace
 Différents aspects doivent être pris en compte en cas de demande de suppression d’une offre en direct. Suivez les étapes ci-dessous pour obtenir des instructions de l’équipe de support afin de supprimer une offre répertoriée d’Azure Marketplace :
 
 1. Ouvrez un ticket de support en utilisant ce [lien](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=15635&ccsid=635993707583706681).

@@ -23,7 +23,7 @@ ms.openlocfilehash: 8c2dbd0a79a616e291c974c16d20d423cbb25ce2
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Conditions techniques préalables pour créer une image de machine virtuelle pour Azure Marketplace
 Avant de commencer, lisez attentivement cette procédure, de manière à comprendre à quel moment effectuer une étape et pourquoi chaque étape doit être exécutée. Autant que possible, préparez les informations et autres données de votre entreprise, téléchargez les outils nécessaires et/ou créez les composants techniques avant de lancer le processus de création de l’offre. Cet article devrait vous aider à mieux comprendre ces étapes.  
 
-## <a name="download-needed-tools-applications"></a>Télécharger les outils et applications nécessaires
+## <a name="download-needed-tools--applications"></a>Télécharger les outils et applications nécessaires
 Vous devez préparer les éléments suivants avant de commencer le processus :
 
 * En fonction du système d’exploitation que vous ciblez, installez les [applets de commande Azure PowerShell](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) ou [l’outil d’interface de ligne de commande Linux](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409) à partir de la page de [téléchargements Azure](https://azure.microsoft.com/downloads/).

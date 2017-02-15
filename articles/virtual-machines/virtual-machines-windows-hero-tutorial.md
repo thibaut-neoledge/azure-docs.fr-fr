@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 01/03/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 22156a9f3c5a57e10cad96661f50531b309c3a04
-ms.openlocfilehash: a25d394e83d7945f0ea50de1fc65a68a96190a34
+ms.sourcegitcommit: 425637599df40ac3be23984785e4f3292d72978d
+ms.openlocfilehash: 7c7a300b620b1e7bd0cd1b816e575f2d57fee80a
 
 
 ---
@@ -28,28 +28,32 @@ Ce didacticiel vous montre combien il est facile de créer une machine virtuelle
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="choose-the-vm-image-from-the-marketplace"></a>Choisir l’image de machine virtuelle à partir de Marketplace
-Nous allons utiliser une image Windows Server 2012 R2 Datacenter comme exemple, mais il s’agit simplement d’un des nombreux types d’images proposés par Azure. Les images disponibles dépendent de votre abonnement. Par exemple, certaines images de bureau sont disponibles pour les [abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+Nous allons utiliser une image Windows Server 2016 Datacenter comme exemple, mais il s’agit simplement d’un des nombreux types d’image proposés par Azure. Les images disponibles dépendent de votre abonnement. Par exemple, certaines images de bureau sont disponibles pour les [abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le menu Hub, cliquez sur **Nouveau** > **Calculer** > **Windows Server 2012 R2 Datacenter**.
+2. À partir de l’angle supérieur gauche, cliquez sur **Nouveau** > **Compute** > **Windows Server 2016 Datacenter**.
    
     ![Capture d’écran affichant les images de machines virtuelles Azure disponibles dans le portail](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
-3. Dans le panneau **Windows Server 2012 R2 Datacenter**, dans **Sélectionner un modèle de déploiement**, vérifiez que **Resource Manager** est sélectionné. Cliquez sur **Create**.
+3. Dans le panneau **Windows Server 2016 Datacenter**, dans **Sélectionnez un modèle de déploiement**, vérifiez que **Resource Manager** est sélectionné. Cliquez sur **Créer**.
    
     ![Capture d’écran affichant le modèle de déploiement à sélectionner pour la machine virtuelle](./media/virtual-machines-windows-hero-tutorial/deployment-model.png)
 
 ## <a name="create-the-windows-virtual-machine"></a>Créer la machine virtuelle Windows
 Après avoir sélectionné l’image, vous pouvez utiliser les paramètres par défaut pour créer rapidement la machine virtuelle.
 
-1. Dans le panneau **De base**, entrez un **nom** pour la machine virtuelle. Le nom doit comporter 1 à 15 caractères et il ne peut pas contenir de caractères spéciaux.
-2. Entrez un **Nom d’utilisateur** et un **Mot de passe** fort qui serviront à créer un compte local sur la machine virtuelle. Le compte local est utilisé pour se connecter à la machine virtuelle et la gérer. 
+1. Dans le panneau **De base**, entrez un **nom** pour la machine virtuelle. Dans cet exemple, *HeroVM* est le nom de la machine virtuelle. Le nom doit comporter 1 à 15 caractères et il ne peut pas contenir de caractères spéciaux.
+2. Entrez un **Nom d’utilisateur** et un **Mot de passe** fort qui serviront à créer un compte local sur la machine virtuelle. Le compte local est utilisé pour se connecter à la machine virtuelle et la gérer. Dans cet exemple, *azureuser* est le nom d’utilisateur.
    
     Le mot de passe doit compter 8 à 123 caractères et répondre à trois des quatre conditions suivantes : un caractère minuscule, un caractère majuscule, un chiffre et un caractère spécial. En savoir plus sur les [conditions requises pour les noms d’utilisateur et les mots de passe](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
-3. Sélectionnez un [groupe de ressources](../azure-resource-manager/resource-group-overview.md#resource-groups) existant ou tapez le nom d’un nouveau groupe. Indiquez un **emplacement** de centre de données Azure, comme **États-Unis de l’Ouest**. 
+
+3. Sélectionnez un [groupe de ressources](../azure-resource-manager/resource-group-overview.md#resource-groups) existant ou tapez le nom d’un nouveau groupe. Dans cet exemple, *HeroVMRG* est le nom du groupe de ressources.
+
+4. Sélectionnez un **Emplacement** de centre de données Azure. Dans cet exemple, l’emplacement est *États-Unis de l’Est**. 
+
 4. Lorsque vous avez terminé, cliquez sur **OK** pour passer à la section suivante. 
    
     ![Capture d’écran affichant les paramètres dans le panneau **De base** pour la configuration d’une machine virtuelle Azure](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
-5. Choisissez une [taille](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)de machine virtuelle, puis cliquez sur **Sélectionner** pour continuer. 
+5. Choisissez une [taille](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)de machine virtuelle, puis cliquez sur **Sélectionner** pour continuer. Dans cet exemple, la taille de machine virtuelle est *DS1_V2 Standard*.
    
     ![Capture d’écran du panneau Taille affichant les tailles de machine virtuelle Azure que vous pouvez sélectionner](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 6. Dans le panneau **Paramètres** , vous pouvez modifier les options de stockage et de réseau. Pour ce didacticiel, acceptez les paramètres par défaut. Si vous avez sélectionné une taille de machine virtuelle qui le prend en charge, vous pouvez essayer Azure Premium Storage en sélectionnant **Premium (SSD)** sous **Type de disque**. Une fois les modifications terminées, cliquez sur **OK**.
@@ -58,10 +62,10 @@ Après avoir sélectionné l’image, vous pouvez utiliser les paramètres par d
 7. Cliquez sur **Résumé** pour passer en revue vos options. Lorsque le message **Validation réussie** apparaît, cliquez sur **OK**.
    
     ![Capture d’écran de la page Synthèse affichant les options de configuration choisies pour la machine virtuelle Azure](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)
-8. Pendant qu’Azure crée la machine virtuelle, vous pouvez suivre la progression de cette opération dans le menu Hub, sous **Machines virtuelles** . 
+8. Pendant qu’Azure crée la machine virtuelle, vous pouvez suivre la progression de cette opération en cliquant à gauche sur **Machines virtuelles**. Une fois la machine virtuelle créée, l’état passe à **En cours d’exécution**.
 
 ## <a name="connect-to-the-virtual-machine-and-sign-on"></a>Se connecter à la machine virtuelle et ouvrir une session
-1. Dans le menu Hub, cliquez sur **Machines virtuelles**.
+1. À gauche, cliquez sur **Machines virtuelles**.
 2. Sélectionnez la machine virtuelle dans la liste.
 3. Dans le panneau de la machine virtuelle, cliquez sur **Se connecter**. Cette opération crée et télécharge un fichier .rdp (Remote Desktop Protocol) qui s’apparente à un raccourci de connexion à votre ordinateur. Si vous le souhaitez, vous pouvez enregistrer le fichier sur votre bureau pour y accéder facilement. **Ouvrez** ce fichier pour vous connecter à votre machine virtuelle.
    
@@ -95,6 +99,6 @@ Cliquez sur le bouton **Démarrer** pour redémarrer la machine virtuelle lorsqu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

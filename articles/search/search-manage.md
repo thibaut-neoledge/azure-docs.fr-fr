@@ -1,13 +1,13 @@
 ---
 title: Administration des services pour Azure Search dans le portail Azure
-description: Gérez Azure Search, un service de recherche cloud hébergé sur Microsoft Azure à l’aide du portail Azure.
+description: "Gérez Azure Search, un service de recherche cloud hébergé sur Microsoft Azure à l’aide du portail Azure."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-portal
-
+ms.assetid: c87d1fdd-b3b8-4702-a753-6d7e29dbe0a2
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
@@ -15,6 +15,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/17/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 71cfd2ea327cad22cdb1085558658934804c15f1
+
 
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administration des services pour Azure Search dans le portail Azure
@@ -35,9 +39,11 @@ Azure Search est un service de recherche entièrement géré, basé sur le cloud
 
 *gestion de contenu* (ou gestion des index) fait référence à des opérations telles que l’analyse de la recherche du trafic pour comprendre le volume de requêtes, détecter les conditions recherchées par les personnes et déterminer dans quelle mesure les résultats de recherche réussissent à guider les clients vers des documents spécifiques de votre index. La gestion de contenu dépasse le cadre de cet article. Pour obtenir des instructions sur la façon d’obtenir un aperçu des opérations internes au niveau de l’index, consultez la page [Fonctionnalité Rechercher l’analyse du trafic pour Azure Search](search-traffic-analytics.md).
 
-*performances des requêtes* dépassent le cadre de cet article. Pour plus d’informations, consultez [Performance and optimization in Azure Search](search-performance-optimization.md)(Performances et optimisation dans Azure Search).
+*performances des requêtes* dépassent le cadre de cet article. Pour plus d’informations, consultez [Surveiller l’utilisation et les statistiques](search-monitor-usage.md) et [Performances et optimisation](search-performance-optimization.md).
 
-Azure Search ne fournit pas de solutions intégrées pour la sauvegarde et la restauration ou la récupération d’urgence. Pour les clients qui envoient des objets et des données à leur service, le code source pour créer et remplir un index est de fait l’option de restauration si vous supprimez un index par erreur. Pour la récupération d’urgence, les clients choisissent la redondance via un service supplémentaire dans un centre de données régional différent. Pour plus d’informations, consultez [Performance and optimization in Azure Search](search-performance-optimization.md)(Performances et optimisation dans Azure Search).
+La Recherche Azure bascule vers d’autres clusters et centres de données en cas de panne, mais elle ne fournit pas de solutions intégrées pour les opérations de sauvegarde et de restauration manuelles si votre service ou votre index est supprimé par inadvertance ou par malveillance. Pour les clients qui envoient des objets et des données à leur service, le code source pour créer et remplir un index est de fait l’option de restauration si vous supprimez un index par erreur. 
+
+La Recherche Azure ne fournit pas de géoréplication des index d’un service à l’autre. Si votre solution est de portée globale, vous pouvez envisager d’ajouter la redondance via un service supplémentaire dans un autre centre de données régional, afin que tous les composants d’application soient hébergés au même endroit. Pour plus d’informations, consultez [Performance and optimization in Azure Search](search-performance-optimization.md)(Performances et optimisation dans Azure Search).
 
 <a id="admin-rights"></a>
 
@@ -66,14 +72,14 @@ Toutes les demandes adressées à votre service de recherche ont besoin d’une 
 
 Une clé API est une chaîne composée de nombres et de lettres générée de manière aléatoire. Elle est générée uniquement par votre service. Via [les autorisations RBAC](#rbac), vous pouvez supprimer ou lire les clés, mais vous ne pouvez pas remplacer une clé générée avec une chaîne définie par l’utilisateur (en particulier, si vous avez des mots de passe que vous utilisez régulièrement, vous ne pouvez pas remplacer une clé API par un mot de passe défini par l’utilisateur). 
 
-Deux types de clés sont utilisés pour accéder à votre service de recherche :
+Deux types de clés sont utilisés pour accéder à votre service de recherche :
 
 * Admin (valable pour toute opération de lecture/écriture par rapport au service)
 * Requête (valable pour les opérations en lecture seule, telles que les requêtes par rapport à un index)
 
 Une clé API Admin est créée lorsque le service est approvisionné. Bien qu’il existe deux clés d’administration, désignées comme *principale* et *secondaire*, celles-ci sont en fait interchangeables. Chaque service dispose de deux clés Admin que vous pouvez interchanger sans perdre l’accès à votre service. Vous pouvez régénérer l'une des clés Admin, mais vous ne pouvez pas augmenter leur nombre total. Il y a, au maximum, deux clés Admin par service de recherche.
 
-Les clés Requête sont conçues pour les applications clientes qui appellent directement le service Search. Vous pouvez créer, au maximum, 50 clés de ce type. Dans le code d’application, vous spécifiez l’URL de recherche et une clé API de requête pour autoriser l’accès en lecture seule au service. Le code de votre application spécifie également l’index utilisé par votre application. Ensemble, le point de terminaison, une clé API pour un accès en lecture seule et un index cible définissent le niveau de portée et d’accès de la connexion à partir de votre application cliente.
+Les clés Requête sont conçues pour les applications clientes qui appellent directement le service Search. Vous pouvez créer, au maximum, 50 clés de ce type. Dans le code d’application, vous spécifiez l’URL de recherche et une clé API de requête pour autoriser l’accès en lecture seule au service. Le code de votre application spécifie également l’index utilisé par votre application. Ensemble, le point de terminaison, une clé API pour un accès en lecture seule et un index cible définissent le niveau de portée et d’accès de la connexion à partir de votre application cliente.
 
 Pour obtenir ou régénérer des clés API, ouvrez le tableau de bord des services. Cliquez sur **CLÉS** pour afficher la page de gestion des clés. Les commandes de régénération ou de création de clés figurent en haut de la page. Par défaut, seules les clés Admin sont créées. Les clés API de requête doivent être créées manuellement.
 
@@ -108,7 +114,7 @@ Une autre façon d’afficher les autorisations d’accès consiste à cliquer s
 
 <a id="sub-5"></a>
 
-## <a name="monitor-resource-usage"></a>surveiller l’utilisation des ressources ;
+## <a name="monitor-resource-usage"></a>surveiller l’utilisation des ressources ;
 Sur le tableau de bord, l’analyse des ressources se limite aux informations affichées dans le tableau de bord des services et à quelques mesures que vous pouvez obtenir en interrogeant le service. Dans la section Utilisation du tableau de bord des services, vous pouvez déterminer rapidement si les niveaux des ressources de partition sont adaptés à votre application.
 
 L'API du service Search vous permet d'obtenir le nombre de documents et d'index. Des limites strictes sont associées à ces valeurs sur la base du niveau de tarification. Pour plus d’informations, voir [Limites de service de recherche](search-limits-quotas-capacity.md). 
@@ -117,7 +123,7 @@ L'API du service Search vous permet d'obtenir le nombre de documents et d'index.
 * [Nombre de documents](http://msdn.microsoft.com/library/dn798924.aspx)
 
 > [!NOTE]
-> Il arrive qu'une limite soit surévaluée en raison des options de mise en cache. Lors de l'utilisation du service partagé, par exemple, il se peut que le nombre de documents dépasse la limite stricte fixée à 10 000 documents. Cette surévaluation est temporaire et sera détectée lors de la prochaine vérification de l'application des limites. 
+> Il arrive qu'une limite soit surévaluée en raison des options de mise en cache. Lors de l'utilisation du service partagé, par exemple, il se peut que le nombre de documents dépasse la limite stricte fixée à 10 000 documents. Cette surévaluation est temporaire et sera détectée lors de la prochaine vérification de l'application des limites. 
 > 
 > 
 
@@ -145,18 +151,18 @@ Au niveau Standard, les partitions sont ajoutées par multiples de 12 (notamment
 ### <a name="remove-replicas"></a>Suppression de réplicas
 Après une période de volume de requêtes intense, il est probable que vous supprimiez des réplicas lorsque la charge des requêtes de recherche est revenue à la normale (à la fin d’une période de vente, par exemple).
 
-Pour ce faire, il vous suffit de faire coulisser le curseur des réplicas sur une valeur plus faible. Rien de plus ! La réduction du nombre de réplicas entraîne l'abandon des machines virtuelles dans le centre de données. Désormais, vos opérations de requête et d'ingestion de données s'exécuteront sur un nombre moins élevé de machines virtuelles. La limite minimale est de 1 réplica.
+Pour ce faire, il vous suffit de faire coulisser le curseur des réplicas sur une valeur plus faible. Rien de plus ! La réduction du nombre de réplicas entraîne l'abandon des machines virtuelles dans le centre de données. Désormais, vos opérations de requête et d'ingestion de données s'exécuteront sur un nombre moins élevé de machines virtuelles. La limite minimale est de 1 réplica.
 
 ### <a name="remove-partitions"></a>Suppression de partitions
 Contrairement à la suppression de réplicas, qui n'exige aucune opération supplémentaire de votre part, utiliser plus de volume de stockage que la capacité disponible après réduction peut entraîner une surcharge de travail. Par exemple, si votre solution utilise trois partitions, le fait de passer à une ou deux partitions générera une erreur si le nouvel espace de stockage est inférieur à celui requis. Comme vous pouvez vous y attendre, deux solutions s’offrent alors à vous : soit supprimer des index ou documents au sein d’un index associé afin de libérer de l’espace, soit conserver la configuration actuelle.
 
-Aucune méthode de détection ne vous permet d'identifier les fragments d'index qui sont stockés sur des partitions spécifiques. Chaque partition fournit environ 25 Go de stockage. Vous devrez donc réduire l'espace de stockage à une taille pouvant être prise en charge par le nombre de partitions dont vous disposez. Si vous souhaitez revenir à une seule partition, celle-ci devra contenir les 12 fragments.
+Aucune méthode de détection ne vous permet d'identifier les fragments d'index qui sont stockés sur des partitions spécifiques. Chaque partition fournit environ 25 Go de stockage. Vous devrez donc réduire l'espace de stockage à une taille pouvant être prise en charge par le nombre de partitions dont vous disposez. Si vous souhaitez revenir à une seule partition, celle-ci devra contenir les 12 fragments.
 
 Pour faciliter la planification, vous pouvez vérifier le stockage (voir la page [Obtenir des statistiques d'index](http://msdn.microsoft.com/library/dn798942.aspx)) afin de connaître l'espace réellement utilisé. 
 
 <a id="advanced-deployment"></a>
 
-## <a name="best-practices-on-scale-and-deployment-(video)"></a>Meilleures pratiques sur l’échelle et le déploiement (vidéo)
+## <a name="best-practices-on-scale-and-deployment-video"></a>Meilleures pratiques sur l’échelle et le déploiement (vidéo)
 Cette vidéo de 30 minutes passe en revue les meilleures pratiques pour les scénarios de déploiement avancés, y compris les charges de travail géolocalisées. Vous pouvez également voir [Performances et optimisation dans Azure Search](search-performance-optimization.md) pour les pages d’aide qui couvrent les mêmes points.
 
 > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
@@ -169,7 +175,7 @@ Cette vidéo de 30 minutes passe en revue les meilleures pratiques pour les scé
 Une fois que vous avez compris les types d’opérations relatives à l’administration du service, prenez en compte les différentes approches de gestion des services :
 
 * [PowerShell](search-manage-powershell.md)
-* [l’API REST de gestion ;](search-get-started-management-api.md)
+* [l’API REST de gestion ;](search-get-started-management-api.md)
 
 En outre, si ce n’est pas déjà fait, examinez l’ [article sur les performances et l’optimisation](search-performance-optimization.md), et regardez la vidéo indiquée dans la section précédente pour voir plus de démonstrations des techniques recommandées et les découvrir de manière plus approfondie.
 
@@ -184,6 +190,6 @@ En outre, si ce n’est pas déjà fait, examinez l’ [article sur les performa
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1245,6 +1245,6 @@ Dans ce didacticiel, vous avez appris à recevoir des tweets, analyser les senti
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

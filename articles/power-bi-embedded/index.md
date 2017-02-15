@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Apprenez à incorporer des visualisations de données et des rapports interactifs Power BI dans des applications. Didacticiels, références d’API et autres documents."
 translationtype: Human Translation
-ms.sourcegitcommit: 531e3606330a55563ae77d18d5fd270d799d6d30
-ms.openlocfilehash: 08270fca90bb74f166c94e0f4acc406bca936eb8
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c18bbb0b1e40d03be35c7d6375bb7520f0e0d4e4
 
 ---
 # <a name="power-bi-embedded-documentation"></a>Documentation Power BI Embedded
@@ -121,7 +121,7 @@ Découvrez comment ajouter des visualisations de données et des rapports intera
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/powerbiembedded/">Référence sur les API REST</a></p>
+                        <p><a href="/rest/api/powerbiembedded/">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>
@@ -129,13 +129,6 @@ Découvrez comment ajouter des visualisations de données et des rapports intera
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/power-bi-embedded.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation Power BI Embedded </div>
-    </a>
-</div>
 
 
 

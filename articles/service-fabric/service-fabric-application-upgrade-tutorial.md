@@ -59,7 +59,7 @@ Les outils Visual Studio peuvent déployer automatiquement les versions si vous 
 
 Enregistrez les modifications et cochez la case **Upgrade the Application** (Mettre à niveau l'application).
 
-## <a name="step-3-upgrade-your-application"></a>Étape 3 : Mettre à niveau votre application
+## <a name="step-3--upgrade-your-application"></a>Étape 3 : Mettre à niveau votre application
 Familiarisez-vous avec les [paramètres de mise à niveau d’application](service-fabric-application-upgrade-parameters.md) et le [processus de mise à niveau](service-fabric-application-upgrade.md) pour bien comprendre les différents paramètres de mise à niveau, les délais d’attente et les critères d’intégrité qui peuvent être appliqués. Pour cette procédure pas à pas, le critère d’évaluation de l’intégrité du service est défini sur la valeur par défaut (mode non surveillé). Vous pouvez configurer ces paramètres en sélectionnant **Configurer les paramètres de mise à niveau** et en les modifiant comme vous le souhaitez.
 
 À présent, nous sommes prêts à démarrer la mise à niveau de l’application en sélectionnant **Publier**. Cette option met à niveau votre application vers la version 2.0.0 dans laquelle les objets pivotent. Service Fabric met à niveau un domaine de mise à jour à la fois (certains objets sont mis à niveau en premier, suivis par d’autres) et le service est accessible pendant la mise à niveau. L’accès au service peut être vérifié par le biais de votre client (navigateur).  

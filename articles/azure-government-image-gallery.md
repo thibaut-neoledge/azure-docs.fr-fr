@@ -1,23 +1,22 @@
 ---
 title: "Bibliothèque d’images Azure Government | Microsoft Docs"
 description: "Cet article fournit une vue d&quot;ensemble de la bibliothèque d&quot;images Azure Government et des images incluses"
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: brendalee
 manager: zakramer
-editor: 
 ms.assetid: f6dd4386-7b79-448a-8ae3-409258cc257b
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/20/2016
-ms.author: brendalee
+ms.author: brendal
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 77bc39ea6bcb2114df92f964ff2e2f106d1ef776
+ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
+ms.openlocfilehash: 1b325a849cc3d7f97a1b2b3f4612e2cbc72ad06b
 
 
 ---
@@ -186,7 +185,7 @@ La liste ci-dessous répertorie les images disponibles dans la Place de marché 
 | SUSE |SUSE Linux Enterprise Server 11 SP4 |Exécutez vos charges de travail de production en toute confiance sur SUSE Linux Enterprise Server sur Microsoft Azure, avec des niveaux de service garantis et avec l’aide des ingénieurs Microsoft et de SUSE, si vous... |Linux |30 Go |
 | SUSE |SUSE Linux Enterprise Server 11 SP4 |Exécutez vos charges de travail de production en toute confiance sur SUSE Linux Enterprise Server sur Microsoft Azure, avec des niveaux de service garantis et avec l’aide des ingénieurs Microsoft et de SUSE, si vous... |Linux |30 Go |
 | Visual Studio |Team Foundation Server 2013 Update 4 sur Windows Server 2012 R2 |Microsoft Team Foundation Server 2013 Trial sur Windows Server 2012 R2 Update. Les machines virtuelles créées avec cette image d’évaluation nécessitent une clé de produit pour Team Foundation Server (par exemple,... |Windows |128 Go |
-| Visual Studio |Visual Studio Community 2013 Update 5 avec Tools for Apache Cordova CTP 3.2 sur Windows Server 2012 R2 |Cette image fournit Visual Studio Community 2013 Update 5, Azure Tools 2.8 et Tools for Apache Cordova CTP 3.2 s’exécutant sur Windows Server 2012 R2.  Elle vous permet de configurer facilement et rapidement... |Windows |Visual Studio 128 Go |
+| Visual Studio |Visual Studio Community 2013 Update 5 avec Tools for Apache Cordova CTP 3.2 sur Windows Server 2012 R2 |Cette image fournit Visual Studio Community 2013 Update 5, Azure Tools 2.8 et Tools for Apache Cordova CTP 3.2 s’exécutant sur Windows Server 2012 R2.  Elle vous permet de configurer facilement et rapidement... |Windows |Visual Studio&128; Go |
 | Visual Studio |Visual Studio Community 2015 avec le Kit de développement logiciel (SDK) Azure 2.9 sur Windows Server 2012 R2 |Visual Studio Community 2015 est notre IDE gratuit, complet et extensible pour le développement d’applications non destinées aux entreprises.  Cette image contient Windows Server 2012 R2 avec Visual Studio Community 2015.  ... |Windows |128 Go |
 | Visual Studio |Visual Studio Community 2015 Update 2 avec le Kit de développement logiciel (SDK) Azure 2.9 sur Windows Server 2012 R2 |Visual Studio Community 2015 Update 2 est notre IDE gratuit, complet et extensible pour le développement d’applications non destinées aux entreprises. Cette image contient Windows Server 2012 R2 avec Visual Studio Community... |Windows |128 Go |
 | Visual Studio |Visual Studio Enterprise 2015 avec le Kit de développement logiciel (SDK) Azure 2.9 sur Windows Server 2012 R2 |Avec Visual Studio Enterprise, vous pouvez créer des applications dans des appareils et des services à l’aide d’une solution unique avec une expérience de développement cohérente.  Vous obtenez les outils dont vous avez besoin pour... |Windows |128 Go |
@@ -249,12 +248,12 @@ Les ressources ci-dessous fournissent des informations supplémentaires sur le d
 [2]: ./media/azure-government-overview/azure-gov-overview.jpg
 
 <!--Link references-->
-[Lien 1 vers une autre rubrique de documentation azure.microsoft.com]: virtual-machines/virtual-machines-windows-hero-tutorial.md
-[Lien 2 vers une autre rubrique de documentation azure.microsoft.com]: app-service-web/web-sites-custom-domain-name.md
-[Lien 3 vers une autre rubrique de documentation azure.microsoft.com]: storage-whatis-account.md
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-hero-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

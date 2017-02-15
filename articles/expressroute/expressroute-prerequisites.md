@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 1/6/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b7e47a469127d2a06aa1be07f46ef04a2c23d351
+ms.sourcegitcommit: f408e65abcb92308a19a37816c206d822e932f24
+ms.openlocfilehash: 18fccf1ce6b4d2a6fa46e6db9e1a38eb998b9d64
 
 
 ---
-# <a name="expressroute-prerequisites-checklist"></a>Configuration requise pour ExpressRoute et liste de contrôle
-Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, vous devez vérifier que les conditions requises des sections ci-dessous sont remplies.
+# <a name="expressroute-prerequisites--checklist"></a>Configuration requise pour ExpressRoute et liste de contrôle
+Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, vous devez vérifier que les conditions requises des sections suivantes sont remplies.
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## <a name="azure-account"></a>Compte Azure
-* Un compte Microsoft Azure actif et valide. Cela est nécessaire pour configurer le circuit ExpressRoute. Les circuits ExpressRoute sont des ressources au sein des abonnements Azure. Un abonnement Azure est requis même si la connectivité est limitée aux services cloud de Microsoft étrangers à Azure, tels que les services Office 365 et CRM Online.
-* Un abonnement Office 365 actif (si vous utilisez les services Office 365). Consultez la section [Conditions requises spécifiques pour Office 365](#office-365-specific-requirements) de cet article pour plus d’informations.
+* Un compte Microsoft Azure actif et valide. Ce compte est nécessaire pour configurer le circuit ExpressRoute. Les circuits ExpressRoute sont des ressources au sein des abonnements Azure. Un abonnement Azure est requis même si la connectivité est limitée aux services cloud de Microsoft étrangers à Azure, tels que les services Office 365 et CRM Online.
+* Un abonnement Office 365 actif (si vous utilisez les services Office 365). Pour plus d’informations, consultez la section [Conditions requises propres à Office 365](#office-365-specific-requirements) de cet article.
 
 ## <a name="connectivity-provider"></a>Fournisseur de connectivité
 * Vous pouvez travailler avec un [partenaire de connectivité ExpressRoute](expressroute-locations.md#partners) pour vous connecter à Microsoft Cloud. Vous pouvez établir une connexion entre votre réseau local et Microsoft de [trois façons différentes](expressroute-introduction.md#howtoconnect). 
@@ -37,11 +37,11 @@ Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, v
 * **Connectivité redondante**: il n’est pas nécessaire d’assurer la redondance de la connectivité physique entre vous et votre fournisseur. Microsoft n’exige pas la configuration de sessions BGP redondantes entre ses routeurs et les routeurs d’homologation, même lorsque vous disposez simplement d’ [une seule connexion physique à une solution d’interconnexion de clouds](expressroute-faqs.md#onep2plink). 
 * **Routage**: selon la façon dont vous vous connectez à Microsoft Cloud, vous ou votre fournisseur pouvez avoir besoin de configurer et gérer les sessions BGP pour les [domaines de routage](expressroute-circuit-peerings.md). Certains fournisseurs de connectivité Ethernet ou fournisseurs d’échange de Cloud peuvent proposer la gestion BGP en tant que service à valeur ajoutée.
 * **Traduction d’adresses réseau (NAT)**: Microsoft accepte uniquement les adresses IP publiques par le biais de l’homologation Microsoft. Si votre réseau local comporte des adresses IP privées, vous ou votre fournisseur devez traduire les adresses IP privées en adresses IP publiques [à l’aide de la traduction d’adresses réseau](expressroute-nat.md).
-* **Qualité de service (QoS)**: Skype Entreprise comprend différents services (par exemple, voix, vidéo, texte) nécessitant un traitement QoS différencié. Vous et votre fournisseur devez suivre la [configuration requise pour ExpressRoute QoS](expressroute-qos.md).
-* **Sécurité réseau**: pensez à la [sécurité réseau](../best-practices-network-security.md) lorsque vous vous connectez à Microsoft Cloud par le biais d’ExpressRoute.
+* **Qualité de service (QoS)** : Skype Entreprise comprend différents services (par exemple, voix, vidéo, texte) nécessitant un traitement QoS différencié. Vous et votre fournisseur devez suivre la [configuration requise pour ExpressRoute QoS](expressroute-qos.md).
+* **Sécurité réseau** : pensez à la [sécurité réseau](../best-practices-network-security.md) lorsque vous vous connectez à Microsoft Cloud par le biais d’ExpressRoute.
 
 ## <a name="office-365"></a>Office 365
-Si vous prévoyez d’activer Office 365 sur ExpressRoute, consultez les documents suivants pour plus d’informations sur la configuration requise pour Office 365.
+Si vous prévoyez d’activer Office 365 sur ExpressRoute, consultez les documents suivants pour plus d’informations sur la configuration requise pour Office 365.
 
 * [Vue d’ensemble d’ExpressRoute pour Office 365](https://support.office.com/en-us/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
 * [Routage avec ExpressRoute pour Office 365](https://support.office.com/en-us/article/Routing-with-ExpressRoute-for-Office-365-e1da26c6-2d39-4379-af6f-4da213218408)
@@ -49,9 +49,10 @@ Si vous prévoyez d’activer Office 365 sur ExpressRoute, consultez les documen
 * [Planification réseau et optimisation des performances pour Office 365](https://support.office.com/en-us/article/Network-planning-and-performance-tuning-for-Office-365-e5f1228c-da3c-4654-bf16-d163daee8848)
 * [Outils et calculatrices de bande passante réseau](https://support.office.com/en-us/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
 * [Intégration d’Office 365 aux environnements locaux](https://support.office.com/en-us/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
+* [Vidéos de formation avancée à ExpressRoute sur Office 365](https://channel9.msdn.com/series/aer/)
 
 ## <a name="crm-online"></a>CRM Online
-Si vous prévoyez d’activer CRM Online sur ExpressRoute, consultez les documents suivants pour plus d’informations sur la configuration requise pour CRM Online.
+Si vous prévoyez d’activer CRM Online sur ExpressRoute, consultez les documents suivants pour plus d’informations sur CRM Online.
 
 * [URL et plages d’adresses IP](https://support.microsoft.com/kb/2655102) [CRM Online](https://support.microsoft.com/kb/2728473)
 
@@ -67,6 +68,6 @@ Si vous prévoyez d’activer CRM Online sur ExpressRoute, consultez les documen
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

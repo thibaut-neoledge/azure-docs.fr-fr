@@ -1,22 +1,26 @@
 ---
 title: Solution de gestion des alertes dans Operations Management Suite (OMS) | Microsoft Docs
-description: La solution de gestion des alertes dans Log Analytics vous permet d’analyser toutes les alertes qui se produisent dans votre environnement.  Outre la centralisation des alertes générées dans OMS, elle importe les alertes de groupes d’administration System Center Operations Manager (SCOM) connectés dans Log Analytics.
+description: "La solution de gestion des alertes dans Log Analytics vous permet d’analyser toutes les alertes qui se produisent dans votre environnement.  Outre la centralisation des alertes générées dans OMS, elle importe les alertes de groupes d’administration System Center Operations Manager (SCOM) connectés dans Log Analytics."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: fe5d534e-0418-4e2f-9073-8025e13271a8
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2caa3118785fab6919dd088e440bf3483a77bd69
+
 
 ---
-# <a name="alert-management-solution-in-operations-management-suite-(oms)"></a>Solution de gestion des alertes dans Operations Management Suite (OMS)
+# <a name="alert-management-solution-in-operations-management-suite-oms"></a>Solution de gestion des alertes dans Operations Management Suite (OMS)
 ![Icône de gestion des alertes](media/log-analytics-solution-alert-management/icon.png) La solution de gestion des alertes vous permet d’analyser toutes les alertes qui se produisent dans votre environnement.  Outre la centralisation des alertes générées dans OMS, elle importe les alertes de groupes d’administration System Center Operations Manager (SCOM) connectés dans Log Analytics.  Dans les environnements comprenant plusieurs groupes d’administration, la solution de gestion des alertes offre une vue centralisée des alertes dans tous les groupes d’administration.
 
 ## <a name="prerequisites"></a>Composants requis
@@ -114,6 +118,9 @@ Le tableau suivant fournit des exemples de recherches dans les journaux pour les
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez [Alertes dans Log Analytics](log-analytics-alerts.md) pour obtenir des informations sur la génération d’alertes à partir de Log Analytics.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

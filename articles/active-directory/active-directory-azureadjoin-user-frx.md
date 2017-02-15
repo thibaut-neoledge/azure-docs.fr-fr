@@ -60,6 +60,6 @@ Si l’édition Windows 10 Professionnel ou Windows 10 Entreprise est installée
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

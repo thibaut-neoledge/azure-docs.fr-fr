@@ -109,7 +109,7 @@ L’infrastructure de stockage qui sous-tend SAP HANA sur Azure (grandes instanc
 - La capture instantanée SAP HANA incluse dans la capture instantanée de stockage constitue un point de décalage pour l’application des sauvegardes de journaux qui ont été exécutées et stockées après la création de la capture instantanée de stockage.
 - Ces sauvegardes de journaux sont effectuées pour restaurer la base de données à un point dans le temps spécifique.
 
-La spécification du nom de la sauvegarde entraînera la capture instantanée des volumes suivants :
+La spécification du nom de la sauvegarde\_ entraînera la capture instantanée des volumes suivants :
 
 - hana/data
 - hana/log

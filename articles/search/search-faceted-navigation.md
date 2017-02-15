@@ -374,6 +374,6 @@ Vous pouvez également regarder la [Présentation approfondie d'Azure Search](ht
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

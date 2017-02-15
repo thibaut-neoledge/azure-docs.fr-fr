@@ -1,13 +1,13 @@
 ---
-title: Capture d’une image de machine virtuelle Microsoft Azure | Microsoft Docs
-description: Capturer l’image d’une machine virtuelle Microsoft Azure créée avec le modèle de déploiement classique
+title: "Capture d’une image de machine virtuelle Microsoft Azure | Microsoft Docs"
+description: "Capturer l’image d’une machine virtuelle Microsoft Azure créée avec le modèle de déploiement classique"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: a5986eac-4cf3-40bd-9b79-7c811806b880
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,22 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 760c713d9729ba81fbac52f1eff80f956e82d83f
+
 
 ---
-# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model."></a>Capturer l’image d’une machine virtuelle Microsoft Azure créée avec le modèle de déploiement classique
+# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Capturer l’image d’une machine virtuelle Microsoft Azure créée avec le modèle de déploiement classique
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-Pour plus d’informations sur le modèle Resource Manager, consultez [Créer une copie d’une machine virtuelle Windows exécutant Azure](virtual-machines-windows-vhd-copy.md).
+Pour plus d’informations sur le modèle Resource Manager, consultez [Créer une copie d’une machine virtuelle Windows dans Azure](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Cet article vous montre comment capturer une machine virtuelle Azure exécutant Windows de façon à l’utiliser comme image pour créer d’autres machines virtuelles. Cette image contient le disque du système d’exploitation et les disques de données éventuellement associés à la machine virtuelle. Comme elle ne comporte pas de configurations de mise en réseau, vous devez effectuer ces tâches de configuration quand vous créez d’autres machines virtuelles à partir de l’image.
 
-Azure stocke l’image sous **Mes images**. Il s’agit de l’emplacement où sont stockées les images que vous avez éventuellement téléchargées. Pour plus d’informations sur les images, consultez la page [À propos des images pour les machines virtuelles](virtual-machines-linux-classic-about-images.md).
+Azure stocke l’image sous **Mes images**. Il s’agit de l’emplacement où sont stockées les images que vous avez éventuellement téléchargées. Pour plus d’informations sur les images, consultez la page [À propos des images pour les machines virtuelles](virtual-machines-linux-classic-about-images.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-## <a name="before-you-begin##"></a>Avant de commencer
-Ces étapes partent du principe que vous avez déjà créé une machine virtuelle Azure, configuré le système d’exploitation et attaché les disques de données. Si vous ne l’avez pas encore fait, voir ces instructions :
+## <a name="before-you-begin"></a>Avant de commencer
+Ces étapes partent du principe que vous avez déjà créé une machine virtuelle Azure, configuré le système d’exploitation et attaché les disques de données. Si vous ne l’avez pas encore fait, voir ces instructions :
 
-* [Création d’une machine virtuelle à partir d’une image](virtual-machines-windows-classic-createportal.md)
-* [Comment attacher un disque de données à une machine virtuelle](virtual-machines-windows-classic-attach-disk.md)
+* [Création d’une machine virtuelle à partir d’une image](virtual-machines-windows-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Comment attacher un disque de données à une machine virtuelle](virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * Assurez-vous que les rôles serveur sont pris en charge avec Sysprep. Pour plus d’informations, consultez [Prise en charge de Sysprep pour les rôles serveur](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
 > [!WARNING]
@@ -41,12 +45,12 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 Avant de capturer une image d’une machine virtuelle Azure, nous vous recommandons de sauvegarder la machine virtuelle cible. Les machines virtuelles Azure peuvent être sauvegardées à l’aide d’Azure Backup. Pour plus d’informations, voir [Sauvegarde des machines virtuelles Azure](../backup/backup-azure-vms.md). D’autres solutions sont disponibles auprès de partenaires certifiés. Pour savoir ce qui est actuellement disponible, faites une recherche dans Azure Marketplace.
 
 ## <a name="capture-the-virtual-machine"></a>Capture de la machine virtuelle
-1. Dans le [portail Azure Classic](http://manage.windowsazure.com), **connectez-vous** à la machine virtuelle. Pour obtenir des instructions, consultez [Comment se connecter à une machine virtuelle exécutant Windows Server][Comment se connecter à une machine virtuelle exécutant Windows Server].
+1. Dans le [portail Azure Classic](http://manage.windowsazure.com), **connectez-vous** à la machine virtuelle. Pour obtenir des instructions, consultez [Comment se connecter à une machine virtuelle exécutant Windows Server][Comment se connecter à une machine virtuelle exécutant Windows Server].
 2. Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur.
 3. Accédez au répertoire `%windir%\system32\sysprep`, puis exécutez sysprep.exe.
-4. La boîte de dialogue **Outil de préparation système** apparaît. Effectuez les actions suivantes :
+4. La boîte de dialogue **Outil de préparation système** apparaît. Effectuez les actions suivantes :
    
-   * Dans **Action de nettoyage du système**, sélectionnez **Entrer en mode OOBE (OOBE)** et vérifiez que la case à cocher **Généraliser** est activée. Pour plus d’informations sur l’utilisation de Sysprep, voir la page [Introduction à l’utilisation de Sysprep][Introduction à l’utilisation de Sysprep].
+   * Dans **Action de nettoyage du système**, sélectionnez **Entrer en mode OOBE (OOBE)** et vérifiez que la case à cocher **Généraliser** est activée. Pour plus d’informations sur l’utilisation de Sysprep, consultez [Introduction à l’utilisation de Sysprep][Introduction à l’utilisation de Sysprep].
    * Dans **Options d’arrêt**, sélectionnez **Arrêter**.
    * Cliquez sur **OK**.
    
@@ -65,9 +69,9 @@ Avant de capturer une image d’une machine virtuelle Azure, nous vous recommand
     ![Capture d’image réussie](./media/virtual-machines-windows-classic-capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-L’image est prête à être utilisée pour créer des machines virtuelles. Pour cela, créez une machine virtuelle en utilisant l’élément de menu **À partir de la galerie** , puis en sélectionnant l’image que vous venez de créer. Pour obtenir des instructions, consultez [Création d’une machine virtuelle à partir d’une image](virtual-machines-windows-classic-createportal.md).
+L’image est prête à être utilisée pour créer des machines virtuelles. Pour cela, créez une machine virtuelle en utilisant l’élément de menu **À partir de la galerie** , puis en sélectionnant l’image que vous venez de créer. Pour obtenir des instructions, consultez [Création d’une machine virtuelle à partir d’une image](virtual-machines-windows-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-[Comment se connecter à une machine virtuelle exécutant Windows Server]: virtual-machines-windows-classic-connect-logon.md
+[Comment se connecter à une machine virtuelle exécutant Windows Server]: virtual-machines-windows-classic-connect-logon.md
 [Introduction à l’utilisation de Sysprep]: http://technet.microsoft.com/library/bb457073.aspx
 [Exécuter Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
 [Entrer des options Sysprep.exe]: ./media/virtual-machines-windows-classic-capture-image/SysprepGeneral.png
@@ -79,6 +83,6 @@ L’image est prête à être utilisée pour créer des machines virtuelles. Pou
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

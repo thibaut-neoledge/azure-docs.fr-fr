@@ -1,6 +1,6 @@
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
-| Ressources par [groupe de ressources](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (par type de ressource) |800 |800 |
+| Ressources par [groupe de ressources](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (par type de ressource) |800 |Varie selon le type de ressource |
 | Déploiements par groupe de ressources |800 |800 |
 | Ressources par déploiement |800 |800 |
 | Verrous de gestion (par étendue unique) |20 |20 |
@@ -10,6 +10,6 @@
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

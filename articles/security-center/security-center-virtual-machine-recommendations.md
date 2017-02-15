@@ -1,19 +1,23 @@
 ---
 title: Protection de vos machines virtuelles dans Azure Security Center | Microsoft Docs
-description: Ce document traite des recommandations d’Azure Security Center qui peuvent vous aider à protéger vos machines virtuelles et à rester en conformité avec les stratégies de sécurité.
+description: "Ce document traite des recommandations d’Azure Security Center qui peuvent vous aider à protéger vos machines virtuelles et à rester en conformité avec les stratégies de sécurité."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: ''
-
+editor: 
+ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2016
+ms.date: 01/07/2017
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c048263ab1ae453a10f0471ae33a122e21151d94
+
 
 ---
 # <a name="protecting-your-virtual-machines-in-azure-security-center"></a>Protection de vos machines virtuelles dans Azure Security Center
@@ -30,9 +34,9 @@ Cet article traite des recommandations qui s’appliquent aux machines virtuelle
 | [Redémarrage après des mises à jour système](security-center-apply-system-updates.md#reboot-after-system-updates) |Recommande de redémarrer une machine virtuelle pour terminer le processus de mise à jour du système. |
 | [Installer Endpoint Protection](security-center-install-endpoint-protection.md) |Recommande l’approvisionnement de logiciels anti-programme malveillant sur les machines virtuelles (Windows uniquement). |
 | [Résoudre les alertes d’intégrité Endpoint Protection](security-center-resolve-endpoint-protection-health-alerts.md) |Recommande la résolution des défaillances de protection de point de terminaison. |
-| [Activer l’agent de machine virtuelle](security-center-enable-vm-agent.md) |Vous permet de connaître les machines virtuelles qui nécessitent l’agent de machine virtuelle. L’agent de machine virtuelle doit être installé sur les machines virtuelles pour approvisionner l’analyse des correctifs, l’analyse des lignes de base et les logiciels anti-programme malveillant. L’agent de machine virtuelle est installé par défaut sur les machines virtuelles déployées depuis Azure Marketplace. L’article [Installer l’agent de machine virtuelle – Deuxième partie](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fournit des informations sur l’installation de l’agent de machine virtuelle. |
-| [Apply disk encryption (Appliquer le chiffrement de disque Azure Disk Encryption)](security-center-apply-disk-encryption.md) |Recommande le chiffrement des disques des machines virtuelles à l’aide d’Azure Disk Encryption (Windows et Linux). Le chiffrement est recommandé pour les systèmes d’exploitation et les volumes de données de votre machine virtuelle. |
-| [Mettre à jour la version du système d’exploitation](security-center-update-os-version.md) |Recommande de mettre à jour la version du système d’exploitation de votre service Cloud vers la version la plus récente disponible pour votre famille de systèmes d’exploitation.  Pour en savoir plus sur Cloud Services, consultez [Vue d’ensemble de Cloud Services](../cloud-services/cloud-services-choose-me.md). |
+| [Activer l’agent de machine virtuelle](security-center-enable-vm-agent.md) |Vous permet de connaître les machines virtuelles qui nécessitent l’agent de machine virtuelle. L’agent de machine virtuelle doit être installé sur les machines virtuelles pour approvisionner l’analyse des correctifs, l’analyse des lignes de base et les logiciels anti-programme malveillant. L’agent de machine virtuelle est installé par défaut sur les machines virtuelles déployées depuis Azure Marketplace. L’article [Installer l’agent de machine virtuelle – Deuxième partie](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fournit des informations sur l’installation de l’agent de machine virtuelle. |
+| [Apply disk encryption (Appliquer le chiffrement de disque Azure Disk Encryption)](security-center-apply-disk-encryption.md) |Recommande le chiffrement des disques des machines virtuelles à l’aide d’Azure Disk Encryption (Windows et Linux). Le chiffrement est recommandé pour les systèmes d’exploitation et les volumes de données de votre machine virtuelle. |
+| [Mettre à jour la version du système d’exploitation](security-center-update-os-version.md) |Recommande de mettre à jour la version du système d’exploitation de votre service Cloud vers la version la plus récente disponible pour votre famille de systèmes d’exploitation.  Pour en savoir plus sur Services cloud, consultez [Vue d’ensemble de Services cloud](../cloud-services/cloud-services-choose-me.md). |
 | [Évaluation des vulnérabilités non installée](security-center-vulnerability-assessment-recommendations.md) |Recommande d’installer une solution d’évaluation des vulnérabilités sur votre machine virtuelle. |
 | [Corriger des vulnérabilités](security-center-vulnerability-assessment-recommendations.md#review-recommendation) |Vous permet de voir les vulnérabilités du système et des applications détectées par la solution d’évaluation des vulnérabilités installée sur votre machine virtuelle. |
 
@@ -43,12 +47,15 @@ Pour en savoir plus sur les recommandations qui s’appliquent à d’autres typ
 * [Protection de votre réseau dans Azure Security Center](security-center-network-recommendations.md)
 * [Protection de votre service SQL Azure dans Azure Security Center](security-center-sql-service-recommendations.md)
 
-Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
+Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 * [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
 * [FAQ Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

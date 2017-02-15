@@ -159,6 +159,6 @@ Cet exemple montre comment créer un enregistrement A pour le domaine racine. P
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

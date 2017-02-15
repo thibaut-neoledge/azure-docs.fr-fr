@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aac35e524759d5f4356e9a9e386f658e9003d2ca
+ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
+ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
 
 
 ---
@@ -82,6 +82,8 @@ Si vous avez apporté des personnalisations à ApplicationInsights.config, conse
     `<InstrumentationKey>` *la clé d’instrumentation que vous avez copiée* `</InstrumentationKey>`
 * Assurez-vous que les propriétés du fichier ApplicationInsights.config dans l’Explorateur de solutions sont définies sur **Build Action = Content, Copy to Output Directory = Copy**.
 
+Ile est utile de définir la clé d’instrumentation dans le code si vous voulez [changer la clé pour différentes configurations de build](app-insights-separate-resources.md). Si vous définissez la clé dans le code, vous n’êtes pas obligé de la définir dans le fichier `.config`.
+
 ## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Exécution de votre projet
 Exécutez votre application à l’aide de la touche **F5** et essayez-la : ouvrez différentes pages pour générer des données de télémétrie.
 
@@ -132,6 +134,6 @@ Consultez cet article de [résolution des problèmes](app-insights-asp-net-troub
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

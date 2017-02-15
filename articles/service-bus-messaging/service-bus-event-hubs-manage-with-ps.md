@@ -1,42 +1,46 @@
 ---
-title: Utilisation de PowerShell pour gérer des ressources Service Bus et des concentrateurs d'événements | Microsoft Docs
-description: Utilisation de PowerShell pour créer et gérer des ressources Service Bus et des concentrateurs d'événements
-services: service-bus,event-hubs
+title: "Utilisation de PowerShell pour gérer des ressources Service Bus et Event Hubs | Microsoft Docs"
+description: "Utilisation de PowerShell pour créer et gérer des ressources Service Bus et Event Hubs"
+services: service-bus-messaging,event-hubs
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: f6436f6f-2156-41ea-a4ca-08cfaecbb778
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 95068f046c57bd65b5258771a272e70124f3dd12
+
 
 ---
-# <a name="use-powershell-to-manage-service-bus-and-event-hubs-resources"></a>Utilisation de PowerShell pour gérer des ressources Service Bus et des concentrateurs d'événements
-Microsoft Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion des services Azure. Cet article décrit comment utiliser PowerShell pour approvisionner et gérer des entités de Service Bus, telles que les espaces de noms, les files d'attente et les concentrateurs d'événements, à l'aide d'une console locale Azure PowerShell.
+# <a name="use-powershell-to-manage-service-bus-and-event-hubs-resources"></a>Utilisation de PowerShell pour gérer des ressources Service Bus et Event Hubs
+Microsoft Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion des services Azure. Cet article décrit comment utiliser PowerShell pour approvisionner et gérer des entités de Service Bus, telles que les espaces de noms, les files d'attente et les hubs d'événements, à l'aide d'une console locale Azure PowerShell.
 
 ## <a name="prerequisites"></a>Composants requis
-Avant de débuter, vous avez besoin des éléments suivants :
+Avant de débuter, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure. Azure est une plateforme disponible par abonnement. Pour plus d’informations sur la façon de se procurer un abonnement, consultez les [options d’achat][options d’achat], les [offres spéciales membres][offres spéciales membres] ou découvrez comment créer un [compte gratuit][compte gratuit].
-* Un ordinateur sur lequel est installé Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][Installation et configuration d'Azure PowerShell].
-* Des connaissances générales sur les scripts PowerShell, les packages NuGet et .NET Framework.
+* Un ordinateur sur lequel est installé Azure PowerShell. Pour obtenir des instructions, consultez [Installation et configuration d'Azure PowerShell][Installation et configuration d'Azure PowerShell].
+* Des connaissances générales sur les scripts PowerShell, les packages NuGet et .NET Framework.
 
-## <a name="include-a-reference-to-the-.net-assembly-for-service-bus"></a>Ajout d'une référence à .NET Assembly pour Service Bus
+## <a name="include-a-reference-to-the-net-assembly-for-service-bus"></a>Ajout d'une référence à .NET Assembly pour Service Bus
 Il existe un nombre limité d'applets de commande PowerShell disponibles pour gérer Service Bus. Pour approvisionner les entités qui ne sont pas exposées via les applets de commande existantes, vous pouvez utiliser le client .NET pour Service Bus à partir de PowerShell en faisant référence au [package NuGet Service Bus].
 
-Tout d'abord, vérifiez que le script trouve bien l'assembly **Microsoft.ServiceBus.dll** , qui est installé avec le package NuGet. Pour plus de flexibilité, le script effectue ces étapes :
+Tout d'abord, vérifiez que le script trouve bien l'assembly **Microsoft.ServiceBus.dll** , qui est installé avec le package NuGet. Pour plus de flexibilité, le script effectue ces étapes :
 
 1. Détermine le chemin d'accès à partir duquel il a été appelé.
 2. Parcourt le chemin d'accès jusqu'au dossier nommé `packages`. Ce dossier est créé lorsque vous installez les packages NuGet.
 3. Dans le dossier `packages` , il effectue une recherche récursive pour trouver l'assembly **Microsoft.ServiceBus.dll**.
 4. Référence l'assembly pour rendre les types disponibles pour une utilisation ultérieure.
 
-Voici comment ces étapes sont implémentées dans un script PowerShell :
+Voici comment ces étapes sont implémentées dans un script PowerShell :
 
 ```powershell
 
@@ -60,9 +64,9 @@ catch [System.Exception]
 ```
 
 ## <a name="provision-a-service-bus-namespace"></a>Approvisionnement d'un espace de noms Service Bus
-Lorsque vous utilisez des espaces de noms Service Bus, il existe deux applets de commande que vous pouvez utiliser au lieu du SDK .NET : [Get-AzureSBNamespace][Get-AzureSBNamespace] et [New-AzureSBNamespace][New-AzureSBNamespace].
+Quand vous utilisez des espaces de noms Service Bus, il existe deux applets de commande que vous pouvez utiliser au lieu du SDK .NET : [Get-AzureSBNamespace][Get-AzureSBNamespace] et [New-AzureSBNamespace][New-AzureSBNamespace].
 
-Cet exemple crée quelques variables locales dans le script ; `$Namespace` et `$Location`.
+Cet exemple crée quelques variables locales dans le script ; `$Namespace` et `$Location`.
 
 * `$Namespace` est le nom de l'espace de noms Service Bus que nous allons utiliser.
 * `$Location` identifie le centre de données dans lequel nous allons approvisionner l'espace de noms.
@@ -70,9 +74,9 @@ Cet exemple crée quelques variables locales dans le script ; `$Namespace` et `$
 
 Dans un script réel, les variables `$Namespace` et `$Location` peuvent être transmises en tant que paramètres.
 
-Cette partie du script effectue les opérations suivantes :
+Cette partie du script effectue les opérations suivantes :
 
-1. Le script essaie de récupérer un espace de noms Service Bus du nom indiqué.
+1. Le script essaie de récupérer un espace de noms Service Bus du nom indiqué.
 2. S'il trouve l'espace de noms recherché, il signale qu'il l'a trouvé.
 3. S'il ne trouve pas l'espace de noms recherché, il le crée, puis il récupère le nouvel espace de noms.
    
@@ -98,7 +102,7 @@ Cette partie du script effectue les opérations suivantes :
         Write-Host "The [$Namespace] namespace in the [$Location] region has been successfully created."
     }
     ```
-   Pour approvisionner d'autres entités Service Bus, créez une instance de l'objet `NamespaceManager` à partir du Kit de développement logiciel (SDK). Vous pouvez utiliser l'applet de commande [Get-AzureSBAuthorizationRule][Get-AzureSBAuthorizationRule] pour récupérer une règle d'autorisation servant à fournir une chaîne de connexion. Cet exemple stocke une référence à l'instance `NamespaceManager` dans la variable `$NamespaceManager`. Le script utilise ensuite `$NamespaceManager` pour approvisionner d'autres entités.
+   Pour approvisionner d'autres entités Service Bus, créez une instance de l'objet `NamespaceManager` à partir du Kit de développement logiciel (SDK). Vous pouvez utiliser l’applet de commande [Get-AzureSBAuthorizationRule][Get-AzureSBAuthorizationRule] pour récupérer une règle d’autorisation servant à fournir une chaîne de connexion. Cet exemple stocke une référence à l'instance `NamespaceManager` dans la variable `$NamespaceManager`. Le script utilise ensuite `$NamespaceManager` pour approvisionner d'autres entités.
    
     ``` powershell
     $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -109,14 +113,14 @@ Cette partie du script effectue les opérations suivantes :
     ```
 
 ## <a name="provisioning-other-service-bus-entities"></a>Approvisionnement d'autres entités de Service Bus
-Pour approvisionner d’autres entités, telles que des files d’attente, des rubriques et des concentrateurs d’événements, vous pouvez utiliser l’[API .NET pour Service Bus][API .NET pour Service Bus]. Vous trouverez d'autres exemples détaillés, notamment pour les autres entités, à la fin de cet article.
+Pour approvisionner d’autres entités, telles que des files d’attente, des rubriques et des hubs d’événements, vous pouvez utiliser [l’API .NET pour Service Bus][API .NET pour Service Bus]. Vous trouverez d'autres exemples détaillés, notamment pour les autres entités, à la fin de cet article.
 
-### <a name="create-an-event-hub"></a>Création d’un concentrateur d’événements
-Cette partie du script crée quatre variables locales supplémentaires. Ces variables permettent d'instancier un objet `EventHubDescription` . Le script effectue les opérations suivantes :
+### <a name="create-an-event-hub"></a>Création d’un hub d’événements
+Cette partie du script crée quatre variables locales supplémentaires. Ces variables permettent d'instancier un objet `EventHubDescription` . Le script effectue les opérations suivantes :
 
-1. À l'aide de l'objet `NamespaceManager`, vérifiez si le concentrateur d'événements identifié par `$Path` existe.
+1. À l'aide de l'objet `NamespaceManager`, vérifiez si le hub d'événements identifié par `$Path` existe.
 2. S'il n'existe pas, créez une `EventHubDescription` et transmettez-la à la classe `NamespaceManager` de la méthode `CreateEventHubIfNotExists`.
-3. Après avoir déterminé que le concentrateur d'événements est disponible, créez un groupe de consommateurs avec `ConsumerGroupDescription` et `NamespaceManager`.
+3. Après avoir déterminé que le hub d'événements est disponible, créez un groupe de consommateurs avec `ConsumerGroupDescription` et `NamespaceManager`.
    
     ``` powershell
    
@@ -242,14 +246,14 @@ Pour créer une file d’attente ou une rubrique, effectuez une vérification de
     }
 
 ## <a name="next-steps"></a>Étapes suivantes
-Cet article comporte un flux de travail de base pour l’approvisionnement des entités de Service Bus à l’aide de PowerShell. Bien qu'il existe un nombre limité d'applets de commande PowerShell disponibles pour gérer les entités de messagerie Service Bus, en référençant l'assembly Microsoft.ServiceBus.dll, pratiquement toutes les opérations que vous pouvez effectuer à l'aide des bibliothèques clientes .NET peuvent également être effectuées dans un script PowerShell.
+Cet article comporte un flux de travail de base pour l’approvisionnement des entités de Service Bus à l’aide de PowerShell. Bien qu'il existe un nombre limité d'applets de commande PowerShell disponibles pour gérer les entités de messagerie Service Bus, en référençant l'assembly Microsoft.ServiceBus.dll, pratiquement toutes les opérations que vous pouvez effectuer à l'aide des bibliothèques clientes .NET peuvent également être effectuées dans un script PowerShell.
 
 Vous trouverez d’autres exemples détaillés dans les billets de blog suivants :
 
 * [Comment créer des files d'attente, des rubriques et des abonnements Service Bus à l'aide d'un script PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-* [Comment créer un espace de noms et un concentrateur d'événements Service Bus à l'aide d'un script PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+* [Comment créer un espace de noms Service Bus et un Event Hub à l’aide d’un script PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-Vous pouvez également télécharger des scripts prêts à l’emploi :
+Vous pouvez également télécharger des scripts prêts à l’emploi :
 
 * [Scripts PowerShell pour Service Bus](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
@@ -267,6 +271,6 @@ Vous pouvez également télécharger des scripts prêts à l’emploi :
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

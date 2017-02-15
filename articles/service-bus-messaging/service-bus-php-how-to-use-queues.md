@@ -1,22 +1,26 @@
 ---
-title: Utilisation des files d’attente Service Bus avec PHP | Microsoft Docs
-description: Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en PHP.
-services: service-bus
+title: "Utilisation des files d’attente Service Bus avec PHP | Microsoft Docs"
+description: "Découvrez comment utiliser les files d&quot;attente Service Bus dans Azure. Exemples de code écrits en PHP."
+services: service-bus-messaging
 documentationcenter: php
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: e29c829b-44c5-4350-8f2e-39e0c380a9f2
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1d89a2f0a7f36bf9e2052682e931ac5c3596721f
+
 
 ---
-# <a name="how-to-use-service-bus-queues"></a>Utilisation des files d’attente Service Bus
+# <a name="how-to-use-service-bus-queues"></a>Utilisation des files d’attente Service Bus
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 Ce guide vous montre comment utiliser les files d’attente Service Bus. Les exemples sont écrits en PHP et utilisent le [Kit de développement logiciel (SDK) Azure pour PHP](../php-download-sdk.md). Les scénarios couverts dans ce guide sont les suivants : **création de files d’attente**, **envoi et réception de messages** et **suppression de files d’attente**.
@@ -31,13 +35,13 @@ Le référencement de classes issues du [Kit de développement logiciel (SDK) Az
 > 
 > 
 
-Dans ce guide, vous allez utiliser les fonctionnalités du service qui peuvent être appelées dans une application PHP en local, ou dans le code s'exécutant dans un rôle web, un rôle de travail ou un site web Azure.
+Dans ce guide, vous allez utiliser les fonctionnalités du service qui peuvent être appelées dans une application PHP en local, ou dans le code s'exécutant dans un rôle web, un rôle de travail ou un site web Azure.
 
 ## <a name="get-the-azure-client-libraries"></a>Obtention des bibliothèques clientes Azure
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuration de votre application pour l’utilisation de Service Bus
-Pour utiliser des API de file d'attente Service Bus, procédez comme suit :
+Pour utiliser des API de file d'attente Service Bus, procédez comme suit :
 
 1. référencer le fichier de chargeur automatique à l’aide de l’instruction [require_once][require_once].
 2. référencer toute classe que vous êtes susceptible d'utiliser.
@@ -57,7 +61,7 @@ use WindowsAzure\Common\ServicesBuilder;
 Dans les exemples ci-dessous, l'instruction `require_once` s'affichera toujours, mais seules les classes nécessaires aux besoins de l'exemple à exécuter sont référencées.
 
 ## <a name="set-up-a-service-bus-connection"></a>Configuration d’une connexion Service Bus
-Pour instancier un client Service Bus, vous devez disposer au préalable d'une chaîne de connexion valide au format suivant :
+Pour instancier un client Service Bus, vous devez disposer au préalable d'une chaîne de connexion valide au format suivant :
 
 ```
 Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]
@@ -65,11 +69,11 @@ Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[D
 
 où le **point de terminaison** est généralement au format `[yourNamespace].servicebus.windows.net`.
 
-Pour créer un client de service Azure, vous devez utiliser la classe **ServicesBuilder**. Vous pouvez :
+Pour créer un client de service Azure, vous devez utiliser la classe **ServicesBuilder**. Vous pouvez :
 
 * Lui passer directement la chaîne de connexion.
-* utiliser **CloudConfigurationManager (CCM)** pour vérifier plusieurs sources externes pour la chaîne de connexion :
-  * par défaut une source externe est prise en charge : variables d'environnement
+* utiliser **CloudConfigurationManager (CCM)** pour vérifier plusieurs sources externes pour la chaîne de connexion :
+  * par défaut une source externe est prise en charge : variables d'environnement
   * De nouvelles sources peuvent être ajoutées via une extension de la classe **ConnectionStringSource**.
 
 Dans les exemples ci-dessous, la chaîne de connexion est passée directement.
@@ -99,7 +103,7 @@ use WindowsAzure\ServiceBus\Models\QueueInfo;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {
+try    {
     $queueInfo = new QueueInfo("myqueue");
 
     // Create queue.
@@ -133,7 +137,7 @@ use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {
+try    {
     // Create message.
     $message = new BrokeredMessage();
     $message->setBody("my message");
@@ -153,7 +157,7 @@ catch(ServiceException $e){
 
 Les messages envoyés aux files d’attente Service Bus (et reçus de celle-ci) sont des instances de la classe **BrokeredMessage**. Les objets **BrokeredMessage** possèdent un ensemble de méthodes standard (telles que **getLabel**, **getTimeToLive**, **setLabel** et **setTimeToLive**) et des propriétés servant à conserver les propriétés personnalisées propres à une application, ainsi qu’un corps de données d’application arbitraires.
 
-Les files d’attente Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et de 1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. La taille maximale de la file d'attente est de 5 Go.
+Les files d’attente Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et de 1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. La taille maximale de la file d'attente est de 5 Go.
 
 ## <a name="how-to-receive-messages-from-a-queue"></a>Réception des messages d’une file d’attente
 Le meilleur moyen de recevoir les messages d’une file d’attente est d’utiliser une méthode **ServiceBusRestProxy->receiveQueueMessage**. Les messages peuvent être reçus dans deux modes différents : **ReceiveAndDelete** (par défaut) et **PeekLock**.
@@ -174,7 +178,7 @@ use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {
+try    {
     // Set the receive mode to PeekLock (default is ReceiveAndDelete).
     $options = new ReceiveMessageOptions();
     $options->setPeekLock();
@@ -210,7 +214,7 @@ De même, il faut savoir qu'un message verrouillé dans une file d'attente est a
 Si l’application subit un incident après le traitement du message, mais avant l’émission de la demande **deleteMessage**, le message est à nouveau remis à l’application lorsqu’elle redémarre. Dans ce type de traitement, souvent appelé **Au moins une fois**, chaque message est traité au moins une fois. Si le scénario ne peut pas tolérer le traitement en double,l'ajout d'une logique supplémentaire à vos applications pour traiter la remise de messages en double est recommandé. Ceci est souvent obtenu grâce à la méthode **getMessageId** du message, qui reste constante pendant les tentatives de remise.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Les principes de base des files d’attente Service Bus étant appris, consultez [Files d’attente, rubriques et abonnements][] pour plus d’informations.
+Les principes de base des files d’attente Service Bus étant appris, consultez [Files d’attente, rubriques et abonnements.][Files d’attente, rubriques et abonnements.] pour plus d’informations.
 
 Pour plus d’informations, consultez aussi le [Centre pour développeurs PHP](/develop/php/).
 
@@ -221,6 +225,6 @@ Pour plus d’informations, consultez aussi le [Centre pour développeurs PHP](/
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

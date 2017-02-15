@@ -229,6 +229,6 @@ Pour savoir comment utiliser le Kit de développement logiciel (SDK) de la passe
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

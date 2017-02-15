@@ -4,7 +4,7 @@ description: "Découvrez comment créer une passerelle Application Gateway à l�
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/12/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 3a8e5583f213c6d35f8e41dd31fe2ccad7389977
-ms.openlocfilehash: 3e3e563f941ad4ad58f96b03e98f49a7d99844d9
+ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
+ms.openlocfilehash: 165289acd1d2a5bc098e9a83f43613d16a023045
 
 
 ---
@@ -40,8 +40,6 @@ Pour exécuter la procédure indiquée dans cet article, vous devez [installer l
 
 > [!NOTE]
 > Si vous n’avez pas de compte Azure, vous devez vous en procurer un. Inscrivez-vous à un [essai gratuit ici](../active-directory/sign-up-organization.md).
-> 
-> 
 
 ## <a name="scenario"></a>Scénario
 
@@ -58,8 +56,6 @@ Ce scénario va :
 
 > [!NOTE]
 > La configuration supplémentaire de la passerelle Application Gateway, y compris les sondes d’intégrité personnalisées, les adresses de pool principal et les règles supplémentaires sont configurées après avoir configuré la passerelle Application Gateway et non lors du déploiement initial.
-> 
-> 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -125,8 +121,6 @@ azure network application-gateway create -n AdatumAppGateway -l eastus -g Adatum
 
 > [!NOTE]
 > Pour obtenir la liste de paramètres pouvant être fournis lors de la création, exécutez la commande suivante : **azure network application-gateway create --help**.
-> 
-> 
 
 Cet exemple crée une passerelle Application Gateway de base avec les paramètres par défaut pour l’écouteur, le pool principal, les paramètres http principaux et les règles. Cela configure également le déchargement SSL. Vous pouvez modifier ces paramètres en fonction de votre déploiement une fois l’approvisionnement réussi.
 Si vous avez déjà défini votre application web avec le pool principal aux étapes précédentes, une fois la création effective, l’équilibrage de charge commence.
@@ -146,6 +140,6 @@ Découvrez comment configurer le déchargement SSL et éviter à vos serveurs we
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

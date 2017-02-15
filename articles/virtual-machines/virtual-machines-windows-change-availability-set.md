@@ -1,14 +1,14 @@
 ---
-title: Modification d’un groupe à haute disponibilité pour les machines virtuelles | Microsoft Docs
-description: Apprenez à modifier un groupe à haute disponibilité pour vos machines virtuelles à l’aide d’Azure PowerShell et du modèle de déploiement Resource Manager.
-keywords: ''
+title: "Modification d’un groupe à haute disponibilité pour les machines virtuelles | Microsoft Docs"
+description: "Apprenez à modifier un groupe à haute disponibilité pour vos machines virtuelles à l’aide d’Azure PowerShell et du modèle de déploiement Resource Manager."
+keywords: 
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: Drewm3
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 44c90f90-bc9a-4260-a36f-5465e2a1ef94
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,12 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: drewm
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 947369fe8d93cb5a7ecf2624a0192d8aa1ea8524
+
 
 ---
-# Modification du groupe à haute disponibilité pour une machine virtuelle Windows
-Les étapes suivantes décrivent comment modifier le groupe à haute disponibilité d’une machine virtuelle à l’aide d’Azure PowerShell. Une machine virtuelle ne peut être ajoutée à un groupe à haute disponibilité que lors de sa création. Pour modifier le groupe à haute disponibilité, vous devez supprimer et recréer la machine virtuelle.
+# <a name="change-the-availability-set-for-a-windows-vm"></a>Modification du groupe à haute disponibilité pour une machine virtuelle Windows
+Les étapes suivantes décrivent comment modifier le groupe à haute disponibilité d’une machine virtuelle à l’aide d’Azure PowerShell. Une machine virtuelle ne peut être ajoutée à un groupe à haute disponibilité que lors de sa création. Pour modifier le groupe à haute disponibilité, vous devez supprimer et recréer la machine virtuelle. 
 
-## Modification du groupe à haute disponibilité avec PowerShell
+## <a name="change-the-availability-set-using-powershell"></a>Modification du groupe à haute disponibilité avec PowerShell
 1. Capturez les détails clés suivants de la machine virtuelle à modifier.
    
     Nom de la machine virtuelle
@@ -51,14 +55,14 @@ Les étapes suivantes décrivent comment modifier le groupe à haute disponibili
     $vm.StorageProfile.OsDisk.Vhd.Uri
     ```
    
-    Profils de disque pour chaque disque de données
+    Profils de disque pour chaque disque de données 
    
     ```powershell
     $vm.StorageProfile.DataDisks[<index>].Lun
     $vm.StorageProfile.DataDisks[<index>].Vhd.Uri
     ```
    
-    Extensions de machine virtuelle installées
+    Extensions de machine virtuelle installées 
    
     ```powershell
     $vm.Extensions
@@ -84,9 +88,9 @@ Les étapes suivantes décrivent comment modifier le groupe à haute disponibili
    
     New-AzureRmVM -ResourceGroupName <resourceGroupName> -Location <location> -VM <vmConfig>
     ``` 
-5. Ajoutez des extensions et des disques de données. Pour plus d’informations, consultez [Joindre un disque de données à une machine virtuelle](virtual-machines-windows-attach-disk-portal.md) et [Exemples de configuration d’extension](virtual-machines-windows-extensions-configuration-samples.md). Des disques de données et extensions peuvent être ajoutés à la machine virtuelle à l’aide de PowerShell ou l’interface de ligne de commande Azure.
+5. Ajoutez des extensions et des disques de données. Pour plus d’informations, consultez [Attacher un disque de données à une machine virtuelle](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) et [Exemples de configuration d’extension](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Des disques de données et extensions peuvent être ajoutés à la machine virtuelle à l’aide de PowerShell ou l’interface de ligne de commande Azure.
 
-## Exemple de script
+## <a name="example-script"></a>Exemple de script
 Le script suivant fournit un exemple de rassemblement des informations requises, de suppression de la machine virtuelle d’origine et de recréation de la machine virtuelle dans un groupe à haute disponibilité.
 
 ```powershell
@@ -150,7 +154,12 @@ Le script suivant fournit un exemple de rassemblement des informations requises,
     New-AzureRmVM -ResourceGroupName $rg -Location $OriginalVM.Location -VM $NewVM -DisableBginfoExtension
 ```
 
-## Étapes suivantes
-Ajout de stockage supplémentaire à votre machine virtuelle en ajoutant un [disque de données](virtual-machines-windows-attach-disk-portal.md) supplémentaire.
+## <a name="next-steps"></a>Étapes suivantes
+Ajout de stockage supplémentaire à votre machine virtuelle en ajoutant un [disque de données](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)supplémentaire.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

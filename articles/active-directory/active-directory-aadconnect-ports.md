@@ -71,7 +71,7 @@ Ce tableau décrit les ports et les protocoles nécessaires à la communication 
 | HTTPS |443(TCP/UDP) |Utilisé pour l’authentification des appareils. |
 | TCP |49443 (TCP) |Utilisé pour l’authentification par certificat. |
 
-## <a name="table-6a-6b---azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tableau 6a & 6b - Agent Azure AD Connect Health pour (AD FS/Sync) et Azure AD
+## <a name="table-6a--6b---azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tableau 6a & 6b - Agent Azure AD Connect Health pour (AD FS/Sync) et Azure AD
 Les tableaux suivants décrivent les points de terminaison, les ports et les protocoles nécessaires à la communication entre les agents Azure AD Connect Health et Azure AD.
 
 ### <a name="table-6a---ports-and-protocols-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tableau 6a - Ports et protocoles pour l’agent Azure AD Connect Health pour (AD FS/Sync) et Azure AD

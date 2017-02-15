@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 48f85fd7e50c1cb3ece7f8b75779fe7cde92c7da
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3a054a01cf21bba4bbaf15c404f74086b2f25651
 
 
 ---
@@ -45,10 +45,10 @@ Lorsque vous visitez un service avec une URL non spécifique au client (par exem
 > [!NOTE]
 > * Votre nom de domaine doit apparaître comme étant « Actif » dans la partie **Domaines** du portail Azure dans lequel vous avez effectué la personnalisation de société. Pour plus d’informations, consultez [Ajouter des noms de domaine personnalisés](active-directory-domains-add-azure-portal.md).
 > * La personnalisation de la page de connexion ne s’étend pas à la page de connexion client de Microsoft. Si vous vous connectez avec un compte Microsoft, vous pouvez voir une liste personnalisée de vignettes utilisateur générées par Azure AD, mais la marque de votre organisation ne s’applique pas à la page de connexion du compte Microsoft.
-> 
-> 
+>
+>
 
-Sur votre page de connexion, la case à cocher **Maintenir la connexion** permet à un utilisateur de rester connecté lorsqu’il ferme, puis rouvre son navigateur. 
+Sur votre page de connexion, la case à cocher **Maintenir la connexion** permet à un utilisateur de rester connecté lorsqu’il ferme, puis rouvre son navigateur.
 
    ![Maintenir la connexion](./media/active-directory-branding-custom-signon-azure-portal/01.png)
 
@@ -57,22 +57,22 @@ L’affichage de la case à cocher dépend du réglage du paramètre **Maintien 
 
    ![Maintenir la connexion](./media/active-directory-branding-custom-signon-azure-portal/02.png)
 
-Pour masquer la case à cocher, configurez ce paramètre sur **Oui**. 
+Pour masquer la case à cocher, configurez ce paramètre sur **Oui**.
 
 > [!NOTE]
 > Certaines fonctionnalités de SharePoint Online et Office 2010 dépendent de la capacité des utilisateurs à sélectionner cette case à cocher. Si vous configurez ce paramètre sur Masqué, il se peut que vos utilisateurs voient des invites de connexion supplémentaires et inattendues.
-> 
-> 
+>
+>
 
 **Pour ajouter votre marque à l’annuaire :**
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 2. Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
-   
+
    ![Ouvrir la gestion des utilisateurs](./media/active-directory-branding-custom-signon-azure-portal/user-management.png)
 3. Sur le panneau **Utilisateurs et groupes** panneau, sélectionnez **Personnalisation de société**.
 4. Sur le panneau **Utilisateurs et groupes - Personnalisation de la société**, sélectionnez la commande **Modifier**.
-   
+
     ![Modifier la personnalisation de société](./media/active-directory-branding-custom-signon-azure-portal/edit-branding.png)
 5. Modifiez les éléments que vous voulez personnaliser. Tous ces éléments sont facultatifs.
 6. Cliquez sur **Save**.
@@ -84,7 +84,6 @@ Il peut s’écouler jusqu’à une heure avant que les modifications que vous a
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

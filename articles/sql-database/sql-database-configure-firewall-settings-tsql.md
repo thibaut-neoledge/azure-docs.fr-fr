@@ -1,6 +1,6 @@
 ---
-title: "Règles de pare-feu au niveau du serveur et au niveau de la base de données sur une base de données SQL Azure à l’aide de T-SQL | Microsoft Docs"
-description: "Découvrez comment configurer le pare-feu pour les adresses IP qui accèdent aux bases de données SQL Azure."
+title: "T-SQL : Règles de pare-feu d’Azure SQL Database | Microsoft Docs"
+description: "Découvrez comment configurer des règles de pare-feu au niveau du serveur et de la base de données pour les adresses IP qui accèdent aux bases de données SQL Azure à l’aide de Transact-SQL."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: a49bc9cd8fb50dcc753fbb04bf7f2d96cf79f3ab
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: 0f91e59a72b033c0a0dc52b4f127478b73c66ff1
 
 
 ---
@@ -94,6 +94,6 @@ Pour comprendre comment naviguer dans les bases de données, consultez [Gérer l
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

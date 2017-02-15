@@ -15,7 +15,7 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
 ms.openlocfilehash: 19d8d860e39139d3003c216659b7203e2482154e
 
 

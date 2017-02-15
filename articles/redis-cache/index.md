@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Découvrez comment utiliser le Cache Redis Azure, un cache de données sécurisé et un répartiteur de messagerie qui permet aux applications d’accéder rapidement aux données. Didacticiels, références d’API et autres."
 translationtype: Human Translation
-ms.sourcegitcommit: 4e66f89a5a63cafc8cc9e6af957f27172957c934
-ms.openlocfilehash: cd838fe6027f2c097850c29308630d2086243985
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 328084918199e162ad0cfa9ac67737a66fa4d021
 
 ---
 #<a name="redis-cache-documentation"></a>Documentation Cache Redis
@@ -176,7 +176,7 @@ Découvrez comment utiliser le Cache Redis Azure, un cache de données sécuri
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://docs.microsoft.com/rest/api/redis/">Référence sur les API REST</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/redis/">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>
@@ -184,13 +184,7 @@ Découvrez comment utiliser le Cache Redis Azure, un cache de données sécuri
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/redis-cache.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation Cache Redis </div>
-    </a>
-</div>
+
 
 
 

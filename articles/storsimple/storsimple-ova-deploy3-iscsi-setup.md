@@ -246,6 +246,6 @@ Procédez comme suit pour obtenir le nom qualifié iSCSI (IQN) d'un hôte Window
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

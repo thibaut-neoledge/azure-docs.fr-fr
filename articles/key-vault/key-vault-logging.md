@@ -73,7 +73,7 @@ Bien que vous puissiez utiliser un compte de stockage existant pour vos journaux
 
 Pour faciliter encore la gestion, nous allons utiliser le groupe de ressources qui contient votre coffre de clés. Dans le [didacticiel de mise en route](key-vault-get-started.md), ce groupe de ressources se nomme **ContosoResourceGroup** et nous allons continuer d’utiliser l’emplacement Asie orientale. Remplacez ces valeurs par les vôtres, selon le cas :
 
-    $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name ContosoKeyVaultLogs -Type Standard_LRS -Location 'East Asia'
+    $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 
 
 > [!NOTE]

@@ -75,7 +75,7 @@ Si vous ne pouvez pas accéder à l’application, vérifiez les paramètres sui
 
 * Le pare-feu de l’hôte sur la machine virtuelle cible autorise le trafic de demandes entrantes et de réponses sortantes.
 * Un logiciel de détection d’intrusion ou de surveillance réseau s’exécutant sur la machine virtuelle cible autorise le trafic.
-* Les points de terminaison Cloud Services et les groupes de sécurité réseau autorisent le trafic :
+* Les points d’extrémité Cloud Services et les groupes de sécurité réseau autorisent le trafic.
   * [Modèle Classic : gérer les points de terminaison Cloud Services](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
   * [Modèle Resource Manager : gérer les groupes de sécurité réseau](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 * Un composant distinct qui s’exécute dans votre réseau virtuel dans le chemin d’accès entre la machine virtuelle de test et la machine virtuelle, par exemple un équilibreur de charge ou un pare-feu, autorise le trafic.
@@ -93,13 +93,13 @@ Si vous ne pouvez pas accéder à l’application, vérifiez les paramètres sui
 
 * Pour les machines virtuelles créées à l’aide du modèle de déploiement Classic :
   
-  * Vérifiez que la configuration de points de terminaison de la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé.
-  * Assurez-vous que les ACL (listes de contrôle d’accès) sur le point de terminaison n’empêchent pas le trafic entrant à partir d’Internet.
+  * La configuration de points de terminaison pour la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé.
+  * Les listes de contrôle d’accès sur le point de terminaison n’empêchent pas le trafic entrant à partir d’Internet.
   * Pour plus d’informations, consultez [Configuration des points de terminaison sur une machine virtuelle](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Pour les machines virtuelles créées à l’aide du modèle de déploiement Resource Manager :
   
-  * Vérifiez que la configuration de la règle NAT de trafic entrant de la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé.
-  * Assurez-vous que les groupes de sécurité réseau autorisent le trafic de demandes entrantes et de réponses sortantes.
+  * La configuration de la règle NAT de trafic entrant pour la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé.
+  * Que les groupes de sécurité réseau autorisent le trafic de demandes entrantes et de réponses sortantes.
   * Pour plus d’informations, voir [Présentation du groupe de sécurité réseau](../articles/virtual-network/virtual-networks-nsg.md)
 
 Si la machine virtuelle ou le point de terminaison est membre d’un jeu à charge équilibrée :
@@ -121,6 +121,6 @@ Si vous pouvez accéder à l’application, assurez-vous que votre périphériqu
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

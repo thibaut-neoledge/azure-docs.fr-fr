@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dea9219b38f02578c86e486932699970ad9948ec
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: 445074060f1cae200405b17d04be41075f7306d7
 
 
 ---
@@ -28,7 +28,7 @@ Microsoft Azure Media Services vous permet de fournir des flux MPEG-DASH, Smooth
 
 Media Services fournit également un **service de remise de clés/de licences** à partir duquel les clients peuvent obtenir des clés AES ou des licences PlayReady/Widevine pour lire le contenu chiffré.
 
-Cette rubrique montre comment utiliser le portail Azure pour configurer la stratégie d’autorisation de clé de contenu. Elles peuvent ensuite être utilisées pour chiffrer dynamiquement votre contenu. Notez que, actuellement, vous pouvez chiffrer les formats de diffusion en continu suivants : HLS, MPEG DASH et Smooth Streaming. Vous ne pouvez pas chiffrer le format de diffusion en continu HDS ni les téléchargements progressifs.
+Cette rubrique montre comment utiliser le portail Azure pour configurer la stratégie d’autorisation de clé de contenu. Elles peuvent ensuite être utilisées pour chiffrer dynamiquement votre contenu. Notez que, actuellement, vous pouvez chiffrer les formats de diffusion en continu suivants : HLS, MPEG DASH et Smooth Streaming. Vous ne pouvez pas chiffrer les téléchargements progressifs.
 
 Lorsqu’un lecteur demande un flux de données devant être chiffré dynamiquement, Media Services utilise la clé configurée pour chiffrer dynamiquement votre contenu à l’aide du chiffrement AES ou DRM. Pour déchiffrer le flux de données, le lecteur demande la clé au service de remise de clé. Pour déterminer si l’utilisateur est autorisé à obtenir la clé, le service évalue les stratégies d’autorisation que vous avez spécifiées pour la clé.
 
@@ -93,6 +93,6 @@ Consultez les parcours d’apprentissage de Media Services.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

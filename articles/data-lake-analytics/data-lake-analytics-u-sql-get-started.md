@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3ffeeb2e96510342abb0c0f8718273f41729cc2d
+ms.sourcegitcommit: 5137ccfd2c809fe17cc7fdf06941ebd797288d81
+ms.openlocfilehash: 496c3c1cc0f203a58a6f81476393b369e6a76215
 
 
 ---
 # <a name="tutorial-get-started-with-azure-data-lake-analytics-u-sql-language"></a>Didacticiel : Prise en main du langage U-SQL Azure Data Lake Analytics
-U-SQL est un langage qui allie les avantages de SQL à la puissance d'expression de votre propre code de façon à traiter toutes les données, quelle que soit l'échelle. La fonctionnalité évolutive de requête distribuée d'U-SQL vous permet d'analyser efficacement les données du magasin et entre magasins relationnels comme les bases de données SQL Azure.  Elle vous permet de traiter des données non structurées en appliquant des schémas lors de la lecture et d'intégrer une logique personnalisée et des UDF, et a l'extensibilité nécessaire pour permettre un contrôle précis de l'exécution à grande échelle. Pour en savoir plus sur la philosophie de conception sous-jacente à U-SQL, reportez-vous à ce [Billet de blog Visual Studio](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
+U-SQL est un langage qui allie les avantages de SQL à la puissance d’expression de votre propre code de façon à traiter les données quelle que soit l’échelle. La fonctionnalité évolutive de requête distribuée d’U-SQL vous permet d’analyser efficacement les données entre magasins relationnels comme Azure SQL Database.  Elle vous permet de traiter des données non structurées en appliquant des schémas lors de la lecture et d’intégrer une logique personnalisée et des UDF, et a l’extensibilité nécessaire pour permettre un contrôle précis de l’exécution à grande échelle. Pour en savoir plus sur la philosophie de conception sous-jacente à U-SQL, reportez-vous à ce [Billet de blog Visual Studio](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 Il existe des différences par rapport à ANSI SQL ou à T-SQL. Par exemple, ses mots-clés, comme SELECT, doivent être en MAJUSCULES.
 
 Son système de types et son langage d'expression au sein des clauses SELECT, des prédicats WHERE, etc. sont en C#.
-En d'autres termes, les types de données sont les types C# et utilisent la sémantique NULL C#. Les opérations de comparaison au sein d'un prédicat suivent la syntaxe C# (ex. a == "foo").  Cela signifie également que les valeurs sont des objets .NET à part entière, ce qui vous permet d’utiliser facilement n’importe quelle méthode sur l’objet (ex. "f o o o".Split(' ')).
+En d'autres termes, les types de données sont les types C# et utilisent la sémantique NULL C#. Les opérations de comparaison au sein d'un prédicat suivent la syntaxe C# (ex. a == "foo").  Cela signifie également que les valeurs sont des objets .NET à part entière, ce qui vous permet d’utiliser facilement n’importe quelle méthode sur l’objet (ex. "f o o o".Split(’ ’)).
 
 Pour plus d'informations, consultez [Référence U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 ### <a name="prerequisites"></a>Composants requis
-Vous devez suivre le [didacticiel : Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+Suivez le [Didacticiel : Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
 Dans ce didacticiel, vous avez exécuté une tâche Data Lake Analytics avec le script U-SQL suivant :
 
@@ -57,7 +57,7 @@ Notez le point d'interrogation en regard du type de données du champ Durée. Ce
 Quelques concepts et mots-clés du script :
 
 * **Variables de l'ensemble de lignes**: toute expression de requête qui produit un ensemble de lignes peut être affectée à une variable. U-SQL suit le modèle d'affectation de noms variable T-SQL, par exemple **@searchlog** dans le script.
-    Remarque : l'affectation ne force pas l'exécution. Elle nomme simplement l'expression et vous donne la possibilité de construire des expressions plus complexes.
+    Remarque : l'affectation ne force pas l'exécution. Elle nomme simplement l’expression et vous donne la possibilité de construire des expressions plus complexes.
 * **EXTRACT** vous donne la possibilité de définir un schéma lors de la lecture. Le schéma est spécifié par une paire nom de colonne et nom de type C# par colonne. Il utilise un **Extracteur**, par exemple **Extractors.Tsv()**, pour extraire les fichiers tsv. Vous pouvez développer des extracteurs personnalisés.
 * **OUTPUT** prend un ensemble de lignes et le sérialise. Outputters.Csv() génère un fichier séparé par des virgules dans l'emplacement spécifié. Vous pouvez également développer des générateurs de sortie personnalisés.
 * Notez que les deux chemins d'accès sont relatifs. Vous pouvez également utiliser des chemins d'accès absolus.  Par exemple :
@@ -69,7 +69,7 @@ Quelques concepts et mots-clés du script :
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
   
   > [!NOTE]
-  > Les conteneurs d'objets Blob Azure avec des autorisations d'accès aux objets Blob publics ou aux conteneurs publics ne sont pas pris en charge actuellement.
+  > Les conteneurs d’objets Blob Azure avec des autorisations d’accès aux objets Blob publics ou aux conteneurs publics ne sont pas pris en charge actuellement.
   > 
   > 
 
@@ -151,7 +151,7 @@ La deuxième requête fonctionne sur le résultat du premier ensemble de lignes.
 ## <a name="aggregate-rowsets"></a>Ensembles de lignes agrégés
 U-SQL vous fournit les classiques **ORDER BY**, **GROUP BY** et les agrégations.
 
-La requête suivante recherche la durée totale par région et renvoie ensuite les 5 premiers durées dans l'ordre.
+La requête suivante recherche la durée totale par région et renvoie ensuite les cinq premières durées dans l’ordre.
 
 Les ensembles de lignes U-SQL ne conservent pas leur ordre pour la requête suivante. Par conséquent, pour ordonner un résultat, vous devez ajouter ORDER BY à l'instruction OUTPUT, comme indiqué ci-dessous :
 
@@ -365,7 +365,7 @@ Le script suivant crée une base de données et deux tables :
 
 
 ### <a name="query-tables"></a>Tables de requête
-Vous pouvez interroger les tables (créées dans le script précédent) de la même façon que vous interrogez les fichiers de données. Au lieu de créer un ensemble de lignes avec EXTRACT, vous pouvez maintenant faire simplement référence au nom de table.
+Vous pouvez interroger les tables (créées dans le script précédent) de la même façon que vous interrogez les fichiers de données. Au lieu de créer un ensemble de lignes avec EXTRACT, vous pouvez maintenant faire référence au nom de table.
 
 Le script de transformation que vous avez utilisé précédemment est modifié pour lire à partir des tables :
 
@@ -394,7 +394,7 @@ Ce didacticiel ne couvre qu'une petite partie d'U-SQL. En raison de la portée d
 
 * Utilisation de CROSS APPLY pour décompresser des parties des chaînes, de tableaux et de plans en lignes.
 * Utilisation de jeux de données partitionnés (ensembles de fichiers et tables partitionnées).
-* Développement d'opérateurs définis par l'utilisateur, notamment des extracteurs, des générateurs de sortie, des processeurs et des agrégateurs définis par l'utilisateur en C#.
+* Développement d’opérateurs définis par l’utilisateur, notamment des extracteurs, des générateurs de sortie, des processeurs et des agrégateurs définis par l’utilisateur en C#.
 * Utilisation des fonctions de fenêtrage U-SQL.
 * Gestion du code U-SQL avec les procédures stockées, les fonctions table et les vues.
 * Exécution d'un code personnalisé arbitraire sur vos nœuds de traitement.
@@ -404,7 +404,7 @@ Ce didacticiel ne couvre qu'une petite partie d'U-SQL. En raison de la portée d
 * [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Développer des scripts U-SQL avec les outils Data Lake pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Utilisation des fonctions U-SQL dans les travaux Analytique Data Lake Azure](data-lake-analytics-use-window-functions.md)
-* [Surveiller et résoudre les problèmes des tâches d’analyse Azure Data Lake à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* [Surveiller et résoudre les problèmes des tâches Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ## <a name="let-us-know-what-you-think"></a>Donnez-nous votre avis
 * [Soumettre une demande de fonctionnalité](http://aka.ms/adlafeedback)
@@ -414,6 +414,6 @@ Ce didacticiel ne couvre qu'une petite partie d'U-SQL. En raison de la portée d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

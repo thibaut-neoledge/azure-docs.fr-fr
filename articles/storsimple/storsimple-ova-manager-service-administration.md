@@ -1,12 +1,12 @@
 ---
-title: Administration de StorSimple Manager Virtual Array | Microsoft Docs
-description: Découvrez comment gérer votre StorSimple Virtual Array local à l’aide du service StorSimple Manager dans le portail Azure Classic.
+title: "Administration de StorSimple Manager Virtual Array | Microsoft Docs"
+description: "Découvrez comment gérer votre StorSimple Virtual Array local à l’aide du service StorSimple Manager dans le portail Azure Classic."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: f0ae362c-dffd-4a14-bbcf-c304bfb93268
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d90864501485344d93c1f3bd32237683c2abb4ab
+
 
 ---
 # <a name="use-the-storsimple-manager-service-to-administer-your-storsimple-virtual-array"></a>Utiliser le service StorSimple Manager pour gérer votre StorSimple Virtual Array
@@ -22,23 +26,23 @@ ms.author: alkohli
 ## <a name="overview"></a>Vue d’ensemble
 Cet article décrit l’interface de service StorSimple Manager, y compris la connexion à ce service et les différentes options disponibles, et fournit les liens vers des flux de travail spécifiques exécutables par le biais de cette interface utilisateur. 
 
-À la fin de cet article, vous serez en mesure d’effectuer les opérations suivantes :
+À la fin de cet article, vous serez en mesure d’effectuer les opérations suivantes :
 
 * Se connecter au service StorSimple Manager
 * Navigation dans l’interface utilisateur de StorSimple Manager
 * Gestion de votre StorSimple Virtual Array par le biais du service StorSimple Manager
 
 > [!NOTE]
-> Pour afficher les options de gestion disponibles pour l’appareil StorSimple série 8000, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
+> Pour afficher les options de gestion disponibles pour l’appareil StorSimple série 8000, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 > 
 > 
 
 ## <a name="connect-to-the-storsimple-manager-service"></a>Se connecter au service StorSimple Manager
-Le service StorSimple Manager s’exécute dans Microsoft Azure et se connecte à plusieurs StorSimple Virtual Arrays. Vous devez utiliser un portail Microsoft Azure Classic s'exécutant dans un navigateur pour gérer ces appareils. Pour vous connecter au service StorSimple Manager, procédez comme suit.
+Le service StorSimple Manager s’exécute dans Microsoft Azure et se connecte à plusieurs StorSimple Virtual Arrays. Vous devez utiliser un portail Microsoft Azure Classic s'exécutant dans un navigateur pour gérer ces appareils. Pour vous connecter au service StorSimple Manager, procédez comme suit.
 
-#### <a name="to-connect-to-the-service"></a>Connexion au service :
+#### <a name="to-connect-to-the-service"></a>Connexion au service :
 1. Accédez à [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
-2. À l’aide de votre compte Microsoft, connectez-vous au portail Microsoft Azure Classic (situé dans l’angle supérieur droit du volet).
+2. À l’aide de votre compte Microsoft, connectez-vous au portail Microsoft Azure Classic (situé dans l’angle supérieur droit du volet).
 3. Faites défiler le volet de navigation de gauche jusqu’au service StorSimple Manager.
    
     ![Faites défiler jusqu’au service](./media/storsimple-ova-manager-service-administration/admin-scroll.png)
@@ -81,7 +85,7 @@ Pour plus d'informations sur chaque flux de travail, cliquez sur la procédure a
 | Installer les mises à jour logicielles |Service StorSimple Manager → Appareils → Maintenance |[Mettre à jour votre Virtual Array](storsimple-ova-install-update-01.md) |
 
 > [!NOTE]
-> Vous devez utiliser [l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md) pour les tâches suivantes :
+> Vous devez utiliser [l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md) pour les tâches suivantes :
 > 
 > * [Récupération de la clé de chiffrement des données de service](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)
 > * [Création d’un package de prise en charge](storsimple-ova-web-ui-admin.md#generate-a-log-package)
@@ -92,6 +96,9 @@ Pour plus d'informations sur chaque flux de travail, cliquez sur la procédure a
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’interface utilisateur web et sur son utilisation, accédez à [Utiliser l’interface utilisateur web StorSimple pour gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -3,8 +3,8 @@ layout: LandingPage
 +toc_rel: breadcrumb.json
 description: "Apprenez à utiliser un réseau virtuel dans le cloud. La documentation vous montre comment déployer un réseau virtuel, l’utiliser pour lancer des ressources et l’intégrer à un réseau local."
 translationtype: Human Translation
-ms.sourcegitcommit: 9a76fe5c0b518cdd95be71e0c3cf928f0ff93668
-ms.openlocfilehash: 7e2c2db7000b2ea0a4fe698e47e775cc2a7db4dd
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 2c3ce9081d456dcedd61ba85f2d023526aa5fa49
 
 ---
 # <a name="virtual-network-documentation"></a>Documentation Réseau virtuel
@@ -141,7 +141,7 @@ Apprenez à utiliser un réseau virtuel (VNet), autrement dit une représentatio
                     <div class="cardText">
                         <h3>REST</h3>
                         <p><a href="https://msdn.microsoft.com/library/mt163658.aspx">REST (Resource Manager)</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/jj157182.aspx">REST (Classic)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/jj157182.aspx">REST (classique)</a></p>
                     </div>
                 </div>
             </div>
@@ -149,13 +149,7 @@ Apprenez à utiliser un réseau virtuel (VNet), autrement dit une représentatio
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-network.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation Réseau virtuel </div>
-    </a>
-</div>
+
 
 
 

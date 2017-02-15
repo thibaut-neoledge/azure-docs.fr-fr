@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7dbfcbc27d7a071027055bc52d96e423c37abd2d
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 39e582d8435366ac900d242b96a5898e56d1eaeb
 
 
 ---
-# <a name="configure-a-vnettovnet-connection-using-the-azure-portal"></a>Configurer une connexion de réseau virtuel à réseau virtuel à l’aide du portail Azure
+# <a name="configure-a-vnet-to-vnet-connection-using-the-azure-portal"></a>Configurer une connexion de réseau virtuel à réseau virtuel à l’aide du portail Azure
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -35,7 +35,7 @@ Lorsque vous utilisez le portail Azure pour connecter des réseaux virtuels, les
 
 ![Diagramme v2v](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-### <a name="deployment-models-and-methods-for-vnettovnet-connections"></a>Modèles et méthodes de déploiement pour les connexions de réseau virtuel à réseau virtuel
+### <a name="deployment-models-and-methods-for-vnet-to-vnet-connections"></a>Modèles et méthodes de déploiement pour les connexions de réseau virtuel à réseau virtuel
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
 Le tableau suivant présente les modèles et les méthodes de déploiement disponibles pour les configurations de connexion de réseau virtuel à réseau virtuel. Quand un article avec les étapes de configuration est disponible, le lien vers cet article est ajouté à ce tableau.
@@ -45,7 +45,7 @@ Le tableau suivant présente les modèles et les méthodes de déploiement dispo
 #### <a name="vnet-peering"></a>Homologation de réseaux virtuels
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
-## <a name="about-vnettovnet-connections"></a>À propos des connexions de réseau virtuel à réseau virtuel
+## <a name="about-vnet-to-vnet-connections"></a>À propos des connexions de réseau virtuel à réseau virtuel
 La connexion entre deux réseaux virtuels est semblable à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN Azure pour offrir un tunnel sécurisé utilisant Ipsec/IKE. Les réseaux virtuels que vous connectez peuvent être situés dans différents abonnements et différentes régions.
 
 Vous pouvez même combiner une communication de réseau virtuel à réseau virtuel avec des configurations multisites. Vous établissez ainsi des topologies réseau qui combinent une connectivité entre différents locaux et une connectivité entre différents réseaux virtuels, comme indiqué dans le schéma suivant :
@@ -187,13 +187,13 @@ Vous pouvez double-cliquer sur chaque connexion séparément pour afficher plus 
 
 ![Essentials](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
 
-## <a name="a-namefaqavnettovnet-faq"></a><a name="faq"></a>Forum Aux Questions sur l’interconnexion de réseaux virtuels
+## <a name="a-namefaqavnet-to-vnet-faq"></a><a name="faq"></a>Forum Aux Questions sur l’interconnexion de réseaux virtuels
 Consultez les détails du Forum Aux Questions pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md) pour connaître les différentes étapes.
+Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour connaître les différentes étapes.
 
 
 

@@ -1,36 +1,40 @@
 ---
-title: Gérer un service web à l’aide du portail des services web Azure Machine Learning | Microsoft Docs
-description: Gestion de l'accès aux espaces de travail Azure Machine Learning, et déploiement et gestion des services web d'API ML
+title: "Gérer un service web à l’aide du portail des services web Azure Machine Learning | Microsoft Docs"
+description: "Gestion de l&quot;accès aux espaces de travail Azure Machine Learning, et déploiement et gestion des services web d&quot;API ML"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: b62cf2ca-dd2a-4a83-bb54-469f948fb026
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/11/2017
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3b04aa7406f44130deb4f12c856b459369301449
+
 
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Gérer un service web à l’aide du portail des services web Azure Machine Learning
 Vous pouvez gérer vos services web Machine Learning nouveaux et classiques à l’aide du portail des services web Microsoft Azure Machine Learning. Étant donné que les services web classiques et nouveaux sont basés sur des technologies différentes , les fonctionnalités de gestion diffèrent légèrement pour chacun d’eux.
 
-Le portail des services web Azure Machine Learning vous permet d’effectuer les opérations suivantes :
+Le portail des services web Azure Machine Learning vous permet d’effectuer les opérations suivantes :
 
-* surveiller l’utilisation du service web ;
-* configurer la description, mettre à jour les clés du service web (nouveau uniquement), mettre à jour votre clé de compte de stockage (nouveau uniquement), activer l’enregistrement (classique uniquement) et activer ou désactiver les exemples de données ;
-* supprimer le service web ;
-* créer, supprimer ou mettre à jour des plans de facturation (nouveau uniquement) ;
+* surveiller l’utilisation du service web ;
+* configurer la description, mettre à jour les clés du service web (nouveau uniquement), mettre à jour votre clé de compte de stockage (nouveau uniquement), activer l’enregistrement (nouveau uniquement) et activer ou désactiver les exemples de données ;
+* supprimer le service web ;
+* créer, supprimer ou mettre à jour des plans de facturation (nouveau uniquement) ;
 * ajouter et supprimer des points de terminaison (classique uniquement).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="manage-new-web-services"></a>Gérer de nouveaux services web
-Pour gérer vos nouveaux service web :
+Pour gérer vos nouveaux service web :
 
 1. Connectez-vous au portail [Services web Microsoft Azure Machine Learning](https://services.azureml.net/quickstart) à l’aide de votre compte Microsoft Azure (utilisez le compte associé à l’abonnement Azure).
 2. Dans le menu, cliquez sur **Services Web**.
@@ -44,7 +48,7 @@ Pour gérer un service web, cliquez sur Services web. À partir de la page Servi
 * Supprimer un service web.
 * Copier un service web et le déployer dans une autre région.
 
-Lorsque vous cliquez sur un service web, la page de démarrage rapide du service web s’ouvre. La page de démarrage rapide du service web comprend deux options de menu pour gérer votre service web :
+Lorsque vous cliquez sur un service web, la page de démarrage rapide du service web s’ouvre. La page de démarrage rapide du service web comprend deux options de menu pour gérer votre service web :
 
 * **TABLEAU DE BORD** : pour afficher l’utilisation du service web.
 * **CONFIGURER** : pour ajouter un texte descriptif, mettre à jour la clé du compte de stockage associé au service web, et activer ou désactiver des exemples de données.
@@ -97,21 +101,21 @@ Le tableau de bord du plan affiche les informations suivantes :
 > 
 > 
 
-Pour gérer vos services web classiques :
+Pour gérer vos services web classiques :
 
 1. Connectez-vous au portail [Services web Microsoft Azure Machine Learning](https://services.azureml.net/quickstart) à l’aide de votre compte Microsoft Azure (utilisez le compte associé à l’abonnement Azure).
 2. Dans le menu, cliquez sur **Services web classiques**.
 
-Pour gérer un Service web classique, cliquez sur **Services web classiques**. Dans la page Services web classiques, vous pouvez :
+Pour gérer un Service web classique, cliquez sur **Services web classiques**. Dans la page Services web classiques, vous pouvez :
 
-* cliquer sur un service web pour afficher les points de terminaison associés ;
+* cliquer sur un service web pour afficher les points de terminaison associés ;
 * supprimer un service web.
 
 Lorsque vous gérez un service web classique, vous gérer chacun des points de terminaison séparément. Lorsque vous cliquez sur un service web dans la page Services web, la liste des points de terminaison associés au service s’ouvre. 
 
 Dans la page des points de terminaison du web classique, vous pouvez ajouter et supprimer des points de terminaison. Pour plus d’informations sur l’ajout de points de terminaison, consultez [Création de points de terminaison](machine-learning-create-endpoint.md).
 
-Cliquez sur un des points de terminaison pour ouvrir la page de démarrage rapide du service web. Dans la page de démarrage rapide, deux options de menu permettent de gérer le service web :
+Cliquez sur un des points de terminaison pour ouvrir la page de démarrage rapide du service web. Dans la page de démarrage rapide, deux options de menu permettent de gérer le service web :
 
 * **TABLEAU DE BORD** : pour afficher l’utilisation du service web.
 * **CONFIGURER** : pour ajouter un texte descriptif, activer et désactiver la journalisation des erreurs, mettre à jour la clé du compte de stockage associé au service web, et activer et désactiver des exemples de données.
@@ -144,7 +148,7 @@ Le portail Azure Classic vous permet d’autoriser ou de refuser l’accès à d
 ### <a name="access-for-users-of-new-web-services"></a>Accès des utilisateurs de nouveaux services web
 Pour permettre à d’autres utilisateurs d’utiliser vos services web dans le portail des services web Azure Machine Learning, ajoutez-les en tant que coadministrateurs à votre abonnement Azure.
 
-Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) à l’aide de votre compte Microsoft Azure (utilisez le compte associé à l’abonnement Azure).
+Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) à l’aide de votre compte Microsoft Azure (utilisez le compte associé à l’abonnement Azure).
 
 1. Dans le volet de navigation, cliquez sur **Paramètres**, puis sur **Administrateurs**.
 2. En bas de la fenêtre, cliquez sur **Ajouter**. 
@@ -152,9 +156,9 @@ Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) à l
 4. Cliquez sur **Save**.
 
 ### <a name="access-for-users-of-classic-web-services"></a>Accès des utilisateurs de services web classiques
-Pour gérer un espace de travail :
+Pour gérer un espace de travail :
 
-Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) à l’aide de votre compte Microsoft Azure (utilisez le compte associé à l’abonnement Azure).
+Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) à l’aide de votre compte Microsoft Azure (utilisez le compte associé à l’abonnement Azure).
 
 1. Dans le volet des services Microsoft Azure, cliquez sur **MACHINE LEARNING**.
 2. Cliquez sur l’espace de travail que vous souhaitez gérer.
@@ -162,15 +166,18 @@ Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) à l
 
 Sous l’onglet Configuration, vous pouvez suspendre l’accès à l’espace de travail Machine Learning en cliquant sur **REFUSER**. Les utilisateurs ne seront plus en mesure d’ouvrir l’espace de travail de Machine Learning Studio. Pour restaurer l’accès, cliquez sur **AUTORISER**.
 
-Utilisateurs spécifiques :
+Utilisateurs spécifiques :
 
-Pour gérer des comptes supplémentaires qui ont accès à l’espace de travail dans Machine Learning Studio, cliquez sur **Se connecter à ML Studio** sous l’onglet **TABLEAU DE BORD**. Cela ouvre l’espace de travail de Machine Learning Studio. À ce stade, cliquez sur l’onglet **PARAMÈTRES**, puis sur **UTILISATEURS**. Vous pouvez cliquer sur **INVITER PLUS D’UTILISATEURS** pour octroyer à des utilisateurs un accès à l’espace de travail, ou sélectionner un utilisateur et cliquer sur **SUPPRIMER**.
+Pour gérer des comptes supplémentaires qui ont accès à l’espace de travail dans Machine Learning Studio, cliquez sur **Se connecter à ML Studio** sous l’onglet **TABLEAU DE BORD**. Cela ouvre l’espace de travail de Machine Learning Studio. À ce stade, cliquez sur l’onglet **PARAMÈTRES**, puis sur **UTILISATEURS**. Vous pouvez cliquer sur **INVITER PLUS D’UTILISATEURS** pour octroyer à des utilisateurs un accès à l’espace de travail, ou sélectionner un utilisateur et cliquer sur **SUPPRIMER**.
 
 > [!NOTE]
-> Le lien **Se connecter à ML Studio** ouvre Machine Learning Studio via le compte Microsoft auquel vous êtes actuellement connecté. Le compte Microsoft que vous utilisez pour vous connecter au portail Azure Classic afin de créer l’espace de travail n’est pas automatiquement autorisé à ouvrir cet espace de travail. Pour ouvrir un espace de travail, vous devez être connecté au compte Microsoft qui a été défini comme propriétaire de l’espace de travail ou recevoir une invitation du propriétaire à rejoindre l’espace de travail.
+> Le lien **Se connecter à ML Studio** ouvre Machine Learning Studio via le compte Microsoft auquel vous êtes actuellement connecté. Le compte Microsoft que vous utilisez pour vous connecter au portail Azure Classic afin de créer l’espace de travail n’est pas automatiquement autorisé à ouvrir cet espace de travail. Pour ouvrir un espace de travail, vous devez être connecté au compte Microsoft qui a été défini comme propriétaire de l’espace de travail ou recevoir une invitation du propriétaire à rejoindre l’espace de travail.
 > 
 > 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

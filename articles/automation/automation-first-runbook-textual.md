@@ -16,15 +16,19 @@ ms.topic: get-started-article
 ms.date: 07/19/2016
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: a244443b14b139544c224d9c57fc6e78b8432584
+ms.sourcegitcommit: 0ab72bd4ad531d1162726c6f5548fa253a4f5265
+ms.openlocfilehash: 992ea5448ebc4b27f18e5621fbe62659f6bc4864
 
 
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Mon premier runbook PowerShell Workflow
-> [AZURE.SELECTOR] - [Graphique](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-powershell.md) - [PowerShell Workflow](automation-first-runbook-textual.md)
->
->
+
+> [!div class="op_single_selector"]
+> * [Graphique](automation-first-runbook-graphical.md)
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
+> * [Workflow PowerShell](automation-first-runbook-textual.md)
+> 
+> 
 
 Ce didacticiel décrit la création d’un [Runbook PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) dans Azure Automation. Nous commencerons par un simple Runbook que nous testerons et publierons tout en expliquant comment suivre l'état de la tâche du Runbook. Puis nous modifierons le Runbook pour gérer les ressources Azure, en démarrant dans ce cas une machine virtuelle Azure. Enfin, nous renforcerons le Runbook en ajoutant des paramètres de Runbook.
 
@@ -35,7 +39,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 * [compte Automation](automation-security-overview.md) pour le stockage du Runbook et l’authentification auprès des ressources Azure.  Ce compte doit avoir l’autorisation de démarrer et d’arrêter la machine virtuelle.
 * Une machine virtuelle Azure. Nous arrêterons et démarrerons cet ordinateur afin qu'il ne soit pas en production.
 
-## <a name="step-1-create-new-runbook"></a>Étape 1 - Création d’un Runbook
+## <a name="step-1---create-new-runbook"></a>Étape 1 - Création d’un Runbook
 Nous allons commencer par créer un Runbook simple qui renvoie le texte *Hello World*.
 
 1. Dans le portail Azure, ouvrez votre compte Automation.  
@@ -46,7 +50,7 @@ Nous allons commencer par créer un Runbook simple qui renvoie le texte *Hello W
 5. Dans ce cas précis, nous allons créer un [Runbook PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks). Par conséquent, sélectionnez **Powershell Workflow** dans le champ **Type de Runbook**.<br> ![Nouveau Runbook](media/automation-first-runbook-textual/new-runbook.png)
 6. Cliquez sur **Créer** pour créer le Runbook et ouvrez l’éditeur textuel.
 
-## <a name="step-2-add-code-to-the-runbook"></a>Étape 2 - Ajouter du code au Runbook
+## <a name="step-2---add-code-to-the-runbook"></a>Étape 2 - Ajouter du code au Runbook
 Vous pouvez soit taper du code directement dans le Runbook, soit sélectionner des applets de commande, des Runbooks et des ressources à partir du contrôle Bibliothèque et les ajouter au Runbook avec tous les paramètres associés. Pour cette procédure pas à pas, nous taperons directement le code dans le Runbook.
 
 1. Pour l’instant, notre Runbook est vide, à l’exception du mot-clé requis *workflow* , du nom de notre Runbook et des accolades qui entoureront la totalité du workflow.
@@ -66,7 +70,7 @@ Vous pouvez soit taper du code directement dans le Runbook, soit sélectionner d
    ```
 3. Enregistrez le Runbook en cliquant sur **Enregistrer**.<br> ![Enregistrer un Runbook](media/automation-first-runbook-textual/runbook-edit-toolbar-save.png)
 
-## <a name="step-3-test-the-runbook"></a>Étape 3 : Test du Runbook
+## <a name="step-3---test-the-runbook"></a>Étape 3 : Test du Runbook
 Avant publier le Runbook pour le rendre disponible en production, nous voulons le tester pour s’assurer qu'il fonctionne correctement. Lorsque vous testez un Runbook, vous exécutez sa version **Brouillon** et affichez sa sortie de manière interactive.
 
 1. Cliquez sur **Volet de test** pour ouvrir le volet de test.<br> ![Volet de test](media/automation-first-runbook-textual/runbook-edit-toolbar-test-pane.png)
@@ -76,7 +80,7 @@ Avant publier le Runbook pour le rendre disponible en production, nous voulons l
 4. Lorsque la tâche du Runbook est terminée, sa sortie s'affiche. Dans notre cas, nous devrions voir *Hello World*.<br> ![Hello World](media/automation-first-runbook-textual/test-output-hello-world.png)
 5. Fermez le volet de test pour revenir au canevas.
 
-## <a name="step-4-publish-and-start-the-runbook"></a>Étape 4 : Publication et démarrage du Runbook
+## <a name="step-4---publish-and-start-the-runbook"></a>Étape 4 : Publication et démarrage du Runbook
 Le Runbook que nous venons de créer est toujours en mode brouillon. Nous devons le publier pour pouvoir l'exécuter en production. Lorsque vous publiez un Runbook, vous écrasez la version publiée existante par la version brouillon. Dans notre cas, nous n'avons pas encore de version publiée car nous venons de créer le Runbook.
 
 1. Cliquez sur **Publier** pour publier le Runbook, puis sur **Oui** quand vous y êtes invité.<br> ![Publier](media/automation-first-runbook-textual/runbook-edit-toolbar-publish.png)
@@ -93,7 +97,7 @@ Le Runbook que nous venons de créer est toujours en mode brouillon. Nous devons
 11. Cliquez sur **Tâches** pour ouvrir le volet Tâches pour ce runbook. Il répertorie toutes les tâches créées par ce Runbook. Une seule tâche doit apparaître, car nous n’avons exécuté la tâche qu’une seule fois.<br> ![Tâches](media/automation-first-runbook-textual/runbook-control-jobs.png)
 12. Vous pouvez cliquer sur cette tâche pour ouvrir le volet de la tâche que nous avons consulté au démarrage du Runbook. Cela vous permet de revenir en arrière et d’afficher les détails de toute tâche créée pour un Runbook donné.
 
-## <a name="step-5-add-authentication-to-manage-azure-resources"></a>Étape 5 : Ajout d’une authentification pour gérer les ressources Azure
+## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Étape 5 : Ajout d’une authentification pour gérer les ressources Azure
 Nous avons testé et publié notre Runbook, mais jusqu'à présent, il ne fait rien d'utile. Nous voulons qu’il gère les ressources Azure. Il ne peut le faire que si nous le configurons pour qu’il s’authentifie à l’aide des informations d’identification mentionnées dans les [conditions préalables](#prerequisites). Nous utilisons pour cela l’applet de commande **Add-AzureRmAccount** .
 
 1. Ouvrez l’éditeur textuel en cliquant sur **Modifier** dans le volet MyFirstRunbook-Workflow.<br> ![Modifier un Runbook](media/automation-first-runbook-textual/runbook-toolbar-edit.png)
@@ -109,7 +113,7 @@ Nous avons testé et publié notre Runbook, mais jusqu'à présent, il ne fait r
 5. Cliquez sur **Volet de test** afin de tester le Runbook.
 6. Cliquez sur **Démarrer** pour démarrer le test. Une fois terminé, la sortie générée semblable à celle illustrée ci-dessous devrait afficher les informations de base sur votre compte. Cette sortie confirme la validité des informations d’identification.<br> ![Authentifier](media/automation-first-runbook-textual/runbook-auth-output.png)
 
-## <a name="step-6-add-code-to-start-a-virtual-machine"></a>Étape 6 - Ajouter du code pour démarrer une machine virtuelle
+## <a name="step-6---add-code-to-start-a-virtual-machine"></a>Étape 6 - Ajouter du code pour démarrer une machine virtuelle
 À présent que notre Runbook s’authentifie auprès de notre abonnement Azure, nous pouvons gérer les ressources. Nous allons ajouter une commande pour démarrer une machine virtuelle. Vous pouvez choisir n'importe quelle machine virtuelle dans votre abonnement Azure, et pour l'instant, nous allons coder ce nom dans l'applet de commande.
 
 1. Après *Add-AzureRmAccount*, tapez *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* en fournissant le nom et le nom de groupe de ressources de la machine virtuelle à démarrer.  
@@ -125,7 +129,7 @@ Nous avons testé et publié notre Runbook, mais jusqu'à présent, il ne fait r
 2. Enregistrez le runbook, puis cliquez sur **Volet de test** pour le tester.
 3. Cliquez sur **Démarrer** pour démarrer le test. Une fois le test terminé, vérifiez que la machine virtuelle a démarré.
 
-## <a name="step-7-add-an-input-parameter-to-the-runbook"></a>Étape 7 : Ajout d’un paramètre d'entrée au Runbook
+## <a name="step-7---add-an-input-parameter-to-the-runbook"></a>Étape 7 : Ajout d’un paramètre d'entrée au Runbook
 Pour l’instant, notre Runbook démarre la machine virtuelle que nous avons codée en dur dans le Runbook, mais ce dernier serait plus utile si nous pouvions spécifier la machine virtuelle lorsque le Runbook est démarré. Nous allons à présent ajouter des paramètres d’entrée au Runbook pour fournir cette fonctionnalité.
 
 1. Ajoutez des paramètres au Runbook pour *VMName* et *ResourceGroupName* et utilisez ces variables avec l’applet de commande **Start-AzureRmVM** comme dans l’exemple ci-dessous.

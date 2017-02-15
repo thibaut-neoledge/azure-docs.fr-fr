@@ -1,47 +1,56 @@
 ---
 title: Que faire si une interruption de service Azure affecte Azure Key Vault | Microsoft Docs
-description: Découvrez que faire si une interruption de service Azure affecte Azure Key Vault.
+description: "Découvrez que faire si une interruption de service Azure affecte Azure Key Vault."
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: adamglick
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 19a9af63-3032-447b-9d1a-b0125f384edb
 ms.service: key-vault
 ms.workload: key-vault
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2016
+ms.date: 01/07/2017
 ms.author: sumedhb;aglick
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d2fb323e8cf6d14d0b5cf10071475cf4669545ed
+
 
 ---
-# Disponibilité et redondance d’Azure Key Vault
+# <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilité et redondance d’Azure Key Vault
 Azure Key Vault dispose de plusieurs couches de redondance pour garantir que vos clés et secrets restent disponibles pour votre application même en cas d’échec de composants individuels du service.
 
-Le contenu de votre coffre de clés est répliqué dans la région, ainsi que dans une région secondaire éloignée d’au moins 241 kilomètres mais située au sein de la même zone géographique. Cela maintient une durabilité élevée de vos clés et secrets.
+Le contenu de votre Key Vault est répliqué dans la région ainsi que dans une région secondaire éloignée d’au moins 241 kilomètres, mais située au sein de la même zone géographique. Cela maintient une durabilité élevée de vos clés et secrets.
 
-Si les composants individuels du service Key Vault échouent, d’autres composants de la région interviennent pour traiter votre demande afin de garantir l’intégrité des fonctionnalités. Il est inutile d’intervenir pour déclencher cette action. Elle se produit automatiquement, de façon transparente pour vous.
+En cas d’échec de composants du service Key Vault, d’autres composants de la même région interviennent pour traiter votre demande afin de garantir l’intégrité des fonctionnalités. Il est inutile d’intervenir pour déclencher cette action. Cela se produit automatiquement, sans que vous le perceviez.
 
-Dans les rares cas d’indisponibilité d’une région Azure entière, les demandes d’Azure Key Vault effectuées dans cette région sont automatiquement acheminées (« basculées ») vers une région secondaire. Lorsque la région principale est de nouveau disponible, les demandes sont réacheminées (« basculées ») vers la région principale. Vous n’avez pas besoin d’agir dans la mesure où tout est automatique.
+Dans les rares cas d’indisponibilité d’une région Azure entière, les demandes d’Azure Key Vault effectuées dans cette région sont automatiquement acheminées (*basculées*) vers une région secondaire. Lorsque la région principale est de nouveau disponible, les demandes sont réacheminées (*basculées*) vers la région principale. Vous n’avez pas besoin d’agir dans la mesure où tout se passe automatiquement.
 
-Il existe quelques inconvénients, que vous devez connaître :
+Il convient toutefois de prendre quelques précautions :
 
-* En cas de basculement d’une région, quelques minutes peuvent être nécessaires au basculement du service. Les demandes effectuées pendant cette période peuvent échouer jusqu’à ce que le basculement soit terminé.
-* Après un basculement, votre coffre de clés est en mode ***lecture seule***. Les demandes prises en charge dans ce mode sont les suivantes :
-  * list key vaults
-  * get properties of key vaults
-  * list secrets
-  * get secrets
-  * list keys
-  * get (properties of) keys
-  * encrypt
-  * decrypt
-  * wrap
-  * unwrap
-  * verify
-  * sign
-  * backup
-* Une fois le basculement restauré, tous les types de demandes (par exemple, demandes de lecture ***et*** d’écriture) sont disponibles.
+* En cas de basculement vers une autre région, quelques minutes peuvent être nécessaires pour que le service soit de nouveau opérationnel. Il se peut que les demandes effectuées pendant cette période échouent jusqu’à ce que le basculement soit terminé.
+* Après basculement, votre Key Vault est en lecture seule. Les demandes prises en charge dans ce mode sont les suivantes :
+  * List key vaults (Afficher la liste des Key Vaults)
+  * Get properties of key vaults (Obtenir les propriétés des Key Vaults)
+  * List secrets (Afficher la liste des secrets)
+  * Get secrets (Obtenir les secrets)
+  * List keys (Afficher la liste des clés)
+  * Get (properties of) keys (Obtenir les propriétés des clés)
+  * Encrypt (Chiffrer)
+  * Decrypt (Déchiffrer)
+  * Wrap (Encapsuler)
+  * Unwrap (Désencapsuler)
+  * Verify (Vérifier)
+  * Sign (Signer)
+  * Backup (Sauvegarder)
+* Une fois le basculement restauré, tous les types de demandes (y compris de lecture -read- *et* d’écriture write-) sont disponibles.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
