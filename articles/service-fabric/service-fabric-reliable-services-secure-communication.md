@@ -1,28 +1,32 @@
 ---
-title: Sécuriser des communications pour les services dans Service Fabric | Microsoft Docs
-description: Vue d’ensemble de la sécurisation des communications pour Reliable Services en cours d’exécution dans un cluster Azure Service Fabric.
+title: "Sécuriser des communications pour les services dans Service Fabric | Microsoft Docs"
+description: "Vue d’ensemble de la sécurisation des communications pour Reliable Services en cours d’exécution dans un cluster Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
 manager: timlt
 editor: vturecek
-
+ms.assetid: fc129c1a-fbe4-4339-83ae-0e69a41654e0
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 07/06/2016
-ms.author: suchiagicha
+ms.date: 01/05/2017
+ms.author: suchia
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f13ccbb5ac1eff7ea8924c9d7b5ea9d9ef09a7ad
+
 
 ---
-# Sécurisation des communications pour les services dans Azure Service Fabric
+# <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Sécurisation des communications pour les services dans Azure Service Fabric
 La sécurité est un des aspects les plus importants de la communication. L’infrastructure d’application Reliable Services fournit quelques piles et outils de communication prédéfinis afin d’améliorer la sécurité. Cet article vous explique comment améliorer la sécurité lorsque vous utilisez la communication à distance des services et la pile de communication Windows Communication Foundation (WCF).
 
-## Sécurisation d’un service lors de l’utilisation de la communication à distance des services
+## <a name="help-secure-a-service-when-youre-using-service-remoting"></a>Sécurisation d’un service lors de l’utilisation de la communication à distance des services
 Nous allons utiliser un [exemple](service-fabric-reliable-services-communication-remoting.md) existant qui explique comment configurer la communication à distance pour Reliable Services. Pour sécuriser un service lors de l’utilisation de la communication à distance des services, procédez comme suit :
 
-1. Créez une interface, `IHelloWorldStateful`, qui définit les méthodes disponibles pour l'appel de procédure distante sur votre service. Votre service va utiliser `FabricTransportServiceRemotingListener`, qui est déclaré dans l’espace de noms `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime`. Il s'agit d'une implémentation `ICommunicationListener` qui fournit des fonctionnalités de communication à distance.
+1. Créez une interface, `IHelloWorldStateful`, qui définit les méthodes disponibles pour l'appel de procédure distante sur votre service. Votre service utilisera `FabricTransportServiceRemotingListener`, qui est déclaré dans l’espace de noms `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime`. Il s'agit d'une implémentation `ICommunicationListener` qui fournit des fonctionnalités de communication à distance.
    
     ```csharp
     public interface IHelloWorldStateful : IService
@@ -81,7 +85,7 @@ Nous allons utiliser un [exemple](service-fabric-reliable-services-communication
            return x509Credentials;
        }
        ```
-   2. À l'aide d’un [package de configuration](service-fabric-application-model.md) :
+   2. À l'aide d’un [package de configuration](service-fabric-application-model.md):
       
        Ajoutez une section `TransportSettings` dans le fichier settings.xml.
       
@@ -135,7 +139,7 @@ Nous allons utiliser un [exemple](service-fabric-reliable-services-communication
             };
         }
         ```
-3. Lorsque vous appelez des méthodes sur un service sécurisé à l'aide de la pile de communication à distance, au lieu d'utiliser la classe `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` pour créer un proxy de service, utilisez `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`. Passez dans `FabricTransportSettings`, qui contient `SecurityCredentials`.
+3. Lorsque vous appelez des méthodes sur un service sécurisé à l’aide de la pile de communication à distance, au lieu d’utiliser la classe `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` pour créer un proxy de service, utilisez `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`. Transmettez `FabricTransportSettings`, qui contient `SecurityCredentials`.
    
     ```csharp
    
@@ -178,11 +182,11 @@ Nous allons utiliser un [exemple](service-fabric-reliable-services-communication
    
     ```
    
-    Si le client n’est pas exécuté dans le cadre d’un service, vous pouvez créer un fichier client\_name.settings.xml dans le même emplacement que le fichier client\_name.exe. Créez ensuite une section TransportSettings dans ce fichier.
+    Si le client n’est pas exécuté dans le cadre d’un service, vous pouvez créer un fichier client_name.settings.xml dans le même emplacement que le fichier client_name.exe. Créez ensuite une section TransportSettings dans ce fichier.
    
-    Comme pour le service, si vous ajoutez une section `TransportSettings` sans préfixe dans le fichier client settings.xml/client\_name.settings.xml, `FabricTransportSettings` chargera par défaut tous les paramètres à partir de cette section.
+    Comme pour le service, si vous ajoutez une section `TransportSettings` sans préfixe dans le fichier client settings.xml/client_name.settings.xml, `FabricTransportSettings` charge par défaut tous les paramètres de cette section.
    
-    Dans ce cas, le code précédent est encore davantage simplifié :
+    Dans ce cas, le code précédent est encore davantage simplifié :  
    
     ```csharp
    
@@ -193,10 +197,10 @@ Nous allons utiliser un [exemple](service-fabric-reliable-services-communication
    
     ```
 
-## Sécuriser un service lorsque vous utilisez une pile de communication basée sur WCF
+## <a name="help-secure-a-service-when-youre-using-a-wcf-based-communication-stack"></a>Sécuriser un service lorsque vous utilisez une pile de communication basée sur WCF
 Nous allons utiliser un existant [exemple](service-fabric-reliable-services-communication-wcf.md) qui explique comment configurer une pile de communication basée sur WCF pour Reliable Services. Pour sécuriser un service lorsque vous utilisez une pile de communication basée sur WCF, procédez comme suit :
 
-1. Pour le service, vous devez sécuriser l'écouteur de communication WCF (`WcfCommunicationListener`) que vous créez. Pour cela, modifiez la méthode `CreateServiceReplicaListeners`.
+1. Pour le service, vous devez sécuriser l'écouteur de communication WCF (`WcfCommunicationListener`) que vous créez. Pour cela, modifiez la méthode `CreateServiceReplicaListeners` .
    
     ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -233,7 +237,7 @@ Nous allons utiliser un existant [exemple](service-fabric-reliable-services-comm
         return b;
     }
     ```
-2. Dans le client, la classe `WcfCommunicationClient` que nous avons créée dans l’[exemple](service-fabric-reliable-services-communication-wcf.md) précédent reste inchangée. Mais vous devez remplacer la méthode `CreateClientAsync` de `WcfCommunicationClientFactory` :
+2. Dans le client, la classe `WcfCommunicationClient` que nous avons créée dans l’ [exemple](service-fabric-reliable-services-communication-wcf.md) précédent reste inchangée. Cependant, vous devez remplacer la méthode `CreateClientAsync` de `WcfCommunicationClientFactory` :
    
     ```csharp
     public class SecureWcfCommunicationClientFactory<TServiceContract> : WcfCommunicationClientFactory<TServiceContract> where TServiceContract : class
@@ -299,7 +303,12 @@ Nous allons utiliser un existant [exemple](service-fabric-reliable-services-comm
         client => client.Channel.Add(2, 3)).Result;
     ```
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [API Web avec OWIN dans Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

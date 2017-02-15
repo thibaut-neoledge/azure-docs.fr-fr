@@ -1,19 +1,23 @@
 ---
-title: Créer un tableau de bord personnalisé dans Log Analytics | Microsoft Docs
-description: Ce guide vous aide à comprendre comment les tableaux de bord Log Analytics permettent d'afficher l'ensemble de vos recherches de journal enregistrées en proposant une vue unique de votre environnement.
+title: "Créer un tableau de bord personnalisé dans Log Analytics | Microsoft Docs"
+description: "Ce guide vous aide à comprendre comment les tableaux de bord Log Analytics permettent d&quot;afficher l&quot;ensemble de vos recherches de journal enregistrées en proposant une vue unique de votre environnement."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
-manager: jwhit
-editor: ''
-
+manager: carmonm
+editor: 
+ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: afd1e5359edbdfdbd4a8afaac139f5877b306c2b
+
 
 ---
 # <a name="create-a-custom-dashboard-in-log-analytics"></a>Créer un tableau de bord personnalisé dans Log Analytics
@@ -28,7 +32,7 @@ Tous les tableaux de bord personnalisés que vous créez dans le portail OMS son
 
 ![Tableau de bord mobile](./media/log-analytics-dashboards/oms-search-mobile.png)
 
-## <a name="how-do-i-create-my-dashboard?"></a>Comment créer un tableau de bord ?
+## <a name="how-do-i-create-my-dashboard"></a>Comment créer un tableau de bord ?
 Pour commencer, accédez à la page de présentation d’OMS. La vignette **Mon tableau de bord** s’affiche sur la gauche. Cliquez dessus pour explorer les détails de votre tableau de bord.
 
 ![Vue d'ensemble](./media/log-analytics-dashboards/oms-dashboards-overview.png)
@@ -42,21 +46,21 @@ Dans la vue Mon tableau de bord, cliquez simplement sur **Personnaliser** pour p
 
  Le panneau de configuration qui s'ouvre sur le côté droit de la page affiche toutes les recherches de journal enregistrées de votre espace de travail. Pour visualiser une recherche de journal enregistrée sous forme de vignette, pointez sur une recherche enregistrée, puis cliquez sur le signe **plus**.
 
-![Ajout de vignettes 1](./media/log-analytics-dashboards/oms-dashboards-pictorial02.png)
+![Ajout de vignettes 1](./media/log-analytics-dashboards/oms-dashboards-pictorial02.png)
 
 Lorsque vous cliquez sur le signe **plus**, une nouvelle vignette s’affiche dans la vue Mon tableau de bord.
 
-![Ajout de vignettes 2](./media/log-analytics-dashboards/oms-dashboards-pictorial03.png)
+![Ajout de vignettes 2](./media/log-analytics-dashboards/oms-dashboards-pictorial03.png)
 
 ## <a name="edit-a-tile"></a>Modification d'une vignette
-Dans la vue Mon tableau de bord, cliquez simplement sur  **Personnaliser** pour passer en mode de personnalisation. Cliquez sur la vignette que vous voulez modifier. Le volet droit devient le volet d'édition, et propose une sélection d'options :
+Dans la vue Mon tableau de bord, cliquez simplement sur  **Personnaliser** pour passer en mode de personnalisation. Cliquez sur la vignette que vous voulez modifier. Le volet droit devient le volet d'édition, et propose une sélection d'options :
 
 ![Modification d'une vignette](./media/log-analytics-dashboards/oms-dashboards-pictorial04.png)
 
 ![Modification d'une vignette](./media/log-analytics-dashboards/oms-dashboards-pictorial05.png)
 
-### <a name="tile-visualizations#"></a>Visualisations de vignettes
-Vous avez le choix entre deux sortes de visualisations de vignettes :
+### <a name="tile-visualizations"></a>Visualisations de vignettes
+Vous avez le choix entre deux sortes de visualisations de vignettes :
 
 | type de graphique | résultat |
 | --- | --- |
@@ -65,7 +69,7 @@ Vous avez le choix entre deux sortes de visualisations de vignettes :
 | ![line](./media/log-analytics-dashboards/oms-dashboards-line.png) |Affiche une chronologie de vos résultats de recherche journal enregistrés, avec des valeurs représentées sous la forme d’un graphique en courbes. |
 
 ### <a name="threshold"></a>Seuil
-Vous pouvez créer un seuil sur une vignette à l'aide de la visualisation Métrique. Sélectionnez « Activé » pour créer une valeur de seuil sur la vignette. Choisissez si la vignette doit être mise en surbrillance lorsque la valeur est supérieure ou inférieure au seuil sélectionné, puis définissez la valeur de seuil au-dessous.
+Vous pouvez créer un seuil sur une vignette à l'aide de la visualisation Métrique. Sélectionnez « Activé » pour créer une valeur de seuil sur la vignette. Choisissez si la vignette doit être mise en surbrillance lorsque la valeur est supérieure ou inférieure au seuil sélectionné, puis définissez la valeur de seuil au-dessous.
 
 ## <a name="organizing-the-dashboard"></a>Organisation du tableau de bord
 Pour organiser votre tableau de bord, accédez à la vue Mon tableau de bord, puis cliquez sur **Personnaliser** pour passer en mode de personnalisation. Cliquez sur la vignette que vous voulez déplacer et faites-la glisser vers l'emplacement souhaité.
@@ -80,6 +84,8 @@ Pour supprimer une vignette, accédez à la vue Mon tableau de bord, puis clique
 ## <a name="next-steps"></a>Étapes suivantes
 * Créez des [alertes](log-analytics-alerts.md) dans Log Analytics pour générer des notifications et corriger les problèmes.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

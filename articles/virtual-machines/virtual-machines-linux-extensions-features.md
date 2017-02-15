@@ -246,6 +246,6 @@ Vous pouvez supprimer une extension à partir du portail Azure en procédant com
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -32,7 +32,7 @@ Pour utiliser les modèles JSON dans VS Code, vous devez installer une extension
 2. Ouvrir Quick Open (Ctrl+P) 
 3. Exécutez la commande suivante : 
    
-        ext install azurerm-vscode-tools
+        ext install msazurermtools.azurerm-vscode-tools
 4. Redémarrez VS Code lorsque vous êtes invité à activer l’extension. 
    
    Le tour est joué !

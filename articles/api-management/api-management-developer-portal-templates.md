@@ -1,26 +1,30 @@
 ---
-title: Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles | Microsoft Docs
-description: Apprenez à personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles.
+title: "Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles | Microsoft Docs"
+description: "Apprenez à personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a195675b-f7d0-4fc9-90bf-860e6f17ccf7
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7e9b100a041934e6512a83c936effb48c2cba53b
+
 
 ---
-# Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles
+# <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles
 Le service Gestion des API Azure intègre plusieurs fonctionnalités de personnalisation qui permettent aux administrateurs de [personnaliser l’apparence du portail des développeurs](api-management-customize-portal.md), ainsi que le contenu des pages du portail des développeurs au moyen d’un ensemble de modèles qui configurent le contenu des pages elles-mêmes. En utilisant la syntaxe [DotLiquid](http://dotliquidmarkup.org/) et un ensemble de ressources de chaîne localisées, d’icônes et de contrôles de page, vous disposez d’un large choix pour configurer le contenu des pages selon vos besoins.
 
-## Vue d’ensemble des modèles du portail des développeurs
-Les modèles du portail des développeurs sont gérés dans le portail des développeurs par les administrateurs de l’instance du service Gestion des API. Pour gérer les modèles pour développeurs, accédez à votre instance du service Gestion des API dans le portail Azure Classic, puis cliquez sur **Parcourir**.
+## <a name="developer-portal-templates-overview"></a>Vue d’ensemble des modèles du portail des développeurs
+Les modèles du portail des développeurs sont gérés dans le portail des développeurs par les administrateurs de l’instance du service Gestion des API. Pour gérer les modèles pour développeurs, accédez à votre instance du service Gestion des API dans le portail Azure Classic, puis cliquez sur **Portail des développeurs** dans la barre d'outils.
 
 ![Portail des développeurs][api-management-browse]
 
@@ -28,7 +32,7 @@ Si vous êtes déjà dans le portail des éditeurs, vous pouvez accéder au port
 
 ![Menu du portail des développeurs][api-management-developer-portal-menu]
 
-Pour accéder aux modèles du portail des développeurs, cliquez sur l’icône de personnalisation à gauche pour afficher le menu de personnalisation, puis cliquez sur **Templates** (Modèles).
+Pour accéder aux modèles du portail des développeurs, cliquez sur l’icône de personnalisation à gauche pour afficher le menu de personnalisation, puis cliquez sur **Templates**(Modèles).
 
 ![Modèles du portail des développeurs][api-management-customize-menu]
 
@@ -36,17 +40,17 @@ La liste des modèles affiche plusieurs catégories de modèles applicables aux 
 
 ![Modèles du portail des développeurs][api-management-templates-menu]
 
-Cliquez sur un modèle pour accéder à la page du portail des développeurs que vous pouvez personnaliser avec ce modèle. Le modèle utilisé dans cet exemple s’intitule **Product list** (Liste de produits). Le modèle **Product list** contrôle la zone de l’écran indiquée par le rectangle rouge.
+Cliquez sur un modèle pour accéder à la page du portail des développeurs que vous pouvez personnaliser avec ce modèle. Le modèle utilisé dans cet exemple s’intitule **Product list** (Liste de produits). Le modèle **Product list** contrôle la zone de l’écran indiquée par le rectangle rouge. 
 
 ![Modèle Products list (Liste de produits)][api-management-developer-portal-templates-overview]
 
-Certains modèles, comme les modèles **User Profile** (Profil utilisateur), permettent de personnaliser différentes parties d’une même page.
+Certains modèles, comme les modèles **User Profile** (Profil utilisateur), permettent de personnaliser différentes parties d’une même page. 
 
 ![Modèles User profile (Profil utilisateur)][api-management-user-profile-templates]
 
-L’éditeur de chaque modèle du portail des développeurs comporte deux sections affichées au bas de la page. Dans la partie gauche figure le volet d’édition du modèle, tandis que la partie droite présente le modèle de données du modèle.
+L’éditeur de chaque modèle du portail des développeurs comporte deux sections affichées au bas de la page. Dans la partie gauche figure le volet d’édition du modèle, tandis que la partie droite présente le modèle de données du modèle. 
 
-Le volet d’édition du modèle contient le balisage qui contrôle l’apparence et le comportement de la page correspondante dans le portail des développeurs. Le balisage figurant dans le modèle utilise la syntaxe [DotLiquid](http://dotliquidmarkup.org/). Pour DotLiquid, il existe un éditeur assez répandu : [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Les modifications apportées au modèle en phase d’édition s’affichent en temps réel dans le navigateur, mais vos clients ne peuvent pas les voir tant que vous n’[enregistrez](#to-save-a-template) et ne [publiez](#to-publish-a-template) pas le modèle.
+Le volet d’édition du modèle contient le balisage qui contrôle l’apparence et le comportement de la page correspondante dans le portail des développeurs. Le balisage figurant dans le modèle utilise la syntaxe [DotLiquid](http://dotliquidmarkup.org/) . Pour DotLiquid, il existe un éditeur assez répandu : [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Les modifications apportées au modèle en phase d’édition s’affichent en temps réel dans le navigateur, mais vos clients ne peuvent pas les voir tant que vous [n’enregistrez](#to-save-a-template) et ne [publiez](#to-publish-a-template) pas le modèle.
 
 ![Balisage de modèle][api-management-template]
 
@@ -116,14 +120,14 @@ Le balisage figurant dans le modèle **Product list** (Liste de produits) traite
         </div>
     </div>
 
-## Pour enregistrer un modèle
+## <a name="to-save-a-template"></a>Pour enregistrer un modèle
 Pour enregistrer un modèle, cliquez sur save (enregistrer) dans l’éditeur de modèle.
 
 ![Enregistrer un modèle][api-management-save-template]
 
 Les modifications enregistrées ne sont pas actives dans le portail des développeurs tant qu’elles ne sont pas publiées.
 
-## Pour publier un modèle
+## <a name="to-publish-a-template"></a>Pour publier un modèle
 Les modèles enregistrés peuvent être publiés individuellement ou en bloc. Pour publier un modèle individuel, cliquez sur publish (publier) dans l’éditeur de modèle.
 
 ![Publier un modèle][api-management-publish-template]
@@ -142,7 +146,7 @@ Cliquez sur **Publish customizations** (Publier les personnalisations) pour conf
 
 Les modèles nouvellement publiés prennent immédiatement effet dans le portail des développeurs.
 
-## Pour rétablir la version précédente d’un modèle
+## <a name="to-revert-a-template-to-the-previous-version"></a>Pour rétablir la version précédente d’un modèle
 Pour rétablir la version précédente d’un modèle publié, cliquez sur revert (rétablir) dans l’éditeur de modèle.
 
 ![Rétablir un modèle][api-management-revert-template]
@@ -153,7 +157,7 @@ Cliquez sur **Yes** (Oui) pour confirmer.
 
 La version précédente d’un modèle publié est actif dans le portail des développeurs dès que l’opération de rétablissement est terminée.
 
-## Pour restaurer la version par défaut d’un modèle
+## <a name="to-restore-a-template-to-the-default-version"></a>Pour restaurer la version par défaut d’un modèle
 La restauration de la version par défaut d’un modèle est une procédure en deux étapes qui consiste d’abord à restaurer le modèle, puis à publier sa version restaurée.
 
 Pour restaurer la version par défaut d’un modèle, cliquez sur restore (restaurer) dans l’éditeur de modèle.
@@ -170,10 +174,10 @@ Pour restaurer la version par défaut de tous les modèles, cliquez sur **Restor
 
 Les modèles restaurés doivent ensuite être publiés un par un ou tous en même temps en suivant les étapes décrites dans la section [Pour publier un modèle](#to-publish-a-template).
 
-## Informations de référence sur les modèles du portail des développeurs
+## <a name="developer-portal-templates-reference"></a>Informations de référence sur les modèles du portail des développeurs
 Pour obtenir des informations de référence sur les modèles du portail des développeurs, les ressources de chaîne, les icônes et les contrôles de page, consultez les [informations de référence sur les modèles du portail des développeurs Gestion des API](https://msdn.microsoft.com/library/azure/mt697540.aspx).
 
-## Regarder une vidéo de présentation
+## <a name="watch-a-video-overview"></a>Regarder une vidéo de présentation
 Regardez la vidéo suivante pour savoir comment ajouter un forum de discussion et des évaluations aux pages d’API et d’opérations du portail des développeurs à l’aide de modèles.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Adding-Developer-Portal-functionality-using-Templates-in-Azure-API-Management/player]
@@ -199,4 +203,15 @@ Regardez la vidéo suivante pour savoir comment ajouter un forum de discussion e
 [api-management-reset-template-confirm]: ./media/api-management-developer-portal-templates/api-management-reset-template-confirm.png
 [api-management-restore-templates]: ./media/api-management-developer-portal-templates/api-management-restore-templates.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+
+
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

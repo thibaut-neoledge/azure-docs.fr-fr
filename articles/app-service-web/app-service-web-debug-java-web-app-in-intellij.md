@@ -97,6 +97,6 @@ Pour plus d’informations sur la création d’Azure Web Apps, consultez la [Vu
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

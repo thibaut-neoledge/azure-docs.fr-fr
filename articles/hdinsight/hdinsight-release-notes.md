@@ -1492,7 +1492,7 @@ Pour plus d’informations sur l’utilisation de Hive avec Tez, consultez [Hive
 ### <a name="global-availability"></a>Disponibilité générale
 Avec le lancement de HDInsight sur Hadoop 2.2, Microsoft a fait en sorte que HDInsight soit disponible dans les principales régions où Azure est disponible. Plus précisément, l’Europe de l’Ouest et le Sud-Est asiatique ont été mis en ligne. Cela permet aux clients de rechercher des clusters dans un centre de données proche et, potentiellement, dans une zone avec des exigences de conformité similaires.
 
-### <a name="dos-donts-between-cluster-versions"></a>À faire et ne pas faire entre les versions de clusters
+### <a name="dos--donts-between-cluster-versions"></a>À faire et ne pas faire entre les versions de clusters
 **Les metastores Oozie utilisés avec un cluster HDInsight 3.1 n’ont plus de compatibilité descendante avec les clusters HDInsight 2.1 et ne peuvent pas être utilisés avec cette version précédente**.
 
 Vous ne pouvez plus réutiliser une base de données de metastore Oozie personnalisée déployée avec un cluster HDInsight 3.1 avec un cluster HDInsight 2.1. Cela est valable même si le metastore a été créé avec un cluster HDInsight 2.1. Ce scénario n’est pas pris en charge, car le schéma du metastore est mis à niveau lorsqu’il est utilisé avec un cluster HDInsight 3.1. Il n’est donc plus compatible avec le metastore requis par les clusters HDInsight 2.1. Toute tentative de réutilisation d’un metastore Oozie utilisé avec un cluster HDInsight 3.1 rend le cluster HDInsight 2.1 inutilisable.

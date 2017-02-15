@@ -171,6 +171,6 @@ Les applications App Service hébergées dans les plans App Service De base, Sta
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -109,14 +109,14 @@ Après avoir téléchargé l’exemple de configuration de périphérique VPN fo
 | Méthode d'authentification |Clé prépartagée |Clé prépartagée |
 | Algorithmes de chiffrement |AES256 AES128 3DES |AES256 3DES |
 | Algorithme de hachage |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Durée de vie d’association de sécurité de phase 1 (temps) |28 800 secondes |10 800 secondes |
+| Durée de vie d’association de sécurité de phase 1 (temps) |28 800 secondes |10&800; secondes |
 
 ### <a name="ike-phase-2-setup"></a>Configuration IKE Phase 2
 | **Propriété** | **PolicyBased** | **Basé sur un itinéraire et passerelle VPN standard ou hautes performances** |
 | --- | --- | --- |
 | Version IKE |IKEv1 |IKEv2 |
 | Algorithme de hachage |SHA1(SHA128) |SHA1(SHA128) |
-| Durée de vie d’association de sécurité de phase 2 (temps) |3 600 secondes |3 600 secondes |
+| Durée de vie d’association de sécurité de phase 2 (temps) |3&600; secondes |3&600; secondes |
 | Durée de vie d’association de sécurité de phase 2 (débit) |102 400 000 Ko |- |
 | Offres d’authentification et de chiffrement d’association de sécurité IPsec (par ordre de préférence) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/A |Voir *Offres d’association de sécurité IPsec pour passerelle basée sur un itinéraire* (ci-dessous) |
 | PFS (Perfect Forward Secrecy) |Non |Non (*) |

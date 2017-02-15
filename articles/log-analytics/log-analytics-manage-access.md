@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 01/06/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b78199a672528c475f4f299faaf6406089e95d01
+ms.sourcegitcommit: 6862723b774951fe4cca0303ee2a39a0d5f2089d
+ms.openlocfilehash: eec688e33ff55334ebe0c1bc6d08e4753aadb85c
 
 
 ---
@@ -242,6 +242,24 @@ Si vous devez modifier l’abonnement Azure auquel l’espace de travail est li�
 6. Quand vous actualisez l’affichage dans le portail Azure, le **niveau tarifaire** mis à jour s’affiche pour le plan sélectionné.  
     ![plan mis à jour](./media/log-analytics-manage-access/manage-access-change-plan04.png)
 
+## <a name="change-how-long-log-analytics-stores-data"></a>Modifier la durée de stockage des données par Log Analytics
+
+Au niveau tarifaire Gratuit, Log Analytics propose les sept derniers jours de données.
+Au niveau tarifaire Standard, Log Analytics propose les 30 derniers jours de données.
+Au niveau tarifaire Premium, Log Analytics propose les 365 derniers jours de données.
+Aux niveaux tarifaires Autonome et OMS, Log Analytics propose par défaut les 31 derniers jours de données.
+
+Lorsque vous utilisez les niveaux tarifaires Autonome et OMS, vous pouvez conserver jusqu’à 2 ans de données (730 jours). Les données stockées pendant une durée supérieure à la durée par défaut de 31 jours entraînent des frais de conservation des données. Pour plus d’informations sur la tarification, reportez-vous aux [frais de dépassement](https://azure.microsoft.com/pricing/details/log-analytics/).
+
+Pour modifier la durée de conservation des données :
+
+1. Connectez-vous au [portail Azure](http://portal.azure.com).
+2. Recherchez **Log Analytics** et sélectionnez-le.
+3. Vous voyez la liste des espaces de travail existants. Sélectionnez un espace de travail.  
+4. Dans le panneau Espace de travail, sous **Général**, cliquez sur **Rétention**.  
+5. Utilisez le curseur pour augmenter ou diminuer le nombre de jours de rétention, puis cliquez **Enregistrer**
+![modifier la durée de rétention](./media/log-analytics-manage-access/manage-access-change-retention01.png)
+
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>Modifier une organisation Azure Active Directory pour un espace de travail
 
 Vous pouvez modifier l’organisation Azure Active Directory d’un espace de travail. La modification dune organisation Azure Active Directory vous permet d’ajouter des utilisateurs et groupes de ce répertoire vers l’espace de travail.
@@ -275,6 +293,6 @@ Si vous êtes administrateur et que plusieurs utilisateurs sont associés à l�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -111,6 +111,6 @@ Pour ajouter une adresse IP interne statique à la machine virtuelle créée à 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

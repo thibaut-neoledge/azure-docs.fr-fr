@@ -1,23 +1,26 @@
-
 ---
-title: Homologation de réseaux virtuels Azure | Microsoft Docs
-description: Découvrez en quoi consiste l’homologation de réseaux virtuels dans Azure.
+title: "Homologation de réseaux virtuels Azure | Microsoft Docs"
+description: "Découvrez en quoi consiste l’homologation de réseaux virtuels dans Azure."
 services: virtual-network
 documentationcenter: na
 author: NarayanAnnamalai
 manager: jefco
 editor: tysonn
-
+ms.assetid: eb0ba07d-5fee-4db0-b1cb-a569b7060d2a
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/28/2016
+ms.date: 10/17/2016
 ms.author: narayan
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: 0d4d13d44581f98ead7d65f3bb819e54b93a76b6
+
 
 ---
-# Homologation de réseaux virtuels
+# <a name="vnet-peering"></a>Homologation de réseaux virtuels
 L’homologation de réseaux virtuels est un mécanisme permettant de connecter deux réseaux virtuels situés dans la même région via le réseau principal Azure. Une fois homologués, les deux réseaux virtuels apparaissent comme un seul réseau pour tous les besoins de connectivité. Ils sont toujours gérés comme des ressources distinctes, mais les machines virtuelles se trouvant dans ces réseaux virtuels peuvent communiquer directement entre elles à l’aide d’adresses IP privées.
 
 Le trafic entre les machines virtuelles des réseaux virtuels homologués est acheminé via l’infrastructure Azure de façon assez similaire au trafic entre des machines virtuelles d’un même réseau virtuel. Voici quelques-uns des avantages de l’homologation de réseaux virtuels :
@@ -30,14 +33,15 @@ Exigences et principaux aspects de l’homologation de réseaux virtuels :
 
 * Les deux réseaux virtuels à homologuer doivent être situés dans la même région Azure.
 * Les espaces d’adressage des réseaux virtuels à homologuer ne doivent pas se chevaucher.
-* L’homologation concerne deux réseaux virtuels et aucune relation transitive n’en découle. Par exemple, si le réseau virtuel A est homologué avec le réseau virtuel B et si le réseau virtuel B est homologué avec le réseau virtuel C, cela ne signifie pas que le réseau virtuel 1 est homologué avec le réseau virtuel C.
-* L’homologation peut être établie entre des réseaux virtuels dans deux abonnements, à condition qu’un utilisateur privilégié de chacun de ces abonnements autorise l’homologation et que les abonnements soient associés au même locataire Active Directory.
+* L’homologation concerne deux réseaux virtuels et aucune relation transitive n’en découle. Par exemple, si le réseau virtuel A est homologué avec le réseau virtuel B et si le réseau virtuel B est homologué avec le réseau virtuel C, cela ne signifie pas que le réseau virtuel&1; est homologué avec le réseau virtuel C.
+* L’homologation peut être établie entre des réseaux virtuels dans deux abonnements, à condition qu’un utilisateur privilégié de chacun de ces abonnements autorise l’homologation et que les abonnements soient associés au même locataire Active Directory. 
+* L’homologation entre réseaux virtuels dans le modèle Resource Manager et le modèle de déploiement classique requiert que les réseaux virtuels se trouvent dans le même abonnement.
 * Un réseau virtuel qui utilise le modèle de déploiement Resource Manager peut être homologué avec un autre réseau virtuel qui utilise ce modèle, ou avec un réseau virtuel qui utilise le modèle de déploiement classique. Cependant, les réseaux virtuels qui utilisent le modèle de déploiement classique ne peuvent pas être homologués entre eux.
 * Bien que la communication entre des machines virtuelles de réseaux virtuels homologués ne présente aucune restriction de bande passante supplémentaire, un plafond de bande passante basé sur la taille des machines virtuelles continue de s’appliquer.
 
 ![Homologation de réseaux virtuels de base](./media/virtual-networks-peering-overview/figure01.png)
 
-## Connectivité
+## <a name="connectivity"></a>Connectivité
 Une fois deux réseaux virtuels homologués, une machine virtuelle (rôle de travail/Web) d’un des réseaux virtuels peut se connecter directement aux machines virtuelles de l’autre réseau virtuel. Ces deux réseaux bénéficient d’une connectivité de niveau IP totale.
 
 La latence du réseau pour un aller-retour entre deux machines virtuelles de réseaux virtuels homologués est la même qu’au sein d’un réseau virtuel local. Le débit du réseau repose sur la bande passante autorisée pour la machine virtuelle proportionnellement à sa taille. Aucune restriction de bande passante supplémentaire n’est appliquée.
@@ -50,12 +54,12 @@ Lorsque des utilisateurs configurent l’homologation, ils peuvent ouvrir ou fer
 
 La résolution de noms DNS internes fournie par Azure pour les machines virtuelles ne fonctionne pas entre des réseaux virtuels homologués. Les machines virtuelles présentent des noms DNS internes pouvant uniquement être résolus au sein du réseau virtuel local. Cependant, les utilisateurs peuvent configurer des machines virtuelles exécutées dans les réseaux virtuels homologués en tant que serveurs DNS pour un réseau virtuel.
 
-## Chaînage de services
+## <a name="service-chaining"></a>Chaînage de services
 Les utilisateurs peuvent configurer des tables d’itinéraires définis par l’utilisateur qui pointent vers des machines virtuelles de réseaux virtuels homologués en tant qu’adresse IP du « tronçon suivant », comme illustré dans le schéma plus loin dans cet article. Cela leur permet de mettre en œuvre un chaînage de services par l’intermédiaire duquel ils peuvent diriger le trafic d’un réseau virtuel vers une appliance virtuelle exécutée dans un réseau virtuel homologué via les tables d’itinéraires.
 
 Les utilisateurs peuvent également déployer efficacement des environnements de type hub-and-spoke où le nœud peut héberger des composants d’infrastructure tels qu’une appliance virtuelle réseau. Tous les réseaux virtuels reliés en étoile peuvent être homologués avec ce nœud et diriger un sous-ensemble du trafic vers des appliances exécutées dans le réseau virtuel central. En résumé, l’homologation de réseaux virtuels permet de définir l’adresse IP du tronçon suivant dans la table d’itinéraires définis par l’utilisateur sur l’adresse IP d’une machine virtuelle du réseau virtuel homologué.
 
-## Passerelles et connectivité locale
+## <a name="gateways-and-on-premises-connectivity"></a>Passerelles et connectivité locale
 Chaque réseau virtuel, qu’il soit homologué ou non avec un autre réseau virtuel, peut posséder sa propre passerelle et l’utiliser pour se connecter localement. Les utilisateurs peuvent également configurer des [connexions de réseau virtuel à réseau virtuel](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) à l’aide de passerelles, même si les réseaux virtuels sont homologués.
 
 Lorsque les deux options d’interconnexion de réseaux virtuels sont configurées, le trafic entre les réseaux virtuels transite via la configuration d’homologation (c’est-à-dire via le réseau principal Azure).
@@ -68,22 +72,27 @@ Lorsque des réseaux virtuels qui partagent une même connexion Azure ExpressRou
 
 ![Transit entre des réseaux virtuels homologués](./media/virtual-networks-peering-overview/figure02.png)
 
-## Approvisionnement
+## <a name="provisioning"></a>Approvisionnement
 L’homologation de réseaux virtuels est une opération nécessitant des privilèges. Il s’agit d’une fonction distincte sous l’espace de noms VirtualNetworks. Un utilisateur peut se voir accorder des droits spécifiques pour autoriser l’homologation. Un utilisateur qui dispose d’un accès en lecture-écriture au réseau virtuel hérite automatiquement de ces droits.
 
 Un utilisateur administrateur ou disposant des privilèges d’homologation peut lancer une opération d’homologation sur un autre réseau virtuel. S’il existe une demande d’homologation correspondante de l’autre côté et si les autres exigences sont remplies, l’homologation est établie.
 
 Pour plus d’informations sur la création d’une homologation entre deux réseaux virtuels, consultez les articles de la section « Étapes suivantes ».
 
-## Limites
-Le nombre d’homologations autorisées pour un même réseau virtuel est limité. Pour plus d’informations, consultez la section [Limites de mise en réseau d’Azure](../azure-subscription-service-limits.md#networking-limits).
+## <a name="limits"></a>Limites
+Le nombre d’homologations autorisées pour un même réseau virtuel est limité. Pour plus d’informations, consultez la section [Limites de mise en réseau d’Azure](../azure-subscription-service-limits.md#networking-limits) .
 
-## Tarification
+## <a name="pricing"></a>Tarification
 L’homologation de réseaux virtuels ne sera pas facturée pendant la période d’évaluation. Une fois la sortie effective, un tarif minime sera appliqué pour le trafic entrant et sortant qui utilise l’homologation. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/virtual-network).
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Configurer une homologation entre des réseaux virtuels](virtual-networks-create-vnetpeering-arm-portal.md).
 * En savoir plus sur les [groupes de sécurité réseau](virtual-networks-nsg.md).
 * En savoir plus sur les [tinéraires définis par l’utilisateur et le transfert IP](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Exemple Azure IoT MyDriving - Création d’une application | Microsoft Docs
-description: Créez une application qui détaille toute la procédure permettant de concevoir un système IoT avec Microsoft Azure, comme Stream Analytics, Machine Learning et Event Hubs.
-services: ''
+title: "Exemple Azure IoT MyDriving : création d’une application | Microsoft Docs"
+description: "Créez une application qui détaille toute la procédure permettant de concevoir un système IoT avec Microsoft Azure, comme Stream Analytics, Machine Learning et Event Hubs."
+services: 
 documentationcenter: .net
-suite: ''
+suite: 
 author: harikmenon
 manager: douge
-
+ms.assetid: c2fcd6ee-3bbe-43d1-a066-dce52cc3a53d
 ms.service: multiple
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/25/2016
 ms.author: harikm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 012bfc7d8431e2edb2b1056fb465421fad58193a
+
 
 ---
 # <a name="build-and-deploy-the-mydriving-solution-to-your-environment"></a>Créer et déployer la solution MyDriving dans votre environnement
@@ -25,7 +29,7 @@ Si vous n’avez pas encore essayé l’application, consultez le [guide de pris
 
 Le [Guide de référence MyDriving](http://aka.ms/mydrivingdocs)inclut une description détaillée de l’architecture. En résumé, nous avons configuré plusieurs éléments, et vous allez procéder de même pour créer un projet similaire :
 
-* Une **application cliente** s’exécute sur des téléphones Android, iOS et Windows 10. Nous utilisons la plateforme Xamarin pour partager une grande partie du code. Elle est stockée sur GitHub sous `src/MobileApp`. L’application effectue deux fonctions distinctes :
+* Une **application cliente** s’exécute sur des téléphones Android, iOS et Windows 10. Nous utilisons la plateforme Xamarin pour partager une grande partie du code. Elle est stockée sur GitHub sous `src/MobileApp`. L’application effectue deux fonctions distinctes :
   * Elle relaie les données de télémétrie de l’appareil à diagnostic embarqué (OBD) et de son propre service de localisation au service principal basé sur le cloud du système.
   * Il s’agit d’une interface utilisateur qui permet aux utilisateurs d’effectuer des interrogations concernant leurs trajets routiers enregistrés.
 * Un **service cloud** reçoit les données de trajet routier en temps réel et les traite. Pendant la création de ce service, la tâche principale consiste à choisir, paramétrer et lier une série de services Azure. Certaines parties nécessitent des scripts pour filtrer et traiter les données entrantes. Nous utilisons un modèle Azure Resource Manager pour configurer toutes les parties.
@@ -63,14 +67,14 @@ L’outil Windows central est Visual Studio, qui permet de travailler avec l’a
 
 Visual Studio intègre d’autres composants utiles, tels que Xamarin, Git et des émulateurs.
 
-Installer :
+Installer :
 
 * [Visual Studio 2015 avec Xamarin](https://www.visualstudio.com/products/visual-studio-community-vs) toute édition (l’édition Community est gratuite).
 * [SQLite pour plateforme Windows universelle](https://visualstudiogallery.msdn.microsoft.com/4913e7d5-96c9-4dde-a1a1-69820d615936). Requis pour générer le code Windows 10 Mobile.
 * [Kit de développement logiciel (SDK) Azure pour Visual Studio 2015](https://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409). Vous offre le Kit de développement logiciel (SDK) pour l’exécution des applications dans Azure, ainsi que des outils en ligne de commande pour la gestion d’Azure.
 * [Kit de développement logiciel (SDK) Azure Service Fabric](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric). Requis pour générer l’extension de [microservice](../service-fabric/service-fabric-get-started.md) .
 
-En outre, vérifiez que vous avez les extensions Visual Studio adéquates. Sous **Outils**, vous pouvez voir **Android, iOS, Xamarin, etc.**. Dans le cas contraire, ouvrez le Panneau de configuration, puis sélectionnez **Programmes et fonctionnalités** > **Microsoft** > **Visual Studio 2015** > **Modifier**. Sous **Développement multiplateforme**, sélectionnez **C\#/.Net (Xamarin)**. Par la même occasion, vérifiez que **Git pour Windows** est installé.
+En outre, vérifiez que vous avez les extensions Visual Studio adéquates. Sous **Outils**, vous pouvez voir **Android, iOS, Xamarin, etc.**. Dans le cas contraire, ouvrez le Panneau de configuration, puis sélectionnez **Programmes et fonctionnalités** > **Microsoft** > **Visual Studio 2015** > **Modifier**. Sous **Développement multiplateforme**, sélectionnez **C\#/.Net (Xamarin)**. Par la même occasion, vérifiez que **Git pour Windows** est installé.
 
 ### <a name="mac-development-machine"></a>Ordinateur de développement Mac
 Un ordinateur Mac (Yosemite ou version ultérieure) est nécessaire si vous souhaitez développer pour iOS. Même si nous utilisons Visual Studio avec Xamarin sur Windows pour développer et gérer tout le code, Xamarin utilise un agent installé sur un Mac afin de générer et signer le code iOS.
@@ -81,7 +85,7 @@ Un ordinateur Mac (Yosemite ou version ultérieure) est nécessaire si vous souh
 
 Vous n’avez pas besoin du Mac si vous ne souhaitez pas inclure iOS comme plateforme cible.
 
-Installer :
+Installer :
 
 * [Xamarin Studio pour iOS](https://developer.xamarin.com/guides/ios/getting_started/installation/mac/). Vous pouvez également configurer Visual Studio et Xamarin sur un Mac exécutant une machine virtuelle Windows. Consultez la page [Configuration, installation et vérifications pour les utilisateurs Mac](https://msdn.microsoft.com/library/mt488770.aspx) sur MSDN.
 * [Outils de développement Azure](https://azure.microsoft.com/downloads/) (facultatif).
@@ -138,7 +142,7 @@ Dans la solution, vous trouverez les éléments suivants :
 * Mobile Apps : les applications pour appareil.
 * MobileAppsService/MyDrivingService : le service web principal.
 * Power BI : la définition de rapport Power BI.
-* Scripts :
+* Scripts :
   
   * Resource Manager : modèles utilisés pour la génération des ressources Azure.
   * PowerShell : scripts utilisés pour exécuter les modèles Resource Manager.
@@ -192,7 +196,7 @@ Pour effectuer un déploiement automatique des services Azure et des services de
 
 Microsoft Azure offre une multitude de services, que vous pouvez utiliser pour générer des applications cloud. Si de nombreux services peuvent être utilisés individuellement (App Service/Web Apps, par exemple), ils offrent les meilleures performances quand ils sont interconnectés pour former un système intégré, comme celui que nous utilisons dans MyDriving.
 
-Il est possible de créer et d’interconnecter manuellement des services Azure, mais il est beaucoup plus rapide et plus fiable d’utiliser des modèles Azure Resource Manager. [Resource Manager](../resource-group-overview.md) automatise le déploiement des ressources d’une solution et la réalisation d’interconnexions entre elles.
+Il est possible de créer et d’interconnecter manuellement des services Azure, mais il est beaucoup plus rapide et plus fiable d’utiliser des modèles Azure Resource Manager. [Resource Manager](../azure-resource-manager/resource-group-overview.md) automatise le déploiement des ressources d’une solution et la réalisation d’interconnexions entre elles.
 
 Vous trouverez le modèle pour le système MyDriving dans le dépôt GitHub, sous [scripts/ARM](https://github.com/Azure-Samples/MyDriving/tree/master/scripts/ARM). Il fournit une vue concise et complète de la façon dont les différents services de notre architecture sont interconnectés. Nous vous expliquons tout cela en détail dans le [Guide de référence MyDriving](http://aka.ms/mydrivingdocs), mais vous pouvez en apprendre beaucoup en lisant simplement le contenu du modèle lui-même.
 
@@ -213,7 +217,7 @@ Vous pouvez utiliser le fichier scenario\_complete.params.json pour remplacer le
 | Objectif de service SQL |Consommation des emplacements de concurrence |DW100 |
 | Référence du plan d’hébergement |Plan de service pour App Service |F1 |
 
-Dans scenario\_complete.json :
+Dans scenario\_complete.json :
 
 * Recherchez « baseName » et indiquez à la place le nom de votre choix.
 * Recherchez « Create ». Chacune de ces sections crée une ressource.
@@ -233,12 +237,12 @@ Voici les éléments configurés par le modèle. Pour obtenir des informations p
 | Azure SQL Data Warehouse | |
 | Tâches Stream Analytics |Connectent les entrées et sorties avec une requête, qui est utilisée pour agréger les données d’historique et en temps réel des API App Service, d’Azure Machine Learning, des extensions et de Power BI. |
 | Espace de travail Machine Learning |Inclut des expériences, le code R et le service API. |
-| Azure Data Factory |Reformation Machine Learning planifiée. |
+| Azure Data Factory |Reformation Machine Learning planifiée. |
 | Plan d’hébergement Service Fabric |Pour les extensions. |
 | App Service (« Application mobile ») |Héberge le projet d’API Mobile Apps qui fournit des points de terminaison pour l’application mobile. Le code de l’API doit être déployé vers App Service à partir de Visual Studio. |
 | Règles d'alerte |Vous envoient un e-mail si les réponses de l’application signalent des échecs. |
 | Application Insights |Pour surveiller les performances des API dans App Service. Vous devez configurer la connexion dans Visual Studio. |
-| Azure Key Vault |Pour enregistrer le certificat de cluster du service web. |
+| Azure Key Vault |Pour enregistrer le certificat de cluster du service web. |
 
 ### <a name="run-the-template"></a>Exécuter le modèle
 **scripts/README.md**contient des instructions détaillées sur l’exécution du modèle.
@@ -262,7 +266,7 @@ Notez qu’à chaque exécution du modèle, celui-ci crée un ensemble de ressou
 
 Si le script échoue pour une raison quelconque, vous pouvez le réexécuter.
 
-Le script vous donne la possibilité de configurer une intégration continue dans Visual Studio Team Services. Si vous avez configuré un projet Team Services, vous avez une URL : https://yourAccountName.visualstudio.com. Entrez l’URL complète quand vous y êtes invité. Vous pouvez lui donner un nouveau nom ou le nom existant d’un projet Team Services.
+Le script vous donne la possibilité de configurer une intégration continue dans Visual Studio Team Services. Si vous avez configuré un projet Team Services, vous avez une URL : https://yourAccountName.visualstudio.com. Entrez l’URL complète quand vous y êtes invité. Vous pouvez lui donner un nouveau nom ou le nom existant d’un projet Team Services.
 
 ## <a name="set-up-build-and-test-definitions-in-visual-studio-team-services"></a>Configurer des définitions de build et de test dans Visual Studio Team Services
 Nous utiliser Team Services sur ce projet, principalement pour ses fonctionnalités de génération et de test. Cependant, il offre également une excellente prise en charge de la collaboration : gestion des tâches avec les tableaux Kanban, vérification de code intégrée aux tâches et au contrôle de code source et builds contrôlées. Il s’intègre efficacement à d’autres outils tels que GitHub, Xamarin, HockeyApp et, bien sûr, Visual Studio. Vous pouvez y accéder par le biais de l’interface web ou de Visual Studio, selon la situation et la méthode vous convenant le mieux.
@@ -355,7 +359,7 @@ Nous partons de l’hypothèse suivante :
 
 | **Service/composant** | **Remarques** | **Coût par mois** |
 | --- | --- | --- |
-| [Visual Studio 2015 Community](https://www.visualstudio.com/products/visual-studio-community-vs) avec [Xamarin](https://visualstudiogallery.msdn.microsoft.com/dcd5b7bd-48f0-4245-80b6-002d22ea6eee) <br/>Environnement de développement multiplateforme |Visual Studio Community. ([Visual Studio Professional](https://www.visualstudio.com/vs-2015-product-editions) requis pour [Xamarin.Forms](https://xamarin.com/forms), pour la conception multiplateforme à partir d’une seule base de code.) |0 $ |
+| [Visual Studio 2015 Community](https://www.visualstudio.com/products/visual-studio-community-vs) avec [Xamarin](https://visualstudiogallery.msdn.microsoft.com/dcd5b7bd-48f0-4245-80b6-002d22ea6eee) <br/>Environnement de développement multiplateforme |Visual Studio Community. ([Visual Studio Professional](https://www.visualstudio.com/vs-2015-product-editions) requis pour [Xamarin.Forms](https://xamarin.com/forms), pour la conception multiplateforme à partir d’une seule base de code.) |0 $ |
 | [Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/) <br/>Connexion de données bidirectionnelle avec les appareils |8 000 messages + 0,5 Ko/message gratuit. |0 $ |
 | [Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics/)  <br/>    Traitement des données de flux à volume élevé |Facturation de 0,031 $ par unité de diffusion en continu par heure pendant l’activation. Vous choisissez le nombre d’unités de diffusion en continu et en ajoutez pour monter en puissance. |23 $ |
 | [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)<br/>  Réponses adaptatives. |10 $/siège/mois. <br/>                                                                                                                                                                                 + 3 heures d’expérience \* $1 / heure d’expérience. <br/>                                                                                                                                                           + 3,5 heures UC d’API \* $2 / heure UC de production. <br/>                                                                                                                                                           Le temps processeur de l’API est basé sur une reformation de 5 min/jour, une augmentation pouvant se produire avec un volume supérieur de données d’entrée.                   <br/>                                                                                                                                                                      + 2 min/jour de notation pour traiter 400 trajets/jour. |20 $ |
@@ -366,7 +370,7 @@ Nous partons de l’hypothèse suivante :
 | [Xamarin](https://store.xamarin.com/)<br/>  Code sur une plateforme unifiée pour plusieurs appareils |Essai gratuit. <br/>25 $ par mois par la suite. |0 $ |
 | [SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) pour Azure App Service |Niveau de base ; modèle de base de données unique. |5 $ |
 | [Service Fabric](https://azure.microsoft.com/pricing/details/service-fabric/) (facultatif) |Exécution d’un cluster local. |0 $ |
-| [Power BI](https://powerbi.microsoft.com/pricing/)<br/>  Affichage polyvalent et analyse des données par flux et statiques |Gratuit : 1 Go, 10 000 lignes/heure, actualisation quotidienne. <br/> 10 $/utilisateur/mois pour [limites supérieures](https://powerbi.microsoft.com/documentation/powerbi-power-bi-pro-content-what-is-it/), plus d’options de connexion, collaboration. |0 $ |
+| [Power BI](https://powerbi.microsoft.com/pricing/)<br/>  Affichage polyvalent et analyse des données par flux et statiques |Gratuit : 1 Go, 10 000 lignes/heure, actualisation quotidienne. <br/> 10 $/utilisateur/mois pour [limites supérieures](https://powerbi.microsoft.com/documentation/powerbi-power-bi-pro-content-what-is-it/), plus d’options de connexion, collaboration. |0 $ |
 | [Stockage](https://azure.microsoft.com/pricing/details/storage/) |L (localement redondant) &lt; 100 Go 0,024 $/Go. |3 $ |
 | [Data Factory](https://azure.microsoft.com/pricing/details/data-factory/) |0,60 $ par activité \* (8 - 5 FOC). |2 $ |
 | [HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) <br/>   Cluster à la demande pour reformation quotidienne |Trois nœuds A3 à 0,32 $/heure pour 1 heure par jour * 31 jours. |30 $ |
@@ -374,10 +378,10 @@ Nous partons de l’hypothèse suivante :
 | Dongle OBD | |12 $ |
 | **Total** | |**157 $** |
 
-Pour plus d'informations, consultez les pages suivantes :
+Pour plus d'informations, consultez les pages suivantes :
 
 * Récapitulatif des [limites et quotas de service Azure](../azure-subscription-service-limits.md#iot-hub-limits)
-* [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
+*  [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 
 ## <a name="send-us-your-feedback"></a>Envoyez-nous vos commentaires
 Étant donné que nous avons créé MyDriving pour vous aider à lancer vos propres systèmes IoT, nous sommes très désireux de recevoir de vos nouvelles concernant son fonctionnement. Faites-nous savoir si :
@@ -394,6 +398,9 @@ Nous espérons recevoir bientôt de vos nouvelles.
 ## <a name="next-steps"></a>Étapes suivantes
 Nous vous recommandons de consulter le [Guide de référence MyDriving](http://aka.ms/mydrivingdocs), qui offre une description complète de la conception du système et de ses composants.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Application API Node.js dans Azure App Service | Microsoft Docs
+title: "Application API Node.js dans Azure App Service | Microsoft Docs"
 description: "Découvrez comment créer une API RESTful Node.js et la déployer vers une application API dans Azure App Service."
 services: app-service\api
 documentationcenter: node
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8a1ac3df5225fdcfe2717c2cf50bfc5b7cfda36
+ms.sourcegitcommit: c700bfbd4f50a892e182124eb596159d2eb63feb
+ms.openlocfilehash: b6f97d299b1c100e4bae111d7f95c9619c6c9399
 
 
 ---
@@ -41,7 +41,7 @@ Bien qu’App Service prenne en charge de nombreuses façons de déployer votre 
    
     L’exemple d’API fournit deux points de terminaison : une requête Get vers `/contacts` renvoie une liste de noms et des adresses e-mail au format JSON, tandis que `/contacts/{id}` renvoie uniquement le contact sélectionné.
 
-## <a name="scaffold-autogenerate-nodejs-code-based-on-swagger-metadata"></a>Structurer (générer automatiquement) le code Node.js en fonction des métadonnées Swagger
+## <a name="scaffold-auto-generate-nodejs-code-based-on-swagger-metadata"></a>Structurer (générer automatiquement) le code Node.js en fonction des métadonnées Swagger
 [Swagger](http://swagger.io/) est un format de fichier JSON pour métadonnées qui décrit une API RESTful. Azure App Service [intègre la prise en charge des métadonnées Swagger](app-service-api-metadata.md). Cette section du didacticiel modélise un workflow de développement d’API dans lequel vous créez d’abord les métadonnées Swagger, puis les utilisez pour structurer (auto-générer) le code serveur pour l’API. 
 
 > [!NOTE]
@@ -131,7 +131,7 @@ Bien qu’App Service prenne en charge de nombreuses façons de déployer votre 
         app.use(bodyParser.json());
    
         app.use(swaggerize({
-            api: path.resolve('./config/api.json'), // third change
+            api: path.resolve('./config/swagger.json'), // third change
             handlers: path.resolve('./handlers'),
             docspath: '/swagger' // fourth change
         }));
@@ -275,6 +275,6 @@ Maintenant que vous avez activé la livraison en continu, vous pouvez apporter d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

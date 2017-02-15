@@ -273,6 +273,6 @@ Maintenant que vous savez comment créer une tâche pour encoder un élément mu
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -45,6 +45,6 @@ Maintenant que vous connaissez les bases d’Azure Automation et que vous savez 
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

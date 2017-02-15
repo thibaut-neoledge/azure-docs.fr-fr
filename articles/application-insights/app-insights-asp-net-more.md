@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5b7f1533aca3b5391252e4195e2edeb6443827fd
+ms.sourcegitcommit: e1f9c62765e414e194330419f26c2b7437da21b3
+ms.openlocfilehash: 79cfe90bb883b5cadf707272d31a990c8886dbe4
 
 
 ---
@@ -63,7 +63,7 @@ Vous avez installé le Kit SDK qui envoie des données de télémétrie depuis l
 Ajoutez l’extrait de code JavaScript Application Insights à chaque page web pour obtenir des données de télémétrie à partir de navigateurs clients.
 
 1. Dans Azure, ouvrez la ressource Application Insights correspondant à votre application.
-2. Accédez à Prise en main, Analyse côté client et copiez l’extrait de code.
+2. Ouvrez Mise en route, analyse et diagnostic de l’application côté client et copiez l’extrait de code.
 3. Copiez-le de manière à le faire apparaître dans l’entête de chaque page web. Pour cela, il suffit généralement de coller le contenu dans la page de mise en forme principale.
 
 ![Extension dans Azure](./media/app-insights-asp-net-more/100.png)
@@ -133,6 +133,6 @@ Il existe de nombreuses manières d’explorer vos données. Si vous venez de d�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

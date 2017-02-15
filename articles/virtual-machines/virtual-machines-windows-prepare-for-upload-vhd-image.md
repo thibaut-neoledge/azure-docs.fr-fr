@@ -1,13 +1,13 @@
 ---
-title: Préparer un disque dur virtuel Windows à charger sur Azure | Microsoft Docs
-description: Pratiques recommandées pour préparer un disque dur virtuel Windows avant de le charger sur Azure
+title: "Préparer un disque dur virtuel Windows à charger sur Azure | Microsoft Docs"
+description: "Pratiques recommandées pour préparer un disque dur virtuel Windows avant de le charger sur Azure"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: genlin
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 7802489d-33ec-4302-82a4-91463d03887a
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2016
 ms.author: glimoli;genli
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 98aa7935322c873a9de6414090daab2e04ea19fe
+
 
 ---
 # <a name="prepare-a-windows-vhd-to-upload-to-azure"></a>Préparer un disque dur virtuel Windows à charger sur Azure
@@ -22,7 +26,7 @@ Pour charger une machine virtuelle Windows locale sur Azure, vous devez prépare
 
 ## <a name="prepare-the-virtual-disk"></a>Préparer le disque virtuel
 > [!NOTE]
-> Azure prend en charge uniquement les [machines virtuelles de génération 1](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) au format de fichier de disque dur virtuel. Azure ne prend pas en charge le nouveau format VHDX. 
+> Azure prend en charge uniquement les [machines virtuelles de génération 1](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) au format de fichier de disque dur virtuel. Azure ne prend pas en charge le nouveau format VHDX. 
 > 
 > Le disque dur virtuel doit être de taille fixe, pas dynamique. Si nécessaire, les instructions ci-dessous décrivent la conversion de disques VHDX ou dynamiques. La taille maximale autorisée pour le disque dur virtuel s’élève à 1 023 Go.
 > 
@@ -265,8 +269,8 @@ Si vous disposez d’une image de machine virtuelle Windows au [format de fichie
    * [KB2904100](https://support.microsoft.com/kb/2904100) Le système se fige pendant des opérations d’E/S sur disque dans Windows <a id="step23"></a>
 2. Pour créer une image permettant de déployer plusieurs ordinateurs, vous devez généraliser l’image en exécutant `sysprep` avant de charger le disque dur virtuel sur Azure. Vous n’avez pas besoin exécuter `sysprep` pour utiliser un disque dur virtuel spécialisé. Pour plus d’informations sur la création d’une image généralisée, consultez les articles suivants :
    
-   * [Create a VM image from an existing Azure VM using the Resource Manager deployment model (Créer une image de machine virtuelle à partir d’une machine virtuelle Azure existante en utilisant le modèle de déploiement Resource Manager)](virtual-machines-windows-capture-image.md)
-   * [Create a VM image from an existing Azure VM using the Classic deployment model (Créer une image de machine virtuelle à partir d’une machine virtuelle Azure existante en utilisant le modèle de déploiement Classic)](virtual-machines-windows-classic-capture-image.md)
+   * [Create a VM image from an existing Azure VM using the Resource Manager deployment model (Créer une image de machine virtuelle à partir d’une machine virtuelle Azure existante en utilisant le modèle de déploiement Resource Manager)](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+   * [Create a VM image from an existing Azure VM using the Classic deployment model (Créer une image de machine virtuelle à partir d’une machine virtuelle Azure existante en utilisant le modèle de déploiement Classic)](virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
    * [Prise en charge de Sysprep pour les rôles de serveur](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 ## <a name="suggested-extra-configurations"></a>Configurations supplémentaires suggérées
@@ -293,8 +297,11 @@ Les paramètres suivants n’affectent pas le chargement du disque dur virtuel. 
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Télécharger une image de machine virtuelle Windows dans Azure pour des déploiements Resource Manager](virtual-machines-windows-upload-image.md)
+* [Télécharger une image de machine virtuelle Windows dans Azure pour des déploiements Resource Manager](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Préparer un disque dur virtuel Debian Linux | Microsoft Docs
-description: Apprenez à créer des fichiers de disque dur virtuel Debian 7 et 8 pour un déploiement dans Azure.
+title: "Préparer un disque dur virtuel Debian Linux | Microsoft Docs"
+description: "Apprenez à créer des fichiers de disque dur virtuel Debian 7 et 8 pour un déploiement dans Azure."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: szarkos
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: a6de7a7c-cc70-44e7-aed0-2ae6884d401a
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: szark
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: e96a2beccf48c8bfd08d0c7ae111219fd4269fcc
+
 
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Préparer un disque dur virtuel Debian pour Azure
@@ -24,9 +28,9 @@ Cette section suppose que vous avez déjà installé un système d’exploitatio
 ## <a name="installation-notes"></a>Notes d'installation
 * Consultez également les [Notes générales d’installation sous Linux](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) pour obtenir d’autres conseils sur la préparation de Linux pour Azure.
 * Azure ne prend pas en charge le nouveau format VHDX. Vous pouvez convertir le disque au format VHD à l’aide de Hyper-V Manager ou de l’applet de commande **convert-vhd** .
-* Lors de l’installation du système Linux, il est recommandé d’utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. La technique [LVM](virtual-machines-linux-configure-lvm.md) ou [RAID](virtual-machines-linux-configure-raid.md) peut être utilisée sur les disques de données, le cas échéant.
-* Ne configurez pas une partition d'échange sur le disque du système d'exploitation. Vous pouvez configurer l’agent Linux Azure pour créer un fichier d’échange sur le disque de ressources temporaire. Les étapes ci-dessous fournissent plus d’informations à ce sujet.
-* La taille des disques durs virtuels doit être un multiple de 1 Mo.
+* Lors de l’installation du système Linux, il est recommandé d’utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. La technique [LVM](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) peut être utilisée sur les disques de données, le cas échéant.
+* Ne configurez pas une partition d'échange sur le disque du système d'exploitation. Vous pouvez configurer l’agent Linux Azure pour créer un fichier d’échange sur le disque de ressources temporaire. Les étapes ci-dessous fournissent plus d’informations à ce sujet.
+* La taille des disques durs virtuels doit être un multiple de 1 Mo.
 
 ## <a name="use-azure-manage-to-create-debian-vhds"></a>Utiliser Azure-Manage pour créer des disques durs virtuels Debian
 Il existe plusieurs outils permettant de créer des disques durs virtuels Debian pour Azure, par exemple les scripts [azure-manage](https://github.com/credativ/azure-manage) de [credativ](http://www.credativ.com/). Cette approche est préférable à la création d'une image à partir de zéro. Par exemple, pour créer un disque dur virtuel Debian 8, exécutez les commandes suivantes pour télécharger azure-manage (et les dépendances) puis exécutez le script azure_build_image :
@@ -44,13 +48,13 @@ Il existe plusieurs outils permettant de créer des disques durs virtuels Debian
 
 
 ## <a name="manually-prepare-a-debian-vhd"></a>Préparer manuellement un disque dur virtuel Debian
-1. Dans le Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
+1. Dans le Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
 2. Cliquez sur **Connecter** pour ouvrir une fenêtre de console de la machine virtuelle.
 3. Si vous configurez la machine virtuelle par rapport à un fichier ISO, commentez la ligne **deb cdrom** dans `/etc/apt/source.list`.
 4. Modifiez le fichier `/etc/default/grub` et le paramètre **GRUB_CMDLINE_LINUX** comme suit pour y inclure des paramètres de noyau supplémentaires pour Azure.
    
         GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200 earlyprintk=ttyS0,115200 rootdelay=30"
-5. Régénérez le grub et exécutez-le :
+5. Régénérez le grub et exécutez-le :
    
         # sudo update-grub
 6. Ajoutez les référentiels Azure de Debian à /etc/apt/sources.list pour Debian 7 ou 8 :
@@ -70,7 +74,7 @@ Il existe plusieurs outils permettant de créer des disques durs virtuels Debian
         deb-src http://debian-archive.trafficmanager.net/debian-azure jessie main
 
 
-1. Installez l'agent Linux Azure :
+1. Installez l'agent Linux Azure :
    
         # sudo apt-get update
         # sudo apt-get install waagent
@@ -81,16 +85,19 @@ Il existe plusieurs outils permettant de créer des disques durs virtuels Debian
         Pin-Priority: 500
    
     Puis exécutez "sudo apt-get install linux-image-amd64" pour installer le nouveau noyau.
-3. Mettez hors service la machine virtuelle, préparez-la pour un approvisionnement sur Azure, puis exécutez :
+3. Mettez hors service la machine virtuelle, préparez-la pour un approvisionnement sur Azure, puis exécutez :
    
         # sudo waagent –force -deprovision
         # export HISTSIZE=0
         # logout
-4. Cliquez sur **Action** -> Arrêter dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
+4. Cliquez sur **Action** -> Arrêter dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous êtes maintenant prêt à utiliser votre disque dur virtuel Debian pour créer des machines virtuelles dans Azure. S’il s’agit de la première fois que vous chargez le fichier .vhd sur Azure, consultez les étapes 2 et 3 dans [Création et chargement d’un disque dur virtuel contenant le système d’exploitation Linux](virtual-machines-linux-classic-create-upload-vhd.md).
+Vous êtes maintenant prêt à utiliser votre disque dur virtuel Debian pour créer des machines virtuelles dans Azure. S’il s’agit de la première fois que vous chargez le fichier .vhd sur Azure, consultez les étapes 2 et 3 dans [Création et chargement d’un disque dur virtuel contenant le système d’exploitation Linux](virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

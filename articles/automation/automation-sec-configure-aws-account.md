@@ -13,11 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2016
+ms.date: 11/11/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: eee65672b3a9615afe2850b0cbc6daa275fc04ec
+ms.sourcegitcommit: 843f0862f9e4d8dc1d40e110710e48ad66716168
+ms.openlocfilehash: fe590e7fc551c175d2f41f5b98e1558a756df806
 
 
 ---
@@ -32,7 +32,7 @@ Pour vous authentifier avec AWS, vous devez spécifier un ensemble d’informati
 ## <a name="configure-automation-account"></a>Configuration d’un compte Automation
 Pour qu’Azure Automation communique avec AWS, vous devez d’abord récupérer vos informations d’identification AWS et les stocker en tant que ressources dans Azure Automation.  Exécutez les opérations décrites dans le document AWS [Managing Access Keys for your AWS Account](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) (Gestion des clés d’accès de votre compte AWS) pour créer une clé d’accès et copiez **l’ID de clé d’accès** et la **clé d’accès secrète** (vous pouvez également télécharger votre fichier de clés pour le stocker dans un endroit sûr).
 
-Une fois que vous avez créé et copié vos clés de sécurité AWS, vous devrez créer un actif Informations d’identification avec un compte Azure Automation pour les stocker en toute sécurité et les référencer avec vos runbooks.  Suivez les étapes décrites dans la section **Création d’une nouvelle ressource d’informations d’identification** de l’article [Ressources d’informations d’identification d’Azure Automation](automation-credentials.md#creating-a-new-credential-asset), et entrez les informations suivantes :
+Une fois que vous avez créé et copié vos clés de sécurité AWS, vous devrez créer un actif Informations d’identification avec un compte Azure Automation pour les stocker en toute sécurité et les référencer avec vos runbooks.  Suivez les étapes décrites dans la section **Création d’une nouvelle ressource d’informations d’identification** de l’article [Ressources d’informations d’identification d’Azure Automation](automation-credentials.md), et entrez les informations suivantes :
 
 1. Dans la zone **Nom**, entrez **AWScred** ou une valeur appropriée, suivant vos normes d’affectation de noms.  
 2. Dans la zone **Nom d’utilisateur**, entrez votre **ID de clé d’accès** et votre **clé d’accès secrète** dans les zones **Mot de passe** et **Confirmer le mot de passe**.   
@@ -42,6 +42,7 @@ Une fois que vous avez créé et copié vos clés de sécurité AWS, vous devrez
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

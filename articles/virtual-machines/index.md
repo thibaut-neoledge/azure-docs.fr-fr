@@ -1,14 +1,26 @@
 ---
 layout: LandingPage
 toc_rel: breadcrumb.json
+description: "Découvrez comment créer, déployer et gérer des machines virtuelles Windows ou Linux. Didacticiels, références d’API et autres documents."
+title: Documentation pour les machines virtuelles Azure | Microsoft Docs
+services: virtual-machines
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machines-windows
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: c086dc37b8665017de0dbbad9c7ac82931932a72
-ms.openlocfilehash: 57994a1476186696b81b05e0ce7ae645337d35b2
+ms.sourcegitcommit: 0b803da9d1cfefababd18b48fd39efc9895331bf
+ms.openlocfilehash: 2cbeaebcd79944511bbd2532b533acf1b98bef06
 
 ---
-#<a name="virtual-machines-documentation"></a>Documentation Machines virtuelles
+# <a name="virtual-machines-documentation"></a>Documentation Machines virtuelles
 
-Une machine virtuelle Azure vous donne la flexibilité de la virtualisation sans devoir acheter le matériel physique qui exécute la machine virtuelle ni en assurer la maintenance. Toutefois, vous devez toujours assurer la maintenance de la machine virtuelle : configuration, mise à jour corrective et maintenance du logiciel qui s’exécute sur la machine virtuelle.
+Découvrez comment créer des machines virtuelles Azure. Des didacticiels, des références d’API et d’autres documents vous montrent comment créer et déployer des machines virtuelles Windows et Linux, ainsi que des modèles de machine virtuelle complexes.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -49,16 +61,10 @@ Une machine virtuelle Azure vous donne la flexibilité de la virtualisation sans
     </li>    
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation Machines virtuelles </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

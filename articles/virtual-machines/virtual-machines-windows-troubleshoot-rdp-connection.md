@@ -17,8 +17,8 @@ ms.topic: support-article
 ms.date: 10/26/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 5ec7286f577f7a822a29839ce246c6140fad6280
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: 592d6b0168b9ebb47ed841f7e2b55d55a07500aa
 
 
 ---
@@ -113,7 +113,7 @@ Après chaque étape de résolution des problèmes, essayez de nouveau de vous c
 Si vous rencontrez toujours des problèmes liés au protocole RDP, vous pouvez [ouvrir une demande de support](https://azure.microsoft.com/support/options/) ou lire [des concepts et des étapes de résolution des problèmes RDP plus détaillés](virtual-machines-windows-detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="troubleshoot-using-azure-powershell"></a>Résolution des problèmes à l’aide d’Azure PowerShell
-Si vous ne l’avez pas déjà fait, [installez et configurez la dernière version d’Azure PowerShell](../powershell-install-configure.md).
+Si vous ne l’avez pas déjà fait, [installez et configurez la dernière version d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Les exemples suivants utilisent des variables telles que `myResourceGroup`, `myVM` et `myVMAccessExtension`. Remplacez ces noms de variables et les emplacements par vos propres valeurs.
 
@@ -256,6 +256,6 @@ Si aucune de ces erreurs ne s’est produite et que vous ne parvenez toujours pa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

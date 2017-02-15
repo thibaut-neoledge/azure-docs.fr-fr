@@ -3,8 +3,8 @@ title: "Utilisation du stockage Table Azure à partir de Ruby | Microsoft Docs"
 description: "Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure, un magasin de données NoSQL."
 services: storage
 documentationcenter: ruby
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: 
 ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: c05d8d244f22998113b0fa9c7508ecc287bdbd64
-ms.openlocfilehash: d43160bf1fa7dd08bb6c3fd5e2d0f3111134239b
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: e1df2fcf4478ef7f58c5686e85abd6ae94b5a2d3
 
 
 ---
@@ -62,19 +62,19 @@ Pour obtenir ces valeurs à partir d’un compte de stockage classique ou Resour
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez au compte de stockage que vous souhaitez utiliser.
 3. Dans le panneau Paramètres à droite, cliquez sur **Clés d’accès**.
-4. Dans le panneau Clés d’accès qui apparaît, la clé d’accès 1 et la clé d’accès 2 sont affichées. Vous pouvez utiliser les deux. 
-5. Cliquez sur l'icône de copie pour copier la clé dans le Presse-papiers. 
+4. Dans le panneau Clés d’accès qui apparaît, la clé d’accès 1 et la clé d’accès 2 sont affichées. Vous pouvez utiliser les deux.
+5. Cliquez sur l'icône de copie pour copier la clé dans le Presse-papiers.
 
 Pour obtenir ces valeurs à partir d’un compte de stockage classique sur le portail Azure Classic :
 
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2. Accédez au compte de stockage que vous souhaitez utiliser.
 3. Cliquez sur **GÉRER LES CLÉS D’ACCÈS** en bas du volet de navigation.
-4. Dans la boîte de dialogue contextuelle, vous voyez le nom du compte de stockage et la clé d'accès primaire ou secondaire. Vous pouvez utiliser soit la clé d'accès primaire, soit la clé d'accès secondaire. 
+4. Dans la boîte de dialogue contextuelle, vous voyez le nom du compte de stockage et la clé d’accès primaire ou secondaire. Vous pouvez utiliser soit la clé d'accès primaire, soit la clé d'accès secondaire.
 5. Cliquez sur l'icône de copie pour copier la clé dans le Presse-papiers.
 
 ## <a name="create-a-table"></a>Création d’une table
-L’objet **Azure::TableService** permet d’utiliser des tables et des entités. Pour créer une table, utilisez la méthode **create\_table()**. L'exemple suivant crée une table ou imprime l'erreur le cas échéant.
+L’objet **Azure::TableService** permet d’utiliser des tables et des entités. Pour créer une table, utilisez la méthode **create\_table()**. L’exemple suivant crée une table ou imprime l’erreur le cas échéant.
 
 ```ruby
 azure_table_service = Azure::TableService.new
@@ -85,7 +85,7 @@ rescue
 end
 ```
 
-## <a name="add-an-entity-to-a-table"></a>Ajout d’une entité à une table
+## <a name="add-an-entity-to-a-table"></a>Ajout d'une entité à une table
 Pour ajouter une entité, créez tout d'abord un objet de hachage qui définit les propriétés de votre entité. Notez que pour chaque entité, vous devez spécifier les clés **PartitionKey** et **RowKey**. Il s’agit d’identificateurs uniques de vos entités, dont les valeurs peuvent être interrogées bien plus rapidement que d’autres propriétés. Azure Storage utilise **PartitionKey** pour distribuer automatiquement les entités de la table sur plusieurs nœuds de stockage. Les entités partageant la même clé **PartitionKey** sont stockées sur le même nœud. **RowKey** est l'identifiant unique de l'entité dans sa partition.
 
 ```ruby
@@ -143,8 +143,8 @@ result, token = azure_table_service.query_entities("testtable", query)
 
 > [!NOTE]
 > Si l’ensemble de résultats est trop grand pour être renvoyé par une seule requête, un jeton de liaison est renvoyé. Vous pouvez l’utiliser pour récupérer les pages suivantes.
-> 
-> 
+>
+>
 
 ## <a name="query-a-subset-of-entity-properties"></a>Interrogation d'un sous-ensemble de propriétés d'entité
 Vous pouvez utiliser une requête de table pour extraire uniquement quelques propriétés d’une entité. Cette technique, nommée « projection », réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. Utilisez la clause select et transmettez le nom des propriétés à soumettre au client.
@@ -178,6 +178,6 @@ Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

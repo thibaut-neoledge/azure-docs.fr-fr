@@ -1,13 +1,13 @@
 ---
-title: Transférer des circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager | Microsoft Docs
-description: Cette page décrit comment déplacer un circuit classique vers le modèle de déploiement Resource Manager.
+title: "Transférer des circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager | Microsoft Docs"
+description: "Cette page décrit comment déplacer un circuit classique vers le modèle de déploiement Resource Manager."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 08152836-23e7-42d1-9a56-8306b341cd91
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1c3bd8e01e02fb66bf5e04c307863bbe54176128
+
 
 ---
 # <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Transférer des circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager
@@ -28,7 +32,7 @@ ms.author: ganesr
 ## <a name="move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Transférer le circuit ExpressRoute vers le modèle de déploiement Resource Manager
 Vous devez déplacer un circuit ExpressRoute vers le modèle de déploiement Resource Manager pour pouvoir l’utiliser à la fois dans des modèles de déploiement classiques et Resource Manager. Vous pouvez le faire en exécutant les commandes PowerShell suivantes.
 
-### <a name="step-1:-gather-circuit-details-from-the-classic-deployment-model"></a>Étape 1 : Collecter des informations sur le circuit à partir du modèle de déploiement classique
+### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>Étape 1 : Collecter des informations sur le circuit à partir du modèle de déploiement classique
 Vous devez d’abord collecter des informations sur votre circuit ExpressRoute.
 
 Connectez-vous à l’environnement classique Azure et collectez la clé de service. Vous pouvez utiliser l’extrait de code PowerShell suivant pour recueillir les informations :
@@ -48,7 +52,7 @@ Connectez-vous à l’environnement classique Azure et collectez la clé de serv
 
 Copiez la **clé de service** du circuit que vous souhaitez transférer vers le modèle de déploiement Resource Manager.
 
-### <a name="step-2:-sign-in-to-the-resource-manager-environment,-and-create-a-new-resource-group"></a>Étape 2 : Se connecter à l’environnement Resource Manager et créer un groupe de ressources
+### <a name="step-2-sign-in-to-the-resource-manager-environment-and-create-a-new-resource-group"></a>Étape 2 : Se connecter à l’environnement Resource Manager et créer un groupe de ressources
 Vous pouvez créer un groupe de ressources en utilisant l’extrait de code suivant :
 
     # Sign in to your Azure Resource Manager environment
@@ -62,7 +66,7 @@ Vous pouvez créer un groupe de ressources en utilisant l’extrait de code suiv
 
 Vous pouvez également utiliser un groupe de ressources existant si vous en avez un.
 
-### <a name="step-3:-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Étape 3 : Transférer le circuit ExpressRoute vers le modèle de déploiement Resource Manager
+### <a name="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Étape 3 : Transférer le circuit ExpressRoute vers le modèle de déploiement Resource Manager
 Vous êtes maintenant prêt à transférer votre circuit ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager. Passez en revue les informations fournies sous [Transférer des circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager](expressroute-move.md) avant de continuer.
 
 Pour ce faire, exécutez l’extrait de code suivant :
@@ -114,11 +118,14 @@ Exécutez l’applet de commande suivante pour désactiver l’accès au modèle
 Une fois cette opération terminée avec succès, vous ne serez pas en mesure d’afficher le circuit dans le modèle de déploiement classique.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Après avoir créé votre circuit, effectuez les opérations suivantes :
+Après avoir créé votre circuit, effectuez les opérations suivantes :
 
 * [Créer et modifier le routage le routage pour votre circuit ExpressRoute](expressroute-howto-routing-arm.md)
 * [Lier votre réseau virtuel à votre circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

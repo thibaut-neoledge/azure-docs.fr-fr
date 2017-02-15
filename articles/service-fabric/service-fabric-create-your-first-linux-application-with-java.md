@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2016
+ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2cf98a0ef478a058c03122d3e027ef37e2404a09
-ms.openlocfilehash: 8a7b100a531ea1dd5420451064fdfb1eb3f21782
+ms.sourcegitcommit: 381d372b549fa0ed0900d97c03b9584b21624b25
+ms.openlocfilehash: 4a8fb3499ec55e451b54a05d5642bdf9a924294f
 
 
 ---
@@ -25,17 +25,21 @@ ms.openlocfilehash: 8a7b100a531ea1dd5420451064fdfb1eb3f21782
 > * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
 > * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
-> 
-> 
+>
+>
 
-Service Fabric fournit des Kits de développement logiciel (SDK) pour générer des services Linux dans .NET Core et Java. Dans ce didacticiel, nous créons une application pour Linux et générer un service à l’aide de Java.  La vidéo de la Microsoft Virtual Academy suivante vous guide également dans le processus de création d’une application Java sur Linux :  
-<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
-<img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+Service Fabric fournit des Kits de développement logiciel (SDK) pour générer des services Linux dans .NET Core et Java. Dans ce didacticiel, nous créons une application pour Linux et générer un service à l’aide de Java.  
 
 > [!NOTE]
 > Java, en tant que langage de programmation de première classe intégré, est uniquement pris en charge avec la version préliminaire de Linux (la prise en charge avec Windows est prévue). Toutefois, toutes les applications, y compris les applications Java, peuvent être exécutées en tant qu’exécutables invités ou dans des conteneurs sur Windows ou Linux. Pour plus d’informations, consultez [Deploy an existing executable to Azure Service Fabric (Déploiement d’un exécutable existant dans Azure Service Fabric)](service-fabric-deploy-existing-app.md) et [Deploy containers to Service Fabric (Déployer des conteneurs dans Service Fabric)](service-fabric-deploy-container.md).
-> 
+>
+
+## <a name="video-tutorial"></a>Didacticiel vidéo
+
+La vidéo de la Microsoft Virtual Academy suivante vous guide dans le processus de création d’une application Java sur Linux :  
+<center><a target="\_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
+<img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 
 ## <a name="prerequisites"></a>Composants requis
@@ -47,12 +51,12 @@ Une application Service Fabric peut contenir un ou plusieurs services, chacun ay
 1. Saisissez ``yo azuresfjava`` dans un terminal.
 2. Donnez un nom à votre application.
 3. Choisissez le type de votre premier service et nommez-le. Pour les besoins de ce didacticiel, nous choisissons un service Reliable Actors.
-   
+
    ![Générateur Yeoman Service Fabric pour Java][sf-yeoman]
 
 > [!NOTE]
 > Pour plus d’informations sur les options, voir [Vue d’ensemble des modèles de programmation Service Fabric](service-fabric-choose-framework.md).
-> 
+>
 
 ## <a name="build-the-application"></a>Création de l'application
 Les modèles Yeoman Service Fabric incluent un script de build pour [Gradle](https://gradle.org/), que vous pouvez utiliser pour générer l’application à partir du terminal.
@@ -66,13 +70,13 @@ Les modèles Yeoman Service Fabric incluent un script de build pour [Gradle](htt
 Une fois que l’application est générée, vous pouvez la déployer vers le cluster local à l’aide de l’interface de ligne de commande Azure.
 
 1. Connectez-vous au cluster Service Fabric local.
-   
+
     ```bash
     azure servicefabric cluster connect
     ```
 
 2. Utilisez le script d’installation fourni dans le modèle pour copier le package d’application dans le magasin d’images du cluster, inscrire le type d’application et créer une instance de l’application.
-   
+
     ```bash
     ./install.sh
     ```
@@ -85,14 +89,14 @@ Une fois que l’application est générée, vous pouvez la déployer vers le cl
 Les projets d’acteur n’effectuent aucune opération automatiquement. Ils ont besoin d’un autre service ou client pour leur envoyer des messages. Le modèle d’acteur inclut un script de test simple que vous pouvez utiliser pour interagir avec le service d’acteur.
 
 1. Exécutez le script à l’aide de l’utilitaire watch pour afficher la sortie du service d’acteur.
-   
+
     ```bash
     cd myactorsvcTestClient
     watch -n 1 ./testclient.sh
     ```
 
 2. Dans Service Fabric Explorer, recherchez le nœud qui héberge le réplica principal pour le service d’acteur. Dans la capture d’écran ci-dessous, il s’agit du nœud 3.
-   
+
     ![Recherche du réplica principal dans Service Fabric Explorer][sfx-primary]
 
 3. Cliquez sur le nœud trouvé à l’étape précédente, puis sélectionnez **Désactiver (redémarrer)** à partir du menu Actions. Cette action permet de redémarrer l’un des cinq nœuds de votre cluster local et de forcer un basculement sur l’un des réplicas secondaires s’exécutant sur un autre nœud. Dans le même temps, prêtez attention à la sortie du client de test et notez que le compteur continue à être incrémenté malgré le basculement.
@@ -106,7 +110,7 @@ Si vous avez installé le plug-in [Service Fabric](https://docs.microsoft.com/en
 Le plug-in Service Fabric est disponible via l’extensibilité Eclipse.
 
 1. Dans Eclipse, choisissez **Fichier > Autres > Service Fabric**. Un ensemble d’options s’affiche, notamment Acteurs et Conteneurs.
-   
+
     ![Modèles Service Fabric dans Eclipse][sf-eclipse-templates]
 
 2. Ici, choisissez Service sans état.
@@ -114,7 +118,7 @@ Le plug-in Service Fabric est disponible via l’extensibilité Eclipse.
 3. Vous êtes invité à confirmer l’utilisation de la perspective Service Fabric, qui optimise Eclipse pour une utilisation avec les projets Service Fabric. Choisissez « Oui ».
 
 ### <a name="deploy-the-application"></a>Déployer l’application
-Les modèles Service Fabric comprennent un ensemble de tâches Gradle pour générer et déployer des applications, que vous pouvez déclencher via Eclipse. 
+Les modèles Service Fabric comprennent un ensemble de tâches Gradle pour générer et déployer des applications, que vous pouvez déclencher via Eclipse.
 
 1. Choisissez **Exécuter > Run Configurations (Exécuter des configurations)**.
 2. Spécifiez **local** ou **cloud**. La valeur par défaut est **local**. Pour déployer sur un cluster à distance, sélectionnez **cloud**.
@@ -125,7 +129,7 @@ Votre application est générée et déployée en quelques instants. Vous pouvez
 
 ## <a name="adding-more-services-to-an-existing-application"></a>Ajout d’autres services à une application existante
 
-Pour ajouter un autre service à une application déjà créée à l’aide de `yo`, procédez comme suit : 
+Pour ajouter un autre service à une application déjà créée à l’aide de `yo`, procédez comme suit :
 1. Accédez au répertoire à la racine de l’application existante.  Par exemple, `cd ~/YeomanSamples/MyApplication`, si `MyApplication` est l’application créée par Yeoman.
 2. Exécutez `yo azuresfjava:AddService`.
 

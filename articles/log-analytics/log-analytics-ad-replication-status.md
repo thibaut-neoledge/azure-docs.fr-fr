@@ -1,19 +1,23 @@
 ---
-title: Solution État de la réplication Active Directory dans Log Analytics | Microsoft Docs
-description: Le pack de solution État de la réplication Active Directory surveille régulièrement votre environnement Active Directory pour déterminer si des échecs de réplication se produisent et indique les résultats dans votre tableau de bord OMS.
+title: "Solution État de la réplication Active Directory dans Log Analytics | Microsoft Docs"
+description: "Le pack de solution État de la réplication Active Directory surveille régulièrement votre environnement Active Directory pour déterminer si des échecs de réplication se produisent et indique les résultats dans votre tableau de bord OMS."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
-manager: jwhit
-editor: ''
-
+manager: carmonm
+editor: 
+ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 49e5cc5045f5bd626826b4992b8b49f886ef7bde
+
 
 ---
 # <a name="active-directory-replication-status-solution-in-log-analytics"></a>Solution État de la réplication Active Directory dans Log Analytics
@@ -34,22 +38,22 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![Oui](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |![Oui](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |![Non](./media/log-analytics-ad-replication-status/oms-bullet-red.png) |![Non](./media/log-analytics-ad-replication-status/oms-bullet-red.png) |![Oui](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |Tous les 5 jours |
 
-## <a name="optionally,-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>Autoriser éventuellement un ordinateur autre qu’un contrôleur de domaine à envoyer les données AD à OMS
+## <a name="optionally-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>Autoriser éventuellement un ordinateur autre qu’un contrôleur de domaine à envoyer les données AD à OMS
 Si vous ne souhaitez pas connecter directement un de vos contrôleurs de domaine à OMS, vous pouvez utiliser n’importe quel autre ordinateur connecté à OMS dans votre domaine pour collecter les données du pack de solution État de la réplication AD et les envoyer.
 
 ### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>Pour autoriser un ordinateur autre qu’un contrôleur de domaine à envoyer les données AD à OMS
 1. Vérifiez que l’ordinateur est membre du domaine que vous souhaitez analyser à l’aide de la solution État de la réplication AD.
 2. [Connectez l’ordinateur Windows à OMS](log-analytics-windows-agents.md) ou [connectez-le à l’aide de votre environnement Operations Manager existant à OMS](log-analytics-om-agents.md), s’il n’est pas déjà connecté.
 3. Sur cet ordinateur, définissez la clé de Registre suivante :
-   
-   * Clé : **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
-   * Valeur : **IsTarge**
-   * Données de la valeur : **true**
-   
+
+   * Clé : **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
+   * Valeur : **IsTarge**
+   * Données de la valeur : **true**
+
    > [!NOTE]
    > Ces modifications ne prendront effet qu’une fois que vous aurez redémarré le service Microsoft Monitoring Agent (HealthService.exe).
-   > 
-   > 
+   >
+   >
 
 ## <a name="understanding-replication-errors"></a>Présentation des erreurs de réplication
 Une fois les données de l’état de la réplication AD envoyées à OMS, une vignette similaire à la suivante apparaît dans le tableau de bord OMS, indiquant le nombre actuel d’erreurs de réplication.  
@@ -93,8 +97,8 @@ Comme indiqué précédemment, la vignette du tableau de bord pour la solution �
 
 > [!NOTE]
 > Tous les calculs de pourcentage de la durée de vie des objets tombstone (TSL) reposent sur la durée de vie des objets tombstone (TSL) réelle de votre forêt Active Directory ; ainsi, vous pouvez considérer que ces pourcentages sont exacts, même si une valeur personnalisée est définie pour la durée de vie des objets tombstone (TSL).
-> 
-> 
+>
+>
 
 ### <a name="ad-replication-status-details"></a>Détails de l’état de la réplication AD
 Quand vous cliquez sur un élément d’une liste, des informations supplémentaires le concernant apparaissent dans la recherche de journal. Les résultats sont filtrés pour afficher uniquement les erreurs liées à cet élément. Par exemple, si vous cliquez sur le premier contrôleur de domaine répertorié sous **Destination Server Status (ADDC02)**(État du serveur de destination (ADDC02)), les résultats de la recherche sont filtrés de manière à présenter les erreurs qui affectent ce contrôleur de domaine en tant que serveur de destination :
@@ -119,8 +123,8 @@ Vous pouvez également cliquer sur **Exporter** pour exporter les résultats ver
 **Q : Dois-je ajouter tous mes contrôleurs de domaine à mon espace de travail OMS pour afficher l’état de réplication ?**
  R : Non, un seul contrôleur de domaine doit être ajouté. Si vous avez plusieurs contrôleurs de domaine dans votre espace de travail OMS, toutes leurs données sont envoyées à OMS.
 
-**Q : Je ne veux pas ajouter de contrôleurs de domaine à mon espace de travail OMS. Puis-je néanmoins utiliser la solution État de la réplication AD ?**
-R. : Oui. Vous pouvez définir la valeur d’une clé de Registre pour activer cette solution. Voir [Pour autoriser un ordinateur autre qu’un contrôleur de domaine à envoyer les données AD à OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+**Q : Je ne veux pas ajouter de contrôleurs de domaine à mon espace de travail OMS. Puis-je néanmoins utiliser la solution État de la réplication AD ?**
+R. : Oui. Vous pouvez définir la valeur d’une clé de Registre pour activer cette solution. Voir [Pour autoriser un ordinateur autre qu’un contrôleur de domaine à envoyer les données AD à OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 **Q : Quel est le nom du processus qui effectue la collecte de données ?**
  R : AdvisorAssessment.exe
@@ -147,6 +151,8 @@ Si vous ne souhaitez pas connecter un de vos contrôleurs de domaine directement
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez [Recherches de journal dans Log Analytics](log-analytics-log-searches.md) pour afficher des données détaillées sur l’état de la réplication Active Directory.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

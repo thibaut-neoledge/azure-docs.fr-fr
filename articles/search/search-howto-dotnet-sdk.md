@@ -544,6 +544,6 @@ Vous trouverez le code source complet de l’exemple d’application utilisé da
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

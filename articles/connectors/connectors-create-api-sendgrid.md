@@ -162,6 +162,6 @@ Ajouter un destinataire à une liste : ajouter un destinataire individuel à une
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

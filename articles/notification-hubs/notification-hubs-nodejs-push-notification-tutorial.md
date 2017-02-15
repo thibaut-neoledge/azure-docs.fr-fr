@@ -215,6 +215,6 @@ Les exemples d’extrait de code ci-dessus permettent de créer facilement une i
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

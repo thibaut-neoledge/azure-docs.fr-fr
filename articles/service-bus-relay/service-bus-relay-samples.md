@@ -1,89 +1,96 @@
 ---
-title: Service Bus relay samples overview | Microsoft Docs
-description: Categorizes and describes Service Bus relay samples with links to each.
-services: service-bus
+title: "Vue d’ensemble des exemples de relais Service Bus | Microsoft Docs"
+description: "Classe et décrit les exemples de relais Service Bus avec des liens vers chacun d’eux."
+services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 9237a9a2-f126-4d3f-9f9b-604ee6b32153
+ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0b2206fae964c55e961505b9d0e2ad71fd0b2102
+
 
 ---
-# <a name="service-bus-relay-samples"></a>Service Bus relay samples
-The Service Bus relay samples demonstrate key features in [Service Bus relay](https://azure.microsoft.com/services/service-bus/). This article categorizes and describes the samples available, with links to each.
+# <a name="service-bus-relay-samples"></a>Exemples de relais Service Bus
+Les exemples de relais Service Bus illustrent des fonctionnalités clés de [Service Bus Relay](https://azure.microsoft.com/services/service-bus/). Cette article attribue une catégorie et décrit les exemples disponibles, avec des liens vers chacun d’eux.
 
 > [!NOTE]
-> Service Bus samples are not installed with the SDK. To obtain the samples, visit the [Azure SDK samples page](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
+> Les exemples Service Bus ne sont pas installés avec le Kit de développement logiciel. Pour obtenir des exemples, visitez la [page d’exemples de kit de développement logiciels Microsoft Azure](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
 > 
-> Additionally, there is an updated set of Service Bus relay samples [here](https://github.com/Azure-Samples/azure-servicebus-relay-samples) (as of this writing, they are not described in this article).  
+> Un ensemble actualisé d’exemples de relais Service Bus est également disponible [ici](https://github.com/Azure-Samples/azure-servicebus-relay-samples) (ils ne sont pas décrits dans cet article pour le moment).  
 > 
 > 
 
-For messaging samples, see [Service Bus messaging samples](../service-bus-messaging/service-bus-samples.md).
+Pour plus d’exemples de messagerie, consultez [Service Bus messaging samples](../service-bus-messaging/service-bus-samples.md) (Exemples de messagerie Service Bus).
 
-## <a name="service-bus-relay"></a>Service Bus relay
-The following samples illustrate how to write applications that use the Service Bus relay service.
+## <a name="service-bus-relay"></a>Service Bus Relay
+Les exemples suivants montrent comment écrire des applications qui utilisent le service Service Bus Relay.
 
-Note that the relay samples require a connection string to access your Service Bus namespace.
+Notez que les exemples de relais requièrent une chaîne de connexion pour accéder à votre espace de noms Service Bus.
 
-### <a name="to-obtain-a-connection-string-for-azure-service-bus"></a>To obtain a connection string for Azure Service Bus
-1. Log on to the [Azure portal](http://portal.azure.com).
-2. In the left-hand column, click **Service Bus**.
-3. Click the name of your namespace in the list.
-4. In the namespace blade, click **Shared access policies**.
-5. In the **Shared access policies** blade, click **RootManageSharedAccessKey**.
-6. Copy the connection string to the clipboard.
+### <a name="to-obtain-a-connection-string-for-azure-service-bus"></a>Pour obtenir une chaîne de connexion pour Azure Service Bus.
+1. Connectez-vous au [Portail Azure](http://portal.azure.com).
+2. Dans la colonne de gauche, cliquez sur **Service Bus**.
+3. Cliquez sur le nom de votre espace de noms dans la liste.
+4. Dans le panneau Espace de noms, cliquez sur **Stratégies d’accès partagé**.
+5. Dans le panneau **Stratégies d’accès partagé**, cliquez sur **RootManageSharedAccessKey**.
+6. Copiez la chaîne de connexion dans le Presse-papiers.
 
-### <a name="to-obtain-a-connection-string-for-service-bus-for-windows-server"></a>To obtain a connection string for Service Bus for Windows Server
-1. Run the following PowerShell cmdlet:
+### <a name="to-obtain-a-connection-string-for-service-bus-for-windows-server"></a>Pour obtenir une chaîne de connexion de Service Bus pour Windows Server
+1. Exécutez l’applet de commande PowerShell suivant :
    
     ```
     get-sbClientConfiguration
     ```
-2. Paste the connection string into the App.config file for the sample.
+2. Collez la chaîne de connexion dans le fichier App.config de l’exemple.
 
-## <a name="service-bus-relay"></a>Service Bus relay
-Samples that demonstrate the Service Bus relay.
+## <a name="service-bus-relay"></a>Service Bus Relay
+Exemples qui illustrent le relais du Bus des services.
 
-### <a name="getting-started"></a>Getting started
-| Sample Name | Description | Minimum SDK Version | Availability |
+### <a name="getting-started"></a>Prise en main
+| Nom d’exemple | Description | Kit de développement logiciel minimum | Availability |
 | --- | --- | --- | --- |
-| [Relayed Messaging: Azure](http://code.msdn.microsoft.com/Relayed-Messaging-Windows-0d2cede3) |Demonstrates how to run a Service Bus client and service on Azure. This sample configures Service Bus programmatically. Only environment and security information is stored in the configuration files. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Authentication: Shared Secret](http://code.msdn.microsoft.com/Relayed-Messaging-92b04c02) |Demonstrates how to use an issuer name and issuer secret to authenticate with Service Bus. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Authentication: WebNoAuth](http://code.msdn.microsoft.com/Relayed-Messaging-a4f0b831) |Demonstrates how to expose an HTTP service that does not require client user authentication. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Bindings: WebHttp](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-a6477ba0) |Demonstrates how to use the **WebHttpRelayBinding** binding to return binary data using the Web programming model. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Bindings: NetTcp Relayed](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-2dec7692) |Demonstrates how to use the **NetTcpRelayBinding** binding. |1.8 |Microsoft Azure Service Bus |
+| [Messagerie relayée WCF : Azure](http://code.msdn.microsoft.com/Relayed-Messaging-Windows-0d2cede3) |Montre comment exécuter un service et le client Service Bus sur Azure. Cet exemple configure le Bus des services par programmation. Seules les informations de sécurité et d’environnement sont stockées dans les fichiers de configuration. |1.8 |Microsoft Azure Service Bus |
+| [Authentification de messagerie relayée WCF : secret partagé](http://code.msdn.microsoft.com/Relayed-Messaging-92b04c02) |Montre comment utiliser le nom de d’émetteur et le secret de l’émetteur pour procéder à l’authentification avec Service Bus. |1.8 |Microsoft Azure Service Bus |
+| [Authentification de messagerie relayée WCF : WebNoAuth](http://code.msdn.microsoft.com/Relayed-Messaging-a4f0b831) |Montre comment exposer un service HTTP qui ne nécessite pas d’authentification de client utilisateur. |1.8 |Microsoft Azure Service Bus |
+| [Liaisons de messagerie relayée WCF : WebHttp](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-a6477ba0) |Montre comment utiliser la liaison **WebHttpRelayBinding** liaison pour renvoyer des données binaires à l’aide du modèle de programmation web. |1.8 |Microsoft Azure Service Bus |
+| [Liaisons de messagerie relayée WCF : NetTcp Relayé](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-2dec7692) |Montre comment utiliser la liaison **NetTcpRelayBinding** . |1.8 |Microsoft Azure Service Bus |
 
-### <a name="exploring-features"></a>Exploring features
-Samples that demonstrate various Service Bus relay features.
+### <a name="exploring-features"></a>Exploration des fonctions
+Exemples qui illustrent différentes fonctions de relais Service Bus.
 
-| Sample Name | Description | Minimum SDK Version | Availability |
+| Nom d’exemple | Description | Kit de développement logiciel minimum | Availability |
 | --- | --- | --- | --- |
-| [Relayed Messaging Authentication: Simple WebToken](http://code.msdn.microsoft.com/Relayed-Messaging-32c74392) |Demonstrates how to use a simple web token credential to authenticate with Service Bus. The sample is similar to the Echo sample, with a few changes. Specifically, this sample adds a behavior in the ServiceHost (service) and ChannelFactory (client) applications. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging: Load Balance](http://code.msdn.microsoft.com/Relayed-Messaging-Load-bd76a9f8) |Demonstrates how to use Microsoft Azure Service Bus to route messages to multiple receivers. It shows multiple instances of a simple service communicating with a client via the **NetTcpRelayBinding** binding |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Bindings: Net Event](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-c0176977) |Demonstrates using the **NetEventRelayBinding** binding on Microsoft Azure Service Bus. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Bindings: WS2007Http Session](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-ef1f1fcb) |Demonstrates using the **WS2007HttpRelayBinding** binding with reliable sessions enabled. It also shows how to specify Service Bus credentials in the configuration file instead of programmatically. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Bindings: WS2007Http MsgSecCertificate](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-f29c9da5) |Demonstrates how to use the **WS2007HttpRelayBinding** binding with message security to secure end-to-end messages while still requiring clients to authenticate with Service Bus. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging: Metadata Exchange](http://code.msdn.microsoft.com/Relayed-Messaging-Metadata-f122312e) |Demonstrates how to expose a metadata endpoint that uses the relay binding. **MetadataExchange** is supported in the following relay bindings: **NetTcpRelayBinding**, **NetOnewayRelayBinding**, **BasicHttpRelayBinding**, and **WS2007HttpRelayBinding**. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Bindings: NetTcp Direct](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-ca039161) |Demonstrates how to configure the **NetTcpRelayBinding** binding to support the **Hybrid** connection mode which first establishes a relayed connection, and if possible, switches automatically to a direct connection between a client and a service. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Bindings: NetTcp MsgSec UserName](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-30542392) |Demonstrates how to use the **NetTcpRelayBinding** binding with message security. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Bindings: Net Oneway](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-bb5b813a) |Demonstrates how to expose and consume a service endpoint using the **NetOnewayRelayBinding** binding. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Bindings: WS2007Http Simple](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-aa4b793a) |Demonstrates using the **WS2007HttpRelayBinding** binding. It demonstrates a simple service that uses no security options and does not require clients to authenticate. |1.8 |Microsoft Azure Service Bus |
+| [Authentification de messagerie relayée WCF : Webtoken simple](http://code.msdn.microsoft.com/Relayed-Messaging-32c74392) |Montre comment utiliser les informations d’identification simples pour procéder à l’authentification avec Service Bus. Cet exemple est similaire à l’exemple Echo, avec quelques modifications. Plus précisément, cet exemple ajoute un comportement aux applications ServiceHost (service) et les applications ChannelFactory (client). |1.8 |Microsoft Azure Service Bus |
+| [Messagerie relayée WCF : équilibrer la charge](http://code.msdn.microsoft.com/Relayed-Messaging-Load-bd76a9f8) |Montre comment utiliser Microsoft Azure Service Bus pour acheminer des messages vers plusieurs destinataires. Il montre plusieurs instances d’un simple service communiquant avec un client via la liaison **NetTcpRelayBinding** |1.8 |Microsoft Azure Service Bus |
+| [Liaisons de messagerie relayée WCF : événement Net](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-c0176977) |Montre l’utilisation de la liaison **NetEventRelayBinding** vers Microsoft Azure Service Bus. |1.8 |Microsoft Azure Service Bus |
+| [Liaisons de messagerie relayée WCF : session WS2007Http](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-ef1f1fcb) |Illustre l’utilisation de la liaison **WS2007HttpRelayBinding** avec des sessions fiables activées. Il montre également comment spécifier des informations d’identification Service Bus dans le fichier de configuration et non de la programmation. |1.8 |Microsoft Azure Service Bus |
+| [Liaisons de messagerie relayée WCF : WS2007Http MsgSecCertificate](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-f29c9da5) |Montre comment utiliser la liaison **WS2007HttpRelayBinding** avec la sécurité des messages pour sécuriser les messages de bout en bout tout en exigeant les clients à authentifier avec Service Bus. |1.8 |Microsoft Azure Service Bus |
+| [Messagerie relayée WCF : échange de métadonnées](http://code.msdn.microsoft.com/Relayed-Messaging-Metadata-f122312e) |Montre comment exposer un point de terminaison de métadonnées qui utilise la liaison de relais. **MetadataExchange** est pris en charge par les liaisons de relais suivantes : **NetTcpRelayBinding**, **NetOnewayRelayBinding**, **BasicHttpRelayBinding** et **WS2007HttpRelayBinding**. |1.8 |Microsoft Azure Service Bus |
+| [Liaisons de messagerie relayée WCF : NetTcp Direct](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-ca039161) |Montre comment configurer la liaison **NetTcpRelayBinding** pour prendre en charge le mode de connexion **hybride** qui établit une connexion relayée et, si possible, bascule automatiquement sur une connexion directe entre un client et un service. |1.8 |Microsoft Azure Service Bus |
+| [Liaisons de messagerie relayée WCF : NetTcp MsgSec UserName](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-30542392) |Montre comment utiliser la liaison **NetTcpRelayBinding** avec une sécurité de message. |1.8 |Microsoft Azure Service Bus |
+| [Liaisons de messagerie relayée WCF : Net unidirectionnel](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-bb5b813a) |Montre comment exposer et consommer un point de terminaison de service à l’aide de la liaison **NetOnewayRelayBinding** . |1.8 |Microsoft Azure Service Bus |
+| [Liaisons de messagerie relayée WCF : WS2007Http simple](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-aa4b793a) |Montre l’utilisation de la liaison **WS2007HttpRelayBinding** . Il montre un service simple qui n’utilise aucune option de sécurité et ne nécessite pas de clients à authentifier. |1.8 |Microsoft Azure Service Bus |
 
-## <a name="next-steps"></a>Next steps
-See the following topics for conceptual overviews of Service Bus.
+## <a name="next-steps"></a>Étapes suivantes
+Consultez les rubriques suivantes pour obtenir des présentations conceptuelles de Service Bus.
 
-* [Service Bus relay overview](service-bus-relay-overview.md)
-* [Service Bus architecture](../service-bus-messaging/service-bus-architecture.md)
-* [Service Bus fundamentals](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
+* [Présentation de Service Bus Relay](service-bus-relay-overview.md)
+* [Architecture de Service Bus](../service-bus-messaging/service-bus-architecture.md)
+* [Concepts de base de Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

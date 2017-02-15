@@ -1,5 +1,5 @@
 ---
-title: "Rôles Web et rôles de travail Python avec Visual Studio | Microsoft Docs"
+title: Prise en main des services cloud Azure et Python | Microsoft Docs
 description: "Présentation des outils Python pour Visual Studio pour la création de services cloud Azure comprenant des rôles web et de travail."
 services: cloud-services
 documentationcenter: python
@@ -12,20 +12,26 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/03/2016
+ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d951e05a9a0ae59adb64d53726e9898d95424d80
+ms.sourcegitcommit: 712c62ed3d5ff21847e2431df3530e7d39c6aae2
+ms.openlocfilehash: 53f7c17d8404bb02ab8bb2be9018ba2b179f1b08
 
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Rôles Web et rôles de travail Python avec Python Tools pour Visual Studio
+
+> [!div class="op_single_selector"]
+> * [.NET](cloud-services-dotnet-get-started.md)
+> * [Node.JS](cloud-services-nodejs-develop-deploy-app.md)
+> * [Python](cloud-services-python-ptvs.md)
+
 Cet article fournit une vue d’ensemble de l’utilisation des rôles Web et de travail Python avec [Python Tools pour Visual Studio][Python Tools pour Visual Studio]. Vous allez apprendre à utiliser Visual Studio pour créer et déployer un service cloud de base utilisant Python.
 
 ## <a name="prerequisites"></a>Composants requis
 * Visual Studio 2013 ou 2015
-* [Python Tools pour Visual Studio][Python Tools pour Visual Studio] (PTVS)
+* [Python Tools pour Visual Studio][Python Tools pour Visual Studio] (PTVS)
 * [Kit de développement logiciel (SDK) Azure Tools pour Visual Studio 2013][Kit de développement logiciel (SDK) Azure Tools pour Visual Studio 2013] ou [Kit de développement logiciel (SDK) Azure Tools pour Visual Studio 2015][Kit de développement logiciel (SDK) Azure Tools pour Visual Studio 2015]
 * [Python 2.7 32 bits][Python 2.7 32 bits] ou [Python 3.5 32 bits][Python 3.5 32 bits]
 
@@ -365,6 +371,6 @@ Pour plus de détails sur l'utilisation des services Azure à partir de vos rôl
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Analyser et diagnostiquer localement les services écrits avec Azure Service Fabric | Microsoft Docs
-description: Découvrez comment analyser et diagnostiquer vos services écrits à l’aide de Microsoft Azure Service Fabric sur un ordinateur de développement local.
+title: "Surveiller et diagnostiquer localement les services écrits avec Azure Service Fabric | Microsoft Docs"
+description: "Découvrez comment analyser et diagnostiquer vos services écrits à l’aide de Microsoft Azure Service Fabric sur un ordinateur de développement local."
 services: service-fabric
 documentationcenter: .net
 author: ms-toddabel
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: edcc0631-ed2d-45a3-851d-2c4fa0f4a326
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2016
 ms.author: toddabel
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 57e281b5e3a86b2a7bc78d47163b0475898869f0
+
 
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Surveillance et diagnostic des services dans une configuration de développement d’ordinateur local
@@ -26,7 +30,7 @@ ms.author: toddabel
 L’analyse, la détection, le diagnostic et la résolution des problèmes permettent aux services de fonctionner avec une interruption minimale de l’expérience utilisateur. Bien que l’analyse et le diagnostic soient essentiels dans un environnement de production réel déployé, leur efficacité dépend de l’adoption d’un modèle semblable pendant le développement des services pour garantir leur fonctionnement lors du passage à une configuration réelle. Service Fabric facilite pour les développeurs de service l’implémentation de diagnostics qui peuvent fonctionner parfaitement aussi bien sur une configuration de développement d’ordinateur local unique que sur une configuration réelle de cluster de production.
 
 ## <a name="the-benefits-of-event-tracing-for-windows"></a>Avantages du Suivi d’événements pour Windows
-[Suivi d'événements pour Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) est la technologie recommandée pour le suivi des messages dans Service Fabric. Les raisons sont les suivantes :
+[Suivi d'événements pour Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) est la technologie recommandée pour le suivi des messages dans Service Fabric. Les raisons sont les suivantes :
 
 * **ETW est rapide.**  Il a été créé en tant que technologie de suivi avec un impact minimal sur le temps d’exécution du code.
 * **Le suivi ETW fonctionne parfaitement dans des environnements de développement local ainsi que dans les configurations de cluster réel.** Cela signifie que vous n’êtes pas obligé de réécrire votre code de suivi quand vous êtes prêt à déployer votre code dans un cluster réel.
@@ -49,9 +53,9 @@ Pour les projets créés à partir des **modèles de service** (sans état ou av
 1. L’appel de `ServiceEventSource.Current.ServiceMessage` in the `RunAsync` est un exemple de suivi ETW personnalisé à partir du code d’application.
 2. Dans le fichier **ServiceEventSource.cs**, vous trouverez une surcharge pour la méthode `ServiceEventSource.ServiceMessage` devant être utilisée pour les événements de haute fréquence pour une question de performances.
 
-Pour les projets créés à partir des **modèles d'acteur** (sans état ou avec état) :
+Pour les projets créés à partir des **modèles d'acteur** (sans état ou avec état) :
 
-1. Ouvrez le fichier **« Nom_projet ».cs** où *Nom_projet* est le nom que vous avez choisi pour votre projet Visual Studio.  
+1. Ouvrez le fichier **« Nom_projet ».cs** où *Nom_projet* est le nom que vous avez choisi pour votre projet Visual Studio.  
 2. Recherchez le code `ActorEventSource.Current.ActorMessage(this, "Doing Work");` dans la méthode *DoWorkAsync* .  Il s'agit d'un exemple de suivi écrit ETW personnalisé à partir du code d'application.  
 3. Dans le fichier **ActorEventSource.cs**, vous trouverez une surcharge pour la méthode `ActorEventSource.ActorMessage` devant être utilisée pour les événements de haute fréquence pour une question de performances.
 
@@ -63,6 +67,9 @@ Le code de traçage que vous avez ajouté à votre application ci-dessus pour le
 * [Collecte des journaux avec Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md)
 * [Utilisation d’ElasticSearch en tant que magasin de trace d’applications Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

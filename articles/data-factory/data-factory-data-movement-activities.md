@@ -180,7 +180,7 @@ Consultez [Guide des performances et de l’optimisation de l’activité de cop
 Consultez [Planification et exécution](data-factory-scheduling-and-execution.md) pour plus d’informations sur le fonctionnement de la planification et de l’exécution dans Data Factory. Il est possible d’exécuter plusieurs opérations de copie l’une après l’autre, de manière séquentielle/ordonnée. Consultez la section [Copier de manière séquentielle](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence).
 
 ## <a name="type-conversions"></a>Conversions des types
-Les magasins de données ont différents types de systèmes natifs. L’activité de copie convertit automatiquement des types source en types récepteur selon l’approche en 2 étapes suivante :
+Les magasins de données ont différents types de systèmes natifs. L’activité de copie convertit automatiquement des types source en types récepteur selon l’approche en&2; étapes suivante :
 
 1. Conversion de types natifs source en types .NET.
 2. Conversion de types .NET en types récepteur natifs.

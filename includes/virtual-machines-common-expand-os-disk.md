@@ -84,6 +84,6 @@ Si vous souhaitez savoir comment associer des disques à une machine virtuelle A
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

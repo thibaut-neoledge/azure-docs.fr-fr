@@ -3,8 +3,8 @@ title: "Création d’un instantané en lecture seule d’un objet blob | Micros
 description: "Apprenez à créer un instantané d’un objet blob pour sauvegarder ses données à un moment donné. Découvrez comment les instantanés sont facturés et comment les utiliser pour réduire les frais de capacité."
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: 3710705d-e127-4b01-8d0f-29853fb06d0d
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: tamram
+ms.date: 12/07/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 664f03a8492178daf342b659595f035b7cccec5a
+ms.sourcegitcommit: cedc76bc46137a5d53fd76c0fdb6ff2db79566a4
+ms.openlocfilehash: 05e999d62d3ffdde708c9898807e79fabcff992e
 
 
 ---
@@ -24,12 +24,12 @@ ms.openlocfilehash: 664f03a8492178daf342b659595f035b7cccec5a
 ## <a name="overview"></a>Vue d'ensemble
 Un instantané est une version en lecture seule d'un objet blob capturé à un instant donné. Les captures instantanées sont utiles pour la sauvegarde des objets blob. Une fois créé, un instantané peut être lu, copié ou supprimé, mais pas modifié.
 
-Un instantané d’un objet blob est identique à l’objet blob de base, à la différence que l’URI de l’objet blob a une valeur **DateTime** à la fin qui indique l’heure à laquelle l’instantané a été pris. Par exemple, si l’URI de l’objet blob de pages est `http://storagesample.core.blob.windows.net/mydrives/myvhd`, l’URI de l’instantané est du type `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`. 
+Un instantané d’un objet blob est identique à l’objet blob de base, à la différence que l’URI de l’objet blob a une valeur **DateTime** à la fin qui indique l’heure à laquelle l’instantané a été pris. Par exemple, si l’URI de l’objet blob de pages est `http://storagesample.core.blob.windows.net/mydrives/myvhd`, l’URI de l’instantané est du type `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
 
 > [!NOTE]
 > Tous les instantanés partagent l’URI de l’objet blob de base. La seule distinction entre l’objet blob de base et l’instantané est la valeur **DateTime** ajoutée à la fin.
-> 
-> 
+>
+>
 
 Un objet blob peut avoir plusieurs instantanés. Les instantanés sont conservés jusqu’à ce qu’ils soient explicitement supprimés. Un instantané ne peut pas être conservé plus longtemps que son objet blob de base. Vous pouvez énumérer les instantanés associés à l’objet blob de base pour effectuer le suivi de vos instantanés actuels.
 
@@ -98,7 +98,6 @@ Si vous utilisez des instantanés avec le stockage Premium, vous devez respecter
 
 * Le nombre maximum d’instantanés par objet blob de pages dans un compte de stockage premium est 100. Si vous dépassez cette limite, l'opération de capture instantanée d'objet blob retourne le code d'erreur 409 (**SnapshotCountExceeded**).
 * Vous pouvez prendre un instantané d’un objet blob de pages dans un compte de stockage premium toutes les 10 minutes. Si vous dépassez ce taux, l'opération de capture instantanée d'objet blob retourne le code d'erreur 409 (**SnaphotOperationRateExceeded**).
-* Vous ne pouvez pas appeler Get Blob pour lire un instantané d’un objet blob de pages dans un compte de stockage premium. L'appel de Get Blob sur un instantané dans un compte de stockage premium retourne le code d'erreur 400 (**InvalidOperation**). Toutefois, vous pouvez appeler Get Blob Properties et Get Blob Metadata sur un instantané dans un compte de stockage premium.
 * Pour lire un instantané, vous pouvez utiliser l’opération Copy Blob pour copier un instantané vers un autre objet blob de pages dans le compte. L’objet blob de destination pour l'opération de copie ne doit pas avoir d'instantanés. Si l'objet blob de destination a des instantanés, l'opération Copy Blob retourne le code d'erreur 409 (**SnapshotsPresent**).
 
 ## <a name="return-the-absolute-uri-to-a-snapshot"></a>Renvoi de l'URI absolu d'un instantané
@@ -137,11 +136,11 @@ La liste suivante contient des points clés à prendre en compte lors de la cré
 
 > [!NOTE]
 > Un conseil : gérez les instantanés avec attention afin d’éviter des frais supplémentaires. Nous vous recommandons de gérer les instantanés de la manière suivante :
-> 
+>
 > * Supprimez et recréez les instantanés associés à un objet blob chaque fois que vous mettez à jour l'objet blob, même si vous le mettez à jour avec des données identiques, sauf si la conception de votre application exige de tenir à jour des instantanés. En supprimant et en recréant les instantanés de l’objet blob, vous pouvez vous assurer que l’objet blob et les instantanés ne diffèrent pas.
 > * Si vous tenez à jour des instantanés d’un objet blob, évitez d’appeler **UploadFile**, **UploadText**, **UploadStream** ou **UploadByteArray** pour mettre à jour l’objet blob. Ces méthodes remplacent tous les blocs dans l’objet blob. Ainsi, votre objet blob de base et vos instantanés diffèrent de façon significative. Mettez plutôt à jour le moins de blocs possible en utilisant les méthodes **PutBlock** et **PutBlockList**.
-> 
-> 
+>
+>
 
 ### <a name="snapshot-billing-scenarios"></a>Scénarios de facturation d’instantanés
 Les scénarios suivants illustrent l’accumulation des coûts pour un objet blob de blocs et ses instantanés.
@@ -163,11 +162,11 @@ Dans le scénario 4, l'objet blob de base a été complètement mis à jour et n
 ![Ressources Azure Storage](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des exemples supplémentaires d’utilisation de Blob Storage, consultez [Exemples de code Azure](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Vous pouvez télécharger un exemple d’application et l’exécuter ou parcourir le code sur GitHub. 
+Pour obtenir des exemples supplémentaires d’utilisation de Blob Storage, consultez [Exemples de code Azure](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Vous pouvez télécharger un exemple d’application et l’exécuter ou parcourir le code sur GitHub.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

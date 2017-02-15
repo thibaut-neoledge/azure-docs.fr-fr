@@ -73,6 +73,6 @@ Les chiffres Windows ont été calculés en exécutant [SPECint 2006](https://w
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

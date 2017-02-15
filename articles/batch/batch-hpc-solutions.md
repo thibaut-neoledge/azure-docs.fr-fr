@@ -15,8 +15,8 @@ ms.workload: big-compute
 ms.date: 07/27/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6a91c56d774ea81e175fa170e09b39548c6ae4d2
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 87f8b1651ea429663c621a64d7f668a175fa675f
 
 
 ---
@@ -87,10 +87,10 @@ Voici des informations supplémentaires sur les services de calcul, de données,
 > 
 
 ### <a name="compute-services"></a>Services de calcul
-Les services de calcul Azure sont au cœur d'une solution Big Compute, et les divers services de calcul offrent des avantages pour différents scénarios. Ces services offrent des modes différents pour que les applications s’exécutent sur des instances de calcul basées sur une machine virtuelle qu’Azure fournit à l'aide de la technologie Hyper-V de Windows Server. Ces instances peuvent exécuter des systèmes d’exploitation et des outils Linux et Windows standard et personnalisés. Azure vous propose un choix de [tailles d’instance](../virtual-machines/virtual-machines-windows-sizes.md) avec différentes configurations de cœurs d’UC, de mémoire, de capacité de disque et d’autres caractéristiques. Selon vos besoins, vous pouvez mettre à l’échelle les instances à des milliers de cœurs et les réduire lorsque vous avez besoin de moins de ressources.
+Les services de calcul Azure sont au cœur d'une solution Big Compute, et les divers services de calcul offrent des avantages pour différents scénarios. Ces services offrent des modes différents pour que les applications s’exécutent sur des instances de calcul basées sur une machine virtuelle qu’Azure fournit à l'aide de la technologie Hyper-V de Windows Server. Ces instances peuvent exécuter des systèmes d’exploitation et des outils Linux et Windows standard et personnalisés. Azure vous propose un choix de [tailles d’instance](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) avec différentes configurations de cœurs d’UC, de mémoire, de capacité de disque et d’autres caractéristiques. Selon vos besoins, vous pouvez mettre à l’échelle les instances à des milliers de cœurs et les réduire lorsque vous avez besoin de moins de ressources.
 
 > [!NOTE]
-> Tirez parti des instances Azure nécessitant beaucoup de ressources système pour améliorer les performances et l’extensibilité des charges de travail HPC, notamment les applications MPI parallèles qui nécessitent une faible latence et un réseau d’application haut débit. Voir [About H-series and compute-intensive A-series VMs](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md)(À propos des machines virtuelles de série H ou de calcul intensif de série A).  
+> Tirez parti des instances Azure nécessitant beaucoup de ressources système pour améliorer les performances et l’extensibilité des charges de travail HPC, notamment les applications MPI parallèles qui nécessitent une faible latence et un réseau d’application haut débit. Voir [About H-series and compute-intensive A-series VMs](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(À propos des machines virtuelles de série H ou de calcul intensif de série A).  
 > 
 > 
 

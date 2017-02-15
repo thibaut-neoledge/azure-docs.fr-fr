@@ -1,22 +1,26 @@
 ---
-title: Centre de gestion de la confidentialité Microsoft | Microsoft Docs
-description: Le Centre de gestion de la confidentialité Microsoft vous fournit les informations qui vous permettent de vous assurer que la plateforme Azure sur laquelle vous exécutez vos services est sécurisée.
+title: "Centre de gestion de la confidentialité Microsoft | Microsoft Docs"
+description: "Le Centre de gestion de la confidentialité Microsoft vous fournit les informations qui vous permettent de vous assurer que la plateforme Azure sur laquelle vous exécutez vos services est sécurisée."
 services: security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
 editor: TomSh
-
+ms.assetid: 0b94f9a3-8648-4860-812c-be689b0b327b
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/18/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8da0e117c206bfcec2f343c6d250de74fd886b02
+
 
 ---
-# Centre de gestion de la confidentialité Microsoft
+# <a name="microsoft-trust-center"></a>Centre de gestion de la confidentialité Microsoft
 Le site d’informations sur la sécurité Azure sur Azure.com vous donne les informations dont vous avez besoin pour planifier, concevoir, déployer, configurer et gérer vos solutions cloud en toute sécurité. Avec le Centre de gestion de la confidentialité Microsoft, vous disposez également des informations qui vous permettent de vous assurer que la plateforme Azure sur laquelle vous exécutez vos services est sécurisée.
 
 Nous savons qu’en confiant vos applications et vos données à Azure, vous allez avoir des questions. Où se trouve Azure ? Qui peut y accéder ? Que fait Microsoft pour le protéger ? Comment pouvez-vous vérifier que Microsoft tient ses promesses ?
@@ -36,4 +40,8 @@ Voici ce que vous trouverez sur le Centre de gestion de la confidentialité Micr
 
 Sur le [Centre de gestion de la confidentialité Microsoft](https://www.microsoft.com/trustcenter) vous trouverez ce qu’il vous faut pour comprendre ce que nous faisons pour sécuriser Microsoft Cloud.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,49 +1,53 @@
 ---
-title: Créer et gérer des bases de données SQL Azure avec montée en charge à l’aide de tâches élastiques (version préliminaire) | Microsoft Docs
-description: Passez en revue la création et la gestion d'une tâche de base de données élastique.
+title: "Créer et gérer des bases de données SQL Azure avec montée en charge à l’aide de tâches élastiques | Microsoft Docs"
+description: "Passez en revue la création et la gestion d&quot;une tâche de base de données élastique."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 manager: jhubbard
 author: ddove
-editor: ''
-
+editor: 
+ms.assetid: f858344d-085b-4022-935e-1b5fa20adbac
 ms.service: sql-database
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2016
+ms.date: 10/24/2016
 ms.author: ddove
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 923bc7102e5cc506307da25ee8125780076167ab
+
 
 ---
-# Créer et gérer des bases de données SQL Azure avec montée en charge à l’aide de tâches élastiques (version préliminaire)
+# <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>Créer et gérer des bases de données SQL Azure avec montée en charge à l’aide de tâches élastiques (version préliminaire)
 > [!div class="op_single_selector"]
 > * [Portail Azure](sql-database-elastic-jobs-create-and-manage.md)
 > * [PowerShell](sql-database-elastic-jobs-powershell.md)
 > 
 > 
 
-Les **tâches de bases de données élastiques** simplifient la gestion des groupes de bases de données en exécutant des opérations administratives telles que les modifications de schéma, la gestion des informations d’identification, les mises à jour de données de référence, la collecte des données de performances ou la collecte de données de télémétrie du locataire (client). Tâches de bases de données élastiques est actuellement disponible via le portail Azure et les applets de commande PowerShell. Le portail Azure propose toutefois une fonctionnalité réduite, qui se limite à une exécution sur toutes les bases de données d’un [pool élastique de bases de données (version préliminaire)](sql-database-elastic-pool.md). Pour accéder à des fonctionnalités supplémentaires et à l'exécution des scripts sur un groupe de bases de données, notamment une collection personnalisée ou un ensemble de partitions (créé à l'aide de la [bibliothèque cliente de la base de données élastique](sql-database-elastic-scale-introduction.md)), consultez la rubrique [Création et gestion des travaux à l'aide de PowerShell](sql-database-elastic-jobs-powershell.md). Pour en savoir plus sur les tâches, consultez la rubrique [Vue d'ensemble des tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md).
+**tâches de bases de données élastiques** simplifient la gestion des groupes de bases de données en exécutant des opérations administratives telles que les modifications de schéma, la gestion des informations d’identification, les mises à jour de données de référence, la collecte des données de performances ou la collecte de données de télémétrie du locataire (client). Tâches de bases de données élastiques est actuellement disponible via le portail Azure et les applets de commande PowerShell. Le portail Azure propose toutefois une fonctionnalité réduite, qui se limite à une exécution sur toutes les bases de données d’un [pool élastique de bases de données (version préliminaire)](sql-database-elastic-pool.md). Pour accéder à des fonctionnalités supplémentaires et à l’exécution des scripts sur un groupe de bases de données, notamment une collection personnalisée ou un ensemble de partitions (créé à l’aide de la [bibliothèque cliente de la base de données élastique](sql-database-elastic-scale-introduction.md)), consultez l’article [Créer et gérer des tâches avec PowerShell](sql-database-elastic-jobs-powershell.md). Pour en savoir plus sur les tâches, consultez la rubrique [Vue d'ensemble des tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md). 
 
-## Composants requis
+## <a name="prerequisites"></a>Composants requis
 * Un abonnement Azure. Pour obtenir un essai gratuit, voir [Version d'évaluation d'un mois gratuite](https://azure.microsoft.com/pricing/free-trial/).
 * Un pool élastique de bases de données. Voir [À propos des pools élastiques de bases de données](sql-database-elastic-pool.md)
 * Installation des composants du service de tâches de bases de données élastiques. Voir [Installation du service de tâches de bases de données élastiques](sql-database-elastic-jobs-service-installation.md).
 
-## Création de travaux
+## <a name="creating-jobs"></a>Création de travaux
 1. À l'aide du [portail Azure](https://portal.azure.com), à partir d'un pool élastique de tâches de bases de données existant, cliquez sur **Créer une tâche**.
 2. Tapez le nom d’utilisateur et le mot de passe de l’administrateur (créé à l’installation de Jobs) de la base de données de contrôle des tâches (stockage des métadonnées pour les tâches).
    
     ![Nommez la tâche, saisissez ou collez le code puis cliquez sur Exécuter][1]
-3. Dans le volet **Créer une tâche**, nommez la tâche.
+3. Dans le volet **Créer une tâche** , nommez la tâche.
 4. Tapez le nom d’utilisateur et le mot de passe pour vous connecter aux bases de données cibles avec les autorisations suffisantes pour l’exécution du script.
 5. Collez ou saisissez le script T-SQL.
-6. Cliquez sur **Enregistrer** puis sur **Exécuter**.
+6. Cliquez sur **Enregistrer**, puis sur **Exécuter**.
    
     ![Créez des tâches et exécutez-les.][5]
 
-## Exécution de tâches idempotent
-Lorsque vous exécutez un script sur un ensemble de bases de données, vous devez être sûr que le script est idempotent. Autrement dit, le script doit pouvoir être exécuté plusieurs fois, même s'il a échoué avec un état incomplet auparavant. Par exemple, lorsqu'un script échoue, la tâche sera automatiquement relancée jusqu'à ce qu'elle aboutisse (jusqu'à une certaine limite car la logique de relance finira par s'arrêter). La solution consiste à utiliser la clause « IF EXISTS » et à supprimer toutes les instances trouvées avant de créer un objet. Voici un exemple :
+## <a name="run-idempotent-jobs"></a>Exécution de tâches idempotent
+Lorsque vous exécutez un script sur un ensemble de bases de données, vous devez être sûr que le script est idempotent. Autrement dit, le script doit pouvoir être exécuté plusieurs fois, même s'il a échoué avec un état incomplet auparavant. Par exemple, lorsqu'un script échoue, la tâche sera automatiquement relancée jusqu'à ce qu'elle  aboutisse (jusqu'à une certaine limite car la logique de relance finira par s'arrêter). La solution consiste à utiliser la clause « IF EXISTS » et à supprimer toutes les instances trouvées avant de créer un objet. Voici un exemple :
 
     IF EXISTS (SELECT name FROM sys.indexes
             WHERE name = N'IX_ProductVendor_VendorID')
@@ -52,7 +56,7 @@ Lorsque vous exécutez un script sur un ensemble de bases de données, vous deve
     CREATE INDEX IX_ProductVendor_VendorID
     ON Purchasing.ProductVendor (VendorID);
 
-Vous pouvez également utiliser une clause « IF NOT EXISTS » avant de créer une instance :
+Vous pouvez également utiliser une clause « IF NOT EXISTS » avant de créer une instance :
 
     IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'TestTable')
     BEGIN
@@ -81,17 +85,17 @@ ce script met alors à jour la table créée précédemment.
     GO
 
 
-## Vérification du statut de la tâche
+## <a name="checking-job-status"></a>Vérification du statut de la tâche
 Une fois la tâche lancée, vous pouvez vérifier son statut.
 
 1. Sur la page du pool de bases de données, cliquez sur **Gérer les travaux**.
    
-    ![Cliquez sur « Gérer les tâches ».][2]
+    ![Cliquez sur « Gérer les tâches ».][2]
 2. Cliquez sur le nom (a) d'une tâche. Le champ **STATUS** peut afficher la valeur « Completed » (Terminé) ou « Failed » (Échec). Les détails de la tâche (b) incluent la date et l'heure de création et d'exécution. La liste (c) ci-dessous indique la progression du script sur chaque base de données du pool, en précisant la date et l'heure.
    
     ![Vérification d'une tâche terminée][3]
 
-## Vérification des tâches ayant échoué
+## <a name="checking-failed-jobs"></a>Vérification des tâches ayant échoué
 Si une tâche échoue, un journal détaillant son exécution est créé. Cliquez sur le nom de la tâche ayant échoué pour afficher ses détails.
 
 ![Vérifier une tâche ayant échoué][4]
@@ -107,4 +111,8 @@ Si une tâche échoue, un journal détaillant son exécution est créé. Cliquez
 
 
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,46 +1,50 @@
 ---
-title: Création d’une application web PHP-MySQL dans Azure App Service et déploiement à l’aide de Git.
-description: Didacticiel expliquant comment créer une application web PHP stockant les données dans MySQL et comment utiliser un déploiement Git dans Azure
+title: "Création d’une application web PHP-MySQL dans Azure App Service et déploiement à l’aide de Git."
+description: "Didacticiel expliquant comment créer une application web PHP stockant les données dans MySQL et comment utiliser un déploiement Git dans Azure"
 services: app-service\web
 documentationcenter: php
 author: rmcmurray
-manager: wpickett
-editor: ''
+manager: erikre
+editor: 
 tags: mysql
-
+ms.assetid: 7454475f-e275-4bc7-9f09-1ef07382e5da
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7cb11ffd583afa75bfd4e76c7f543a81a6ebdcde
+
 
 ---
-# Création d’une application web PHP-MySQL dans Azure App Service et déploiement à l’aide de Git.
-Ce didacticiel vous explique comment créer une application web PHP-MySQL et déployer dans [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) à l’aide de Git. Vous allez utiliser [PHP][install-php], l'outil de ligne de commande MySQL (inclus dans [MySQL][install-mysql]) et [Git][install-git] qui sont installés sur votre ordinateur. Les instructions de ce didacticiel s'appliquent à n'importe quel système d'exploitation, notamment Windows, Mac et Linux. À la fin de ce guide, vous disposerez d’une application web PHP/MySQL s’exécutant dans Azure.
+# <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-git"></a>Création d’une application web PHP-MySQL dans Azure App Service et déploiement à l’aide de Git.
+Ce didacticiel vous explique comment créer une application web PHP-MySQL et déployer dans [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) à l’aide de Git. Vous allez utiliser [PHP][install-php], l’outil en ligne de commande MySQL (avec [MySQL][install-mysql]) et[Git][install-git] installé sur votre ordinateur. Les instructions de ce didacticiel s’appliquent à n’importe quel système d’exploitation, notamment Windows, Mac et Linux. À la fin de ce guide, vous disposerez d’une application web PHP/MySQL s’exécutant dans Azure.
 
-Vous apprendrez à effectuer les opérations suivantes :
+Vous apprendrez à effectuer les opérations suivantes :
 
-* création d’une application web et d’une base de données MySQL à l’aide du [portail Azure][management-portal]. PHP étant activé par défaut dans [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714), l’exécution de votre code PHP ne requiert aucune action particulière) ;
+* création d’une application web et d’une base de données MySQL à l’aide du [portail Azure][management-portal]. PHP étant activé par défaut dans [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) , l’exécution de votre code PHP ne requiert aucune action particulière) ;
 * publication et republication de votre application dans Azure en utilisant Git.
 * activation de l’extension du compositeur pour automatiser les tâches de compositeur à chaque `git push`.
 
-En suivant ce didacticiel, vous allez générer une application web d’inscription simple dans PHP. Cette application sera hébergée dans Web Apps. Voici une capture d’écran de l’application terminée :
+En suivant ce didacticiel, vous allez générer une application web d’inscription simple dans PHP. Cette application sera hébergée dans Web Apps. Voici une capture d’écran de l’application terminée :
 
 ![Site Web PHP Azure][running-app]
 
-## Configuration de l’environnement de développement
-Ce didacticiel part du principe que [PHP][install-php], l'outil de ligne de commande MySQL (qui fait partie de [MySQL][install-mysql]) et [Git][install-git] sont installés sur votre ordinateur.
+## <a name="set-up-the-development-environment"></a>Configuration de l’environnement de développement
+Ce didacticiel repose sur l’hypothèse que votre ordinateur est équipé de [PHP][install-php], de l’outil en ligne de commande MySQL (inclus dans [MySQL][install-mysql]) et de [Git][install-git].
 
 <a id="create-web-site-and-set-up-git"></a>
 
-## Créer une application web et configurer la publication Git
-Pour créer une application web et une base de données MySQL, suivez la procédure ci-après :
+## <a name="create-a-web-app-and-set-up-git-publishing"></a>Créer une application web et configurer la publication Git
+Pour créer une application web et une base de données MySQL, suivez la procédure ci-après :
 
 1. Connectez-vous au [portail Azure][management-portal].
-2. Cliquez sur l'icône **Nouveau**.
-3. Cliquez sur **Afficher tout** en regard de **Marketplace**.
+2. Cliquez sur l'icône **Nouveau** .
+3. Cliquez sur **Afficher tout** en regard de **Marketplace**. 
 4. Cliquez sur **Web et mobilité**, puis sur **Application web et MySQL**. Cliquez sur **Créer**.
 5. Entrez un nom valide pour votre groupe de ressources.
    
@@ -54,7 +58,7 @@ Pour créer une application web et une base de données MySQL, suivez la procéd
 8. Une fois que l'application web a été créée, vous voyez apparaître le nouveau volet d'application web.
 9. Dans les **Paramètres**, cliquez sur **Déploiement continu**, puis cliquez sur *Configurer les paramètres requis*.
    
-    ![Configurer la publication Git][setup-publishing]
+    ![Configuration de la publication Git][setup-publishing]
 10. Sélectionnez **Référentiel Git local** comme source.
     
      ![Configurer le référentiel Git][setup-repository]
@@ -62,10 +66,10 @@ Pour créer une application web et une base de données MySQL, suivez la procéd
     
      ![Création des informations d’identification de publication][credentials]
 
-## Obtention des informations de connexion MySQL distantes
-Pour vous connecter à la base de données MySQL qui s’exécute dans Web Apps, vous devez disposer des informations de connexion. Pour obtenir vos informations de connexion MySQL, procédez comme suit :
+## <a name="get-remote-mysql-connection-information"></a>Obtention des informations de connexion MySQL distantes
+Pour vous connecter à la base de données MySQL qui s’exécute dans Web Apps, vous devez disposer des informations de connexion. Pour obtenir vos informations de connexion MySQL, procédez comme suit :
 
-1. À partir de votre groupe de ressources, cliquez sur la base de données :
+1. À partir de votre groupe de ressources, cliquez sur la base de données :
    
     ![Sélectionner la base de données][select-database]
 2. Dans les **Paramètres** de la base de données, sélectionnez **Propriétés**.
@@ -75,25 +79,25 @@ Pour vous connecter à la base de données MySQL qui s’exécute dans Web Apps,
    
     ![Noter les propriétés][note-properties]
 
-## Générer et tester votre application localement
+## <a name="build-and-test-your-app-locally"></a>Générer et tester votre application localement
 Après avoir créé une application web, vous pouvez la développer localement, la tester, puis la déployer.
 
-L'application d'inscription est une simple application PHP qui vous permet de vous inscrire à un événement en entrant votre nom et votre adresse électronique. Les informations relatives aux précédents inscrits sont affichées dans un tableau. Les informations d'inscription sont stockées dans une base de données MySQL. L'application se compose d'un seul fichier (dont le code est disponible ci-dessous pour un copier/coller) :
+L'application d'inscription est une simple application PHP qui vous permet de vous inscrire à un événement en entrant votre nom et votre adresse électronique. Les informations relatives aux précédents inscrits sont affichées dans un tableau. Les informations d'inscription sont stockées dans une base de données MySQL. L'application se compose d'un seul fichier (dont le code est disponible ci-dessous pour un copier/coller) :
 
-* **index.php** : affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
+* **index.php**: affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
 
-Pour générer et exécuter l'application en local, procédez comme suit : notez que ces étapes partent du principe que PHP et l'outil de ligne de commande MySQL (inclus dans MySQL) sont configurés sur votre machine locale, et que vous avez activé l'[extension PDO pour MySQL][pdo-mysql].
+Pour générer et exécuter l'application en local, procédez comme suit : Notez que ces étapes partent du principe que PHP et l’outil en ligne de commande MySQL (inclus dans MySQL) sont configurés sur votre ordinateur local et que vous avez activé l’[extension PDO pour MySQL][pdo-mysql].
 
-1. Connectez-vous au serveur MySQL distant en utilisant les valeurs `Data Source`, `User Id`, `Password` et `Database` récupérées précédemment :
+1. Connectez-vous au serveur MySQL distant en utilisant les valeurs `Data Source`, `User Id`, `Password` et `Database` récupérées précédemment :
    
         mysql -h{Data Source] -u[User Id] -p[Password] -D[Database]
-2. L'invite de commandes MySQL s'affiche :
+2. L'invite de commandes MySQL s'affiche :
    
         mysql>
-3. Copiez la commande `CREATE TABLE` suivante pour créer la table `registration_tbl` dans votre base de données :
+3. Copiez la commande `CREATE TABLE` suivante pour créer la table `registration_tbl` dans votre base de données :
    
         CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
-4. Dans la racine de votre dossier d'application en local, créez le fichier **index.php**.
+4. Dans la racine de votre dossier d'application en local, créez le fichier **index.php** .
 5. Ouvrez le fichier **index.php** dans un éditeur de texte ou un environnement de développement intégré (IDE), puis ajoutez le code suivant en y apportant les modifications nécessaires, indiquées par les commentaires `//TODO:`.
 
         <html>
@@ -180,22 +184,22 @@ Pour générer et exécuter l'application en local, procédez comme suit : notez
         </body>
         </html>
 
-1. Sur un terminal, accédez à votre dossier d'application et tapez la commande suivante :
+1. Sur un terminal, accédez à votre dossier d'application et tapez la commande suivante :
    
        php -S localhost:8000
 
-Vous pouvez à présent accéder à **http://localhost:8000/** pour tester l'application.
+Vous pouvez maintenant accéder à **http://localhost:8000/** pour tester l’application.
 
-## Publier votre application
-Après avoir testé votre application localement, vous pouvez la publier dans Web Apps à l’aide de Git. Vous allez initialiser votre référentiel Git, puis publier l'application.
+## <a name="publish-your-app"></a>Publier votre application
+Après avoir testé votre application localement, vous pouvez la publier dans Web Apps à l’aide de Git. Vous allez initialiser votre référentiel Git, puis publier l'application.
 
 > [!NOTE]
-> Cette procédure est identique à celle affichée dans le portail Azure à la fin de la section « Créer une application web et configurer la publication Git » précédente.
+> Cette procédure est identique à celle affichée dans le portail Azure à la fin de la section « Créer une application web et configurer la publication Git » précédente.
 > 
 > 
 
 1. (Facultatif) Si vous avez oublié ou mal placé l’URL de votre référentiel distant Git, accédez aux propriétés de l’application web sur le portail Azure.
-2. Ouvrez GitBash (ou un terminal, si Git est dans votre `PATH`), remplacez les répertoires du répertoire racine de votre application, puis exécutez les commandes suivantes :
+2. Ouvrez GitBash (ou un terminal, si Git est dans votre `PATH`), remplacez les répertoires du répertoire racine de votre application, puis exécutez les commandes suivantes :
    
         git init
         git add .
@@ -206,17 +210,17 @@ Après avoir testé votre application localement, vous pouvez la publier dans We
     Vous êtes invité à entrer le mot de passe que vous avez créé précédemment.
    
     ![Transmission initiale vers Azure via Git][git-initial-push]
-3. Accédez à **http://[sitenom du site].azurewebsites.net/index.php** pour commencer à utiliser l’application (ces informations seront stockées dans le tableau de bord de votre compte) :
+3. Accédez à **http://[nom du site].azurewebsites.net/index.php** pour commencer à utiliser l’application (ces informations seront stockées dans le tableau de bord de votre compte) :
    
     ![Site Web PHP Azure][running-app]
 
 Après avoir publié votre application, vous pouvez y apporter des modifications, puis publier ces dernières à l’aide de Git.
 
-## Publier les modifications apportées à votre application
-Pour publier les modifications apportées à votre application, procédez comme suit :
+## <a name="publish-changes-to-your-app"></a>Publier les modifications apportées à votre application
+Pour publier les modifications apportées à votre application, procédez comme suit :
 
 1. Modifiez votre application localement.
-2. Ouvrez GitBash (ou un terminal, si Git se trouve dans votre `PATH`), remplacez les répertoires par le répertoire racine de votre application, puis exécutez les commandes suivantes :
+2. Ouvrez GitBash (ou un terminal, si Git se trouve dans votre `PATH`), remplacez les répertoires par le répertoire racine de votre application, puis exécutez les commandes suivantes :
    
         git add .
         git commit -m "comment describing changes"
@@ -225,34 +229,35 @@ Pour publier les modifications apportées à votre application, procédez comme 
     Vous êtes invité à entrer le mot de passe que vous avez créé précédemment.
    
     ![Publication des modifications apportées au site dans Azure via Git][git-change-push]
-3. Accédez à **http://[sitenom du site].azurewebsites.net/index.php** pour voir votre application et toutes les modifications que vous avez pu apporter :
+3. Accédez à **http://[nom du site].azurewebsites.net/index.php** pour afficher votre application, ainsi que les modifications apportées :
    
     ![Site Web PHP Azure][running-app]
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
 
 <a name="composer"></a>
 
-## Activation de l’automatisation du Compositeur avec l’extension du Compositeur
+## <a name="enable-composer-automation-with-the-composer-extension"></a>Activation de l’automatisation du Compositeur avec l’extension du Compositeur
 Par défaut, le processus de déploiement de git dans le Service d’application ne fait rien avec composer.json, si vous en avez un dans votre projet PHP. Vous pouvez activer le traitement du composer.json pendant `git push` en activant l’extension du Compositeur.
 
-1. Dans le panneau d’application web PHP (dans le [portail Azure][management-portal]), cliquez sur **Outils** > **Extensions**.
+1. Dans le panneau de l’application web PHP (dans le [portail Azure][management-portal]), cliquez sur **Outils** > **Extensions**.
    
     ![Paramètres d’extension du Compositeur][composer-extension-settings]
-2. Cliquez sur **Ajouter**, puis sur **Compositeur**.
+2. Cliquez sur **Ajouter** puis sur **Compositeur**.
    
     ![Ajout d’extension au Compositeur][composer-extension-add]
 3. Cliquez sur **OK** pour accepter les conditions juridiques. Cliquez à nouveau sur **OK** pour ajouter l’extension.
    
-    Le panneau **Extensions installées** affiche désormais l’extension du Compositeur. ![Vue Extension du Compositeur][composer-extension-view]
+    Le panneau **Extensions installées** affiche désormais l’extension du Compositeur.  
+    ![Vue Extension du Compositeur][composer-extension-view]
 4. Maintenant, exécutez `git add`, `git commit` et `git push` comme dans la section précédente. Vous verrez alors que Compositeur installe des interdépendances définies dans composer.json.
    
     ![Réussite de l’extension du Compositeur][composer-extension-success]
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develop/php/).
 
 <!-- URL List -->
@@ -292,4 +297,8 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develo
 [composer-extension-view]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png
 [composer-extension-success]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,50 +1,60 @@
 ---
-title: Connexion à une base de données SQL à l’aide de Java avec JDBC sous Windows | Microsoft Docs
-description: Cette rubrique présente un exemple de code Java que vous pouvez utiliser pour vous connecter à la base de données SQL Azure. L'exemple utilise JDBC et s'exécute sur un ordinateur client Windows.
+title: "Connexion à une base de données SQL à l’aide de Java avec JDBC sous Windows | Documents Microsoft"
+description: "Cette rubrique présente un exemple de code Java que vous pouvez utiliser pour vous connecter à la base de données SQL Azure. L&quot;exemple utilise JDBC et s&quot;exécute sur un ordinateur client Windows."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: LuisBosquez
 manager: jhubbard
 editor: genemi
-
+ms.assetid: 08fc49b1-cd48-4dcc-a293-ff22a4d2d62c
 ms.service: sql-database
+ms.custom: development
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 06/16/2016
+ms.date: 10/03/2016
 ms.author: lbosq
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5d8934ab6ac0fd29e5b389c2690b5ef42575e005
+
 
 ---
-# Connexion à la base de données SQL à l’aide de Java avec JDBC sous Windows
+# <a name="connect-to-sql-database-by-using-java-with-jdbc-on-windows"></a>Connexion à la base de données SQL à l’aide de Java avec JDBC sous Windows
 [!INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
-Cette rubrique présente un exemple de code Java que vous pouvez utiliser pour vous connecter à la base de données SQL Azure. L'exemple Java s'appuie sur le Kit de développement Java (JDK) version 1.8. L'exemple se connecte à une base de données SQL Azure en utilisant le pilote JDBC.
+Cette rubrique présente un exemple de code Java que vous pouvez utiliser pour vous connecter à la base de données SQL Azure. L'exemple Java s'appuie sur le Kit de développement Java (JDK) version 1.8. L'exemple se connecte à une base de données SQL Azure en utilisant le pilote JDBC.
 
-## Étape 1 : configurer l’environnement de développement
+## <a name="step-1--configure-development-environment"></a>Étape 1 : Configurer l’environnement de développement
 [Configurer l’environnement de développement pour le développement Java](https://msdn.microsoft.com/library/mt720658.aspx)
 
-## Étape 2 : créer une base de données SQL
-Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre à créer une base de données.
+## <a name="step-2-create-a-sql-database"></a>Étape 2 : créer une base de données SQL
+Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre à créer une base de données.  
 
-## Étape 3 : obtenir la chaîne de connexion
+## <a name="step-3-get-connection-string"></a>Étape 3 : obtenir la chaîne de connexion
 [!INCLUDE [sql-database-include-connection-string-jdbc-20-portalshots](../../includes/sql-database-include-connection-string-jdbc-20-portalshots.md)]
 
 > [!NOTE]
-> Si vous utilisez le pilote JTDS JDBC, vous devez ajouter « ssl=require » à l’URL de la chaîne de connexion et vous devez définir l’option suivante pour l’environnement JVM : « -Djsse.enableCBCProtection=false ». Cette option JVM désactive un correctif pour un problème de sécurité. Par conséquent, assurez-vous que vous savez quels risques vous prenez avant de définir cette option.
+> Si vous utilisez le pilote JTDS JDBC, vous devez ajouter « ssl=require » à l’URL de la chaîne de connexion et vous devez définir l’option suivante pour l’environnement JVM : « -Djsse.enableCBCProtection=false ». Cette option JVM désactive un correctif pour un problème de sécurité. Par conséquent, assurez-vous que vous savez quels risques vous prenez avant de définir cette option.
 > 
 > 
 
-## Étape 4 : Exécuter l’exemple de code
+## <a name="step-4-run-sample-code"></a>Étape 4 : Exécuter l’exemple de code
 * [Preuve de concept sur la connexion à SQL avec Java](https://msdn.microsoft.com/library/mt720656.aspx)
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Visitez le [Centre de développement Java](/develop/java/).
 * Consultez la [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
 * Plus d’informations sur le [pilote JDBC Microsoft pour SQL Server](https://msdn.microsoft.com/library/mt484311.aspx)
 
-## Ressources supplémentaires
+## <a name="additional-resources"></a>Ressources supplémentaires
 * [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

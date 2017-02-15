@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -35,11 +35,11 @@ Nous vous recommandons de garder un nombre raisonnable de variantes de langue, p
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 2. Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
-   
+
    ![Ouvrir la gestion des utilisateurs](./media/active-directory-branding-localize-azure-portal/user-management.png)
 3. Sur le panneau **Utilisateurs et groupes** panneau, sélectionnez **Personnalisation de société**.
 4. Sur le panneau **Utilisateurs et groupes - Personnalisation de la société**, sélectionnez la commande **Ajouter une langue**.
-   
+
     ![Ajouter des éléments spécifiques à une langue](./media/active-directory-branding-localize-azure-portal/add-language.png)
 5. Modifiez les éléments que vous voulez personnaliser. Tous ces éléments sont facultatifs.
 6. Cliquez sur **Save**.
@@ -48,7 +48,6 @@ Il peut s’écouler jusqu’à une heure avant que les modifications que vous a
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Ajouter votre marque à votre page de connexion](active-directory-branding-custom-signon-azure-portal.md)
-
 
 
 

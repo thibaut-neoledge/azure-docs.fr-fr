@@ -1,7 +1,5 @@
-# Prise en main
-## [Créer un compte gratuit](https://azure.microsoft.com/free/)
+# [Prise en main](billing-getting-started.md)
 ## [S’inscrire avec un compte Office 365](../billing-use-existing-office-365-account-azure-subscription.md)
-## [Tarification des abonnements](https://azure.microsoft.com/pricing/)
 ## [Devises et pays pris en charge](../billing-countries-and-currencies.md)
 ## [Limites et quotas](../azure-subscription-service-limits.md)
 ## [Forum Aux Questions (FAQ)](../billing-subscription-faq.md)
@@ -17,7 +15,7 @@
 ### [Transférer la propriété de l’abonnement](../billing-subscription-transfer.md)
 ### [Réactiver un abonnement désactivé](../billing-subscription-become-disable.md)
 ### [Mettre à jour à partir de l’abonnement gratuit](../billing-upgrade-azure-subscription.md)
-### [Basculer vers un autre abonnement](../billing-how-to-switch-azure-offer.md)
+### [Changer d’offre d’abonnement](../billing-how-to-switch-azure-offer.md)
 ### [Annuler l’abonnement](../billing-how-to-cancel-azure-subscription.md)
 ## Gérer le compte
 ### [Modifier le profil](../billing-how-to-change-azure-account-profile.md)
@@ -37,6 +35,6 @@
 # Ressources
 ## [Contacter le support technique](../billing-how-to-create-billing-support-ticket.md)
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

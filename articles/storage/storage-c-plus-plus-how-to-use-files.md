@@ -360,6 +360,6 @@ Pour en savoir plus sur Azure Storage, explorez les ressources suivantes :
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

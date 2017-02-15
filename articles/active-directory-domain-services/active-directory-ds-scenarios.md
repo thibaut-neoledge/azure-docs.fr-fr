@@ -86,6 +86,6 @@ Pour plus d’informations sur ce scénario de déploiement, consultez l’artic
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

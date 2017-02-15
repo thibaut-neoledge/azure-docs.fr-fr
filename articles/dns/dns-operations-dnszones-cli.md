@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.date: 12/07/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
-ms.openlocfilehash: 6fe10238adea0cbe1a47c05767930a363645028b
+ms.sourcegitcommit: bfbffe7843bc178cdf289c999925c690ab82e922
+ms.openlocfilehash: 927503bb18a63db1da2c92e034dbccb7707afab4
 
 ---
 
@@ -25,61 +25,127 @@ ms.openlocfilehash: 6fe10238adea0cbe1a47c05767930a363645028b
 > * [Interface de ligne de commande Azure](dns-operations-dnszones-cli.md)
 > * [PowerShell](dns-operations-dnszones.md)
 
-Ce guide explique comment gérer vos ressources de zone DNS à l’aide de l’interface de ligne de commande multiplateforme.
+Ce guide explique comment gérer vos ressources de zone DNS à l’aide de l’interface de ligne de commande Azure multiplateforme.
 
-Ces instructions utilisent l’interface de ligne de commande Microsoft Azure. Veillez à effectuer une mise à jour vers la version la plus récente de l’interface de ligne de commande Azure (0.9.8 ou version ultérieure) pour utiliser les commandes Azure DNS. Tapez `azure -v` pour vérifier la version de l’interface CLI Azure actuellement installée sur votre ordinateur. Vous pouvez installer l’interface de ligne de commande Azure pour Windows, Linux ou Mac. Pour plus d’informations, consultez la page [Installation de l’interface de ligne de commande Azure](../xplat-cli-install.md).
+Ces instructions utilisent l’interface de ligne de commande Microsoft Azure. Veillez à effectuer une mise à jour vers la version la plus récente de l’interface de ligne de commande Azure pour utiliser ces commandes Azure DNS. Vous pouvez installer l’interface de ligne de commande Azure pour Windows, Linux ou Mac. Pour plus d’informations, consultez la page [Installation de l’interface de ligne de commande Azure](../xplat-cli-install.md).
 
-Azure DNS est un service Azure Resource Manager uniquement. Il ne possède aucune API ASM. Vous devez vérifier que l’interface CLI Azure est configurée pour utiliser le mode Resource Manager. Pour ce faire, utilisez la commande `azure config mode arm`.
+Azure DNS est un service Azure Resource Manager uniquement. Il n’a pas de modèle de déploiement « Classic ». Vous devez vérifier que l’interface CLI Azure est configurée pour utiliser le mode Resource Manager. Pour ce faire, utilisez la commande `azure config mode arm`.
 
-Si vous voyez le message «*Erreur : « dns » n’est pas une commande azure*», cela est probablement dû au fait que vous utilisez l’interface CLI Azure en mode ASM et non pas en mode Resource Manager.
+Si le message « *Erreur : « dns » n’est pas une commande azure* » s’affiche, cela est probablement dû au fait que vous utilisez l’interface de ligne de commande Azure en mode Azure Service Management et non pas en mode Resource Manager.
 
-## <a name="create-a-new-dns-zone"></a>Création d’une zone DNS
+Toutes les commandes CLI liées à Azure DNS commencent par `azure network dns`. Une aide est disponible pour chaque commande avec l’option `--help` (forme abrégée : `-h`).  Par exemple :
 
-Pour créer une zone DNS pour héberger votre domaine, consultez [Créer une zone Azure DNS en utilisant l’interface CLI](dns-getstarted-create-dnszone-cli.md).
+```azurecli
+azure network dns -h
+azure network dns zone -h
+azure network dns zone create -h
+```
+
+## <a name="create-a-dns-zone"></a>Création d’une zone DNS
+
+Une zone DNS est créée à l'aide de la commande `azure network dns zone create`. Pour obtenir de l’aide, consultez l’article `azure network dns zone create -h`.
+
+Les exemples ci-dessous montrent comment créer une zone DNS avec ou sans [Balises Azure Resource Manager](dns-zones-records.md#tags).
+
+### <a name="to-create-a-dns-zone"></a>Création d’une zone DNS
+
+L’exemple ci-dessous permet de créer une zone DNS appelée *contoso.com* dans le groupe de ressources *MyResourceGroup*. Utilisez l’exemple pour créer votre zone DNS, en remplaçant les valeurs indiquées par vos propres valeurs.
+
+```azurecli
+azure network dns zone create MyResourceGroup contoso.com
+```
+
+### <a name="to-create-a-dns-zone-with-tags"></a>Créer une zone DNS avec des balises
+
+L’exemple suivant montre comment créer une zone DNS avec deux balises, *projet = demo* et *env = test*, à l’aide du paramètre `--tags` (forme abrégée : `-t`).
+
+```azurecli
+azure network dns zone create MyResourceGroup contoso.com -t "project=demo";"env=test"
+```
 
 ## <a name="get-a-dns-zone"></a>Obtention d’une zone DNS
 
-Pour récupérer une zone DNS, utilisez `azure network dns zone show`:
+Pour récupérer une zone DNS, utilisez `azure network dns zone show`. Pour obtenir de l’aide, consultez l’article `azure network dns zone show -h`.
+
+L’exemple suivant retourne la zone DNS *contoso.com* et les données associées à partir du groupe de ressources *MyResourceGroup*. 
 
 ```azurecli
-azure network dns zone show myresourcegroup contoso.com
+azure network dns zone show MyResourceGroup contoso.com
+
+info:    Executing command network dns zone show
++ Looking up the dns zone "contoso.com"
+data:    Id                              : /subscriptions/.../contoso.com
+data:    Name                            : contoso.com
+data:    Type                            : Microsoft.Network/dnszones
+data:    Location                        : global
+data:    Number of record sets           : 2
+data:    Max number of record sets       : 5000
+data:    Name servers:
+data:        ns1-01.azure-dns.com.
+data:        ns2-01.azure-dns.net.
+data:        ns3-01.azure-dns.org.
+data:        ns4-01.azure-dns.info.
+data:    Tags                            : project=demo;env=test
+info:    network dns zone show command OK
 ```
 
-L’opération retourne une zone DNS avec son ID, le nombre de jeux d’enregistrements et le nombre de balises.
+Notez que les enregistrements DNS ne sont pas retournés par `azure network dns zone show`. Pour lister les enregistrements DNS, utilisez `azure network dns record-set list`.
+
 
 ## <a name="list-dns-zones"></a>Création de la liste des zones DNS
 
-Pour récupérer les zones DNS au sein d’un groupe de ressources, utilisez `azure network dns zone list`.
+Pour énumérer des zones DNS, utilisez `azure network dns zone list`. Pour obtenir de l’aide, consultez l’article `azure network dns zone list -h`.
+
+Spécifier le groupe de ressources permet de ne lister que les zones du groupe de ressources :
 
 ```azurecli
-azure network dns zone list myresourcegroup
+azure network dns zone list MyResourceGroup
+```
+
+Omettre le groupe de ressources permet de lister toutes les zones de l’abonnement :
+
+```azurecli
+azure network dns zone list 
 ```
 
 ## <a name="update-a-dns-zone"></a>Mise à jour d’une zone DNS
 
-Vous pouvez apporter des modifications à une ressource de zone DNS à l’aide de `azure network dns zone set`. Cette commande ne met pas à jour les jeux d’enregistrements DNS dans la zone (voir [Gestion des enregistrements DNS](dns-operations-recordsets.md)). Elle est utilisée seulement pour mettre à jour les propriétés de la ressource de zone elle-même. Elle est actuellement limitée aux 'balises' Azure Resource Manager de la ressource de zone. Pour plus d’informations, consultez la section [Balises et Etags](dns-getstarted-create-dnszone.md#tagetag) .
+Vous pouvez apporter des modifications à une ressource de zone DNS à l’aide de `azure network dns zone set`. Pour obtenir de l’aide, consultez l’article `azure network dns zone set -h`.
+
+Cette commande ne met pas à jour les jeux d’enregistrements DNS dans la zone (voir [Gestion des enregistrements DNS](dns-operations-recordsets.md)). Elle est utilisée uniquement pour mettre à jour les propriétés de la ressource de zone elle-même. Ces propriétés sont actuellement limitées aux [« balises » Azure Resource Manager](dns-zones-records.md#tags) de la ressource de zone.
+
+L’exemple suivant montre comment mettre à jour les balises sur une zone DNS. Les balises existantes sont remplacées par la valeur spécifiée.
 
 ```azurecli
-azure network dns zone set myresourcegroup contoso.com -t prod=value2
+azure network dns zone set MyResourceGroup contoso.com -t "team=support"
 ```
 
 ## <a name="delete-a-dns-zone"></a>Suppression d’une zone DNS
 
-Les zones DNS peuvent être supprimées en utilisant `azure network dns zone delete`. Cette opération a un commutateur *-q* facultatif qui supprime l’invite pour confirmer que vous voulez supprimer la zone DNS.
+Les zones DNS peuvent être supprimées en utilisant `azure network dns zone delete`. Pour obtenir de l’aide, consultez l’article `azure network dns zone delete -h`.
 
-Avant de supprimer une zone DNS dans Azure DNS, vous devez supprimer tous les jeux d’enregistrements, sauf les enregistrements NS et SOA à la racine de la zone qui ont été créés automatiquement en même temps que cette dernière.
+> [!NOTE]
+> Supprimer une zone DNS supprime également tous les enregistrements DNS de la zone. Il est impossible d’annuler cette opération. Si la zone DNS est en cours d’utilisation, les services utilisant la zone échouent lors de la suppression de la zone.
+>
+>Pour vous protéger contre la suppression accidentelle de zones, consultez la page [Comment protéger des zones et enregistrements DNS](dns-protect-zones-recordsets.md).
+
+Cette commande vous demande de confirmer l’opération. Le commutateur `--quiet` facultatif (forme abrégée : `-q`) supprime cette invite.
+
+L’exemple suivant montre comment supprimer la zone *contoso.com* à partir du groupe de ressources *MyResourceGroup*.
 
 ```azurecli
-azure network dns zone delete myresourcegroup contoso.com
+azure network dns zone delete MyResourceGroup contoso.com
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir créé une zone DNS, créez des [jeux d’enregistrements et des enregistrements](dns-getstarted-create-recordset-cli.md) pour démarrer la résolution des noms pour votre domaine Internet.
+Découvrez comment [gérer des jeux d’enregistrements et des enregistrements](dns-getstarted-create-recordset-cli.md) dans votre zone DNS.
+<br>
+Découvrez comment [déléguer votre domaine à Azure DNS](dns-domain-delegation.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
 title: Optimiser votre environnement avec la solution Service Fabric dans Log Analytics | Microsoft Docs
-description: Vous pouvez utiliser la solution Service Fabric pour évaluer les risques et l’intégrité de vos applications, microservices, nœuds et clusters Service Fabric.
+description: "Vous pouvez utiliser la solution Service Fabric pour évaluer les risques et l’intégrité de vos applications, microservices, nœuds et clusters Service Fabric."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: niniikhena
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 9c91aacb-c48e-466c-b792-261f25940c0c
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2fe6c2b23c816a5ec5bb00199725cdf0b29b31f0
+
 
 ---
 # <a name="service-fabric-solution-in-log-analytics"></a>Solution Service Fabric dans Log Analytics
@@ -33,7 +37,7 @@ Pour commencer à utiliser la solution, connectez votre cluster Service Fabric �
 2. Si vous avez besoin de collecter les compteurs de performances de vos hôtes pour utiliser d’autres solutions OMS, telles que Sécurité, sur votre cluster Service Fabric, effectuez les étapes de la section ***Déployer un cluster Service Fabric connecté à un espace de travail OMS avec l’extension de machine virtuelle installée***.
 3. Si vous avez déjà déployé votre cluster Service Fabric et que vous souhaitez le connecter à Log Analytics, effectuez les étapes de la section ***Ajout d’un compte de stockage existant à Log Analytics***.
 
-## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace."></a>Déployer un cluster Service Fabric connecté à un espace de travail Log Analytics
+## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>Déployer un cluster Service Fabric connecté à un espace de travail Log Analytics
 Ce modèle effectue les actions suivantes :
 
 1. Déploie un cluster Azure Service Fabric déjà connecté à un espace de travail Log Analytics. Vous pouvez soit créer un espace de travail durant le déploiement du modèle, soit entrer le nom d’un espace de travail Log Analytics existant.
@@ -50,7 +54,7 @@ Acceptez les conditions légales et appuyez sur Créer pour lancer le déploieme
 
 ![Service Fabric](./media/log-analytics-service-fabric/4.png)
 
-## <a name="deploy-a-service-fabric-cluster-connected-to-an-oms-workspace-with-vm-extension-installed."></a>Déployer un cluster Service Fabric connecté à un espace de travail OMS avec l’extension de machine virtuelle installée
+## <a name="deploy-a-service-fabric-cluster-connected-to-an-oms-workspace-with-vm-extension-installed"></a>Déployer un cluster Service Fabric connecté à un espace de travail OMS avec l’extension de machine virtuelle installée
 Ce modèle effectue les actions suivantes :
 
 1. Déploie un cluster Azure Service Fabric déjà connecté à un espace de travail Log Analytics. Vous pouvez créer un espace de travail ou utiliser un espace de travail existant.
@@ -134,9 +138,9 @@ Une fois les déploiements terminés et la solution Service Fabric activée dans
 
 Le tableau suivant présente les méthodes de collecte des données et d’autres informations sur le mode de collecte de la solution de données pour Service Fabric.
 
-| plateforme | Agent direct | Agent SCOM | Stockage Azure | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | fréquence de collecte |
+| plateforme | Agent direct | Agent SCOM | Azure Storage | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Non](./media/log-analytics-malware/oms-bullet-red.png) |![Non](./media/log-analytics-malware/oms-bullet-red.png) |![Oui](./media/log-analytics-malware/oms-bullet-green.png) |![Non](./media/log-analytics-malware/oms-bullet-red.png) |![Non](./media/log-analytics-malware/oms-bullet-red.png) |10 minutes |
+| Windows |![Non](./media/log-analytics-malware/oms-bullet-red.png) |![Non](./media/log-analytics-malware/oms-bullet-red.png) |![Oui](./media/log-analytics-malware/oms-bullet-green.png) |![Non](./media/log-analytics-malware/oms-bullet-red.png) |![Non](./media/log-analytics-malware/oms-bullet-red.png) |10 minutes |
 
 > [!NOTE]
 > Vous pouvez modifier l’étendue de ces événements dans la solution Service Fabric en cliquant sur **Données basées sur les 7 derniers jours** dans la partie supérieure du tableau de bord. Vous pouvez également afficher les événements générés durant les 7 derniers jours, la journée précédente ou les 6 dernières heures. Vous pouvez aussi sélectionner **Personnalisé** pour spécifier une plage de dates personnalisée.
@@ -146,6 +150,9 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez [Recherches dans les journaux dans Log Analytics](log-analytics-log-searches.md) pour afficher des données détaillées sur les événements Service Fabric.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

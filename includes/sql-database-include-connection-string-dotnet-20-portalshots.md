@@ -45,6 +45,6 @@ includes/sql-database-include-connection-string-40-config.md
 -->
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

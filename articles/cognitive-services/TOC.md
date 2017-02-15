@@ -54,6 +54,6 @@
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=cognitive-services)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

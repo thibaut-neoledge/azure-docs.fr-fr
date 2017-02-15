@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 09/29/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: d9ff74a49742fa77f5989b8b05e0567e3ca81dc5
-ms.openlocfilehash: 89cb8827745b31b3a77b64d5cafd586957d60d30
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b4dc2137ce42e3ed8e85d57dacc1acecc6de243e
 
 
 ---
@@ -30,10 +30,6 @@ ms.openlocfilehash: 89cb8827745b31b3a77b64d5cafd586957d60d30
 > 
 
 Vous pouvez utiliser SQL Server Management Studio (SSMS) pour administrer les serveurs et les bases de données de Base de données SQL Azure. Cette rubrique présente les tâches courantes effectuées avec SSMS. Avant de démarrer, vous devez déjà disposer d’un serveur et d’une base de données créés dans Base de données SQL Azure. Pour plus d’informations, consultez [Didacticiel sur SQL Database : Créer une base de données SQL en quelques minutes à l’aide du portail Azure](sql-database-get-started.md) et [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md).
-
-> [!TIP]
-> Pour savoir comment créer un serveur ou un pare-feu basé sur un serveur, afficher les propriétés d’un serveur, se connecter à l’aide de SQL Server Management Studio, interroger la base de données master, créer un exemple de base de données et une base de données vide, demander les propriétés d’une base de données, se connecter à l’aide de SQL Server Management Studio et interroger l’exemple de base de données, consultez le didacticiel [Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide du portail Azure et de SQL Server Management Studio](sql-database-get-started.md).
->
 
 Nous vous recommandons d’utiliser la dernière version de SSMS, quel que soit l’emplacement choisi pour utiliser la base de données Azure SQL. 
 
@@ -146,6 +142,6 @@ La base de données SQL prend en charge plusieurs vues de gestion dynamique vous
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

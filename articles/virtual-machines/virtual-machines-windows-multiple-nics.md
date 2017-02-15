@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 10/27/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: b9772ec5a8684b196ad1c7fa523acc3772d81854
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: d06a5c281b9390ae7d7f3a9ef18b27b62355a33f
 
 
 ---
@@ -29,7 +29,7 @@ Vous pouvez créer une machine virtuelle dans Azure, à laquelle sont attachées
 > 
 
 ## <a name="create-core-resources"></a>Créer les ressources de base
-Vérifiez que la [dernière version d’Azure PowerShell est installée et configurée](../powershell-install-configure.md). Connectez-vous à votre compte Azure :
+Vérifiez que la [dernière version d’Azure PowerShell est installée et configurée](/powershell/azureps-cmdlets-docs). Connectez-vous à votre compte Azure :
 
 ```powershell
 Login-AzureRmAccount
@@ -160,6 +160,6 @@ N’oubliez pas que vous ne pouvez pas ajouter de cartes réseau à une machine 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

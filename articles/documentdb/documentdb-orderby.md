@@ -134,6 +134,6 @@ Répliquez le [projet d'exemples Github](https://github.com/Azure/azure-document
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

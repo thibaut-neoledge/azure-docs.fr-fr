@@ -192,7 +192,7 @@ L’exécution du script de déploiement HPC Pack dure un certain temps. Le scri
 ### <a name="excel-activation"></a>Activation d’Excel
 En cas d’utilisation d’une image de machine virtuelle ComputeNodeWithExcel pour les charges de travail de production, vous devez fournir une clé de licence Microsoft Office valide pour activer Excel sur les nœuds de calcul. Sinon, la version d’évaluation d’Excel expire au bout de 30 jours et l’exécution des classeurs Excel échoue avec l’exception COMExeption (0x800AC472). 
 
-Vous pouvez rallonger la période d’évaluation de 30 jours supplémentaires : ouvrez une session sur le nœud principal et exécutez la commande clusrun `%ProgramFiles(x86)%\Microsoft Office\Office15\OSPPREARM.exe` sur tous les nœuds de calcul Excel par le biais de HPC Cluster Manager. Vous pouvez rallonger la période d’évaluation 2 fois au maximum. Ensuite, vous devez fournir une clé de licence Office valide.
+Vous pouvez rallonger la période d’évaluation de 30 jours supplémentaires : ouvrez une session sur le nœud principal et exécutez la commande clusrun `%ProgramFiles(x86)%\Microsoft Office\Office15\OSPPREARM.exe` sur tous les nœuds de calcul Excel par le biais de HPC Cluster Manager. Vous pouvez rallonger la période d’évaluation&2; fois au maximum. Ensuite, vous devez fournir une clé de licence Office valide.
 
 La version d’Office Professionnel Plus 2013 installée sur l’image de machine virtuelle est une édition de volume avec une clé de licence de volume générique (GVLK). Vous pouvez l’activer par le biais du service de gestion de clés (KMS), de l’activation basée sur Active Directory (AD-BA) ou d’une clé d’activation multiple (MAK). 
 

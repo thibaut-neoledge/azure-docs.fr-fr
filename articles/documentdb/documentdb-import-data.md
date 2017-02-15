@@ -13,16 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 12/08/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: 8c295a4207e9d12eb0cb978205a75d536d6a55e7
+ms.sourcegitcommit: 5a9b3e94faee1db7c38b9f60045637640d820208
+ms.openlocfilehash: b11d9d67234c85af8f9fcb9992864ef9e1662a79
 
 
 ---
 # <a name="import-data-to-documentdb-with-the-database-migration-tool"></a>Importation de données vers DocumentDB avec l’outil de migration de base de données
 Cet article vous montre comment utiliser l’outil officiel de migration de données open source DocumentDB pour importer des données dans [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) à partir de différentes sources, y compris des fichiers JSON, des fichiers CSV, SQL, MongoDB, le Stockage Table Azure, Amazon DynamoDB et les collections DocumentDB.
+
+Si vous importez des données vers un compte DocumentDB avec la prise en charge du protocole MongoDB, suivez la procédure spécifiée dans la rubrique [Migration de données vers DocumentDB avec le protocole MongoDB](documentdb-mongodb-migrate.md).
 
 Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :  
 
@@ -78,6 +80,12 @@ Voici quelques exemples de lignes de commande pour importer des fichiers JSON :
     dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionThroughput:2500
 
 ## <a name="a-idmongodbaimport-from-mongodb"></a><a id="MongoDB"></a>Importation à partir de MongoDB
+
+> [!IMPORTANT]
+> Si vous importez vers un compte DocumentDB avec la prise en charge de MongoDB, suivez ces [instructions](documentdb-mongodb-migrate.md).
+> 
+> 
+
 L'option d'importateur source MongoDB vous permet d’importer à partir d'une collection MongoDB individuelle et de filtrer éventuellement les documents à l'aide d'une requête et/ou de modifier la structure du document à l'aide d'une projection.  
 
 ![Capture d’écran des options sources MongoDB - documentdb et mongodb](./media/documentdb-import-data/mongodbsource.png)
@@ -91,7 +99,7 @@ La chaîne de connexion est au format MongoDB standard :
 > 
 > 
 
-Saisissez le nom de la collection depuis laquelle les données seront importées. Vous pouvez éventuellement spécifier ou fournir un fichier pour une requête (par exemple, {pop: {$gt: 5000}} ) et/ou une projection (par exemple, {loc:0} ) pour filtrer et mettre en forme les données à importer.
+Saisissez le nom de la collection depuis laquelle les données seront importées. Vous pouvez éventuellement spécifier ou fournir un fichier pour une requête (par exemple, {pop: {$gt:&5000;}} ) et/ou une projection (par exemple, {loc:0} ) pour filtrer et mettre en forme les données à importer.
 
 Voici quelques exemples de ligne de commande pour l’importation depuis MongoDB :
 
@@ -102,6 +110,12 @@ Voici quelques exemples de ligne de commande pour l’importation depuis MongoDB
     dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database> /s.Collection:zips /s.Query:{pop:{$gt:50000}} /s.Projection:{loc:0} /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:BulkZipsTransform /t.IdField:_id/t.CollectionThroughput:2500
 
 ## <a name="a-idmongodbexportaimport-mongodb-export-files"></a><a id="MongoDBExport"></a>Importation de fichiers d'exportation MongoDB
+
+> [!IMPORTANT]
+> Si vous importez vers un compte DocumentDB avec la prise en charge de MongoDB, suivez ces [instructions](documentdb-mongodb-migrate.md).
+> 
+> 
+
 L’option d’importateur source du fichier JSON d’exportation MongoDB vous permet d’importer un ou plusieurs fichiers JSON générés depuis l’utilitaire mongoexport.  
 
 ![Capture d’écran des options sources d'exportation MongoDB - documentdb et mongodb](./media/documentdb-import-data/mongodbexportsource.png)
@@ -389,7 +403,7 @@ Pour importer dans seule collection, entrez le nom de la collection dans laquell
 2. Vous pouvez utiliser une syntaxe abrégée : collection[3], qui émet le même jeu de collections que celui mentionné à l'étape 1.
 3. Plusieurs substitutions peuvent être fournies. Par exemple, collection[0-1] [0-9] génère 20 noms de collection avec des zéros non significatifs (collection01, ..02, ..03).
 
-Une fois que les noms de la collection ont été spécifiés, choisissez le débit souhaité des collections (entre 400 RU et 250 000 RU). Pour de meilleures performances d’importation, choisissez un débit plus élevé. Pour plus d’informations sur les niveaux de performances, consultez [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md). Les importations dans des collections avec un débit > 10 000 RU nécessitent une clé de partition. Si vous choisissez d’avoir plus de 250 000 RU, consultez [Demander l’augmentation des limites de compte DocumentDB](documentdb-increase-limits.md).
+Une fois que les noms de la collection ont été spécifiés, choisissez le débit souhaité des collections (entre 400 RU et 250 000 RU). Pour de meilleures performances d’importation, choisissez un débit plus élevé. Pour plus d’informations sur les niveaux de performances, consultez [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md). Les importations dans des collections avec un débit >&10;&000; RU nécessitent une clé de partition. Si vous choisissez d’avoir plus de 250 000 RU, consultez [Demander l’augmentation des limites de compte DocumentDB](documentdb-increase-limits.md).
 
 > [!NOTE]
 > Le paramètre de débit s’applique uniquement à la création de collections. Si la collection spécifiée existe déjà, son débit ne sera pas modifié.
@@ -512,6 +526,6 @@ Choisissez ensuite si vous souhaitez consigner tous les messages d’erreur, uni
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

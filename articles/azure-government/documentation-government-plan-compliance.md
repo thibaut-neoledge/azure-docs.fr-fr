@@ -16,8 +16,8 @@ ms.workload: azure-government
 ms.date: 10/06/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: 601945c05affc350eba111dcec969e6504b91611
-ms.openlocfilehash: e26f1c182869dee58b0ab26da1aa65f99ba8faaa
+ms.sourcegitcommit: 5be95e2deda3bcc36494ba51eeb050d5c4e2894b
+ms.openlocfilehash: 3c1e610412ec043a62f3c389bd239a4225111e61
 
 
 ---
@@ -38,7 +38,7 @@ Par exemple, la clause AC-1 exige que les stratégies et procédures de contrôl
 
 Pour accéder à la CRM, ainsi qu’au modèle de plan de sécurité système Azure Blueprint, envoyez un e-mail à AzureBlueprint@microsoft.com.
 
-Nous apprécions vos commentaires sur la CRM car ils sont essentiels pour l’itération du document, afin que celui-ci soit aussi efficace que possible en relation avec la simplification des processus d’ATO du client.
+Nous apprécions vos commentaires sur la CRM car votre avis pour l’itération du document, afin que celui-ci soit aussi efficace que possible en relation avec la simplification des processus d’ATO du client.
 
 ## <a name="next-steps"></a>Étapes suivantes
 <a href="https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx"> Centre de gestion de la confidentialité Microsoft </a>
@@ -48,6 +48,6 @@ Nous apprécions vos commentaires sur la CRM car ils sont essentiels pour l’it
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

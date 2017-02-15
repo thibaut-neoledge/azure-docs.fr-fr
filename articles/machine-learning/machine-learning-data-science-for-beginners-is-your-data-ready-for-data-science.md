@@ -1,47 +1,51 @@
 ---
-title: Vos données sont-elles prêtes pour la science des données ? Évaluation des données | Microsoft Docs
-description: Découvrez les 4 critères indiquant que vos données sont prêtes pour la science des données. La vidéo 2 de la série Science des données pour les débutants contient des exemples concrets pour faciliter l’évaluation de données de base.
-keywords: évaluation des données,données pertinentes,évaluer des données,préparer les données,critères de données,données prêtes
+title: "Vos données sont-elles prêtes pour la science des données ? Évaluation des données | Microsoft Docs"
+description: "Découvrez les 4 critères indiquant que vos données sont prêtes pour la science des données. La vidéo 2 de la série Science des données pour les débutants contient des exemples concrets pour faciliter l’évaluation de données de base."
+keywords: "données pertinentes,évaluer des données,préparer les données,critères de données,données prêtes"
 services: machine-learning
 documentationcenter: na
-author: brohrer-ms
+author: cjgronlund
 manager: jhubbard
 editor: cjgronlund
-
+ms.assetid: d502062c-da70-4b21-9054-0bfd9902612e
 ms.service: machine-learning
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/15/2016
-ms.author: cgronlun;brohrer;garye
+ms.date: 11/11/2016
+ms.author: cgronlun;garye
+translationtype: Human Translation
+ms.sourcegitcommit: 35579eda8b92a481525ad987e99e7d9c9ed6b942
+ms.openlocfilehash: 902d83db4630bad443208e0aad039d3ad199d2a1
+
 
 ---
-# Vos données sont-elles prêtes pour la science des données ?
-## Vidéo 2 : série Science des données pour les débutants
+# <a name="is-your-data-ready-for-data-science"></a>Vos données sont-elles prêtes pour la science des données ?
+## <a name="video-2-data-science-for-beginners-series"></a>Vidéo 2 : série Science des données pour les débutants
 Découvrez comment évaluer vos données pour vous assurer qu’elles répondent aux critères de base pour la science des données.
 
-Pour tirer le meilleur parti de la série, regardez-les dans l’ordre. [Accéder à la liste des vidéos](#other-videos-in-this-series)
+Pour tirer le meilleur parti de la série, regardez l’ensemble des vidéos. [Accéder à la liste des vidéos](#other-videos-in-this-series)
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/9/player]
-> 
-> 
+>
+>
 
-## Autres vidéos de cette série
-La série *Science des données pour les débutants* offre une introduction rapide à la science des données en cinq petites vidéos.
+## <a name="other-videos-in-this-series"></a>Autres vidéos de cette série
+*Science des données pour les débutants* offre une introduction rapide à la science des données en cinq petites vidéos.
 
 * Vidéo 1 : [Les 5 questions auxquelles la science des données répond](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
 * Vidéo 2 : Vos données sont-elles prêtes pour la science des données ?
-* Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
+* Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
 * Vidéo 4 : [Prédire une réponse à l’aide d’un modèle simple](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
 * Vidéo 5 : [Copier le travail d’autres personnes pour des projets de science des données](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
 
-## Transcription : Vos données sont-elles prêtes pour la science des données ?
-Bienvenue dans « Vos données sont-elles prêtes pour la science des données ? », la seconde vidéo de la série *Science des données pour les débutants*.
+## <a name="transcript-is-your-data-ready-for-data-science"></a>Transcription : Vos données sont-elles prêtes pour la science des données ?
+Bienvenue dans « Vos données sont-elles prêtes pour la science des données ? », la seconde vidéo de la série *Science des données pour les débutants*.  
 
 Avant que la science des données ne puisse vous fournir les réponses souhaitées, vous devez lui donner des matériaux bruts avec lesquels elle pourra travailler. C’est comme pour préparer une pizza : plus les ingrédients sont excellents, plus la qualité du produit fini est bonne.
 
-## Critères pour les données
+## <a name="criteria-for-data"></a>Critères pour les données
 Par conséquent, dans le cas de la science des données, vous avez besoin de certains ingrédients.
 
 Nous avons besoin de données :
@@ -51,7 +55,7 @@ Nous avons besoin de données :
 * Précises
 * Suffisantes
 
-## Vos données sont-elles pertinentes ?
+## <a name="is-your-data-relevant"></a>Vos données sont-elles pertinentes ?
 Le premier ingrédient est donc des données pertinentes.
 
 ![Données pertinentes et données non pertinentes - évaluation des données](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-relevant-and-irrelevant-data.png)
@@ -60,9 +64,9 @@ Examinez le tableau sur la gauche. Nous avons rencontré sept personnes à la so
 
 Il s’agit de données parfaitement légitimes. Le seul problème est qu’elles ne sont pas pertinentes. À première vue, il n’existe aucune relation évidente entre ces chiffres. Si je vous donne le prix actuel du lait et la moyenne à la batte des Red Sox, il n’existe aucun moyen vous permettant de deviner mon taux d’alcool dans le sang.
 
-Maintenant, examinez le tableau sur la droite. Cette fois, nous avons mesuré la masse corporelle de chaque personne et compté le nombre de boissons qu’elles ont consommé. Les chiffres dans chaque ligne sont désormais pertinents une fois mis en relation. Si je vous ai donné mon indice de masse corporelle et le nombre de margaritas que j’ai bus, vous pouvez estimer mon taux d’alcool dans le sang.
+Maintenant, examinez le tableau sur la droite. Cette fois, nous avons mesuré la masse corporelle de chaque personne et compté le nombre de boissons qu’elles ont consommé.  Les chiffres dans chaque ligne sont désormais pertinents une fois mis en relation. Si je vous ai donné mon indice de masse corporelle et le nombre de margaritas que j’ai bus, vous pouvez estimer mon taux d’alcool dans le sang.
 
-## Avez-vous des données connectées ?
+## <a name="do-you-have-connected-data"></a>Avez-vous des données connectées ?
 L’ingrédient suivant est des données connectées.
 
 ![Données connectées et données non connectées - critères de données, données prêtes](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
@@ -75,8 +79,8 @@ Si vous examinez le tableau sur la gauche, il manque tant de données qu’il es
 
 La table de droite, cependant, est remplie (un exemple de données connectées).
 
-## Vos données sont-elles précises ?
-L’ingrédient suivant dont nous avons besoin est la précision. Voici les 4 cibles à atteindre.
+## <a name="is-your-data-accurate"></a>Vos données sont-elles précises ?
+L’ingrédient suivant dont nous avons besoin est la précision. Voici les quatre cibles à atteindre.
 
 ![Données précises et des données inexactes - critères de données](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-inaccurate-vs-accurate-data.png)
 
@@ -86,7 +90,7 @@ Si vous mappez le centre de ces flèches, vous voyez qu’il est très proche du
 
 À présent, examinez la cible de l’angle supérieur gauche. Ici, nos flèches sont très proches, regroupées étroitement. Elles sont précises, mais inexactes, car le centre est la sortie du cercle concentrique. Et, bien entendu, les flèches de la cible en bas à gauche sont inexactes et non précises. Cet archer a besoin de plus de pratique.
 
-## Disposez-vous d’assez de données à analyser ?
+## <a name="do-you-have-enough-data-to-work-with"></a>Disposez-vous d’assez de données à analyser ?
 Enfin, le quatrième ingrédient : nous avons besoin d’assez de données.
 
 ![Disposez-vous d’assez de données pour une analyse ? Évaluation des données](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-barely-enough-data.png)
@@ -101,10 +105,14 @@ Si vous ajoutez davantage de données, le tableau devient plus clair et vous pou
 
 Avec assez de données pertinentes, connectées et précises, nous disposons de tous les ingrédients dont nous avons besoin pour une science des données de pointe.
 
-Nous vous invitons à consulter les 4 autres vidéos de la série *Science des données pour les débutants* de Microsoft Azure Machine Learning.
+Nous vous invitons à consulter les quatre autres vidéos de la série *« Science des données pour les débutants »* de Microsoft Azure Machine Learning.
 
-## Étapes suivantes
-* [Menez votre première expérience de science des données avec Azure Machine Learning](machine-learning-create-experiment.md)
+## <a name="next-steps"></a>Étapes suivantes
+* [Menez une première expérience de science des données avec Machine Learning Studio](machine-learning-create-experiment.md)
 * [Consultez la présentation de Machine Learning sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

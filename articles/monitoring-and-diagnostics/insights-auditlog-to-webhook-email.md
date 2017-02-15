@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 12/08/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9285673f77cc598d881712ef125040e103059f87
+ms.sourcegitcommit: 3c240e5f8eac50f4151a5a72bea690241597fc01
+ms.openlocfilehash: 0b912bc130ab5de3236a0e3f1f60087624b089a0
 
 
 ---
-# <a name="configure-a-webhook-on-an-azure-activity-log-alerts"></a>Configurer un webhook sur une alerte de journal d’activité Azure
+# <a name="configure-a-webhook-on-an-azure-activity-log-alert"></a>Configurer un webhook sur une alerte de journal d’activité Azure
 Les webhooks vous permettent d’acheminer une notification d’alerte Azure vers d’autres systèmes à des fins de post-traitement ou d’exécution d’actions personnalisées. Vous pouvez utiliser un webhook sur une alerte pour acheminer cette dernière vers des services qui envoient un SMS, consignent les bogues, avertissent une équipe par le biais de services de conversation instantanée/messagerie ou exécutent diverses autres actions. Cet article décrit la procédure de définition d’un webhook sur une alerte de journal d’activité Azure, ainsi que l’aspect de la charge utile de la requête HTTP POST vers un webhook. Pour plus d’informations sur la configuration et le schéma d’une alerte de métrique Azure, [consultez plutôt cette page](insights-webhooks-alerts.md). Vous pouvez également configurer une alerte de journal d’activité pour l’envoi d’un e-mail lors de l’activation.
 
 > [!NOTE]
-> Cette fonctionnalité n’étant pour l’instant disponible qu’à titre d’évaluation, elle offre une qualité et des performances variables.
+> Cette fonctionnalité est actuellement en version préliminaire et sera bientôt supprimée.
 > 
 > 
 
@@ -127,6 +127,6 @@ L’opération POST contient le schéma et la charge utile JSON ci-après pour t
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

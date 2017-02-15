@@ -14,6 +14,6 @@ Le tableau suivant liste les quotas et les limites propres à Azure Event Hubs. 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

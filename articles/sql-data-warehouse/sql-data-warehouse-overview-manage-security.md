@@ -112,6 +112,6 @@ Pour plus d’informations sur la connexion à SQL Data Warehouse avec différen
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Apprenez à utiliser l’équilibrage de charge pour optimiser les performances réseau de vos applications. Gérez le trafic des machines virtuelles et des ressources de cloud, ainsi que dans les réseaux virtuels intersite."
 translationtype: Human Translation
-ms.sourcegitcommit: e62704476642d8a519b7bd8b9b101b47ab42e08c
-ms.openlocfilehash: 476eb9f4934d35a808fdd70b6443822eb0a7cfa7
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 53a3e534f9c93c73ef6d28696c5a9d6430a7a258
 
 ---
 #<a name="load-balancer-documentation"></a>Documentation Équilibreur de charge
@@ -110,7 +110,7 @@ Apprenez à configurer l’équilibrage de charge pour donner à vos application
                         <h3>Langues</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.network.models">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node.js</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node.JS</a></p>
                         <p><a href="http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers">Ruby</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations#azure.mgmt.network.operations.LoadBalancersOperations">Python</a></p>
                    </div>
@@ -124,7 +124,7 @@ Apprenez à configurer l’équilibrage de charge pour donner à vos application
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt163651.aspx">Référence sur les API REST</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt163651.aspx">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>
@@ -132,13 +132,7 @@ Apprenez à configurer l’équilibrage de charge pour donner à vos application
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation Équilibreur de charge </div>
-    </a>
-</div>
+
 
 
 

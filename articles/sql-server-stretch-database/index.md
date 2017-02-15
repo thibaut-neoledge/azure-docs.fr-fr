@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: "Découvrez comment utiliser SQL Server Stretch Database pour migrer des données brutes en toute sécurité vers Azure sans modifier les requêtes ou les applications. Didacticiels et autres documents."
 translationtype: Human Translation
-ms.sourcegitcommit: d237f5116f81d0977a96a325ee66f2e7c3ee5c41
-ms.openlocfilehash: bf45461eafbb010d99b61f2f67a763e25f374b30
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3dad35a38c753988615a4c1f2b439de9f95baf0e
 
 ---
 #<a name="sql-server-stretch-database-documentation"></a>Documentation SQL Server Stretch Database
 
-SQL Server Stretch Database effectue la migration de vos données brutes vers le cloud Microsoft Azure en toute sécurité et de manière transparente. SQL Server Stretch Database assure la disponibilité à faible coût des données que vous n’utilisez pas régulièrement, ne nécessite aucune modification de vos requêtes ou applications et garantit la sécurité des données même pendant la migration. Stretch Database cible les bases de données transactionnelles contenant de grandes quantités de données rarement utilisées, généralement stockées dans un petit nombre de tables.
+Découvrez comment utiliser SQL Server Stretch Database pour migrer vos données brutes vers le cloud Azure en toute sécurité et de manière transparente. Les didacticiels et autres documents vous permettent de mettre en place une disponibilité rentable pour les bases de données comportant des données peu utilisées sans le recours à la modification de requêtes ou d’applications existantes.
+
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -86,16 +88,10 @@ SQL Server Stretch Database effectue la migration de vos données brutes vers l
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-server-stretch-database.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation SQL Server Stretch Database </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

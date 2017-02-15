@@ -66,7 +66,7 @@ Azure PowerShell 1.0 :
 Vous pouvez utiliser les applets de commande Azure PowerShell suivantes pour surveiller et gérer des travaux Azure Stream Analytics. Notez qu'il existe différentes versions d'Azure PowerShell. 
 **Dans les exemples répertoriés, la première commande s'applique à Azure PowerShell 0.9.8, la deuxième commande s'applique à Azure PowerShell 1.0.**  Les commandes Azure PowerShell 1.0 contiennent toujours « AzureRM » dans la commande.
 
-### <a name="get-azurestreamanalyticsjob-get-azurermstreamanalyticsjob"></a>Get-AzureStreamAnalyticsJob | Get-AzureRMStreamAnalyticsJob
+### <a name="get-azurestreamanalyticsjob--get-azurermstreamanalyticsjob"></a>Get-AzureStreamAnalyticsJob | Get-AzureRMStreamAnalyticsJob
 Répertorie tous les travaux Stream Analytics définis dans l’abonnement Azure ou le groupe de ressources spécifié, ou obtient des informations sur un travail spécifique au sein d’un groupe de ressources.
 
 **Exemple 1**
@@ -105,7 +105,7 @@ Azure PowerShell 1.0 :
 
 Cette commande PowerShell retourne des informations sur le travail Stream Analytics StreamingJob dans le groupe de ressources StreamAnalytics-Default-Central-US.
 
-### <a name="get-azurestreamanalyticsinput-get-azurermstreamanalyticsinput"></a>Get-AzureStreamAnalyticsInput | Get-AzureRMStreamAnalyticsInput
+### <a name="get-azurestreamanalyticsinput--get-azurermstreamanalyticsinput"></a>Get-AzureStreamAnalyticsInput | Get-AzureRMStreamAnalyticsInput
 Répertorie toutes les entrées qui sont définies dans un travail Stream Analytics spécifié ou obtient des informations sur une entrée spécifique.
 
 **Exemple 1**
@@ -132,7 +132,7 @@ Azure PowerShell 1.0 :
 
 Cette commande PowerShell retourne des informations sur l’entrée nommée EntryStream définie dans le travail StreamingJob.
 
-### <a name="get-azurestreamanalyticsoutput-get-azurermstreamanalyticsoutput"></a>Get-AzureStreamAnalyticsOutput | Get-AzureRMStreamAnalyticsOutput
+### <a name="get-azurestreamanalyticsoutput--get-azurermstreamanalyticsoutput"></a>Get-AzureStreamAnalyticsOutput | Get-AzureRMStreamAnalyticsOutput
 Répertorie toutes les sorties qui sont définies dans un travail Stream Analytics spécifié ou obtient des informations sur une sortie spécifique.
 
 **Exemple 1**
@@ -159,7 +159,7 @@ Azure PowerShell 1.0 :
 
 Cette commande PowerShell retourne des informations sur la sortie nommée Output définie dans le travail StreamingJob.
 
-### <a name="get-azurestreamanalyticsquota-get-azurermstreamanalyticsquota"></a>Get-AzureStreamAnalyticsQuota | Get-AzureRMStreamAnalyticsQuota
+### <a name="get-azurestreamanalyticsquota--get-azurermstreamanalyticsquota"></a>Get-AzureStreamAnalyticsQuota | Get-AzureRMStreamAnalyticsQuota
 Obtient des informations sur le quota des unités de diffusion en continu d'une région spécifiée.
 
 **Exemple 1**
@@ -174,7 +174,7 @@ Azure PowerShell 1.0 :
 
 Cette commande PowerShell retourne des informations sur le quota et l’utilisation des unités de diffusion en continu dans la région Centre des États-Unis.
 
-### <a name="get-azurestreamanalyticstransformation-getazurermstreamanalyticstransformation"></a>Get-AzureStreamAnalyticsTransformation | GetAzureRMStreamAnalyticsTransformation
+### <a name="get-azurestreamanalyticstransformation--getazurermstreamanalyticstransformation"></a>Get-AzureStreamAnalyticsTransformation | GetAzureRMStreamAnalyticsTransformation
 Obtient des informations sur une transformation spécifique définie dans un travail Stream Analytics.
 
 **Exemple 1**
@@ -189,7 +189,7 @@ Azure PowerShell 1.0 :
 
 Cette commande PowerShell retourne des informations sur la transformation nommée StreamingJob dans le travail StreamingJob.
 
-### <a name="new-azurestreamanalyticsinput-new-azurermstreamanalyticsinput"></a>New-AzureStreamAnalyticsInput | New-AzureRMStreamAnalyticsInput
+### <a name="new-azurestreamanalyticsinput--new-azurermstreamanalyticsinput"></a>New-AzureStreamAnalyticsInput | New-AzureRMStreamAnalyticsInput
 Crée une entrée dans un travail Stream Analytics ou met à jour une entrée spécifiée existante.
 
 Vous pouvez spécifier le nom de l'entrée dans le fichier .json ou sur la ligne de commande. Si vous spécifiez les deux, le nom indiqué sur la ligne de commande doit être identique à celui contenu dans le fichier.
@@ -236,7 +236,7 @@ Azure PowerShell 1.0 :
 
 Cette commande PowerShell remplace la définition de la source d’entrée existante nommée EntryStream par la définition qui se trouve dans le fichier.
 
-### <a name="new-azurestreamanalyticsjob-new-azurermstreamanalyticsjob"></a>New-AzureStreamAnalyticsJob | New-AzureRMStreamAnalyticsJob
+### <a name="new-azurestreamanalyticsjob--new-azurermstreamanalyticsjob"></a>New-AzureStreamAnalyticsJob | New-AzureRMStreamAnalyticsJob
 Crée un travail Stream Analytics dans Microsoft Azure ou met à jour la définition d'un travail existant spécifié.
 
 Vous pouvez spécifier le nom du travail dans le fichier .json ou sur la ligne de commande. Si vous spécifiez les deux, le nom indiqué sur la ligne de commande doit être identique à celui contenu dans le fichier.
@@ -271,7 +271,7 @@ Azure PowerShell 1.0 :
 
 Cette commande PowerShell remplace la définition du travail StreamingJob.
 
-### <a name="new-azurestreamanalyticsoutput-new-azurermstreamanalyticsoutput"></a>New-AzureStreamAnalyticsOutput | New-AzureRMStreamAnalyticsOutput
+### <a name="new-azurestreamanalyticsoutput--new-azurermstreamanalyticsoutput"></a>New-AzureStreamAnalyticsOutput | New-AzureRMStreamAnalyticsOutput
 Crée une sortie dans un travail Stream Analytics ou met à jour une sortie existante.  
 
 Vous pouvez spécifier le nom de la sortie dans le fichier .json ou sur la ligne de commande. Si vous spécifiez les deux, le nom indiqué sur la ligne de commande doit être identique à celui contenu dans le fichier.
@@ -306,7 +306,7 @@ Azure PowerShell 1.0 :
 
 Cette commande PowerShell remplace la définition de la sortie « output » dans le travail StreamingJob.
 
-### <a name="new-azurestreamanalyticstransformation-new-azurermstreamanalyticstransformation"></a>New-AzureStreamAnalyticsTransformation | New-AzureRMStreamAnalyticsTransformation
+### <a name="new-azurestreamanalyticstransformation--new-azurermstreamanalyticstransformation"></a>New-AzureStreamAnalyticsTransformation | New-AzureRMStreamAnalyticsTransformation
 Crée une transformation dans un travail Stream Analytics ou met à jour la transformation existante.
 
 Vous pouvez spécifier le nom de la transformation dans le fichier .json ou sur la ligne de commande. Si vous spécifiez les deux, le nom indiqué sur la ligne de commande doit être identique à celui contenu dans le fichier.
@@ -341,7 +341,7 @@ Azure PowerShell 1.0 :
 
  Cette commande PowerShell remplace la définition de StreamingJobTransform dans le travail StreamingJob.
 
-### <a name="remove-azurestreamanalyticsinput-remove-azurermstreamanalyticsinput"></a>Remove-AzureStreamAnalyticsInput | Remove-AzureRMStreamAnalyticsInput
+### <a name="remove-azurestreamanalyticsinput--remove-azurermstreamanalyticsinput"></a>Remove-AzureStreamAnalyticsInput | Remove-AzureRMStreamAnalyticsInput
 Supprime de manière asynchrone une entrée spécifique d'un travail Stream Analytics dans Microsoft Azure.  
 Si vous spécifiez le paramètre -Force, l'entrée est supprimée sans confirmation.
 
@@ -357,7 +357,7 @@ Azure PowerShell 1.0 :
 
 Cette commande PowerShell supprime l’entrée EventStream dans le travail StreamingJob.  
 
-### <a name="remove-azurestreamanalyticsjob-remove-azurermstreamanalyticsjob"></a>Remove-AzureStreamAnalyticsJob | Remove-AzureRMStreamAnalyticsJob
+### <a name="remove-azurestreamanalyticsjob--remove-azurermstreamanalyticsjob"></a>Remove-AzureStreamAnalyticsJob | Remove-AzureRMStreamAnalyticsJob
 Supprime de manière asynchrone un travail Stream Analytics spécifique dans Microsoft Azure.  
 Si vous spécifiez le paramètre -Force, le travail est supprimé sans confirmation.
 
@@ -373,7 +373,7 @@ Azure PowerShell 1.0 :
 
 Cette commande PowerShell supprime le travail StreamingJob.  
 
-### <a name="remove-azurestreamanalyticsoutput-remove-azurermstreamanalyticsoutput"></a>Remove-AzureStreamAnalyticsOutput | Remove-AzureRMStreamAnalyticsOutput
+### <a name="remove-azurestreamanalyticsoutput--remove-azurermstreamanalyticsoutput"></a>Remove-AzureStreamAnalyticsOutput | Remove-AzureRMStreamAnalyticsOutput
 Supprime de manière asynchrone une sortie spécifique d'un travail Stream Analytics dans Microsoft Azure.  
 Si vous spécifiez le paramètre -Force, la sortie est supprimée sans confirmation.
 
@@ -389,7 +389,7 @@ Azure PowerShell 1.0 :
 
 Cette commande PowerShell supprime la sortie Output dans le travail StreamingJob.  
 
-### <a name="start-azurestreamanalyticsjob-start-azurermstreamanalyticsjob"></a>Start-AzureStreamAnalyticsJob | Start-AzureRMStreamAnalyticsJob
+### <a name="start-azurestreamanalyticsjob--start-azurermstreamanalyticsjob"></a>Start-AzureStreamAnalyticsJob | Start-AzureRMStreamAnalyticsJob
 Déploie et démarre un travail Stream Analytics dans Microsoft Azure de façon asynchrone.
 
 **Exemple 1**
@@ -404,7 +404,7 @@ Azure PowerShell 1.0 :
 
 Cette commande PowerShell démarre le travail StreamingJob avec une heure de début de sortie personnalisée définie sur le 12 décembre 2012, 12:12:12 UTC.
 
-### <a name="stop-azurestreamanalyticsjob-stop-azurermstreamanalyticsjob"></a>Stop-AzureStreamAnalyticsJob | Stop-AzureRMStreamAnalyticsJob
+### <a name="stop-azurestreamanalyticsjob--stop-azurermstreamanalyticsjob"></a>Stop-AzureStreamAnalyticsJob | Stop-AzureRMStreamAnalyticsJob
 Arrête l'exécution d'un travail Stream Analytics dans Microsoft Azure de façon asynchrone et libère les ressources qui étaient utilisées. La définition du travail et les métadonnées restent disponibles dans votre abonnement par le biais du Portail Azure et des API de gestion ; ainsi, le travail peut être modifié et redémarré. Un travail à l'état Arrêté ne vous sera pas facturé.
 
 **Exemple 1**
@@ -419,7 +419,7 @@ Azure PowerShell 1.0 :
 
 Cette commande PowerShell arrête le travail StreamingJob.  
 
-### <a name="test-azurestreamanalyticsinput-test-azurermstreamanalyticsinput"></a>Test-AzureStreamAnalyticsInput | Test-AzureRMStreamAnalyticsInput
+### <a name="test-azurestreamanalyticsinput--test-azurermstreamanalyticsinput"></a>Test-AzureStreamAnalyticsInput | Test-AzureRMStreamAnalyticsInput
 Teste la capacité de Stream Analytics à se connecter à une entrée spécifiée.
 
 **Exemple 1**
@@ -434,7 +434,7 @@ Azure PowerShell 1.0 :
 
 Cette commande PowerShell teste l’état de la connexion de l’entrée EntryStream dans StreamingJob.  
 
-### <a name="test-azurestreamanalyticsoutput-test-azurermstreamanalyticsoutput"></a>Test-AzureStreamAnalyticsOutput | Test-AzureRMStreamAnalyticsOutput
+### <a name="test-azurestreamanalyticsoutput--test-azurermstreamanalyticsoutput"></a>Test-AzureStreamAnalyticsOutput | Test-AzureRMStreamAnalyticsOutput
 Teste la capacité de Stream Analytics à se connecter à une sortie spécifiée.
 
 **Exemple 1**

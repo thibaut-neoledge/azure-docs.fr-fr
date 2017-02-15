@@ -282,6 +282,6 @@ Le mode rafale accroît légèrement l'autonomie de la batterie, mais il affecte
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

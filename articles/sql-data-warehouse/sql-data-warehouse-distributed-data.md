@@ -1,12 +1,12 @@
 ---
-title: Distributed data and distributed table options for the Massively Parallel Processing (MPP) systems of SQL Data Warehouse and Parallel Data Warehouse | Microsoft Docs
-description: Learn how data is distributed for Massively Parallel Processing (MPP) and the options for distributing tables in Azure SQL Data Warehouse and Parallel Data Warehouse.
+title: "Données et tables distribuées pour les systèmes de traitement massivement parallèle (MPP) de SQL Data Warehouse et Parallel Data Warehouse | Documents Microsoft"
+description: "Découvrez le mode de distribution des données pour le traitement massivement parallèle (MPP) ainsi que les options de distribution des tables dans Azure SQL Data Warehouse et Parallel Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: bae494a6-7ac5-4c38-8ca3-ab2696c63a9f
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,62 +14,69 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1090c2156df11adc6f18dffe00a9d37921c0a3a3
+
 
 ---
-# <a name="distributed-data-and-distributed-tables-for-massively-parallel-processing-mpp"></a>Distributed data and distributed tables for Massively Parallel Processing (MPP)
-Learn how user data is distributed in Azure SQL Data Warehouse and Parallel Data Warehouse, which are Microsoft's Massively Parallel Processing (MPP) systems. Designing your data warehouse to use distributed data effectively helps you to achieve the query processing benefits of the MPP architecture. A few database design choices can have a significant impact on improving query performance.  
+# <a name="distributed-data-and-distributed-tables-for-massively-parallel-processing-mpp"></a>Données et tables distribuées pour le traitement massivement parallèle (MPP)
+Découvrez comment les données utilisateur sont distribuées dans Azure SQL Data Warehouse et Parallel Data Warehouse, qui sont des systèmes de traitement massivement parallèle (MPP) de Microsoft. En concevant votre entrepôt de données pour qu’il utilise les données distribuées, vous bénéficiez des avantages de l’architecture MPP en termes de traitement des requêtes. Certains choix de conception de base de données peuvent avoir un impact significatif sur l’amélioration des performances des requêtes.  
 
 > [!NOTE]
-> Azure SQL Data Warehouse and Parallel Data Warehouse use the same Massively Parallel Processing (MPP) design, but they have a few differences because of the underlying platform. SQL Data Warehouse is a Platform as a Service (PaaS) that runs on Azure. Parallel Data Warehouse runs on Analytics Platform System (APS) which is an on-premises appliance that runs on Windows Server.
+> Azure SQL Data Warehouse et Parallel Data Warehouse utilisent le même traitement massivement parallèle (MPP), mais ils présentent quelques différences au niveau de la plateforme sous-jacente. SQL Data Warehouse est une plateforme PaaS (Platform as a Service) qui s’exécute sur Azure. Parallel Data Warehouse s’exécute sur Analytics Platform System (APS), une application locale qui s’exécute sur Windows Server.
 > 
 > 
 
-## <a name="what-is-distributed-data"></a>What is distributed data?
-In SQL Data Warehouse and Parallel Data Warehouse, distributed data refers to user data that is stored in multiple locations across the MPP system. Each of those locations functions as an independent storage and processing unit that runs queries on its portion of the data. Distributed data is fundamental to running queries in parallel to achieve high query performance.
+## <a name="what-is-distributed-data"></a>Présentation des données distribuées
+Dans SQL Data Warehouse et Parallel Data Warehouse, les données distribuées désignent les données utilisateur qui sont stockées dans plusieurs emplacements sur le système MPP. Chacun de ces emplacements fonctionne comme une unité de stockage et de traitement indépendante, qui exécute des requêtes sur sa partie des données. Les données distribuées sont essentielles pour exécuter des requêtes en parallèle et obtenir des performances de traitement élevées.
 
-To distribute data, the data warehouse assigns each row of a user table to one distributed location.  You can distribute tables with a hash-distribution method or a round-robin method. The distribution method is specified in the CREATE TABLE statement. 
+Pour distribuer des données, l’entrepôt de données affecte chaque ligne d’une table utilisateur à un emplacement distribué.  Vous pouvez distribuer des tables par hachage ou par tourniquet. La méthode de distribution est spécifiée dans l’instruction CREATE TABLE. 
 
-## <a name="hashdistributed-tables"></a>Hash-distributed tables
-The following diagram illustrates how a full (non-distributed table) gets stored as a hash-distributed table. A deterministic function assigns each row to belong to one distribution. In the table definition, one of the columns is designated as the distribution column. The hash function uses the value in the distribution column to assign each row to a distribution.
+## <a name="hash-distributed-tables"></a>Tables distribuées par hachage
+Le schéma suivant illustre comment une table complète (non distribuée) est stockée sous la forme d’une table distribuée par hachage. Une fonction déterministe attribue chaque ligne à une distribution. Dans la définition de la table, une des colonnes est désignée comme colonne de distribution. La fonction de hachage utilise valeur située dans la colonne de distribution pour allouer chaque ligne à une distribution.
 
-There are performance considerations for the selection of a distribution column, such as distinctness, data skew, and the types of queries run on the system.
+Les critères de performances, comme la distinction, l’inclinaison de données et les types de requête exécutés sur le système, conditionne le choix de la colonne de distribution.
 
-![Distributed table](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Distributed table")  
+![Table distribuée](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Distributed table")  
 
-* Each row belongs to one distribution.  
-* A deterministic hash algorithm assigns each row to one distribution.  
-* The number of table rows per distribution varies as shown by the different sizes of tables.
+* Chaque ligne appartient à une distribution.  
+* Un algorithme de hachage déterministe attribue chaque ligne à une distribution.  
+* Le nombre de lignes de table par distribution varie selon la taille des tables.
 
-## <a name="roundrobin-distributed-tables"></a>Round-robin distributed tables
-A round-robin distributed table distributes the rows by assigning each row to a distribution in a sequential manner. It is quick to load data into a round-robin table, but query performance might be slower.  Joining a round-robin table usually requires reshuffling the rows to enable the query to produce an accurate result, which takes time.
+## <a name="round-robin-distributed-tables"></a>Tables distribuées par tourniquet
+Une table distribuée par tourniquet distribue les lignes en les allouant à une distribution de façon séquentielle. Cette méthode permet de charger rapidement des données dans une table de type tourniquet, mais le traitement des requêtes peut être plus lent.  En général, la jointure d’une table de type tourniquet implique un remaniement des lignes pour permettre à la requête de produire un résultat exact, ce qui prend du temps.
 
-## <a name="distributed-storage-locations-are-called-distributions"></a>Distributed storage locations are called distributions
-Each distributed location is called a distribution. When a query runs in parallel, each distribution performs a SQL query on its portion of the data. SQL Data Warehouse uses SQL Database to run the query. Parallel Data Warehouse uses SQL Server to run the query. This shared-nothing architecture design is fundamental to achieving scale-out parallel computing.
+## <a name="distributed-storage-locations-are-called-distributions"></a>Les emplacements de stockage distribués sont appelés des distributions.
+Chaque emplacement distribué est appelé une distribution. Lorsqu’une requête s’exécute en parallèle, chaque distribution exécute une requête SQL sur sa partie des données. SQL Data Warehouse utilise SQL Database pour exécuter la requête. Parallel Data Warehouse utilise SQL Server pour exécuter la requête. Cette architecture sans partage est essentielle pour la montée en puissance du calcul parallèle.
 
-### <a name="can-i-view-the-distributions"></a>Can I view the distributions?
-Each distribution has a distribution ID and is visible in system views that pertain to SQL Data Warehouse and Parallel Data Warehouse. You can use the distribution ID to troubleshoot query performance and other problems. For a list of the system views, see the [MPP system view](sql-data-warehouse-reference-tsql-statements.md).
+### <a name="can-i-view-the-distributions"></a>Puis-je afficher les distributions ?
+Chaque distribution possède un ID et s’affiche dans les vues système de SQL Data Warehouse et Parallel Data Warehouse. Vous pouvez utiliser l’ID de distribution pour résoudre les problèmes de performances des requêtes, entre autres. Pour obtenir la liste des vues système, cliquez [ici](sql-data-warehouse-reference-tsql-statements.md).
 
-## <a name="difference-between-a-distribution-and-a-compute-node"></a>Difference between a distribution and a Compute node
-A distribution is the basic unit for storing distributed data and processing parallel queries. Distributions are grouped into Compute nodes. Each Compute node tracks one or more distributions.  
+## <a name="difference-between-a-distribution-and-a-compute-node"></a>Différence entre une distribution et un nœud de calcul
+La distribution est l’unité de base qui stocke les données distribuées et traite les requêtes en parallèle. Les distributions sont regroupées en nœuds de calcul. Chaque nœud de calcul gère une ou plusieurs distributions.  
 
-* Analytics Platform System uses Compute nodes as a central component of the hardware architecture and scale-out capabilities. It always uses eight distributions per Compute node, as shown in the diagram for hash-distributed tables. The number of Compute nodes, and therefore the number of distributions, is determined by the number of Compute nodes you purchase for the appliance. For example, if you purchase eight Compute nodes, you get 64 distributions (8 Compute nodes x 8 distributions/node). 
-* SQL Data Warehouse has a fixed number of 60 distributions and a flexible number of Compute nodes. The Compute nodes are implemented with Azure computing and storage resources. The number of Compute nodes can change according to the backend service workload and the computing capacity (DWUs) you specify for the data warehouse. When the number of Compute nodes changes, the number of distributions per Compute node also changes. 
+* Analytique Platform System utilise les nœuds de calcul comme un composant central de l’architecture matérielle et des fonctionnalités de montée en puissance. Il inclut toujours huit distributions par nœud de calcul, comme indiqué dans le schéma des tables distribuées par hachage. Le nombre de nœuds de calcul, et donc de distributions, correspond au nombre de nœuds de calcul que vous achetez pour l’application. Par exemple, si vous achetez huit nœuds, vous obtenez 64 distributions (8 nœuds x 8 distributions/nœud). 
+* SQL Data Warehouse a un nombre fixe de 60 distributions et un nombre variable de nœuds de calcul. Les nœuds de calcul sont implémentés avec les ressources de calcul et de stockage Azure. Le nombre de nœuds de calcul peut varier en fonction de la charge de travail du service principal et de la capacité de calcul (unités DWU) que vous spécifiez pour l’entrepôt de données. Lorsque le nombre de nœuds de calcul change, le nombre de distributions par nœud change également. 
 
-### <a name="can-i-view-the-compute-nodes"></a>Can I view the Compute nodes?
-Each Compute node has a node ID and is visible in system views that pertain to SQL Data Warehouse and Parallel Data Warehouse.  You can see the Compute node by looking for the node_id column in system views whose names begin with sys.pdw_nodes. For a list of the system views, see the [MPP system view](sql-data-warehouse-reference-tsql-statements.md).
+### <a name="can-i-view-the-compute-nodes"></a>Puis-je afficher les nœuds de calcul ?
+Chaque nœud de calcul possède un ID et s’affiche dans les vues système de SQL Data Warehouse et Parallel Data Warehouse.  Vous pouvez visualiser le nœud de calcul en effectuant une recherche dans la colonne node_id des vues système dont le nom commence par sys.pdw_nodes. Pour obtenir la liste des vues système, cliquez [ici](sql-data-warehouse-reference-tsql-statements.md).
 
-## <a name="a-namereplicatedareplicated-tables-for-parallel-data-warehouse"></a><a name="Replicated"></a>Replicated Tables for Parallel Data Warehouse
-Applies to: Parallel Data Warehouse
+## <a name="a-namereplicatedareplicated-tables-for-parallel-data-warehouse"></a><a name="Replicated"></a>Tables répliquées pour Parallel Data Warehouse
+S’applique à : Parallel Data Warehouse
 
-In addition to using distributed tables, Parallel Data Warehouse offers an option to replicate tables. A *replicated table* is a table that is stored in its entirety on each Compute node. Replicating a table removes the need to transfer its table rows among Compute nodes before using the table in a join or aggregation. Replicated tables are only feasible with small tables because of the extra storage required to store the full table on each compute node.  
+Outre l’utilisation des tables distribuées, Parallel Data Warehouse permet de répliquer des tables. Une *table répliquée* est une table stockée intégralement sur chaque nœud de calcul. La réplication d’une table évite le transfert de ses lignes entre des nœuds de calcul avant de l’utiliser dans une jointure ou une agrégation. Seules les tables de petite taille sont réplicables, en raison de l’espace de stockage supplémentaire requis pour les stocker intégralement sur chaque nœud de calcul.  
 
-The following diagram shows a replicated table that is stored on each Compute node. The replicated table is stored across all disks assigned to the Compute node. This disk strategy is implemented by using SQL Server filegroups.  
+Le diagramme suivant illustre une table répliquée stockée sur chaque nœud de calcul. La table répliquée est stockée sur tous les disques alloués au nœud de calcul. Cette stratégie de disque met en œuvre des groupes de fichiers SQL Server.  
 
-![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
+![Table répliquée](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
 
-## <a name="next-steps"></a>Next steps
-To use distributed tables effectively, see [Distributing tables in SQL Data Warehouse](sql-data-warehouse-tables-distribute.md)  
+## <a name="next-steps"></a>Étapes suivantes
+Pour utiliser efficacement les tables distribuées, consultez [Distributing tables in SQL Data Warehouse (Distribution de tables dans SQL Data Warehouse)](sql-data-warehouse-tables-distribute.md).  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

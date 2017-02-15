@@ -146,7 +146,7 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 
 * [Comment mettre à jour votre mot de passe](active-directory-passwords-update-your-own-password.md)
 
-#### <a name="connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Connect (moteur de synchronisation qui étend les annuaires locaux dans Azure Active Directory)
+#### <a name="connect--sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Connect (moteur de synchronisation qui étend les annuaires locaux dans Azure Active Directory)
 **Type :** Fonctionnalités communes
 
 **Disponibilité :**
@@ -273,7 +273,7 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 * [Présentation d'Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 
-#### <a name="a-namemim-cal-mim-serveramim-cal-mim-server"></a><a name="mim-cal-mim-server"></a>Licence d’accès client MIM + serveur MIM
+#### <a name="a-namemim-cal-mim-serveramim-cal--mim-server"></a><a name="mim-cal-mim-server"></a>Licence d’accès client MIM + serveur MIM
 Les droits du logiciel Microsoft Identity Manager Server sont octroyés avec les licences Windows Server (toutes les éditions). Comme Microsoft Identity Manager s’exécute sur le système d’exploitation Windows Server, tant que le serveur exécute une copie sous licence valide de Windows Server, Microsoft Identity Manager peut être installé et utilisé sur ce serveur. Aucune autre licence séparée n’est nécessaire pour Microsoft Identity Manager Server.
 
 **Type :** Fonctionnalités Premium
@@ -333,7 +333,7 @@ Les droits du logiciel Microsoft Identity Manager Server sont octroyés avec les
 |:---:|:---:|:---:|:---:|
 | &nbsp; | &nbsp; | ![Vérification][12] | &nbsp; |
 
-## <a name="azure-active-directory-join-windows-10-only-related-features"></a>Azure Active Directory Join - Fonctionnalités propres à Windows 10
+## <a name="azure-active-directory-join--windows-10-only--related-features"></a>Azure Active Directory Join - Fonctionnalités propres à Windows 10
 #### <a name="join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery"></a>Joindre un appareil à Azure AD, Desktop SSO, Microsoft Passport pour Azure AD, récupération Bitlocker de l’administrateur
 **Type :** Azure Active Directory Join - Fonctionnalités propres à Windows 10
 
@@ -387,6 +387,6 @@ Outre les fonctionnalités généralement disponibles des éditions gratuite, de
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

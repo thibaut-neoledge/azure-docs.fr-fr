@@ -1,12 +1,12 @@
 ---
-title: Prise en main de l’audit de base de données SQL | Microsoft Docs
-description: Prise en main de l’audit de base de données SQL
+title: "Prise en main de l’audit de base de données SQL | Documents Microsoft"
+description: "Prise en main de l’audit de base de données SQL"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: ronitr
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: CarlRabeler; ronitr; giladm
+translationtype: Human Translation
+ms.sourcegitcommit: 80680647559fe8b42cfa09985b9da3713b9c9305
+ms.openlocfilehash: cf0152b0cbcc85befa1b753b92f1593af958dd89
+
 
 ---
-# <a name="get-started-with-sql-database-auditing"></a>Prise en main de l’audit SQL Database
+# <a name="get-started-with-sql-database--auditing"></a>Prise en main de l’audit SQL Database
 L’audit Azure SQL Database suit les événements de base de données et les écrit dans un journal d’audit dans votre compte Stockage Azure.
 
 L’audit peut vous aider à respecter une conformité réglementaire, à comprendre l’activité de la base de données et à découvrir des discordances et anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité.
@@ -27,8 +31,8 @@ L’audit permet et facilite le respect de normes de conformité, mais il ne gar
 * [Configuration de l’audit pour votre base de données]
 * [Analyse des journaux et des rapports d’audit]
 
-## <a name="<a-id="subheading-1"></a>azure-sql-database-auditing-overview"></a><a id="subheading-1"></a>Vue d’ensemble de l’audit Azure SQL Database
-L’audit de bases de données SQL permet :
+## <a name="a-idsubheading-1aazure-sql-database-auditing-overview"></a><a id="subheading-1"></a>Vue d’ensemble de l’audit Azure SQL Database
+L’audit de bases de données SQL permet :
 
 * **La rétention** d’une piste d’audit d’événements sélectionnés. Définissez les catégories d'actions et d'événements de base de données à auditer.
 * **La génération de rapports** sur les activités de la base de données. Vous pouvez utiliser des rapports préconfigurés et un tableau de bord pour une prise en main rapide de la génération de rapports d'activités et d'événements.
@@ -45,12 +49,12 @@ Vous pouvez configurer l’audit pour différents types de catégories d’évé
 
 Une stratégie d’audit peut être définie pour une base de données spécifique ou en tant que stratégie de serveur par défaut. Une stratégie d’audit de serveur par défaut s’applique aux bases de données existantes et à celles qui sont nouvellement créées sur un serveur.
 
-## <a name="<a-id="subheading-2"></a>set-up-auditing-for-your-database"></a><a id="subheading-2"></a>Configuration de l’audit pour votre base de données
+## <a name="a-idsubheading-2aset-up-auditing-for-your-database"></a><a id="subheading-2"></a>Configuration de l’audit pour votre base de données
 La section suivante décrit la configuration de l’audit à l’aide du portail Azure.
 
-### <a name="<a-id="subheading-2-1">i.-blob-auditing</a>"></a><a id="subheading-2-1">i. Audit d’objets blob</a>
+### <a name="a-idsubheading-2-1blob-auditinga"></a><a id="subheading-2-1">Audit d’objets blob</a>
 1. Lancez le [portail Azure ](https://portal.azure.com) à l’adresse https://portal.azure.com.
-2. Accédez au panneau des paramètres de Base de données SQL/SQL Server que vous voulez auditer. Dans le panneau Paramètres, sélectionnez **Audit et détection des menaces**.
+2. Accédez au panneau des paramètres de Base de données SQL/SQL Server que vous voulez auditer. Dans le panneau Paramètres, sélectionnez **Audit et détection des menaces**.
    
     <a id="auditing-screenshot"></a>
     ![Volet de navigation][1]
@@ -64,21 +68,21 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
    > 
    
     ![Volet de navigation][3]
-5. Sélectionnez **Détails du stockage** pour ouvrir le panneau Stockage des journaux d’audit. Sélectionnez le compte de stockage Azure où les journaux sont enregistrés et la période de rétention après laquelle les anciens journaux sont supprimés, puis cliquez sur **OK** dans le bas. **Conseil :** utilisez le même compte de stockage pour toutes les bases de données auditées afin de profiter au mieux des modèles de rapport d’audit.
+5. Sélectionnez **Détails du stockage** pour ouvrir le panneau Stockage des journaux d’audit. Sélectionnez le compte de stockage Azure où les journaux sont enregistrés et la période de rétention après laquelle les anciens journaux sont supprimés, puis cliquez sur **OK** dans le bas. **Conseil :** utilisez le même compte de stockage pour toutes les bases de données auditées afin de profiter au mieux des modèles de rapport d’audit.
    
     <a id="storage-screenshot"></a>
     ![Volet de navigation][4]
 6. Si vous voulez personnaliser les événements audités, vous pouvez le faire via PowerShell ou l’API REST. Pour plus d’informations, consultez la section [Automation (PowerShell / API REST)](#subheading-7).
 7. Cliquez sur **Save**.
 
-### <a name="<a-id="subheading-2-2">ii.-table-auditing</a>"></a><a id="subheading-2-2">ii. Audit de table</a>
+### <a name="a-idsubheading-2-2table-auditinga"></a><a id="subheading-2-2">Audit de table</a>
 > [!NOTE]
 > Avant de configurer **l’audit Table**, vérifiez que vous utilisez bien un [« Client de niveau inférieur »](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). En outre, si vous avez des paramètres de pare-feu stricts, notez que le [point de terminaison IP de votre base de données change](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) lors de l’activation de l’audit Table.
 > 
 > 
 
 1. Lancez le [portail Azure ](https://portal.azure.com) à l’adresse https://portal.azure.com.
-2. Accédez au panneau des paramètres de Base de données SQL/SQL Server que vous voulez auditer. Dans le panneau Paramètres, sélectionnez **Audit et détection des menaces** (*[voir la capture d’écran dans la section Audit Objet blob](#auditing-screenshot)*).
+2. Accédez au panneau des paramètres de Base de données SQL/SQL Server que vous voulez auditer. Dans le panneau Paramètres, sélectionnez **Audit et détection des menaces** (*[voir la capture d’écran dans la section Audit Objet blob](#auditing-screenshot)*).
 3. Dans le panneau de configuration de l’audit de la base de données, vous pouvez cocher la case **Hériter des paramètres du serveur** pour indiquer que cette base de données doit être auditée en fonction des paramètres de son serveur. SI cette option est sélectionnée, vous voyez un lien **Afficher les paramètres d’audit du serveur** qui vous permet d’afficher ou de modifier les paramètres d’audit du serveur à partir de ce contexte.
    
     ![Volet de navigation][2]
@@ -96,14 +100,14 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
 7. Une fois que vous avez configuré vos paramètres d’audit, vous pouvez activer la nouvelle fonctionnalité **Détection des menaces** (préversion) et configurer les adresses e-mail de réception des alertes de sécurité. La détection des menaces vous permet de recevoir des alertes proactives sur des activités anormales de la base de données qui peuvent indiquer des menaces de sécurité potentielles. Pour en savoir plus, consultez [Prise en main de la détection des menaces](sql-database-threat-detection-get-started.md) .
 8. Cliquez sur **Save**.
 
-## <a name="<a-id="subheading-3"></a>analyze-audit-logs-and-reports"></a><a id="subheading-3"></a>Analyse des journaux et des rapports d’audit
+## <a name="a-idsubheading-3aanalyze-audit-logs-and-reports"></a><a id="subheading-3"></a>Analyse des journaux et des rapports d’audit
 Les journaux d’audit sont agrégés dans le compte de stockage Azure choisi lors de la configuration.
 
 Vous pouvez explorer les fichiers journaux d’audit avec un outil comme [l’Explorateur de stockage Azure](http://storageexplorer.com/).
 
 Consultez ci-dessous les spécificités de l’analyse des journaux d’audit **Table** et **Objet blob**.
 
-### <a name="<a-id="subheading-3-1">i.-blob-auditing</a>"></a><a id="subheading-3-1">i. Audit d’objets blob</a>
+### <a name="a-idsubheading-3-1blob-auditinga"></a><a id="subheading-3-1">Audit d’objets blob</a>
 Les journaux d’audit Objet blob sont enregistrés sous la forme d’une collection de fichiers d’objets blob dans un conteneur nommé « **sqldbauditlogs** ».
 
 Pour plus d’informations sur la hiérarchie des dossiers de stockage des journaux d’audit Objet blob, sur la convention de nommage des objets blob et sur le format des journaux, consultez les [informations de référence sur le format des journaux d’audit Objet blob (téléchargement de fichiers doc)](https://go.microsoft.com/fwlink/?linkid=829599).
@@ -127,7 +131,7 @@ Il existe plusieurs méthodes pour afficher des journaux d’audit Objet blob :
      * Lecteur des événements étendus de la **bibliothèque C#** ([plus d’informations ici](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/))
      * Interrogation des fichiers d’événements étendus avec **PowerShell** ([plus d’informations ici](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/))
 
-### <a name="<a-id="subheading-3-2">ii.-table-auditing</a>"></a><a id="subheading-3-2">ii. Audit de table</a>
+### <a name="a-idsubheading-3-2table-auditinga"></a><a id="subheading-3-2">Audit de table</a>
 Les journaux d’audit Table sont enregistrés sous la forme d’une collection de tables Stockage Azure avec un préfixe **SQLDBAuditLogs**.
 
 Pour plus d’informations sur le format des journaux d’audit Table, consultez les [informations de référence sur les formats des journaux d’audit Table](http://go.microsoft.com/fwlink/?LinkId=506733).
@@ -142,16 +146,16 @@ Il existe plusieurs méthodes pour afficher des journaux d’audit Table :
    * Vous pouvez télécharger et afficher les journaux d’audit au format Excel en cliquant sur **Ouvrir dans Excel** en haut du panneau Enregistrements d’audit
      
      ![Volet de navigation][7]
-2. Par ailleurs, un modèle de rapport préconfiguré est disponible sous forme de [feuille de calcul Excel téléchargeable](http://go.microsoft.com/fwlink/?LinkId=403540) pour vous aider à analyser rapidement les données des journaux. Pour utiliser le modèle sur vos journaux d’audit, il vous faut Excel 2013 ou une version ultérieure et Power Query, téléchargeable [ici](http://www.microsoft.com/download/details.aspx?id=39379).
+2. Par ailleurs, un modèle de rapport préconfiguré est disponible sous forme de [feuille de calcul Excel téléchargeable](http://go.microsoft.com/fwlink/?LinkId=403540) pour vous aider à analyser rapidement les données des journaux. Pour utiliser le modèle sur vos journaux d’audit, il vous faut Excel 2013 ou une version ultérieure et Power Query, téléchargeable [ici](http://www.microsoft.com/download/details.aspx?id=39379).
    
     Vous pouvez aussi importer vos journaux d’audit dans le modèle Excel directement depuis votre compte de stockage Azure à l’aide de Power Query. Vous pouvez explorer ensuite vos enregistrements d’audit et créer des tableaux de bord et des rapports outre les données du journal.
    
     ![Volet de navigation][9]
 
-## <a name="<a-id="subheading-5"></a>practices-for-usage-in-production"></a><a id="subheading-5"></a>Pratiques d’utilisation dans un environnement de production
+## <a name="a-idsubheading-5apractices-for-usage-in-production"></a><a id="subheading-5"></a>Pratiques d’utilisation dans un environnement de production
 <!--The description in this section refers to screen captures above.-->
 
-### <a name="<a-id="subheading-6">auditing-geo-replicated-databases</a>"></a><a id="subheading-6">Audit des bases de données géorépliquées</a>
+### <a name="a-idsubheading-6auditing-geo-replicated-databasesa"></a><a id="subheading-6">Audit des bases de données géorépliquées</a>
 Quand vous utilisez des bases de données géorépliquées, il est possible de configurer l’audit sur la base de données primaire, sur la base de données secondaire ou sur les deux, selon le type d’audit.
 
 **Audit Table** : vous pouvez configurer une stratégie distincte, au niveau base de données ou au niveau serveur, pour chacune des deux bases de données (principale et secondaire), comme décrit dans la section [Configuration de l’audit pour votre base de données](#subheading-2-2).
@@ -167,8 +171,8 @@ Quand vous utilisez des bases de données géorépliquées, il est possible de c
 
 <br>
 
-### <a name="<a-id="subheading-6">storage-key-regeneration</a>"></a><a id="subheading-6">Régénération des clés de stockage</a>
-Dans un environnement de production, vous allez probablement actualiser périodiquement vos clés de stockage. Lors de l’actualisation de vos clés, vous devez réenregistrer la stratégie d’audit. Pour ce faire, procédez comme suit :
+### <a name="a-idsubheading-6storage-key-regenerationa"></a><a id="subheading-6">Régénération des clés de stockage</a>
+Dans un environnement de production, vous allez probablement actualiser périodiquement vos clés de stockage. Lors de l’actualisation de vos clés, vous devez réenregistrer la stratégie d’audit. Pour ce faire, procédez comme suit :
 
 1. Dans le panneau des détails de stockage, faites passer la **clé d’accès de stockage** de *Principale**Secondaire*, puis cliquez sur **OK** dans le bas. Cliquez sur **ENREGISTRER** en haut du panneau de configuration de l’audit.
    
@@ -179,7 +183,7 @@ Dans un environnement de production, vous allez probablement actualiser périodi
 3. Revenez au panneau de configuration de l’audit, faites passer la **clé d’accès de stockage** de *Secondaire* à *Principale*, puis cliquez sur **OK** dans le bas. Cliquez sur **ENREGISTRER** en haut du panneau de configuration de l’audit.
 4. Revenez au panneau de configuration du stockage, puis **régénérez** la *clé d’accès secondaire* (en préparation du cycle suivant d’actualisation des clés).
 
-## <a name="<a-id="subheading-7"></a>automation-(powershell-/-rest-api)"></a><a id="subheading-7"></a>Automation (PowerShell / API REST)
+## <a name="a-idsubheading-7aautomation-powershell--rest-api"></a><a id="subheading-7"></a>Automation (PowerShell / API REST)
 Vous pouvez également configurer l’audit dans Azure SQL Database en utilisant les outils d’automatisation suivants :
 
 1. **Applets de commande PowerShell**
@@ -237,6 +241,6 @@ Vous pouvez également configurer l’audit dans Azure SQL Database en utilisant
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

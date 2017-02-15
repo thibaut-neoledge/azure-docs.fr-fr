@@ -1221,6 +1221,6 @@ L’exemple suivant montre la fonction subscription appelée dans la section out
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

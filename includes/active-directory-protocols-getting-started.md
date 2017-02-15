@@ -36,6 +36,6 @@ Tout d’abord, vous devez inscrire votre application avec votre client Azure Ac
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

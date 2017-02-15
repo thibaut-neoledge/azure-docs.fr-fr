@@ -1,19 +1,23 @@
 ---
-title: Procédure de mise à niveau du SDK iOS Azure Mobile Engagement | Microsoft Docs
-description: Dernières mises à jour et procédures du Kit de développement logiciel (SDK) iOS pour Azure Mobile Engagement
+title: "Procédure de mise à niveau du SDK iOS Azure Mobile Engagement | Microsoft Docs"
+description: "Dernières mises à jour et procédures du Kit de développement logiciel (SDK) iOS pour Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 72a9e493-3f14-4e52-b6e2-0490fd04b184
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/13/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: c4b5b8bc05365ddc63b0d7a6a3c63eaee31af957
+ms.openlocfilehash: 37c7f133d079186f828d58cabce0d2a259efd085
+
 
 ---
 # <a name="upgrade-procedures"></a>Procédures de mise à niveau
@@ -21,7 +25,7 @@ Si vous avez déjà intégré une version antérieure d'Engagement dans votre ap
 
 Pour chaque nouvelle version du Kit de développement logiciel, vous devez d'abord remplacer (supprimer et importer de nouveau dans xcode) les dossiers EngagementSDK et EngagementReach.
 
-## <a name="from-3.0.0-to-4.0.0"></a>Migration de 3.0.0 vers 4.0.0
+## <a name="from-300-to-400"></a>Migration de 3.0.0 vers 4.0.0
 ### <a name="xcode-8"></a>XCode 8
 XCode 8 est obligatoire à partir de la version 4.0.0 du SDK.
 
@@ -85,12 +89,15 @@ par :
             [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         }
 
-### <a name="if-you-already-have-your-own-unusernotificationcenterdelegate-implementation"></a>Si vous disposez déjà de votre propre implémentation de UNUserNotificationCenterDelegate
-Le Kit de développement logiciel (SDK) a également sa propre implémentation du protocole UNUserNotificationCenterDelegate. Elle est utilisée par le Kit de développement logiciel pour surveiller le cycle de vie des notifications Engagement sur les appareils iOS 10 ou version ultérieure. Si le Kit de développement logiciel détecte votre délégué, il n’utilisera pas sa propre implémentation car il ne peut y avoir qu’un seul délégué UNUserNotificationCenter par application. Cela signifie que vous devrez ajouter la logique Engagement à votre propre délégué.
+### <a name="resolve-unusernotificationcenter-delegate-conflicts"></a>Résoudre les conflits de délégué UNUserNotificationCenter
 
-Il existe deux moyens de parvenir à cet objectif.
+*Si, ni votre application ni l’une des bibliothèques tierces n’implémente un `UNUserNotificationCenterDelegate`, vous pouvez ignorer cette partie.*
 
-Simplement en transférant les appels de votre délégué vers le Kit de développement logiciel :
+Un délégué `UNUserNotificationCenter` est utilisé par le Kit de développement logiciel (SDK) pour surveiller le cycle de vie des notifications Engagement sur les appareils iOS 10 ou version ultérieure. Le Kit de développement logiciel (SDK) a sa propre implémentation du protocole `UNUserNotificationCenterDelegate`, mais il ne peut y avoir qu’un seul délégué `UNUserNotificationCenter` par application. Tout autre délégué ajouté à l’objet `UNUserNotificationCenter` est en conflit avec celui d’Engagement. Si le Kit de développement logiciel (SDK) détecte votre délégué ou un délégué tiers, il n’utilisera pas sa propre implémentation pour vous permettre de résoudre les conflits. Vous devrez ajouter la logique d’Engagement à votre propre délégué afin de résoudre les conflits.
+
+Il existe deux moyens de parvenir à cet objectif.
+
+1re méthode : en transférant les appels de votre délégué au kit de développement logiciel (SDK).
 
     #import <UIKit/UIKit.h>
     #import "EngagementAgent.h"
@@ -117,7 +124,7 @@ Simplement en transférant les appels de votre délégué vers le Kit de dévelo
     }
     @end
 
-Ou en héritant de la classe `AEUserNotificationHandler` 
+2e méthode : en héritant de la classe `AEUserNotificationHandler`
 
     #import "AEUserNotificationHandler.h"
     #import "EngagementAgent.h"
@@ -145,25 +152,33 @@ Ou en héritant de la classe `AEUserNotificationHandler`
 
 > [!NOTE]
 > Vous pouvez déterminer si une notification provient ou non d’Engagement en passant son dictionnaire `userInfo` à la méthode de classe `isEngagementPushPayload:` de l’agent.
-> 
-> 
 
-## <a name="from-2.0.0-to-3.0.0"></a>Migration de 2.0.0 vers 3.0.0
-Prise en charge d’iOS 4.X abandonnée. À partir de cette version, la cible de déploiement de votre application doit être au moins iOS 6.
+Assurez-vous que le délégué de l’objet `UNUserNotificationCenter` est paramétré en fonction de votre délégué, grâce à la méthode `application:willFinishLaunchingWithOptions:` ou `application:didFinishLaunchingWithOptions:` de votre délégué d’application.
+Par exemple, si vous avez implémenté la méthode 1 ci-dessus :
+
+      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        // Any other code
+  
+        [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+        return YES;
+      }
+
+## <a name="from-200-to-300"></a>Migration de 2.0.0 vers 3.0.0
+Prise en charge d’iOS 4.X abandonnée. À partir de cette version, la cible de déploiement de votre application doit être au moins iOS 6.
 
 Si vous utilisez Reach dans votre application, vous devez ajouter la valeur `remote-notification` au tableau `UIBackgroundModes` dans votre fichier Info.plist pour recevoir des notifications à distance.
 
 La méthode `application:didReceiveRemoteNotification:` doit être remplacée par `application:didReceiveRemoteNotification:fetchCompletionHandler:` dans votre délégué d’application.
 
-« AEPushDelegate.h » est une interface déconseillée et vous devez supprimer toutes les références. Cela inclut notamment la suppression `[[EngagementAgent shared] setPushDelegate:self]` et les méthodes de délégation depuis votre délégué d’application :
+« AEPushDelegate.h » est une interface déconseillée et vous devez supprimer toutes les références. Cela inclut notamment la suppression `[[EngagementAgent shared] setPushDelegate:self]` et les méthodes de délégation depuis votre délégué d’application :
 
     -(void)willRetrieveLaunchMessage;
     -(void)didFailToRetrieveLaunchMessage;
     -(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-## <a name="from-1.16.0-to-2.0.0"></a>De 1.16.0 à 2.0.0
+## <a name="from-1160-to-200"></a>De 1.16.0 à 2.0.0
 La section qui suit décrit comment migrer une intégration du SDK à partir du service Capptain offert par Capptain SAS dans une application reposant sur Azure Mobile Engagement.
-Si vous effectuez une migration depuis une version antérieure, veuillez d’abord consulter le site web Capptain pour effectuer une migration vers la version 1.16, puis appliquer la procédure suivante.
+Si vous effectuez une migration depuis une version antérieure, veuillez d’abord consulter le site web Capptain pour effectuer une migration vers la version 1.16, puis appliquer la procédure suivante.
 
 > [!IMPORTANT]
 > Capptain et Engagement Mobile ne sont pas les mêmes services et la procédure décrite ci-dessous explique uniquement comment migrer l'application cliente. La migration du SDK dans l'application ne migre PAS vos données des serveurs Capptain vers les serveurs Engagement Mobile.
@@ -171,7 +186,7 @@ Si vous effectuez une migration depuis une version antérieure, veuillez d’abo
 > 
 
 ### <a name="agent"></a>Agent
-La méthode `registerApp:` a été remplacée par la nouvelle méthode `init:`. Votre délégué d'application doit être mis à jour en conséquence et utiliser la chaîne de connexion :
+La méthode `registerApp:` a été remplacée par la nouvelle méthode `init:`. Votre délégué d'application doit être mis à jour en conséquence et utiliser la chaîne de connexion :
 
             - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             {
@@ -180,26 +195,29 @@ La méthode `registerApp:` a été remplacée par la nouvelle méthode `init:`. 
               [...]
             }
 
-Le suivi SmartAd a été supprimé du Kit de développement logiciel (SDK). Vous devez seulement supprimer toutes les instances de la classe `AETrackModule`
+Le suivi SmartAd a été supprimé du Kit de développement logiciel (SDK). Vous devez seulement supprimer toutes les instances de la classe `AETrackModule`
 
 ### <a name="class-name-changes"></a>Modifications de nom de classe
 Dans le cadre du repositionnement, quelques classes/noms de fichiers doivent être modifiés.
 
-Toutes les classes avec le préfixe « CP » sont renommées avec le préfixe « AE ».
+Toutes les classes avec le préfixe « CP » sont renommées avec le préfixe « AE ».
 
-Exemple :
+Exemple :
 
-* `CPModule.h` est renommé `AEModule.h`.
+* `CPModule.h` est renommé `AEModule.h`.
 
-Toutes les classes avec le préfixe « Capptain » sont renommées avec le préfixe « Engagement ».
+Toutes les classes avec le préfixe « Capptain » sont renommées avec le préfixe « Engagement ».
 
-Exemples :
+Exemples :
 
-* La classe `CapptainAgent` est renommée `EngagementAgent`.
-* La classe `CapptainTableViewController` est renommée `EngagementTableViewController`.
-* La classe `CapptainUtils` est renommée `EngagementUtils`.
-* La classe `CapptainViewController` est renommée `EngagementViewController`.
+* La classe `CapptainAgent` est renommée `EngagementAgent`.
+* La classe `CapptainTableViewController` est renommée `EngagementTableViewController`.
+* La classe `CapptainUtils` est renommée `EngagementUtils`.
+* La classe `CapptainViewController` est renommée `EngagementViewController`.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

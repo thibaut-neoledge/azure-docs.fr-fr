@@ -1,5 +1,5 @@
 ---
-title: "Cluster Pack avec Azure Active Directory | Microsoft Docs"
+title: "Cluster HPC Pack avec Azure Active Directory | Microsoft Docs"
 description: "Apprenez à intégrer un cluster HPC Pack 2016 dans Azure avec Azure Active Directory"
 services: virtual-machines-windows
 documentationcenter: 
@@ -14,8 +14,8 @@ ms.workload: big-compute
 ms.date: 11/14/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 7e7dc6b6d58da556dfa07d5d21b3e70483d36ef9
-ms.openlocfilehash: a335f00079178f8b855459c315164271c64087f6
+ms.sourcegitcommit: bdc23f0e54c8bd30f3c082e9038d005d3595d429
+ms.openlocfilehash: dd789f76a0fee69aabc894c33b4682253f7c617d
 
 
 ---
@@ -114,7 +114,7 @@ L’intégration d’un cluster HPC Pack avec Azure AD peut vous aider à attein
 3. Cliquez sur **Applications** > **Ajouter**, puis cliquez sur **Ajouter une application développée par mon organisation**. Entrez les informations suivantes dans l’Assistant :
 
     * **Nom** : HPCPackClusterClient.
-    * **Type** : sélectionnez **Application cliente native**.
+    * **Type** : sélectionnez **Application cliente native**
     * **URI de redirection** - `http://hpcclient`
 
 4. Après avoir ajouté l’application, cliquez sur **Configurer**. Copiez l’**ID client** et enregistrez-le. Vous en aurez besoin plus tard lors de la configuration de votre application.
@@ -184,7 +184,10 @@ $SecurePassword = "<password>" | ConvertTo-SecureString -AsPlainText -Force
 Set-HpcTokenCache -UserName <AADUsername> -Password $SecurePassword -scheduler https://<Azure load balancer DNS name> 
 ```
 
-### <a name="set-the-credentials-for-submitting-jobs-using-the-azure-ad-account"></a>Définir les informations d’identification pour envoyer des travaux à l’aide du compte Azure AD
+### <a name="set-the-credentials-for-submitting-jobs-using-the-azure-ad-account"></a>Définir les informations d’identification pour envoyer des travaux à l’aide du compte Azure AD 
+
+Parfois, vous pouvez être amené à exécuter le travail sous l’utilisateur du cluster HPC (pour un cluster HPC joint à un domaine, exécuter en tant qu’utilisateur d’un domaine ; pour un cluster HPC non joint à un domaine, exécuter en tant qu’utilisateur local sur le nœud principal).
+
 1. Exécutez les commandes suivantes pour définir les informations d’identification :
 
     ```powershell
@@ -210,12 +213,26 @@ Set-HpcTokenCache -UserName <AADUsername> -Password $SecurePassword -scheduler h
 
     Submit-HpcJob -Job $job -Scheduler https://<Azure load balancer DNS name> -Credential $emptycreds
     ```
+    
+   Si `–Credential` n’est pas spécifié avec `Submit-HpcJob`, le travail ou la tâche s’exécute sous un utilisateur local mappé en tant que compte Azure AD. Le cluster HPC crée un utilisateur local avec le même nom que le compte Azure AD pour exécuter la tâche.
+    
+3. Définissez les données étendues pour le compte Azure AD. Ceci est utile lors de l’exécution d’un travail MPI sur des nœuds Linux à l’aide du compte Azure AD.
 
-    Si `–Credential` n’est pas spécifié avec `Submit-HpcJob`, le travail et la tâche s’exécutent sous un utilisateur local mappé en tant que compte Azure AD. Le cluster HPC crée un utilisateur local avec le même nom que le compte Azure AD pour exécuter la tâche.
+   * Définir les données étendues pour le compte Azure AD
+
+      ```powershell
+      Set-HpcJobCredential -Scheduler https://<Azure load balancer DNS name> -ExtendedData <data> -AadUser
+      ```
+      
+   * Définir les données étendues et exécuter en tant qu’utilisateur du cluster HPC
+   
+      ```powershell
+      Set-HpcJobCredential -Credential $mycreds -Scheduler https://<Azure load balancer DNS name> -ExtendedData <data>
+      ```
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

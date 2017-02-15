@@ -1,36 +1,40 @@
 ---
-title: Créer une application de conversation instantanée Node.js avec Socket.IO dans Azure App Service
-description: Didacticiel démontrant l’utilisation de socket.io dans une application web node.js hébergée sur Azure.
+title: "Créer une application de conversation instantanée Node.js avec Socket.IO dans Azure App Service"
+description: "Didacticiel démontrant l’utilisation de socket.io dans une application web node.js hébergée sur Azure."
 services: app-service\web
 documentationcenter: nodejs
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: c4c4af36-3ecf-4619-b586-ca90d53ce35b
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 81398cf3cc134ccd451a7173613c595f61cd2c23
+
 
 ---
-# Créer une application de conversation instantanée Node.js avec Socket.IO dans Azure App Service
-Socket.IO offre une communication en temps réel entre votre serveur node.js et vos clients à l'aide de WebSockets. Il prend également en charge l’utilisation d’autres transports (tels que l’interrogation longue) qui fonctionnent avec des navigateurs plus anciens. Ce didacticiel décrit la procédure d’hébergement d’une application de conversation instantanée Socket.IO sous la forme d’une application web Azure et explique comment la mettre à l’échelle à l’aide d’[Cache Redis Azure]. Pour plus d’informations sur Socket.IO, consultez <http://socket.io/>.
+# <a name="create-a-nodejs-chat-application-with-socketio-in-azure-app-service"></a>Créer une application de conversation instantanée Node.js avec Socket.IO dans Azure App Service
+Socket.IO offre une communication en temps réel entre votre serveur node.js et vos clients à l'aide de WebSockets. Il prend également en charge l’utilisation d’autres transports (tels que l’interrogation longue) qui fonctionnent avec des navigateurs plus anciens. Ce didacticiel décrit la procédure d’hébergement d’une application de conversation instantanée Socket.IO sous la forme d’une application web Azure et explique comment la mettre à l’échelle à l’aide d’ [Cache Redis Azure]. Pour plus d’informations sur Socket.IO, consultez le site <http://socket.io/>.
 
 > [!NOTE]
-> Les procédures de cette tâche s’appliquent à [App Service Web Apps]. Pour Cloud Services, consultez la page [Création d’une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure].
+> Les procédures de cette tâche s’appliquent à [App Service Web Apps]. Pour Services cloud, consultez la page [Création d’une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure].
 > 
 > 
 
-## Télécharger l’exemple de conversation instantanée
+## <a name="download-the-chat-example"></a>Télécharger l’exemple de conversation instantanée
 Pour ce projet, nous utiliserons un exemple de conversation instantanée obtenu depuis le [référentiel GitHub Socket.IO]. Procédez comme suit pour télécharger l'exemple et l'ajouter au projet créé précédemment.
 
-1. Téléchargez une [version archivée ZIP ou GZ] du projet Socket.IO (la version 1.3.5 a été utilisée pour ce document).
+1. Téléchargez une [version archivée ZIP ou GZ] du projet Socket.IO (la version 1.3.5 a été utilisée pour ce document).
 2. Extrayez l’archive et copiez le répertoire **examples\\chat** dans un nouvel emplacement. Par exemple, **\\node\\chat**.
 
-## Modifier le fichier app.js et installer les modules
+## <a name="modify-appjs-and-install-modules"></a>Modifier le fichier app.js et installer les modules
 1. Renommez le fichier **index.js** en **app.js**. Cela permet à Azure de détecter qu'il s'agit d'une application Node.js.
 2. Ouvrez le fichier **app.js** dans un éditeur de texte. Modifiez la ligne contenant `var io = require('../..')(server);` comme indiqué ci-dessous :
    
@@ -41,7 +45,7 @@ Pour ce projet, nous utiliserons un exemple de conversation instantanée obtenu 
        // New:
        var io = require('socket.io')(server);
        var port = process.env.PORT || 3000;
-3. Ouvrez le fichier **package.json** et ajoutez une référence à socket.io sous `dependencies`, comme indiqué ci-dessous :
+3. Ouvrez le fichier**package.json** et ajoutez une référence à socket.io sous `dependencies`, comme indiqué ci-dessous :
    
         "dependencies": {
           "express": "3.4.8",
@@ -51,9 +55,9 @@ Pour ce projet, nous utiliserons un exemple de conversation instantanée obtenu 
    
         npm install
    
-    Cette opération installe les modules dans un sous-dossier nommé **node\_modules**.
+    Cette opération installe les modules dans un sous-dossier nommé **node_modules**.
 
-## Créer une application web Azure
+## <a name="create-an-azure-web-app"></a>Créer une application web Azure
 Suivez la procédure ci-après pour créer une application web Azure, activer la publication Git, puis activer la prise en charge de WebSocket pour l’application web.
 
 > [!NOTE]
@@ -62,19 +66,19 @@ Suivez la procédure ci-après pour créer une application web Azure, activer la
 > 
 
 1. Installez l’interface de ligne de commande Azure (CLI Azure) et connectez-la à votre abonnement Azure. Consultez [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli-install.md).
-2. Si vous configurez un référentiel pour la première fois dans Azure, vous devez créer des informations d’identification de connexion. À partir de l’interface de ligne de commande Azure, entrez la commande suivante :
+2. Si vous configurez un référentiel pour la première fois dans Azure, vous devez créer des informations d’identification de connexion. À partir de l’interface de ligne de commande Azure, entrez la commande suivante :
    
         azure site deployment user set [username] [password]
-3. Accédez au répertoire **\\node\\chat**, puis utilisez la commande ci-après pour créer une application web Azure et un référentiel Git local. Cette commande crée également un Git distant nommé ’azure’.
+3. Accédez au répertoire **\\node\chat**, puis utilisez la commande ci-après pour créer une application web Azure et un référentiel Git local. Cette commande crée également un Git distant nommé ’azure’.
    
         azure site create mysitename --git
    
     Vous devez remplacer ’mysitename’ par le nom unique de votre application web.
-4. Validez les fichiers existants dans le référentiel local en utilisant les commandes suivantes :
+4. Validez les fichiers existants dans le référentiel local en utilisant les commandes suivantes :
    
         git add .
         git commit -m "Initial commit"
-5. Utilisez la commande ci-après pour transmettre les fichiers au référentiel Azure Web Apps :
+5. Utilisez la commande ci-après pour transmettre les fichiers au référentiel Azure Web Apps :
    
         git push azure master
    
@@ -84,41 +88,41 @@ Suivez la procédure ci-après pour créer une application web Azure, activer la
    > Lors de l’installation du module, il est possible que des erreurs du type ’Le projet importé... est introuvable’ s’affichent. Vous pouvez les ignorer sans problème.
    > 
    > 
-6. Socket.IO utilise WebSockets, qui n'est pas activé par défaut sur Azure. Pour activer WebSockets, utilisez la commande suivante :
+6. Socket.IO utilise WebSockets, qui n'est pas activé par défaut sur Azure. Pour activer WebSockets, utilisez la commande suivante :
    
         azure site set -w
    
     Si vous y êtes invité, entrez le nom de l’application web.
    
    > [!NOTE]
-   > La commande ’azure site set -w’ ne fonctionne qu’avec la version 0.7.4 ou une version ultérieure de l’interface de ligne de commande Azure. Vous pouvez également activer la prise en charge de WebSocket à l’aide du [portail Azure](https://portal.azure.com).
+   > La commande ’azure site set -w’ ne fonctionne qu’avec la version 0.7.4 ou une version ultérieure de l’interface de ligne de commande Azure. Vous pouvez également activer la prise en charge de WebSocket à l’aide du [portail Azure](https://portal.azure.com).
    > 
-   > Pour activer WebSockets à l’aide du portail Azure, cliquez sur l’application web dans le panneau Web Apps, puis sur **Tous les paramètres** > **Paramètres de l’application**. Sous **Web Sockets**, cliquez sur **Activé**. Cliquez ensuite sur **Enregistrer**.
+   > Pour activer WebSockets à l’aide du portail Azure, cliquez sur l’application web dans le panneau Web Apps, puis sur **Tous les paramètres** > **Paramètres de l’application**. Sous **WebSockets**, cliquez sur **Activé**. Cliquez ensuite sur **Enregistrer**.
    > 
    > 
-7. Pour visualiser l’application web sur Azure, utilisez la commande ci-après afin de lancer votre navigateur web et d’accéder à l’application web hébergée :
+7. Pour visualiser l’application web sur Azure, utilisez la commande ci-après afin de lancer votre navigateur web et d’accéder à l’application web hébergée :
    
         azure site browse
 
 Votre application s’exécute à présent sur Azure et peut relayer des messages de conversation instantanée entre différents clients en utilisant Socket.IO.
 
-## Montée en charge
-Vous pouvez faire monter en charge les applications Socket.IO en utilisant un **adaptateur** pour distribuer les messages et les événements entre plusieurs instances d'application. Plusieurs adaptateurs sont disponibles, mais [socket.io-redis] est très facile à utiliser avec la fonctionnalité de cache Redis Azure.
+## <a name="scale-out"></a>Montée en charge
+Vous pouvez faire monter en charge les applications Socket.IO en utilisant un **adaptateur** pour distribuer les messages et les événements entre plusieurs instances d’application. Plusieurs adaptateurs sont disponibles, mais [socket.io-redis] est très facile à utiliser avec la fonctionnalité de cache Redis Azure.
 
 > [!NOTE]
 > Une autre condition requise par la montée en charge d’une solution Socket.IO est la prise en charge des sessions rémanentes. Celles-ci sont activées par défaut pour Azure Web Apps par l’intermédiaire d’Azure Request Routing. Pour plus d'informations, consultez [Affinité d'instance dans Sites Web Azure].
 > 
 > 
 
-### Création d'un cache Redis
-Pour créer un cache, effectuez les étapes décrites dans [Création d'un cache dans le cache Azure Redis].
+### <a name="create-a-redis-cache"></a>Création d'un cache Redis
+Pour créer un cache, effectuez les étapes décrites dans [Création d'un cache dans le cache Azure Redis] .
 
 > [!NOTE]
 > Enregistrez le **Nom d’hôte** et la **Clé primaire** de votre cache, car ces paramètres seront nécessaires lors des étapes suivantes.
 > 
 > 
 
-### Ajout des modules redis et socket.io-redis
+### <a name="add-the-redis-and-socketio-redis-modules"></a>Ajout des modules redis et socket.io-redis
 1. Sur la ligne de commande, accédez au répertoire **\\node\\chat** et exécutez la commande suivante :
    
         npm install socket.io-redis@0.1.4 redis@0.12.1 --save
@@ -127,7 +131,7 @@ Pour créer un cache, effectuez les étapes décrites dans [Création d'un cache
    > Les versions spécifiées dans cette commande sont celles utilisées lors des tests de cet article.
    > 
    > 
-2. Modification du fichier **app.js** en lui ajoutant les lignes suivantes juste après `var io = require('socket.io')(server);`
+2. Modifiez le fichier **app.js** en lui ajoutant les lignes suivantes juste après `var io = require('socket.io')(server);`.
    
         var pub = require('redis').createClient(6379,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
         var sub = require('redis').createClient(6379,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
@@ -135,20 +139,20 @@ Pour créer un cache, effectuez les étapes décrites dans [Création d'un cache
         var redis = require('socket.io-redis');
         io.adapter(redis({pubClient: pub, subClient: sub}));
    
-    Remplacez **redishostname** et **rediskey** par le nom d'hôte et la clé de votre cache Redis.
+    Remplacez **redishostname** et **rediskey** par le nom d’hôte et la clé de votre cache Redis.
    
     Cette commande permet de créer un client de publication et d'abonnement pour le cache Redis créé précédemment. Les clients sont ensuite utilisés avec l'adaptateur pour configurer Socket.IO de sorte à utiliser le cache Redis pour le transfert des messages et des événements entre les instances de votre application.
    
    > [!NOTE]
-   > Bien que l’adaptateur **socket.io-redis** puisse communiquer directement avec Redis, la version actuelle ne prend pas en charge l’authentification requise par le cache Azure Redis. La connexion initiale est donc créée à l'aide du module **redis**, puis le client est transferré à l'adaptateur **socket.io-redis**.
+   > Bien que l’adaptateur **socket.io-redis** puisse communiquer directement avec Redis, la version actuelle ne prend pas en charge l’authentification requise par le Cache Redis Azure. La connexion initiale est donc créée à l’aide du module **redis**, puis le client est transféré à l’adaptateur **socket.io-redis**.
    > 
-   > Bien que Cache Redis Azure prenne en charge les connexions sécurisées sur le port 6380, les modules utilisés dans cet exemple ne gèrent pas les connexions sécurisées depuis le 14/07/2014. Le code ci-dessus utilise le port non sécurisé par défaut 6379.
+   > Bien que Cache Redis Azure prenne en charge les connexions sécurisées sur le port 6380, les modules utilisés dans cet exemple ne gèrent pas les connexions sécurisées depuis le 14/07/2014. Le code ci-dessus utilise le port non sécurisé par défaut 6379.
    > 
    > 
 3. Enregistrez le fichier **app.js** modifié.
 
-### Validation des modifications et redéploiement
-Depuis la ligne de commande dans le répertoire **\\node\\chat**, utilisez les commandes suivantes pour valider les modifications et redéployer l'application.
+### <a name="commit-changes-and-redeploy"></a>Validation des modifications et redéploiement
+Depuis la ligne de commande dans le répertoire **\\node\\chat**, utilisez les commandes suivantes pour valider les modifications et redéployer l’application.
 
     git add .
     git commit -m "implementing scale out"
@@ -158,15 +162,15 @@ Une fois les modifications transmises au serveur, vous pouvez distribuer votre s
 
     azure site scale instances --instances #
 
-Où **#** correspond au nombre d'instances à créer.
+Où **#** correspond au nombre d’instances à créer.
 
 Vous pouvez vous connecter à votre application web à partir de plusieurs navigateurs ou ordinateurs pour vérifier que les messages sont correctement envoyés à tous les clients.
 
-## Résolution de problèmes
-### Limites de connexions
-La fonctionnalité Azure Web Apps est disponible dans plusieurs références (SKU) qui déterminent les ressources disponibles pour votre site. Cela inclut le nombre de connexions WebSocket autorisées. Pour plus d’informations, consultez la [page de tarification de Web Apps].
+## <a name="troubleshooting"></a>Résolution de problèmes
+### <a name="connection-limits"></a>Limites de connexions
+La fonctionnalité Azure Web Apps est disponible dans plusieurs références (SKU) qui déterminent les ressources disponibles pour votre site. Cela inclut le nombre de connexions WebSocket autorisées. Pour plus d’informations, consultez la [page de tarification de Web Apps].
 
-### Les messages ne sont pas envoyés avec WebSockets
+### <a name="messages-arent-being-sent-using-websockets"></a>Les messages ne sont pas envoyés avec WebSockets
 Si les navigateurs clients utilisent l'interrogation longue plutôt que WebSockets, essayez d'appliquer les solutions suivantes.
 
 * **Tentative de limitation du transport à WebSockets**
@@ -183,7 +187,7 @@ Si les navigateurs clients utilisent l'interrogation longue plutôt que WebSocke
   > 
 * **Utilisation du protocole SSL**
   
-    WebSockets repose sur des en-têtes HTTP moins utilisés, tels que **Upgrade**. Certains périphériques réseau intermédiaires, tels que les proxys web, peuvent supprimer ces en-têtes. Pour éviter ce problème, vous pouvez établir la connexion WebSocket sur le protocole SSL.
+    WebSockets repose sur des en-têtes HTTP moins utilisés, tels que **Upgrade** . Certains périphériques réseau intermédiaires, tels que les proxys web, peuvent supprimer ces en-têtes. Pour éviter ce problème, vous pouvez établir la connexion WebSocket sur le protocole SSL.
   
     Le moyen le plus simple consiste à configurer Socket.IO avec `match origin protocol`. Socket.IO se charge alors de sécuriser les communications WebSockets de la même manière que la requête HTTP/HTTPS d'origine pour la page web. Si un navigateur utilise une URL HTTPS pour accéder à votre site web, les communications WebSocket ultérieures par l'intermédiaire de Socket.IO seront sécurisées sur SSL.
   
@@ -200,14 +204,14 @@ Si les navigateurs clients utilisent l'interrogation longue plutôt que WebSocke
   
     Cela désactive le module WebSockets IIS, qui comprend sa propre implémentation de WebSockets et entre en conflit avec les modules WebSocket spécifiques à Node.js tels que Socket.IO. Si cette ligne est absente ou a la valeur `true`, ceci peut expliquer que le transport WebSocket ne fonctionne pas sur votre application.
   
-    Normalement, les applications Node.js n'incluent pas de fichier **web.config**. Par conséquent, l'offre Sites Web Azure en génère un automatiquement pour les applications Node.js lors de leur déploiement. Ce fichier étant généré automatiquement sur le serveur, vous devez utiliser l'URL FTP ou FTPS de votre site web pour l'afficher. Vous pouvez obtenir les URL FTP et FTPS de votre site dans le portail Azure Classic en sélectionnant votre application web, puis le lien **Tableau de bord**. Les URL sont affichées dans la section **aperçu rapide**.
+    Normalement, les applications Node.js n’incluent pas de fichier **web.config**. Par conséquent, l’offre Sites Web Azure en génère un automatiquement pour les applications Node.js lors de leur déploiement. Ce fichier étant généré automatiquement sur le serveur, vous devez utiliser l'URL FTP ou FTPS de votre site web pour l'afficher. Vous pouvez obtenir les URL FTP et FTPS de votre site dans le portail Azure Classic en sélectionnant votre application web, puis le lien **Tableau de bord**. Les URL sont affichées dans la section **aperçu rapide**.
   
   > [!NOTE]
-  > Le fichier **web.config** n’est généré par Sites Web Azure que si votre application n’en fournit pas. Si vous fournissez un fichier **web.config** à la racine de votre projet d’application, il sera utilisé par Azure Web Apps.
+  > Le fichier **web.config** n’est généré par Sites Web Azure que si votre application n’en fournit pas. Si vous fournissez un fichier **web.config** à la racine de votre projet d’application, il sera utilisé par Azure Web Apps.
   > 
   > 
   
-    Si l’entrée est absente ou a la valeur `true`, vous devez créer un fichier **web.config** à la racine de votre application Node.js et spécifier la valeur `false`. Vous trouverez ci-dessous un fichier **web.config** par défaut pour une application qui utilise **app.js** comme point d'entrée.
+    Si l’entrée est absente ou a la valeur `true`, vous devez créer un fichier **web.config** à la racine de votre application Node.js et spécifier la valeur `false`.  Vous trouverez ci-dessous un fichier **web.config** par défaut pour une application qui utilise **app.js** comme point d’entrée.
   
         <?xml version="1.0" encoding="utf-8"?>
         <!--
@@ -258,29 +262,28 @@ Si les navigateurs clients utilisent l'interrogation longue plutôt que WebSocke
           </system.webServer>
         </configuration>
   
-    Si votre application utilise un point d’entrée autre que **app.js**, vous devez remplacer toutes les occurrences d’**app.js** par le point d’entrée approprié. Par exemple, vous devez remplacer **app.js** par **server.js**.
+    Si votre application utilise un autre point d’entrée que **app.js**, vous devez remplacer toutes les occurrences d’**app.js** par le point d’entrée approprié. Par exemple, vous devez remplacer **app.js** par **server.js**.
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service]. Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service], où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
 
-## Étapes suivantes
-Ce didacticiel vous a expliqué comment créer une application de conversation instantanée hébergée dans une application web Azure. Vous pouvez également héberger cette application dans le service cloud Azure. Pour savoir comment procéder, consultez la page [Création d'une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure].
+## <a name="next-steps"></a>Étapes suivantes
+Ce didacticiel vous a expliqué comment créer une application de conversation instantanée hébergée dans une application web Azure. Vous pouvez également héberger cette application dans le service cloud Azure. Pour savoir comment procéder, consultez la page [Création d’une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure].
 
 Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js].
 
-## Changements apportés
+## <a name="whats-changed"></a>Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants].
 
 <!-- URL List -->
 
 [Cache Redis Azure]: /documentation/services/redis-cache/
-[App Service Web Apps]: http://go.microsoft.com/fwlink/?LinkId=529714
-[page de tarification de Web Apps]: http://go.microsoft.com/fwlink/?LinkId=511643
-[Création d'une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure]: ../cloud-services/cloud-services-nodejs-chat-app-socketio.md
+[App Service Web Apps]: http://go.microsoft.com/fwlink/?LinkId=529714
+[page de tarification de Web Apps]: http://go.microsoft.com/fwlink/?LinkId=511643
 [Création d’une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure]: ../cloud-services/cloud-services-nodejs-chat-app-socketio.md
-[Install and Configure the Azure CLI]: ../xplat-cli-install.md
+[Installation et configuration de l’interface de ligne de commande Azure]: ../xplat-cli-install.md
 [Azure App Service et les services Azure existants]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Centre pour développeurs Node.js]: /develop/nodejs/
 [Essayer App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
@@ -297,4 +300,8 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
 [npm-output]: ./media/web-sites-nodejs-chat-app-socketio/socketio-7.png
 [completed-app]: ./media/web-sites-nodejs-chat-app-socketio/websitesocketcomplete.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

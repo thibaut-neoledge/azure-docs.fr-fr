@@ -2,47 +2,52 @@
 title: FAQ sur les concours Cortana Intelligence | Microsoft Docs
 description: Forum Aux Questions sur les concours Microsoft Cortana Intelligence.
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: hning86
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
-ms.author: haining;chlovel;garye
+ms.author: haining;garye
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5beee424cb36bc1c0e1593003236f0675d07ae24
+
 
 ---
-# FAQ sur les concours Microsoft Cortana Intelligence
+# <a name="microsoft-cortana-intelligence-competitions-faq"></a>FAQ sur les concours Microsoft Cortana Intelligence
 **Que sont les concours Cortana Intelligence ?**
 
 Microsoft présente les concours Cortana Intelligence. Les concours Cortana Intelligence nous permettent de rassembler une communauté mondiale de passionnés de données pour résoudre de manière collective certains des problèmes de science des données les plus complexes au monde. Les concours Cortana Intelligence permettent aux passionnés de données du monde entier de se mesurer les uns aux autres et de créer des modèles de science des données très précis et intelligents. Nos concours hébergés sont basés sur des jeux de données uniques mis à la disposition du public pour la première fois. Les participants peuvent gagner des récompenses ou obtenir une reconnaissance via notre classement public des 10 premiers. Cliquez [ici](http://aka.ms/CIComp) pour accéder à la page d’accueil des concours.
 
 **À quelle fréquence Microsoft lancera-t-il les nouveaux concours ?**
 
-Nous allons lancer des concours Microsoft propriétaires régulièrement, environ toutes les 8 à 12 semaines.
+Nous allons lancer des concours Microsoft propriétaires régulièrement, environ toutes les 8 à 12 semaines. 
 
-**Où puis-je poser des questions générales sur la science des données ?**
+**Où puis-je poser des questions générales sur la science des données ?**
 
 Utilisez notre [forum Microsoft Azure Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
 
-**Comment participer à un concours ?**
+**Comment participer à un concours ?**
 
-Accédez à la page d’accueil des concours via la galerie Cortana Intelligence. Cette page contient tous les concours en cours. Les instructions et les règles de participation détaillées, les prix à remporter et la durée sont indiqués sur la page d’inscription de chaque concours. Cliquez [ici](http://aka.ms/CIComp) pour accéder à la page d’accueil des concours.
+Accédez à la page d’accueil des concours via la galerie Cortana Intelligence. Cette page contient tous les concours en cours. Les instructions et les règles de participation détaillées, les prix à remporter et la durée sont indiqués sur la page d’inscription de chaque concours. Cliquez [ici](http://aka.ms/CIComp) pour accéder à la page d’accueil des concours.  
 
-1. Recherchez le concours auquel que vous voulez participer dans la galerie Cortana Intelligence, lisez toutes les instructions et regardez le didacticiel vidéo, puis cliquez sur le bouton « Participer au concours » pour copier l’expérience de démarrage dans votre espace de travail Azure Machine Learning existant. Si vous n’avez pas accès à un espace de travail, vous devez en créer un au préalable. Exécutez l’expérience de démarrage, observez les mesures de performance, puis utilisez votre créativité pour améliorer les performances du modèle. Cette étape occupera la majeure partie de votre temps.
-2. Créez une expérience prédictive avec le modèle formé en dehors de votre expérience de démarrage. Ensuite, ajustez soigneusement les schémas d’entrée et de sortie du service web pour vous assurer qu’ils sont conformes aux exigences spécifiées dans la documentation du concours. Le didacticiel contient généralement des instructions détaillées sur la procédure à suivre. Vous pouvez également regarder la vidéo du didacticiel, si elle est disponible.
-3. Déployez un service web en dehors de votre expérience prédictive. Testez votre service web à l’aide du bouton Test ou du modèle Excel créé automatiquement pour vous afin de vérifier que le service fonctionne correctement.
-4. Envoyez votre service web, qui est votre contribution au concours, et consultez votre score public dans la page de concours de la galerie Cortana Intelligence. Enfin, réjouissez-vous si vous faites partie du classement. Une fois que vous avez correctement envoyé une contribution, vous pouvez revenir à l’expérience de démarrage que vous avez copiée, effectuer une itération, mettre à jour votre expérience prédictive, mettre à jour le service web et envoyer une nouvelle contribution.
+1. Recherchez le concours auquel que vous voulez participer dans la galerie Cortana Intelligence, lisez toutes les instructions et regardez le didacticiel vidéo, puis cliquez sur le bouton « Participer au concours » pour copier l’expérience de démarrage dans votre espace de travail Azure Machine Learning existant. Si vous n’avez pas accès à un espace de travail, vous devez en créer un au préalable. Exécutez l’expérience de démarrage, observez les mesures de performance, puis utilisez votre créativité pour améliorer les performances du modèle. Cette étape occupera la majeure partie de votre temps.   
+2. Créez une expérience prédictive avec le modèle formé en dehors de votre expérience de démarrage. Ensuite, ajustez soigneusement les schémas d’entrée et de sortie du service web pour vous assurer qu’ils sont conformes aux exigences spécifiées dans la documentation du concours. Le didacticiel contient généralement des instructions détaillées sur la procédure à suivre. Vous pouvez également regarder la vidéo du didacticiel, si elle est disponible.   
+3. Déployez un service web en dehors de votre expérience prédictive. Testez votre service web à l’aide du bouton Test ou du modèle Excel créé automatiquement pour vous afin de vérifier que le service fonctionne correctement.   
+4. Envoyez votre service web, qui est votre contribution au concours, et consultez votre score public dans la page de concours de la galerie Cortana Intelligence. Enfin, réjouissez-vous si vous faites partie du classement.  
+   Une fois que vous avez correctement envoyé une contribution, vous pouvez revenir à l’expérience de démarrage que vous avez copiée, effectuer une itération, mettre à jour votre expérience prédictive, mettre à jour le service web et envoyer une nouvelle contribution.   
 
 **Puis-je utiliser des outils open source pour participer à ces concours ?**
 
-Les participants au concours tirent parti d’Azure Machine Learning Studio, un service cloud intégré à Cortana Intelligence Suite pour développer les modèles de science des données et créer les contributions à envoyer dans le cadre du concours. ML Studio fournit non seulement une interface utilisateur graphique pour créer des expériences d’apprentissage automatique, mais il vous permet également de proposer vos propres scripts R et/ou Python pour une exécution native. Les runtimes R et Python dans ML Studio comprennent un ensemble complet de packages R/Python open source, et vous pouvez également importer vos propres packages dans le cadre de l’expérience. ML Studio comporte également un service JuPyteR Notebook intégré pour vous permettre d’explorer les données comme vous le souhaitez. Bien sûr, vous pouvez toujours télécharger les jeux de données utilisés dans le concours et les explorer dans l’outil de votre choix en dehors de ML Studio.
+Les participants au concours tirent parti d’Azure Machine Learning Studio, un service cloud intégré à Cortana Intelligence Suite pour développer les modèles de science des données et créer les contributions à envoyer dans le cadre du concours. ML Studio fournit non seulement une interface utilisateur graphique pour créer des expériences d’apprentissage automatique, mais il vous permet également de proposer vos propres scripts R et/ou Python pour une exécution native. Les runtimes R et Python dans ML Studio comprennent un ensemble complet de packages R/Python open source, et vous pouvez également importer vos propres packages dans le cadre de l’expérience. ML Studio comporte également un service JuPyteR Notebook intégré pour vous permettre d’explorer les données comme vous le souhaitez. Bien sûr, vous pouvez toujours télécharger les jeux de données utilisés dans le concours et les explorer dans l’outil de votre choix en dehors de ML Studio. 
 
-**Dois-je être un scientifique de données pour participer ?**
+**Dois-je être un scientifique de données pour participer ?**
 
 Non. En fait, nous encourageons les passionnés de données, ceux qui s’intéressent à la science des données et les scientifiques de données en herbe à participer à notre concours. Nous avons conçu des documents de support pour permettre à tout le monde de participer. Notre public cible est le suivant :
 
@@ -52,11 +57,11 @@ Non. En fait, nous encourageons les passionnés de données, ceux qui s’intér
 
 **Puis-je participer avec mes collaborateurs en équipe ?**
 
-La plateforme de concours ne prend pas en charge la participation en équipe pour le moment. Chaque contribution au concours est associée à une seule identité d’utilisateur.
+La plateforme de concours ne prend pas en charge la participation en équipe pour le moment. Chaque contribution au concours est associée à une seule identité d’utilisateur. 
 
 **Dois-je payer pour participer à un concours ?**
 
-La participation aux concours est gratuite. Toutefois, vous devez avoir accès à un espace de travail Microsoft Azure Machine Learning pour pouvoir participer. Vous pouvez créer un espace de travail gratuit sans carte de crédit en vous connectant simplement avec un compte Microsoft valide ou un compte Office 365. Si vous êtes déjà client d’Azure ou de Cortana Intelligence Suite, vous pouvez créer et utiliser un espace de travail standard dans le même abonnement Azure. Si vous voulez acheter un abonnement Azure, cliquez [ici](https://azure.microsoft.com/pricing). Notez que les tarifs standards s’appliquent lors de l’utilisation d’un espace de travail standard pour créer des expériences. Consultez les informations de tarification Azure Machine Learning [ici](https://azure.microsoft.com/pricing/details/machine-learning/).
+La participation aux concours est gratuite. Toutefois, vous devez avoir accès à un espace de travail Microsoft Azure Machine Learning pour pouvoir participer. Vous pouvez créer un espace de travail gratuit sans carte de crédit en vous connectant simplement avec un compte Microsoft valide ou un compte Office 365. Si vous êtes déjà client d’Azure ou de Cortana Intelligence Suite, vous pouvez créer et utiliser un espace de travail standard dans le même abonnement Azure. Si vous voulez acheter un abonnement Azure, cliquez [ici](https://azure.microsoft.com/pricing). Notez que les tarifs standards s’appliquent lors de l’utilisation d’un espace de travail standard pour créer des expériences. Consultez les informations de tarification Azure Machine Learning [ici](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -68,16 +73,16 @@ Dans la plupart des concours, vous recevez un score public pour chaque envoi eff
 * Les données de formation sont chargées et fournies dans le cadre de l’expérience de démarrage dans la configuration du module Importer des données.
 * Les données de test sont à leur tour divisées en données de test publiques et privées, à l’aide de la même stratification.
 * Les données de test publiques sont utilisées pour l’évaluation initiale. Le résultat correspond au score public et apparaît dans votre historique d’envoi quand vous envoyez votre contribution. Ce score est calculé pour chaque contribution que vous envoyez. Ce score public est utilisé pour vous positionner dans le classement public.
-* Les données de test privées sont utilisées pour la dernière évaluation à la fin du concours. Ceci est appelé le score privé.
-* Pour chaque participant, un nombre fixe, qui peut varier en fonction du concours, de contributions que vous avez envoyées et qui ont reçu le score public le plus élevé est automatiquement sélectionné pour participer à l’élaboration du score privé. La contribution qui reçoit le score privé le plus élevé est alors sélectionnée pour participer au classement final, ce qui permet de déterminer les gagnants du prix.
+* Les données de test privées sont utilisées pour la dernière évaluation à la fin du concours. Ceci est appelé le score privé. 
+* Pour chaque participant, un nombre fixe, qui peut varier en fonction du concours, de contributions que vous avez envoyées et qui ont reçu le score public le plus élevé est automatiquement sélectionné pour participer à l’élaboration du score privé. La contribution qui reçoit le score privé le plus élevé est alors sélectionnée pour participer au classement final, ce qui permet de déterminer les gagnants du prix.  
 
 **Les clients peuvent-ils héberger un concours sur notre plateforme ?**
 
-Nous accueillons les organisations tierces qui souhaitent collaborer avec nous et héberger des concours publics et privés sur notre plateforme. Nous disposons d’une équipe d’intégration des concours disposée à expliquer le processus d’intégration de ces concours. Contactez-nous à l’adresse [compsupport@microsoft.com](mailto:compsupport@microsoft.com) pour plus de détails.
+Nous accueillons les organisations tierces qui souhaitent collaborer avec nous et héberger des concours publics et privés sur notre plateforme. Nous disposons d’une équipe d’intégration des concours disposée à expliquer le processus d’intégration de ces concours.  Contactez-nous à l’adresse [compsupport@microsoft.com](mailto:compsupport@microsoft.com) pour plus de détails. 
 
 **Quelles sont les limitations pour les envois ?**
 
-Un concours standard peut choisir de limiter le nombre de contributions que vous pouvez envoyer par 24 heures (heure UTC 00:00:00 à 23:59:59) et le nombre total de contributions que vous pouvez envoyer pendant la durée du concours. Vous recevez un message d’erreur approprié quand une limite est dépassée.
+Un concours standard peut choisir de limiter le nombre de contributions que vous pouvez envoyer par 24 heures (heure UTC 00:00:00 à 23:59:59) et le nombre total de contributions que vous pouvez envoyer pendant la durée du concours. Vous recevez un message d’erreur approprié quand une limite est dépassée. 
 
 **Que se passe-t-il si je remporte un concours ?**
 
@@ -93,14 +98,19 @@ L’heure d’envoi est décisive. La contribution envoyée plut tôt est mieux 
 
 **Puis-je participer avec un espace de travail invité ?**
 
-Non. Vous devez utiliser un espace de travail gratuit ou standard pour participer. Vous pouvez ouvrir l’expérience de démarrage du concours dans un espace de travail invité. Mais vous ne pouvez pas créer de contribution valide pour l’envoi.
+Non. Vous devez utiliser un espace de travail gratuit ou standard pour participer. Vous pouvez ouvrir l’expérience de démarrage du concours dans un espace de travail invité. Mais vous ne pouvez pas créer de contribution valide pour l’envoi. 
 
 **Puis-je participer avec un espace de travail dans une autre région Azure ?**
 
-La plateforme de concours ne prend actuellement en charge que les contributions envoyées à partir d’un espace de travail dans la région Azure Sud du Centre des États-Unis. Tous les espaces de travail gratuits se trouvent dans le Sud du centre des États-Unis. Si vous choisissez d’utiliser un espace de travail standard, assurez-vous qu’il se trouve dans la région Azure Sud du centre des États-Unis. Sinon, votre envoi n’aboutira pas.
+La plateforme de concours ne prend actuellement en charge que les contributions envoyées à partir d’un espace de travail dans la région Azure Sud du Centre des États-Unis. Tous les espaces de travail gratuits se trouvent dans le Sud du centre des États-Unis. Si vous choisissez d’utiliser un espace de travail standard, assurez-vous qu’il se trouve dans la région Azure Sud du centre des États-Unis. Sinon, votre envoi n’aboutira pas. 
 
 **Conservons-nous les solutions/contributions de concours des utilisateurs ?**
 
 Les contributions d’utilisateur sont conservées uniquement à des fins d’évaluation pour identifier les solutions gagnantes. Reportez-vous à nos [Conditions générales](http://aka.ms/comptermsandconditions) pour les détails.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

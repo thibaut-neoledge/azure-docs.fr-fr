@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Découvrez comment utiliser Event Hubs pour ingérer des millions d’événements par seconde à partir des appareils IoT connectés et des applications sur de nombreuses plateformes."
 translationtype: Human Translation
-ms.sourcegitcommit: bedc8c16671de6071383659697ecd932e14cf3ba
-ms.openlocfilehash: 3d404f115c9a21c7ea62fb485a2129bca9de5c6c
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 29d6165596d3e98264285b6471c8f54b66aa2c3a
 
 ---
 #<a name="event-hubs-documentation"></a>Documentation Event Hubs
@@ -108,7 +108,7 @@ Découvrez comment utiliser Event Hubs pour collecter et gérer des millions d�
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/eventhub">Référence sur les API REST</a></p>
+                        <p><a href="/rest/api/eventhub">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>
@@ -116,13 +116,7 @@ Découvrez comment utiliser Event Hubs pour collecter et gérer des millions d�
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/event-hubs.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation Event Hubs </div>
-    </a>
-</div>
+
 
 
 

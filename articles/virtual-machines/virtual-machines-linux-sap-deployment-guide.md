@@ -22,7 +22,7 @@ ms.openlocfilehash: d717acf4c8c758de45c7bd70e165c50584ec10a5
 
 
 ---
-# <a name="sap-netweaver-on-azure-virtual-machines-vms-deployment-guide"></a>SAP NetWeaver sur machines virtuelles Azure – Guide de déploiement
+# <a name="sap-netweaver-on-azure-virtual-machines-vms--deployment-guide"></a>SAP NetWeaver sur machines virtuelles Azure – Guide de déploiement
 [767598]:https://service.sap.com/sap/support/notes/767598
 [773830]:https://service.sap.com/sap/support/notes/773830
 [826037]:https://service.sap.com/sap/support/notes/826037

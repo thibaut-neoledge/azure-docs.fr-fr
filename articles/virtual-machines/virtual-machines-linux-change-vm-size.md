@@ -14,18 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2016
-ms.author: mikewasson
+ms.author: mwasson
 translationtype: Human Translation
-ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
-ms.openlocfilehash: 0032c330288ea37508c919b50a41a5e58fc28e90
+ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
+ms.openlocfilehash: 788efb5d1cbbd5fd20096c54ca702b99eb2b5a18
 
 
 ---
 # <a name="how-to-resize-a-linux-vm"></a>Comment redimensionner une machine virtuelle Linux
-## <a name="overview"></a>Vue d'ensemble
-Une fois que vous avez approvisionné une machine virtuelle, vous pouvez la mettre à l’échelle en modifiant sa [taille][vm-sizes]. Dans certains cas, vous devez commencer par libérer la machine virtuelle. Cela peut se produire si la nouvelle taille n’est pas disponible sur le cluster matériel qui héberge la machine virtuelle.
+## <a name="overview"></a>Vue d’ensemble
+Après avoir approvisionné une machine virtuelle, vous pouvez le mettre à l’échelle en en modifiant la [taille][vm-sizes]. Dans certains cas, vous devez commencer par libérer la machine virtuelle. Cela peut se produire si la nouvelle taille n’est pas disponible sur le cluster matériel qui héberge la machine virtuelle.
 
-Cet article montre comment redimensionner une machine virtuelle Linux à l’aide de [l’interface de ligne de commande Azure][azure-cli].
+Cet article montre comment redimensionner une machine virtuelle Linux à l’aide de l’[interface de ligne de commande Azure][azure-cli].
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -64,7 +64,7 @@ Pour redimensionner une machine virtuelle, procédez comme suit.
    > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour une évolutivité supplémentaire, exécutez plusieurs instances de machine virtuelle et augmentez leur taille. Pour plus d’informations, consultez [Mise à l’échelle automatique des machines Linux dans un groupe de machines virtuelles identiques][scale-set]. 
+Pour une évolutivité supplémentaire, exécutez plusieurs instances de machine virtuelle et augmentez leur taille. Pour plus d’informations, consultez [Mise à l’échelle automatique des machines Linux dans un groupe de machines virtuelles à échelle identique][scale-set]. 
 
 <!-- links -->
 
@@ -75,6 +75,6 @@ Pour une évolutivité supplémentaire, exécutez plusieurs instances de machine
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

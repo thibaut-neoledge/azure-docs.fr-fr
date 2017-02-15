@@ -1,12 +1,12 @@
 ---
-title: Surveiller votre charge de travail à l'aide de vues de gestion dynamique | Microsoft Docs
-description: Comment surveiller votre charge de travail à l'aide de vues de gestion dynamique
+title: "Surveiller votre charge de travail à l’aide de vues de gestion dynamique | Microsoft Docs"
+description: "Comment surveiller votre charge de travail à l&quot;aide de vues de gestion dynamique"
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 69ecd479-0941-48df-b3d0-cf54c79e6549
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6877a54f77a4c0137e4f6a8b2b2fcff41664a4b5
+
 
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Surveiller votre charge de travail à l'aide de vues de gestion dynamique
@@ -44,7 +48,7 @@ Toutes les requêtes exécutées sur SQL Data Warehouse sont enregistrées dans 
 
 Voici les étapes à suivre pour analyser les heures et les plans d’exécution d’une requête spécifique.
 
-### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>ÉTAPE 1 : Identifier la requête que vous souhaitez examiner
+### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>ÉTAPE 1 : Identifier la requête que vous souhaitez examiner
 ```sql
 -- Monitor active queries
 SELECT * 
@@ -67,9 +71,9 @@ WHERE   [label] = 'My Query';
 
 Dans les résultats de requête précédents, **notez l’ID de la requête** que vous souhaitez examiner.
 
-Les requêtes ayant l’état **Interrompu** sont mises en file d’attente en raison des limites de concurrence. Ces requêtes apparaissent également dans la requête sys.dm_pdw_waits de type UserConcurrencyResourceType. Référez-vous à [Gestion de la concurrence et des charges de travail][Gestion de la concurrence et des charges de travail] pour en savoir plus sur les limites de concurrence. Les requêtes peuvent également attendre d’autres raisons, par exemple des verrouillages d’objets.  Si votre requête est en attente d’une ressource, consultez la rubrique [Examen des requêtes en attente de ressources][Examen des requêtes en attente de ressources] plus loin dans cet article.
+Les requêtes ayant l’état **Interrompu** sont mises en file d’attente en raison des limites de concurrence. Ces requêtes apparaissent également dans la requête sys.dm_pdw_waits de type UserConcurrencyResourceType. Pour plus d’informations sur les limites de concurrence, consultez [Gestion de la concurrence et des charges de travail][Gestion de la concurrence et des charges de travail]. Les requêtes peuvent également attendre d’autres raisons, par exemple des verrouillages d’objets.  Si votre requête est en attente d’une ressource, consultez la rubrique [Examen des requêtes en attente de ressources][Examen des requêtes en attente de ressources] plus loin dans cet article.
 
-Pour simplifier la recherche d’une requête dans la table sys.dm_pdw_exec_requests, utilisez [LABEL][LABEL] pour affecter un commentaire à votre requête qui peut être recherché dans la vue sys.dm_pdw_exec_requests.
+Pour simplifier la recherche d’une requête dans la table sys.dm_pdw_exec_requests, utilisez [LABEL][LABEL] pour affecter à votre requête un commentaire qui peut être recherché dans la vue sys.dm_pdw_exec_requests.
 
 ```sql
 -- Query with Label
@@ -79,7 +83,7 @@ OPTION (LABEL = 'My Query')
 ;
 ```
 
-### <a name="step-2-investigate-the-query-plan"></a>ÉTAPE 2 : examiner le plan de requête
+### <a name="step-2-investigate-the-query-plan"></a>ÉTAPE 2 : examiner le plan de requête
 Utilisez l’ID de requête pour récupérer le plan SQL distribué (DSQL) de la requête dans [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps].
 
 ```sql
@@ -95,7 +99,7 @@ Lorsqu’un plan DSQL prend plus de temps que prévu, la cause peut être un pla
 
 Pour examiner les détails d’une seule étape, vérifiez la colonne *operation_type* de l’étape de la requête longue et notez **l’index de l’étape** :
 
-* Passez à l’étape 3a pour les **opérations SQL**: OnOperation, RemoteOperation, ReturnOperation.
+* Passez à l’étape 3a pour les **opérations SQL**: OnOperation, RemoteOperation, ReturnOperation.
 * Passez à l’étape 3b pour **les opérations de déplacement des données**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
 ### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>ÉTAPE 3a : examiner SQL dans les bases de données distribuées
@@ -109,7 +113,7 @@ SELECT * FROM sys.dm_pdw_sql_requests
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-Quand l’étape de la requête est en cours d’exécution, [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] peut être utilisé pour récupérer le plan estimé de SQL Server dans le cache du plan SQL Server pour l’étape en cours d’exécution dans une distribution particulière.
+Lorsque l’étape de la requête est en cours d’exécution, [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] peut être utilisé pour récupérer le plan estimé de SQL Server dans le cache du plan SQL Server pour l’étape en cours d’exécution dans une distribution particulière.
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -170,7 +174,7 @@ Si la requête attend activement des ressources provenant d'une autre requête, 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les vues de gestion dynamique, consultez [Vues système][Vues système].
-Pour plus d’informations sur les bonnes pratiques, consultez [Bonnes pratiques pour SQL Data Warehouse][].
+Pour plus d’informations sur les bonnes pratiques, consultez [Meilleures pratiques relatives à SQL Data Warehouse][Meilleures pratiques relatives à SQL Data Warehouse].
 
 <!--Image references-->
 
@@ -194,6 +198,6 @@ Pour plus d’informations sur les bonnes pratiques, consultez [Bonnes pratiques
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

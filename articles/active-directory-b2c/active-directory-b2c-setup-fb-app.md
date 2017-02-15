@@ -70,6 +70,6 @@ Pour utiliser Facebook en tant que fournisseur d’identité dans Azure Active D
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

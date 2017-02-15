@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 12/06/2016
 ms.author: telmos
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6b178c399cd3e29c97bc68c6c1494a015920a0a1
+ms.sourcegitcommit: b574360cce92350a9bf52c21678bf0e91ceb270e
+ms.openlocfilehash: 479cf8cf358d0b242d8ce030d8639b493e4767d8
 
 
 ---
@@ -37,7 +37,7 @@ Le type de résolution de noms que vous utilisez dépend de la manière dont vos
 | Résolution de noms entre des instances de rôle ou des machines virtuelles situées dans le même service cloud ou réseau virtuel |[Résolution de noms dans Azure](#azure-provided-name-resolution) |Nom d’hôte ou nom de domaine complet |
 | Résolution de noms entre des instances de rôles ou des machines virtuelles situées dans différents réseaux virtuels |Serveurs DNS gérés par le client qui redirigent les requêtes entre les réseaux virtuels en vue de la résolution par Azure (proxy DNS).  Consultez [Résolution de noms à l’aide de votre propre serveur DNS](#name-resolution-using-your-own-dns-server) |Nom de domaine complet uniquement |
 | Résolution des noms de service et d’ordinateur locaux à partir des instances de rôle ou des machines virtuelles dans Azure |Serveurs DNS gérés par le client (par exemple, contrôleur de domaine local, contrôleur de domaine en lecture seule local ou serveur DNS secondaire synchronisé à l’aide de transferts de zone).  See [Résolution de noms à l’aide de votre propre serveur DNS](#name-resolution-using-your-own-dns-server) |Nom de domaine complet uniquement |
-| Résolution de noms d’hôtes Azure à partir d’ordinateurs locaux |Rediriger les requêtes vers un serveur proxy DNS géré par le client dans le réseau virtuel correspondant ; le serveur proxy redirige les requêtes vers Azure en vue de la résolution. See [Résolution de noms à l’aide de votre propre serveur DNS](#name-resolution-using-your-own-dns-server) |Nom de domaine complet uniquement |
+| Résolution de noms d’hôte Azure à partir d’ordinateurs locaux |Rediriger les requêtes vers un serveur proxy DNS géré par le client dans le réseau virtuel correspondant ; le serveur proxy redirige les requêtes vers Azure en vue de la résolution. See [Résolution de noms à l’aide de votre propre serveur DNS](#name-resolution-using-your-own-dns-server) |Nom de domaine complet uniquement |
 | DNS inversé pour les adresses IP internes |[Résolution de noms à l’aide de votre propre serveur DNS](#name-resolution-using-your-own-dns-server) |n/a |
 | Résolution de noms entre des machines virtuelles ou instances de rôle situées dans différents services cloud, non dans un réseau virtuel |Non applicable. La connectivité entre des machines virtuelles et des instances de rôle de différents services cloud n’est pas prise en charge en dehors d’un réseau virtuel. |n/a |
 
@@ -125,7 +125,7 @@ Dans certaines situations, les fonctionnalités fournies par Azure peuvent ne pa
 
 Les serveurs DNS dans un réseau virtuel peuvent rediriger les requêtes DNS vers les programmes de résolution récursifs d’Azure en vue de la résolution des noms d’hôtes au sein de ce réseau virtuel.  Par exemple, un contrôleur de domaine en cours d’exécution dans Azure peut répondre aux requêtes DNS concernant ses domaines et rediriger toutes les autres requêtes vers Azure.  Ainsi, les machines virtuelles peuvent voir vos ressources locales (par le biais du contrôleur de domaine) et les noms d’hôtes fournis par Azure (par le biais du redirecteur).  Les programmes de résolution récursifs d’Azure sont accessibles via l’adresse IP virtuelle 168.63.129.16.
 
-En outre, grâce à la redirection DNS, la résolution DNS entre réseaux virtuels est possible, et vos ordinateurs locaux peuvent résoudre les noms d’hôtes fournis par Azure.  Pour résoudre le nom d’hôte d’une machine virtuelle, la machine virtuelle du serveur DNS doit résider dans le même réseau virtuel et être configurée pour rediriger les requêtes de nom d’hôte vers Azure.  Comme le suffixe DNS est différent dans chaque réseau virtuel, vous pouvez utiliser des règles de redirection conditionnelles pour envoyer les requêtes DNS au réseau virtuel approprié en vue de la résolution.  L’image suivante montre deux réseaux virtuels et un réseau local effectuant une résolution DNS entre réseaux virtuels à l’aide de cette méthode.  Un exemple de redirecteur DNS est disponible dans la [Galerie de modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) et sur [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
+En outre, grâce à la redirection DNS, la résolution DNS entre réseaux virtuels est possible, et vos machines locales peuvent résoudre les noms d’hôtes fournis par Azure.  Pour résoudre le nom d’hôte d’une machine virtuelle, la machine virtuelle du serveur DNS doit résider dans le même réseau virtuel et être configurée pour rediriger les requêtes de nom d’hôte vers Azure.  Comme le suffixe DNS est différent dans chaque réseau virtuel, vous pouvez utiliser des règles de redirection conditionnelles pour envoyer les requêtes DNS au réseau virtuel approprié en vue de la résolution.  L’image suivante montre deux réseaux virtuels et un réseau local effectuant une résolution DNS entre réseaux virtuels à l’aide de cette méthode.  Un exemple de redirecteur DNS est disponible dans la [Galerie de modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) et sur [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
 
 ![DNS entre réseaux virtuels](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
@@ -182,6 +182,6 @@ Modèle de déploiement classique :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

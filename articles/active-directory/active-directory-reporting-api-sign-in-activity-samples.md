@@ -91,6 +91,6 @@ Le script renvoie la sortie du rapport sur la connexion au format JSON. Il crée
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

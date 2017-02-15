@@ -1,12 +1,12 @@
 ---
-title: Gestion du contrôle d’accès basé sur les rôles à l’aide de l’API REST
-description: Gestion du contrôle d’accès basé sur les rôles à l’aide de l’API REST
+title: "Gestion du contrôle d’accès basé sur les rôles à l’aide de l’API REST"
+description: "Gestion du contrôle d’accès basé sur les rôles à l’aide de l’API REST"
 services: active-directory
 documentationcenter: na
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
 ms.service: active-directory
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d50031941be34d1e543d901747018ba0635be4d8
+
 
 ---
-# Gestion du contrôle d’accès basé sur les rôles à l’aide de l’API REST
+# <a name="managing-role-based-access-control-with-the-rest-api"></a>Gestion du contrôle d’accès basé sur les rôles à l’aide de l’API REST
 > [!div class="op_single_selector"]
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [Interface de ligne de commande Azure](role-based-access-control-manage-access-azure-cli.md)
@@ -26,32 +30,32 @@ ms.author: kgremban
 
 Le contrôle d’accès en fonction du rôle (RBAC) disponible dans le portail Azure et l’API Azure Resource Manager permet une gestion très fine de l’accès à votre abonnement et à vos ressources. Cette fonctionnalité vous permet d’accorder l’accès aux utilisateurs, groupes et principaux du service Active Directory en leur affectant certains rôles avec une étendue spécifique.
 
-## Répertorie toutes les affectations de rôle
+## <a name="list-all-role-assignments"></a>Répertorie toutes les affectations de rôle
 Répertorie toutes les affectations de rôle de la portée spécifiée et des étendues secondaires.
 
 Pour répertorier les attributions de rôle, vous devez avoir accès à l’opération `Microsoft.Authorization/roleAssignments/read` dans la portée. Tous les rôles intégrés se voient octroyer l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md).
 
-### Demande
-Utilisez la méthode **GET** avec l’URI suivant :
+### <a name="request"></a>Demande
+Utilisez la méthode **GET** avec l’URI suivant :
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&$filter={filter}
 
-Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
+Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
 
-1. Remplacez *{scope}* par la portée dont vous souhaitez répertorier les attributions de rôle. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
+1. Remplacez *{scope}* par la portée dont vous souhaitez répertorier les attributions de rôle. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
    
-   * Abonnement : /subscriptions/{subscription-id}
-   * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
-   * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
+   * Abonnement : /subscriptions/{subscription-id}  
+   * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Remplacez *{api-version}* par 2015-07-01.
 3. Remplacez *{filter}* par la condition que vous souhaitez appliquer pour filtrer la liste des attributions de rôle :
    
-   * Répertorier les affectations de rôle pour la portée spécifiée seulement, sans y inclure les affectations de rôles à des étendues secondaires : `atScope()`
-   * Répertorier les affectations de rôle pour un utilisateur, un groupe ou une application spécifique : `principalId%20eq%20'{objectId of user, group, or service principal}'`
+   * Répertorier les affectations de rôle pour la portée spécifiée seulement, sans y inclure les affectations de rôles à des étendues secondaires : `atScope()`    
+   * Répertorier les affectations de rôle pour un utilisateur, un groupe ou une application spécifique : `principalId%20eq%20'{objectId of user, group, or service principal}'`  
    * Répertorier les affectations de rôle pour un utilisateur spécifique, y compris celles héritées de groupes | `assignedTo('{objectId of user}')`
 
-### Response
-Code d’état : 200
+### <a name="response"></a>Response
+Code d’état : 200
 
 ```
 {
@@ -76,28 +80,28 @@ Code d’état : 200
 
 ```
 
-## Obtention d’informations sur une affectation de rôle
+## <a name="get-information-about-a-role-assignment"></a>Obtention d’informations sur une affectation de rôle
 Obtient des informations sur une affectation de rôle unique spécifiée par l’identificateur d’affectation de rôle.
 
-Pour obtenir des informations sur une affectation de rôle, vous devez avoir accès à l’opération `Microsoft.Authorization/roleAssignments/read`. Tous les rôles intégrés se voient octroyer l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md).
+Pour obtenir des informations sur une affectation de rôle, vous devez avoir accès à l’opération `Microsoft.Authorization/roleAssignments/read` . Tous les rôles intégrés se voient octroyer l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md).
 
-### Demande
-Utilisez la méthode **GET** avec l’URI suivant :
+### <a name="request"></a>Demande
+Utilisez la méthode **GET** avec l’URI suivant :
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
 
-Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
+Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
 
-1. Remplacez *{scope}* par la portée dont vous souhaitez répertorier les attributions de rôle. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
+1. Remplacez *{scope}* par la portée dont vous souhaitez répertorier les attributions de rôle. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
    
-   * Abonnement : /subscriptions/{subscription-id}
-   * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
-   * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
+   * Abonnement : /subscriptions/{subscription-id}  
+   * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Remplacez *{role-assignment-id}* par l’identificateur GUID de l’attribution de rôle.
 3. Remplacez *{api-version}* par 2015-07-01.
 
-### Response
-Code d’état : 200
+### <a name="response"></a>Response
+Code d’état : 200
 
 ```
 {
@@ -117,27 +121,27 @@ Code d’état : 200
 
 ```
 
-## Créer une affectation de rôle
+## <a name="create-a-role-assignment"></a>Créer une affectation de rôle
 Créer une affectation de rôle dans la portée spécifiée pour le principal qui octroie le rôle spécifié.
 
-Pour créer une attribution de rôle, vous devez avoir accès à l’opération `Microsoft.Authorization/roleAssignments/write`. Parmi les rôles intégrés, seuls ceux du *propriétaire* et de l’*administrateur des accès utilisateur* se voient accorder l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md).
+Pour créer une attribution de rôle, vous devez avoir accès à l’opération `Microsoft.Authorization/roleAssignments/write` . Parmi les rôles intégrés, seuls ceux du *propriétaire* et de *l’administrateur des accès utilisateur* se voient accorder l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md).
 
-### Demande
+### <a name="request"></a>Demande
 Utilisez la méthode **PUT** avec l’URI suivant :
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
 
-Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
+Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
 
-1. Remplacez *{scope}* par la portée sur laquelle vous souhaitez créer les attributions de rôle. Lorsque vous créez une affectation de rôle pour une portée parent, toutes les portées enfants en héritent. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
+1. Remplacez *{scope}* par la portée sur laquelle vous souhaitez créer les attributions de rôle. Lorsque vous créez une affectation de rôle pour une portée parent, toutes les portées enfants en héritent. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
    
-   * Abonnement : /subscriptions/{subscription-id}
-   * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
-   * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
+   * Abonnement : /subscriptions/{subscription-id}  
+   * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1   
+   * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Remplacez *{role-assignment-id}* par un nouveau GUID, qui devient l’identificateur GUID de la nouvelle attribution de rôle.
 3. Remplacez *{api-version}* par 2015-07-01.
 
-Pour le corps de la requête, saisissez les valeurs au format suivant :
+Pour le corps de la requête, saisissez les valeurs au format suivant :
 
 ```
 {
@@ -154,8 +158,8 @@ Pour le corps de la requête, saisissez les valeurs au format suivant :
 | roleDefinitionId |Oui |Chaîne |L’identificateur du rôle. Le format de l’identificateur est : `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
 | principalId |Oui |Chaîne |objectId du principal Azure AD (utilisateur, groupe ou principal de service) auquel le rôle est affecté. |
 
-### Response
-Code d’état : 201
+### <a name="response"></a>Response
+Code d’état : 201
 
 ```
 {
@@ -175,28 +179,28 @@ Code d’état : 201
 
 ```
 
-## Supprimer une affectation de rôle
+## <a name="delete-a-role-assignment"></a>Supprimer une affectation de rôle
 Supprimez une affectation de rôle au niveau de la portée spécifiée.
 
-Pour supprimer une attribution de rôle, vous devez avoir accès à l’opération `Microsoft.Authorization/roleAssignments/delete`. Parmi les rôles intégrés, seuls ceux du *propriétaire* et de l’*administrateur des accès utilisateur* se voient accorder l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md).
+Pour supprimer une attribution de rôle, vous devez avoir accès à l’opération `Microsoft.Authorization/roleAssignments/delete` . Parmi les rôles intégrés, seuls ceux du *propriétaire* et de *l’administrateur des accès utilisateur* se voient accorder l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md).
 
-### Demande
+### <a name="request"></a>Demande
 Utilisez la méthode **DELETE** avec l’URI suivant :
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
 
-Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
+Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
 
-1. Remplacez *{scope}* par la portée sur laquelle vous souhaitez créer les attributions de rôle. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
+1. Remplacez *{scope}* par la portée sur laquelle vous souhaitez créer les attributions de rôle. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
    
-   * Abonnement : /subscriptions/{subscription-id}
-   * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
-   * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
+   * Abonnement : /subscriptions/{subscription-id}  
+   * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Remplacez *{role-assignment-id}* par le GUID de l’ID d’attribution de rôle.
 3. Remplacez *{api-version}* par 2015-07-01.
 
-### Response
-Code d’état : 200
+### <a name="response"></a>Response
+Code d’état : 200
 
 ```
 {
@@ -216,31 +220,31 @@ Code d’état : 200
 
 ```
 
-## Répertorier tous les rôles
+## <a name="list-all-roles"></a>Répertorier tous les rôles
 Répertorie tous les rôles disponibles à l’attribution sur la portée spécifiée.
 
 Pour répertorier les rôles, vous devez avoir accès à l’opération `Microsoft.Authorization/roleDefinitions/read` dans la portée. Tous les rôles intégrés se voient octroyer l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md).
 
-### Demande
-Utilisez la méthode **GET** avec l’URI suivant :
+### <a name="request"></a>Demande
+Utilisez la méthode **GET** avec l’URI suivant :
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&$filter={filter}
 
-Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
+Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
 
-1. Remplacez *{scope}* par la portée dont vous souhaitez répertorier les rôles. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
+1. Remplacez *{scope}* par la portée dont vous souhaitez répertorier les rôles. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
    
-   * Abonnement : /subscriptions/{subscription-id}
-   * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
-   * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
+   * Abonnement : /subscriptions/{subscription-id}  
+   * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Remplacez *{api-version}* par 2015-07-01.
 3. Remplacez *{filter}* par la condition que vous souhaitez appliquer pour filtrer la liste des rôles :
    
    * Répertorier les rôles disponibles à l’affectation à la portée spécifiée et chacune de ses portées enfants : `atScopeAndBelow()`
    * Rechercher un rôle utilisant le nom d’affichage exact : `roleName%20eq%20'{role-display-name}'`. Utilisez la forme codée de l’URL du nom d’affichage exact du rôle. Par exemple, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
-### Response
-Code d’état : 200
+### <a name="response"></a>Response
+Code d’état : 200
 
 ```
 {
@@ -299,28 +303,28 @@ Code d’état : 200
 
 ```
 
-## Obtention des informations sur un rôle
+## <a name="get-information-about-a-role"></a>Obtention des informations sur un rôle
 Obtient des informations sur un rôle unique spécifié par l’identificateur de définition de rôle. Pour obtenir des informations sur un rôle unique en utilisant son nom d’affichage, voir [Répertorier tous les rôles](role-based-access-control-manage-access-rest.md#list-all-roles).
 
-Pour obtenir des informations sur un rôle, vous devez avoir accès à l’opération `Microsoft.Authorization/roleDefinitions/read`. Tous les rôles intégrés se voient octroyer l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md).
+Pour obtenir des informations sur un rôle, vous devez avoir accès à l’opération `Microsoft.Authorization/roleDefinitions/read` . Tous les rôles intégrés se voient octroyer l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md).
 
-### Demande
-Utilisez la méthode **GET** avec l’URI suivant :
+### <a name="request"></a>Demande
+Utilisez la méthode **GET** avec l’URI suivant :
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
-Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
+Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
 
-1. Remplacez *{scope}* par la portée dont vous souhaitez répertorier les attributions de rôle. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
+1. Remplacez *{scope}* par la portée dont vous souhaitez répertorier les attributions de rôle. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
    
-   * Abonnement : /subscriptions/{subscription-id}
-   * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
-   * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
+   * Abonnement : /subscriptions/{subscription-id}  
+   * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Remplacez *{role-definition-id}* par l’identificateur de définition GUID de la définition du rôle.
 3. Remplacez *{api-version}* par 2015-07-01.
 
-### Response
-Code d’état : 200
+### <a name="response"></a>Response
+Code d’état : 200
 
 ```
 {
@@ -379,27 +383,27 @@ Code d’état : 200
 
 ```
 
-## Créer un rôle personnalisé
+## <a name="create-a-custom-role"></a>Créer un rôle personnalisé
 Créez un rôle personnalisé.
 
-Pour créer un rôle personnalisé, vous devez avoir accès à l’opération `Microsoft.Authorization/roleDefinitions/write` sur l’ensemble des `AssignableScopes`. Parmi les rôles intégrés, seuls ceux du *propriétaire* et de l’*administrateur des accès utilisateur* se voient accorder l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md).
+Pour créer un rôle personnalisé, vous devez avoir accès à l’opération `Microsoft.Authorization/roleDefinitions/write` sur l’ensemble des `AssignableScopes`. Parmi les rôles intégrés, seuls ceux du *propriétaire* et de *l’administrateur des accès utilisateur* se voient accorder l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md).
 
-### Demande
+### <a name="request"></a>Demande
 Utilisez la méthode **PUT** avec l’URI suivant :
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
-Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
+Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
 
-1. Remplacez *{scope}* par le premier élément *AssignableScope* du rôle personnalisé. Les exemples qui suivent montrent comment spécifier la portée sur différents niveaux :
+1. Remplacez *{scope}* par le premier élément *AssignableScope* du rôle personnalisé. Les exemples qui suivent montrent comment spécifier la portée sur différents niveaux :
    
-   * Abonnement : /subscriptions/{subscription-id}
-   * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
-   * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
+   * Abonnement : /subscriptions/{subscription-id}  
+   * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Remplacez *{role-assignment-id}* par un nouveau GUID, qui devient l’identificateur GUID du nouveau rôle personnalisé.
 3. Remplacez *{api-version}* par 2015-07-01.
 
-Pour le corps de la requête, saisissez les valeurs au format suivant :
+Pour le corps de la requête, saisissez les valeurs au format suivant :
 
 ```
 {
@@ -435,15 +439,15 @@ Pour le corps de la requête, saisissez les valeurs au format suivant :
 | Nom de l’élément | Requis | Type | Description |
 | --- | --- | --- | --- |
 | name |Oui |Chaîne |Identificateur GUID du rôle personnalisé. |
-| properties.roleName |Oui |Chaîne |Afficher le nom complet du rôle personnalisé. Taille maximale de 128 caractères. |
-| properties.description |Non |Chaîne |Description du rôle personnalisé. Taille maximale de 1024 caractères. |
+| properties.roleName |Oui |Chaîne |Afficher le nom complet du rôle personnalisé. Taille maximale de 128 caractères. |
+| properties.description |Non |Chaîne |Description du rôle personnalisé. Taille maximale de 1024 caractères. |
 | properties.type |Oui |Chaîne |Affectez la valeur « CustomRole ». |
-| properties.permissions.actions |Oui |Chaîne |Tableau de chaînes d’action spécifiant les opérations octroyées par le rôle personnalisé. |
-| properties.permissions.notActions |Non |Chaîne |Tableau de chaînes d’action spécifiant les opérations à exclure des opérations octroyées par le rôle personnalisé. |
-| properties.assignableScopes |Oui |Chaîne |Tableau des portées dans lesquelles le rôle personnalisé peut être utilisé. |
+| properties.permissions.actions |Oui |String[] |Tableau de chaînes d’action spécifiant les opérations octroyées par le rôle personnalisé. |
+| properties.permissions.notActions |Non |String[] |Tableau de chaînes d’action spécifiant les opérations à exclure des opérations octroyées par le rôle personnalisé. |
+| properties.assignableScopes |Oui |String[] |Tableau des portées dans lesquelles le rôle personnalisé peut être utilisé. |
 
-### Response
-Code d’état : 201
+### <a name="response"></a>Response
+Code d’état : 201
 
 ```
 {
@@ -482,27 +486,27 @@ Code d’état : 201
 
 ```
 
-## Mettre à jour un rôle personnalisé
+## <a name="update-a-custom-role"></a>Mettre à jour un rôle personnalisé
 Modifiez un rôle personnalisé.
 
-Pour modifier un rôle personnalisé, vous devez avoir accès à l’opération `Microsoft.Authorization/roleDefinitions/write` sur l’ensemble des `AssignableScopes`. Parmi les rôles intégrés, seuls ceux du *propriétaire* et de l’*administrateur des accès utilisateur* se voient accorder l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md).
+Pour modifier un rôle personnalisé, vous devez avoir accès à l’opération `Microsoft.Authorization/roleDefinitions/write` sur l’ensemble des `AssignableScopes`. Parmi les rôles intégrés, seuls ceux du *propriétaire* et de *l’administrateur des accès utilisateur* se voient accorder l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md).
 
-### Demande
+### <a name="request"></a>Demande
 Utilisez la méthode **PUT** avec l’URI suivant :
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
-Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
+Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
 
-1. Remplacez *{scope}* par le premier élément *AssignableScope* du rôle personnalisé. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
+1. Remplacez *{scope}* par le premier élément *AssignableScope* du rôle personnalisé. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
    
-   * Abonnement : /subscriptions/{subscription-id}
-   * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
-   * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
+   * Abonnement : /subscriptions/{subscription-id}  
+   * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Remplacez *{role-definition-id}* par l’identificateur de définition GUID du rôle personnalisé.
 3. Remplacez *{api-version}* par 2015-07-01.
 
-Pour le corps de la requête, saisissez les valeurs au format suivant :
+Pour le corps de la requête, saisissez les valeurs au format suivant :
 
 ```
 {
@@ -541,12 +545,12 @@ Pour le corps de la requête, saisissez les valeurs au format suivant :
 | properties.roleName |Oui |Chaîne |Nom complet du rôle personnalisé mis à jour. |
 | properties.description |Non |Chaîne |Description du rôle personnalisé mis à jour. |
 | properties.type |Oui |Chaîne |Affectez la valeur « CustomRole ». |
-| properties.permissions.actions |Oui |Chaîne |Tableau de chaînes d’action spécifiant les opérations auxquelles le rôle personnalisé mis à jour octroie l’accès. |
-| properties.permissions.notActions |Non |Chaîne |Tableau de chaînes d’action spécifiant les opérations à exclure des opérations que le rôle personnalisé octroie. |
-| properties.assignableScopes |Oui |Chaîne |Tableau des portées dans lesquelles le rôle personnalisé mis à jour peut être utilisé. |
+| properties.permissions.actions |Oui |String[] |Tableau de chaînes d’action spécifiant les opérations auxquelles le rôle personnalisé mis à jour octroie l’accès. |
+| properties.permissions.notActions |Non |String[] |Tableau de chaînes d’action spécifiant les opérations à exclure des opérations que le rôle personnalisé octroie. |
+| properties.assignableScopes |Oui |String[] |Tableau des portées dans lesquelles le rôle personnalisé mis à jour peut être utilisé. |
 
-### Response
-Code d’état : 201
+### <a name="response"></a>Response
+Code d’état : 201
 
 ```
 {
@@ -585,28 +589,28 @@ Code d’état : 201
 
 ```
 
-## Supprimer un rôle personnalisé
+## <a name="delete-a-custom-role"></a>Supprimer un rôle personnalisé
 Supprimez un rôle personnalisé.
 
-Pour supprimer un rôle personnalisé, vous devez avoir accès à l’opération `Microsoft.Authorization/roleDefinitions/delete` sur l’ensemble des `AssignableScopes`. Parmi les rôles intégrés, seuls ceux du *propriétaire* et de l’*administrateur des accès utilisateur* se voient accorder l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md).
+Pour supprimer un rôle personnalisé, vous devez avoir accès à l’opération `Microsoft.Authorization/roleDefinitions/delete` sur l’ensemble des `AssignableScopes`. Parmi les rôles intégrés, seuls ceux du *propriétaire* et de *l’administrateur des accès utilisateur* se voient accorder l’accès à cette opération. Pour plus d’informations sur les attributions de rôle et la gestion des accès aux ressources Azure, consultez [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md).
 
-### Demande
+### <a name="request"></a>Demande
 Utilisez la méthode **DELETE** avec l’URI suivant :
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
-Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
+Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
 
-1. Remplacez *{scope}* par la portée dont vous souhaitez supprimer la définition de rôle. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
+1. Remplacez *{scope}* par la portée dont vous souhaitez supprimer la définition de rôle. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
    
-   * Abonnement : /subscriptions/{subscription-id}
-   * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
-   * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
+   * Abonnement : /subscriptions/{subscription-id}  
+   * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Remplacez *{role-definition-id}* par l’ID de définition de rôle GUID du rôle personnalisé.
 3. Remplacez *{api-version}* par 2015-07-01.
 
-### Response
-Code d’état : 200
+### <a name="response"></a>Response
+Code d’état : 200
 
 ```
 {
@@ -648,4 +652,9 @@ Code d’état : 200
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

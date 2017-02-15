@@ -3,7 +3,7 @@ title: "Préparation et nettoyage du travail dans Batch | Microsoft Docs"
 description: "Utilisez des tâches de préparation au niveau du travail afin de minimiser le transfert de données vers les nœuds de calcul Azure Batch, et utilisez des tâches de validation pour le nettoyage des nœuds une fois le travail achevé."
 services: batch
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 09/16/2016
-ms.author: marsma
+ms.date: 01/04/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7a9d6586471e776ca5a7e70312c0ac8c97b048a7
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 9b71f09611832c2a8133cc21347d612d495b70aa
 
 
 ---
@@ -48,7 +48,7 @@ Dans un environnement de « pool partagé » dans lequel les nœuds de calcul d�
 
 **Rétention des journaux**
 
-Vous voulez peut-être conserver une copie des fichiers journaux générés par les tâches ou peut-être les fichiers de vidage sur incident qui peuvent être générés par les applications ayant échoué. Dans ces cas, utilisez une **tâche de validation du travail** pour compresser et charger ces données vers un [stockage Azure][azure_storage].
+Vous voulez peut-être conserver une copie des fichiers journaux générés par les tâches ou peut-être les fichiers de vidage sur incident qui peuvent être générés par les applications ayant échoué. Dans ces cas, utilisez une **tâche de validation du travail** pour compresser et télécharger ces données vers un compte de [Stockage Azure][azure_storage].
 
 > [!TIP]
 > Une autre façon de conserver les journaux et les autres données de sortie des travaux et des tâches consiste à utiliser la bibliothèque de [conventions de fichier Azure Batch](batch-task-output.md) .
@@ -74,7 +74,7 @@ Lorsqu'un travail est marqué comme terminé, la tâche de validation du travail
 > 
 
 ## <a name="job-prep-and-release-tasks-with-batch-net"></a>Tâches de préparation et de validation du travail avec Batch.NET
-Pour utiliser une tâche de préparation du travail, vous attribuez un objet [JobPreparationTask][net_job_prep] à la propriété [CloudJob.JobPreparationTask][net_job_prep_cloudjob] de votre travail. De même, initialisez la propriété [JobReleaseTask][net_job_release] et attribuez-la à la propriété [CloudJob.JobReleaseTask][net_job_prep_cloudjob] de votre travail pour définir la tâche de validation du travail.
+Pour utiliser une tâche de préparation du travail, affectez un objet [JobPreparationTask][net_job_prep] à la propriété [CloudJob.JobPreparationTask][net_job_prep_cloudjob] de votre travail. De même, initialisez la propriété [JobReleaseTask][net_job_release] et affectez-la à la propriété [CloudJob.JobReleaseTask][net_job_prep_cloudjob] de votre travail pour définir la tâche de validation du travail.
 
 Dans cet extrait de code, `myBatchClient` est une instance de [BatchClient][net_batch_client], et `myPool` est un pool existant dans le compte Batch.
 
@@ -175,7 +175,7 @@ Sample complete, hit ENTER to exit...
 > 
 
 ### <a name="inspect-job-preparation-and-release-tasks-in-the-azure-portal"></a>Inspection des tâches de préparation et de validation du travail dans le Portail Azure
-Lorsque vous exécutez l’exemple d’application, vous pouvez utiliser le [Portail Azure][portal] pour visualiser les propriétés du travail et de ses tâches, ou même télécharger le fichier texte partagé modifié par les tâches du travail.
+Lorsque vous exécutez l’exemple d’application, vous pouvez utiliser le [Portail Azure][portal] pour visualiser les propriétés du travail et ses tâches, ou même télécharger le fichier texte partagé modifié par les tâches du travail.
 
 La capture d’écran ci-après illustre le **panneau Tâches de préparation** du Portail Azure après une exécution de l’exemple d’application. Accédez aux propriétés *JobPrepReleaseSampleJob* une fois les tâches terminées (mais avant la suppression de votre travail et du pool), puis cliquez sur **Tâches de préparation** ou sur **Tâches de fin** pour en visualiser les propriétés.
 
@@ -183,7 +183,7 @@ La capture d’écran ci-après illustre le **panneau Tâches de préparation** 
 
 ## <a name="next-steps"></a>Étapes suivantes
 ### <a name="application-packages"></a>Packages d’applications
-Outre la tâche de préparation du travail, vous pouvez également utiliser la fonctionnalité [packages d’application](batch-application-packages.md) de Batch pour préparer des nœuds de calcul à l’exécution de tâches. Cette fonctionnalité est particulièrement utile pour déployer des applications qui ne nécessitent pas de programme d’installation, des applications qui contiennent de nombreux fichiers (plus de 100) ou des applications qui requièrent un contrôle de version strict.
+Outre la tâche de préparation du travail, vous pouvez également utiliser la fonctionnalité [packages d’application](batch-application-packages.md) de Batch pour préparer des nœuds de calcul à l’exécution de tâches. Cette fonctionnalité est particulièrement utile pour déployer des applications qui ne nécessitent pas de programme d’installation, des applications qui contiennent de nombreux fichiers (plus de&100;) ou des applications qui requièrent un contrôle de version strict.
 
 ### <a name="installing-applications-and-staging-data"></a>Installation d’applications et de données intermédiaires
 Le billet MSDN ci-après fournit une vue d’ensemble de différentes méthodes de préparation de vos nœuds à l’exécution des tâches :
@@ -225,6 +225,6 @@ Rédigé par l’un des membres de l’équipe Azure Batch, ce billet décrit pl
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

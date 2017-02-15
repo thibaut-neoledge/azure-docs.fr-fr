@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 1f8a4d6fec12aabf4055fea39bf37d76362ab059
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: e516d3cea9a53dec209a51fc8729f2cca934d3cd
 
 
 ---
@@ -31,7 +31,7 @@ Cet article vous montre comment utiliser l’outil AzCopy pour créer une copie 
 Veillez à :
 
 * Avoir à votre disposition des informations sur les **comptes de stockage source et de destination**. Pour la machine virtuelle source, vous devez disposer du nom du compte de stockage et du conteneur. En général, le nom du conteneur est **vhds**. Vous devez également disposer d’un compte de stockage de destination. Si ce n’est pas le cas, vous pouvez en créer un avec le portail (**Plus de services** > Comptes de stockage > Ajouter) ou l’applet de commande [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx). 
-* Installer Azure [PowerShell 1.0](../powershell-install-configure.md) (ou une version ultérieure).
+* Installer Azure [PowerShell 1.0](/powershell/azureps-cmdlets-docs) (ou une version ultérieure).
 * Télécharger et installer [l’outil AzCopy](../storage/storage-use-azcopy.md). 
 
 ## <a name="deallocate-the-vm"></a>Libérer la machine virtuelle
@@ -101,6 +101,6 @@ Elapsed time:            00.00:13:07
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -240,6 +240,6 @@ Quand vous cliquez sur la vignette AppBlade dans le volet d’accès, vous devez
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

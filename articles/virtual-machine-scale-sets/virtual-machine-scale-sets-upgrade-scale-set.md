@@ -1,13 +1,13 @@
 ---
-title: Déployer une application sur des jeux de mise à l’échelle de machine virtuelle | Microsoft Docs
-description: Déployer une application sur des jeux de mise à l’échelle de machine virtuelle
+title: "Déployer une application sur des groupes identiques de machines virtuelles | Microsoft Docs"
+description: "Déployer une application sur des jeux de mise à l’échelle de machine virtuelle"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: gbowerman
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,12 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2016
 ms.author: guybo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a5158c51149e75952eaf91af14f3fcf2dd1ed2af
+
 
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Mettre à niveau un jeu de mise à l’échelle de machines virtuelles
 Cet article décrit comment déployer une mise à jour de système d’exploitation sur un jeu de mise à l’échelle de machines virtuelles Azure sans interruption de service. Dans ce contexte, une mise à jour de système d’exploitation implique la modification de la version ou de la référence (SKU) du système d’exploitation, ou la modification de l’URI d’une image personnalisée. Une mise à jour sans interruption de service consiste à mettre à jour des machines virtuelles une par une, ou dans des groupes (par exemple, un domaine d’erreur à la fois), plutôt que toutes simultanément. En procédant de la sorte, les machines virtuelles qui ne sont pas mises à niveau peuvent continuer à opérer.
 
-Pour éviter toute ambiguïté, nous allons distinguer trois types de mises à jour de système d’exploitation que vous pourriez vouloir effectuer :
+Pour éviter toute ambiguïté, nous allons distinguer trois types de mises à jour de système d’exploitation que vous pourriez vouloir effectuer :
 
 * Modification de la version ou de la référence (SKU) d’une image de plateforme. Par exemple, la modification d’Ubuntu version 14.04.2-LTS de 14.04.201506100 en 14.04.201507060, ou la modification d’Ubuntu 15.10/dernière référence (SKU) vers Ubuntu 16.04.0-LTS/dernière version. Ce scénario est décrit dans cet article.
 * Modification de l’URI qui pointe vers une nouvelle version d’une image personnalisée que vous avez créée (**properties** > **virtualMachineProfile** > **storageProfile** > **osDisk** > **image** > **uri**). Ce scénario est décrit dans cet article.
@@ -30,7 +34,7 @@ Les deux premières options sont des exigences prises en charge couvertes par ce
 
 Les jeux de mise à l’échelle de machine virtuelle déployés en tant que partie d’un cluster [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) ne sont pas abordés ici.
 
-La séquence de base pour la modification de la version du système d’exploitation ou de la référence (SKU) d’une image de plateforme ou de l’URI d’une image personnalisée se présente comme suit :
+La séquence de base pour la modification de la version du système d’exploitation ou de la référence (SKU) d’une image de plateforme ou de l’URI d’une image personnalisée se présente comme suit :
 
 1. Obtenez le modèle de jeu de mise à l’échelle de machine virtuelle.
 2. Modifiez la version, la référence (SKU) ou la valeur d’URI dans le modèle.
@@ -39,7 +43,7 @@ La séquence de base pour la modification de la version du système d’exploita
 
 Avec ces informations générales à l’esprit, voyons comment vous pouvez mettre à jour la version d’un ensemble d’échelle dans PowerShell et en utilisant l’API REST. Ces exemples couvrent le cas d’une image de plateforme, mais cet article fournit suffisamment d’informations pour vous permettre d’adapter ce processus à une image personnalisée.
 
-## <a name="powershell##"></a>PowerShell
+## <a name="powershell"></a>PowerShell
 Cet exemple met à jour un jeu d’échelle de machines virtuelles Windows vers la nouvelle version 4.0.20160229. Après la mise à jour du modèle, il effectue une mise à jour, une instance de machine virtuelle à la fois.
 
 ```powershell
@@ -61,7 +65,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 Update-AzureRmVmssInstance -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $instanceId
 ```
 
-Si vous mettez à jour l’URI d’une image personnalisée au lieu de modifier une version d’image de plateforme, remplacez la ligne « définir la nouvelle version » par ce qui suit :
+Si vous mettez à jour l’URI d’une image personnalisée au lieu de modifier une version d’image de plateforme, remplacez la ligne « définir la nouvelle version » par ce qui suit :
 
 ```powershell
 # set the new version in the model data
@@ -84,12 +88,15 @@ Ce script vous permet de choisir des machines virtuelles spécifiques pour mettr
 
 La capture d’écran suivante montre un modèle d’ensemble d’échelle pour Ubuntu 14.04-2LTS version 14.04.201507060. De nombreuses options ont été ajoutées à cet outil depuis que cette capture d’écran a été effectuée.
 
-![Modèle Vmsseditor d’un ensemble d’échelle pour Ubuntu 14.04-2LTS](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor1.png)
+![Modèle Vmsseditor d’un ensemble d’échelle pour Ubuntu 14.04-2LTS](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor1.png)
 
-Une fois que vous avez cliqué sur **Mettre à niveau**, puis sur **Obtenir les détails**, la mise à jour des machines virtuelles dans UD 0 commence.
+Une fois que vous avez cliqué sur **Mettre à niveau**, puis sur **Obtenir les détails**, la mise à jour des machines virtuelles dans UD 0 commence.
 
 ![Vmsseditor montrant la progression de la mise à jour](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

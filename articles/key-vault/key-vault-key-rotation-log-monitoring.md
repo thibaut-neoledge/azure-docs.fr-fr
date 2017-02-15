@@ -440,6 +440,6 @@ Pour l’action, choisissez **Office 365 - Envoyer un message électronique**. R
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

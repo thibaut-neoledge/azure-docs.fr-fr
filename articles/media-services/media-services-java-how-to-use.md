@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 12/20/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 18054a72c3ead02311465d97dc13b7b5e4d87321
-ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: b36dc7bc2d4d1a8565bc6eb823e830a62d36bf34
 
 
 ---
@@ -24,9 +24,9 @@ ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 ## <a name="setting-up-an-azure-account-for-media-services"></a>Configuration d'un compte Azure pour Media Services
-Pour configurer votre compte Media Services, utilisez le portail Azure. Consultez la rubrique [Comment créer un compte Media Services](media-services-portal-create-account.md). Une fois votre compte créé dans le portail Azure, vous êtes prêt à configurer votre ordinateur pour le développement Media Services.
 
-## <a name="setting-up-for-media-services-development"></a>Configuration pour le développement de Media Services
+Pour configurer votre compte Media Services, utilisez le portail Azure. Consultez la rubrique [Comment créer un compte Media Services](media-services-portal-create-account.md). Une fois votre compte créé dans le portail Azure, vous êtes prêt à configurer votre ordinateur pour le développement Media Services.
+ 
 Cette section contient les conditions préalables générales pour le développement de Media Services à l'aide du Kit de développement logiciel (SDK) Media Services pour Java.
 
 ### <a name="prerequisites"></a>Composants requis
@@ -34,6 +34,10 @@ Cette section contient les conditions préalables générales pour le développe
 * Les bibliothèques Azure pour Java, que vous pouvez installer à partir du [Centre de développement Java d’Azure][Azure Java Developer Center].
 
 ## <a name="how-to-use-media-services-with-java"></a>Procédure d’utilisation de Media Services avec Java
+
+>[!NOTE]
+>Une fois votre compte AMS créé, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**. 
+
 Le code suivant montre comment créer un élément multimédia, télécharger un fichier multimédia sur l’élément multimédia, exécuter une tâche pour transformer l’élément multimédia et créer un localisateur pour diffuser en continu votre vidéo.
 
 Vous devrez configurer un compte Media Services avant d’utiliser ce code. Pour plus d’informations sur la configuration d’un compte, consultez la rubrique [Création d’un compte Media Services](media-services-portal-create-account.md).
@@ -270,6 +274,6 @@ Pour obtenir une documentation Javadoc sur Media Services, consultez [Bibliothè
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

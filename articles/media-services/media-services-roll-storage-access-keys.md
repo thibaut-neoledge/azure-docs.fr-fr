@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
-ms.author: milangada;cenkdin;juliako
+ms.author: milanga;cenkdin;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: a979519dc617f40e6f090a412d17aa7778cbcf69
+ms.sourcegitcommit: 63669ba827771c75937568276f32b130980f3f65
+ms.openlocfilehash: e236c31e7fbce304ceaa069235b23efb180fb111
 
 
 ---
@@ -37,7 +37,7 @@ Media Services dépend d'une clé de stockage qui lui est fournie. Plus précis�
 ## <a name="step-1-regenerate-secondary-storage-access-key"></a>Étape 1 : régénérer la clé d’accès de stockage secondaire
 Commencez par régénérer la clé de stockage secondaire. Par défaut, la clé secondaire n’est pas utilisée par Media Services.  Pour savoir comment restaurer les clés de stockage, consultez la section [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
-## <a name="a-idstep2astep-2-update-media-services-to-use-the-new-secondary-storage-key"></a><a id="step2"></a>Étape 2 : mettre à jour Media Services pour qu’il utilise la nouvelle clé de stockage secondaire
+## <a name="a-idstep2astep-2--update-media-services-to-use-the-new-secondary-storage-key"></a><a id="step2"></a>Étape 2 : mettre à jour Media Services pour qu’il utilise la nouvelle clé de stockage secondaire
 Mettez à jour Media Services pour utiliser la clé d’accès de stockage secondaire. Vous pouvez utiliser l’une des deux méthodes suivantes pour synchroniser la clé de stockage régénérée avec Media Services.
 
 * Utilisez le portail Azure : pour rechercher les valeurs Nom et Clé, accédez au portail Azure et sélectionnez votre compte. La fenêtre Paramètres s’affiche sur la droite. Dans la fenêtre Paramètres, sélectionnez Clés. Selon la clé de stockage que vous souhaitez synchroniser avec Media Services, sélectionnez le bouton de synchronisation de la clé primaire ou secondaire. Dans le cas présent, utilisez la clé secondaire.
@@ -103,13 +103,25 @@ Notez que lorsque vous mettez à jour (ou que vous recréez) un localisateur SAS
 
 L’exemple .NET suivant montre comment recréer un localisateur avec le même ID.
 
-private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator) { // Enregistre les propriétés du localisateur existant.
-var asset = locator.Asset; var accessPolicy = locator.AccessPolicy; var locatorId = locator.Id; var startDate = locator.StartTime; var locatorType = locator.Type; var locatorName = locator.Name;
+    private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator)
+    {
+    // Save properties of existing locator.
+    var asset = locator.Asset;
+    var accessPolicy = locator.AccessPolicy;
+    var locatorId = locator.Id;
+    var startDate = locator.StartTime;
+    var locatorType = locator.Type;
+    var locatorName = locator.Name;
 
-// Supprimer l’ancien localisateur.
-locator.Delete();
+    // Delete old locator.
+    locator.Delete();
 
-if (locator.ExpirationDateTime <= DateTime.UtcNow) { throw new Exception(String.Format( "Impossible de créer le localisateur dont l’ID est {0} car sa date d’expiration est antérieure à la date actuelle", locator.Id)); }
+    if (locator.ExpirationDateTime <= DateTime.UtcNow)
+        {
+            throw new Exception(String.Format(
+                "Cannot recreate locator Id={0} because its locator expiration time is in the past",
+                locator.Id));
+        }
 
         // Create new locator using saved properties.
         var newLocator = context.Locators.CreateLocator(
@@ -126,7 +138,7 @@ if (locator.ExpirationDateTime <= DateTime.UtcNow) { throw new Exception(String.
     }
 
 
-## <a name="step-5-regenerate-primary-storage-access-key"></a>Étape 5 : régénérer la clé d’accès du stockage primaire
+## <a name="step-5-regenerate--primary-storage-access-key"></a>Étape 5 : régénérer la clé d’accès du stockage primaire
 Régénérez la clé d’accès de stockage primaire. Pour savoir comment restaurer les clés de stockage, consultez la section [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 ## <a name="step-6-update-media-services-to-use-the-new-primary-storage-key"></a>Étape 6 : mettre à jour Media Services pour utiliser la nouvelle clé de stockage primaire
@@ -153,6 +165,6 @@ Nous aimerions remercier les personnes suivantes qui ont contribué à la créat
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

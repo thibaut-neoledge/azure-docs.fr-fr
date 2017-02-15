@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/09/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6c9e285834707b668086ceab7fdde582f0cd87cc
+ms.sourcegitcommit: d9f6c8c73cb7803547053ec495812f993eb44c43
+ms.openlocfilehash: b2f8683be1dea938cba84766efe32287eeebb712
 
 
 ---
@@ -108,7 +108,7 @@ Les flux de commentaires peuvent être créés à l’aide des processus d’arr
 
 Les points et les J’aime attribués à une publication peuvent être traités de manière différée à l’aide de cette même technique pour créer un environnement cohérent.
 
-Cela est plus compliqué pour les abonnés. DocumentDB possède une limite de taille de document de 512 Ko, vous pouvez donc envisager de stocker les abonnés en tant que document avec cette structure :
+Cela est plus compliqué pour les abonnés. DocumentDB possède une limite de taille de document et la lecture ou l’écriture de documents volumineux peuvent avoir un incidence sur l’évolutivité de votre application. Vous pouvez donc envisager de stocker les abonnés en tant que document avec cette structure :
 
     {
         "id":"234d-sd23-rrf2-552d",
@@ -121,7 +121,7 @@ Cela est plus compliqué pour les abonnés. DocumentDB possède une limite de ta
         ]
     }
 
-Cela peut fonctionner pour un utilisateur avec quelques milliers d’abonnés, mais si des célébrités rejoignent nos rangs, cette opération atteindra forcément la limite de taille du document.
+Cela peut fonctionner pour un utilisateur avec quelques milliers d’abonnés, mais si des célébrités rejoignent nos rangs, cette opération donnera lieu à un document volumineux et atteindra forcément la limite de taille du document.
 
 Pour résoudre ce problème, nous pouvons utiliser une approche mixte. Dans le cadre du document Statistiques de l’utilisateur, nous pouvons stocker le nombre d’abonnés :
 
@@ -234,6 +234,6 @@ Ou apprenez-en plus sur DocumentDB en suivant le [parcours d’apprentissage de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

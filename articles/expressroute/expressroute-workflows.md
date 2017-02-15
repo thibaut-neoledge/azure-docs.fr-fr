@@ -1,12 +1,12 @@
 ---
-title: Workflows de configuration d’un circuit ExpressRoute | Microsoft Docs
+title: "Workflows de configuration d’un circuit ExpressRoute | Microsoft Docs"
 description: Cette page vous guide tout au long des workflows pour la configuration du circuit ExpressRoute et des homologations
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 55e0418c-e0bf-44a7-9aa1-720076df9297
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 570a98aafca6babc5a7089880d4120c2a8f4a0d8
+ms.openlocfilehash: 5a275620639a801d7e60ef9ada1af29062dfe440
+
 
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Workflows ExpressRoute d’approvisionnement du circuit et états du circuit
@@ -26,7 +30,7 @@ L'illustration et les étapes correspondantes suivantes montrent les tâches que
 1. Utilisez PowerShell pour configurer un circuit ExpressRoute. Suivez les instructions de l’article [Création de circuits ExpressRoute](expressroute-howto-circuit-classic.md) pour plus de détails.
 2. Commandez la connectivité auprès du fournisseur de services. Ce processus varie. Contactez votre fournisseur de connectivité pour plus d’informations sur la commande de connectivité.
 3. Assurez-vous que le circuit a été correctement approvisionné en vérifiant l’état approvisionnement du circuit ExpressRoute via PowerShell. 
-4. Configurez les domaines de routage. Si votre fournisseur de connectivité gère la couche 3 pour vous, il configurera le routage pour votre circuit. Si votre fournisseur de connectivité offre uniquement des services de couche 2, vous devez configurer le routage conformément aux instructions décrites dans les pages [Conditions requises pour le routage](expressroute-routing.md) et [Configuration du routage](expressroute-howto-routing-classic.md).
+4. Configurez les domaines de routage. Si votre fournisseur de connectivité gère la couche 3 pour vous, il configurera le routage pour votre circuit. Si votre fournisseur de connectivité offre uniquement des services de couche 2, vous devez configurer le routage conformément aux instructions décrites dans les pages [Conditions requises pour le routage](expressroute-routing.md) et [Configuration du routage](expressroute-howto-routing-classic.md).
    
    * Activer l'homologation privée Azure : vous devez activer cette homologation pour vous connecter aux machines virtuelles/services de cloud déployés au sein de réseaux virtuels.
    * Activer l'homologation publique Azure : vous devez activer l'homologation publique Azure si vous souhaitez vous connecter à des services Azure hébergés sur des adresses IP publiques. Cette étape est nécessaire pour accéder aux ressources Azure si vous avez choisi d'activer le routage par défaut pour l'homologation privée Azure.
@@ -53,21 +57,24 @@ L'état d’approvisionnement du fournisseur de connectivité représente l'éta
 ### <a name="possible-states-of-an-expressroute-circuit"></a>États possibles d'un circuit ExpressRoute
 Cette section répertorie les états possibles d’un circuit ExpressRoute.
 
-#### <a name="at-creation-time"></a>Lors de la création
+**Lors de la création**
+
 Le circuit ExpressRoute affiche l'état suivant dès que vous exécutez l'applet de commande PowerShell pour créer le circuit ExpressRoute.
 
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled
 
 
-#### <a name="when-connectivity-provider-is-in-the-process-of-provisioning-the-circuit"></a>Lorsque le fournisseur de connectivité est en cours d’approvisionnement du circuit
+**Quand le fournisseur de connectivité est en cours d’approvisionnement du circuit**
+
 Le circuit ExpressRoute affiche l'état suivant dès que vous passez la clé de service au fournisseur de connectivité et qu’il démarre le processus d’approvisionnement.
 
     ServiceProviderProvisioningState : Provisioning
     Status                           : Enabled
 
 
-#### <a name="when-connectivity-provider-has-completed-the-provisioning-process"></a>Lorsque fournisseur de connectivité a terminé le processus d’approvisionnement
+**Quand fournisseur de connectivité a terminé le processus d’approvisionnement**
+
 Le circuit ExpressRoute affiche l'état suivant dès que le fournisseur de connectivité a terminé le processus d’approvisionnement.
 
     ServiceProviderProvisioningState : Provisioned
@@ -75,7 +82,8 @@ Le circuit ExpressRoute affiche l'état suivant dès que le fournisseur de conne
 
 Provisioned et Enabled sont les seuls états dans lesquels le circuit peut se trouver pour pouvoir être utilisé. Si vous utilisez un fournisseur de couche 2, vous pouvez configurer le routage pour votre circuit uniquement lorsqu'il est dans cet état.
 
-#### <a name="when-connectivity-provider-is-deprovisioning-the-circuit"></a>Lorsque le fournisseur de connectivité est en train d’annuler l’approvisionnement du circuit
+**Quand le fournisseur de connectivité est en train d’annuler l’approvisionnement du circuit**
+
 Si vous avez demandé au fournisseur de services d’annuler l’approvisionnement du circuit ExpressRoute, le circuit affichera l’état suivant une fois que le fournisseur de services aura terminé le processus d’annulation de l’approvisionnement.
 
     ServiceProviderProvisioningState : NotProvisioned
@@ -108,6 +116,9 @@ Si l'état du préfixe public publié indique qu’une *validation est nécessai
   * [Configuration du routage](expressroute-howto-routing-arm.md)
   * [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

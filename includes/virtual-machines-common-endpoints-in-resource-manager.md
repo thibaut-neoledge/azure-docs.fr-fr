@@ -19,8 +19,6 @@ Les groupes de sécurité réseau sont une nouvelle fonctionnalité qui fournit 
 
 > [!TIP]
 > Vous pouvez affecter des groupes de sécurité réseau à plusieurs sous-réseaux ou interfaces réseau. Il n’existe aucun mappage 1:1, ce qui signifie que vous pouvez créer un groupe de sécurité réseau avec un ensemble commun de règles ACL et l’appliquer à plusieurs sous-réseaux ou interfaces réseau. En outre, le groupe de sécurité réseau peut être appliqué aux ressources au sein de votre abonnement (sur la base des [Contrôles d’accès en fonction du rôle](../articles/active-directory/role-based-access-control-what-is.md).
-> 
-> 
 
 ## <a name="load-balancers-overview"></a>Vue d’ensemble des équilibrages de charge
 Dans le modèle de déploiement Classic, Azure effectue pour vous les tâches de traduction d’adresses réseau (NAT) et de réacheminement de port sur un service cloud. Lorsque vous créez un point de terminaison, vous pouvez spécifier le port externe à exposer, ainsi que le port interne vers lequel diriger le trafic. Les groupes de sécurité réseau n’effectuent pas eux-mêmes ces tâches NAT et de réacheminement de port. 
@@ -60,8 +58,6 @@ Vous pouvez créer une machine virtuelle sans créer un groupe de sécurité ré
 
 > [!NOTE]
 > Pour les connexions à distance, vous devez toujours avoir une adresse IP publique affectée à une machine virtuelle. L’absence de groupe de sécurité réseau pour le sous-réseau et l’interface réseau n’expose pas la machine virtuelle au trafic externe. Lors de la création d’une machine virtuelle via le portail, l’action par défaut consiste à créer une nouvelle adresse IP publique. Pour toutes les autres formes de création d’une machine virtuelle comme PowerShell, l’interface de ligne de commande Azure ou le modèle Resource Manager, une adresse IP publique n’est pas automatiquement créée, sauf en cas de demande explicite. L’action par défaut via le portail est également de créer un groupe de sécurité réseau. Cette action par défaut signifie que vous ne devriez pas vous retrouver dans une situation dans laquelle un une machine virtuelle exposée ne dispose d’aucun réseau de filtrage en place.
-> 
-> 
 
 ## <a name="understanding-load-balancers-and-nat-rules"></a>Présentation des règles NAT et de l’équilibrage de charge
 Le modèle de déploiement Classic vous permet de créer des points de terminaison qui effectuent également un réacheminement de port. Lorsque vous créez une machine virtuelle dans le modèle de déploiement Classic, les règles ACL pour RDP ou SSH sont automatiquement créées. Ces règles n’exposent pas le port TCP 3389 ou le port TCP 22 respectivement au monde extérieur. Au lieu de cela, un port TCP de valeur élevée mappé sur le port interne approprié est exposé. Vous pouvez également créer vos propres règles ACL de la même manière, par exemple en exposant un serveur web sur le port TCP 4280 au monde extérieur. Ces règles ACL et ces mappages de port sont illustrés dans la capture d’écran suivante du portail Classic :
@@ -74,9 +70,6 @@ Avec les groupes de sécurité réseau, cette fonction de réacheminement de por
 
 > [!NOTE]
 > Lorsque vous implémentez un équilibreur de charge, vous n’affectez généralement pas d’adresse IP publique à la machine virtuelle elle-même. Au lieu de cela, une adresse IP publique est affectée à l’équilibreur de charge. Vous devez toujours créer un groupe de sécurité réseau et des règles ACL pour définir le flux du trafic entrant et sortant de la machine virtuelle. Les règles NAT d’équilibrage de charge consistent simplement à définir quels ports sont autorisés via l’équilibrage de charge et comment ils sont distribués sur les machines virtuelles principales. Par conséquent, vous devez créer une règle NAT pour que le trafic passe par l’équilibrage de charge. Pour permettre au trafic d’atteindre la machine virtuelle, créez une règle ACL de groupe de sécurité réseau.
-> 
-> 
-
 
 
 <!--HONumber=Nov16_HO3-->

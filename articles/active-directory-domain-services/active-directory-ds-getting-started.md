@@ -66,6 +66,6 @@ La tâche de configuration suivante consiste à [créer ou à sélectionner un r
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

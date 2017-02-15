@@ -51,7 +51,7 @@ Pour obtenir la liste actualisée des services, consultez les [produits par rég
 * Sauvegarde
 * Site Recovery
 
-## <a name="web-mobile"></a>Web et mobilité
+## <a name="web--mobile"></a>Web et mobilité
 * Applications Web
 * Media Services
 
@@ -69,12 +69,12 @@ Pour obtenir la liste actualisée des services, consultez les [produits par rég
 * StorSimple
 * SQL Server Stretch Database
 
-## <a name="security-identitydocumentation-government-services-securityandidentitymd"></a>[Sécurité et identité](documentation-government-services-securityandidentity.md)
+## <a name="security--identitydocumentation-government-services-securityandidentitymd"></a>[Sécurité et identité](documentation-government-services-securityandidentity.md)
 * [Key Vault](documentation-government-services-securityandidentity.md#key-vault)
 * Azure Active Directory
 * Azure Multi-Factor Authentication
 
-## <a name="monitoring-managementdocumentation-government-services-monitoringandmanagementmd"></a>[Surveillance et gestion](documentation-government-services-monitoringandmanagement.md)
+## <a name="monitoring--managementdocumentation-government-services-monitoringandmanagementmd"></a>[Surveillance et gestion](documentation-government-services-monitoringandmanagement.md)
 * [Automation](documentation-government-services-monitoringandmanagement.md#automation)
 * Sauvegarde
 * [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)

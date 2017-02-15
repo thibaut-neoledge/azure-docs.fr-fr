@@ -98,6 +98,6 @@ Une fois les jeux de mise à l'échelle de machines virtuelles déployés avec s
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

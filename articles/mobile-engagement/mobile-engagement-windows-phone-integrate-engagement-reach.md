@@ -1,12 +1,12 @@
 ---
-title: Intégration du Kit de développement logiciel (SDK) du module Couverture Windows Phone Silverlight
-description: Intégration du module Couverture d’Azure Mobile Engagement avec des applications Windows Phone Silverlight
+title: "Intégration du Kit de développement logiciel (SDK) du module Couverture Windows Phone Silverlight"
+description: "Intégration du module Couverture d’Azure Mobile Engagement avec des applications Windows Phone Silverlight"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: d3516a6b-db9f-4cdb-a475-4148edf81af1
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
@@ -14,47 +14,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 39ebfe20f957b6e211eb5caebe4e064432876d20
+
 
 ---
-# Intégration du Kit de développement logiciel (SDK) du module Couverture Windows Phone Silverlight
-Vous devez suivre la procédure d'intégration décrite dans la rubrique [Intégration du Kit de développement logiciel d’Engagement Windows Phone Silverlight  Engagement](mobile-engagement-windows-phone-integrate-engagement.md) avant de suivre ce guide.
+# <a name="windows-phone-silverlight-reach-sdk-integration"></a>Intégration du Kit de développement logiciel (SDK) du module Couverture Windows Phone Silverlight
+Vous devez suivre la procédure d'intégration décrite dans la rubrique [Intégration du Kit de développement logiciel d’Engagement Windows Phone Silverlight  Engagement](mobile-engagement-windows-phone-integrate-engagement.md) avant de suivre ce guide.
 
-## Intégration du SDK du module Couverture d'Engagement dans votre projet Windows Phone Silverlight
-Vous n'avez rien à ajouter. Les références et les ressources de `EngagementReach` se trouvent déjà dans votre projet.
+## <a name="embed-the-engagement-reach-sdk-into-your-windows-phone-silverlight-project"></a>Intégration du SDK du module Couverture d'Engagement dans votre projet Windows Phone Silverlight
+Vous n'avez rien à ajouter. `EngagementReach` se trouvent déjà dans votre projet.
 
 > [!TIP]
 > Vous pouvez personnaliser les images situées dans le dossier `Resources` de votre projet, en particulier l'icône de marque (par défaut, il s'agit de l'icône d'Engagement).
 > 
 > 
 
-## Ajouter les fonctionnalités
+## <a name="add-the-capabilities"></a>Ajouter les fonctionnalités
 Le Kit de développement logiciel (SDK) du module Couverture d'Engagement nécessite l'ajout de certaines fonctionnalités.
 
-Ouvrez votre fichier `WMAppManifest.xml` et vérifiez que les fonctionnalités suivantes sont déclarées :
+Ouvrez votre fichier `WMAppManifest.xml` et vérifiez que les fonctionnalités suivantes sont déclarées :
 
 * `ID_CAP_PUSH_NOTIFICATION`
 * `ID_CAP_WEBBROWSERCOMPONENT`
 
 Le premier est utilisé par le service MPNS pour permettre l'affichage de notification toast. L'autre est utilisé pour intégrer une tâche du navigateur dans le Kit de développement logiciel.
 
-Modifiez le fichier `WMAppManifest.xml` et ajoutez-le à l'intérieur de la balise `<Capabilities />` :
+Modifiez le fichier `WMAppManifest.xml` et ajoutez-le à l'intérieur de la balise `<Capabilities />` :
 
     <Capability Name="ID_CAP_PUSH_NOTIFICATION" />
     <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
 
-## Activation du service de notifications Push Microsoft
+## <a name="enable-the-microsoft-push-notification-service"></a>Activation du service de notifications Push Microsoft
 Pour utiliser le **service de notifications Push Microsoft** (appelé MPNS), votre fichier `WMAppManifest.xml` doit contenir une balise `<App />` avec un attribut `Publisher` défini sur le nom de votre projet.
 
-## Initialiser le SDK du module Couverture d'Engagement
-### Configuration d'Engagement
+## <a name="initialize-the-engagement-reach-sdk"></a>Initialiser le SDK du module Couverture d'Engagement
+### <a name="engagement-configuration"></a>Configuration d'Engagement
 La configuration d'Engagement est centralisée dans le fichier `Resources\EngagementConfiguration.xml` de votre projet.
 
-Modifiez ce fichier pour spécifier la configuration de couverture :
+Modifiez ce fichier pour spécifier la configuration de couverture :
 
-* *Facultatif*, indiquez si l'installation du service (MPNS) natif est activée ou non entre les balises `<enableNativePush>` et `</enableNativePush>` (`true` par défaut).
-* *Facultatif*, indiquez le nom du canal de transmission Push entre les balises `<channelName>` et `</channelName>`. Indiquez celui actuellement utilisé par votre application ou laissez-le vide.
+* *Facultatif*, indiquez si l’installation du service Push natif (MPNS) est activée ou non entre les balises `<enableNativePush>` et `</enableNativePush>` (`true` par défaut).
+* *Facultatif*, indiquez le nom du canal de transmission Push entre les balises `<channelName>` et `</channelName>`. Indiquez celui utilisé par votre application ou laissez-le vide.
 
-Si vous souhaitez plutôt le spécifier lors de l'exécution, vous pouvez appeler la méthode suivante avant l'initialisation de l'agent Engagement :
+Si vous souhaitez plutôt le spécifier lors de l'exécution, vous pouvez appeler la méthode suivante avant l'initialisation de l'agent Engagement :
 
     /* Engagement configuration. */
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -75,20 +79,20 @@ Si vous souhaitez plutôt le spécifier lors de l'exécution, vous pouvez appele
 > 
 > 
 
-### Initialisation d'Engagement
-Modifiez le fichier `App.xaml.cs` :
+### <a name="engagement-initialization"></a>Initialisation d'Engagement
+Modifiez le fichier `App.xaml.cs`:
 
-* Ajoutez à vos instructions `using` :
+* Ajoutez à vos instructions `using` :
   
       using Microsoft.Azure.Engagement;
-* Insérez `EngagementReach.Instance.Init` juste après `EngagementAgent.Instance.Init` dans `Application_Launching` :
+* Insérez `EngagementReach.Instance.Init` juste après `EngagementAgent.Instance.Init` dans `Application_Launching` :
   
       private void Application_Launching(object sender, LaunchingEventArgs e)
       {
          EngagementAgent.Instance.Init();
          EngagementReach.Instance.Init();
       }
-* Insérez `EngagementReach.Instance.OnActivated` dans la méthode `Application_Activated` :
+* Insérez `EngagementReach.Instance.OnActivated` dans la méthode `Application_Activated` :
   
       private void Application_Activated(object sender, ActivatedEventArgs e)
       {
@@ -101,37 +105,37 @@ Modifiez le fichier `App.xaml.cs` :
 > 
 > 
 
-## Considérations relatives à la soumission App store
-Microsoft impose certaines règles lors de l'utilisation de notifications Push :
+## <a name="app-store-submission-considerations"></a>Considérations relatives à la soumission App store
+Microsoft impose certaines règles lors de l'utilisation de notifications Push :
 
-Selon la documentation sur les [politiques d'applications] Microsoft, section 2.9 :
+Selon la documentation sur les [politiques d'applications] Microsoft, section 2.9 :
 
-1) Vous devez demander à l'utilisateur s'il accepte de recevoir des notifications Push. Ensuite, ajoutez un moyen de désactiver les notifications Push dans vos paramètres.
+1) vous devez demander à l'utilisateur s'il accepte de recevoir des notifications Push. Ensuite, ajoutez un moyen de désactiver les notifications Push dans vos paramètres.
 
-L'objet EngagementReach fournit deux méthodes pour gérer les autorisations de réception : `EnableNativePush()` et `DisableNativePush()`. Par exemple, vous pouvez créer une option dans les paramètres avec un bouton bascule pour désactiver ou activer le service MPNS.
+L'objet EngagementReach fournit deux méthodes pour gérer les autorisations de réception : `EnableNativePush()` et `DisableNativePush()`. Par exemple, vous pouvez créer une option dans les paramètres avec un bouton bascule pour désactiver ou activer le service MPNS.
 
-Vous pouvez également décider de désactiver MPNS via la configuration Engagement <windows-phone-sdk-reach-configuration>.
+Vous pouvez également décider de désactiver MPNS via la configuration Engagement \<windows-phone-sdk-reach-configuration\>.
 
-> 2\.9.1) L'application doit tout d'abord décrire les notifications envoyées et **obtenir l'autorisation expresse de l'utilisateur.** Elle **doit également proposer un moyen de désactiver la réception de notifications Push**. Toutes les notifications fournies par le biais des services MPNS doivent être cohérentes avec la description fournie à l'utilisateur et doit respecter toutes les [politiques d'application][Content Policies] et [exigences supplémentaires pour les types d'application spécifiques] applicables.
+> 2.9.1) L’application doit tout d’abord décrire les notifications envoyées et **obtenir l’autorisation expresse de l’utilisateur**. Elle **doit également proposer un moyen de désactiver la réception de notifications Push**. Toutes les notifications fournies par le biais des services MPNS doivent être cohérentes avec la description fournie à l’utilisateur et doivent respecter toutes les [politiques d’application], [stratégies de contenu] et [exigences supplémentaires pour les types d’application spécifiques applicables].
 > 
 > 
 
 2) Vous ne devez pas utiliser trop de notifications Push. Engagement gérera les notifications pour vous.
 
-> 2\.9.2) L'application et son utilisation du service MPNS ne doivent pas utiliser une capacité réseau ou une bande passante MNPS excessive, ni surcharger de notifications un appareil Windows Phone ou autre service ou appareil Microsoft, comme déterminé par Microsoft à sa discrétion, ni endommager ou interférer avec les réseaux ou serveurs Microsoft ou tout serveur ou serveurs tiers connectés au service MNPS.
+> 2.9.2) L'application et son utilisation du service MPNS ne doivent pas utiliser une capacité réseau ou une bande passante MNPS excessive, ni surcharger de notifications un appareil Windows Phone ou autre service ou appareil Microsoft, comme déterminé par Microsoft à sa discrétion, ni endommager ou interférer avec les réseaux ou serveurs Microsoft ou tout serveur ou serveurs tiers connectés au service MNPS.
 > 
 > 
 
 3) N’utilisez pas le service MPNS pour envoyer des informations critiques. Engagement utilise MPNS, cette règle s'applique donc aussi pour les campagnes créées dans le serveur frontal Engagement.
 
-> 2\.9.3) Le service MNPS ne peut pas être utilisé pour envoyer des notifications stratégiques ou pouvant toucher à la vie des utilisateurs, y compris, mais sans s'y limiter, les notifications critiques liées à une affection ou un dispositif médical. MICROSOFT NE GARANTIT AUCUNEMENT LA NON-INTERRUPTION, L'ABSENCE D'ERREUR OU L'EXÉCUTION EN TEMPS RÉEL DE L'UTILISATION DU SERVICE MPNS OU DE LA LIVRAISON DES NOTIFICATIONS MPNS.
+> 2.9.3) Le service MNPS ne peut pas être utilisé pour envoyer des notifications stratégiques ou pouvant toucher à la vie des utilisateurs, y compris, mais sans s'y limiter, les notifications critiques liées à une affection ou un dispositif médical. MICROSOFT NE GARANTIT AUCUNEMENT LA NON-INTERRUPTION, L'ABSENCE D'ERREUR OU L'EXÉCUTION EN TEMPS RÉEL DE L'UTILISATION DU SERVICE MPNS OU DE LA LIVRAISON DES NOTIFICATIONS MPNS.
 > 
 > 
 
 **Nous ne pouvons pas garantir que votre application soit validée si vous ne respectez pas ces recommandations.**
 
-## Gérer les Push de données (facultatif)
-Si vous voulez que votre application puisse recevoir les Push de données du module Couverture, vous devez implémenter deux événements de la classe EngagementReach :
+## <a name="handle-data-push-optional"></a>Gérer les Push de données (facultatif)
+Si vous voulez que votre application puisse recevoir les Push de données du module Couverture, vous devez implémenter deux événements de la classe EngagementReach :
 
     EngagementReach.Instance.DataPushStringReceived += (body) =>
     {
@@ -153,13 +157,13 @@ Vous pouvez voir que le rappel de chaque méthode renvoie un booléen. Engagemen
 > 
 > 
 
-## Personnaliser l'interface utilisateur (facultatif)
-### Première étape
+## <a name="customize-ui-optional"></a>Personnaliser l'interface utilisateur (facultatif)
+### <a name="first-step"></a>Première étape
 Il vous est possible de personnaliser l'interface utilisateur du module Couverture.
 
-Pour cela, vous devez créer une sous-classe de la classe `EngagementReachHandler`.
+Pour cela, vous devez créer une sous-classe de la classe `EngagementReachHandler` .
 
-**Exemple de code :**
+**Exemple de code :**
 
     using Microsoft.Azure.Engagement;
 
@@ -173,7 +177,7 @@ Pour cela, vous devez créer une sous-classe de la classe `EngagementReachHandle
 
 Ensuite, définissez le contenu du champ `EngagementReach.Instance.Handler` à l'aide de votre objet personnalisé dans la classe `App.xaml.cs` de la méthode `Application_Launching`.
 
-**Exemple de code :**
+**Exemple de code :**
 
     private void Application_Launching(object sender, LaunchingEventArgs e)
     {
@@ -187,14 +191,14 @@ Ensuite, définissez le contenu du champ `EngagementReach.Instance.Handler` à l
 > 
 > 
 
-### Mises en forme
+### <a name="layouts"></a>Mises en forme
 Par défaut, le module Couverture utilise les ressources intégrées du DLL pour afficher les notifications et les pages.
 
 Toutefois, vous pouvez décider d'utiliser vos propres ressources pour refléter votre marque dans ces composants.
 
-Vous pouvez remplacer les méthodes `EngagementReachHandler` dans votre sous-classe pour indiquer à Engagement d'utiliser vos mises en forme :
+Vous pouvez remplacer les méthodes `EngagementReachHandler` dans votre sous-classe pour indiquer à Engagement d'utiliser vos mises en forme :
 
-**Exemple de code :**
+**Exemple de code :**
 
     // In your subclass of EngagementReachHandler
 
@@ -230,7 +234,7 @@ Pour simplifier l'implémentation de votre mise en forme, nous fournissons égal
 > 
 > 
 
-### Position des notifications
+### <a name="notification-position"></a>Position des notifications
 Par défaut, une notification interne à l'application s'affiche dans la partie inférieure gauche de l'application. Vous pouvez modifier ce comportement en remplaçant la méthode `GetNotificationPosition` de l'objet `EngagementReachHandler`.
 
     // In your subclass of EngagementReachHandler
@@ -242,14 +246,14 @@ Par défaut, une notification interne à l'application s'affiche dans la partie 
 
 Actuellement, vous pouvez choisir entre les positions `BOTTOM` (par défaut) et `TOP`.
 
-### Lancer un message
+### <a name="launch-message"></a>Lancer un message
 Lorsqu'un utilisateur clique sur une notification du système (un toast), Engagement lance l'application, charge le contenu des messages envoyés et affiche la page de la campagne correspondante.
 
 Il y a un délai entre le lancement de l'application et l'affichage de la page (qui dépend de la vitesse de votre réseau).
 
 Pour indiquer à l'utilisateur qu'un chargement est en cours, vous devez fournir une indication visuelle, telle qu'une barre ou un indicateur de progression. Engagement ne peut pas gérer cela lui-même. Toutefois, il fournit plusieurs gestionnaires à cet effet.
 
-Pour implémenter le rappel, procédez comme suit :
+Pour implémenter le rappel, procédez comme suit :
 
     /* The application has launched and the content is loading.
      * You should display an indicator here.
@@ -275,9 +279,13 @@ Vous pouvez définir le rappel dans la méthode `Application_Launching` de votre
 > 
 > 
 
-[politiques d'applications]: http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
-[Content Policies]: http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
-[exigences supplémentaires pour les types d'application spécifiques]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
+[politiques d'applications]:http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
+[stratégies de contenu]:http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
+[exigences supplémentaires pour les types d’application spécifiques applicables]:http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -375,6 +375,6 @@ En savoir plus sur le [modèle](cloud-services-model-and-package.md)de service c
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -37,7 +37,7 @@ Le diagramme ci-dessous illustre l'architecture de haut niveau du service de dif
 ![image1][image1]
 
 ## <a name="3-bit-stream-format--iso-14496-12-fragmented-mp4"></a>3. Format de flux binaire – MP4 fragmenté ISO 14496-12
-Le format câble utilisé pour l’ingestion de la diffusion en continu en direct décrite dans ce document repose sur la norme [ISO 14496-12]. Reportez-vous à [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx) pour obtenir une explication détaillée du format MP4 fragmenté et des extensions de fichiers vidéo à la demande et d'ingestion de diffusion en continu en direct.
+Le format câble utilisé pour l’ingestion de la diffusion en continu en direct décrite dans ce document repose sur la norme [ISO&14496;-12]. Reportez-vous à [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx) pour obtenir une explication détaillée du format MP4 fragmenté et des extensions de fichiers vidéo à la demande et d'ingestion de diffusion en continu en direct.
 
 ### <a name="live-ingest-format-definitions"></a>Définitions de format de réception en temps réel
 Ci-dessous figure la liste des définitions de formats spéciaux qui s'appliquent à l'ingestion en direct dans Microsoft Azure Media Services :

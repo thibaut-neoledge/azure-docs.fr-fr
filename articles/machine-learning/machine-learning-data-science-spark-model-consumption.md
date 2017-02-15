@@ -1,12 +1,12 @@
 ---
-title: Noter les modèles Machine Learning créés avec Spark | Microsoft Docs
-description: Comment noter les modèles d’apprentissage stockés Azure Blob Storage (WASB).
+title: "Noter les modèles Machine Learning créés avec Spark | Microsoft Docs"
+description: "Comment noter les modèles d’apprentissage stockés Azure Blob Storage (WASB)."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 626305a2-0abf-4642-afb0-dad0f6bd24e9
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: deguhath;bradsev;gokuma
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2387baad5737998d2ba7f289e0a4fcdd6dd04245
+
 
 ---
 # <a name="score-spark-built-machine-learning-models"></a>Noter les modèles Machine Learning créés avec Spark
@@ -27,7 +31,7 @@ Cette rubrique décrit comment charger des modèles Machine Learning (ML) créé
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="setup:-storage-locations,-libraries,-and-the-preset-spark-context"></a>Configuration : emplacements de stockage, bibliothèques et contexte Spark prédéfini
+## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>Configuration : emplacements de stockage, bibliothèques et contexte Spark prédéfini
 Spark peut lire et écrire dans un objet blob Stockage Azure (également appelé WASB). Donc, vos données stockées dedans sont exploitables par Spark et les résultats peuvent être stockés à nouveau dans WASB.
 
 Pour enregistrer les modèles ou les fichiers dans WASB, le chemin d’accès doit être correctement spécifié. Le conteneur par défaut associé au cluster Spark peut être référencé à l’aide d’un chemin commençant par *"wasb//"*. L’exemple de code suivant spécifie l’emplacement des données à lire et le chemin d’accès au répertoire de stockage dans lequel la sortie du modèle est enregistrée. 
@@ -91,7 +95,7 @@ Définir le contexte Spark et importer les bibliothèques nécessaires avec le c
 
 
 ### <a name="preset-spark-context-and-pyspark-magics"></a>Contexte Spark prédéfini et commandes magiques PySpark
-Les noyaux PySpark fournis avec les blocs-notes Jupyter comprennent un contexte prédéfini. Vous n’avez donc pas besoin de définir explicitement les contextes Spark ou Hive avant de commencer à utiliser l’application que vous développez. Ils sont disponibles pour vous par défaut. Ces contextes sont les suivants :
+Les noyaux PySpark fournis avec les blocs-notes Jupyter comprennent un contexte prédéfini. Vous n’avez donc pas besoin de définir explicitement les contextes Spark ou Hive avant de commencer à utiliser l’application que vous développez. Ils sont disponibles pour vous par défaut. Ces contextes sont les suivants :
 
 * sc : pour Spark 
 * sqlContext : pour Hive
@@ -102,7 +106,7 @@ Le noyau PySpark fournit certaines « commandes magiques » prédéfinies, qui s
 * **%%sql -o <variable name>** 
 * Exécute une requête Hive sur sqlContext. Si le paramètre -o est passé, le résultat de la requête est conservé dans le contexte Python %%local en tant que tableau de données Pandas.
 
-Pour plus d’informations sur les noyaux pour blocs-notes Jupyter et sur les « commandes magiques » qu’ils fournissent, voir [Noyaux disponibles pour les blocs-notes Jupyter avec les clusters HDInsight Spark Linux sur HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Pour plus d’informations sur les noyaux pour blocs-notes Jupyter et sur les « commandes magiques » qu’ils fournissent, voir [Noyaux disponibles pour les blocs-notes Jupyter avec les clusters HDInsight Spark Linux sur HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
 ## <a name="ingest-data-and-create-a-cleaned-data-frame"></a>Recevoir les données et créer une trame de données nettoyée
 Cette section contient le code d’une série de tâches nécessaires à la réception de l’échantillon de données à modéliser. Lire un échantillon de 0,1 % du fichier contenant les trajets et prix de taxi (stocké dans un fichier TSV), formater les données et créer une trame de données propre.
@@ -174,7 +178,7 @@ Durée d’exécution de la cellule ci-dessus : 46,37 secondes
 ## <a name="prepare-data-for-scoring-in-spark"></a>Préparer les données à la notation dans Spark
 Cette section montre comment indexer, encoder et mettre à l’échelle des caractéristiques catégorielles en vue de leur utilisation dans les algorithmes d’apprentissage contrôlé MLlib pour la classification et la régression.
 
-### <a name="feature-transformation:-index-and-encode-categorical-features-for-input-into-models-for-scoring"></a>Transformation de caractéristiques : indexer et encoder des caractéristiques catégorielles en vue de leur utilisation dans des modèles à noter
+### <a name="feature-transformation-index-and-encode-categorical-features-for-input-into-models-for-scoring"></a>Transformation de caractéristiques : indexer et encoder des caractéristiques catégorielles en vue de leur utilisation dans des modèles à noter
 Cette section montre comment indexer les données catégorielles à l’aide d’un `StringIndexer` et encoder les caractéristiques avec entrée de `OneHotEncoder` dans les modèles.
 
 [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) encode une colonne de libellés en une colonne d’index de libellés. Les index sont classés par fréquence de libellé. 
@@ -393,7 +397,7 @@ Le code de cette section montre comment charger les modèles Forêts aléatoires
     # RECORD START TIME
     timestart = datetime.datetime.now()
 
-    #IMPORT MLLIB LIBRARIES 
+    #IMPORT MLLIB LIBRARIES    
     from pyspark.mllib.tree import RandomForest, RandomForestModel
 
 
@@ -573,9 +577,12 @@ Si vous préférez vous passer de code, utilisez [Azure Logic Apps](https://azur
 
 ![](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)
 
-## <a name="what's-next?"></a>Et ensuite ?
+## <a name="whats-next"></a>Et ensuite ?
 **Validation croisée et balayage hyperparamétrique**: consultez [Exploration et modélisation avancées des données avec Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) pour savoir comment effectuer la formation des modèles à l’aide de la validation croisée et du balayage hyperparamétrique.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

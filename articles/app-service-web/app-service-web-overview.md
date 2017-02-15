@@ -77,6 +77,6 @@ Pour démarrer en déployant un exemple de code vers une nouvelle application we
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -49,7 +49,7 @@ $stotype = 'Standard_LRS';
 $stoaccount = Get-AzureRmStorageAccount -ResourceGroupName $rgname -Name $stoname;
 ```
 
-#### <a name="create-networking-vnet-subnet"></a>Créer la mise en réseau (réseau virtuel / sous-réseau)
+#### <a name="create-networking-vnet--subnet"></a>Créer la mise en réseau (réseau virtuel / sous-réseau)
 ##### <a name="subnet-specification"></a>Spécification du sous-réseau
 ```
 $subnetName = 'websubnet'

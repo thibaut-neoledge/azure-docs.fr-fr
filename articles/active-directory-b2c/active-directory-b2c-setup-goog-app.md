@@ -62,6 +62,6 @@ Pour utiliser Google+ en tant que fournisseur d’identité dans Azure Active Di
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

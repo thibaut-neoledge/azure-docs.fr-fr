@@ -123,7 +123,7 @@ Cette erreur peut résulter de différents types d’erreurs.
            }
        ]
 
-   Obtenir des segments valides peut être difficile si des types Resource Manager sont appliqués à plusieurs fournisseurs de ressources. Par exemple, l’installation d’un verrou de ressource sur un site web nécessite un type avec quatre segments. Par conséquent, le nom comporte 3 segments :
+   Obtenir des segments valides peut être difficile si des types Resource Manager sont appliqués à plusieurs fournisseurs de ressources. Par exemple, l’installation d’un verrou de ressource sur un site web nécessite un type avec quatre segments. Par conséquent, le nom comporte&3; segments :
 
        {
            "type": "Microsoft.Web/sites/providers/locks",

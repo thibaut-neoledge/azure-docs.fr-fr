@@ -1,25 +1,29 @@
 ---
-title: Code SQL dynamique dans SQL Data Warehouse | Microsoft Docs
-description: Conseils relatifs à l’utilisation de code SQL dynamique dans Azure SQL Data Warehouse pour le développement de solutions.
+title: "Code SQL dynamique dans SQL Data Warehouse | Microsoft Docs"
+description: "Conseils relatifs à l’utilisation de code SQL dynamique dans Azure SQL Data Warehouse pour le développement de solutions."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: a948c2c3-3cd1-4373-90a9-79e59414b778
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/14/2016
-ms.author: jrj;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6da1efc35b624e0b06693037b4f91d71f0f40eb4
+
 
 ---
-# Code SQL dynamique dans SQL Data Warehouse
+# <a name="dynamic-sql-in-sql-data-warehouse"></a>Code SQL dynamique dans SQL Data Warehouse
 Quand vous développez le code d’une application pour SQL Data Warehouse, vous pouvez avoir besoin d’utiliser un code SQL dynamique de façon à offrir des solutions flexibles, génériques et modulaires. SQL Data Warehouse ne prend pas en charge les données de type objet blob pour l’instant. Cette restriction peut limiter la taille de vos chaînes, car les types d’objet blob comprennent les types varchar(max) et nvarchar(max). Si vous avez utilisé ces types dans votre code d’application pendant la création de chaînes de très grande taille, vous devez segmenter le code et utiliser plutôt l’instruction EXEC.
 
-Voici un exemple simple :
+Voici un exemple simple :
 
 ```sql
 DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
@@ -29,15 +33,15 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-Si la chaîne est courte, vous pouvez utiliser [sp\_executesql][sp\_executesql] comme d’habitude.
+Si la chaîne est courte, vous pouvez utiliser [sp_executesql][sp_executesql] comme d’habitude.
 
 > [!NOTE]
 > Les instructions exécutées en tant qu'instructions SQL dynamiques sont toujours soumises à l'ensemble des règles de validation TSQL.
 > 
 > 
 
-## Étapes suivantes
-Pour obtenir des conseils supplémentaires en matière de développement, voir la [vue d’ensemble sur le développement][vue d’ensemble sur le développement].
+## <a name="next-steps"></a>Étapes suivantes
+Pour obtenir des conseils supplémentaires en matière de développement, consultez la [vue d’ensemble sur le développement][vue d’ensemble sur le développement].
 
 <!--Image references-->
 
@@ -45,8 +49,12 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[sp\_executesql]: https://msdn.microsoft.com/library/ms188001.aspx
+[sp_executesql]: https://msdn.microsoft.com/library/ms188001.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

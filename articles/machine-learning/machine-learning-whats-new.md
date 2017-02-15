@@ -1,12 +1,12 @@
 ---
-title: Nouveautés de Machine Learning | Microsoft Docs
-description: De nouvelles fonctionnalités sont disponibles dans Microsoft Azure Learning.
+title: "Nouveautés de Machine Learning | Microsoft Docs"
+description: "De nouvelles fonctionnalités sont disponibles dans Microsoft Azure Learning."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: raymondl
-editor: ''
-
+editor: 
+ms.assetid: ddc716ed-2615-4806-bf27-6c9a5662a7f2
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 528ae3db20815cf7409cf0e2c7eb5c4473ba16ce
+
 
 ---
-# <a name="what's-new-in-azure-machine-learning"></a>Nouveautés dans Azure Machine Learning
-### <a name="the-august-2016-release-of-microsoft-azure-machine-learning-updates-provide-the-following-features:"></a>La mise à jour d’août 2016 de Microsoft Azure Machine Learning inclut les fonctionnalités suivantes :
-* Vous pouvez désormais gérer Les services web Machine via le nouveau portail [Services web Microsoft Azure Machine Learning](https://services.azureml.net/) qui fournit un emplacement pour gérer tous les aspects de votre service web.   
+# <a name="whats-new-in-azure-machine-learning"></a>Nouveautés dans Azure Machine Learning
+### <a name="the-august-2016-release-of-microsoft-azure-machine-learning-updates-provide-the-following-features"></a>La mise à jour d’août 2016 de Microsoft Azure Machine Learning inclut les fonctionnalités suivantes :
+* Vous pouvez désormais gérer Les services web Machine via le nouveau portail [Services web Microsoft Azure Machine Learning](https://services.azureml.net/) qui fournit un emplacement pour gérer tous les aspects de votre service web.    
   * Fournit des [statistiques d’utilisation](machine-learning-manage-new-webservice.md) du service web.
   * Simplifie le test des appels de demande distante d’Azure Machine Learning à l’aide d’exemples de données.
   * Fournit une nouvelle page de test de service d’exécution de lot avec des exemples de données et un historique des travaux soumis.
   * Fournit une gestion de point de terminaison simplifiée.
 
-### <a name="the-july-2016-release-of-microsoft-azure-machine-learning-updates-provide-the-following-features:"></a>La mise à jour de juillet 2016 de Microsoft Azure Machine Learning inclut les fonctionnalités suivantes :
-* Les services web sont désormais gérés en tant que ressources Azure via les interfaces [Azure Resource Manager](../resource-group-overview.md) , ce qui permet les améliorations suivantes :
+### <a name="the-july-2016-release-of-microsoft-azure-machine-learning-updates-provide-the-following-features"></a>La mise à jour de juillet 2016 de Microsoft Azure Machine Learning inclut les fonctionnalités suivantes :
+* Les services web sont désormais gérés en tant que ressources Azure via les interfaces [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) , ce qui permet les améliorations suivantes :
   * De nouvelles [API REST](https://msdn.microsoft.com/library/azure/Dn950030.aspx) pour déployer et gérer vos services web basés sur Resource Manager.
   * Un nouveau portail [Services web Microsoft Azure Machine Learning](https://services.azureml.net/) qui fournit un emplacement pour gérer tous les aspects de votre service web.
 * Intègre un nouveau modèle de déploiement de service web multi-régions et basé sur un abonnement, qui utilise des API basées sur Resource Manager afin d’exploiter le fournisseur de ressources Resource Manager pour les services web.
@@ -37,6 +41,9 @@ ms.author: v-donglo
 
 En outre, Machine Learning Studio a été mis à jour afin que vous puissiez déployer vers le nouveau modèle de service web ou continuer à déployer vers le modèle de service web classique. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -44,6 +44,6 @@ Vous avez maintenant créé l’application Azure AD qui vous permettra de vous 
 [lnk-powershell-install]: /powershell/azureps-cmdlets-docs
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

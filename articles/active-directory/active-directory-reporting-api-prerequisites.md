@@ -62,7 +62,7 @@ Pour configurer votre annuaire et lui permettre d’accéder à l’API de créa
    
     b. Sélectionnez **Application Web et/ou API Web**.
    
-    c. Cliquez sur **Next**.
+    c. Cliquez sur **Suivant**.
 7. Dans la boîte de dialogue **Propriétés de l’application** , effectuez les opérations suivantes : 
    
     ![Inscription de l’application](./media/active-directory-reporting-api-prerequisites/06.png) 

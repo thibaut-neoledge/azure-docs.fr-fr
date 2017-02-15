@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Apprenez à utiliser Azure Storage pour le stockage d’objets blob, de tables, de fichiers et de disques de machine virtuelle dans le cloud. Didacticiels, références d’API et autres documents."
 translationtype: Human Translation
-ms.sourcegitcommit: 3cd1ef210c363fc280cefca3c0697eb66da85a1d
-ms.openlocfilehash: 426166d22b721d45853f3f578d39e14966c57c50
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 1e9cc940d681893abbc351ef440c90f579e6c40a
 
 ---
 
@@ -110,10 +110,10 @@ Découvrez comment utiliser Azure Storage, un service de stockage cloud fiable, 
                     <div class="cardText">
                         <h3>Langues</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.storage">.NET : gestionnaire de ressources</a></p>
-                        <p><a href="https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx">.NET : déplacement des données</a></p>
+                        <p><a href="https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx">.NET : déplacement de données</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt347887.aspx">.NET : objets blob, files d’attente, tables et fichiers</a></p>
                         <p><a href="/java/api/">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-storage-node">Node.js</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-node">Node.JS</a></p>
                         <p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p>
                         <p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p>
                         <p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p>
@@ -130,8 +130,9 @@ Découvrez comment utiliser Azure Storage, un service de stockage cloud fiable, 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference">REST : importation/exportation</a></p>
-                        <p><a href="/rest/api/storagerp">REST : fournisseur de ressources</a></p>
+                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Objets blob, files d’attente, tables et fichiers</a></p>
+                        <p><a href="/rest/api/storagerp">Fournisseur de ressources</a></p>
+                        <p><a href="/rest/api/storageimportexport">Import/Export</a></p>
                    </div>
                 </div>
             </div>
@@ -139,16 +140,10 @@ Découvrez comment utiliser Azure Storage, un service de stockage cloud fiable, 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storage.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation Stockage </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Jan17_HO3-->
 
 

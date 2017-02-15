@@ -226,6 +226,6 @@ Si vous devez mettre à niveau l'image du système d'exploitation sur les machin
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

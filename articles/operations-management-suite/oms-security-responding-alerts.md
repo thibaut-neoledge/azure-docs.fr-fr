@@ -1,25 +1,30 @@
 ---
-title: Surveiller et répondre aux alertes de sécurité dans la solution de sécurité et d’audit d’Operations Management Suite | Microsoft Docs
-description: Ce document vous aide à utiliser l’option d’informations sur les menaces disponible dans la solution de sécurité et d’audit d’OMS afin de surveiller et de répondre aux alertes de sécurité.
+title: "Surveiller et répondre aux alertes de sécurité dans la solution de sécurité et d’audit d’Operations Management Suite | Microsoft Docs"
+description: "Ce document vous aide à utiliser l’option d’informations sur les menaces disponible dans la solution de sécurité et d’audit d’OMS afin de surveiller et de répondre aux alertes de sécurité."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 7d45a32b-1341-4bb5-a436-1f42a8a2590a
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2016
+ms.date: 12/01/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7161cacfd371aa73974e635a343793bbec76d858
+
 
 ---
 # <a name="monitoring-and-responding-to-security-alerts-in-operations-management-suite-security-and-audit-solution"></a>Surveiller et répondre aux alertes de sécurité dans la solution de sécurité et d’audit d’Operations Management Suite
 Ce document vous aide à utiliser l’option d’informations sur les menaces disponible dans la solution de sécurité et d’audit d’OMS afin de surveiller et de répondre aux alertes de sécurité.
 
-## <a name="what-is-oms?"></a>Qu’est-ce qu’OMS ?
+## <a name="what-is-oms"></a>Qu’est-ce qu’OMS ?
 Microsoft Operations Management Suite (OMS) est une solution de gestion informatique basée sur le cloud de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et de cloud. Pour plus d’informations sur OMS, lisez l’article [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
 ## <a name="threat-intelligence"></a>Informations sur les menaces
@@ -74,6 +79,11 @@ La carte d’**informations sur les menaces** vous indique les endroits du monde
 
 ![carte d’informations sur les menaces](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig5.png)
 
+> [!NOTE]
+> Vous pourrez voir une démonstration de l’utilisation de cette fonctionnalité au cours d’un processus de réponse aux incidents dans la présentation [Réduire les menaces de sécurité du centre de données grâce à une investigation interactive avec Microsoft Operations Management Suite](https://myignite.microsoft.com/videos/5000) donnée à l’occasion de Microsoft Ignite.
+> 
+> 
+
 ## <a name="see-also"></a>Voir aussi
 Dans ce document, vous avez appris à utiliser l’option **Informations sur les menaces** de la solution de sécurité et d’audit d’OMS pour répondre aux alertes de sécurité. Pour plus d’informations sur la sécurité OMS, consultez les articles suivants :
 
@@ -81,6 +91,9 @@ Dans ce document, vous avez appris à utiliser l’option **Informations sur les
 * [Getting started with Operations Management Suite Security and Audit Solution](oms-security-getting-started.md)
 * [Surveillance des ressources dans la solution de sécurité et d’audit d’Operations Management Suite](oms-security-monitoring-resources.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

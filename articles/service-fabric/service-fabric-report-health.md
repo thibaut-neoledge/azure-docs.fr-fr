@@ -1,25 +1,29 @@
 ---
-title: Ajout de rapports d’intégrité Service Fabric personnalisés | Microsoft Docs
-description: Explique comment envoyer des rapports d’intégrité personnalisés à des entités d’intégrité Azure Service Fabric. Fournit des recommandations pour la conception et la mise en œuvre de rapports d’intégrité de qualité.
+title: "Ajout de rapports d’intégrité Service Fabric personnalisés | Microsoft Docs"
+description: "Explique comment envoyer des rapports d’intégrité personnalisés à des entités d’intégrité Azure Service Fabric. Fournit des recommandations pour la conception et la mise en œuvre de rapports d’intégrité de qualité."
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 0a00a7d2-510e-47d0-8aa8-24c851ea847f
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2016
+ms.date: 01/12/2017
 ms.author: oanapl
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d986275612b3e5c97636936a5e448dd6d0fcfc4e
+
 
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Ajout de rapports d’intégrité Service Fabric personnalisés
-Azure Service Fabric introduit un [modèle d’intégrité](service-fabric-health-introduction.md) conçu pour signaler des conditions de cluster et d’application défectueuses sur des entités spécifiques. Le modèle d’intégrité utilise des **rapporteurs d’intégrité** (composants système et agents de surveillance). L’objectif consiste en un diagnostic et une réparation simples et rapides. Les enregistreurs du service doivent penser en amont à l’intégrité. Toute condition pouvant avoir une incidence sur l’intégrité doit être signalée, surtout si cela peut aider à signaler des problèmes proches de la racine. Les informations sur l’intégrité peuvent vous permettre d’économiser beaucoup de temps et d’efforts en termes de débogage et d’enquête lorsque le service est en cours d’exécution à l’échelle dans le cloud (privé ou Azure).
+Azure Service Fabric introduit un [modèle d’intégrité](service-fabric-health-introduction.md) conçu pour signaler des conditions de cluster et d’application défectueuses sur des entités spécifiques. Le modèle d’intégrité utilise des **rapporteurs d’intégrité** (composants système et agents de surveillance). L’objectif consiste en un diagnostic et une réparation simples et rapides. Les enregistreurs du service doivent penser en amont à l’intégrité. Toute condition pouvant avoir une incidence sur l’intégrité doit être signalée, surtout si cela peut aider à signaler des problèmes proches de la racine. Les informations sur l’intégrité peuvent vous permettre d’économiser beaucoup de temps et d’efforts en termes de débogage et d’enquête lorsque le service est en cours d’exécution à l’échelle dans le cloud (privé ou Azure).
 
-Les rapporteurs Service Fabric surveillent les conditions identifiées qui présentent un intérêt. Ils dressent un rapport sur ces conditions en fonction de leur vue locale. Le [magasin d’intégrité](service-fabric-health-introduction.md#health-store) agrège les données d’intégrité envoyées par tous les rapporteurs pour déterminer si les entités sont globalement intègres. Le modèle doit être riche, flexible et facile à utiliser. La qualité des rapports d’intégrité détermine la précision de la vue d’intégrité du cluster. Des faux positifs qui indiquent erronément des problèmes d’intégrité peuvent avoir une incidence négative sur les mises à niveau ou autres services utilisant des données d’intégrité. Les services de réparation et mécanismes d’alertes sont des exemples de services de ce type. Par conséquent, une réflexion est nécessaire pour générer des rapports qui capturent des conditions pertinentes de la meilleure façon possible.
+Les rapporteurs Service Fabric surveillent les conditions identifiées qui présentent un intérêt. Ils dressent un rapport sur ces conditions en fonction de leur vue locale. Le [magasin d’intégrité](service-fabric-health-introduction.md#health-store) agrège les données d’intégrité envoyées par tous les rapporteurs pour déterminer si les entités sont globalement intègres. Le modèle doit être riche, flexible et facile à utiliser. La qualité des rapports d’intégrité détermine la précision de la vue d’intégrité du cluster. Des faux positifs qui indiquent erronément des problèmes d’intégrité peuvent avoir une incidence négative sur les mises à niveau ou autres services utilisant des données d’intégrité. Les services de réparation et mécanismes d’alertes sont des exemples de services de ce type. Par conséquent, une réflexion est nécessaire pour générer des rapports qui capturent des conditions pertinentes de la meilleure façon possible.
 
 Pour concevoir et implémenter des rapports d’intégrité, les agents de surveillance et les composants du système doivent :
 
@@ -32,9 +36,9 @@ Pour concevoir et implémenter des rapports d’intégrité, les agents de surve
 
 Comme mentionné auparavant, la création de rapports peut être effectuée à partir des éléments suivants :
 
-* Le réplica de service Service Fabric surveillé.
+* Le réplica de service Service Fabric surveillé.
 * Les agents de surveillance internes déployés en tant que services Service Fabric (par exemple, un service Service Fabric sans état, qui surveille des conditions et émet des rapports). Les agents de surveillance peuvent être déployés sur tous les nœuds ou ils peuvent être apparentés au service surveillé.
-* Les agents de surveillance internes qui s’exécutent sur les nœuds Service Fabric, mais qui ne sont *pas* implémentés en tant que services de Service Fabric.
+* Les agents de surveillance internes qui s’exécutent sur les nœuds Service Fabric, mais qui ne sont *pas* implémentés en tant que services de Service Fabric.
 * Les agents de surveillance externes qui sondent la ressource à partir de l’ *extérieur* du cluster Service Fabric (par exemple, un service de surveillance de type Gomez).
 
 > [!NOTE]
@@ -50,10 +54,10 @@ Lorsque la conception de la création des rapports d’intégrité est claire, l
 > 
 
 ## <a name="health-client"></a>Client de contrôle d’intégrité
-Les rapports d’intégrité sont envoyés au magasin d’intégrité à l’aide d’un client de contrôle d’intégrité, qui réside dans le client Fabric. Le client de contrôle d’intégrité peut être configuré avec les éléments suivants :
+Les rapports d’intégrité sont envoyés au magasin d’intégrité à l’aide d’un client de contrôle d’intégrité, qui réside dans le client Fabric. Le client de contrôle d’intégrité peut être configuré avec les éléments suivants :
 
-* **HealthReportSendInterval**: délai qui s’écoule entre le moment où le rapport est ajouté au client et celui où il est envoyé au magasin d’intégrité. Il est utilisé pour regrouper les rapports dans un seul message, au lieu d’envoyer un message pour chaque rapport. Ce regroupement améliore les performances. Par défaut : 30 secondes.
-* **HealthReportRetrySendInterval**: intervalle auquel le client de contrôle d’intégrité renvoie les rapports d’intégrité cumulés au magasin d’intégrité. Par défaut : 30 secondes.
+* **HealthReportSendInterval**: délai qui s’écoule entre le moment où le rapport est ajouté au client et celui où il est envoyé au magasin d’intégrité. Il est utilisé pour regrouper les rapports dans un seul message, au lieu d’envoyer un message pour chaque rapport. Ce regroupement améliore les performances. Par défaut : 30 secondes.
+* **HealthReportRetrySendInterval**: intervalle auquel le client de contrôle d’intégrité renvoie les rapports d’intégrité cumulés au magasin d’intégrité. Par défaut : 30 secondes.
 * **HealthOperationTimeout**: délai d’expiration pour un message de rapport envoyé au magasin d’intégrité. Si un message expire, le client de contrôle d’intégrité réessaie de l’envoyer jusqu’à ce que le magasin d’intégrité confirme que le rapport a été traité. Par défaut : deux minutes.
 
 > [!NOTE]
@@ -76,7 +80,7 @@ var clientSettings = new FabricClientSettings()
 var fabricClient = new FabricClient(clientSettings);
 ```
 
-Il est possible de spécifier les mêmes paramètres lors de la création d’une connexion à un cluster via Powershell. La commande suivante démarre une connexion à un cluster local :
+Il est possible de spécifier les mêmes paramètres lors de la création d’une connexion à un cluster via Powershell. La commande suivante démarre une connexion à un cluster local :
 
 ```powershell
 PS C:\> Connect-ServiceFabricCluster -HealthOperationTimeoutInSec 120 -HealthReportSendIntervalInSec 0 -HealthReportRetrySendIntervalInSec 40
@@ -133,7 +137,7 @@ Une fois les détails de la surveillance définis, l’enregistreur de surveilla
 
 La création de rapports depuis le service surveillé n’est pas toujours une option. Il se peut qu’un agent de surveillance au sein du service ne soit pas en mesure de détecter les conditions. Il se peut qu’il ne dispose pas de la logique ou des données nécessaires pour les déterminer. La surcharge résultant de la surveillance des conditions peut être élevée. Il se peut également que les conditions ne soient pas spécifiques à un service, mais affectent des interactions entre services. Une autre option consiste à disposer d’agents de surveillance dans le cluster en tant que processus distincts. Les agents de surveillance surveillent les conditions et créent des rapports, sans affecter les services principaux. Par exemple, il est possible d’implémenter ces agents de surveillance en tant que services sans état dans la même application, déployés sur tous les nœuds ou sur les mêmes nœuds que le service.
 
-Parfois, un agent de surveillance s’exécutant dans le cluster n’est pas non plus une option. Si la condition surveillée est la disponibilité ou la fonctionnalité du service telles que les utilisateurs les voient, il est préférable que les agents de surveillance se trouvent au même endroit que les clients de l’utilisateur. Là, ils peuvent tester les opérations de la même façon que les utilisateurs les appellent. Par exemple, vous pouvez avoir un agent de surveillance situé en dehors du cluster, qui adresse des demandes au service, puis vérifie la latence et l’exactitude du résultat. (Par exemple, pour un service de calculatrice, l’opération 2 + 2 retourne-t-elle 4 dans un délai raisonnable ?)
+Parfois, un agent de surveillance s’exécutant dans le cluster n’est pas non plus une option. Si la condition surveillée est la disponibilité ou la fonctionnalité du service telles que les utilisateurs les voient, il est préférable que les agents de surveillance se trouvent au même endroit que les clients de l’utilisateur. Là, ils peuvent tester les opérations de la même façon que les utilisateurs les appellent. Par exemple, vous pouvez avoir un agent de surveillance situé en dehors du cluster, qui adresse des demandes au service, puis vérifie la latence et l’exactitude du résultat. (Par exemple, pour un service de calculatrice, l’opération 2 + 2 retourne-t-elle 4 dans un délai raisonnable ?)
 
 Une fois les détails de l’agent de surveillance finalisés, vous devez choisir un ID source qui l’identifie de façon unique. Si plusieurs agents de surveillance du même type résident dans le cluster, ils doivent générer des rapports sur des entités différentes ou, s’ils génèrent des rapports sur la même entité, ils doivent veiller à ce que l’ID source ou la propriété diffèrent. De cette façon, leurs rapports peuvent coexister. La propriété du rapport d’intégrité doit capturer la condition surveillée. (Par exemple, dans l’exemple ci-dessus, la propriété pourrait être **ShareSize**). Si plusieurs rapports s’appliquent à une même condition, la propriété doit contenir des informations dynamiques permettant la coexistence des rapports. Par exemple, si plusieurs partages doivent être surveillés, le nom de la propriété peut être **ShareSize-sharename**.
 
@@ -144,11 +148,11 @@ Une fois les détails de l’agent de surveillance finalisés, vous devez choisi
 
 La décision suivante a trait à l’entité sur laquelle générer le rapport. La plupart du temps, cela est évident en fonction de la condition. Vous devez choisir l’entité offrant la meilleure granularité possible. Si une condition a un impact sur tous les réplicas d’une partition, le rapport doit porter sur la partition, pas le service. Il existe cependant des cas où une réflexion approfondie s’impose. Si la condition a une incidence sur une entité telle qu’un réplica, mais que vous souhaitez que la condition soit signalée pendant une durée supérieure à la durée de vie du réplica, elle doit être rapportées sur la partition. Autrement, lors de la suppression du réplica, tous les rapports associés à celui-ci sont effacés du magasin. Cela signifie que les enregistreurs de surveillance doivent également tenir compte des durées de vie de l’entité et du rapport. Le moment où un rapport doit être effacé d’un magasin doit être clair (par exemple, lorsqu’une erreur signalée sur une entité ne s’applique plus).
 
-Examinons un exemple qui réunit les points décrits ci-dessus. Examinons une application Service Fabric composée d’un service maître persistant avec état et de services subordonnés sans état déployés sur tous les nœuds (un type de service secondaire par type de tâche). Le service maître dispose d’une file d’attente de traitement contenant des commandes que les services secondaires doivent exécuter. Les services secondaires exécutent les demandes entrantes et renvoient des signaux d’accusé de réception. Une condition qui peut être surveillée est la longueur de la file d’attente de traitement du service maître. Si la longueur de la file d’attente du service maître atteint un seuil, un avertissement est lancé. Il indique que les services secondaires ne peuvent pas traiter la charge. Si la file d’attente atteint la longueur maximale et que des commandes sont abandonnées, une erreur est signalée, car le service ne peut pas récupérer. Les rapports peuvent avoir trait à la propriété **QueueStatus**. L’agent de surveillance opère à l’intérieur du service et il est envoyé régulièrement sur le réplica principal du service maître. La durée de vie est de deux minutes, et il est envoyé à intervalles réguliers de 30 secondes. Si le service principal tombe en panne, le rapport est effacé automatiquement du magasin. Si le réplica du service est actif, mais est bloqué ou rencontre d’autres problèmes, le rapport expire dans le magasin d’intégrité. Dans ce cas, l’entité est évaluée au moment de l’erreur.
+Examinons un exemple qui réunit les points décrits ci-dessus. Examinons une application Service Fabric composée d’un service maître persistant avec état et de services subordonnés sans état déployés sur tous les nœuds (un type de service secondaire par type de tâche). Le service maître dispose d’une file d’attente de traitement contenant des commandes que les services secondaires doivent exécuter. Les services secondaires exécutent les demandes entrantes et renvoient des signaux d’accusé de réception. Une condition qui peut être surveillée est la longueur de la file d’attente de traitement du service maître. Si la longueur de la file d’attente du service maître atteint un seuil, un avertissement est lancé. Il indique que les services secondaires ne peuvent pas traiter la charge. Si la file d’attente atteint la longueur maximale et que des commandes sont abandonnées, une erreur est signalée, car le service ne peut pas récupérer. Les rapports peuvent avoir trait à la propriété **QueueStatus**. L’agent de surveillance opère à l’intérieur du service et il est envoyé régulièrement sur le réplica principal du service maître. La durée de vie est de deux minutes, et il est envoyé à intervalles réguliers de 30 secondes. Si le service principal tombe en panne, le rapport est effacé automatiquement du magasin. Si le réplica du service est actif, mais est bloqué ou rencontre d’autres problèmes, le rapport expire dans le magasin d’intégrité. Dans ce cas, l’entité est évaluée au moment de l’erreur.
 
 L’heure d’exécution de la tâche est une autre condition qui peut être surveillée. Le service maître distribue les tâches aux services secondaires en fonction du type de tâche. Selon la conception, le service maître peut interroger les services secondaires pour évaluer l’état de la tâche. Il peut également attendre que les services secondaires renvoient des signaux d’accusé de réception quand ils ont terminé. Dans le deuxième cas, vous devez veiller à détecter les situations où des services secondaires périssent ou bien où des messages se perdent. Une option pour le service maître consiste à envoyer au même service secondaire une requête ping qui renvoie son état. Si le service maître ne reçoit aucun état, il considère qu’il s’agit d’un échec et replanifie la tâche. Ce comportement part du principe que les tâches sont idempotentes.
 
-La condition surveillée peut être convertie en avertissement si la tâche n’est pas effectuée dans une période donnée (**t1**, par exemple 10 minutes). Si la tâche n’est pas terminée dans le temps (**t2**, par exemple 20 minutes), la condition surveillée peut être convertie en erreur. Cette création de rapport peut se faire de plusieurs façons :
+La condition surveillée peut être convertie en avertissement si la tâche n’est pas effectuée dans une période donnée (**t1**, par exemple 10 minutes). Si la tâche n’est pas terminée dans le temps (**t2**, par exemple 20 minutes), la condition surveillée peut être convertie en erreur. Cette création de rapport peut se faire de plusieurs façons :
 
 * Le réplica principal du service maître génère régulièrement des rapports sur lui-même. Il peut y avoir une propriété pour toutes les tâches en attente dans la file d’attente. Si au moins une tâche prend plus de temps, le statut du rapport sur la propriété **PendingTasks** est un avertissement ou une erreur, selon le cas. Si aucune tâche n’est en attente ou si toutes les tâches ont démarré, le statut du rapport est OK. Les tâches sont persistantes. Ainsi, si le service principal s’arrête, le service principal qui lui succède peut continuer à générer des rapports correctement.
 * Un autre processus de surveillance (dans le cloud ou externe) vérifie les tâches (de l’extérieur, en fonction du résultat souhaité de la tâche) pour voir si elles sont accomplies. Si elles ne respectent pas les seuils, un rapport est envoyé sur le service maître. Un rapport est également envoyé sur chaque tâche. Il inclut l’identificateur de tâche (par exemple **PendingTask+Idtâche**). Des rapports ne doivent être envoyés que sur des états défectueux. La valeur TTL est définie sur quelques minutes et les rapports à supprimer sont sélectionnés lorsqu’ils ont expiré, afin d’assurer le nettoyage.
@@ -156,7 +160,7 @@ La condition surveillée peut être convertie en avertissement si la tâche n’
 
 Quelle que soit la façon dont les rapports sont générés dans les cas décrits ci-dessus, ils sont capturés dans l’intégrité de l’application lors de l’évaluation de l’intégrité.
 
-## <a name="report-periodically-vs.-on-transition"></a>Rapport régulier ou sur transition
+## <a name="report-periodically-vs-on-transition"></a>Rapport régulier ou sur transition
 À l’aide du modèle de génération de rapports d’intégrité, les agents de surveillance peuvent envoyer des rapports régulièrement ou en cas de transition. La méthode régulière est recommandée pour les rapports de surveillance, car le code est beaucoup plus simple et moins sujet aux erreurs. Les agents de surveillance doivent être aussi simples que possible pour éviter les bogues qui déclenchent des rapports incorrects. Des rapport d’état *défectueux* incorrects ont une incidence sur les évaluations de l’intégrité et les scénarios basés sur l’intégrité, dont les mises à niveau. Des rapports d’état *sain* incorrects masquent d’éventuels problèmes dans le cluster, ce qui n’est pas souhaitable.
 
 Pour la création de rapports réguliers, l’agent de surveillance peut être implémenté avec une minuterie. Sur un rappel de la minuterie, l’agent de surveillance peut vérifier l’état et envoyer un rapport basé sur l’état actuel. Il est inutile de voir quel rapport a été envoyé précédemment ou d’opérer des optimisations en termes de messagerie. Le client de contrôle d’intégrité dispose de la logique de traitement par lot, qui permet d’améliorer les performances. Tant que le client de contrôle d’intégrité est actif, il réessaie en interne jusqu’à ce que le rapport soit reçu par le magasin d’intégrité ou que l’agent de surveillance crée un rapport plus récent avec une entité, une propriété et une source identiques.
@@ -171,7 +175,7 @@ Une fois que les détails de l’entité et du rapport sont clairs, l’envoi de
 ### <a name="api"></a>API
 Pour générer un rapport via l’API, vous devez créer un rapport d’intégrité spécifique au type d’entité sur laquelle ils veulent générer un rapport. Fournissez le rapport à un client de contrôle d’intégrité. Vous pouvez également créer des informations sur l’intégrité et les transmettre aux méthodes de création de rapports correctes sur `Partition` ou `CodePackageActivationContext` pour créer un rapport sur les entités en cours.
 
-L’exemple suivant illustre une génération de rapport périodique à partir d’un agent de surveillance dans le cluster. L’agent de surveillance vérifie si une ressource externe est accessible à partir d’un nœud. La ressource est requise par un manifeste de service au sein de l’application. Si la ressource n’est pas disponible, les autres services au sein de l’application peuvent encore fonctionner correctement. Par conséquent, le rapport est envoyé sur l’entité du package de services déployé toutes les 30 secondes.
+L’exemple suivant illustre une génération de rapport périodique à partir d’un agent de surveillance dans le cluster. L’agent de surveillance vérifie si une ressource externe est accessible à partir d’un nœud. La ressource est requise par un manifeste de service au sein de l’application. Si la ressource n’est pas disponible, les autres services au sein de l’application peuvent encore fonctionner correctement. Par conséquent, le rapport est envoyé sur l’entité du package de services déployé toutes les 30 secondes.
 
 ```csharp
 private static Uri ApplicationName = new Uri("fabric:/WordCount");
@@ -303,6 +307,9 @@ Grâce aux données d’intégrité, les enregistreurs de service et les adminis
 
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
 title: Comparaison des produits de surveillance Microsoft | Microsoft Docs
-description: Microsoft Operations Management Suite (OMS) est une solution de gestion informatique basée sur le cloud de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et de cloud.  Cet article identifie les différents services inclus dans OMS et fournit des liens vers leur documentation détaillée.
+description: "Microsoft Operations Management Suite (OMS) est une solution de gestion informatique basée sur le cloud de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et de cloud.  Cet article identifie les différents services inclus dans OMS et fournit des liens vers leur documentation détaillée."
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: a63ca0ad-61f8-425d-a48c-d87ba518c104
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d7325b0bb900dcaf789c01e1a9b534d7f72c8c43
+
 
 ---
 # <a name="microsoft-monitoring-product-comparison"></a>Comparaison des produits de surveillance Microsoft
@@ -25,7 +29,7 @@ Tous les composants SCOM sont installés dans votre centre de données.  [Les ag
 
 La solution SCOM nécessite deux bases de données SQL, une pour les données opérationnelles et un autre entrepôt de données pour la création de rapports et l’analyse de données.  Un [serveur de rapports](https://technet.microsoft.com/library/hh298611.aspx) exécute les services SQL Reporting Services pour consigner les données à partir de l’entrepôt de données. 
 
-La solution SCOM peut surveiller les ressources cloud à l’aide de packs d’administration pour des produits tels qu’[Azure](https://www.microsoft.com/download/details.aspx?id=38414), [Office 365](https://www.microsoft.com/download/details.aspx?id=43708) et [AWS](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/AWSManagementPack.html).  Ces packs d’administration utilisent un ou plusieurs agents locaux comme serveurs proxy pour détecter les ressources de cloud et exécuter des flux de travail visant à mesurer leurs performances et leur disponibilité.  Les agents proxy sont également utilisés pour [surveiller les appareils réseau](https://technet.microsoft.com/library/hh212935.aspx) et d’autres ressources externes.
+La solution SCOM peut surveiller les ressources cloud à l’aide de packs d’administration pour des produits tels qu’[Azure](https://www.microsoft.com/download/details.aspx?id=38414), [Office 365](https://www.microsoft.com/download/details.aspx?id=43708) et [AWS](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/AWSManagementPack.html).  Ces packs d’administration utilisent un ou plusieurs agents locaux comme serveurs proxy pour détecter les ressources de cloud et exécuter des flux de travail visant à mesurer leurs performances et leur disponibilité.  Les agents proxy sont également utilisés pour [surveiller les appareils réseau](https://technet.microsoft.com/library/hh212935.aspx) et d’autres ressources externes.
 
 La console Opérateur est une application Windows qui se connecte à l’un des serveurs d’administration pour permettre à l’administrateur de consulter et d’analyser les données collectées, mais aussi de configurer l’environnement SCOM.  Une console web peut être hébergée sur n’importe quel serveur IIS et analyse les données via un navigateur.
 
@@ -168,6 +172,9 @@ Si les requêtes Log Analytics permettent d’effectuer une analyse ad hoc, elle
 * Déployer [System Center Operations Manager (SCOM)](https://technet.microsoft.com/library/hh205987.aspx)
 * S’inscrire au service [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics)  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

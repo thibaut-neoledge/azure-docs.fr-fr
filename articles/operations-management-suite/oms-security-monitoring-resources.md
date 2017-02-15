@@ -1,25 +1,30 @@
 ---
-title: Surveillance des ressources dans la solution de sécurité et d’audit d’Operations Management Suite | Microsoft Docs
-description: Ce document vous aide à utiliser les fonctionnalités de sécurité et d’audit d’OMS pour surveiller vos ressources et identifier des problèmes de sécurité.
+title: "Surveillance des ressources dans la solution de sécurité et d’audit d’Operations Management Suite | Microsoft Docs"
+description: "Ce document vous aide à utiliser les fonctionnalités de sécurité et d’audit d’OMS pour surveiller vos ressources et identifier des problèmes de sécurité."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: d6752120-821f-4aa7-a049-25bf5a653b95
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 12/01/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 81d7d09f48d08943623b24e7e7a26847a0d129fe
+
 
 ---
 # <a name="monitoring-resources-in-operations-management-suite-security-and-audit-solution"></a>Surveillance des ressources dans la solution de sécurité et d’audit d’Operations Management Suite
 Ce document vous aide à utiliser les fonctionnalités de sécurité et d’audit d’OMS pour surveiller vos ressources et identifier des problèmes de sécurité.
 
-## <a name="what-is-oms?"></a>Qu’est-ce qu’OMS ?
+## <a name="what-is-oms"></a>Qu’est-ce qu’OMS ?
 Microsoft Operations Management Suite (OMS) est une solution de gestion informatique basée sur le cloud de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et de cloud. Pour plus d’informations sur OMS, lisez l’article [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
 ## <a name="monitoring-resources"></a>Surveillance des ressources
@@ -107,6 +112,9 @@ Dans ce document, vous avez appris à utiliser la solution de sécurité et d’
 * [Getting started with Operations Management Suite Security and Audit Solution (Prise en main de la solution de sécurité et d’audit d’Operations Management Suite)](oms-security-getting-started.md)
 * [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution (Surveillance et réponse aux alertes de sécurité dans la solution de sécurité et d’audit d’Operations Management Suite)](oms-security-responding-alerts.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

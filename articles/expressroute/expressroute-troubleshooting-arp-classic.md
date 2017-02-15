@@ -1,25 +1,29 @@
 ---
-title: Guide de résolution des problèmes d’ExpressRoute - Obtention de tables ARP | Microsoft Docs
-description: Cette page fournit des instructions sur l’obtention des tables ARP pour un circuit ExpressRoute.
+title: "Guide de résolution des problèmes d’ExpressRoute : obtention de tables ARP | Microsoft Docs"
+description: "Cette page fournit des instructions sur l’obtention des tables ARP pour un circuit ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carolz
 editor: tysonn
-
+ms.assetid: b5856acf-03c2-4933-8111-6ce12998d92a
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 10/11/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
+ms.openlocfilehash: 49f7eae7184fda3ea73c8a85e354d0e41df039c7
+
 
 ---
-# <a name="expressroute-troubleshooting-guide:-getting-arp-tables-in-the-classic-deployment-model"></a>Guide de résolution des problèmes d’ExpressRoute - Obtention de tables ARP dans le modèle de déploiement Classic
+# <a name="expressroute-troubleshooting-guide-getting-arp-tables-in-the-classic-deployment-model"></a>Guide de résolution des problèmes d’ExpressRoute - Obtention de tables ARP dans le modèle de déploiement Classic
 > [!div class="op_single_selector"]
-> [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
-> [PowerShell - Classique](expressroute-troubleshooting-arp-classic.md)
+> * [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
+> * [PowerShell - Classique](expressroute-troubleshooting-arp-classic.md)
 > 
 > 
 
@@ -30,7 +34,7 @@ Cet article vous guide dans la procédure d’obtention des tables ARP (Address 
 > 
 > 
 
-## <a name="address-resolution-protocol-(arp)-and-arp-tables"></a>Protocole ARP (Address Resolution Protocol) et tables ARP
+## <a name="address-resolution-protocol-arp-and-arp-tables"></a>Protocole ARP (Address Resolution Protocol) et tables ARP
 ARP est un protocole de couche 2 défini dans [RFC 826](https://tools.ietf.org/html/rfc826). Le protocole ARP permet de mapper une adresse Ethernet (adresse MAC) avec une adresse IP.
 
 Une table ARP fournit un mappage de l’adresse IPv4 et de l’adresse MAC pour une homologation particulière. La table ARP d’une homologation de circuit ExpressRoute fournit les informations suivantes pour chaque interface (principale et secondaire) :
@@ -82,7 +86,7 @@ Vous trouverez ci-dessous un exemple de sortie pour l’un des chemins d’accè
           0 Microsoft         10.0.0.2 aaaa.bbbb.cccc
 
 
-### <a name="arp-tables-for-azure-public-peering:"></a>Tables ARP pour l’homologation publique Azure :
+### <a name="arp-tables-for-azure-public-peering"></a>Tables ARP pour l’homologation publique Azure :
 L’applet de commande suivante fournit les tables ARP pour l’homologation publique Azure :
 
         # Required variables
@@ -131,7 +135,7 @@ Un exemple de sortie est affiché ci-dessous pour l’un des chemins d’accès 
 ## <a name="how-to-use-this-information"></a>Utilisation de ces informations
 La table ARP d’une homologation peut servir à valider la connectivité et la configuration de la couche 2. Cette section fournit une vue d’ensemble de l’aspect des tables ARP dans différents scénarios.
 
-### <a name="arp-table-when-a-circuit-is-in-an-operational-(expected)-state"></a>Table ARP lorsqu’un circuit est à l’état opérationnel (attendu)
+### <a name="arp-table-when-a-circuit-is-in-an-operational-expected-state"></a>Table ARP lorsqu’un circuit est à l’état opérationnel (attendu)
 * La table ARP dispose d’une entrée pour le côté local avec une adresse IP valide et une adresse MAC, ainsi que d’une entrée similaire pour le côté Microsoft.
 * Le dernier octet de l’adresse IP locale est toujours un nombre impair.
 * Le dernier octet de l’adresse IP Microsoft est toujours un nombre pair.
@@ -142,7 +146,7 @@ La table ARP d’une homologation peut servir à valider la connectivité et la 
          10 On-Prem           65.0.0.1 ffff.eeee.dddd
           0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
 
-### <a name="arp-table-when-it's-on-premises-or-when-the-connectivity-provider-side-has-problems"></a>Table ARP en cas de problèmes en local ou côté fournisseur de connectivité
+### <a name="arp-table-when-its-on-premises-or-when-the-connectivity-provider-side-has-problems"></a>Table ARP en cas de problèmes en local ou côté fournisseur de connectivité
  Une seule entrée apparaît dans la table ARP. Elle affiche le mappage entre l’adresse MAC et l’adresse IP utilisée côté Microsoft.
 
         Age InterfaceProperty IpAddress  MacAddress    
@@ -165,6 +169,9 @@ La table ARP d’une homologation peut servir à valider la connectivité et la 
 * Valider le transfert des données en examinant les octets en entrée et en sortie.
 * Ouvrir une demande de support auprès de [Microsoft Azure - Aide + support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) si vous rencontrez encore des problèmes.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
