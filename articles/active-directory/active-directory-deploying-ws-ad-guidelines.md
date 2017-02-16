@@ -501,6 +501,6 @@ Voir [AD FS 2.0 deployment topology considerations](https://technet.microsoft.co
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

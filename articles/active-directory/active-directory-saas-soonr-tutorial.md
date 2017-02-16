@@ -280,6 +280,6 @@ Quand vous cliquez sur la vignette Soonr Workplace dans le volet d’accès, vou
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

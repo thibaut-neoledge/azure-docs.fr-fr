@@ -269,6 +269,6 @@ Lorsque vous cliquez sur la vignette Blackboard Learn - Shibboleth dans le volet
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

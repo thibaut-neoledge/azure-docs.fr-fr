@@ -231,6 +231,6 @@ Pour les machines virtuelles Linux, dans la mesure où le comportement par défa
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

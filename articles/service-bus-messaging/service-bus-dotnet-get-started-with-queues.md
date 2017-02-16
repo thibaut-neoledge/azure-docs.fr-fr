@@ -178,6 +178,6 @@ Consultez les [exemples fournis dans le dépôt GitHub](https://github.com/Azure
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

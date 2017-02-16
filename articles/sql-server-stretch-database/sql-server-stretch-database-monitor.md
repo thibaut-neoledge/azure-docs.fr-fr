@@ -58,6 +58,6 @@ Vous devrez peut-être ajouter une règle dans les paramètres de pare-feu Azure
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

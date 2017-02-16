@@ -104,6 +104,6 @@ Si l’application le prend en charge, la sélection du mode d’authentificatio
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

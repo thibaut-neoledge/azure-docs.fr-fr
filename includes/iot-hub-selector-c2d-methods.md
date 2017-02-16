@@ -27,6 +27,6 @@ Ce didacticiel vous explique les procédures suivantes :
 [Envoi de messages cloud-à-appareil avec IoT Hub]: ../articles/iot-hub/iot-hub-csharp-csharp-c2d.md
 [Prise en main d’IoT Hub]: ../articles/iot-hub/iot-hub-node-node-getstarted.md
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

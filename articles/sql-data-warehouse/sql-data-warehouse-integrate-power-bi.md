@@ -66,6 +66,6 @@ Outre l’utilisation du bouton Open in Power BI, les utilisateurs peuvent se c
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -12,6 +12,6 @@ Les limites suivantes s’appliquent à la sauvegarde Azure.
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

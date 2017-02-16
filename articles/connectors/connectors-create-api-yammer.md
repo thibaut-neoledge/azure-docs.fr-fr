@@ -190,6 +190,6 @@ Si l’ID de groupe est fourni, le message est publié dans le groupe spécifié
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
